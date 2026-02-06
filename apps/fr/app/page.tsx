@@ -17,8 +17,8 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">
             Pronostics, statistiques et guide complet de la premiere Coupe du
-            Monde a 48 equipes. 104 matchs a travers les Etats-Unis, le Canada
-            et le Mexique.
+            Monde a 48 equipes. 104 matchs, 210 joueurs, 16 stades a travers
+            les Etats-Unis, le Canada et le Mexique.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
