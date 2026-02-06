@@ -1,0 +1,153 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { guides, guidesByCategory } from "@repo/data/guides";
+
+export const metadata: Metadata = {
+  title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
+  description:
+    "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026. Avis, bonus, cotes et guides strategiques pour parier sur la CDM 2026.",
+  openGraph: {
+    title: "Paris sportifs - Coupe du Monde 2026",
+    description:
+      "Meilleurs bookmakers, guides et strategies pour parier sur la CDM 2026.",
+  },
+};
+
+export default function ParisSportifsPage() {
+  const categoryLabels: Record<string, string> = {
+    cdm2026: "Coupe du Monde 2026",
+    strategie: "Strategies de paris",
+    bookmaker: "Bookmakers",
+    debutant: "Debutant",
+  };
+
+  const categories = ["cdm2026", "strategie", "bookmaker", "debutant"] as const;
+
+  return (
+    <>
+      <nav className="bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li>/</li>
+            <li className="text-gray-900 font-medium">Paris sportifs</li>
+          </ol>
+        </div>
+      </nav>
+
+      <section className="bg-primary text-white py-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <h1 className="text-4xl font-extrabold">Paris sportifs CDM 2026</h1>
+          <p className="mt-2 text-gray-300">
+            Comparatif des meilleurs bookmakers, guides de paris et strategies pour la Coupe du Monde 2026.
+          </p>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
+        {/* Bookmaker Reviews */}
+        <section className="rounded-lg bg-white p-6 shadow-sm">
+          <h2 className="mb-2 text-xl font-bold">Meilleurs sites de paris sportifs 2026</h2>
+          <p className="mb-6 text-sm text-gray-600">
+            Nos avis detailles sur les {bookmakerReviews.length} bookmakers agrees en France pour parier sur la CDM 2026.
+          </p>
+          <div className="space-y-4">
+            {bookmakerReviews.map((bk, i) => {
+              const avgRating = Object.values(bk.ratings).reduce((a, b) => a + b, 0) / 6;
+              return (
+                <Link
+                  key={bk.id}
+                  href={`/bookmaker/${bk.slug}`}
+                  className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-5 transition-all hover:shadow-md ${
+                    i === 0 ? "border-gold bg-gold/5" : "border-gray-200 hover:border-accent"
+                  }`}
+                >
+                  {i === 0 && (
+                    <span className="absolute -top-3 left-4 rounded-full bg-gold px-3 py-0.5 text-xs font-bold text-white">
+                      #1 Recommande
+                    </span>
+                  )}
+                  <div className="flex-1 text-center sm:text-left">
+                    <p className="text-xl font-bold">{bk.name}</p>
+                    <p className="text-sm text-gray-500">{bk.tagline}</p>
+                    <div className="flex items-center gap-1 mt-1">
+                      <span className="text-sm text-gold">{"★".repeat(Math.round(avgRating))}</span>
+                      <span className="text-xs text-gray-400">{avgRating.toFixed(1)}/5</span>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <p className="text-2xl font-extrabold text-field">{bk.bonus}</p>
+                    <p className="text-xs text-gray-500">{bk.bonusDetail}</p>
+                  </div>
+                  <div className="flex gap-4 text-center">
+                    <div>
+                      <p className="text-xs text-gray-500">Cotes</p>
+                      <p className="font-bold text-primary">{bk.ratings.odds}/5</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500">App</p>
+                      <p className="font-bold text-primary">{bk.ratings.app}/5</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500">Live</p>
+                      <p className="font-bold text-primary">{bk.ratings.live}/5</p>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <span className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white">
+                      Voir l&apos;avis &rarr;
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Guides by category */}
+        {categories.map((cat) => {
+          const catGuides = guidesByCategory[cat];
+          if (!catGuides || catGuides.length === 0) return null;
+          return (
+            <section key={cat} className="rounded-lg bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold">{categoryLabels[cat]}</h2>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {catGuides.map((guide) => (
+                  <Link
+                    key={guide.id}
+                    href={`/guide/${guide.slug}`}
+                    className="rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                  >
+                    <h3 className="font-semibold mb-1">{guide.title}</h3>
+                    <p className="text-sm text-gray-500 line-clamp-2">{guide.metaDescription}</p>
+                    <p className="mt-2 text-xs font-medium text-accent">Lire le guide &rarr;</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+
+        {/* Cross-links */}
+        <section className="rounded-lg bg-primary/5 p-6">
+          <h2 className="mb-4 text-lg font-bold">Voir aussi</h2>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/buteurs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+              Cotes buteurs CDM 2026
+            </Link>
+            <Link href="/pronostic/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+              Pronostic France
+            </Link>
+            <Link href="/match/calendrier" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+              Calendrier des matchs
+            </Link>
+            <Link href="/equipes" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+              Toutes les equipes
+            </Link>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+}

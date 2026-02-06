@@ -38,6 +38,16 @@ export function Header() {
               Players
             </Link>
           </li>
+          <li>
+            <Link href="/scorers" className="hover:text-gold transition-colors">
+              Scorers
+            </Link>
+          </li>
+          <li>
+            <Link href="/betting" className="hover:text-gold transition-colors">
+              Betting
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

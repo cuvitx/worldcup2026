@@ -5,6 +5,9 @@ import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { players } from "@repo/data/players";
 import { matches } from "@repo/data/matches";
+import { scorerPlayers } from "@repo/data/scorers";
+import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { guides } from "@repo/data/guides";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://mundial2026.es";
 
@@ -69,6 +72,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/ciudades`,
       lastModified: now,
       changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/goleadores`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/apuestas`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/guias`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
       priority: 0.8,
     },
   ];
@@ -154,6 +175,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Scorer pages
+  const scorerPages: MetadataRoute.Sitemap = scorerPlayers.map((player) => ({
+    url: `${BASE_URL}/goleador/${player.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  // Bookmaker review pages
+  const bookmakerPages: MetadataRoute.Sitemap = bookmakerReviews.map((bk) => ({
+    url: `${BASE_URL}/casa-apuestas/${bk.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // Guide pages
+  const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${BASE_URL}/guia/${guide.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...hubPages,
@@ -166,5 +211,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stadiumPages,
     ...cityPages,
     ...playerPages,
+    ...scorerPages,
+    ...bookmakerPages,
+    ...guidePages,
   ];
 }

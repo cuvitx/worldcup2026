@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-gray-300">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           {/* Selecciones */}
           <div>
             <h3 className="mb-3 text-sm font-semibold text-white uppercase">Selecciones</h3>
@@ -70,6 +70,23 @@ export function Footer() {
               <li className="pt-1">
                 <Link href="/estadios" className="text-gold hover:text-white font-medium">
                   Todos los estadios &rarr;
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Apuestas y Guias */}
+          <div>
+            <h3 className="mb-3 text-sm font-semibold text-white uppercase">Apuestas y Guias</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/apuestas" className="hover:text-white">Apuestas Mundial 2026</Link></li>
+              <li><Link href="/goleadores" className="hover:text-white">Cuotas goleadores</Link></li>
+              <li><Link href="/casa-apuestas/betclic" className="hover:text-white">Opinion Betclic</Link></li>
+              <li><Link href="/casa-apuestas/winamax" className="hover:text-white">Opinion Winamax</Link></li>
+              <li><Link href="/guia/comment-parier-cdm-2026" className="hover:text-white">Como apostar en el Mundial</Link></li>
+              <li className="pt-1">
+                <Link href="/guias" className="text-gold hover:text-white font-medium">
+                  Todas las guias &rarr;
                 </Link>
               </li>
             </ul>

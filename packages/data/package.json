@@ -14,7 +14,10 @@
     "./players": "./src/players.ts",
     "./h2h": "./src/h2h.ts",
     "./predictions": "./src/predictions.ts",
-    "./affiliates": "./src/affiliates.ts"
+    "./affiliates": "./src/affiliates.ts",
+    "./scorers": "./src/scorers.ts",
+    "./bookmaker-reviews": "./src/bookmaker-reviews.ts",
+    "./guides": "./src/guides.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

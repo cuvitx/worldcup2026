@@ -5,6 +5,9 @@ import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { players } from "@repo/data/players";
 import { matches } from "@repo/data/matches";
+import { scorerPlayers } from "@repo/data/scorers";
+import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { guides } from "@repo/data/guides";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://mondial2026.fr";
 
@@ -66,6 +69,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/buteurs`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/paris-sportifs`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/guides`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
   ];
 
@@ -150,6 +171,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Scorer (buteur) pages
+  const scorerPages: MetadataRoute.Sitemap = scorerPlayers.map((player) => ({
+    url: `${BASE_URL}/buteur/${player.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  // Bookmaker review pages
+  const bookmakerPages: MetadataRoute.Sitemap = bookmakerReviews.map((bk) => ({
+    url: `${BASE_URL}/bookmaker/${bk.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  // Guide pages
+  const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${BASE_URL}/guide/${guide.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...teamPages,
@@ -161,5 +206,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stadiumPages,
     ...cityPages,
     ...playerPages,
+    ...scorerPages,
+    ...bookmakerPages,
+    ...guidePages,
   ];
 }

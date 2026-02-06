@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-gray-300">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           {/* Teams */}
           <div>
             <h3 className="mb-3 text-sm font-semibold text-white uppercase">Teams</h3>
@@ -70,6 +70,23 @@ export function Footer() {
               <li className="pt-1">
                 <Link href="/stadiums" className="text-gold hover:text-white font-medium">
                   All stadiums &rarr;
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Betting & Guides */}
+          <div>
+            <h3 className="mb-3 text-sm font-semibold text-white uppercase">Betting & Guides</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/betting" className="hover:text-white">WC 2026 Betting</Link></li>
+              <li><Link href="/scorers" className="hover:text-white">Scorer Odds</Link></li>
+              <li><Link href="/bookmaker/betclic" className="hover:text-white">Betclic Review</Link></li>
+              <li><Link href="/bookmaker/winamax" className="hover:text-white">Winamax Review</Link></li>
+              <li><Link href="/guide/comment-parier-cdm-2026" className="hover:text-white">How to Bet on WC</Link></li>
+              <li className="pt-1">
+                <Link href="/guides" className="text-gold hover:text-white font-medium">
+                  All guides &rarr;
                 </Link>
               </li>
             </ul>
