@@ -1,0 +1,23 @@
+{
+  "name": "@repo/data",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./types": "./src/types.ts",
+    "./teams": "./src/teams.ts",
+    "./groups": "./src/groups.ts",
+    "./matches": "./src/matches.ts",
+    "./stadiums": "./src/stadiums.ts",
+    "./cities": "./src/cities.ts"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --max-warnings 0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "5.9.2"
+  }
+}
