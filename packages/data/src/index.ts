@@ -19,3 +19,5 @@ export { matches, matchesById, matchesBySlug, matchesByGroup, matchesByStadium }
 export { h2hRecords, h2hByPair } from "./h2h";
 export type { TeamPrediction, MatchPrediction } from "./predictions";
 export { teamPredictions, predictionsByTeamId, matchPredictions, matchPredictionByPair } from "./predictions";
+export type { Bookmaker } from "./affiliates";
+export { bookmakers, featuredBookmaker, highlightedBookmakers, probToOdds, estimatedMatchOdds, estimatedOutrightOdds } from "./affiliates";

@@ -13,7 +13,8 @@
     "./cities": "./src/cities.ts",
     "./players": "./src/players.ts",
     "./h2h": "./src/h2h.ts",
-    "./predictions": "./src/predictions.ts"
+    "./predictions": "./src/predictions.ts",
+    "./affiliates": "./src/affiliates.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

@@ -80,9 +80,14 @@ export default function HomePage() {
       {/* Favorites */}
       <section className="border-t border-gray-200 bg-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
-            Equipes favorites
-          </h2>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Equipes favorites
+            </h2>
+            <Link href="/equipes" className="text-sm font-medium text-accent hover:underline">
+              Voir les 48 equipes &rarr;
+            </Link>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .filter((t) => t.fifaRanking <= 10)
@@ -97,9 +102,19 @@ export default function HomePage() {
       {/* Stades & Villes */}
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
-            Stades et villes hotes
-          </h2>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Stades et villes hotes
+            </h2>
+            <div className="flex gap-4">
+              <Link href="/stades" className="text-sm font-medium text-accent hover:underline">
+                Tous les stades &rarr;
+              </Link>
+              <Link href="/villes" className="text-sm font-medium text-accent hover:underline">
+                Toutes les villes &rarr;
+              </Link>
+            </div>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {stadiums.slice(0, 8).map((stadium) => {
               const city = cities.find((c) => c.id === stadium.cityId);

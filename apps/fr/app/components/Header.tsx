@@ -9,13 +9,13 @@ export function Header() {
         </Link>
         <ul className="hidden gap-6 text-sm font-medium md:flex">
           <li>
-            <Link href="/groupe/a" className="hover:text-gold transition-colors">
-              Groupes
+            <Link href="/equipes" className="hover:text-gold transition-colors">
+              Equipes
             </Link>
           </li>
           <li>
-            <Link href="/equipe/france" className="hover:text-gold transition-colors">
-              Equipes
+            <Link href="/groupe/a" className="hover:text-gold transition-colors">
+              Groupes
             </Link>
           </li>
           <li>
@@ -24,8 +24,18 @@ export function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/stade/metlife-stadium" className="hover:text-gold transition-colors">
+            <Link href="/pronostic/france" className="hover:text-gold transition-colors">
+              Pronostics
+            </Link>
+          </li>
+          <li>
+            <Link href="/stades" className="hover:text-gold transition-colors">
               Stades
+            </Link>
+          </li>
+          <li>
+            <Link href="/joueurs" className="hover:text-gold transition-colors">
+              Joueurs
             </Link>
           </li>
         </ul>

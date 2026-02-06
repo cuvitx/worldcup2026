@@ -26,6 +26,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/equipes`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/stades`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/joueurs`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/villes`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/a-propos`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -53,9 +77,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  // Team pronostic pages (high priority for betting conversion)
+  const pronosticPages: MetadataRoute.Sitemap = teams.map((team) => ({
+    url: `${BASE_URL}/pronostic/${team.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
   // Group pages
   const groupPages: MetadataRoute.Sitemap = groups.map((group) => ({
     url: `${BASE_URL}/groupe/${group.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
+  // Match pages
+  const matchPages: MetadataRoute.Sitemap = matches.map((match) => ({
+    url: `${BASE_URL}/match/${match.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  // Match pronostic pages (high priority for betting conversion)
+  const pronosticMatchPages: MetadataRoute.Sitemap = matches.map((match) => ({
+    url: `${BASE_URL}/pronostic-match/${match.slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.9,
@@ -102,19 +150,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Match pages
-  const matchPages: MetadataRoute.Sitemap = matches.map((match) => ({
-    url: `${BASE_URL}/match/${match.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
   return [
     ...staticPages,
     ...teamPages,
+    ...pronosticPages,
     ...groupPages,
     ...matchPages,
+    ...pronosticMatchPages,
     ...h2hPages,
     ...stadiumPages,
     ...cityPages,
