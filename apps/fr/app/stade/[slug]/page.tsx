@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
+import { matchesByStadium } from "@repo/data/matches";
+import { teamsById } from "@repo/data/teams";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -29,6 +31,17 @@ export default async function StadiumPage({ params }: PageProps) {
   if (!stadium) notFound();
 
   const city = citiesById[stadium.cityId];
+  const stadiumMatches = matchesByStadium[stadium.id] ?? [];
+
+  const stageLabels: Record<string, string> = {
+    group: "Phase de groupes",
+    "round-of-32": "32e de finale",
+    "round-of-16": "8e de finale",
+    "quarter-final": "Quart de finale",
+    "semi-final": "Demi-finale",
+    "third-place": "3e place",
+    final: "Finale",
+  };
 
   return (
     <>
@@ -89,6 +102,38 @@ export default async function StadiumPage({ params }: PageProps) {
                 </div>
               </div>
             </section>
+
+            {/* Matches at this stadium */}
+            {stadiumMatches.length > 0 && (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">
+                  Matchs au {stadium.name} ({stadiumMatches.length})
+                </h2>
+                <div className="space-y-2">
+                  {stadiumMatches.map((match) => {
+                    const home = teamsById[match.homeTeamId];
+                    const away = teamsById[match.awayTeamId];
+                    return (
+                      <Link
+                        key={match.id}
+                        href={`/match/${match.slug}`}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      >
+                        <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
+                        <span className="text-lg">{home?.flag ?? "🏳️"}</span>
+                        <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
+                        <span className="text-xs text-gray-400">vs</span>
+                        <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
+                        <span className="text-lg">{away?.flag ?? "🏳️"}</span>
+                        <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">
+                          {stageLabels[match.stage] ?? match.stage}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
           </div>
 
           <div className="space-y-6">

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { groupsByLetter } from "@repo/data/groups";
+import { playersByTeamId } from "@repo/data/players";
+import { matchesByGroup } from "@repo/data/matches";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -38,6 +40,18 @@ export default async function TeamPage({ params }: PageProps) {
         .map((id) => teams.find((t) => t.id === id))
         .filter((t): t is NonNullable<typeof t> => t != null && t.id !== team.id)
     : [];
+
+  const teamPlayers = playersByTeamId[team.id] ?? [];
+  const teamMatches = (matchesByGroup[team.group] ?? []).filter(
+    (m) => m.homeTeamId === team.id || m.awayTeamId === team.id
+  );
+
+  const positionLabels: Record<string, string> = {
+    GK: "Gardien",
+    DF: "Defenseur",
+    MF: "Milieu",
+    FW: "Attaquant",
+  };
 
   return (
     <>
@@ -98,6 +112,73 @@ export default async function TeamPage({ params }: PageProps) {
                 </div>
               </div>
             </section>
+
+            {/* Key Players */}
+            {teamPlayers.length > 0 && (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">Joueurs cles</h2>
+                <div className="space-y-3">
+                  {teamPlayers.map((player) => (
+                    <Link
+                      key={player.id}
+                      href={`/joueur/${player.slug}`}
+                      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                    >
+                      <div>
+                        <p className="font-semibold">{player.name}</p>
+                        <p className="text-sm text-gray-500">
+                          {positionLabels[player.position]} &middot; {player.club}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm font-medium text-primary">
+                          {player.caps} sel. / {player.goals} buts
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Group Matches */}
+            {teamMatches.length > 0 && (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">Matchs de groupe</h2>
+                <div className="space-y-3">
+                  {teamMatches.map((match) => {
+                    const opponent = teams.find(
+                      (t) =>
+                        t.id ===
+                        (match.homeTeamId === team.id
+                          ? match.awayTeamId
+                          : match.homeTeamId)
+                    );
+                    const isHome = match.homeTeamId === team.id;
+                    return (
+                      <Link
+                        key={match.id}
+                        href={`/match/${match.slug}`}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      >
+                        <span className="text-sm text-gray-500 w-20 shrink-0">
+                          {match.date.slice(5)}
+                        </span>
+                        <span className="text-lg">{opponent?.flag ?? "🏳️"}</span>
+                        <div className="flex-1">
+                          <p className="font-semibold">
+                            {isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            J{match.matchday} &middot; {match.time} UTC
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
 
             {/* Group Stage */}
             <section className="rounded-lg bg-white p-6 shadow-sm">

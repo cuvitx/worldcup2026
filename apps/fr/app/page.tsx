@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
+import { stadiums } from "@repo/data/stadiums";
+import { cities } from "@repo/data/cities";
 import { GroupCard } from "./components/GroupCard";
 import { TeamCard } from "./components/TeamCard";
 
@@ -92,6 +94,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Stades & Villes */}
+      <section className="py-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="mb-8 text-2xl font-bold text-gray-900">
+            Stades et villes hotes
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {stadiums.slice(0, 8).map((stadium) => {
+              const city = cities.find((c) => c.id === stadium.cityId);
+              return (
+                <Link
+                  key={stadium.id}
+                  href={`/stade/${stadium.slug}`}
+                  className="rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                >
+                  <p className="font-semibold">{stadium.name}</p>
+                  <p className="text-sm text-gray-500">
+                    {city?.name ?? stadium.city} &middot;{" "}
+                    {stadium.capacity.toLocaleString("fr-FR")} places
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-field py-12 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -105,13 +134,19 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
+              href="/match/calendrier"
+              className="rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent/90"
+            >
+              Calendrier des matchs
+            </Link>
+            <Link
               href="/stade/metlife-stadium"
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Guide des stades
             </Link>
             <Link
-              href="/ville/miami"
+              href="/ville/new-york-new-jersey"
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Villes hotes

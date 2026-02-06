@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
+import { matchesByGroup } from "@repo/data/matches";
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
@@ -36,6 +37,7 @@ export default async function GroupPage({ params }: PageProps) {
   if (!group) notFound();
 
   const groupTeams = group.teams.map((id) => teamsById[id]).filter((t): t is NonNullable<typeof t> => t != null);
+  const groupMatches = matchesByGroup[group.letter] ?? [];
 
   return (
     <>
@@ -129,6 +131,34 @@ export default async function GroupPage({ params }: PageProps) {
                 </p>
               </div>
             </section>
+
+            {/* Group Matches */}
+            {groupMatches.length > 0 && (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">Calendrier du Groupe {group.letter}</h2>
+                <div className="space-y-2">
+                  {groupMatches.map((match) => {
+                    const home = teamsById[match.homeTeamId];
+                    const away = teamsById[match.awayTeamId];
+                    return (
+                      <Link
+                        key={match.id}
+                        href={`/match/${match.slug}`}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      >
+                        <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
+                        <span className="text-lg">{home?.flag ?? "🏳️"}</span>
+                        <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
+                        <span className="text-xs text-gray-400">vs</span>
+                        <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
+                        <span className="text-lg">{away?.flag ?? "🏳️"}</span>
+                        <span className="text-xs text-gray-500 w-12 text-right shrink-0">{match.time}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
 
             {/* Head to Head Links */}
             <section className="rounded-lg bg-white p-6 shadow-sm">

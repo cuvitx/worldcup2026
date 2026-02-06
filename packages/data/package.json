@@ -10,7 +10,8 @@
     "./groups": "./src/groups.ts",
     "./matches": "./src/matches.ts",
     "./stadiums": "./src/stadiums.ts",
-    "./cities": "./src/cities.ts"
+    "./cities": "./src/cities.ts",
+    "./players": "./src/players.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

@@ -3,6 +3,8 @@ import { teams } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
+import { players } from "@repo/data/players";
+import { matches } from "@repo/data/matches";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://mondial2026.fr";
 
@@ -16,6 +18,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "daily",
       priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/match/calendrier`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/a-propos`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/mentions-legales`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/jeu-responsable`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.3,
     },
   ];
 
@@ -68,12 +94,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Player pages
+  const playerPages: MetadataRoute.Sitemap = players.map((player) => ({
+    url: `${BASE_URL}/joueur/${player.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // Match pages
+  const matchPages: MetadataRoute.Sitemap = matches.map((match) => ({
+    url: `${BASE_URL}/match/${match.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...teamPages,
     ...groupPages,
+    ...matchPages,
     ...h2hPages,
     ...stadiumPages,
     ...cityPages,
+    ...playerPages,
   ];
 }

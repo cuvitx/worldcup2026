@@ -14,3 +14,5 @@ export { teams, teamsById, teamsBySlug } from "./teams";
 export { groups, groupsByLetter, groupsBySlug } from "./groups";
 export { stadiums, stadiumsById, stadiumsBySlug } from "./stadiums";
 export { cities, citiesById, citiesBySlug } from "./cities";
+export { players, playersById, playersBySlug, playersByTeamId } from "./players";
+export { matches, matchesById, matchesBySlug, matchesByGroup, matchesByStadium } from "./matches";
