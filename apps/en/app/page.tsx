@@ -80,9 +80,14 @@ export default function HomePage() {
       {/* Favorites */}
       <section className="border-t border-gray-200 bg-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
-            Favorite teams
-          </h2>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Favorite teams
+            </h2>
+            <Link href="/teams" className="text-sm font-medium text-accent hover:underline">
+              View all 48 teams &rarr;
+            </Link>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .filter((t) => t.fifaRanking <= 10)
@@ -97,9 +102,19 @@ export default function HomePage() {
       {/* Stadiums & Cities */}
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
-            Stadiums and host cities
-          </h2>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Stadiums and host cities
+            </h2>
+            <div className="flex gap-4">
+              <Link href="/stadiums" className="text-sm font-medium text-accent hover:underline">
+                All stadiums &rarr;
+              </Link>
+              <Link href="/cities" className="text-sm font-medium text-accent hover:underline">
+                All cities &rarr;
+              </Link>
+            </div>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {stadiums.slice(0, 8).map((stadium) => {
               const city = cities.find((c) => c.id === stadium.cityId);
@@ -139,13 +154,13 @@ export default function HomePage() {
               Match schedule
             </Link>
             <Link
-              href="/stadium/metlife-stadium"
+              href="/stadiums"
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Stadium guide
             </Link>
             <Link
-              href="/city/new-york-new-jersey"
+              href="/cities"
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Host cities

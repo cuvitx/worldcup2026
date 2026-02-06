@@ -45,9 +45,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Hub pages
+  const hubPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/equipos`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/estadios`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/jugadores`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/ciudades`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+  ];
+
   // Team pages
   const teamPages: MetadataRoute.Sitemap = teams.map((team) => ({
     url: `${BASE_URL}/equipo/${team.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
+  // Team pronostico pages
+  const teamPronosticoPages: MetadataRoute.Sitemap = teams.map((team) => ({
+    url: `${BASE_URL}/pronostico/${team.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
+  // Match pronostico pages
+  const matchPronosticoPages: MetadataRoute.Sitemap = matches.map((match) => ({
+    url: `${BASE_URL}/pronostico-partido/${match.slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.9,
@@ -112,7 +156,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...hubPages,
     ...teamPages,
+    ...teamPronosticoPages,
+    ...matchPronosticoPages,
     ...groupPages,
     ...matchPages,
     ...h2hPages,

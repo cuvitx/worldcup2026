@@ -5,6 +5,8 @@ import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
+import { matchPredictionByPair } from "@repo/data/predictions";
+import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -59,6 +61,23 @@ export default async function MatchPage({ params }: PageProps) {
   const stadium = stadiumsById[match.stadiumId];
   const city = stadium ? citiesById[stadium.cityId] : null;
   const stage = stageLabels[match.stage] ?? match.stage;
+
+  // Predictions
+  const prediction =
+    home && away
+      ? matchPredictionByPair[`${home.id}:${away.id}`]
+      : undefined;
+
+  const odds = prediction
+    ? estimatedMatchOdds(
+        prediction.team1WinProb,
+        prediction.drawProb,
+        prediction.team2WinProb
+      )
+    : null;
+
+  const homeName = home?.name ?? "Por determinar";
+  const awayName = away?.name ?? "Por determinar";
 
   const dateFormatted = new Date(match.date).toLocaleDateString("es-ES", {
     weekday: "long",
@@ -213,14 +232,88 @@ export default async function MatchPage({ params }: PageProps) {
               </section>
             )}
 
-            <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Pronostico</h2>
-              <p className="text-gray-600">
-                Nuestro algoritmo de prediccion analizara las probabilidades de cada
-                equipo. Los pronosticos detallados estaran disponibles a medida que
-                se acerque el partido.
-              </p>
-            </section>
+            {/* Prediction Section */}
+            {prediction ? (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">Pronostico 1X2</h2>
+                <div className="grid grid-cols-3 gap-4 mb-4">
+                  {[
+                    { key: "1", label: `Victoria ${homeName}`, prob: prediction.team1WinProb },
+                    { key: "X", label: "Empate", prob: prediction.drawProb },
+                    { key: "2", label: `Victoria ${awayName}`, prob: prediction.team2WinProb },
+                  ].map((outcome) => {
+                    const pct = Math.round(outcome.prob * 100);
+                    const isMax =
+                      outcome.prob ===
+                      Math.max(prediction.team1WinProb, prediction.drawProb, prediction.team2WinProb);
+                    return (
+                      <div
+                        key={outcome.key}
+                        className={`rounded-lg p-4 text-center ${
+                          isMax
+                            ? "bg-accent/10 border-2 border-accent"
+                            : "bg-gray-50 border border-gray-200"
+                        }`}
+                      >
+                        <p className="text-sm font-medium text-gray-500 mb-1">
+                          {outcome.key}
+                        </p>
+                        <p
+                          className={`text-2xl font-extrabold ${
+                            isMax ? "text-accent" : "text-gray-700"
+                          }`}
+                        >
+                          {pct}%
+                        </p>
+                        <p className="mt-1 text-xs text-gray-500">
+                          {outcome.label}
+                        </p>
+                        {odds && (
+                          <p className="mt-1 text-xs font-semibold text-primary">
+                            {outcome.key === "1"
+                              ? odds.home
+                              : outcome.key === "X"
+                                ? odds.draw
+                                : odds.away}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="rounded-lg bg-primary/5 p-4 text-center mb-4">
+                  <p className="text-sm text-gray-500 mb-1">Resultado predicho</p>
+                  <p className="text-3xl font-extrabold text-primary">
+                    {prediction.predictedScore}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between rounded-lg border border-accent/30 bg-accent/5 p-4">
+                  <div>
+                    <p className="font-semibold text-accent">{featuredBookmaker.name}</p>
+                    <p className="text-xs text-gray-500">{featuredBookmaker.bonus}</p>
+                  </div>
+                  <Link
+                    href={`/pronostico-partido/${match.slug}`}
+                    className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                  >
+                    Ver pronostico completo &rarr;
+                  </Link>
+                </div>
+                <p className="mt-3 text-xs text-gray-400 text-center">
+                  Las cuotas son estimadas y pueden variar. Apuesta con responsabilidad. +18.
+                  El juego puede ser perjudicial. Llama al 900 200 225 (llamada gratuita).
+                </p>
+              </section>
+            ) : (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">Pronostico</h2>
+                <p className="text-gray-600">
+                  Nuestro algoritmo de prediccion analizara las probabilidades de cada
+                  equipo. Los pronosticos detallados estaran disponibles a medida que
+                  se acerque el partido.
+                </p>
+              </section>
+            )}
           </div>
 
           <div className="space-y-6">

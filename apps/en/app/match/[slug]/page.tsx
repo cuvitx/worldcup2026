@@ -5,6 +5,8 @@ import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
+import { matchPredictionByPair } from "@repo/data/predictions";
+import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -215,10 +217,55 @@ export default async function MatchPage({ params }: PageProps) {
 
             <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Prediction</h2>
-              <p className="text-gray-600">
-                Our prediction algorithm will analyze each team&apos;s chances.
-                Detailed predictions will be available closer to match day.
-              </p>
+              {home && away && (() => {
+                const pred = matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`];
+                if (!pred) return (
+                  <p className="text-gray-600">
+                    Detailed predictions will be available soon.
+                  </p>
+                );
+                const odds = estimatedMatchOdds(pred.team1WinProb, pred.drawProb, pred.team2WinProb);
+                return (
+                  <>
+                    <div className="grid grid-cols-3 gap-3 mb-4">
+                      <div className="rounded-lg bg-field/10 p-3 text-center">
+                        <p className="text-xl font-bold text-field">{Math.round(pred.team1WinProb * 100)}%</p>
+                        <p className="text-xs text-gray-500">{home.name}</p>
+                        <p className="text-sm font-medium text-primary mt-1">{odds.home}</p>
+                      </div>
+                      <div className="rounded-lg bg-gray-50 p-3 text-center">
+                        <p className="text-xl font-bold text-gray-600">{Math.round(pred.drawProb * 100)}%</p>
+                        <p className="text-xs text-gray-500">Draw</p>
+                        <p className="text-sm font-medium text-primary mt-1">{odds.draw}</p>
+                      </div>
+                      <div className="rounded-lg bg-field/10 p-3 text-center">
+                        <p className="text-xl font-bold text-field">{Math.round(pred.team2WinProb * 100)}%</p>
+                        <p className="text-xs text-gray-500">{away.name}</p>
+                        <p className="text-sm font-medium text-primary mt-1">{odds.away}</p>
+                      </div>
+                    </div>
+                    <div className="rounded-lg bg-primary/5 p-3 text-center mb-4">
+                      <p className="text-sm text-gray-500">Predicted score</p>
+                      <p className="text-2xl font-extrabold text-primary">{pred.predictedScore}</p>
+                    </div>
+                    <div className="rounded-lg border border-accent/30 bg-accent/5 p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="font-bold text-accent">{featuredBookmaker.name}</p>
+                          <p className="text-sm text-gray-600">{featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}</p>
+                        </div>
+                        <Link
+                          href={`/prediction-match/${match.slug}`}
+                          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90"
+                        >
+                          View prediction &rarr;
+                        </Link>
+                      </div>
+                    </div>
+                    <p className="mt-2 text-xs text-gray-400">Estimated odds, subject to change. 18+</p>
+                  </>
+                );
+              })()}
             </section>
           </div>
 

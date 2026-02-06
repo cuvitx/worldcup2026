@@ -80,9 +80,17 @@ export default function HomePage() {
       {/* Favorites */}
       <section className="border-t border-gray-200 bg-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
-            Equipos favoritos
-          </h2>
+          <div className="mb-8 flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Equipos favoritos
+            </h2>
+            <Link
+              href="/equipos"
+              className="text-sm font-medium text-accent hover:underline"
+            >
+              Ver las 48 selecciones &rarr;
+            </Link>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .filter((t) => t.fifaRanking <= 10)
@@ -97,9 +105,25 @@ export default function HomePage() {
       {/* Estadios y ciudades */}
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
-            Estadios y ciudades sede
-          </h2>
+          <div className="mb-8 flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Estadios y ciudades sede
+            </h2>
+            <div className="flex gap-4">
+              <Link
+                href="/estadios"
+                className="text-sm font-medium text-accent hover:underline"
+              >
+                Todos los estadios &rarr;
+              </Link>
+              <Link
+                href="/ciudades"
+                className="text-sm font-medium text-accent hover:underline"
+              >
+                Todas las ciudades &rarr;
+              </Link>
+            </div>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {stadiums.slice(0, 8).map((stadium) => {
               const city = cities.find((c) => c.id === stadium.cityId);
@@ -140,13 +164,13 @@ export default function HomePage() {
               Calendario de partidos
             </Link>
             <Link
-              href="/estadio/metlife-stadium"
+              href="/estadios"
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Guia de estadios
             </Link>
             <Link
-              href="/ciudad/new-york-new-jersey"
+              href="/ciudades"
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Ciudades sede

@@ -63,6 +63,8 @@ export default async function TeamPage({ params }: PageProps) {
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Inicio</Link></li>
             <li>/</li>
+            <li><Link href="/equipos" className="hover:text-primary">Selecciones</Link></li>
+            <li>/</li>
             <li><Link href={`/grupo/${team.group.toLowerCase()}`} className="hover:text-primary">Grupo {team.group}</Link></li>
             <li>/</li>
             <li className="text-gray-900 font-medium">{team.name}</li>
@@ -85,6 +87,12 @@ export default async function TeamPage({ params }: PageProps) {
                   Pais anfitrion
                 </span>
               )}
+              <Link
+                href={`/pronostico/${team.slug}`}
+                className="mt-3 inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
+              >
+                Ver pronostico &rarr;
+              </Link>
             </div>
           </div>
         </div>
