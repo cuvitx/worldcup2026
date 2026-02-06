@@ -11,7 +11,9 @@
     "./matches": "./src/matches.ts",
     "./stadiums": "./src/stadiums.ts",
     "./cities": "./src/cities.ts",
-    "./players": "./src/players.ts"
+    "./players": "./src/players.ts",
+    "./h2h": "./src/h2h.ts",
+    "./predictions": "./src/predictions.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

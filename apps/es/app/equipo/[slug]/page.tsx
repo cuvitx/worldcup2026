@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
 
   return {
-    title: `${team.name} - Coupe du Monde 2026 | Effectif, Stats & Pronostics`,
-    description: `Tout sur ${team.name} a la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
+    title: `${team.name} - Copa del Mundo 2026 | Plantilla, Estadisticas & Pronosticos`,
+    description: `Todo sobre ${team.name} en la Copa del Mundo 2026: plantilla, estadisticas, historial, grupo ${team.group}, cuotas y pronosticos. ${team.description}`,
     openGraph: {
-      title: `${team.flag} ${team.name} - CDM 2026`,
-      description: `Fiche complete de ${team.name} pour la Coupe du Monde 2026. Groupe ${team.group}, classement FIFA #${team.fifaRanking}.`,
+      title: `${team.flag} ${team.name} - Mundial 2026`,
+      description: `Ficha completa de ${team.name} para la Copa del Mundo 2026. Grupo ${team.group}, ranking FIFA #${team.fifaRanking}.`,
     },
   };
 }
@@ -49,10 +49,10 @@ export default async function TeamPage({ params }: PageProps) {
   );
 
   const positionLabels: Record<string, string> = {
-    GK: "Gardien",
-    DF: "Defenseur",
-    MF: "Milieu",
-    FW: "Attaquant",
+    GK: "Portero",
+    DF: "Defensa",
+    MF: "Centrocampista",
+    FW: "Delantero",
   };
 
   return (
@@ -61,9 +61,9 @@ export default async function TeamPage({ params }: PageProps) {
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="hover:text-primary">Inicio</Link></li>
             <li>/</li>
-            <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">Groupe {team.group}</Link></li>
+            <li><Link href={`/grupo/${team.group.toLowerCase()}`} className="hover:text-primary">Grupo {team.group}</Link></li>
             <li>/</li>
             <li className="text-gray-900 font-medium">{team.name}</li>
           </ol>
@@ -78,11 +78,11 @@ export default async function TeamPage({ params }: PageProps) {
             <div>
               <h1 className="text-4xl font-extrabold">{team.name}</h1>
               <p className="mt-2 text-gray-300">
-                {team.confederation} &middot; Classement FIFA #{team.fifaRanking} &middot; Groupe {team.group}
+                {team.confederation} &middot; Ranking FIFA #{team.fifaRanking} &middot; Grupo {team.group}
               </p>
               {team.isHost && (
                 <span className="mt-2 inline-block rounded-full bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
-                  Pays hote
+                  Pais anfitrion
                 </span>
               )}
             </div>
@@ -96,21 +96,21 @@ export default async function TeamPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Presentation</h2>
+              <h2 className="mb-4 text-xl font-bold">Presentacion</h2>
               <p className="text-gray-700 leading-relaxed">{team.description}</p>
             </section>
 
             {/* World Cup History */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Historique en Coupe du Monde</h2>
+              <h2 className="mb-4 text-xl font-bold">Historial en Copa del Mundo</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">{team.wcAppearances}</p>
-                  <p className="text-sm text-gray-500">Participations</p>
+                  <p className="text-sm text-gray-500">Participaciones</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{team.bestResult}</p>
-                  <p className="text-sm text-gray-500">Meilleur resultat</p>
+                  <p className="text-sm text-gray-500">Mejor resultado</p>
                 </div>
               </div>
             </section>
@@ -118,25 +118,25 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Predictions */}
             {prediction && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Pronostics CDM 2026</h2>
+                <h2 className="mb-4 text-xl font-bold">Pronosticos Mundial 2026</h2>
                 <div className="mb-4 flex items-center gap-3">
                   <div className="rounded-lg bg-primary/5 px-4 py-2">
                     <span className="text-sm text-gray-500">Rating ELO</span>
                     <p className="text-2xl font-extrabold text-primary">{prediction.eloRating}</p>
                   </div>
                   <div className="rounded-lg bg-gold/10 px-4 py-2">
-                    <span className="text-sm text-gray-500">Chances de victoire</span>
+                    <span className="text-sm text-gray-500">Probabilidad de victoria</span>
                     <p className="text-2xl font-extrabold text-gold">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
                   {[
-                    { label: "Phase de groupes", value: prediction.groupStageProb },
-                    { label: "32e de finale", value: prediction.roundOf32Prob },
-                    { label: "8e de finale", value: prediction.roundOf16Prob },
-                    { label: "Quart de finale", value: prediction.quarterFinalProb },
-                    { label: "Demi-finale", value: prediction.semiFinalProb },
-                    { label: "Finale", value: prediction.finalProb },
+                    { label: "Fase de grupos", value: prediction.groupStageProb },
+                    { label: "32avos de final", value: prediction.roundOf32Prob },
+                    { label: "Octavos de final", value: prediction.roundOf16Prob },
+                    { label: "Cuartos de final", value: prediction.quarterFinalProb },
+                    { label: "Semifinal", value: prediction.semiFinalProb },
+                    { label: "Final", value: prediction.finalProb },
                   ].map((stage) => (
                     <div key={stage.label} className="rounded bg-gray-50 p-2 text-center">
                       <p className="text-lg font-bold text-primary">{Math.round(stage.value * 100)}%</p>
@@ -150,12 +150,12 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Key Players */}
             {teamPlayers.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Joueurs cles</h2>
+                <h2 className="mb-4 text-xl font-bold">Jugadores clave</h2>
                 <div className="space-y-3">
                   {teamPlayers.map((player) => (
                     <Link
                       key={player.id}
-                      href={`/joueur/${player.slug}`}
+                      href={`/jugador/${player.slug}`}
                       className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                     >
                       <div>
@@ -166,7 +166,7 @@ export default async function TeamPage({ params }: PageProps) {
                       </div>
                       <div className="text-right">
                         <p className="text-sm font-medium text-primary">
-                          {player.caps} sel. / {player.goals} buts
+                          {player.caps} conv. / {player.goals} goles
                         </p>
                       </div>
                     </Link>
@@ -178,7 +178,7 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Group Matches */}
             {teamMatches.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Matchs de groupe</h2>
+                <h2 className="mb-4 text-xl font-bold">Partidos de grupo</h2>
                 <div className="space-y-3">
                   {teamMatches.map((match) => {
                     const opponent = teams.find(
@@ -201,7 +201,7 @@ export default async function TeamPage({ params }: PageProps) {
                         <span className="text-lg">{opponent?.flag ?? "🏳️"}</span>
                         <div className="flex-1">
                           <p className="font-semibold">
-                            {isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}
+                            {isHome ? "vs" : "@"} {opponent?.name ?? "Por determinar"}
                           </p>
                           <p className="text-xs text-gray-500">
                             J{match.matchday} &middot; {match.time} UTC
@@ -217,18 +217,18 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Group Stage */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
-                <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
-                  Groupe {team.group}
+                <Link href={`/grupo/${team.group.toLowerCase()}`} className="hover:text-accent">
+                  Grupo {team.group}
                 </Link>
               </h2>
               <p className="mb-4 text-gray-600">
-                Adversaires de {team.name} en phase de groupes :
+                Rivales de {team.name} en la fase de grupos:
               </p>
               <div className="space-y-3">
                 {groupTeams.map((opponent) => (
                   <Link
                     key={opponent.id}
-                    href={`/equipe/${opponent.slug}`}
+                    href={`/equipo/${opponent.slug}`}
                     className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:bg-gray-50"
                   >
                     <span className="text-2xl">{opponent.flag}</span>
@@ -239,7 +239,7 @@ export default async function TeamPage({ params }: PageProps) {
                       </p>
                     </div>
                     <span className="ml-auto text-sm text-accent font-medium">
-                      Voir H2H &rarr;
+                      Ver H2H &rarr;
                     </span>
                   </Link>
                 ))}
@@ -251,30 +251,30 @@ export default async function TeamPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Quick Stats */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Fiche technique</h3>
+              <h3 className="mb-4 text-lg font-bold">Ficha tecnica</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Code FIFA</dt>
+                  <dt className="text-gray-500">Codigo FIFA</dt>
                   <dd className="font-medium">{team.code}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Confederation</dt>
+                  <dt className="text-gray-500">Confederacion</dt>
                   <dd className="font-medium">{team.confederation}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Classement FIFA</dt>
+                  <dt className="text-gray-500">Ranking FIFA</dt>
                   <dd className="font-medium">#{team.fifaRanking}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Groupe</dt>
+                  <dt className="text-gray-500">Grupo</dt>
                   <dd className="font-medium">{team.group}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Participations CDM</dt>
+                  <dt className="text-gray-500">Participaciones Mundial</dt>
                   <dd className="font-medium">{team.wcAppearances}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Meilleur resultat</dt>
+                  <dt className="text-gray-500">Mejor resultado</dt>
                   <dd className="font-medium">{team.bestResult}</dd>
                 </div>
               </dl>
@@ -282,7 +282,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* CTA Betting */}
             <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">Pronostic {team.name}</h3>
+              <h3 className="mb-2 text-lg font-bold text-accent">Pronostico {team.name}</h3>
               {prediction ? (
                 <div className="space-y-3">
                   <div className="flex justify-between text-sm">
@@ -290,29 +290,29 @@ export default async function TeamPage({ params }: PageProps) {
                     <span className="font-bold text-primary">{prediction.eloRating}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Passer les groupes</span>
+                    <span className="text-gray-600">Pasar fase de grupos</span>
                     <span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Gagner la CDM</span>
+                    <span className="text-gray-600">Ganar el Mundial</span>
                     <span className="font-bold text-gold">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span>
                   </div>
                 </div>
               ) : (
                 <p className="text-sm text-gray-500">
-                  Les pronostics seront disponibles prochainement.
+                  Los pronosticos estaran disponibles proximamente.
                 </p>
               )}
             </div>
 
             {/* Related Teams */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Equipes du groupe {team.group}</h3>
+              <h3 className="mb-4 text-lg font-bold">Equipos del grupo {team.group}</h3>
               <ul className="space-y-2">
                 {groupTeams.map((t) => (
                   <li key={t.id}>
                     <Link
-                      href={`/equipe/${t.slug}`}
+                      href={`/equipo/${t.slug}`}
                       className="flex items-center gap-2 text-sm hover:text-accent"
                     >
                       <span>{t.flag}</span>
