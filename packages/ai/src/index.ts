@@ -23,3 +23,7 @@ export { generateFactual, generateStandardPage, type GeminiResponse } from "./pr
 export { generateInfra, generateMetaDescription, translateContent, type GPTResponse } from "./providers/openai";
 
 export { aiCacheGet, aiCacheSet, aiCacheKey, AI_CACHE_TTL } from "./cache";
+
+// Generators — high-level orchestrators (API + AI → structured output)
+export { generateFullMatchPreview, type MatchPreviewData } from "./generators/match-preview";
+export { generateFullTeamAnalysis, type TeamAnalysisData } from "./generators/team-analysis";

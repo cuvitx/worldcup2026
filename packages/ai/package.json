@@ -8,7 +8,8 @@
     "./orchestrator": "./src/orchestrator.ts",
     "./providers": "./src/providers/index.ts",
     "./prompts": "./src/prompts/index.ts",
-    "./cache": "./src/cache.ts"
+    "./cache": "./src/cache.ts",
+    "./generators": "./src/generators/index.ts"
   },
   "scripts": {
     "build": "tsc --noEmit",
@@ -18,9 +19,10 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
     "@google/genai": "^1.0.0",
-    "openai": "^5.0.0",
+    "@repo/api": "*",
     "@repo/data": "*",
-    "@repo/api": "*"
+    "@upstash/redis": "^1.36.2",
+    "openai": "^5.0.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",

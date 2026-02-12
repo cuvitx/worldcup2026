@@ -11,6 +11,12 @@ import { getAlternates, domains } from "@repo/data/route-mapping";
 import { getMatchPhase } from "@repo/data/tournament-state";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { LiveMatchWidget } from "@repo/ui/live-match-widget";
+import { AiMatchPreview } from "@repo/ui/ai-match-preview";
+import { AiExpertInsight } from "@repo/ui/ai-expert-insight";
+import { WeatherWidget } from "@repo/ui/weather-widget";
+import { OddsCompare } from "@repo/ui/odds-compare";
+import { InjuriesWidget } from "@repo/ui/injuries-widget";
+import { generateFullMatchPreview } from "@repo/ai/generators";
 
 export const revalidate = 300;
 
@@ -72,6 +78,10 @@ export default async function MatchPage({ params }: PageProps) {
   const matchPhase = getMatchPhase(match.date, match.time);
   const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
+
+  const enriched = await generateFullMatchPreview(slug, "en", {
+    includeExpert: matchPhase === "upcoming",
+  });
 
   const dateFormatted = new Date(match.date).toLocaleDateString("en-US", {
     weekday: "long",
@@ -258,6 +268,19 @@ export default async function MatchPage({ params }: PageProps) {
               </section>
             )}
 
+            {enriched.preview && (
+              <AiMatchPreview content={enriched.preview.content} grounded={enriched.preview.grounded} />
+            )}
+
+            {enriched.expert && (
+              <AiExpertInsight
+                valueBets={enriched.expert.valueBets}
+                matchAnalysis={enriched.expert.matchAnalysis}
+                scorePrediction={enriched.expert.scorePrediction}
+                keyInsight={enriched.expert.keyInsight}
+              />
+            )}
+
             <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 {isCompleted ? "Result & Analysis" : "Prediction"}
@@ -376,14 +399,40 @@ export default async function MatchPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
-                Match Odds
-              </h3>
-              <p className="text-sm text-gray-600">
-                Bookmaker odds for this match will be available soon.
-              </p>
-            </div>
+            {enriched.weather && (
+              <WeatherWidget
+                temperature={enriched.weather.temperature}
+                condition={enriched.weather.condition}
+                humidity={enriched.weather.humidity}
+                windSpeed={enriched.weather.windSpeed}
+              />
+            )}
+
+            {enriched.sources.hasInjuries && home && away && (
+              <InjuriesWidget
+                homeTeam={home.name}
+                awayTeam={away.name}
+                homeInjuries={enriched.injuries.home}
+                awayInjuries={enriched.injuries.away}
+              />
+            )}
+
+            {enriched.sources.hasLiveOdds && home && away ? (
+              <OddsCompare
+                odds={enriched.odds}
+                homeTeam={home.name}
+                awayTeam={away.name}
+              />
+            ) : (
+              <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
+                <h3 className="mb-2 text-lg font-bold text-accent">
+                  Match Odds
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Bookmaker odds for this match will be available soon.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,5 +1,11 @@
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { LiveMatchWidget } from "@repo/ui/live-match-widget";
+import { AiMatchPreview } from "@repo/ui/ai-match-preview";
+import { AiExpertInsight } from "@repo/ui/ai-expert-insight";
+import { WeatherWidget } from "@repo/ui/weather-widget";
+import { OddsCompare } from "@repo/ui/odds-compare";
+import { InjuriesWidget } from "@repo/ui/injuries-widget";
+import { generateFullMatchPreview } from "@repo/ai/generators";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import { getMatchPhase } from "@repo/data/tournament-state";
@@ -73,6 +79,11 @@ export default async function MatchPage({ params }: PageProps) {
   const matchPhase = getMatchPhase(match.date, match.time);
   const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
+
+  // Fetch AI-enriched data (gracefully falls back to null if APIs unavailable)
+  const enriched = await generateFullMatchPreview(slug, "fr", {
+    includeExpert: matchPhase === "upcoming",
+  });
 
   const dateFormatted = new Date(match.date).toLocaleDateString("fr-FR", {
     weekday: "long",
@@ -259,6 +270,19 @@ export default async function MatchPage({ params }: PageProps) {
               </section>
             )}
 
+            {enriched.preview && (
+              <AiMatchPreview content={enriched.preview.content} grounded={enriched.preview.grounded} />
+            )}
+
+            {enriched.expert && (
+              <AiExpertInsight
+                valueBets={enriched.expert.valueBets}
+                matchAnalysis={enriched.expert.matchAnalysis}
+                scorePrediction={enriched.expert.scorePrediction}
+                keyInsight={enriched.expert.keyInsight}
+              />
+            )}
+
             <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 {isCompleted ? "Resultat & Analyse" : "Pronostic"}
@@ -377,15 +401,41 @@ export default async function MatchPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
-                Cotes du match
-              </h3>
-              <p className="text-sm text-gray-600">
-                Les cotes des bookmakers pour ce match seront disponibles
-                prochainement.
-              </p>
-            </div>
+            {enriched.weather && (
+              <WeatherWidget
+                temperature={enriched.weather.temperature}
+                condition={enriched.weather.condition}
+                humidity={enriched.weather.humidity}
+                windSpeed={enriched.weather.windSpeed}
+              />
+            )}
+
+            {enriched.sources.hasInjuries && home && away && (
+              <InjuriesWidget
+                homeTeam={home.name}
+                awayTeam={away.name}
+                homeInjuries={enriched.injuries.home}
+                awayInjuries={enriched.injuries.away}
+              />
+            )}
+
+            {enriched.sources.hasLiveOdds && home && away ? (
+              <OddsCompare
+                odds={enriched.odds}
+                homeTeam={home.name}
+                awayTeam={away.name}
+              />
+            ) : (
+              <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
+                <h3 className="mb-2 text-lg font-bold text-accent">
+                  Cotes du match
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Les cotes des bookmakers pour ce match seront disponibles
+                  prochainement.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

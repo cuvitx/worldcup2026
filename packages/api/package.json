@@ -18,7 +18,8 @@
     "lint": "eslint --max-warnings 0"
   },
   "dependencies": {
-    "@repo/data": "*"
+    "@repo/data": "*",
+    "@upstash/redis": "^1.36.2"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",

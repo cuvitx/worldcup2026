@@ -19,7 +19,8 @@
     "./bookmaker-reviews": "./src/bookmaker-reviews.ts",
     "./guides": "./src/guides.ts",
     "./route-mapping": "./src/route-mapping.ts",
-    "./tournament-state": "./src/tournament-state.ts"
+    "./tournament-state": "./src/tournament-state.ts",
+    "./api-football-ids": "./src/api-football-ids.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",
