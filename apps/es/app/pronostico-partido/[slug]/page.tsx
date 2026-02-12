@@ -16,6 +16,11 @@ import { getAlternates } from "@repo/data/route-mapping";
 
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
+import { AiExpertInsight } from "@repo/ui/ai-expert-insight";
+import { WeatherWidget } from "@repo/ui/weather-widget";
+import { OddsCompare } from "@repo/ui/odds-compare";
+import { InjuriesWidget } from "@repo/ui/injuries-widget";
+import { generateFullMatchPreview } from "@repo/ai/generators";
 
 export const revalidate = 300;
 
@@ -92,6 +97,11 @@ export default async function PronosticMatchPage({ params }: PageProps) {
   // H2H
   const h2h =
     home && away ? h2hByPair[`${home.id}:${away.id}`] : undefined;
+
+  // AI-enriched data
+  const enriched = await generateFullMatchPreview(slug, "es", {
+    includeExpert: true,
+  });
 
   // Date formatting
   const dateFormatted = new Date(match.date).toLocaleDateString("es-ES", {
@@ -539,6 +549,16 @@ export default async function PronosticMatchPage({ params }: PageProps) {
               </section>
             )}
 
+            {/* Expert AI Analysis */}
+            {enriched.expert && (
+              <AiExpertInsight
+                valueBets={enriched.expert.valueBets}
+                matchAnalysis={enriched.expert.matchAnalysis}
+                scorePrediction={enriched.expert.scorePrediction}
+                keyInsight={enriched.expert.keyInsight}
+              />
+            )}
+
             {/* Historial H2H */}
             {home && away && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
@@ -803,6 +823,32 @@ export default async function PronosticMatchPage({ params }: PageProps) {
                   </Link>
                 )}
               </div>
+            )}
+
+            {enriched.weather && (
+              <WeatherWidget
+                temperature={enriched.weather.temperature}
+                condition={enriched.weather.condition}
+                humidity={enriched.weather.humidity}
+                windSpeed={enriched.weather.windSpeed}
+              />
+            )}
+
+            {enriched.sources.hasInjuries && home && away && (
+              <InjuriesWidget
+                homeTeam={home.name}
+                awayTeam={away.name}
+                homeInjuries={enriched.injuries.home}
+                awayInjuries={enriched.injuries.away}
+              />
+            )}
+
+            {enriched.sources.hasLiveOdds && home && away && (
+              <OddsCompare
+                odds={enriched.odds}
+                homeTeam={home.name}
+                awayTeam={away.name}
+              />
             )}
 
             {/* Sidebar CTA */}
