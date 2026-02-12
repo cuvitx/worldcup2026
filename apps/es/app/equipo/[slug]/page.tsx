@@ -7,6 +7,7 @@ import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { getAlternates } from "@repo/data/route-mapping";
+import { generateFullTeamAnalysis } from "@repo/ai/generators";
 
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
@@ -54,6 +55,8 @@ export default async function TeamPage({ params }: PageProps) {
   const teamMatches = (matchesByGroup[team.group] ?? []).filter(
     (m) => m.homeTeamId === team.id || m.awayTeamId === team.id
   );
+
+  const enriched = await generateFullTeamAnalysis(team.id, "es");
 
   const positionLabels: Record<string, string> = {
     GK: "Portero",
@@ -115,6 +118,16 @@ export default async function TeamPage({ params }: PageProps) {
               <h2 className="mb-4 text-xl font-bold">Presentacion</h2>
               <p className="text-gray-700 leading-relaxed">{team.description}</p>
             </section>
+
+            {enriched.analysis && (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <div className="mb-4 flex items-center gap-2">
+                  <h2 className="text-xl font-bold">Analisis</h2>
+                  <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">AI</span>
+                </div>
+                <div className="prose prose-sm max-w-none text-gray-700" dangerouslySetInnerHTML={{ __html: enriched.analysis.content }} />
+              </section>
+            )}
 
             {/* World Cup History */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
@@ -295,6 +308,62 @@ export default async function TeamPage({ params }: PageProps) {
                 </div>
               </dl>
             </div>
+
+            {(enriched.form || enriched.goalStats) && (
+              <div className="rounded-lg bg-white p-6 shadow-sm">
+                <h3 className="mb-4 text-lg font-bold">Forma actual</h3>
+                {enriched.form && (
+                  <div className="mb-3">
+                    <p className="text-sm text-gray-500 mb-1">Ultimos 5 partidos</p>
+                    <div className="flex gap-1">
+                      {enriched.form.split("").map((r, i) => (
+                        <span
+                          key={i}
+                          className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${
+                            r === "W" ? "bg-green-500" : r === "D" ? "bg-yellow-500" : r === "L" ? "bg-red-500" : "bg-gray-300"
+                          }`}
+                        >
+                          {r}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {enriched.goalStats && (
+                  <div className="grid grid-cols-3 gap-2 text-center text-sm">
+                    <div className="rounded bg-gray-50 p-2">
+                      <p className="text-lg font-bold text-field">{enriched.goalStats.scored}</p>
+                      <p className="text-xs text-gray-500">Goles a favor</p>
+                    </div>
+                    <div className="rounded bg-gray-50 p-2">
+                      <p className="text-lg font-bold text-red-500">{enriched.goalStats.conceded}</p>
+                      <p className="text-xs text-gray-500">Goles en contra</p>
+                    </div>
+                    <div className="rounded bg-gray-50 p-2">
+                      <p className="text-lg font-bold text-primary">{enriched.goalStats.cleanSheets}</p>
+                      <p className="text-xs text-gray-500">Clean sheets</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {enriched.injuries.length > 0 && (
+              <div className="rounded-lg bg-white p-6 shadow-sm">
+                <h3 className="mb-3 text-lg font-bold">Lesiones</h3>
+                <ul className="space-y-2">
+                  {enriched.injuries.map((inj) => (
+                    <li key={inj.player} className="flex items-center gap-2 text-sm">
+                      <span className="rounded bg-red-100 px-1.5 py-0.5 text-xs font-medium text-red-700">
+                        {inj.type === "Missing Fixture" ? "Baja" : inj.type}
+                      </span>
+                      <span className="font-medium">{inj.player}</span>
+                      <span className="text-gray-500">— {inj.reason}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* CTA Betting */}
             <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
