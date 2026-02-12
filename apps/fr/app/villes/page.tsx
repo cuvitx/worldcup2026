@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cities } from "@repo/data/cities";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "Les 16 villes hotes de la Coupe du Monde 2026 | Guide & Infos",
   description:
     "Decouvrez les 16 villes hotes de la Coupe du Monde 2026 aux Etats-Unis, au Canada et au Mexique. Population, stades, fuseaux horaires.",
+  alternates: getStaticAlternates("cities", "fr"),
 };
 
 export default function CitiesPage() {

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("guides", "en"),
   title: "World Cup 2026 Betting Guides | Strategies & Tips",
   description:
     "All our betting guides for the 2026 World Cup. Strategies, tips, beginner guides and bookmaker reviews.",

@@ -7,6 +7,12 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
+import { getAlternates, domains } from "@repo/data/route-mapping";
+import { getMatchPhase } from "@repo/data/tournament-state";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { LiveMatchWidget } from "@repo/ui/live-match-widget";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -48,6 +54,7 @@ export async function generateMetadata({
       title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""}`,
       description: `${stage} - Mundial 2026 | ${match.date} ${match.time} UTC`,
     },
+    alternates: getAlternates("match", slug, "es"),
   };
 }
 
@@ -79,6 +86,10 @@ export default async function MatchPage({ params }: PageProps) {
   const homeName = home?.name ?? "Por determinar";
   const awayName = away?.name ?? "Por determinar";
 
+  const matchPhase = getMatchPhase(match.date, match.time);
+  const isLive = matchPhase === "live";
+  const isCompleted = matchPhase === "completed";
+
   const dateFormatted = new Date(match.date).toLocaleDateString("es-ES", {
     weekday: "long",
     day: "numeric",
@@ -88,6 +99,7 @@ export default async function MatchPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Calendario",url:"/match/calendario"}, {name:`${homeName} vs ${awayName}`,url:`/match/${match.slug}`}]} baseUrl={domains.es} />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -110,57 +122,88 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
-          <p className="mb-2 text-sm text-gold font-medium uppercase tracking-wide">
-            {stage}
-            {match.group ? ` - Grupo ${match.group}` : ""}
-          </p>
-          <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
-            <div className="flex flex-col items-center">
-              <span className="text-6xl">{home?.flag ?? "🏳️"}</span>
-              {home ? (
-                <Link
-                  href={`/equipo/${home.slug}`}
-                  className="mt-2 text-2xl font-extrabold hover:text-gold"
-                >
-                  {home.name}
-                </Link>
-              ) : (
-                <p className="mt-2 text-2xl font-extrabold">Por determinar</p>
-              )}
+      {/* Adaptive Hero: LiveMatchWidget for live/recent matches, static for upcoming */}
+      {isLive || isCompleted ? (
+        <section className="bg-primary py-8">
+          <div className="mx-auto max-w-2xl px-4">
+            <p className="mb-4 text-center text-sm text-gold font-medium uppercase tracking-wide">
+              {stage}
+              {match.group ? ` - Grupo ${match.group}` : ""}
+            </p>
+            <LiveMatchWidget
+              matchDate={match.date}
+              matchTime={match.time}
+              homeTeam={home?.name ?? "Por determinar"}
+              awayTeam={away?.name ?? "Por determinar"}
+              stadium={stadium?.name ?? "Estadio por confirmar"}
+            />
+            <div className="mt-4 flex justify-center gap-8 text-white">
               {home && (
-                <p className="text-sm text-gray-400">#{home.fifaRanking} FIFA</p>
-              )}
-            </div>
-            <div className="text-center">
-              <span className="text-3xl font-bold text-gold">VS</span>
-              <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-6xl">{away?.flag ?? "🏳️"}</span>
-              {away ? (
-                <Link
-                  href={`/equipo/${away.slug}`}
-                  className="mt-2 text-2xl font-extrabold hover:text-gold"
-                >
-                  {away.name}
+                <Link href={`/equipo/${home.slug}`} className="text-sm hover:text-gold transition-colors">
+                  {home.flag} {home.name}
                 </Link>
-              ) : (
-                <p className="mt-2 text-2xl font-extrabold">Por determinar</p>
               )}
               {away && (
-                <p className="text-sm text-gray-400">#{away.fifaRanking} FIFA</p>
+                <Link href={`/equipo/${away.slug}`} className="text-sm hover:text-gold transition-colors">
+                  {away.flag} {away.name}
+                </Link>
               )}
             </div>
           </div>
-          <p className="mt-6 text-center text-gray-300">
-            {dateFormatted}
-            {stadium ? ` | ${stadium.name}` : ""}
-            {city ? `, ${city.name}` : ""}
-          </p>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="bg-primary text-white py-12">
+          <div className="mx-auto max-w-7xl px-4">
+            <p className="mb-2 text-sm text-gold font-medium uppercase tracking-wide">
+              {stage}
+              {match.group ? ` - Grupo ${match.group}` : ""}
+            </p>
+            <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
+              <div className="flex flex-col items-center">
+                <span className="text-6xl">{home?.flag ?? "🏳️"}</span>
+                {home ? (
+                  <Link
+                    href={`/equipo/${home.slug}`}
+                    className="mt-2 text-2xl font-extrabold hover:text-gold"
+                  >
+                    {home.name}
+                  </Link>
+                ) : (
+                  <p className="mt-2 text-2xl font-extrabold">Por determinar</p>
+                )}
+                {home && (
+                  <p className="text-sm text-gray-400">#{home.fifaRanking} FIFA</p>
+                )}
+              </div>
+              <div className="text-center">
+                <span className="text-3xl font-bold text-gold">VS</span>
+                <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-6xl">{away?.flag ?? "🏳️"}</span>
+                {away ? (
+                  <Link
+                    href={`/equipo/${away.slug}`}
+                    className="mt-2 text-2xl font-extrabold hover:text-gold"
+                  >
+                    {away.name}
+                  </Link>
+                ) : (
+                  <p className="mt-2 text-2xl font-extrabold">Por determinar</p>
+                )}
+                {away && (
+                  <p className="text-sm text-gray-400">#{away.fifaRanking} FIFA</p>
+                )}
+              </div>
+            </div>
+            <p className="mt-6 text-center text-gray-300">
+              {dateFormatted}
+              {stadium ? ` | ${stadium.name}` : ""}
+              {city ? `, ${city.name}` : ""}
+            </p>
+          </div>
+        </section>
+      )}
 
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
@@ -235,7 +278,9 @@ export default async function MatchPage({ params }: PageProps) {
             {/* Prediction Section */}
             {prediction ? (
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Pronostico 1X2</h2>
+                <h2 className="mb-4 text-xl font-bold">
+                {isCompleted ? "Resultado y Analisis" : "Pronostico 1X2"}
+              </h2>
                 <div className="grid grid-cols-3 gap-4 mb-4">
                   {[
                     { key: "1", label: `Victoria ${homeName}`, prob: prediction.team1WinProb },
@@ -398,6 +443,7 @@ export default async function MatchPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${home?.name ?? "TBD"} vs ${away?.name ?? "TBD"} - Copa del Mundo 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             startDate: `${match.date}T${match.time}:00Z`,
             location: stadium
               ? {

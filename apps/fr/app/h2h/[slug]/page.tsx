@@ -1,9 +1,14 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -44,6 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${team1.name} vs ${team2.name} - Historique, Stats & Pronostic CDM 2026`,
     description: `${team1.name} contre ${team2.name} : historique des confrontations, statistiques comparees, pronostic et cotes pour la Coupe du Monde 2026.`,
+    alternates: getAlternates("h2h", slug, "fr"),
     openGraph: {
       title: `${team1.flag} ${team1.name} vs ${team2.name} ${team2.flag}`,
       description: `Analyse complete ${team1.name} - ${team2.name}. Historique, stats et pronostic CDM 2026.`,
@@ -65,6 +71,7 @@ export default async function H2HPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Equipes",url:"/equipes"},{name:team1.name+" vs "+team2.name,url:"/h2h/"+slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -276,6 +283,7 @@ export default async function H2HPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${team1.name} vs ${team2.name} - Coupe du Monde 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             sport: "Football",
             homeTeam: { "@type": "SportsTeam", name: team1.name },
             awayTeam: { "@type": "SportsTeam", name: team2.name },

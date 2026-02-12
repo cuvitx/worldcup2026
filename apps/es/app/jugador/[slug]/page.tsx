@@ -3,6 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { players, playersBySlug, playersByTeamId } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,6 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${player.name} - ${teamName} Mundial 2026`,
       description: `${player.position} | ${player.club} | ${player.caps} convocatorias | ${player.goals} goles`,
     },
+    alternates: getAlternates("player", slug, "es"),
   };
 }
 
@@ -49,6 +56,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Jugadores",url:"/jugadores"}, {name:player.name,url:`/jugador/${player.slug}`}]} baseUrl={domains.es} />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">

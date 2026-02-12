@@ -3,8 +3,10 @@ import Link from "next/link";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("matchSchedule", "en"),
   title: "Match Schedule - World Cup 2026",
   description:
     "Complete schedule of all 104 matches of the 2026 World Cup. Group stage, Round of 32, Round of 16, quarter-finals, semi-finals and final. From June 11 to July 19, 2026.",

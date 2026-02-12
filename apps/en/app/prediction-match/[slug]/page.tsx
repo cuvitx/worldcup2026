@@ -12,6 +12,10 @@ import {
   featuredBookmaker,
   estimatedMatchOdds,
 } from "@repo/data/affiliates";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,6 +49,7 @@ export async function generateMetadata({
   const awayName = away?.name ?? "TBD";
 
   return {
+    alternates: getAlternates("predictionMatch", slug, "en"),
     title: `${homeName} vs ${awayName} Prediction | Odds & Analysis WC 2026`,
     description: `${homeName} vs ${awayName} prediction for the 2026 World Cup: estimated odds, predicted score, match analysis and head-to-head history. Bet on ${homeName} - ${awayName} WC 2026.`,
     openGraph: {
@@ -117,6 +122,7 @@ export default async function PredictionMatchPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Schedule",url:"/match/schedule"},{name:"Prediction",url:`/prediction-match/${match.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -868,6 +874,7 @@ export default async function PredictionMatchPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${homeName} vs ${awayName} - World Cup 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             startDate: `${match.date}T${match.time}:00Z`,
             location: stadium
               ? {

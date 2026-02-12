@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import { guides, guidesBySlug, guidesById } from "@repo/data/guides";
 import { bookmakerReviewsById } from "@repo/data/bookmaker-reviews";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -19,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!guide) return {};
 
   return {
+    alternates: getAlternates("guide", slug, "en"),
     title: guide.metaTitle,
     description: guide.metaDescription,
     openGraph: {
@@ -50,6 +55,7 @@ export default async function GuidePage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides",url:"/guides"},{name:guide.title,url:`/guide/${guide.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

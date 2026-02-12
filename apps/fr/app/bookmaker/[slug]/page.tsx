@@ -1,8 +1,13 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-reviews";
 import { guides, guidesById } from "@repo/data/guides";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -20,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Avis ${bk.name} 2026 | Bonus, cotes & test complet`,
     description: `Avis ${bk.name} pour la Coupe du Monde 2026. ${bk.bonus} ${bk.bonusDetail}. Test complet : cotes, application, paris en direct, retrait et service client.`,
+    alternates: getAlternates("bookmaker", slug, "fr"),
     openGraph: {
       title: `Avis ${bk.name} - Paris sportifs CDM 2026`,
       description: `Test et avis complet de ${bk.name}. ${bk.bonus} de bonus pour la CDM 2026.`,
@@ -50,6 +56,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Paris sportifs",url:"/paris-sportifs"},{name:bk.name,url:"/bookmaker/"+bk.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

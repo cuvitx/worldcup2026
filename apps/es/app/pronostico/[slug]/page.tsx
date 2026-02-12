@@ -12,6 +12,12 @@ import {
   estimatedOutrightOdds,
   probToOdds,
 } from "@repo/data/affiliates";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -35,6 +41,7 @@ export async function generateMetadata({
       title: `${team.flag} Pronostico ${team.name} - Mundial 2026`,
       description: `Cuotas y pronosticos ${team.name} para la Copa del Mundo 2026. Analisis completo, probabilidades y predicciones.`,
     },
+    alternates: getAlternates("prediction", slug, "es"),
   };
 }
 
@@ -96,6 +103,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Pronosticos",url:"/equipos"}, {name:team.name,url:`/pronostico/${team.slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -702,6 +710,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsTeam",
             name: team.name,
+            alternateName: team.code,
             sport: "Football",
             memberOf: {
               "@type": "SportsOrganization",

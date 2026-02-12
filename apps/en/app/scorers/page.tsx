@@ -4,8 +4,10 @@ import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers"
 import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("scorers", "en"),
   title: "World Cup 2026 Scorer Odds | Top Scorer, Stats & Predictions",
   description:
     "World Cup 2026 scorer odds. Ranking of the most likely top scorers, expected goals, anytime scorer odds and predictions for every forward and attacking midfielder.",

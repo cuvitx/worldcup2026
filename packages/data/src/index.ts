@@ -27,3 +27,5 @@ export type { BookmakerReview } from "./bookmaker-reviews";
 export { bookmakerReviews, bookmakerReviewsById, bookmakerReviewsBySlug } from "./bookmaker-reviews";
 export type { Guide } from "./guides";
 export { guides, guidesById, guidesBySlug, guidesByCategory } from "./guides";
+export type { TournamentPhase, MatchPhase } from "./tournament-state";
+export { getTournamentPhase, getDaysUntilKickoff, getTodaysMatches, getNextMatch, getMatchPhase, getMatchesByDate, getMatchDates } from "./tournament-state";

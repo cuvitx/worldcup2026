@@ -6,6 +6,12 @@ import { teamsById } from "@repo/data/teams";
 import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -30,6 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${team?.flag ?? ""} Cuota goleador ${player.name} - Mundial 2026`,
       description: `Stats y cuotas de goleador de ${player.name} para el Mundial 2026.`,
     },
+    alternates: getAlternates("scorer", slug, "es"),
   };
 }
 
@@ -52,6 +59,7 @@ export default async function GoleadorPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Goleadores",url:"/goleadores"}, {name:player.name,url:`/goleador/${player.slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { cities } from "@repo/data/cities";
 import { stadiums } from "@repo/data/stadiums";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Las 16 ciudades sede de la Copa del Mundo 2026 | Guia & Informacion",
   description:
     "Descubre las 16 ciudades sede de la Copa del Mundo 2026 en Estados Unidos, Canada y Mexico. Poblacion, estadios, zonas horarias.",
+  alternates: getStaticAlternates("cities", "es"),
 };
 
 export default function CitiesPage() {

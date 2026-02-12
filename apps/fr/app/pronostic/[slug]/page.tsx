@@ -1,3 +1,6 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +15,8 @@ import {
   estimatedOutrightOdds,
   probToOdds,
 } from "@repo/data/affiliates";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -31,6 +36,7 @@ export async function generateMetadata({
   return {
     title: `Pronostic ${team.name} CDM 2026 | Cotes, Prediction & Analyse`,
     description: `Pronostic ${team.name} Coupe du Monde 2026 : cotes, probabilites de victoire, analyse ELO, predictions des matchs de groupe et joueurs cles. Toutes les infos pour parier sur ${team.name}.`,
+    alternates: getAlternates("prediction", slug, "fr"),
     openGraph: {
       title: `${team.flag} Pronostic ${team.name} - CDM 2026`,
       description: `Cotes et pronostics ${team.name} pour la Coupe du Monde 2026. Analyse complete, probabilites et predictions.`,
@@ -96,6 +102,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Pronostics",url:"/equipes"},{name:team.name,url:"/pronostic/"+team.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -703,13 +710,14 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsTeam",
             name: team.name,
+            alternateName: team.code,
             sport: "Football",
             memberOf: {
               "@type": "SportsOrganization",
               name: "FIFA World Cup 2026",
             },
             description: `Pronostic et cotes pour ${team.name} a la Coupe du Monde 2026. Rating ELO : ${prediction?.eloRating ?? "N/A"}.`,
-            url: `https://cdm2026.fr/pronostic/${team.slug}`,
+            url: `https://mondial2026.fr/pronostic/${team.slug}`,
           }),
         }}
       />

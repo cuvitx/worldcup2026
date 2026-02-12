@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Guias de apuestas deportivas Mundial 2026 | Estrategias y consejos",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     description:
       "Guias completas para apostar en el Mundial 2026.",
   },
+  alternates: getStaticAlternates("guides", "es"),
 };
 
 export default function GuiasPage() {

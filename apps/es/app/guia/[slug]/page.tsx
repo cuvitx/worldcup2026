@@ -4,6 +4,12 @@ import { notFound } from "next/navigation";
 import { guides, guidesBySlug, guidesById } from "@repo/data/guides";
 import { bookmakerReviewsById } from "@repo/data/bookmaker-reviews";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -25,6 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: guide.metaTitle,
       description: guide.metaDescription,
     },
+    alternates: getAlternates("guide", slug, "es"),
   };
 }
 
@@ -50,6 +57,7 @@ export default async function GuiaPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Guias",url:"/guias"}, {name:guide.title,url:`/guia/${guide.slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

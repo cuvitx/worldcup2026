@@ -6,6 +6,10 @@ import { teamsById } from "@repo/data/teams";
 import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsById[player.teamId];
 
   return {
+    alternates: getAlternates("scorer", slug, "en"),
     title: `Scorer Odds ${player.name} World Cup 2026 | Goals, Stats & Prediction`,
     description: `Scorer odds for ${player.name} (${team?.name}) at the 2026 World Cup. ${player.goals} goals in ${player.caps} caps, goal probabilities, anytime scorer and top scorer odds.`,
     openGraph: {
@@ -52,6 +57,7 @@ export default async function ScorerPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Scorers",url:"/scorers"},{name:player.name,url:`/scorer/${player.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

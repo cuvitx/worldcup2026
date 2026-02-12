@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("betting", "en"),
   title: "World Cup 2026 Betting | Best Bookmakers & Guides",
   description:
     "Comparison of the best sports betting sites for the 2026 World Cup. Reviews, bonuses, odds and strategy guides for betting on the World Cup 2026.",

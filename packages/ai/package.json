@@ -1,0 +1,29 @@
+{
+  "name": "@repo/ai",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./orchestrator": "./src/orchestrator.ts",
+    "./providers": "./src/providers/index.ts",
+    "./prompts": "./src/prompts/index.ts",
+    "./cache": "./src/cache.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --max-warnings 0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "@google/genai": "^1.0.0",
+    "openai": "^5.0.0",
+    "@repo/data": "*",
+    "@repo/api": "*"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "5.9.2"
+  }
+}

@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { matches } from "@repo/data/matches";
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "Calendrier des matchs - Coupe du Monde 2026",
   description:
     "Calendrier complet des 104 matchs de la Coupe du Monde 2026. Phase de groupes, huitiemes, quarts, demi-finales et finale. Du 11 juin au 19 juillet 2026.",
+  alternates: getStaticAlternates("matchSchedule", "fr"),
 };
 
 const stageLabels: Record<string, string> = {

@@ -3,6 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -20,6 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${city.name} - Ciudad sede Copa del Mundo 2026 | Guia completa`,
     description: `Guia completa de ${city.name} para la Copa del Mundo 2026. Hoteles, transporte, estadios y actividades. ${city.description}`,
+    alternates: getAlternates("city", slug, "es"),
   };
 }
 
@@ -34,6 +41,7 @@ export default async function CityPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Ciudades",url:"/ciudades"}, {name:city.name,url:`/ciudad/${city.slug}`}]} baseUrl={domains.es} />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">

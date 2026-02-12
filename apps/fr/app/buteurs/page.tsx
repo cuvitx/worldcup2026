@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: "Cotes buteurs CDM 2026 | Meilleur buteur, stats & pronostics",
   description:
     "Cotes buteurs de la Coupe du Monde 2026. Classement des meilleurs buteurs potentiels, probabilites de buts, cotes anytime scorer et pronostics pour chaque attaquant et milieu offensif.",
+  alternates: getStaticAlternates("scorers", "fr"),
   openGraph: {
     title: "Cotes buteurs - Coupe du Monde 2026",
     description:

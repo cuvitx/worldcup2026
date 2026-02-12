@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ letter: string }>;
@@ -22,6 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const teamNames = groupTeams.map((t) => t.name).join(", ");
 
   return {
+    alternates: getAlternates("group", letter, "en"),
     title: `Group ${group.letter} - World Cup 2026 | ${teamNames}`,
     description: `Complete analysis of Group ${group.letter} at the 2026 World Cup: ${teamNames}. Schedule, predictions, odds and qualification chances.`,
     openGraph: {
@@ -41,6 +46,7 @@ export default async function GroupPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Groups",url:"/teams"},{name:`Group ${letter}`,url:`/group/${letter}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

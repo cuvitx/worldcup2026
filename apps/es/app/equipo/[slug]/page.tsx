@@ -6,6 +6,12 @@ import { groupsByLetter } from "@repo/data/groups";
 import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,6 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${team.flag} ${team.name} - Mundial 2026`,
       description: `Ficha completa de ${team.name} para la Copa del Mundo 2026. Grupo ${team.group}, ranking FIFA #${team.fifaRanking}.`,
     },
+    alternates: getAlternates("team", slug, "es"),
   };
 }
 
@@ -57,6 +64,7 @@ export default async function TeamPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Equipos",url:"/equipos"}, {name:`Grupo ${team.group}`,url:`/grupo/${team.group.toLowerCase()}`}, {name:team.name,url:`/equipo/${team.slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -342,7 +350,10 @@ export default async function TeamPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsTeam",
             name: team.name,
+            alternateName: team.code,
             sport: "Football",
+            url: `https://mundial2026.es/equipo/${team.slug}`,
+            description: team.description,
             memberOf: {
               "@type": "SportsOrganization",
               name: "FIFA World Cup 2026",

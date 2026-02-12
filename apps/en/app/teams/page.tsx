@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { teams } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("teams", "en"),
   title: "All 48 World Cup 2026 Teams | FIFA Ranking, Stats & Predictions",
   description:
     "Complete list of all 48 qualified teams for the 2026 World Cup. FIFA ranking, group, history and predictions for every national team.",

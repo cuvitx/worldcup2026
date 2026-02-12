@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -42,6 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const { team1, team2 } = parsed;
   return {
+    alternates: getAlternates("h2h", slug, "en"),
     title: `${team1.name} vs ${team2.name} - History, Stats & Prediction WC 2026`,
     description: `${team1.name} vs ${team2.name}: head-to-head history, compared statistics, prediction and odds for the 2026 World Cup.`,
     openGraph: {
@@ -65,6 +70,7 @@ export default async function H2HPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Teams",url:"/teams"},{name:"H2H",url:`/h2h/${slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -276,6 +282,7 @@ export default async function H2HPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${team1.name} vs ${team2.name} - World Cup 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             sport: "Football",
             homeTeam: { "@type": "SportsTeam", name: team1.name },
             awayTeam: { "@type": "SportsTeam", name: team2.name },

@@ -4,6 +4,12 @@ import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ letra: string }>;
@@ -28,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `Grupo ${group.letter} - Mundial 2026`,
       description: `${teamNames} - Analisis, pronosticos y cuotas del Grupo ${group.letter}.`,
     },
+    alternates: getAlternates("group", letra, "es"),
   };
 }
 
@@ -41,6 +48,7 @@ export default async function GroupPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Grupos",url:"/equipos"}, {name:`Grupo ${group.letter}`,url:`/grupo/${letra}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

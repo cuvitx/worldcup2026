@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Los 16 estadios del Mundial 2026 | Capacidad, Ciudad & Partidos",
   description:
     "Guia completa de los 16 estadios de la Copa del Mundo 2026. Capacidad, ciudad, pais, partidos programados e informacion practica.",
+  alternates: getStaticAlternates("stadiums", "es"),
 };
 
 export default function StadiumsPage() {

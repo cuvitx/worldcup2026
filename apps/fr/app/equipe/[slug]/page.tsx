@@ -1,3 +1,6 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +9,8 @@ import { groupsByLetter } from "@repo/data/groups";
 import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${team.name} - Coupe du Monde 2026 | Effectif, Stats & Pronostics`,
     description: `Tout sur ${team.name} a la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
+    alternates: getAlternates("team", slug, "fr"),
     openGraph: {
       title: `${team.flag} ${team.name} - CDM 2026`,
       description: `Fiche complete de ${team.name} pour la Coupe du Monde 2026. Groupe ${team.group}, classement FIFA #${team.fifaRanking}.`,
@@ -57,6 +63,7 @@ export default async function TeamPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Equipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -342,7 +349,10 @@ export default async function TeamPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsTeam",
             name: team.name,
+            alternateName: team.code,
             sport: "Football",
+            url: `https://mondial2026.fr/equipe/${team.slug}`,
+            description: team.description,
             memberOf: {
               "@type": "SportsOrganization",
               name: "FIFA World Cup 2026",

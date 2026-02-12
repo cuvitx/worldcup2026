@@ -5,6 +5,10 @@ import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -20,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!stadium) return {};
 
   return {
+    alternates: getAlternates("stadium", slug, "en"),
     title: `${stadium.name} - World Cup 2026 Stadium | ${stadium.city}`,
     description: `Complete guide to ${stadium.name} in ${stadium.city} for the 2026 World Cup. Capacity ${stadium.capacity.toLocaleString("en-US")} seats. ${stadium.description}`,
   };
@@ -45,6 +50,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Stadiums",url:"/stadiums"},{name:stadium.name,url:`/stadium/${stadium.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

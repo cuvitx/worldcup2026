@@ -1,3 +1,6 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +15,8 @@ import {
   featuredBookmaker,
   estimatedMatchOdds,
 } from "@repo/data/affiliates";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -47,6 +52,7 @@ export async function generateMetadata({
   return {
     title: `Pronostic ${homeName} vs ${awayName} | Cotes & Prediction CDM 2026`,
     description: `Pronostic ${homeName} vs ${awayName} Coupe du Monde 2026 : cotes estimees, score predit, analyse du match et historique des confrontations. Pariez sur ${homeName} - ${awayName} CDM 2026.`,
+    alternates: getAlternates("predictionMatch", slug, "fr"),
     openGraph: {
       title: `${home?.flag ?? ""} Pronostic ${homeName} vs ${awayName} ${away?.flag ?? ""} | CDM 2026`,
       description: `Cotes, prediction et analyse du match ${homeName} - ${awayName}. Coupe du Monde 2026.`,
@@ -117,6 +123,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Calendrier",url:"/match/calendrier"},{name:"Pronostic "+homeName+" vs "+awayName,url:"/pronostic-match/"+match.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -869,6 +876,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${homeName} vs ${awayName} - Coupe du Monde 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             startDate: `${match.date}T${match.time}:00Z`,
             location: stadium
               ? {

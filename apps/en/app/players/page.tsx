@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("players", "en"),
   title: "210 Key Players of the World Cup 2026 | Squads & Stats",
   description:
     "The 210 key players from all 48 teams at the 2026 World Cup. Statistics, clubs, caps and goals for every player.",

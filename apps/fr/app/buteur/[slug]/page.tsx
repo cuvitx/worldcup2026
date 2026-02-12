@@ -1,3 +1,6 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +9,8 @@ import { teamsById } from "@repo/data/teams";
 import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -26,6 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Cote buteur ${player.name} CDM 2026 | Stats, buts & pronostic`,
     description: `Cote buteur ${player.name} (${team?.name}) pour la Coupe du Monde 2026. ${player.goals} buts en ${player.caps} selections, probabilites de buts, cotes anytime scorer et meilleur buteur.`,
+    alternates: getAlternates("scorer", slug, "fr"),
     openGraph: {
       title: `${team?.flag ?? ""} Cote buteur ${player.name} - CDM 2026`,
       description: `Stats et cotes buteur de ${player.name} pour la CDM 2026.`,
@@ -52,6 +58,7 @@ export default async function ButeurPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Buteurs",url:"/buteurs"},{name:player.name,url:"/buteur/"+player.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

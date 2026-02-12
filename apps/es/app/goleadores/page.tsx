@@ -4,6 +4,7 @@ import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers"
 import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Cuotas goleadores Mundial 2026 | Maximo goleador, stats y pronosticos",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     description:
       "Todos los delanteros y centrocampistas ofensivos del Mundial 2026 con sus cuotas de goleador, stats y probabilidades.",
   },
+  alternates: getStaticAlternates("scorers", "es"),
 };
 
 export default function GoleadoresPage() {

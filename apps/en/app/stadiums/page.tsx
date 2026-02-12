@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
+  alternates: getStaticAlternates("stadiums", "en"),
   title: "All 16 World Cup 2026 Stadiums | Capacity, City & Matches",
   description:
     "Complete guide to the 16 stadiums of the 2026 World Cup. Capacity, city, country, scheduled matches and practical information.",

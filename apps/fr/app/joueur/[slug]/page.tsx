@@ -1,8 +1,13 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { players, playersBySlug, playersByTeamId } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${player.name} - ${teamName} | Fiche joueur CDM 2026`,
     description: `Fiche de ${player.name} (${teamName}) pour la Coupe du Monde 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
+    alternates: getAlternates("player", slug, "fr"),
     openGraph: {
       title: `${player.name} - ${teamName} CDM 2026`,
       description: `${player.position} | ${player.club} | ${player.caps} selections | ${player.goals} buts`,
@@ -49,6 +55,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Joueurs",url:"/joueurs"},{name:player.name,url:"/joueur/"+player.slug}]} baseUrl={domains.fr} />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">

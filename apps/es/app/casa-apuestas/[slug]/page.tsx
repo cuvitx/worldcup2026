@@ -3,6 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-reviews";
 import { guides, guidesById } from "@repo/data/guides";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `Opinion ${bk.name} - Apuestas deportivas Mundial 2026`,
       description: `Analisis y opinion completa de ${bk.name}. ${bk.bonus} de bono para el Mundial 2026.`,
     },
+    alternates: getAlternates("bookmaker", slug, "es"),
   };
 }
 
@@ -50,6 +57,7 @@ export default async function CasaApuestasPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Apuestas",url:"/apuestas"}, {name:bk.name,url:`/casa-apuestas/${bk.slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

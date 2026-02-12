@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Apuestas deportivas Mundial 2026 | Mejores casas de apuestas y guias",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     description:
       "Mejores casas de apuestas, guias y estrategias para apostar en el Mundial 2026.",
   },
+  alternates: getStaticAlternates("betting", "es"),
 };
 
 export default function ApuestasPage() {

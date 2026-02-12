@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "210 jugadores clave de la Copa del Mundo 2026 | Plantillas & Estadisticas",
   description:
     "Los 210 jugadores clave de las 48 selecciones de la Copa del Mundo 2026. Estadisticas, clubes, convocatorias y goles de cada jugador.",
+  alternates: getStaticAlternates("players", "es"),
 };
 
 export default function PlayersPage() {

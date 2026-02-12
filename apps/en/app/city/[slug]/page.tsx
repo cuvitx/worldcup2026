@@ -3,6 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -18,6 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!city) return {};
 
   return {
+    alternates: getAlternates("city", slug, "en"),
     title: `${city.name} - Host City World Cup 2026 | Complete Guide`,
     description: `Complete guide to ${city.name} for the 2026 World Cup. Hotels, transport, stadiums and activities. ${city.description}`,
   };
@@ -34,6 +39,7 @@ export default async function CityPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Cities",url:"/cities"},{name:city.name,url:`/city/${city.slug}`}]} baseUrl={domains.en} />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">

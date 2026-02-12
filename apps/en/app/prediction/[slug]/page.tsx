@@ -12,6 +12,10 @@ import {
   estimatedOutrightOdds,
   probToOdds,
 } from "@repo/data/affiliates";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -29,6 +33,7 @@ export async function generateMetadata({
   if (!team) return {};
 
   return {
+    alternates: getAlternates("prediction", slug, "en"),
     title: `${team.name} Prediction WC 2026 | Odds, Prediction & Analysis`,
     description: `${team.name} prediction for the 2026 World Cup: odds, win probability, ELO analysis, group match predictions and key players. All the info to bet on ${team.name}.`,
     openGraph: {
@@ -96,6 +101,7 @@ export default async function PredictionTeamPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Predictions",url:"/teams"},{name:team.name,url:`/prediction/${team.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -701,6 +707,7 @@ export default async function PredictionTeamPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsTeam",
             name: team.name,
+            alternateName: team.code,
             sport: "Football",
             memberOf: {
               "@type": "SportsOrganization",

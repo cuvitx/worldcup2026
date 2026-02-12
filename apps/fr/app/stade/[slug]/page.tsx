@@ -1,3 +1,6 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -5,6 +8,8 @@ import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,6 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${stadium.name} - Stade Coupe du Monde 2026 | ${stadium.city}`,
     description: `Guide complet du ${stadium.name} a ${stadium.city} pour la Coupe du Monde 2026. Capacite ${stadium.capacity.toLocaleString("fr-FR")} places. ${stadium.description}`,
+    alternates: getAlternates("stadium", slug, "fr"),
   };
 }
 
@@ -45,6 +51,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Stades",url:"/stades"},{name:stadium.name,url:"/stade/"+stadium.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

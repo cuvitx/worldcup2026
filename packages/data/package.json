@@ -17,7 +17,9 @@
     "./affiliates": "./src/affiliates.ts",
     "./scorers": "./src/scorers.ts",
     "./bookmaker-reviews": "./src/bookmaker-reviews.ts",
-    "./guides": "./src/guides.ts"
+    "./guides": "./src/guides.ts",
+    "./route-mapping": "./src/route-mapping.ts",
+    "./tournament-state": "./src/tournament-state.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

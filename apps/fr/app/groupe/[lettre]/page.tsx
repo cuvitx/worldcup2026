@@ -1,9 +1,14 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
@@ -24,6 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Groupe ${group.letter} - Coupe du Monde 2026 | ${teamNames}`,
     description: `Analyse complete du Groupe ${group.letter} de la Coupe du Monde 2026 : ${teamNames}. Calendrier, pronostics, cotes et chances de qualification.`,
+    alternates: getAlternates("group", lettre, "fr"),
     openGraph: {
       title: `Groupe ${group.letter} - CDM 2026`,
       description: `${teamNames} - Analyse, pronostics et cotes du Groupe ${group.letter}.`,
@@ -41,6 +47,7 @@ export default async function GroupPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Groupes",url:"/equipes"},{name:"Groupe "+group.letter,url:"/groupe/"+lettre}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

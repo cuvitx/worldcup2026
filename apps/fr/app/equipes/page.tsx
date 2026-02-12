@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { teams } from "@repo/data/teams";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "Les 48 equipes de la Coupe du Monde 2026 | Classement, Stats & Pronostics",
   description:
     "Liste complete des 48 equipes qualifiees pour la Coupe du Monde 2026. Classement FIFA, groupe, historique et pronostics pour chaque selection.",
+  alternates: getStaticAlternates("teams", "fr"),
   openGraph: {
     title: "48 equipes - Coupe du Monde 2026",
     description: "Toutes les equipes qualifiees pour la CDM 2026 aux Etats-Unis, Canada et Mexique.",

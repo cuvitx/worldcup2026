@@ -1,8 +1,13 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -20,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${city.name} - Ville hote Coupe du Monde 2026 | Guide complet`,
     description: `Guide complet de ${city.name} pour la Coupe du Monde 2026. Hotels, transports, stades et activites. ${city.description}`,
+    alternates: getAlternates("city", slug, "fr"),
   };
 }
 
@@ -34,6 +40,7 @@ export default async function CityPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Villes",url:"/villes"},{name:city.name,url:"/ville/"+city.slug}]} baseUrl={domains.fr} />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">

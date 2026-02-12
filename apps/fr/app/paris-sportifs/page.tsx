@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
   description:
     "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026. Avis, bonus, cotes et guides strategiques pour parier sur la CDM 2026.",
+  alternates: getStaticAlternates("betting", "fr"),
   openGraph: {
     title: "Paris sportifs - Coupe du Monde 2026",
     description:

@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { guides, guidesByCategory } from "@repo/data/guides";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "Guides paris sportifs CDM 2026 | Strategies & conseils",
   description:
     "Tous nos guides de paris sportifs pour la Coupe du Monde 2026. Strategies, conseils, guides debutants et analyses de bookmakers.",
+  alternates: getStaticAlternates("guides", "fr"),
   openGraph: {
     title: "Guides paris sportifs - CDM 2026",
     description:

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { teams } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Las 48 selecciones del Mundial 2026 | Ranking FIFA, Estadisticas & Pronosticos",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     title: "48 selecciones - Copa del Mundo 2026",
     description: "Todas las selecciones clasificadas para el Mundial 2026 en Estados Unidos, Canada y Mexico.",
   },
+  alternates: getStaticAlternates("teams", "es"),
 };
 
 export default function TeamsPage() {

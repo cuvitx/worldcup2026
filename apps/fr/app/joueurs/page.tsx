@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { players } from "@repo/data/players";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "210 joueurs cles de la Coupe du Monde 2026 | Effectifs & Stats",
   description:
     "Les 210 joueurs cles des 48 equipes de la Coupe du Monde 2026. Statistiques, clubs, selections et buts pour chaque joueur.",
+  alternates: getStaticAlternates("players", "fr"),
 };
 
 export default function PlayersPage() {

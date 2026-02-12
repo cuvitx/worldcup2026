@@ -4,6 +4,12 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -48,6 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${team1.flag} ${team1.name} vs ${team2.name} ${team2.flag}`,
       description: `Analisis completo ${team1.name} - ${team2.name}. Historial, estadisticas y pronostico Mundial 2026.`,
     },
+    alternates: getAlternates("h2h", slug, "es"),
   };
 }
 
@@ -65,6 +72,7 @@ export default async function H2HPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Equipos",url:"/equipos"}, {name:"H2H",url:`/h2h/${slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -276,6 +284,7 @@ export default async function H2HPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${team1.name} vs ${team2.name} - Copa del Mundo 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             sport: "Football",
             homeTeam: { "@type": "SportsTeam", name: team1.name },
             awayTeam: { "@type": "SportsTeam", name: team2.name },

@@ -3,11 +3,13 @@ import Link from "next/link";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { getStaticAlternates } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Calendario de partidos - Copa del Mundo 2026",
   description:
     "Calendario completo de los 104 partidos de la Copa del Mundo 2026. Fase de grupos, dieciseisavos, octavos, cuartos, semifinales y final. Del 11 de junio al 19 de julio de 2026.",
+  alternates: getStaticAlternates("matchSchedule", "es"),
 };
 
 const stageLabels: Record<string, string> = {

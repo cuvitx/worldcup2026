@@ -1,3 +1,4 @@
+import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "Les 16 stades de la Coupe du Monde 2026 | Capacite, Ville & Matchs",
   description:
     "Guide complet des 16 stades de la Coupe du Monde 2026. Capacite, ville, pays, matchs programmes et informations pratiques.",
+  alternates: getStaticAlternates("stadiums", "fr"),
 };
 
 export default function StadiumsPage() {

@@ -12,6 +12,12 @@ import {
   featuredBookmaker,
   estimatedMatchOdds,
 } from "@repo/data/affiliates";
+import { getAlternates } from "@repo/data/route-mapping";
+
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -51,6 +57,7 @@ export async function generateMetadata({
       title: `${home?.flag ?? ""} Pronostico ${homeName} vs ${awayName} ${away?.flag ?? ""} | Mundial 2026`,
       description: `Cuotas, prediccion y analisis del partido ${homeName} - ${awayName}. Copa del Mundo 2026.`,
     },
+    alternates: getAlternates("predictionMatch", slug, "es"),
   };
 }
 
@@ -117,6 +124,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Inicio",url:"/"}, {name:"Calendario",url:"/match/calendario"}, {name:"Pronostico",url:`/pronostico-partido/${match.slug}`}]} baseUrl={domains.es} />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -869,6 +877,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${homeName} vs ${awayName} - Copa del Mundo 2026`,
+            eventStatus: "https://schema.org/EventScheduled",
             startDate: `${match.date}T${match.time}:00Z`,
             location: stadium
               ? {

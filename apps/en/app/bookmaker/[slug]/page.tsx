@@ -3,6 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-reviews";
 import { guides, guidesById } from "@repo/data/guides";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -18,6 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!bk) return {};
 
   return {
+    alternates: getAlternates("bookmaker", slug, "en"),
     title: `${bk.name} Review 2026 | Bonus, Odds & Full Test`,
     description: `${bk.name} review for the 2026 World Cup. ${bk.bonus} ${bk.bonusDetail}. Full test: odds, app, live betting, withdrawal and customer support.`,
     openGraph: {
@@ -50,6 +55,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Betting",url:"/betting"},{name:bk.name,url:`/bookmaker/${bk.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">

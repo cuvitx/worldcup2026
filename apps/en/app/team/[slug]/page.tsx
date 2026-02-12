@@ -6,6 +6,10 @@ import { groupsByLetter } from "@repo/data/groups";
 import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
 
   return {
+    alternates: getAlternates("team", slug, "en"),
     title: `${team.name} - World Cup 2026 | Squad, Stats & Predictions`,
     description: `Everything about ${team.name} at the 2026 World Cup: squad, statistics, history, Group ${team.group}, odds and predictions. ${team.description}`,
     openGraph: {
@@ -57,6 +62,7 @@ export default async function TeamPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Teams",url:"/teams"},{name:`Group ${team.group}`,url:`/group/${team.group.toLowerCase()}`},{name:team.name,url:`/team/${team.slug}`}]} baseUrl={domains.en} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -342,6 +348,9 @@ export default async function TeamPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsTeam",
             name: team.name,
+            alternateName: team.code,
+            url: `https://worldcup2026guide.com/team/${team.slug}`,
+            description: team.description,
             sport: "Football",
             memberOf: {
               "@type": "SportsOrganization",
