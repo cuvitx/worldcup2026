@@ -75,7 +75,7 @@ export default function Quiz() {
 
   const handleAnswer = useCallback(
     (idx: number) => {
-      if (selected !== null) return;
+      if (selected !== null || !currentQuestion) return;
       setSelected(idx);
       if (idx === currentQuestion.correctIndex) {
         setScore((s) => s + 1);
