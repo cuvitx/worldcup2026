@@ -64,8 +64,8 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
     matches.forEach((m) => { ids.add(m.homeTeamId); ids.add(m.awayTeamId); });
     return Array.from(ids)
       .map((id) => teamsById[id])
-      .filter(Boolean)
-      .sort((a, b) => a!.name.localeCompare(b!.name, "fr"));
+      .filter((t): t is TeamInfo => Boolean(t))
+      .sort((a, b) => a.name.localeCompare(b.name, "fr"));
   }, [matches, teamsById]);
 
   const groupOptions = useMemo(() => {
@@ -79,8 +79,8 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
     matches.forEach((m) => ids.add(m.stadiumId));
     return Array.from(ids)
       .map((id) => stadiumsById[id])
-      .filter(Boolean)
-      .sort((a, b) => a!.name.localeCompare(b!.name, "fr"));
+      .filter((s): s is StadiumInfo => Boolean(s))
+      .sort((a, b) => a.name.localeCompare(b.name, "fr"));
   }, [matches, stadiumsById]);
 
   const phaseOptions = useMemo(() => {
