@@ -52,7 +52,7 @@ export function OddsTable({ odds, homeName, awayName }: OddsTableProps) {
               <td className="py-3 text-center font-bold text-primary">
                 {odds.away}
               </td>
-              <td className="py-3 text-right text-sm text-gray-400">
+              <td className="py-3 text-right text-sm text-gray-500">
                 --
               </td>
             </tr>
@@ -101,7 +101,7 @@ export function OddsTable({ odds, homeName, awayName }: OddsTableProps) {
           </tbody>
         </table>
       </div>
-      <p className="mt-3 text-xs text-gray-400">
+      <p className="mt-3 text-xs text-gray-500">
         Cotes estimees, susceptibles d&apos;evoluer. Les cotes réelles peuvent
         varier selon les bookmakers.
       </p>

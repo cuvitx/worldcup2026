@@ -76,7 +76,7 @@ export default async function ButeurPage({ params }: PageProps) {
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center gap-6">
-            <span className="text-7xl">{team?.flag ?? "\u26bd"}</span>
+            <span className="text-7xl" role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag ?? "\u26bd"}</span>
             <div>
               <h1 className="text-4xl font-extrabold">
                 Cote buteur {player.name}
@@ -84,10 +84,10 @@ export default async function ButeurPage({ params }: PageProps) {
               <p className="mt-2 text-xl text-gray-300">
                 {positionLabel} &middot; {player.club}
                 {player.clubUpdatedAt && (
-                  <span className="ml-2 text-sm text-gray-400">(club au {player.clubUpdatedAt})</span>
+                  <span className="ml-2 text-sm text-gray-500">(club au {player.clubUpdatedAt})</span>
                 )}
               </p>
-              <p className="mt-1 text-gray-400">
+              <p className="mt-1 text-gray-500">
                 {team?.name} &middot; {player.caps} selections &middot; {player.goals} buts
               </p>
             </div>
@@ -128,7 +128,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 </p>
               )}
               {player.lastUpdated && (
-                <p className="mt-2 text-xs text-gray-400">Statistiques au {player.lastUpdated}</p>
+                <p className="mt-2 text-xs text-gray-500">Statistiques au {player.lastUpdated}</p>
               )}
             </section>
 
@@ -169,7 +169,7 @@ export default async function ButeurPage({ params }: PageProps) {
                     </tbody>
                   </table>
                 </div>
-                <p className="mt-4 text-xs text-gray-400">
+                <p className="mt-4 text-xs text-gray-500">
                   Les cotes sont estimees par notre modele statistique (distribution de Poisson + rating ELO) avec
                   une marge bookmaker de ~8%. Elles sont indicatives.
                 </p>
@@ -231,7 +231,7 @@ export default async function ButeurPage({ params }: PageProps) {
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-bold text-primary">{tmScorer?.expectedGoals ?? "—"} buts att.</p>
-                          <p className="text-xs text-gray-400">Cote {tmScorer?.anytimeScorerOdds ?? "—"}</p>
+                          <p className="text-xs text-gray-500">Cote {tmScorer?.anytimeScorerOdds ?? "—"}</p>
                         </div>
                       </Link>
                     );
@@ -287,7 +287,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   );
                 })}
               </div>
-              <p className="mt-4 text-xs text-gray-400 text-center">
+              <p className="mt-4 text-xs text-gray-500 text-center">
                 18+. Les jeux d&apos;argent comportent des risques : pertes, addiction. Appelez le 09 74 75 13 13.
               </p>
             </section>
@@ -389,7 +389,7 @@ export default async function ButeurPage({ params }: PageProps) {
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>
-              <p className="mt-2 text-xs text-gray-400 text-center">
+              <p className="mt-2 text-xs text-gray-500 text-center">
                 {featuredBookmaker.bonusDetail}
               </p>
             </div>

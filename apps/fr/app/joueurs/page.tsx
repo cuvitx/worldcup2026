@@ -72,7 +72,7 @@ export default function PlayersPage() {
                         <td className="py-3">
                           {team && (
                             <Link href={`/equipe/${team.slug}`} className="flex items-center gap-1 hover:text-accent">
-                              <span>{team.flag}</span>
+                              <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                               <span className="text-gray-600">{team.name}</span>
                             </Link>
                           )}
@@ -113,7 +113,7 @@ export default function PlayersPage() {
                       </div>
                       <div className="text-right">
                         <p className="text-sm font-medium text-primary">{player.goals} buts</p>
-                        <p className="text-xs text-gray-400">{player.caps} sel.</p>
+                        <p className="text-xs text-gray-500">{player.caps} sel.</p>
                       </div>
                     </Link>
                   );

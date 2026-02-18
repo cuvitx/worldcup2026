@@ -146,12 +146,12 @@ export default async function MatchPage({ params }: PageProps) {
             <div className="mt-4 flex justify-center gap-8 text-white">
               {home && (
                 <Link href={`/equipe/${home.slug}`} className="text-sm hover:text-gold transition-colors">
-                  {home.flag} {home.name}
+                  <span role="img" aria-label={`Drapeau de ${home.name}`}>{home.flag}</span> {home.name}
                 </Link>
               )}
               {away && (
                 <Link href={`/equipe/${away.slug}`} className="text-sm hover:text-gold transition-colors">
-                  {away.flag} {away.name}
+                  <span role="img" aria-label={`Drapeau de ${away.name}`}>{away.flag}</span> {away.name}
                 </Link>
               )}
             </div>
@@ -166,7 +166,7 @@ export default async function MatchPage({ params }: PageProps) {
             </p>
             <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
               <div className="flex flex-col items-center">
-                <span className="text-6xl">{home?.flag ?? "🏳️"}</span>
+                <span className="text-6xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
                 {home ? (
                   <Link
                     href={`/equipe/${home.slug}`}
@@ -178,15 +178,15 @@ export default async function MatchPage({ params }: PageProps) {
                   <p className="mt-2 text-2xl font-extrabold">A determiner</p>
                 )}
                 {home && (
-                  <p className="text-sm text-gray-400">#{home.fifaRanking} FIFA</p>
+                  <p className="text-sm text-gray-500">#{home.fifaRanking} FIFA</p>
                 )}
               </div>
               <div className="text-center">
                 <span className="text-3xl font-bold text-gold">VS</span>
-                <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
+                <p className="mt-1 text-sm text-gray-500">{match.time} UTC</p>
               </div>
               <div className="flex flex-col items-center">
-                <span className="text-6xl">{away?.flag ?? "🏳️"}</span>
+                <span className="text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                 {away ? (
                   <Link
                     href={`/equipe/${away.slug}`}
@@ -198,7 +198,7 @@ export default async function MatchPage({ params }: PageProps) {
                   <p className="mt-2 text-2xl font-extrabold">A determiner</p>
                 )}
                 {away && (
-                  <p className="text-sm text-gray-400">#{away.fifaRanking} FIFA</p>
+                  <p className="text-sm text-gray-500">#{away.fifaRanking} FIFA</p>
                 )}
               </div>
             </div>
@@ -344,7 +344,7 @@ export default async function MatchPage({ params }: PageProps) {
                         </Link>
                       </div>
                     </div>
-                    <p className="mt-2 text-xs text-gray-400">Cotes estimees, susceptibles d&apos;evoluer. 18+</p>
+                    <p className="mt-2 text-xs text-gray-500">Cotes estimees, susceptibles d&apos;evoluer. 18+</p>
                   </>
                 );
               })()}
@@ -470,14 +470,14 @@ export default async function MatchPage({ params }: PageProps) {
                     href={`/match/${m.slug}`}
                     className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
                   >
-                    <span className="text-xl">{mHome?.flag ?? "🏳️"}</span>
+                    <span className="text-xl" role="img" aria-label={`Drapeau de ${mHome?.name ?? "Inconnu"}`}>{mHome?.flag ?? "🏳️"}</span>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold truncate">
                         {mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}
                       </p>
                       <p className="text-xs text-gray-500">{m.time} UTC</p>
                     </div>
-                    <span className="text-xl">{mAway?.flag ?? "🏳️"}</span>
+                    <span className="text-xl" role="img" aria-label={`Drapeau de ${mAway?.name ?? "Inconnu"}`}>{mAway?.flag ?? "🏳️"}</span>
                   </Link>
                 );
               })}

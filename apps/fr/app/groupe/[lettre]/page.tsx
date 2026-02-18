@@ -95,7 +95,7 @@ export default async function GroupPage({ params }: PageProps) {
                             href={`/equipe/${team.slug}`}
                             className="flex items-center gap-2 font-medium hover:text-accent"
                           >
-                            <span className="text-xl">{team.flag}</span>
+                            <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             {team.name}
                             {team.isHost && (
                               <span className="rounded bg-gold/10 px-1.5 py-0.5 text-xs text-gold">
@@ -154,11 +154,11 @@ export default async function GroupPage({ params }: PageProps) {
                         className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                       >
                         <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-lg">{home?.flag ?? "🏳️"}</span>
+                        <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
                         <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
-                        <span className="text-xs text-gray-400">vs</span>
+                        <span className="text-xs text-gray-500">vs</span>
                         <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
-                        <span className="text-lg">{away?.flag ?? "🏳️"}</span>
+                        <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                         <span className="text-xs text-gray-500 w-12 text-right shrink-0">{match.time}</span>
                       </Link>
                     );
@@ -178,11 +178,11 @@ export default async function GroupPage({ params }: PageProps) {
                       href={`/h2h/${team1.slug}-vs-${team2.slug}`}
                       className="flex items-center justify-center gap-3 rounded-lg border border-gray-200 p-4 text-center transition-colors hover:border-accent hover:bg-accent/5"
                     >
-                      <span className="text-xl">{team1.flag}</span>
+                      <span className="text-xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
                       <span className="font-semibold">{team1.name}</span>
-                      <span className="text-gray-400">vs</span>
+                      <span className="text-gray-500">vs</span>
                       <span className="font-semibold">{team2.name}</span>
-                      <span className="text-xl">{team2.flag}</span>
+                      <span className="text-xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
                     </Link>
                   ))
                 )}

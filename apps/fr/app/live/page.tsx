@@ -72,7 +72,7 @@ export default function LivePage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
@@ -81,7 +81,7 @@ export default function LivePage() {
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Résultats en direct</li>
+            <li className="text-gray-900 dark:text-gray-100 font-medium">Résultats en direct</li>
           </ol>
         </div>
       </nav>
@@ -100,25 +100,25 @@ export default function LivePage() {
       <Countdown />
 
       {/* Pre-tournament notice */}
-      <section className="bg-amber-50 border-y border-amber-200 py-6">
+      <section className="bg-amber-50 dark:bg-amber-900/20 border-y border-amber-200 dark:border-amber-700 py-6">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-amber-800 font-semibold text-sm mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 dark:bg-amber-800 px-4 py-2 text-amber-800 dark:text-amber-100 font-semibold text-sm mb-3">
             <span>📡</span>
             <span>En attente du coup d&apos;envoi</span>
           </div>
-          <p className="text-amber-900 text-lg font-medium">
+          <p className="text-amber-900 dark:text-amber-100 text-lg font-medium">
             Les résultats en direct seront disponibles dès le 11 juin 2026
           </p>
-          <p className="text-amber-700 text-sm mt-1">
+          <p className="text-amber-700 dark:text-amber-300 text-sm mt-1">
             Scores actualisés en temps réel, événements et compositions d&apos;équipe
           </p>
         </div>
       </section>
 
       {/* Next 4 matches */}
-      <section className="bg-white py-12">
+      <section className="bg-white dark:bg-gray-900 py-12">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Prochains matchs
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -130,23 +130,23 @@ export default function LivePage() {
                 <Link
                   key={match.id}
                   href={`/match/${match.slug}`}
-                  className="block rounded-xl border border-gray-200 p-5 hover:border-primary hover:shadow-md transition-all"
+                  className="block rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-primary hover:shadow-md transition-all"
                 >
                   <div className="text-xs text-gray-500 mb-3">
                     {formatDate(match.date)} · {formatTime(match.time)}
                   </div>
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2 text-sm font-semibold">
-                      <span className="text-lg">{home?.flag}</span>
+                      <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag}</span>
                       <span>{home?.name ?? match.homeTeamId}</span>
                     </div>
-                    <span className="text-xs text-gray-400 font-medium">VS</span>
+                    <span className="text-xs text-gray-500 font-medium">VS</span>
                     <div className="flex items-center gap-2 text-sm font-semibold">
                       <span>{away?.name ?? match.awayTeamId}</span>
-                      <span className="text-lg">{away?.flag}</span>
+                      <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag}</span>
                     </div>
                   </div>
-                  <div className="mt-2 text-xs text-gray-400">
+                  <div className="mt-2 text-xs text-gray-500">
                     {stadium?.name} · {stadium?.city}
                   </div>
                 </Link>
@@ -157,16 +157,16 @@ export default function LivePage() {
       </section>
 
       {/* Mock live match */}
-      <section className="bg-gray-50 py-12">
+      <section className="bg-gray-50 dark:bg-gray-800 py-12">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             Aperçu du suivi en direct
           </h2>
           <p className="text-gray-500 text-sm mb-6">
             Voici à quoi ressemblera le suivi pendant le tournoi
           </p>
 
-          <div className="rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden">
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg overflow-hidden">
             {/* Match header */}
             <div className="bg-primary text-white px-6 py-4">
               <div className="flex items-center justify-between text-xs text-gray-300 mb-3">
@@ -183,7 +183,7 @@ export default function LivePage() {
                 </div>
                 <div className="flex items-baseline gap-3">
                   <span className="text-5xl font-extrabold tabular-nums">2</span>
-                  <span className="text-2xl text-gray-400">-</span>
+                  <span className="text-2xl text-gray-500">-</span>
                   <span className="text-5xl font-extrabold tabular-nums">1</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
@@ -213,19 +213,19 @@ export default function LivePage() {
                       evt.side === "center" ? "justify-center text-gray-500 font-medium" : ""
                     }`}
                   >
-                    <span className="w-10 text-right text-xs font-mono text-gray-400">
+                    <span className="w-10 text-right text-xs font-mono text-gray-500">
                       {evt.minute}
                     </span>
                     <span>{evt.icon}</span>
-                    <span className="text-gray-800">{evt.text}</span>
+                    <span className="text-gray-800 dark:text-gray-200">{evt.text}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Demo badge */}
-            <div className="border-t border-dashed border-gray-200 bg-gray-50 px-6 py-3 text-center">
-              <span className="text-xs text-gray-400 font-medium">
+            <div className="border-t border-dashed border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 px-6 py-3 text-center">
+              <span className="text-xs text-gray-500 font-medium">
                 ⚠️ Exemple fictif — Les vrais scores seront disponibles le 11 juin 2026
               </span>
             </div>

@@ -11,7 +11,7 @@ export function TeamCard({ team }: TeamCardProps) {
       href={`/equipe/${team.slug}`}
       className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
     >
-      <span className="text-3xl">{team.flag}</span>
+      <span className="text-3xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
       <div className="min-w-0 flex-1">
         <h3 className="truncate font-semibold text-gray-900">{team.name}</h3>
         <p className="text-sm text-gray-500">

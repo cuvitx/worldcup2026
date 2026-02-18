@@ -99,7 +99,7 @@ export default function FaqPage() {
                     <h3 className="text-base font-semibold pr-4">
                       {item.question.fr}
                     </h3>
-                    <span className="shrink-0 text-gray-400 group-open:rotate-180 transition-transform">
+                    <span className="shrink-0 text-gray-500 group-open:rotate-180 transition-transform">
                       <svg
                         width="20"
                         height="20"

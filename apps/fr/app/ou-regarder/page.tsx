@@ -76,39 +76,39 @@ export default function OuRegarderPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Où regarder les matchs</li>
+            <li className="text-gray-900 dark:text-gray-100 font-medium">Où regarder les matchs</li>
           </ol>
         </div>
       </nav>
 
       <main className="mx-auto max-w-7xl px-4 py-8">
-        <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-2">
+        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
           Où regarder la Coupe du Monde 2026
         </h1>
-        <p className="text-gray-600 mb-8 max-w-3xl">
+        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
           Toutes les infos pour ne rater aucun match du Mondial 2026 : chaînes TV, streaming légal,
           décalage horaire et fan zones en France.
         </p>
 
         {/* TV Channels */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">📺 Chaînes TV en France</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">📺 Chaînes TV en France</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {tvChannels.map((ch) => (
-              <div key={ch.name} className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md transition">
+              <div key={ch.name} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition">
                 <div className="text-3xl mb-2">{ch.logo}</div>
-                <h3 className="text-xl font-bold text-gray-900">{ch.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{ch.name}</h3>
                 <span className={`inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded ${
                   ch.type === "Gratuit (TNT)" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"
                 }`}>
                   {ch.type}
                 </span>
-                <p className="text-gray-600 mt-3 text-sm">{ch.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 mt-3 text-sm">{ch.description}</p>
                 <p className="text-primary font-semibold text-sm mt-2">{ch.matchCount}</p>
               </div>
             ))}
@@ -117,17 +117,17 @@ export default function OuRegarderPage() {
 
         {/* Streaming */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">💻 Streaming légal</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">💻 Streaming légal</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {streamingPlatforms.map((p) => (
-              <div key={p.name} className="bg-white rounded-xl border border-gray-200 p-5">
+              <div key={p.name} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-gray-900">{p.name}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">{p.name}</h3>
                   {p.free && (
                     <span className="text-xs font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">Gratuit</span>
                   )}
                 </div>
-                <p className="text-gray-600 text-sm">{p.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">{p.description}</p>
                 <a
                   href={p.url}
                   target="_blank"
@@ -143,27 +143,27 @@ export default function OuRegarderPage() {
 
         {/* Time Zones */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">🕐 Décalage horaire avec la France</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🕐 Décalage horaire avec la France</h2>
           <p className="text-gray-600 mb-4">
             La Coupe du Monde 2026 se déroule aux États-Unis, au Canada et au Mexique.
             En été (heure d'été française, CEST = UTC+2), voici les décalages horaires :
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm bg-white rounded-xl border border-gray-200">
-              <thead className="bg-gray-50">
+            <table className="w-full text-sm bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Ville hôte</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Fuseau</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Décalage</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Exemple</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Ville hôte</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Fuseau</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Décalage</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Exemple</th>
                 </tr>
               </thead>
               <tbody>
                 {timeZones.map((tz) => (
-                  <tr key={tz.city} className="border-t border-gray-100">
-                    <td className="px-4 py-3 font-medium text-gray-900">{tz.city}</td>
-                    <td className="px-4 py-3 text-gray-600">{tz.utcOffset}</td>
-                    <td className="px-4 py-3 text-gray-600">{tz.frDiff}</td>
+                  <tr key={tz.city} className="border-t border-gray-100 dark:border-gray-700">
+                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">{tz.city}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{tz.utcOffset}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{tz.frDiff}</td>
                     <td className="px-4 py-3 text-gray-500 text-xs">{tz.example}</td>
                   </tr>
                 ))}
@@ -174,24 +174,24 @@ export default function OuRegarderPage() {
 
         {/* Typical Schedule */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">⏰ Horaires types des matchs (côte Est US → France)</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">⏰ Horaires types des matchs (côte Est US → France)</h2>
           <p className="text-gray-600 mb-4">
             La plupart des matchs de la phase de groupes se joueront sur la côte Est américaine (EDT).
             Voici les créneaux habituels convertis en heure française :
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm bg-white rounded-xl border border-gray-200">
-              <thead className="bg-gray-50">
+            <table className="w-full text-sm bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Heure locale (EDT)</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Heure en France (CEST)</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Note</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Heure locale (EDT)</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Heure en France (CEST)</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Note</th>
                 </tr>
               </thead>
               <tbody>
                 {typicalSchedule.map((s) => (
-                  <tr key={s.local} className="border-t border-gray-100">
-                    <td className="px-4 py-3 font-mono font-semibold text-gray-900">{s.local}</td>
+                  <tr key={s.local} className="border-t border-gray-100 dark:border-gray-700">
+                    <td className="px-4 py-3 font-mono font-semibold text-gray-900 dark:text-gray-100">{s.local}</td>
                     <td className="px-4 py-3 font-mono font-semibold text-primary">{s.france}</td>
                     <td className="px-4 py-3 text-gray-500 text-sm">{s.note}</td>
                   </tr>
@@ -199,7 +199,7 @@ export default function OuRegarderPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+          <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg text-sm text-amber-800 dark:text-amber-200">
             <p className="font-semibold">💡 Bon à savoir</p>
             <p>
               Les matchs de la France seront programmés en priorité sur des créneaux accessibles
@@ -210,22 +210,22 @@ export default function OuRegarderPage() {
 
         {/* Fan Zones */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">🎉 Bars & Fan Zones en France</h2>
-          <div className="bg-gray-50 rounded-xl border border-gray-200 p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🎉 Bars & Fan Zones en France</h2>
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
             <div className="flex items-start gap-4">
               <div className="text-4xl">🏟️</div>
               <div>
-                <h3 className="font-bold text-gray-900 text-lg">Fan zones officielles</h3>
-                <p className="text-gray-600 mt-1">
+                <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">Fan zones officielles</h3>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">
                   Les fan zones officielles en France seront annoncées prochainement par les municipalités.
                   Les grandes villes (Paris, Lyon, Marseille, Bordeaux, Lille...) proposeront très probablement
                   des écrans géants et des animations.
                 </p>
-                <p className="text-gray-600 mt-3">
+                <p className="text-gray-600 dark:text-gray-400 mt-3">
                   En attendant, de nombreux bars sportifs retransmettront les matchs.
                   Pensez à réserver vos places à l'avance pour les matchs de la France !
                 </p>
-                <p className="text-sm text-gray-400 mt-3 italic">
+                <p className="text-sm text-gray-500 mt-3 italic">
                   Cette section sera mise à jour dès l'annonce officielle des fan zones.
                 </p>
               </div>
@@ -235,8 +235,8 @@ export default function OuRegarderPage() {
 
         {/* CTA */}
         <div className="p-6 bg-primary/5 rounded-xl text-center">
-          <p className="text-lg font-semibold text-gray-900 mb-2">Envie de parier sur les matchs ?</p>
-          <p className="text-gray-600 mb-4">Comparez les cotes des meilleurs bookmakers français pour la CDM 2026.</p>
+          <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Envie de parier sur les matchs ?</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">Comparez les cotes des meilleurs bookmakers français pour la CDM 2026.</p>
           <Link
             href="/comparateur-cotes"
             className="inline-block bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"

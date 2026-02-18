@@ -86,9 +86,9 @@ export default async function PlayerPage({ params }: PageProps) {
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center gap-6">
-            {team && <span className="text-6xl">{team.flag}</span>}
+            {team && <span className="text-6xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>}
             <div>
-              <p className="text-sm text-gray-400 uppercase tracking-wide">
+              <p className="text-sm text-gray-500 uppercase tracking-wide">
                 {positionLabels[player.position] ?? player.position}
                 {player.number ? ` | #${player.number}` : ""}
               </p>
@@ -215,7 +215,7 @@ export default async function PlayerPage({ params }: PageProps) {
                   href={`/equipe/${team.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
                 >
-                  <span className="text-2xl">{team.flag}</span>
+                  <span className="text-2xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                   <div>
                     <p className="font-semibold">{team.name}</p>
                     <p className="text-sm text-gray-500">

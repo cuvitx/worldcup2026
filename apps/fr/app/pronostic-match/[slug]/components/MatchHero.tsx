@@ -34,7 +34,7 @@ export function MatchHero({
         </p>
         <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
           <div className="flex flex-col items-center">
-            <span className="text-6xl">{home?.flag ?? "\ud83c\udff3\ufe0f"}</span>
+            <span className="text-6xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "\ud83c\udff3\ufe0f"}</span>
             {home ? (
               <Link
                 href={`/equipe/${home.slug}`}
@@ -54,7 +54,7 @@ export function MatchHero({
             <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-6xl">{away?.flag ?? "\ud83c\udff3\ufe0f"}</span>
+            <span className="text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "\ud83c\udff3\ufe0f"}</span>
             {away ? (
               <Link
                 href={`/equipe/${away.slug}`}

@@ -18,9 +18,9 @@ export function GroupCard({ group, teams }: GroupCardProps) {
       <ul className="space-y-2">
         {teams.map((team) => (
           <li key={team.id} className="flex items-center gap-2 text-sm">
-            <span className="text-lg">{team.flag}</span>
+            <span className="text-lg" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <span>{team.name}</span>
-            <span className="ml-auto text-xs text-gray-400">
+            <span className="ml-auto text-xs text-gray-500">
               #{team.fifaRanking}
             </span>
           </li>

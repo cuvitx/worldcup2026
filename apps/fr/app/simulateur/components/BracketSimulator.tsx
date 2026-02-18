@@ -298,7 +298,7 @@ export function BracketSimulator() {
 
   if (!loaded) {
     return (
-      <div className="text-center py-20 text-gray-400">
+      <div className="text-center py-20 text-gray-500">
         Chargement du simulateur…
       </div>
     );
@@ -309,7 +309,7 @@ export function BracketSimulator() {
       {/* Champion banner */}
       <div className="mb-6 text-center">
         {champion ? (
-          <div className="inline-flex items-center gap-3 bg-yellow-50 border-2 border-yellow-400 rounded-xl px-6 py-4 text-xl font-bold text-yellow-800">
+          <div className="inline-flex items-center gap-3 bg-yellow-50 dark:bg-yellow-900/30 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl px-6 py-4 text-xl font-bold text-yellow-800 dark:text-yellow-200">
             🏆 Votre champion : {champion.flag} {champion.name}
           </div>
         ) : (
@@ -323,7 +323,7 @@ export function BracketSimulator() {
       <div className="mb-6 text-center">
         <button
           onClick={reset}
-          className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-sm font-medium text-gray-700 transition-colors"
+          className="px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors"
         >
           🔄 Réinitialiser
         </button>
@@ -461,7 +461,7 @@ function RoundColumn({
 
   return (
     <div className="flex flex-col items-center min-w-[150px]">
-      <div className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3 bg-gray-100 px-3 py-1 rounded-full">
+      <div className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
         {label}
       </div>
       <div
@@ -541,7 +541,7 @@ function MatchCard({
 
   return (
     <div
-      className={`rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden ${
+      className={`rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden ${
         compact ? "text-sm" : ""
       }`}
     >
@@ -552,7 +552,7 @@ function MatchCard({
         compact={compact}
         disabled={!team1 || !team2}
       />
-      <div className="border-t border-gray-100" />
+      <div className="border-t border-gray-100 dark:border-gray-700" />
       <TeamRow
         team={team2}
         isWinner={winner === team2?.id}
@@ -599,11 +599,11 @@ function TeamRow({
         compact ? "px-2 py-1.5" : "px-3 py-2"
       } ${
         isWinner
-          ? "bg-emerald-100 text-emerald-900 font-bold"
-          : "hover:bg-gray-50"
+          ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 font-bold"
+          : "hover:bg-gray-50 dark:hover:bg-gray-700"
       } ${disabled ? "cursor-default opacity-60" : "cursor-pointer"}`}
     >
-      <span className="text-base leading-none">{team.flag}</span>
+      <span className="text-base leading-none" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
       <span className={compact ? "text-xs" : "text-sm"}>{team.name}</span>
       {isWinner && <span className="ml-auto text-emerald-600 text-xs">✓</span>}
     </button>

@@ -145,7 +145,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               <p className="mt-2 text-xl text-gray-300">
                 Pronostic &amp; Cotes CDM 2026
               </p>
-              <p className="mt-1 text-gray-400">
+              <p className="mt-1 text-gray-500">
                 {team.confederation} &middot; Classement FIFA #
                 {team.fifaRanking} &middot; Groupe {team.group}
               </p>
@@ -177,7 +177,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     style={{ width: `${eloPercent}%` }}
                   />
                 </div>
-                <div className="mt-1 flex justify-between text-xs text-gray-400">
+                <div className="mt-1 flex justify-between text-xs text-gray-500">
                   <span>{eloMin}</span>
                   <span>{eloMax}</span>
                 </div>
@@ -233,7 +233,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 flex items-center gap-2 text-xs text-gray-400">
+                <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
                   <span className="inline-block h-3 w-3 rounded-full bg-primary" />
                   <span>Tour intermediaire</span>
                   <span className="ml-2 inline-block h-3 w-3 rounded-full bg-gold" />
@@ -256,7 +256,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <p className="text-4xl font-extrabold text-gold">
                       {estimatedOutrightOdds(prediction.winnerProb)}
                     </p>
-                    <p className="text-xs text-gray-400 mt-1">cote decimale estimee</p>
+                    <p className="text-xs text-gray-500 mt-1">cote decimale estimee</p>
                   </div>
                   <div className="rounded-lg bg-primary/5 border border-primary/10 p-4 text-center">
                     <p className="text-sm text-gray-500 mb-1">
@@ -265,7 +265,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <p className="text-4xl font-extrabold text-primary">
                       {formatProb(prediction.winnerProb)}
                     </p>
-                    <p className="text-xs text-gray-400 mt-1">selon le modele ELO</p>
+                    <p className="text-xs text-gray-500 mt-1">selon le modele ELO</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
@@ -294,7 +294,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 text-xs text-gray-400">
+                <p className="mt-4 text-xs text-gray-500">
                   Les cotes sont calculées a partir du modele ELO avec une marge
                   bookmaker integree (~8%). Elles sont indicatives et peuvent
                   differer des cotes réelles proposees par les opérateurs.
@@ -530,7 +530,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   );
                 })}
               </div>
-              <p className="mt-4 text-xs text-gray-400 text-center">
+              <p className="mt-4 text-xs text-gray-500 text-center">
                 Les cotes sont estimees et susceptibles d&apos;evoluer. Pariez
                 responsablement. 18+. Les jeux d&apos;argent et de hasard
                 peuvent être dangereux : pertes d&apos;argent, conflits
@@ -618,7 +618,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                         <span>{t.flag}</span>
                         <span className="font-medium">{t.name}</span>
                       </div>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-gray-500">
                         #{t.fifaRanking}
                       </span>
                     </Link>
@@ -694,7 +694,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>
-              <p className="mt-2 text-xs text-gray-400 text-center">
+              <p className="mt-2 text-xs text-gray-500 text-center">
                 {featuredBookmaker.bonusDetail}
               </p>
             </div>

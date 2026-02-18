@@ -87,7 +87,7 @@ export default async function TeamPage({ params }: PageProps) {
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center gap-6">
-            <span className="text-7xl">{team.flag}</span>
+            <span className="text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <div>
               <h1 className="text-4xl font-extrabold">{team.name}</h1>
               <p className="mt-2 text-gray-300">
@@ -208,7 +208,7 @@ export default async function TeamPage({ params }: PageProps) {
                         <span className="text-sm text-gray-500 w-20 shrink-0">
                           {match.date.slice(5)}
                         </span>
-                        <span className="text-lg">{opponent?.flag ?? "🏳️"}</span>
+                        <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? "🏳️"}</span>
                         <div className="flex-1">
                           <p className="font-semibold">
                             {isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}
@@ -240,7 +240,7 @@ export default async function TeamPage({ params }: PageProps) {
                     key={opponent.id}
                     className="flex items-center gap-3 rounded-lg border border-gray-200 p-3"
                   >
-                    <span className="text-2xl">{opponent.flag}</span>
+                    <span className="text-2xl" role="img" aria-label={`Drapeau de ${opponent.name}`}>{opponent.flag}</span>
                     <div className="flex-1 min-w-0">
                       <Link href={`/equipe/${opponent.slug}`} className="font-semibold hover:text-accent">
                         {opponent.name}
@@ -420,7 +420,7 @@ export default async function TeamPage({ params }: PageProps) {
                       href={`/equipe/${t.slug}`}
                       className="flex items-center gap-2 text-sm hover:text-accent"
                     >
-                      <span>{t.flag}</span>
+                      <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
                       <span>{t.name}</span>
                     </Link>
                   </li>

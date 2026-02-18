@@ -155,7 +155,7 @@ export default async function GuidePage({ params }: PageProps) {
                   );
                 })}
               </div>
-              <p className="mt-4 text-xs text-gray-400 text-center">
+              <p className="mt-4 text-xs text-gray-500 text-center">
                 18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement.
               </p>
             </section>
@@ -221,7 +221,7 @@ export default async function GuidePage({ params }: PageProps) {
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>
-              <p className="mt-2 text-xs text-gray-400 text-center">{featuredBookmaker.bonusDetail}</p>
+              <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>
             </div>
 
             {/* Related Bookmakers */}

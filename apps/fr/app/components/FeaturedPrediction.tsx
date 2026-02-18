@@ -28,8 +28,8 @@ export function FeaturedPrediction() {
             ⭐ Pronostic vedette
           </p>
           <h3 className="mb-6 text-xl font-bold text-gray-900 dark:text-white md:text-2xl">
-            {prediction.home.flag} {prediction.home.name} vs{" "}
-            {prediction.away.name} {prediction.away.flag}
+            <span role="img" aria-label={`Drapeau de ${prediction.home.name}`}>{prediction.home.flag}</span> {prediction.home.name} vs{" "}
+            {prediction.away.name} <span role="img" aria-label={`Drapeau de ${prediction.away.name}`}>{prediction.away.flag}</span>
           </h3>
 
           <div className="space-y-3">

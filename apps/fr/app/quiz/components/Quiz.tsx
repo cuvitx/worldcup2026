@@ -102,7 +102,7 @@ export default function Quiz() {
     return (
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold text-center mb-2">Choisissez une catégorie</h2>
-        <p className="text-center text-gray-400 mb-6">ou jouez avec toutes les questions</p>
+        <p className="text-center text-gray-500 mb-6">ou jouez avec toutes les questions</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <button
@@ -111,7 +111,7 @@ export default function Quiz() {
           >
             <span className="text-3xl">🌍</span>
             <h3 className="text-lg font-semibold mt-2">Toutes les catégories</h3>
-            <p className="text-sm text-gray-400">{questions.length} questions</p>
+            <p className="text-sm text-gray-500">{questions.length} questions</p>
           </button>
 
           {(Object.keys(categoryLabels) as Question["category"][]).map((cat) => (
@@ -122,12 +122,12 @@ export default function Quiz() {
             >
               <span className="text-3xl">{categoryLabels[cat].emoji}</span>
               <h3 className="text-lg font-semibold mt-2">{categoryLabels[cat].label}</h3>
-              <p className="text-sm text-gray-400">{categoryCounts[cat] || 0} questions</p>
+              <p className="text-sm text-gray-500">{categoryCounts[cat] || 0} questions</p>
             </button>
           ))}
         </div>
 
-        <label className="flex items-center justify-center gap-2 text-sm text-gray-400 cursor-pointer">
+        <label className="flex items-center justify-center gap-2 text-sm text-gray-500 cursor-pointer">
           <input
             type="checkbox"
             checked={timerEnabled}
@@ -183,7 +183,7 @@ export default function Quiz() {
   return (
     <div className="max-w-2xl mx-auto">
       {/* Progress bar */}
-      <div className="flex items-center justify-between text-sm text-gray-400 mb-2">
+      <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
         <span>
           Question {currentIndex + 1}/{gameQuestions.length}
         </span>
@@ -224,7 +224,7 @@ export default function Quiz() {
 
           return (
             <button key={idx} onClick={() => handleAnswer(idx)} disabled={selected !== null} className={classes}>
-              <span className="mr-2 font-bold text-gray-400">{String.fromCharCode(65 + idx)}.</span>
+              <span className="mr-2 font-bold text-gray-500">{String.fromCharCode(65 + idx)}.</span>
               {opt}
             </button>
           );

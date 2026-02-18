@@ -69,17 +69,17 @@ export default function AujourdhuiPage() {
                     {match.time}
                   </span>
                   <div className="flex items-center gap-2 flex-1 min-w-0">
-                    <span className="text-lg">{home?.flag ?? "\u{1F3F3}\u{FE0F}"}</span>
+                    <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "\u{1F3F3}\u{FE0F}"}</span>
                     <span className="font-medium truncate">
                       {home?.name ?? "A determiner"}
                     </span>
                   </div>
-                  <span className="text-xs text-gray-400 shrink-0">vs</span>
+                  <span className="text-xs text-gray-500 shrink-0">vs</span>
                   <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
                     <span className="font-medium truncate text-right">
                       {away?.name ?? "A determiner"}
                     </span>
-                    <span className="text-lg">{away?.flag ?? "\u{1F3F3}\u{FE0F}"}</span>
+                    <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "\u{1F3F3}\u{FE0F}"}</span>
                   </div>
                   {match.group && (
                     <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">
@@ -87,7 +87,7 @@ export default function AujourdhuiPage() {
                     </span>
                   )}
                   {stadium && (
-                    <span className="text-xs text-gray-400 hidden sm:block shrink-0 w-36 text-right truncate">
+                    <span className="text-xs text-gray-500 hidden sm:block shrink-0 w-36 text-right truncate">
                       {stadium.name}
                     </span>
                   )}
@@ -119,8 +119,8 @@ export default function AujourdhuiPage() {
                       {matchDate} a {nextMatch.time} UTC
                     </p>
                     <p className="font-semibold text-gray-900">
-                      {home?.flag} {home?.name ?? "A determiner"} vs{" "}
-                      {away?.name ?? "A determiner"} {away?.flag}
+                      <span role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag}</span> {home?.name ?? "A determiner"} vs{" "}
+                      {away?.name ?? "A determiner"} <span role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag}</span>
                     </p>
                     {stadium && (
                       <p className="text-sm text-gray-500 mt-1">

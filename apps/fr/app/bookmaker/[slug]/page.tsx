@@ -77,7 +77,7 @@ export default async function BookmakerPage({ params }: PageProps) {
             <div className="flex-1">
               <h1 className="text-4xl font-extrabold">Avis {bk.name} 2026</h1>
               <p className="mt-2 text-xl text-gray-300">{bk.tagline}</p>
-              <p className="mt-1 text-gray-400">
+              <p className="mt-1 text-gray-500">
                 Fonde en {bk.foundedYear} &middot; Licence {bk.license}
               </p>
               <div className="flex items-center gap-2 mt-3">
@@ -186,7 +186,7 @@ export default async function BookmakerPage({ params }: PageProps) {
               >
                 S&apos;inscrire sur {bk.name}
               </a>
-              <p className="mt-3 text-xs text-gray-400">
+              <p className="mt-3 text-xs text-gray-500">
                 18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement. 09 74 75 13 13.
               </p>
             </section>

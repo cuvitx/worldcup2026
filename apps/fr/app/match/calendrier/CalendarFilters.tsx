@@ -114,15 +114,15 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
   const reset = () => { setTeam(""); setGroup(""); setStadium(""); setPhase(""); };
 
-  const selectClass = "rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none";
+  const selectClass = "rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-accent focus:ring-1 focus:ring-accent outline-none";
 
   return (
     <>
       {/* Filters */}
-      <section className="border-b border-gray-200 bg-gray-50 py-4">
+      <section className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 py-4">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-sm font-semibold text-gray-600">Filtres :</span>
+            <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Filtres :</span>
 
             <select value={team} onChange={(e) => setTeam(e.target.value)} className={selectClass}>
               <option value="">Toutes les équipes</option>
@@ -155,7 +155,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
             {hasFilters && (
               <button
                 onClick={reset}
-                className="rounded-lg bg-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 transition-colors"
+                className="rounded-lg bg-gray-200 dark:bg-gray-700 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
                 ✕ Réinitialiser
               </button>
@@ -170,14 +170,14 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       </section>
 
       {/* Quick nav */}
-      <section className="border-b border-gray-200 bg-white py-4 sticky top-0 z-10">
+      <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 sticky top-0 z-10">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-wrap gap-2">
             {Array.from(matchesByStage.entries()).map(([stage, sm]) => (
               <a
                 key={stage}
                 href={`#${stage}`}
-                className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors"
+                className="rounded-full bg-gray-100 dark:bg-gray-800 px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent/10 hover:text-accent transition-colors"
               >
                 {stageLabels[stage]} ({sm.length})
               </a>
@@ -201,7 +201,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
             return (
               <section key={stage} id={stage}>
-                <h2 className="mb-6 text-2xl font-bold text-gray-900">
+                <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
                   {stageLabels[stage]}
                 </h2>
                 <div className="space-y-6">
@@ -224,7 +224,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                             <Link
                               key={match.id}
                               href={`/match/${match.slug}`}
-                              className="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                              className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-colors hover:border-accent hover:bg-accent/5"
                             >
                               <span className="text-sm text-gray-500 w-12 text-center shrink-0">
                                 {match.time}
@@ -233,18 +233,18 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                                 <span className="text-lg">{home?.flag ?? "🏳️"}</span>
                                 <span className="font-medium truncate">{home?.name ?? "À déterminer"}</span>
                               </div>
-                              <span className="text-xs text-gray-400 shrink-0">vs</span>
+                              <span className="text-xs text-gray-500 shrink-0">vs</span>
                               <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
                                 <span className="font-medium truncate text-right">{away?.name ?? "À déterminer"}</span>
                                 <span className="text-lg">{away?.flag ?? "🏳️"}</span>
                               </div>
                               {match.group && (
-                                <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">
+                                <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-gray-500 dark:text-gray-400 shrink-0">
                                   Gr. {match.group}
                                 </span>
                               )}
                               {stad && (
-                                <span className="text-xs text-gray-400 hidden sm:block shrink-0 w-32 text-right truncate">
+                                <span className="text-xs text-gray-500 hidden sm:block shrink-0 w-32 text-right truncate">
                                   {stad.name}
                                 </span>
                               )}

@@ -40,21 +40,21 @@ export default function ComparateurCotesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Comparateur de cotes</li>
+            <li className="text-gray-900 dark:text-gray-100 font-medium">Comparateur de cotes</li>
           </ol>
         </div>
       </nav>
 
       <main className="mx-auto max-w-7xl px-4 py-8">
-        <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-2">
+        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
           Comparateur de cotes – Coupe du Monde 2026
         </h1>
-        <p className="text-gray-600 mb-6 max-w-3xl">
+        <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-3xl">
           Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de groupes du Mondial 2026.
           Trouvez la meilleure cote pour chaque rencontre.
         </p>
@@ -66,7 +66,7 @@ export default function ComparateurCotesPage() {
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
               selectedGroup === "all"
                 ? "bg-primary text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
             }`}
           >
             Tous les groupes
@@ -78,7 +78,7 @@ export default function ComparateurCotesPage() {
               className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
                 selectedGroup === g
                   ? "bg-primary text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               }`}
             >
               Groupe {g}
@@ -91,25 +91,25 @@ export default function ComparateurCotesPage() {
           {filtered.map((match) => {
             const best = getBestOdds(match);
             return (
-              <div key={match.matchId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+              <div key={match.matchId} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                 {/* Match header */}
-                <div className="bg-gray-50 px-4 py-3 flex items-center justify-between border-b border-gray-200">
+                <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-600">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">
                       Groupe {match.group}
                     </span>
-                    <span className="font-semibold text-gray-900">
+                    <span className="font-semibold text-gray-900 dark:text-gray-100">
                       {match.homeFlag} {match.homeTeam} vs {match.awayTeam} {match.awayFlag}
                     </span>
                   </div>
-                  <span className="text-sm text-gray-500">{match.date} 2026</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">{match.date} 2026</span>
                 </div>
 
                 {/* Odds table */}
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="text-gray-500 text-xs uppercase">
+                      <tr className="text-gray-500 dark:text-gray-400 text-xs uppercase">
                         <th className="px-4 py-2 text-left font-medium">Bookmaker</th>
                         <th className="px-4 py-2 text-center font-medium">1 ({match.homeTeam})</th>
                         <th className="px-4 py-2 text-center font-medium">N (Nul)</th>
@@ -119,20 +119,20 @@ export default function ComparateurCotesPage() {
                     </thead>
                     <tbody>
                       {match.odds.map((o) => (
-                        <tr key={o.bookmaker} className="border-t border-gray-100 hover:bg-gray-50">
-                          <td className="px-4 py-2.5 font-medium text-gray-900">{o.bookmaker}</td>
+                        <tr key={o.bookmaker} className="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
+                          <td className="px-4 py-2.5 font-medium text-gray-900 dark:text-gray-100">{o.bookmaker}</td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.home === best.home ? "text-green-600 bg-green-50" : "text-gray-700"
+                            o.home === best.home ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.home.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.draw === best.draw ? "text-green-600 bg-green-50" : "text-gray-700"
+                            o.draw === best.draw ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.draw.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.away === best.away ? "text-green-600 bg-green-50" : "text-gray-700"
+                            o.away === best.away ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.away.toFixed(2)}
                           </td>
@@ -157,7 +157,7 @@ export default function ComparateurCotesPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+        <div className="mt-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg text-sm text-amber-800 dark:text-amber-200">
           <p className="font-semibold mb-1">⚠️ Avertissement</p>
           <p>
             Cotes indicatives, susceptibles de varier. Les cotes affichées sont fournies à titre informatif et peuvent

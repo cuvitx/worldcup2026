@@ -64,7 +64,7 @@ export default function TeamsPage() {
                       <td className="py-3 font-medium">{team.fifaRanking}</td>
                       <td className="py-3">
                         <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent">
-                          <span>{team.flag}</span>
+                          <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                           <span className="font-medium">{team.name}</span>
                           {team.isHost && <span className="text-xs text-gold">(Hote)</span>}
                         </Link>
@@ -81,7 +81,7 @@ export default function TeamsPage() {
                               : `${(pred.winnerProb * 100).toFixed(2)}%`}
                           </span>
                         ) : (
-                          <span className="text-gray-400">—</span>
+                          <span className="text-gray-500">—</span>
                         )}
                       </td>
                       <td className="py-3 text-right">
@@ -113,7 +113,7 @@ export default function TeamsPage() {
                       href={`/equipe/${team.slug}`}
                       className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                     >
-                      <span className="text-2xl">{team.flag}</span>
+                      <span className="text-2xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                       <div>
                         <p className="font-semibold">{team.name}</p>
                         <p className="text-xs text-gray-500">#{team.fifaRanking} FIFA &middot; Groupe {team.group}</p>

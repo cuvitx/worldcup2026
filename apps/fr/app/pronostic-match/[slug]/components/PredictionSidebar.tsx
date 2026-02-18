@@ -92,14 +92,14 @@ export function PredictionSidebar({
               href={`/equipe/${home.slug}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
             >
-              <span className="text-xl">{home.flag}</span>
+              <span className="text-xl" role="img" aria-label={`Drapeau de ${home.name}`}>{home.flag}</span>
               <span className="font-medium">{home.name}</span>
             </Link>
             <Link
               href={`/equipe/${away.slug}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
             >
-              <span className="text-xl">{away.flag}</span>
+              <span className="text-xl" role="img" aria-label={`Drapeau de ${away.name}`}>{away.flag}</span>
               <span className="font-medium">{away.name}</span>
             </Link>
             <Link
@@ -188,7 +188,7 @@ export function PredictionSidebar({
         >
           Parier sur {featuredBookmaker.name} &rarr;
         </a>
-        <p className="mt-2 text-xs text-gray-400 text-center">
+        <p className="mt-2 text-xs text-gray-500 text-center">
           18+ | Pariez responsablement
         </p>
       </div>
@@ -213,7 +213,7 @@ export function PredictionSidebar({
                     {rmAway?.name ?? "TBD"}{" "}
                     {rmAway?.flag ?? "\ud83c\udff3\ufe0f"}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-500">
                     {rm.date}
                   </span>
                 </Link>

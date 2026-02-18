@@ -67,7 +67,7 @@ export default function ButeursPage() {
                   const team = player ? teamsById[player.teamId] : undefined;
                   return (
                     <tr key={so.playerId} className="hover:bg-gray-50">
-                      <td className="py-3 text-gray-400 font-medium">{i + 1}</td>
+                      <td className="py-3 text-gray-500 font-medium">{i + 1}</td>
                       <td className="py-3">
                         {player && (
                           <Link href={`/buteur/${player.slug}`} className="font-medium hover:text-accent">
@@ -78,7 +78,7 @@ export default function ButeursPage() {
                       <td className="py-3">
                         {team && (
                           <Link href={`/equipe/${team.slug}`} className="flex items-center gap-1 hover:text-accent">
-                            <span>{team.flag}</span>
+                            <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             <span className="text-gray-600">{team.name}</span>
                           </Link>
                         )}
@@ -119,7 +119,7 @@ export default function ButeursPage() {
                   </div>
                   <div className="text-right">
                     <p className="text-sm font-bold text-primary">{so.expectedGoals} buts att.</p>
-                    <p className="text-xs text-gray-400">Cote {so.anytimeScorerOdds}</p>
+                    <p className="text-xs text-gray-500">Cote {so.anytimeScorerOdds}</p>
                   </div>
                 </Link>
               );
@@ -139,7 +139,7 @@ export default function ButeursPage() {
                 return (
                   <div key={team.id} className="rounded-lg border border-gray-200 p-4">
                     <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-accent">
-                      <span className="text-xl">{team.flag}</span>
+                      <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                       <h3 className="font-bold">{team.name}</h3>
                     </Link>
                     <ul className="space-y-1">
@@ -184,7 +184,7 @@ export default function ButeursPage() {
               </a>
             ))}
           </div>
-          <p className="mt-4 text-xs text-gray-400">
+          <p className="mt-4 text-xs text-gray-500">
             18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement.
           </p>
         </section>

@@ -21,9 +21,9 @@ export function FeaturedBookmaker() {
   const bk = featuredBookmaker;
 
   return (
-    <section className="border-t border-gray-200 bg-white py-12">
+    <section className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-12">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 className="mb-6 text-2xl font-bold text-gray-900">
+        <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
           Meilleur bonus du moment
         </h2>
         <div className="mx-auto max-w-2xl rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-50 to-white p-6 shadow-md dark:from-yellow-950/20 dark:to-slate-800 dark:border-yellow-600/40">
@@ -55,7 +55,7 @@ export function FeaturedBookmaker() {
               Ouvrir un compte →
             </a>
           </div>
-          <p className="mt-4 text-center text-xs text-gray-400">
+          <p className="mt-4 text-center text-xs text-gray-500">
             18+. Les jeux d&apos;argent sont interdits aux mineurs.
           </p>
         </div>

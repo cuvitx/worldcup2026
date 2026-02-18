@@ -75,7 +75,7 @@ export default function ParisSportifsPage() {
                     <p className="text-sm text-gray-500">{bk.tagline}</p>
                     <div className="flex items-center gap-1 mt-1">
                       <span className="text-sm text-gold">{"★".repeat(Math.round(avgRating))}</span>
-                      <span className="text-xs text-gray-400">{avgRating.toFixed(1)}/5</span>
+                      <span className="text-xs text-gray-500">{avgRating.toFixed(1)}/5</span>
                     </div>
                   </div>
                   <div className="flex-1 text-center">

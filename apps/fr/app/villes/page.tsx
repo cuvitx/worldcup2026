@@ -59,7 +59,7 @@ export default function CitiesPage() {
                       <p className="text-sm text-gray-500">
                         {city.state} &middot; {city.population.toLocaleString("fr-FR")} hab.
                       </p>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-gray-500">
                         {cityStadiums.length} stade{cityStadiums.length > 1 ? "s" : ""} : {cityStadiums.map((s) => s.name).join(", ")}
                       </p>
                     </Link>

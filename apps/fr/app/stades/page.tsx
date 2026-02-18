@@ -60,7 +60,7 @@ export default function StadiumsPage() {
                       <p className="text-sm text-gray-500">
                         {city?.name ?? stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
                       </p>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-gray-500">
                         {stadium.roofType === "retractable" ? "Toit retractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
                       </p>
                     </Link>

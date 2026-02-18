@@ -176,7 +176,7 @@ export default function HomePage() {
                 href={`/pronostic/${t.slug}`}
                 className="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
               >
-                <span className="text-4xl">{t.flag}</span>
+                <span className="text-4xl" role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
                 <div>
                   <p className="font-bold">Pronostic {t.name}</p>
                   <p className="text-sm text-gray-500">#{t.ranking} FIFA</p>

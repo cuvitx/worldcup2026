@@ -45,7 +45,7 @@ export function StickyCTA() {
           </a>
           <button
             onClick={dismiss}
-            className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            className="p-1 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
             aria-label="Fermer"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

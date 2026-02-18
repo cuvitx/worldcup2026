@@ -129,7 +129,7 @@ export default async function StadiumPage({ params }: PageProps) {
                         <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-lg">{home?.flag ?? "🏳️"}</span>
                         <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
-                        <span className="text-xs text-gray-400">vs</span>
+                        <span className="text-xs text-gray-500">vs</span>
                         <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
                         <span className="text-lg">{away?.flag ?? "🏳️"}</span>
                         <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">

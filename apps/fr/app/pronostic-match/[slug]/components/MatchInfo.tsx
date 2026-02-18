@@ -38,7 +38,7 @@ export function MatchInfo({
               >
                 {stadium.name}
               </Link>
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-xs text-gray-500 mt-0.5">
                 {stadium.capacity.toLocaleString("fr-FR")} places
               </p>
             </dd>
@@ -54,7 +54,7 @@ export function MatchInfo({
               >
                 {city.name}
               </Link>
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-xs text-gray-500 mt-0.5">
                 {stadium?.country}
               </p>
             </dd>

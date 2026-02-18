@@ -165,7 +165,7 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
   const team = teamId ? teamsById[teamId] : null;
   if (!team) {
     return (
-      <div className="flex items-center gap-2 px-3 py-2 text-sm text-gray-400 italic">
+      <div className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 italic">
         <span className="text-base">🏳️</span>
         <span>{label ?? "A determiner"}</span>
       </div>
@@ -178,7 +178,7 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
         isWinner ? "font-bold text-primary" : "text-gray-700"
       }`}
     >
-      <span className="text-base">{team.flag}</span>
+      <span className="text-base" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
       <span className="truncate">{team.name}</span>
       {isWinner && <span className="ml-auto text-xs text-green-600 font-semibold">&#10003;</span>}
     </Link>
@@ -221,7 +221,7 @@ function MatchCard({
           </div>
           <div className="px-3 py-1.5 text-xs text-gray-500 bg-white/60 flex justify-between">
             <span>{dateStr}</span>
-            <span className="text-gray-400">{match.slug}</span>
+            <span className="text-gray-500">{match.slug}</span>
           </div>
         </Link>
       ) : (
@@ -520,7 +520,7 @@ export default function BracketPage() {
                       <tr key={pred.teamId} className="hover:bg-gray-50">
                         <td className="py-2.5">
                           <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent">
-                            <span>{team.flag}</span>
+                            <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             <span className="font-medium">{team.name}</span>
                           </Link>
                         </td>

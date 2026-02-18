@@ -88,19 +88,19 @@ export default async function H2HPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
             <div className="flex flex-col items-center">
-              <span className="text-6xl">{team1.flag}</span>
+              <span className="text-6xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
               <Link href={`/equipe/${team1.slug}`} className="mt-2 text-2xl font-extrabold hover:text-gold">
                 {team1.name}
               </Link>
-              <p className="text-sm text-gray-400">#{team1.fifaRanking} FIFA</p>
+              <p className="text-sm text-gray-500">#{team1.fifaRanking} FIFA</p>
             </div>
             <span className="text-3xl font-bold text-gold">VS</span>
             <div className="flex flex-col items-center">
-              <span className="text-6xl">{team2.flag}</span>
+              <span className="text-6xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
               <Link href={`/equipe/${team2.slug}`} className="mt-2 text-2xl font-extrabold hover:text-gold">
                 {team2.name}
               </Link>
-              <p className="text-sm text-gray-400">#{team2.fifaRanking} FIFA</p>
+              <p className="text-sm text-gray-500">#{team2.fifaRanking} FIFA</p>
             </div>
           </div>
           {sameGroup && (
@@ -250,14 +250,14 @@ export default async function H2HPage({ params }: PageProps) {
                   href={`/equipe/${team1.slug}`}
                   className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
                 >
-                  <span className="text-xl">{team1.flag}</span>
+                  <span className="text-xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
                   <span className="font-medium">{team1.name}</span>
                 </Link>
                 <Link
                   href={`/equipe/${team2.slug}`}
                   className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
                 >
-                  <span className="text-xl">{team2.flag}</span>
+                  <span className="text-xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
                   <span className="font-medium">{team2.name}</span>
                 </Link>
               </div>
