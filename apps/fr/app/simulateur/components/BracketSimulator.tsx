@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
+import { ShareButtons } from "../../components/ShareButtons";
 import { teams as allTeams } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
 
@@ -309,9 +310,18 @@ export function BracketSimulator() {
       {/* Champion banner */}
       <div className="mb-6 text-center">
         {champion ? (
-          <div className="inline-flex items-center gap-3 bg-yellow-50 dark:bg-yellow-900/30 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl px-6 py-4 text-xl font-bold text-yellow-800 dark:text-yellow-200">
-            🏆 Votre champion : <span role="img" aria-label={`Drapeau de ${champion.name}`}>{champion.flag}</span> {champion.name}
-          </div>
+          <>
+            <div className="inline-flex items-center gap-3 bg-yellow-50 dark:bg-yellow-900/30 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl px-6 py-4 text-xl font-bold text-yellow-800 dark:text-yellow-200">
+              🏆 Votre champion : <span role="img" aria-label={`Drapeau de ${champion.name}`}>{champion.flag}</span> {champion.name}
+            </div>
+            <div className="mt-3">
+              <ShareButtons
+                url="https://www.coupe-du-monde-2026.fr/simulateur"
+                text={`Mon pronostic pour la CDM 2026 : ${champion.flag} ${champion.name} champion du monde ! 🏆 #CDM2026 #WorldCup2026`}
+                label="Partager mon bracket"
+              />
+            </div>
+          </>
         ) : (
           <p className="text-gray-500">
             Sélectionnez les vainqueurs pour simuler le tableau final.

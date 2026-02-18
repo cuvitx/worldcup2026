@@ -18,6 +18,7 @@ import {
 } from "@repo/data/affiliates";
 import CommunityVote from "../../components/CommunityVote";
 import Link from "next/link";
+import { ShareButtons } from "../../components/ShareButtons";
 import {
   MatchHero,
   PredictionOutcomes,
@@ -183,6 +184,15 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         awayName={awayName}
         dateFormatted={dateFormatted}
       />
+
+      {/* Share buttons */}
+      <div className="mx-auto max-w-7xl px-4 pt-4">
+        <ShareButtons
+          url={`https://www.coupe-du-monde-2026.fr/pronostic-match/${match.slug}`}
+          text={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! 🏆 #CDM2026 #WorldCup2026`}
+          label="Partager ce pronostic"
+        />
+      </div>
 
       {/* Main content */}
       <div className="mx-auto max-w-7xl px-4 py-8">
