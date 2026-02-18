@@ -65,7 +65,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
     return Array.from(ids)
       .map((id) => teamsById[id])
       .filter(Boolean)
-      .sort((a, b) => a.name.localeCompare(b.name, "fr"));
+      .sort((a, b) => a!.name.localeCompare(b!.name, "fr"));
   }, [matches, teamsById]);
 
   const groupOptions = useMemo(() => {
@@ -80,7 +80,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
     return Array.from(ids)
       .map((id) => stadiumsById[id])
       .filter(Boolean)
-      .sort((a, b) => a.name.localeCompare(b.name, "fr"));
+      .sort((a, b) => a!.name.localeCompare(b!.name, "fr"));
   }, [matches, stadiumsById]);
 
   const phaseOptions = useMemo(() => {
