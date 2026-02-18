@@ -26,7 +26,7 @@ export const stadiums: Stadium[] = [
     cityId: "dallas-fort-worth",
     country: "USA",
     capacity: 80000,
-    roofType: "rétractable",
+    roofType: "retractable",
     latitude: 32.7473,
     longitude: -97.0945,
     description:
@@ -54,7 +54,7 @@ export const stadiums: Stadium[] = [
     cityId: "atlanta",
     country: "USA",
     capacity: 71000,
-    roofType: "rétractable",
+    roofType: "retractable",
     latitude: 33.7553,
     longitude: -84.401,
     description:
@@ -82,7 +82,7 @@ export const stadiums: Stadium[] = [
     cityId: "houston",
     country: "USA",
     capacity: 72220,
-    roofType: "rétractable",
+    roofType: "retractable",
     latitude: 29.6847,
     longitude: -95.4107,
     description:
@@ -230,7 +230,7 @@ export const stadiums: Stadium[] = [
     cityId: "vancouver",
     country: "Canada",
     capacity: 54500,
-    roofType: "rétractable",
+    roofType: "retractable",
     latitude: 49.2768,
     longitude: -123.112,
     description:
