@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { guides, guidesBySlug, guidesById } from "@repo/data/guides";
 import { bookmakerReviewsById } from "@repo/data/bookmaker-reviews";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { AuthorBox } from "../components/AuthorBox";
 
 export const revalidate = 86400;
 
@@ -177,6 +178,31 @@ export default async function GuidePage({ params }: PageProps) {
                 </div>
               </section>
             )}
+
+            {/* All Other Guides (internal linking) */}
+            {guides.filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id)).length > 0 && (
+              <section className="rounded-lg bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">Guides liés</h2>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {guides
+                    .filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id))
+                    .slice(0, 4)
+                    .map((g) => (
+                      <Link
+                        key={g.id}
+                        href={`/guide/${g.slug}`}
+                        className="rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                      >
+                        <h3 className="font-semibold mb-1">{g.title}</h3>
+                        <p className="text-xs text-gray-500 line-clamp-2">{g.metaDescription}</p>
+                      </Link>
+                    ))}
+                </div>
+              </section>
+            )}
+
+            {/* Author Box */}
+            <AuthorBox />
           </div>
 
           {/* Sidebar */}

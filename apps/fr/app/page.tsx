@@ -161,6 +161,43 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Popular Pronostics */}
+      <section className="py-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="mb-8 text-2xl font-bold text-gray-900">
+            Pronostics les plus populaires
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { name: "France", slug: "france", flag: "🇫🇷", ranking: 2 },
+              { name: "Argentine", slug: "argentine", flag: "🇦🇷", ranking: 1 },
+              { name: "Brésil", slug: "bresil", flag: "🇧🇷", ranking: 5 },
+              { name: "Angleterre", slug: "angleterre", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", ranking: 4 },
+              { name: "Espagne", slug: "espagne", flag: "🇪🇸", ranking: 3 },
+              { name: "Allemagne", slug: "allemagne", flag: "🇩🇪", ranking: 11 },
+            ].map((t) => (
+              <Link
+                key={t.slug}
+                href={`/pronostic/${t.slug}`}
+                className="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+              >
+                <span className="text-4xl">{t.flag}</span>
+                <div>
+                  <p className="font-bold">Pronostic {t.name}</p>
+                  <p className="text-sm text-gray-500">#{t.ranking} FIFA</p>
+                </div>
+                <span className="ml-auto text-accent font-medium text-sm">&rarr;</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/methodologie" className="text-sm font-medium text-accent hover:underline">
+              Découvrir notre méthodologie de pronostics &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-field py-12 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center">

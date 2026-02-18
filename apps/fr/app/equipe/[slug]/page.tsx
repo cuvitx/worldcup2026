@@ -261,22 +261,26 @@ export default async function TeamPage({ params }: PageProps) {
               </p>
               <div className="space-y-3">
                 {groupTeams.map((opponent) => (
-                  <Link
+                  <div
                     key={opponent.id}
-                    href={`/equipe/${opponent.slug}`}
-                    className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:bg-gray-50"
+                    className="flex items-center gap-3 rounded-lg border border-gray-200 p-3"
                   >
                     <span className="text-2xl">{opponent.flag}</span>
-                    <div>
-                      <p className="font-semibold">{opponent.name}</p>
+                    <div className="flex-1 min-w-0">
+                      <Link href={`/equipe/${opponent.slug}`} className="font-semibold hover:text-accent">
+                        {opponent.name}
+                      </Link>
                       <p className="text-sm text-gray-500">
                         {opponent.confederation} &middot; #{opponent.fifaRanking} FIFA
                       </p>
                     </div>
-                    <span className="ml-auto text-sm text-accent font-medium">
-                      Voir H2H &rarr;
-                    </span>
-                  </Link>
+                    <Link
+                      href={`/h2h/${team.slug}-vs-${opponent.slug}`}
+                      className="shrink-0 rounded bg-accent/10 px-2 py-1 text-xs text-accent font-medium hover:bg-accent/20"
+                    >
+                      H2H &rarr;
+                    </Link>
+                  </div>
                 ))}
               </div>
             </section>

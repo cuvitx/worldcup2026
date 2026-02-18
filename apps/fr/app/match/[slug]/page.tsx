@@ -90,6 +90,11 @@ export default async function MatchPage({ params }: PageProps) {
     // AI generation failed — page renders with static data only
   }
 
+  // Same-day matches for internal linking
+  const sameDayMatches = matches.filter(
+    (m) => m.date === match.date && m.slug !== match.slug
+  );
+
   const dateFormatted = new Date(match.date).toLocaleDateString("fr-FR", {
     weekday: "long",
     day: "numeric",
@@ -449,6 +454,37 @@ export default async function MatchPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* Same-day matches */}
+      {sameDayMatches.length > 0 && (
+        <section className="border-t border-gray-200 py-8">
+          <div className="mx-auto max-w-7xl px-4">
+            <h2 className="mb-4 text-xl font-bold">Matchs de la même journée</h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {sameDayMatches.map((m) => {
+                const mHome = teamsById[m.homeTeamId];
+                const mAway = teamsById[m.awayTeamId];
+                return (
+                  <Link
+                    key={m.slug}
+                    href={`/match/${m.slug}`}
+                    className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                  >
+                    <span className="text-xl">{mHome?.flag ?? "🏳️"}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold truncate">
+                        {mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}
+                      </p>
+                      <p className="text-xs text-gray-500">{m.time} UTC</p>
+                    </div>
+                    <span className="text-xl">{mAway?.flag ?? "🏳️"}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       <script
         type="application/ld+json"
