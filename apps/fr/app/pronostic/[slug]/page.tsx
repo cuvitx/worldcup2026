@@ -523,7 +523,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                               : "bg-accent hover:bg-accent/90"
                           }`}
                         >
-                          Parier
+                          Parier sur {team.name}
                         </a>
                       </div>
                     </div>

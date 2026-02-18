@@ -10,6 +10,7 @@ import { groupsByLetter } from "@repo/data/groups";
 import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import ExpandablePlayerList from "./ExpandablePlayerList";
 
 export const revalidate = 3600;
@@ -374,6 +375,39 @@ export default async function TeamPage({ params }: PageProps) {
                   Les pronostics seront disponibles prochainement.
                 </p>
               )}
+            </div>
+
+                        {/* Betting CTA */}
+            <div className="rounded-lg bg-gradient-to-br from-accent to-accent/80 p-6 shadow-md text-white">
+              <h3 className="mb-3 text-lg font-bold">Parier sur {team.name} championne</h3>
+              <p className="mb-4 text-sm text-white/80">
+                Comparez les meilleurs sites agrees pour parier sur {team.name} à la Coupe du Monde 2026.
+              </p>
+              <a
+                href={featuredBookmaker.url}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary hover:bg-gold/90 transition-colors"
+              >
+                {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; Parier sur {team.name}
+              </a>
+              <div className="mt-3 space-y-2">
+                {bookmakers
+                  .filter((bk) => bk.id !== featuredBookmaker.id)
+                  .map((bk) => (
+                    <a
+                      key={bk.id}
+                      href={bk.url}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored nofollow"
+                      className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10 transition-colors text-sm"
+                    >
+                      <span className="font-semibold">{bk.name} <span className="text-white/70">{bk.bonus}</span></span>
+                      <span className="text-gold">Parier sur {team.name} &rarr;</span>
+                    </a>
+                  ))}
+              </div>
+              <p className="mt-3 text-xs text-white/60">18+. Pariez responsablement.</p>
             </div>
 
             {/* Related Teams */}

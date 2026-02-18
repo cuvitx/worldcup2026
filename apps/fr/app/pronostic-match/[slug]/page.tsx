@@ -223,6 +223,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             <BettingCta
               featuredBookmaker={featuredBookmaker}
               bookmakers={bookmakers}
+              matchLabel={home && away ? `${home.name} vs ${away.name}` : undefined}
             />
 
             {home && away && prediction && (

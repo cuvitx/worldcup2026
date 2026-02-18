@@ -3,16 +3,18 @@ import type { Bookmaker } from "@repo/data";
 interface BettingCtaProps {
   featuredBookmaker: Bookmaker;
   bookmakers: Bookmaker[];
+  matchLabel?: string;
 }
 
 export function BettingCta({
   featuredBookmaker,
   bookmakers,
+  matchLabel,
 }: BettingCtaProps) {
   return (
     <section className="rounded-lg bg-gradient-to-br from-accent to-accent/80 p-6 shadow-md text-white">
       <h2 className="mb-4 text-xl font-bold">
-        Parier sur ce match
+        {matchLabel ? `Parier sur ${matchLabel}` : "Parier sur ce match"}
       </h2>
       {/* Featured bookmaker */}
       <div className="mb-6 rounded-lg bg-white/10 backdrop-blur-sm p-5">
@@ -38,7 +40,7 @@ export function BettingCta({
             rel="noopener noreferrer sponsored nofollow"
             className="inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary hover:bg-gold/90 transition-colors whitespace-nowrap"
           >
-            {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; Parier maintenant
+            {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; {matchLabel ? `Parier sur ${matchLabel}` : "Parier maintenant"}
           </a>
         </div>
       </div>
