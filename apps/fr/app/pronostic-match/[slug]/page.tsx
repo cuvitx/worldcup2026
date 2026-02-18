@@ -16,6 +16,7 @@ import {
   featuredBookmaker,
   estimatedMatchOdds,
 } from "@repo/data/affiliates";
+import CommunityVote from "../../components/CommunityVote";
 import Link from "next/link";
 import {
   MatchHero,
@@ -263,6 +264,15 @@ export default async function PronosticMatchPage({ params }: PageProps) {
                 awayName={awayName}
               />
             )}
+
+            {/* Community Vote 1N2 */}
+            <CommunityVote
+              slug={match.slug}
+              homeName={homeName}
+              awayName={awayName}
+              homeRanking={home?.fifaRanking ?? 50}
+              awayRanking={away?.fifaRanking ?? 50}
+            />
 
             <MatchInfo
               match={match}
