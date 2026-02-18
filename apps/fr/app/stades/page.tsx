@@ -64,13 +64,13 @@ export default function StadiumsPage() {
                         className="w-full h-40 object-cover"
                       />
                       <div className="p-4">
-                      <p className="font-semibold">{stadium.name}</p>
-                      <p className="text-sm text-gray-500">
-                        {city?.name ?? stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
-                      </p>
-                      <p className="mt-1 text-xs text-gray-500">
-                        {stadium.roofType === "retractable" ? "Toit retractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
-                      </p>
+                        <p className="font-semibold">{stadium.name}</p>
+                        <p className="text-sm text-gray-500">
+                          {city?.name ?? stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
+                        </p>
+                        <p className="mt-1 text-xs text-gray-500">
+                          {stadium.roofType === "retractable" ? "Toit retractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
+                        </p>
                       </div>
                     </Link>
                   );

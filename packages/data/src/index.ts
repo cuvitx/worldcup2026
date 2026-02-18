@@ -30,3 +30,5 @@ export { guides, guidesById, guidesBySlug, guidesByCategory } from "./guides";
 export type { TournamentPhase, MatchPhase } from "./tournament-state";
 export { getTournamentPhase, getDaysUntilKickoff, getTodaysMatches, getNextMatch, getMatchPhase, getMatchesByDate, getMatchDates } from "./tournament-state";
 export { teamApiIds, stadiumApiIds, getApiTeamId, getApiVenueId, hasApiMapping } from "./api-football-ids";
+export type { NewsArticle, NewsCategory } from "./news";
+export { newsArticles, newsCategories, newsBySlug, newsByCategory } from "./news";

@@ -8,6 +8,7 @@ import { matches } from "@repo/data/matches";
 import { scorerPlayers } from "@repo/data/scorers";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides } from "@repo/data/guides";
+import { newsArticles } from "@repo/data/news";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://mondial2026.fr";
 const LAST_UPDATED = new Date("2026-02-12");
@@ -261,8 +262,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // News pages
+  const newsListingPage: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/actualites`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+  ];
+
+  const newsPages: MetadataRoute.Sitemap = newsArticles.map((article) => ({
+    url: `${BASE_URL}/actualites/${article.slug}`,
+    lastModified: new Date(article.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
+    ...newsListingPage,
+    ...newsPages,
     ...teamPages,
     ...pronosticPages,
     ...groupPages,

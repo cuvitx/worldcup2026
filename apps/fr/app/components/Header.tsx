@@ -93,6 +93,7 @@ const navLinks = [
   { href: "/joueurs", label: "Joueurs" },
   { href: "/buteurs", label: "Buteurs" },
   { href: "/paris-sportifs", label: "Paris sportifs" },
+  { href: "/actualites", label: "Actualités" },
   { href: "/live", label: "Live" },
   { href: "/simulateur", label: "Simulateur" },
 ];

@@ -100,6 +100,7 @@ export function Footer() {
               <li><Link href="/live" className="hover:text-white">Scores en direct</Link></li>
               <li><Link href="/simulateur" className="hover:text-white">Simulateur</Link></li>
               <li><Link href="/quiz" className="hover:text-white">Quiz CDM 2026</Link></li>
+              <li><Link href="/actualites" className="hover:text-white">Actualités</Link></li>
               <li><Link href="/comparateur-cotes" className="hover:text-white">Comparateur de cotes</Link></li>
               <li><Link href="/ou-regarder" className="hover:text-white">Où regarder</Link></li>
               <li><Link href="/guide/glossaire" className="hover:text-white">Glossaire</Link></li>
