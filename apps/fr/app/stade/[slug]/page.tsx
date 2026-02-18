@@ -1,3 +1,4 @@
+import { StadiumImage } from "../../components/stadium-image";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
@@ -75,6 +76,16 @@ export default async function StadiumPage({ params }: PageProps) {
           </p>
         </div>
       </section>
+
+      {/* Stadium image */}
+      <div className="mx-auto max-w-7xl px-4 mt-8">
+        <StadiumImage
+          slug={stadium.slug}
+          name={stadium.name}
+          city={stadium.city}
+          className="w-full h-auto rounded-lg shadow-md object-cover max-h-[400px]"
+        />
+      </div>
 
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">

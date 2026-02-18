@@ -1,3 +1,4 @@
+import { StadiumImage } from "../components/stadium-image";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -54,8 +55,15 @@ export default function StadiumsPage() {
                     <Link
                       key={stadium.id}
                       href={`/stade/${stadium.slug}`}
-                      className="rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="rounded-lg border border-gray-200 overflow-hidden transition-colors hover:border-accent hover:bg-accent/5"
                     >
+                      <StadiumImage
+                        slug={stadium.slug}
+                        name={stadium.name}
+                        city={stadium.city}
+                        className="w-full h-40 object-cover"
+                      />
+                      <div className="p-4">
                       <p className="font-semibold">{stadium.name}</p>
                       <p className="text-sm text-gray-500">
                         {city?.name ?? stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
@@ -63,6 +71,7 @@ export default function StadiumsPage() {
                       <p className="mt-1 text-xs text-gray-500">
                         {stadium.roofType === "retractable" ? "Toit retractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
                       </p>
+                      </div>
                     </Link>
                   );
                 })}
