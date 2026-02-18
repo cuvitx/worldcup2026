@@ -1,12 +1,19 @@
 import { matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { getOddsForMatch } from "@repo/api/odds";
+import { matchSlugSchema } from "@repo/api";
 
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ matchSlug: string }> }
 ) {
   const { matchSlug } = await params;
+
+  const validated = matchSlugSchema.safeParse(matchSlug);
+  if (!validated.success) {
+    return Response.json({ error: "Invalid match slug" }, { status: 400 });
+  }
+
   const match = matchesBySlug[matchSlug];
   if (!match) {
     return Response.json({ error: "Match not found" }, { status: 404 });

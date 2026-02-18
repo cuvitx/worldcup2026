@@ -16,6 +16,7 @@ export {
   generateJsonLd,
   type ModelTier,
   type ExpertInsight,
+  type ParsedMatchPreview,
 } from "./orchestrator";
 
 export { generateExpert, type ClaudeResponse } from "./providers/claude";
@@ -23,6 +24,10 @@ export { generateFactual, generateStandardPage, type GeminiResponse } from "./pr
 export { generateInfra, generateMetaDescription, translateContent, type GPTResponse } from "./providers/openai";
 
 export { aiCacheGet, aiCacheSet, aiCacheKey, AI_CACHE_TTL } from "./cache";
+
+export { sanitizeForPrompt, sanitizeMatchData } from "./sanitize";
+
+export { logAiError, getAiErrorStats, getRecentErrors, type AiErrorEntry, type AiErrorStats } from "./monitoring";
 
 // Generators — high-level orchestrators (API + AI → structured output)
 export { generateFullMatchPreview, type MatchPreviewData } from "./generators/match-preview";

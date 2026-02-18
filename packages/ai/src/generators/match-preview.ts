@@ -12,11 +12,11 @@ import { getTeamStats, getInjuries } from "@repo/api/football";
 import { getWeatherForecast } from "@repo/api/weather";
 import { getOddsForMatch } from "@repo/api/odds";
 import { getAltitudeImpact } from "@repo/api/factors";
-import { generateMatchPreview, generateExpertInsight, type ExpertInsight } from "../orchestrator";
+import { generateMatchPreview, generateExpertInsight, type ExpertInsight, type ParsedMatchPreview } from "../orchestrator";
 
 export interface MatchPreviewData {
-  /** Gemini-generated SEO preview (grounded with search) */
-  preview: { content: string; grounded: boolean } | null;
+  /** Gemini-generated SEO preview (parsed JSON with structured fields) */
+  preview: ParsedMatchPreview | null;
   /** Claude-generated expert analysis (value bets) — only for top matches */
   expert: ExpertInsight | null;
   /** Weather data for the match */

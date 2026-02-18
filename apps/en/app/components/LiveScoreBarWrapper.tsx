@@ -28,6 +28,7 @@ export function LiveScoreBarWrapper() {
     <LiveScoreBar
       todaysMatches={liveMatches}
       matchBasePath="/match"
+      locale="en"
     />
   );
 }

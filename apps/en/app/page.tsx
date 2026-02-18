@@ -1,10 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
+import { getHomeAlternates } from "@repo/data/route-mapping";
 import { GroupCard } from "./components/GroupCard";
 import { TeamCard } from "./components/TeamCard";
+
+export const metadata: Metadata = {
+  title: "World Cup 2026 | Predictions, Odds & Complete Guide",
+  description:
+    "Complete guide to the 2026 World Cup: predictions, bookmaker odds, analysis of 48 teams, schedule of 104 matches. Everything you need for the FIFA World Cup 2026.",
+  alternates: getHomeAlternates(),
+};
 
 export default function HomePage() {
   return (
@@ -164,6 +173,12 @@ export default function HomePage() {
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Host cities
+            </Link>
+            <Link
+              href="/guides"
+              className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
+            >
+              Guides
             </Link>
           </div>
         </div>

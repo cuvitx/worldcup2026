@@ -49,34 +49,39 @@ export async function generateExpert(
     ? [{ type: "text" as const, text: systemPrompt, cache_control: { type: "ephemeral" as const } }]
     : systemPrompt;
 
-  const response = await anthropic.messages.create({
-    model: "claude-opus-4-6",
-    max_tokens: options?.maxTokens ?? 16000,
-    temperature: options?.temperature ?? 1, // required with extended thinking
-    thinking: {
-      type: "enabled",
-      budget_tokens: options?.budgetTokens ?? 4000,
-    },
-    system: systemContent,
-    messages: [{ role: "user", content: userPrompt }],
-  });
+  try {
+    const response = await anthropic.messages.create({
+      model: "claude-opus-4-6",
+      max_tokens: options?.maxTokens ?? 16000,
+      temperature: options?.temperature ?? 1, // required with extended thinking
+      thinking: {
+        type: "enabled",
+        budget_tokens: options?.budgetTokens ?? 4000,
+      },
+      system: systemContent,
+      messages: [{ role: "user", content: userPrompt }],
+    });
 
-  let content = "";
-  let thinking = "";
+    let content = "";
+    let thinking = "";
 
-  for (const block of response.content) {
-    if (block.type === "thinking") {
-      thinking += block.thinking;
-    } else if (block.type === "text") {
-      content += block.text;
+    for (const block of response.content) {
+      if (block.type === "thinking") {
+        thinking += block.thinking;
+      } else if (block.type === "text") {
+        content += block.text;
+      }
     }
-  }
 
-  return {
-    content,
-    thinking: thinking || null,
-    model: response.model,
-    inputTokens: response.usage.input_tokens,
-    outputTokens: response.usage.output_tokens,
-  };
+    return {
+      content,
+      thinking: thinking || null,
+      model: response.model,
+      inputTokens: response.usage.input_tokens,
+      outputTokens: response.usage.output_tokens,
+    };
+  } catch (error) {
+    console.error("[claude] Generation failed:", error instanceof Error ? error.message : error);
+    return null;
+  }
 }

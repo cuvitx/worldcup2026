@@ -20,7 +20,9 @@
     "./guides": "./src/guides.ts",
     "./route-mapping": "./src/route-mapping.ts",
     "./tournament-state": "./src/tournament-state.ts",
-    "./api-football-ids": "./src/api-football-ids.ts"
+    "./api-football-ids": "./src/api-football-ids.ts",
+    "./faq": "./src/faq.ts",
+    "./search-index": "./src/search-index.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

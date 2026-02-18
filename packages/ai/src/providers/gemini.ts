@@ -45,24 +45,29 @@ export async function generateFactual(
     ? [{ googleSearch: {} }]
     : undefined;
 
-  const response = await genai.models.generateContent({
-    model: "gemini-3-flash",
-    contents: prompt,
-    config: {
-      temperature: options?.temperature ?? 0.7,
-      maxOutputTokens: options?.maxTokens ?? 4000,
-      tools,
-    },
-  });
+  try {
+    const response = await genai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+      config: {
+        temperature: options?.temperature ?? 0.7,
+        maxOutputTokens: options?.maxTokens ?? 4000,
+        tools,
+      },
+    });
 
-  const text = response.text ?? "";
-  const groundingMetadata = response.candidates?.[0]?.groundingMetadata ?? null;
+    const text = response.text ?? "";
+    const groundingMetadata = response.candidates?.[0]?.groundingMetadata ?? null;
 
-  return {
-    content: text,
-    groundingMetadata,
-    model: "gemini-3-flash",
-  };
+    return {
+      content: text,
+      groundingMetadata,
+      model: "gemini-2.5-flash",
+    };
+  } catch (error) {
+    console.error("[gemini] Generation failed:", error instanceof Error ? error.message : error);
+    return null;
+  }
 }
 
 /**

@@ -72,6 +72,8 @@ export interface Player {
   goals: number;
   caps: number;
   description: string;
+  lastUpdated?: string;
+  clubUpdatedAt?: string;
 }
 
 export interface H2HRecord {

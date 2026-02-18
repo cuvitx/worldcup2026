@@ -41,7 +41,8 @@ export function getTournamentPhase(): TournamentPhase {
   if (now > endDate) return "completed";
 
   // Find the most recent match that has started (or is live)
-  const sortedDesc = [...matches]
+  const matchList: Match[] = [...matches];
+  const sortedDesc = matchList
     .map((m) => ({ match: m, dt: matchDateTime(m.date, m.time) }))
     .filter(({ dt }) => dt <= now)
     .sort((a, b) => b.dt.getTime() - a.dt.getTime());
@@ -63,7 +64,7 @@ export function getTournamentPhase(): TournamentPhase {
     final: "final",
   };
 
-  return stageToPhase[latestStage];
+  return stageToPhase[latestStage] ?? "group-stage";
 }
 
 /**
@@ -80,7 +81,7 @@ export function getDaysUntilKickoff(): number {
 /** Get today's matches sorted by time (UTC). */
 export function getTodaysMatches(): Match[] {
   const todayISO = new Date().toISOString().slice(0, 10);
-  return matches
+  return (matches as Match[])
     .filter((m) => m.date === todayISO)
     .sort((a, b) => a.time.localeCompare(b.time));
 }
@@ -91,7 +92,7 @@ export function getTodaysMatches(): Match[] {
  */
 export function getNextMatch(): Match | null {
   const now = new Date();
-  const upcoming = matches
+  const upcoming = (matches as Match[])
     .filter((m) => matchDateTime(m.date, m.time) > now)
     .sort(
       (a, b) =>
@@ -120,13 +121,13 @@ export function getMatchPhase(matchDate: string, matchTime: string): MatchPhase 
 
 /** Get matches for a specific date (ISO format, e.g. "2026-06-11"). */
 export function getMatchesByDate(date: string): Match[] {
-  return matches
+  return (matches as Match[])
     .filter((m) => m.date === date)
     .sort((a, b) => a.time.localeCompare(b.time));
 }
 
 /** Get all match dates as a sorted array of unique ISO date strings. */
 export function getMatchDates(): string[] {
-  const dates = new Set(matches.map((m) => m.date));
+  const dates = new Set((matches as Match[]).map((m) => m.date));
   return [...dates].sort();
 }

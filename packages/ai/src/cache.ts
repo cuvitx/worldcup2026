@@ -22,6 +22,25 @@ export const AI_CACHE_TTL = {
 
 // In-memory fallback when Redis is not configured
 const memoryCache = new Map<string, { data: string; expiresAt: number }>();
+const MAX_CACHE_ENTRIES = 500;
+
+/** Evict expired or oldest entries when cache exceeds size limit */
+function evictIfNeeded(cache: Map<string, { data: string; expiresAt: number }>) {
+  if (cache.size >= MAX_CACHE_ENTRIES) {
+    // Delete expired entries first
+    const now = Date.now();
+    for (const [key, value] of cache) {
+      if (value.expiresAt && value.expiresAt < now) {
+        cache.delete(key);
+      }
+    }
+    // If still over limit, delete oldest entries
+    while (cache.size >= MAX_CACHE_ENTRIES) {
+      const firstKey = cache.keys().next().value;
+      if (firstKey) cache.delete(firstKey);
+    }
+  }
+}
 
 // Lazy-init Redis client
 let redis: Redis | null = null;
@@ -53,7 +72,8 @@ export async function aiCacheGet(key: string): Promise<string | null> {
     try {
       const data = await kv.get<string>(key);
       if (data !== null && data !== undefined) {
-        memoryCache.set(key, { data, expiresAt: Date.now() + 60_000 });
+        evictIfNeeded(memoryCache);
+        memoryCache.set(key, { data, expiresAt: Date.now() + 300_000 });
         return data;
       }
     } catch {
@@ -73,6 +93,7 @@ export async function aiCacheSet(
   ttlSeconds: number
 ): Promise<void> {
   // Always write in-memory
+  evictIfNeeded(memoryCache);
   memoryCache.set(key, {
     data,
     expiresAt: Date.now() + ttlSeconds * 1000,

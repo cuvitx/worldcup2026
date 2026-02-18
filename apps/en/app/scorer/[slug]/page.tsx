@@ -82,6 +82,9 @@ export default async function ScorerPage({ params }: PageProps) {
               </h1>
               <p className="mt-2 text-xl text-gray-300">
                 {positionLabel} &middot; {player.club}
+                {player.clubUpdatedAt && (
+                  <span className="ml-2 text-sm text-gray-400">(club as of {player.clubUpdatedAt})</span>
+                )}
               </p>
               <p className="mt-1 text-gray-400">
                 {team?.name} &middot; {player.caps} caps &middot; {player.goals} goals
@@ -122,6 +125,9 @@ export default async function ScorerPage({ params }: PageProps) {
                   several rounds, {player.name} has an expected <strong>{scorer.expectedGoals} goals</strong> during
                   the 2026 World Cup according to our Poisson model.
                 </p>
+              )}
+              {player.lastUpdated && (
+                <p className="mt-2 text-xs text-gray-400">Stats as of {player.lastUpdated}</p>
               )}
             </section>
 
@@ -268,7 +274,7 @@ export default async function ScorerPage({ params }: PageProps) {
                         <a
                           href={bk.url}
                           target="_blank"
-                          rel="noopener noreferrer sponsored"
+                          rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
                             isFeatured ? "bg-gold hover:bg-gold/90" : "bg-accent hover:bg-accent/90"
                           }`}
@@ -377,7 +383,7 @@ export default async function ScorerPage({ params }: PageProps) {
               <a
                 href={featuredBookmaker.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 {featuredBookmaker.bonus} on {featuredBookmaker.name}

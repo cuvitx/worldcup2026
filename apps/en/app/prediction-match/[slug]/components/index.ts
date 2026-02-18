@@ -1,0 +1,9 @@
+export { MatchHero } from "./MatchHero";
+export { PredictionOutcomes } from "./PredictionOutcomes";
+export { PredictedScore } from "./PredictedScore";
+export { OddsTable } from "./OddsTable";
+export { BettingCta } from "./BettingCta";
+export { MatchAnalysis } from "./MatchAnalysis";
+export { H2HSection } from "./H2HSection";
+export { MatchInfo } from "./MatchInfo";
+export { PredictionSidebar } from "./PredictionSidebar";

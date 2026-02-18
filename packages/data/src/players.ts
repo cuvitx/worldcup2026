@@ -1,6 +1,15 @@
 import { Player } from "./types";
 
-export const players: Player[] = [
+// Date constants for player data freshness
+const LAST_UPDATED = "2026-02-14";
+const CLUB_UPDATED_AT = "2026-02-14";
+
+/** Add date metadata to all players */
+function withDates(playerList: Omit<Player, "lastUpdated" | "clubUpdatedAt">[]): Player[] {
+  return playerList.map((p) => ({ ...p, lastUpdated: LAST_UPDATED, clubUpdatedAt: CLUB_UPDATED_AT }));
+}
+
+export const players: Player[] = withDates([
   // France
   {
     id: "mbappe",
@@ -2814,7 +2823,10405 @@ export const players: Player[] = [
     caps: 45,
     description: "Gardien expérimenté et numéro un panaméen."
   },
-];
+  // ---- tmp-players-a1.ts ----
+// ============================================================
+  // FRANCE (18 new players) - Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // Existing: mbappe (FW), griezmann (FW), maignan (GK), tchouameni (MF), saliba (DF)
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "samba",
+    name: "Brice Samba",
+    slug: "samba",
+    teamId: "france",
+    position: "GK",
+    number: 1,
+    age: 31,
+    club: "RC Lens",
+    goals: 0,
+    caps: 10,
+    description: "Gardien aux réflexes fulgurants, héros des séances de tirs au but en Ligue des Nations."
+  },
+  {
+    id: "areola",
+    name: "Alphonse Areola",
+    slug: "areola",
+    teamId: "france",
+    position: "GK",
+    number: 23,
+    age: 33,
+    club: "West Ham",
+    goals: 0,
+    caps: 8,
+    description: "Gardien expérimenté et fiable, doublure de qualité en équipe de France."
+  },
+
+  // DF (7)
+  {
+    id: "kounde",
+    name: "Jules Koundé",
+    slug: "kounde",
+    teamId: "france",
+    position: "DF",
+    number: 5,
+    age: 27,
+    club: "Barcelona",
+    goals: 3,
+    caps: 40,
+    description: "Latéral droit polyvalent et rapide, aussi à l'aise en défense centrale."
+  },
+  {
+    id: "theo-hernandez",
+    name: "Theo Hernandez",
+    slug: "theo-hernandez",
+    teamId: "france",
+    position: "DF",
+    number: 22,
+    age: 28,
+    club: "AC Milan",
+    goals: 5,
+    caps: 30,
+    description: "Latéral gauche offensif et puissant, une arme redoutable dans le couloir."
+  },
+  {
+    id: "upamecano",
+    name: "Dayot Upamecano",
+    slug: "upamecano",
+    teamId: "france",
+    position: "DF",
+    number: 4,
+    age: 27,
+    club: "Bayern Munich",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central athlétique et rapide, solide dans les duels aériens."
+  },
+  {
+    id: "konaté",
+    name: "Ibrahima Konaté",
+    slug: "konate",
+    teamId: "france",
+    position: "DF",
+    number: 13,
+    age: 27,
+    club: "Liverpool",
+    goals: 2,
+    caps: 20,
+    description: "Défenseur central imposant et véloce, pilier de la défense de Liverpool."
+  },
+  {
+    id: "clauss",
+    name: "Jonathan Clauss",
+    slug: "clauss",
+    teamId: "france",
+    position: "DF",
+    number: 25,
+    age: 32,
+    club: "OGC Nice",
+    goals: 2,
+    caps: 15,
+    description: "Piston droit infatigable, excellent centreur et défenseur tardif en sélection."
+  },
+  {
+    id: "mendy-ferland",
+    name: "Ferland Mendy",
+    slug: "mendy-ferland",
+    teamId: "france",
+    position: "DF",
+    number: 3,
+    age: 31,
+    club: "Real Madrid",
+    goals: 1,
+    caps: 18,
+    description: "Latéral gauche défensif et fiable, précieux dans les grands rendez-vous."
+  },
+  {
+    id: "pavard",
+    name: "Benjamin Pavard",
+    slug: "pavard",
+    teamId: "france",
+    position: "DF",
+    number: 2,
+    age: 30,
+    club: "Inter Milan",
+    goals: 4,
+    caps: 55,
+    description: "Défenseur polyvalent champion du monde 2018, auteur d'un but légendaire contre l'Argentine."
+  },
+
+  // MF (6)
+  {
+    id: "rabiot",
+    name: "Adrien Rabiot",
+    slug: "rabiot",
+    teamId: "france",
+    position: "MF",
+    number: 14,
+    age: 31,
+    club: "Olympique de Marseille",
+    goals: 6,
+    caps: 50,
+    description: "Milieu box-to-box élégant et aérien, capable de surgir dans la surface."
+  },
+  {
+    id: "camavinga",
+    name: "Eduardo Camavinga",
+    slug: "camavinga",
+    teamId: "france",
+    position: "MF",
+    number: 6,
+    age: 23,
+    club: "Real Madrid",
+    goals: 1,
+    caps: 25,
+    description: "Milieu polyvalent d'une précocité remarquable, déjà multiple vainqueur de la Ligue des Champions."
+  },
+  {
+    id: "fofana-youssouf",
+    name: "Youssouf Fofana",
+    slug: "fofana-youssouf",
+    teamId: "france",
+    position: "MF",
+    number: 19,
+    age: 26,
+    club: "AC Milan",
+    goals: 1,
+    caps: 20,
+    description: "Milieu récupérateur dynamique et intelligent, excellent dans la transition."
+  },
+  {
+    id: "kante",
+    name: "N'Golo Kanté",
+    slug: "kante",
+    teamId: "france",
+    position: "MF",
+    number: 13,
+    age: 35,
+    club: "Al-Ittihad",
+    goals: 2,
+    caps: 60,
+    description: "Milieu défensif légendaire au volume de jeu extraordinaire, champion du monde 2018."
+  },
+  {
+    id: "zaire-emery",
+    name: "Warren Zaïre-Emery",
+    slug: "zaire-emery",
+    teamId: "france",
+    position: "MF",
+    number: 18,
+    age: 20,
+    club: "Paris Saint-Germain",
+    goals: 2,
+    caps: 15,
+    description: "Prodige du milieu de terrain parisien, plus jeune international français du XXIe siècle."
+  },
+  {
+    id: "olise",
+    name: "Michael Olise",
+    slug: "olise",
+    teamId: "france",
+    position: "MF",
+    number: 11,
+    age: 24,
+    club: "Bayern Munich",
+    goals: 3,
+    caps: 12,
+    description: "Milieu offensif créatif et dribbleur, médaillé d'or olympique aux JO de Paris 2024."
+  },
+
+  // FW (3)
+  {
+    id: "thuram-marcus",
+    name: "Marcus Thuram",
+    slug: "thuram-marcus",
+    teamId: "france",
+    position: "FW",
+    number: 15,
+    age: 28,
+    club: "Inter Milan",
+    goals: 5,
+    caps: 25,
+    description: "Attaquant puissant et polyvalent, capable de jouer ailier ou avant-centre."
+  },
+  {
+    id: "dembele",
+    name: "Ousmane Dembélé",
+    slug: "dembele",
+    teamId: "france",
+    position: "FW",
+    number: 20,
+    age: 28,
+    club: "Paris Saint-Germain",
+    goals: 7,
+    caps: 45,
+    description: "Ailier ambidextre d'une vitesse fulgurante, capable d'éliminer sur les deux côtés."
+  },
+  {
+    id: "barcola",
+    name: "Bradley Barcola",
+    slug: "barcola",
+    teamId: "france",
+    position: "FW",
+    number: 9,
+    age: 22,
+    club: "Paris Saint-Germain",
+    goals: 3,
+    caps: 12,
+    description: "Ailier gauche rapide et percutant, révélation de la saison avec le PSG."
+  },
+
+  // ============================================================
+  // ARGENTINA (18 new players) - Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // Existing: messi (FW), martinez-lautaro (FW), de-paul (MF), dibu-martinez (GK), romero-cristian (DF)
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "rulli",
+    name: "Gerónimo Rulli",
+    slug: "rulli",
+    teamId: "argentine",
+    position: "GK",
+    number: 12,
+    age: 34,
+    club: "Olympique de Marseille",
+    goals: 0,
+    caps: 12,
+    description: "Gardien expérimenté et bon au pied, doublure fiable de Dibu Martínez."
+  },
+  {
+    id: "musso",
+    name: "Juan Musso",
+    slug: "musso",
+    teamId: "argentine",
+    position: "GK",
+    number: 1,
+    age: 30,
+    club: "Atalanta",
+    goals: 0,
+    caps: 8,
+    description: "Gardien agile et réactif, solide en Serie A avec l'Atalanta."
+  },
+
+  // DF (7)
+  {
+    id: "molina",
+    name: "Nahuel Molina",
+    slug: "molina",
+    teamId: "argentine",
+    position: "DF",
+    number: 26,
+    age: 28,
+    club: "Atletico Madrid",
+    goals: 3,
+    caps: 35,
+    description: "Latéral droit offensif et généreux, buteur en quart de finale du Mondial 2022."
+  },
+  {
+    id: "otamendi",
+    name: "Nicolás Otamendi",
+    slug: "otamendi",
+    teamId: "argentine",
+    position: "DF",
+    number: 19,
+    age: 38,
+    club: "Benfica",
+    goals: 10,
+    caps: 110,
+    description: "Défenseur central aguerri et combatif, vétéran incontournable de la sélection."
+  },
+  {
+    id: "lisandro-martinez",
+    name: "Lisandro Martínez",
+    slug: "lisandro-martinez",
+    teamId: "argentine",
+    position: "DF",
+    number: 25,
+    age: 28,
+    club: "Manchester United",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central hargneux et technique, surnommé le Boucher pour sa combativité."
+  },
+  {
+    id: "tagliafico",
+    name: "Nicolás Tagliafico",
+    slug: "tagliafico",
+    teamId: "argentine",
+    position: "DF",
+    number: 3,
+    age: 33,
+    club: "Lyon",
+    goals: 3,
+    caps: 50,
+    description: "Latéral gauche combatif et offensif, champion du monde en 2022."
+  },
+  {
+    id: "montiel",
+    name: "Gonzalo Montiel",
+    slug: "montiel",
+    teamId: "argentine",
+    position: "DF",
+    number: 4,
+    age: 28,
+    club: "Nottingham Forest",
+    goals: 1,
+    caps: 30,
+    description: "Latéral droit héroïque, auteur du tir au but décisif en finale du Mondial 2022."
+  },
+  {
+    id: "martinez-quarta",
+    name: "Lucas Martínez Quarta",
+    slug: "martinez-quarta",
+    teamId: "argentine",
+    position: "DF",
+    number: 6,
+    age: 30,
+    club: "Fiorentina",
+    goals: 2,
+    caps: 15,
+    description: "Défenseur central rapide et bon relanceur, formé à River Plate."
+  },
+  {
+    id: "acuna",
+    name: "Marcos Acuña",
+    slug: "acuna",
+    teamId: "argentine",
+    position: "DF",
+    number: 8,
+    age: 34,
+    club: "Sevilla",
+    goals: 4,
+    caps: 45,
+    description: "Latéral gauche combatif et expérimenté, champion du monde en 2022."
+  },
+
+  // MF (6)
+  {
+    id: "mac-allister",
+    name: "Alexis Mac Allister",
+    slug: "mac-allister",
+    teamId: "argentine",
+    position: "MF",
+    number: 20,
+    age: 27,
+    club: "Liverpool",
+    goals: 5,
+    caps: 35,
+    description: "Milieu élégant et créatif, champion du monde révélé au Qatar."
+  },
+  {
+    id: "enzo-fernandez",
+    name: "Enzo Fernández",
+    slug: "enzo-fernandez",
+    teamId: "argentine",
+    position: "MF",
+    number: 24,
+    age: 25,
+    club: "Chelsea",
+    goals: 4,
+    caps: 30,
+    description: "Milieu complet et visionnaire, élu meilleur jeune joueur du Mondial 2022."
+  },
+  {
+    id: "lo-celso",
+    name: "Giovani Lo Celso",
+    slug: "lo-celso",
+    teamId: "argentine",
+    position: "MF",
+    number: 18,
+    age: 30,
+    club: "Real Betis",
+    goals: 5,
+    caps: 45,
+    description: "Milieu offensif technique et intelligent, précieux dans la création de jeu."
+  },
+  {
+    id: "paredes",
+    name: "Leandro Paredes",
+    slug: "paredes",
+    teamId: "argentine",
+    position: "MF",
+    number: 5,
+    age: 32,
+    club: "Roma",
+    goals: 4,
+    caps: 55,
+    description: "Milieu relayeur au pied soyeux, maître de la passe longue et de la circulation du ballon."
+  },
+  {
+    id: "palacios-exequiel",
+    name: "Exequiel Palacios",
+    slug: "palacios-exequiel",
+    teamId: "argentine",
+    position: "MF",
+    number: 14,
+    age: 26,
+    club: "Bayer Leverkusen",
+    goals: 2,
+    caps: 20,
+    description: "Milieu dynamique et combatif, champion d'Allemagne invaincu avec Leverkusen."
+  },
+  {
+    id: "fernandez-nicolas",
+    name: "Nicolás González",
+    slug: "gonzalez-nicolas",
+    teamId: "argentine",
+    position: "MF",
+    number: 15,
+    age: 28,
+    club: "Juventus",
+    goals: 4,
+    caps: 30,
+    description: "Ailier polyvalent capable de jouer dans tous les postes offensifs."
+  },
+
+  // FW (3)
+  {
+    id: "alvarez-julian",
+    name: "Julián Álvarez",
+    slug: "alvarez-julian",
+    teamId: "argentine",
+    position: "FW",
+    number: 9,
+    age: 26,
+    club: "Atletico Madrid",
+    goals: 10,
+    caps: 35,
+    description: "Attaquant complet et travailleur, buteur décisif dans les grands tournois."
+  },
+  {
+    id: "garnacho",
+    name: "Alejandro Garnacho",
+    slug: "garnacho",
+    teamId: "argentine",
+    position: "FW",
+    number: 11,
+    age: 21,
+    club: "Manchester United",
+    goals: 3,
+    caps: 12,
+    description: "Ailier explosif et spectaculaire, talent précoce au potentiel immense."
+  },
+  {
+    id: "di-maria",
+    name: "Ángel Di María",
+    slug: "di-maria",
+    teamId: "argentine",
+    position: "FW",
+    number: 11,
+    age: 38,
+    club: "Benfica",
+    goals: 30,
+    caps: 140,
+    description: "Légende de la sélection au pied gauche magique, buteur en finale de Coupe du Monde."
+  },
+
+  // ============================================================
+  // ANGLETERRE (18 new players) - Need: 2 GK, 8 DF, 5 MF, 3 FW
+  // Existing: kane (FW), bellingham (MF), saka (FW), pickford (GK), rice (MF)
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "ramsdale",
+    name: "Aaron Ramsdale",
+    slug: "ramsdale",
+    teamId: "angleterre",
+    position: "GK",
+    number: 13,
+    age: 28,
+    club: "Southampton",
+    goals: 0,
+    caps: 5,
+    description: "Gardien communicatif et agile, capable de relancer proprement au pied."
+  },
+  {
+    id: "henderson-dean",
+    name: "Dean Henderson",
+    slug: "henderson-dean",
+    teamId: "angleterre",
+    position: "GK",
+    number: 21,
+    age: 29,
+    club: "Crystal Palace",
+    goals: 0,
+    caps: 3,
+    description: "Gardien dynamique et courageux, solide dans ses sorties aériennes."
+  },
+
+  // DF (8)
+  {
+    id: "walker",
+    name: "Kyle Walker",
+    slug: "walker",
+    teamId: "angleterre",
+    position: "DF",
+    number: 2,
+    age: 36,
+    club: "AC Milan",
+    goals: 1,
+    caps: 85,
+    description: "Latéral droit d'une vitesse exceptionnelle, l'un des plus expérimentés de la sélection."
+  },
+  {
+    id: "stones",
+    name: "John Stones",
+    slug: "stones",
+    teamId: "angleterre",
+    position: "DF",
+    number: 5,
+    age: 31,
+    club: "Manchester City",
+    goals: 3,
+    caps: 75,
+    description: "Défenseur central élégant et moderne, excellent dans la construction depuis l'arrière."
+  },
+  {
+    id: "guehi",
+    name: "Marc Guéhi",
+    slug: "guehi",
+    teamId: "angleterre",
+    position: "DF",
+    number: 6,
+    age: 26,
+    club: "Crystal Palace",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central calme et intelligent, solide dans les duels et la relance."
+  },
+  {
+    id: "shaw",
+    name: "Luke Shaw",
+    slug: "shaw",
+    teamId: "angleterre",
+    position: "DF",
+    number: 3,
+    age: 30,
+    club: "Manchester United",
+    goals: 2,
+    caps: 35,
+    description: "Latéral gauche offensif et technique, buteur en finale de l'Euro 2020."
+  },
+  {
+    id: "trippier",
+    name: "Kieran Trippier",
+    slug: "trippier",
+    teamId: "angleterre",
+    position: "DF",
+    number: 12,
+    age: 35,
+    club: "Newcastle",
+    goals: 2,
+    caps: 50,
+    description: "Latéral droit expérimenté au centre de qualité, spécialiste des coups de pied arrêtés."
+  },
+  {
+    id: "konsa",
+    name: "Ezri Konsa",
+    slug: "konsa",
+    teamId: "angleterre",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Aston Villa",
+    goals: 1,
+    caps: 10,
+    description: "Défenseur central athlétique et rapide, en pleine progression avec Aston Villa."
+  },
+  {
+    id: "alexander-arnold",
+    name: "Trent Alexander-Arnold",
+    slug: "alexander-arnold",
+    teamId: "angleterre",
+    position: "DF",
+    number: 18,
+    age: 27,
+    club: "Real Madrid",
+    goals: 3,
+    caps: 30,
+    description: "Latéral droit au pied droit de génie, passeur décisif hors pair."
+  },
+  {
+    id: "colwill",
+    name: "Levi Colwill",
+    slug: "colwill",
+    teamId: "angleterre",
+    position: "DF",
+    number: 14,
+    age: 23,
+    club: "Chelsea",
+    goals: 0,
+    caps: 10,
+    description: "Jeune défenseur central gaucher, à l'aise dans la relance et les duels."
+  },
+
+  // MF (5)
+  {
+    id: "foden",
+    name: "Phil Foden",
+    slug: "foden",
+    teamId: "angleterre",
+    position: "MF",
+    number: 11,
+    age: 26,
+    club: "Manchester City",
+    goals: 8,
+    caps: 45,
+    description: "Milieu offensif brillant et technique, élu joueur de l'année en Premier League."
+  },
+  {
+    id: "mount",
+    name: "Mason Mount",
+    slug: "mount",
+    teamId: "angleterre",
+    position: "MF",
+    number: 19,
+    age: 27,
+    club: "Manchester United",
+    goals: 5,
+    caps: 40,
+    description: "Milieu offensif intelligent et travailleur, excellent entre les lignes."
+  },
+  {
+    id: "gallagher",
+    name: "Conor Gallagher",
+    slug: "gallagher",
+    teamId: "angleterre",
+    position: "MF",
+    number: 16,
+    age: 26,
+    club: "Atletico Madrid",
+    goals: 2,
+    caps: 15,
+    description: "Milieu infatigable et combatif, excellent presseur et récupérateur de ballons."
+  },
+  {
+    id: "mainoo",
+    name: "Kobbie Mainoo",
+    slug: "mainoo",
+    teamId: "angleterre",
+    position: "MF",
+    number: 8,
+    age: 21,
+    club: "Manchester United",
+    goals: 2,
+    caps: 15,
+    description: "Jeune milieu de terrain mature et élégant, révélation de l'Euro 2024."
+  },
+  {
+    id: "palmer",
+    name: "Cole Palmer",
+    slug: "palmer",
+    teamId: "angleterre",
+    position: "MF",
+    number: 20,
+    age: 24,
+    club: "Chelsea",
+    goals: 6,
+    caps: 18,
+    description: "Milieu offensif au sang-froid remarquable, décisif sur coup franc et penalty."
+  },
+
+  // FW (3)
+  {
+    id: "rashford",
+    name: "Marcus Rashford",
+    slug: "rashford",
+    teamId: "angleterre",
+    position: "FW",
+    number: 17,
+    age: 28,
+    club: "Manchester United",
+    goals: 17,
+    caps: 60,
+    description: "Ailier rapide et percutant, capable de frappes puissantes des deux pieds."
+  },
+  {
+    id: "gordon",
+    name: "Anthony Gordon",
+    slug: "gordon",
+    teamId: "angleterre",
+    position: "FW",
+    number: 22,
+    age: 25,
+    club: "Newcastle",
+    goals: 3,
+    caps: 10,
+    description: "Ailier gauche direct et explosif, en pleine ascension avec Newcastle."
+  },
+  {
+    id: "watkins",
+    name: "Ollie Watkins",
+    slug: "watkins",
+    teamId: "angleterre",
+    position: "FW",
+    number: 9,
+    age: 30,
+    club: "Aston Villa",
+    goals: 6,
+    caps: 20,
+    description: "Attaquant intelligent et travailleur, auteur du but décisif en demi-finale de l'Euro 2024."
+  },
+
+  // ============================================================
+  // ESPAGNE (18 new players) - Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // Existing: yamal (FW), pedri (MF), morata (FW), simon (GK), carvajal (DF)
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "raya",
+    name: "David Raya",
+    slug: "raya",
+    teamId: "espagne",
+    position: "GK",
+    number: 13,
+    age: 30,
+    club: "Arsenal",
+    goals: 0,
+    caps: 5,
+    description: "Gardien excellent au pied et vif dans ses réflexes, titulaire à Arsenal."
+  },
+  {
+    id: "remiro",
+    name: "Álex Remiro",
+    slug: "remiro",
+    teamId: "espagne",
+    position: "GK",
+    number: 1,
+    age: 30,
+    club: "Real Sociedad",
+    goals: 0,
+    caps: 5,
+    description: "Gardien régulier et fiable, excellent dans le jeu au pied à la basque."
+  },
+
+  // DF (7)
+  {
+    id: "cucurella",
+    name: "Marc Cucurella",
+    slug: "cucurella",
+    teamId: "espagne",
+    position: "DF",
+    number: 24,
+    age: 27,
+    club: "Chelsea",
+    goals: 0,
+    caps: 20,
+    description: "Latéral gauche combatif et engagé, héros de l'Euro 2024 avec la Roja."
+  },
+  {
+    id: "le-normand",
+    name: "Robin Le Normand",
+    slug: "le-normand",
+    teamId: "espagne",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Atletico Madrid",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central franco-espagnol, solide et fiable dans les duels."
+  },
+  {
+    id: "laporte",
+    name: "Aymeric Laporte",
+    slug: "laporte",
+    teamId: "espagne",
+    position: "DF",
+    number: 14,
+    age: 32,
+    club: "Al-Nassr",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central élégant et gaucher, excellent dans la relance longue."
+  },
+  {
+    id: "grimaldo",
+    name: "Álex Grimaldo",
+    slug: "grimaldo",
+    teamId: "espagne",
+    position: "DF",
+    number: 3,
+    age: 30,
+    club: "Bayer Leverkusen",
+    goals: 3,
+    caps: 10,
+    description: "Latéral gauche offensif au centre précis, champion d'Allemagne invaincu."
+  },
+  {
+    id: "nacho",
+    name: "Nacho Fernández",
+    slug: "nacho",
+    teamId: "espagne",
+    position: "DF",
+    number: 6,
+    age: 36,
+    club: "Al-Qadsiah",
+    goals: 3,
+    caps: 40,
+    description: "Défenseur polyvalent et expérimenté, champion d'Europe avec l'Espagne en 2024."
+  },
+  {
+    id: "vivian",
+    name: "Dani Vivian",
+    slug: "vivian",
+    teamId: "espagne",
+    position: "DF",
+    number: 5,
+    age: 29,
+    club: "Athletic Bilbao",
+    goals: 1,
+    caps: 12,
+    description: "Défenseur central robuste et aérien, formé à la philosophie de l'Athletic."
+  },
+  {
+    id: "porro",
+    name: "Pedro Porro",
+    slug: "porro",
+    teamId: "espagne",
+    position: "DF",
+    number: 22,
+    age: 26,
+    club: "Tottenham",
+    goals: 2,
+    caps: 15,
+    description: "Latéral droit offensif et technique, dangereux dans les montées."
+  },
+
+  // MF (6)
+  {
+    id: "rodri",
+    name: "Rodri",
+    slug: "rodri",
+    teamId: "espagne",
+    position: "MF",
+    number: 16,
+    age: 30,
+    club: "Manchester City",
+    goals: 8,
+    caps: 60,
+    description: "Milieu défensif Ballon d'Or 2024, métronome et patron du jeu espagnol."
+  },
+  {
+    id: "dani-olmo",
+    name: "Dani Olmo",
+    slug: "dani-olmo",
+    teamId: "espagne",
+    position: "MF",
+    number: 10,
+    age: 28,
+    club: "Barcelona",
+    goals: 8,
+    caps: 45,
+    description: "Milieu offensif créatif et décisif, meilleur buteur de l'Euro 2024."
+  },
+  {
+    id: "gavi",
+    name: "Gavi",
+    slug: "gavi",
+    teamId: "espagne",
+    position: "MF",
+    number: 9,
+    age: 21,
+    club: "Barcelona",
+    goals: 3,
+    caps: 30,
+    description: "Milieu combatif et technique, Trophée Kopa et talent générationnel du Barça."
+  },
+  {
+    id: "fabian-ruiz",
+    name: "Fabián Ruiz",
+    slug: "fabian-ruiz",
+    teamId: "espagne",
+    position: "MF",
+    number: 17,
+    age: 30,
+    club: "Paris Saint-Germain",
+    goals: 6,
+    caps: 40,
+    description: "Milieu gaucher au toucher soyeux, brillant passeur et créateur de jeu."
+  },
+  {
+    id: "merino",
+    name: "Mikel Merino",
+    slug: "merino",
+    teamId: "espagne",
+    position: "MF",
+    number: 20,
+    age: 30,
+    club: "Arsenal",
+    goals: 4,
+    caps: 25,
+    description: "Milieu grand et aérien, buteur de la tête en quart de finale de l'Euro 2024."
+  },
+  {
+    id: "zubimendi",
+    name: "Martín Zubimendi",
+    slug: "zubimendi",
+    teamId: "espagne",
+    position: "MF",
+    number: 21,
+    age: 27,
+    club: "Real Sociedad",
+    goals: 2,
+    caps: 15,
+    description: "Milieu défensif basque au positionnement impeccable, héritier de Busquets."
+  },
+
+  // FW (3)
+  {
+    id: "nico-williams",
+    name: "Nico Williams",
+    slug: "nico-williams",
+    teamId: "espagne",
+    position: "FW",
+    number: 11,
+    age: 24,
+    club: "Athletic Bilbao",
+    goals: 5,
+    caps: 25,
+    description: "Ailier gauche explosif et spectaculaire, buteur en finale de l'Euro 2024."
+  },
+  {
+    id: "ferran-torres",
+    name: "Ferran Torres",
+    slug: "ferran-torres",
+    teamId: "espagne",
+    position: "FW",
+    number: 18,
+    age: 26,
+    club: "Barcelona",
+    goals: 20,
+    caps: 50,
+    description: "Attaquant polyvalent et buteur régulier en sélection, à l'aise sur les ailes."
+  },
+  {
+    id: "oyarzabal",
+    name: "Mikel Oyarzabal",
+    slug: "oyarzabal",
+    teamId: "espagne",
+    position: "FW",
+    number: 7,
+    age: 29,
+    club: "Real Sociedad",
+    goals: 12,
+    caps: 40,
+    description: "Ailier gauche et capitaine de la Real Sociedad, buteur en finale de l'Euro 2024."
+  },
+
+  // ============================================================
+  // BRESIL (18 new players) - Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // Existing: vinicius (FW), rodrygo (FW), casemiro (MF), marquinhos (DF), alisson (GK)
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "ederson",
+    name: "Ederson",
+    slug: "ederson",
+    teamId: "bresil",
+    position: "GK",
+    number: 23,
+    age: 32,
+    club: "Manchester City",
+    goals: 0,
+    caps: 30,
+    description: "Gardien révolutionnaire au pied exceptionnel, capable de relancer comme un milieu."
+  },
+  {
+    id: "bento",
+    name: "Bento",
+    slug: "bento",
+    teamId: "bresil",
+    position: "GK",
+    number: 12,
+    age: 25,
+    club: "Al Nassr",
+    goals: 0,
+    caps: 8,
+    description: "Jeune gardien prometteur aux réflexes vifs, futur numéro un de la Seleção."
+  },
+
+  // DF (7)
+  {
+    id: "militao",
+    name: "Éder Militão",
+    slug: "militao",
+    teamId: "bresil",
+    position: "DF",
+    number: 3,
+    age: 28,
+    club: "Real Madrid",
+    goals: 3,
+    caps: 30,
+    description: "Défenseur central puissant et rapide, pilier de la défense du Real Madrid."
+  },
+  {
+    id: "danilo",
+    name: "Danilo",
+    slug: "danilo",
+    teamId: "bresil",
+    position: "DF",
+    number: 2,
+    age: 34,
+    club: "Santos",
+    goals: 4,
+    caps: 65,
+    description: "Latéral droit polyvalent et capitaine, une des grandes expériences de la sélection."
+  },
+  {
+    id: "beraldo",
+    name: "Lucas Beraldo",
+    slug: "beraldo",
+    teamId: "bresil",
+    position: "DF",
+    number: 14,
+    age: 21,
+    club: "Paris Saint-Germain",
+    goals: 0,
+    caps: 8,
+    description: "Jeune défenseur central gaucher prometteur, bon relanceur depuis l'arrière."
+  },
+  {
+    id: "wendell",
+    name: "Wendell",
+    slug: "wendell",
+    teamId: "bresil",
+    position: "DF",
+    number: 6,
+    age: 33,
+    club: "Porto",
+    goals: 1,
+    caps: 15,
+    description: "Latéral gauche expérimenté et équilibré, solide défensivement et offensivement."
+  },
+  {
+    id: "guilherme-arana",
+    name: "Guilherme Arana",
+    slug: "guilherme-arana",
+    teamId: "bresil",
+    position: "DF",
+    number: 16,
+    age: 29,
+    club: "Atletico Mineiro",
+    goals: 2,
+    caps: 12,
+    description: "Latéral gauche offensif au centre précis, médaillé d'or olympique à Tokyo."
+  },
+  {
+    id: "gabriel-magalhaes",
+    name: "Gabriel Magalhães",
+    slug: "gabriel-magalhaes",
+    teamId: "bresil",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Arsenal",
+    goals: 2,
+    caps: 10,
+    description: "Défenseur central gaucher, puissant dans les airs et dominant dans les duels."
+  },
+  {
+    id: "yan-couto",
+    name: "Yan Couto",
+    slug: "yan-couto",
+    teamId: "bresil",
+    position: "DF",
+    number: 22,
+    age: 24,
+    club: "Borussia Dortmund",
+    goals: 1,
+    caps: 8,
+    description: "Latéral droit offensif et technique, excellent dans le un contre un."
+  },
+
+  // MF (6)
+  {
+    id: "paqueta",
+    name: "Lucas Paquetá",
+    slug: "paqueta",
+    teamId: "bresil",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "West Ham",
+    goals: 12,
+    caps: 55,
+    description: "Milieu offensif au geste technique sublime, meneur de jeu créatif de la Seleção."
+  },
+  {
+    id: "bruno-guimaraes",
+    name: "Bruno Guimarães",
+    slug: "bruno-guimaraes",
+    teamId: "bresil",
+    position: "MF",
+    number: 17,
+    age: 28,
+    club: "Newcastle",
+    goals: 3,
+    caps: 25,
+    description: "Milieu complet et élégant, patron du milieu de terrain de Newcastle."
+  },
+  {
+    id: "gerson",
+    name: "Gerson",
+    slug: "gerson",
+    teamId: "bresil",
+    position: "MF",
+    number: 20,
+    age: 28,
+    club: "Flamengo",
+    goals: 2,
+    caps: 15,
+    description: "Milieu relayeur technique et combatif, titulaire régulier de la Seleção."
+  },
+  {
+    id: "andre",
+    name: "André",
+    slug: "andre",
+    teamId: "bresil",
+    position: "MF",
+    number: 18,
+    age: 24,
+    club: "Wolverhampton",
+    goals: 0,
+    caps: 8,
+    description: "Milieu défensif récupérateur et discipliné, excellent dans le pressing."
+  },
+  {
+    id: "douglas-luiz",
+    name: "Douglas Luiz",
+    slug: "douglas-luiz",
+    teamId: "bresil",
+    position: "MF",
+    number: 25,
+    age: 28,
+    club: "Juventus",
+    goals: 3,
+    caps: 20,
+    description: "Milieu polyvalent et intelligent, à l'aise dans la construction du jeu."
+  },
+  {
+    id: "joao-gomes",
+    name: "João Gomes",
+    slug: "joao-gomes",
+    teamId: "bresil",
+    position: "MF",
+    number: 19,
+    age: 24,
+    club: "Wolverhampton",
+    goals: 1,
+    caps: 10,
+    description: "Milieu combatif et généreux, excellent dans la récupération haute."
+  },
+
+  // FW (3)
+  {
+    id: "raphinha",
+    name: "Raphinha",
+    slug: "raphinha",
+    teamId: "bresil",
+    position: "FW",
+    number: 11,
+    age: 29,
+    club: "Barcelona",
+    goals: 12,
+    caps: 35,
+    description: "Ailier droit vif et technique, capable de frappes enroulées redoutables."
+  },
+  {
+    id: "endrick",
+    name: "Endrick",
+    slug: "endrick",
+    teamId: "bresil",
+    position: "FW",
+    number: 9,
+    age: 19,
+    club: "Real Madrid",
+    goals: 4,
+    caps: 12,
+    description: "Prodige brésilien à la puissance de frappe phénoménale, futur du football mondial."
+  },
+  {
+    id: "savinho",
+    name: "Savinho",
+    slug: "savinho",
+    teamId: "bresil",
+    position: "FW",
+    number: 7,
+    age: 21,
+    club: "Manchester City",
+    goals: 2,
+    caps: 10,
+    description: "Ailier dribbleur et virevoltant, jeune talent brésilien de Premier League."
+  },
+
+  // ============================================================
+  // ALLEMAGNE (18 new players) - Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // Existing: musiala (MF), wirtz (MF), havertz (FW), neuer (GK), rudiger (DF)
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "ter-stegen",
+    name: "Marc-André ter Stegen",
+    slug: "ter-stegen",
+    teamId: "allemagne",
+    position: "GK",
+    number: 22,
+    age: 34,
+    club: "Barcelona",
+    goals: 0,
+    caps: 40,
+    description: "Gardien au pied exceptionnel, éternelle doublure de Neuer malgré un talent immense."
+  },
+  {
+    id: "baumann",
+    name: "Oliver Baumann",
+    slug: "baumann",
+    teamId: "allemagne",
+    position: "GK",
+    number: 12,
+    age: 36,
+    club: "Hoffenheim",
+    goals: 0,
+    caps: 5,
+    description: "Gardien fiable et expérimenté de Bundesliga, appelé tardivement en sélection."
+  },
+
+  // DF (7)
+  {
+    id: "kimmich",
+    name: "Joshua Kimmich",
+    slug: "kimmich",
+    teamId: "allemagne",
+    position: "DF",
+    number: 6,
+    age: 31,
+    club: "Bayern Munich",
+    goals: 5,
+    caps: 95,
+    description: "Latéral droit de classe mondiale reconverti milieu, polyvalence et intelligence tactique."
+  },
+  {
+    id: "tah",
+    name: "Jonathan Tah",
+    slug: "tah",
+    teamId: "allemagne",
+    position: "DF",
+    number: 4,
+    age: 30,
+    club: "Bayer Leverkusen",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central imposant et dominant dans les airs, champion d'Allemagne invaincu."
+  },
+  {
+    id: "schlotterbeck",
+    name: "Nico Schlotterbeck",
+    slug: "schlotterbeck",
+    teamId: "allemagne",
+    position: "DF",
+    number: 5,
+    age: 27,
+    club: "Borussia Dortmund",
+    goals: 2,
+    caps: 20,
+    description: "Défenseur central gaucher et bon relanceur, audacieux dans ses montées."
+  },
+  {
+    id: "raum",
+    name: "David Raum",
+    slug: "raum",
+    teamId: "allemagne",
+    position: "DF",
+    number: 3,
+    age: 28,
+    club: "RB Leipzig",
+    goals: 2,
+    caps: 25,
+    description: "Latéral gauche offensif au centre précis, spécialiste des passes décisives."
+  },
+  {
+    id: "henrichs",
+    name: "Benjamin Henrichs",
+    slug: "henrichs",
+    teamId: "allemagne",
+    position: "DF",
+    number: 18,
+    age: 29,
+    club: "RB Leipzig",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit polyvalent et discipliné, solide défensivement."
+  },
+  {
+    id: "anton",
+    name: "Waldemar Anton",
+    slug: "anton",
+    teamId: "allemagne",
+    position: "DF",
+    number: 15,
+    age: 29,
+    club: "Borussia Dortmund",
+    goals: 1,
+    caps: 10,
+    description: "Défenseur central solide et concentré, régulier en Bundesliga."
+  },
+  {
+    id: "mittelstadt",
+    name: "Maximilian Mittelstädt",
+    slug: "mittelstadt",
+    teamId: "allemagne",
+    position: "DF",
+    number: 14,
+    age: 27,
+    club: "Stuttgart",
+    goals: 1,
+    caps: 10,
+    description: "Latéral gauche dynamique et offensif, révélation de la saison avec Stuttgart."
+  },
+
+  // MF (5)
+  {
+    id: "kroos",
+    name: "Toni Kroos",
+    slug: "kroos",
+    teamId: "allemagne",
+    position: "MF",
+    number: 8,
+    age: 36,
+    club: "Retraité (Real Madrid)",
+    goals: 17,
+    caps: 114,
+    description: "Maestro du milieu de terrain à la passe millimétrée, sorti de sa retraite internationale pour l'Euro 2024."
+  },
+  {
+    id: "andrich",
+    name: "Robert Andrich",
+    slug: "andrich",
+    teamId: "allemagne",
+    position: "MF",
+    number: 17,
+    age: 30,
+    club: "Bayer Leverkusen",
+    goals: 2,
+    caps: 15,
+    description: "Milieu défensif combatif et rugueux, capable de frappes de loin spectaculaires."
+  },
+  {
+    id: "goretzka",
+    name: "Leon Goretzka",
+    slug: "goretzka",
+    teamId: "allemagne",
+    position: "MF",
+    number: 19,
+    age: 31,
+    club: "Bayern Munich",
+    goals: 14,
+    caps: 60,
+    description: "Milieu box-to-box puissant et aérien, dangereux dans les deux surfaces."
+  },
+  {
+    id: "gross",
+    name: "Pascal Groß",
+    slug: "gross",
+    teamId: "allemagne",
+    position: "MF",
+    number: 16,
+    age: 35,
+    club: "Borussia Dortmund",
+    goals: 3,
+    caps: 10,
+    description: "Milieu expérimenté et intelligent, excellent passeur et tireur de coups de pied arrêtés."
+  },
+  {
+    id: "pavlovic",
+    name: "Aleksandar Pavlović",
+    slug: "pavlovic",
+    teamId: "allemagne",
+    position: "MF",
+    number: 20,
+    age: 21,
+    club: "Bayern Munich",
+    goals: 0,
+    caps: 5,
+    description: "Jeune milieu défensif talentueux du Bayern, excellent dans la récupération et la relance."
+  },
+
+  // FW (4)
+  {
+    id: "sane",
+    name: "Leroy Sané",
+    slug: "sane",
+    teamId: "allemagne",
+    position: "FW",
+    number: 11,
+    age: 30,
+    club: "Bayern Munich",
+    goals: 12,
+    caps: 55,
+    description: "Ailier explosif et dribbleur rapide, capable d'accélérations foudroyantes."
+  },
+  {
+    id: "fullkrug",
+    name: "Niclas Füllkrug",
+    slug: "fullkrug",
+    teamId: "allemagne",
+    position: "FW",
+    number: 13,
+    age: 33,
+    club: "West Ham",
+    goals: 14,
+    caps: 22,
+    description: "Attaquant de pointe puissant et aérien, buteur instinctif entré tardivement en sélection."
+  },
+  {
+    id: "gnabry",
+    name: "Serge Gnabry",
+    slug: "gnabry",
+    teamId: "allemagne",
+    position: "FW",
+    number: 21,
+    age: 30,
+    club: "Bayern Munich",
+    goals: 22,
+    caps: 45,
+    description: "Ailier rapide et polyvalent, buteur prolifique en sélection avec un ratio impressionnant."
+  },
+  {
+    id: "undav",
+    name: "Deniz Undav",
+    slug: "undav",
+    teamId: "allemagne",
+    position: "FW",
+    number: 23,
+    age: 30,
+    club: "Stuttgart",
+    goals: 4,
+    caps: 8,
+    description: "Attaquant combatif et efficace, révélation tardive en Bundesliga et en sélection."
+  },
+  // ---- tmp-players-a2.ts ----
+// ============================================================
+  // PORTUGAL — existing: Ronaldo (FW), Bernardo Silva (MF), Bruno Fernandes (MF), Dias (DF), Diogo Costa (GK)
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "rui-patricio",
+    name: "Rui Patrício",
+    slug: "rui-patricio",
+    teamId: "portugal",
+    position: "GK",
+    number: 12,
+    age: 38,
+    club: "Roma",
+    goals: 0,
+    caps: 108,
+    description: "Gardien expérimenté et ancien titulaire, champion d'Europe 2016 avec le Portugal."
+  },
+  {
+    id: "jose-sa",
+    name: "José Sá",
+    slug: "jose-sa",
+    teamId: "portugal",
+    position: "GK",
+    number: 22,
+    age: 33,
+    club: "Wolverhampton",
+    goals: 0,
+    caps: 8,
+    description: "Gardien agile et fiable, solide dans le championnat anglais."
+  },
+
+  // DF (7)
+  {
+    id: "pepe-portugal",
+    name: "Pepe",
+    slug: "pepe-portugal",
+    teamId: "portugal",
+    position: "DF",
+    number: 3,
+    age: 43,
+    club: "Retraité",
+    goals: 8,
+    caps: 141,
+    description: "Légende et guerrier de la défense portugaise, vainqueur de l'Euro 2016."
+  },
+  {
+    id: "cancelo",
+    name: "João Cancelo",
+    slug: "cancelo",
+    teamId: "portugal",
+    position: "DF",
+    number: 20,
+    age: 32,
+    club: "Al Hilal",
+    goals: 4,
+    caps: 55,
+    description: "Latéral offensif et technique, excellent dans la construction du jeu."
+  },
+  {
+    id: "nuno-mendes",
+    name: "Nuno Mendes",
+    slug: "nuno-mendes",
+    teamId: "portugal",
+    position: "DF",
+    number: 19,
+    age: 24,
+    club: "Paris Saint-Germain",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche rapide et moderne, excellent dans les montées offensives."
+  },
+  {
+    id: "antonio-silva",
+    name: "António Silva",
+    slug: "antonio-silva",
+    teamId: "portugal",
+    position: "DF",
+    number: 4,
+    age: 23,
+    club: "Benfica",
+    goals: 1,
+    caps: 20,
+    description: "Jeune défenseur central prometteur, déjà titulaire au plus haut niveau européen."
+  },
+  {
+    id: "dalot",
+    name: "Diogo Dalot",
+    slug: "dalot",
+    teamId: "portugal",
+    position: "DF",
+    number: 2,
+    age: 27,
+    club: "Manchester United",
+    goals: 2,
+    caps: 30,
+    description: "Latéral droit polyvalent et travailleur, régulier en sélection."
+  },
+  {
+    id: "guerreiro",
+    name: "Raphaël Guerreiro",
+    slug: "guerreiro",
+    teamId: "portugal",
+    position: "DF",
+    number: 5,
+    age: 32,
+    club: "Bayern Munich",
+    goals: 8,
+    caps: 55,
+    description: "Latéral gauche technique et offensif, excellent passeur depuis son couloir."
+  },
+  {
+    id: "inacio",
+    name: "Gonçalo Inácio",
+    slug: "inacio",
+    teamId: "portugal",
+    position: "DF",
+    number: 6,
+    age: 25,
+    club: "Sporting CP",
+    goals: 2,
+    caps: 18,
+    description: "Défenseur central gaucher élégant, très bon dans la relance courte."
+  },
+
+  // MF (5)
+  {
+    id: "vitinha-portugal",
+    name: "Vitinha",
+    slug: "vitinha-portugal",
+    teamId: "portugal",
+    position: "MF",
+    number: 23,
+    age: 26,
+    club: "Paris Saint-Germain",
+    goals: 3,
+    caps: 25,
+    description: "Milieu technique et élégant, capable de dicter le tempo du jeu."
+  },
+  {
+    id: "joao-palhinha",
+    name: "João Palhinha",
+    slug: "joao-palhinha",
+    teamId: "portugal",
+    position: "MF",
+    number: 6,
+    age: 31,
+    club: "Bayern Munich",
+    goals: 2,
+    caps: 35,
+    description: "Milieu défensif puissant et récupérateur, mur protecteur devant la défense."
+  },
+  {
+    id: "joao-neves",
+    name: "João Neves",
+    slug: "joao-neves",
+    teamId: "portugal",
+    position: "MF",
+    number: 14,
+    age: 22,
+    club: "Paris Saint-Germain",
+    goals: 1,
+    caps: 18,
+    description: "Jeune milieu de terrain dynamique et intelligent, avenir du milieu portugais."
+  },
+  {
+    id: "ruben-neves",
+    name: "Rúben Neves",
+    slug: "ruben-neves",
+    teamId: "portugal",
+    position: "MF",
+    number: 18,
+    age: 29,
+    club: "Al Hilal",
+    goals: 3,
+    caps: 40,
+    description: "Milieu de terrain complet et régulier, doté d'une frappe de balle exceptionnelle."
+  },
+  {
+    id: "otavio",
+    name: "Otávio",
+    slug: "otavio",
+    teamId: "portugal",
+    position: "MF",
+    number: 11,
+    age: 31,
+    club: "Al Nassr",
+    goals: 2,
+    caps: 20,
+    description: "Milieu offensif combatif et généreux, naturalisé portugais en 2022."
+  },
+
+  // FW (4)
+  {
+    id: "rafael-leao",
+    name: "Rafael Leão",
+    slug: "rafael-leao",
+    teamId: "portugal",
+    position: "FW",
+    number: 17,
+    age: 27,
+    club: "AC Milan",
+    goals: 8,
+    caps: 30,
+    description: "Ailier gauche explosif et rapide, capable de déborder n'importe quel défenseur."
+  },
+  {
+    id: "diogo-jota",
+    name: "Diogo Jota",
+    slug: "diogo-jota",
+    teamId: "portugal",
+    position: "FW",
+    number: 21,
+    age: 29,
+    club: "Liverpool",
+    goals: 12,
+    caps: 35,
+    description: "Attaquant polyvalent et instinctif, finisseur redoutable dans la surface."
+  },
+  {
+    id: "goncalo-ramos",
+    name: "Gonçalo Ramos",
+    slug: "goncalo-ramos",
+    teamId: "portugal",
+    position: "FW",
+    number: 9,
+    age: 25,
+    club: "Paris Saint-Germain",
+    goals: 6,
+    caps: 18,
+    description: "Avant-centre puissant et technique, auteur d'un triplé en Coupe du Monde 2022."
+  },
+  {
+    id: "pedro-neto",
+    name: "Pedro Neto",
+    slug: "pedro-neto",
+    teamId: "portugal",
+    position: "FW",
+    number: 15,
+    age: 26,
+    club: "Chelsea",
+    goals: 3,
+    caps: 15,
+    description: "Ailier rapide et percutant, capable de créer le danger à chaque accélération."
+  },
+
+  // ============================================================
+  // PAYS-BAS — existing: Gakpo (FW), Reijnders (MF), De Ligt (DF), Van Dijk (DF), Verbruggen (GK)
+  // Need: 2 GK, 6 DF, 6 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "flekken",
+    name: "Mark Flekken",
+    slug: "flekken",
+    teamId: "pays-bas",
+    position: "GK",
+    number: 23,
+    age: 33,
+    club: "Brentford",
+    goals: 0,
+    caps: 8,
+    description: "Gardien de grande taille et réflexes vifs, alternative fiable en sélection."
+  },
+  {
+    id: "bijlow",
+    name: "Justin Bijlow",
+    slug: "bijlow",
+    teamId: "pays-bas",
+    position: "GK",
+    number: 13,
+    age: 28,
+    club: "Feyenoord",
+    goals: 0,
+    caps: 5,
+    description: "Gardien talentueux du Feyenoord, excellent dans le jeu au pied."
+  },
+
+  // DF (6)
+  {
+    id: "ake",
+    name: "Nathan Aké",
+    slug: "ake",
+    teamId: "pays-bas",
+    position: "DF",
+    number: 5,
+    age: 31,
+    club: "Manchester City",
+    goals: 3,
+    caps: 45,
+    description: "Défenseur central gaucher, polyvalent et solide dans les duels aériens."
+  },
+  {
+    id: "dumfries",
+    name: "Denzel Dumfries",
+    slug: "dumfries",
+    teamId: "pays-bas",
+    position: "DF",
+    number: 22,
+    age: 30,
+    club: "Inter Milan",
+    goals: 8,
+    caps: 55,
+    description: "Piston droit puissant et offensif, buteur régulier en sélection."
+  },
+  {
+    id: "timber",
+    name: "Jurriën Timber",
+    slug: "timber",
+    teamId: "pays-bas",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "Arsenal",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur polyvalent et intelligent, capable de jouer central ou latéral."
+  },
+  {
+    id: "blind",
+    name: "Daley Blind",
+    slug: "blind",
+    teamId: "pays-bas",
+    position: "DF",
+    number: 17,
+    age: 36,
+    club: "Girona",
+    goals: 3,
+    caps: 105,
+    description: "Défenseur expérimenté et intelligent, lecture du jeu exceptionnelle."
+  },
+  {
+    id: "frimpong",
+    name: "Jeremie Frimpong",
+    slug: "frimpong",
+    teamId: "pays-bas",
+    position: "DF",
+    number: 16,
+    age: 25,
+    club: "Bayer Leverkusen",
+    goals: 3,
+    caps: 12,
+    description: "Latéral droit ultra-rapide et offensif, révélation de la Bundesliga."
+  },
+  {
+    id: "van-de-ven",
+    name: "Micky van de Ven",
+    slug: "van-de-ven",
+    teamId: "pays-bas",
+    position: "DF",
+    number: 3,
+    age: 25,
+    club: "Tottenham",
+    goals: 1,
+    caps: 12,
+    description: "Défenseur central extrêmement rapide, capable de courses folles balle au pied."
+  },
+
+  // MF (6)
+  {
+    id: "de-jong-frenkie",
+    name: "Frenkie de Jong",
+    slug: "de-jong-frenkie",
+    teamId: "pays-bas",
+    position: "MF",
+    number: 21,
+    age: 29,
+    club: "Barcelona",
+    goals: 3,
+    caps: 55,
+    description: "Milieu élégant et technique, maître de la passe et de la conduite de balle."
+  },
+  {
+    id: "gravenberch",
+    name: "Ryan Gravenberch",
+    slug: "gravenberch",
+    teamId: "pays-bas",
+    position: "MF",
+    number: 8,
+    age: 24,
+    club: "Liverpool",
+    goals: 2,
+    caps: 18,
+    description: "Milieu de terrain puissant et technique, formé à l'Ajax Amsterdam."
+  },
+  {
+    id: "wijnaldum",
+    name: "Georginio Wijnaldum",
+    slug: "wijnaldum",
+    teamId: "pays-bas",
+    position: "MF",
+    number: 10,
+    age: 35,
+    club: "Al Ettifaq",
+    goals: 26,
+    caps: 95,
+    description: "Milieu offensif expérimenté et buteur, leader du vestiaire néerlandais."
+  },
+  {
+    id: "schouten",
+    name: "Jerdy Schouten",
+    slug: "schouten",
+    teamId: "pays-bas",
+    position: "MF",
+    number: 15,
+    age: 28,
+    club: "PSV Eindhoven",
+    goals: 1,
+    caps: 15,
+    description: "Milieu défensif calme et précis, excellent récupérateur de ballons."
+  },
+  {
+    id: "simons",
+    name: "Xavi Simons",
+    slug: "simons",
+    teamId: "pays-bas",
+    position: "MF",
+    number: 7,
+    age: 23,
+    club: "RB Leipzig",
+    goals: 4,
+    caps: 20,
+    description: "Milieu offensif créatif et explosif, l'un des plus grands talents néerlandais."
+  },
+  {
+    id: "veerman",
+    name: "Joey Veerman",
+    slug: "veerman",
+    teamId: "pays-bas",
+    position: "MF",
+    number: 6,
+    age: 27,
+    club: "PSV Eindhoven",
+    goals: 2,
+    caps: 12,
+    description: "Milieu technique et visionnaire, spécialiste des passes en profondeur."
+  },
+
+  // FW (4)
+  {
+    id: "depay",
+    name: "Memphis Depay",
+    slug: "depay",
+    teamId: "pays-bas",
+    position: "FW",
+    number: 9,
+    age: 32,
+    club: "Corinthians",
+    goals: 46,
+    caps: 95,
+    description: "Attaquant talentueux et prolifique, deuxième meilleur buteur de l'histoire des Pays-Bas."
+  },
+  {
+    id: "malen",
+    name: "Donyell Malen",
+    slug: "malen",
+    teamId: "pays-bas",
+    position: "FW",
+    number: 18,
+    age: 27,
+    club: "Aston Villa",
+    goals: 8,
+    caps: 35,
+    description: "Attaquant rapide et incisif, capable de jouer sur tout le front de l'attaque."
+  },
+  {
+    id: "weghorst",
+    name: "Wout Weghorst",
+    slug: "weghorst",
+    teamId: "pays-bas",
+    position: "FW",
+    number: 19,
+    age: 33,
+    club: "Ajax",
+    goals: 12,
+    caps: 35,
+    description: "Avant-centre de pointe puissant et aérien, héros de la Coupe du Monde 2022."
+  },
+  {
+    id: "zirkzee",
+    name: "Joshua Zirkzee",
+    slug: "zirkzee",
+    teamId: "pays-bas",
+    position: "FW",
+    number: 20,
+    age: 25,
+    club: "Manchester United",
+    goals: 2,
+    caps: 8,
+    description: "Avant-centre technique et créatif, capable de décrocher pour combiner."
+  },
+
+  // ============================================================
+  // BELGIQUE — existing: De Bruyne (MF), Doku (FW), Trossard (FW), Casteels (GK), Theate (DF)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "sels",
+    name: "Matz Sels",
+    slug: "sels",
+    teamId: "belgique",
+    position: "GK",
+    number: 13,
+    age: 32,
+    club: "Nottingham Forest",
+    goals: 0,
+    caps: 8,
+    description: "Gardien en grande forme en Premier League, alternative solide en sélection."
+  },
+  {
+    id: "kaminski",
+    name: "Thomas Kaminski",
+    slug: "kaminski",
+    teamId: "belgique",
+    position: "GK",
+    number: 22,
+    age: 32,
+    club: "Luton Town",
+    goals: 0,
+    caps: 5,
+    description: "Gardien expérimenté et fiable, troisième choix régulier de la sélection."
+  },
+
+  // DF (7)
+  {
+    id: "vertonghen",
+    name: "Jan Vertonghen",
+    slug: "vertonghen",
+    teamId: "belgique",
+    position: "DF",
+    number: 5,
+    age: 39,
+    club: "Anderlecht",
+    goals: 10,
+    caps: 155,
+    description: "Légende de la défense belge, joueur le plus capé de l'histoire des Diables Rouges."
+  },
+  {
+    id: "castagne",
+    name: "Timothy Castagne",
+    slug: "castagne",
+    teamId: "belgique",
+    position: "DF",
+    number: 21,
+    age: 30,
+    club: "Fulham",
+    goals: 3,
+    caps: 40,
+    description: "Latéral polyvalent capable de jouer des deux côtés, apport offensif régulier."
+  },
+  {
+    id: "faes",
+    name: "Wout Faes",
+    slug: "faes",
+    teamId: "belgique",
+    position: "DF",
+    number: 4,
+    age: 28,
+    club: "Leicester City",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central agressif et bon relanceur, titulaire régulier en sélection."
+  },
+  {
+    id: "debast",
+    name: "Zeno Debast",
+    slug: "debast",
+    teamId: "belgique",
+    position: "DF",
+    number: 2,
+    age: 22,
+    club: "Sporting CP",
+    goals: 1,
+    caps: 18,
+    description: "Jeune défenseur central prometteur, maturité impressionnante pour son âge."
+  },
+  {
+    id: "meunier",
+    name: "Thomas Meunier",
+    slug: "meunier",
+    teamId: "belgique",
+    position: "DF",
+    number: 15,
+    age: 35,
+    club: "Trabzonspor",
+    goals: 8,
+    caps: 65,
+    description: "Latéral droit offensif et expérimenté, dangereux sur les centres et les frappes."
+  },
+  {
+    id: "de-cuyper",
+    name: "Maxim De Cuyper",
+    slug: "de-cuyper",
+    teamId: "belgique",
+    position: "DF",
+    number: 16,
+    age: 25,
+    club: "Club Bruges",
+    goals: 1,
+    caps: 10,
+    description: "Latéral gauche offensif en pleine progression, excellent centreur."
+  },
+  {
+    id: "witsel",
+    name: "Axel Witsel",
+    slug: "witsel",
+    teamId: "belgique",
+    position: "DF",
+    number: 6,
+    age: 37,
+    club: "Atletico Madrid",
+    goals: 12,
+    caps: 130,
+    description: "Vétéran reconverti en défenseur central, apporte expérience et leadership."
+  },
+
+  // MF (6)
+  {
+    id: "onana-amadou",
+    name: "Amadou Onana",
+    slug: "onana-amadou",
+    teamId: "belgique",
+    position: "MF",
+    number: 8,
+    age: 25,
+    club: "Aston Villa",
+    goals: 3,
+    caps: 25,
+    description: "Milieu imposant et athlétique, dominant dans les duels aériens et la récupération."
+  },
+  {
+    id: "tielemans",
+    name: "Youri Tielemans",
+    slug: "tielemans",
+    teamId: "belgique",
+    position: "MF",
+    number: 17,
+    age: 29,
+    club: "Aston Villa",
+    goals: 8,
+    caps: 65,
+    description: "Milieu de terrain complet et intelligent, passeur décisif et buteur de loin."
+  },
+  {
+    id: "mangala",
+    name: "Orel Mangala",
+    slug: "mangala",
+    teamId: "belgique",
+    position: "MF",
+    number: 20,
+    age: 27,
+    club: "Lyon",
+    goals: 0,
+    caps: 10,
+    description: "Milieu défensif dynamique et récupérateur, profil box-to-box moderne."
+  },
+  {
+    id: "vanaken",
+    name: "Hans Vanaken",
+    slug: "vanaken",
+    teamId: "belgique",
+    position: "MF",
+    number: 14,
+    age: 33,
+    club: "Club Bruges",
+    goals: 3,
+    caps: 30,
+    description: "Milieu offensif créatif et buteur, double Soulier d'Or belge."
+  },
+  {
+    id: "lokonga",
+    name: "Albert-Mboyo Lokonga",
+    slug: "lokonga",
+    teamId: "belgique",
+    position: "MF",
+    number: 18,
+    age: 27,
+    club: "Sevilla",
+    goals: 0,
+    caps: 12,
+    description: "Milieu relayeur calme et technique, formé à Anderlecht."
+  },
+  {
+    id: "arne-engels",
+    name: "Arne Engels",
+    slug: "arne-engels",
+    teamId: "belgique",
+    position: "MF",
+    number: 19,
+    age: 22,
+    club: "Celtic",
+    goals: 1,
+    caps: 5,
+    description: "Jeune milieu offensif belge au gros potentiel, précis dans ses passes."
+  },
+
+  // FW (3)
+  {
+    id: "lukaku",
+    name: "Romelu Lukaku",
+    slug: "lukaku",
+    teamId: "belgique",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Napoli",
+    goals: 85,
+    caps: 115,
+    description: "Meilleur buteur de l'histoire de la Belgique, avant-centre puissant et redoutable."
+  },
+  {
+    id: "openda",
+    name: "Loïs Openda",
+    slug: "openda",
+    teamId: "belgique",
+    position: "FW",
+    number: 11,
+    age: 26,
+    club: "RB Leipzig",
+    goals: 8,
+    caps: 22,
+    description: "Attaquant rapide et remuant, en pleine explosion au plus haut niveau."
+  },
+  {
+    id: "bakayoko-johan",
+    name: "Johan Bakayoko",
+    slug: "bakayoko-johan",
+    teamId: "belgique",
+    position: "FW",
+    number: 23,
+    age: 22,
+    club: "PSV Eindhoven",
+    goals: 2,
+    caps: 10,
+    description: "Ailier droit vif et dribbleur, l'un des plus grands espoirs du football belge."
+  },
+
+  // ============================================================
+  // CROATIE — existing: Modric (MF), Gvardiol (DF), Kramaric (FW), Livakovic (GK), Perisic (FW)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "ivusic",
+    name: "Ivica Ivušić",
+    slug: "ivusic",
+    teamId: "croatie",
+    position: "GK",
+    number: 23,
+    age: 31,
+    club: "Pafos FC",
+    goals: 0,
+    caps: 10,
+    description: "Gardien remplaçant fiable, prêt à répondre présent en cas de besoin."
+  },
+  {
+    id: "kotarski",
+    name: "Nediljko Labrović",
+    slug: "kotarski",
+    teamId: "croatie",
+    position: "GK",
+    number: 12,
+    age: 25,
+    club: "Dinamo Zagreb",
+    goals: 0,
+    caps: 6,
+    description: "Jeune gardien prometteur du Dinamo, héros de la Ligue des Champions."
+  },
+
+  // DF (7)
+  {
+    id: "stanisic",
+    name: "Josip Stanišić",
+    slug: "stanisic",
+    teamId: "croatie",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "Bayer Leverkusen",
+    goals: 1,
+    caps: 18,
+    description: "Latéral droit polyvalent, champion d'Allemagne avec le Bayer Leverkusen."
+  },
+  {
+    id: "sutalo",
+    name: "Josip Šutalo",
+    slug: "sutalo",
+    teamId: "croatie",
+    position: "DF",
+    number: 5,
+    age: 24,
+    club: "Ajax",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central rapide et agressif, talent confirmé au niveau européen."
+  },
+  {
+    id: "erlic",
+    name: "Martin Erlić",
+    slug: "erlic",
+    teamId: "croatie",
+    position: "DF",
+    number: 3,
+    age: 28,
+    club: "Sassuolo",
+    goals: 2,
+    caps: 12,
+    description: "Défenseur central robuste et fiable, solide dans le championnat italien."
+  },
+  {
+    id: "sosa-borna",
+    name: "Borna Sosa",
+    slug: "sosa-borna",
+    teamId: "croatie",
+    position: "DF",
+    number: 19,
+    age: 28,
+    club: "Torino",
+    goals: 1,
+    caps: 20,
+    description: "Latéral gauche offensif avec un centre exceptionnel, arme redoutable."
+  },
+  {
+    id: "juranovic",
+    name: "Josip Juranović",
+    slug: "juranovic",
+    teamId: "croatie",
+    position: "DF",
+    number: 22,
+    age: 31,
+    club: "Union Berlin",
+    goals: 2,
+    caps: 35,
+    description: "Latéral droit combatif et polyvalent, héros de la Coupe du Monde 2022."
+  },
+  {
+    id: "pongracic",
+    name: "Marin Pongračić",
+    slug: "pongracic",
+    teamId: "croatie",
+    position: "DF",
+    number: 6,
+    age: 28,
+    club: "Fiorentina",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central rapide et technique, à l'aise dans la relance."
+  },
+  {
+    id: "caleta-car",
+    name: "Duje Ćaleta-Car",
+    slug: "caleta-car",
+    teamId: "croatie",
+    position: "DF",
+    number: 21,
+    age: 30,
+    club: "Lyon",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central expérimenté et aérien, solide dans les duels."
+  },
+
+  // MF (6)
+  {
+    id: "kovacic",
+    name: "Mateo Kovačić",
+    slug: "kovacic",
+    teamId: "croatie",
+    position: "MF",
+    number: 8,
+    age: 32,
+    club: "Manchester City",
+    goals: 5,
+    caps: 95,
+    description: "Milieu technique et infatigable, héritier du style de jeu croate."
+  },
+  {
+    id: "brozovic",
+    name: "Marcelo Brozović",
+    slug: "brozovic",
+    teamId: "croatie",
+    position: "MF",
+    number: 11,
+    age: 33,
+    club: "Al Nassr",
+    goals: 8,
+    caps: 100,
+    description: "Milieu défensif métronome, organise le jeu avec une précision chirurgicale."
+  },
+  {
+    id: "sucic",
+    name: "Luka Sučić",
+    slug: "sucic",
+    teamId: "croatie",
+    position: "MF",
+    number: 15,
+    age: 23,
+    club: "Real Sociedad",
+    goals: 3,
+    caps: 18,
+    description: "Jeune milieu offensif créatif, considéré comme le successeur de Modrić."
+  },
+  {
+    id: "pasalic",
+    name: "Mario Pašalić",
+    slug: "pasalic",
+    teamId: "croatie",
+    position: "MF",
+    number: 7,
+    age: 31,
+    club: "Atalanta",
+    goals: 6,
+    caps: 40,
+    description: "Milieu offensif polyvalent et buteur, précieux dans les rotations."
+  },
+  {
+    id: "majer",
+    name: "Lovro Majer",
+    slug: "majer",
+    teamId: "croatie",
+    position: "MF",
+    number: 17,
+    age: 28,
+    club: "Wolfsburg",
+    goals: 3,
+    caps: 25,
+    description: "Milieu créatif et élégant, excellent dribbleur et passeur décisif."
+  },
+  {
+    id: "ivanusec",
+    name: "Luka Ivanušec",
+    slug: "ivanusec",
+    teamId: "croatie",
+    position: "MF",
+    number: 16,
+    age: 28,
+    club: "Feyenoord",
+    goals: 2,
+    caps: 18,
+    description: "Milieu offensif dynamique et technique, capable de jouer sur plusieurs positions."
+  },
+
+  // FW (3)
+  {
+    id: "budimir",
+    name: "Ante Budimir",
+    slug: "budimir",
+    teamId: "croatie",
+    position: "FW",
+    number: 18,
+    age: 35,
+    club: "Osasuna",
+    goals: 8,
+    caps: 25,
+    description: "Avant-centre puissant et aérien, buteur prolifique en Liga espagnole."
+  },
+  {
+    id: "petkovic-bruno",
+    name: "Bruno Petković",
+    slug: "petkovic-bruno",
+    teamId: "croatie",
+    position: "FW",
+    number: 20,
+    age: 32,
+    club: "Dinamo Zagreb",
+    goals: 10,
+    caps: 40,
+    description: "Attaquant de pointe technique et combatif, buteur en grands matchs."
+  },
+  {
+    id: "matanovic",
+    name: "Igor Matanović",
+    slug: "matanovic",
+    teamId: "croatie",
+    position: "FW",
+    number: 13,
+    age: 22,
+    club: "Eintracht Francfort",
+    goals: 2,
+    caps: 8,
+    description: "Jeune avant-centre prometteur, physique imposant et bon jeu de tête."
+  },
+
+  // ============================================================
+  // MAROC — existing: Hakimi (DF), Ziyech (MF), En-Nesyri (FW), Bono (GK), Mazraoui (DF)
+  // Need: 2 GK, 6 DF, 6 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "munir",
+    name: "Munir Mohamedi",
+    slug: "munir",
+    teamId: "maroc",
+    position: "GK",
+    number: 12,
+    age: 37,
+    club: "Al Wehda",
+    goals: 0,
+    caps: 30,
+    description: "Gardien expérimenté et fiable, doublure de qualité pour la sélection."
+  },
+  {
+    id: "tagnaouti",
+    name: "Anas Zniti",
+    slug: "tagnaouti",
+    teamId: "maroc",
+    position: "GK",
+    number: 22,
+    age: 38,
+    club: "RS Berkane",
+    goals: 0,
+    caps: 15,
+    description: "Gardien expérimenté du championnat marocain, vétéran respecté."
+  },
+
+  // DF (6)
+  {
+    id: "saiss",
+    name: "Romain Saïss",
+    slug: "saiss",
+    teamId: "maroc",
+    position: "DF",
+    number: 6,
+    age: 36,
+    club: "Al Shabab",
+    goals: 5,
+    caps: 80,
+    description: "Défenseur central capitaine et leader, pilier de la défense lors du Mondial 2022."
+  },
+  {
+    id: "aguerd",
+    name: "Nayef Aguerd",
+    slug: "aguerd",
+    teamId: "maroc",
+    position: "DF",
+    number: 5,
+    age: 30,
+    club: "Real Sociedad",
+    goals: 2,
+    caps: 35,
+    description: "Défenseur central élégant et bon relanceur, solide dans les duels aériens."
+  },
+  {
+    id: "dari",
+    name: "Jawad El Yamiq",
+    slug: "dari",
+    teamId: "maroc",
+    position: "DF",
+    number: 18,
+    age: 34,
+    club: "Real Valladolid",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central expérimenté, option fiable en charnière centrale."
+  },
+  {
+    id: "attiat-allah",
+    name: "Yahya Attiat-Allah",
+    slug: "attiat-allah",
+    teamId: "maroc",
+    position: "DF",
+    number: 15,
+    age: 31,
+    club: "Wydad Casablanca",
+    goals: 1,
+    caps: 18,
+    description: "Latéral gauche offensif et bon centreur, régulier en sélection."
+  },
+  {
+    id: "hakimi-adam",
+    name: "Adam Aznou",
+    slug: "hakimi-adam",
+    teamId: "maroc",
+    position: "DF",
+    number: 24,
+    age: 18,
+    club: "Bayern Munich",
+    goals: 0,
+    caps: 5,
+    description: "Très jeune latéral gauche formé au Bayern Munich, talent précoce des Lions de l'Atlas."
+  },
+  {
+    id: "benoun",
+    name: "Badr Benoun",
+    slug: "benoun",
+    teamId: "maroc",
+    position: "DF",
+    number: 4,
+    age: 33,
+    club: "Qatar SC",
+    goals: 2,
+    caps: 25,
+    description: "Défenseur central solide et expérimenté, habitué des compétitions internationales."
+  },
+
+  // MF (6)
+  {
+    id: "amrabat",
+    name: "Sofyan Amrabat",
+    slug: "amrabat",
+    teamId: "maroc",
+    position: "MF",
+    number: 4,
+    age: 30,
+    club: "Fenerbahce",
+    goals: 1,
+    caps: 60,
+    description: "Milieu défensif combatif et infatigable, révélation du Mondial 2022."
+  },
+  {
+    id: "ounahi",
+    name: "Azzedine Ounahi",
+    slug: "ounahi",
+    teamId: "maroc",
+    position: "MF",
+    number: 8,
+    age: 26,
+    club: "Marseille",
+    goals: 2,
+    caps: 28,
+    description: "Milieu élégant et technique, sensation de la Coupe du Monde 2022."
+  },
+  {
+    id: "amallah",
+    name: "Selim Amallah",
+    slug: "amallah",
+    teamId: "maroc",
+    position: "MF",
+    number: 20,
+    age: 30,
+    club: "Real Valladolid",
+    goals: 3,
+    caps: 18,
+    description: "Milieu polyvalent et travailleur, apporte profondeur et volume de jeu."
+  },
+  {
+    id: "el-khannouss",
+    name: "Bilal El Khannouss",
+    slug: "el-khannouss",
+    teamId: "maroc",
+    position: "MF",
+    number: 25,
+    age: 21,
+    club: "Leicester City",
+    goals: 1,
+    caps: 12,
+    description: "Jeune milieu offensif créatif et dribbleur, grand espoir du football marocain."
+  },
+  {
+    id: "louza",
+    name: "Imran Louza",
+    slug: "louza",
+    teamId: "maroc",
+    position: "MF",
+    number: 16,
+    age: 26,
+    club: "Watford",
+    goals: 1,
+    caps: 8,
+    description: "Milieu technique et créatif, capable de distribuer le jeu avec précision."
+  },
+  {
+    id: "richardson-maroc",
+    name: "Amir Richardson",
+    slug: "richardson-maroc",
+    teamId: "maroc",
+    position: "MF",
+    number: 17,
+    age: 22,
+    club: "Fiorentina",
+    goals: 0,
+    caps: 10,
+    description: "Milieu défensif grand et élégant, très bon dans la récupération haute."
+  },
+
+  // FW (4)
+  {
+    id: "diaz-brahim",
+    name: "Brahim Díaz",
+    slug: "diaz-brahim",
+    teamId: "maroc",
+    position: "FW",
+    number: 10,
+    age: 27,
+    club: "Real Madrid",
+    goals: 4,
+    caps: 15,
+    description: "Ailier technique et créatif formé à Manchester City, a choisi le Maroc en 2023."
+  },
+  {
+    id: "boufal",
+    name: "Sofiane Boufal",
+    slug: "boufal",
+    teamId: "maroc",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Al Rayyan",
+    goals: 5,
+    caps: 30,
+    description: "Ailier gauche dribbleur et imprévisible, capable de gestes techniques spectaculaires."
+  },
+  {
+    id: "akhomach",
+    name: "Ilias Akhomach",
+    slug: "akhomach",
+    teamId: "maroc",
+    position: "FW",
+    number: 21,
+    age: 22,
+    club: "Villarreal",
+    goals: 1,
+    caps: 5,
+    description: "Jeune ailier rapide formé à la Masia, talent prometteur du football marocain."
+  },
+  {
+    id: "rahimi",
+    name: "Abderrazak Hamdallah",
+    slug: "rahimi",
+    teamId: "maroc",
+    position: "FW",
+    number: 11,
+    age: 36,
+    club: "Al Ittihad",
+    goals: 15,
+    caps: 30,
+    description: "Attaquant de pointe prolifique, buteur redoutable dans les championnats du Golfe."
+  },
+
+  // ============================================================
+  // JAPON — existing: Mitoma (FW), Kubo (FW), Endo (MF), Tomiyasu (DF), Suzuki Zion (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "schmidt-daniel",
+    name: "Daniel Schmidt",
+    slug: "schmidt-daniel",
+    teamId: "japon",
+    position: "GK",
+    number: 23,
+    age: 33,
+    club: "Sint-Truiden",
+    goals: 0,
+    caps: 18,
+    description: "Gardien expérimenté d'origine nippo-américaine, excellent sur sa ligne."
+  },
+  {
+    id: "tani",
+    name: "Kōki Tani",
+    slug: "tani",
+    teamId: "japon",
+    position: "GK",
+    number: 12,
+    age: 25,
+    club: "Gamba Osaka",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien agile et prometteur, troisième choix fiable de la sélection."
+  },
+
+  // DF (7)
+  {
+    id: "itakura",
+    name: "Ko Itakura",
+    slug: "itakura",
+    teamId: "japon",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Borussia Mönchengladbach",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central polyvalent et solide, habitué de la Bundesliga."
+  },
+  {
+    id: "yoshida-maya",
+    name: "Maya Yoshida",
+    slug: "yoshida-maya",
+    teamId: "japon",
+    position: "DF",
+    number: 22,
+    age: 37,
+    club: "Los Angeles Galaxy",
+    goals: 14,
+    caps: 130,
+    description: "Capitaine légendaire et vétéran de la défense japonaise, leader du vestiaire."
+  },
+  {
+    id: "nagatomo",
+    name: "Miki Yamane",
+    slug: "nagatomo",
+    teamId: "japon",
+    position: "DF",
+    number: 3,
+    age: 32,
+    club: "Celtic",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit solide et régulier, bon défenseur avec un apport offensif."
+  },
+  {
+    id: "machida",
+    name: "Koki Machida",
+    slug: "machida",
+    teamId: "japon",
+    position: "DF",
+    number: 20,
+    age: 29,
+    club: "Union Berlin",
+    goals: 2,
+    caps: 15,
+    description: "Défenseur central agressif et combatif, performant en Bundesliga."
+  },
+  {
+    id: "ito-hiroki",
+    name: "Hiroki Ito",
+    slug: "ito-hiroki",
+    teamId: "japon",
+    position: "DF",
+    number: 6,
+    age: 27,
+    club: "Bayern Munich",
+    goals: 1,
+    caps: 18,
+    description: "Défenseur central gaucher et rapide, transféré au Bayern Munich pour ses qualités."
+  },
+  {
+    id: "taniguchi",
+    name: "Shogo Taniguchi",
+    slug: "taniguchi",
+    teamId: "japon",
+    position: "DF",
+    number: 15,
+    age: 35,
+    club: "Kawasaki Frontale",
+    goals: 3,
+    caps: 25,
+    description: "Défenseur central expérimenté et leader, pilier du championnat japonais."
+  },
+  {
+    id: "nakayama",
+    name: "Yuto Nagatomo",
+    slug: "nakayama",
+    teamId: "japon",
+    position: "DF",
+    number: 5,
+    age: 39,
+    club: "FC Tokyo",
+    goals: 4,
+    caps: 140,
+    description: "Latéral gauche légendaire du Japon, vétéran au palmarès impressionnant."
+  },
+
+  // MF (6)
+  {
+    id: "kamada",
+    name: "Daichi Kamada",
+    slug: "kamada",
+    teamId: "japon",
+    position: "MF",
+    number: 8,
+    age: 30,
+    club: "Crystal Palace",
+    goals: 5,
+    caps: 30,
+    description: "Milieu offensif technique et intelligent, excellent dans les petits espaces."
+  },
+  {
+    id: "doan",
+    name: "Ritsu Doan",
+    slug: "doan",
+    teamId: "japon",
+    position: "MF",
+    number: 7,
+    age: 28,
+    club: "Fribourg",
+    goals: 8,
+    caps: 40,
+    description: "Milieu offensif rapide et buteur, héros du Mondial 2022 contre l'Allemagne et l'Espagne."
+  },
+  {
+    id: "tanaka-ao",
+    name: "Ao Tanaka",
+    slug: "tanaka-ao",
+    teamId: "japon",
+    position: "MF",
+    number: 17,
+    age: 28,
+    club: "Leeds United",
+    goals: 3,
+    caps: 30,
+    description: "Milieu box-to-box dynamique et moderne, excellent pressing et récupération."
+  },
+  {
+    id: "morita",
+    name: "Hidemasa Morita",
+    slug: "morita",
+    teamId: "japon",
+    position: "MF",
+    number: 14,
+    age: 28,
+    club: "Sporting CP",
+    goals: 1,
+    caps: 28,
+    description: "Milieu défensif combatif et précis dans ses passes, régulier au plus haut niveau."
+  },
+  {
+    id: "minamino",
+    name: "Takumi Minamino",
+    slug: "minamino",
+    teamId: "japon",
+    position: "MF",
+    number: 10,
+    age: 31,
+    club: "Monaco",
+    goals: 20,
+    caps: 55,
+    description: "Milieu offensif polyvalent et décisif, ancien joueur de Liverpool."
+  },
+  {
+    id: "ito-junya",
+    name: "Junya Ito",
+    slug: "ito-junya",
+    teamId: "japon",
+    position: "MF",
+    number: 11,
+    age: 33,
+    club: "Bayern Munich",
+    goals: 7,
+    caps: 45,
+    description: "Ailier droit rapide et percutant, capable de répéter les courses offensives."
+  },
+
+  // FW (3)
+  {
+    id: "ueda",
+    name: "Ayase Ueda",
+    slug: "ueda",
+    teamId: "japon",
+    position: "FW",
+    number: 18,
+    age: 27,
+    club: "Feyenoord",
+    goals: 5,
+    caps: 20,
+    description: "Avant-centre instinctif et finisseur, excellent placement dans la surface."
+  },
+  {
+    id: "furuhashi",
+    name: "Kyogo Furuhashi",
+    slug: "furuhashi",
+    teamId: "japon",
+    position: "FW",
+    number: 19,
+    age: 31,
+    club: "Celtic",
+    goals: 4,
+    caps: 15,
+    description: "Attaquant vif et mobile, buteur prolifique du championnat écossais."
+  },
+  {
+    id: "maeda-daizen",
+    name: "Daizen Maeda",
+    slug: "maeda-daizen",
+    teamId: "japon",
+    position: "FW",
+    number: 13,
+    age: 28,
+    club: "Celtic",
+    goals: 6,
+    caps: 25,
+    description: "Attaquant travailleur et infatigable, presseur intense et buteur opportuniste."
+  },
+  // ---- tmp-players-a3.ts ----
+// ============================================================
+  // SENEGAL (existing: FW Mane, DF Koulibaly, GK Mendy, MF Gueye, FW Sarr)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "dieng-seny",
+    name: "Seny Dieng",
+    slug: "dieng-seny",
+    teamId: "senegal",
+    position: "GK",
+    number: 1,
+    age: 30,
+    club: "Middlesbrough",
+    goals: 0,
+    caps: 10,
+    description: "Gardien imposant et agile, formé en Angleterre et titulaire en Championship."
+  },
+  {
+    id: "gomis-alfred",
+    name: "Alfred Gomis",
+    slug: "gomis-alfred",
+    teamId: "senegal",
+    position: "GK",
+    number: 23,
+    age: 33,
+    club: "Rennes",
+    goals: 0,
+    caps: 15,
+    description: "Gardien expérimenté de Ligue 1, champion d'Afrique 2022 avec le Sénégal."
+  },
+
+  // DF (7)
+  {
+    id: "abdou-diallo",
+    name: "Abdou Diallo",
+    slug: "abdou-diallo",
+    teamId: "senegal",
+    position: "DF",
+    number: 22,
+    age: 30,
+    club: "Lyon",
+    goals: 1,
+    caps: 35,
+    description: "Défenseur central gaucher, polyvalent et formé au PSG et Dortmund."
+  },
+  {
+    id: "sabaly",
+    name: "Youssouf Sabaly",
+    slug: "sabaly",
+    teamId: "senegal",
+    position: "DF",
+    number: 2,
+    age: 31,
+    club: "Real Betis",
+    goals: 1,
+    caps: 40,
+    description: "Latéral droit offensif et expérimenté, pilier de la défense sénégalaise."
+  },
+  {
+    id: "jakobs",
+    name: "Ismail Jakobs",
+    slug: "jakobs",
+    teamId: "senegal",
+    position: "DF",
+    number: 15,
+    age: 25,
+    club: "Monaco",
+    goals: 0,
+    caps: 20,
+    description: "Latéral gauche rapide et moderne, formé en Allemagne et naturalisé sénégalais."
+  },
+  {
+    id: "niakhate",
+    name: "Moussa Niakhaté",
+    slug: "niakhate",
+    teamId: "senegal",
+    position: "DF",
+    number: 4,
+    age: 30,
+    club: "Nottingham Forest",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central puissant et aérien, solide en Premier League."
+  },
+  {
+    id: "cisse-pape",
+    name: "Pape Abou Cissé",
+    slug: "cisse-pape",
+    teamId: "senegal",
+    position: "DF",
+    number: 6,
+    age: 30,
+    club: "Olympiacos",
+    goals: 3,
+    caps: 25,
+    description: "Défenseur central imposant et dominant dans les airs, régulier en sélection."
+  },
+  {
+    id: "ballo-toure",
+    name: "Fodé Ballo-Touré",
+    slug: "ballo-toure",
+    teamId: "senegal",
+    position: "DF",
+    number: 14,
+    age: 29,
+    club: "Fulham",
+    goals: 0,
+    caps: 15,
+    description: "Latéral gauche rapide et offensif, passé par l'AC Milan et Monaco."
+  },
+  {
+    id: "diatta-krepin",
+    name: "Krépin Diatta",
+    slug: "diatta-krepin",
+    teamId: "senegal",
+    position: "DF",
+    number: 19,
+    age: 26,
+    club: "Monaco",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur latéral reconverti, rapide et très bon dans la projection offensive."
+  },
+
+  // MF (6)
+  {
+    id: "kouyate",
+    name: "Cheikhou Kouyaté",
+    slug: "kouyate",
+    teamId: "senegal",
+    position: "MF",
+    number: 8,
+    age: 36,
+    club: "Nottingham Forest",
+    goals: 5,
+    caps: 90,
+    description: "Milieu défensif vétéran et combatif, grande expérience internationale."
+  },
+  {
+    id: "mendy-nampalys",
+    name: "Nampalys Mendy",
+    slug: "mendy-nampalys",
+    teamId: "senegal",
+    position: "MF",
+    number: 12,
+    age: 33,
+    club: "RC Lens",
+    goals: 0,
+    caps: 30,
+    description: "Milieu récupérateur intelligent et discret, champion d'Afrique 2022."
+  },
+  {
+    id: "pape-gueye",
+    name: "Pape Gueye",
+    slug: "pape-gueye",
+    teamId: "senegal",
+    position: "MF",
+    number: 13,
+    age: 26,
+    club: "Villarreal",
+    goals: 1,
+    caps: 20,
+    description: "Milieu box-to-box puissant et technique, passé par l'Olympique de Marseille."
+  },
+  {
+    id: "sarr-pape",
+    name: "Pape Matar Sarr",
+    slug: "sarr-pape",
+    teamId: "senegal",
+    position: "MF",
+    number: 17,
+    age: 22,
+    club: "Tottenham",
+    goals: 2,
+    caps: 25,
+    description: "Jeune milieu dynamique et prometteur, talent montant de la nouvelle génération sénégalaise."
+  },
+  {
+    id: "ndiaye-iliman",
+    name: "Iliman Ndiaye",
+    slug: "ndiaye-iliman",
+    teamId: "senegal",
+    position: "MF",
+    number: 20,
+    age: 25,
+    club: "Everton",
+    goals: 3,
+    caps: 18,
+    description: "Milieu offensif créatif et dribbleur, révélation de la CAN 2024."
+  },
+  {
+    id: "lopy",
+    name: "Joseph Lopy",
+    slug: "lopy",
+    teamId: "senegal",
+    position: "MF",
+    number: 21,
+    age: 28,
+    club: "Real Valladolid",
+    goals: 1,
+    caps: 12,
+    description: "Milieu relayeur combatif et généreux, important dans la densité au milieu."
+  },
+
+  // FW (3)
+  {
+    id: "dia-boulaye",
+    name: "Boulaye Dia",
+    slug: "dia-boulaye",
+    teamId: "senegal",
+    position: "FW",
+    number: 9,
+    age: 29,
+    club: "Lazio",
+    goals: 6,
+    caps: 25,
+    description: "Attaquant rapide et efficace, buteur régulier en Serie A."
+  },
+  {
+    id: "diedhiou",
+    name: "Famara Diédhiou",
+    slug: "diedhiou",
+    teamId: "senegal",
+    position: "FW",
+    number: 11,
+    age: 33,
+    club: "Alanyaspor",
+    goals: 8,
+    caps: 30,
+    description: "Attaquant de pointe puissant et aérien, excellent dans le jeu en pivot."
+  },
+  {
+    id: "jackson-nicolas",
+    name: "Nicolas Jackson",
+    slug: "jackson-nicolas",
+    teamId: "senegal",
+    position: "FW",
+    number: 7,
+    age: 25,
+    club: "Chelsea",
+    goals: 4,
+    caps: 15,
+    description: "Jeune attaquant rapide et percutant, titulaire en Premier League avec Chelsea."
+  },
+
+  // ============================================================
+  // NORVEGE (existing: FW Haaland, MF Odegaard, FW Sorloth, GK Nyland, DF Ajer)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "selvik",
+    name: "Per Kristian Bråtveit",
+    slug: "selvik",
+    teamId: "norvege",
+    position: "GK",
+    number: 12,
+    age: 30,
+    club: "Groningen",
+    goals: 0,
+    caps: 5,
+    description: "Gardien de grande taille, option de remplacement fiable en sélection norvégienne."
+  },
+  {
+    id: "dyngeland",
+    name: "Mathias Dyngeland",
+    slug: "dyngeland",
+    teamId: "norvege",
+    position: "GK",
+    number: 23,
+    age: 31,
+    club: "Brann",
+    goals: 0,
+    caps: 3,
+    description: "Gardien régulier du championnat norvégien, excellent dans le jeu au pied."
+  },
+
+  // DF (7)
+  {
+    id: "ryerson",
+    name: "Julian Ryerson",
+    slug: "ryerson",
+    teamId: "norvege",
+    position: "DF",
+    number: 2,
+    age: 27,
+    club: "Borussia Dortmund",
+    goals: 1,
+    caps: 25,
+    description: "Latéral droit énergique et offensif, finaliste de la Ligue des champions avec Dortmund."
+  },
+  {
+    id: "meling",
+    name: "Birger Meling",
+    slug: "meling",
+    teamId: "norvege",
+    position: "DF",
+    number: 3,
+    age: 29,
+    club: "Rennes",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche technique et endurant, régulier en Ligue 1 française."
+  },
+  {
+    id: "strandberg",
+    name: "Stefan Strandberg",
+    slug: "strandberg",
+    teamId: "norvege",
+    position: "DF",
+    number: 5,
+    age: 35,
+    club: "Valladolid",
+    goals: 2,
+    caps: 45,
+    description: "Défenseur central expérimenté et leader, solide dans les duels aériens."
+  },
+  {
+    id: "ostigard",
+    name: "Leo Østigård",
+    slug: "ostigard",
+    teamId: "norvege",
+    position: "DF",
+    number: 6,
+    age: 25,
+    club: "Rennes",
+    goals: 2,
+    caps: 20,
+    description: "Défenseur central agressif et puissant, excellent dans le marquage individuel."
+  },
+  {
+    id: "pedersen-marcus",
+    name: "Marcus Holmgren Pedersen",
+    slug: "pedersen-marcus",
+    teamId: "norvege",
+    position: "DF",
+    number: 13,
+    age: 26,
+    club: "Feyenoord",
+    goals: 0,
+    caps: 15,
+    description: "Latéral droit rapide et polyvalent, formé dans le système néerlandais."
+  },
+  {
+    id: "hanche-olsen",
+    name: "Andreas Hanche-Olsen",
+    slug: "hanche-olsen",
+    teamId: "norvege",
+    position: "DF",
+    number: 14,
+    age: 28,
+    club: "Montpellier",
+    goals: 1,
+    caps: 12,
+    description: "Défenseur central intelligent et bon relanceur, régulier en Ligue 1."
+  },
+  {
+    id: "bjorkan",
+    name: "Fredrik Bjørkan",
+    slug: "bjorkan",
+    teamId: "norvege",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Hertha Berlin",
+    goals: 0,
+    caps: 10,
+    description: "Latéral gauche offensif et endurant, bon dans les centres."
+  },
+
+  // MF (6)
+  {
+    id: "berge",
+    name: "Sander Berge",
+    slug: "berge",
+    teamId: "norvege",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Fulham",
+    goals: 3,
+    caps: 50,
+    description: "Milieu central imposant et technique, leader du milieu norvégien."
+  },
+  {
+    id: "thorsby",
+    name: "Morten Thorsby",
+    slug: "thorsby",
+    teamId: "norvege",
+    position: "MF",
+    number: 16,
+    age: 30,
+    club: "Union Berlin",
+    goals: 2,
+    caps: 35,
+    description: "Milieu défensif combatif et généreux, infatigable dans le pressing."
+  },
+  {
+    id: "aursnes",
+    name: "Fredrik Aursnes",
+    slug: "aursnes",
+    teamId: "norvege",
+    position: "MF",
+    number: 17,
+    age: 30,
+    club: "Benfica",
+    goals: 1,
+    caps: 25,
+    description: "Milieu récupérateur intelligent et régulier, important en Liga portugaise."
+  },
+  {
+    id: "normann",
+    name: "Mathias Normann",
+    slug: "normann",
+    teamId: "norvege",
+    position: "MF",
+    number: 6,
+    age: 29,
+    club: "Lecce",
+    goals: 1,
+    caps: 20,
+    description: "Milieu central technique et bon passeur, expérience en Serie A."
+  },
+  {
+    id: "elyounoussi",
+    name: "Mohamed Elyounoussi",
+    slug: "elyounoussi",
+    teamId: "norvege",
+    position: "MF",
+    number: 11,
+    age: 31,
+    club: "Brann",
+    goals: 8,
+    caps: 55,
+    description: "Milieu offensif polyvalent et expérimenté, habitué des grands rendez-vous."
+  },
+  {
+    id: "berg-patrick",
+    name: "Patrick Berg",
+    slug: "berg-patrick",
+    teamId: "norvege",
+    position: "MF",
+    number: 18,
+    age: 28,
+    club: "Lens",
+    goals: 1,
+    caps: 18,
+    description: "Milieu relayeur élégant et intelligent, bon dans la circulation du ballon."
+  },
+
+  // FW (3)
+  {
+    id: "nusa",
+    name: "Antonio Nusa",
+    slug: "nusa",
+    teamId: "norvege",
+    position: "FW",
+    number: 20,
+    age: 21,
+    club: "RB Leipzig",
+    goals: 2,
+    caps: 12,
+    description: "Ailier prodige ultra-rapide, grand espoir de la nouvelle génération norvégienne."
+  },
+  {
+    id: "king-josh",
+    name: "Joshua King",
+    slug: "king-josh",
+    teamId: "norvege",
+    position: "FW",
+    number: 19,
+    age: 34,
+    club: "Fenerbahce",
+    goals: 22,
+    caps: 70,
+    description: "Attaquant expérimenté et polyvalent, vétéran précieux pour le vestiaire."
+  },
+  {
+    id: "strand-larsen",
+    name: "Jørgen Strand Larsen",
+    slug: "strand-larsen",
+    teamId: "norvege",
+    position: "FW",
+    number: 21,
+    age: 26,
+    club: "Wolverhampton",
+    goals: 5,
+    caps: 15,
+    description: "Attaquant de pointe grand et puissant, excellent dans le jeu aérien."
+  },
+
+  // ============================================================
+  // COLOMBIE (existing: FW Luis Diaz, FW Jhon Arias, MF Richard Rios, DF Davinson Sanchez, GK Vargas)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "ospina",
+    name: "David Ospina",
+    slug: "ospina",
+    teamId: "colombie",
+    position: "GK",
+    number: 1,
+    age: 37,
+    club: "Atletico Nacional",
+    goals: 0,
+    caps: 125,
+    description: "Gardien légendaire de la Colombie, le plus capé de l'histoire de la sélection."
+  },
+  {
+    id: "montero-alvaro",
+    name: "Álvaro Montero",
+    slug: "montero-alvaro",
+    teamId: "colombie",
+    position: "GK",
+    number: 22,
+    age: 30,
+    club: "Millonarios",
+    goals: 0,
+    caps: 8,
+    description: "Gardien imposant du championnat colombien, excellent dans les sorties aériennes."
+  },
+
+  // DF (7)
+  {
+    id: "mojica",
+    name: "Johan Mojica",
+    slug: "mojica",
+    teamId: "colombie",
+    position: "DF",
+    number: 17,
+    age: 32,
+    club: "Villarreal",
+    goals: 2,
+    caps: 40,
+    description: "Latéral gauche offensif et percutant, excellent dans les centres et les montées."
+  },
+  {
+    id: "munoz-daniel",
+    name: "Daniel Muñoz",
+    slug: "munoz-daniel",
+    teamId: "colombie",
+    position: "DF",
+    number: 2,
+    age: 28,
+    club: "Crystal Palace",
+    goals: 4,
+    caps: 30,
+    description: "Latéral droit dynamique et buteur, pilier de la défense colombienne."
+  },
+  {
+    id: "lucumi",
+    name: "Jhon Lucumí",
+    slug: "lucumi",
+    teamId: "colombie",
+    position: "DF",
+    number: 4,
+    age: 26,
+    club: "Bologna",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central élégant et solide, titulaire en Serie A italienne."
+  },
+  {
+    id: "cuesta",
+    name: "Carlos Cuesta",
+    slug: "cuesta",
+    teamId: "colombie",
+    position: "DF",
+    number: 3,
+    age: 27,
+    club: "Genk",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central rapide et agressif, régulier en Jupiler Pro League."
+  },
+  {
+    id: "deiver-machado",
+    name: "Deiver Machado",
+    slug: "deiver-machado",
+    teamId: "colombie",
+    position: "DF",
+    number: 15,
+    age: 33,
+    club: "RC Lens",
+    goals: 0,
+    caps: 15,
+    description: "Latéral gauche rapide et endurant, expérimenté en Ligue 1 française."
+  },
+  {
+    id: "mier",
+    name: "Yerry Mina",
+    slug: "mier",
+    teamId: "colombie",
+    position: "DF",
+    number: 13,
+    age: 31,
+    club: "Cagliari",
+    goals: 8,
+    caps: 55,
+    description: "Défenseur central aérien et buteur sur coups de pied arrêtés, héros du Mondial 2018."
+  },
+  {
+    id: "borja-william",
+    name: "William Tesillo",
+    slug: "borja-william",
+    teamId: "colombie",
+    position: "DF",
+    number: 5,
+    age: 34,
+    club: "León",
+    goals: 1,
+    caps: 35,
+    description: "Défenseur central gaucher et expérimenté, solide dans les duels."
+  },
+
+  // MF (6)
+  {
+    id: "james-rodriguez",
+    name: "James Rodríguez",
+    slug: "james-rodriguez",
+    teamId: "colombie",
+    position: "MF",
+    number: 10,
+    age: 34,
+    club: "León",
+    goals: 25,
+    caps: 100,
+    description: "Meneur de jeu légendaire, meilleur buteur du Mondial 2014 et créateur de génie."
+  },
+  {
+    id: "lerma",
+    name: "Jefferson Lerma",
+    slug: "lerma",
+    teamId: "colombie",
+    position: "MF",
+    number: 16,
+    age: 31,
+    club: "Crystal Palace",
+    goals: 3,
+    caps: 50,
+    description: "Milieu défensif combatif et récupérateur, précieux dans l'équilibre de l'équipe."
+  },
+  {
+    id: "uribe",
+    name: "Mateus Uribe",
+    slug: "uribe",
+    teamId: "colombie",
+    position: "MF",
+    number: 14,
+    age: 33,
+    club: "Al-Sadd",
+    goals: 8,
+    caps: 65,
+    description: "Milieu box-to-box complet et expérimenté, capable de marquer de loin."
+  },
+  {
+    id: "quintero",
+    name: "Juan Fernando Quintero",
+    slug: "quintero",
+    teamId: "colombie",
+    position: "MF",
+    number: 8,
+    age: 33,
+    club: "Racing Club",
+    goals: 5,
+    caps: 35,
+    description: "Meneur de jeu au pied gauche magique, auteur d'un but mémorable en Mondial 2018."
+  },
+  {
+    id: "castaño",
+    name: "Kevin Castaño",
+    slug: "castano",
+    teamId: "colombie",
+    position: "MF",
+    number: 19,
+    age: 26,
+    club: "Krasnodar",
+    goals: 1,
+    caps: 15,
+    description: "Milieu relayeur dynamique et technique, montant en puissance en sélection."
+  },
+  {
+    id: "carrascal",
+    name: "Jorge Carrascal",
+    slug: "carrascal",
+    teamId: "colombie",
+    position: "MF",
+    number: 21,
+    age: 27,
+    club: "Dinamo Moscou",
+    goals: 2,
+    caps: 10,
+    description: "Milieu offensif créatif et dribbleur, capable de gestes techniques spectaculaires."
+  },
+
+  // FW (3)
+  {
+    id: "cordoba-rafael",
+    name: "Rafael Santos Borré",
+    slug: "cordoba-rafael",
+    teamId: "colombie",
+    position: "FW",
+    number: 9,
+    age: 30,
+    club: "Internacional",
+    goals: 8,
+    caps: 40,
+    description: "Attaquant combatif et régulier, buteur important pour la sélection colombienne."
+  },
+  {
+    id: "sinisterra",
+    name: "Luis Sinisterra",
+    slug: "sinisterra",
+    teamId: "colombie",
+    position: "FW",
+    number: 18,
+    age: 26,
+    club: "Bournemouth",
+    goals: 3,
+    caps: 20,
+    description: "Ailier gauche rapide et percutant, dangereux en un contre un."
+  },
+  {
+    id: "duran-jhon",
+    name: "Jhon Durán",
+    slug: "duran-jhon",
+    teamId: "colombie",
+    position: "FW",
+    number: 20,
+    age: 22,
+    club: "Aston Villa",
+    goals: 3,
+    caps: 12,
+    description: "Jeune attaquant puissant et buteur, sensation de la Premier League."
+  },
+
+  // ============================================================
+  // EGYPTE (existing: FW Salah, FW Trezeguet, DF Hegazi, GK El Shenawy, MF Elneny)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "sobhi-gk",
+    name: "Mohamed Abou Gabal",
+    slug: "sobhi-gk",
+    teamId: "egypte",
+    position: "GK",
+    number: 22,
+    age: 36,
+    club: "Zamalek",
+    goals: 0,
+    caps: 15,
+    description: "Gardien surnommé Gabaski, héros de la CAN 2022 et excellent dans les tirs au but."
+  },
+  {
+    id: "hamza-alaa",
+    name: "Ahmed El-Shennawy",
+    slug: "hamza-alaa",
+    teamId: "egypte",
+    position: "GK",
+    number: 23,
+    age: 28,
+    club: "Pyramids FC",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien prometteur du championnat égyptien, agile et bon communicateur."
+  },
+
+  // DF (7)
+  {
+    id: "abdelmonem",
+    name: "Mahmoud Abdelmonem",
+    slug: "abdelmonem",
+    teamId: "egypte",
+    position: "DF",
+    number: 2,
+    age: 26,
+    club: "Al Ahly",
+    goals: 2,
+    caps: 15,
+    description: "Défenseur central aérien et puissant, pilier d'Al Ahly en Ligue des champions africaine."
+  },
+  {
+    id: "fatouh",
+    name: "Ahmed Fatouh",
+    slug: "fatouh",
+    teamId: "egypte",
+    position: "DF",
+    number: 3,
+    age: 30,
+    club: "Zamalek",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche rapide et régulier, important dans les phases offensives."
+  },
+  {
+    id: "kamal-ashraf",
+    name: "Karim Fouad",
+    slug: "kamal-ashraf",
+    teamId: "egypte",
+    position: "DF",
+    number: 4,
+    age: 27,
+    club: "Al Ahly",
+    goals: 0,
+    caps: 10,
+    description: "Défenseur central jeune et athlétique, formé dans l'académie d'Al Ahly."
+  },
+  {
+    id: "hamdi-ahmed",
+    name: "Ahmed Ramadan Beckham",
+    slug: "hamdi-ahmed",
+    teamId: "egypte",
+    position: "DF",
+    number: 13,
+    age: 28,
+    club: "Al Ahly",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit offensif et rapide, surnommé Beckham pour ses centres précis."
+  },
+  {
+    id: "ashour-omar",
+    name: "Omar Gaber",
+    slug: "ashour-omar",
+    teamId: "egypte",
+    position: "DF",
+    number: 5,
+    age: 32,
+    club: "Pyramids FC",
+    goals: 2,
+    caps: 45,
+    description: "Latéral droit expérimenté et polyvalent, passé par la MLS et la Suisse."
+  },
+  {
+    id: "el-wensh",
+    name: "Mohamed El Wensh",
+    slug: "el-wensh",
+    teamId: "egypte",
+    position: "DF",
+    number: 14,
+    age: 28,
+    club: "Zamalek",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central robuste et aérien, titulaire régulier avec Zamalek."
+  },
+  {
+    id: "el-debes",
+    name: "Ayman Ashraf",
+    slug: "el-debes",
+    teamId: "egypte",
+    position: "DF",
+    number: 15,
+    age: 32,
+    club: "Al Ahly",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche expérimenté et fiable, régulier en sélection égyptienne."
+  },
+
+  // MF (6)
+  {
+    id: "fathi-emam",
+    name: "Emam Ashour",
+    slug: "fathi-emam",
+    teamId: "egypte",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Al Ahly",
+    goals: 3,
+    caps: 20,
+    description: "Milieu défensif puissant et récupérateur, moteur de l'entrejeu d'Al Ahly."
+  },
+  {
+    id: "kouka",
+    name: "Ahmed Hassan Kouka",
+    slug: "kouka",
+    teamId: "egypte",
+    position: "MF",
+    number: 9,
+    age: 33,
+    club: "Olympiacos",
+    goals: 12,
+    caps: 40,
+    description: "Milieu offensif polyvalent et buteur, capable de jouer en attaque ou au milieu."
+  },
+  {
+    id: "sobhi-ramadan",
+    name: "Ramadan Sobhi",
+    slug: "sobhi-ramadan",
+    teamId: "egypte",
+    position: "MF",
+    number: 11,
+    age: 27,
+    club: "Pyramids FC",
+    goals: 5,
+    caps: 35,
+    description: "Milieu offensif technique et créatif, ancien joueur de Stoke City et Al Ahly."
+  },
+  {
+    id: "faisal-tarek",
+    name: "Tarek Hamed",
+    slug: "faisal-tarek",
+    teamId: "egypte",
+    position: "MF",
+    number: 16,
+    age: 37,
+    club: "Zamalek",
+    goals: 2,
+    caps: 55,
+    description: "Milieu défensif vétéran et capitaine, leader vocal et combatif sur le terrain."
+  },
+  {
+    id: "zizo",
+    name: "Ahmed Sayed Zizo",
+    slug: "zizo",
+    teamId: "egypte",
+    position: "MF",
+    number: 19,
+    age: 29,
+    club: "Zamalek",
+    goals: 4,
+    caps: 25,
+    description: "Milieu offensif rapide et dribbleur, dangereux dans les un contre un."
+  },
+  {
+    id: "attia-ibrahim",
+    name: "Ibrahim Adel",
+    slug: "attia-ibrahim",
+    teamId: "egypte",
+    position: "MF",
+    number: 20,
+    age: 24,
+    club: "Al Ahly",
+    goals: 2,
+    caps: 15,
+    description: "Jeune milieu offensif prometteur, talent montant du football égyptien."
+  },
+
+  // FW (3)
+  {
+    id: "marmoush",
+    name: "Omar Marmoush",
+    slug: "marmoush",
+    teamId: "egypte",
+    position: "FW",
+    number: 18,
+    age: 27,
+    club: "Manchester City",
+    goals: 6,
+    caps: 20,
+    description: "Attaquant rapide et efficace, révélation de la Bundesliga transféré à Manchester City."
+  },
+  {
+    id: "mostafa-mohamed",
+    name: "Mostafa Mohamed",
+    slug: "mostafa-mohamed",
+    teamId: "egypte",
+    position: "FW",
+    number: 21,
+    age: 28,
+    club: "Nantes",
+    goals: 8,
+    caps: 35,
+    description: "Attaquant de pointe combatif et puissant, buteur régulier en Ligue 1."
+  },
+  {
+    id: "adel-ahmed",
+    name: "Ahmed Abdel Kader",
+    slug: "adel-ahmed",
+    teamId: "egypte",
+    position: "FW",
+    number: 22,
+    age: 26,
+    club: "Al Ahly",
+    goals: 3,
+    caps: 10,
+    description: "Ailier rapide et technique, régulier dans les compétitions africaines avec Al Ahly."
+  },
+
+  // ============================================================
+  // MEXIQUE (existing: FW Lozano, FW Jimenez, MF Edson Alvarez, DF Montes, GK Ochoa)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "gonzalez-carlos",
+    name: "Carlos Acevedo",
+    slug: "gonzalez-carlos",
+    teamId: "mexique",
+    position: "GK",
+    number: 1,
+    age: 28,
+    club: "Santos Laguna",
+    goals: 0,
+    caps: 10,
+    description: "Gardien prometteur de la Liga MX, excellent réflexes et bon jeu au pied."
+  },
+  {
+    id: "malagon",
+    name: "Luis Malagón",
+    slug: "malagon",
+    teamId: "mexique",
+    position: "GK",
+    number: 12,
+    age: 28,
+    club: "Club América",
+    goals: 0,
+    caps: 15,
+    description: "Gardien titulaire de Club América, numéro un pressenti pour succéder à Ochoa."
+  },
+
+  // DF (7)
+  {
+    id: "arteaga",
+    name: "Gerardo Arteaga",
+    slug: "arteaga",
+    teamId: "mexique",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "Genk",
+    goals: 0,
+    caps: 20,
+    description: "Latéral gauche moderne et offensif, formé en Belgique et régulier en sélection."
+  },
+  {
+    id: "vasquez-johan",
+    name: "Johan Vásquez",
+    slug: "vasquez-johan",
+    teamId: "mexique",
+    position: "DF",
+    number: 5,
+    age: 26,
+    club: "Genoa",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central gaucher et élégant, titulaire en Serie A italienne."
+  },
+  {
+    id: "kevin-alvarez",
+    name: "Kevin Álvarez",
+    slug: "kevin-alvarez",
+    teamId: "mexique",
+    position: "DF",
+    number: 19,
+    age: 27,
+    club: "Pachuca",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit rapide et offensif, régulier en Liga MX et en sélection."
+  },
+  {
+    id: "angulo",
+    name: "Jesús Angulo",
+    slug: "angulo",
+    teamId: "mexique",
+    position: "DF",
+    number: 4,
+    age: 28,
+    club: "Tigres UANL",
+    goals: 2,
+    caps: 15,
+    description: "Latéral gauche polyvalent et combatif, champion de la Liga MX."
+  },
+  {
+    id: "reyes-jorge",
+    name: "Jorge Sánchez",
+    slug: "reyes-jorge",
+    teamId: "mexique",
+    position: "DF",
+    number: 17,
+    age: 28,
+    club: "Cruz Azul",
+    goals: 1,
+    caps: 30,
+    description: "Latéral droit expérimenté, passé par l'Ajax et le FC Porto."
+  },
+  {
+    id: "cata-dominguez",
+    name: "Jesús Orozco Chiquete",
+    slug: "cata-dominguez",
+    teamId: "mexique",
+    position: "DF",
+    number: 14,
+    age: 24,
+    club: "Chivas Guadalajara",
+    goals: 1,
+    caps: 10,
+    description: "Jeune défenseur central prometteur de Chivas, rapide et bon relanceur."
+  },
+  {
+    id: "aguirre-israel",
+    name: "Israel Reyes",
+    slug: "aguirre-israel",
+    teamId: "mexique",
+    position: "DF",
+    number: 15,
+    age: 25,
+    club: "Club América",
+    goals: 0,
+    caps: 12,
+    description: "Défenseur central puissant et aérien, titulaire de Club América."
+  },
+
+  // MF (6)
+  {
+    id: "romo",
+    name: "Luis Romo",
+    slug: "romo",
+    teamId: "mexique",
+    position: "MF",
+    number: 7,
+    age: 30,
+    club: "Monterrey",
+    goals: 6,
+    caps: 35,
+    description: "Milieu box-to-box puissant et buteur, excellent dans les projections offensives."
+  },
+  {
+    id: "gutierrez-erick",
+    name: "Erick Gutiérrez",
+    slug: "gutierrez-erick",
+    teamId: "mexique",
+    position: "MF",
+    number: 6,
+    age: 31,
+    club: "PSV Eindhoven",
+    goals: 3,
+    caps: 45,
+    description: "Milieu central technique et intelligent, important dans la circulation du ballon."
+  },
+  {
+    id: "pineda",
+    name: "Orbelin Pineda",
+    slug: "pineda",
+    teamId: "mexique",
+    position: "MF",
+    number: 10,
+    age: 30,
+    club: "AEK Athènes",
+    goals: 8,
+    caps: 45,
+    description: "Milieu offensif technique et créatif, passé par le Celta Vigo."
+  },
+  {
+    id: "rodriguez-carlos",
+    name: "Carlos Rodríguez",
+    slug: "rodriguez-carlos",
+    teamId: "mexique",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Cruz Azul",
+    goals: 3,
+    caps: 25,
+    description: "Milieu central intelligent et bon passeur, régulier en Liga MX."
+  },
+  {
+    id: "chavez-jordan",
+    name: "Marcel Ruiz",
+    slug: "chavez-jordan",
+    teamId: "mexique",
+    position: "MF",
+    number: 18,
+    age: 24,
+    club: "Sporting Kansas City",
+    goals: 1,
+    caps: 10,
+    description: "Jeune milieu de terrain mexicain évoluant en MLS, dynamique et technique."
+  },
+  {
+    id: "guardado",
+    name: "Andrés Guardado",
+    slug: "guardado",
+    teamId: "mexique",
+    position: "MF",
+    number: 16,
+    age: 39,
+    club: "León",
+    goals: 28,
+    caps: 180,
+    description: "Légende et capitaine historique du Mexique, le joueur le plus capé de l'histoire."
+  },
+
+  // FW (3)
+  {
+    id: "gimenez-santiago",
+    name: "Santiago Giménez",
+    slug: "gimenez-santiago",
+    teamId: "mexique",
+    position: "FW",
+    number: 20,
+    age: 25,
+    club: "Feyenoord",
+    goals: 10,
+    caps: 25,
+    description: "Attaquant buteur et efficace, meilleur buteur mexicain en Europe actuellement."
+  },
+  {
+    id: "vega-alexis",
+    name: "Alexis Vega",
+    slug: "vega-alexis",
+    teamId: "mexique",
+    position: "FW",
+    number: 21,
+    age: 28,
+    club: "Toluca",
+    goals: 7,
+    caps: 35,
+    description: "Ailier gauche créatif et buteur, dangereux sur coups de pied arrêtés."
+  },
+  {
+    id: "huerta-cesar",
+    name: "César Huerta",
+    slug: "huerta-cesar",
+    teamId: "mexique",
+    position: "FW",
+    number: 22,
+    age: 24,
+    club: "Anderlecht",
+    goals: 2,
+    caps: 10,
+    description: "Ailier rapide et percutant, révélation récente de la sélection mexicaine."
+  },
+
+  // ============================================================
+  // AFRIQUE DU SUD (existing: FW Tau, MF Zwane, DF Modiba, GK Williams, DF Mvala)
+  // Need: 2 GK, 6 DF, 6 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "khune",
+    name: "Itumeleng Khune",
+    slug: "khune",
+    teamId: "afrique-du-sud",
+    position: "GK",
+    number: 16,
+    age: 37,
+    club: "Kaizer Chiefs",
+    goals: 0,
+    caps: 90,
+    description: "Gardien légendaire des Bafana Bafana, le plus capé à son poste dans l'histoire sud-africaine."
+  },
+  {
+    id: "bvuma",
+    name: "Bruce Bvuma",
+    slug: "bvuma",
+    teamId: "afrique-du-sud",
+    position: "GK",
+    number: 23,
+    age: 31,
+    club: "Kaizer Chiefs",
+    goals: 0,
+    caps: 10,
+    description: "Gardien fiable et agile, troisième choix expérimenté pour la sélection."
+  },
+
+  // DF (6)
+  {
+    id: "mphahlele",
+    name: "Ramahlwe Mphahlele",
+    slug: "mphahlele",
+    teamId: "afrique-du-sud",
+    position: "DF",
+    number: 2,
+    age: 36,
+    club: "Kaizer Chiefs",
+    goals: 1,
+    caps: 35,
+    description: "Latéral droit expérimenté et capitaine, vétéran du football sud-africain."
+  },
+  {
+    id: "siyanda-xulu",
+    name: "Siyanda Xulu",
+    slug: "siyanda-xulu",
+    teamId: "afrique-du-sud",
+    position: "DF",
+    number: 4,
+    age: 33,
+    club: "Sekhukhune United",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central solide et expérimenté, passé par des clubs européens."
+  },
+  {
+    id: "de-reuck",
+    name: "Rushine De Reuck",
+    slug: "de-reuck",
+    teamId: "afrique-du-sud",
+    position: "DF",
+    number: 3,
+    age: 29,
+    club: "Mamelodi Sundowns",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central rapide et élégant, bon relanceur depuis l'arrière."
+  },
+  {
+    id: "mudau",
+    name: "Khuliso Mudau",
+    slug: "mudau",
+    teamId: "afrique-du-sud",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Mamelodi Sundowns",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit offensif et rapide, régulier en sélection et en Ligue des champions africaine."
+  },
+  {
+    id: "mashego",
+    name: "Terrence Mashego",
+    slug: "mashego",
+    teamId: "afrique-du-sud",
+    position: "DF",
+    number: 12,
+    age: 26,
+    club: "Cape Town City",
+    goals: 2,
+    caps: 15,
+    description: "Latéral gauche offensif et dynamique, talent montant du football sud-africain."
+  },
+  {
+    id: "ntseki-grant",
+    name: "Grant Kekana",
+    slug: "ntseki-grant",
+    teamId: "afrique-du-sud",
+    position: "DF",
+    number: 5,
+    age: 31,
+    club: "Mamelodi Sundowns",
+    goals: 3,
+    caps: 15,
+    description: "Défenseur central puissant et aérien, dominant sur les coups de pied arrêtés."
+  },
+
+  // MF (6)
+  {
+    id: "mokoena",
+    name: "Teboho Mokoena",
+    slug: "mokoena",
+    teamId: "afrique-du-sud",
+    position: "MF",
+    number: 8,
+    age: 27,
+    club: "Mamelodi Sundowns",
+    goals: 5,
+    caps: 30,
+    description: "Milieu central puissant et buteur de loin, leader technique des Bafana Bafana."
+  },
+  {
+    id: "mokwena-sipho",
+    name: "Sipho Mbule",
+    slug: "mokwena-sipho",
+    teamId: "afrique-du-sud",
+    position: "MF",
+    number: 17,
+    age: 26,
+    club: "Mamelodi Sundowns",
+    goals: 1,
+    caps: 12,
+    description: "Milieu créatif et technique, capable de gestes décisifs dans les derniers mètres."
+  },
+  {
+    id: "foster-luke",
+    name: "Luke Fleurs",
+    slug: "foster-luke",
+    teamId: "afrique-du-sud",
+    position: "MF",
+    number: 18,
+    age: 25,
+    club: "Stellenbosch FC",
+    goals: 0,
+    caps: 8,
+    description: "Milieu récupérateur discipliné et intelligent, progression constante en sélection."
+  },
+  {
+    id: "mkhize",
+    name: "Ethan Brooks",
+    slug: "mkhize",
+    teamId: "afrique-du-sud",
+    position: "MF",
+    number: 21,
+    age: 22,
+    club: "TS Galaxy",
+    goals: 1,
+    caps: 10,
+    description: "Jeune milieu dynamique et polyvalent, grand espoir du football sud-africain."
+  },
+  {
+    id: "sundowns-nodada",
+    name: "Sphephelo Sithole",
+    slug: "sundowns-nodada",
+    teamId: "afrique-du-sud",
+    position: "MF",
+    number: 13,
+    age: 25,
+    club: "Belenenses",
+    goals: 0,
+    caps: 10,
+    description: "Milieu défensif évoluant au Portugal, solide dans la récupération et la relance."
+  },
+  {
+    id: "mabiliso",
+    name: "Bathusi Aubaas",
+    slug: "mabiliso",
+    teamId: "afrique-du-sud",
+    position: "MF",
+    number: 19,
+    age: 24,
+    club: "Young Africans",
+    goals: 1,
+    caps: 8,
+    description: "Milieu polyvalent et athlétique, en progression au niveau international."
+  },
+
+  // FW (4)
+  {
+    id: "shalulile",
+    name: "Peter Shalulile",
+    slug: "shalulile",
+    teamId: "afrique-du-sud",
+    position: "FW",
+    number: 9,
+    age: 31,
+    club: "Mamelodi Sundowns",
+    goals: 5,
+    caps: 15,
+    description: "Attaquant prolifique et meilleur buteur de la ligue sud-africaine, originaire de Namibie."
+  },
+  {
+    id: "letsoalo",
+    name: "Evidence Makgopa",
+    slug: "letsoalo",
+    teamId: "afrique-du-sud",
+    position: "FW",
+    number: 7,
+    age: 25,
+    club: "Orlando Pirates",
+    goals: 4,
+    caps: 18,
+    description: "Attaquant rapide et dynamique, buteur important pour les Bafana Bafana."
+  },
+  {
+    id: "pule",
+    name: "Thembinkosi Lorch",
+    slug: "pule",
+    teamId: "afrique-du-sud",
+    position: "FW",
+    number: 20,
+    age: 31,
+    club: "Orlando Pirates",
+    goals: 6,
+    caps: 25,
+    description: "Ailier technique et spectaculaire, auteur de buts décisifs en compétitions africaines."
+  },
+  {
+    id: "foster-lyle",
+    name: "Lyle Foster",
+    slug: "foster-lyle",
+    teamId: "afrique-du-sud",
+    position: "FW",
+    number: 22,
+    age: 24,
+    club: "Burnley",
+    goals: 3,
+    caps: 20,
+    description: "Attaquant évoluant en Angleterre, puissant et capable de jouer en pivot."
+  },
+  // ---- tmp-players-a4.ts ----
+// ============================================================
+  // SOUTH KOREA (coree-du-sud)
+  // Existing: son (FW), lee-kang-in (MF), hwang-hee-chan (FW), kim-min-jae (DF), jo-hyeon-woo (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "kim-seung-gyu",
+    name: "Kim Seung-gyu",
+    slug: "kim-seung-gyu",
+    teamId: "coree-du-sud",
+    position: "GK",
+    number: 1,
+    age: 36,
+    club: "Al Shabab",
+    goals: 0,
+    caps: 65,
+    description: "Gardien d'expérience, pilier de longue date entre les poteaux sud-coréens."
+  },
+  {
+    id: "song-bum-keun",
+    name: "Song Bum-keun",
+    slug: "song-bum-keun",
+    teamId: "coree-du-sud",
+    position: "GK",
+    number: 12,
+    age: 27,
+    club: "Jeonbuk Hyundai",
+    goals: 0,
+    caps: 10,
+    description: "Jeune gardien prometteur de K League, agile et doté d'excellents réflexes."
+  },
+
+  // DF (7)
+  {
+    id: "kim-young-gwon",
+    name: "Kim Young-gwon",
+    slug: "kim-young-gwon",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 4,
+    age: 36,
+    club: "Ulsan Hyundai",
+    goals: 5,
+    caps: 110,
+    description: "Défenseur central vétéran et expérimenté, ancien capitaine de la sélection."
+  },
+  {
+    id: "kwon-kyung-won",
+    name: "Kwon Kyung-won",
+    slug: "kwon-kyung-won",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 20,
+    age: 33,
+    club: "Gamba Osaka",
+    goals: 3,
+    caps: 60,
+    description: "Défenseur central solide et aérien, habitué des compétitions internationales."
+  },
+  {
+    id: "kim-jin-su",
+    name: "Kim Jin-su",
+    slug: "kim-jin-su",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 6,
+    age: 34,
+    club: "Jeonbuk Hyundai",
+    goals: 5,
+    caps: 75,
+    description: "Latéral gauche offensif et expérimenté, très bon dans les centres."
+  },
+  {
+    id: "hong-chul",
+    name: "Hong Chul",
+    slug: "hong-chul",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 14,
+    age: 36,
+    club: "Daejeon Citizen",
+    goals: 2,
+    caps: 40,
+    description: "Latéral gauche vétéran, fiable défensivement et endurant."
+  },
+  {
+    id: "cho-yu-min",
+    name: "Cho Yu-min",
+    slug: "cho-yu-min",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 15,
+    age: 27,
+    club: "Daejeon Citizen",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central jeune et prometteur, bon dans la relance."
+  },
+  {
+    id: "yoon-jong-gyu",
+    name: "Yoon Jong-gyu",
+    slug: "yoon-jong-gyu",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 2,
+    age: 26,
+    club: "FC Seoul",
+    goals: 0,
+    caps: 15,
+    description: "Latéral droit rapide et dynamique, talent montant de la K League."
+  },
+  {
+    id: "seol-young-woo",
+    name: "Seol Young-woo",
+    slug: "seol-young-woo",
+    teamId: "coree-du-sud",
+    position: "DF",
+    number: 23,
+    age: 24,
+    club: "Ulsan Hyundai",
+    goals: 1,
+    caps: 12,
+    description: "Jeune défenseur central athlétique, excellente lecture du jeu."
+  },
+
+  // MF (6)
+  {
+    id: "hwang-in-beom",
+    name: "Hwang In-beom",
+    slug: "hwang-in-beom",
+    teamId: "coree-du-sud",
+    position: "MF",
+    number: 8,
+    age: 29,
+    club: "Feyenoord",
+    goals: 4,
+    caps: 50,
+    description: "Milieu relayeur technique et dynamique, bon passeur depuis l'Europe."
+  },
+  {
+    id: "jung-woo-young",
+    name: "Jung Woo-young",
+    slug: "jung-woo-young",
+    teamId: "coree-du-sud",
+    position: "MF",
+    number: 16,
+    age: 36,
+    club: "Al Sadd",
+    goals: 3,
+    caps: 95,
+    description: "Milieu défensif d'expérience, vétéran et capitaine régulier de la sélection."
+  },
+  {
+    id: "paik-seung-ho",
+    name: "Paik Seung-ho",
+    slug: "paik-seung-ho",
+    teamId: "coree-du-sud",
+    position: "MF",
+    number: 17,
+    age: 29,
+    club: "Jeonbuk Hyundai",
+    goals: 2,
+    caps: 25,
+    description: "Milieu central polyvalent formé au FC Barcelone, bon dans la circulation du ballon."
+  },
+  {
+    id: "lee-jae-sung",
+    name: "Lee Jae-sung",
+    slug: "lee-jae-sung",
+    teamId: "coree-du-sud",
+    position: "MF",
+    number: 22,
+    age: 33,
+    club: "Mainz 05",
+    goals: 10,
+    caps: 65,
+    description: "Milieu offensif intelligent et buteur, présence constante en Bundesliga."
+  },
+  {
+    id: "kwon-chang-hoon",
+    name: "Kwon Chang-hoon",
+    slug: "kwon-chang-hoon",
+    teamId: "coree-du-sud",
+    position: "MF",
+    number: 10,
+    age: 31,
+    club: "Gimcheon Sangmu",
+    goals: 8,
+    caps: 35,
+    description: "Milieu offensif créatif et technique, ancien joueur de Ligue 1."
+  },
+  {
+    id: "son-jun-ho",
+    name: "Son Jun-ho",
+    slug: "son-jun-ho",
+    teamId: "coree-du-sud",
+    position: "MF",
+    number: 13,
+    age: 33,
+    club: "Shandong Taishan",
+    goals: 2,
+    caps: 30,
+    description: "Milieu récupérateur solide et discipliné, important dans l'équilibre de l'équipe."
+  },
+
+  // FW (3)
+  {
+    id: "cho-gue-sung",
+    name: "Cho Gue-sung",
+    slug: "cho-gue-sung",
+    teamId: "coree-du-sud",
+    position: "FW",
+    number: 9,
+    age: 28,
+    club: "Midtjylland",
+    goals: 8,
+    caps: 25,
+    description: "Attaquant puissant et aérien, révélation de la Coupe du Monde 2022."
+  },
+  {
+    id: "hwang-ui-jo",
+    name: "Hwang Ui-jo",
+    slug: "hwang-ui-jo",
+    teamId: "coree-du-sud",
+    position: "FW",
+    number: 19,
+    age: 33,
+    club: "Nottingham Forest",
+    goals: 16,
+    caps: 55,
+    description: "Attaquant expérimenté et fin technicien, passé par la Ligue 1 française."
+  },
+  {
+    id: "oh-hyeon-gyu",
+    name: "Oh Hyeon-gyu",
+    slug: "oh-hyeon-gyu",
+    teamId: "coree-du-sud",
+    position: "FW",
+    number: 24,
+    age: 23,
+    club: "Celtic",
+    goals: 3,
+    caps: 10,
+    description: "Jeune attaquant rapide et percutant, talent émergent du football coréen."
+  },
+
+  // ============================================================
+  // CANADA
+  // Existing: david (FW), davies (DF), buchanan (MF), eustaquio (MF), crepeau (GK)
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "st-clair",
+    name: "Dayne St. Clair",
+    slug: "st-clair",
+    teamId: "canada",
+    position: "GK",
+    number: 18,
+    age: 27,
+    club: "Minnesota United",
+    goals: 0,
+    caps: 15,
+    description: "Gardien titulaire en MLS, solide et fiable dans sa surface."
+  },
+  {
+    id: "borjan",
+    name: "Milan Borjan",
+    slug: "borjan",
+    teamId: "canada",
+    position: "GK",
+    number: 1,
+    age: 38,
+    club: "Étoile Rouge de Belgrade",
+    goals: 0,
+    caps: 65,
+    description: "Gardien vétéran et expérimenté, pilier historique de la sélection canadienne."
+  },
+
+  // DF (7)
+  {
+    id: "johnston-alistair",
+    name: "Alistair Johnston",
+    slug: "johnston-alistair",
+    teamId: "canada",
+    position: "DF",
+    number: 2,
+    age: 26,
+    club: "Celtic",
+    goals: 1,
+    caps: 35,
+    description: "Latéral droit énergique et offensif, révélation au Celtic Glasgow."
+  },
+  {
+    id: "miller-kamal",
+    name: "Kamal Miller",
+    slug: "miller-kamal",
+    teamId: "canada",
+    position: "DF",
+    number: 4,
+    age: 28,
+    club: "Portland Timbers",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central gaucher, rapide et à l'aise dans la relance."
+  },
+  {
+    id: "cornelius",
+    name: "Derek Cornelius",
+    slug: "cornelius",
+    teamId: "canada",
+    position: "DF",
+    number: 5,
+    age: 28,
+    club: "Malmö FF",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central robuste et combatif, expérimenté au niveau international."
+  },
+  {
+    id: "laryea",
+    name: "Richie Laryea",
+    slug: "laryea",
+    teamId: "canada",
+    position: "DF",
+    number: 22,
+    age: 30,
+    club: "Toronto FC",
+    goals: 1,
+    caps: 35,
+    description: "Latéral droit polyvalent et rapide, important en phase offensive."
+  },
+  {
+    id: "adekugbe",
+    name: "Sam Adekugbe",
+    slug: "adekugbe",
+    teamId: "canada",
+    position: "DF",
+    number: 3,
+    age: 31,
+    club: "Hatayspor",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche dynamique et combatif, bon défenseur en un contre un."
+  },
+  {
+    id: "bombito",
+    name: "Moise Bombito",
+    slug: "bombito",
+    teamId: "canada",
+    position: "DF",
+    number: 13,
+    age: 25,
+    club: "Nice",
+    goals: 0,
+    caps: 15,
+    description: "Défenseur central jeune et athlétique, transféré en Ligue 1 française."
+  },
+  {
+    id: "henry-doneil",
+    name: "Doneil Henry",
+    slug: "henry-doneil",
+    teamId: "canada",
+    position: "DF",
+    number: 15,
+    age: 33,
+    club: "Toronto FC",
+    goals: 2,
+    caps: 40,
+    description: "Défenseur central expérimenté et aérien, vétéran de la sélection."
+  },
+
+  // MF (5)
+  {
+    id: "osorio-jonathan",
+    name: "Jonathan Osorio",
+    slug: "osorio-jonathan",
+    teamId: "canada",
+    position: "MF",
+    number: 21,
+    age: 33,
+    club: "Toronto FC",
+    goals: 8,
+    caps: 60,
+    description: "Milieu box-to-box et capitaine, fidèle serviteur de la sélection canadienne."
+  },
+  {
+    id: "koone",
+    name: "Ismael Koné",
+    slug: "koone",
+    teamId: "canada",
+    position: "MF",
+    number: 14,
+    age: 22,
+    club: "Marseille",
+    goals: 2,
+    caps: 20,
+    description: "Milieu dynamique et puissant, jeune talent canadien évoluant en Ligue 1."
+  },
+  {
+    id: "millar",
+    name: "Liam Millar",
+    slug: "millar",
+    teamId: "canada",
+    position: "MF",
+    number: 11,
+    age: 25,
+    club: "Preston North End",
+    goals: 3,
+    caps: 20,
+    description: "Milieu offensif rapide et technique, polyvalent sur les ailes."
+  },
+  {
+    id: "piette",
+    name: "Samuel Piette",
+    slug: "piette",
+    teamId: "canada",
+    position: "MF",
+    number: 6,
+    age: 32,
+    club: "CF Montréal",
+    goals: 1,
+    caps: 45,
+    description: "Milieu défensif discipliné et combatif, métronome discret de l'équipe."
+  },
+  {
+    id: "choiniere",
+    name: "Mathieu Choinière",
+    slug: "choiniere",
+    teamId: "canada",
+    position: "MF",
+    number: 8,
+    age: 27,
+    club: "CF Montréal",
+    goals: 2,
+    caps: 15,
+    description: "Milieu travailleur et polyvalent, capable de jouer à plusieurs postes."
+  },
+
+  // FW (4)
+  {
+    id: "larin",
+    name: "Cyle Larin",
+    slug: "larin",
+    teamId: "canada",
+    position: "FW",
+    number: 20,
+    age: 31,
+    club: "Real Valladolid",
+    goals: 29,
+    caps: 65,
+    description: "Attaquant de pointe puissant, deuxième meilleur buteur de l'histoire canadienne."
+  },
+  {
+    id: "david-junior",
+    name: "Jacen Russell-Rowe",
+    slug: "david-junior",
+    teamId: "canada",
+    position: "FW",
+    number: 23,
+    age: 22,
+    club: "Columbus Crew",
+    goals: 1,
+    caps: 8,
+    description: "Jeune attaquant rapide de MLS, espoir prometteur du football canadien."
+  },
+  {
+    id: "shaffelburg",
+    name: "Jacob Shaffelburg",
+    slug: "shaffelburg",
+    teamId: "canada",
+    position: "FW",
+    number: 10,
+    age: 25,
+    club: "Nashville SC",
+    goals: 3,
+    caps: 15,
+    description: "Ailier gauche rapide et percutant, talent offensif de la MLS."
+  },
+  {
+    id: "bair",
+    name: "Tani Oluwaseyi",
+    slug: "bair",
+    teamId: "canada",
+    position: "FW",
+    number: 16,
+    age: 25,
+    club: "Minnesota United",
+    goals: 2,
+    caps: 10,
+    description: "Attaquant dynamique et combatif, force physique au service du collectif."
+  },
+
+  // ============================================================
+  // SWITZERLAND (suisse)
+  // Existing: xhaka (MF), embolo (FW), akanji (DF), sommer (GK), rieder (MF)
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "kobel",
+    name: "Gregor Kobel",
+    slug: "kobel",
+    teamId: "suisse",
+    position: "GK",
+    number: 12,
+    age: 28,
+    club: "Borussia Dortmund",
+    goals: 0,
+    caps: 10,
+    description: "Gardien de haut niveau en Bundesliga, prétendant au poste de numéro un."
+  },
+  {
+    id: "mvogo",
+    name: "Yvon Mvogo",
+    slug: "mvogo",
+    teamId: "suisse",
+    position: "GK",
+    number: 23,
+    age: 32,
+    club: "Lorient",
+    goals: 0,
+    caps: 8,
+    description: "Gardien expérimenté et athlétique, troisième option fiable dans les buts."
+  },
+
+  // DF (7)
+  {
+    id: "rodriguez-ricardo",
+    name: "Ricardo Rodríguez",
+    slug: "rodriguez-ricardo",
+    teamId: "suisse",
+    position: "DF",
+    number: 13,
+    age: 33,
+    club: "Betis Séville",
+    goals: 9,
+    caps: 110,
+    description: "Latéral gauche expérimenté et polyvalent, spécialiste des coups francs."
+  },
+  {
+    id: "widmer",
+    name: "Silvan Widmer",
+    slug: "widmer",
+    teamId: "suisse",
+    position: "DF",
+    number: 2,
+    age: 33,
+    club: "Mainz 05",
+    goals: 3,
+    caps: 50,
+    description: "Latéral droit infatigable et fiable, très bon dans les deux phases."
+  },
+  {
+    id: "elvedi",
+    name: "Nico Elvedi",
+    slug: "elvedi",
+    teamId: "suisse",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Borussia Mönchengladbach",
+    goals: 2,
+    caps: 55,
+    description: "Défenseur central élégant et rapide, excellent relanceur depuis la défense."
+  },
+  {
+    id: "schar",
+    name: "Fabian Schär",
+    slug: "schar",
+    teamId: "suisse",
+    position: "DF",
+    number: 22,
+    age: 34,
+    club: "Newcastle",
+    goals: 8,
+    caps: 85,
+    description: "Défenseur central rugueux et buteur, cadre de longue date en Premier League."
+  },
+  {
+    id: "stergiou",
+    name: "Leonidas Stergiou",
+    slug: "stergiou",
+    teamId: "suisse",
+    position: "DF",
+    number: 3,
+    age: 22,
+    club: "Stuttgart",
+    goals: 0,
+    caps: 10,
+    description: "Jeune défenseur central prometteur, rapide et bon dans les duels."
+  },
+  {
+    id: "garcia-kevin",
+    name: "Ulisses Garcia",
+    slug: "garcia-kevin",
+    teamId: "suisse",
+    position: "DF",
+    number: 19,
+    age: 30,
+    club: "Marseille",
+    goals: 1,
+    caps: 15,
+    description: "Latéral gauche dynamique et offensif, très bon dans les centres."
+  },
+  {
+    id: "comert",
+    name: "Eray Cömert",
+    slug: "comert",
+    teamId: "suisse",
+    position: "DF",
+    number: 6,
+    age: 28,
+    club: "Valence",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central polyvalent, capable de jouer en tant que latéral droit."
+  },
+
+  // MF (5)
+  {
+    id: "freuler",
+    name: "Remo Freuler",
+    slug: "freuler",
+    teamId: "suisse",
+    position: "MF",
+    number: 8,
+    age: 34,
+    club: "Bologna",
+    goals: 3,
+    caps: 65,
+    description: "Milieu de terrain complet et régulier, infatigable dans l'entrejeu."
+  },
+  {
+    id: "zakaria",
+    name: "Denis Zakaria",
+    slug: "zakaria",
+    teamId: "suisse",
+    position: "MF",
+    number: 14,
+    age: 29,
+    club: "Monaco",
+    goals: 3,
+    caps: 45,
+    description: "Milieu défensif athlétique et puissant, capable de couper les lignes de passe."
+  },
+  {
+    id: "aebischer",
+    name: "Michel Aebischer",
+    slug: "aebischer",
+    teamId: "suisse",
+    position: "MF",
+    number: 15,
+    age: 27,
+    club: "Bologna",
+    goals: 2,
+    caps: 25,
+    description: "Milieu gauche polyvalent et travailleur, révélation de l'Euro 2024."
+  },
+  {
+    id: "sow",
+    name: "Djibril Sow",
+    slug: "sow",
+    teamId: "suisse",
+    position: "MF",
+    number: 17,
+    age: 29,
+    club: "Séville",
+    goals: 2,
+    caps: 40,
+    description: "Milieu box-to-box dynamique et puissant, bon dans les transitions."
+  },
+  {
+    id: "ndoye",
+    name: "Dan Ndoye",
+    slug: "ndoye",
+    teamId: "suisse",
+    position: "MF",
+    number: 20,
+    age: 25,
+    club: "Bologna",
+    goals: 2,
+    caps: 15,
+    description: "Milieu offensif rapide et percutant, capable de jouer sur les côtés."
+  },
+
+  // FW (4)
+  {
+    id: "okafor",
+    name: "Noah Okafor",
+    slug: "okafor",
+    teamId: "suisse",
+    position: "FW",
+    number: 9,
+    age: 26,
+    club: "AC Milan",
+    goals: 5,
+    caps: 25,
+    description: "Attaquant rapide et technique, excellent finisseur devant le but."
+  },
+  {
+    id: "shaqiri",
+    name: "Xherdan Shaqiri",
+    slug: "shaqiri",
+    teamId: "suisse",
+    position: "FW",
+    number: 11,
+    age: 34,
+    club: "Bâle",
+    goals: 32,
+    caps: 120,
+    description: "Légende suisse au pied gauche magique, spécialiste des buts spectaculaires."
+  },
+  {
+    id: "duah",
+    name: "Kwadwo Duah",
+    slug: "duah",
+    teamId: "suisse",
+    position: "FW",
+    number: 18,
+    age: 27,
+    club: "Ludogorets",
+    goals: 3,
+    caps: 12,
+    description: "Attaquant rapide et finisseur efficace, buteur surprise de l'Euro 2024."
+  },
+  {
+    id: "steffen-renato",
+    name: "Renato Steffen",
+    slug: "steffen-renato",
+    teamId: "suisse",
+    position: "FW",
+    number: 21,
+    age: 34,
+    club: "Lugano",
+    goals: 5,
+    caps: 35,
+    description: "Ailier gauche expérimenté et polyvalent, apportant de la profondeur en attaque."
+  },
+
+  // ============================================================
+  // QATAR
+  // Existing: afif (FW), ali-almoez (FW), boudiaf (MF), khoukhi (DF), barsham (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "meshaal-barsham",
+    name: "Meshaal Barsham",
+    slug: "meshaal-barsham",
+    teamId: "qatar",
+    position: "GK",
+    number: 22,
+    age: 28,
+    club: "Al Sadd",
+    goals: 0,
+    caps: 25,
+    description: "Gardien réserviste de talent, prêt à saisir sa chance quand appelé."
+  },
+  {
+    id: "yousof-hassan",
+    name: "Yousof Hassan",
+    slug: "yousof-hassan",
+    teamId: "qatar",
+    position: "GK",
+    number: 21,
+    age: 26,
+    club: "Al Gharafa",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien prometteur, troisième option dans les buts qataris."
+  },
+
+  // DF (7)
+  {
+    id: "pedro-miguel",
+    name: "Pedro Miguel",
+    slug: "pedro-miguel",
+    teamId: "qatar",
+    position: "DF",
+    number: 2,
+    age: 33,
+    club: "Al Sadd",
+    goals: 4,
+    caps: 85,
+    description: "Latéral droit offensif et expérimenté, pilier de la défense qatarie."
+  },
+  {
+    id: "hassan-abdelkarim",
+    name: "Abdelkarim Hassan",
+    slug: "hassan-abdelkarim",
+    teamId: "qatar",
+    position: "DF",
+    number: 3,
+    age: 33,
+    club: "Al Sadd",
+    goals: 6,
+    caps: 120,
+    description: "Latéral gauche légendaire, ancien meilleur joueur d'Asie et recordman de sélections."
+  },
+  {
+    id: "al-rawi",
+    name: "Tarek Salman",
+    slug: "al-rawi",
+    teamId: "qatar",
+    position: "DF",
+    number: 6,
+    age: 28,
+    club: "Al Sadd",
+    goals: 2,
+    caps: 65,
+    description: "Défenseur central solide et régulier, titulaire indiscutable de la sélection."
+  },
+  {
+    id: "ahmed-yasser",
+    name: "Bassam Al-Rawi",
+    slug: "ahmed-yasser",
+    teamId: "qatar",
+    position: "DF",
+    number: 15,
+    age: 29,
+    club: "Al Duhail",
+    goals: 3,
+    caps: 55,
+    description: "Défenseur central gaucher au bon pied, dangereux sur coups de pied arrêtés."
+  },
+  {
+    id: "homam-ahmed",
+    name: "Homam Ahmed",
+    slug: "homam-ahmed",
+    teamId: "qatar",
+    position: "DF",
+    number: 4,
+    age: 25,
+    club: "Al Gharafa",
+    goals: 1,
+    caps: 30,
+    description: "Jeune défenseur central polyvalent, nouvelle génération du Qatar."
+  },
+  {
+    id: "al-hajri",
+    name: "Mohammed Al-Hajri",
+    slug: "al-hajri",
+    teamId: "qatar",
+    position: "DF",
+    number: 23,
+    age: 27,
+    club: "Al Rayyan",
+    goals: 0,
+    caps: 15,
+    description: "Latéral droit rapide et discipliné, option défensive fiable."
+  },
+  {
+    id: "al-ahrak",
+    name: "Jassem Al-Ahrak",
+    slug: "al-ahrak",
+    teamId: "qatar",
+    position: "DF",
+    number: 14,
+    age: 24,
+    club: "Al Duhail",
+    goals: 0,
+    caps: 10,
+    description: "Jeune latéral gauche prometteur, apportant de la fraîcheur en défense."
+  },
+
+  // MF (6)
+  {
+    id: "al-haydos",
+    name: "Hassan Al-Haydos",
+    slug: "al-haydos",
+    teamId: "qatar",
+    position: "MF",
+    number: 10,
+    age: 35,
+    club: "Al Sadd",
+    goals: 30,
+    caps: 175,
+    description: "Capitaine historique et recordman de sélections, légende vivante du football qatari."
+  },
+  {
+    id: "hatim-abdulaziz",
+    name: "Abdulaziz Hatem Al-Maqaleh",
+    slug: "hatim-abdulaziz",
+    teamId: "qatar",
+    position: "MF",
+    number: 8,
+    age: 30,
+    club: "Al Rayyan",
+    goals: 8,
+    caps: 60,
+    description: "Milieu créatif et élégant, excellent passeur avec une bonne vision du jeu."
+  },
+  {
+    id: "madibo",
+    name: "Assim Madibo",
+    slug: "madibo",
+    teamId: "qatar",
+    position: "MF",
+    number: 13,
+    age: 30,
+    club: "Al Duhail",
+    goals: 1,
+    caps: 50,
+    description: "Milieu défensif combatif et discipliné, mur au milieu de terrain."
+  },
+  {
+    id: "al-bayati",
+    name: "Musaab Khidir",
+    slug: "al-bayati",
+    teamId: "qatar",
+    position: "MF",
+    number: 7,
+    age: 27,
+    club: "Al Duhail",
+    goals: 3,
+    caps: 30,
+    description: "Milieu offensif technique et percutant, capable de déborder sur les ailes."
+  },
+  {
+    id: "ahmed-suhail",
+    name: "Ahmed Fathi",
+    slug: "ahmed-suhail",
+    teamId: "qatar",
+    position: "MF",
+    number: 17,
+    age: 25,
+    club: "Al Wakrah",
+    goals: 1,
+    caps: 15,
+    description: "Jeune milieu relayeur dynamique et technique, avenir du Qatar au milieu."
+  },
+  {
+    id: "al-bayati-karim",
+    name: "Karim Boudiaf",
+    slug: "al-bayati-karim",
+    teamId: "qatar",
+    position: "MF",
+    number: 20,
+    age: 35,
+    club: "Al Duhail",
+    goals: 2,
+    caps: 80,
+    description: "Milieu défensif vétéran et solide, présence physique importante dans l'entrejeu."
+  },
+
+  // FW (3)
+  {
+    id: "mohammed-muntari",
+    name: "Mohammed Muntari",
+    slug: "mohammed-muntari",
+    teamId: "qatar",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Al Duhail",
+    goals: 20,
+    caps: 55,
+    description: "Attaquant de pointe puissant et aérien, buteur régulier en sélection."
+  },
+  {
+    id: "ahmed-alaaeldin",
+    name: "Ahmed Alaaeldin",
+    slug: "ahmed-alaaeldin",
+    teamId: "qatar",
+    position: "FW",
+    number: 18,
+    age: 32,
+    club: "Al Gharafa",
+    goals: 10,
+    caps: 55,
+    description: "Ailier rapide et technique, dangereux en un contre un sur les côtés."
+  },
+  {
+    id: "hashim-ali",
+    name: "Hashim Ali",
+    slug: "hashim-ali",
+    teamId: "qatar",
+    position: "FW",
+    number: 24,
+    age: 23,
+    club: "Al Sadd",
+    goals: 3,
+    caps: 10,
+    description: "Jeune attaquant prometteur, incarnant la relève du football qatari."
+  },
+
+  // ============================================================
+  // SCOTLAND (ecosse)
+  // Existing: mcginn (MF), mcgregor-callum (MF), dykes (FW), tierney (DF), gunn (GK)
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "gordon-craig",
+    name: "Craig Gordon",
+    slug: "gordon-craig",
+    teamId: "ecosse",
+    position: "GK",
+    number: 12,
+    age: 43,
+    club: "Hearts",
+    goals: 0,
+    caps: 75,
+    description: "Gardien légendaire et vétéran, le joueur le plus capé à son poste en Écosse."
+  },
+  {
+    id: "clark-zander",
+    name: "Zander Clark",
+    slug: "clark-zander",
+    teamId: "ecosse",
+    position: "GK",
+    number: 22,
+    age: 33,
+    club: "Hearts",
+    goals: 0,
+    caps: 5,
+    description: "Gardien solide et fiable, troisième option dans les buts écossais."
+  },
+
+  // DF (7)
+  {
+    id: "robertson",
+    name: "Andrew Robertson",
+    slug: "robertson",
+    teamId: "ecosse",
+    position: "DF",
+    number: 2,
+    age: 32,
+    club: "Liverpool",
+    goals: 5,
+    caps: 75,
+    description: "Latéral gauche de classe mondiale, capitaine emblématique de l'Écosse."
+  },
+  {
+    id: "hendry",
+    name: "Jack Hendry",
+    slug: "hendry",
+    teamId: "ecosse",
+    position: "DF",
+    number: 4,
+    age: 31,
+    club: "Al Ettifaq",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central grand et aérien, expérimenté dans plusieurs championnats."
+  },
+  {
+    id: "hanley",
+    name: "Grant Hanley",
+    slug: "hanley",
+    teamId: "ecosse",
+    position: "DF",
+    number: 5,
+    age: 34,
+    club: "Norwich",
+    goals: 3,
+    caps: 50,
+    description: "Défenseur central robuste et leader, très bon dans le jeu aérien."
+  },
+  {
+    id: "mckenna-scott",
+    name: "Scott McKenna",
+    slug: "mckenna-scott",
+    teamId: "ecosse",
+    position: "DF",
+    number: 6,
+    age: 29,
+    club: "Las Palmas",
+    goals: 2,
+    caps: 35,
+    description: "Défenseur central gaucher, solide dans les duels et bon relanceur."
+  },
+  {
+    id: "ralston",
+    name: "Anthony Ralston",
+    slug: "ralston",
+    teamId: "ecosse",
+    position: "DF",
+    number: 14,
+    age: 26,
+    club: "Celtic",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit combatif et offensif, titulaire régulier au Celtic."
+  },
+  {
+    id: "porteous",
+    name: "Ryan Porteous",
+    slug: "porteous",
+    teamId: "ecosse",
+    position: "DF",
+    number: 15,
+    age: 25,
+    club: "Watford",
+    goals: 2,
+    caps: 15,
+    description: "Défenseur central agressif et bon dans la relance courte."
+  },
+  {
+    id: "souttar-john",
+    name: "John Souttar",
+    slug: "souttar-john",
+    teamId: "ecosse",
+    position: "DF",
+    number: 19,
+    age: 29,
+    club: "Rangers",
+    goals: 2,
+    caps: 20,
+    description: "Défenseur central élégant et technique, bon relanceur depuis la défense."
+  },
+
+  // MF (5)
+  {
+    id: "gilmour",
+    name: "Billy Gilmour",
+    slug: "gilmour",
+    teamId: "ecosse",
+    position: "MF",
+    number: 23,
+    age: 25,
+    club: "Naples",
+    goals: 1,
+    caps: 30,
+    description: "Milieu central technique et élégant, excellent dans la circulation du ballon."
+  },
+  {
+    id: "mctominay",
+    name: "Scott McTominay",
+    slug: "mctominay",
+    teamId: "ecosse",
+    position: "MF",
+    number: 10,
+    age: 29,
+    club: "Naples",
+    goals: 8,
+    caps: 55,
+    description: "Milieu puissant et buteur, force de frappe écossaise depuis l'entrejeu."
+  },
+  {
+    id: "christie",
+    name: "Ryan Christie",
+    slug: "christie",
+    teamId: "ecosse",
+    position: "MF",
+    number: 11,
+    age: 31,
+    club: "Bournemouth",
+    goals: 7,
+    caps: 50,
+    description: "Milieu offensif travailleur et polyvalent, apportant énergie et buts."
+  },
+  {
+    id: "mclean",
+    name: "Kenny McLean",
+    slug: "mclean",
+    teamId: "ecosse",
+    position: "MF",
+    number: 16,
+    age: 34,
+    club: "Norwich",
+    goals: 3,
+    caps: 35,
+    description: "Milieu central expérimenté et intelligent, bon dans la gestion du tempo."
+  },
+  {
+    id: "jack-ryan",
+    name: "Ryan Jack",
+    slug: "jack-ryan",
+    teamId: "ecosse",
+    position: "MF",
+    number: 13,
+    age: 34,
+    club: "Rangers",
+    goals: 1,
+    caps: 30,
+    description: "Milieu combatif et récupérateur, spécialiste de l'interception."
+  },
+
+  // FW (4)
+  {
+    id: "adams-che",
+    name: "Che Adams",
+    slug: "adams-che",
+    teamId: "ecosse",
+    position: "FW",
+    number: 9,
+    age: 29,
+    club: "Torino",
+    goals: 8,
+    caps: 30,
+    description: "Attaquant rapide et polyvalent, buteur important de la sélection écossaise."
+  },
+  {
+    id: "shankland",
+    name: "Lawrence Shankland",
+    slug: "shankland",
+    teamId: "ecosse",
+    position: "FW",
+    number: 20,
+    age: 30,
+    club: "Hearts",
+    goals: 5,
+    caps: 15,
+    description: "Buteur prolifique en championnat écossais, fin renard des surfaces."
+  },
+  {
+    id: "morgan-lewis",
+    name: "Lewis Morgan",
+    slug: "morgan-lewis",
+    teamId: "ecosse",
+    position: "FW",
+    number: 17,
+    age: 28,
+    club: "New York Red Bulls",
+    goals: 2,
+    caps: 10,
+    description: "Ailier rapide et direct, dangereux dans les espaces en contre-attaque."
+  },
+  {
+    id: "fraser-ryan",
+    name: "Ryan Fraser",
+    slug: "fraser-ryan",
+    teamId: "ecosse",
+    position: "FW",
+    number: 18,
+    age: 32,
+    club: "Southampton",
+    goals: 3,
+    caps: 25,
+    description: "Ailier petit et vif, excellent centreur et créateur d'occasions."
+  },
+
+  // ============================================================
+  // HAITI
+  // Existing: nazon (FW), sainte (MF), alphonse (FW), adrien-ricardo (DF), pierre-johny (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "josue-duverger",
+    name: "Josué Duverger",
+    slug: "josue-duverger",
+    teamId: "haiti",
+    position: "GK",
+    number: 12,
+    age: 26,
+    club: "Don Bosco FC",
+    goals: 0,
+    caps: 10,
+    description: "Jeune gardien du championnat haïtien, agile et doté de bons réflexes."
+  },
+  {
+    id: "patron-alexandre",
+    name: "Alexandre Paulius",
+    slug: "patron-alexandre",
+    teamId: "haiti",
+    position: "GK",
+    number: 23,
+    age: 29,
+    club: "Violette AC",
+    goals: 0,
+    caps: 8,
+    description: "Gardien fiable du championnat local, option de rotation dans les buts."
+  },
+
+  // DF (7)
+  {
+    id: "pierrot-alex",
+    name: "Alex Christian",
+    slug: "pierrot-alex",
+    teamId: "haiti",
+    position: "DF",
+    number: 2,
+    age: 28,
+    club: "Charleston Battery",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit formé aux États-Unis, rapide et combatif dans les duels."
+  },
+  {
+    id: "jeppe-carlens",
+    name: "Carlens Arcus",
+    slug: "jeppe-carlens",
+    teamId: "haiti",
+    position: "DF",
+    number: 3,
+    age: 28,
+    club: "Châteauroux",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central solide évoluant en France, bon dans le jeu aérien."
+  },
+  {
+    id: "andrew-jean-baptiste",
+    name: "Andrew Jean-Baptiste",
+    slug: "andrew-jean-baptiste",
+    teamId: "haiti",
+    position: "DF",
+    number: 4,
+    age: 30,
+    club: "Sacramento Republic",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central expérimenté formé aux États-Unis, leader défensif."
+  },
+  {
+    id: "milord-wilde-donald",
+    name: "Wilde-Donald Guerrier",
+    slug: "milord-wilde-donald",
+    teamId: "haiti",
+    position: "DF",
+    number: 6,
+    age: 36,
+    club: "Violette AC",
+    goals: 5,
+    caps: 60,
+    description: "Défenseur vétéran et polyvalent, figure historique du football haïtien."
+  },
+  {
+    id: "martinez-alex-jr",
+    name: "Alex Junior Juste",
+    slug: "martinez-alex-jr",
+    teamId: "haiti",
+    position: "DF",
+    number: 13,
+    age: 25,
+    club: "Aigle Noir",
+    goals: 0,
+    caps: 12,
+    description: "Jeune latéral gauche rapide, talent émergent du championnat haïtien."
+  },
+  {
+    id: "belfort-lucas",
+    name: "Lucas Music",
+    slug: "belfort-lucas",
+    teamId: "haiti",
+    position: "DF",
+    number: 14,
+    age: 27,
+    club: "Violette AC",
+    goals: 1,
+    caps: 18,
+    description: "Défenseur central du championnat local, solide et discipliné."
+  },
+  {
+    id: "louima-bryan",
+    name: "Bryan Alceus",
+    slug: "louima-bryan",
+    teamId: "haiti",
+    position: "DF",
+    number: 15,
+    age: 29,
+    club: "Indy Eleven",
+    goals: 0,
+    caps: 20,
+    description: "Latéral droit évoluant aux États-Unis, bon dans les deux phases du jeu."
+  },
+
+  // MF (6)
+  {
+    id: "derrick-jr",
+    name: "Derrick Etienne Sr.",
+    slug: "derrick-jr",
+    teamId: "haiti",
+    position: "MF",
+    number: 7,
+    age: 31,
+    club: "New England Revolution",
+    goals: 4,
+    caps: 25,
+    description: "Milieu offensif créatif et polyvalent, formé dans le système MLS."
+  },
+  {
+    id: "maboul-kevin",
+    name: "Kevin Lafrance",
+    slug: "maboul-kevin",
+    teamId: "haiti",
+    position: "MF",
+    number: 8,
+    age: 32,
+    club: "Académica de Coimbra",
+    goals: 3,
+    caps: 40,
+    description: "Milieu central expérimenté, passé par le Portugal et le Danemark."
+  },
+  {
+    id: "sanon-danley",
+    name: "Danley Jean Jacques",
+    slug: "sanon-danley",
+    teamId: "haiti",
+    position: "MF",
+    number: 10,
+    age: 26,
+    club: "Memphis 901",
+    goals: 2,
+    caps: 15,
+    description: "Milieu offensif technique et rapide, créateur d'occasions."
+  },
+  {
+    id: "louis-jean",
+    name: "Jean-Louis Ménard",
+    slug: "louis-jean",
+    teamId: "haiti",
+    position: "MF",
+    number: 16,
+    age: 28,
+    club: "Racing Club Haïtien",
+    goals: 3,
+    caps: 20,
+    description: "Milieu combatif et récupérateur, important dans l'équilibre de l'équipe."
+  },
+  {
+    id: "nelson-saintilus",
+    name: "Steeven Saba",
+    slug: "nelson-saintilus",
+    teamId: "haiti",
+    position: "MF",
+    number: 18,
+    age: 27,
+    club: "Don Bosco FC",
+    goals: 1,
+    caps: 15,
+    description: "Milieu polyvalent du championnat haïtien, travailleur et discipliné."
+  },
+  {
+    id: "osse-melchie",
+    name: "Melchie Dumornay",
+    slug: "osse-melchie",
+    teamId: "haiti",
+    position: "MF",
+    number: 20,
+    age: 24,
+    club: "Louisville City",
+    goals: 2,
+    caps: 12,
+    description: "Milieu dynamique et technique, talent montant de la diaspora haïtienne."
+  },
+
+  // FW (3)
+  {
+    id: "bazile-kervens",
+    name: "Kervens Belfort",
+    slug: "bazile-kervens",
+    teamId: "haiti",
+    position: "FW",
+    number: 19,
+    age: 30,
+    club: "Charleston Battery",
+    goals: 7,
+    caps: 30,
+    description: "Ailier rapide et percutant, dangereux dans la profondeur."
+  },
+  {
+    id: "saint-preux-ronaldo",
+    name: "Ronaldo Damus",
+    slug: "saint-preux-ronaldo",
+    teamId: "haiti",
+    position: "FW",
+    number: 21,
+    age: 27,
+    club: "San Antonio FC",
+    goals: 5,
+    caps: 15,
+    description: "Attaquant buteur de la USL Championship, finisseur instinctif."
+  },
+  {
+    id: "charles-ricardo",
+    name: "Ricardo Adé Jr.",
+    slug: "charles-ricardo",
+    teamId: "haiti",
+    position: "FW",
+    number: 22,
+    age: 24,
+    club: "Violette AC",
+    goals: 4,
+    caps: 10,
+    description: "Jeune attaquant prometteur du championnat haïtien, vif et technique."
+  },
+  // ---- tmp-players-a5.ts ----
+// =====================================================================
+  // ETATS-UNIS (USA)
+  // Existing 5: pulisic (FW), mckennie (MF), weah (FW), richards (DF), turner (GK)
+  // Existing positions: 1 GK, 1 DF, 1 MF, 2 FW
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =====================================================================
+
+  // --- GK (2) ---
+  {
+    id: "horvath",
+    name: "Ethan Horvath",
+    slug: "horvath",
+    teamId: "etats-unis",
+    position: "GK",
+    number: 12,
+    age: 31,
+    club: "Cardiff City",
+    goals: 0,
+    caps: 12,
+    description: "Gardien expérimenté ayant évolué en Premier League et en Championship, option fiable en doublure."
+  },
+  {
+    id: "johnson-sean",
+    name: "Sean Johnson",
+    slug: "johnson-sean",
+    teamId: "etats-unis",
+    position: "GK",
+    number: 25,
+    age: 37,
+    club: "Toronto FC",
+    goals: 0,
+    caps: 14,
+    description: "Gardien vétéran de MLS, champion de la Gold Cup et référence de vestiaire."
+  },
+
+  // --- DF (7) ---
+  {
+    id: "dest",
+    name: "Sergiño Dest",
+    slug: "dest",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "PSV Eindhoven",
+    goals: 3,
+    caps: 35,
+    description: "Latéral droit offensif formé à l'Ajax, champion des Pays-Bas avec le PSV."
+  },
+  {
+    id: "robinson-antonee",
+    name: "Antonee Robinson",
+    slug: "robinson-antonee",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 5,
+    age: 29,
+    club: "Fulham",
+    goals: 2,
+    caps: 40,
+    description: "Latéral gauche rapide et infatigable, titulaire indiscutable en Premier League."
+  },
+  {
+    id: "robinson-miles",
+    name: "Miles Robinson",
+    slug: "robinson-miles",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 4,
+    age: 28,
+    club: "FC Cincinnati",
+    goals: 3,
+    caps: 37,
+    description: "Défenseur central athlétique et aérien, l'un des meilleurs défenseurs de MLS."
+  },
+  {
+    id: "ream",
+    name: "Tim Ream",
+    slug: "ream",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 13,
+    age: 38,
+    club: "Charlotte FC",
+    goals: 1,
+    caps: 78,
+    description: "Défenseur central vétéran et élégant, le joueur le plus capé de la sélection actuelle."
+  },
+  {
+    id: "zimmerman",
+    name: "Walker Zimmerman",
+    slug: "zimmerman",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 15,
+    age: 32,
+    club: "Nashville SC",
+    goals: 3,
+    caps: 38,
+    description: "Défenseur central solide et leader de vestiaire, pilier de la défense en MLS."
+  },
+  {
+    id: "scally",
+    name: "Joe Scally",
+    slug: "scally",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 22,
+    age: 22,
+    club: "Borussia Mönchengladbach",
+    goals: 0,
+    caps: 18,
+    description: "Jeune latéral droit formé en Bundesliga, polyvalent et prometteur."
+  },
+  {
+    id: "mckenzie",
+    name: "Mark McKenzie",
+    slug: "mckenzie",
+    teamId: "etats-unis",
+    position: "DF",
+    number: 14,
+    age: 26,
+    club: "Toulouse",
+    goals: 0,
+    caps: 12,
+    description: "Défenseur central rapide évoluant en Ligue 1, bon dans l'anticipation."
+  },
+
+  // --- MF (6) ---
+  {
+    id: "musah",
+    name: "Yunus Musah",
+    slug: "musah",
+    teamId: "etats-unis",
+    position: "MF",
+    number: 6,
+    age: 23,
+    club: "AC Milan",
+    goals: 2,
+    caps: 40,
+    description: "Milieu box-to-box dynamique et polyvalent, capable de porter le ballon sur de longues distances."
+  },
+  {
+    id: "adams-tyler",
+    name: "Tyler Adams",
+    slug: "adams-tyler",
+    teamId: "etats-unis",
+    position: "MF",
+    number: 4,
+    age: 27,
+    club: "Bournemouth",
+    goals: 1,
+    caps: 52,
+    description: "Milieu récupérateur combatif et intelligent, ancien capitaine de la sélection."
+  },
+  {
+    id: "reyna",
+    name: "Gio Reyna",
+    slug: "reyna",
+    teamId: "etats-unis",
+    position: "MF",
+    number: 7,
+    age: 23,
+    club: "Borussia Dortmund",
+    goals: 5,
+    caps: 30,
+    description: "Milieu offensif créatif et technique, fils de la légende Claudio Reyna."
+  },
+  {
+    id: "aaronson",
+    name: "Brenden Aaronson",
+    slug: "aaronson",
+    teamId: "etats-unis",
+    position: "MF",
+    number: 11,
+    age: 25,
+    club: "Leeds United",
+    goals: 7,
+    caps: 54,
+    description: "Milieu offensif énergique et presseur infatigable, promu en Premier League avec Leeds."
+  },
+  {
+    id: "tillman",
+    name: "Malik Tillman",
+    slug: "tillman",
+    teamId: "etats-unis",
+    position: "MF",
+    number: 16,
+    age: 23,
+    club: "PSV Eindhoven",
+    goals: 3,
+    caps: 18,
+    description: "Milieu offensif germano-américain polyvalent, champion d'Eredivisie avec le PSV."
+  },
+  {
+    id: "roldan",
+    name: "Cristian Roldan",
+    slug: "roldan",
+    teamId: "etats-unis",
+    position: "MF",
+    number: 17,
+    age: 31,
+    club: "Seattle Sounders",
+    goals: 3,
+    caps: 41,
+    description: "Milieu expérimenté de MLS, polyvalent et travailleur, cadre de la sélection."
+  },
+
+  // --- FW (3) ---
+  {
+    id: "pepi",
+    name: "Ricardo Pepi",
+    slug: "pepi",
+    teamId: "etats-unis",
+    position: "FW",
+    number: 9,
+    age: 23,
+    club: "PSV Eindhoven",
+    goals: 9,
+    caps: 28,
+    description: "Avant-centre prometteur au flair de buteur, meilleur marqueur américain de sa génération."
+  },
+  {
+    id: "balogun",
+    name: "Folarin Balogun",
+    slug: "balogun",
+    teamId: "etats-unis",
+    position: "FW",
+    number: 20,
+    age: 25,
+    club: "Monaco",
+    goals: 4,
+    caps: 15,
+    description: "Attaquant rapide formé à Arsenal, buteur prolifique en Ligue 1 française."
+  },
+  {
+    id: "ferreira-jesus",
+    name: "Jesús Ferreira",
+    slug: "ferreira-jesus",
+    teamId: "etats-unis",
+    position: "FW",
+    number: 19,
+    age: 25,
+    club: "FC Dallas",
+    goals: 7,
+    caps: 22,
+    description: "Attaquant de pointe technique et mobile, star de la MLS née en Colombie."
+  },
+
+  // =====================================================================
+  // PARAGUAY
+  // Existing 5: enciso (FW), almiron (MF), sanabria (FW), balbuena (DF), coronel (GK)
+  // Existing positions: 1 GK, 1 DF, 1 MF, 2 FW
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =====================================================================
+
+  // --- GK (2) ---
+  {
+    id: "fernandez-rodrigo",
+    name: "Rodrigo Fernández",
+    slug: "fernandez-rodrigo",
+    teamId: "paraguay",
+    position: "GK",
+    number: 12,
+    age: 29,
+    club: "Cerro Porteño",
+    goals: 0,
+    caps: 8,
+    description: "Gardien titulaire de Cerro Porteño, option montante en sélection paraguayenne."
+  },
+  {
+    id: "aguilar-carlos",
+    name: "Carlos Coronel",
+    slug: "aguilar-carlos",
+    teamId: "paraguay",
+    position: "GK",
+    number: 23,
+    age: 28,
+    club: "Red Bull Salzburg",
+    goals: 0,
+    caps: 5,
+    description: "Gardien formé au Red Bull, international régulier en sélection paraguayenne."
+  },
+
+  // --- DF (7) ---
+  {
+    id: "gomez-gustavo",
+    name: "Gustavo Gómez",
+    slug: "gomez-gustavo",
+    teamId: "paraguay",
+    position: "DF",
+    number: 3,
+    age: 31,
+    club: "Palmeiras",
+    goals: 8,
+    caps: 85,
+    description: "Capitaine et défenseur central robuste, légende de Palmeiras et pilier de la sélection."
+  },
+  {
+    id: "alderete",
+    name: "Omar Alderete",
+    slug: "alderete",
+    teamId: "paraguay",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Sunderland",
+    goals: 2,
+    caps: 35,
+    description: "Défenseur central gaucher et élégant, titulaire en Premier League avec Sunderland."
+  },
+  {
+    id: "alonso-junior",
+    name: "Junior Alonso",
+    slug: "alonso-junior",
+    teamId: "paraguay",
+    position: "DF",
+    number: 6,
+    age: 33,
+    club: "Krasnodar",
+    goals: 4,
+    caps: 50,
+    description: "Défenseur central expérimenté et intelligent, ancien joueur de l'Atletico Mineiro."
+  },
+  {
+    id: "caceres-juan",
+    name: "Juan Cáceres",
+    slug: "caceres-juan",
+    teamId: "paraguay",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "América de Cali",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit rapide et offensif, régulier en sélection paraguayenne."
+  },
+  {
+    id: "espinoza-arzamendia",
+    name: "Santiago Arzamendia",
+    slug: "espinoza-arzamendia",
+    teamId: "paraguay",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Cerro Porteño",
+    goals: 0,
+    caps: 15,
+    description: "Latéral gauche dynamique, habitué des qualifications sud-américaines."
+  },
+  {
+    id: "rojas-robert",
+    name: "Robert Rojas",
+    slug: "rojas-robert",
+    teamId: "paraguay",
+    position: "DF",
+    number: 16,
+    age: 29,
+    club: "River Plate",
+    goals: 1,
+    caps: 18,
+    description: "Défenseur central polyvalent formé à River Plate, solide dans le duel aérien."
+  },
+  {
+    id: "velazquez-ivan",
+    name: "Iván Velázquez",
+    slug: "velazquez-ivan",
+    teamId: "paraguay",
+    position: "DF",
+    number: 14,
+    age: 24,
+    club: "Libertad",
+    goals: 0,
+    caps: 8,
+    description: "Jeune défenseur central prometteur, nouvelle génération de la sélection."
+  },
+
+  // --- MF (6) ---
+  {
+    id: "villasanti",
+    name: "Mathías Villasanti",
+    slug: "villasanti",
+    teamId: "paraguay",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Grêmio",
+    goals: 3,
+    caps: 30,
+    description: "Milieu défensif combatif et récupérateur, pilier du milieu de terrain paraguayen."
+  },
+  {
+    id: "cubas",
+    name: "Andrés Cubas",
+    slug: "cubas",
+    teamId: "paraguay",
+    position: "MF",
+    number: 5,
+    age: 28,
+    club: "Vancouver Whitecaps",
+    goals: 1,
+    caps: 25,
+    description: "Milieu récupérateur combatif, formé au Boca Juniors et passé par la Ligue 1."
+  },
+  {
+    id: "gomez-diego",
+    name: "Diego Gómez",
+    slug: "gomez-diego",
+    teamId: "paraguay",
+    position: "MF",
+    number: 20,
+    age: 21,
+    club: "Brighton",
+    goals: 2,
+    caps: 15,
+    description: "Jeune milieu créatif et technique, talent émergent du football paraguayen en Premier League."
+  },
+  {
+    id: "ojeda-braian",
+    name: "Braian Ojeda",
+    slug: "ojeda-braian",
+    teamId: "paraguay",
+    position: "MF",
+    number: 17,
+    age: 25,
+    club: "Real Salt Lake",
+    goals: 1,
+    caps: 12,
+    description: "Milieu relayeur polyvalent en MLS, capable de casser les lignes."
+  },
+  {
+    id: "sosa-matias",
+    name: "Matías Rojas",
+    slug: "sosa-matias",
+    teamId: "paraguay",
+    position: "MF",
+    number: 18,
+    age: 30,
+    club: "Inter Miami",
+    goals: 5,
+    caps: 20,
+    description: "Milieu offensif créatif et passeur, spécialiste des coups francs."
+  },
+  {
+    id: "pitta",
+    name: "Ramón Sosa",
+    slug: "pitta",
+    teamId: "paraguay",
+    position: "MF",
+    number: 11,
+    age: 25,
+    club: "Nottingham Forest",
+    goals: 3,
+    caps: 18,
+    description: "Ailier gauche explosif et dribbleur, révélation du football paraguayen en Premier League."
+  },
+
+  // --- FW (3) ---
+  {
+    id: "bareiro",
+    name: "Adam Bareiro",
+    slug: "bareiro",
+    teamId: "paraguay",
+    position: "FW",
+    number: 7,
+    age: 28,
+    club: "River Plate",
+    goals: 6,
+    caps: 22,
+    description: "Attaquant de pointe physique et aérien, buteur régulier du championnat argentin."
+  },
+  {
+    id: "romero-isidro",
+    name: "Isidro Pitta",
+    slug: "romero-isidro",
+    teamId: "paraguay",
+    position: "FW",
+    number: 22,
+    age: 26,
+    club: "Cuiabá",
+    goals: 4,
+    caps: 12,
+    description: "Attaquant combatif et polyvalent, option de rotation offensive pour le Paraguay."
+  },
+  {
+    id: "arce-alex",
+    name: "Alex Arce",
+    slug: "arce-alex",
+    teamId: "paraguay",
+    position: "FW",
+    number: 21,
+    age: 29,
+    club: "LDU Quito",
+    goals: 5,
+    caps: 15,
+    description: "Buteur prolifique en Amérique du Sud, meilleur buteur de la Copa Libertadores 2024."
+  },
+
+  // =====================================================================
+  // AUSTRALIE
+  // Existing 5: goodwin (FW), boyle (FW), mooy (MF), souttar (DF), ryan (GK)
+  // Existing positions: 1 GK, 1 DF, 1 MF, 2 FW
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =====================================================================
+
+  // --- GK (2) ---
+  {
+    id: "izzo",
+    name: "Paul Izzo",
+    slug: "izzo",
+    teamId: "australie",
+    position: "GK",
+    number: 18,
+    age: 31,
+    club: "Randers",
+    goals: 0,
+    caps: 8,
+    description: "Gardien solide évoluant au Danemark, doublure fiable en sélection australienne."
+  },
+  {
+    id: "glover",
+    name: "Tom Glover",
+    slug: "glover",
+    teamId: "australie",
+    position: "GK",
+    number: 12,
+    age: 26,
+    club: "Middlesbrough",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien du Championship anglais, option d'avenir pour les Socceroos."
+  },
+
+  // --- DF (7) ---
+  {
+    id: "degenek",
+    name: "Miloš Degenek",
+    slug: "degenek",
+    teamId: "australie",
+    position: "DF",
+    number: 4,
+    age: 31,
+    club: "Columbus Crew",
+    goals: 1,
+    caps: 45,
+    description: "Défenseur central expérimenté d'origine serbe, pilier de la défense australienne."
+  },
+  {
+    id: "rowles",
+    name: "Kye Rowles",
+    slug: "rowles",
+    teamId: "australie",
+    position: "DF",
+    number: 3,
+    age: 27,
+    club: "Hearts",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central combatif évoluant en Écosse, régulier en sélection."
+  },
+  {
+    id: "behich",
+    name: "Aziz Behich",
+    slug: "behich",
+    teamId: "australie",
+    position: "DF",
+    number: 16,
+    age: 33,
+    club: "Dundee United",
+    goals: 2,
+    caps: 55,
+    description: "Latéral gauche expérimenté et offensif, vétéran respecté des Socceroos."
+  },
+  {
+    id: "karacic",
+    name: "Fran Karačić",
+    slug: "karacic",
+    teamId: "australie",
+    position: "DF",
+    number: 2,
+    age: 30,
+    club: "Lokomotiva Zagreb",
+    goals: 0,
+    caps: 18,
+    description: "Latéral droit d'origine croate, polyvalent et régulier en défense."
+  },
+  {
+    id: "wright-bailey",
+    name: "Bailey Wright",
+    slug: "wright-bailey",
+    teamId: "australie",
+    position: "DF",
+    number: 5,
+    age: 32,
+    club: "Sunderland",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central solide et leader de vestiaire, passé par plusieurs clubs anglais."
+  },
+  {
+    id: "iredale",
+    name: "Jack Iredale",
+    slug: "iredale",
+    teamId: "australie",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Ipswich Town",
+    goals: 0,
+    caps: 8,
+    description: "Latéral gauche polyvalent évoluant en Premier League, nouvelle option défensive."
+  },
+  {
+    id: "burgess",
+    name: "Cameron Burgess",
+    slug: "burgess",
+    teamId: "australie",
+    position: "DF",
+    number: 14,
+    age: 30,
+    club: "Ipswich Town",
+    goals: 0,
+    caps: 6,
+    description: "Défenseur central robuste et aérien, option récente en sélection australienne."
+  },
+
+  // --- MF (6) ---
+  {
+    id: "irvine",
+    name: "Jackson Irvine",
+    slug: "irvine",
+    teamId: "australie",
+    position: "MF",
+    number: 8,
+    age: 32,
+    club: "St. Pauli",
+    goals: 7,
+    caps: 60,
+    description: "Milieu combatif et capitaine, leader charismatique et meneur de l'équipe australienne."
+  },
+  {
+    id: "mcgree",
+    name: "Riley McGree",
+    slug: "mcgree",
+    teamId: "australie",
+    position: "MF",
+    number: 10,
+    age: 26,
+    club: "Middlesbrough",
+    goals: 3,
+    caps: 18,
+    description: "Milieu offensif technique et créatif, auteur de buts spectaculaires."
+  },
+  {
+    id: "hrustic",
+    name: "Ajdin Hrustic",
+    slug: "hrustic",
+    teamId: "australie",
+    position: "MF",
+    number: 17,
+    age: 30,
+    club: "Hellas Verona",
+    goals: 3,
+    caps: 25,
+    description: "Milieu créatif au pied gauche élégant, passé par la Bundesliga et la Serie A."
+  },
+  {
+    id: "baccus",
+    name: "Keanu Baccus",
+    slug: "baccus",
+    teamId: "australie",
+    position: "MF",
+    number: 20,
+    age: 28,
+    club: "Mansfield Town",
+    goals: 1,
+    caps: 15,
+    description: "Milieu récupérateur dynamique, habitué des compétitions internationales."
+  },
+  {
+    id: "devlin",
+    name: "Cameron Devlin",
+    slug: "devlin",
+    teamId: "australie",
+    position: "MF",
+    number: 22,
+    age: 27,
+    club: "Hearts",
+    goals: 0,
+    caps: 10,
+    description: "Milieu défensif combatif évoluant en Écosse, apportant de l'énergie au milieu."
+  },
+  {
+    id: "luongo",
+    name: "Massimo Luongo",
+    slug: "luongo",
+    teamId: "australie",
+    position: "MF",
+    number: 21,
+    age: 33,
+    club: "Ipswich Town",
+    goals: 4,
+    caps: 50,
+    description: "Milieu expérimenté en Premier League anglaise, champion de la Coupe d'Asie 2015."
+  },
+
+  // --- FW (3) ---
+  {
+    id: "duke",
+    name: "Mitchell Duke",
+    slug: "duke",
+    teamId: "australie",
+    position: "FW",
+    number: 11,
+    age: 34,
+    club: "Machida Zelvia",
+    goals: 7,
+    caps: 30,
+    description: "Attaquant de pointe combatif et aérien, buteur héroïque au Mondial 2022."
+  },
+  {
+    id: "maclaren",
+    name: "Jamie Maclaren",
+    slug: "maclaren",
+    teamId: "australie",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Melbourne City",
+    goals: 10,
+    caps: 25,
+    description: "Meilleur buteur de l'histoire de la A-League, finisseur clinique dans la surface."
+  },
+  {
+    id: "kuol-garang",
+    name: "Garang Kuol",
+    slug: "kuol-garang",
+    teamId: "australie",
+    position: "FW",
+    number: 23,
+    age: 21,
+    club: "Newcastle United",
+    goals: 1,
+    caps: 8,
+    description: "Jeune attaquant australo-soudanais ultra-rapide, grand espoir des Socceroos."
+  },
+
+  // =====================================================================
+  // EQUATEUR (ECUADOR)
+  // Existing 5: valencia-enner (FW), caicedo (MF), paez (MF), hincapie (DF), dominguez-alexander (GK)
+  // Existing positions: 1 GK, 1 DF, 2 MF, 1 FW
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // =====================================================================
+
+  // --- GK (2) ---
+  {
+    id: "galindez",
+    name: "Hernán Galíndez",
+    slug: "galindez",
+    teamId: "equateur",
+    position: "GK",
+    number: 1,
+    age: 39,
+    club: "Huracán",
+    goals: 0,
+    caps: 25,
+    description: "Gardien argentin naturalisé équatorien, expérimenté et fiable entre les poteaux."
+  },
+  {
+    id: "ramirez-moises",
+    name: "Moisés Ramírez",
+    slug: "ramirez-moises",
+    teamId: "equateur",
+    position: "GK",
+    number: 12,
+    age: 26,
+    club: "Independiente del Valle",
+    goals: 0,
+    caps: 8,
+    description: "Jeune gardien du championnat équatorien, option d'avenir pour La Tri."
+  },
+
+  // --- DF (7) ---
+  {
+    id: "torres-felix",
+    name: "Félix Torres",
+    slug: "torres-felix",
+    teamId: "equateur",
+    position: "DF",
+    number: 2,
+    age: 27,
+    club: "Internacional",
+    goals: 3,
+    caps: 35,
+    description: "Défenseur central puissant et aérien, pilier de la défense équatorienne."
+  },
+  {
+    id: "pacho",
+    name: "Willian Pacho",
+    slug: "pacho",
+    teamId: "equateur",
+    position: "DF",
+    number: 4,
+    age: 23,
+    club: "Paris Saint-Germain",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central rapide et élégant, titulaire au PSG et révélation internationale."
+  },
+  {
+    id: "preciado-angelo",
+    name: "Angelo Preciado",
+    slug: "preciado-angelo",
+    teamId: "equateur",
+    position: "DF",
+    number: 17,
+    age: 26,
+    club: "Atlético Mineiro",
+    goals: 1,
+    caps: 30,
+    description: "Latéral droit offensif et rapide, important dans la projection offensive."
+  },
+  {
+    id: "estupinan",
+    name: "Pervis Estupiñán",
+    slug: "estupinan",
+    teamId: "equateur",
+    position: "DF",
+    number: 7,
+    age: 28,
+    club: "AC Milan",
+    goals: 2,
+    caps: 35,
+    description: "Latéral gauche explosif passé par Brighton, excellent dans les débordements."
+  },
+  {
+    id: "ordonez-joel",
+    name: "Joel Ordóñez",
+    slug: "ordonez-joel",
+    teamId: "equateur",
+    position: "DF",
+    number: 14,
+    age: 21,
+    club: "Club Bruges",
+    goals: 0,
+    caps: 10,
+    description: "Jeune défenseur central prometteur évoluant en Belgique, talent d'avenir."
+  },
+  {
+    id: "arboleda-robert",
+    name: "Robert Arboleda",
+    slug: "arboleda-robert",
+    teamId: "equateur",
+    position: "DF",
+    number: 6,
+    age: 31,
+    club: "São Paulo",
+    goals: 3,
+    caps: 40,
+    description: "Défenseur central expérimenté et solide, vétéran de la sélection équatorienne."
+  },
+  {
+    id: "medina-yaimar",
+    name: "Yaimar Medina",
+    slug: "medina-yaimar",
+    teamId: "equateur",
+    position: "DF",
+    number: 15,
+    age: 22,
+    club: "Genk",
+    goals: 0,
+    caps: 5,
+    description: "Jeune défenseur évoluant en Belgique, option de rotation en défense centrale."
+  },
+
+  // --- MF (5) ---
+  {
+    id: "franco-alan",
+    name: "Alan Franco",
+    slug: "franco-alan",
+    teamId: "equateur",
+    position: "MF",
+    number: 5,
+    age: 27,
+    club: "Atlético Mineiro",
+    goals: 2,
+    caps: 25,
+    description: "Milieu défensif combatif et régulier, pilier du milieu de terrain équatorien."
+  },
+  {
+    id: "cifuentes",
+    name: "José Cifuentes",
+    slug: "cifuentes",
+    teamId: "equateur",
+    position: "MF",
+    number: 8,
+    age: 26,
+    club: "Cruzeiro",
+    goals: 3,
+    caps: 20,
+    description: "Milieu relayeur technique et athlétique, passé par la MLS et la Liga."
+  },
+  {
+    id: "sarmiento-jeremy",
+    name: "Jeremy Sarmiento",
+    slug: "sarmiento-jeremy",
+    teamId: "equateur",
+    position: "MF",
+    number: 11,
+    age: 22,
+    club: "Burnley",
+    goals: 1,
+    caps: 12,
+    description: "Ailier gauche anglais d'origine équatorienne, rapide et dribbleur."
+  },
+  {
+    id: "gruezo",
+    name: "Carlos Gruezo",
+    slug: "gruezo",
+    teamId: "equateur",
+    position: "MF",
+    number: 16,
+    age: 31,
+    club: "San José Earthquakes",
+    goals: 1,
+    caps: 50,
+    description: "Milieu défensif expérimenté et combatif, vétéran de la sélection."
+  },
+  {
+    id: "mena-angel",
+    name: "Ángel Mena",
+    slug: "mena-angel",
+    teamId: "equateur",
+    position: "MF",
+    number: 18,
+    age: 37,
+    club: "León",
+    goals: 10,
+    caps: 55,
+    description: "Milieu offensif expérimenté évoluant au Mexique, vétéran créatif de la sélection."
+  },
+
+  // --- FW (4) ---
+  {
+    id: "plata",
+    name: "Gonzalo Plata",
+    slug: "plata",
+    teamId: "equateur",
+    position: "FW",
+    number: 9,
+    age: 25,
+    club: "Flamengo",
+    goals: 6,
+    caps: 35,
+    description: "Ailier droit rapide et puissant, capable de changer le cours d'un match."
+  },
+  {
+    id: "rodriguez-kevin",
+    name: "Kevin Rodríguez",
+    slug: "rodriguez-kevin",
+    teamId: "equateur",
+    position: "FW",
+    number: 20,
+    age: 24,
+    club: "Union Saint-Gilloise",
+    goals: 3,
+    caps: 10,
+    description: "Jeune attaquant de pointe costaud et combatif, option offensive montante."
+  },
+  {
+    id: "campana",
+    name: "Leonardo Campana",
+    slug: "campana",
+    teamId: "equateur",
+    position: "FW",
+    number: 19,
+    age: 25,
+    club: "New England Revolution",
+    goals: 5,
+    caps: 18,
+    description: "Attaquant formé au Wolverhampton, buteur régulier en MLS américaine."
+  },
+  {
+    id: "minda",
+    name: "Alan Minda",
+    slug: "minda",
+    teamId: "equateur",
+    position: "FW",
+    number: 21,
+    age: 22,
+    club: "Atlético Mineiro",
+    goals: 2,
+    caps: 8,
+    description: "Ailier rapide et percutant, étoile montante de la nouvelle génération équatorienne."
+  },
+
+  // =====================================================================
+  // COTE D'IVOIRE (IVORY COAST)
+  // Existing 5: haller (FW), kessie (MF), adingra (FW), singo (DF), fofana-yahia (GK)
+  // Existing positions: 1 GK, 1 DF, 1 MF, 2 FW
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =====================================================================
+
+  // --- GK (2) ---
+  {
+    id: "lafont",
+    name: "Alban Lafont",
+    slug: "lafont",
+    teamId: "cote-divoire",
+    position: "GK",
+    number: 16,
+    age: 27,
+    club: "Panathinaïkos",
+    goals: 0,
+    caps: 8,
+    description: "Gardien franco-ivoirien talentueux, formé au FC Nantes et passé par la Serie A."
+  },
+  {
+    id: "kone-mohamed",
+    name: "Mohamed Koné",
+    slug: "kone-mohamed",
+    teamId: "cote-divoire",
+    position: "GK",
+    number: 1,
+    age: 25,
+    club: "Charleroi",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien évoluant en Belgique, troisième choix prometteur en sélection."
+  },
+
+  // --- DF (7) ---
+  {
+    id: "kossounou",
+    name: "Odilon Kossounou",
+    slug: "kossounou",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 3,
+    age: 25,
+    club: "Atalanta",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central rapide et athlétique, champion d'Afrique 2024 et titulaire à l'Atalanta."
+  },
+  {
+    id: "boly",
+    name: "Willy Boly",
+    slug: "boly",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 5,
+    age: 35,
+    club: "Nottingham Forest",
+    goals: 2,
+    caps: 35,
+    description: "Défenseur central expérimenté et puissant, longue carrière en Premier League."
+  },
+  {
+    id: "ndicka",
+    name: "Evan Ndicka",
+    slug: "ndicka",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "AS Roma",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central gaucher et polyvalent, titulaire en Serie A italienne."
+  },
+  {
+    id: "diomande-ousmane",
+    name: "Ousmane Diomandé",
+    slug: "diomande-ousmane",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 6,
+    age: 21,
+    club: "Sporting CP",
+    goals: 1,
+    caps: 15,
+    description: "Jeune défenseur central prometteur du Sporting, rapide et bon relanceur."
+  },
+  {
+    id: "konan-ghislain",
+    name: "Ghislain Konan",
+    slug: "konan-ghislain",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 15,
+    age: 29,
+    club: "Gil Vicente",
+    goals: 1,
+    caps: 25,
+    description: "Latéral gauche offensif, expérimenté au niveau international africain."
+  },
+  {
+    id: "agbadou",
+    name: "Emmanuel Agbadou",
+    slug: "agbadou",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 14,
+    age: 28,
+    club: "Wolverhampton",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central imposant évoluant en Premier League, bon dans le jeu aérien."
+  },
+  {
+    id: "doue-guela",
+    name: "Guela Doué",
+    slug: "doue-guela",
+    teamId: "cote-divoire",
+    position: "DF",
+    number: 13,
+    age: 29,
+    club: "Strasbourg",
+    goals: 0,
+    caps: 18,
+    description: "Latéral droit solide évoluant en Ligue 1, défenseur fiable et régulier."
+  },
+
+  // --- MF (6) ---
+  {
+    id: "sangare",
+    name: "Ibrahim Sangaré",
+    slug: "sangare",
+    teamId: "cote-divoire",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Nottingham Forest",
+    goals: 3,
+    caps: 35,
+    description: "Milieu défensif puissant et technique, taulier du milieu ivoirien."
+  },
+  {
+    id: "fofana-seko",
+    name: "Seko Fofana",
+    slug: "fofana-seko",
+    teamId: "cote-divoire",
+    position: "MF",
+    number: 10,
+    age: 31,
+    club: "Rennes",
+    goals: 5,
+    caps: 20,
+    description: "Milieu box-to-box explosif, capable de courses de 50 mètres balle au pied."
+  },
+  {
+    id: "gbamin",
+    name: "Jean-Philippe Gbamin",
+    slug: "gbamin",
+    teamId: "cote-divoire",
+    position: "MF",
+    number: 17,
+    age: 30,
+    club: "Metz",
+    goals: 1,
+    caps: 25,
+    description: "Milieu défensif robuste et expérimenté, passé par Everton et le Bundesliga."
+  },
+  {
+    id: "seri",
+    name: "Jean-Michaël Seri",
+    slug: "seri",
+    teamId: "cote-divoire",
+    position: "MF",
+    number: 18,
+    age: 34,
+    club: "Maribor",
+    goals: 3,
+    caps: 50,
+    description: "Milieu créatif et élégant, ancien joueur du Nice et de Fulham."
+  },
+  {
+    id: "oulai-inao",
+    name: "Christ Inao Oulai",
+    slug: "oulai-inao",
+    teamId: "cote-divoire",
+    position: "MF",
+    number: 20,
+    age: 23,
+    club: "Trabzonspor",
+    goals: 1,
+    caps: 8,
+    description: "Jeune milieu offensif dynamique, nouvelle génération du football ivoirien."
+  },
+  {
+    id: "zohouri",
+    name: "Armel Zohouri",
+    slug: "zohouri",
+    teamId: "cote-divoire",
+    position: "MF",
+    number: 21,
+    age: 24,
+    club: "Lorient",
+    goals: 0,
+    caps: 10,
+    description: "Milieu polyvalent pouvant aussi jouer arrière droit, combatif et discipliné."
+  },
+
+  // --- FW (3) ---
+  {
+    id: "diallo-amad",
+    name: "Amad Diallo",
+    slug: "diallo-amad",
+    teamId: "cote-divoire",
+    position: "FW",
+    number: 7,
+    age: 24,
+    club: "Manchester United",
+    goals: 3,
+    caps: 15,
+    description: "Ailier droit rapide et technique, titulaire à Manchester United en Premier League."
+  },
+  {
+    id: "zaha",
+    name: "Wilfried Zaha",
+    slug: "zaha",
+    teamId: "cote-divoire",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Charlotte FC",
+    goals: 5,
+    caps: 35,
+    description: "Ailier expérimenté et dribbleur redoutable, longue carrière en Premier League."
+  },
+  {
+    id: "bayo-vakoun",
+    name: "Vakoun Bayo",
+    slug: "bayo-vakoun",
+    teamId: "cote-divoire",
+    position: "FW",
+    number: 11,
+    age: 29,
+    club: "Udinese",
+    goals: 4,
+    caps: 15,
+    description: "Attaquant de pointe puissant et aérien, buteur régulier en Serie A italienne."
+  },
+
+  // =====================================================================
+  // CURACAO
+  // Existing 5: bacuna (MF), janga (FW), flores/juninho (MF), lachman/cuco martina (DF), room (GK)
+  // Existing positions: 1 GK, 1 DF, 2 MF, 1 FW
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // =====================================================================
+
+  // --- GK (2) ---
+  {
+    id: "bodak",
+    name: "Tyrick Bodak",
+    slug: "bodak",
+    teamId: "curacao",
+    position: "GK",
+    number: 23,
+    age: 27,
+    club: "Jong Holland",
+    goals: 0,
+    caps: 5,
+    description: "Gardien du championnat local curaçaolais, doublure en sélection."
+  },
+  {
+    id: "doornbusch",
+    name: "Trevor Doornbusch",
+    slug: "doornbusch",
+    teamId: "curacao",
+    position: "GK",
+    number: 12,
+    age: 26,
+    club: "Roda JC",
+    goals: 0,
+    caps: 3,
+    description: "Jeune gardien néerlandais de naissance, troisième option pour Curaçao."
+  },
+
+  // --- DF (7) ---
+  {
+    id: "brenet",
+    name: "Joshua Brenet",
+    slug: "brenet",
+    teamId: "curacao",
+    position: "DF",
+    number: 3,
+    age: 32,
+    club: "Twente",
+    goals: 1,
+    caps: 20,
+    description: "Latéral droit expérimenté formé au PSV Eindhoven, solide et régulier."
+  },
+  {
+    id: "obispo",
+    name: "Armando Obispo",
+    slug: "obispo",
+    teamId: "curacao",
+    position: "DF",
+    number: 4,
+    age: 27,
+    club: "PSV Eindhoven",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central formé au PSV, solide et bon dans la relance."
+  },
+  {
+    id: "sambo",
+    name: "Shurandy Sambo",
+    slug: "sambo",
+    teamId: "curacao",
+    position: "DF",
+    number: 5,
+    age: 29,
+    club: "Heracles Almelo",
+    goals: 0,
+    caps: 18,
+    description: "Latéral droit rapide évoluant aux Pays-Bas, polyvalent en défense."
+  },
+  {
+    id: "gaari",
+    name: "Juriën Gaari",
+    slug: "gaari",
+    teamId: "curacao",
+    position: "DF",
+    number: 6,
+    age: 30,
+    club: "Almere City",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central robuste et expérimenté du football néerlandais."
+  },
+  {
+    id: "van-eijma",
+    name: "Roshon van Eijma",
+    slug: "van-eijma",
+    teamId: "curacao",
+    position: "DF",
+    number: 13,
+    age: 27,
+    club: "Cambuur",
+    goals: 0,
+    caps: 12,
+    description: "Défenseur central du championnat néerlandais, fiable et discipliné."
+  },
+  {
+    id: "martha",
+    name: "Ar'jany Martha",
+    slug: "martha",
+    teamId: "curacao",
+    position: "DF",
+    number: 14,
+    age: 24,
+    club: "NAC Breda",
+    goals: 0,
+    caps: 10,
+    description: "Jeune défenseur polyvalent évoluant en Eredivisie néerlandaise."
+  },
+  {
+    id: "floranus",
+    name: "Sherel Floranus",
+    slug: "floranus",
+    teamId: "curacao",
+    position: "DF",
+    number: 15,
+    age: 28,
+    club: "Heerenveen",
+    goals: 1,
+    caps: 20,
+    description: "Latéral gauche offensif et rapide, formé au Feyenoord Rotterdam."
+  },
+
+  // --- MF (5) ---
+  {
+    id: "chong",
+    name: "Tahith Chong",
+    slug: "chong",
+    teamId: "curacao",
+    position: "MF",
+    number: 8,
+    age: 27,
+    club: "Sheffield United",
+    goals: 3,
+    caps: 15,
+    description: "Milieu offensif technique formé à Manchester United, star de la sélection curaçaolaise."
+  },
+  {
+    id: "roemeratoe",
+    name: "Godfried Roemeratoe",
+    slug: "roemeratoe",
+    teamId: "curacao",
+    position: "MF",
+    number: 17,
+    age: 27,
+    club: "Go Ahead Eagles",
+    goals: 2,
+    caps: 15,
+    description: "Milieu relayeur énergique du championnat néerlandais, bon pressing."
+  },
+  {
+    id: "felida",
+    name: "Kevin Felida",
+    slug: "felida",
+    teamId: "curacao",
+    position: "MF",
+    number: 18,
+    age: 25,
+    club: "ADO Den Haag",
+    goals: 1,
+    caps: 12,
+    description: "Milieu défensif combatif et discipliné, formé aux Pays-Bas."
+  },
+  {
+    id: "rosario-rayvien",
+    name: "Rayvien Rosario",
+    slug: "rosario-rayvien",
+    teamId: "curacao",
+    position: "MF",
+    number: 20,
+    age: 22,
+    club: "Willem II",
+    goals: 1,
+    caps: 8,
+    description: "Jeune milieu de terrain prometteur, révélation de l'Eredivisie."
+  },
+  {
+    id: "souren",
+    name: "Nicky Souren",
+    slug: "souren",
+    teamId: "curacao",
+    position: "MF",
+    number: 22,
+    age: 26,
+    club: "MVV Maastricht",
+    goals: 0,
+    caps: 10,
+    description: "Milieu récupérateur fiable, apportant de l'équilibre au milieu de terrain."
+  },
+
+  // --- FW (4) ---
+  {
+    id: "locadia",
+    name: "Jürgen Locadia",
+    slug: "locadia",
+    teamId: "curacao",
+    position: "FW",
+    number: 11,
+    age: 32,
+    club: "Libre",
+    goals: 5,
+    caps: 15,
+    description: "Attaquant expérimenté passé par le PSV et Brighton, puissant et aérien."
+  },
+  {
+    id: "kastaneer",
+    name: "Gervane Kastaneer",
+    slug: "kastaneer",
+    teamId: "curacao",
+    position: "FW",
+    number: 19,
+    age: 30,
+    club: "Persis Solo",
+    goals: 8,
+    caps: 25,
+    description: "Attaquant rapide et physique, formé au PSV et buteur régulier."
+  },
+  {
+    id: "hansen-sontje",
+    name: "Sontje Hansen",
+    slug: "hansen-sontje",
+    teamId: "curacao",
+    position: "FW",
+    number: 16,
+    age: 23,
+    club: "NEC Nijmegen",
+    goals: 2,
+    caps: 8,
+    description: "Jeune attaquant formé à l'Ajax Amsterdam, technique et prometteur."
+  },
+  {
+    id: "gorre",
+    name: "Kenji Gorré",
+    slug: "gorre",
+    teamId: "curacao",
+    position: "FW",
+    number: 21,
+    age: 31,
+    club: "Maccabi Haïfa",
+    goals: 4,
+    caps: 25,
+    description: "Ailier gauche rapide et dribbleur, fils de l'ancien international néerlandais Dean Gorré."
+  },
+  // ---- tmp-players-a6.ts ----
+// =============================================
+  // TUNISIE (existing: GK dahmen, DF talbi, MF sliti, FW khazri, FW jaziri)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =============================================
+
+  // GK
+  {
+    id: "ben-said",
+    name: "Béchir Ben Saïd",
+    slug: "ben-said",
+    teamId: "tunisie",
+    position: "GK",
+    number: 22,
+    age: 28,
+    club: "US Monastir",
+    goals: 0,
+    caps: 10,
+    description: "Gardien prometteur du championnat tunisien, solide dans ses sorties aériennes."
+  },
+  {
+    id: "ben-hassen",
+    name: "Sabri Ben Hassen",
+    slug: "ben-hassen",
+    teamId: "tunisie",
+    position: "GK",
+    number: 1,
+    age: 27,
+    club: "Espérance de Tunis",
+    goals: 0,
+    caps: 5,
+    description: "Gardien talentueux de l'Espérance, troisième option fiable pour les Aigles de Carthage."
+  },
+
+  // DF
+  {
+    id: "meriah",
+    name: "Yassine Meriah",
+    slug: "meriah",
+    teamId: "tunisie",
+    position: "DF",
+    number: 5,
+    age: 33,
+    club: "Espérance de Tunis",
+    goals: 3,
+    caps: 60,
+    description: "Défenseur central expérimenté et capitaine de l'Espérance, pilier de la défense tunisienne."
+  },
+  {
+    id: "bronn",
+    name: "Dylan Bronn",
+    slug: "bronn",
+    teamId: "tunisie",
+    position: "DF",
+    number: 15,
+    age: 30,
+    club: "Servette",
+    goals: 2,
+    caps: 50,
+    description: "Défenseur central polyvalent évoluant en Suisse, régulier en sélection tunisienne."
+  },
+  {
+    id: "ghandri",
+    name: "Nader Ghandri",
+    slug: "ghandri",
+    teamId: "tunisie",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Club Africain",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central robuste du Club Africain, solide dans les duels aériens."
+  },
+  {
+    id: "maaloul",
+    name: "Ali Maâloul",
+    slug: "maaloul",
+    teamId: "tunisie",
+    position: "DF",
+    number: 12,
+    age: 36,
+    club: "Al Ahly",
+    goals: 8,
+    caps: 80,
+    description: "Latéral gauche offensif et expérimenté, vétéran précieux du vestiaire tunisien."
+  },
+  {
+    id: "abdi-ali",
+    name: "Ali Abdi",
+    slug: "abdi-ali",
+    teamId: "tunisie",
+    position: "DF",
+    number: 2,
+    age: 32,
+    club: "Caen",
+    goals: 1,
+    caps: 40,
+    description: "Latéral gauche technique et généreux dans l'effort, formé en France."
+  },
+  {
+    id: "valery",
+    name: "Yan Valery",
+    slug: "valery",
+    teamId: "tunisie",
+    position: "DF",
+    number: 21,
+    age: 25,
+    club: "Sheffield Wednesday",
+    goals: 0,
+    caps: 15,
+    description: "Latéral droit rapide et offensif, formé à Southampton et international tunisien."
+  },
+  {
+    id: "ben-ouanes",
+    name: "Mortadha Ben Ouanès",
+    slug: "ben-ouanes",
+    teamId: "tunisie",
+    position: "DF",
+    number: 6,
+    age: 25,
+    club: "Espérance de Tunis",
+    goals: 0,
+    caps: 12,
+    description: "Jeune défenseur central prometteur de l'Espérance, précis dans la relance."
+  },
+
+  // MF
+  {
+    id: "skhiri",
+    name: "Ellyes Skhiri",
+    slug: "skhiri",
+    teamId: "tunisie",
+    position: "MF",
+    number: 8,
+    age: 30,
+    club: "Eintracht Francfort",
+    goals: 5,
+    caps: 55,
+    description: "Milieu récupérateur d'élite en Bundesliga, moteur infatigable du milieu tunisien."
+  },
+  {
+    id: "mejbri",
+    name: "Hannibal Mejbri",
+    slug: "mejbri",
+    teamId: "tunisie",
+    position: "MF",
+    number: 18,
+    age: 23,
+    club: "Burnley",
+    goals: 1,
+    caps: 25,
+    description: "Milieu créatif et combatif, formé à Manchester United, grand espoir tunisien."
+  },
+  {
+    id: "sassi",
+    name: "Ferjani Sassi",
+    slug: "sassi",
+    teamId: "tunisie",
+    position: "MF",
+    number: 14,
+    age: 34,
+    club: "Al-Duhail",
+    goals: 8,
+    caps: 70,
+    description: "Milieu de terrain expérimenté et technique, meneur de jeu vétéran de la Tunisie."
+  },
+  {
+    id: "ben-romdhane",
+    name: "Mohamed Ali Ben Romdhane",
+    slug: "ben-romdhane",
+    teamId: "tunisie",
+    position: "MF",
+    number: 23,
+    age: 26,
+    club: "Ferencváros",
+    goals: 3,
+    caps: 30,
+    description: "Milieu box-to-box dynamique et polyvalent, titulaire régulier en sélection."
+  },
+  {
+    id: "laidouni",
+    name: "Aïssa Laïdouni",
+    slug: "laidouni",
+    teamId: "tunisie",
+    position: "MF",
+    number: 19,
+    age: 28,
+    club: "Al-Wakrah",
+    goals: 2,
+    caps: 35,
+    description: "Milieu combatif et généreux, élu meilleur joueur tunisien de l'année 2022."
+  },
+  {
+    id: "tka",
+    name: "Houssem Tka",
+    slug: "tka",
+    teamId: "tunisie",
+    position: "MF",
+    number: 20,
+    age: 24,
+    club: "Espérance de Tunis",
+    goals: 2,
+    caps: 15,
+    description: "Milieu offensif technique et créatif, talent montant du football tunisien."
+  },
+
+  // FW
+  {
+    id: "saad-elias",
+    name: "Elias Saad",
+    slug: "saad-elias",
+    teamId: "tunisie",
+    position: "FW",
+    number: 7,
+    age: 24,
+    club: "Augsbourg",
+    goals: 3,
+    caps: 15,
+    description: "Ailier rapide et percutant évoluant en Bundesliga, capable de déséquilibrer sur les côtés."
+  },
+  {
+    id: "achouri",
+    name: "Elias Achouri",
+    slug: "achouri",
+    teamId: "tunisie",
+    position: "FW",
+    number: 11,
+    age: 26,
+    club: "FC Copenhague",
+    goals: 4,
+    caps: 20,
+    description: "Attaquant technique et polyvalent, décisif au Danemark et en sélection."
+  },
+  {
+    id: "tounekti",
+    name: "Sebastian Tounekti",
+    slug: "tounekti",
+    teamId: "tunisie",
+    position: "FW",
+    number: 13,
+    age: 22,
+    club: "Celtic",
+    goals: 2,
+    caps: 10,
+    description: "Jeune ailier prometteur du Celtic, rapide et habile devant le but."
+  },
+
+  // =============================================
+  // IRAN (existing: GK beiranvand, DF moharrami, MF gholizadeh, FW taremi, FW azmoun)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =============================================
+
+  // GK
+  {
+    id: "hosseini-hossein",
+    name: "Hossein Hosseini",
+    slug: "hosseini-hossein",
+    teamId: "iran",
+    position: "GK",
+    number: 12,
+    age: 34,
+    club: "Sepahan",
+    goals: 0,
+    caps: 15,
+    description: "Gardien expérimenté de Sepahan, deuxième choix fiable derrière Beiranvand."
+  },
+  {
+    id: "niazmand",
+    name: "Amir Niazmand",
+    slug: "niazmand",
+    teamId: "iran",
+    position: "GK",
+    number: 22,
+    age: 27,
+    club: "Persepolis",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien prometteur de Persepolis, excellent réflexes et bonne relance au pied."
+  },
+
+  // DF
+  {
+    id: "pouraliganji",
+    name: "Morteza Pouraliganji",
+    slug: "pouraliganji",
+    teamId: "iran",
+    position: "DF",
+    number: 5,
+    age: 33,
+    club: "Persepolis",
+    goals: 5,
+    caps: 60,
+    description: "Défenseur central expérimenté et aérien, vétéran de la défense iranienne."
+  },
+  {
+    id: "khalilzadeh",
+    name: "Shoja Khalilzadeh",
+    slug: "khalilzadeh",
+    teamId: "iran",
+    position: "DF",
+    number: 2,
+    age: 36,
+    club: "Tractor",
+    goals: 3,
+    caps: 40,
+    description: "Défenseur central robuste et leader vocal, pilier de la défense en sélection."
+  },
+  {
+    id: "mohammadi-milad",
+    name: "Milad Mohammadi",
+    slug: "mohammadi-milad",
+    teamId: "iran",
+    position: "DF",
+    number: 3,
+    age: 32,
+    club: "Persepolis",
+    goals: 3,
+    caps: 55,
+    description: "Latéral gauche offensif et dynamique, connu pour ses rentrées acrobatiques."
+  },
+  {
+    id: "hosseini-majid",
+    name: "Majid Hosseini",
+    slug: "hosseini-majid",
+    teamId: "iran",
+    position: "DF",
+    number: 13,
+    age: 28,
+    club: "Kayserispor",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central rapide et technique, évoluant dans le championnat turc."
+  },
+  {
+    id: "noorafkan",
+    name: "Omid Noorafkan",
+    slug: "noorafkan",
+    teamId: "iran",
+    position: "DF",
+    number: 14,
+    age: 28,
+    club: "Sepahan",
+    goals: 2,
+    caps: 25,
+    description: "Latéral droit polyvalent et endurant, régulier en sélection iranienne."
+  },
+  {
+    id: "kanaani",
+    name: "Abolfazl Jalali",
+    slug: "kanaani",
+    teamId: "iran",
+    position: "DF",
+    number: 4,
+    age: 27,
+    club: "Esteghlal",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur central solide d'Esteghlal, montant en puissance en sélection."
+  },
+  {
+    id: "hazbavi",
+    name: "Rouzbeh Cheshmi",
+    slug: "hazbavi",
+    teamId: "iran",
+    position: "DF",
+    number: 15,
+    age: 31,
+    club: "Esteghlal",
+    goals: 2,
+    caps: 35,
+    description: "Défenseur central puissant d'Esteghlal, auteur de buts importants en sélection."
+  },
+
+  // MF
+  {
+    id: "ezatolahi",
+    name: "Saeid Ezatolahi",
+    slug: "ezatolahi",
+    teamId: "iran",
+    position: "MF",
+    number: 6,
+    age: 28,
+    club: "Shabab Al-Ahli",
+    goals: 2,
+    caps: 55,
+    description: "Milieu défensif puissant et combatif, régulier en sélection depuis ses débuts précoces."
+  },
+  {
+    id: "jahanbakhsh",
+    name: "Alireza Jahanbakhsh",
+    slug: "jahanbakhsh",
+    teamId: "iran",
+    position: "MF",
+    number: 7,
+    age: 32,
+    club: "FCV Dender",
+    goals: 12,
+    caps: 70,
+    description: "Ailier expérimenté et technique, ancien meilleur buteur de l'Eredivisie."
+  },
+  {
+    id: "torabi",
+    name: "Mehdi Torabi",
+    slug: "torabi",
+    teamId: "iran",
+    position: "MF",
+    number: 10,
+    age: 31,
+    club: "Tractor",
+    goals: 5,
+    caps: 30,
+    description: "Milieu offensif créatif et excellent tireur de coups francs."
+  },
+  {
+    id: "ghoddos",
+    name: "Saman Ghoddos",
+    slug: "ghoddos",
+    teamId: "iran",
+    position: "MF",
+    number: 16,
+    age: 31,
+    club: "Brentford",
+    goals: 5,
+    caps: 45,
+    description: "Milieu polyvalent et travailleur, seul Iranien évoluant en Premier League."
+  },
+  {
+    id: "amiri-vahid",
+    name: "Vahid Amiri",
+    slug: "amiri-vahid",
+    teamId: "iran",
+    position: "MF",
+    number: 8,
+    age: 37,
+    club: "Persepolis",
+    goals: 4,
+    caps: 60,
+    description: "Milieu combatif et vétéran, capitaine historique de Persepolis et de Team Melli."
+  },
+  {
+    id: "nourollahi",
+    name: "Ahmad Nourollahi",
+    slug: "nourollahi",
+    teamId: "iran",
+    position: "MF",
+    number: 11,
+    age: 32,
+    club: "Shabab Al-Ahli",
+    goals: 4,
+    caps: 40,
+    description: "Milieu box-to-box technique et endurant, important dans la construction du jeu."
+  },
+
+  // FW
+  {
+    id: "moghanlou",
+    name: "Shahriyar Moghanlou",
+    slug: "moghanlou",
+    teamId: "iran",
+    position: "FW",
+    number: 18,
+    age: 28,
+    club: "Sepahan",
+    goals: 8,
+    caps: 25,
+    description: "Attaquant prolifique du championnat iranien, finisseur redoutable dans la surface."
+  },
+  {
+    id: "alipour",
+    name: "Ali Alipour",
+    slug: "alipour",
+    teamId: "iran",
+    position: "FW",
+    number: 19,
+    age: 29,
+    club: "Persepolis",
+    goals: 6,
+    caps: 20,
+    description: "Attaquant vif et technique, ancien buteur du championnat portugais."
+  },
+  {
+    id: "ansarifard",
+    name: "Karim Ansarifard",
+    slug: "ansarifard",
+    teamId: "iran",
+    position: "FW",
+    number: 21,
+    age: 36,
+    club: "Omonia Nicosie",
+    goals: 30,
+    caps: 95,
+    description: "Attaquant vétéran et buteur prolifique, troisième meilleur marqueur de l'histoire iranienne."
+  },
+
+  // =============================================
+  // NOUVELLE-ZELANDE (existing: GK marinovic, DF boxall, MF singh, FW wood, FW bell/waine)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =============================================
+
+  // GK
+  {
+    id: "crocombe",
+    name: "Max Crocombe",
+    slug: "crocombe",
+    teamId: "nouvelle-zelande",
+    position: "GK",
+    number: 23,
+    age: 32,
+    club: "Oxford United",
+    goals: 0,
+    caps: 20,
+    description: "Gardien expérimenté et premier choix des All Whites, fiable dans les grands matchs."
+  },
+  {
+    id: "paulsen",
+    name: "Alex Paulsen",
+    slug: "paulsen",
+    teamId: "nouvelle-zelande",
+    position: "GK",
+    number: 12,
+    age: 23,
+    club: "Auckland FC",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien prometteur prêté par Bournemouth, avenir du poste en Nouvelle-Zélande."
+  },
+
+  // DF
+  {
+    id: "cacace",
+    name: "Liberato Cacace",
+    slug: "cacace",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 3,
+    age: 24,
+    club: "Empoli",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche offensif et rapide, l'un des rares néo-zélandais en Serie A."
+  },
+  {
+    id: "tuiloma",
+    name: "Bill Tuiloma",
+    slug: "tuiloma",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 5,
+    age: 31,
+    club: "Charlotte FC",
+    goals: 4,
+    caps: 45,
+    description: "Défenseur central expérimenté en MLS, polyvalent et fiable en sélection."
+  },
+  {
+    id: "surman",
+    name: "Finn Surman",
+    slug: "surman",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 2,
+    age: 21,
+    club: "Portland Timbers",
+    goals: 0,
+    caps: 10,
+    description: "Jeune défenseur central prometteur évoluant en MLS, athlétique et discipliné."
+  },
+  {
+    id: "payne",
+    name: "Tim Payne",
+    slug: "payne",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 6,
+    age: 31,
+    club: "Wellington Phoenix",
+    goals: 2,
+    caps: 42,
+    description: "Défenseur central solide et expérimenté, vétéran de la sélection néo-zélandaise."
+  },
+  {
+    id: "bindon",
+    name: "Tyler Bindon",
+    slug: "bindon",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 15,
+    age: 20,
+    club: "Dundee United",
+    goals: 0,
+    caps: 8,
+    description: "Latéral droit jeune et dynamique, grand espoir de la défense néo-zélandaise."
+  },
+  {
+    id: "reid-winston",
+    name: "Winston Reid",
+    slug: "reid-winston",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 14,
+    age: 37,
+    club: "Auckland FC",
+    goals: 3,
+    caps: 55,
+    description: "Défenseur central vétéran et légende, ancien joueur de West Ham en Premier League."
+  },
+  {
+    id: "pijnaker",
+    name: "Nando Pijnaker",
+    slug: "pijnaker",
+    teamId: "nouvelle-zelande",
+    position: "DF",
+    number: 16,
+    age: 26,
+    club: "Portland Timbers",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central d'origine néerlandaise, solide et bon dans la relance."
+  },
+
+  // MF
+  {
+    id: "bell-joe",
+    name: "Joe Bell",
+    slug: "bell-joe",
+    teamId: "nouvelle-zelande",
+    position: "MF",
+    number: 8,
+    age: 25,
+    club: "Viking FK",
+    goals: 3,
+    caps: 30,
+    description: "Milieu central technique et régulier, évoluant dans le championnat norvégien."
+  },
+  {
+    id: "stamenic",
+    name: "Marko Stamenic",
+    slug: "stamenic",
+    teamId: "nouvelle-zelande",
+    position: "MF",
+    number: 10,
+    age: 23,
+    club: "Red Bull Salzbourg",
+    goals: 2,
+    caps: 20,
+    description: "Milieu box-to-box dynamique, talent montant du football néo-zélandais en Europe."
+  },
+  {
+    id: "garbett",
+    name: "Matthew Garbett",
+    slug: "garbett",
+    teamId: "nouvelle-zelande",
+    position: "MF",
+    number: 11,
+    age: 23,
+    club: "NAC Breda",
+    goals: 2,
+    caps: 18,
+    description: "Milieu offensif créatif et polyvalent, international régulier malgré son jeune âge."
+  },
+  {
+    id: "mccowatt",
+    name: "Alex Greive",
+    slug: "mccowatt",
+    teamId: "nouvelle-zelande",
+    position: "MF",
+    number: 7,
+    age: 25,
+    club: "Melbourne Victory",
+    goals: 3,
+    caps: 15,
+    description: "Milieu offensif combatif et buteur, valeur sûre de la A-League australienne."
+  },
+  {
+    id: "thomas-ryan",
+    name: "Ryan Thomas",
+    slug: "thomas-ryan",
+    teamId: "nouvelle-zelande",
+    position: "MF",
+    number: 19,
+    age: 31,
+    club: "PEC Zwolle",
+    goals: 4,
+    caps: 40,
+    description: "Milieu expérimenté évoluant en Eredivisie, apportant technique et volume de jeu."
+  },
+  {
+    id: "lewis-callum",
+    name: "Callum McCowatt",
+    slug: "lewis-callum",
+    teamId: "nouvelle-zelande",
+    position: "MF",
+    number: 20,
+    age: 26,
+    club: "Wellington Phoenix",
+    goals: 2,
+    caps: 15,
+    description: "Milieu offensif rapide du Wellington Phoenix, important dans le jeu de transition."
+  },
+
+  // FW
+  {
+    id: "just",
+    name: "Elijah Just",
+    slug: "just",
+    teamId: "nouvelle-zelande",
+    position: "FW",
+    number: 22,
+    age: 28,
+    club: "Ulsan Hyundai",
+    goals: 5,
+    caps: 25,
+    description: "Ailier rapide et percutant, dangereux dans les espaces et en contre-attaque."
+  },
+  {
+    id: "randall",
+    name: "Jesse Randall",
+    slug: "randall",
+    teamId: "nouvelle-zelande",
+    position: "FW",
+    number: 13,
+    age: 23,
+    club: "Auckland FC",
+    goals: 2,
+    caps: 8,
+    description: "Jeune attaquant d'Auckland FC, vif et habile dans la surface de réparation."
+  },
+  {
+    id: "rojas",
+    name: "Marco Rojas",
+    slug: "rojas",
+    teamId: "nouvelle-zelande",
+    position: "FW",
+    number: 21,
+    age: 34,
+    club: "Melbourne Victory",
+    goals: 10,
+    caps: 45,
+    description: "Ailier vétéran et technique, légende néo-zélandaise au parcours européen."
+  },
+
+  // =============================================
+  // URUGUAY (existing: GK rochet, DF araujo, MF valverde, FW nunez, FW pellistri)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =============================================
+
+  // GK
+  {
+    id: "mele",
+    name: "Santiago Mele",
+    slug: "mele",
+    teamId: "uruguay",
+    position: "GK",
+    number: 23,
+    age: 25,
+    club: "Olympiakos",
+    goals: 0,
+    caps: 8,
+    description: "Jeune gardien prometteur évoluant en Grèce, deuxième choix de la Celeste."
+  },
+  {
+    id: "israel",
+    name: "Franco Israel",
+    slug: "israel",
+    teamId: "uruguay",
+    position: "GK",
+    number: 12,
+    age: 25,
+    club: "Sporting CP",
+    goals: 0,
+    caps: 3,
+    description: "Gardien formé à la Juventus, troisième option prometteuse pour l'Uruguay."
+  },
+
+  // DF
+  {
+    id: "gimenez",
+    name: "José María Giménez",
+    slug: "gimenez",
+    teamId: "uruguay",
+    position: "DF",
+    number: 2,
+    age: 31,
+    club: "Atletico Madrid",
+    goals: 5,
+    caps: 90,
+    description: "Défenseur central guerrier et capitaine, pilier incontournable de la Celeste."
+  },
+  {
+    id: "olivera",
+    name: "Mathías Olivera",
+    slug: "olivera",
+    teamId: "uruguay",
+    position: "DF",
+    number: 17,
+    age: 28,
+    club: "Naples",
+    goals: 1,
+    caps: 30,
+    description: "Latéral gauche combatif et offensif, titulaire indiscutable en sélection et à Naples."
+  },
+  {
+    id: "varela-guillermo",
+    name: "Guillermo Varela",
+    slug: "varela-guillermo",
+    teamId: "uruguay",
+    position: "DF",
+    number: 22,
+    age: 33,
+    club: "Flamengo",
+    goals: 1,
+    caps: 25,
+    description: "Latéral droit expérimenté formé à Manchester United, régulier en sélection."
+  },
+  {
+    id: "bueno",
+    name: "Santiago Bueno",
+    slug: "bueno",
+    teamId: "uruguay",
+    position: "DF",
+    number: 13,
+    age: 25,
+    club: "Wolverhampton",
+    goals: 0,
+    caps: 12,
+    description: "Défenseur central jeune et prometteur, évoluant en Premier League anglaise."
+  },
+  {
+    id: "marichal",
+    name: "Nicolás Marichal",
+    slug: "marichal",
+    teamId: "uruguay",
+    position: "DF",
+    number: 3,
+    age: 24,
+    club: "Dinamo Moscou",
+    goals: 0,
+    caps: 10,
+    description: "Défenseur central gaucher et technique, nouvelle génération de la défense uruguayenne."
+  },
+  {
+    id: "saracchi",
+    name: "Marcelo Saracchi",
+    slug: "saracchi",
+    teamId: "uruguay",
+    position: "DF",
+    number: 14,
+    age: 28,
+    club: "Boca Juniors",
+    goals: 0,
+    caps: 15,
+    description: "Latéral gauche rapide, ancien joueur de Leipzig, polyvalent en défense."
+  },
+  {
+    id: "rodriguez-jose-luis",
+    name: "José Luis Rodríguez",
+    slug: "rodriguez-jose-luis",
+    teamId: "uruguay",
+    position: "DF",
+    number: 6,
+    age: 27,
+    club: "Nacional",
+    goals: 1,
+    caps: 10,
+    description: "Latéral droit combatif et endurant, révélation récente de la sélection."
+  },
+
+  // MF
+  {
+    id: "ugarte",
+    name: "Manuel Ugarte",
+    slug: "ugarte",
+    teamId: "uruguay",
+    position: "MF",
+    number: 5,
+    age: 25,
+    club: "Manchester United",
+    goals: 1,
+    caps: 30,
+    description: "Milieu récupérateur agressif et infatigable, véritable muraille au milieu de terrain."
+  },
+  {
+    id: "bentancur",
+    name: "Rodrigo Bentancur",
+    slug: "bentancur",
+    teamId: "uruguay",
+    position: "MF",
+    number: 8,
+    age: 29,
+    club: "Tottenham",
+    goals: 3,
+    caps: 60,
+    description: "Milieu complet et technique, formé à Boca Juniors et passé par la Juventus."
+  },
+  {
+    id: "de-arrascaeta",
+    name: "Giorgian De Arrascaeta",
+    slug: "de-arrascaeta",
+    teamId: "uruguay",
+    position: "MF",
+    number: 10,
+    age: 32,
+    club: "Flamengo",
+    goals: 8,
+    caps: 45,
+    description: "Meneur de jeu créatif et dribbleur, star du Flamengo et cadre de la Celeste."
+  },
+  {
+    id: "nandez",
+    name: "Nahitan Nández",
+    slug: "nandez",
+    teamId: "uruguay",
+    position: "MF",
+    number: 18,
+    age: 30,
+    club: "Al-Qadsiah",
+    goals: 2,
+    caps: 40,
+    description: "Milieu combatif et polyvalent, infatigable dans le pressing et la récupération."
+  },
+  {
+    id: "torres-facundo",
+    name: "Facundo Torres",
+    slug: "torres-facundo",
+    teamId: "uruguay",
+    position: "MF",
+    number: 20,
+    age: 25,
+    club: "Palmeiras",
+    goals: 5,
+    caps: 25,
+    description: "Milieu offensif créatif et rapide, excellent dans les une-deux et les centres."
+  },
+  {
+    id: "martinez-emiliano-uru",
+    name: "Emiliano Martínez",
+    slug: "martinez-emiliano-uru",
+    teamId: "uruguay",
+    position: "MF",
+    number: 19,
+    age: 27,
+    club: "Palmeiras",
+    goals: 2,
+    caps: 15,
+    description: "Milieu offensif technique du Palmeiras, capable de jouer entre les lignes."
+  },
+
+  // FW
+  {
+    id: "rodriguez-brian",
+    name: "Brian Rodríguez",
+    slug: "rodriguez-brian",
+    teamId: "uruguay",
+    position: "FW",
+    number: 7,
+    age: 25,
+    club: "América",
+    goals: 4,
+    caps: 20,
+    description: "Ailier gauche rapide et dribbleur, capable de percées dévastatrices."
+  },
+  {
+    id: "araujo-maxi",
+    name: "Maximiliano Araújo",
+    slug: "araujo-maxi",
+    teamId: "uruguay",
+    position: "FW",
+    number: 21,
+    age: 24,
+    club: "Sporting CP",
+    goals: 3,
+    caps: 15,
+    description: "Ailier gauche percutant et technique, talent montant du football uruguayen."
+  },
+  {
+    id: "rodriguez-luciano",
+    name: "Luciano Rodríguez",
+    slug: "rodriguez-luciano",
+    teamId: "uruguay",
+    position: "FW",
+    number: 9,
+    age: 21,
+    club: "Bahia",
+    goals: 3,
+    caps: 10,
+    description: "Jeune attaquant de pointe prometteur, surnommé 'Lucho', grand espoir de la Celeste."
+  },
+
+  // =============================================
+  // ARABIE SAOUDITE (existing: GK al-owais, DF al-bulaihi, MF al-faraj, FW al-dawsari, FW al-shehri)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =============================================
+
+  // GK
+  {
+    id: "al-yami",
+    name: "Mohammed Al-Yami",
+    slug: "al-yami",
+    teamId: "arabie-saoudite",
+    position: "GK",
+    number: 1,
+    age: 28,
+    club: "Al Ahli",
+    goals: 0,
+    caps: 10,
+    description: "Gardien agile et prometteur d'Al Ahli, deuxième option solide pour les Faucons Verts."
+  },
+  {
+    id: "al-aqidi",
+    name: "Nawaf Al-Aqidi",
+    slug: "al-aqidi",
+    teamId: "arabie-saoudite",
+    position: "GK",
+    number: 18,
+    age: 25,
+    club: "Al Nassr",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien d'Al Nassr, troisième choix aux réflexes excellents."
+  },
+
+  // DF
+  {
+    id: "al-amri",
+    name: "Abdulellah Al-Amri",
+    slug: "al-amri",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Al Nassr",
+    goals: 1,
+    caps: 40,
+    description: "Défenseur central rapide et solide, titulaire régulier en sélection saoudienne."
+  },
+  {
+    id: "al-ghannam",
+    name: "Sultan Al-Ghannam",
+    slug: "al-ghannam",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 2,
+    age: 30,
+    club: "Al Nassr",
+    goals: 2,
+    caps: 55,
+    description: "Latéral droit offensif et rapide, pilier du couloir droit des Faucons Verts."
+  },
+  {
+    id: "al-shahrani",
+    name: "Yasser Al-Shahrani",
+    slug: "al-shahrani",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 13,
+    age: 34,
+    club: "Al Hilal",
+    goals: 3,
+    caps: 80,
+    description: "Latéral gauche vétéran et dynamique, l'un des défenseurs les plus capés du pays."
+  },
+  {
+    id: "tambakti",
+    name: "Abdulelah Al-Malki",
+    slug: "tambakti",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 6,
+    age: 30,
+    club: "Al Hilal",
+    goals: 1,
+    caps: 45,
+    description: "Défenseur central polyvalent d'Al Hilal, capable de jouer en milieu défensif."
+  },
+  {
+    id: "al-khaibari",
+    name: "Hassan Al-Khaibari",
+    slug: "al-khaibari",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 3,
+    age: 25,
+    club: "Al Ahli",
+    goals: 0,
+    caps: 12,
+    description: "Latéral gauche jeune et rapide, nouvelle génération de la défense saoudienne."
+  },
+  {
+    id: "al-burayk",
+    name: "Mohammed Al-Burayk",
+    slug: "al-burayk",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 14,
+    age: 32,
+    club: "Al Hilal",
+    goals: 2,
+    caps: 50,
+    description: "Latéral droit expérimenté d'Al Hilal, excellent dans les centres et la projection."
+  },
+  {
+    id: "lajami",
+    name: "Ahmed Lajami",
+    slug: "lajami",
+    teamId: "arabie-saoudite",
+    position: "DF",
+    number: 15,
+    age: 26,
+    club: "Al Shabab",
+    goals: 0,
+    caps: 8,
+    description: "Défenseur central athlétique et discipliné, en progression constante."
+  },
+
+  // MF
+  {
+    id: "kanno",
+    name: "Mohamed Kanno",
+    slug: "kanno",
+    teamId: "arabie-saoudite",
+    position: "MF",
+    number: 7,
+    age: 30,
+    club: "Al Hilal",
+    goals: 5,
+    caps: 65,
+    description: "Milieu box-to-box puissant et technique, patron du milieu saoudien."
+  },
+  {
+    id: "al-malki-salman",
+    name: "Salman Al-Faraj",
+    slug: "al-malki-salman",
+    teamId: "arabie-saoudite",
+    position: "MF",
+    number: 16,
+    age: 35,
+    club: "Al Hilal",
+    goals: 10,
+    caps: 75,
+    description: "Capitaine expérimenté d'Al Hilal, meneur de jeu intelligent et précis."
+  },
+  {
+    id: "al-dawsari-abdulrahman",
+    name: "Abdulrahman Al-Aboud",
+    slug: "al-dawsari-abdulrahman",
+    teamId: "arabie-saoudite",
+    position: "MF",
+    number: 17,
+    age: 27,
+    club: "Al Ittihad",
+    goals: 3,
+    caps: 20,
+    description: "Milieu offensif créatif et agile, capable de déséquilibrer par le dribble."
+  },
+  {
+    id: "otayf",
+    name: "Abdullah Otayf",
+    slug: "otayf",
+    teamId: "arabie-saoudite",
+    position: "MF",
+    number: 9,
+    age: 33,
+    club: "Al Hilal",
+    goals: 3,
+    caps: 55,
+    description: "Milieu défensif intelligent et discipliné, sentinelle de l'entrejeu saoudien."
+  },
+  {
+    id: "al-hassan",
+    name: "Hassan Kadesh",
+    slug: "al-hassan",
+    teamId: "arabie-saoudite",
+    position: "MF",
+    number: 19,
+    age: 26,
+    club: "Al Ahli",
+    goals: 4,
+    caps: 20,
+    description: "Milieu offensif jeune et prometteur, très à l'aise dans les espaces réduits."
+  },
+  {
+    id: "al-abed",
+    name: "Hattan Bahebri",
+    slug: "al-abed",
+    teamId: "arabie-saoudite",
+    position: "MF",
+    number: 20,
+    age: 31,
+    club: "Al Shabab",
+    goals: 5,
+    caps: 30,
+    description: "Ailier polyvalent et technique, capable de jouer sur les deux côtés."
+  },
+
+  // FW
+  {
+    id: "al-buraikan",
+    name: "Feras Al-Buraikan",
+    slug: "al-buraikan",
+    teamId: "arabie-saoudite",
+    position: "FW",
+    number: 22,
+    age: 25,
+    club: "Al Ahli",
+    goals: 8,
+    caps: 30,
+    description: "Jeune attaquant rapide et décisif, meilleur buteur de la nouvelle génération saoudienne."
+  },
+  {
+    id: "al-hamdan",
+    name: "Abdulrahman Al-Hamdan",
+    slug: "al-hamdan",
+    teamId: "arabie-saoudite",
+    position: "FW",
+    number: 23,
+    age: 29,
+    club: "Al Ittihad",
+    goals: 5,
+    caps: 20,
+    description: "Attaquant de pointe puissant et aérien, dangereux de la tête dans la surface."
+  },
+  {
+    id: "al-ghashayan",
+    name: "Ayman Al-Khulaif",
+    slug: "al-ghashayan",
+    teamId: "arabie-saoudite",
+    position: "FW",
+    number: 12,
+    age: 24,
+    club: "Al Shabab",
+    goals: 3,
+    caps: 10,
+    description: "Ailier gauche jeune et explosif, talent montant du football saoudien."
+  },
+
+  // =============================================
+  // CAP-VERT (existing: GK vozinha, DF stopira, MF varela, FW mendes-ryan, FW tavares-bebeto)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // =============================================
+
+  // GK
+  {
+    id: "borges-henrique",
+    name: "Henrique Tavares",
+    slug: "borges-henrique",
+    teamId: "cap-vert",
+    position: "GK",
+    number: 12,
+    age: 27,
+    club: "Boavista",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien cap-verdien évoluant au Portugal, prometteur et agile."
+  },
+  {
+    id: "rosa",
+    name: "Dylan Silva",
+    slug: "rosa",
+    teamId: "cap-vert",
+    position: "GK",
+    number: 23,
+    age: 26,
+    club: "CS Marítimo",
+    goals: 0,
+    caps: 3,
+    description: "Gardien du championnat portugais, troisième option fiable pour les Requins Bleus."
+  },
+
+  // DF
+  {
+    id: "logan-costa",
+    name: "Logan Costa",
+    slug: "logan-costa",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 3,
+    age: 24,
+    club: "Villarreal",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central rapide et puissant en Liga espagnole, meilleur défenseur cap-verdien."
+  },
+  {
+    id: "diney",
+    name: "Edilson Borges",
+    slug: "diney",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 5,
+    age: 31,
+    club: "Al Bataeh",
+    goals: 2,
+    caps: 40,
+    description: "Défenseur central expérimenté surnommé Diney, solide et régulier en sélection."
+  },
+  {
+    id: "moreira-steven",
+    name: "Steven Moreira",
+    slug: "moreira-steven",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 2,
+    age: 31,
+    club: "Columbus Crew",
+    goals: 1,
+    caps: 35,
+    description: "Latéral droit solide en MLS, fierté de la qualification historique cap-verdienne."
+  },
+  {
+    id: "pina-wagner",
+    name: "Wagner Pina",
+    slug: "pina-wagner",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 6,
+    age: 28,
+    club: "Gil Vicente",
+    goals: 0,
+    caps: 15,
+    description: "Défenseur central gaucher du championnat portugais, technique dans la relance."
+  },
+  {
+    id: "fernandes-joao-paulo",
+    name: "João Paulo Fernandes",
+    slug: "fernandes-joao-paulo",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 13,
+    age: 27,
+    club: "Moreirense",
+    goals: 0,
+    caps: 12,
+    description: "Latéral gauche polyvalent et offensif, évoluant dans le championnat portugais."
+  },
+  {
+    id: "jojo",
+    name: "Jorge Xavier",
+    slug: "jojo",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 14,
+    age: 29,
+    club: "CD Tondela",
+    goals: 1,
+    caps: 20,
+    description: "Défenseur central surnommé Jojó, robuste et fiable dans les duels aériens."
+  },
+  {
+    id: "fernandes-yuran",
+    name: "Yuran Fernandes",
+    slug: "fernandes-yuran",
+    teamId: "cap-vert",
+    position: "DF",
+    number: 15,
+    age: 22,
+    club: "SC Braga B",
+    goals: 0,
+    caps: 5,
+    description: "Jeune défenseur formé à Braga, grand espoir de la défense cap-verdienne."
+  },
+
+  // MF
+  {
+    id: "monteiro-jamiro",
+    name: "Jamiro Monteiro",
+    slug: "monteiro-jamiro",
+    teamId: "cap-vert",
+    position: "MF",
+    number: 8,
+    age: 31,
+    club: "PEC Zwolle",
+    goals: 5,
+    caps: 35,
+    description: "Milieu offensif créatif et expérimenté, ancien joueur de l'Union de Philadelphie en MLS."
+  },
+  {
+    id: "rocha-kenny",
+    name: "Kenny Rocha Santos",
+    slug: "rocha-kenny",
+    teamId: "cap-vert",
+    position: "MF",
+    number: 16,
+    age: 27,
+    club: "FC Rouen",
+    goals: 2,
+    caps: 25,
+    description: "Milieu défensif combatif et récupérateur, ancrage de l'entrejeu cap-verdien."
+  },
+  {
+    id: "tavares-david",
+    name: "David Tavares",
+    slug: "tavares-david",
+    teamId: "cap-vert",
+    position: "MF",
+    number: 17,
+    age: 26,
+    club: "Benfica B",
+    goals: 1,
+    caps: 15,
+    description: "Milieu technique formé au Benfica, polyvalent et intelligent dans le jeu."
+  },
+  {
+    id: "duarte-deroy",
+    name: "Deroy Duarte",
+    slug: "duarte-deroy",
+    teamId: "cap-vert",
+    position: "MF",
+    number: 18,
+    age: 26,
+    club: "Sparta Rotterdam",
+    goals: 1,
+    caps: 20,
+    description: "Milieu défensif solide formé aux Pays-Bas, régulier en Eredivisie."
+  },
+  {
+    id: "arcanjo",
+    name: "Telmo Arcanjo",
+    slug: "arcanjo",
+    teamId: "cap-vert",
+    position: "MF",
+    number: 20,
+    age: 24,
+    club: "Vitória Guimarães",
+    goals: 2,
+    caps: 10,
+    description: "Milieu offensif portugais d'origine cap-verdienne, créatif et habile devant le but."
+  },
+  {
+    id: "pina-kevin",
+    name: "Kevin Pina",
+    slug: "pina-kevin",
+    teamId: "cap-vert",
+    position: "MF",
+    number: 21,
+    age: 23,
+    club: "FC Famalicão",
+    goals: 1,
+    caps: 8,
+    description: "Jeune milieu offensif du championnat portugais, rapide et technique."
+  },
+
+  // FW
+  {
+    id: "lopes-garry",
+    name: "Garry Rodrigues",
+    slug: "lopes-garry",
+    teamId: "cap-vert",
+    position: "FW",
+    number: 9,
+    age: 34,
+    club: "Olympiakos",
+    goals: 10,
+    caps: 50,
+    description: "Ailier expérimenté et buteur, ancien joueur de Galatasaray et star cap-verdienne."
+  },
+  {
+    id: "tavares-nuno",
+    name: "Nuno Borges",
+    slug: "tavares-nuno",
+    teamId: "cap-vert",
+    position: "FW",
+    number: 19,
+    age: 27,
+    club: "CD Santa Clara",
+    goals: 4,
+    caps: 15,
+    description: "Attaquant polyvalent du championnat portugais, vif et percutant."
+  },
+  {
+    id: "garcia-fabricio",
+    name: "Fabricio Garcia",
+    slug: "garcia-fabricio",
+    teamId: "cap-vert",
+    position: "FW",
+    number: 22,
+    age: 25,
+    club: "Estoril",
+    goals: 3,
+    caps: 10,
+    description: "Jeune attaquant rapide et technique, en progression constante en Liga Portugal."
+  },
+  // ---- tmp-players-a7.ts ----
+// ============================================================
+  // AUTRICHE (autriche)
+  // Existing: Arnautovic (FW), Sabitzer (MF), Baumgartner (MF), Alaba (DF), Pentz (GK)
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "lindner",
+    name: "Heinz Lindner",
+    slug: "lindner",
+    teamId: "autriche",
+    position: "GK",
+    number: 12,
+    age: 35,
+    club: "Union Saint-Gilloise",
+    goals: 0,
+    caps: 20,
+    description: "Gardien expérimenté et fiable, solide doublure du poste."
+  },
+  {
+    id: "hedl",
+    name: "Niklas Hedl",
+    slug: "hedl",
+    teamId: "autriche",
+    position: "GK",
+    number: 23,
+    age: 22,
+    club: "Rapid Vienne",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien prometteur du Rapid Vienne, troisième option en sélection."
+  },
+
+  // DF (7)
+  {
+    id: "danso",
+    name: "Kevin Danso",
+    slug: "danso",
+    teamId: "autriche",
+    position: "DF",
+    number: 15,
+    age: 27,
+    club: "Lens",
+    goals: 1,
+    caps: 35,
+    description: "Défenseur central puissant et aérien, titulaire indiscutable en Ligue 1."
+  },
+  {
+    id: "posch",
+    name: "Stefan Posch",
+    slug: "posch",
+    teamId: "autriche",
+    position: "DF",
+    number: 22,
+    age: 28,
+    club: "Bologna",
+    goals: 1,
+    caps: 40,
+    description: "Latéral droit solide et polyvalent, régulier en Serie A."
+  },
+  {
+    id: "wober",
+    name: "Maximilian Wöber",
+    slug: "wober",
+    teamId: "autriche",
+    position: "DF",
+    number: 5,
+    age: 28,
+    club: "Leeds United",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central gaucher et technique, bon dans la relance."
+  },
+  {
+    id: "lienhart",
+    name: "Philipp Lienhart",
+    slug: "lienhart",
+    teamId: "autriche",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Fribourg",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central élégant formé au Real Madrid, pilier du SC Fribourg."
+  },
+  {
+    id: "mwene",
+    name: "Philipp Mwene",
+    slug: "mwene",
+    teamId: "autriche",
+    position: "DF",
+    number: 16,
+    age: 32,
+    club: "Mayence",
+    goals: 0,
+    caps: 20,
+    description: "Latéral gauche expérimenté et combatif, régulier en Bundesliga."
+  },
+  {
+    id: "prass",
+    name: "Flavius Daniliuc",
+    slug: "prass",
+    teamId: "autriche",
+    position: "DF",
+    number: 6,
+    age: 24,
+    club: "Red Bull Salzbourg",
+    goals: 0,
+    caps: 10,
+    description: "Jeune défenseur central solide, formé au Bayern Munich."
+  },
+  {
+    id: "friedl",
+    name: "Marco Friedl",
+    slug: "friedl",
+    teamId: "autriche",
+    position: "DF",
+    number: 3,
+    age: 26,
+    club: "Werder Brême",
+    goals: 1,
+    caps: 15,
+    description: "Défenseur gauche polyvalent, capitaine du Werder Brême."
+  },
+
+  // MF (5)
+  {
+    id: "laimer",
+    name: "Konrad Laimer",
+    slug: "laimer",
+    teamId: "autriche",
+    position: "MF",
+    number: 14,
+    age: 28,
+    club: "Bayern Munich",
+    goals: 3,
+    caps: 45,
+    description: "Milieu box-to-box infatigable et combatif, presseur intense."
+  },
+  {
+    id: "seiwald",
+    name: "Nicolas Seiwald",
+    slug: "seiwald",
+    teamId: "autriche",
+    position: "MF",
+    number: 18,
+    age: 24,
+    club: "RB Leipzig",
+    goals: 1,
+    caps: 30,
+    description: "Milieu défensif intelligent et positionnel, talent montant autrichien."
+  },
+  {
+    id: "grillitsch",
+    name: "Florian Grillitsch",
+    slug: "grillitsch",
+    teamId: "autriche",
+    position: "MF",
+    number: 20,
+    age: 29,
+    club: "Hoffenheim",
+    goals: 3,
+    caps: 35,
+    description: "Milieu technique et polyvalent, capable de jouer défenseur central."
+  },
+  {
+    id: "schmid-romano",
+    name: "Romano Schmid",
+    slug: "schmid-romano",
+    teamId: "autriche",
+    position: "MF",
+    number: 17,
+    age: 25,
+    club: "Werder Brême",
+    goals: 2,
+    caps: 15,
+    description: "Milieu offensif créatif et dynamique, passeur de qualité."
+  },
+  {
+    id: "wimmer-patrick",
+    name: "Patrick Wimmer",
+    slug: "wimmer-patrick",
+    teamId: "autriche",
+    position: "MF",
+    number: 11,
+    age: 24,
+    club: "Wolfsburg",
+    goals: 2,
+    caps: 12,
+    description: "Ailier gauche rapide et percutant, dribbleur insaisissable."
+  },
+
+  // FW (4)
+  {
+    id: "gregoritsch",
+    name: "Michael Gregoritsch",
+    slug: "gregoritsch",
+    teamId: "autriche",
+    position: "FW",
+    number: 10,
+    age: 32,
+    club: "Fribourg",
+    goals: 15,
+    caps: 55,
+    description: "Attaquant grand et technique, buteur régulier en sélection."
+  },
+  {
+    id: "adamu",
+    name: "Junior Adamu",
+    slug: "adamu",
+    teamId: "autriche",
+    position: "FW",
+    number: 21,
+    age: 24,
+    club: "Red Bull Salzbourg",
+    goals: 3,
+    caps: 12,
+    description: "Attaquant rapide et puissant, option offensive dynamique."
+  },
+  {
+    id: "seo-kevin",
+    name: "Kevin Stöger",
+    slug: "seo-kevin",
+    teamId: "autriche",
+    position: "FW",
+    number: 24,
+    age: 33,
+    club: "Borussia Mönchengladbach",
+    goals: 2,
+    caps: 8,
+    description: "Attaquant gaucher à la frappe précieuse, spécialiste des coups francs."
+  },
+  {
+    id: "weimann",
+    name: "Andreas Weimann",
+    slug: "weimann",
+    teamId: "autriche",
+    position: "FW",
+    number: 25,
+    age: 34,
+    club: "Bristol City",
+    goals: 8,
+    caps: 30,
+    description: "Attaquant polyvalent et travailleur, longue carrière en Angleterre."
+  },
+
+  // ============================================================
+  // ALGERIE (algerie)
+  // Existing: Mahrez (FW), Bennacer (MF), Benrahma (FW), Mandi (DF), Mandrea/Oukidja (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "zeghba",
+    name: "Moustapha Zeghba",
+    slug: "zeghba",
+    teamId: "algerie",
+    position: "GK",
+    number: 16,
+    age: 26,
+    club: "CR Belouizdad",
+    goals: 0,
+    caps: 10,
+    description: "Gardien prometteur du championnat algérien, réflexes rapides et bon jeu au pied."
+  },
+  {
+    id: "mandrea-rais",
+    name: "Raïs M'Bolhi",
+    slug: "mandrea-rais",
+    teamId: "algerie",
+    position: "GK",
+    number: 1,
+    age: 38,
+    club: "ES Sétif",
+    goals: 0,
+    caps: 95,
+    description: "Gardien légendaire et champion d'Afrique 2019, le plus capé à son poste."
+  },
+
+  // DF (7)
+  {
+    id: "atal",
+    name: "Youcef Atal",
+    slug: "atal",
+    teamId: "algerie",
+    position: "DF",
+    number: 3,
+    age: 28,
+    club: "Nice",
+    goals: 4,
+    caps: 35,
+    description: "Latéral droit explosif et offensif, l'un des meilleurs à son poste en Ligue 1."
+  },
+  {
+    id: "bensebaini",
+    name: "Ramy Bensebaïni",
+    slug: "bensebaini",
+    teamId: "algerie",
+    position: "DF",
+    number: 5,
+    age: 31,
+    club: "Dortmund",
+    goals: 8,
+    caps: 50,
+    description: "Latéral gauche puissant et offensif, régulier en Bundesliga."
+  },
+  {
+    id: "bedrane",
+    name: "Djamel Benlamri",
+    slug: "bedrane",
+    teamId: "algerie",
+    position: "DF",
+    number: 4,
+    age: 35,
+    club: "ES Tunis",
+    goals: 3,
+    caps: 40,
+    description: "Défenseur central expérimenté et aérien, champion d'Afrique 2019."
+  },
+  {
+    id: "tougai",
+    name: "Abdelkader Bedrane",
+    slug: "tougai",
+    teamId: "algerie",
+    position: "DF",
+    number: 6,
+    age: 30,
+    club: "ES Sétif",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central solide du championnat algérien, régulier en sélection."
+  },
+  {
+    id: "tahrat",
+    name: "Mehdi Tahrat",
+    slug: "tahrat",
+    teamId: "algerie",
+    position: "DF",
+    number: 13,
+    age: 33,
+    club: "USM Alger",
+    goals: 2,
+    caps: 30,
+    description: "Défenseur central gaucher et expérimenté, bon dans la relance."
+  },
+  {
+    id: "mrezigue",
+    name: "Hocine Benayada",
+    slug: "mrezigue",
+    teamId: "algerie",
+    position: "DF",
+    number: 14,
+    age: 28,
+    club: "Espérance de Tunis",
+    goals: 1,
+    caps: 15,
+    description: "Latéral droit rapide et endurant, bon dans les deux phases de jeu."
+  },
+  {
+    id: "ghoulam",
+    name: "Farouk Ghoulam",
+    slug: "ghoulam",
+    teamId: "algerie",
+    position: "DF",
+    number: 15,
+    age: 35,
+    club: "Angers",
+    goals: 2,
+    caps: 40,
+    description: "Latéral gauche expérimenté, longue carrière à Naples."
+  },
+
+  // MF (6)
+  {
+    id: "zerrouki",
+    name: "Ramiz Zerrouki",
+    slug: "zerrouki",
+    teamId: "algerie",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Twente",
+    goals: 2,
+    caps: 20,
+    description: "Milieu défensif combatif et robuste, récupérateur infatigable."
+  },
+  {
+    id: "boudaoui",
+    name: "Hicham Boudaoui",
+    slug: "boudaoui",
+    teamId: "algerie",
+    position: "MF",
+    number: 18,
+    age: 27,
+    club: "Nice",
+    goals: 3,
+    caps: 25,
+    description: "Milieu dynamique et polyvalent, pilier du OGC Nice en Ligue 1."
+  },
+  {
+    id: "feghouli",
+    name: "Sofiane Feghouli",
+    slug: "feghouli",
+    teamId: "algerie",
+    position: "MF",
+    number: 10,
+    age: 35,
+    club: "Fatih Karagümrük",
+    goals: 18,
+    caps: 85,
+    description: "Milieu offensif expérimenté et champion d'Afrique 2019, technique raffinée."
+  },
+  {
+    id: "aouar",
+    name: "Houssem Aouar",
+    slug: "aouar",
+    teamId: "algerie",
+    position: "MF",
+    number: 21,
+    age: 28,
+    club: "Al-Ittihad",
+    goals: 2,
+    caps: 15,
+    description: "Milieu créatif et technique, formé à l'Olympique Lyonnais."
+  },
+  {
+    id: "boulaya",
+    name: "Farid Boulaya",
+    slug: "boulaya",
+    teamId: "algerie",
+    position: "MF",
+    number: 11,
+    age: 33,
+    club: "Qatar SC",
+    goals: 4,
+    caps: 20,
+    description: "Milieu offensif au pied gauche magique, spécialiste des coups francs."
+  },
+  {
+    id: "bentaleb",
+    name: "Nabil Bentaleb",
+    slug: "bentaleb",
+    teamId: "algerie",
+    position: "MF",
+    number: 6,
+    age: 31,
+    club: "Lille",
+    goals: 3,
+    caps: 35,
+    description: "Milieu central technique et expérimenté, formé à Tottenham."
+  },
+
+  // FW (3)
+  {
+    id: "bounedjah",
+    name: "Baghdad Bounedjah",
+    slug: "bounedjah",
+    teamId: "algerie",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Al Sadd",
+    goals: 20,
+    caps: 45,
+    description: "Attaquant buteur et héros de la finale CAN 2019, renard des surfaces."
+  },
+  {
+    id: "slimani",
+    name: "Islam Slimani",
+    slug: "slimani",
+    teamId: "algerie",
+    position: "FW",
+    number: 13,
+    age: 38,
+    club: "CR Belouizdad",
+    goals: 42,
+    caps: 100,
+    description: "Attaquant de pointe légendaire, meilleur buteur de l'histoire de la sélection."
+  },
+  {
+    id: "amine-gouiri",
+    name: "Amine Gouiri",
+    slug: "amine-gouiri",
+    teamId: "algerie",
+    position: "FW",
+    number: 19,
+    age: 26,
+    club: "Rennes",
+    goals: 4,
+    caps: 15,
+    description: "Attaquant technique et polyvalent, capable de jouer sur tout le front offensif."
+  },
+
+  // ============================================================
+  // JORDANIE (jordanie)
+  // Existing: Tamari (FW), Olwan/Al-Naimat (FW), Haddad/Al-Mardi (MF), Nasib/Arab (DF), Abulaila (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "shafi",
+    name: "Ahmad Al-Shafi",
+    slug: "shafi",
+    teamId: "jordanie",
+    position: "GK",
+    number: 22,
+    age: 28,
+    club: "Al-Faisaly",
+    goals: 0,
+    caps: 15,
+    description: "Gardien solide et fiable, doublure de qualité en sélection."
+  },
+  {
+    id: "alnawateer",
+    name: "Mohammad Al-Nawateer",
+    slug: "alnawateer",
+    teamId: "jordanie",
+    position: "GK",
+    number: 21,
+    age: 24,
+    club: "Al-Ahli Amman",
+    goals: 0,
+    caps: 5,
+    description: "Jeune gardien prometteur, troisième option en sélection jordanienne."
+  },
+
+  // DF (7)
+  {
+    id: "haddadi",
+    name: "Anas Haddad",
+    slug: "haddadi",
+    teamId: "jordanie",
+    position: "DF",
+    number: 2,
+    age: 28,
+    club: "Al-Faisaly",
+    goals: 1,
+    caps: 35,
+    description: "Latéral droit combatif et endurant, régulier en sélection jordanienne."
+  },
+  {
+    id: "al-rawabdeh",
+    name: "Ehsan Al-Rawabdeh",
+    slug: "al-rawabdeh",
+    teamId: "jordanie",
+    position: "DF",
+    number: 3,
+    age: 26,
+    club: "Al-Wehdat",
+    goals: 0,
+    caps: 20,
+    description: "Défenseur central solide et discipliné, pilier défensif jordanien."
+  },
+  {
+    id: "al-taamari-abdallah",
+    name: "Abdallah Nasib",
+    slug: "al-taamari-abdallah",
+    teamId: "jordanie",
+    position: "DF",
+    number: 4,
+    age: 30,
+    club: "Al-Salt",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central expérimenté et leader, vice-capitaine jordanien."
+  },
+  {
+    id: "al-dmeiri",
+    name: "Salem Al-Dmeiri",
+    slug: "al-dmeiri",
+    teamId: "jordanie",
+    position: "DF",
+    number: 6,
+    age: 29,
+    club: "Al-Faisaly",
+    goals: 2,
+    caps: 40,
+    description: "Latéral gauche offensif et dynamique, excellent dans la projection."
+  },
+  {
+    id: "khattab",
+    name: "Anas Khattab",
+    slug: "khattab",
+    teamId: "jordanie",
+    position: "DF",
+    number: 13,
+    age: 27,
+    club: "Damac FC",
+    goals: 0,
+    caps: 18,
+    description: "Défenseur central robuste évoluant en Arabie saoudite, bon dans le jeu aérien."
+  },
+  {
+    id: "al-ghanam",
+    name: "Feras Al-Ghanam",
+    slug: "al-ghanam",
+    teamId: "jordanie",
+    position: "DF",
+    number: 15,
+    age: 25,
+    club: "Al-Wehdat",
+    goals: 0,
+    caps: 12,
+    description: "Jeune défenseur polyvalent, capable de jouer latéral droit ou central."
+  },
+  {
+    id: "al-naimat-musa",
+    name: "Musa Al-Naimat",
+    slug: "al-naimat-musa",
+    teamId: "jordanie",
+    position: "DF",
+    number: 16,
+    age: 31,
+    club: "Al-Ahli Amman",
+    goals: 1,
+    caps: 45,
+    description: "Défenseur central expérimenté et aérien, vétéran de la sélection."
+  },
+
+  // MF (6)
+  {
+    id: "al-ersan",
+    name: "Baha' Faisal",
+    slug: "al-ersan",
+    teamId: "jordanie",
+    position: "MF",
+    number: 8,
+    age: 30,
+    club: "Al-Wehdat",
+    goals: 15,
+    caps: 55,
+    description: "Milieu offensif buteur et créatif, l'un des meilleurs joueurs jordaniens."
+  },
+  {
+    id: "samir-yaseen",
+    name: "Yaseen Al-Bakhit",
+    slug: "samir-yaseen",
+    teamId: "jordanie",
+    position: "MF",
+    number: 11,
+    age: 33,
+    club: "Al-Wehdat",
+    goals: 10,
+    caps: 70,
+    description: "Ailier expérimenté et rapide, vétéran précieux de la sélection jordanienne."
+  },
+  {
+    id: "rawshdeh",
+    name: "Nizar Al-Rawshdeh",
+    slug: "rawshdeh",
+    teamId: "jordanie",
+    position: "MF",
+    number: 17,
+    age: 27,
+    club: "Al-Faisaly",
+    goals: 3,
+    caps: 25,
+    description: "Milieu central combatif et récupérateur, important dans le pressing."
+  },
+  {
+    id: "al-saify",
+    name: "Mohannad Al-Saify",
+    slug: "al-saify",
+    teamId: "jordanie",
+    position: "MF",
+    number: 18,
+    age: 26,
+    club: "Al-Ramtha",
+    goals: 2,
+    caps: 15,
+    description: "Milieu relayeur dynamique, bon passeur et travailleur."
+  },
+  {
+    id: "al-dardour",
+    name: "Hamza Al-Dardour",
+    slug: "al-dardour",
+    teamId: "jordanie",
+    position: "MF",
+    number: 9,
+    age: 34,
+    club: "Ittihad Kalba",
+    goals: 25,
+    caps: 80,
+    description: "Milieu offensif vétéran et légende jordanienne, meilleur buteur historique."
+  },
+  {
+    id: "al-taamari-salem",
+    name: "Salem Al-Ajalin",
+    slug: "al-taamari-salem",
+    teamId: "jordanie",
+    position: "MF",
+    number: 20,
+    age: 28,
+    club: "Al-Faisaly",
+    goals: 4,
+    caps: 30,
+    description: "Milieu central polyvalent, capable de jouer en sentinelle ou relayeur."
+  },
+
+  // FW (3)
+  {
+    id: "al-odat",
+    name: "Oday Al-Odat",
+    slug: "al-odat",
+    teamId: "jordanie",
+    position: "FW",
+    number: 19,
+    age: 25,
+    club: "Al-Faisaly",
+    goals: 5,
+    caps: 15,
+    description: "Attaquant jeune et rapide, option offensive prometteuse."
+  },
+  {
+    id: "al-junidi",
+    name: "Ali Al-Junidi",
+    slug: "al-junidi",
+    teamId: "jordanie",
+    position: "FW",
+    number: 23,
+    age: 24,
+    club: "Al-Arabi Amman",
+    goals: 3,
+    caps: 10,
+    description: "Ailier véloce et dribbleur, talent montant du football jordanien."
+  },
+  {
+    id: "al-suraih",
+    name: "Ahmad Al-Suraih",
+    slug: "al-suraih",
+    teamId: "jordanie",
+    position: "FW",
+    number: 24,
+    age: 27,
+    club: "Al-Salt",
+    goals: 4,
+    caps: 20,
+    description: "Attaquant de pointe combatif et généreux dans les efforts défensifs."
+  },
+
+  // ============================================================
+  // OUZBEKISTAN (ouzbekistan)
+  // Existing: Shomurodov (FW), Masharipov (MF), Turgunboev/Fayzullayev (FW), Ashurmatov (DF), Yusupov (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "nesterov",
+    name: "Botirali Ergashev",
+    slug: "nesterov",
+    teamId: "ouzbekistan",
+    position: "GK",
+    number: 12,
+    age: 26,
+    club: "Nasaf Qarshi",
+    goals: 0,
+    caps: 10,
+    description: "Gardien solide du championnat ouzbek, bonne détente et réflexes vifs."
+  },
+  {
+    id: "saidov-gk",
+    name: "Abduvohid Nematov",
+    slug: "saidov-gk",
+    teamId: "ouzbekistan",
+    position: "GK",
+    number: 23,
+    age: 30,
+    club: "Bunyodkor",
+    goals: 0,
+    caps: 8,
+    description: "Gardien expérimenté du championnat national, doublure fiable."
+  },
+
+  // DF (7)
+  {
+    id: "kobilov",
+    name: "Husniddin Gafurov",
+    slug: "kobilov",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 2,
+    age: 27,
+    club: "AGMK",
+    goals: 1,
+    caps: 30,
+    description: "Latéral droit endurant et discipliné, régulier en sélection ouzbèke."
+  },
+  {
+    id: "sayfiev",
+    name: "Islom Tukhtakhodjaev",
+    slug: "sayfiev",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 4,
+    age: 29,
+    club: "Pakhtakor",
+    goals: 2,
+    caps: 35,
+    description: "Défenseur central solide et aérien, pilier du Pakhtakor Tashkent."
+  },
+  {
+    id: "alibaev",
+    name: "Rustamjon Ashurmatov",
+    slug: "alibaev",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 5,
+    age: 32,
+    club: "Al Ain",
+    goals: 3,
+    caps: 45,
+    description: "Défenseur central expérimenté évoluant aux Émirats, bon dans le duel."
+  },
+  {
+    id: "kholmatov",
+    name: "Abdukodir Khusanov",
+    slug: "kholmatov",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 6,
+    age: 21,
+    club: "Manchester City",
+    goals: 0,
+    caps: 15,
+    description: "Jeune défenseur central au potentiel immense, transféré en Premier League."
+  },
+  {
+    id: "yuldoshev",
+    name: "Davron Yuldoshev",
+    slug: "yuldoshev",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 15,
+    age: 25,
+    club: "Pakhtakor",
+    goals: 0,
+    caps: 12,
+    description: "Latéral gauche rapide et offensif, nouvelle génération ouzbèke."
+  },
+  {
+    id: "samatov",
+    name: "Odiljon Hamrobekov",
+    slug: "samatov",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 16,
+    age: 28,
+    club: "AGMK",
+    goals: 1,
+    caps: 25,
+    description: "Défenseur central robuste et discipliné, solide dans le jeu aérien."
+  },
+  {
+    id: "iskandarov",
+    name: "Davron Iskandarov",
+    slug: "iskandarov",
+    teamId: "ouzbekistan",
+    position: "DF",
+    number: 13,
+    age: 26,
+    club: "Bunyodkor",
+    goals: 0,
+    caps: 10,
+    description: "Latéral droit polyvalent et combatif, option défensive fiable."
+  },
+
+  // MF (6)
+  {
+    id: "khamdamov",
+    name: "Oston Urunov",
+    slug: "khamdamov",
+    teamId: "ouzbekistan",
+    position: "MF",
+    number: 7,
+    age: 27,
+    club: "Lens",
+    goals: 5,
+    caps: 35,
+    description: "Milieu offensif rapide et technique évoluant en Ligue 1 française."
+  },
+  {
+    id: "toshev",
+    name: "Jamshid Iskanderov",
+    slug: "toshev",
+    teamId: "ouzbekistan",
+    position: "MF",
+    number: 17,
+    age: 26,
+    club: "Lokomotiv Tashkent",
+    goals: 2,
+    caps: 20,
+    description: "Milieu central combatif et récupérateur, régulier dans le championnat national."
+  },
+  {
+    id: "shodiev",
+    name: "Dostonbek Khamdamov",
+    slug: "shodiev",
+    teamId: "ouzbekistan",
+    position: "MF",
+    number: 9,
+    age: 24,
+    club: "Pakhtakor",
+    goals: 4,
+    caps: 18,
+    description: "Milieu offensif créatif et buteur, talent prometteur du football ouzbek."
+  },
+  {
+    id: "turaev",
+    name: "Otabek Shukurov",
+    slug: "turaev",
+    teamId: "ouzbekistan",
+    position: "MF",
+    number: 10,
+    age: 29,
+    club: "Al-Fateh",
+    goals: 3,
+    caps: 40,
+    description: "Milieu technique et intelligent, meneur de jeu expérimenté."
+  },
+  {
+    id: "bikmaev",
+    name: "Aziz Ganiev",
+    slug: "bikmaev",
+    teamId: "ouzbekistan",
+    position: "MF",
+    number: 18,
+    age: 23,
+    club: "Steaua Bucarest",
+    goals: 2,
+    caps: 12,
+    description: "Milieu relayeur dynamique évoluant en Europe, presseur intense."
+  },
+  {
+    id: "yakhshiboev",
+    name: "Jasur Yakhshiboev",
+    slug: "yakhshiboev",
+    teamId: "ouzbekistan",
+    position: "MF",
+    number: 20,
+    age: 31,
+    club: "Pakhtakor",
+    goals: 8,
+    caps: 50,
+    description: "Ailier expérimenté et rapide, dangereux sur les côtés avec un bon centre."
+  },
+
+  // FW (3)
+  {
+    id: "jaloliddinov",
+    name: "Azizbek Turgunboev",
+    slug: "jaloliddinov",
+    teamId: "ouzbekistan",
+    position: "FW",
+    number: 19,
+    age: 25,
+    club: "Nasaf Qarshi",
+    goals: 6,
+    caps: 20,
+    description: "Attaquant rapide et percutant, option offensive prometteuse."
+  },
+  {
+    id: "umarbaev",
+    name: "Bobur Abdikholikov",
+    slug: "umarbaev",
+    teamId: "ouzbekistan",
+    position: "FW",
+    number: 21,
+    age: 26,
+    club: "Al Nassr",
+    goals: 4,
+    caps: 15,
+    description: "Attaquant puissant et combatif, capable de fixer les défenses."
+  },
+  {
+    id: "nasimov",
+    name: "Ibrokhimkhalil Yodgorov",
+    slug: "nasimov",
+    teamId: "ouzbekistan",
+    position: "FW",
+    number: 22,
+    age: 23,
+    club: "AGMK",
+    goals: 3,
+    caps: 10,
+    description: "Jeune attaquant dynamique, espoir du football ouzbek."
+  },
+
+  // ============================================================
+  // GHANA (ghana)
+  // Existing: Kudus (FW), Partey (MF), Williams-Inaki (FW), Salisu (DF), Ati-Zigi (GK)
+  // Need: 2 GK, 7 DF, 6 MF, 3 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "ofori",
+    name: "Richard Ofori",
+    slug: "ofori",
+    teamId: "ghana",
+    position: "GK",
+    number: 1,
+    age: 31,
+    club: "Orlando Pirates",
+    goals: 0,
+    caps: 25,
+    description: "Gardien expérimenté évoluant en Afrique du Sud, bon jeu au pied."
+  },
+  {
+    id: "nurudeen",
+    name: "Abdul Manaf Nurudeen",
+    slug: "nurudeen",
+    teamId: "ghana",
+    position: "GK",
+    number: 23,
+    age: 25,
+    club: "KAS Eupen",
+    goals: 0,
+    caps: 8,
+    description: "Jeune gardien prometteur évoluant en Belgique, réflexes vifs."
+  },
+
+  // DF (7)
+  {
+    id: "djiku",
+    name: "Alexander Djiku",
+    slug: "djiku",
+    teamId: "ghana",
+    position: "DF",
+    number: 3,
+    age: 30,
+    club: "Fenerbahçe",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central solide et expérimenté, passé par la Ligue 1 française."
+  },
+  {
+    id: "lamptey",
+    name: "Tariq Lamptey",
+    slug: "lamptey",
+    teamId: "ghana",
+    position: "DF",
+    number: 2,
+    age: 25,
+    club: "Brighton",
+    goals: 0,
+    caps: 15,
+    description: "Latéral droit ultra rapide et offensif, formé à Chelsea."
+  },
+  {
+    id: "amartey",
+    name: "Daniel Amartey",
+    slug: "amartey",
+    teamId: "ghana",
+    position: "DF",
+    number: 4,
+    age: 31,
+    club: "Besiktas",
+    goals: 1,
+    caps: 55,
+    description: "Défenseur central polyvalent et expérimenté, champion d'Angleterre avec Leicester."
+  },
+  {
+    id: "seidu",
+    name: "Alidu Seidu",
+    slug: "seidu",
+    teamId: "ghana",
+    position: "DF",
+    number: 14,
+    age: 24,
+    club: "Stade Rennais",
+    goals: 0,
+    caps: 20,
+    description: "Latéral droit rapide et athlétique, en progression constante en Ligue 1."
+  },
+  {
+    id: "aidoo",
+    name: "Joseph Aidoo",
+    slug: "aidoo",
+    teamId: "ghana",
+    position: "DF",
+    number: 15,
+    age: 29,
+    club: "Celta Vigo",
+    goals: 1,
+    caps: 30,
+    description: "Défenseur central solide et aérien, régulier en Liga espagnole."
+  },
+  {
+    id: "mensah-jonathan",
+    name: "Jonathan Mensah",
+    slug: "mensah-jonathan",
+    teamId: "ghana",
+    position: "DF",
+    number: 22,
+    age: 33,
+    club: "Columbus Crew",
+    goals: 3,
+    caps: 65,
+    description: "Défenseur central vétéran et capitaine, grande expérience internationale."
+  },
+  {
+    id: "baba-rahman",
+    name: "Abdul-Rahman Baba",
+    slug: "baba-rahman",
+    teamId: "ghana",
+    position: "DF",
+    number: 17,
+    age: 30,
+    club: "Stade Rennais",
+    goals: 1,
+    caps: 40,
+    description: "Latéral gauche offensif et dynamique, passé par Chelsea."
+  },
+
+  // MF (6)
+  {
+    id: "salis-abdul",
+    name: "Salis Abdul Samed",
+    slug: "salis-abdul",
+    teamId: "ghana",
+    position: "MF",
+    number: 8,
+    age: 24,
+    club: "Lens",
+    goals: 1,
+    caps: 18,
+    description: "Milieu défensif intelligent et positionnel, patron du milieu de Lens."
+  },
+  {
+    id: "baba-iddrisu",
+    name: "Iddrisu Baba",
+    slug: "baba-iddrisu",
+    teamId: "ghana",
+    position: "MF",
+    number: 7,
+    age: 28,
+    club: "RCD Majorque",
+    goals: 0,
+    caps: 20,
+    description: "Milieu récupérateur robuste et combatif, spécialiste des tacles."
+  },
+  {
+    id: "sulemana",
+    name: "Kamaldeen Sulemana",
+    slug: "sulemana",
+    teamId: "ghana",
+    position: "MF",
+    number: 11,
+    age: 23,
+    club: "Southampton",
+    goals: 2,
+    caps: 15,
+    description: "Ailier gauche ultra rapide et dribbleur, talent spectaculaire."
+  },
+  {
+    id: "kyereh",
+    name: "Daniel-Kofi Kyereh",
+    slug: "kyereh",
+    teamId: "ghana",
+    position: "MF",
+    number: 10,
+    age: 29,
+    club: "Fribourg",
+    goals: 3,
+    caps: 22,
+    description: "Milieu offensif créatif et intelligent, bon passeur en Bundesliga."
+  },
+  {
+    id: "ayew-andre",
+    name: "André Ayew",
+    slug: "ayew-andre",
+    teamId: "ghana",
+    position: "MF",
+    number: 9,
+    age: 36,
+    club: "Le Havre",
+    goals: 24,
+    caps: 120,
+    description: "Capitaine légendaire des Black Stars, expérience et leadership inestimables."
+  },
+  {
+    id: "majeed-ashimeru",
+    name: "Majeed Ashimeru",
+    slug: "majeed-ashimeru",
+    teamId: "ghana",
+    position: "MF",
+    number: 18,
+    age: 27,
+    club: "Anderlecht",
+    goals: 2,
+    caps: 12,
+    description: "Milieu relayeur dynamique et technique, régulier en Pro League belge."
+  },
+
+  // FW (3)
+  {
+    id: "ayew-jordan",
+    name: "Jordan Ayew",
+    slug: "ayew-jordan",
+    teamId: "ghana",
+    position: "FW",
+    number: 21,
+    age: 34,
+    club: "Crystal Palace",
+    goals: 20,
+    caps: 85,
+    description: "Attaquant combatif et polyvalent, buteur régulier en sélection."
+  },
+  {
+    id: "semenyo",
+    name: "Antoine Semenyo",
+    slug: "semenyo",
+    teamId: "ghana",
+    position: "FW",
+    number: 12,
+    age: 26,
+    club: "Bournemouth",
+    goals: 3,
+    caps: 15,
+    description: "Attaquant puissant et rapide, en pleine progression en Premier League."
+  },
+  {
+    id: "osman-bukari",
+    name: "Osman Bukari",
+    slug: "osman-bukari",
+    teamId: "ghana",
+    position: "FW",
+    number: 13,
+    age: 25,
+    club: "Red Star Belgrade",
+    goals: 4,
+    caps: 20,
+    description: "Ailier rapide et incisif, dangereux dans les espaces."
+  },
+
+  // ============================================================
+  // PANAMA (panama)
+  // Existing: Fajardo (FW), Barcenas/Godoy (MF), Yanis/E.Barcenas (MF), Miller/Escobar (DF), Mosquera/Mejia (GK)
+  // Need: 2 GK, 7 DF, 5 MF, 4 FW
+  // ============================================================
+
+  // GK (2)
+  {
+    id: "calderon-orlando",
+    name: "Orlando Mosquera",
+    slug: "calderon-orlando",
+    teamId: "panama",
+    position: "GK",
+    number: 12,
+    age: 26,
+    club: "Wolfsburg",
+    goals: 0,
+    caps: 10,
+    description: "Gardien prometteur évoluant en Bundesliga, excellent réflexes."
+  },
+  {
+    id: "valladares-panama",
+    name: "César Samudio",
+    slug: "valladares-panama",
+    teamId: "panama",
+    position: "GK",
+    number: 22,
+    age: 30,
+    club: "Independiente La Chorrera",
+    goals: 0,
+    caps: 5,
+    description: "Gardien expérimenté du championnat panaméen, doublure fiable."
+  },
+
+  // DF (7)
+  {
+    id: "murillo-harold",
+    name: "Harold Cummings",
+    slug: "murillo-harold",
+    teamId: "panama",
+    position: "DF",
+    number: 3,
+    age: 33,
+    club: "Universitario",
+    goals: 2,
+    caps: 70,
+    description: "Défenseur central vétéran et expérimenté, pilier de la défense panaméenne."
+  },
+  {
+    id: "davis-eric",
+    name: "Eric Davis",
+    slug: "davis-eric",
+    teamId: "panama",
+    position: "DF",
+    number: 5,
+    age: 34,
+    club: "Dunajská Streda",
+    goals: 3,
+    caps: 65,
+    description: "Latéral gauche offensif et expérimenté, vétéran de la sélection."
+  },
+  {
+    id: "cordoba-ivan",
+    name: "Iván Anderson",
+    slug: "cordoba-ivan",
+    teamId: "panama",
+    position: "DF",
+    number: 14,
+    age: 27,
+    club: "Royal Antwerp",
+    goals: 1,
+    caps: 30,
+    description: "Latéral droit rapide et technique, évoluant en Pro League belge."
+  },
+  {
+    id: "torres-roman",
+    name: "Andrés Andrade",
+    slug: "torres-roman",
+    teamId: "panama",
+    position: "DF",
+    number: 2,
+    age: 35,
+    club: "Atlético Nacional",
+    goals: 2,
+    caps: 55,
+    description: "Défenseur central expérimenté, longue carrière en Colombie."
+  },
+  {
+    id: "blackman-michael",
+    name: "Michael Murillo",
+    slug: "blackman-michael",
+    teamId: "panama",
+    position: "DF",
+    number: 18,
+    age: 30,
+    club: "Portland Timbers",
+    goals: 3,
+    caps: 60,
+    description: "Latéral droit rapide et offensif, régulier en MLS."
+  },
+  {
+    id: "escobar-adolfo",
+    name: "Adolfo Machado",
+    slug: "escobar-adolfo",
+    teamId: "panama",
+    position: "DF",
+    number: 13,
+    age: 39,
+    club: "Houston Dynamo",
+    goals: 4,
+    caps: 75,
+    description: "Défenseur central vétéran, l'un des plus capés de l'histoire panaméenne."
+  },
+  {
+    id: "harvey-kevin",
+    name: "Kevin Galván",
+    slug: "harvey-kevin",
+    teamId: "panama",
+    position: "DF",
+    number: 6,
+    age: 26,
+    club: "CAI La Chorrera",
+    goals: 0,
+    caps: 12,
+    description: "Jeune défenseur central solide, option en développement."
+  },
+
+  // MF (5)
+  {
+    id: "carrasquilla",
+    name: "Adalberto Carrasquilla",
+    slug: "carrasquilla",
+    teamId: "panama",
+    position: "MF",
+    number: 8,
+    age: 28,
+    club: "Houston Dynamo",
+    goals: 3,
+    caps: 45,
+    description: "Milieu central technique et créatif, meneur de jeu talentueux."
+  },
+  {
+    id: "ayarza",
+    name: "César Yanis",
+    slug: "ayarza",
+    teamId: "panama",
+    position: "MF",
+    number: 11,
+    age: 24,
+    club: "Wolfsburg",
+    goals: 3,
+    caps: 20,
+    description: "Ailier gauche rapide et dribbleur, en pleine progression en Bundesliga."
+  },
+  {
+    id: "rodriguez-alberto",
+    name: "Alberto Quintero",
+    slug: "rodriguez-alberto",
+    teamId: "panama",
+    position: "MF",
+    number: 19,
+    age: 37,
+    club: "Universitario",
+    goals: 10,
+    caps: 80,
+    description: "Milieu offensif vétéran et légende, ailier rapide malgré son âge."
+  },
+  {
+    id: "coc-cristian",
+    name: "Cristian Martínez",
+    slug: "coc-cristian",
+    teamId: "panama",
+    position: "MF",
+    number: 15,
+    age: 27,
+    club: "Alianza FC",
+    goals: 2,
+    caps: 25,
+    description: "Milieu relayeur dynamique, bon dans la transition offensive."
+  },
+  {
+    id: "gondola-panama",
+    name: "José Luis Rodríguez",
+    slug: "gondola-panama",
+    teamId: "panama",
+    position: "MF",
+    number: 16,
+    age: 29,
+    club: "Saprissa",
+    goals: 5,
+    caps: 35,
+    description: "Milieu offensif technique et créatif, passeur décisif régulier."
+  },
+
+  // FW (4)
+  {
+    id: "blackburn-rolando",
+    name: "Rolando Blackburn",
+    slug: "blackburn-rolando",
+    teamId: "panama",
+    position: "FW",
+    number: 9,
+    age: 33,
+    club: "Wisla Plock",
+    goals: 10,
+    caps: 35,
+    description: "Attaquant de pointe puissant, buteur prolifique en Europe de l'Est."
+  },
+  {
+    id: "eduardo-guerrero",
+    name: "Eduardo Guerrero",
+    slug: "eduardo-guerrero",
+    teamId: "panama",
+    position: "FW",
+    number: 21,
+    age: 24,
+    club: "Club América",
+    goals: 5,
+    caps: 15,
+    description: "Jeune attaquant rapide et prometteur, évoluant au Mexique."
+  },
+  {
+    id: "cummings-gabriel",
+    name: "Gabriel Torres",
+    slug: "cummings-gabriel",
+    teamId: "panama",
+    position: "FW",
+    number: 7,
+    age: 38,
+    club: "CAI La Chorrera",
+    goals: 18,
+    caps: 70,
+    description: "Attaquant vétéran et légende panaméenne, buteur historique de la sélection."
+  },
+  {
+    id: "murillo-cecilio",
+    name: "Cecilio Waterman",
+    slug: "murillo-cecilio",
+    teamId: "panama",
+    position: "FW",
+    number: 23,
+    age: 30,
+    club: "Motagua",
+    goals: 8,
+    caps: 25,
+    description: "Attaquant rapide et technique, régulier en Amérique centrale."
+  },
+]);
 
 export const playersById: Record<string, Player> = Object.fromEntries(players.map((p) => [p.id, p]));
 export const playersBySlug: Record<string, Player> = Object.fromEntries(players.map((p) => [p.slug, p]));

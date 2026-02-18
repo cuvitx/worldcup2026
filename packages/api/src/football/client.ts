@@ -5,6 +5,7 @@
 
 import { API_FOOTBALL } from "../config";
 import { cachedFetch, CACHE_TTL } from "../cache";
+import { checkRateLimit } from "../rate-limiter";
 import type {
   ApiResponse,
   ApiTeamStats,
@@ -17,6 +18,11 @@ import type {
 async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
   if (!API_FOOTBALL.key) {
     console.warn(`[api-football] No API key configured, skipping: ${endpoint}`);
+    return [];
+  }
+
+  if (!checkRateLimit("api-football", { maxRequests: 100, windowMs: 24 * 60 * 60 * 1000 })) {
+    console.warn("[api-football] Daily rate limit reached (100/day)");
     return [];
   }
 
@@ -36,13 +42,20 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string>): Pr
     return [];
   }
 
-  const json = (await res.json()) as ApiResponse<T>;
-  if (json.errors && Object.keys(json.errors).length > 0) {
-    console.error(`[api-football] API errors:`, json.errors);
+  let json: ApiResponse<T>;
+  try {
+    json = (await res.json()) as ApiResponse<T>;
+  } catch (error) {
+    console.error(`[api-football] JSON parse error for ${endpoint}:`, error instanceof Error ? error.message : error);
     return [];
   }
 
-  return json.response;
+  if (json.errors && Object.keys(json.errors).length > 0) {
+    console.warn(`[api-football] API errors:`, json.errors);
+    return [];
+  }
+
+  return Array.isArray(json.response) ? json.response : [];
 }
 
 /** Get team statistics for a specific league/season */

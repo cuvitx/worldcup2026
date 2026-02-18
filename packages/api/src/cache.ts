@@ -22,6 +22,25 @@ export const CACHE_TTL = {
 
 // In-memory fallback
 const memoryCache = new Map<string, CacheEntry<unknown>>();
+const MAX_CACHE_ENTRIES = 500;
+
+/** Evict expired or oldest entries when cache exceeds size limit */
+function evictIfNeeded(cache: Map<string, CacheEntry<unknown>>) {
+  if (cache.size >= MAX_CACHE_ENTRIES) {
+    // Delete expired entries first
+    const now = Date.now();
+    for (const [key, value] of cache) {
+      if (value.expiresAt && value.expiresAt < now) {
+        cache.delete(key);
+      }
+    }
+    // If still over limit, delete oldest entries
+    while (cache.size >= MAX_CACHE_ENTRIES) {
+      const firstKey = cache.keys().next().value;
+      if (firstKey) cache.delete(firstKey);
+    }
+  }
+}
 
 // Lazy-init Redis client (only when env vars are set)
 let redis: Redis | null = null;
@@ -50,7 +69,8 @@ export async function cacheGet<T>(key: string): Promise<T | null> {
       const data = await kv.get<T>(key);
       if (data !== null && data !== undefined) {
         // Backfill in-memory cache (use a short TTL to avoid stale data)
-        memoryCache.set(key, { data, expiresAt: Date.now() + 60_000 });
+        evictIfNeeded(memoryCache);
+        memoryCache.set(key, { data, expiresAt: Date.now() + 300_000 });
         return data;
       }
     } catch {
@@ -67,6 +87,7 @@ export async function cacheSet<T>(
   ttlSeconds: number
 ): Promise<void> {
   // Always write to in-memory
+  evictIfNeeded(memoryCache);
   memoryCache.set(key, {
     data,
     expiresAt: Date.now() + ttlSeconds * 1000,

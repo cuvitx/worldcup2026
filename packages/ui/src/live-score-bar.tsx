@@ -1,12 +1,18 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 
 // ============================================================================
 // LiveScoreBar — Horizontal scrollable bar showing live/today's matches
 // Polls /api/live every 30s for real-time scores.
 // Falls back to static match data when no API key is configured.
 // ============================================================================
+
+const translations = {
+  fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "Aujourd'hui" },
+  en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "Today" },
+  es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "Hoy" },
+};
 
 export interface LiveMatch {
   id: string;
@@ -29,9 +35,10 @@ interface LiveScoreBarProps {
   apiEndpoint?: string;
   /** Polling interval in ms (default 30000) */
   pollInterval?: number;
+  locale?: "fr" | "en" | "es";
 }
 
-function StatusBadge({ status, elapsed }: { status: LiveMatch["status"]; elapsed: number | null }) {
+function StatusBadge({ status, elapsed, t }: { status: LiveMatch["status"]; elapsed: number | null; t: { halftime: string; finished: string; upcoming: string } }) {
   if (status === "live") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
@@ -43,35 +50,34 @@ function StatusBadge({ status, elapsed }: { status: LiveMatch["status"]; elapsed
   if (status === "halftime") {
     return (
       <span className="rounded-full bg-yellow-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
-        MI-T
+        {t.halftime}
       </span>
     );
   }
   if (status === "finished") {
     return (
       <span className="rounded-full bg-gray-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
-        FIN
+        {t.finished}
       </span>
     );
   }
   return (
     <span className="rounded-full bg-primary/80 px-1.5 py-0.5 text-[10px] font-bold text-white">
-      {status === "upcoming" ? "A VENIR" : status}
+      {status === "upcoming" ? t.upcoming : status}
     </span>
   );
 }
 
-function MatchCard({ match }: { match: LiveMatch }) {
+function MatchCard({ match, t }: { match: LiveMatch; t: { halftime: string; finished: string; upcoming: string } }) {
   const isLive = match.status === "live" || match.status === "halftime";
 
   return (
     <div
-      className={`flex shrink-0 flex-col items-center gap-1 rounded-lg px-3 py-2 ${
+      className={`flex shrink-0 flex-col items-center gap-1 rounded-lg px-3 py-2 min-w-[140px] ${
         isLive ? "bg-white/20 ring-1 ring-white/30" : "bg-white/10"
       }`}
-      style={{ minWidth: "140px" }}
     >
-      <StatusBadge status={match.status} elapsed={match.elapsed} />
+      <StatusBadge status={match.status} elapsed={match.elapsed} t={t} />
       <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
         <span className="truncate">{match.homeTeam}</span>
         {match.homeScore !== null && match.awayScore !== null ? (
@@ -87,15 +93,23 @@ function MatchCard({ match }: { match: LiveMatch }) {
   );
 }
 
-export function LiveScoreBar({
+export const LiveScoreBar = memo(function LiveScoreBar({
   todaysMatches,
   matchBasePath,
   apiEndpoint = "/api/live",
   pollInterval = 30000,
+  locale,
 }: LiveScoreBarProps) {
+  const t = translations[locale ?? "fr"];
   const [matches, setMatches] = useState<LiveMatch[]>(todaysMatches);
 
   const fetchLive = useCallback(async () => {
+    // Don't poll before tournament starts (June 11, 2026)
+    const tournamentStart = new Date("2026-06-11T00:00:00Z");
+    const tournamentEnd = new Date("2026-07-19T23:59:59Z");
+    const now = new Date();
+    if (now < tournamentStart || now > tournamentEnd) return;
+
     try {
       const res = await fetch(apiEndpoint);
       if (!res.ok) return;
@@ -139,7 +153,7 @@ export function LiveScoreBar({
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center gap-3 overflow-x-auto py-2 scrollbar-hide">
           <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-white/50">
-            Aujourd&apos;hui
+            {t.today}
           </span>
           {matches.map((match) => (
             <a
@@ -147,14 +161,14 @@ export function LiveScoreBar({
               href={match.slug ? `${matchBasePath}/${match.slug}` : "#"}
               className="contents"
             >
-              <MatchCard match={match} />
+              <MatchCard match={match} t={t} />
             </a>
           ))}
         </div>
       </div>
     </div>
   );
-}
+});
 
 function mapApiStatus(short: string): LiveMatch["status"] {
   const liveStatuses = ["1H", "2H", "ET", "P"];

@@ -177,7 +177,7 @@ export default function ButeursPage() {
                 key={bk.id}
                 href={bk.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 {bk.bonus} sur {bk.name}

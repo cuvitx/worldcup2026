@@ -110,13 +110,13 @@ function calculateScorerOdds(player: Player): ScorerOdds {
 
 // All scorer players (FW + MF only for betting relevance, but compute all)
 export const scorerPlayers = players.filter(
-  (p) => p.position === "FW" || p.position === "MF"
+  (p: Player) => p.position === "FW" || p.position === "MF"
 );
 
 // Computed scorer odds for all FW + MF players
 export const scorerOdds: ScorerOdds[] = scorerPlayers
   .map(calculateScorerOdds)
-  .sort((a, b) => b.expectedGoals - a.expectedGoals);
+  .sort((a: ScorerOdds, b: ScorerOdds) => b.expectedGoals - a.expectedGoals);
 
 // Lookup maps
 export const scorerOddsById: Record<string, ScorerOdds> = {};
@@ -132,7 +132,7 @@ export const topScorerRanking = [...scorerOdds]
 // By team: all scorers grouped by team
 export const scorersByTeam: Record<string, ScorerOdds[]> = {};
 for (const so of scorerOdds) {
-  const player = players.find((p) => p.id === so.playerId);
+  const player = players.find((p: Player) => p.id === so.playerId);
   if (player) {
     if (!scorersByTeam[player.teamId]) {
       scorersByTeam[player.teamId] = [];

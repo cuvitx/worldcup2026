@@ -5,11 +5,17 @@
 
 import { ODDS_API } from "../config";
 import { cachedFetch, CACHE_TTL } from "../cache";
+import { checkRateLimit } from "../rate-limiter";
 import type { OddsApiResponse, MatchOdds, OutrightOdds } from "./types";
 
 async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {}): Promise<T[]> {
   if (!ODDS_API.key) {
     console.warn("[odds-api] No API key configured, skipping");
+    return [];
+  }
+
+  if (!checkRateLimit("odds-api", { maxRequests: 17, windowMs: 24 * 60 * 60 * 1000 })) {
+    console.warn("[odds-api] Daily rate limit reached");
     return [];
   }
 
@@ -25,7 +31,12 @@ async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {
     return [];
   }
 
-  return (await res.json()) as T[];
+  try {
+    return (await res.json()) as T[];
+  } catch (error) {
+    console.error("[odds-api] JSON parse error:", error instanceof Error ? error.message : error);
+    return [];
+  }
 }
 
 /** Get match odds (1X2) for World Cup fixtures */
@@ -78,7 +89,7 @@ export async function getOddsForMatch(
   return (
     allOdds.find(
       (o) =>
-        normalize(o.homeTeam) === normalize(homeTeam) ||
+        normalize(o.homeTeam) === normalize(homeTeam) &&
         normalize(o.awayTeam) === normalize(awayTeam)
     ) ?? null
   );

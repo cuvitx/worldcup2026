@@ -92,7 +92,7 @@ export default async function CasaApuestasPage({ params }: PageProps) {
               <a
                 href={bk.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-white hover:bg-gold/90 transition-colors"
               >
                 Abrir una cuenta
@@ -182,7 +182,7 @@ export default async function CasaApuestasPage({ params }: PageProps) {
               <a
                 href={bk.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="inline-block rounded-lg bg-gold px-8 py-4 text-lg font-bold text-white hover:bg-gold/90 transition-colors"
               >
                 Registrarse en {bk.name}
@@ -297,10 +297,11 @@ export default async function CasaApuestasPage({ params }: PageProps) {
             reviewRating: {
               "@type": "Rating",
               ratingValue: avgRating.toFixed(1),
-              bestRating: "5",
+              bestRating: 5,
+              worstRating: 1,
             },
             description: `Opinion ${bk.name} para el Mundial 2026. ${bk.bonus} de bono.`,
-            url: `https://mundial2026.es/casa-apuestas/${bk.slug}`,
+            url: `${domains.es}/casa-apuestas/${bk.slug}`,
           }),
         }}
       />

@@ -1,8 +1,11 @@
+/** @todo Replace affiliate URLs with real tracking URLs from partner programs */
 // ============================================================================
 // Affiliate Configuration — Sports Betting Partners
 // Single source of truth for all CTA blocks across the site.
 // Update this file to change bookmaker, bonus, or link across every page.
 // ============================================================================
+
+export const AFFILIATE_URLS_ARE_PLACEHOLDERS = true;
 
 export interface Bookmaker {
   id: string;

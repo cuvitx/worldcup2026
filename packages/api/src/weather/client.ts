@@ -1,10 +1,12 @@
 // ============================================================================
 // OpenWeatherMap Client — Match day weather forecasts
 // Uses stadium coordinates from @repo/data to fetch forecasts.
+// Uses the free 2.5 API (forecast endpoint for 5-day/3h forecasts).
 // ============================================================================
 
 import { OPENWEATHER } from "../config";
 import { cachedFetch, CACHE_TTL } from "../cache";
+import { checkRateLimit } from "../rate-limiter";
 
 export interface WeatherForecast {
   temperature: number;
@@ -17,25 +19,20 @@ export interface WeatherForecast {
   uvIndex: number;
 }
 
-interface OwmOneCallResponse {
-  daily?: Array<{
+interface OwmForecastResponse {
+  list?: Array<{
     dt: number;
-    temp: { day: number; min: number; max: number };
-    feels_like: { day: number };
-    humidity: number;
-    wind_speed: number;
+    main: { temp: number; feels_like: number; humidity: number };
+    wind: { speed: number };
     pop: number;
-    uvi: number;
     weather: Array<{ main: string; icon: string }>;
   }>;
-  current?: {
-    temp: number;
-    feels_like: number;
-    humidity: number;
-    wind_speed: number;
-    uvi: number;
-    weather: Array<{ main: string; icon: string }>;
-  };
+}
+
+interface OwmCurrentResponse {
+  main: { temp: number; feels_like: number; humidity: number };
+  wind: { speed: number };
+  weather: Array<{ main: string; icon: string }>;
 }
 
 /** Fetch weather forecast for a specific location and date */
@@ -49,59 +46,86 @@ export async function getWeatherForecast(
     return null;
   }
 
+  if (!checkRateLimit("openweather", { maxRequests: 1000, windowMs: 24 * 60 * 60 * 1000 })) {
+    console.warn("[weather] Daily rate limit reached");
+    return null;
+  }
+
   const cacheKey = `weather:${lat.toFixed(2)},${lon.toFixed(2)}:${matchDate}`;
 
   return cachedFetch(cacheKey, CACHE_TTL.WEATHER, async () => {
-    const url = new URL(`${OPENWEATHER.baseUrl}/onecall`);
-    url.searchParams.set("lat", String(lat));
-    url.searchParams.set("lon", String(lon));
-    url.searchParams.set("appid", OPENWEATHER.key);
-    url.searchParams.set("units", "metric");
-    url.searchParams.set("exclude", "minutely,hourly,alerts");
+    const matchTimestamp = new Date(matchDate).getTime() / 1000;
+    const now = Date.now() / 1000;
+    const daysUntilMatch = (matchTimestamp - now) / 86400;
 
-    const res = await fetch(url.toString());
-    if (!res.ok) {
-      console.error(`[weather] ${res.status} ${res.statusText}`);
+    // If match is within 5 days, use the forecast endpoint
+    if (daysUntilMatch > 0 && daysUntilMatch <= 5) {
+      try {
+        const url = new URL(`${OPENWEATHER.baseUrl}/forecast`);
+        url.searchParams.set("lat", String(lat));
+        url.searchParams.set("lon", String(lon));
+        url.searchParams.set("appid", OPENWEATHER.key);
+        url.searchParams.set("units", "metric");
+
+        const res = await fetch(url.toString());
+        if (!res.ok) {
+          console.error(`[weather] Forecast ${res.status} ${res.statusText}`);
+          return null;
+        }
+
+        const data = (await res.json()) as OwmForecastResponse;
+
+        // Find the closest 3h slot to the match time
+        const closest = data.list?.reduce((prev, curr) =>
+          Math.abs(curr.dt - matchTimestamp) < Math.abs(prev.dt - matchTimestamp) ? curr : prev
+        );
+
+        if (closest) {
+          return {
+            temperature: Math.round(closest.main.temp),
+            feelsLike: Math.round(closest.main.feels_like),
+            humidity: closest.main.humidity,
+            windSpeed: Math.round(closest.wind.speed * 3.6), // m/s → km/h
+            precipProbability: closest.pop,
+            condition: closest.weather[0]?.main ?? "Unknown",
+            conditionIcon: closest.weather[0]?.icon ?? "",
+            uvIndex: 0, // Not available in free API
+          };
+        }
+      } catch (error) {
+        console.error("[weather] Forecast fetch failed:", error instanceof Error ? error.message : error);
+      }
+    }
+
+    // Fallback: use current weather (for today's matches or when forecast unavailable)
+    try {
+      const url = new URL(`${OPENWEATHER.baseUrl}/weather`);
+      url.searchParams.set("lat", String(lat));
+      url.searchParams.set("lon", String(lon));
+      url.searchParams.set("appid", OPENWEATHER.key);
+      url.searchParams.set("units", "metric");
+
+      const res = await fetch(url.toString());
+      if (!res.ok) {
+        console.error(`[weather] Current ${res.status} ${res.statusText}`);
+        return null;
+      }
+
+      const data = (await res.json()) as OwmCurrentResponse;
+
+      return {
+        temperature: Math.round(data.main.temp),
+        feelsLike: Math.round(data.main.feels_like),
+        humidity: data.main.humidity,
+        windSpeed: Math.round(data.wind.speed * 3.6), // m/s → km/h
+        precipProbability: 0,
+        condition: data.weather[0]?.main ?? "Unknown",
+        conditionIcon: data.weather[0]?.icon ?? "",
+        uvIndex: 0,
+      };
+    } catch (error) {
+      console.error("[weather] Current fetch failed:", error instanceof Error ? error.message : error);
       return null;
     }
-
-    const data = (await res.json()) as OwmOneCallResponse;
-
-    // Try to find the matching day in the forecast
-    const matchTimestamp = new Date(matchDate).getTime() / 1000;
-    const dayForecast = data.daily?.find((d) => {
-      const dayStart = d.dt - 43200; // noon minus 12h
-      const dayEnd = d.dt + 43200;
-      return matchTimestamp >= dayStart && matchTimestamp <= dayEnd;
-    });
-
-    if (dayForecast) {
-      return {
-        temperature: dayForecast.temp.day,
-        feelsLike: dayForecast.feels_like.day,
-        humidity: dayForecast.humidity,
-        windSpeed: dayForecast.wind_speed,
-        precipProbability: dayForecast.pop,
-        condition: dayForecast.weather[0]?.main ?? "Unknown",
-        conditionIcon: dayForecast.weather[0]?.icon ?? "",
-        uvIndex: dayForecast.uvi,
-      };
-    }
-
-    // If match is today, use current weather
-    if (data.current) {
-      return {
-        temperature: data.current.temp,
-        feelsLike: data.current.feels_like,
-        humidity: data.current.humidity,
-        windSpeed: data.current.wind_speed,
-        precipProbability: 0,
-        condition: data.current.weather[0]?.main ?? "Unknown",
-        conditionIcon: data.current.weather[0]?.icon ?? "",
-        uvIndex: data.current.uvi,
-      };
-    }
-
-    return null;
   });
 }

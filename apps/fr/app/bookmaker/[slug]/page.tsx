@@ -91,7 +91,7 @@ export default async function BookmakerPage({ params }: PageProps) {
               <a
                 href={bk.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-white hover:bg-gold/90 transition-colors"
               >
                 Ouvrir un compte
@@ -181,7 +181,7 @@ export default async function BookmakerPage({ params }: PageProps) {
               <a
                 href={bk.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="inline-block rounded-lg bg-gold px-8 py-4 text-lg font-bold text-white hover:bg-gold/90 transition-colors"
               >
                 S&apos;inscrire sur {bk.name}
@@ -296,10 +296,11 @@ export default async function BookmakerPage({ params }: PageProps) {
             reviewRating: {
               "@type": "Rating",
               ratingValue: avgRating.toFixed(1),
-              bestRating: "5",
+              bestRating: 5,
+              worstRating: 1,
             },
             description: `Avis ${bk.name} pour la CDM 2026. ${bk.bonus} de bonus.`,
-            url: `https://mondial2026.fr/bookmaker/${bk.slug}`,
+            url: `${domains.fr}/bookmaker/${bk.slug}`,
           }),
         }}
       />

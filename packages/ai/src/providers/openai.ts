@@ -41,25 +41,30 @@ export async function generateInfra(
   const openai = getClient();
   if (!openai) return null;
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-5-mini",
-    max_tokens: options?.maxTokens ?? 1000,
-    temperature: options?.temperature ?? 0.3,
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt },
-    ],
-  });
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-5-mini",
+      max_tokens: options?.maxTokens ?? 1000,
+      temperature: options?.temperature ?? 0.3,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt },
+      ],
+    });
 
-  const choice = response.choices[0];
-  if (!choice?.message.content) return null;
+    const choice = response.choices[0];
+    if (!choice?.message.content) return null;
 
-  return {
-    content: choice.message.content,
-    model: response.model,
-    inputTokens: response.usage?.prompt_tokens ?? 0,
-    outputTokens: response.usage?.completion_tokens ?? 0,
-  };
+    return {
+      content: choice.message.content,
+      model: response.model,
+      inputTokens: response.usage?.prompt_tokens ?? 0,
+      outputTokens: response.usage?.completion_tokens ?? 0,
+    };
+  } catch (error) {
+    console.error("[openai] Generation failed:", error instanceof Error ? error.message : error);
+    return null;
+  }
 }
 
 /**

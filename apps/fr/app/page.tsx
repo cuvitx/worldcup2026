@@ -1,10 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
+import { getHomeAlternates } from "@repo/data/route-mapping";
 import { GroupCard } from "./components/GroupCard";
 import { TeamCard } from "./components/TeamCard";
+
+export const metadata: Metadata = {
+  title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
+  description:
+    "Guide complet de la Coupe du Monde 2026 : pronostics, cotes des bookmakers, analyses des 48 equipes, calendrier des 104 matchs. Tout pour parier sur la CDM 2026.",
+  alternates: getHomeAlternates(),
+};
 
 export default function HomePage() {
   return (
@@ -165,6 +174,12 @@ export default function HomePage() {
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Villes hotes
+            </Link>
+            <Link
+              href="/guides"
+              className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
+            >
+              Guides
             </Link>
           </div>
         </div>

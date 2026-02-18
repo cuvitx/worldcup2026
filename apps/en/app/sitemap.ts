@@ -10,90 +10,108 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides } from "@repo/data/guides";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://worldcup2026guide.com";
+const LAST_UPDATED = new Date("2026-02-12");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "daily",
       priority: 1.0,
     },
     {
       url: `${BASE_URL}/match/schedule`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/teams`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/stadiums`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/players`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/cities`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/legal`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.2,
     },
     {
       url: `${BASE_URL}/responsible-gambling`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/scorers`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/betting`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/guides`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/match/today`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/faq`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/bracket`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
 
   // Team pages
   const teamPages: MetadataRoute.Sitemap = teams.map((team) => ({
     url: `${BASE_URL}/team/${team.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -101,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Team prediction pages (high priority for betting conversion)
   const predictionPages: MetadataRoute.Sitemap = teams.map((team) => ({
     url: `${BASE_URL}/prediction/${team.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -109,7 +127,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Group pages
   const groupPages: MetadataRoute.Sitemap = groups.map((group) => ({
     url: `${BASE_URL}/group/${group.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -117,7 +135,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Match pages
   const matchPages: MetadataRoute.Sitemap = matches.map((match) => ({
     url: `${BASE_URL}/match/${match.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
@@ -125,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Match prediction pages (high priority for betting conversion)
   const predictionMatchPages: MetadataRoute.Sitemap = matches.map((match) => ({
     url: `${BASE_URL}/prediction-match/${match.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -139,7 +157,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (t1 && t2) {
         h2hPages.push({
           url: `${BASE_URL}/h2h/${t1.slug}-vs-${t2.slug}`,
-          lastModified: now,
+          lastModified: LAST_UPDATED,
           changeFrequency: "monthly" as const,
           priority: 0.7,
         });
@@ -150,7 +168,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Stadium pages
   const stadiumPages: MetadataRoute.Sitemap = stadiums.map((stadium) => ({
     url: `${BASE_URL}/stadium/${stadium.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -158,7 +176,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // City pages
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${BASE_URL}/city/${city.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -166,7 +184,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Player pages
   const playerPages: MetadataRoute.Sitemap = players.map((player) => ({
     url: `${BASE_URL}/player/${player.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -174,7 +192,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Scorer pages
   const scorerPages: MetadataRoute.Sitemap = scorerPlayers.map((player) => ({
     url: `${BASE_URL}/scorer/${player.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
@@ -182,7 +200,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Bookmaker review pages
   const bookmakerPages: MetadataRoute.Sitemap = bookmakerReviews.map((bk) => ({
     url: `${BASE_URL}/bookmaker/${bk.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -190,7 +208,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Guide pages
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${BASE_URL}/guide/${guide.slug}`,
-    lastModified: now,
+    lastModified: LAST_UPDATED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));

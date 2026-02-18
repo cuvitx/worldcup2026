@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { teamsById } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
@@ -12,13 +11,22 @@ import {
   featuredBookmaker,
   estimatedMatchOdds,
 } from "@repo/data/affiliates";
-import { getAlternates, getStaticAlternates, domains } from "@repo/data/route-mapping";
+import { getAlternates, domains } from "@repo/data/route-mapping";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { AiExpertInsight } from "@repo/ui/ai-expert-insight";
-import { WeatherWidget } from "@repo/ui/weather-widget";
-import { OddsCompare } from "@repo/ui/odds-compare";
-import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import { generateFullMatchPreview } from "@repo/ai/generators";
+import Link from "next/link";
+import {
+  MatchHero,
+  PredictionOutcomes,
+  PredictedScore,
+  OddsTable,
+  BettingCta,
+  MatchAnalysis,
+  H2HSection,
+  MatchInfo,
+  PredictionSidebar,
+} from "./components";
 
 export const revalidate = 300;
 
@@ -72,7 +80,7 @@ export default async function PredictionMatchPage({ params }: PageProps) {
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
-  const city = stadium ? citiesById[stadium.cityId] : null;
+  const city = stadium ? (citiesById[stadium.cityId] ?? null) : null;
   const stage = stageLabels[match.stage] ?? match.stage;
 
   // Predictions
@@ -97,9 +105,14 @@ export default async function PredictionMatchPage({ params }: PageProps) {
     home && away ? h2hByPair[`${home.id}:${away.id}`] : undefined;
 
   // AI-enriched data
-  const enriched = await generateFullMatchPreview(slug, "en", {
-    includeExpert: true,
-  });
+  let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
+  try {
+    enriched = await generateFullMatchPreview(slug, "en", {
+      includeExpert: true,
+    });
+  } catch {
+    // AI generation failed — page renders with static data only
+  }
 
   // Date formatting
   const dateFormatted = new Date(match.date).toLocaleDateString("en-US", {
@@ -157,58 +170,17 @@ export default async function PredictionMatchPage({ params }: PageProps) {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
-          <p className="mb-2 text-center text-sm text-gold font-medium uppercase tracking-wide">
-            {stage}
-            {match.group ? ` - Group ${match.group}` : ""}
-            {match.matchday ? ` - Matchday ${match.matchday}` : ""}
-          </p>
-          <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
-            <div className="flex flex-col items-center">
-              <span className="text-6xl">{home?.flag ?? "\ud83c\udff3\ufe0f"}</span>
-              {home ? (
-                <Link
-                  href={`/team/${home.slug}`}
-                  className="mt-2 text-2xl font-extrabold hover:text-gold"
-                >
-                  {home.name}
-                </Link>
-              ) : (
-                <p className="mt-2 text-2xl font-extrabold">TBD</p>
-              )}
-              {home && (
-                <p className="text-sm text-gray-400">#{home.fifaRanking} FIFA</p>
-              )}
-            </div>
-            <div className="text-center">
-              <span className="text-3xl font-bold text-gold">VS</span>
-              <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-6xl">{away?.flag ?? "\ud83c\udff3\ufe0f"}</span>
-              {away ? (
-                <Link
-                  href={`/team/${away.slug}`}
-                  className="mt-2 text-2xl font-extrabold hover:text-gold"
-                >
-                  {away.name}
-                </Link>
-              ) : (
-                <p className="mt-2 text-2xl font-extrabold">TBD</p>
-              )}
-              {away && (
-                <p className="text-sm text-gray-400">#{away.fifaRanking} FIFA</p>
-              )}
-            </div>
-          </div>
-          <p className="mt-6 text-center text-gray-300">
-            {dateFormatted}
-            {stadium ? ` | ${stadium.name}` : ""}
-            {city ? `, ${city.name}` : ""}
-          </p>
-        </div>
-      </section>
+      <MatchHero
+        home={home}
+        away={away}
+        match={match}
+        stadium={stadium}
+        city={city}
+        stage={stage}
+        homeName={homeName}
+        awayName={awayName}
+        dateFormatted={dateFormatted}
+      />
 
       {/* Main content */}
       <div className="mx-auto max-w-7xl px-4 py-8">
@@ -217,698 +189,103 @@ export default async function PredictionMatchPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* 1X2 Prediction */}
             {prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-6 text-xl font-bold">
-                  1X2 Prediction: {homeName} vs {awayName}
-                </h2>
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  {outcomes.map((outcome) => {
-                    const isHighlighted = outcome.prob === maxProb;
-                    const pct = Math.round(outcome.prob * 100);
-                    return (
-                      <div
-                        key={outcome.key}
-                        className={`relative rounded-lg p-5 text-center transition-all ${
-                          isHighlighted
-                            ? "bg-accent/10 border-2 border-accent ring-2 ring-accent/20"
-                            : "bg-gray-50 border border-gray-200"
-                        }`}
-                      >
-                        {isHighlighted && (
-                          <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-white">
-                            Favourite
-                          </span>
-                        )}
-                        <p className="text-sm font-medium text-gray-500 mb-1">
-                          {outcome.key}
-                        </p>
-                        <p
-                          className={`text-3xl font-extrabold ${
-                            isHighlighted ? "text-accent" : "text-gray-700"
-                          }`}
-                        >
-                          {pct}%
-                        </p>
-                        <p className="mt-1 text-xs text-gray-500">
-                          {outcome.label}
-                        </p>
-                        {/* Visual bar */}
-                        <div className="mt-3 h-2 w-full rounded-full bg-gray-200 overflow-hidden">
-                          <div
-                            className={`h-full rounded-full ${
-                              isHighlighted ? "bg-accent" : "bg-gray-400"
-                            }`}
-                            style={{ width: `${pct}%` }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
+              <PredictionOutcomes
+                outcomes={outcomes}
+                maxProb={maxProb}
+                homeName={homeName}
+                awayName={awayName}
+              />
             )}
 
             {/* Predicted Exact Score */}
             {prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Predicted Exact Score</h2>
-                <div className="flex items-center justify-center gap-6 rounded-lg bg-primary/5 p-8">
-                  <div className="text-center">
-                    <span className="text-3xl">{home?.flag ?? "\ud83c\udff3\ufe0f"}</span>
-                    <p className="mt-1 text-sm font-medium text-gray-600">
-                      {homeName}
-                    </p>
-                  </div>
-                  <p className="text-5xl font-extrabold text-primary tracking-wider">
-                    {prediction.predictedScore}
-                  </p>
-                  <div className="text-center">
-                    <span className="text-3xl">{away?.flag ?? "\ud83c\udff3\ufe0f"}</span>
-                    <p className="mt-1 text-sm font-medium text-gray-600">
-                      {awayName}
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-4 text-center text-sm text-gray-500">
-                  Most likely score based on our prediction model using ELO ratings,
-                  recent statistics and head-to-head history.
-                </p>
-              </section>
+              <PredictedScore
+                prediction={prediction}
+                home={home}
+                away={away}
+                homeName={homeName}
+                awayName={awayName}
+              />
             )}
 
             {/* Estimated Odds */}
             {odds && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
-                  Estimated Odds: {homeName} vs {awayName}
-                </h2>
-                <p className="mb-4 text-sm text-gray-600">
-                  Estimated decimal odds from our prediction model.
-                  Compare with the bookmaker offers below.
-                </p>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b-2 border-gray-200">
-                        <th className="pb-3 text-left font-semibold text-gray-700">
-                          Bookmaker
-                        </th>
-                        <th className="pb-3 text-center font-semibold text-gray-700">
-                          {homeName} Win
-                        </th>
-                        <th className="pb-3 text-center font-semibold text-gray-700">
-                          Draw
-                        </th>
-                        <th className="pb-3 text-center font-semibold text-gray-700">
-                          {awayName} Win
-                        </th>
-                        <th className="pb-3 text-right font-semibold text-gray-700">
-                          Bonus
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-100">
-                      {/* Estimated odds row */}
-                      <tr className="bg-primary/5">
-                        <td className="py-3 text-left font-medium text-primary">
-                          Estimate
-                        </td>
-                        <td className="py-3 text-center font-bold text-primary">
-                          {odds.home}
-                        </td>
-                        <td className="py-3 text-center font-bold text-primary">
-                          {odds.draw}
-                        </td>
-                        <td className="py-3 text-center font-bold text-primary">
-                          {odds.away}
-                        </td>
-                        <td className="py-3 text-right text-sm text-gray-400">
-                          --
-                        </td>
-                      </tr>
-                      {/* Bookmaker rows */}
-                      {bookmakers.map((bk) => (
-                        <tr
-                          key={bk.id}
-                          className="hover:bg-gray-50 transition-colors"
-                        >
-                          <td className="py-3 text-left">
-                            <a
-                              href={bk.url}
-                              target="_blank"
-                              rel="noopener noreferrer nofollow"
-                              className="font-medium text-accent hover:underline"
-                            >
-                              {bk.name}
-                            </a>
-                            {bk.highlight && (
-                              <span className="ml-2 inline-block rounded bg-gold/20 px-1.5 py-0.5 text-xs font-semibold text-gold">
-                                Recommended
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-3 text-center font-semibold">
-                            {odds.home}
-                          </td>
-                          <td className="py-3 text-center font-semibold">
-                            {odds.draw}
-                          </td>
-                          <td className="py-3 text-center font-semibold">
-                            {odds.away}
-                          </td>
-                          <td className="py-3 text-right">
-                            <a
-                              href={bk.url}
-                              target="_blank"
-                              rel="noopener noreferrer nofollow"
-                              className="inline-block rounded bg-accent px-3 py-1 text-xs font-bold text-white hover:bg-accent/90"
-                            >
-                              {bk.bonus}
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="mt-3 text-xs text-gray-400">
-                  Estimated odds, subject to change. Actual odds may
-                  vary between bookmakers.
-                </p>
-              </section>
+              <OddsTable
+                odds={odds}
+                homeName={homeName}
+                awayName={awayName}
+                bookmakers={bookmakers}
+              />
             )}
 
             {/* Affiliate CTA Block */}
-            <section className="rounded-lg bg-gradient-to-br from-accent to-accent/80 p-6 shadow-md text-white">
-              <h2 className="mb-4 text-xl font-bold">
-                Bet on this match
-              </h2>
-              {/* Featured bookmaker */}
-              <div className="mb-6 rounded-lg bg-white/10 backdrop-blur-sm p-5">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div>
-                    <p className="text-lg font-bold">{featuredBookmaker.name}</p>
-                    <p className="text-sm text-white/80">
-                      {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
-                    </p>
-                    <div className="mt-1 flex items-center gap-0.5">
-                      {Array.from({ length: featuredBookmaker.rating }).map(
-                        (_, i) => (
-                          <span key={i} className="text-gold text-sm">
-                            &#9733;
-                          </span>
-                        )
-                      )}
-                    </div>
-                  </div>
-                  <a
-                    href={featuredBookmaker.url}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary hover:bg-gold/90 transition-colors whitespace-nowrap"
-                  >
-                    {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; Bet now
-                  </a>
-                </div>
-              </div>
-              {/* Other bookmakers */}
-              <div className="space-y-2">
-                {bookmakers
-                  .filter((bk) => bk.id !== featuredBookmaker.id)
-                  .map((bk) => (
-                    <a
-                      key={bk.id}
-                      href={bk.url}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3 hover:bg-white/10 transition-colors"
-                    >
-                      <div>
-                        <span className="font-semibold">{bk.name}</span>
-                        <span className="ml-2 text-sm text-white/70">
-                          {bk.bonus} {bk.bonusDetail}
-                        </span>
-                      </div>
-                      <span className="text-sm font-medium text-gold">
-                        See offer &rarr;
-                      </span>
-                    </a>
-                  ))}
-              </div>
-              <p className="mt-4 text-xs text-white/60">
-                Estimated odds, subject to change. Bet responsibly. 18+
-              </p>
-            </section>
+            <BettingCta
+              featuredBookmaker={featuredBookmaker}
+              bookmakers={bookmakers}
+            />
 
-            {/* Match Analysis */}
             {home && away && prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
-                  Match Analysis: {homeName} vs {awayName}
-                </h2>
-                <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
-                  <p>
-                    This {stage.toLowerCase()} match
-                    {match.group ? ` in Group ${match.group}` : ""} will see{" "}
-                    <strong>{homeName}</strong> (#{home.fifaRanking} FIFA) face{" "}
-                    <strong>{awayName}</strong> (#{away.fifaRanking} FIFA) on{" "}
-                    {dateFormatted}
-                    {stadium ? ` at ${stadium.name}` : ""}.
-                  </p>
-                  <p>
-                    According to our prediction model,{" "}
-                    {prediction.team1WinProb > prediction.team2WinProb
-                      ? `${homeName} is the favourite with a ${Math.round(prediction.team1WinProb * 100)}% chance of winning`
-                      : prediction.team2WinProb > prediction.team1WinProb
-                        ? `${awayName} is the favourite with a ${Math.round(prediction.team2WinProb * 100)}% chance of winning`
-                        : "both teams are evenly matched according to our estimates"}
-                    . The most likely score is{" "}
-                    <strong>{prediction.predictedScore}</strong>.
-                  </p>
-                  {predHome && predAway && (
-                    <p>
-                      In terms of ELO rating, {homeName} has a score of{" "}
-                      <strong>{predHome.eloRating}</strong> compared to{" "}
-                      <strong>{predAway.eloRating}</strong> for {awayName},
-                      a gap of{" "}
-                      {Math.abs(predHome.eloRating - predAway.eloRating)} points
-                      in favour of{" "}
-                      {predHome.eloRating >= predAway.eloRating
-                        ? homeName
-                        : awayName}
-                      .
-                    </p>
-                  )}
-                  {home.fifaRanking < away.fifaRanking ? (
-                    <p>
-                      In the FIFA rankings, {homeName} sits at{" "}
-                      {home.fifaRanking}
-                      <sup>th</sup> in the world,{" "}
-                      {away.fifaRanking - home.fifaRanking} places above{" "}
-                      {awayName} ({away.fifaRanking}
-                      <sup>th</sup>). This ranking advantage is reflected in
-                      our model&apos;s probabilities.
-                    </p>
-                  ) : home.fifaRanking > away.fifaRanking ? (
-                    <p>
-                      In the FIFA rankings, {awayName} sits at{" "}
-                      {away.fifaRanking}
-                      <sup>th</sup> in the world,{" "}
-                      {home.fifaRanking - away.fifaRanking} places above{" "}
-                      {homeName} ({home.fifaRanking}
-                      <sup>th</sup>). However, home advantage could play
-                      in favour of {homeName}.
-                    </p>
-                  ) : null}
-                  {match.stage === "group" && match.group && (
-                    <p>
-                      This match takes place in{" "}
-                      <Link
-                        href={`/group/${match.group.toLowerCase()}`}
-                        className="text-accent hover:underline"
-                      >
-                        Group {match.group}
-                      </Link>{" "}
-                      of the 2026 World Cup. The result of this encounter
-                      will be decisive for qualification to the Round of 32.
-                    </p>
-                  )}
-                  {h2h && h2h.totalMatches > 0 && (
-                    <p>
-                      Historically, these two teams have met{" "}
-                      {h2h.totalMatches} times with a record of {h2h.team1Wins}{" "}
-                      win{h2h.team1Wins !== 1 ? "s" : ""} for {homeName},{" "}
-                      {h2h.draws} draw{h2h.draws !== 1 ? "s" : ""} and{" "}
-                      {h2h.team2Wins} win{h2h.team2Wins !== 1 ? "s" : ""}{" "}
-                      for {awayName}.
-                    </p>
-                  )}
-                </div>
-              </section>
+              <MatchAnalysis
+                match={match}
+                home={home}
+                away={away}
+                prediction={prediction}
+                predHome={predHome}
+                predAway={predAway}
+                h2h={h2h}
+                stage={stage}
+                homeName={homeName}
+                awayName={awayName}
+                dateFormatted={dateFormatted}
+                stadium={stadium}
+              />
             )}
 
             {/* Expert AI Analysis */}
-            {enriched.expert && (
+            {enriched?.expert && (
               <AiExpertInsight
                 valueBets={enriched.expert.valueBets}
                 matchAnalysis={enriched.expert.matchAnalysis}
                 scorePrediction={enriched.expert.scorePrediction}
                 keyInsight={enriched.expert.keyInsight}
+                locale="en"
               />
             )}
 
-            {/* Head-to-Head History */}
             {home && away && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
-                  Head-to-Head History
-                </h2>
-                {h2h && h2h.totalMatches > 0 ? (
-                  <>
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="rounded-lg bg-accent/5 p-4 text-center">
-                        <p className="text-3xl font-bold text-accent">
-                          {h2h.team1Wins}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {homeName} wins
-                        </p>
-                      </div>
-                      <div className="rounded-lg bg-gray-50 p-4 text-center">
-                        <p className="text-3xl font-bold text-gray-600">
-                          {h2h.draws}
-                        </p>
-                        <p className="text-xs text-gray-500">Draws</p>
-                      </div>
-                      <div className="rounded-lg bg-accent/5 p-4 text-center">
-                        <p className="text-3xl font-bold text-accent">
-                          {h2h.team2Wins}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {awayName} wins
-                        </p>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="rounded-lg bg-gray-50 p-3 text-center">
-                        <p className="text-xl font-bold text-primary">
-                          {h2h.totalMatches}
-                        </p>
-                        <p className="text-xs text-gray-500">Matches played</p>
-                      </div>
-                      <div className="rounded-lg bg-gray-50 p-3 text-center">
-                        <p className="text-xl font-bold text-primary">
-                          {h2h.team1Goals} - {h2h.team2Goals}
-                        </p>
-                        <p className="text-xs text-gray-500">Goals scored</p>
-                      </div>
-                    </div>
-                    {h2h.lastMatch && (
-                      <p className="text-sm text-gray-600 mb-4">
-                        <span className="font-medium">Last match:</span>{" "}
-                        {h2h.lastMatch}
-                        {h2h.lastMatchDate &&
-                          ` (${new Date(h2h.lastMatchDate).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            }
-                          )})`}
-                      </p>
-                    )}
-                    <div className="text-center">
-                      <Link
-                        href={`/h2h/${home.slug}-vs-${away.slug}`}
-                        className="text-sm font-medium text-accent hover:underline"
-                      >
-                        View full head-to-head history &rarr;
-                      </Link>
-                    </div>
-                  </>
-                ) : (
-                  <div>
-                    <p className="text-gray-600 mb-4">
-                      {homeName} and {awayName} have never met before. The
-                      2026 World Cup will be their first ever encounter.
-                    </p>
-                    <div className="text-center">
-                      <Link
-                        href={`/h2h/${home.slug}-vs-${away.slug}`}
-                        className="text-sm font-medium text-accent hover:underline"
-                      >
-                        View head-to-head page &rarr;
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </section>
+              <H2HSection
+                home={home}
+                away={away}
+                h2h={h2h}
+                homeName={homeName}
+                awayName={awayName}
+              />
             )}
 
-            {/* Match Information */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Match Information</h2>
-              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <dt className="text-gray-500 mb-1">Date</dt>
-                  <dd className="font-semibold">{dateFormatted}</dd>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <dt className="text-gray-500 mb-1">Time (UTC)</dt>
-                  <dd className="font-semibold">{match.time}</dd>
-                </div>
-                {stadium && (
-                  <div className="rounded-lg bg-gray-50 p-4">
-                    <dt className="text-gray-500 mb-1">Stadium</dt>
-                    <dd>
-                      <Link
-                        href={`/stadium/${stadium.slug}`}
-                        className="font-semibold text-accent hover:underline"
-                      >
-                        {stadium.name}
-                      </Link>
-                      <p className="text-xs text-gray-400 mt-0.5">
-                        {stadium.capacity.toLocaleString("en-US")} seats
-                      </p>
-                    </dd>
-                  </div>
-                )}
-                {city && (
-                  <div className="rounded-lg bg-gray-50 p-4">
-                    <dt className="text-gray-500 mb-1">City</dt>
-                    <dd>
-                      <Link
-                        href={`/city/${city.slug}`}
-                        className="font-semibold text-accent hover:underline"
-                      >
-                        {city.name}
-                      </Link>
-                      <p className="text-xs text-gray-400 mt-0.5">
-                        {stadium?.country}
-                      </p>
-                    </dd>
-                  </div>
-                )}
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <dt className="text-gray-500 mb-1">Stage</dt>
-                  <dd className="font-semibold">{stage}</dd>
-                </div>
-                {match.group && (
-                  <div className="rounded-lg bg-gray-50 p-4">
-                    <dt className="text-gray-500 mb-1">Group</dt>
-                    <dd>
-                      <Link
-                        href={`/group/${match.group.toLowerCase()}`}
-                        className="font-semibold text-accent hover:underline"
-                      >
-                        Group {match.group}
-                      </Link>
-                    </dd>
-                  </div>
-                )}
-                {match.matchday && (
-                  <div className="rounded-lg bg-gray-50 p-4">
-                    <dt className="text-gray-500 mb-1">Matchday</dt>
-                    <dd className="font-semibold">Matchday {match.matchday}</dd>
-                  </div>
-                )}
-              </dl>
-            </section>
+            <MatchInfo
+              match={match}
+              stadium={stadium}
+              city={city}
+              stage={stage}
+              dateFormatted={dateFormatted}
+            />
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Prediction Summary */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Prediction Summary</h3>
-              {prediction ? (
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Favourite</span>
-                    <span className="font-semibold">
-                      {prediction.team1WinProb > prediction.team2WinProb
-                        ? homeName
-                        : prediction.team2WinProb > prediction.team1WinProb
-                          ? awayName
-                          : "Undecided"}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Predicted score</span>
-                    <span className="font-bold text-primary">
-                      {prediction.predictedScore}
-                    </span>
-                  </div>
-                  {odds && (
-                    <>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Odds 1</span>
-                        <span className="font-semibold">{odds.home}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Odds X</span>
-                        <span className="font-semibold">{odds.draw}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Odds 2</span>
-                        <span className="font-semibold">{odds.away}</span>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ) : (
-                <p className="text-sm text-gray-600">
-                  Detailed predictions for this match will be available
-                  soon.
-                </p>
-              )}
-            </div>
-
-            {/* Team Profiles */}
-            {home && away && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Team Profiles</h3>
-                <div className="space-y-3">
-                  <Link
-                    href={`/team/${home.slug}`}
-                    className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
-                  >
-                    <span className="text-xl">{home.flag}</span>
-                    <span className="font-medium">{home.name}</span>
-                  </Link>
-                  <Link
-                    href={`/team/${away.slug}`}
-                    className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
-                  >
-                    <span className="text-xl">{away.flag}</span>
-                    <span className="font-medium">{away.name}</span>
-                  </Link>
-                  <Link
-                    href={`/h2h/${home.slug}-vs-${away.slug}`}
-                    className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
-                  >
-                    <span className="text-xl">&#9878;</span>
-                    <span className="font-medium">
-                      H2H {home.name} vs {away.name}
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            )}
-
-            {/* Match Venue */}
-            {stadium && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Match Venue</h3>
-                <Link
-                  href={`/stadium/${stadium.slug}`}
-                  className="block rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
-                >
-                  <p className="font-semibold">{stadium.name}</p>
-                  <p className="text-sm text-gray-500">
-                    {stadium.capacity.toLocaleString("en-US")} seats &middot;{" "}
-                    {stadium.city}
-                  </p>
-                </Link>
-                {city && (
-                  <Link
-                    href={`/city/${city.slug}`}
-                    className="mt-2 block text-sm text-accent hover:underline"
-                  >
-                    {city.name} city guide &rarr;
-                  </Link>
-                )}
-              </div>
-            )}
-
-            {enriched.weather && (
-              <WeatherWidget
-                temperature={enriched.weather.temperature}
-                condition={enriched.weather.condition}
-                humidity={enriched.weather.humidity}
-                windSpeed={enriched.weather.windSpeed}
-              />
-            )}
-
-            {enriched.sources.hasInjuries && home && away && (
-              <InjuriesWidget
-                homeTeam={home.name}
-                awayTeam={away.name}
-                homeInjuries={enriched.injuries.home}
-                awayInjuries={enriched.injuries.away}
-              />
-            )}
-
-            {enriched.sources.hasLiveOdds && home && away && (
-              <OddsCompare
-                odds={enriched.odds}
-                homeTeam={home.name}
-                awayTeam={away.name}
-              />
-            )}
-
-            {/* Sidebar CTA */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
-                Bet on this match
-              </h3>
-              <p className="mb-3 text-sm text-gray-600">
-                {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
-              </p>
-              <a
-                href={featuredBookmaker.url}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="block w-full rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-accent/90 transition-colors"
-              >
-                Bet on {featuredBookmaker.name} &rarr;
-              </a>
-              <p className="mt-2 text-xs text-gray-400 text-center">
-                18+ | Bet responsibly
-              </p>
-            </div>
-
-            {/* Other Predictions */}
-            {relatedMatches.length > 0 && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Other Predictions</h3>
-                <div className="space-y-2">
-                  {relatedMatches.map((rm) => {
-                    const rmHome = teamsById[rm.homeTeamId];
-                    const rmAway = teamsById[rm.awayTeamId];
-                    return (
-                      <Link
-                        key={rm.id}
-                        href={`/prediction-match/${rm.slug}`}
-                        className="flex items-center justify-between rounded-lg border border-gray-200 p-3 text-sm transition-colors hover:border-accent"
-                      >
-                        <span>
-                          {rmHome?.flag ?? "\ud83c\udff3\ufe0f"}{" "}
-                          {rmHome?.name ?? "TBD"} vs{" "}
-                          {rmAway?.name ?? "TBD"}{" "}
-                          {rmAway?.flag ?? "\ud83c\udff3\ufe0f"}
-                        </span>
-                        <span className="text-xs text-gray-400">
-                          {rm.date}
-                        </span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Link to match page */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <Link
-                href={`/match/${match.slug}`}
-                className="block w-full rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90 transition-colors"
-              >
-                View full match details &rarr;
-              </Link>
-            </div>
-          </div>
+          <PredictionSidebar
+            prediction={prediction}
+            odds={odds}
+            home={home}
+            away={away}
+            match={match}
+            stadium={stadium}
+            city={city}
+            homeName={homeName}
+            awayName={awayName}
+            enriched={enriched}
+            featuredBookmaker={featuredBookmaker}
+            relatedMatches={relatedMatches}
+          />
         </div>
       </div>
 

@@ -14,7 +14,7 @@ export const API_FOOTBALL = {
 } as const;
 
 export const OPENWEATHER = {
-  baseUrl: "https://api.openweathermap.org/data/3.0",
+  baseUrl: "https://api.openweathermap.org/data/2.5",
   key: process.env.OPENWEATHERMAP_KEY ?? "",
   /** Free tier: 1000 calls/day */
   rateLimitPerDay: 1000,

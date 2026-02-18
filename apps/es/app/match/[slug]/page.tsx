@@ -96,9 +96,15 @@ export default async function MatchPage({ params }: PageProps) {
   const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
 
-  const enriched = await generateFullMatchPreview(slug, "es", {
-    includeExpert: matchPhase === "upcoming",
-  });
+  // Fetch AI-enriched data (gracefully falls back to null if APIs unavailable)
+  let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
+  try {
+    enriched = await generateFullMatchPreview(slug, "es", {
+      includeExpert: matchPhase === "upcoming",
+    });
+  } catch {
+    // AI generation failed — page renders with static data only
+  }
 
   const dateFormatted = new Date(match.date).toLocaleDateString("es-ES", {
     weekday: "long",
@@ -146,6 +152,7 @@ export default async function MatchPage({ params }: PageProps) {
               homeTeam={home?.name ?? "Por determinar"}
               awayTeam={away?.name ?? "Por determinar"}
               stadium={stadium?.name ?? "Estadio por confirmar"}
+              locale="es"
             />
             <div className="mt-4 flex justify-center gap-8 text-white">
               {home && (
@@ -285,16 +292,17 @@ export default async function MatchPage({ params }: PageProps) {
               </section>
             )}
 
-            {enriched.preview && (
-              <AiMatchPreview content={enriched.preview.content} grounded={enriched.preview.grounded} />
+            {enriched?.preview && (
+              <AiMatchPreview preview={enriched.preview.preview} keyFactors={enriched.preview.keyFactors} prediction={enriched.preview.prediction} bettingAngle={enriched.preview.bettingAngle} grounded={enriched.preview.grounded} locale="es" />
             )}
 
-            {enriched.expert && (
+            {enriched?.expert && (
               <AiExpertInsight
                 valueBets={enriched.expert.valueBets}
                 matchAnalysis={enriched.expert.matchAnalysis}
                 scorePrediction={enriched.expert.scorePrediction}
                 keyInsight={enriched.expert.keyInsight}
+                locale="es"
               />
             )}
 
@@ -446,29 +454,32 @@ export default async function MatchPage({ params }: PageProps) {
               </dl>
             </div>
 
-            {enriched.weather && (
+            {enriched?.weather && (
               <WeatherWidget
                 temperature={enriched.weather.temperature}
                 condition={enriched.weather.condition}
                 humidity={enriched.weather.humidity}
                 windSpeed={enriched.weather.windSpeed}
+                locale="es"
               />
             )}
 
-            {enriched.sources.hasInjuries && home && away && (
+            {enriched?.sources.hasInjuries && home && away && (
               <InjuriesWidget
                 homeTeam={home.name}
                 awayTeam={away.name}
                 homeInjuries={enriched.injuries.home}
                 awayInjuries={enriched.injuries.away}
+                locale="es"
               />
             )}
 
-            {enriched.sources.hasLiveOdds && home && away ? (
+            {enriched?.sources.hasLiveOdds && home && away ? (
               <OddsCompare
                 odds={enriched.odds}
                 homeTeam={home.name}
                 awayTeam={away.name}
+                locale="es"
               />
             ) : (
               <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">

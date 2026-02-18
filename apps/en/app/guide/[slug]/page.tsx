@@ -141,7 +141,7 @@ export default async function GuidePage({ params }: PageProps) {
                         <a
                           href={bk.url}
                           target="_blank"
-                          rel="noopener noreferrer sponsored"
+                          rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
                             isFeatured ? "bg-gold hover:bg-gold/90" : "bg-accent hover:bg-accent/90"
                           }`}
@@ -189,7 +189,7 @@ export default async function GuidePage({ params }: PageProps) {
               <a
                 href={featuredBookmaker.url}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="noopener noreferrer sponsored nofollow"
                 className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 {featuredBookmaker.bonus} on {featuredBookmaker.name}
@@ -253,7 +253,7 @@ export default async function GuidePage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* JSON-LD */}
+      {/* JSON-LD Article */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -270,7 +270,25 @@ export default async function GuidePage({ params }: PageProps) {
               "@type": "Organization",
               name: "WC 2026",
             },
-            url: `https://worldcup2026guide.com/guide/${guide.slug}`,
+            url: `${domains.en}/guide/${guide.slug}`,
+          }),
+        }}
+      />
+      {/* JSON-LD FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: guide.sections.map((section) => ({
+              "@type": "Question",
+              name: section.title,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: section.content.slice(0, 500),
+              },
+            })),
           }),
         }}
       />

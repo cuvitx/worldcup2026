@@ -25,6 +25,8 @@ export const cityTimezones: Record<string, number> = {
   monterrey: -6,
   // Canada Eastern (UTC-5)
   toronto: -5,
+  // Canada Pacific (UTC-8)
+  vancouver: -8,
 };
 
 /** Approximate home timezone for each confederation */
@@ -61,7 +63,7 @@ export function getTravelFatigue(
   const cityTz = cityTimezones[citySlug] ?? -6;
   const homeTz = confederationTimezones[teamConfederation] ?? 0;
   const gap = Math.abs(cityTz - homeTz);
-  const adjustmentDays = gap; // 1 day per hour rule
+  const adjustmentDays = Math.ceil(gap / 2); // ~1 day per 2 hours of timezone difference
 
   // If team has been there long enough, jet lag is resolved
   const effectiveGap = Math.max(0, gap - daysSinceArrival);

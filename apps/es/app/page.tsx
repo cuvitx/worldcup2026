@@ -1,10 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
+import { getHomeAlternates } from "@repo/data/route-mapping";
 import { GroupCard } from "./components/GroupCard";
 import { TeamCard } from "./components/TeamCard";
+
+export const metadata: Metadata = {
+  title: "Copa del Mundo 2026 | Pronosticos, Cuotas & Guia Completa",
+  description:
+    "Guia completa de la Copa del Mundo 2026: pronosticos, cuotas de casas de apuestas, analisis de las 48 selecciones, calendario de los 104 partidos. Todo sobre el Mundial 2026.",
+  alternates: getHomeAlternates(),
+};
 
 export default function HomePage() {
   return (
@@ -174,6 +183,12 @@ export default function HomePage() {
               className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
             >
               Ciudades sede
+            </Link>
+            <Link
+              href="/guias"
+              className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
+            >
+              Guias de apuestas
             </Link>
           </div>
         </div>

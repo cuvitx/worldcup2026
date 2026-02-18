@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 
 export default function GuiasPage() {
   const categoryLabels: Record<string, string> = {
-    cdm2026: "Mundial 2026",
+    cdm2026: "Copa del Mundo 2026",
     strategie: "Estrategias de apuestas",
     bookmaker: "Casas de apuestas y comparativas",
     debutant: "Guias para principiantes",
   };
   const categoryDescriptions: Record<string, string> = {
-    cdm2026: "Todo lo que necesitas saber para apostar en el Mundial 2026.",
+    cdm2026: "Todo lo que necesitas saber para apostar en la Copa del Mundo 2026.",
     strategie: "Estrategias avanzadas para maximizar tus ganancias.",
     bookmaker: "Comparativas y analisis de las mejores casas de apuestas.",
     debutant: "Los fundamentos de las apuestas deportivas para empezar bien.",

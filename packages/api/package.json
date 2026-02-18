@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@repo/data": "*",
-    "@upstash/redis": "^1.36.2"
+    "@upstash/redis": "^1.36.2",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",

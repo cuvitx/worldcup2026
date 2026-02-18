@@ -1,7 +1,7 @@
 import { matchesBySlug } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { getWeatherForecast } from "@repo/api/weather";
-import { getWeatherImpact } from "@repo/api";
+import { getWeatherImpact, matchSlugSchema } from "@repo/api";
 import { getAltitudeImpact } from "@repo/api/factors";
 
 export async function GET(
@@ -9,6 +9,12 @@ export async function GET(
   { params }: { params: Promise<{ matchSlug: string }> }
 ) {
   const { matchSlug } = await params;
+
+  const validated = matchSlugSchema.safeParse(matchSlug);
+  if (!validated.success) {
+    return Response.json({ error: "Invalid match slug" }, { status: 400 });
+  }
+
   const match = matchesBySlug[matchSlug];
   if (!match) {
     return Response.json({ error: "Match not found" }, { status: 404 });

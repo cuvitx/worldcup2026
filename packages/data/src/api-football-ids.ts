@@ -10,7 +10,7 @@
 export const teamApiIds: Record<string, number> = {
   // Groupe A
   "mexique": 16,
-  "afrique-du-sud": 15,
+  "afrique-du-sud": 1531,
   "coree-du-sud": 17,
   "barrage-uefa-d": 0, // TBD après barrage
 
@@ -41,14 +41,14 @@ export const teamApiIds: Record<string, number> = {
   // Groupe F
   "pays-bas": 1118,
   "japon": 12,
-  "tunisie": 27,
+  "tunisie": 28,
   "barrage-uefa-b": 0, // TBD
 
   // Groupe G
   "belgique": 1,
   "iran": 22,
   "egypte": 13,
-  "nouvelle-zelande": 1530,
+  "nouvelle-zelande": 4673,
 
   // Groupe H
   "espagne": 9,
@@ -65,7 +65,7 @@ export const teamApiIds: Record<string, number> = {
   // Groupe J
   "argentine": 26,
   "autriche": 775,
-  "algerie": 1530,
+  "algerie": 1532,
   "jordanie": 1558,
 
   // Groupe K

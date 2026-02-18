@@ -29,5 +29,11 @@ export { getVenueContext, isWeatherProtected } from "./factors/venue-history";
 // Cache utilities
 export { cachedFetch, cacheGet, cacheSet, CACHE_TTL } from "./cache";
 
+// Rate limiter
+export { checkRateLimit, getRemainingRequests } from "./rate-limiter";
+
 // Config
 export { API_FOOTBALL, OPENWEATHER, ODDS_API } from "./config";
+
+// Validation schemas
+export { slugSchema, matchSlugSchema, teamSlugSchema } from "./validation";

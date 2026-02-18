@@ -7,6 +7,12 @@ import { useEffect, useState, useCallback } from "react";
 // Shows score, minute, and live events. Polls every 30s when match is live.
 // ============================================================================
 
+const translations = {
+  fr: { halftime: "MI-TEMPS", live: "EN DIRECT", finished: "TERMINE", dateLocale: "fr-FR", timezone: "Europe/Paris" },
+  en: { halftime: "HALF TIME", live: "LIVE", finished: "FINISHED", dateLocale: "en-US", timezone: "America/New_York" },
+  es: { halftime: "DESCANSO", live: "EN VIVO", finished: "FINALIZADO", dateLocale: "es-ES", timezone: "Europe/Madrid" },
+};
+
 interface MatchEvent {
   minute: number;
   extra: number | null;
@@ -37,6 +43,7 @@ interface LiveMatchWidgetProps {
   fixtureId?: string;
   /** API endpoint for live data */
   apiEndpoint?: string;
+  locale?: "fr" | "en" | "es";
 }
 
 function EventIcon({ type }: { type: MatchEvent["type"] }) {
@@ -52,7 +59,10 @@ export function LiveMatchWidget({
   awayTeam,
   stadium,
   apiEndpoint = "/api/live",
+  locale,
 }: LiveMatchWidgetProps) {
+  const t = translations[locale ?? "fr"];
+
   const [data, setData] = useState<LiveMatchData>({
     homeScore: null,
     awayScore: null,
@@ -152,11 +162,11 @@ export function LiveMatchWidget({
         )}
         {isLive
           ? data.status === "halftime"
-            ? "MI-TEMPS"
-            : `EN DIRECT — ${data.elapsed}'`
+            ? t.halftime
+            : `${t.live} — ${data.elapsed}'`
           : isFinished
-            ? "TERMINE"
-            : formatMatchDateTime(matchDate, matchTime)}
+            ? t.finished
+            : formatMatchDateTime(matchDate, matchTime, t.dateLocale, t.timezone)}
       </div>
 
       {/* Score */}
@@ -206,14 +216,14 @@ export function LiveMatchWidget({
   );
 }
 
-function formatMatchDateTime(date: string, time: string): string {
+function formatMatchDateTime(date: string, time: string, dateLocale: string, timezone: string): string {
   const d = new Date(`${date}T${time}:00Z`);
-  return d.toLocaleDateString("fr-FR", {
+  return d.toLocaleDateString(dateLocale, {
     weekday: "short",
     day: "numeric",
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Europe/Paris",
+    timeZone: timezone,
   });
 }

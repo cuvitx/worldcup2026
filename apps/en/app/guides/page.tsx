@@ -20,7 +20,7 @@ export default function GuidesPage() {
   const categoryLabels: Record<string, string> = {
     cdm2026: "World Cup 2026",
     strategie: "Betting Strategies",
-    bookmaker: "Bookmakers & Comparisons",
+    bookmaker: "Bookmakers & Reviews",
     debutant: "Beginner Guides",
   };
   const categoryDescriptions: Record<string, string> = {
