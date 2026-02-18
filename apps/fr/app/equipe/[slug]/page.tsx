@@ -263,6 +263,119 @@ export default async function TeamPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Forme récente (mocked static data) */}
+            {(() => {
+              const mockForms: Record<string, string[]> = {
+                france: ["V", "V", "N", "V", "D"],
+                brazil: ["V", "N", "V", "V", "V"],
+                argentina: ["V", "V", "V", "N", "V"],
+                germany: ["V", "D", "V", "N", "V"],
+                spain: ["V", "V", "V", "V", "N"],
+                england: ["V", "N", "V", "V", "D"],
+                portugal: ["V", "V", "D", "V", "V"],
+                netherlands: ["N", "V", "V", "D", "V"],
+                belgium: ["V", "D", "N", "V", "V"],
+                italy: ["V", "V", "N", "D", "V"],
+              };
+              const form = mockForms[team.slug] ?? ["V", "N", "D", "V", "N"];
+              const colors: Record<string, string> = {
+                V: "bg-green-500",
+                N: "bg-gray-400",
+                D: "bg-red-500",
+              };
+              const labels: Record<string, string> = {
+                V: "Victoire",
+                N: "Nul",
+                D: "Défaite",
+              };
+              return (
+                <div className="rounded-lg bg-white dark:bg-gray-900 p-6 shadow-sm">
+                  <h3 className="mb-4 text-lg font-bold">Forme récente</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">5 derniers matchs</p>
+                  <div className="flex gap-2">
+                    {form.map((r, i) => (
+                      <span
+                        key={i}
+                        title={labels[r]}
+                        className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold text-white ${colors[r]}`}
+                      >
+                        {r}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-xs text-gray-400">Données indicatives (qualifications)</p>
+                </div>
+              );
+            })()}
+
+            {/* Mini classement du groupe */}
+            {group && (() => {
+              const allGroupTeams = group.teams
+                .map((id) => teams.find((t) => t.id === id))
+                .filter((t): t is NonNullable<typeof t> => t != null);
+              // Mock standings based on FIFA ranking (sorted)
+              const standings = allGroupTeams
+                .map((t, _i) => {
+                  // Generate plausible mock data
+                  const seed = t.fifaRanking;
+                  const pts = seed <= 10 ? 7 : seed <= 25 ? 5 : seed <= 50 ? 3 : 1;
+                  const gf = seed <= 10 ? 5 : seed <= 25 ? 3 : seed <= 50 ? 2 : 1;
+                  const ga = seed <= 10 ? 1 : seed <= 25 ? 2 : seed <= 50 ? 3 : 5;
+                  return { team: t, pts, gf, ga, gd: gf - ga };
+                })
+                .sort((a, b) => b.pts - a.pts || b.gd - a.gd);
+              return (
+                <div className="rounded-lg bg-white dark:bg-gray-900 p-6 shadow-sm">
+                  <h3 className="mb-4 text-lg font-bold">
+                    <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
+                      Groupe {team.group}
+                    </Link>
+                  </h3>
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-gray-200 dark:border-gray-700 text-gray-500 text-xs">
+                        <th className="pb-2 text-left">#</th>
+                        <th className="pb-2 text-left">Équipe</th>
+                        <th className="pb-2 text-center">Pts</th>
+                        <th className="pb-2 text-center">+/-</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {standings.map((row, idx) => (
+                        <tr
+                          key={row.team.id}
+                          className={`border-b border-gray-100 dark:border-gray-800 ${row.team.id === team.id ? "bg-accent/5 font-bold" : ""}`}
+                        >
+                          <td className="py-2">
+                            <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" : "bg-gray-100 text-gray-500 dark:bg-gray-800"}`}>
+                              {idx + 1}
+                            </span>
+                          </td>
+                          <td className="py-2">
+                            <Link href={`/equipe/${row.team.slug}`} className="hover:text-accent flex items-center gap-1">
+                              <span>{row.team.flag}</span>
+                              <span className="truncate">{row.team.code}</span>
+                            </Link>
+                          </td>
+                          <td className="py-2 text-center font-bold">{row.pts}</td>
+                          <td className="py-2 text-center">
+                            <span className={row.gd > 0 ? "text-green-600" : row.gd < 0 ? "text-red-500" : "text-gray-500"}>
+                              {row.gd > 0 ? "+" : ""}{row.gd}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
+                    <span className="inline-block h-2 w-2 rounded-full bg-green-500" />
+                    Qualifié (top 2)
+                  </div>
+                  <p className="mt-1 text-xs text-gray-400">Classement simulé (pré-tournoi)</p>
+                </div>
+              );
+            })()}
+
             {/* Quick Stats */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Fiche technique</h3>

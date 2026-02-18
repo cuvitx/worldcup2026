@@ -433,6 +433,31 @@ export default async function MatchPage({ params }: PageProps) {
               />
             )}
 
+            {/* Same-day matches in sidebar */}
+            {sameDayMatches.length > 0 && (
+              <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-900">
+                <h3 className="mb-4 text-lg font-bold">Autres matchs du {match.date.slice(5)}</h3>
+                <div className="space-y-2">
+                  {sameDayMatches.slice(0, 5).map((m) => {
+                    const mHome = teamsById[m.homeTeamId];
+                    const mAway = teamsById[m.awayTeamId];
+                    return (
+                      <Link
+                        key={m.slug}
+                        href={`/match/${m.slug}`}
+                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-3 transition-colors hover:border-accent hover:bg-accent/5 text-sm"
+                      >
+                        <span role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳️"}</span>
+                        <span className="flex-1 truncate font-medium">{mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}</span>
+                        <span role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? "🏳️"}</span>
+                        <span className="text-xs text-gray-500">{m.time}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {enriched?.sources.hasLiveOdds && home && away ? (
               <OddsCompare
                 odds={enriched.odds}
