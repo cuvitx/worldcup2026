@@ -127,11 +127,11 @@ export default async function StadiumPage({ params }: PageProps) {
                         className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                       >
                         <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-lg">{home?.flag ?? "🏳️"}</span>
+                        <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
                         <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500">vs</span>
                         <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
-                        <span className="text-lg">{away?.flag ?? "🏳️"}</span>
+                        <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                         <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>

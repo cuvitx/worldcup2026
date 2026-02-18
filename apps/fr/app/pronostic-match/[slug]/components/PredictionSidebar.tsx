@@ -208,10 +208,10 @@ export function PredictionSidebar({
                   className="flex items-center justify-between rounded-lg border border-gray-200 p-3 text-sm transition-colors hover:border-accent"
                 >
                   <span>
-                    {rmHome?.flag ?? "\ud83c\udff3\ufe0f"}{" "}
+                    <span role="img" aria-label={`Drapeau de ${rmHome?.name ?? "Inconnu"}`}>{rmHome?.flag ?? "\ud83c\udff3\ufe0f"}</span>{" "}
                     {rmHome?.name ?? "TBD"} vs{" "}
                     {rmAway?.name ?? "TBD"}{" "}
-                    {rmAway?.flag ?? "\ud83c\udff3\ufe0f"}
+                    <span role="img" aria-label={`Drapeau de ${rmAway?.name ?? "Inconnu"}`}>{rmAway?.flag ?? "\ud83c\udff3\ufe0f"}</span>
                   </span>
                   <span className="text-xs text-gray-500">
                     {rm.date}

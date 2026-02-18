@@ -114,7 +114,7 @@ export default function ButeursPage() {
                   <div>
                     <p className="font-semibold">{player.name}</p>
                     <p className="text-xs text-gray-500">
-                      {team?.flag} {team?.name} &middot; {player.position}
+                      <span role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag}</span> {team?.name} &middot; {player.position}
                     </p>
                   </div>
                   <div className="text-right">

@@ -358,7 +358,7 @@ export default async function ButeurPage({ params }: PageProps) {
                     href={`/equipe/${team.slug}`}
                     className="block w-full text-center rounded-lg border border-primary py-2 text-sm font-medium text-primary hover:bg-primary/5 transition-colors"
                   >
-                    {team.flag} Fiche {team.name} &rarr;
+                    <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span> Fiche {team.name} &rarr;
                   </Link>
                 )}
               </div>

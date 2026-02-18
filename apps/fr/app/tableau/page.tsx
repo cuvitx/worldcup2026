@@ -271,7 +271,7 @@ export default function BracketPage() {
           <section className="rounded-xl border-2 border-yellow-400 bg-gradient-to-r from-yellow-50 to-amber-50 p-6 text-center">
             <p className="text-sm font-medium text-amber-700 uppercase tracking-wide mb-2">Champion predit</p>
             <Link href={`/equipe/${teamsById[champion]!.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
-              <span className="text-5xl">{teamsById[champion]!.flag}</span>
+              <span className="text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
               <span className="text-3xl font-extrabold text-gray-900">{teamsById[champion]!.name}</span>
             </Link>
             <p className="mt-2 text-sm text-gray-500">

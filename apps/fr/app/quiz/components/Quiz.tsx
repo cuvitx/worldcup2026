@@ -148,7 +148,7 @@ export default function Quiz() {
         <h2 className="text-3xl font-bold mb-2">
           {score}/{gameQuestions.length}
         </h2>
-        <p className="text-gray-300 mb-6">{scoreMessage}</p>
+        <p className="text-gray-600 mb-6">{scoreMessage}</p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button

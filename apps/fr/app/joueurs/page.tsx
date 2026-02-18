@@ -108,7 +108,7 @@ export default function PlayersPage() {
                       <div>
                         <p className="font-semibold">{player.name}</p>
                         <p className="text-xs text-gray-500">
-                          {team?.flag} {team?.name} &middot; {player.club}
+                          <span role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag}</span> {team?.name} &middot; {player.club}
                         </p>
                       </div>
                       <div className="text-right">

@@ -230,13 +230,13 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                                 {match.time}
                               </span>
                               <div className="flex items-center gap-2 flex-1 min-w-0">
-                                <span className="text-lg">{home?.flag ?? "🏳️"}</span>
+                                <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
                                 <span className="font-medium truncate">{home?.name ?? "À déterminer"}</span>
                               </div>
                               <span className="text-xs text-gray-500 shrink-0">vs</span>
                               <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
                                 <span className="font-medium truncate text-right">{away?.name ?? "À déterminer"}</span>
-                                <span className="text-lg">{away?.flag ?? "🏳️"}</span>
+                                <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                               </div>
                               {match.group && (
                                 <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-gray-500 dark:text-gray-400 shrink-0">

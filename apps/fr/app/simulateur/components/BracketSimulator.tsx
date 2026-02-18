@@ -310,7 +310,7 @@ export function BracketSimulator() {
       <div className="mb-6 text-center">
         {champion ? (
           <div className="inline-flex items-center gap-3 bg-yellow-50 dark:bg-yellow-900/30 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl px-6 py-4 text-xl font-bold text-yellow-800 dark:text-yellow-200">
-            🏆 Votre champion : {champion.flag} {champion.name}
+            🏆 Votre champion : <span role="img" aria-label={`Drapeau de ${champion.name}`}>{champion.flag}</span> {champion.name}
           </div>
         ) : (
           <p className="text-gray-500">
@@ -582,7 +582,7 @@ function TeamRow({
       <div
         className={`flex items-center gap-2 ${
           compact ? "px-2 py-1.5" : "px-3 py-2"
-        } text-gray-300`}
+        } text-gray-500`}
       >
         <span className="text-base">⬜</span>
         <span className="italic text-xs">À déterminer</span>

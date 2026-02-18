@@ -137,7 +137,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center gap-6">
-            <span className="text-7xl">{team.flag}</span>
+            <span className="text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <div>
               <h1 className="text-4xl font-extrabold">
                 Pronostic {team.name}
@@ -615,7 +615,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                       className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50 transition-colors"
                     >
                       <div className="flex items-center gap-2">
-                        <span>{t.flag}</span>
+                        <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
                         <span className="font-medium">{t.name}</span>
                       </div>
                       <span className="text-xs text-gray-500">
