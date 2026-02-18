@@ -22,7 +22,8 @@
     "./tournament-state": "./src/tournament-state.ts",
     "./api-football-ids": "./src/api-football-ids.ts",
     "./faq": "./src/faq.ts",
-    "./search-index": "./src/search-index.ts"
+    "./search-index": "./src/search-index.ts",
+    "./news": "./src/news.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",
