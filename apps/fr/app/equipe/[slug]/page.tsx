@@ -10,6 +10,7 @@ import { groupsByLetter } from "@repo/data/groups";
 import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import ExpandablePlayerList from "./ExpandablePlayerList";
 
 export const revalidate = 3600;
 
@@ -62,13 +63,6 @@ export default async function TeamPage({ params }: PageProps) {
   } catch {
     // AI generation failed — page renders with static data only
   }
-
-  const positionLabels: Record<string, string> = {
-    GK: "Gardien",
-    DF: "Defenseur",
-    MF: "Milieu",
-    FW: "Attaquant",
-  };
 
   return (
     <>
@@ -185,28 +179,8 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Key Players */}
             {teamPlayers.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Joueurs cles</h2>
-                <div className="space-y-3">
-                  {teamPlayers.map((player) => (
-                    <Link
-                      key={player.id}
-                      href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
-                    >
-                      <div>
-                        <p className="font-semibold">{player.name}</p>
-                        <p className="text-sm text-gray-500">
-                          {positionLabels[player.position]} &middot; {player.club}
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-medium text-primary">
-                          {player.caps} sel. / {player.goals} buts
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                <h2 className="mb-4 text-xl font-bold">Joueurs clés</h2>
+                <ExpandablePlayerList players={teamPlayers} />
               </section>
             )}
 
