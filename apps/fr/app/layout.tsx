@@ -6,6 +6,7 @@ import { OrganizationSchema } from "@repo/ui/organization-schema";
 import { LiveScoreBarWrapper } from "./components/LiveScoreBarWrapper";
 import { CookieConsent } from "@repo/ui/cookie-consent";
 import { BackToTop } from "@repo/ui/back-to-top";
+import { StickyCTA } from "./components/StickyCTA";
 import "./globals.css";
 
 export const viewport: Viewport = {

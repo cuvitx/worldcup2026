@@ -7,6 +7,10 @@ import { cities } from "@repo/data/cities";
 import { getHomeAlternates } from "@repo/data/route-mapping";
 import { GroupCard } from "./components/GroupCard";
 import { TeamCard } from "./components/TeamCard";
+import { Countdown } from "./components/Countdown";
+import { UpcomingMatches } from "./components/UpcomingMatches";
+import { FeaturedPrediction } from "./components/FeaturedPrediction";
+import { FeaturedBookmaker } from "./components/FeaturedBookmaker";
 
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
@@ -46,6 +50,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Countdown */}
+      <Countdown />
+
       {/* Key Stats */}
       <section className="border-b border-gray-200 bg-white py-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 md:grid-cols-4">
@@ -62,6 +69,12 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Upcoming Matches */}
+      <UpcomingMatches />
+
+      {/* Featured Prediction */}
+      <FeaturedPrediction />
 
       {/* Groups */}
       <section className="py-12">
@@ -99,7 +112,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {teams
-              .filter((t) => t.fifaRanking <= 10)
+              .filter((t) => t.fifaRanking > 0 && t.fifaRanking <= 10)
               .sort((a, b) => a.fifaRanking - b.fifaRanking)
               .map((team) => (
                 <TeamCard key={team.id} team={team} />
@@ -107,6 +120,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Featured Bookmaker CTA */}
+      <FeaturedBookmaker />
 
       {/* Stades & Villes */}
       <section className="py-12">
