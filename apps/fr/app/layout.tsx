@@ -63,6 +63,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <BackToTop />
+        <StickyCTA />
         <CookieConsent lang="fr" />
       </body>
     </html>
