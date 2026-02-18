@@ -26,9 +26,14 @@ function extractJson(raw: string): string {
 }
 
 /** Safely parse cached data — Upstash auto-parses JSON, in-memory keeps strings */
-function parseCached<T>(cached: string | T): T {
+function parseCached<T>(cached: string | T): T | null {
   if (typeof cached === "string") {
-    return JSON.parse(cached) as T;
+    try {
+      return JSON.parse(cached) as T;
+    } catch (error) {
+      console.error("[ai-orchestrator] Failed to parse cached data:", error instanceof Error ? error.message : error);
+      return null;
+    }
   }
   return cached as T;
 }
