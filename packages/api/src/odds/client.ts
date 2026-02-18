@@ -4,18 +4,40 @@
 // ============================================================================
 
 import { ODDS_API } from "../config";
-import { cachedFetch, CACHE_TTL } from "../cache";
-import { checkRateLimit } from "../rate-limiter";
+import { cachedFetch, cacheGet, CACHE_TTL } from "../cache";
+import { checkRateLimit, getRemainingRequests } from "../rate-limiter";
 import type { OddsApiResponse, MatchOdds, OutrightOdds } from "./types";
+
+const RATE_LIMIT_KEY = "odds-api";
+const RATE_LIMIT_CONFIG = {
+  maxRequests: ODDS_API.rateLimitPerMonth,
+  windowMs: 30 * 24 * 60 * 60 * 1000, // 30 days
+};
+
+/**
+ * Wrapper around cachedFetch that respects rate limits.
+ * If rate limited, returns cached data if available, otherwise returns fallback.
+ */
+async function rateLimitedCachedFetch<T>(
+  cacheKey: string,
+  ttlSeconds: number,
+  fetcher: () => Promise<T>,
+  fallback: T
+): Promise<T> {
+  const cached = await cacheGet<T>(cacheKey);
+
+  if (!checkRateLimit(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG)) {
+    const remaining = getRemainingRequests(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
+    console.warn(`[odds-api] Monthly rate limit reached (${ODDS_API.rateLimitPerMonth}/month), ${remaining} remaining`);
+    return cached ?? fallback;
+  }
+
+  return cachedFetch(cacheKey, ttlSeconds, fetcher);
+}
 
 async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {}): Promise<T[]> {
   if (!ODDS_API.key) {
     console.warn("[odds-api] No API key configured, skipping");
-    return [];
-  }
-
-  if (!checkRateLimit("odds-api", { maxRequests: 17, windowMs: 24 * 60 * 60 * 1000 })) {
-    console.warn("[odds-api] Daily rate limit reached");
     return [];
   }
 
@@ -41,7 +63,7 @@ async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {
 
 /** Get match odds (1X2) for World Cup fixtures */
 export async function getMatchOdds(): Promise<MatchOdds[]> {
-  return cachedFetch("odds:match-odds", CACHE_TTL.ODDS, async () => {
+  return rateLimitedCachedFetch("odds:match-odds", CACHE_TTL.ODDS, async () => {
     const data = await oddsFetch<OddsApiResponse>(
       `sports/${ODDS_API.sport}/odds`,
       {
@@ -52,12 +74,12 @@ export async function getMatchOdds(): Promise<MatchOdds[]> {
     );
 
     return data.map(mapToMatchOdds);
-  });
+  }, []);
 }
 
 /** Get outright (tournament winner) odds */
 export async function getOutrightOdds(): Promise<OutrightOdds[]> {
-  return cachedFetch("odds:outright", CACHE_TTL.ODDS, async () => {
+  return rateLimitedCachedFetch("odds:outright", CACHE_TTL.ODDS, async () => {
     const data = await oddsFetch<OddsApiResponse>(
       `sports/${ODDS_API.sport}/odds`,
       {
@@ -77,7 +99,7 @@ export async function getOutrightOdds(): Promise<OutrightOdds[]> {
         lastUpdate: bk.last_update,
       }))
     );
-  });
+  }, []);
 }
 
 /** Find match odds for a specific matchup */
