@@ -93,6 +93,8 @@ const navLinks = [
   { href: "/joueurs", label: "Joueurs" },
   { href: "/buteurs", label: "Buteurs" },
   { href: "/paris-sportifs", label: "Paris sportifs" },
+  { href: "/live", label: "Live" },
+  { href: "/simulateur", label: "Simulateur" },
 ];
 
 export function Header() {

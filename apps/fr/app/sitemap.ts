@@ -106,6 +106,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/simulateur`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/quiz`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/comparateur-cotes`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/guide/glossaire`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/ou-regarder`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/methodologie`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/live`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
   ];
 
   // Team pages

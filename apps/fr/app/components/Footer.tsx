@@ -93,12 +93,19 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Infos */}
+          {/* Outils & Live */}
           <div>
-            <h3 className="mb-3 text-sm font-semibold text-white uppercase">Infos</h3>
+            <h3 className="mb-3 text-sm font-semibold text-white uppercase">Outils & Live</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/a-propos" className="hover:text-white">A propos</Link></li>
-              <li><Link href="/mentions-legales" className="hover:text-white">Mentions legales</Link></li>
+              <li><Link href="/live" className="hover:text-white">Scores en direct</Link></li>
+              <li><Link href="/simulateur" className="hover:text-white">Simulateur</Link></li>
+              <li><Link href="/quiz" className="hover:text-white">Quiz CDM 2026</Link></li>
+              <li><Link href="/comparateur-cotes" className="hover:text-white">Comparateur de cotes</Link></li>
+              <li><Link href="/ou-regarder" className="hover:text-white">Où regarder</Link></li>
+              <li><Link href="/guide/glossaire" className="hover:text-white">Glossaire</Link></li>
+              <li><Link href="/methodologie" className="hover:text-white">Méthodologie</Link></li>
+              <li><Link href="/a-propos" className="hover:text-white">À propos</Link></li>
+              <li><Link href="/mentions-legales" className="hover:text-white">Mentions légales</Link></li>
               <li><Link href="/jeu-responsable" className="hover:text-white">Jeu responsable</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
               <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
