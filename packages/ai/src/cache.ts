@@ -20,25 +20,33 @@ export const AI_CACHE_TTL = {
   LIVE_ALERT: 300,
 } as const;
 
-// In-memory fallback when Redis is not configured
+// In-memory LRU fallback when Redis is not configured
 const memoryCache = new Map<string, { data: string; expiresAt: number }>();
-const MAX_CACHE_ENTRIES = 500;
+const MAX_CACHE_ENTRIES = 100;
 
-/** Evict expired or oldest entries when cache exceeds size limit */
+/** Touch a key to mark it as recently used (LRU: move to end of Map) */
+function touchLRU(cache: Map<string, { data: string; expiresAt: number }>, key: string) {
+  const entry = cache.get(key);
+  if (entry) {
+    cache.delete(key);
+    cache.set(key, entry);
+  }
+}
+
+/** Evict expired entries, then LRU (oldest first) until under limit */
 function evictIfNeeded(cache: Map<string, { data: string; expiresAt: number }>) {
-  if (cache.size >= MAX_CACHE_ENTRIES) {
-    // Delete expired entries first
-    const now = Date.now();
-    for (const [key, value] of cache) {
-      if (value.expiresAt && value.expiresAt < now) {
-        cache.delete(key);
-      }
+  // Always purge expired entries
+  const now = Date.now();
+  for (const [key, value] of cache) {
+    if (value.expiresAt <= now) {
+      cache.delete(key);
     }
-    // If still over limit, delete oldest entries
-    while (cache.size >= MAX_CACHE_ENTRIES) {
-      const firstKey = cache.keys().next().value;
-      if (firstKey) cache.delete(firstKey);
-    }
+  }
+  // LRU eviction: delete oldest (first inserted) until under limit
+  while (cache.size >= MAX_CACHE_ENTRIES) {
+    const firstKey = cache.keys().next().value;
+    if (firstKey) cache.delete(firstKey);
+    else break;
   }
 }
 
@@ -62,9 +70,10 @@ export async function aiCacheGet(key: string): Promise<string | null> {
   // Check in-memory first
   const entry = memoryCache.get(key);
   if (entry && entry.expiresAt > Date.now()) {
+    touchLRU(memoryCache, key); // Mark as recently used
     return entry.data;
   }
-  if (entry) memoryCache.delete(key);
+  if (entry) memoryCache.delete(key); // Expired → remove
 
   // Check Redis
   const kv = getRedis();
