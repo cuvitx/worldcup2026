@@ -10,6 +10,31 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Touch targets - ensure minimum 44px for interactive elements on mobile */
+@media (pointer: coarse) {
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+
+  /* Exclude inline text links */
+  p a,
+  li a,
+  span a {
+    min-height: auto;
+  }
+}
+
+/* Responsive tables fallback */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Dark mode */
 .dark {
   --color-bg: #0f172a;

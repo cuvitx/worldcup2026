@@ -6,6 +6,7 @@ import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { getHomeAlternates } from "@repo/data/route-mapping";
 import { GroupCard } from "./components/GroupCard";
+import { GroupAccordion } from "./components/GroupAccordion";
 import { TeamCard } from "./components/TeamCard";
 import { Countdown } from "./components/Countdown";
 import { UpcomingMatches } from "./components/UpcomingMatches";
@@ -36,13 +37,13 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/groupe/a"
-              className="rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent/90"
+              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 min-h-[44px] font-semibold text-white transition-colors hover:bg-accent/90"
             >
               Voir les groupes
             </Link>
             <Link
               href="/match/calendrier"
-              className="rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-lg border border-white/20 px-6 py-3 min-h-[44px] font-semibold text-white transition-colors hover:bg-white/10"
             >
               Calendrier des matchs
             </Link>
@@ -82,20 +83,14 @@ export default function HomePage() {
           <h2 className="mb-8 text-2xl font-bold text-gray-900">
             Les 12 groupes
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {groups.map((group) => {
-              const groupTeams = group.teams
+          <GroupAccordion
+            groups={groups.map((group) => ({
+              group,
+              teams: group.teams
                 .map((id) => teamsById[id])
-                .filter((t): t is NonNullable<typeof t> => t != null);
-              return (
-                <GroupCard
-                  key={group.letter}
-                  group={group}
-                  teams={groupTeams}
-                />
-              );
-            })}
-          </div>
+                .filter((t): t is NonNullable<typeof t> => t != null),
+            }))}
+          />
         </div>
       </section>
 
@@ -212,25 +207,25 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/match/calendrier"
-              className="rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent/90"
+              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 min-h-[44px] font-semibold text-white transition-colors hover:bg-accent/90"
             >
               Calendrier des matchs
             </Link>
             <Link
               href="/stade/metlife-stadium"
-              className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3 min-h-[44px] font-semibold transition-colors hover:bg-white/20"
             >
               Guide des stades
             </Link>
             <Link
               href="/ville/new-york-new-jersey"
-              className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3 min-h-[44px] font-semibold transition-colors hover:bg-white/20"
             >
               Villes hotes
             </Link>
             <Link
               href="/guides"
-              className="rounded-lg bg-white/10 px-6 py-3 font-semibold transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3 min-h-[44px] font-semibold transition-colors hover:bg-white/20"
             >
               Guides
             </Link>
