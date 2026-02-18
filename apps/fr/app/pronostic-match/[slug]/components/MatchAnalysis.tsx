@@ -50,7 +50,7 @@ export function MatchAnalysis({
             ? `${homeName} est favori avec ${Math.round(prediction.team1WinProb * 100)}% de chances de victoire`
             : prediction.team2WinProb > prediction.team1WinProb
               ? `${awayName} est favori avec ${Math.round(prediction.team2WinProb * 100)}% de chances de victoire`
-              : "les deux equipes se neutralisent selon nos estimations"}
+              : "les deux équipes se neutralisent selon nos estimations"}
           . Le score le plus probable est de{" "}
           <strong>{prediction.predictedScore}</strong>.
         </p>
@@ -91,20 +91,20 @@ export function MatchAnalysis({
         ) : null}
         {match.stage === "group" && match.group && (
           <p>
-            Ce match se deroule dans le cadre du{" "}
+            Ce match se déroule dans le cadre du{" "}
             <Link
               href={`/groupe/${match.group.toLowerCase()}`}
               className="text-accent hover:underline"
             >
               Groupe {match.group}
             </Link>{" "}
-            de la Coupe du Monde 2026. Le resultat de cette rencontre
+            de la Coupe du Monde 2026. Le résultat de cette rencontre
             sera determinant pour la qualification aux 32es de finale.
           </p>
         )}
         {h2h && h2h.totalMatches > 0 && (
           <p>
-            Historiquement, ces deux equipes se sont affrontees{" "}
+            Historiquement, ces deux équipes se sont affrontees{" "}
             {h2h.totalMatches} fois avec un bilan de {h2h.team1Wins}{" "}
             victoire{h2h.team1Wins > 1 ? "s" : ""} pour {homeName},{" "}
             {h2h.draws} nul{h2h.draws > 1 ? "s" : ""} et{" "}

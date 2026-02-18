@@ -105,7 +105,7 @@ export default async function ButeurPage({ params }: PageProps) {
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{player.goals}</p>
-                  <p className="text-xs text-gray-500 mt-1">Buts en selection</p>
+                  <p className="text-xs text-gray-500 mt-1">Buts en sélection</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{player.caps}</p>
@@ -122,7 +122,7 @@ export default async function ButeurPage({ params }: PageProps) {
               </div>
               {scorer && (
                 <p className="mt-4 text-sm text-gray-600">
-                  Avec un ratio de {goalsPerCap} but par match en selection et une equipe susceptible de jouer
+                  Avec un ratio de {goalsPerCap} but par match en sélection et une équipe susceptible de jouer
                   plusieurs tours, {player.name} a une esperance de <strong>{scorer.expectedGoals} buts</strong> durant
                   la Coupe du Monde 2026 selon notre modele de Poisson.
                 </p>
@@ -182,13 +182,13 @@ export default async function ButeurPage({ params }: PageProps) {
               <div className="prose prose-sm max-w-none text-gray-700 space-y-3">
                 <p>
                   {player.name} ({player.age} ans) evolue au poste de {positionLabel.toLowerCase()} pour {player.club} et
-                  compte {player.goals} buts en {player.caps} selections avec {team?.name ?? "sa selection"}.
+                  compte {player.goals} buts en {player.caps} selections avec {team?.name ?? "sa sélection"}.
                 </p>
                 {team && teamPred && (
                   <p>
                     {team.name} est classee #{team.fifaRanking} au classement FIFA et a{" "}
                     {(teamPred.winnerProb * 100).toFixed(1)}% de chances de remporter le tournoi selon notre modele ELO.
-                    Plus l&apos;equipe avance dans la competition, plus {player.name} aura de matchs pour marquer.
+                    Plus l&apos;équipe avance dans la compétition, plus {player.name} aura de matchs pour marquer.
                   </p>
                 )}
                 {scorer && scorer.expectedGoals >= 2 && (
@@ -206,8 +206,8 @@ export default async function ButeurPage({ params }: PageProps) {
                   </p>
                 )}
                 <p>
-                  Pour parier sur {player.name} buteur, comparez les cotes sur les differents bookmakers agrees en
-                  France. Les cotes reelles peuvent offrir de la valeur par rapport a nos estimations.
+                  Pour parier sur {player.name} buteur, comparez les cotes sur les differents bookmakers agréés en
+                  France. Les cotes réelles peuvent offrir de la valeur par rapport à nos estimations.
                 </p>
               </div>
             </section>
@@ -246,7 +246,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 Parier sur {player.name} buteur
               </h2>
               <p className="mb-6 text-sm text-gray-600">
-                Comparez les meilleurs sites de paris sportifs pour parier sur {player.name} buteur a la CDM 2026.
+                Comparez les meilleurs sites de paris sportifs pour parier sur {player.name} buteurà la CDM 2026.
               </p>
               <div className="space-y-4">
                 {bookmakers.map((bk) => {

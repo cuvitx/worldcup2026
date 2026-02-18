@@ -17,7 +17,7 @@ const domains = {
 
 const routePrefixes: Record<string, Record<string, string>> = {
   fr: {
-    team: "equipe", teams: "equipes", match: "match", matchSchedule: "match/calendrier",
+    team: "équipe", teams: "équipes", match: "match", matchSchedule: "match/calendrier",
     prediction: "pronostic", predictionMatch: "pronostic-match", group: "groupe",
     player: "joueur", players: "joueurs", scorer: "buteur", scorers: "buteurs",
     stadium: "stade", stadiums: "stades", city: "ville", cities: "villes",
@@ -85,7 +85,7 @@ function getUrlForLang(pathname: string, targetLang: string): string {
 }
 
 const navLinks = [
-  { href: "/equipes", label: "Equipes" },
+  { href: "/equipes", label: "Équipes" },
   { href: "/groupe/a", label: "Groupes" },
   { href: "/match/calendrier", label: "Calendrier" },
   { href: "/pronostic/france", label: "Pronostics" },

@@ -77,7 +77,7 @@ export function PredictionSidebar({
           </div>
         ) : (
           <p className="text-sm text-gray-600">
-            Les pronostics detailles pour ce match seront disponibles
+            Les pronostics détaillés pour ce match seront disponibles
             prochainement.
           </p>
         )}
@@ -86,7 +86,7 @@ export function PredictionSidebar({
       {/* Team links */}
       {home && away && (
         <div className="rounded-lg bg-white p-6 shadow-sm">
-          <h3 className="mb-4 text-lg font-bold">Fiches equipes</h3>
+          <h3 className="mb-4 text-lg font-bold">Fiches équipes</h3>
           <div className="space-y-3">
             <Link
               href={`/equipe/${home.slug}`}
@@ -229,7 +229,7 @@ export function PredictionSidebar({
           href={`/match/${match.slug}`}
           className="block w-full rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90 transition-colors"
         >
-          Voir la fiche complete du match &rarr;
+          Voir la fiche complète du match &rarr;
         </Link>
       </div>
     </div>

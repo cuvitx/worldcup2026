@@ -75,16 +75,16 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Teams Table */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Equipes du Groupe {group.letter}</h2>
+              <h2 className="mb-4 text-xl font-bold">Équipes du Groupe {group.letter}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
                     <tr className="border-b border-gray-200 text-gray-500">
-                      <th className="pb-3 font-medium">Equipe</th>
+                      <th className="pb-3 font-medium">Équipe</th>
                       <th className="pb-3 font-medium text-center">FIFA</th>
                       <th className="pb-3 font-medium text-center">Conf.</th>
                       <th className="pb-3 font-medium text-center">Participations CDM</th>
-                      <th className="pb-3 font-medium">Meilleur resultat</th>
+                      <th className="pb-3 font-medium">Meilleur résultat</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
@@ -132,9 +132,9 @@ export default async function GroupPage({ params }: PageProps) {
                   ))}.
                 </p>
                 <p className="mt-4">
-                  Les deux premiers du groupe se qualifient directement pour les
-                  huitiemes de finale, tandis que les meilleurs troisiemes peuvent
-                  egalement se qualifier.
+                  Les deux premiers du groupe se qualifiént directement pour les
+                  huitièmes de finale, tandis que les meilleurs troisièmes peuvent
+                  également se qualifier.
                 </p>
               </div>
             </section>

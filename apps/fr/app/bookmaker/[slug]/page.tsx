@@ -113,7 +113,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Ratings */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Notes detaillees</h2>
+              <h2 className="mb-4 text-xl font-bold">Notes détaillées</h2>
               <div className="space-y-3">
                 {Object.entries(bk.ratings).map(([key, value]) => (
                   <div key={key}>

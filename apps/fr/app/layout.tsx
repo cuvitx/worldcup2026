@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | CDM 2026",
   },
   description:
-    "Pronostics, statistiques, cotes et guide complet de la Coupe du Monde 2026. Analyses des 48 equipes, calendrier des 104 matchs, comparaison des cotes des bookmakers.",
+    "Pronostics, statistiques, cotes et guide complet de la Coupe du Monde 2026. Analyses des 48 équipes, calendrier des 104 matchs, comparaison des cotes des bookmakers.",
   alternates: getHomeAlternates(),
   openGraph: {
     type: "website",

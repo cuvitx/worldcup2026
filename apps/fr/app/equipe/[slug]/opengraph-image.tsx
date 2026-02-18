@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { teams } from "@repo/data/teams";
-export const alt = "Equipe CDM 2026";
+export const alt = "Équipe CDM 2026";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

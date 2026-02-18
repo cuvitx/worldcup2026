@@ -5,16 +5,16 @@ import { cities } from "@repo/data/cities";
 import { stadiums } from "@repo/data/stadiums";
 
 export const metadata: Metadata = {
-  title: "Les 16 villes hotes de la Coupe du Monde 2026 | Guide & Infos",
+  title: "Les 16 villes hôtes de la Coupe du Monde 2026 | Guide & Infos",
   description:
-    "Decouvrez les 16 villes hotes de la Coupe du Monde 2026 aux Etats-Unis, au Canada et au Mexique. Population, stades, fuseaux horaires.",
+    "Découvrez les 16 villes hôtes de la Coupe du Monde 2026 aux États-Unis, au Canada et au Mexique. Population, stades, fuseaux horaires.",
   alternates: getStaticAlternates("cities", "fr"),
 };
 
 export default function CitiesPage() {
   const countries = ["USA", "Canada", "Mexico"] as const;
   const countryLabels: Record<string, string> = {
-    USA: "Etats-Unis",
+    USA: "États-Unis",
     Canada: "Canada",
     Mexico: "Mexique",
   };
@@ -33,7 +33,7 @@ export default function CitiesPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Les 16 villes hotes de la CDM 2026</h1>
+          <h1 className="text-4xl font-extrabold">Les 16 villes hôtes de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             11 villes americaines, 3 villes mexicaines et 2 villes canadiennes accueillent le Mondial.
           </p>

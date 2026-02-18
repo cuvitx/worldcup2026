@@ -115,7 +115,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             <li>/</li>
             <li>
               <Link href="/equipes" className="hover:text-primary">
-                Equipes
+                Équipes
               </Link>
             </li>
             <li>/</li>
@@ -182,8 +182,8 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   <span>{eloMax}</span>
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  Le rating ELO mesure la force relative de chaque equipe. Plus
-                  le score est eleve, plus l&apos;equipe est consideree comme
+                  Le rating ELO mesure la force relative de chaque équipe. Plus
+                  le score est eleve, plus l&apos;équipe est consideree comme
                   favorite. {team.name} se situe dans le{" "}
                   {eloPercent > 75
                     ? "top tier mondial"
@@ -295,9 +295,9 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   ))}
                 </div>
                 <p className="mt-4 text-xs text-gray-400">
-                  Les cotes sont calculees a partir du modele ELO avec une marge
+                  Les cotes sont calculées a partir du modele ELO avec une marge
                   bookmaker integree (~8%). Elles sont indicatives et peuvent
-                  differer des cotes reelles proposees par les operateurs.
+                  differer des cotes réelles proposees par les opérateurs.
                 </p>
               </section>
             )}
@@ -478,7 +478,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               </h2>
               <p className="mb-6 text-sm text-gray-600">
                 Comparez les meilleurs sites de paris sportifs agreees en France
-                pour parier sur {team.name} a la Coupe du Monde 2026.
+                pour parier sur {team.name}à la Coupe du Monde 2026.
               </p>
               <div className="space-y-4">
                 {bookmakers.map((bk) => {
@@ -533,7 +533,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               <p className="mt-4 text-xs text-gray-400 text-center">
                 Les cotes sont estimees et susceptibles d&apos;evoluer. Pariez
                 responsablement. 18+. Les jeux d&apos;argent et de hasard
-                peuvent etre dangereux : pertes d&apos;argent, conflits
+                peuvent être dangereux : pertes d&apos;argent, conflits
                 familiaux, addiction. Appelez le 09 74 75 13 13 (appel non
                 surtaxe).
               </p>
@@ -570,7 +570,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   <dd className="font-medium">{team.wcAppearances}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Meilleur resultat</dt>
+                  <dt className="text-gray-500">Meilleur résultat</dt>
                   <dd className="font-medium text-right max-w-[55%]">
                     {team.bestResult}
                   </dd>
@@ -597,7 +597,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   href={`/equipe/${team.slug}`}
                   className="block w-full text-center rounded-lg bg-primary py-2 text-sm font-medium text-white hover:bg-primary/90 transition-colors"
                 >
-                  Voir la fiche complete &rarr;
+                  Voir la fiche complète &rarr;
                 </Link>
               </div>
             </div>
@@ -605,7 +605,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             {/* Related Teams (same group) */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">
-                Equipes du Groupe {team.group}
+                Équipes du Groupe {team.group}
               </h3>
               <ul className="space-y-2">
                 {groupTeams.map((t) => (
@@ -716,7 +716,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               "@type": "SportsOrganization",
               name: "FIFA World Cup 2026",
             },
-            description: `Pronostic et cotes pour ${team.name} a la Coupe du Monde 2026. Rating ELO : ${prediction?.eloRating ?? "N/A"}.`,
+            description: `Pronostic et cotes pour ${team.name}à la Coupe du Monde 2026. Rating ELO : ${prediction?.eloRating ?? "N/A"}.`,
             url: `https://mondial2026.fr/pronostic/${team.slug}`,
           }),
         }}

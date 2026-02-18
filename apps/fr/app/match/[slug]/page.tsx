@@ -245,7 +245,7 @@ export default async function MatchPage({ params }: PageProps) {
                           v2: String(away.wcAppearances),
                         },
                         {
-                          label: "Meilleur resultat",
+                          label: "Meilleur résultat",
                           v1: home.bestResult,
                           v2: away.bestResult,
                         },
@@ -298,7 +298,7 @@ export default async function MatchPage({ params }: PageProps) {
                 const pred = matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`];
                 if (!pred) return (
                   <p className="text-gray-600">
-                    Les pronostics detailles seront disponibles prochainement.
+                    Les pronostics détaillés seront disponibles prochainement.
                   </p>
                 );
                 const odds = estimatedMatchOdds(pred.team1WinProb, pred.drawProb, pred.team2WinProb);

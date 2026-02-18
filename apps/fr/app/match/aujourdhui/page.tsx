@@ -10,7 +10,7 @@ export const revalidate = 300; // 5 minutes
 export const metadata: Metadata = {
   title: "Matchs du jour - Coupe du Monde 2026",
   description:
-    "Decouvrez les matchs de la Coupe du Monde 2026 qui se jouent aujourd'hui. Horaires, equipes, stades et liens vers les pronostics de chaque rencontre.",
+    "Découvrez les matchs de la Coupe du Monde 2026 qui se jouent aujourd'hui. Horaires, équipes, stades et liens vers les pronostics de chaque rencontre.",
   alternates: getStaticAlternates("matchToday", "fr"),
 };
 

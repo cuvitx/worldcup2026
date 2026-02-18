@@ -6,7 +6,7 @@ import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez l'equipe CDM 2026. Pour toute question relative au site, a nos contenus ou a nos partenariats.",
+    "Contactez l'équipe CDM 2026. Pour toute question relative au site, à nos contenus ou à nos partenariats.",
   alternates: getStaticAlternates("contact", "fr"),
 };
 
@@ -52,7 +52,7 @@ export default function ContactPage() {
               Nous contacter
             </h2>
             <p>
-              Pour toute question relative au site, a nos contenus ou a nos
+              Pour toute question relative au site, à nos contenus ou a nos
               analyses, vous pouvez nous ecrire a l&apos;adresse suivante :
             </p>
             <p className="mt-4">
@@ -70,13 +70,13 @@ export default function ContactPage() {
               A propos du site
             </h2>
             <p>
-              CDM 2026 est un site d&apos;information independant dedie a la
+              CDM 2026 est un site d&apos;information indépendant dédié a la
               Coupe du Monde FIFA 2026. Nous proposons des pronostics, des
               analyses statistiques, des comparaisons de cotes et des guides
               pratiques pour les supporters.
             </p>
             <p className="mt-2">
-              Ce site n&apos;est pas affilie a la FIFA ni a aucun operateur de
+              Ce site n&apos;est pas affiliéà la FIFA ni à aucun opérateur de
               paris sportifs. Nos contenus sont a caractere informatif et ne
               constituent pas des conseils de paris.
             </p>
@@ -89,7 +89,7 @@ export default function ContactPage() {
             <p>
               Si vous pariez, faites-le de maniere responsable. Les jeux
               d&apos;argent comportent des risques. Consultez notre page
-              dediee pour plus d&apos;informations.
+              dédiée pour plus d&apos;informations.
             </p>
             <p className="mt-4">
               <Link

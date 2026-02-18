@@ -98,7 +98,7 @@ export function PredictionOutcomes({
         </div>
         <p className="mt-4 text-center text-sm text-gray-500">
           Score le plus probable selon notre modele de prediction base sur les ratings ELO,
-          les statistiques recentes et l&apos;historique des confrontations.
+          les statistiques récentes et l&apos;historique des confrontations.
         </p>
       </section>
     </>

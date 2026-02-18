@@ -7,9 +7,9 @@ export const revalidate = 86400; // 24 hours
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Questions frequentes - Coupe du Monde 2026",
+    title: "Questions fréquentes - Coupe du Monde 2026",
     description:
-      "Retrouvez toutes les reponses a vos questions sur la Coupe du Monde 2026 : format du tournoi, equipes qualifiees, paris sportifs, pronostics et plus encore.",
+      "Retrouvez toutes les réponses à vos questions sur la Coupe du Monde 2026 : format du tournoi, équipes qualifiées, paris sportifs, pronostics et plus encore.",
     alternates: getStaticAlternates("faq", "fr"),
   };
 }
@@ -61,7 +61,7 @@ export default function FaqPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Questions frequentes</h1>
+          <h1 className="text-4xl font-extrabold">Questions fréquentes</h1>
           <p className="mt-2 text-gray-300">
             Tout ce que vous devez savoir sur la Coupe du Monde FIFA 2026
           </p>

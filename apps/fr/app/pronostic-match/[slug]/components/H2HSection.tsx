@@ -88,8 +88,8 @@ export function H2HSection({
       ) : (
         <div>
           <p className="text-gray-600 mb-4">
-            {homeName} et {awayName} ne se sont jamais affrontes. La
-            Coupe du Monde 2026 sera leur premiere confrontation
+            {homeName} et {awayName} ne se sont jamais affrontés. La
+            Coupe du Monde 2026 sera leur première confrontation
             historique.
           </p>
           <div className="text-center">

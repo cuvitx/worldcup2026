@@ -133,7 +133,7 @@ export default async function CityPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Autres villes hotes</h3>
+              <h3 className="mb-4 text-lg font-bold">Autres villes hôtes</h3>
               <ul className="space-y-2 text-sm">
                 {cities
                   .filter((c) => c.id !== city.id)

@@ -5,13 +5,13 @@ import { teams } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 
 export const metadata: Metadata = {
-  title: "Les 48 equipes de la Coupe du Monde 2026 | Classement, Stats & Pronostics",
+  title: "Les 48 équipes de la Coupe du Monde 2026 | Classement, Stats & Pronostics",
   description:
-    "Liste complete des 48 equipes qualifiees pour la Coupe du Monde 2026. Classement FIFA, groupe, historique et pronostics pour chaque selection.",
+    "Liste complète des 48 équipes qualifiées pour la Coupe du Monde 2026. Classement FIFA, groupe, historique et pronostics pour chaque sélection.",
   alternates: getStaticAlternates("teams", "fr"),
   openGraph: {
-    title: "48 equipes - Coupe du Monde 2026",
-    description: "Toutes les equipes qualifiees pour la CDM 2026 aux Etats-Unis, Canada et Mexique.",
+    title: "48 équipes - Coupe du Monde 2026",
+    description: "Toutes les équipes qualifiées pour la CDM 2026 aux États-Unis, Canada et Mexique.",
   },
 };
 
@@ -26,16 +26,16 @@ export default function TeamsPage() {
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Equipes</li>
+            <li className="text-gray-900 font-medium">Équipes</li>
           </ol>
         </div>
       </nav>
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Les 48 equipes de la CDM 2026</h1>
+          <h1 className="text-4xl font-extrabold">Les 48 équipes de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
-            Classement FIFA, groupe, pronostics et fiche complete de chaque selection qualifiee.
+            Classement FIFA, groupe, pronostics et fiche complète de chaque sélection qualifiée.
           </p>
         </div>
       </section>
@@ -43,13 +43,13 @@ export default function TeamsPage() {
       <div className="mx-auto max-w-7xl px-4 py-8">
         {/* Ranking Table */}
         <section className="rounded-lg bg-white p-6 shadow-sm mb-8">
-          <h2 className="mb-4 text-xl font-bold">Classement FIFA des 48 equipes</h2>
+          <h2 className="mb-4 text-xl font-bold">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">#</th>
-                  <th className="pb-3 font-medium text-gray-500">Equipe</th>
+                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
                   <th className="pb-3 font-medium text-gray-500">Conf.</th>
                   <th className="pb-3 font-medium text-gray-500">Groupe</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Chances CDM</th>
@@ -99,13 +99,13 @@ export default function TeamsPage() {
 
         {/* By Confederation */}
         <section className="space-y-8">
-          <h2 className="text-xl font-bold">Equipes par confederation</h2>
+          <h2 className="text-xl font-bold">Équipes par confederation</h2>
           {confederations.map((conf) => {
             const confTeams = sorted.filter((t) => t.confederation === conf);
             if (confTeams.length === 0) return null;
             return (
               <div key={conf} className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">{conf} ({confTeams.length} equipes)</h3>
+                <h3 className="mb-4 text-lg font-bold">{conf} ({confTeams.length} équipes)</h3>
                 <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                   {confTeams.map((team) => (
                     <Link

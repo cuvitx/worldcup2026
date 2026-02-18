@@ -71,7 +71,7 @@ export default async function H2HPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Equipes",url:"/equipes"},{name:team1.name+" vs "+team2.name,url:"/h2h/"+slug}]} baseUrl={domains.fr} />
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:team1.name+" vs "+team2.name,url:"/h2h/"+slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
@@ -105,7 +105,7 @@ export default async function H2HPage({ params }: PageProps) {
           </div>
           {sameGroup && (
             <p className="mt-4 text-center text-gold">
-              Ces deux equipes sont dans le{" "}
+              Ces deux équipes sont dans le{" "}
               <Link href={`/groupe/${team1.group.toLowerCase()}`} className="underline">
                 Groupe {team1.group}
               </Link>
@@ -135,7 +135,7 @@ export default async function H2HPage({ params }: PageProps) {
                       { label: "Confederation", v1: team1.confederation, v2: team2.confederation },
                       { label: "Groupe CDM 2026", v1: team1.group, v2: team2.group },
                       { label: "Participations CDM", v1: String(team1.wcAppearances), v2: String(team2.wcAppearances) },
-                      { label: "Meilleur resultat", v1: team1.bestResult, v2: team2.bestResult },
+                      { label: "Meilleur résultat", v1: team1.bestResult, v2: team2.bestResult },
                     ].map((row) => (
                       <tr key={row.label}>
                         <td className="py-3 text-left font-medium">{row.v1}</td>
@@ -186,7 +186,7 @@ export default async function H2HPage({ params }: PageProps) {
                 </>
               ) : (
                 <p className="text-gray-600">
-                  {team1.name} et {team2.name} ne se sont jamais affrontes. La Coupe du Monde 2026 pourrait etre leur premiere confrontation historique.
+                  {team1.name} et {team2.name} ne se sont jamais affrontés. La Coupe du Monde 2026 pourrait être leur première confrontation historique.
                 </p>
               )}
             </section>
@@ -244,7 +244,7 @@ export default async function H2HPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Team Links */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Fiches equipes</h3>
+              <h3 className="mb-4 text-lg font-bold">Fiches équipes</h3>
               <div className="space-y-3">
                 <Link
                   href={`/equipe/${team1.slug}`}

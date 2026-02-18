@@ -7,7 +7,7 @@ import { teamsById } from "@repo/data/teams";
 export const metadata: Metadata = {
   title: "210 joueurs cles de la Coupe du Monde 2026 | Effectifs & Stats",
   description:
-    "Les 210 joueurs cles des 48 equipes de la Coupe du Monde 2026. Statistiques, clubs, selections et buts pour chaque joueur.",
+    "Les 210 joueurs cles des 48 équipes de la Coupe du Monde 2026. Statistiques, clubs, selections et buts pour chaque joueur.",
   alternates: getStaticAlternates("players", "fr"),
 };
 
@@ -44,13 +44,13 @@ export default function PlayersPage() {
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
         {/* Top Scorers */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold">Meilleurs buteurs en selection</h2>
+          <h2 className="mb-4 text-xl font-bold">Meilleurs buteurs en sélection</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">Joueur</th>
-                  <th className="pb-3 font-medium text-gray-500">Equipe</th>
+                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
                   <th className="pb-3 font-medium text-gray-500">Club</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Buts</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Sel.</th>

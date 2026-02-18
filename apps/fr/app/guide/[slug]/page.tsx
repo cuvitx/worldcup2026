@@ -49,7 +49,7 @@ export default async function GuidePage({ params }: PageProps) {
 
   const categoryLabels: Record<string, string> = {
     cdm2026: "Coupe du Monde 2026",
-    strategie: "Strategies",
+    stratégie: "Strategies",
     bookmaker: "Bookmakers",
     debutant: "Debutant",
   };
@@ -113,7 +113,7 @@ export default async function GuidePage({ params }: PageProps) {
                 Meilleurs bookmakers pour la CDM 2026
               </h2>
               <p className="mb-6 text-sm text-gray-600">
-                Comparez les meilleurs sites de paris sportifs agrees en France.
+                Comparez les meilleurs sites de paris sportifs agréés en France.
               </p>
               <div className="space-y-4">
                 {bookmakers.slice(0, 3).map((bk) => {

@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Tableau final CDM 2026 | Bracket et phase a elimination directe",
   description:
-    "Tableau final de la Coupe du Monde 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Pronostics et equipes favorites pour chaque tour.",
+    "Tableau final de la Coupe du Monde 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Pronostics et équipes favorites pour chaque tour.",
   alternates: getStaticAlternates("bracket", "fr"),
   openGraph: {
     title: "Tableau final - Coupe du Monde 2026",
@@ -494,13 +494,13 @@ export default function BracketPage() {
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-bold">Probabilites par tour</h2>
           <p className="text-sm text-gray-500 mb-4">
-            Chances de chaque equipe d&#39;atteindre chaque tour, basees sur les classements ELO.
+            Chances de chaque équipe d&#39;atteindre chaque tour, basees sur les classements ELO.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 text-left">
-                  <th className="pb-3 font-medium text-gray-500">Equipe</th>
+                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Sortie groupes</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">16e</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Quarts</th>
@@ -546,9 +546,9 @@ export default function BracketPage() {
         <section className="prose max-w-none">
           <h2>Comment fonctionne le tableau final de la Coupe du Monde 2026 ?</h2>
           <p>
-            La Coupe du Monde 2026 accueille 48 equipes reparties en 12 groupes de 4. A l&#39;issue de la phase de
-            groupes, les deux premiers de chaque groupe (24 equipes) et les 8 meilleurs troisiemes se qualifient
-            pour la phase a elimination directe, soit 32 equipes au total.
+            La Coupe du Monde 2026 accueille 48 équipes reparties en 12 groupes de 4. A l&#39;issue de la phase de
+            groupes, les deux premiers de chaque groupe (24 équipes) et les 8 meilleurs troisièmes se qualifiént
+            pour la phase a elimination directe, soit 32 équipes au total.
           </p>
           <p>
             Le tableau final commence par les 32e de finale (16 matchs), suivis des 16e de finale (8 matchs),
@@ -557,9 +557,9 @@ export default function BracketPage() {
           </p>
           <h3>Pronostics du bracket</h3>
           <p>
-            Les pronostics affiches sur cette page sont bases sur les classements ELO des equipes. L&#39;equipe
+            Les pronostics affiches sur cette page sont bases sur les classements ELO des équipes. L&#39;équipe
             avec le meilleur classement ELO est predite comme vainqueur de chaque confrontation. Ces pronostics
-            seront mis a jour au fur et a mesure de l&#39;avancee du tournoi avec les resultats reels.
+            seront mis à jour au fur et a mesure de l&#39;avancée du tournoi avec les résultats réels.
           </p>
         </section>
       </div>

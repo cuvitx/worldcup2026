@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Paris sportifs - Coupe du Monde 2026",
     description:
-      "Meilleurs bookmakers, guides et strategies pour parier sur la CDM 2026.",
+      "Meilleurs bookmakers, guides et stratégies pour parier sur la CDM 2026.",
   },
 };
 
 export default function ParisSportifsPage() {
   const categoryLabels: Record<string, string> = {
     cdm2026: "Coupe du Monde 2026",
-    strategie: "Strategies de paris",
+    stratégie: "Strategies de paris",
     bookmaker: "Bookmakers",
     debutant: "Debutant",
   };
 
-  const categories = ["cdm2026", "strategie", "bookmaker", "debutant"] as const;
+  const categories = ["cdm2026", "stratégie", "bookmaker", "debutant"] as const;
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function ParisSportifsPage() {
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-4xl font-extrabold">Paris sportifs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
-            Comparatif des meilleurs bookmakers, guides de paris et strategies pour la Coupe du Monde 2026.
+            Comparatif des meilleurs bookmakers, guides de paris et stratégies pour la Coupe du Monde 2026.
           </p>
         </div>
       </section>
@@ -52,7 +52,7 @@ export default function ParisSportifsPage() {
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="mb-2 text-xl font-bold">Meilleurs sites de paris sportifs 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
-            Nos avis detailles sur les {bookmakerReviews.length} bookmakers agrees en France pour parier sur la CDM 2026.
+            Nos avis détaillés sur les {bookmakerReviews.length} bookmakers agréés en France pour parier sur la CDM 2026.
           </p>
           <div className="space-y-4">
             {bookmakerReviews.map((bk, i) => {
@@ -145,7 +145,7 @@ export default function ParisSportifsPage() {
               Calendrier des matchs
             </Link>
             <Link href="/equipes" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Toutes les equipes
+              Toutes les équipes
             </Link>
           </div>
         </section>

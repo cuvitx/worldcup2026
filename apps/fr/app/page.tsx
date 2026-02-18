@@ -11,7 +11,7 @@ import { TeamCard } from "./components/TeamCard";
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
   description:
-    "Guide complet de la Coupe du Monde 2026 : pronostics, cotes des bookmakers, analyses des 48 equipes, calendrier des 104 matchs. Tout pour parier sur la CDM 2026.",
+    "Guide complet de la Coupe du Monde 2026 : pronostics, cotes des bookmakers, analyses des 48 équipes, calendrier des 104 matchs. Tout pour parier sur la CDM 2026.",
   alternates: getHomeAlternates(),
 };
 
@@ -25,9 +25,9 @@ export default function HomePage() {
             Coupe du Monde <span className="text-gold">2026</span>
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">
-            Pronostics, statistiques et guide complet de la premiere Coupe du
-            Monde a 48 equipes. 104 matchs, 210 joueurs, 16 stades a travers
-            les Etats-Unis, le Canada et le Mexique.
+            Pronostics, statistiques et guide complet de la première Coupe du
+            Monde à 48 équipes. 104 matchs, 210 joueurs, 16 stades a travers
+            les États-Unis, le Canada et le Mexique.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -50,7 +50,7 @@ export default function HomePage() {
       <section className="border-b border-gray-200 bg-white py-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 md:grid-cols-4">
           {[
-            { value: "48", label: "Equipes" },
+            { value: "48", label: "Équipes" },
             { value: "104", label: "Matchs" },
             { value: "16", label: "Villes hotes" },
             { value: "39", label: "Jours" },
@@ -91,10 +91,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-gray-900">
-              Equipes favorites
+              Équipes favorites
             </h2>
             <Link href="/equipes" className="text-sm font-medium text-accent hover:underline">
-              Voir les 48 equipes &rarr;
+              Voir les 48 équipes &rarr;
             </Link>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -113,7 +113,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-gray-900">
-              Stades et villes hotes
+              Stades et villes hôtes
             </h2>
             <div className="flex gap-4">
               <Link href="/stades" className="text-sm font-medium text-accent hover:underline">
@@ -152,8 +152,8 @@ export default function HomePage() {
             11 juin - 19 juillet 2026
           </h2>
           <p className="mx-auto mb-6 max-w-xl text-field-light">
-            La premiere Coupe du Monde a 48 equipes se deroule aux Etats-Unis,
-            au Canada et au Mexique. Decouvrez toutes les equipes, les stades et
+            La première Coupe du Monde à 48 équipes se déroule aux États-Unis,
+            au Canada et au Mexique. Découvrez toutes les équipes, les stades et
             les pronostics.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

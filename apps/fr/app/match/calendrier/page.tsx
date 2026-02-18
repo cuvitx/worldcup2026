@@ -8,7 +8,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 export const metadata: Metadata = {
   title: "Calendrier des matchs - Coupe du Monde 2026",
   description:
-    "Calendrier complet des 104 matchs de la Coupe du Monde 2026. Phase de groupes, huitiemes, quarts, demi-finales et finale. Du 11 juin au 19 juillet 2026.",
+    "Calendrier complet des 104 matchs de la Coupe du Monde 2026. Phase de groupes, huitièmes, quarts, demi-finales et finale. Du 11 juin au 19 juillet 2026.",
   alternates: getStaticAlternates("matchSchedule", "fr"),
 };
 

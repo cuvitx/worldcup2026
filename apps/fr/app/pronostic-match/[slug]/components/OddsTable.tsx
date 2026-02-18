@@ -108,7 +108,7 @@ export function OddsTable({
         </table>
       </div>
       <p className="mt-3 text-xs text-gray-400">
-        Cotes estimees, susceptibles d&apos;evoluer. Les cotes reelles peuvent
+        Cotes estimees, susceptibles d&apos;evoluer. Les cotes réelles peuvent
         varier selon les bookmakers.
       </p>
     </section>

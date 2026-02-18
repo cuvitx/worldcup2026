@@ -55,7 +55,7 @@ export default function ButeursPage() {
                 <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">#</th>
                   <th className="pb-3 font-medium text-gray-500">Joueur</th>
-                  <th className="pb-3 font-medium text-gray-500">Equipe</th>
+                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Buts attendus</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Cote buteur</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Cote top buteur</th>
@@ -129,7 +129,7 @@ export default function ButeursPage() {
 
         {/* By Team */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold">Buteurs par equipe</h2>
+          <h2 className="mb-4 text-xl font-bold">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .sort((a, b) => a.fifaRanking - b.fifaRanking)
@@ -169,7 +169,7 @@ export default function ButeursPage() {
         <section className="rounded-lg bg-accent/5 border border-accent/20 p-6 text-center">
           <h2 className="mb-2 text-xl font-bold text-accent">Parier sur les buteurs CDM 2026</h2>
           <p className="mb-4 text-sm text-gray-600">
-            Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agrees en France.
+            Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {bookmakers.slice(0, 3).map((bk) => (

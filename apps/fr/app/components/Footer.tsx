@@ -6,12 +6,12 @@ export function Footer() {
     <footer className="bg-primary text-gray-300">
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
-          {/* Equipes favorites */}
+          {/* Équipes favorites */}
           <div>
-            <h3 className="mb-3 text-sm font-semibold text-white uppercase">Equipes</h3>
+            <h3 className="mb-3 text-sm font-semibold text-white uppercase">Équipes</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/equipe/france" className="hover:text-white">France</Link></li>
-              <li><Link href="/equipe/bresil" className="hover:text-white">Bresil</Link></li>
+              <li><Link href="/equipe/bresil" className="hover:text-white">Brésil</Link></li>
               <li><Link href="/equipe/argentine" className="hover:text-white">Argentine</Link></li>
               <li><Link href="/equipe/espagne" className="hover:text-white">Espagne</Link></li>
               <li><Link href="/equipe/allemagne" className="hover:text-white">Allemagne</Link></li>
@@ -20,7 +20,7 @@ export function Footer() {
               <li><Link href="/equipe/pays-bas" className="hover:text-white">Pays-Bas</Link></li>
               <li className="pt-1">
                 <Link href="/equipes" className="text-gold hover:text-white font-medium">
-                  Toutes les equipes &rarr;
+                  Toutes les équipes &rarr;
                 </Link>
               </li>
             </ul>
@@ -45,7 +45,7 @@ export function Footer() {
             <h3 className="mb-3 text-sm font-semibold text-white uppercase">Pronostics</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/pronostic/france" className="hover:text-white">Pronostic France</Link></li>
-              <li><Link href="/pronostic/bresil" className="hover:text-white">Pronostic Bresil</Link></li>
+              <li><Link href="/pronostic/bresil" className="hover:text-white">Pronostic Brésil</Link></li>
               <li><Link href="/pronostic/argentine" className="hover:text-white">Pronostic Argentine</Link></li>
               <li><Link href="/pronostic/espagne" className="hover:text-white">Pronostic Espagne</Link></li>
               <li><Link href="/pronostic/allemagne" className="hover:text-white">Pronostic Allemagne</Link></li>
@@ -125,7 +125,7 @@ export function Footer() {
             Les jeux d&apos;argent sont interdits aux mineurs. Jouer comporte des risques : endettement, dependance.
             Appelez le 09 74 75 13 13 (appel non surtaxe).
           </p>
-          <p className="mt-4">&copy; 2026 CDM 2026. Tous droits reserves. Site non affilie a la FIFA.</p>
+          <p className="mt-4">&copy; 2026 CDM 2026. Tous droits réservés. Site non affiliéà la FIFA.</p>
         </div>
       </div>
     </footer>

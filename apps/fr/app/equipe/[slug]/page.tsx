@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${team.name} - Coupe du Monde 2026 | Effectif, Stats & Pronostics`,
-    description: `Tout sur ${team.name} a la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
+    description: `Tout sur ${team.name}à la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
     alternates: getAlternates("team", slug, "fr"),
     openGraph: {
       title: `${team.flag} ${team.name} - CDM 2026`,
@@ -72,14 +72,14 @@ export default async function TeamPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Equipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/equipes" className="hover:text-primary">Equipes</Link></li>
+            <li><Link href="/equipes" className="hover:text-primary">Équipes</Link></li>
             <li>/</li>
             <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">Groupe {team.group}</Link></li>
             <li>/</li>
@@ -145,7 +145,7 @@ export default async function TeamPage({ params }: PageProps) {
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{team.bestResult}</p>
-                  <p className="text-sm text-gray-500">Meilleur resultat</p>
+                  <p className="text-sm text-gray-500">Meilleur résultat</p>
                 </div>
               </div>
             </section>
@@ -309,7 +309,7 @@ export default async function TeamPage({ params }: PageProps) {
                   <dd className="font-medium">{team.wcAppearances}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Meilleur resultat</dt>
+                  <dt className="text-gray-500">Meilleur résultat</dt>
                   <dd className="font-medium">{team.bestResult}</dd>
                 </div>
               </dl>
@@ -400,7 +400,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Related Teams */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Equipes du groupe {team.group}</h3>
+              <h3 className="mb-4 text-lg font-bold">Équipes du groupe {team.group}</h3>
               <ul className="space-y-2">
                 {groupTeams.map((t) => (
                   <li key={t.id}>

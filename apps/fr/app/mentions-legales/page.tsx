@@ -41,7 +41,7 @@ export default function MentionsLegalesPage() {
             <h2 className="mb-3 text-xl font-bold text-gray-900">Hebergement</h2>
             <p>
               Ce site est heberge par Vercel Inc., 440 N Barranca Ave #4133,
-              Covina, CA 91723, Etats-Unis.
+              Covina, CA 91723, États-Unis.
             </p>
           </section>
 
@@ -50,8 +50,8 @@ export default function MentionsLegalesPage() {
               Propriete intellectuelle
             </h2>
             <p>
-              Ce site n&apos;est pas affilie a la FIFA ni a aucune organisation
-              officielle de la Coupe du Monde. Les noms d&apos;equipes, logos et
+              Ce site n&apos;est pas affiliéà la FIFA ni à aucune organisation
+              officielle de la Coupe du Monde. Les noms d&apos;équipes, logos et
               marques mentionnes appartiennent a leurs proprietaires respectifs.
             </p>
             <p className="mt-2">
@@ -66,7 +66,7 @@ export default function MentionsLegalesPage() {
             </h2>
             <p>
               Ce site peut contenir des liens d&apos;affiliation vers des
-              operateurs de paris sportifs agrees. Nous pouvons percevoir une
+              opérateurs de paris sportifs agréés. Nous pouvons percevoir une
               commission si vous vous inscrivez via ces liens. Cela n&apos;affecte
               pas le cout pour vous et n&apos;influence pas nos analyses ou
               pronostics.
@@ -79,7 +79,7 @@ export default function MentionsLegalesPage() {
             </h2>
             <p>
               Ce site ne collecte aucune donnee personnelle directement. Des
-              cookies tiers peuvent etre utilises par nos partenaires publicitaires
+              cookies tiers peuvent être utilises par nos partenaires publicitaires
               et d&apos;analyse. Vous pouvez configurer votre navigateur pour
               refuser les cookies.
             </p>

@@ -146,7 +146,7 @@ export default async function PlayerPage({ params }: PageProps) {
             {teammates.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
-                  Coequipiers en selection
+                  Coequipiers en sélection
                 </h2>
                 <div className="space-y-3">
                   {teammates.map((mate) => (
@@ -210,7 +210,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
             {team && (
               <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Equipe</h3>
+                <h3 className="mb-4 text-lg font-bold">Équipe</h3>
                 <Link
                   href={`/equipe/${team.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"

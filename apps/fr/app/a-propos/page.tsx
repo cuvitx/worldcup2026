@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "A propos",
   description:
-    "A propos de CDM 2026 : votre guide complet pour la Coupe du Monde 2026. Pronostics, statistiques et analyses pour les 48 equipes.",
+    "A propos de CDM 2026 : votre guide complet pour la Coupe du Monde 2026. Pronostics, statistiques et analyses pour les 48 équipes.",
 };
 
 export default function AProposPage() {
@@ -28,7 +28,7 @@ export default function AProposPage() {
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="text-4xl font-extrabold">A propos de CDM 2026</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Votre guide complet pour la premiere Coupe du Monde a 48 equipes.
+            Votre guide complet pour la première Coupe du Monde à 48 équipes.
           </p>
         </div>
       </section>
@@ -40,11 +40,11 @@ export default function AProposPage() {
               Notre mission
             </h2>
             <p>
-              CDM 2026 est un site independant dedie a la Coupe du Monde FIFA
-              2026 qui se deroulera du 11 juin au 19 juillet 2026 aux
-              Etats-Unis, au Canada et au Mexique. Notre objectif est de fournir
+              CDM 2026 est un site indépendant dédiéà la Coupe du Monde FIFA
+              2026 qui se déroulera du 11 juin au 19 juillet 2026 aux
+              États-Unis, au Canada et au Mexique. Notre objectif est de fournir
               les informations les plus completes et les analyses les plus
-              pertinentes sur cet evenement historique.
+              pertinentes sur cet événement historique.
             </p>
           </section>
 
@@ -54,9 +54,9 @@ export default function AProposPage() {
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-white border border-gray-200 p-4">
-                <h3 className="font-bold text-gray-900">Fiches equipes</h3>
+                <h3 className="font-bold text-gray-900">Fiches équipes</h3>
                 <p className="mt-1 text-sm">
-                  Analyses detaillees des 48 equipes qualifiees, avec effectifs,
+                  Analyses détaillées des 48 équipes qualifiées, avec effectifs,
                   statistiques et historique en Coupe du Monde.
                 </p>
               </div>
@@ -70,14 +70,14 @@ export default function AProposPage() {
               <div className="rounded-lg bg-white border border-gray-200 p-4">
                 <h3 className="font-bold text-gray-900">Comparaison de cotes</h3>
                 <p className="mt-1 text-sm">
-                  Comparaison des cotes des principaux bookmakers agrees pour
+                  Comparaison des cotes des principaux bookmakers agréés pour
                   vous aider a trouver les meilleures valeurs.
                 </p>
               </div>
               <div className="rounded-lg bg-white border border-gray-200 p-4">
                 <h3 className="font-bold text-gray-900">Guide pratique</h3>
                 <p className="mt-1 text-sm">
-                  Guides des 16 villes hotes et des stades, avec informations
+                  Guides des 16 villes hôtes et des stades, avec informations
                   pratiques pour les supporters.
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function AProposPage() {
               Nos analyses s&apos;appuient sur des donnees statistiques issues
               de sources publiques reconnues. Nos pronostics utilisent un modele
               algorithmique combinant les classements ELO, les statistiques
-              avancees (xG, possession, forme recente) et l&apos;historique des
+              avancées (xG, possession, forme récente) et l&apos;historique des
               confrontations directes.
             </p>
             <p className="mt-2">
@@ -108,8 +108,8 @@ export default function AProposPage() {
               Independance editoriale
             </h2>
             <p>
-              CDM 2026 est un site independant, non affilie a la FIFA ni a aucun
-              operateur de paris sportifs. Nos analyses et pronostics sont
+              CDM 2026 est un site indépendant, non affiliéà la FIFA ni à aucun
+              opérateur de paris sportifs. Nos analyses et pronostics sont
               realises en toute independance. Les liens d&apos;affiliation
               presents sur le site n&apos;influencent pas notre contenu
               editorial.
@@ -122,7 +122,7 @@ export default function AProposPage() {
             </h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               {[
-                { value: "48", label: "Equipes" },
+                { value: "48", label: "Équipes" },
                 { value: "104", label: "Matchs" },
                 { value: "16", label: "Villes hotes" },
                 { value: "3", label: "Pays hotes" },

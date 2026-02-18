@@ -15,7 +15,7 @@ export default function StadiumsPage() {
   const sorted = [...stadiums].sort((a, b) => b.capacity - a.capacity);
   const countries = ["USA", "Canada", "Mexico"] as const;
   const countryLabels: Record<string, string> = {
-    USA: "Etats-Unis",
+    USA: "États-Unis",
     Canada: "Canada",
     Mexico: "Mexique",
   };
@@ -36,7 +36,7 @@ export default function StadiumsPage() {
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-4xl font-extrabold">Les 16 stades de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
-            11 stades aux Etats-Unis, 3 au Mexique et 2 au Canada accueilleront les 104 matchs.
+            11 stades aux États-Unis, 3 au Mexique et 2 au Canada accueilleront les 104 matchs.
           </p>
         </div>
       </section>

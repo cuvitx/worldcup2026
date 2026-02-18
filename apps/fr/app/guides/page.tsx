@@ -19,18 +19,18 @@ export const metadata: Metadata = {
 export default function GuidesPage() {
   const categoryLabels: Record<string, string> = {
     cdm2026: "Coupe du Monde 2026",
-    strategie: "Strategies de paris",
+    stratégie: "Strategies de paris",
     bookmaker: "Bookmakers & comparatifs",
     debutant: "Guides debutant",
   };
   const categoryDescriptions: Record<string, string> = {
     cdm2026: "Tout ce qu'il faut savoir pour parier sur la CDM 2026.",
-    strategie: "Strategies avancees pour maximiser vos gains.",
+    stratégie: "Strategies avancées pour maximiser vos gains.",
     bookmaker: "Comparatifs et analyses des meilleurs bookmakers.",
     debutant: "Les bases des paris sportifs pour bien debuter.",
   };
 
-  const categories = ["cdm2026", "strategie", "bookmaker", "debutant"] as const;
+  const categories = ["cdm2026", "stratégie", "bookmaker", "debutant"] as const;
 
   return (
     <>
@@ -83,7 +83,7 @@ export default function GuidesPage() {
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="mb-2 text-xl font-bold">Avis bookmakers</h2>
           <p className="mb-4 text-sm text-gray-500">
-            Tests et avis detailles des meilleurs bookmakers agrees en France.
+            Tests et avis détaillés des meilleurs bookmakers agréés en France.
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {bookmakerReviews.map((bk) => (

@@ -38,7 +38,7 @@ export default function JeuResponsablePage() {
         <div className="space-y-8 text-gray-700 leading-relaxed">
           <div className="rounded-lg border-2 border-accent/30 bg-accent/5 p-6">
             <p className="text-lg font-bold text-accent">
-              Les jeux d&apos;argent et de hasard peuvent etre dangereux : pertes
+              Les jeux d&apos;argent et de hasard peuvent être dangereux : pertes
               d&apos;argent, conflits familiaux, addiction... Retrouvez nos
               conseils sur joueurs-info-service.fr (09 74 75 13 13 - appel non
               surtaxe).
@@ -59,7 +59,7 @@ export default function JeuResponsablePage() {
                 aucun gain.
               </li>
               <li>
-                Nous ne recommandons que des operateurs agrees par l&apos;Autorite
+                Nous ne recommandons que des opérateurs agréés par l&apos;Autorite
                 Nationale des Jeux (ANJ) en France.
               </li>
               <li>
@@ -118,7 +118,7 @@ export default function JeuResponsablePage() {
             <ul className="list-disc pl-6 space-y-2">
               <li>Vous pariez plus que ce que vous pouvez vous permettre de perdre</li>
               <li>Vous empruntez de l&apos;argent pour parier</li>
-              <li>Vous mentez a vos proches sur vos habitudes de jeu</li>
+              <li>Vous mentez à vos proches sur vos habitudes de jeu</li>
               <li>Vous pariez pour echapper a des problemes personnels</li>
               <li>Vous devenez anxieux ou irritable quand vous ne pariez pas</li>
               <li>Vous negligez votre travail ou vos relations a cause des paris</li>
@@ -163,7 +163,7 @@ export default function JeuResponsablePage() {
               Outils d&apos;auto-exclusion
             </h2>
             <p>
-              Tous les operateurs agrees par l&apos;ANJ proposent des outils
+              Tous les opérateurs agréés par l&apos;ANJ proposent des outils
               d&apos;auto-limitation et d&apos;auto-exclusion :
             </p>
             <ul className="mt-2 list-disc pl-6 space-y-1">
