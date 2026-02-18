@@ -12,7 +12,7 @@ import { generateExpert } from "./providers/claude";
 import { generateFactual, generateStandardPage } from "./providers/gemini";
 import { generateInfra, generateMetaDescription, translateContent } from "./providers/openai";
 import { aiCacheGet, aiCacheSet, aiCacheKey, AI_CACHE_TTL } from "./cache";
-import { matchPreviewSchema, expertInsightSchema } from "./schemas";
+import { matchPreviewSchema, expertInsightSchema, teamAnalysisSchema, metaDescriptionSchema, translationSchema, jsonLdSchema } from "./schemas";
 import { sanitizeForPrompt } from "./sanitize";
 import { logAiError } from "./monitoring";
 
@@ -115,7 +115,16 @@ export async function generateTeamAnalysis(
   );
   if (!result) return null;
 
-  const output = { content: result.content };
+  const raw = { content: result.content };
+  const validated = teamAnalysisSchema.safeParse(raw);
+  let output: { content: string };
+  if (validated.success) {
+    output = validated.data;
+  } else {
+    console.warn("[ai-orchestrator] Team analysis validation failed:", validated.error.issues.map(i => i.message));
+    output = { content: raw.content || `Analyse de l'équipe ${teamSlug} — données temporairement indisponibles.` };
+  }
+
   await aiCacheSet(key, JSON.stringify(output), AI_CACHE_TTL.STANDARD_PAGE);
   return output;
 }
@@ -311,8 +320,17 @@ export async function generatePageMeta(
   const result = await generateMetaDescription(pageTitle, pageContent, language);
   if (!result) return null;
 
-  await aiCacheSet(key, result, AI_CACHE_TTL.META_DESCRIPTION);
-  return result;
+  const validated = metaDescriptionSchema.safeParse(result);
+  let output: string;
+  if (validated.success) {
+    output = validated.data;
+  } else {
+    console.warn("[ai-orchestrator] Meta description validation failed:", validated.error.issues.map(i => i.message));
+    output = `${pageTitle} — Coupe du Monde 2026`;
+  }
+
+  await aiCacheSet(key, output, AI_CACHE_TTL.META_DESCRIPTION);
+  return output;
 }
 
 /**
@@ -332,8 +350,17 @@ export async function translatePage(
   const result = await translateContent(content, fromLang, toLang);
   if (!result) return null;
 
-  await aiCacheSet(key, result, AI_CACHE_TTL.TRANSLATION);
-  return result;
+  const validated = translationSchema.safeParse(result);
+  let output: string;
+  if (validated.success) {
+    output = validated.data;
+  } else {
+    console.warn("[ai-orchestrator] Translation validation failed:", validated.error.issues.map(i => i.message));
+    output = content; // fallback: return original content
+  }
+
+  await aiCacheSet(key, output, AI_CACHE_TTL.TRANSLATION);
+  return output;
 }
 
 /**
@@ -354,6 +381,15 @@ export async function generateJsonLd(
   );
   if (!result) return null;
 
-  await aiCacheSet(key, result.content, AI_CACHE_TTL.META_DESCRIPTION);
-  return result.content;
+  const validated = jsonLdSchema.safeParse(result.content);
+  let output: string;
+  if (validated.success) {
+    output = validated.data;
+  } else {
+    console.warn("[ai-orchestrator] JSON-LD validation failed:", validated.error.issues.map(i => i.message));
+    output = JSON.stringify({ "@context": "https://schema.org", "@type": pageType, "name": "Coupe du Monde 2026" });
+  }
+
+  await aiCacheSet(key, output, AI_CACHE_TTL.META_DESCRIPTION);
+  return output;
 }

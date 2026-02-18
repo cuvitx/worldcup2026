@@ -35,3 +35,24 @@ export const expertInsightSchema = z.object({
 });
 
 export type ValidatedExpertInsight = z.infer<typeof expertInsightSchema>;
+
+/** Team analysis content */
+export const teamAnalysisSchema = z.object({
+  content: z.string().min(1, "Team analysis content cannot be empty"),
+});
+
+export type ValidatedTeamAnalysis = z.infer<typeof teamAnalysisSchema>;
+
+/** Meta description — simple string validation */
+export const metaDescriptionSchema = z.string().min(1).max(320);
+
+/** Translation output — non-empty string */
+export const translationSchema = z.string().min(1);
+
+/** JSON-LD structured data — must be valid JSON string */
+export const jsonLdSchema = z.string().min(2).refine(
+  (val) => {
+    try { JSON.parse(val); return true; } catch { return false; }
+  },
+  { message: "JSON-LD must be valid JSON" }
+);
