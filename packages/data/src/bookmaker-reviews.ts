@@ -48,21 +48,21 @@ export const bookmakerReviews: BookmakerReview[] = [
     url: "#betclic",
     foundedYear: 2005,
     license: "ANJ (France)",
-    description: "Betclic est le leader des paris sportifs en France avec plus de 10 millions de clients europeens. La plateforme se distingue par son interface intuitive, ses cotes competitives et son application mobile reconnue comme l'une des meilleures du marche. Pour la Coupe du Monde 2026, Betclic proposera une couverture complete avec des marches specifiques sur chaque match.",
-    prosConsIntro: "Betclic est un choix solide pour les parieurs, que vous soyez debutant ou expert. Voici notre analyse detaillee.",
+    description: "Betclic est le leader des paris sportifs en France avec plus de 10 millions de clients europeens. La plateforme se distingue par son interface intuitive, ses cotes compétitives et son application mobile reconnue comme l'une des meilleures du marché. Pour la Coupe du Monde 2026, Betclic proposera une couverture complète avec des marchés spécifiques sur chaque match.",
+    prosConsIntro: "Betclic est un choix solide pour les parieurs, que vous soyez débutant ou expert. Voici notre analyse detaillee.",
     pros: [
-      "Cotes parmi les plus competitives du marche francais",
+      "Cotes parmi les plus compétitives du marché francais",
       "Application mobile excellente (iOS et Android)",
       "Interface fluide et navigation intuitive",
       "Large choix de paris : 1N2, buts, buteurs, mi-temps, corners",
-      "Bonus de bienvenue genereux avec conditions claires",
+      "Bonus de bienvenue généreux avec conditions claires",
       "Cash out disponible sur la plupart des paris",
-      "Paris en direct avec streaming sur certains evenements",
-      "Service client reactif par chat en direct"
+      "Paris en direct avec streaming sur certains événements",
+      "Service client réactif par chat en direct"
     ],
     cons: [
       "Pas de streaming video sur tous les matchs",
-      "Promotions regulieres parfois moins frequentes que la concurrence",
+      "Promotions regulieres parfois moins fréquentes que la concurrence",
       "Delais de retrait de 24-48h sur certains moyens de paiement"
     ],
     ratings: { bonus: 5, odds: 5, app: 5, live: 4, support: 4, withdrawal: 4 },
@@ -76,15 +76,15 @@ export const bookmakerReviews: BookmakerReview[] = [
     sections: [
       {
         title: "Betclic pour la Coupe du Monde 2026",
-        content: "Betclic sera l'un des bookmakers les plus actifs pour la CDM 2026. Attendez-vous a des cotes boostees sur les matchs des equipes favorites, des paris speciaux (meilleur buteur, nombre de buts, premiere equipe a marquer) et des promotions quotidiennes pendant toute la duree du tournoi. L'interface permettra de suivre tous les matchs en temps reel avec des statistiques en direct."
+        content: "Betclic sera l'un des bookmakers les plus actifs pour la CDM 2026. Attendez-vous a des cotes boostees sur les matchs des équipes favorites, des paris speciaux (meilleur buteur, nombre de buts, première équipe a marquer) et des promotions quotidiennes pendant toute la durée du tournoi. L'interface permettra de suivre tous les matchs en temps réel avec des statistiques en direct."
       },
       {
         title: "Comment s'inscrire sur Betclic",
-        content: "L'inscription sur Betclic est simple et rapide. Creez votre compte en 2 minutes, verifiez votre identite (piece d'identite requise par la reglementation ANJ), effectuez votre premier depot (minimum 10€) et profitez immediatement du bonus de bienvenue. Le bonus est credite sous forme de freebets des que votre premier pari est traite."
+        content: "L'inscription sur Betclic est simple et rapide. Creez votre compte en 2 minutes, verifiez votre identité (piece d'identité requise par la réglementation ANJ), effectuez votre premier dépôt (minimum 10€) et profitez immediatement du bonus de bienvenue. Le bonus est credite sous forme de freebets des que votre premier pari est traite."
       },
       {
         title: "Types de paris disponibles",
-        content: "Betclic propose une gamme complete de marches pour chaque match de la CDM 2026 : resultat final (1N2), double chance, nombre de buts (plus/moins), les deux equipes marquent, score exact, buteur (premier, dernier, a tout moment), mi-temps/fin de match, handicap asiatique, nombre de corners, cartons, et bien plus. Les cotes sont mises a jour en temps reel pendant les matchs."
+        content: "Betclic propose une gamme complète de marchés pour chaque match de la CDM 2026 : résultat final (1N2), double chance, nombre de buts (plus/moins), les deux équipes marquent, score exact, buteur (premier, dernier, a tout moment), mi-temps/fin de match, handicap asiatique, nombre de corners, cartons, et bien plus. Les cotes sont mises a jour en temps réel pendant les matchs."
       },
       {
         title: "Retrait des gains",
@@ -96,22 +96,22 @@ export const bookmakerReviews: BookmakerReview[] = [
     id: "winamax",
     name: "Winamax",
     slug: "winamax",
-    tagline: "Le bookmaker prefere des Francais",
+    tagline: "Le bookmaker préféré des Francais",
     bonus: "100€ offerts",
     bonusDetail: "sur votre 1er pari",
     url: "#winamax",
     foundedYear: 2010,
     license: "ANJ (France)",
-    description: "Winamax est le bookmaker le plus populaire en France, connu pour sa communaute active, ses cotes elevees et sa plateforme de poker integree. Winamax se distingue par ses campagnes marketing decalees et son engagement aupres de la communaute sportive francaise. Pour la CDM 2026, Winamax promet des offres exceptionnelles et une couverture en profondeur.",
-    prosConsIntro: "Winamax est incontournable sur le marche francais. Voici pourquoi il merite votre attention pour la CDM 2026.",
+    description: "Winamax est le bookmaker le plus populaire en France, connu pour sa communauté active, ses cotes élevées et sa plateforme de poker intégrée. Winamax se distingue par ses campagnes marketing decalees et son engagement aupres de la communauté sportive francaise. Pour la CDM 2026, Winamax promet des offres exceptionnelles et une couverture en profondeur.",
+    prosConsIntro: "Winamax est incontournable sur le marché francais. Voici pourquoi il mérite votre attention pour la CDM 2026.",
     pros: [
-      "Cotes tres elevees, souvent les meilleures du marche",
+      "Cotes tres élevées, souvent les meilleures du marché",
       "Communaute active et fonctionnalites sociales",
-      "Application mobile tres bien notee",
+      "Application mobile tres bien notée",
       "Poker et paris sportifs sur la meme plateforme",
       "Promotions regulieres et paris boostes quotidiens",
       "Cash out partiel et total disponible",
-      "Interface moderne et agreable"
+      "Interface moderne et agréable"
     ],
     cons: [
       "Service client parfois lent aux heures de pointe",
@@ -129,15 +129,15 @@ export const bookmakerReviews: BookmakerReview[] = [
     sections: [
       {
         title: "Winamax pour la Coupe du Monde 2026",
-        content: "Winamax mise tout sur la CDM 2026 avec des cotes boostees, des paris gratuits et des defis communautaires. La plateforme proposera des MyMatch (paris personnalises combinant plusieurs selections sur un meme match) et des super cotes quotidiennes. Les parieurs reguliers beneficieront du programme de fidelite avec des freebets supplementaires."
+        content: "Winamax mise tout sur la CDM 2026 avec des cotes boostees, des paris gratuits et des defis communautaires. La plateforme proposera des MyMatch (paris personnalises combinant plusieurs sélections sur un meme match) et des super cotes quotidiennes. Les parieurs réguliers beneficieront du programme de fidélité avec des freebets supplémentaires."
       },
       {
         title: "Comment s'inscrire sur Winamax",
-        content: "Creez votre compte Winamax en quelques minutes. L'inscription necessite une piece d'identite pour la verification (obligatoire par la loi). Deposez au minimum 10€ et placez votre premier pari pour debloquer le bonus de bienvenue de 100€."
+        content: "Creez votre compte Winamax en quelques minutes. L'inscription necessite une piece d'identité pour la vérification (obligatoire par la loi). Deposez au minimum 10€ et placez votre premier pari pour debloquer le bonus de bienvenue de 100€."
       },
       {
         title: "Les MyMatch Winamax",
-        content: "La fonctionnalite phare de Winamax pour la CDM sera les MyMatch : combinez plusieurs selections sur un meme match (par exemple : victoire France + Mbappe buteur + plus de 2.5 buts) pour obtenir une cote combinee attractive. Ideal pour les parieurs qui aiment construire leurs propres paris."
+        content: "La fonctionnalite phare de Winamax pour la CDM sera les MyMatch : combinez plusieurs sélections sur un meme match (par exemple : victoire France + Mbappe buteur + plus de 2.5 buts) pour obtenir une cote combinee attractive. Ideal pour les parieurs qui aiment construire leurs propres paris."
       },
       {
         title: "Retrait des gains",
@@ -155,20 +155,20 @@ export const bookmakerReviews: BookmakerReview[] = [
     url: "#parionssport",
     foundedYear: 1985,
     license: "ANJ (France) - Groupe FDJ",
-    description: "Parions Sport en Ligne est l'offre de paris sportifs de la Francaise des Jeux (FDJ), l'operateur historique des jeux en France. La marque beneficie d'une confiance institutionnelle forte et d'un reseau de points de vente physiques. Pour la CDM 2026, Parions Sport proposera des offres accessibles et adaptees a tous les niveaux de parieurs.",
-    prosConsIntro: "Parions Sport est le choix de confiance par excellence. Voici notre avis detaille.",
+    description: "Parions Sport en Ligne est l'offre de paris sportifs de la Française des Jeux (FDJ), l'opérateur historique des jeux en France. La marque beneficie d'une confiance institutionnelle forte et d'un réseau de points de vente physiques. Pour la CDM 2026, Parions Sport proposera des offres accessibles et adaptees a tous les niveaux de parieurs.",
+    prosConsIntro: "Parions Sport est le choix de confiance par excellence. Voici notre avis détaillé.",
     pros: [
       "Marque de confiance (groupe FDJ)",
       "Bonus sans conditions de mise strictes",
       "Points de vente physiques (buralistes)",
       "Offres Point de vente + En ligne combinees",
-      "Interface simple et accessible aux debutants",
+      "Interface simple et accessible aux débutants",
       "Cotes stables et fiables"
     ],
     cons: [
-      "Cotes legerement inferieures a Betclic/Winamax",
+      "Cotes légèrement inferieures a Betclic/Winamax",
       "Application moins moderne que la concurrence",
-      "Moins de marches de paris disponibles",
+      "Moins de marchés de paris disponibles",
       "Pas de cash out sur tous les paris"
     ],
     ratings: { bonus: 4, odds: 3, app: 3, live: 3, support: 4, withdrawal: 5 },
@@ -182,11 +182,11 @@ export const bookmakerReviews: BookmakerReview[] = [
     sections: [
       {
         title: "Parions Sport pour la Coupe du Monde 2026",
-        content: "La FDJ mettra le paquet pour la CDM 2026 avec des offres speciales en points de vente et en ligne. Les grilles multi-matchs seront disponibles pour combiner plusieurs pronostics, et des cotes boostees seront proposees sur les matchs de l'equipe de France. L'avantage de Parions Sport est la possibilite de parier en bureau de tabac."
+        content: "La FDJ mettra le paquet pour la CDM 2026 avec des offres speciales en points de vente et en ligne. Les grilles multi-matchs seront disponibles pour combiner plusieurs pronostics, et des cotes boostees seront proposees sur les matchs de l'équipe de France. L'avantage de Parions Sport est la possibilité de parier en bureau de tabac."
       },
       {
         title: "Comment s'inscrire sur Parions Sport",
-        content: "L'inscription en ligne prend quelques minutes. Vous pouvez aussi parier directement dans un bureau de tabac participant. Pour l'offre en ligne, creez votre compte, verifiez votre identite et deposez au minimum 5€ (le depot minimum le plus bas du marche)."
+        content: "L'inscription en ligne prend quelques minutes. Vous pouvez aussi parier directement dans un bureau de tabac participant. Pour l'offre en ligne, creez votre compte, verifiez votre identité et deposez au minimum 5€ (le dépôt minimum le plus bas du marché)."
       },
       {
         title: "Les grilles multi-matchs",
@@ -194,7 +194,7 @@ export const bookmakerReviews: BookmakerReview[] = [
       },
       {
         title: "Retrait des gains",
-        content: "Les retraits sont traites en 24 a 48h. Parions Sport est repute pour ses delais de traitement rapides, beneficiant de l'infrastructure du groupe FDJ."
+        content: "Les retraits sont traites en 24 a 48h. Parions Sport est réputé pour ses délais de traitement rapides, beneficiant de l'infrastructure du groupe FDJ."
       }
     ]
   },
@@ -208,19 +208,19 @@ export const bookmakerReviews: BookmakerReview[] = [
     url: "#unibet",
     foundedYear: 1997,
     license: "ANJ (France) - Groupe Kindred",
-    description: "Unibet est un operateur international present dans plus de 100 pays. En France, il est agree par l'ANJ et propose une offre de paris sportifs complete avec une expertise reconnue dans le football. Unibet se distingue par la profondeur de ses marches de paris et ses outils statistiques integres.",
+    description: "Unibet est un opérateur international present dans plus de 100 pays. En France, il est agréé par l'ANJ et propose une offre de paris sportifs complète avec une expertise reconnue dans le football. Unibet se distingue par la profondeur de ses marchés de paris et ses outils statistiques intégrés.",
     prosConsIntro: "Unibet combine expertise internationale et presence locale. Un excellent choix pour les parieurs avises.",
     pros: [
-      "Tres grande profondeur de marches de paris",
-      "Statistiques et analyses integrees a la plateforme",
-      "Live streaming sur de nombreux evenements",
+      "Tres grande profondeur de marchés de paris",
+      "Statistiques et analyses intégrées a la plateforme",
+      "Live streaming sur de nombreux événements",
       "Experience internationale de plus de 25 ans",
       "Cash out flexible (partiel et total)",
       "Section actualites et pronostics d'experts"
     ],
     cons: [
-      "Interface parfois complexe pour les debutants",
-      "Cotes legerement en dessous des leaders",
+      "Interface parfois complexe pour les débutants",
+      "Cotes légèrement en dessous des leaders",
       "Application mobile a ameliorer",
       "Bonus de bienvenue avec conditions de mise"
     ],
@@ -235,15 +235,15 @@ export const bookmakerReviews: BookmakerReview[] = [
     sections: [
       {
         title: "Unibet pour la Coupe du Monde 2026",
-        content: "Unibet proposera une couverture premium de la CDM 2026 avec live streaming de certains matchs, des marches de paris parmi les plus profonds du marche (plus de 200 marches par match) et des statistiques en temps reel. Les parieurs experts apprecieront la granularite des options : handicaps asiatiques, paris joueurs, statistiques detaillees."
+        content: "Unibet proposera une couverture premium de la CDM 2026 avec live streaming de certains matchs, des marchés de paris parmi les plus profonds du marché (plus de 200 marchés par match) et des statistiques en temps réel. Les parieurs experts apprecieront la granularite des options : handicaps asiatiques, paris joueurs, statistiques détaillées."
       },
       {
         title: "Comment s'inscrire sur Unibet",
-        content: "Creez votre compte en ligne en 3 minutes, verifiez votre identite et effectuez un premier depot de 10€ minimum. Le bonus de bienvenue de 100€ est credite sous forme de paris gratuits apres la validation de votre premier pari."
+        content: "Creez votre compte en ligne en 3 minutes, verifiez votre identité et effectuez un premier dépôt de 10€ minimum. Le bonus de bienvenue de 100€ est credite sous forme de paris gratuits apres la validation de votre premier pari."
       },
       {
         title: "Les statistiques Unibet",
-        content: "Le point fort d'Unibet est son outil statistique integre. Pour chaque match, vous aurez acces aux statistiques detaillees des equipes et des joueurs : possession, tirs, passes, xG, confrontations directes. Un avantage decisif pour faire des paris eclaires pendant la CDM."
+        content: "Le point fort d'Unibet est son outil statistique intégré. Pour chaque match, vous aurez accès aux statistiques détaillées des équipes et des joueurs : possession, tirs, passes, xG, confrontations directes. Un avantage decisif pour faire des paris eclaires pendant la CDM."
       },
       {
         title: "Retrait des gains",
@@ -255,17 +255,17 @@ export const bookmakerReviews: BookmakerReview[] = [
     id: "zebet",
     name: "ZEbet",
     slug: "zebet",
-    tagline: "Le challenger genereux",
+    tagline: "Le challenger généreux",
     bonus: "150€ offerts",
     bonusDetail: "sur votre 1er pari",
     url: "#zebet",
     foundedYear: 2014,
     license: "ANJ (France) - Groupe ZEturf",
-    description: "ZEbet est un bookmaker francais du groupe ZEturf qui se demarque par son bonus de bienvenue parmi les plus genereux du marche (150€). La plateforme cible les parieurs a la recherche de valeur avec des cotes competitives et des promotions regulieres. ZEbet est particulierement actif sur les grands evenements sportifs.",
+    description: "ZEbet est un bookmaker francais du groupe ZEturf qui se démarque par son bonus de bienvenue parmi les plus généreux du marché (150€). La plateforme cible les parieurs a la recherche de valeur avec des cotes compétitives et des promotions regulieres. ZEbet est particulierement actif sur les grands événements sportifs.",
     prosConsIntro: "ZEbet mise sur la generosite pour attirer les parieurs. Un outsider a ne pas negliger.",
     pros: [
-      "Bonus de bienvenue le plus eleve du marche (150€)",
-      "Cotes competitives sur les grands evenements",
+      "Bonus de bienvenue le plus élevé du marché (150€)",
+      "Cotes compétitives sur les grands événements",
       "Promotions regulieres et challenges",
       "Interface simple et efficace",
       "Bon service client par chat",
@@ -274,7 +274,7 @@ export const bookmakerReviews: BookmakerReview[] = [
     cons: [
       "Moins connu que Betclic/Winamax",
       "Application mobile basique",
-      "Moins de marches de paris que les leaders",
+      "Moins de marchés de paris que les leaders",
       "Pas de live streaming"
     ],
     ratings: { bonus: 5, odds: 4, app: 3, live: 2, support: 4, withdrawal: 4 },
@@ -288,15 +288,15 @@ export const bookmakerReviews: BookmakerReview[] = [
     sections: [
       {
         title: "ZEbet pour la Coupe du Monde 2026",
-        content: "ZEbet promet des offres agressives pour la CDM 2026 avec le bonus le plus eleve du marche francais. Attendez-vous a des cotes boostees sur les matchs les plus populaires et des challenges communautaires avec des lots supplementaires. ZEbet est un excellent second bookmaker pour profiter d'un bonus supplementaire."
+        content: "ZEbet promet des offres agressives pour la CDM 2026 avec le bonus le plus élevé du marché francais. Attendez-vous a des cotes boostees sur les matchs les plus populaires et des challenges communautaires avec des lots supplémentaires. ZEbet est un excellent second bookmaker pour profiter d'un bonus supplémentaire."
       },
       {
         title: "Comment s'inscrire sur ZEbet",
-        content: "Inscription rapide en quelques minutes. Deposez au minimum 10€ et placez votre premier pari pour beneficier du bonus de 150€ en freebets. La verification d'identite est requise dans les 30 jours suivant l'inscription."
+        content: "Inscription rapide en quelques minutes. Deposez au minimum 10€ et placez votre premier pari pour bénéficier du bonus de 150€ en freebets. La vérification d'identité est requise dans les 30 jours suivant l'inscription."
       },
       {
         title: "Challenges et promotions",
-        content: "ZEbet organise regulierement des challenges ou les parieurs accumulent des points en placant des paris, echangeables contre des freebets. Pendant la CDM 2026, des challenges speciaux seront organises chaque semaine."
+        content: "ZEbet organisé régulièrement des challenges ou les parieurs accumulent des points en placant des paris, echangeables contre des freebets. Pendant la CDM 2026, des challenges speciaux seront organises chaque semaine."
       },
       {
         title: "Retrait des gains",

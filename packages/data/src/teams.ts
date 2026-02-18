@@ -21,7 +21,7 @@ export const teams: Team[] = [
     wcAppearances: 17,
     bestResult: "Quart de finaliste (1970, 1986)",
     description:
-      "Co-organisateur du Mondial 2026, le Mexique disputera sa 18e Coupe du monde. La Tri cherche \u00e0 d\u00e9passer enfin le stade des quarts de finale, un plafond de verre r\u00e9current depuis plusieurs d\u00e9cennies.",
+      "Co-organisateur du Mondial 2026, le Mexique disputera sa 18e Coupe du monde, un record pour une équipe non européenne et non sud-américaine. La Tri a atteint les huitièmes de finale lors des sept dernières éditions consécutives (1994-2018) avant une élimination en phase de groupes au Qatar en 2022. Ce plafond de verre des quarts de finale hante le football mexicain depuis 1986, année où le pays hôte avait atteint ce stade à domicile. Le Mexique s'appuie sur un style de jeu technique et offensif, avec une tradition de milieux créatifs et d'ailiers rapides. L'effectif actuel mêle l'expérience de joueurs évoluant en Liga MX et la fraîcheur de talents expatriés en Europe. L'avantage du terrain, notamment à l'Estadio Azteca et son altitude de 2 240 mètres, sera un atout considérable. La pression sera immense pour cette génération qui rêve de briser la malédiction et d'offrir enfin un quart de finale, voire mieux, au peuple mexicain passionné de football.",
   },
   {
     id: "afrique-du-sud",
@@ -36,7 +36,7 @@ export const teams: Team[] = [
     wcAppearances: 4,
     bestResult: "Phase de groupes (1998, 2002, 2010)",
     description:
-      "De retour en Coupe du monde pour la premi\u00e8re fois depuis 2010, o\u00f9 les Bafana Bafana avaient accueilli la comp\u00e9tition sur leur sol. L\u2019Afrique du Sud esp\u00e8re enfin franchir la phase de groupes.",
+      "De retour en Coupe du monde pour la première fois depuis 2010, où les Bafana Bafana avaient accueilli la compétition sur leur sol, l'Afrique du Sud espère enfin franchir la phase de groupes, un objectif jamais atteint en quatre participations. En 2010, malgré l'enthousiasme populaire, les Sud-Africains étaient devenus le premier pays hôte éliminé dès le premier tour. L'équipe a traversé une longue période de reconstruction, manquant les Mondiaux 2014, 2018 et 2022. Le football sud-africain s'appuie sur un championnat national compétitif (Premier Soccer League) et quelques talents évoluant en Europe. Le style de jeu privilégie la solidité défensive et les transitions rapides. Cette qualification pour 2026 marque un renouveau pour une nation qui reste la plus grande puissance économique du continent africain. Les Bafana Bafana devront faire face à des adversaires de calibre supérieur en phase de groupes, mais l'expérience d'avoir accueilli un Mondial et la faim d'un peuple passionné de football pourraient être des facteurs de motivation déterminants.",
   },
   {
     id: "coree-du-sud",
@@ -51,7 +51,7 @@ export const teams: Team[] = [
     wcAppearances: 11,
     bestResult: "Demi-finaliste (2002)",
     description:
-      "La Cor\u00e9e du Sud, demi-finaliste historique en 2002 \u00e0 domicile, participe \u00e0 sa 12e Coupe du monde cons\u00e9cutive. Les Guerriers Taeguk misent sur une nouvelle g\u00e9n\u00e9ration de talent pour briller en 2026.",
+      "La Corée du Sud, demi-finaliste historique en 2002 à domicile, participe à sa 12e Coupe du monde consécutive, un record de régularité en Asie. Les Guerriers Taeguk ont marqué l'histoire en éliminant l'Espagne et l'Italie lors du Mondial 2002, atteignant le dernier carré dans une compétition co-organisée avec le Japon. Depuis, la Corée du Sud a confirmé son statut de puissance asiatique avec des huitièmes de finale en 2010 et une victoire mémorable contre l'Allemagne en 2018. Au Qatar en 2022, les Sud-Coréens ont de nouveau atteint les huitièmes de finale grâce à un succès retentissant face au Portugal. Le style coréen se caractérise par une intensité physique remarquable, une discipline tactique rigoureuse et des transitions offensives fulgurantes. Son Heung-min, star de Tottenham et meilleur joueur asiatique de sa génération, reste le leader incontesté de cette sélection. L'effectif comprend également plusieurs joueurs évoluant dans les grands championnats européens. La Corée du Sud vise au minimum les huitièmes de finale et rêve secrètement de retrouver les sommets de 2002.",
   },
   {
     id: "barrage-uefa-d",
@@ -83,7 +83,7 @@ export const teams: Team[] = [
     wcAppearances: 2,
     bestResult: "Phase de groupes (1986, 2022)",
     description:
-      "Co-organisateur du Mondial 2026, le Canada participe \u00e0 sa troisi\u00e8me Coupe du monde. Apr\u00e8s leur retour remarqu\u00e9 au Qatar en 2022, les Canucks esp\u00e8rent profiter de l\u2019avantage du terrain.",
+      "Co-organisateur du Mondial 2026, le Canada participe à sa troisième Coupe du monde après une première apparition en 1986 au Mexique et un retour remarqué au Qatar en 2022 après 36 ans d'absence. Les Canucks, emmenés par Alphonso Davies (Bayern Munich), l'un des latéraux les plus rapides et les plus talentueux du monde, espèrent profiter de l'avantage du terrain à Toronto et Vancouver. Le football canadien a connu une croissance spectaculaire ces dernières années, portée par la Canadian Premier League et la présence de trois franchises MLS (Toronto FC, CF Montréal, Vancouver Whitecaps). La génération actuelle est la plus talentueuse de l'histoire du pays, avec Jonathan David (Lille), buteur prolifique en Ligue 1, et Cyle Larin. Le style canadien est athlétique et direct, avec une vitesse de transition qui peut déstabiliser n'importe quel adversaire. L'engouement populaire pour le football est en plein essor au Canada, un pays traditionnellement dominé par le hockey sur glace. En 2026, jouer à domicile sera un avantage considérable, et le Canada vise au minimum les huitièmes de finale.",
   },
   {
     id: "suisse",
@@ -98,7 +98,7 @@ export const teams: Team[] = [
     wcAppearances: 12,
     bestResult: "Quart de finaliste (1934, 1938, 1954)",
     description:
-      "La Nati est devenue une habitu\u00e9e des grandes comp\u00e9titions. Quart de finaliste de l\u2019Euro 2020 et r\u00e9guli\u00e8rement pr\u00e9sente en huiti\u00e8mes de finale, la Suisse vise un parcours ambitieux en 2026.",
+      "La Nati est devenue une habituée des grandes compétitions, participant régulièrement aux phases finales des Coupes du monde et des championnats d'Europe. Quart de finaliste de l'Euro 2020 après avoir éliminé la France aux tirs au but (un exploit retentissant), la Suisse a confirmé son statut parmi les meilleures équipes européennes. En Coupe du monde, le meilleur résultat reste les quarts de finale en 1934, 1938 et 1954, mais la Nati a régulièrement atteint les huitièmes de finale ces dernières éditions (2006, 2014, 2018). Le football suisse bénéficie d'un modèle multiculturel unique, avec des joueurs d'origines diverses (albanaise, turque, portugaise, africaine) formés dans les excellents centres du pays. Granit Xhaka (Bayer Leverkusen), champion d'Allemagne invaincu en 2024, est le leader emblématique de cette équipe. Le style suisse est discipliné et tactiquement sophistiqué, avec une capacité à s'adapter à différents systèmes de jeu. L'effectif est solide sans être spectaculaire, compensant par un esprit collectif et une mentalité de compétiteurs. En 2026, la Suisse vise un parcours ambitieux et rêve d'atteindre les quarts de finale pour la première fois dans l'ère moderne.",
   },
   {
     id: "qatar",
@@ -113,7 +113,7 @@ export const teams: Team[] = [
     wcAppearances: 2,
     bestResult: "Phase de groupes (2022)",
     description:
-      "Apr\u00e8s avoir organis\u00e9 le Mondial 2022, le Qatar a r\u00e9ussi \u00e0 se qualifier sportivement pour la premi\u00e8re fois. Le champion d\u2019Asie 2023 esp\u00e8re faire mieux qu\u2019une \u00e9limination au premier tour.",
+      "Après avoir organisé le Mondial 2022, le Qatar a réussi à se qualifier sportivement pour la première fois, démontrant que l'héritage de 2022 porte ses fruits. Champion d'Asie en 2019 (exploit retentissant) et finaliste en 2023, le Qatar s'est imposé comme une puissance du football asiatique. Lors du Mondial 2022, en tant que pays hôte, les Qataris avaient été éliminés dès la phase de groupes avec trois défaites, devenant le premier pays hôte de l'histoire à perdre son match d'ouverture. Le football qatari a bénéficié d'investissements massifs dans les infrastructures et la formation, avec l'Aspire Academy comme fer de lance. Le championnat national (Qatar Stars League) a accueilli des stars internationales. Le style de jeu est technique et organisé, influencé par les entraîneurs espagnols et sud-américains qui ont façonné le football local. Akram Afif, Ballon d'Or asiatique, est le joueur vedette de cette sélection. En 2026, le Qatar espère faire mieux que lors de son Mondial à domicile et rivaliser avec les équipes européennes et sud-américaines de son groupe.",
   },
   {
     id: "barrage-uefa-a",
@@ -145,7 +145,7 @@ export const teams: Team[] = [
     wcAppearances: 22,
     bestResult: "Vainqueur (1958, 1962, 1970, 1994, 2002)",
     description:
-      "Quintuple champion du monde et seule nation \u00e0 avoir disput\u00e9 toutes les \u00e9ditions de la Coupe du monde. La Sele\u00e7\u00e3o cherche \u00e0 reconqu\u00e9rir le titre apr\u00e8s plus de vingt ans sans troph\u00e9e mondial.",
+      "Quintuple champion du monde (1958, 1962, 1970, 1994, 2002) et seule nation à avoir disputé toutes les éditions de la Coupe du monde, le Brésil est la sélection la plus titrée de l'histoire. La Seleção cherche à reconquérir le trophée après plus de vingt ans sans sacre mondial, la dernière victoire remontant à 2002 au Japon et en Corée du Sud avec Ronaldo, Rivaldo et Ronaldinho. Depuis, le Brésil a connu des désillusions marquantes : l'humiliation du 7-1 à domicile contre l'Allemagne en 2014, et des éliminations en quarts de finale en 2018 et 2022. Le football brésilien reste synonyme de créativité, de technique individuelle et de flair offensif, même si les sélections récentes ont adopté un jeu plus pragmatique. Vinicius Jr., Rodrygo et Endrick représentent la nouvelle vague de talents formés dans les académies brésiliennes et épanouis dans les plus grands clubs européens. La profondeur de l'effectif est impressionnante à tous les postes. Le Brésil reste un favori naturel de toute Coupe du monde et l'édition 2026 ne fait pas exception, avec l'ambition de ramener le sixième titre tant espéré.",
   },
   {
     id: "maroc",
@@ -160,7 +160,7 @@ export const teams: Team[] = [
     wcAppearances: 7,
     bestResult: "Demi-finaliste (2022)",
     description:
-      "R\u00e9v\u00e9lation du Mondial 2022 avec une historique demi-finale, le Maroc est d\u00e9sormais dans le top 10 mondial. Les Lions de l\u2019Atlas ambitionnent de confirmer leur statut de puissance du football africain.",
+      "Révélation du Mondial 2022 avec une historique demi-finale au Qatar, le Maroc est désormais solidement installé dans le top 10 mondial. Les Lions de l'Atlas ont éliminé la Belgique, l'Espagne et le Portugal avant de s'incliner face à la France en demi-finale, devenant la première équipe africaine à atteindre ce stade de la compétition. Ce parcours épique, porté par une défense de fer emmenée par Achraf Hakimi et une solidarité collective exceptionnelle, a transformé le statut du football marocain. Avant 2022, le Maroc avait participé à cinq Mondiaux (1970, 1986, 1994, 1998, 2018) sans jamais dépasser le premier tour, à l'exception d'un huitième de finale en 1986. Le style de jeu marocain allie rigueur défensive européenne et ferveur africaine, avec des joueurs formés dans les meilleures académies d'Europe. L'effectif est remarquablement riche avec des éléments évoluant au Real Madrid, au PSG, au Bayern Munich et dans les meilleurs clubs de Premier League. En 2026, le Maroc ne sera plus une surprise mais un prétendant sérieux aux quarts de finale, voire au-delà, et portera les espoirs de tout un continent.",
   },
   {
     id: "ecosse",
@@ -175,7 +175,7 @@ export const teams: Team[] = [
     wcAppearances: 9,
     bestResult: "Phase de groupes (1954, 1958, 1974, 1978, 1982, 1986, 1990, 1998)",
     description:
-      "L\u2019\u00c9cosse revient en Coupe du monde pour la premi\u00e8re fois depuis 1998. La Tartan Army esp\u00e8re enfin franchir la phase de groupes, un objectif jamais atteint en neuf participations.",
+      "L'Écosse revient en Coupe du monde pour la première fois depuis 1998, mettant fin à 28 ans d'absence sur la scène mondiale. La Tartan Army, l'un des groupes de supporters les plus passionnés et colorés du football mondial, espère enfin voir son équipe franchir la phase de groupes, un objectif jamais atteint en neuf participations. L'Écosse a une riche histoire footballistique mais a toujours buté sur cette barrière du premier tour, souvent éliminée de manière cruelle à la différence de buts ou au dernier match. Sous la direction de Steve Clarke, l'équipe a retrouvé une identité tactique solide, s'appuyant sur un bloc défensif compact et des transitions efficaces. Le championnat écossais, dominé par le Celtic et les Rangers, fournit l'ossature de l'équipe, complétée par des joueurs évoluant en Premier League anglaise. John McGinn, Scott McTominay et Andy Robertson sont les figures de proue de cette génération. Affrontant le Brésil et le Maroc dans un groupe C relevé, la qualification pour les huitièmes sera un défi immense mais pas impossible pour cette équipe déterminée.",
   },
   {
     id: "haiti",
@@ -190,7 +190,7 @@ export const teams: Team[] = [
     wcAppearances: 2,
     bestResult: "Phase de groupes (1974)",
     description:
-      "Ha\u00efti revient en Coupe du monde pour la premi\u00e8re fois depuis 1974. Cette qualification historique repr\u00e9sente un immense exploit pour le football ha\u00eftien, malgr\u00e9 les d\u00e9fis consid\u00e9rables du pays.",
+      "Haïti revient en Coupe du monde pour la première fois depuis 1974, soit plus de cinquante ans d'absence. Cette qualification historique représente un immense exploit pour le football haïtien et pour un pays qui a traversé des décennies de difficultés économiques, politiques et naturelles. En 1974, en Allemagne de l'Ouest, Haïti avait participé à son premier et unique Mondial, s'inclinant face à l'Italie, la Pologne et l'Argentine sans marquer de point. Emmanuel Sanon avait néanmoins marqué les esprits en inscrivant un but contre l'Italie, brisant l'invincibilité du gardien Dino Zoff. Le football haïtien a longtemps souffert d'un manque d'infrastructures et de stabilité, mais la diaspora haïtienne, particulièrement présente en Amérique du Nord, a contribué à fournir des joueurs de qualité formés aux États-Unis, au Canada et en France. Cette équipe joue un football courageux et offensif. La qualification pour 2026 est un symbole d'espoir et de résilience pour tout un peuple, et chaque match sera vécu comme une célébration nationale.",
   },
 
   // ========== GROUP D ==========
@@ -207,7 +207,7 @@ export const teams: Team[] = [
     wcAppearances: 11,
     bestResult: "Demi-finaliste (1930)",
     description:
-      "Co-organisateur et principal h\u00f4te du Mondial 2026, les \u00c9tats-Unis accueillent la Coupe du monde pour la deuxi\u00e8me fois apr\u00e8s 1994. L\u2019USMNT veut marquer l\u2019histoire devant son public.",
+      "Co-organisateur et principal hôte du Mondial 2026, les États-Unis accueillent la Coupe du monde pour la deuxième fois après 1994, édition qui avait battu des records d'affluence. L'USMNT (United States Men's National Team) participe à sa 12e Coupe du monde avec l'ambition de marquer l'histoire devant son public. Demi-finaliste lors de la première édition en 1930, les États-Unis ont atteint les huitièmes de finale en 1994, 2010 et 2014, et les quarts de finale en 2002. L'absence au Mondial 2018 en Russie avait été un traumatisme, mais la qualification pour le Qatar 2022 a marqué le renouveau d'une génération dorée. Christian Pulisic (Chelsea puis Milan), Weston McKennie (Juventus), Giovanni Reyna (Borussia Dortmund) et Tyler Adams forment le noyau d'une équipe jeune et ambitieuse. Le football (soccer) connaît une croissance exponentielle aux États-Unis, portée par la MLS et l'arrivée de stars internationales. Le style américain combine athlétisme, pressing haut et verticalité. L'avantage du terrain dans 11 villes américaines sera considérable, et les États-Unis visent au minimum les quarts de finale, avec un rêve inavoué de demi-finale ou plus.",
   },
   {
     id: "paraguay",
@@ -222,7 +222,7 @@ export const teams: Team[] = [
     wcAppearances: 9,
     bestResult: "Quart de finaliste (2010)",
     description:
-      "Le Paraguay retrouve la Coupe du monde apr\u00e8s avoir manqu\u00e9 les \u00e9ditions 2018 et 2022. La Albirroja esp\u00e8re renouer avec ses performances du Mondial 2010 en Afrique du Sud.",
+      "Le Paraguay retrouve la Coupe du monde après avoir manqué les éditions 2018 et 2022, une absence inhabituelle pour cette nation sud-américaine qui avait participé à trois Mondiaux consécutifs entre 2002 et 2010. La Albirroja a connu son apogée en 2010 en Afrique du Sud, atteignant les quarts de finale pour la première fois de son histoire avant de s'incliner face à l'Espagne, futur champion. Le Paraguay est traditionnellement une équipe difficile à battre, connue pour sa solidité défensive, son engagement physique et son sens tactique hérité d'une longue tradition de football sud-américain pragmatique. Le gardien légendaire José Luis Chilavert et l'attaquant Roque Santa Cruz ont marqué l'histoire de cette sélection. La nouvelle génération s'appuie sur des joueurs formés dans les clubs argentins et brésiliens, avec quelques éléments en Europe. Le Paraguay devra batailler dans un groupe D relevé face aux États-Unis, pays hôte, mais l'expérience des éliminatoires sud-américaines, les plus difficiles au monde, forge des équipes compétitives et résilientes.",
   },
   {
     id: "australie",
@@ -237,7 +237,7 @@ export const teams: Team[] = [
     wcAppearances: 6,
     bestResult: "Huiti\u00e8me de finaliste (2006, 2022)",
     description:
-      "Les Socceroos participent \u00e0 leur septi\u00e8me Coupe du monde. Apr\u00e8s un bon parcours au Qatar en 2022, l\u2019Australie esp\u00e8re franchir un nouveau cap et atteindre les quarts de finale.",
+      "Les Socceroos participent à leur septième Coupe du monde et restent sur un bon parcours au Qatar en 2022, où ils avaient atteint les huitièmes de finale pour la deuxième fois de leur histoire après 2006. L'Australie est devenue membre de la confédération asiatique (AFC) en 2006, quittant l'OFC pour affronter une concurrence plus relevée en qualifications. Cette décision stratégique a porté ses fruits avec des qualifications régulières aux Mondiaux. Le football australien se caractérise par un jeu physique et direct, hérité de la culture sportive anglo-saxonne du pays, combiné à une technicité croissante apportée par les joueurs évoluant en Europe. L'Australie a produit des talents notables comme Tim Cahill, meilleur buteur de l'histoire des Socceroos, et Harry Kewell. La nouvelle génération poursuit cette tradition avec des joueurs répartis entre la A-League australienne et les championnats européens. L'effectif manque peut-être de stars mondiales, mais compense par un esprit collectif remarquable et une mentalité de compétiteurs forgée dans un pays où le sport est roi.",
   },
   {
     id: "barrage-uefa-c",
@@ -269,7 +269,7 @@ export const teams: Team[] = [
     wcAppearances: 20,
     bestResult: "Vainqueur (1954, 1974, 1990, 2014)",
     description:
-      "Quadruple championne du monde, l\u2019Allemagne esp\u00e8re rebondir apr\u00e8s des \u00e9liminations pr\u00e9coces en 2018 et 2022. La Mannschaft mise sur le renouveau amorc\u00e9 lors de l\u2019Euro 2024 \u00e0 domicile.",
+      "Quadruple championne du monde (1954, 1974, 1990, 2014), l'Allemagne est l'une des nations les plus titrées et les plus régulières de l'histoire du football. La Mannschaft a remporté son dernier titre en 2014 au Brésil avec un triomphe mémorable ponctué par le 7-1 en demi-finale et le but de Mario Götze en finale. Depuis, l'Allemagne a connu une période difficile avec des éliminations précoces en phase de groupes en 2018 (Russie) et 2022 (Qatar), une première depuis des décennies. L'Euro 2024 à domicile a amorcé un renouveau prometteur sous la direction de Julian Nagelsmann, avec un jeu plus dynamique et offensif. Le football allemand reste une référence mondiale grâce à sa Bundesliga, vivier inépuisable de talents, et à la qualité de sa formation. Jamal Musiala, Florian Wirtz et Kai Havertz incarnent cette nouvelle génération brillante et décomplexée. La profondeur du banc allemand reste impressionnante avec des joueurs de classe mondiale à chaque poste. L'Allemagne arrive en 2026 avec la volonté de retrouver les sommets et de prouver que les contre-performances récentes en Coupe du monde n'étaient qu'un accident de parcours.",
   },
   {
     id: "equateur",
@@ -284,7 +284,7 @@ export const teams: Team[] = [
     wcAppearances: 4,
     bestResult: "Huiti\u00e8me de finaliste (2006)",
     description:
-      "L\u2019\u00c9quateur participe \u00e0 sa cinqui\u00e8me Coupe du monde. La Tri a progress\u00e9 r\u00e9guli\u00e8rement ces derni\u00e8res ann\u00e9es et vise au minimum les huiti\u00e8mes de finale en Am\u00e9rique du Nord.",
+      "L'Équateur participe à sa cinquième Coupe du monde après des qualifications en 2002, 2006, 2014 et 2022. La Tri a progressé régulièrement ces dernières années, devenant une force montante du football sud-américain. Le meilleur résultat reste les huitièmes de finale en 2006 en Allemagne. En 2022 au Qatar, l'Équateur avait brillamment ouvert le tournoi en battant le pays hôte, avant de manquer de peu la qualification pour les huitièmes. Le football équatorien s'appuie sur l'atout géographique de l'altitude de Quito (2 850 mètres), qui rend les matchs de qualification à domicile particulièrement éprouvants pour les adversaires. Le style de jeu est athlétique et direct, avec des joueurs physiquement imposants et techniquement solides. Moisés Caicedo (Chelsea) est la figure de proue d'une génération talentueuse qui évolue dans les meilleurs championnats européens. L'Équateur vise les huitièmes de finale comme objectif minimum et rêve d'atteindre les quarts pour la première fois, ce qui constituerait un exploit historique pour le football équatorien.",
   },
   {
     id: "cote-divoire",
@@ -299,7 +299,7 @@ export const teams: Team[] = [
     wcAppearances: 4,
     bestResult: "Phase de groupes (2006, 2010, 2014)",
     description:
-      "Championne d\u2019Afrique 2024, la C\u00f4te d\u2019Ivoire revient en Coupe du monde apr\u00e8s avoir manqu\u00e9 les \u00e9ditions 2018 et 2022. Les \u00c9l\u00e9phants visent un premier passage en phase \u00e0 \u00e9limination directe.",
+      "Championne d'Afrique 2024 à domicile après un parcours épique, la Côte d'Ivoire revient en Coupe du monde après avoir manqué les éditions 2018 et 2022. Les Éléphants ont participé à trois Mondiaux consécutifs (2006, 2010, 2014) durant l'âge d'or de la génération Drogba-Yaya Touré-Kolo Touré, mais n'ont jamais réussi à franchir la phase de groupes, souvent piégés dans des « groupes de la mort ». Le football ivoirien a produit certains des plus grands joueurs africains de l'histoire, et la CAN 2024 a révélé une nouvelle génération prometteuse menée par Sébastien Haller et Simon Adingra. Le style ivoirien combine puissance physique, technique individuelle et vitesse sur les ailes. La victoire en CAN 2024 a insufflé une confiance immense à cette équipe qui se sait capable de rivaliser avec les meilleures nations. En 2026, les Éléphants visent un premier passage en phase à élimination directe de la Coupe du monde, un objectif qui serait un accomplissement majeur pour le football ouest-africain.",
   },
   {
     id: "curacao",
@@ -314,7 +314,7 @@ export const teams: Team[] = [
     wcAppearances: 1,
     bestResult: "Premi\u00e8re participation (2026)",
     description:
-      "Cura\u00e7ao participe \u00e0 sa toute premi\u00e8re Coupe du monde, un exploit historique pour cette petite \u00eele des Cara\u00efbes. Cette qualification est le plus grand accomplissement du football cura\u00e7ais.",
+      "Curaçao participe à sa toute première Coupe du monde, un exploit historique pour cette petite île des Caraïbes néerlandaises comptant à peine 150 000 habitants. Cette qualification est le plus grand accomplissement du football curaçais et l'une des plus belles histoires du football mondial. Curaçao s'appuie largement sur sa diaspora aux Pays-Bas, où de nombreux joueurs d'origine curaçaise évoluent dans les divisions professionnelles de l'Eredivisie et de la Eerste Divisie. Ce lien avec les Pays-Bas apporte une qualité technique supérieure à ce que la taille du pays laisserait présager. Le style de jeu reflète cette double culture : la rigueur tactique néerlandaise associée à la flair caribéen et à une joie de jouer communicative. Cette qualification historique est un immense motif de fierté nationale et chaque match de la Coupe du monde sera vécu comme une fête sur l'île. Sans être favori dans son groupe face à l'Allemagne, Curaçao peut espérer créer des surprises grâce à son enthousiasme et sa détermination, et inspirer d'autres petites nations à croire en leurs rêves footballistiques.",
   },
 
   // ========== GROUP F ==========
@@ -331,7 +331,7 @@ export const teams: Team[] = [
     wcAppearances: 11,
     bestResult: "Finaliste (1974, 1978, 2010)",
     description:
-      "Triple finaliste mais jamais vainqueur, les Pays-Bas restent l\u2019une des \u00e9quipes les plus talentueuses du football mondial. Les Oranje esp\u00e8rent enfin d\u00e9crocher leur premier titre plan\u00e9taire.",
+      "Triple finaliste (1974, 1978, 2010) mais jamais vainqueur, les Pays-Bas restent l'une des équipes les plus talentueuses et les plus influentes de l'histoire du football mondial. L'Oranje a inventé le « football total » dans les années 1970 avec Johan Cruyff, révolutionnant la tactique mondiale. Depuis, les Pays-Bas ont toujours produit des joueurs d'exception : Marco van Basten, Dennis Bergkamp, Ruud van Nistelrooy, Arjen Robben, Robin van Persie, et plus récemment Virgil van Dijk et Frenkie de Jong. Le football néerlandais se distingue par sa philosophie de jeu offensive et esthétique, héritée de l'école Ajax-Barcelone. Malgré l'absence à l'Euro 2016 et au Mondial 2018, les Pays-Bas ont retrouvé leur niveau avec une demi-finale à la Coupe du monde 2014, un quart de finale en 2022 et une présence régulière dans le dernier carré des compétitions internationales. Le championnat néerlandais (Eredivisie) reste un formidable laboratoire de talents, et les joueurs oranje peuplent les plus grands clubs européens. En 2026, les Pays-Bas espèrent enfin décrocher ce premier titre mondial qui manque cruellement à leur palmarès.",
   },
   {
     id: "japon",
@@ -346,7 +346,7 @@ export const teams: Team[] = [
     wcAppearances: 7,
     bestResult: "Huiti\u00e8me de finaliste (2002, 2010, 2018, 2022)",
     description:
-      "Le Japon est devenu une puissance montante du football mondial. Apr\u00e8s avoir battu l\u2019Allemagne et l\u2019Espagne en 2022, les Samoura\u00efs Bleus r\u00eavent d\u2019atteindre les quarts de finale pour la premi\u00e8re fois.",
+      "Le Japon est devenu une puissance montante du football mondial, participant à sa huitième Coupe du monde consécutive. Les Samouraïs Bleus ont créé la sensation au Qatar en 2022 en battant successivement l'Allemagne et l'Espagne en phase de groupes, avant de s'incliner aux tirs au but face à la Croatie en huitièmes. Ces victoires ne sont plus des accidents : le Japon a également atteint les huitièmes en 2002 (à domicile), 2010 et 2018. Le football japonais a connu une progression fulgurante depuis la création de la J-League en 1993. Le style nippon se caractérise par une technique individuelle remarquable, un jeu de passes rapide et précis, et une organisation collective exemplaire. Les joueurs japonais essaiment désormais dans toute l'Europe : Bundesliga, Premier League, Liga, Serie A et Ligue 1. Takehiro Tomiyasu, Takefusa Kubo et Kaoru Mitoma sont les figures de proue d'une génération exceptionnellement douée. La profondeur de l'effectif permet au Japon de rivaliser avec n'importe quelle nation. L'objectif affiché est d'atteindre les quarts de finale pour la première fois, un cap symbolique pour le football asiatique.",
   },
   {
     id: "tunisie",
@@ -361,7 +361,7 @@ export const teams: Team[] = [
     wcAppearances: 6,
     bestResult: "Phase de groupes (1978, 1998, 2002, 2006, 2018, 2022)",
     description:
-      "La Tunisie participe \u00e0 sa septi\u00e8me Coupe du monde. Les Aigles de Carthage, habitu\u00e9s des grands tournois, n\u2019ont jamais r\u00e9ussi \u00e0 franchir la phase de groupes et esp\u00e8rent briser cette mal\u00e9diction.",
+      "La Tunisie participe à sa septième Coupe du monde, confirmant son statut de nation régulière sur la scène mondiale. Les Aigles de Carthage, habitués des grands tournois, n'ont cependant jamais réussi à franchir la phase de groupes, une malédiction que cette génération espère briser en 2026. Le moment le plus marquant reste la victoire historique contre la France (1-0) lors du Mondial 2022 au Qatar, un exploit qui n'avait pas suffi pour se qualifier en huitièmes. Première nation africaine à remporter un match de Coupe du monde (contre le Mexique en 1978), la Tunisie possède une longue tradition footballistique, enrichie par son championnat national compétitif et les nombreux joueurs tunisiens évoluant dans les championnats français, allemands et du Golfe. Le style de jeu tunisien est tactiquement discipliné, avec une défense solide et un jeu de contre-attaque efficace. L'effectif combine des joueurs d'expérience et de jeunes talents qui montent en puissance. En 2026, dans un groupe F avec les Pays-Bas et le Japon, la qualification sera un défi de taille, mais l'histoire a montré que les Aigles de Carthage sont capables de créer des surprises.",
   },
   {
     id: "barrage-uefa-b",
@@ -393,7 +393,7 @@ export const teams: Team[] = [
     wcAppearances: 14,
     bestResult: "Demi-finaliste (2018)",
     description:
-      "Demi-finaliste en 2018 en Russie, la Belgique entame une nouvelle \u00e8re apr\u00e8s le d\u00e9part de sa g\u00e9n\u00e9ration dor\u00e9e. Les Diables Rouges misent sur de jeunes talents pour prolonger leur comp\u00e9titivit\u00e9.",
+      "Demi-finaliste en 2018 en Russie avec sa « génération dorée », la Belgique a été l'une des meilleures équipes du monde pendant près d'une décennie, trônant au sommet du classement FIFA entre 2018 et 2022. Les Diables Rouges, portés par Kevin De Bruyne, Thibaut Courtois et Romelu Lukaku, avaient formé un collectif redoutable combinant talent individuel et cohésion d'équipe. La déception du Mondial 2022 au Qatar, avec une élimination dès la phase de groupes dans un climat de tensions internes, a marqué la fin de cette ère. La Belgique entame désormais une transition générationnelle, avec de jeunes talents issus de son excellente formation (reconnue comme l'une des meilleures d'Europe) qui prennent progressivement le relais. Le football belge continue de produire des joueurs pour les plus grands clubs européens grâce à sa Pro League, tremplin vers l'élite. Le style de jeu belge reste technique et offensif, avec une prédilection pour les attaques rapides et les combinaisons entre les lignes. En 2026, la Belgique sera dans une phase de reconstruction mais dispose toujours d'assez de qualité pour viser les huitièmes de finale comme objectif minimum.",
   },
   {
     id: "iran",
@@ -408,7 +408,7 @@ export const teams: Team[] = [
     wcAppearances: 6,
     bestResult: "Phase de groupes (1978, 1998, 2006, 2014, 2018, 2022)",
     description:
-      "L\u2019Iran participe \u00e0 sa septi\u00e8me Coupe du monde. Le Team Melli n\u2019a jamais franchi la phase de groupes mais reste une \u00e9quipe redoutable, notamment gr\u00e2ce \u00e0 sa solidit\u00e9 d\u00e9fensive.",
+      "L'Iran participe à sa septième Coupe du monde, confirmant sa domination sur le football asiatique. Le Team Melli n'a jamais franchi la phase de groupes mais reste une équipe redoutable, notamment grâce à sa solidité défensive légendaire et son esprit combatif. Le football iranien a connu ses moments de gloire en Coupe du monde : la victoire historique contre les États-Unis en 1998, les performances courageuses face à l'Espagne et le Portugal en 2018, et un match intense contre l'Angleterre en 2022. L'Iran possède le palmarès le plus riche d'Asie avec trois titres de champion d'Asie et une tradition footballistique centenaire. Le style iranien est pragmatique et défensif, avec une organisation tactique rigoureuse et une capacité à se transcender contre les grandes équipes. Les joueurs iraniens évoluent principalement dans le championnat national (Persian Gulf Pro League) et dans les championnats européens de deuxième rang. Mehdi Taremi et Sardar Azmoun ont été les figures emblématiques de la sélection ces dernières années. L'objectif historique reste le passage en huitièmes de finale, un cap qui constituerait un accomplissement historique pour le football iranien et asiatique.",
   },
   {
     id: "egypte",
@@ -423,7 +423,7 @@ export const teams: Team[] = [
     wcAppearances: 4,
     bestResult: "Phase de groupes (1934, 1990, 2018)",
     description:
-      "L\u2019\u00c9gypte revient en Coupe du monde apr\u00e8s sa participation en Russie en 2018. Les Pharaons, port\u00e9s par Mohamed Salah, esp\u00e8rent aller plus loin que la phase de groupes cette fois-ci.",
+      "L'Égypte revient en Coupe du monde après sa participation en Russie en 2018, seulement sa quatrième présence dans la compétition malgré un palmarès continental record de sept titres de champion d'Afrique (CAN). Les Pharaons, nation pionnière du football africain, avaient participé au tout premier Mondial en 1934, puis avaient dû attendre 56 ans avant de revenir en 1990 en Italie. En 2018, portée par Mohamed Salah, star de Liverpool et l'un des meilleurs joueurs du monde, l'Égypte n'avait pas réussi à dépasser la phase de groupes. Mohamed Salah reste le leader incontesté et la figure emblématique de cette sélection, capable à lui seul de changer le cours d'un match grâce à sa vitesse, sa finition et sa vision du jeu. Le football égyptien s'appuie sur un championnat national très suivi (Al Ahly et Zamalek sont parmi les plus grands clubs d'Afrique) et sur une diaspora de joueurs en Europe. Le style est organisé défensivement avec des transitions rapides exploitant la vitesse de Salah. En 2026, l'Égypte espère aller plus loin que la phase de groupes et offrir à ses 100 millions d'habitants un moment de fierté nationale.",
   },
   {
     id: "nouvelle-zelande",
@@ -438,7 +438,7 @@ export const teams: Team[] = [
     wcAppearances: 3,
     bestResult: "Phase de groupes (1982, 2010)",
     description:
-      "La Nouvelle-Z\u00e9lande, repr\u00e9sentante de l\u2019Oc\u00e9anie, participe \u00e0 sa troisi\u00e8me Coupe du monde. Les All Whites restent invaincus en phase de groupes en 2010 (trois matchs nuls) et esp\u00e8rent cr\u00e9er la surprise.",
+      "La Nouvelle-Zélande, représentante de l'Océanie, participe à sa troisième Coupe du monde après 1982 et 2010. Les All Whites (à ne pas confondre avec les All Blacks du rugby) détiennent un record unique : ils restent invaincus en phase de groupes de Coupe du monde, ayant obtenu trois matchs nuls en 2010 en Afrique du Sud contre le Paraguay, la Slovaquie et l'Italie (tenante du titre). Le football néo-zélandais évolue dans l'ombre du rugby, sport national par excellence, mais a progressé grâce au développement de la A-League (compétition partagée avec l'Australie) et à l'émergence de joueurs évoluant en Europe. Chris Wood, attaquant expérimenté de Premier League, est le joueur le plus connu de la sélection. Le style néo-zélandais est pragmatique, s'appuyant sur une défense organisée et des qualités athlétiques. En tant que représentant de l'OFC, la Nouvelle-Zélande affronte rarement des adversaires de très haut niveau en qualifications, ce qui rend l'adaptation au niveau mondial plus difficile. Néanmoins, l'équipe a prouvé en 2010 qu'elle pouvait rivaliser avec des nations bien mieux classées.",
   },
 
   // ========== GROUP H ==========
@@ -455,7 +455,7 @@ export const teams: Team[] = [
     wcAppearances: 16,
     bestResult: "Vainqueur (2010)",
     description:
-      "Num\u00e9ro un mondial et championne d\u2019Europe en titre, l\u2019Espagne est l\u2019une des grandes favorites du Mondial 2026. La Roja dispose d\u2019une g\u00e9n\u00e9ration exceptionnelle men\u00e9e par de jeunes prodiges.",
+      "Numéro un mondial et championne d'Europe en titre après son triomphe à l'Euro 2024 en Allemagne, l'Espagne est l'une des grandes favorites du Mondial 2026. La Roja a remporté sa première et unique Coupe du monde en 2010 en Afrique du Sud, couronnement d'une période de domination avec deux titres européens consécutifs (2008, 2012). Le tiki-taka espagnol, style de jeu basé sur la possession et les passes courtes, a révolutionné le football mondial sous l'impulsion de Xavi, Iniesta et Busquets. La nouvelle génération est tout aussi impressionnante : Lamine Yamal, prodige du FC Barcelone devenu le plus jeune buteur de l'histoire de l'Euro, Pedri, Gavi et Nico Williams forment un quatuor offensif d'une créativité et d'une vitesse exceptionnelles. Le football espagnol bénéficie de La Liga, l'un des meilleurs championnats du monde, et d'une formation de jeunes parmi les plus performantes de la planète. La profondeur de l'effectif espagnol est remarquable à chaque poste. Sous la direction de Luis de la Fuente, l'Espagne a su évoluer vers un jeu plus direct et vertical tout en conservant sa maîtrise technique. Les bookmakers placent la Roja parmi les trois premiers favoris pour le titre mondial en 2026.",
   },
   {
     id: "uruguay",
@@ -470,7 +470,7 @@ export const teams: Team[] = [
     wcAppearances: 14,
     bestResult: "Vainqueur (1930, 1950)",
     description:
-      "Double champion du monde et premier vainqueur de l\u2019histoire en 1930, l\u2019Uruguay reste une nation majeure du football. La Celeste mise sur un m\u00e9lange d\u2019exp\u00e9rience et de jeunesse pour 2026.",
+      "Double champion du monde et premier vainqueur de l'histoire en 1930 (à domicile à Montevideo), l'Uruguay reste une nation majeure du football mondial malgré une population de seulement 3,5 millions d'habitants. La Celeste a remporté son deuxième titre en 1950 au Brésil lors du légendaire « Maracanazo », infligeant une défaite traumatisante au pays hôte en finale. Depuis, l'Uruguay a atteint les demi-finales en 2010 (éliminé par les Pays-Bas) et les quarts de finale en 2018. Le football uruguayen est ancré dans une tradition de combativité, de caractère et de solidité défensive, héritée de la « garra charrúa ». Le pays a produit des attaquants de classe mondiale comme Diego Forlán (Ballon d'Or du Mondial 2010), Luis Suárez et Edinson Cavani. La relève est assurée par Darwin Núñez (Liverpool), Federico Valverde (Real Madrid) et d'autres talents qui maintiennent l'Uruguay parmi les meilleures nations sud-américaines. Les éliminatoires CONMEBOL, les plus difficiles au monde, forgent des équipes mentalement solides. En 2026, la Celeste vise au minimum les huitièmes de finale et rêve d'un nouveau parcours épique digne de sa riche histoire.",
   },
   {
     id: "arabie-saoudite",
@@ -485,7 +485,7 @@ export const teams: Team[] = [
     wcAppearances: 7,
     bestResult: "Huiti\u00e8me de finaliste (1994)",
     description:
-      "L\u2019Arabie saoudite, qui avait battu l\u2019Argentine en 2022, participe \u00e0 sa huiti\u00e8me Coupe du monde. Les Faucons Verts pr\u00e9parent \u00e9galement l\u2019organisation du Mondial 2034.",
+      "L'Arabie saoudite, qui avait créé l'une des plus grandes surprises de l'histoire du football en battant l'Argentine de Messi 2-1 lors du match d'ouverture du Mondial 2022, participe à sa huitième Coupe du monde. Les Faucons Verts ont une histoire honorable dans la compétition, avec un huitième de finale atteint en 1994 aux États-Unis lors de leur première participation. Le football saoudien connaît une transformation majeure avec des investissements colossaux dans la Saudi Pro League, qui a attiré des stars mondiales comme Cristiano Ronaldo, Karim Benzema et Neymar. Cette stratégie vise à développer le football domestique en vue de l'organisation du Mondial 2034. Le style de jeu saoudien s'appuie sur la technique, la vitesse et un pressing haut qui avait déstabilisé l'Argentine en 2022. L'effectif mêle des joueurs locaux expérimentés et une jeune génération bénéficiant de l'exposition à des stars internationales au quotidien. En 2026, dans un groupe H avec l'Espagne et l'Uruguay, la qualification sera un défi majeur, mais les Saoudiens ont prouvé qu'ils étaient capables de bouleverser les pronostics.",
   },
   {
     id: "cap-vert",
@@ -500,7 +500,7 @@ export const teams: Team[] = [
     wcAppearances: 1,
     bestResult: "Premi\u00e8re participation (2026)",
     description:
-      "Le Cap-Vert r\u00e9alise un exploit historique en se qualifiant pour sa toute premi\u00e8re Coupe du monde. Ce petit archipel de l\u2019Atlantique \u00e9crit la plus belle page de son histoire footballistique.",
+      "Le Cap-Vert réalise un exploit historique en se qualifiant pour sa toute première Coupe du monde, un accomplissement remarquable pour cet archipel de l'Atlantique comptant environ 500 000 habitants. Le football cap-verdien a connu une progression spectaculaire ces dernières années, passant d'une nation anonyme à un compétiteur régulier de la CAN (Coupe d'Afrique des Nations). Le secret de cette réussite réside largement dans la diaspora cap-verdienne, particulièrement présente au Portugal, en France et aux Pays-Bas, qui fournit la majorité des joueurs de la sélection. De nombreux internationaux cap-verdiens sont nés et formés en Europe, apportant un niveau technique et tactique supérieur. Le style de jeu reflète ces influences multiculturelles, avec une approche organisée et disciplinée. Le Cap-Vert est l'une des plus petites nations à participer à une Coupe du monde, rejoignant le club restreint des micro-États footballistiques ayant atteint la compétition suprême. En 2026, face à l'Espagne et l'Uruguay, chaque point arraché sera une victoire en soi, et cette participation restera gravée dans l'histoire de l'archipel.",
   },
 
   // ========== GROUP I ==========
@@ -517,7 +517,7 @@ export const teams: Team[] = [
     wcAppearances: 16,
     bestResult: "Vainqueur (1998, 2018)",
     description:
-      "Double championne du monde et finaliste en 2022, la France fait partie des grands favoris du Mondial 2026. Les Bleus de Didier Deschamps disposent d\u2019un effectif d\u2019une profondeur exceptionnelle.",
+      "Double championne du monde (1998 à domicile, 2018 en Russie) et finaliste en 2022 au Qatar, la France fait partie des grands favoris du Mondial 2026. Les Bleus de Didier Deschamps disposent d'un effectif d'une profondeur exceptionnelle, probablement le plus riche du monde à tous les postes. Kylian Mbappé, installé au Real Madrid, est la figure de proue d'une génération dorée qui comprend également Antoine Griezmann, Aurélien Tchouaméni, Eduardo Camavinga et William Saliba. La finale épique de 2022 contre l'Argentine, où Mbappé avait inscrit un triplé, reste l'un des plus grands matchs de l'histoire de la Coupe du monde. Le football français bénéficie d'une formation d'élite reconnue mondialement (Clairefontaine, INF) qui produit des talents en quantité industrielle pour les plus grands clubs européens. Le style des Bleus sous Deschamps est pragmatique et efficace, combinant solidité défensive et une puissance offensive dévastatrice en contre-attaque. La France est la seule équipe à avoir atteint deux finales consécutives depuis le Brésil de 1994-1998. En 2026, les Bleus viseront un troisième titre mondial qui les placerait à égalité avec l'Allemagne et l'Italie au palmarès.",
   },
   {
     id: "senegal",
@@ -532,7 +532,7 @@ export const teams: Team[] = [
     wcAppearances: 3,
     bestResult: "Quart de finaliste (2002)",
     description:
-      "Champion d\u2019Afrique en titre (CAN 2025), le S\u00e9n\u00e9gal est en pleine ascension au classement FIFA. Les Lions de la T\u00e9ranga, port\u00e9s par cette dynamique, visent un parcours historique en 2026.",
+      "Champion d'Afrique en titre après son sacre à la CAN 2022 puis la CAN 2025, le Sénégal est en pleine ascension au classement FIFA et s'affirme comme la première puissance du football africain. Les Lions de la Téranga ont marqué l'histoire en 2002 en battant la France tenante du titre en match d'ouverture puis en atteignant les quarts de finale pour leur première participation à la Coupe du monde. Depuis, le Sénégal a participé aux Mondiaux 2018 (éliminé au fair-play) et 2022 (huitièmes de finale). Le football sénégalais produit des talents d'exception qui peuplent les meilleurs clubs européens : Sadio Mané a été Ballon d'Or africain, et la nouvelle génération comprend des joueurs évoluant en Premier League, en Ligue 1 et en Bundesliga. Le style de jeu sénégalais combine puissance athlétique, vitesse sur les ailes et une solidité défensive qui en fait une équipe très difficile à manœuvrer. La profondeur de l'effectif est impressionnante, et l'esprit collectif forgé par les succès en CAN crée une dynamique positive. En 2026, le Sénégal est un outsider crédible capable d'atteindre les quarts de finale, voire plus, et portera les espoirs de tout un continent.",
   },
   {
     id: "norvege",
@@ -547,7 +547,7 @@ export const teams: Team[] = [
     wcAppearances: 3,
     bestResult: "Huiti\u00e8me de finaliste (1938, 1998)",
     description:
-      "La Norv\u00e8ge retrouve la Coupe du monde pour la premi\u00e8re fois depuis 1998. Avec Erling Haaland en pointe, les Scandinaves ambitionnent de cr\u00e9er la surprise et d\u2019aller le plus loin possible.",
+      "La Norvège retrouve la Coupe du monde pour la première fois depuis 1998, mettant fin à 28 ans d'absence. La présence d'Erling Haaland, l'un des meilleurs attaquants du monde et machine à buts de Manchester City, transforme les ambitions norvégiennes. Haaland a battu des records de précocité et d'efficacité dans tous les clubs où il est passé (Salzbourg, Dortmund, Manchester City), et sa présence en pointe fait de la Norvège une menace pour n'importe quel adversaire. Historiquement, la Norvège a participé à trois Coupes du monde (1938, 1994, 1998), atteignant les huitièmes de finale en 1998 en France. Le football norvégien a produit des légendes comme Ole Gunnar Solskjær et John Arne Riise. La Tippeligaen (championnat norvégien) est un championnat modeste, mais les meilleurs joueurs évoluent dans les grands championnats européens. Le style norvégien est direct et physique, exploitant la puissance aérienne de Haaland et la vitesse de ses coéquipiers. Martin Ødegaard, capitaine d'Arsenal et meneur de jeu créatif, forme avec Haaland un duo redoutable. En 2026, dans un groupe I avec la France, la Norvège sera un outsider dangereux capable de créer la surprise.",
   },
   {
     id: "barrage-interconf-2",
@@ -579,7 +579,7 @@ export const teams: Team[] = [
     wcAppearances: 18,
     bestResult: "Vainqueur (1978, 1986, 2022)",
     description:
-      "Championne du monde en titre, l\u2019Argentine de Lionel Messi tentera de conserver son troph\u00e9e. L\u2019Albiceleste vise un troisi\u00e8me sacre cons\u00e9cutif pour couronner la carri\u00e8re l\u00e9gendaire de sa Pulga.",
+      "Championne du monde en titre après son triomphe au Qatar en 2022, l'Argentine de Lionel Messi tentera de conserver son trophée en 2026, ce qui n'a plus été réalisé depuis le Brésil en 1962. L'Albiceleste a remporté trois titres mondiaux (1978, 1986, 2022), le dernier couronnant la carrière légendaire de Messi, considéré par beaucoup comme le plus grand joueur de l'histoire. La finale de 2022 contre la France, conclue aux tirs au but après un match d'anthologie (3-3), est considérée comme le plus grand match de l'histoire de la Coupe du monde. L'Argentine dispose d'un effectif complet mêlant l'expérience des champions du monde et l'émergence de jeunes talents exceptionnels. Le football argentin, avec sa Primera División passionnée et ses supporters parmi les plus fervents au monde, continue de produire des joueurs d'exception pour les plus grands clubs européens. Le style argentin combine technique individuelle, intelligence tactique et une mentalité de gagnants forgée par des décennies de tradition. En 2026, Messi pourrait disputer sa sixième et dernière Coupe du monde à 39 ans, ajoutant une dimension émotionnelle immense à la quête d'un doublé historique.",
   },
   {
     id: "autriche",
@@ -594,7 +594,7 @@ export const teams: Team[] = [
     wcAppearances: 8,
     bestResult: "Troisi\u00e8me (1954)",
     description:
-      "L\u2019Autriche revient en Coupe du monde apr\u00e8s une longue absence depuis 1998. Apr\u00e8s des performances convaincantes \u00e0 l\u2019Euro 2024, le Das Team esp\u00e8re briller sur la sc\u00e8ne mondiale.",
+      "L'Autriche revient en Coupe du monde après une longue absence depuis 1998, forte de performances convaincantes à l'Euro 2024 en Allemagne où le Das Team avait terminé premier de son groupe devant la France et les Pays-Bas. Cette performance remarquable a confirmé la progression constante du football autrichien sous la direction de Ralf Rangnick, architecte d'un pressing intense et d'un jeu vertical qui a transformé l'équipe. L'Autriche a participé à sept Coupes du monde auparavant, avec comme meilleur résultat une troisième place en 1954. Le football autrichien a connu un âge d'or dans les années 1930 avec la « Wunderteam », mais a longtemps été en retrait sur la scène mondiale. Le renouveau actuel s'appuie sur la Red Bull Salzburg comme centre de formation d'élite, et sur des joueurs évoluant dans les meilleurs championnats européens. David Alaba (Real Madrid), malgré ses blessures, reste la figure emblématique, tandis que Marcel Sabitzer, Konrad Laimer et Christoph Baumgartner incarnent le dynamisme de cette équipe. En 2026, l'Autriche sera un adversaire redouté grâce à son intensité et sa discipline tactique.",
   },
   {
     id: "algerie",
@@ -609,7 +609,7 @@ export const teams: Team[] = [
     wcAppearances: 5,
     bestResult: "Huiti\u00e8me de finaliste (2014)",
     description:
-      "L\u2019Alg\u00e9rie retrouve la Coupe du monde apr\u00e8s avoir manqu\u00e9 les \u00e9ditions 2018 et 2022. Les Fennecs, champions d\u2019Afrique 2019, esp\u00e8rent r\u00e9\u00e9diter leur parcours de 2014 au Br\u00e9sil.",
+      "L'Algérie retrouve la Coupe du monde après avoir manqué les éditions 2018 et 2022, une absence frustrante pour les Fennecs qui avaient réalisé un parcours mémorable en 2014 au Brésil, atteignant les huitièmes de finale pour la première fois de leur histoire. Lors de ce Mondial, l'Algérie avait tenu tête à l'Allemagne (futur champion) avant de s'incliner 2-1 en prolongation dans un match de légende. Champions d'Afrique en 2019 sous la direction de Djamel Belmadi, les Algériens possèdent une base de supporters parmi les plus passionnés au monde, capables de transformer n'importe quel stade en chaudron. Le football algérien s'appuie sur une importante diaspora en France, qui fournit de nombreux internationaux formés dans les centres de formation de Ligue 1 et Ligue 2. Le style de jeu algérien est technique et offensif, avec des ailiers rapides et des milieux créatifs. L'effectif combine des joueurs des championnats européens et du championnat national algérien. En 2026, dans un groupe J avec l'Argentine, la qualification sera un défi immense, mais les Fennecs ont prouvé en 2014 qu'ils pouvaient rivaliser avec les meilleurs.",
   },
   {
     id: "jordanie",
@@ -624,7 +624,7 @@ export const teams: Team[] = [
     wcAppearances: 1,
     bestResult: "Premi\u00e8re participation (2026)",
     description:
-      "La Jordanie se qualifie pour la premi\u00e8re fois de son histoire pour une Coupe du monde. Finaliste de la Coupe d\u2019Asie 2024, les Nashama ont prouv\u00e9 qu\u2019ils m\u00e9ritent leur place parmi l\u2019\u00e9lite.",
+      "La Jordanie se qualifie pour la première fois de son histoire pour une Coupe du monde, un accomplissement extraordinaire pour cette nation de 11 millions d'habitants. Finaliste de la Coupe d'Asie 2024, les Nashama (« les braves ») ont prouvé leur montée en puissance en battant des équipes asiatiques établies tout au long de leur parcours de qualification. Le football jordanien était considéré comme un sport mineur dans un pays passionné de basket-ball, mais a connu un développement spectaculaire ces dernières années grâce à des investissements ciblés dans la formation et les infrastructures. Le style de jeu jordanien est organisé et discipliné, avec une défense solide et des contre-attaques efficaces. L'effectif comprend des joueurs du championnat jordanien et de ligues régionales du Moyen-Orient. Cette qualification historique a provoqué des scènes de liesse dans tout le pays et a suscité un engouement sans précédent pour le football en Jordanie. En 2026, face à l'Argentine et l'Autriche, chaque match sera un événement historique pour le football jordanien, et l'équipe jouera sans pression avec la fierté d'avoir déjà accompli l'impossible.",
   },
 
   // ========== GROUP K ==========
@@ -641,7 +641,7 @@ export const teams: Team[] = [
     wcAppearances: 8,
     bestResult: "Troisi\u00e8me (1966)",
     description:
-      "Le Portugal de Cristiano Ronaldo participe \u00e0 sa neuvi\u00e8me Coupe du monde. Vainqueur de la Ligue des Nations UEFA, la Sele\u00e7\u00e3o das Quinas r\u00eave de remporter enfin le titre mondial.",
+      "Le Portugal de Cristiano Ronaldo participe à sa neuvième Coupe du monde avec l'ambition de remporter enfin le titre mondial, le seul trophée majeur manquant au palmarès de la sélection. Champion d'Europe en 2016 en France et vainqueur de la première Ligue des Nations UEFA en 2019, le Portugal a atteint les demi-finales de la Coupe du monde en 1966 (avec Eusébio) et 2006, et les quarts de finale en 2022. Cristiano Ronaldo, recordman absolu du nombre de buts en sélection nationale (130+), pourrait disputer sa sixième Coupe du monde en 2026 à 41 ans, un record. Au-delà de CR7, le Portugal dispose d'une génération exceptionnellement talentueuse : Bruno Fernandes (Manchester United), Bernardo Silva (Manchester City), Rafael Leão (AC Milan) et les jeunes prodiges issus des académies de Benfica, Sporting et Porto. Le football portugais est reconnu pour sa formation d'excellence et sa capacité à produire des joueurs techniques et polyvalents. Le style de jeu est offensif et spectaculaire, avec une qualité technique individuelle parmi les meilleures du monde. En 2026, le Portugal est un prétendant sérieux au titre, avec ou sans Ronaldo, grâce à la profondeur remarquable de son effectif.",
   },
   {
     id: "colombie",
@@ -656,7 +656,7 @@ export const teams: Team[] = [
     wcAppearances: 7,
     bestResult: "Quart de finaliste (2014)",
     description:
-      "Finaliste de la Copa Am\u00e9rica 2024, la Colombie est en pleine forme. Los Cafeteros disposent d\u2019un effectif talentueux et ambitionnent de r\u00e9aliser un grand parcours en 2026.",
+      "Finaliste de la Copa América 2024 (battue par l'Argentine), la Colombie est en pleine forme et participe à sa huitième Coupe du monde. Los Cafeteros ont connu leur apogée mondial en 2014 au Brésil, atteignant les quarts de finale portés par un James Rodríguez étincelant (Soulier d'Or du tournoi). Le football colombien a une riche tradition offensive, incarnée par des légendes comme Carlos Valderrama, René Higuita et Faustino Asprilla. La génération actuelle est tout aussi talentueuse avec Luis Díaz (Liverpool), Rafael Santos Borré et un collectif solide forgé dans les éliminatoires sud-américaines. Le style colombien est technique et créatif, avec un jeu de passes fluide et des individualités capables de débloquer n'importe quelle situation. Le championnat colombien (Liga BetPlay) produit régulièrement des talents qui s'exportent vers l'Europe et les grands championnats sud-américains. La passion des supporters colombiens, parmi les plus bruyants et colorés du monde, sera un atout lors du Mondial en Amérique du Nord. En 2026, la Colombie vise au minimum les quarts de finale et rêve d'aller encore plus loin que son meilleur résultat historique.",
   },
   {
     id: "ouzbekistan",
@@ -671,7 +671,7 @@ export const teams: Team[] = [
     wcAppearances: 1,
     bestResult: "Premi\u00e8re participation (2026)",
     description:
-      "L\u2019Ouzb\u00e9kistan participe \u00e0 sa toute premi\u00e8re Coupe du monde, r\u00e9alisant un r\u00eave de longue date. Les Loups Blancs esp\u00e8rent repr\u00e9senter dignement l\u2019Asie centrale sur la sc\u00e8ne mondiale.",
+      "L'Ouzbékistan participe à sa toute première Coupe du monde, réalisant un rêve de longue date pour cette nation d'Asie centrale de 35 millions d'habitants. Les Loups Blancs ont longtemps été la meilleure équipe d'Asie à ne jamais s'être qualifiée pour un Mondial, échouant de peu à plusieurs reprises en barrages intercontinentaux. Le football ouzbek s'est développé depuis l'indépendance en 1991, avec des succès en compétitions de jeunes (champions d'Asie U-20) et une présence régulière dans les phases finales de la Coupe d'Asie. Le style de jeu ouzbek est physique et combatif, avec une bonne organisation défensive et des attaquants capables de se montrer décisifs. Le championnat national produit des joueurs qui s'exportent principalement vers les ligues d'Asie de l'Est, de Russie et du Golfe. Cette qualification historique est un moment de fierté nationale immense et marque l'arrivée de l'Asie centrale sur la carte du football mondial. En 2026, dans un groupe K avec le Portugal et la Colombie, l'Ouzbékistan aura un défi colossal à relever, mais la simple présence à la Coupe du monde est déjà un accomplissement majeur.",
   },
   {
     id: "barrage-interconf-1",
@@ -703,7 +703,7 @@ export const teams: Team[] = [
     wcAppearances: 16,
     bestResult: "Vainqueur (1966)",
     description:
-      "Finaliste des deux derniers Euros, l\u2019Angleterre n\u2019a plus remport\u00e9 de titre majeur depuis 1966. Les Three Lions disposent d\u2019une g\u00e9n\u00e9ration dor\u00e9e et visent enfin la cons\u00e9cration mondiale.",
+      "Finaliste des deux derniers Euros (2020 et 2024), l'Angleterre n'a plus remporté de titre majeur depuis sa victoire en Coupe du monde en 1966 à Wembley. Les Three Lions disposent d'une génération dorée qui semble enfin capable de mettre fin à cette disette de près de 60 ans. Harry Kane, buteur prolifique du Bayern Munich et meilleur buteur de l'histoire de la sélection anglaise, mène une attaque redoutable complétée par Jude Bellingham (Real Madrid), Phil Foden (Manchester City) et Bukayo Saka (Arsenal). La Premier League, championnat le plus riche et le plus compétitif du monde, fournit l'intégralité de l'effectif anglais avec des joueurs habitués aux plus hauts standards d'exigence. Le style de jeu anglais a évolué : longtemps basé sur le kick and rush, il s'est modernisé pour intégrer davantage de possession et de jeu au sol, tout en conservant l'intensité physique caractéristique. L'Angleterre a atteint les demi-finales du Mondial 2018, confirmant son retour au premier plan après des années de déceptions. En 2026, les Three Lions sont parmi les tout premiers favoris et la pression pour ramener le trophée sera immense.",
   },
   {
     id: "croatie",
@@ -718,7 +718,7 @@ export const teams: Team[] = [
     wcAppearances: 6,
     bestResult: "Finaliste (2018)",
     description:
-      "Finaliste en 2018 et troisi\u00e8me en 2022, la Croatie surperforme r\u00e9guli\u00e8rement en Coupe du monde. Les Vatreni, m\u00eame apr\u00e8s l\u2019\u00e8re Modri\u0107, restent une \u00e9quipe redoutable dans les grands tournois.",
+      "Finaliste en 2018 (battue par la France) et troisième en 2022 (battue par l'Argentine en demi-finale), la Croatie surperforme régulièrement en Coupe du monde pour un pays de seulement 4 millions d'habitants. Les Vatreni (« les flamboyants ») ont également terminé troisièmes lors de leur première participation en 1998 en France, menés par Davor Šuker (Soulier d'Or). Luka Modrić, Ballon d'Or 2018 et l'un des plus grands milieux de terrain de l'histoire, a porté cette équipe au sommet pendant plus d'une décennie. Même si Modrić approche de la fin de sa carrière internationale, la Croatie continue de produire des talents remarquables grâce à son système de formation et au Dinamo Zagreb, véritable usine à joueurs. Joško Gvardiol (Manchester City), Mateo Kovačić et Lovro Majer représentent la relève. Le style croate est élégant et technique, avec un milieu de terrain créatif qui contrôle le rythme des matchs et une mentalité de guerriers dans les moments décisifs. En 2026, la Croatie sera à nouveau un adversaire redoutable que personne ne voudra affronter en phase éliminatoire.",
   },
   {
     id: "ghana",
@@ -733,7 +733,7 @@ export const teams: Team[] = [
     wcAppearances: 4,
     bestResult: "Quart de finaliste (2010)",
     description:
-      "Le Ghana, quart de finaliste en 2010, revient en Coupe du monde apr\u00e8s une \u00e9limination d\u00e8s la phase de groupes en 2022. Les Black Stars esp\u00e8rent retrouver leur lustre d\u2019antan.",
+      "Le Ghana, quart de finaliste en 2010, revient en Coupe du monde après une élimination dès la phase de groupes en 2022. Les Black Stars ont marqué l'histoire du football africain en Afrique du Sud en 2010, manquant la demi-finale de manière dramatique : Asamoah Gyan ratant un penalty à la dernière minute après la main volontaire de Luis Suárez sur la ligne. Ce moment reste l'un des plus célèbres et controversés de l'histoire de la Coupe du monde. Le Ghana avait également atteint les huitièmes de finale lors de sa première participation en 2006 en Allemagne. Le football ghanéen a produit des légendes comme Abedi Pelé, Michael Essien et Asamoah Gyan. La nouvelle génération comprend des joueurs évoluant dans les grands championnats européens, notamment en Premier League et en Bundesliga. Le style ghanéen allie puissance athlétique, technique individuelle et une créativité héritée de la riche tradition footballistique ouest-africaine. En 2026, dans un groupe L avec l'Angleterre et la Croatie, les Black Stars devront puiser dans cette tradition de combativité pour espérer se qualifier en phase éliminatoire.",
   },
   {
     id: "panama",
@@ -748,7 +748,7 @@ export const teams: Team[] = [
     wcAppearances: 2,
     bestResult: "Phase de groupes (2018)",
     description:
-      "Le Panama participe \u00e0 sa troisi\u00e8me Coupe du monde apr\u00e8s sa premi\u00e8re historique en 2018. Los Canaleros continuent de s\u2019imposer comme une force montante du football de la CONCACAF.",
+      "Le Panama participe à sa troisième Coupe du monde après sa première historique en 2018 en Russie et sa deuxième en 2022 au Qatar. Los Canaleros continuent de s'imposer comme une force montante du football de la CONCACAF, portés par la passion d'un pays de 4 millions d'habitants. La qualification pour le Mondial 2018 avait provoqué des scènes de liesse nationale, avec un jour férié décrété par le président. En Russie, malgré trois défaites, le Panama avait vécu son rêve en inscrivant son premier but en Coupe du monde contre l'Angleterre. Le football panaméen s'appuie sur un championnat national en développement et sur des joueurs évoluant principalement en MLS et dans les ligues d'Amérique centrale. Le style est combatif et organisé, avec une défense solide et des contre-attaques rapides. L'expérience acquise lors des deux derniers Mondiaux est un atout précieux pour cette troisième participation. En 2026, avec des matchs disputés en Amérique du Nord (terrain familier pour les joueurs panaméens), Los Canaleros espèrent enfin remporter leur premier match de Coupe du monde et pourquoi pas se qualifier pour les huitièmes de finale.",
   },
 ];
 

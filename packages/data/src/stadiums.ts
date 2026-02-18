@@ -16,7 +16,7 @@ export const stadiums: Stadium[] = [
     latitude: 40.8128,
     longitude: -74.0742,
     description:
-      "Situe dans le New Jersey, le MetLife Stadium accueillera la finale de la Coupe du Monde 2026. C'est le stade le plus grand des Etats-Unis par sa capacite en configuration football.",
+      "Situe dans le New Jersey, le MetLife Stadium accueillera la finale de la Coupe du Monde 2026. C'est le stade le plus grand des États-Unis par sa capacité en configuration football.",
   },
   {
     id: "att-stadium",
@@ -26,11 +26,11 @@ export const stadiums: Stadium[] = [
     cityId: "dallas-fort-worth",
     country: "USA",
     capacity: 80000,
-    roofType: "retractable",
+    roofType: "rétractable",
     latitude: 32.7473,
     longitude: -97.0945,
     description:
-      "Surnomme « Jerry World », l'AT&T Stadium est celebre pour son ecran video geant et son toit retractable. Il est le domicile des Dallas Cowboys de la NFL.",
+      "Surnomme « Jerry World », l'AT&T Stadium est célèbre pour son écran video géant et son toit rétractable. Il est le domicile des Dallas Cowboys de la NFL.",
   },
   {
     id: "hard-rock-stadium",
@@ -44,7 +44,7 @@ export const stadiums: Stadium[] = [
     latitude: 25.958,
     longitude: -80.2389,
     description:
-      "Le Hard Rock Stadium, domicile des Miami Dolphins, a accueilli de nombreux Super Bowls et evenements majeurs. Son canopee partielle protege les spectateurs du soleil de Floride.",
+      "Le Hard Rock Stadium, domicile des Miami Dolphins, a accueilli de nombreux Super Bowls et événements majeurs. Son canopee partielle protège les spectateurs du soleil de Floride.",
   },
   {
     id: "mercedes-benz-stadium",
@@ -54,11 +54,11 @@ export const stadiums: Stadium[] = [
     cityId: "atlanta",
     country: "USA",
     capacity: 71000,
-    roofType: "retractable",
+    roofType: "rétractable",
     latitude: 33.7553,
     longitude: -84.401,
     description:
-      "Le Mercedes-Benz Stadium se distingue par son toit retractable en forme de petales et son anneau video a 360 degres. Il est le domicile d'Atlanta United en MLS.",
+      "Le Mercedes-Benz Stadium se distingue par son toit rétractable en forme de petales et son anneau video a 360 degrés. Il est le domicile d'Atlanta United en MLS.",
   },
   {
     id: "lumen-field",
@@ -72,7 +72,7 @@ export const stadiums: Stadium[] = [
     latitude: 47.5952,
     longitude: -122.3316,
     description:
-      "Le Lumen Field est repute pour l'ambiance electrique creee par ses supporters, les « 12th Man ». Il est le domicile des Seattle Sounders, champions de la MLS et de la Ligue des champions de la CONCACAF.",
+      "Le Lumen Field est réputé pour l'ambiance électrique créée par ses supporters, les « 12th Man ». Il est le domicile des Seattle Sounders, champions de la MLS et de la Ligue des champions de la CONCACAF.",
   },
   {
     id: "nrg-stadium",
@@ -82,11 +82,11 @@ export const stadiums: Stadium[] = [
     cityId: "houston",
     country: "USA",
     capacity: 72220,
-    roofType: "retractable",
+    roofType: "rétractable",
     latitude: 29.6847,
     longitude: -95.4107,
     description:
-      "Le NRG Stadium a ete le premier stade de la NFL equipe d'un toit retractable. Il a accueilli plusieurs Super Bowls et des matchs du Mondial 1994 dans son ancienne version.",
+      "Le NRG Stadium a été le premier stade de la NFL équipe d'un toit rétractable. Il a accueilli plusieurs Super Bowls et des matchs du Mondial 1994 dans son ancienne version.",
   },
   {
     id: "lincoln-financial-field",
@@ -100,7 +100,7 @@ export const stadiums: Stadium[] = [
     latitude: 39.9008,
     longitude: -75.1675,
     description:
-      "Le Lincoln Financial Field, domicile des Philadelphia Eagles, est situe dans le complexe sportif du sud de Philadelphie. Il est connu pour l'intensite de ses supporters.",
+      "Le Lincoln Financial Field, domicile des Philadelphia Eagles, est situé dans le complexe sportif du sud de Philadelphie. Il est connu pour l'intensite de ses supporters.",
   },
   {
     id: "arrowhead-stadium",
@@ -114,7 +114,7 @@ export const stadiums: Stadium[] = [
     latitude: 39.0489,
     longitude: -94.484,
     description:
-      "L'Arrowhead Stadium detient le record du monde du stade le plus bruyant. Domicile des Kansas City Chiefs, il offre une atmosphere incomparable pour le football.",
+      "L'Arrowhead Stadium détient le record du monde du stade le plus bruyant. Domicile des Kansas City Chiefs, il offre une atmosphere incomparable pour le football.",
   },
   {
     id: "gillette-stadium",
@@ -128,7 +128,7 @@ export const stadiums: Stadium[] = [
     latitude: 42.0909,
     longitude: -71.2643,
     description:
-      "Le Gillette Stadium, domicile des New England Patriots et du New England Revolution, est situe a Foxborough dans la region de Boston. Il a accueilli des matchs internationaux majeurs.",
+      "Le Gillette Stadium, domicile des New England Patriots et du New England Revolution, est situé a Foxborough dans la region de Boston. Il a accueilli des matchs internationaux majeurs.",
   },
   {
     id: "levis-stadium",
@@ -142,7 +142,7 @@ export const stadiums: Stadium[] = [
     latitude: 37.4033,
     longitude: -121.9694,
     description:
-      "Le Levi's Stadium, inaugure en 2014, est une enceinte moderne situee au coeur de la Silicon Valley. Il a accueilli le Super Bowl 50 et la finale de la Copa America Centenario 2016.",
+      "Le Levi's Stadium, inauguré en 2014, est une enceinte moderne située au cœur de la Silicon Valley. Il a accueilli le Super Bowl 50 et la finale de la Copa America Centenario 2016.",
   },
   {
     id: "sofi-stadium",
@@ -156,7 +156,7 @@ export const stadiums: Stadium[] = [
     latitude: 33.9534,
     longitude: -118.3392,
     description:
-      "Le SoFi Stadium est l'un des stades les plus modernes et couteux au monde, avec son toit fixe translucide en ETFE. Il a accueilli le Super Bowl LVI en 2022.",
+      "Le SoFi Stadium est l'un des stades les plus modernes et coûteux au monde, avec son toit fixe translucide en ETFE. Il a accueilli le Super Bowl LVI en 2022.",
   },
 
   // ============================================================
@@ -188,7 +188,7 @@ export const stadiums: Stadium[] = [
     latitude: 20.6821,
     longitude: -103.4625,
     description:
-      "L'Estadio Akron, aussi connu sous le nom de Chivas Stadium, est le domicile du CD Guadalajara. Son design en forme de volcan en fait l'un des stades les plus emblematiques du Mexique.",
+      "L'Estadio Akron, aussi connu sous le nom de Chivas Stadium, est le domicile du CD Guadalajara. Son design en forme de volcan en fait l'un des stades les plus emblématiques du Mexique.",
   },
   {
     id: "estadio-bbva",
@@ -202,7 +202,7 @@ export const stadiums: Stadium[] = [
     latitude: 25.6699,
     longitude: -100.2436,
     description:
-      "L'Estadio BBVA, inaugure en 2015, est considere comme l'un des plus beaux stades d'Amerique latine. Domicile des Rayados de Monterrey, il offre une vue spectaculaire sur la Sierra Madre.",
+      "L'Estadio BBVA, inauguré en 2015, est considéré comme l'un des plus beaux stades d'Amérique latine. Domicile des Rayados de Monterrey, il offre une vue spectaculaire sur la Sierra Madre.",
   },
 
   // ============================================================
@@ -220,7 +220,7 @@ export const stadiums: Stadium[] = [
     latitude: 43.6332,
     longitude: -79.4186,
     description:
-      "Le BMO Field, domicile du Toronto FC, sera agrandi pour atteindre 45 000 places a l'occasion de la Coupe du Monde 2026. Il est situe au bord du lac Ontario dans le parc des expositions.",
+      "Le BMO Field, domicile du Toronto FC, sera agrandi pour atteindre 45 000 places a l'occasion de la Coupe du Monde 2026. Il est situé au bord du lac Ontario dans le parc des expositions.",
   },
   {
     id: "bc-place",
@@ -230,11 +230,11 @@ export const stadiums: Stadium[] = [
     cityId: "vancouver",
     country: "Canada",
     capacity: 54500,
-    roofType: "retractable",
+    roofType: "rétractable",
     latitude: 49.2768,
     longitude: -123.112,
     description:
-      "Le BC Place, avec son toit retractable, est le plus grand stade du Canada. Il a accueilli la ceremonie d'ouverture des Jeux Olympiques d'hiver de 2010 a Vancouver.",
+      "Le BC Place, avec son toit rétractable, est le plus grand stade du Canada. Il a accueilli la cérémonie d'ouverture des Jeux Olympiques d'hiver de 2010 a Vancouver.",
   },
 ];
 

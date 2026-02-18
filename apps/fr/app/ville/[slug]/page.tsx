@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!city) return {};
 
   return {
-    title: `${city.name} - Ville hote Coupe du Monde 2026 | Guide complet`,
-    description: `Guide complet de ${city.name} pour la Coupe du Monde 2026. Hotels, transports, stades et activites. ${city.description}`,
+    title: `${city.name} - Ville hôte Coupe du Monde 2026 | Guide complet`,
+    description: `Guide complet de ${city.name} pour la Coupe du Monde 2026. Hôtels, transports, stades et activités. ${city.description}`,
     alternates: getAlternates("city", slug, "fr"),
   };
 }
@@ -55,7 +55,7 @@ export default async function CityPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-4xl font-extrabold">{city.name}</h1>
           <p className="mt-2 text-gray-300">
-            {city.state}, {city.country} &middot; Ville hote CDM 2026
+            {city.state}, {city.country} &middot; Ville hôte CDM 2026
           </p>
         </div>
       </section>
@@ -64,7 +64,7 @@ export default async function CityPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Presentation</h2>
+              <h2 className="mb-4 text-xl font-bold">Présentation</h2>
               <p className="text-gray-700 leading-relaxed">{city.description}</p>
             </section>
 
@@ -83,7 +83,7 @@ export default async function CityPage({ params }: PageProps) {
                       <p className="font-semibold">{stadium.name}</p>
                       <p className="text-sm text-gray-500">
                         {stadium.capacity.toLocaleString("fr-FR")} places &middot;
-                        Toit {stadium.roofType === "retractable" ? "retractable" : stadium.roofType === "fixed" ? "fixe" : "ouvert"}
+                        Toit {stadium.roofType === "retractable" ? "rétractable" : stadium.roofType === "fixed" ? "fixe" : "ouvert"}
                       </p>
                     </div>
                     <span className="text-accent">&rarr;</span>
@@ -118,7 +118,7 @@ export default async function CityPage({ params }: PageProps) {
                   <dd className="font-medium">{city.country}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Etat/Province</dt>
+                  <dt className="text-gray-500">État / Province</dt>
                   <dd className="font-medium">{city.state}</dd>
                 </div>
                 <div className="flex justify-between">
@@ -149,9 +149,9 @@ export default async function CityPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">Hotels a {city.name}</h3>
+              <h3 className="mb-2 text-lg font-bold text-accent">Hôtels à {city.name}</h3>
               <p className="text-sm text-gray-600">
-                Trouvez les meilleurs hotels pres des stades pour la Coupe du Monde 2026.
+                Trouvez les meilleurs hôtels près des stades pour la Coupe du Monde 2026.
               </p>
             </div>
           </div>
@@ -163,11 +163,13 @@ export default async function CityPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "City",
+            "@type": "Place",
             name: city.name,
-            containedInPlace: {
-              "@type": "Country",
-              name: city.country,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: city.name,
+              addressRegion: city.state,
+              addressCountry: city.country,
             },
           }),
         }}

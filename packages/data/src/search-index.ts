@@ -15,7 +15,7 @@ export interface SearchItem {
 
 const typeLabels: Record<Lang, Record<SearchItem["type"], string>> = {
   fr: {
-    team: "Equipe",
+    team: "Équipe",
     match: "Match",
     player: "Joueur",
     stadium: "Stade",

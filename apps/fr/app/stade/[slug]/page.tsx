@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${stadium.name} - Stade Coupe du Monde 2026 | ${stadium.city}`,
-    description: `Guide complet du ${stadium.name} a ${stadium.city} pour la Coupe du Monde 2026. Capacite ${stadium.capacity.toLocaleString("fr-FR")} places. ${stadium.description}`,
+    description: `Guide complet du ${stadium.name} à ${stadium.city} pour la Coupe du Monde 2026. Capacité ${stadium.capacity.toLocaleString("fr-FR")} places. ${stadium.description}`,
     alternates: getAlternates("stadium", slug, "fr"),
   };
 }
@@ -80,23 +80,23 @@ export default async function StadiumPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Presentation</h2>
+              <h2 className="mb-4 text-xl font-bold">Présentation</h2>
               <p className="text-gray-700 leading-relaxed">{stadium.description}</p>
             </section>
 
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Caracteristiques</h2>
+              <h2 className="mb-4 text-xl font-bold">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {stadium.capacity.toLocaleString("fr-FR")}
                   </p>
-                  <p className="text-sm text-gray-500">Capacite</p>
+                  <p className="text-sm text-gray-500">Capacité</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary capitalize">
                     {stadium.roofType === "retractable"
-                      ? "Retractable"
+                      ? "Rétractable"
                       : stadium.roofType === "fixed"
                         ? "Fixe"
                         : "Ouvert"}
@@ -164,14 +164,14 @@ export default async function StadiumPage({ params }: PageProps) {
                   <dd className="font-medium">{stadium.country}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Capacite</dt>
+                  <dt className="text-gray-500">Capacité</dt>
                   <dd className="font-medium">{stadium.capacity.toLocaleString("fr-FR")}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Toit</dt>
                   <dd className="font-medium capitalize">
                     {stadium.roofType === "retractable"
-                      ? "Retractable"
+                      ? "Rétractable"
                       : stadium.roofType === "fixed"
                         ? "Fixe"
                         : "Ouvert"}
