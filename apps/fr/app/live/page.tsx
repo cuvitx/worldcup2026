@@ -4,6 +4,7 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { Countdown } from "@repo/ui/countdown";
+import { EVENT_DATES } from "@repo/data/constants";
 
 export const metadata: Metadata = {
   title: "Résultats en direct - Coupe du Monde 2026",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-const OPENING_DATE = "2026-06-11";
+const OPENING_DATE = EVENT_DATES.START;
 
 /** Get the first 4 matches of the tournament */
 function getNextMatches() {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Countdown } from "@repo/ui/countdown";
+import { EVENT_DATES } from "@repo/data/constants";
 
 export function HeroSection() {
   return (
@@ -22,7 +23,7 @@ export function HeroSection() {
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
-            Coupe du Monde 2026 · 11 juin – 19 juillet
+            Coupe du Monde 2026 · {EVENT_DATES.RANGE_FR.replace(" 2026", "")}
           </span>
         </div>
 

@@ -1,3 +1,5 @@
+import { EXTERNAL_URLS } from "@repo/data/constants";
+
 export function CommentAcheter() {
   const steps = [
     {
@@ -62,7 +64,7 @@ export function CommentAcheter() {
 
         <div className="mt-6 text-center">
           <a
-            href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
+            href={EXTERNAL_URLS.FIFA_TICKETS}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-bold text-white text-lg shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all"

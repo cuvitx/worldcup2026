@@ -1,3 +1,5 @@
+import { EXTERNAL_URLS } from "@repo/data/constants";
+
 export function BilletsHero() {
   return (
     <section className="bg-primary text-white py-12 sm:py-16">
@@ -15,7 +17,7 @@ export function BilletsHero() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
+              href={EXTERNAL_URLS.FIFA_TICKETS}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg w-full sm:w-auto"

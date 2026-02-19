@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useBadges, ALL_BADGES } from "@repo/ui/badge-system";
+import { EVENT_DATES } from "@repo/data/constants";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
 
@@ -36,7 +37,7 @@ const TEAMS = [
 /* ─── Mock upcoming matches (static for now) ───────────────── */
 
 function getUpcomingMatchesForTeam(teamName: string) {
-  const CDM_START = new Date("2026-06-11");
+  const CDM_START = new Date(EVENT_DATES.START);
   return [
     { opponent: "Phase de groupes - Match 1", date: CDM_START, stage: "Groupe" },
     { opponent: "Phase de groupes - Match 2", date: new Date("2026-06-16"), stage: "Groupe" },

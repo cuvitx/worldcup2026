@@ -6,14 +6,15 @@ import { notFound } from "next/navigation";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { EVENT_DATES } from "@repo/data/constants";
 
 export const revalidate = 3600;
 
 // ============================================================
 //  Tournament dates: June 11 (day 1) to July 19 (day 39)
 // ============================================================
-const TOURNAMENT_START = new Date("2026-06-11");
-const TOTAL_DAYS = 39;
+const TOURNAMENT_START = new Date(EVENT_DATES.START);
+const TOTAL_DAYS = EVENT_DATES.DURATION_DAYS;
 
 function dayNumberToDate(n: number): string {
   const d = new Date(TOURNAMENT_START);

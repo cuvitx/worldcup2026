@@ -48,7 +48,8 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       setEmail('');
       return;
     } catch (err) {
-      console.warn('[newsletter] API call failed, falling back to localStorage:', err);
+      // API call failed, falling back to localStorage
+      void err;
     }
 
     // ── Fallback localStorage si l'API est down ──────────────────────────────

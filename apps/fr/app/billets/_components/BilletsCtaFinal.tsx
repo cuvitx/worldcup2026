@@ -1,3 +1,4 @@
+import { EXTERNAL_URLS } from "@repo/data/constants";
 import Link from "next/link";
 
 export function BilletsCtaFinal() {
@@ -14,7 +15,7 @@ export function BilletsCtaFinal() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
-              href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
+              href={EXTERNAL_URLS.FIFA_TICKETS}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg bg-accent px-8 py-3 font-bold text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-lg"

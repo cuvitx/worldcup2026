@@ -12,7 +12,7 @@ import { generateFullMatchPreview } from "@repo/ai/generators";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import { getMatchPhase } from "@repo/data/tournament-state";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabels, EXTERNAL_URLS } from "@repo/data/constants";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -483,7 +483,7 @@ export default async function MatchPage({ params }: PageProps) {
             organizer: {
               "@type": "Organization",
               name: "FIFA",
-              url: "https://www.fifa.com",
+              url: EXTERNAL_URLS.FIFA_SITE,
             },
             offers: {
               "@type": "Offer",
