@@ -761,7 +761,7 @@ export default async function TeamPage({ params }: PageProps) {
                     </a>
                   ))}
               </div>
-              <p className="mt-3 text-xs text-white/60">18+. Pariez responsablement.</p>
+              <p className="mt-3 text-xs text-white/80">18+. Pariez responsablement.</p>
             </div>
 
             {/* Related Teams */}

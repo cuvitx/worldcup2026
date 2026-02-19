@@ -156,7 +156,7 @@ export default function GrillePronosticsPage() {
                           {new Date(m.date + "T12:00:00Z").toLocaleDateString("fr-FR", { day: "numeric", month: "short" })} · {m.time}
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="flex-1 text-right text-sm font-medium text-gray-900 dark:text-white truncate">
+                          <span className="flex-1 text-right text-sm font-medium text-gray-900 dark:text-white break-words">
                             {teamFlag(m.homeTeamId)} {teamName(m.homeTeamId)}
                           </span>
                           <input
@@ -178,7 +178,7 @@ export default function GrillePronosticsPage() {
                             className="w-10 h-9 text-center rounded-md border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             aria-label={`Score ${teamName(m.awayTeamId)}`}
                           />
-                          <span className="flex-1 text-left text-sm font-medium text-gray-900 dark:text-white truncate">
+                          <span className="flex-1 text-left text-sm font-medium text-gray-900 dark:text-white break-words">
                             {teamName(m.awayTeamId)} {teamFlag(m.awayTeamId)}
                           </span>
                         </div>

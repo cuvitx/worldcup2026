@@ -15,7 +15,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
       >
         <span className="text-2xl shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{team.name}</p>
+          <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 break-words">{team.name}</p>
           <p className="text-xs text-gray-500 dark:text-gray-300">
             Groupe {team.group} · #{team.fifaRanking || "–"} FIFA
           </p>
@@ -50,7 +50,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
       </span>
 
       <div className="min-w-0 flex-1">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">{team.name}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white break-words">{team.name}</h3>
         <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-300">
           Groupe {team.group} · {team.confederation}
           {team.fifaRanking > 0 ? ` · #${team.fifaRanking} FIFA` : ""}

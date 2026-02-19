@@ -116,7 +116,7 @@ export default function ButeursPage() {
                         <span className="text-lg shrink-0" role="img" aria-label={scorer.countryName}>
                           {scorer.country}
                         </span>
-                        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">
+                        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base break-words">
                           {scorer.name}
                         </span>
                         <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-300">

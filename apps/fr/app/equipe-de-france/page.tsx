@@ -255,15 +255,15 @@ export default function EquipeDeFrancePage() {
               <div className="grid grid-cols-3 gap-3 mb-6 max-w-sm mx-auto md:mx-0">
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                   <p className="text-2xl font-extrabold text-secondary">{winnerOdds}</p>
-                  <p className="text-xs text-white/60 mt-0.5">Cote titre</p>
+                  <p className="text-xs text-white/80 mt-0.5">Cote titre</p>
                 </div>
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                   <p className="text-2xl font-extrabold text-primary-light">{winPct}%</p>
-                  <p className="text-xs text-white/60 mt-0.5">% de chance</p>
+                  <p className="text-xs text-white/80 mt-0.5">% de chance</p>
                 </div>
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                   <p className="text-2xl font-extrabold text-white">#2</p>
-                  <p className="text-xs text-white/60 mt-0.5">FIFA Ranking</p>
+                  <p className="text-xs text-white/80 mt-0.5">FIFA Ranking</p>
                 </div>
               </div>
 

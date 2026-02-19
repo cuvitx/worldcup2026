@@ -98,7 +98,7 @@ export default function ComparateurCotesPage() {
                     <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded shrink-0">
                       Groupe {match.group}
                     </span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm truncate min-w-0">
+                    <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm break-words min-w-0">
                       {match.homeFlag} {match.homeTeam} vs {match.awayTeam} {match.awayFlag}
                     </span>
                   </div>

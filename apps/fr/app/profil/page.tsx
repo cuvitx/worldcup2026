@@ -150,7 +150,7 @@ export default function ProfilPage() {
             <span className="text-3xl sm:text-4xl shrink-0">{myTeam.flag}</span>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-medium opacity-80">Tu supportes</p>
-              <p className="text-lg font-extrabold tracking-tight sm:text-xl truncate">{myTeam.name}</p>
+              <p className="text-lg font-extrabold tracking-tight sm:text-xl break-words">{myTeam.name}</p>
               {daysToNext !== null && nextMatch && (
                 <p className="mt-0.5 text-xs opacity-90">
                   {daysToNext === 0
@@ -234,7 +234,7 @@ export default function ProfilPage() {
         {[
           { label: "Pages visitées", value: stats.visitedPages.length, icon: "📄" },
           { label: "Votes", value: stats.votes, icon: "🗳️" },
-          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "Pas encore joué", icon: "🧠" },
+          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "—", icon: "🧠" },
         ].map((s) => (
           <div
             key={s.label}

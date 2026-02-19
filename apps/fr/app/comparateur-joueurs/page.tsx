@@ -61,8 +61,8 @@ export default function ComparateurJoueursPage() {
           >
             Voir le comparateur de cotes &rarr;
           </a>
-          <p className="mt-3 text-xs text-white/60">18+. Pariez responsablement.</p>
-          <p className="text-xs text-white/50 mt-2">
+          <p className="mt-3 text-xs text-white/80">18+. Pariez responsablement.</p>
+          <p className="text-xs text-white/80 mt-2">
             🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
             Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
           </p>

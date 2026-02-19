@@ -447,7 +447,7 @@ export default function PronosticVainqueurPage() {
                   {/* Flag + name */}
                   <div className="flex items-center gap-2 w-36 shrink-0">
                     <span className="text-xl shrink-0">{team.flag}</span>
-                    <span className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white break-words">
                       {team.name}
                     </span>
                   </div>

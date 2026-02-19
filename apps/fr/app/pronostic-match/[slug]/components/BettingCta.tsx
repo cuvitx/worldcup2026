@@ -71,7 +71,7 @@ export function BettingCta({
             </a>
           ))}
       </div>
-      <p className="mt-4 text-xs text-white/60">
+      <p className="mt-4 text-xs text-white/80">
         Cotes estimées, susceptibles d&apos;évoluer. Pariez responsablement. 18+
       </p>
       <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">

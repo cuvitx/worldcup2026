@@ -187,7 +187,7 @@ export default async function JourPage({ params }: PageProps) {
                 Jour {dayNum}
               </h1>
               <p className="mt-2 text-lg text-white/90 capitalize">{dateFr}</p>
-              <p className="mt-1 text-sm text-white/60">
+              <p className="mt-1 text-sm text-white/80">
                 {dayMatches.length > 0
                   ? `${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} au programme`
                   : "Pas de match prévu ce jour"}

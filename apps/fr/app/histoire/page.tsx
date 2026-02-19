@@ -689,7 +689,7 @@ export default function HistoirePage() {
                   <div className="text-2xl mb-1">{icon}</div>
                   <div className="text-3xl font-extrabold">{val}</div>
                   <div className="font-bold text-sm">{label}</div>
-                  <div className="text-[11px] text-white/60 mt-1">{desc}</div>
+                  <div className="text-[11px] text-white/80 mt-1">{desc}</div>
                 </div>
               ))}
             </div>
@@ -725,7 +725,7 @@ export default function HistoirePage() {
                 >
                   <div className="text-4xl mb-2">{p.flag}</div>
                   <div className="font-bold text-lg">{p.country}</div>
-                  <div className="text-xs text-white/60 mt-1 mb-2">{p.cities}</div>
+                  <div className="text-xs text-white/80 mt-1 mb-2">{p.cities}</div>
                   <div className="inline-flex items-center gap-1 bg-white/20 rounded-full px-3 py-1 text-xs font-bold">
                     ⚽ {p.matches}
                   </div>
@@ -778,7 +778,7 @@ export default function HistoirePage() {
                   >
                     <div className="text-2xl">{flag}</div>
                     <div className="text-xs font-bold mt-1">{country}</div>
-                    <div className="text-[10px] text-white/60">{cote}</div>
+                    <div className="text-[10px] text-white/80">{cote}</div>
                   </div>
                 ))}
               </div>

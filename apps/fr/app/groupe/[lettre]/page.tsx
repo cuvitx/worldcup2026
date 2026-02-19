@@ -66,7 +66,7 @@ export default async function GroupPage({ params }: PageProps) {
       <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Groupe {group.letter}</h1>
-          <p className="mt-2 text-gray-300">
+          <p className="mt-2 text-gray-200">
             Coupe du Monde 2026 &middot; Phase de groupes
           </p>
         </div>
@@ -158,9 +158,9 @@ export default async function GroupPage({ params }: PageProps) {
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                        <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
+                        <span className="font-medium flex-1 min-w-0 break-words text-sm">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500 shrink-0">vs</span>
-                        <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
+                        <span className="font-medium flex-1 min-w-0 break-words text-right text-sm">{away?.name ?? "TBD"}</span>
                         <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                         <span className="text-xs text-gray-500 w-10 text-right shrink-0">{match.time}</span>
                       </Link>

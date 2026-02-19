@@ -126,7 +126,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         <p className="text-sm font-bold text-white mb-1">
           {display.homeFlag} {display.matchLabel} {display.awayFlag}
         </p>
-        <p className="text-xs text-white/50 mb-3">{display.dateLabel}</p>
+        <p className="text-xs text-white/80 mb-3">{display.dateLabel}</p>
 
         {/* Bet */}
         <div className="flex items-center justify-between bg-white/5 rounded-lg px-3 py-2 mb-3">
@@ -167,7 +167,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
               <p className="text-xs font-bold uppercase tracking-widest text-secondary">
                 Pari du jour
               </p>
-              <p className="text-[10px] text-gray-400">Par nos experts CDM 2026</p>
+              <p className="text-[10px] text-gray-600">Par nos experts CDM 2026</p>
             </div>
           </div>
           <div className="flex items-center gap-2">

@@ -84,7 +84,7 @@ export default function GroupsPage() {
                         <span className="text-xl" role="img" aria-label={team?.name ?? id}>
                           {team?.flag ?? "🏳️"}
                         </span>
-                        <span className={`flex-1 font-medium truncate ${
+                        <span className={`flex-1 font-medium break-words text-sm ${
                           isQualified 
                             ? "text-green-700 dark:text-green-400" 
                             : "text-gray-800 dark:text-gray-200"

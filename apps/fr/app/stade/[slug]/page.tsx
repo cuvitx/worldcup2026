@@ -241,7 +241,7 @@ export default async function StadiumPage({ params }: PageProps) {
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                        <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
+                        <span className="font-medium flex-1 min-w-0 break-words text-sm">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500 shrink-0">vs</span>
                         <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
                         <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>

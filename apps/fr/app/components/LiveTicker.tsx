@@ -82,7 +82,17 @@ export function LiveTicker() {
   if (!homeTeam || !awayTeam) return null;
 
   // Abbreviate long team names for ticker display
-  const abbreviate = (name: string) => name.length > 15 ? name.slice(0, 13) + "…" : name;
+  const abbreviations: Record<string, string> = {
+    "Afrique du Sud": "Afr. du Sud",
+    "Corée du Sud": "Corée du S.",
+    "Arabie saoudite": "Arabie sao.",
+    "Nouvelle-Zélande": "Nvl-Zélande",
+    "République tchèque": "Rép. tchèque",
+    "Trinité-et-Tobago": "Trinité-Tob.",
+    "Bosnie-Herzégovine": "Bosnie-Herz.",
+    "République dominicaine": "Rép. dom.",
+  };
+  const abbreviate = (name: string) => abbreviations[name] ?? (name.length > 12 ? name.slice(0, 10) + "…" : name);
   const homeName = abbreviate(homeTeam.name);
   const awayName = abbreviate(awayTeam.name);
 
@@ -92,15 +102,15 @@ export function LiveTicker() {
   };
 
   const countdownText = countdown
-    ? `dans ${countdown.days > 0 ? `${countdown.days}j ` : ""}${countdown.hours}h${String(countdown.minutes).padStart(2, "0")}`
+    ? `dans ${countdown.days > 0 ? `${countdown.days}j ${countdown.hours}h` : `${countdown.hours}h${String(countdown.minutes).padStart(2, "0")}`}`
     : "";
 
   return (
     <div className="sticky top-[64px] z-40 w-full backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-gray-200/50 dark:border-gray-700/50">
-      <div className="mx-auto max-w-7xl flex items-center justify-center gap-2 px-4 py-2 text-sm">
+      <div className="mx-auto max-w-7xl flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm">
         <Link
           href={`/match/${nextMatch.slug}`}
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0 truncate"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0"
         >
           {isLive && (
             <span className="flex items-center gap-1.5 shrink-0">
@@ -113,7 +123,7 @@ export function LiveTicker() {
               </span>
             </span>
           )}
-          <span className="truncate">
+          <span className="whitespace-nowrap">
             <span role="img" aria-label={homeTeam.name}>{homeTeam.flag}</span>{" "}
             <span className="font-semibold">{homeName}</span>
             {" "}vs{" "}

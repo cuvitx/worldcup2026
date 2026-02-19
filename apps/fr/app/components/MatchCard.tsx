@@ -134,7 +134,7 @@ export function MatchCard({
         {/* Équipe domicile */}
         <div className="flex items-center gap-1.5 flex-1 min-w-0 justify-end">
           <span
-            className={`font-semibold truncate text-[var(--color-text)] ${
+            className={`font-semibold break-words text-[var(--color-text)] ${
               compact ? "text-sm" : "text-base"
             } ${isFinished && scoreHome !== undefined && scoreAway !== undefined && scoreHome > scoreAway ? "font-bold" : ""}`}
           >
@@ -201,7 +201,7 @@ export function MatchCard({
             {awayFlag}
           </span>
           <span
-            className={`font-semibold truncate text-[var(--color-text)] ${
+            className={`font-semibold break-words text-[var(--color-text)] ${
               compact ? "text-sm" : "text-base"
             } ${isFinished && scoreHome !== undefined && scoreAway !== undefined && scoreAway > scoreHome ? "font-bold" : ""}`}
           >

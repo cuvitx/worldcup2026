@@ -228,7 +228,7 @@ export default function HomePage() {
         </div>
 
         {/* Arrow scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/40 text-xl">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/80 text-xl">
           ↓
         </div>
       </section>
