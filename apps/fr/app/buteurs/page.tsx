@@ -23,7 +23,7 @@ export default function ButeursPage() {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -44,7 +44,7 @@ export default function ButeursPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
         {/* Top Scorer Ranking */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-2 text-xl font-bold">Favoris pour le Soulier d&apos;Or</h2>
           <p className="mb-4 text-sm text-gray-600">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
@@ -52,7 +52,7 @@ export default function ButeursPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 text-left">
+                <tr className="border-b border-gray-200 dark:border-slate-700 text-left">
                   <th className="pb-3 font-medium text-gray-500">#</th>
                   <th className="pb-3 font-medium text-gray-500">Joueur</th>
                   <th className="pb-3 font-medium text-gray-500">Équipe</th>
@@ -66,7 +66,7 @@ export default function ButeursPage() {
                   const player = playersById[so.playerId];
                   const team = player ? teamsById[player.teamId] : undefined;
                   return (
-                    <tr key={so.playerId} className="hover:bg-gray-50">
+                    <tr key={so.playerId} className="hover:bg-gray-50 dark:bg-slate-700">
                       <td className="py-3 text-gray-500 font-medium">{i + 1}</td>
                       <td className="py-3">
                         {player && (
@@ -95,7 +95,7 @@ export default function ButeursPage() {
         </section>
 
         {/* All scorers by expected goals */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-2 text-xl font-bold">Tous les buteurs potentiels</h2>
           <p className="mb-4 text-sm text-gray-600">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
@@ -109,7 +109,7 @@ export default function ButeursPage() {
                 <Link
                   key={so.playerId}
                   href={`/buteur/${player.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                 >
                   <div>
                     <p className="font-semibold">{player.name}</p>
@@ -128,7 +128,7 @@ export default function ButeursPage() {
         </section>
 
         {/* By Team */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-bold">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
@@ -137,7 +137,7 @@ export default function ButeursPage() {
                 const teamScorers = scorersByTeam[team.id];
                 if (!teamScorers || teamScorers.length === 0) return null;
                 return (
-                  <div key={team.id} className="rounded-lg border border-gray-200 p-4">
+                  <div key={team.id} className="rounded-lg border border-gray-200 dark:border-slate-700 p-4">
                     <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-accent">
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                       <h3 className="font-bold">{team.name}</h3>

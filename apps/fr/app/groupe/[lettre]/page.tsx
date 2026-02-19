@@ -49,7 +49,7 @@ export default async function GroupPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Groupes",url:"/equipes"},{name:"Groupe "+group.letter,url:"/groupe/"+lettre}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -74,12 +74,12 @@ export default async function GroupPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Teams Table */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Équipes du Groupe {group.letter}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200 text-gray-500">
+                    <tr className="border-b border-gray-200 dark:border-slate-700 text-gray-500">
                       <th className="pb-3 font-medium">Équipe</th>
                       <th className="pb-3 font-medium text-center">FIFA</th>
                       <th className="pb-3 font-medium text-center">Conf.</th>
@@ -89,7 +89,7 @@ export default async function GroupPage({ params }: PageProps) {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {groupTeams.map((team) => (
-                      <tr key={team.id} className="hover:bg-gray-50">
+                      <tr key={team.id} className="hover:bg-gray-50 dark:bg-slate-700">
                         <td className="py-3">
                           <Link
                             href={`/equipe/${team.slug}`}
@@ -116,7 +116,7 @@ export default async function GroupPage({ params }: PageProps) {
             </section>
 
             {/* Group Analysis */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Analyse du Groupe {group.letter}</h2>
               <div className="prose prose-sm max-w-none text-gray-700">
                 <p>
@@ -141,7 +141,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Group Matches */}
             {groupMatches.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Calendrier du Groupe {group.letter}</h2>
                 <div className="space-y-2">
                   {groupMatches.map((match) => {
@@ -151,7 +151,7 @@ export default async function GroupPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                       >
                         <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
@@ -168,7 +168,7 @@ export default async function GroupPage({ params }: PageProps) {
             )}
 
             {/* Head to Head Links */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Confrontations directes</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {groupTeams.flatMap((team1, i) =>
@@ -176,7 +176,7 @@ export default async function GroupPage({ params }: PageProps) {
                     <Link
                       key={`${team1.id}-${team2.id}`}
                       href={`/h2h/${team1.slug}-vs-${team2.slug}`}
-                      className="flex items-center justify-center gap-3 rounded-lg border border-gray-200 p-4 text-center transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center justify-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-4 text-center transition-colors hover:border-accent hover:bg-accent/5"
                     >
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
                       <span className="font-semibold">{team1.name}</span>
@@ -193,7 +193,7 @@ export default async function GroupPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Group Navigation */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Tous les groupes</h3>
               <div className="grid grid-cols-4 gap-2">
                 {groups.map((g) => (
@@ -203,7 +203,7 @@ export default async function GroupPage({ params }: PageProps) {
                     className={`rounded-lg border p-2 text-center text-sm font-medium transition-colors ${
                       g.letter === group.letter
                         ? "border-accent bg-accent text-white"
-                        : "border-gray-200 hover:border-accent hover:text-accent"
+                        : "border-gray-200 dark:border-slate-700 hover:border-accent hover:text-accent"
                     }`}
                   >
                     {g.letter}

@@ -26,7 +26,7 @@ function PlayerCard({ player }: { player: Player }) {
   return (
     <Link
       href={`/joueur/${player.slug}`}
-      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
     >
       <div>
         <p className="font-semibold">{player.name}</p>

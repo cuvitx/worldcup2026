@@ -60,7 +60,7 @@ export default function TeamsPage() {
                 {sorted.map((team) => {
                   const pred = predictionsByTeamId[team.id];
                   return (
-                    <tr key={team.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <tr key={team.id} className="hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/50 transition-colors">
                       <td className="py-3 font-medium text-gray-900 dark:text-white">{team.fifaRanking}</td>
                       <td className="py-3">
                         <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent">

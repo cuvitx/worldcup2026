@@ -264,14 +264,14 @@ export default async function H2HPage({ params }: PageProps) {
               <div className="space-y-3">
                 <Link
                   href={`/equipe/${team1.slug}`}
-                  className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
                 >
                   <span className="text-xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
                   <span className="font-medium">{team1.name}</span>
                 </Link>
                 <Link
                   href={`/equipe/${team2.slug}`}
-                  className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
                 >
                   <span className="text-xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
                   <span className="font-medium">{team2.name}</span>

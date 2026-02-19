@@ -69,7 +69,7 @@ export default async function TeamPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -114,14 +114,14 @@ export default async function TeamPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Presentation</h2>
               <p className="text-gray-700 leading-relaxed">{team.description}</p>
             </section>
 
             {/* AI Analysis */}
             {enriched?.analysis && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <div className="mb-4 flex items-center gap-2">
                   <h2 className="text-xl font-bold">Analyse</h2>
                   <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">IA</span>
@@ -131,14 +131,14 @@ export default async function TeamPage({ params }: PageProps) {
             )}
 
             {/* World Cup History */}
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Historique en Coupe du Monde</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">{team.wcAppearances}</p>
                   <p className="text-sm text-gray-500">Participations</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{team.bestResult}</p>
                   <p className="text-sm text-gray-500">Meilleur résultat</p>
                 </div>
@@ -147,7 +147,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Predictions */}
             {prediction && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Pronostics CDM 2026</h2>
                 <div className="mb-4 flex items-center gap-3">
                   <div className="rounded-lg bg-primary/5 px-4 py-2">
@@ -168,7 +168,7 @@ export default async function TeamPage({ params }: PageProps) {
                     { label: "Demi-finale", value: prediction.semiFinalProb },
                     { label: "Finale", value: prediction.finalProb },
                   ].map((stage) => (
-                    <div key={stage.label} className="rounded bg-gray-50 p-2 text-center">
+                    <div key={stage.label} className="rounded bg-gray-50 dark:bg-slate-700 p-2 text-center">
                       <p className="text-lg font-bold text-primary">{Math.round(stage.value * 100)}%</p>
                       <p className="text-xs text-gray-500">{stage.label}</p>
                     </div>
@@ -179,7 +179,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Key Players */}
             {teamPlayers.length > 0 && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Joueurs clés</h2>
                 <ExpandablePlayerList players={teamPlayers} />
               </section>
@@ -187,7 +187,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Group Matches */}
             {teamMatches.length > 0 && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Matchs de groupe</h2>
                 <div className="space-y-3">
                   {teamMatches.map((match) => {
@@ -203,7 +203,7 @@ export default async function TeamPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                       >
                         <span className="text-sm text-gray-500 w-20 shrink-0">
                           {match.date.slice(5)}
@@ -225,7 +225,7 @@ export default async function TeamPage({ params }: PageProps) {
             )}
 
             {/* Group Stage */}
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
                   Groupe {team.group}
@@ -238,7 +238,7 @@ export default async function TeamPage({ params }: PageProps) {
                 {groupTeams.map((opponent) => (
                   <div
                     key={opponent.id}
-                    className="flex items-center gap-3 rounded-lg border border-gray-200 p-3"
+                    className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3"
                   >
                     <span className="text-2xl" role="img" aria-label={`Drapeau de ${opponent.name}`}>{opponent.flag}</span>
                     <div className="flex-1 min-w-0">
@@ -289,7 +289,7 @@ export default async function TeamPage({ params }: PageProps) {
                 D: "Défaite",
               };
               return (
-                <div className="rounded-xl border border-gray-200 bg-white dark:bg-gray-900 p-6 shadow-sm">
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-gray-900 p-6 shadow-sm">
                   <h3 className="mb-4 text-lg font-bold">Forme récente</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">5 derniers matchs</p>
                   <div className="flex gap-2">
@@ -325,7 +325,7 @@ export default async function TeamPage({ params }: PageProps) {
                 })
                 .sort((a, b) => b.pts - a.pts || b.gd - a.gd);
               return (
-                <div className="rounded-xl border border-gray-200 bg-white dark:bg-gray-900 p-6 shadow-sm">
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-gray-900 p-6 shadow-sm">
                   <h3 className="mb-4 text-lg font-bold">
                     <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
                       Groupe {team.group}
@@ -377,7 +377,7 @@ export default async function TeamPage({ params }: PageProps) {
             })()}
 
             {/* Quick Stats */}
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Fiche technique</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -409,7 +409,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Live Form & Stats */}
             {(enriched?.form || enriched?.goalStats) && (
-              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h3 className="mb-4 text-lg font-bold">Forme actuelle</h3>
                 {enriched?.form && (
                   <div className="mb-3">
@@ -430,15 +430,15 @@ export default async function TeamPage({ params }: PageProps) {
                 )}
                 {enriched?.goalStats && (
                   <div className="grid grid-cols-3 gap-2 text-center text-sm">
-                    <div className="rounded bg-gray-50 p-2">
+                    <div className="rounded bg-gray-50 dark:bg-slate-700 p-2">
                       <p className="text-lg font-bold text-field">{enriched?.goalStats.scored}</p>
                       <p className="text-xs text-gray-500">Buts marques</p>
                     </div>
-                    <div className="rounded bg-gray-50 p-2">
+                    <div className="rounded bg-gray-50 dark:bg-slate-700 p-2">
                       <p className="text-lg font-bold text-red-500">{enriched?.goalStats.conceded}</p>
                       <p className="text-xs text-gray-500">Buts encaisses</p>
                     </div>
-                    <div className="rounded bg-gray-50 p-2">
+                    <div className="rounded bg-gray-50 dark:bg-slate-700 p-2">
                       <p className="text-lg font-bold text-primary">{enriched?.goalStats.cleanSheets}</p>
                       <p className="text-xs text-gray-500">Clean sheets</p>
                     </div>
@@ -449,7 +449,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Injuries */}
             {(enriched?.injuries?.length ?? 0) > 0 && (
-              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h3 className="mb-3 text-lg font-bold">Blessures</h3>
                 <ul className="space-y-2">
                   {enriched?.injuries?.map((inj) => (
@@ -524,7 +524,7 @@ export default async function TeamPage({ params }: PageProps) {
             </div>
 
             {/* Related Teams */}
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Équipes du groupe {team.group}</h3>
               <ul className="space-y-2">
                 {groupTeams.map((t) => (

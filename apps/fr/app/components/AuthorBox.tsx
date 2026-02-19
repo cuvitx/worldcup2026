@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function AuthorBox() {
   return (
-    <section className="rounded-lg bg-white p-6 shadow-sm">
+    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
       <div className="flex items-start gap-4">
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-white">
           EC

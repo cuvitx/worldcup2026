@@ -41,7 +41,7 @@ export default async function CityPage({ params }: PageProps) {
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Villes",url:"/villes"},{name:city.name,url:"/ville/"+city.slug}]} baseUrl={domains.fr} />
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -73,12 +73,12 @@ export default async function CityPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
               <p className="text-gray-700 leading-relaxed">{city.description}</p>
             </section>
 
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 {cityStadiums.length > 1 ? "Stades" : "Stade"} de la Coupe du Monde
               </h2>
@@ -87,7 +87,7 @@ export default async function CityPage({ params }: PageProps) {
                   <Link
                     key={stadium.id}
                     href={`/stade/${stadium.slug}`}
-                    className="flex items-center justify-between rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-4 transition-colors hover:border-accent hover:bg-accent/5"
                   >
                     <div>
                       <p className="font-semibold">{stadium.name}</p>
@@ -102,25 +102,25 @@ export default async function CityPage({ params }: PageProps) {
               </div>
             </section>
 
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Informations pratiques</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {(city.population / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-sm text-gray-500">Population metro</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Population metro</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{city.timezone.split("/").pop()?.replace(/_/g, " ")}</p>
-                  <p className="text-sm text-gray-500">Fuseau horaire</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Fuseau horaire</p>
                 </div>
               </div>
             </section>
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Fiche ville</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -142,7 +142,7 @@ export default async function CityPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Autres villes hôtes</h3>
               <ul className="space-y-2 text-sm">
                 {cities

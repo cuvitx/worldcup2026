@@ -98,7 +98,7 @@ export default function CommunityVote({
                 opt.key === "1"
                   ? "hover:border-emerald-500 hover:bg-emerald-50 dark:hover:border-emerald-400 dark:hover:bg-emerald-900/20"
                   : opt.key === "N"
-                    ? "hover:border-gray-400 hover:bg-gray-50 dark:hover:border-gray-400 dark:hover:bg-gray-700/40"
+                    ? "hover:border-gray-400 hover:bg-gray-50 dark:bg-slate-700 dark:hover:border-gray-400 dark:hover:bg-gray-700/40"
                     : "hover:border-blue-500 hover:bg-blue-50 dark:hover:border-blue-400 dark:hover:bg-blue-900/20"
               }`}
             >

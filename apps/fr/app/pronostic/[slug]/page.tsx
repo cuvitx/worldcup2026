@@ -104,7 +104,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Pronostics",url:"/equipes"},{name:team.name,url:"/pronostic/"+team.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
@@ -160,7 +160,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* ELO Rating Card */}
             {prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Rating ELO de {team.name}
                 </h2>
@@ -199,7 +199,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* Probability Table with Progress Bars */}
             {prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Probabilites par tour - {team.name}
                 </h2>
@@ -244,7 +244,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* Cotes estimees */}
             {prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Cotes estimees - {team.name} vainqueur CDM 2026
                 </h2>
@@ -285,7 +285,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   ].map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-lg bg-gray-50 p-3 text-center"
+                      className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center"
                     >
                       <p className="text-lg font-bold text-primary">
                         {item.odds}
@@ -304,7 +304,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* Match Predictions for Group Stage */}
             {teamMatches.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Pronostics des matchs de groupe
                 </h2>
@@ -330,7 +330,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     return (
                       <div
                         key={match.id}
-                        className="rounded-lg border border-gray-200 p-4"
+                        className="rounded-lg border border-gray-200 dark:border-slate-700 p-4"
                       >
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-3">
@@ -367,7 +367,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                                   matchPred.team2WinProb &&
                                 matchPred.team1WinProb > matchPred.drawProb
                                   ? "bg-field/10 border border-field/30"
-                                  : "bg-gray-50"
+                                  : "bg-gray-50 dark:bg-slate-700"
                               }`}
                             >
                               <p className="text-sm font-bold">
@@ -385,7 +385,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                                   matchPred.team1WinProb &&
                                 matchPred.drawProb > matchPred.team2WinProb
                                   ? "bg-field/10 border border-field/30"
-                                  : "bg-gray-50"
+                                  : "bg-gray-50 dark:bg-slate-700"
                               }`}
                             >
                               <p className="text-sm font-bold">
@@ -399,7 +399,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                                   matchPred.team1WinProb &&
                                 matchPred.team2WinProb > matchPred.drawProb
                                   ? "bg-field/10 border border-field/30"
-                                  : "bg-gray-50"
+                                  : "bg-gray-50 dark:bg-slate-700"
                               }`}
                             >
                               <p className="text-sm font-bold">
@@ -438,7 +438,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* Key Players */}
             {teamPlayers.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Joueurs cles de {team.name}
                 </h2>
@@ -451,7 +451,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                     >
                       <div>
                         <p className="font-semibold">{player.name}</p>
@@ -472,7 +472,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             )}
 
             {/* ============ Affiliate CTA Section ============ */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-2 text-xl font-bold text-primary">
                 Parier sur {team.name}
               </h2>
@@ -489,7 +489,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-4 transition-shadow hover:shadow-md ${
                         isFeatured
                           ? "border-gold bg-gold/5"
-                          : "border-gray-200 bg-white"
+                          : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                       }`}
                     >
                       {isFeatured && (
@@ -543,7 +543,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
           {/* ============ Sidebar ============ */}
           <div className="space-y-6">
             {/* Quick Stats Card */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Fiche rapide</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -603,7 +603,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             </div>
 
             {/* Related Teams (same group) */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">
                 Équipes du Groupe {team.group}
               </h3>
@@ -612,7 +612,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   <li key={t.id}>
                     <Link
                       href={`/equipe/${t.slug}`}
-                      className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50 transition-colors"
+                      className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50 dark:bg-slate-700 transition-colors"
                     >
                       <div className="flex items-center gap-2">
                         <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
@@ -637,7 +637,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* H2H Links */}
             {groupTeams.length > 0 && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
+              <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h3 className="mb-4 text-lg font-bold">
                   Confrontations directes
                 </h3>

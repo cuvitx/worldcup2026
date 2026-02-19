@@ -91,7 +91,7 @@ export default function JeuResponsablePage() {
         ]}
       />
 
-      <nav className="border-b border-gray-200 bg-white">
+      <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
@@ -173,7 +173,7 @@ export default function JeuResponsablePage() {
               {conseils.map((conseil) => (
                 <div
                   key={conseil.title}
-                  className="rounded-lg bg-gray-50 p-5"
+                  className="rounded-lg bg-gray-50 dark:bg-slate-700 p-5"
                 >
                   <h3 className="font-bold text-gray-900">{conseil.title}</h3>
                   <p className="mt-2 text-sm">{conseil.text}</p>
@@ -204,7 +204,7 @@ export default function JeuResponsablePage() {
           </section>
 
           {/* Test rapide */}
-          <section className="rounded-xl bg-gray-50 p-6">
+          <section className="rounded-xl bg-gray-50 dark:bg-slate-700 p-6">
             <h2 className="mb-3 text-xl font-bold text-gray-900">
               🧪 Auto-évaluation rapide
             </h2>
@@ -241,7 +241,7 @@ export default function JeuResponsablePage() {
               {ressources.map((r) => (
                 <div
                   key={r.name}
-                  className="rounded-lg border border-gray-200 bg-white p-5"
+                  className="rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
                 >
                   <h3 className="text-lg font-bold text-gray-900">{r.name}</h3>
                   <p className="mt-1 text-sm text-gray-600">
@@ -280,28 +280,28 @@ export default function JeuResponsablePage() {
               pour vous aider à garder le contrôle :
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-gray-50 p-4">
+              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">💰 Limites de dépôts</h3>
                 <p className="mt-1 text-sm">
                   Fixez un plafond journalier, hebdomadaire ou mensuel de
                   dépôts sur votre compte.
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 p-4">
+              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">⏱️ Limites de temps</h3>
                 <p className="mt-1 text-sm">
                   Définissez un temps maximum de connexion pour éviter les
                   sessions prolongées.
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 p-4">
+              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">🚫 Auto-exclusion temporaire</h3>
                 <p className="mt-1 text-sm">
                   Bloquez votre compte pendant une période choisie (24h, 1
                   semaine, 1 mois…).
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 p-4">
+              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">🔒 Interdiction volontaire de jeu</h3>
                 <p className="mt-1 text-sm">
                   Inscrivez-vous au fichier national des interdits de jeux pour

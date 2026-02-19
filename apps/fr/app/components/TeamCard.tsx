@@ -11,7 +11,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
     return (
       <Link
         href={`/equipe/${team.slug}`}
-        className="flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 px-3 py-2.5 transition-all hover:border-accent/60 hover:shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700/60"
+        className="flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 px-3 py-2.5 transition-all hover:border-accent/60 hover:shadow-sm hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60"
       >
         <span className="text-2xl shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
         <div className="min-w-0 flex-1">

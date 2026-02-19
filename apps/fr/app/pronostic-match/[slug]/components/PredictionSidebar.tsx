@@ -38,7 +38,7 @@ export function PredictionSidebar({
   return (
     <div className="space-y-6">
       {/* Match info card */}
-      <div className="rounded-lg bg-white p-6 shadow-sm">
+      <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
         <h3 className="mb-4 text-lg font-bold">Resume du pronostic</h3>
         {prediction ? (
           <div className="space-y-3">
@@ -85,26 +85,26 @@ export function PredictionSidebar({
 
       {/* Team links */}
       {home && away && (
-        <div className="rounded-lg bg-white p-6 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h3 className="mb-4 text-lg font-bold">Fiches équipes</h3>
           <div className="space-y-3">
             <Link
               href={`/equipe/${home.slug}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
             >
               <span className="text-xl" role="img" aria-label={`Drapeau de ${home.name}`}>{home.flag}</span>
               <span className="font-medium">{home.name}</span>
             </Link>
             <Link
               href={`/equipe/${away.slug}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
             >
               <span className="text-xl" role="img" aria-label={`Drapeau de ${away.name}`}>{away.flag}</span>
               <span className="font-medium">{away.name}</span>
             </Link>
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
             >
               <span className="text-xl">&#9878;</span>
               <span className="font-medium">
@@ -117,11 +117,11 @@ export function PredictionSidebar({
 
       {/* Stadium card */}
       {stadium && (
-        <div className="rounded-lg bg-white p-6 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
           <Link
             href={`/stade/${stadium.slug}`}
-            className="block rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+            className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
           >
             <p className="font-semibold">{stadium.name}</p>
             <p className="text-sm text-gray-500">
@@ -195,7 +195,7 @@ export function PredictionSidebar({
 
       {/* Autres pronostics */}
       {relatedMatches.length > 0 && (
-        <div className="rounded-lg bg-white p-6 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h3 className="mb-4 text-lg font-bold">Autres pronostics</h3>
           <div className="space-y-2">
             {relatedMatches.map((rm) => {
@@ -205,7 +205,7 @@ export function PredictionSidebar({
                 <Link
                   key={rm.id}
                   href={`/pronostic-match/${rm.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 p-3 text-sm transition-colors hover:border-accent"
+                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 text-sm transition-colors hover:border-accent"
                 >
                   <span>
                     <span role="img" aria-label={`Drapeau de ${rmHome?.name ?? "Inconnu"}`}>{rmHome?.flag ?? "\ud83c\udff3\ufe0f"}</span>{" "}
@@ -224,7 +224,7 @@ export function PredictionSidebar({
       )}
 
       {/* Link to match page */}
-      <div className="rounded-lg bg-white p-6 shadow-sm">
+      <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
         <Link
           href={`/match/${match.slug}`}
           className="block w-full rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90 transition-colors"

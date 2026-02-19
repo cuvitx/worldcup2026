@@ -19,7 +19,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/match/calendrier"
-          className="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+          className="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50 dark:bg-slate-700"
         >
           Calendrier des matchs
         </Link>

@@ -542,7 +542,7 @@ function MobileBracket({
           <div key={round} className="rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             {/* Round header */}
             <button
-              className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700 transition-colors"
               onClick={() => setExpandedRound(isExpanded ? round : round)}
             >
               <div className="flex items-center gap-2">
@@ -644,7 +644,7 @@ function TeamSlot({
         isWinner
           ? "bg-emerald-50 dark:bg-emerald-900/30 font-bold"
           : canPick
-          ? "hover:bg-gray-50 dark:hover:bg-gray-700/60 cursor-pointer"
+          ? "hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60 cursor-pointer"
           : "cursor-default opacity-60"
       }`}
     >

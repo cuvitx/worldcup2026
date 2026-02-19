@@ -517,7 +517,7 @@ export default function BracketPage() {
                     const team = teamsById[pred.teamId];
                     if (!team) return null;
                     return (
-                      <tr key={pred.teamId} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                      <tr key={pred.teamId} className="hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/50 transition-colors">
                         <td className="py-2.5">
                           <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent text-gray-900 dark:text-white">
                             <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>

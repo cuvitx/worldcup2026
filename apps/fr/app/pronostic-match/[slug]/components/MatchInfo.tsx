@@ -17,19 +17,19 @@ export function MatchInfo({
   dateFormatted,
 }: MatchInfoProps) {
   return (
-    <section className="rounded-lg bg-white p-6 shadow-sm">
+    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
       <h2 className="mb-4 text-xl font-bold">Informations du match</h2>
       <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-        <div className="rounded-lg bg-gray-50 p-4">
+        <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
           <dt className="text-gray-500 mb-1">Date</dt>
           <dd className="font-semibold">{dateFormatted}</dd>
         </div>
-        <div className="rounded-lg bg-gray-50 p-4">
+        <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
           <dt className="text-gray-500 mb-1">Heure (UTC)</dt>
           <dd className="font-semibold">{match.time}</dd>
         </div>
         {stadium && (
-          <div className="rounded-lg bg-gray-50 p-4">
+          <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
             <dt className="text-gray-500 mb-1">Stade</dt>
             <dd>
               <Link
@@ -45,7 +45,7 @@ export function MatchInfo({
           </div>
         )}
         {city && (
-          <div className="rounded-lg bg-gray-50 p-4">
+          <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
             <dt className="text-gray-500 mb-1">Ville</dt>
             <dd>
               <Link
@@ -60,12 +60,12 @@ export function MatchInfo({
             </dd>
           </div>
         )}
-        <div className="rounded-lg bg-gray-50 p-4">
+        <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
           <dt className="text-gray-500 mb-1">Phase</dt>
           <dd className="font-semibold">{stage}</dd>
         </div>
         {match.group && (
-          <div className="rounded-lg bg-gray-50 p-4">
+          <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
             <dt className="text-gray-500 mb-1">Groupe</dt>
             <dd>
               <Link
@@ -78,7 +78,7 @@ export function MatchInfo({
           </div>
         )}
         {match.matchday && (
-          <div className="rounded-lg bg-gray-50 p-4">
+          <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
             <dt className="text-gray-500 mb-1">Journee</dt>
             <dd className="font-semibold">Journee {match.matchday}</dd>
           </div>

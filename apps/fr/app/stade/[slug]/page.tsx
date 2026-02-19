@@ -54,7 +54,7 @@ export default async function StadiumPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Stades",url:"/stades"},{name:stadium.name,url:"/stade/"+stadium.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -98,21 +98,21 @@ export default async function StadiumPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
               <p className="text-gray-700 leading-relaxed">{stadium.description}</p>
             </section>
 
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {stadium.capacity.toLocaleString("fr-FR")}
                   </p>
                   <p className="text-sm text-gray-500">Capacité</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary capitalize">
                     {stadium.roofType === "retractable"
                       ? "Rétractable"
@@ -122,7 +122,7 @@ export default async function StadiumPage({ params }: PageProps) {
                   </p>
                   <p className="text-sm text-gray-500">Toit</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{stadium.country}</p>
                   <p className="text-sm text-gray-500">Pays</p>
                 </div>
@@ -131,7 +131,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* Matches at this stadium */}
             {stadiumMatches.length > 0 && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Matchs au {stadium.name} ({stadiumMatches.length})
                 </h2>
@@ -143,7 +143,7 @@ export default async function StadiumPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                       >
                         <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
@@ -163,7 +163,7 @@ export default async function StadiumPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Informations</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -200,7 +200,7 @@ export default async function StadiumPage({ params }: PageProps) {
             </div>
 
             {/* Other stadiums */}
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Autres stades</h3>
               <ul className="space-y-2 text-sm">
                 {stadiums

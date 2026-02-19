@@ -68,7 +68,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       {bookmakers.map((bk) => (
         <div
           key={bk.id}
-          className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors min-w-[420px]"
+          className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/30 transition-colors min-w-[420px]"
         >
           <div className="flex items-center gap-2 min-w-0">
             {/* Bookmaker logo placeholder */}

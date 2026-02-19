@@ -25,7 +25,7 @@ export default function Error({
         </button>
         <a
           href="/"
-          className="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+          className="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50 dark:bg-slate-700"
         >
           Retour a l&apos;accueil
         </a>

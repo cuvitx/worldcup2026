@@ -105,7 +105,7 @@ export default async function MatchPage({ params }: PageProps) {
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Calendrier",url:"/match/calendrier"},{name:(home?.name ?? "TBD")+" vs "+(away?.name ?? "TBD"),url:"/match/"+match.slug}]} baseUrl={domains.fr} />
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
@@ -215,12 +215,12 @@ export default async function MatchPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             {home && away && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Comparaison</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="bg-gray-50">
+                      <tr className="bg-gray-50 dark:bg-slate-700">
                         <th className="py-3 px-3 text-left text-sm font-medium text-accent">
                           {home.name}
                         </th>
@@ -295,7 +295,7 @@ export default async function MatchPage({ params }: PageProps) {
               />
             )}
 
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 {isCompleted ? "Resultat & Analyse" : "Pronostic"}
               </h2>
@@ -315,7 +315,7 @@ export default async function MatchPage({ params }: PageProps) {
                         <p className="text-xs text-gray-500">{home.name}</p>
                         <p className="text-sm font-medium text-primary mt-1">{odds.home}</p>
                       </div>
-                      <div className="rounded-lg bg-gray-50 p-3 text-center">
+                      <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
                         <p className="text-xl font-bold text-gray-600">{Math.round(pred.drawProb * 100)}%</p>
                         <p className="text-xs text-gray-500">Nul</p>
                         <p className="text-sm font-medium text-primary mt-1">{odds.draw}</p>
@@ -353,11 +353,11 @@ export default async function MatchPage({ params }: PageProps) {
 
           <div className="space-y-6">
             {stadium && (
-              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
                 <Link
                   href={`/stade/${stadium.slug}`}
-                  className="block rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent"
+                  className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
                 >
                   <p className="font-semibold">{stadium.name}</p>
                   <p className="text-sm text-gray-500">
@@ -376,7 +376,7 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             )}
 
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Infos match</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -435,7 +435,7 @@ export default async function MatchPage({ params }: PageProps) {
 
             {/* Same-day matches in sidebar */}
             {sameDayMatches.length > 0 && (
-              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:bg-gray-900">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white p-6 shadow-sm dark:bg-gray-900">
                 <h3 className="mb-4 text-lg font-bold">Autres matchs du {match.date.slice(5)}</h3>
                 <div className="space-y-2">
                   {sameDayMatches.slice(0, 5).map((m) => {
@@ -482,7 +482,7 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Same-day matches */}
       {sameDayMatches.length > 0 && (
-        <section className="border-t border-gray-200 py-8">
+        <section className="border-t border-gray-200 dark:border-slate-700 py-8">
           <div className="mx-auto max-w-7xl px-4">
             <h2 className="mb-4 text-xl font-bold">Matchs de la même journée</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -493,7 +493,7 @@ export default async function MatchPage({ params }: PageProps) {
                   <Link
                     key={m.slug}
                     href={`/match/${m.slug}`}
-                    className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-accent hover:bg-accent/5"
                   >
                     <span className="text-xl" role="img" aria-label={`Drapeau de ${mHome?.name ?? "Inconnu"}`}>{mHome?.flag ?? "🏳️"}</span>
                     <div className="flex-1 min-w-0">

@@ -26,7 +26,7 @@ export default function PlayersPage() {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -47,12 +47,12 @@ export default function PlayersPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
         {/* Top Scorers */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-bold">Meilleurs buteurs en sélection</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 text-left">
+                <tr className="border-b border-gray-200 dark:border-slate-700 text-left">
                   <th className="pb-3 font-medium text-gray-500">Joueur</th>
                   <th className="pb-3 font-medium text-gray-500">Équipe</th>
                   <th className="pb-3 font-medium text-gray-500">Club</th>
@@ -67,7 +67,7 @@ export default function PlayersPage() {
                   .map((player) => {
                     const team = teamsById[player.teamId];
                     return (
-                      <tr key={player.id} className="hover:bg-gray-50">
+                      <tr key={player.id} className="hover:bg-gray-50 dark:bg-slate-700">
                         <td className="py-3">
                           <Link href={`/joueur/${player.slug}`} className="font-medium hover:text-accent">
                             {player.name}
@@ -98,7 +98,7 @@ export default function PlayersPage() {
             .filter((p) => p.position === pos)
             .sort((a, b) => b.goals - a.goals || b.caps - a.caps);
           return (
-            <section key={pos} className="rounded-lg bg-white p-6 shadow-sm">
+            <section key={pos} className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">{positionLabels[pos]} ({posPlayers.length})</h2>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {posPlayers.map((player) => {
@@ -107,7 +107,7 @@ export default function PlayersPage() {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                     >
                       <div>
                         <p className="font-semibold">{player.name}</p>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <>
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
@@ -57,28 +57,28 @@ export default function AProposPage() {
               Ce que nous proposons
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-white border border-gray-200 p-4">
+              <div className="rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">Fiches équipes</h3>
                 <p className="mt-1 text-sm">
                   Analyses détaillées des 48 équipes qualifiées, avec effectifs,
                   statistiques et historique en Coupe du Monde.
                 </p>
               </div>
-              <div className="rounded-lg bg-white border border-gray-200 p-4">
+              <div className="rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">Pronostics</h3>
                 <p className="mt-1 text-sm">
                   Pronostics bases sur les donnees statistiques et les
                   classements ELO pour chaque match et confrontation.
                 </p>
               </div>
-              <div className="rounded-lg bg-white border border-gray-200 p-4">
+              <div className="rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">Comparaison de cotes</h3>
                 <p className="mt-1 text-sm">
                   Comparaison des cotes des principaux bookmakers agréés pour
                   vous aider a trouver les meilleures valeurs.
                 </p>
               </div>
-              <div className="rounded-lg bg-white border border-gray-200 p-4">
+              <div className="rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-4">
                 <h3 className="font-bold text-gray-900">Guide pratique</h3>
                 <p className="mt-1 text-sm">
                   Guides des 16 villes hôtes et des stades, avec informations
@@ -133,7 +133,7 @@ export default function AProposPage() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg bg-gray-50 p-4 text-center"
+                  className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center"
                 >
                   <p className="text-2xl font-bold text-primary">
                     {stat.value}

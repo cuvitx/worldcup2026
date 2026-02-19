@@ -340,12 +340,12 @@ export function Header() {
               </svg>
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-1 min-w-[150px] rounded-xl bg-white text-gray-900 shadow-xl ring-1 ring-black/8 z-50 overflow-hidden animate-scaleIn">
+              <div className="absolute right-0 top-full mt-1 min-w-[150px] rounded-xl bg-white dark:bg-slate-800 text-gray-900 shadow-xl ring-1 ring-black/8 z-50 overflow-hidden animate-scaleIn">
                 {otherOptions.map((opt) => (
                   <a
                     key={opt.lang}
                     href={getUrlForLang(pathname, opt.lang)}
-                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm hover:bg-gray-50 dark:bg-slate-700 transition-colors"
                     hrefLang={opt.lang}
                   >
                     <span>{opt.flag}</span>

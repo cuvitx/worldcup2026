@@ -28,7 +28,7 @@ export default function ParisSportifsPage() {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -49,7 +49,7 @@ export default function ParisSportifsPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
         {/* Bookmaker Reviews */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-2 text-xl font-bold">Meilleurs sites de paris sportifs 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
             Nos avis détaillés sur les {bookmakerReviews.length} bookmakers agréés en France pour parier sur la CDM 2026.
@@ -62,7 +62,7 @@ export default function ParisSportifsPage() {
                   key={bk.id}
                   href={`/bookmaker/${bk.slug}`}
                   className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-5 transition-all hover:shadow-md ${
-                    i === 0 ? "border-gold bg-gold/5" : "border-gray-200 hover:border-accent"
+                    i === 0 ? "border-gold bg-gold/5" : "border-gray-200 dark:border-slate-700 hover:border-accent"
                   }`}
                 >
                   {i === 0 && (
@@ -112,14 +112,14 @@ export default function ParisSportifsPage() {
           const catGuides = guidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;
           return (
-            <section key={cat} className="rounded-lg bg-white p-6 shadow-sm">
+            <section key={cat} className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">{categoryLabels[cat]}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
                   <Link
                     key={guide.id}
                     href={`/guide/${guide.slug}`}
-                    className="rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="rounded-lg border border-gray-200 dark:border-slate-700 p-4 transition-colors hover:border-accent hover:bg-accent/5"
                   >
                     <h3 className="font-semibold mb-1">{guide.title}</h3>
                     <p className="text-sm text-gray-500 line-clamp-2">{guide.metaDescription}</p>
@@ -135,16 +135,16 @@ export default function ParisSportifsPage() {
         <section className="rounded-lg bg-primary/5 p-6">
           <h2 className="mb-4 text-lg font-bold">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/buteurs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/buteurs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs CDM 2026
             </Link>
-            <Link href="/pronostic/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/pronostic/france" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Pronostic France
             </Link>
-            <Link href="/match/calendrier" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/match/calendrier" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Calendrier des matchs
             </Link>
-            <Link href="/equipes" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/equipes" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Toutes les équipes
             </Link>
           </div>
