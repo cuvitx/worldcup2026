@@ -110,7 +110,7 @@ export default function NewsletterPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden py-20 md:py-28 text-white"
-        style={{ background: 'linear-gradient(135deg, #0D3B66 0%, #0F1923 40%, #0d2e1a 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #060D18 0%, #0F1923 40%, #0d2e1a 100%)' }}
       >
         {/* Decorative circles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -232,7 +232,7 @@ export default function NewsletterPage() {
               <div className="space-y-4">
                 <div
                   className="rounded-xl p-4 text-white text-center"
-                  style={{ background: 'linear-gradient(135deg, #0D3B66, #0F1923)' }}
+                  style={{ background: 'linear-gradient(135deg, #060D18, #0F1923)' }}
                 >
                   <p className="text-xs uppercase tracking-widest text-gold mb-1">CDM 2026 · Semaine 3</p>
                   <p className="font-extrabold text-lg">Programme du 28 juin – 4 juillet</p>
@@ -320,7 +320,7 @@ export default function NewsletterPage() {
       {/* ===== FORM FINAL ===== */}
       <section
         className="py-20 text-white"
-        style={{ background: 'linear-gradient(135deg, #0D3B66 0%, #0F1923 60%, #0d2e1a 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #060D18 0%, #0F1923 60%, #0d2e1a 100%)' }}
       >
         <div className="mx-auto max-w-2xl px-4 text-center">
           <div className="text-4xl mb-4">📧</div>

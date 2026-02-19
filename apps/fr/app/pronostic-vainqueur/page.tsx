@@ -858,7 +858,7 @@ export default function PronosticVainqueurPage() {
       </section>
 
       {/* ===== CTA SIMULATEUR BRACKET ===== */}
-      <section id="simulateur-cta" className="bg-gradient-to-br from-[#0D3B66] via-[#0F1923] to-[#091420] py-12">
+      <section id="simulateur-cta" className="bg-gradient-to-br from-[#060D18] via-[#0F1923] to-[#091420] py-12">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold mb-4">
             <span className="text-gold">🏆</span>

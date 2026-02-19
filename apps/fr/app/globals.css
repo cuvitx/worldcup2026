@@ -9,7 +9,7 @@
 
 @theme {
   /* ── Couleurs primaires — Direction A Continental ── */
-  --color-primary: #0D3B66;       /* Bleu Stade */
+  --color-primary: #060D18;       /* Bleu Marine Ultra Foncé */
   --color-accent: #FF6B35;        /* Orange Kick-off */
   --color-gold: #f5a623;          /* Or Champion */
   --color-green: #2d6a4f;         /* Vert Terrain */
@@ -30,7 +30,7 @@
   --color-gray-light: #F7F7F8;    /* Blanc Pelouse */
   --color-gray-mid:   #8a8a9a;    /* Gris Moyen */
   --color-gray-dark:  #1e2d3d;    /* Gris Foncé dark */
-  --color-deep:       #0F1923;    /* Nuit de Match */
+  --color-deep:       #080E1A;    /* Nuit de Match */
 
   /* ── Pays hôtes ── */
   --color-usa:    #3c3b6e;
@@ -346,7 +346,7 @@ textarea:focus-visible {
   background: #F7F7F8;  /* Blanc Pelouse brand book */
 }
 .dark .section-alt {
-  background: #0D3B66;  /* Bleu Stade brand book */
+  background: #060D18;  /* Bleu Stade brand book */
 }
 
 /* Touch targets */
@@ -370,7 +370,7 @@ textarea:focus-visible {
    ============================================================ */
 
 .hero-animated {
-  background: linear-gradient(-45deg, #0D3B66, #0F1923, #0d2b4e, #0D3B66, #1a2e4e);
+  background: linear-gradient(-45deg, #060D18, #080E1A, #0d2b4e, #060D18, #1a2e4e);
   background-size: 300% 300%;
   animation: hero-gradient 12s ease infinite;
   position: relative;
@@ -526,9 +526,9 @@ textarea:focus-visible {
 
 .dark {
   /* Backgrounds — Direction A Continental dark */
-  --color-bg:          #0F1923;   /* Nuit de Match */
+  --color-bg:          #080E1A;   /* Nuit de Match */
   --color-bg-card:     #1e2d3d;   /* Gris Foncé dark */
-  --color-bg-elevated: #0D3B66;   /* Bleu Stade */
+  --color-bg-elevated: #060D18;   /* Bleu Stade */
 
   /* Textes */
   --color-text:           #E8ECF1; /* Texte sur sombre */
@@ -546,7 +546,7 @@ textarea:focus-visible {
   --shadow-lg: none;
 
   /* Compat aliases (pour les classes existantes qui les utilisent) */
-  --color-bg-secondary:  #0D3B66;
+  --color-bg-secondary:  #060D18;
   --color-text-muted:    #8a8a9a;
   --color-border-compat: rgba(255, 255, 255, 0.08);
   --color-card:          #1e2d3d;

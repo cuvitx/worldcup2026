@@ -145,7 +145,7 @@ export default async function CityPage({ params }: PageProps) {
                         <span className="text-xs text-gray-500">vs</span>
                         <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
                         <span className="text-lg" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳️"}</span>
-                        <span className="rounded-full px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 shrink-0">
+                        <span className="rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
                       </Link>
@@ -164,9 +164,9 @@ export default async function CityPage({ params }: PageProps) {
                     🌤️ Météo en juin-juillet
                   </h2>
                   <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4 text-center">
+                    <div className="rounded-lg bg-primary/5 dark:bg-primary/20 p-4 text-center">
                       <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Juin</p>
-                      <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                      <p className="text-2xl font-bold text-secondary dark:text-secondary">
                         {enrichment.weather.juinMin}° – {enrichment.weather.juinMax}°C
                       </p>
                     </div>

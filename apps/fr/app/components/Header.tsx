@@ -181,7 +181,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0D3B66] backdrop-blur-[12px] text-white border-b border-[rgba(255,255,255,0.1)]">
+    <header className="sticky top-0 z-50 bg-[#060D18] backdrop-blur-[12px] text-white border-b border-[rgba(255,255,255,0.1)]">
       {/* Skip to content */}
       <a
         href="#main-content"
@@ -386,7 +386,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-[rgba(255,255,255,0.1)] animate-[slideDown_200ms_ease-out] bg-[#0D3B66]">
+        <div className="md:hidden border-t border-[rgba(255,255,255,0.1)] animate-[slideDown_200ms_ease-out] bg-[#060D18]">
           <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
             {(Object.entries(megaMenus) as [MenuKey, typeof megaMenus[MenuKey]][]).map(([key, menu]) => (
               <div key={key}>

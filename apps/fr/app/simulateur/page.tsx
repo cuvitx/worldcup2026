@@ -39,7 +39,7 @@ export default function SimulateurPage() {
         className="relative overflow-hidden text-white py-12 sm:py-16"
         style={{
           background:
-            "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #091420 100%)",
+            "linear-gradient(160deg, #060D18 0%, #0F1923 50%, #091420 100%)",
         }}
       >
         {/* Top glow */}

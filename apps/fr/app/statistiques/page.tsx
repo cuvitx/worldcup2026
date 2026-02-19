@@ -103,7 +103,7 @@ const records = [
     title: "Roger Milla — 42 ans, 39 jours",
     detail: "Cameroun vs Russie — CDM 1994 (groupe A)",
     badge: "Record de longévité",
-    badgeColor: "bg-blue-500",
+    badgeColor: "bg-primary",
   },
   {
     icon: "🎯",
@@ -111,7 +111,7 @@ const records = [
     title: "Just Fontaine — 13 buts en 1958",
     detail: "Record imbattu depuis 66 ans ! (France, CDM 1958 Suède)",
     badge: "Imbattable ?",
-    badgeColor: "bg-purple-500",
+    badgeColor: "bg-primary/500",
   },
   {
     icon: "🏃",
@@ -195,7 +195,7 @@ function GoalsChart() {
                     height: `${heightPct}%`,
                     background: isRecord
                       ? "linear-gradient(to top, #FF6B35, #ff9060)"
-                      : "linear-gradient(to top, #0D3B66, #2EC4B6)",
+                      : "linear-gradient(to top, #060D18, #2EC4B6)",
                   }}
                 >
                   {/* Tooltip */}
@@ -217,7 +217,7 @@ function GoalsChart() {
             Record (172 buts en 2022)
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-primary dark:bg-blue-900 inline-block" />
+            <span className="w-3 h-3 rounded-sm bg-primary dark:bg-primary inline-block" />
             Autres éditions
           </span>
         </div>

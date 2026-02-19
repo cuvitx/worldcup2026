@@ -190,18 +190,18 @@ export default async function StadiumPage({ params }: PageProps) {
                   </div>
                 )}
                 {/* Mini map link */}
-                <div className="mt-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4">
+                <div className="mt-4 rounded-lg bg-primary/5 dark:bg-primary/20 border border-gray-200 dark:border-slate-700 p-4">
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">🗺️</span>
                       <div>
-                        <p className="text-sm font-semibold text-blue-900 dark:text-blue-200">Voir sur la carte des stades</p>
-                        <p className="text-xs text-blue-700 dark:text-blue-400">Positionnement de tous les stades CDM 2026</p>
+                        <p className="text-sm font-semibold text-primary dark:text-gray-200">Voir sur la carte des stades</p>
+                        <p className="text-xs text-primary dark:text-secondary">Positionnement de tous les stades CDM 2026</p>
                       </div>
                     </div>
                     <Link
                       href={`/carte-stades#${stadium.slug}`}
-                      className="shrink-0 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 transition-colors"
+                      className="shrink-0 rounded-lg bg-primary hover:bg-primary/80 text-white text-sm font-medium px-4 py-2 transition-colors"
                     >
                       Voir la carte →
                     </Link>
@@ -244,7 +244,7 @@ export default async function StadiumPage({ params }: PageProps) {
                         <span className="text-xs text-gray-500">vs</span>
                         <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
                         <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-                        <span className="rounded-full px-3 py-1 text-xs font-medium bg-blue-100 text-blue-700 shrink-0">
+                        <span className="rounded-full px-3 py-1 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
                       </Link>

@@ -154,9 +154,9 @@ const champion = predictedWinner(finalMatchData.homeTeamId, finalMatchData.awayT
 // ---------------------------------------------------------------------------
 
 const roundColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
-  "round-of-32": { bg: "bg-blue-50 dark:bg-blue-950/30", border: "border-blue-200 dark:border-blue-800", text: "text-blue-800 dark:text-blue-300", badge: "bg-blue-600" },
-  "round-of-16": { bg: "bg-indigo-50 dark:bg-indigo-950/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-indigo-800 dark:text-indigo-300", badge: "bg-indigo-600" },
-  "quarter-final": { bg: "bg-purple-50 dark:bg-purple-950/30", border: "border-purple-200 dark:border-purple-800", text: "text-purple-800 dark:text-purple-300", badge: "bg-purple-600" },
+  "round-of-32": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-gray-200 dark:border-slate-700", text: "text-primary dark:text-secondary", badge: "bg-primary" },
+  "round-of-16": { bg: "bg-primary/50 dark:bg-primary/950/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-secondary800 dark:text-secondary300", badge: "bg-primary/600" },
+  "quarter-final": { bg: "bg-primary/50 dark:bg-primary/950/30", border: "border-purple-200 dark:border-purple-800", text: "text-secondary800 dark:text-secondary300", badge: "bg-primary/600" },
   "semi-final": { bg: "bg-amber-50 dark:bg-amber-950/30", border: "border-amber-200 dark:border-amber-800", text: "text-amber-800 dark:text-amber-300", badge: "bg-amber-600" },
   final: { bg: "bg-yellow-50 dark:bg-yellow-950/30", border: "border-yellow-300 dark:border-yellow-700", text: "text-yellow-800 dark:text-yellow-300", badge: "bg-yellow-600" },
 };
