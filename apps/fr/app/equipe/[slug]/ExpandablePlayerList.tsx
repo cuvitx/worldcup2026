@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
 
 interface Player {
   id: string;
@@ -23,18 +25,40 @@ const positionLabels: Record<string, string> = {
 const INITIAL_COUNT = 6;
 
 function PlayerCard({ player }: { player: Player }) {
+  const imgPath = getPlayerImagePath(player.slug);
+  const initials = getPlayerInitials(player.name);
+  const avatarColor = getAvatarColor(player.name);
+
   return (
     <Link
       href={`/joueur/${player.slug}`}
-      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+      className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
     >
-      <div>
-        <p className="font-semibold">{player.name}</p>
+      {/* 40×40 avatar */}
+      {imgPath ? (
+        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+          <Image
+            src={imgPath}
+            alt={player.name}
+            fill
+            className="object-cover object-top"
+            sizes="40px"
+          />
+        </div>
+      ) : (
+        <div
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${avatarColor}`}
+        >
+          {initials}
+        </div>
+      )}
+      <div className="flex-1 min-w-0">
+        <p className="font-semibold truncate">{player.name}</p>
         <p className="text-sm text-gray-500">
           {positionLabels[player.position] ?? player.position} &middot; {player.club}
         </p>
       </div>
-      <div className="text-right">
+      <div className="text-right shrink-0">
         <p className="text-sm font-medium text-primary">
           {player.caps} sel. / {player.goals} buts
         </p>

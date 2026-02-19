@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { buildSearchIndex } from "@repo/data/search-index";
 import { SearchClient } from "./SearchClient";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Recherche | CDM 2026 — Équipes, Joueurs, Stades, Matchs",
@@ -27,6 +29,13 @@ export default function RecherchePage() {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Recherche", url: "/recherche" },
+        ]}
+        baseUrl={domains.fr}
+      />
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">

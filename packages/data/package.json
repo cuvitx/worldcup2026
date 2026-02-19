@@ -25,7 +25,8 @@
     "./search-index": "./src/search-index.ts",
     "./news": "./src/news.ts",
     "./player-stats": "./src/player-stats.ts",
-    "./team-history": "./src/team-history.ts"
+    "./team-history": "./src/team-history.ts",
+    "./country-codes": "./src/country-codes.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

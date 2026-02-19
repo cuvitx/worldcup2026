@@ -68,6 +68,171 @@ const tvByCountry = [
   },
 ];
 
+// ─── Matchs à suivre — programme TV ───────────────────────────────────────────
+// Heures en CEST (UTC+2) — France en été (juin–juillet 2026)
+const featuredMatches = [
+  // ── Match d'ouverture ──────────────────────────────────────────────────
+  {
+    id: "m01",
+    date: "Jeu 11 juin 2026",
+    timeFR: "21h00",
+    match: "Mexique 🇲🇽 vs 🇿🇦 Afrique du Sud",
+    stage: "Phase de groupes — Gr. A",
+    stadium: "Estadio Azteca, Mexico",
+    tvFR: ["TF1", "beIN Sports 1"],
+    tvBE: ["RTBF La Une", "Eleven Sports"],
+    tvCH: ["RTS 1", "Blue TV"],
+    tvCA: ["TVA Sports", "TSN"],
+    isFrance: false,
+    note: "🎉 Match d'ouverture",
+    free: true,
+  },
+  // ── Belgique ─────────────────────────────────────────────────────────
+  {
+    id: "m13",
+    date: "Dim 14 juin 2026",
+    timeFR: "21h00",
+    match: "Belgique 🇧🇪 vs 🇹🇳 Tunisie",
+    stage: "Phase de groupes — Gr. C",
+    stadium: "AT&T Stadium, Dallas",
+    tvFR: ["beIN Sports 2"],
+    tvBE: ["RTBF La Une", "RTL Belgium"],
+    tvCH: ["Blue TV"],
+    tvCA: ["RDS", "TSN"],
+    isFrance: false,
+    note: "🇧🇪 Diables Rouges",
+    free: false,
+  },
+  // ── Suisse ────────────────────────────────────────────────────────────
+  {
+    id: "m05",
+    date: "Sam 13 juin 2026",
+    timeFR: "21h00",
+    match: "Qatar 🇶🇦 vs 🇨🇭 Suisse",
+    stage: "Phase de groupes — Gr. B",
+    stadium: "Levi's Stadium, San Francisco",
+    tvFR: ["beIN Sports 3"],
+    tvBE: ["Eleven Sports"],
+    tvCH: ["RTS 1", "SRF 2"],
+    tvCA: ["TSN"],
+    isFrance: false,
+    note: "🇨🇭 Premier match de la Nati",
+    free: false,
+  },
+  // ── France — Match 1 ──────────────────────────────────────────────────
+  {
+    id: "m17",
+    date: "Mar 16 juin 2026",
+    timeFR: "21h00",
+    match: "France 🇫🇷 vs 🇸🇳 Sénégal",
+    stage: "Phase de groupes — Gr. I",
+    stadium: "MetLife Stadium, New York/NJ",
+    tvFR: ["TF1", "beIN Sports 1"],
+    tvBE: ["RTBF La Deux", "Eleven Sports"],
+    tvCH: ["RTS 1", "Blue TV"],
+    tvCA: ["TVA Sports", "RDS", "TSN"],
+    isFrance: true,
+    note: "🇫🇷 Premier match des Bleus",
+    free: true,
+  },
+  // ── Suisse — Match 2 ─────────────────────────────────────────────────
+  {
+    id: "m36",
+    date: "Jeu 18 juin 2026",
+    timeFR: "21h00",
+    match: "Suisse 🇨🇭 vs 🇸🇰 Slovaquie",
+    stage: "Phase de groupes — Gr. B",
+    stadium: "Arrowhead Stadium, Kansas City",
+    tvFR: ["beIN Sports 2"],
+    tvBE: ["Eleven Sports"],
+    tvCH: ["RTS 2", "SRF 2"],
+    tvCA: ["TSN"],
+    isFrance: false,
+    note: "🇨🇭 La Nati J2",
+    free: false,
+  },
+  // ── Belgique — Match 2 ────────────────────────────────────────────────
+  {
+    id: "m38",
+    date: "Sam 20 juin 2026",
+    timeFR: "21h00",
+    match: "Belgique 🇧🇪 vs 🇮🇷 Iran",
+    stage: "Phase de groupes — Gr. C",
+    stadium: "Mercedes-Benz Stadium, Atlanta",
+    tvFR: ["beIN Sports 3"],
+    tvBE: ["RTBF La Une", "RTL Belgium"],
+    tvCH: ["Blue TV"],
+    tvCA: ["RDS", "TSN"],
+    isFrance: false,
+    note: "🇧🇪 Diables Rouges J2",
+    free: false,
+  },
+  // ── France — Match 2 ──────────────────────────────────────────────────
+  {
+    id: "m43",
+    date: "Lun 22 juin 2026",
+    timeFR: "21h00",
+    match: "France 🇫🇷 vs Barrage Interconf. 2",
+    stage: "Phase de groupes — Gr. I",
+    stadium: "Lincoln Financial Field, Philadelphia",
+    tvFR: ["TF1", "beIN Sports 1"],
+    tvBE: ["RTBF La Deux", "Eleven Sports"],
+    tvCH: ["RTS 1", "Blue TV"],
+    tvCA: ["TVA Sports", "RDS", "TSN"],
+    isFrance: true,
+    note: "🇫🇷 Bleus J2",
+    free: true,
+  },
+  // ── Canada ────────────────────────────────────────────────────────────
+  {
+    id: "m53",
+    date: "Mer 24 juin 2026",
+    timeFR: "21h00",
+    match: "Suisse 🇨🇭 vs 🇨🇦 Canada",
+    stage: "Phase de groupes — Gr. B",
+    stadium: "Levi's Stadium, San Francisco",
+    tvFR: ["beIN Sports 2"],
+    tvBE: ["Eleven Sports"],
+    tvCH: ["RTS 1", "Blue TV"],
+    tvCA: ["TVA Sports", "TSN"],
+    isFrance: false,
+    note: "🇨🇦🇨🇭 Double intérêt",
+    free: false,
+  },
+  // ── France — Match 3 ──────────────────────────────────────────────────
+  {
+    id: "m66",
+    date: "Ven 26 juin 2026",
+    timeFR: "21h00",
+    match: "Norvège 🇳🇴 vs 🇫🇷 France",
+    stage: "Phase de groupes — Gr. I",
+    stadium: "Gillette Stadium, Boston",
+    tvFR: ["TF1", "beIN Sports 1"],
+    tvBE: ["RTBF La Deux", "Eleven Sports"],
+    tvCH: ["RTS 1", "Blue TV"],
+    tvCA: ["TVA Sports", "RDS", "TSN"],
+    isFrance: true,
+    note: "🇫🇷 Bleus J3 (décisif !)",
+    free: true,
+  },
+  // ── Finale ────────────────────────────────────────────────────────────
+  {
+    id: "final",
+    date: "Dim 19 juil. 2026",
+    timeFR: "21h00",
+    match: "Finale — Coupe du Monde 2026",
+    stage: "Finale",
+    stadium: "MetLife Stadium, New York/NJ",
+    tvFR: ["TF1", "beIN Sports 1"],
+    tvBE: ["RTBF La Une", "RTL Belgium"],
+    tvCH: ["RTS 1", "SRF 2"],
+    tvCA: ["TVA Sports", "RDS", "TSN"],
+    isFrance: false,
+    note: "🏆 Grand final du Mondial",
+    free: true,
+  },
+];
+
 const timeZones = [
   { city: "New York / Miami / Atlanta / Philly / Boston",   utcOffset: "UTC-4 (EDT)", frDiff: "-6h", frTime: "19h → 1h du matin" },
   { city: "Chicago / Houston / Dallas / Kansas City",       utcOffset: "UTC-5 (CDT)", frDiff: "-7h", frTime: "19h → 2h du matin" },
@@ -111,6 +276,14 @@ const faqItems = [
   {
     q: "Existe-t-il des fan zones en France pour la CDM 2026 ?",
     a: "Les fan zones officielles seront annoncées par les municipalités et la fédération. Les grandes villes (Paris, Lyon, Marseille, Bordeaux, Lille) proposeront très probablement des écrans géants. Des bars sportifs retransmettront également tous les matchs.",
+  },
+  {
+    q: "Comment regarder la CDM 2026 sans abonnement ?",
+    a: "En France, TF1 et TF1+ (streaming) diffusent environ 28 matchs gratuitement, dont tous les matchs de la France, les demi-finales et la finale. En Belgique, la RTBF (La Une) et son service Auvio sont 100% gratuits. En Suisse, RTS et Play RTS sont gratuits pour les matchs de la Nati et les grandes affiches. Au Canada, CTV propose quelques matchs en accès libre. Les fan zones et bars sportifs retransmettent également les matchs sans frais supplémentaires.",
+  },
+  {
+    q: "Quelles chaînes sont gratuites pour la CDM 2026 ?",
+    a: "Les chaînes gratuites selon les pays : 🇫🇷 France : TF1 (TNT), M6 (grandes affiches) ; streaming gratuit sur TF1+. 🇧🇪 Belgique : RTBF La Une, La Deux, RTL Belgium ; streaming sur Auvio (RTBF). 🇨🇭 Suisse : RTS 1, RTS 2 (francophone), SRF 2 (alémanique) ; streaming sur Play RTS. 🇨🇦 Canada : CTV pour quelques matchs ; le reste nécessite un abonnement (TVA Sports, RDS, TSN).",
   },
 ];
 
@@ -250,6 +423,140 @@ export default function OuRegarderPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* ── Programme TV par match ──────────────────────────────────────── */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            📅 Programme TV — Matchs à suivre
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+            Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la 🇫🇷 France sont prioritairement sur TF1 (gratuit).
+          </p>
+
+          {/* Mobile : cards */}
+          <div className="md:hidden space-y-3">
+            {featuredMatches.map((m) => (
+              <div
+                key={m.id}
+                className={`rounded-xl border p-4 ${
+                  m.isFrance
+                    ? "bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-700"
+                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{m.date}</span>
+                  <span className="text-lg font-extrabold text-primary dark:text-accent shrink-0">{m.timeFR}</span>
+                </div>
+                <p className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">{m.match}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{m.stage} · {m.stadium}</p>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400 self-center">🇫🇷</span>
+                  {m.tvFR.map((ch) => (
+                    <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                      ch === "TF1" || ch.includes("Gratuit")
+                        ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                        : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                    }`}>{ch}</span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-400 italic">{m.note}</span>
+                  {m.free && (
+                    <span className="text-[10px] font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-1.5 py-0.5 rounded-full">GRATUIT</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop : table */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+            <table className="w-full text-sm bg-white dark:bg-gray-800">
+              <thead className="bg-gray-50 dark:bg-gray-700">
+                <tr>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">Date</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Heure 🇫🇷</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Match</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Phase</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">France 🇫🇷</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Belgique 🇧🇪</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Suisse 🇨🇭</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Canada 🇨🇦</th>
+                </tr>
+              </thead>
+              <tbody>
+                {featuredMatches.map((m) => (
+                  <tr
+                    key={m.id}
+                    className={`border-t border-gray-100 dark:border-gray-700 ${
+                      m.isFrance
+                        ? "bg-blue-50/60 dark:bg-blue-900/15 hover:bg-blue-50 dark:hover:bg-blue-900/25"
+                        : "hover:bg-gray-50 dark:hover:bg-gray-700/30"
+                    }`}
+                  >
+                    <td className="px-4 py-3 font-medium text-gray-700 dark:text-gray-300 text-xs whitespace-nowrap">{m.date}</td>
+                    <td className="px-4 py-3 font-extrabold text-primary dark:text-accent whitespace-nowrap">{m.timeFR}</td>
+                    <td className="px-4 py-3">
+                      <div className="font-semibold text-gray-900 dark:text-gray-100">{m.match}</div>
+                      <div className="text-xs text-gray-400 dark:text-gray-500">{m.stadium}</div>
+                    </td>
+                    <td className="px-4 py-3 text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">{m.stage}</td>
+                    <td className="px-4 py-3">
+                      <div className="flex flex-wrap gap-1">
+                        {m.tvFR.map((ch) => (
+                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
+                            ch === "TF1" || ch === "M6"
+                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                          }`}>{ch}</span>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="flex flex-wrap gap-1">
+                        {m.tvBE.map((ch) => (
+                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
+                            ch.includes("RTBF") || ch.includes("RTL")
+                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                          }`}>{ch}</span>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="flex flex-wrap gap-1">
+                        {m.tvCH.map((ch) => (
+                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
+                            ch.includes("RTS") || ch.includes("SRF")
+                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                          }`}>{ch}</span>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="flex flex-wrap gap-1">
+                        {m.tvCA.map((ch) => (
+                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
+                            ch === "CTV"
+                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                          }`}>{ch}</span>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-3 italic">
+            * Programme indicatif basé sur les droits TV connus. Horaires en heure française (CEST, UTC+2). Certaines diffusions peuvent changer selon les négociations en cours.
+            Légende : <span className="font-semibold text-green-600 dark:text-green-400">Vert = Gratuit</span> · <span className="font-semibold text-blue-600 dark:text-blue-400">Bleu = Abonnement</span>
+          </p>
         </section>
 
         {/* ── Décalage horaire ─────────────────────────────────────────────── */}

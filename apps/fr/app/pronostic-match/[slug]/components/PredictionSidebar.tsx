@@ -5,6 +5,7 @@ import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import type { Team, Match, MatchPrediction, Stadium, City, Bookmaker } from "@repo/data";
 import type { MatchPreviewData } from "@repo/ai/generators";
 import { teamsById } from "@repo/data/teams";
+import { BetOfTheDay } from "../../../components/BetOfTheDay";
 
 interface PredictionSidebarProps {
   prediction: MatchPrediction | undefined;
@@ -37,6 +38,9 @@ export function PredictionSidebar({
 }: PredictionSidebarProps) {
   return (
     <div className="space-y-6">
+      {/* Pari du jour — widget compact */}
+      <BetOfTheDay compact />
+
       {/* Match info card */}
       <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
         <h3 className="mb-4 text-lg font-bold">Resume du pronostic</h3>

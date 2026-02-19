@@ -3,16 +3,20 @@ import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import { generateFullTeamAnalysis } from "@repo/ai/generators";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { groupsByLetter } from "@repo/data/groups";
 import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
+import { stadiumsById } from "@repo/data/stadiums";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { teamWorldCupHistory } from "@repo/data/team-history";
+import { getFlagPath, getISOCode } from "@repo/data/country-codes";
 import ExpandablePlayerList from "./ExpandablePlayerList";
+import SquadTable from "./SquadTable";
 
 export const revalidate = 3600;
 
@@ -29,6 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsBySlug[slug];
   if (!team) return {};
 
+  const iso = getISOCode(slug);
+  const ogImages = iso
+    ? [{ url: `https://flagcdn.com/w320/${iso}.png`, width: 320, height: 213, alt: `Drapeau de ${team.name}` }]
+    : [{ url: "https://cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
+
   return {
     title: `${team.name} - Coupe du Monde 2026 | Effectif, Stats & Pronostics`,
     description: `Tout sur ${team.name} à la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
@@ -36,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${team.flag} ${team.name} - CDM 2026`,
       description: `Fiche complete de ${team.name} pour la Coupe du Monde 2026. Groupe ${team.group}, classement FIFA #${team.fifaRanking}.`,
+      images: ogImages,
     },
   };
 }
@@ -87,8 +97,22 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Team Header */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
+            {/* Flag image — real SVG when available, emoji fallback */}
+            {getFlagPath(team.slug) ? (
+              <div className="relative h-24 w-36 sm:h-32 sm:w-48 overflow-hidden rounded-xl shadow-lg border-2 border-white/20 shrink-0">
+                <Image
+                  src={getFlagPath(team.slug)!}
+                  alt={`Drapeau de ${team.name}`}
+                  fill
+                  className="object-cover"
+                  priority
+                  unoptimized
+                />
+              </div>
+            ) : (
+              <span className="text-5xl sm:text-8xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+            )}
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">{team.name}</h1>
               <p className="mt-2 text-gray-300">
@@ -96,7 +120,7 @@ export default async function TeamPage({ params }: PageProps) {
               </p>
               {team.isHost && (
                 <span className="mt-2 inline-block rounded-full bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
-                  Pays hote
+                  Pays hôte
                 </span>
               )}
               <Link
@@ -197,6 +221,39 @@ export default async function TeamPage({ params }: PageProps) {
                   )}
                 </section>
               );
+            })()}
+
+            {/* Palmarès CDM */}
+            {teamWorldCupHistory[team.id] && (() => {
+              const history = teamWorldCupHistory[team.id]!;
+              const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
+              return titles.length > 0 ? (
+                <section className="rounded-xl border border-yellow-200 dark:border-yellow-700/50 bg-yellow-50 dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-5 text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                    <span>🏆</span> Palmarès en Coupe du Monde
+                  </h2>
+                  <div className="flex flex-wrap gap-4 mb-4">
+                    {titles.map((title) => (
+                      <div
+                        key={title.year}
+                        className="flex flex-col items-center rounded-xl bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 px-5 py-4 min-w-[110px] text-center"
+                      >
+                        <span className="text-4xl mb-1">🏆</span>
+                        <span className="text-2xl font-extrabold text-yellow-700 dark:text-yellow-400">{title.year}</span>
+                        {title.detail && (
+                          <span className="mt-1 text-xs text-gray-600 dark:text-gray-400 leading-snug max-w-[120px]">{title.detail}</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="font-semibold text-yellow-700 dark:text-yellow-400">
+                      {titles.length} titre{titles.length > 1 ? "s" : ""} mondial{titles.length > 1 ? "aux" : ""}
+                    </span>{" "}
+                    remporté{titles.length > 1 ? "s" : ""} en Coupe du Monde.
+                  </p>
+                </section>
+              ) : null;
             })()}
 
             {/* Forces & Faiblesses */}
@@ -301,6 +358,15 @@ export default async function TeamPage({ params }: PageProps) {
               </section>
             )}
 
+            {/* Effectif probable */}
+            {teamPlayers.length > 0 && (
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h2 className="mb-1 text-xl font-bold">Effectif probable</h2>
+                <p className="mb-4 text-sm text-gray-500">{teamPlayers.length} joueurs sélectionnés</p>
+                <SquadTable players={teamPlayers} />
+              </section>
+            )}
+
             {/* Key Players */}
             {teamPlayers.length > 0 && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
@@ -383,6 +449,41 @@ export default async function TeamPage({ params }: PageProps) {
                 ))}
               </div>
             </section>
+
+            {/* Stadiums where this team plays */}
+            {(() => {
+              const teamStadiums = [
+                ...new Set(teamMatches.map((m) => m.stadiumId)),
+              ]
+                .map((id) => stadiumsById[id])
+                .filter((s): s is NonNullable<typeof s> => s != null);
+              if (teamStadiums.length === 0) return null;
+              return (
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-4 text-xl font-bold">
+                    {teamStadiums.length > 1 ? "Stades" : "Stade"} de {team.name}
+                  </h2>
+                  <div className="space-y-3">
+                    {teamStadiums.map((stadium) => (
+                      <Link
+                        key={stadium.id}
+                        href={`/stade/${stadium.slug}`}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      >
+                        <span className="text-2xl">🏟️</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold">{stadium.name}</p>
+                          <p className="text-sm text-gray-500">
+                            {stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
+                          </p>
+                        </div>
+                        <span className="text-accent text-sm shrink-0">&rarr;</span>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              );
+            })()}
           </div>
 
           {/* Sidebar */}

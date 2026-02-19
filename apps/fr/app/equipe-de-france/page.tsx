@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NewsletterCTA } from "../components/NewsletterCTA";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { teamsById } from "@repo/data/teams";
@@ -690,6 +691,9 @@ export default function EquipeDeFrancePage() {
           </div>
         </div>
       </section>
+
+      {/* ===== NEWSLETTER CTA ===== */}
+      <NewsletterCTA />
 
       {/* ===== CTA FINAL ===== */}
       <section className="py-10 border-t border-gray-100 dark:border-slate-700"

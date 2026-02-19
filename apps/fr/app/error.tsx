@@ -1,35 +1,82 @@
 "use client";
 
+import { useEffect } from "react";
+
 export default function Error({
   error,
   reset,
 }: {
-  error: Error;
+  error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    // Log to error reporting in production
+    console.error(error);
+  }, [error]);
+
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-4 py-24 text-center">
-      <p className="text-4xl font-extrabold text-primary sm:text-6xl">Erreur</p>
-      <h1 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">
-        Une erreur est survenue
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[70vh] px-4 py-16 text-center bg-gray-50 dark:bg-slate-900">
+      {/* Icône animée */}
+      <div className="relative mb-8">
+        <div className="text-7xl animate-pulse select-none" aria-hidden="true">
+          ⚠️
+        </div>
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1.5 rounded-full bg-gold/30 blur-sm" />
+      </div>
+
+      {/* Badge */}
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-semibold mb-6">
+        🟡 Carton Jaune — Incident technique
+      </div>
+
+      {/* Message principal */}
+      <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+        Le VAR a détecté un problème !
       </h1>
-      <p className="mt-2 text-gray-500">
-        Quelque chose s&apos;est mal passe. Veuillez reessayer.
+
+      <p className="text-gray-500 dark:text-gray-400 text-base max-w-md mb-2">
+        Une erreur inattendue s&apos;est produite. Notre équipe technique est
+        déjà sur le terrain pour intervenir.
       </p>
-      <div className="mt-8 flex gap-4">
+
+      {/* Code d'erreur (discret) */}
+      {error?.message && (
+        <p className="text-xs text-gray-300 dark:text-gray-600 font-mono mt-2 mb-8 max-w-sm break-words">
+          {error.message}
+        </p>
+      )}
+      {!error?.message && <div className="mb-8" />}
+
+      {/* Séparateur terrain */}
+      <div className="w-full max-w-xs h-px rounded-full bg-gradient-to-r from-transparent via-gray-200 dark:via-slate-700 to-transparent mb-8" />
+
+      {/* Actions */}
+      <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
         <button
           onClick={reset}
-          className="rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
+          className="inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/90 hover:shadow-accent/50 transition-all hover:-translate-y-0.5 text-sm"
         >
-          Reessayer
+          🔄 Réessayer
         </button>
         <a
           href="/"
-          className="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50 dark:bg-slate-700"
+          className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 px-7 py-3.5 font-bold text-gray-700 dark:text-gray-200 shadow-sm hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all hover:-translate-y-0.5 text-sm"
         >
-          Retour a l&apos;accueil
+          🏠 Retour à l&apos;accueil
         </a>
       </div>
+
+      {/* Message rassureur */}
+      <p className="mt-10 text-xs text-gray-400 dark:text-gray-600">
+        Si le problème persiste,{" "}
+        <a
+          href="/contact"
+          className="underline underline-offset-2 hover:text-accent transition-colors"
+        >
+          contactez-nous
+        </a>
+        .
+      </p>
     </div>
   );
 }

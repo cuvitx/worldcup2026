@@ -8,6 +8,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   transpilePackages: ["@repo/ui", "@repo/data", "@repo/api", "@repo/ai"],
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [{ protocol: "https", hostname: "flagcdn.com" }],
   },
 };

@@ -2,10 +2,22 @@ import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { players, playersBySlug, playersByTeamId } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+// Set of player slugs that have a photo in /public/images/players/
+const PLAYER_PHOTO_SLUGS = new Set([
+  "achraf-hakimi", "alisson-becker", "aurelien-tchouameni", "bukayo-saka",
+  "cole-palmer", "cristiano-ronaldo", "eduardo-camavinga", "erling-haaland",
+  "federico-valverde", "florian-wirtz", "gavi", "harry-kane", "jamal-musiala",
+  "jude-bellingham", "kevin-de-bruyne", "kylian-mbappe", "lamine-yamal",
+  "lionel-messi", "luka-modric", "manuel-neuer", "mohamed-salah", "pedri",
+  "phil-foden", "robert-lewandowski", "rodri", "son-heung-min",
+  "thibaut-courtois", "trent-alexander-arnold", "victor-osimhen", "vinicius-jr",
+]);
+import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
 
 export const revalidate = 3600;
 
@@ -25,6 +37,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsById[player.teamId];
   const teamName = team?.name ?? player.teamId;
 
+  const hasPhoto = PLAYER_PHOTO_SLUGS.has(slug);
+  const ogImages = hasPhoto
+    ? [{ url: `https://cdm2026.fr/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — CDM 2026` }]
+    : [{ url: "https://cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
+
   return {
     title: `${player.name} - ${teamName} | Fiche joueur CDM 2026`,
     description: `Fiche de ${player.name} (${teamName}) pour la Coupe du Monde 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
@@ -32,6 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${player.name} - ${teamName} CDM 2026`,
       description: `${player.position} | ${player.club} | ${player.caps} selections | ${player.goals} buts`,
+      images: ogImages,
     },
   };
 }
@@ -86,14 +104,40 @@ export default async function PlayerPage({ params }: PageProps) {
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            {team && <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>}
+            {/* Player photo or initials fallback */}
+            {(() => {
+              const imgPath = getPlayerImagePath(player.slug);
+              const initials = getPlayerInitials(player.name);
+              const avatarColor = getAvatarColor(player.name);
+              return imgPath ? (
+                <div className="relative h-20 w-20 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-full border-2 border-white/30 shadow-lg">
+                  <Image
+                    src={imgPath}
+                    alt={player.name}
+                    fill
+                    className="object-cover object-top"
+                    priority
+                    sizes="(max-width: 640px) 80px, 112px"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`flex h-20 w-20 sm:h-28 sm:w-28 shrink-0 items-center justify-center rounded-full border-2 border-white/30 shadow-lg text-2xl sm:text-3xl font-extrabold ${avatarColor}`}
+                >
+                  {initials}
+                </div>
+              );
+            })()}
+            {team && (
+              <span className="text-2xl sm:text-4xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+            )}
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wide">
+              <p className="text-sm text-white/70 uppercase tracking-wide">
                 {positionLabels[player.position] ?? player.position}
                 {player.number ? ` | #${player.number}` : ""}
               </p>
               <h1 className="text-2xl font-extrabold sm:text-4xl">{player.name}</h1>
-              <p className="mt-1 text-gray-300">
+              <p className="mt-1 text-white/80">
                 {team?.name ?? player.teamId} &middot; {player.club}
               </p>
             </div>
@@ -149,21 +193,36 @@ export default async function PlayerPage({ params }: PageProps) {
                   Coequipiers en sélection
                 </h2>
                 <div className="space-y-3">
-                  {teammates.map((mate) => (
+                  {teammates.map((mate) => {
+                    const mateImg = getPlayerImagePath(mate.slug);
+                    const mateInitials = getPlayerInitials(mate.name);
+                    const mateColor = getAvatarColor(mate.name);
+                    return (
                     <Link
                       key={mate.id}
                       href={`/joueur/${mate.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                     >
-                      <div>
-                        <p className="font-semibold">{mate.name}</p>
+                      {/* Mini avatar */}
+                      {mateImg ? (
+                        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                          <Image src={mateImg} alt={mate.name} fill className="object-cover object-top" sizes="40px" />
+                        </div>
+                      ) : (
+                        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${mateColor}`}>
+                          {mateInitials}
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold truncate">{mate.name}</p>
                         <p className="text-sm text-gray-500">
                           {positionLabels[mate.position]} &middot; {mate.club}
                         </p>
                       </div>
-                      <span className="text-accent">&rarr;</span>
+                      <span className="text-accent shrink-0">&rarr;</span>
                     </Link>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
             )}

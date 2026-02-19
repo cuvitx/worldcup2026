@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NewsletterCTA } from "../components/NewsletterCTA";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { teams } from "@repo/data/teams";
@@ -212,6 +213,101 @@ const teamArguments: Record<
   },
 };
 
+// ============================================================================
+// Données enrichies pour les sections additionnelles
+// ============================================================================
+
+// Couleurs par confédération pour le graphique
+const CONFEDERATION_COLORS: Record<string, { bg: string; border: string; label: string }> = {
+  UEFA: { bg: "bg-blue-500", border: "border-blue-400", label: "UEFA (Europe)" },
+  CONMEBOL: { bg: "bg-green-500", border: "border-green-400", label: "CONMEBOL (Amérique du Sud)" },
+  CONCACAF: { bg: "bg-amber-500", border: "border-amber-400", label: "CONCACAF (Amérique du Nord)" },
+  CAF: { bg: "bg-orange-500", border: "border-orange-400", label: "CAF (Afrique)" },
+  AFC: { bg: "bg-purple-500", border: "border-purple-400", label: "AFC (Asie)" },
+  OFC: { bg: "bg-teal-500", border: "border-teal-400", label: "OFC (Océanie)" },
+};
+
+// Analyse narrative pour le top 5 "Pourquoi ils peuvent gagner"
+const whyTheyCanWin: Record<string, {
+  narrative: string;
+  keyPlayer: string;
+  keyPlayerDesc: string;
+  tacticalEdge: string;
+  xFactor: string;
+  betOdds: string;
+}> = {
+  argentine: {
+    narrative: "L'Argentine aborde ce Mondial avec la sérénité du champion en titre. Malgré l'approche de la fin de carrière de Messi (38 ans en 2026), les Albicelestes ont démontré au Qatar qu'ils savent gagner collectivement. Lautaro Martinez, Di Maria et les nouvelles générations portent désormais ce projet. L'équipe de Scaloni a remporté 3 titres consécutifs (Copa América 2021, 2024, CDM 2022) — un momentum unique dans l'histoire du football.",
+    keyPlayer: "Lautaro Martinez",
+    keyPlayerDesc: "Buteur de l'Inter Milan, véritable machine à buts. Avec ou sans Messi, il peut faire la différence.",
+    tacticalEdge: "Système 4-4-2 diamant ultra-rodé. L'Argentine est la nation la plus expérimentée en phases finales.",
+    xFactor: "L'ADN gagnant post-Qatar 2022. Cette équipe sait comment soulever un trophée mondial.",
+    betOdds: "5.50",
+  },
+  france: {
+    narrative: "La France possède probablement l'effectif le plus profond de toutes les 48 nations. Champions du monde 1998 et 2018, finalistes en 2022 après avoir remonté un déficit improbable en finale contre l'Argentine, les Bleus ont faim de revanche. Mbappé (27 ans) est au sommet absolu de sa carrière au Real Madrid. La machine est prête, le talent est là — il ne manque que la réussite dans les tirs au but.",
+    keyPlayer: "Kylian Mbappé",
+    keyPlayerDesc: "Meilleur joueur du monde, champion de Liga. À 27 ans en 2026, il sera dans sa fenêtre optimale pour décrocher un titre mondial.",
+    tacticalEdge: "Profondeur de banc incomparable : même le 12e joueur français serait titulaire dans la plupart des autres sélections.",
+    xFactor: "La revanche de 2022. Perdre aux tirs au but en finale crée une motivation qui dure des années.",
+    betOdds: "6.00",
+  },
+  bresil: {
+    narrative: "5 étoiles, mais pas de titre depuis 2002 — la seleção souffre depuis 24 ans. Vinicius Jr. est l'un des meilleurs joueurs de la planète, mais l'absence de Neymar, blessé longue durée, est une plaie ouverte. Le Brésil a le talent offensif pour gagner, mais manque encore de l'équilibre défensif qui caractérise les grandes équipes championnes. Rodrigo, Endrick, Savinho : la nouvelle génération est prometteuse et affamée.",
+    keyPlayer: "Vinicius Jr.",
+    keyPlayerDesc: "Deux fois finaliste de Ligue des Champions, vainqueur de la Coupe du Monde des clubs. L'ailier du Real Madrid peut gagner un match à lui seul.",
+    tacticalEdge: "Le Brésil attaque en permanence avec 4-5 joueurs offensifs de classe mondiale. Difficile de défendre une telle densité.",
+    xFactor: "L'humiliation du 7-1 face à l'Allemagne en 2014 est encore dans toutes les mémoires. La pression nationale est le moteur de ce projet.",
+    betOdds: "6.50",
+  },
+  angleterre: {
+    narrative: "It's coming home ? La génération Bellingham-Saka-Foden est peut-être la plus talentueuse depuis 1966. Finalistes de l'Euro 2021 et 2024, les Three Lions ont le mental des grandes occasions mais semblent bloqués dans les demi-finales depuis des années. En 2026, avec une expérience supplémentaire, le groupe de Southgate (ou son successeur) pourrait franchir le cap décisif. La Premier League offre aux joueurs anglais une intensité de jeu qui les prépare parfaitement aux tournois.",
+    keyPlayer: "Jude Bellingham",
+    keyPlayerDesc: "Milieu offensif du Real Madrid, Ballon d'Or potentiel. À 22 ans en 2026, il sera au sommet absolu de sa puissance physique.",
+    tacticalEdge: "Bloc défensif solide + transitions rapides avec des ailiers de vitesse. L'Angleterre ne donne rien.",
+    xFactor: "Briser 60 ans de disette serait l'événement footballistique du siècle en Angleterre. La motivation est absolue.",
+    betOdds: "7.00",
+  },
+  allemagne: {
+    narrative: "La Mannschaft est en reconstruction depuis l'humiliation du premier tour en 2018 et 2022. Sous Nagelsmann, le projet de relance est encourageant : nouveau style de jeu basculant entre pressing intensif et possession. L'Allemagne a retrouvé du mordant lors de l'Euro 2024 à domicile. Florian Wirtz (Bayer Leverkusen) est l'élément créatif qui manquait à cette équipe. 4 titres mondiaux en franchise — l'Allemagne a l'ADN pour un 5e.",
+    keyPlayer: "Florian Wirtz",
+    keyPlayerDesc: "Le meilleur numéro 10 de sa génération en Bundesliga. Technique, créatif, décisif. Le joueur qui redonne de la magie à l'Allemagne.",
+    tacticalEdge: "Organisation collective sans failles, discipline tactique légendaire. L'Allemagne ne perd jamais par négligence.",
+    xFactor: "L'effet rebond après deux premiers tours ratés. Les Allemands ont une culture de la résilience unique dans le football mondial.",
+    betOdds: "8.00",
+  },
+};
+
+// Historique CDM à domicile (stats réelles)
+const cdmHomeStats = [
+  { year: 1930, host: "Uruguay", winner: "Uruguay", hostWon: true, hostFlag: "🇺🇾", note: "Première CDM" },
+  { year: 1934, host: "Italie", winner: "Italie", hostWon: true, hostFlag: "🇮🇹", note: "Organisation fasciste" },
+  { year: 1938, host: "France", winner: "Italie", hostWon: false, hostFlag: "🇫🇷", note: "Italie bis répetita" },
+  { year: 1950, host: "Brésil", winner: "Uruguay", hostWon: false, hostFlag: "🇧🇷", note: "Le Maracanazo, drame brésilien" },
+  { year: 1954, host: "Suisse", winner: "Allemagne", hostWon: false, hostFlag: "🇨🇭", note: "Miracle de Berne" },
+  { year: 1958, host: "Suède", winner: "Brésil", hostWon: false, hostFlag: "🇸🇪", note: "1er titre Brésil, 17 ans Pelé" },
+  { year: 1962, host: "Chili", winner: "Brésil", hostWon: false, hostFlag: "🇨🇱", note: "Brésil confirme" },
+  { year: 1966, host: "Angleterre", winner: "Angleterre", hostWon: true, hostFlag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", note: "Seul titre anglais" },
+  { year: 1970, host: "Mexique", winner: "Brésil", hostWon: false, hostFlag: "🇲🇽", note: "Brésil légendaire de Pelé" },
+  { year: 1974, host: "Allemagne", winner: "Allemagne", hostWon: true, hostFlag: "🇩🇪", note: "Beck­enbauer capitaine" },
+  { year: 1978, host: "Argentine", winner: "Argentine", hostWon: true, hostFlag: "🇦🇷", note: "1er titre argentin" },
+  { year: 1982, host: "Espagne", winner: "Italie", hostWon: false, hostFlag: "🇪🇸", note: "Rossi en feu" },
+  { year: 1986, host: "Mexique", winner: "Argentine", hostWon: false, hostFlag: "🇲🇽", note: "La main de Dieu" },
+  { year: 1990, host: "Italie", winner: "Allemagne", hostWon: false, hostFlag: "🇮🇹", note: "Nuit de Rome" },
+  { year: 1994, host: "États-Unis", winner: "Brésil", hostWon: false, hostFlag: "🇺🇸", note: "Brésil aux pénaltys" },
+  { year: 1998, host: "France", winner: "France", hostWon: true, hostFlag: "🇫🇷", note: "Zidane x2, fête nationale" },
+  { year: 2002, host: "Japon/Corée", winner: "Brésil", hostWon: false, hostFlag: "🇯🇵🇰🇷", note: "Ronaldo ressuscite" },
+  { year: 2006, host: "Allemagne", winner: "Italie", hostWon: false, hostFlag: "🇩🇪", note: "Zidane coup de boule" },
+  { year: 2010, host: "Afrique du Sud", winner: "Espagne", hostWon: false, hostFlag: "🇿🇦", note: "Tiki-taka espagnol" },
+  { year: 2014, host: "Brésil", winner: "Allemagne", hostWon: false, hostFlag: "🇧🇷", note: "Le 7-1, Mineirazo" },
+  { year: 2018, host: "Russie", winner: "France", hostWon: false, hostFlag: "🇷🇺", note: "Mbappé explose au monde" },
+  { year: 2022, host: "Qatar", winner: "Argentine", hostWon: false, hostFlag: "🇶🇦", note: "Messi sacré, finale épique" },
+];
+
+const homeWins = cdmHomeStats.filter((s) => s.hostWon).length;
+const totalEditions = cdmHomeStats.length;
+const homeWinPct = Math.round((homeWins / totalEditions) * 100);
+
 export default function PronosticVainqueurPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -284,12 +380,90 @@ export default function PronosticVainqueurPage() {
             <a href="#top10" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all">
               Top 10 favoris
             </a>
+            <a href="#analyse-top5" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
+              Pourquoi gagner ?
+            </a>
             <a href="#cotes" className="rounded-lg border border-gold/30 bg-gold/10 px-5 py-2.5 font-semibold text-gold hover:bg-gold/20 transition-all">
               Comparer les cotes
+            </a>
+            <a href="#historique" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
+              Historique domicile
             </a>
             <a href="#dark-horses" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
               Dark Horses
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== GRAPHIQUE VISUEL DES COTES PAR CONTINENT ===== */}
+      <section id="graphique" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="section-header mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                📊 Chances de titre par confédération
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                Barres proportionnelles aux probabilités — colorées par confédération
+              </p>
+            </div>
+          </div>
+
+          {/* Légende confédérations */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            {Object.entries(CONFEDERATION_COLORS).map(([key, val]) => (
+              <div key={key} className="flex items-center gap-1.5 text-xs">
+                <span className={`inline-block w-3 h-3 rounded-sm ${val.bg}`} />
+                <span className="text-gray-600 dark:text-gray-400">{val.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Barres horizontales */}
+          <div className="space-y-2.5">
+            {top10.map(({ pred, team }, index) => {
+              if (!team) return null;
+              const winPct = Math.round(pred.winnerProb * 100 * 10) / 10;
+              const barWidth = Math.min(pred.winnerProb * 100 * 7, 100);
+              const conf = CONFEDERATION_COLORS[team.confederation] ?? CONFEDERATION_COLORS["UEFA"]!;
+              const approxOdds = estimatedOutrightOdds(pred.winnerProb);
+
+              return (
+                <div key={team.id} className="flex items-center gap-3">
+                  {/* Rank */}
+                  <span className="shrink-0 w-6 text-right text-xs font-bold text-gray-400 dark:text-gray-500">
+                    {index + 1}
+                  </span>
+                  {/* Flag + name */}
+                  <div className="flex items-center gap-2 w-36 shrink-0">
+                    <span className="text-xl shrink-0">{team.flag}</span>
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                      {team.name}
+                    </span>
+                  </div>
+                  {/* Bar */}
+                  <div className="flex-1 h-7 bg-gray-100 dark:bg-slate-800 rounded-lg overflow-hidden relative">
+                    <div
+                      className={`h-full ${conf.bg} opacity-85 rounded-lg transition-all duration-700 flex items-center pl-3`}
+                      style={{ width: `${barWidth}%` }}
+                    >
+                      <span className="text-[10px] font-bold text-white whitespace-nowrap">
+                        {winPct < 1 ? "<1" : winPct}%
+                      </span>
+                    </div>
+                  </div>
+                  {/* Odds */}
+                  <span className="shrink-0 w-14 text-right text-sm font-bold text-gold">
+                    {approxOdds}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-4 text-xs text-gray-400 dark:text-gray-500">
+            * Largeur des barres proportionnelle à la probabilité de remporter le titre (modèle ELO). Les cotes sont indicatives.
           </div>
         </div>
       </section>
@@ -417,6 +591,263 @@ export default function PronosticVainqueurPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ===== POURQUOI ILS PEUVENT GAGNER — TOP 5 ===== */}
+      <section id="analyse-top5" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="section-header mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                🔍 Pourquoi ils peuvent gagner — Analyse top 5
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                Décryptage en profondeur des 5 équipes les plus probables de soulever le trophée
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {top10.slice(0, 5).map(({ team, pred }, index) => {
+              if (!team) return null;
+              const analysis = whyTheyCanWin[team.id];
+              if (!analysis) return null;
+              const winPct = (pred.winnerProb * 100).toFixed(1);
+
+              return (
+                <div
+                  key={team.id}
+                  className="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm"
+                >
+                  {/* Header */}
+                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 border-b border-gray-100 dark:border-slate-700">
+                    <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
+                      index === 0 ? "bg-gold/20 text-gold border-2 border-gold/50" :
+                      index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
+                      index === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400" :
+                      "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400"
+                    }`}>
+                      {index + 1}
+                    </div>
+                    <span className="text-4xl">{team.flag}</span>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
+                        {team.name}
+                      </h3>
+                      <div className="flex items-center gap-3 mt-0.5 flex-wrap">
+                        <span className="text-sm text-accent font-bold">{winPct}% de chance de titre</span>
+                        <span className="text-sm text-gold font-bold">Cote {analysis.betOdds}</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">{team.bestResult}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Body */}
+                  <div className="p-6 grid md:grid-cols-3 gap-6">
+                    {/* Narrative */}
+                    <div className="md:col-span-2">
+                      <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wide">
+                        📝 Notre analyse
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {analysis.narrative}
+                      </p>
+                    </div>
+
+                    {/* Key info */}
+                    <div className="space-y-3">
+                      <div className="rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50 p-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-blue-600 dark:text-blue-400 mb-1">
+                          ⭐ Joueur clé
+                        </p>
+                        <p className="text-sm font-bold text-gray-900 dark:text-white">{analysis.keyPlayer}</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{analysis.keyPlayerDesc}</p>
+                      </div>
+                      <div className="rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800/50 p-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-purple-600 dark:text-purple-400 mb-1">
+                          ⚙️ Avantage tactique
+                        </p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.tacticalEdge}</p>
+                      </div>
+                      <div className="rounded-xl bg-gold/5 border border-gold/20 p-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-gold mb-1">
+                          ✨ Facteur X
+                        </p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.xFactor}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== HISTORIQUE CDM À DOMICILE ===== */}
+      <section id="historique" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="section-header mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                🏠 Historique : qui a gagné à domicile ?
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                Le pays hôte peut-il vraiment faire la différence ? Retour sur 22 éditions.
+              </p>
+            </div>
+          </div>
+
+          {/* Stats globales */}
+          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 text-center">
+              <p className="text-4xl font-extrabold text-accent mb-1">{homeWins}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">pays hôtes vainqueurs</p>
+              <p className="text-xs text-gray-400 mt-1">sur {totalEditions} éditions depuis 1930</p>
+            </div>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 text-center">
+              <p className="text-4xl font-extrabold text-gold mb-1">{homeWinPct}%</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">taux de victoire à domicile</p>
+              <p className="text-xs text-gray-400 mt-1">Avantage terrain non négligeable</p>
+            </div>
+            <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50 dark:bg-amber-900/20 p-5 text-center">
+              <p className="text-4xl font-extrabold text-amber-600 mb-1">3</p>
+              <p className="text-sm text-amber-700 dark:text-amber-300 font-medium">pays hôtes en 2026</p>
+              <p className="text-xs text-amber-600/70 dark:text-amber-400/70 mt-1">USA, Canada, Mexique — triple avantage terrain</p>
+            </div>
+          </div>
+
+          {/* Pays hôtes vainqueurs */}
+          <div className="mb-6">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+              🏆 Les 6 champions du monde à domicile
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {cdmHomeStats.filter((s) => s.hostWon).map((s) => (
+                <div
+                  key={s.year}
+                  className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 dark:bg-gold/10 p-4"
+                >
+                  <span className="text-3xl">{s.hostFlag}</span>
+                  <div>
+                    <p className="font-bold text-gray-900 dark:text-white">
+                      {s.host} {s.year}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{s.note}</p>
+                  </div>
+                  <span className="ml-auto text-gold font-extrabold text-lg">🏆</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Timeline complète (compacte) */}
+          <details className="group">
+            <summary className="cursor-pointer flex items-center gap-2 text-sm font-semibold text-accent hover:underline list-none mb-4">
+              <span className="group-open:rotate-90 transition-transform inline-block">▶</span>
+              Voir l&apos;historique complet ({totalEditions} éditions)
+            </summary>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-300">
+                    <th className="text-left px-3 py-2">Année</th>
+                    <th className="text-left px-3 py-2">Hôte</th>
+                    <th className="text-left px-3 py-2">Vainqueur</th>
+                    <th className="text-left px-3 py-2 hidden sm:table-cell">Anecdote</th>
+                    <th className="text-center px-3 py-2">🏠</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cdmHomeStats.map((s, i) => (
+                    <tr
+                      key={s.year}
+                      className={`border-t border-gray-100 dark:border-slate-700/50 ${
+                        s.hostWon
+                          ? "bg-gold/5 dark:bg-gold/10"
+                          : i % 2 === 0 ? "bg-white dark:bg-slate-800/50" : "bg-gray-50/50 dark:bg-slate-800"
+                      }`}
+                    >
+                      <td className="px-3 py-2 font-bold text-gray-900 dark:text-white">{s.year}</td>
+                      <td className="px-3 py-2">
+                        <span className="mr-1">{s.hostFlag}</span>
+                        {s.host}
+                      </td>
+                      <td className={`px-3 py-2 font-semibold ${s.hostWon ? "text-gold" : "text-gray-600 dark:text-gray-300"}`}>
+                        {s.winner} {s.hostWon ? "🏆" : ""}
+                      </td>
+                      <td className="px-3 py-2 text-gray-500 dark:text-gray-400 hidden sm:table-cell">{s.note}</td>
+                      <td className="px-3 py-2 text-center">
+                        {s.hostWon ? <span className="text-green-500 font-bold">✓</span> : <span className="text-red-400">✗</span>}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          {/* Impact pour 2026 */}
+          <div className="mt-6 rounded-xl border border-blue-200 dark:border-blue-800/50 bg-blue-50 dark:bg-blue-900/20 p-5">
+            <h3 className="font-bold text-blue-800 dark:text-blue-300 mb-2">
+              🔭 Implications pour 2026 : États-Unis, Canada, Mexique
+            </h3>
+            <p className="text-sm text-blue-700 dark:text-blue-300/80 leading-relaxed mb-3">
+              Pour la première fois de l&apos;histoire, <strong>3 pays partagent l&apos;organisation</strong>. L&apos;avantage terrain est donc dilué mais présent. Historiquement, le pays hôte bénéficie de <strong>+6 à +8 pts ELO</strong> grâce au soutien du public et à la connaissance des conditions locales.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-3">
+              {[
+                { flag: "🇺🇸", name: "États-Unis", note: "Jouent devant 80 000 supporters à domicile. Objectif réaliste : quarts de finale.", chance: "4.2%" },
+                { flag: "🇨🇦", name: "Canada", note: "Alphonso Davies au sommet. Première CDM — la ferveur peut créer des miracles.", chance: "1.8%" },
+                { flag: "🇲🇽", name: "Mexique", note: "L'Azteca en altitude (2240m) — avantage physique considérable en phase de groupes.", chance: "2.1%" },
+              ].map((host) => (
+                <div key={host.name} className="rounded-lg bg-white dark:bg-slate-800 border border-blue-100 dark:border-slate-700 p-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xl">{host.flag}</span>
+                    <span className="font-bold text-sm text-gray-900 dark:text-white">{host.name}</span>
+                    <span className="ml-auto text-xs font-bold text-accent">{host.chance}</span>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{host.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA SIMULATEUR BRACKET ===== */}
+      <section id="simulateur-cta" className="bg-gradient-to-br from-[#1a1035] via-[#302b63] to-[#24243e] py-12">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold mb-4">
+            <span className="text-gold">🏆</span>
+            Simulateur interactif
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+            Construisez votre propre bracket
+          </h2>
+          <p className="text-gray-300/80 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+            Notre simulateur de bracket vous permet de rejouer l&apos;intégralité de la CDM 2026 — 
+            de la phase de groupes à la finale. Testez vos propres pronostics, créez des scénarios 
+            alternatifs et partagez votre tableau avec vos amis.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/simulateur"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-gold to-amber-500 px-8 py-3.5 font-bold text-primary shadow-lg shadow-gold/30 hover:shadow-xl hover:-translate-y-1 transition-all text-base"
+            >
+              🎮 Lancer le simulateur bracket
+            </Link>
+            <Link
+              href="/tableau"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-8 py-3.5 font-semibold text-white hover:bg-white/20 hover:-translate-y-0.5 transition-all text-base"
+            >
+              📋 Voir le tableau officiel
+            </Link>
+          </div>
+          <p className="mt-4 text-[11px] text-gray-500">
+            Basé sur 100 000 simulations Monte Carlo · Mis à jour en temps réel
+          </p>
         </div>
       </section>
 
@@ -661,6 +1092,9 @@ export default function PronosticVainqueurPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== NEWSLETTER CTA ===== */}
+      <NewsletterCTA />
 
       {/* ===== CTA FINAL ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">

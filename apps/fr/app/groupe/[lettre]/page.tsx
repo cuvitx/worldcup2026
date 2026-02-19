@@ -47,12 +47,14 @@ export default async function GroupPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Groupes",url:"/equipes"},{name:"Groupe "+group.letter,url:"/groupe/"+lettre}]} baseUrl={domains.fr} />
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Groupes",url:"/groupes"},{name:"Groupe "+group.letter,url:"/groupe/"+lettre}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li>/</li>
+            <li><Link href="/groupes" className="hover:text-primary">Groupes</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Groupe {group.letter}</li>
           </ol>
@@ -212,14 +214,20 @@ export default async function GroupPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Betting CTA */}
+            {/* Pronostic Groupe CTA */}
             <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
               <h3 className="mb-2 text-lg font-bold text-accent">
                 Pronostics Groupe {group.letter}
               </h3>
-              <p className="text-sm text-gray-600">
-                Qui se qualifiera dans le Groupe {group.letter} ? Comparez les cotes des bookmakers.
+              <p className="text-sm text-gray-600 mb-3">
+                Qui se qualifiera dans le Groupe {group.letter} ? Découvrez notre analyse complète et les cotes.
               </p>
+              <Link
+                href={`/pronostic-groupe/${lettre}`}
+                className="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90 transition-colors"
+              >
+                Voir le pronostic Groupe {group.letter} &rarr;
+              </Link>
             </div>
           </div>
         </div>

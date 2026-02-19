@@ -36,3 +36,4 @@ export type { NewsArticle, NewsCategory } from "./news";
 export { newsArticles, newsCategories, newsBySlug, newsByCategory } from "./news";
 export type { TeamHistoryEntry } from "./team-history";
 export { teamWorldCupHistory } from "./team-history";
+export { teamSlugToISO, getFlagPath, getISOCode } from "./country-codes";

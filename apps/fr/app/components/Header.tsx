@@ -246,6 +246,7 @@ export function Header() {
                   activeMenu === key ? "bg-white/10 text-white" : "text-gray-300"
                 }`}
                 aria-expanded={activeMenu === key}
+                aria-label={`${menu.label} — menu principal`}
               >
                 <span>{menu.icon}</span>
                 <span>{menu.label}</span>
@@ -256,6 +257,7 @@ export function Header() {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
+                  aria-hidden="true"
                   className={`transition-transform duration-200 ${activeMenu === key ? "rotate-180" : ""}`}
                 >
                   <path d="M2 4l3 3 3-3" />
@@ -265,35 +267,37 @@ export function Header() {
               {/* Mega menu dropdown */}
               {activeMenu === key && (
                 <div
-                  className="mega-menu p-4"
+                  className="mega-menu"
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <div className={`grid gap-4 ${menu.sections.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
-                    {menu.sections.map((section) => (
-                      <div key={section.title}>
-                        <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 px-2">
-                          {section.title}
-                        </p>
-                        <ul className="space-y-0.5">
-                          {section.links.map((link) => (
-                            <li key={link.href}>
-                              <Link
-                                href={link.href}
-                                className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-accent transition-colors"
-                                onClick={() => setActiveMenu(null)}
-                              >
-                                <span>{link.label}</span>
-                                {"sub" in link && link.sub && (
-                                  <span className="text-[10px] text-gray-400 ml-2 shrink-0">
-                                    {link.sub}
-                                  </span>
-                                )}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                  <div className="p-4">
+                    <div className={`grid gap-4 ${menu.sections.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
+                      {menu.sections.map((section) => (
+                        <div key={section.title}>
+                          <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 px-2">
+                            {section.title}
+                          </p>
+                          <ul className="space-y-0.5">
+                            {section.links.map((link) => (
+                              <li key={link.href}>
+                                <Link
+                                  href={link.href}
+                                  className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-accent transition-colors"
+                                  onClick={() => setActiveMenu(null)}
+                                >
+                                  <span>{link.label}</span>
+                                  {"sub" in link && link.sub && (
+                                    <span className="text-[10px] text-gray-400 ml-2 shrink-0">
+                                      {link.sub}
+                                    </span>
+                                  )}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -322,7 +326,21 @@ export function Header() {
 
         {/* Right actions */}
         <div className="flex items-center gap-1.5">
-          {/* Search */}
+          {/* Search icon — lien vers /recherche (desktop) */}
+          <Link
+            href="/recherche"
+            aria-label="Page de recherche"
+            className={`hidden md:flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none ${
+              pathname === "/recherche" ? "text-gold" : "text-gray-300"
+            }`}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </Link>
+
+          {/* Search dialog (modal rapide) */}
           <SearchDialog lang="fr" data={searchData} onNavigate={(href) => router.push(href)} />
 
           {/* Theme toggle */}
@@ -344,6 +362,7 @@ export function Header() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
+                aria-hidden="true"
                 className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
               >
                 <path d="M2 4l3 3 3-3" />
@@ -408,9 +427,11 @@ export function Header() {
                 <button
                   onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
                   className="w-full flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-white/10 transition-colors"
+                  aria-expanded={mobileExpanded === key}
+                  aria-label={`${menu.label} — sous-menu`}
                 >
                   <span className="flex items-center gap-2">
-                    <span>{menu.icon}</span>
+                    <span aria-hidden="true">{menu.icon}</span>
                     <span>{menu.label}</span>
                   </span>
                   <svg
@@ -420,6 +441,7 @@ export function Header() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                     className={`transition-transform duration-200 ${mobileExpanded === key ? "rotate-180" : ""}`}
                   >
                     <path d="M2 4l3 3 3-3" />
@@ -471,6 +493,15 @@ export function Header() {
               onClick={() => setOpen(false)}
             >
               🏅 Mon profil
+            </Link>
+            <Link
+              href="/recherche"
+              className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors ${
+                pathname === "/recherche" ? "text-gold" : ""
+              }`}
+              onClick={() => setOpen(false)}
+            >
+              🔍 Recherche
             </Link>
           </div>
         </div>

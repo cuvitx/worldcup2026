@@ -6,6 +6,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
+import { matchesByStadium } from "@repo/data/matches";
+import { teamsById } from "@repo/data/teams";
+import { HeroImage } from "../../components/hero-image";
+import { cityEnrichmentData } from "./city-enrichment";
 
 export const revalidate = 86400;
 
@@ -38,6 +42,23 @@ export default async function CityPage({ params }: PageProps) {
     .map((id) => stadiumsById[id])
     .filter((s): s is NonNullable<typeof s> => s != null);
 
+  // All matches in this city (across all stadiums)
+  const cityMatches = cityStadiums
+    .flatMap((s) => matchesByStadium[s.id] ?? [])
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  const enrichment = cityEnrichmentData[slug];
+
+  const stageLabels: Record<string, string> = {
+    group: "Phase de groupes",
+    "round-of-32": "32e de finale",
+    "round-of-16": "8e de finale",
+    "quarter-final": "Quart de finale",
+    "semi-final": "Demi-finale",
+    "third-place": "3e place",
+    final: "Finale",
+  };
+
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Villes",url:"/villes"},{name:city.name,url:"/ville/"+city.slug}]} baseUrl={domains.fr} />
@@ -53,29 +74,29 @@ export default async function CityPage({ params }: PageProps) {
         </div>
       </nav>
 
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-4xl sm:text-7xl">🏙️</span>
-            <div>
-              <h1 className="text-2xl font-extrabold sm:text-4xl">{city.name}</h1>
-              <p className="mt-2 text-gray-300">
+      {/* Hero image */}
+      <div className="mx-auto max-w-7xl px-4 pt-6">
+        <HeroImage
+          src={`/images/cities/${slug}.jpg`}
+          alt={city.name}
+          fallbackEmoji="🏙️"
+          overlayContent={
+            <>
+              <h1 className="text-2xl font-extrabold sm:text-4xl drop-shadow">{city.name}</h1>
+              <p className="mt-1 text-sm text-gray-200 drop-shadow">
                 {city.state}, {city.country} &middot; Ville hôte CDM 2026
               </p>
-              <span className="mt-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
-                {cityStadiums.length} stade{cityStadiums.length > 1 ? "s" : ""}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+            </>
+          }
+        />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 pb-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
-              <p className="text-gray-700 leading-relaxed">{city.description}</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{city.description}</p>
             </section>
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
@@ -101,6 +122,132 @@ export default async function CityPage({ params }: PageProps) {
                 ))}
               </div>
             </section>
+
+            {/* Matches in this city */}
+            {cityMatches.length > 0 && (
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold">
+                  Matchs à {city.name} ({cityMatches.length})
+                </h2>
+                <div className="space-y-2">
+                  {cityMatches.map((match) => {
+                    const home = teamsById[match.homeTeamId];
+                    const away = teamsById[match.awayTeamId];
+                    return (
+                      <Link
+                        key={match.id}
+                        href={`/match/${match.slug}`}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      >
+                        <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
+                        <span className="text-lg" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳️"}</span>
+                        <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
+                        <span className="text-xs text-gray-500">vs</span>
+                        <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
+                        <span className="text-lg" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳️"}</span>
+                        <span className="rounded-full px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 shrink-0">
+                          {stageLabels[match.stage] ?? match.stage}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {/* Enriched sections */}
+            {enrichment && (
+              <>
+                {/* Météo */}
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                    🌤️ Météo en juin-juillet
+                  </h2>
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4 text-center">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Juin</p>
+                      <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        {enrichment.weather.juinMin}° – {enrichment.weather.juinMax}°C
+                      </p>
+                    </div>
+                    <div className="rounded-lg bg-orange-50 dark:bg-orange-900/20 p-4 text-center">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Juillet</p>
+                      <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                        {enrichment.weather.juilletMin}° – {enrichment.weather.juilletMax}°C
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 italic">{enrichment.weather.description}</p>
+                </section>
+
+                {/* Transport */}
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                    🚗 Comment s'y rendre
+                  </h2>
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">✈️ Aéroport principal</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{enrichment.transport.aeroport}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">🚌 Transports locaux</p>
+                    <ul className="space-y-1">
+                      {enrichment.transport.transports.map((t, i) => (
+                        <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                          <span className="text-green-500 mt-0.5">✓</span>
+                          <span>{t}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </section>
+
+                {/* Budget */}
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                    💰 Budget moyen
+                  </h2>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                      <p className="text-xl font-bold text-primary">
+                        {enrichment.budget.hotelMin}–{enrichment.budget.hotelMax}
+                        <span className="text-sm font-normal ml-1">{enrichment.budget.currency}</span>
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Hôtel / nuit</p>
+                    </div>
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                      <p className="text-xl font-bold text-primary">
+                        ~{enrichment.budget.repas}
+                        <span className="text-sm font-normal ml-1">{enrichment.budget.currency}</span>
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Repas moyen</p>
+                    </div>
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                      <p className="text-xl font-bold text-primary">
+                        ~{enrichment.budget.biere}
+                        <span className="text-sm font-normal ml-1">{enrichment.budget.currency}</span>
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Bière (50cl)</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Activités */}
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                    🎯 Que faire en dehors des matchs
+                  </h2>
+                  <div className="space-y-4">
+                    {enrichment.activities.map((activity, i) => (
+                      <div key={i} className="rounded-lg border border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-700/50 p-4">
+                        <p className="font-semibold text-gray-900 dark:text-white mb-1">{activity.title}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{activity.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </>
+            )}
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Informations pratiques</h2>
@@ -160,7 +307,7 @@ export default async function CityPage({ params }: PageProps) {
 
             <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
               <h3 className="mb-2 text-lg font-bold text-accent">Hôtels à {city.name}</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 Trouvez les meilleurs hôtels près des stades pour la Coupe du Monde 2026.
               </p>
             </div>

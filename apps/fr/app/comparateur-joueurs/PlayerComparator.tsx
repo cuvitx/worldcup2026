@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import Image from "next/image";
 import { playerStats, playerStatsByTeam } from "@repo/data/player-stats";
 import { teams } from "@repo/data/teams";
 import type { PlayerStats } from "@repo/data/player-stats";
+import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../lib/player-images";
 
 type StatKey = "goals" | "assists" | "appearances" | "minutesPlayed" | "passAccuracy" | "dribbleSuccess" | "aerialDuels" | "rating";
 
@@ -122,18 +124,38 @@ export function PlayerComparator() {
         <>
           {/* Player cards — stack vertically on mobile */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-            {selected.map((p, i) => (
+            {selected.map((p, i) => {
+              const imgPath = getPlayerImagePath(p.id);
+              const initials = getPlayerInitials(p.name);
+              const avatarColor = getAvatarColor(p.name);
+              return (
               <div
                 key={p.id}
                 className="rounded-xl border-2 p-5 text-center bg-white dark:bg-slate-800 shadow-md transition-transform hover:scale-[1.02]"
                 style={{ borderColor: COLORS[i] }}
               >
-                <div
-                  className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full text-white font-bold text-xl shadow-lg"
-                  style={{ backgroundColor: COLORS[i] }}
-                >
-                  {p.name.charAt(0)}
-                </div>
+                {/* Player photo or initials */}
+                {imgPath ? (
+                  <div
+                    className="mx-auto mb-3 relative h-20 w-20 overflow-hidden rounded-full"
+                    style={{ boxShadow: `0 0 0 3px ${COLORS[i]}` }}
+                  >
+                    <Image
+                      src={imgPath}
+                      alt={p.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="80px"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`mx-auto mb-3 flex h-20 w-20 items-center justify-center rounded-full text-white font-bold text-2xl shadow-lg ${avatarColor}`}
+                    style={{ boxShadow: `0 0 0 3px ${COLORS[i]}` }}
+                  >
+                    {initials}
+                  </div>
+                )}
                 <h3 className="font-bold text-lg dark:text-white">{p.name}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                   {p.club} · {p.position} · {p.age} ans
@@ -143,7 +165,8 @@ export function PlayerComparator() {
                   {teams.find((t) => t.id === p.teamId)?.name}
                 </p>
               </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Stats bars — smooth animated */}

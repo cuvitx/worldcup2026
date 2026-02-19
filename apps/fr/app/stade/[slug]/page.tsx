@@ -1,9 +1,9 @@
-import { StadiumImage } from "../../components/stadium-image";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HeroImage } from "../../components/hero-image";
 import { notFound } from "next/navigation";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
@@ -29,6 +29,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${stadium.name} - Stade Coupe du Monde 2026 | ${stadium.city}`,
     description: `Guide complet du ${stadium.name} à ${stadium.city} pour la Coupe du Monde 2026. Capacité ${stadium.capacity.toLocaleString("fr-FR")} places. ${stadium.description}`,
     alternates: getAlternates("stadium", slug, "fr"),
+    openGraph: {
+      title: `${stadium.name} — CDM 2026`,
+      description: `${stadium.city}, ${stadium.country} · ${stadium.capacity.toLocaleString("fr-FR")} places`,
+      images: [
+        {
+          url: `https://cdm2026.fr/images/stadiums/${stadium.slug}.jpg`,
+          width: 1280,
+          height: 720,
+          alt: `${stadium.name}, ${stadium.city}`,
+        },
+      ],
+    },
   };
 }
 
@@ -85,13 +97,18 @@ export default async function StadiumPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Stadium image */}
+      {/* Stadium hero image */}
       <div className="mx-auto max-w-7xl px-4 mt-8">
-        <StadiumImage
-          slug={stadium.slug}
-          name={stadium.name}
-          city={stadium.city}
-          className="w-full h-auto rounded-lg shadow-md object-cover max-h-[400px]"
+        <HeroImage
+          src={`/images/stadiums/${stadium.slug}.jpg`}
+          alt={`${stadium.name}, ${stadium.city}`}
+          fallbackEmoji="🏟️"
+          overlayContent={
+            <>
+              <p className="text-sm font-medium drop-shadow">{stadium.city}, {stadium.country}</p>
+              <p className="text-xs text-gray-300 drop-shadow">{stadium.capacity.toLocaleString("fr-FR")} places</p>
+            </>
+          }
         />
       </div>
 
@@ -198,6 +215,39 @@ export default async function StadiumPage({ params }: PageProps) {
                 </div>
               </dl>
             </div>
+
+            {/* Teams playing at this stadium */}
+            {(() => {
+              const playingTeams = [
+                ...new Map(
+                  stadiumMatches.flatMap((m) => [
+                    [m.homeTeamId, teamsById[m.homeTeamId]],
+                    [m.awayTeamId, teamsById[m.awayTeamId]],
+                  ])
+                ).entries(),
+              ]
+                .map(([, t]) => t)
+                .filter((t): t is NonNullable<typeof t> => t != null);
+              if (playingTeams.length === 0) return null;
+              return (
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h3 className="mb-4 text-lg font-bold">Équipes qui jouent ici</h3>
+                  <ul className="space-y-2 text-sm">
+                    {playingTeams.map((t) => (
+                      <li key={t.id}>
+                        <Link
+                          href={`/equipe/${t.slug}`}
+                          className="flex items-center gap-2 hover:text-accent transition-colors"
+                        >
+                          <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
+                          <span>{t.name}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
 
             {/* Other stadiums */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">

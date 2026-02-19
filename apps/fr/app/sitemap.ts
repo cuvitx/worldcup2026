@@ -161,6 +161,67 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.3,
     },
+    {
+      url: `${BASE_URL}/politique-de-confidentialite`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/pronostic-vainqueur`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/billets`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/equipe-de-france`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/palmares`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/statistiques`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/histoire`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/carte-stades`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/recherche`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    // Calendrier jour par jour (39 jours : 11 juin → 19 juillet 2026)
+    ...Array.from({ length: 39 }, (_, i) => ({
+      url: `${BASE_URL}/calendrier/jour-${i + 1}`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    })),
   ];
 
   // Team pages

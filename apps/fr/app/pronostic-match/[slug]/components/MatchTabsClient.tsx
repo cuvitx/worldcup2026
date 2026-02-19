@@ -31,10 +31,14 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
       {/* Tab bar */}
       <div className="sticky top-[65px] z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex overflow-x-auto scrollbar-hide gap-0.5">
+          <div role="tablist" aria-label="Sections du match" className="flex overflow-x-auto scrollbar-hide gap-0.5">
             {TABS.map((tab) => (
               <button
                 key={tab.id}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls={`tabpanel-${tab.id}`}
+                id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
                   activeTab === tab.id
@@ -42,7 +46,7 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
                     : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
                 }`}
               >
-                <span className="text-base">{tab.icon}</span>
+                <span className="text-base" aria-hidden="true">{tab.icon}</span>
                 <span>{tab.label}</span>
               </button>
             ))}
@@ -51,7 +55,12 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
       </div>
 
       {/* Tab content */}
-      <div className="animate-fadeIn">
+      <div
+        role="tabpanel"
+        id={`tabpanel-${activeTab}`}
+        aria-labelledby={`tab-${activeTab}`}
+        className="animate-fadeIn"
+      >
         {content}
       </div>
     </div>
