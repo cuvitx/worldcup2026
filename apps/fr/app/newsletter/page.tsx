@@ -157,7 +157,7 @@ export default function NewsletterPage() {
 
       {/* ===== BÉNÉFICES ===== */}
       <section className="bg-gray-50 dark:bg-gray-900/50 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-2">
               Pourquoi s&apos;abonner ?
@@ -204,9 +204,9 @@ export default function NewsletterPage() {
             {/* Email client bar */}
             <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <div className="w-3 h-3 rounded-full bg-accent" />
+                <div className="w-3 h-3 rounded-full bg-gold" />
+                <div className="w-3 h-3 rounded-full bg-field" />
               </div>
               <div className="flex-1 ml-4 rounded-md bg-white dark:bg-gray-700 px-3 py-1 text-xs text-gray-500 dark:text-gray-400">
                 newsletter@cdm2026.fr → vous

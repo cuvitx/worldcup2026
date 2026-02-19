@@ -228,11 +228,11 @@ const teamArguments: Record<
 
 // Couleurs par confédération pour le graphique
 const CONFEDERATION_COLORS: Record<string, { bg: string; border: string; label: string }> = {
-  UEFA: { bg: "bg-blue-500", border: "border-blue-400", label: "UEFA (Europe)" },
-  CONMEBOL: { bg: "bg-green-500", border: "border-green-400", label: "CONMEBOL (Amérique du Sud)" },
+  UEFA: { bg: "bg-primary", border: "border-primary/60", label: "UEFA (Europe)" },
+  CONMEBOL: { bg: "bg-field", border: "border-field/60", label: "CONMEBOL (Amérique du Sud)" },
   CONCACAF: { bg: "bg-amber-500", border: "border-amber-400", label: "CONCACAF (Amérique du Nord)" },
-  CAF: { bg: "bg-orange-500", border: "border-orange-400", label: "CAF (Afrique)" },
-  AFC: { bg: "bg-purple-500", border: "border-purple-400", label: "AFC (Asie)" },
+  CAF: { bg: "bg-accent", border: "border-accent/60", label: "CAF (Afrique)" },
+  AFC: { bg: "bg-secondary", border: "border-secondary/60", label: "AFC (Asie)" },
   OFC: { bg: "bg-teal-500", border: "border-teal-400", label: "OFC (Océanie)" },
 };
 
@@ -513,7 +513,7 @@ export default function PronosticVainqueurPage() {
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                       index === 0 ? "bg-gold/20 text-gold border-2 border-gold/50" :
                       index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                      index === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400" :
+                      index === 2 ? "bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent" :
                       "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400"
                     }`}>
                       {index + 1}
@@ -565,7 +565,7 @@ export default function PronosticVainqueurPage() {
                   {fav && (
                     <div className="flex items-center gap-2 px-5 pb-2 flex-wrap">
                       <span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide">Cotes réelles :</span>
-                      <span className="inline-flex items-center gap-1 rounded bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800/50 px-2 py-0.5 text-xs font-bold text-orange-600 dark:text-orange-400">
+                      <span className="inline-flex items-center gap-1 rounded bg-accent/10 dark:bg-accent/20 border border-accent/20 dark:border-accent/30 px-2 py-0.5 text-xs font-bold text-accent dark:text-accent">
                         Winamax {fav.winamax.toFixed(2)}
                       </span>
                       <span className="inline-flex items-center gap-1 rounded bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/50 px-2 py-0.5 text-xs font-bold text-teal-600 dark:text-teal-400">
@@ -666,7 +666,7 @@ export default function PronosticVainqueurPage() {
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                       index === 0 ? "bg-gold/20 text-gold border-2 border-gold/50" :
                       index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                      index === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400" :
+                      index === 2 ? "bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent" :
                       "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400"
                     }`}>
                       {index + 1}
@@ -698,15 +698,15 @@ export default function PronosticVainqueurPage() {
 
                     {/* Key info */}
                     <div className="space-y-3">
-                      <div className="rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50 p-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-blue-600 dark:text-blue-400 mb-1">
+                      <div className="rounded-xl bg-secondary/5 dark:bg-secondary/10 border border-secondary/10 dark:border-secondary/20 p-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-secondary dark:text-secondary mb-1">
                           ⭐ Joueur clé
                         </p>
                         <p className="text-sm font-bold text-gray-900 dark:text-white">{analysis.keyPlayer}</p>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{analysis.keyPlayerDesc}</p>
                       </div>
-                      <div className="rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800/50 p-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-purple-600 dark:text-purple-400 mb-1">
+                      <div className="rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10 dark:border-primary/20 p-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-primary dark:text-white mb-1">
                           ⚙️ Avantage tactique
                         </p>
                         <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.tacticalEdge}</p>
@@ -830,11 +830,11 @@ export default function PronosticVainqueurPage() {
           </details>
 
           {/* Impact pour 2026 */}
-          <div className="mt-6 rounded-xl border border-blue-200 dark:border-blue-800/50 bg-blue-50 dark:bg-blue-900/20 p-5">
-            <h3 className="font-bold text-blue-800 dark:text-blue-300 mb-2">
+          <div className="mt-6 rounded-xl border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-5">
+            <h3 className="font-bold text-secondary dark:text-white mb-2">
               🔭 Implications pour 2026 : États-Unis, Canada, Mexique
             </h3>
-            <p className="text-sm text-blue-700 dark:text-blue-300/80 leading-relaxed mb-3">
+            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
               Pour la première fois de l&apos;histoire, <strong>3 pays partagent l&apos;organisation</strong>. L&apos;avantage terrain est donc dilué mais présent. Historiquement, le pays hôte bénéficie de <strong>+6 à +8 pts ELO</strong> grâce au soutien du public et à la connaissance des conditions locales.
             </p>
             <div className="grid sm:grid-cols-3 gap-3">
@@ -843,7 +843,7 @@ export default function PronosticVainqueurPage() {
                 { flag: "🇨🇦", name: "Canada", note: "Alphonso Davies au sommet. Première CDM — la ferveur peut créer des miracles.", chance: "1.8%" },
                 { flag: "🇲🇽", name: "Mexique", note: "L'Azteca en altitude (2240m) — avantage physique considérable en phase de groupes.", chance: "2.1%" },
               ].map((host) => (
-                <div key={host.name} className="rounded-lg bg-white dark:bg-slate-800 border border-blue-100 dark:border-slate-700 p-3">
+                <div key={host.name} className="rounded-xl bg-white dark:bg-slate-800 border border-blue-100 dark:border-slate-700 p-3">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xl">{host.flag}</span>
                     <span className="font-bold text-sm text-gray-900 dark:text-white">{host.name}</span>
@@ -946,7 +946,7 @@ export default function PronosticVainqueurPage() {
                           <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
                             i === 0 ? "bg-gold/20 text-gold" :
                             i === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                            i === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-600" :
+                            i === 2 ? "bg-accent/10 dark:bg-accent/20 text-accent" :
                             "bg-gray-100 dark:bg-slate-700 text-gray-500"
                           }`}>{i + 1}</span>
                           <span className="text-xl">{team.flag}</span>
@@ -1184,7 +1184,7 @@ export default function PronosticVainqueurPage() {
             <Link href="/comparateur-cotes" className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-md">
               📊 Comparer toutes les cotes
             </Link>
-            <Link href="/equipe-de-france" className="inline-flex items-center gap-2 rounded-lg border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/30 px-6 py-3 font-semibold text-blue-700 dark:text-blue-300 hover:-translate-y-0.5 transition-all">
+            <Link href="/equipe-de-france" className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 dark:border-secondary/40 bg-secondary/5 dark:bg-secondary/10 px-6 py-3 font-semibold text-secondary dark:text-secondary hover:-translate-y-0.5 transition-all">
               🇫🇷 Pronostic France
             </Link>
             <Link href="/simulateur" className="inline-flex items-center gap-2 rounded-lg border border-gold/30 bg-gold/10 px-6 py-3 font-semibold text-gold hover:bg-gold/20 transition-all">

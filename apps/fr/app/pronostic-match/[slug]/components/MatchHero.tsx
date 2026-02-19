@@ -26,7 +26,7 @@ export function MatchHero({
 }: MatchHeroProps) {
   return (
     <section
-      className="relative overflow-hidden text-white py-10 md:py-14"
+      className="relative overflow-hidden text-white py-12 sm:py-16"
       style={{
         background:
           "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
@@ -46,7 +46,7 @@ export function MatchHero({
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Stage badge */}
         <div className="flex justify-center mb-6">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold backdrop-blur-sm">

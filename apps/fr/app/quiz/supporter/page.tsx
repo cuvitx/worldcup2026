@@ -190,13 +190,13 @@ export default function QuizSupporterPage() {
   const progress = ((showResult ? questions.length : currentQ) / questions.length) * 100;
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12">
+    <div className="mx-auto max-w-2xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1">
-          <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">Accueil</Link></li>
+        <ol className="flex items-center gap-2">
+          <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
           <li>/</li>
-          <li><Link href="/quiz" className="hover:text-blue-600 dark:hover:text-blue-400">Quiz</Link></li>
+          <li><Link href="/quiz" className="hover:text-secondary dark:hover:text-secondary">Quiz</Link></li>
           <li>/</li>
           <li className="text-gray-800 dark:text-gray-200 font-medium">Quel pays supporter ?</li>
         </ol>
@@ -212,7 +212,7 @@ export default function QuizSupporterPage() {
       {/* Progress bar */}
       <div className="mb-8 h-2 w-full rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-accent to-secondary transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -231,7 +231,7 @@ export default function QuizSupporterPage() {
               <button
                 key={i}
                 onClick={() => handleAnswer(i)}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 text-left font-medium text-gray-800 transition-all hover:border-blue-400 hover:bg-blue-50 hover:shadow-md active:scale-[0.98] dark:border-slate-600 dark:bg-slate-700 dark:text-gray-200 dark:hover:border-blue-500 dark:hover:bg-slate-600"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 text-left font-medium text-gray-800 transition-all hover:border-secondary/40 hover:bg-secondary/5 hover:shadow-md active:scale-[0.98] dark:border-slate-600 dark:bg-slate-700 dark:text-gray-200 dark:hover:border-secondary/50 dark:hover:bg-slate-600"
               >
                 {opt.label}
               </button>
@@ -254,13 +254,13 @@ export default function QuizSupporterPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link
               href={`/equipe/${resultTeam.slug}`}
-              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
+              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
             >
               Voir la fiche {resultTeam.flag} {resultTeam.name}
             </Link>
             <button
               onClick={handleShare}
-              className="inline-flex items-center justify-center rounded-xl border-2 border-blue-600 px-6 py-3 font-bold text-blue-600 transition-all hover:bg-blue-50 active:scale-95 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-slate-700"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-secondary px-6 py-3 font-bold text-secondary transition-all hover:bg-secondary/5 active:scale-95 dark:border-secondary dark:text-secondary dark:hover:bg-slate-700"
             >
               Partager 🚀
             </button>

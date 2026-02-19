@@ -546,8 +546,8 @@ export default function PalmaresPage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-14">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
             Coupe du Monde FIFA
           </p>
@@ -573,7 +573,7 @@ export default function PalmaresPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-10 space-y-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
 
         {/* ── Palmarès par pays ────────────────────────────────── */}
         <section>
@@ -586,7 +586,7 @@ export default function PalmaresPage() {
                 key={cr.country}
                 className={`rounded-xl border-2 p-5 shadow-sm transition-transform hover:-translate-y-1 ${
                   idx === 0
-                    ? "border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20"
+                    ? "border-gold bg-gold/5 dark:bg-gold/10"
                     : idx <= 2
                     ? "border-gray-300 bg-gray-50 dark:bg-gray-800/40"
                     : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"

@@ -110,7 +110,7 @@ export default function Quiz() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <button
             onClick={() => startGame("all")}
-            className="rounded-xl border-2 border-yellow-500 bg-yellow-50 dark:bg-yellow-500/10 p-5 text-left hover:bg-yellow-100 dark:hover:bg-yellow-500/20 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-gold/50 bg-gold/5 dark:bg-gold/10 p-5 text-left hover:bg-gold/10 dark:hover:bg-gold/15 transition-colors shadow-sm"
           >
             <span className="text-3xl">🌍</span>
             <h3 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">Toutes les catégories</h3>
@@ -121,7 +121,7 @@ export default function Quiz() {
             <button
               key={cat}
               onClick={() => startGame(cat)}
-              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-5 text-left shadow-sm hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors"
+              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-5 text-left shadow-sm hover:border-secondary/50 hover:bg-secondary/5 dark:hover:bg-secondary/10 transition-colors"
             >
               <span className="text-3xl">{categoryLabels[cat].emoji}</span>
               <h3 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">{categoryLabels[cat].label}</h3>
@@ -135,7 +135,7 @@ export default function Quiz() {
           <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">Difficulté :</span>
           <button
             onClick={() => setDifficulty("all")}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-blue-600 text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-accent text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
           >
             Toutes
           </button>
@@ -143,7 +143,7 @@ export default function Quiz() {
             <button
               key={d}
               onClick={() => setDifficulty(d)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-blue-600 text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-accent text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
             >
               {difficultyLabels[d].emoji} {difficultyLabels[d].label}
             </button>
@@ -155,7 +155,7 @@ export default function Quiz() {
             type="checkbox"
             checked={timerEnabled}
             onChange={(e) => setTimerEnabled(e.target.checked)}
-            className="accent-blue-500"
+            className="accent-secondary"
           />
           ⏱️ Timer (30s par question)
         </label>
@@ -176,7 +176,7 @@ export default function Quiz() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={() => setPhase("menu")}
-            className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold text-white transition-colors"
+            className="px-6 py-3 rounded-lg bg-accent hover:bg-accent/90 font-semibold text-white transition-colors"
           >
             🔄 Rejouer
           </button>
@@ -189,7 +189,7 @@ export default function Quiz() {
                 alert("Score copié dans le presse-papier !");
               }
             }}
-            className="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 font-semibold text-white transition-colors"
+            className="px-6 py-3 rounded-lg bg-field hover:bg-field/90 font-semibold text-white transition-colors"
           >
             📤 Partager mon score
           </button>
@@ -226,7 +226,7 @@ export default function Quiz() {
       </div>
       <div className="w-full h-3 bg-gray-200 dark:bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
-          className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-500 ease-out relative"
+          className="h-full bg-gradient-to-r from-accent to-gold rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 rounded-full" />
@@ -241,7 +241,7 @@ export default function Quiz() {
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800/50 text-gray-900 dark:text-gray-100 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/15 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800/50 text-gray-900 dark:text-gray-100 hover:border-secondary/40 hover:bg-secondary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-secondary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
             classes += "border-green-500 bg-green-50 dark:bg-green-500/20 text-green-700 dark:text-green-300 shadow-lg shadow-green-500/20 scale-[1.01]";
           } else if (idx === selected) {

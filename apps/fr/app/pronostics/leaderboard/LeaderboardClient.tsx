@@ -108,12 +108,12 @@ export function LeaderboardClient() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-        <Link href="/" className="hover:text-blue-500">Accueil</Link>
+        <Link href="/" className="hover:text-secondary">Accueil</Link>
         <span className="mx-2">›</span>
-        <Link href="/pronostics" className="hover:text-blue-500">Pronostics</Link>
+        <Link href="/pronostics" className="hover:text-secondary">Pronostics</Link>
         <span className="mx-2">›</span>
         <span className="text-gray-800 dark:text-white">Classement</span>
       </nav>
@@ -125,8 +125,8 @@ export function LeaderboardClient() {
 
       {/* Pseudo input */}
       {!hasPseudo && (
-        <div className="mb-8 rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/30">
-          <p className="mb-3 text-sm font-medium text-blue-800 dark:text-blue-300">
+        <div className="mb-8 rounded-xl border border-secondary/20 bg-secondary/5 p-4 dark:border-secondary/30 dark:bg-secondary/10">
+          <p className="mb-3 text-sm font-medium text-secondary dark:text-secondary">
             Choisis un pseudo pour apparaître dans le classement :
           </p>
           <div className="flex gap-2">
@@ -141,7 +141,7 @@ export function LeaderboardClient() {
             />
             <button
               onClick={savePseudo}
-              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white hover:bg-blue-700"
+              className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white hover:bg-accent/90"
             >
               Valider
             </button>
@@ -165,7 +165,7 @@ export function LeaderboardClient() {
           return (
             <div key={p.pseudo} className={`flex flex-col items-center justify-end ${idx === 0 ? "order-2" : idx === 1 ? "order-1" : "order-3"}`}>
               <span className="text-2xl sm:text-4xl mb-1">{medals[rank - 1]}</span>
-              <p className={`text-xs sm:text-sm font-bold truncate max-w-full dark:text-white ${p.isCurrentUser ? "text-blue-600 dark:text-blue-400" : ""}`}>
+              <p className={`text-xs sm:text-sm font-bold truncate max-w-full dark:text-white ${p.isCurrentUser ? "text-secondary dark:text-secondary" : ""}`}>
                 {p.pseudo}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">{p.points} pts</p>
@@ -199,14 +199,14 @@ export function LeaderboardClient() {
                   key={p.pseudo}
                   className={`transition-colors ${
                     p.isCurrentUser
-                      ? "bg-blue-50 font-semibold dark:bg-blue-950/40"
+                      ? "bg-secondary/5 font-semibold dark:bg-secondary/10"
                       : "hover:bg-gray-50 dark:hover:bg-slate-800/50"
                   }`}
                 >
                   <td className="px-4 py-3 font-bold text-gray-400 dark:text-gray-500">
                     {rank <= 3 ? ["🥇", "🥈", "🥉"][rank - 1] : rank}
                   </td>
-                  <td className={`px-4 py-3 ${p.isCurrentUser ? "text-blue-600 dark:text-blue-400" : "dark:text-white"}`}>
+                  <td className={`px-4 py-3 ${p.isCurrentUser ? "text-secondary dark:text-secondary" : "dark:text-white"}`}>
                     {p.pseudo}
                     {p.isCurrentUser && <span className="ml-2 text-xs opacity-70">(toi)</span>}
                   </td>
@@ -233,7 +233,7 @@ export function LeaderboardClient() {
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <button
           onClick={shareClassement}
-          className="flex-1 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
+          className="flex-1 rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
         >
           {copied ? "✅ Copié !" : "📤 Partager mon classement"}
         </button>

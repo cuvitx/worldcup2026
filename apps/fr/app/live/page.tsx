@@ -88,7 +88,7 @@ export default function LivePage() {
 
       {/* Hero */}
       <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Résultats en direct</h1>
           <p className="mt-2 text-gray-300">
             Scores, buteurs et événements minute par minute
@@ -171,10 +171,10 @@ export default function LivePage() {
             <div className="bg-primary text-white px-6 py-4">
               <div className="flex items-center justify-between text-xs text-gray-300 mb-3">
                 <span>Phase de groupes · Groupe A</span>
-                <span className="inline-flex items-center gap-2 bg-red-600/90 px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-2 bg-accent/90 px-3 py-1 rounded-full">
                   <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-100" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
                   </span>
                   <span className="font-bold text-white text-xs uppercase tracking-wider">LIVE — 67&apos;</span>
                 </span>

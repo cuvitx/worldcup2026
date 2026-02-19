@@ -83,10 +83,10 @@ const homepageJsonLd = [
 ];
 
 const categoryColors: Record<string, string> = {
-  stades: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
-  billets: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
-  equipes: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-  paris: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400",
+  stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
+  billets: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
+  equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
+  paris: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
   transferts: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
 };
 
@@ -152,8 +152,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#070b18]/60 via-[#070b18]/40 to-[#070b18]" />
 
         {/* Orbs décoratifs */}
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
@@ -251,7 +251,7 @@ export default function HomePage() {
           2. PROCHAINS MATCHS — 3 matchs avec stade
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-white dark:bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section header */}
           <div className="flex items-end justify-between mb-8">
             <div>
@@ -367,7 +367,7 @@ export default function HomePage() {
           3. GROUPES EN UN COUP D'ŒEIL — 12 cartes A-L
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-gray-50 dark:bg-gray-900/60 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e8c547] mb-1.5">
@@ -448,7 +448,7 @@ export default function HomePage() {
           4. ARTICLES RÉCENTS — 3 derniers articles
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-white dark:bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e63946] mb-1.5">
@@ -528,7 +528,7 @@ export default function HomePage() {
           5. STADES CDM 2026 — Carousel horizontal 16 stades
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-gray-50 dark:bg-gray-900/60 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#3b82f6] mb-1.5">
@@ -554,7 +554,7 @@ export default function HomePage() {
           6. ÉQUIPES FAVORITES — Top 5 avec cotes et drapeaux
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-white dark:bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e8c547] mb-1.5">

@@ -256,7 +256,7 @@ export default function BracketPage() {
 
       {/* Hero */}
       <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Tableau final CDM 2026</h1>
           <p className="mt-2 text-gray-300 max-w-2xl">
             Bracket complet de la phase a elimination directe : 32e de finale, 16e de finale,

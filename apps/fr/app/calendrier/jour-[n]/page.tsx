@@ -176,7 +176,7 @@ export default async function JourPage({ params }: PageProps) {
       </nav>
 
       {/* Hero header */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-10">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
         <div className="mx-auto max-w-5xl px-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>

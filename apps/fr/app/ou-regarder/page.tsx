@@ -314,14 +314,18 @@ export default function OuRegarderPage() {
         </div>
       </nav>
 
+      {/* Hero */}
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">📺 Où regarder la Coupe du Monde 2026</h1>
+          <p className="text-gray-300 max-w-3xl">
+            Guide complet des droits TV et du streaming légal pour suivre les 104 matchs du Mondial 2026.
+            France en détail, pays francophones et diffuseurs internationaux.
+          </p>
+        </div>
+      </section>
+
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12" id="main-content">
-        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
-          📺 Où regarder la Coupe du Monde 2026
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-3xl">
-          Guide complet des droits TV et du streaming légal pour suivre les 104 matchs du Mondial 2026.
-          France en détail, pays francophones et diffuseurs internationaux.
-        </p>
 
         {/* ── 1. FRANCE — Droits TV détaillés ─────────────────────────────── */}
         <section className="mb-14">
@@ -335,7 +339,7 @@ export default function OuRegarderPage() {
                 key={ch.name}
                 className={`rounded-2xl border p-6 flex flex-col ${
                   ch.free
-                    ? "bg-green-50 dark:bg-green-900/15 border-green-200 dark:border-green-700"
+                    ? "bg-field/5 dark:bg-field/10 border-field/20 dark:border-field/30"
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
                 }`}
               >
@@ -346,8 +350,8 @@ export default function OuRegarderPage() {
                     <span
                       className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                         ch.free
-                          ? "bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300"
-                          : "bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300"
+                          ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
+                          : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                       }`}
                     >
                       {ch.type}
@@ -377,10 +381,10 @@ export default function OuRegarderPage() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Gratuit */}
-            <div className="rounded-2xl border border-green-200 dark:border-green-700 overflow-hidden">
-              <div className="bg-green-50 dark:bg-green-900/30 px-6 py-4 border-b border-green-200 dark:border-green-700">
-                <h3 className="text-lg font-bold text-green-800 dark:text-green-200">✅ Streaming gratuit</h3>
-                <p className="text-sm text-green-600 dark:text-green-400">Aucun abonnement requis</p>
+            <div className="rounded-2xl border border-field/20 dark:border-field/30 overflow-hidden">
+              <div className="bg-field/5 dark:bg-field/10 px-6 py-4 border-b border-field/20 dark:border-field/30">
+                <h3 className="text-lg font-bold text-field dark:text-white">✅ Streaming gratuit</h3>
+                <p className="text-sm text-field dark:text-field">Aucun abonnement requis</p>
               </div>
               <div className="p-6 space-y-3 bg-white dark:bg-gray-800">
                 {streamingFrance.gratuit.map((s) => (
@@ -389,10 +393,10 @@ export default function OuRegarderPage() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="block p-4 rounded-xl bg-green-50 dark:bg-green-900/10 hover:bg-green-100 dark:hover:bg-green-900/20 transition-colors"
+                    className="block p-4 rounded-xl bg-field/5 dark:bg-field/10 hover:bg-field/10 dark:hover:bg-field/20 transition-colors"
                   >
                     <span className="font-bold text-gray-900 dark:text-gray-100">{s.name}</span>
-                    <span className="ml-2 text-xs font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">
+                    <span className="ml-2 text-xs font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">
                       Gratuit
                     </span>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{s.desc}</p>
@@ -402,10 +406,10 @@ export default function OuRegarderPage() {
             </div>
 
             {/* Payant */}
-            <div className="rounded-2xl border border-blue-200 dark:border-blue-700 overflow-hidden">
-              <div className="bg-blue-50 dark:bg-blue-900/30 px-6 py-4 border-b border-blue-200 dark:border-blue-700">
-                <h3 className="text-lg font-bold text-blue-800 dark:text-blue-200">🔒 Streaming payant</h3>
-                <p className="text-sm text-blue-600 dark:text-blue-400">Abonnement requis — 104 matchs</p>
+            <div className="rounded-2xl border border-secondary/20 dark:border-secondary/30 overflow-hidden">
+              <div className="bg-secondary/5 dark:bg-secondary/10 px-6 py-4 border-b border-secondary/20 dark:border-secondary/30">
+                <h3 className="text-lg font-bold text-primary dark:text-white">🔒 Streaming payant</h3>
+                <p className="text-sm text-secondary dark:text-secondary">Abonnement requis — 104 matchs</p>
               </div>
               <div className="p-6 space-y-3 bg-white dark:bg-gray-800">
                 {streamingFrance.payant.map((s) => (
@@ -414,11 +418,11 @@ export default function OuRegarderPage() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="block p-4 rounded-xl bg-blue-50 dark:bg-blue-900/10 hover:bg-blue-100 dark:hover:bg-blue-900/20 transition-colors"
+                    className="block p-4 rounded-xl bg-secondary/5 dark:bg-secondary/10 hover:bg-secondary/10 dark:hover:bg-secondary/20 transition-colors"
                   >
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <span className="font-bold text-gray-900 dark:text-gray-100">{s.name}</span>
-                      <span className="text-xs font-bold bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-bold bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary px-2 py-0.5 rounded-full">
                         {s.price}
                       </span>
                     </div>
@@ -456,8 +460,8 @@ export default function OuRegarderPage() {
                               <span className="font-bold text-gray-900 dark:text-gray-100">{ch.name}</span>
                               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                                 ch.type.toLowerCase().includes("gratuit")
-                                  ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                                  : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                                  ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
+                                  : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                               }`}>{ch.type}</span>
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{ch.details}</p>
@@ -482,7 +486,7 @@ export default function OuRegarderPage() {
                             <div className="flex items-center gap-2">
                               <span className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-accent transition-colors">{s.name}</span>
                               {s.free && (
-                                <span className="text-xs font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">Gratuit</span>
+                                <span className="text-xs font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">Gratuit</span>
                               )}
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.desc}</p>
@@ -517,7 +521,7 @@ export default function OuRegarderPage() {
                 </div>
                 <p className="text-sm font-semibold text-primary dark:text-accent mb-1">{b.channels}</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{b.details}</p>
-                <span className="text-xs font-semibold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">
+                <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">
                   Gratuit : {b.free}
                 </span>
               </div>
@@ -544,7 +548,7 @@ export default function OuRegarderPage() {
                     <td className="px-4 py-3 font-semibold text-primary dark:text-accent">{b.channels}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{b.details}</td>
                     <td className="px-4 py-3">
-                      <span className="text-xs font-semibold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-1 rounded-full">
+                      <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-1 rounded-full">
                         {b.free}
                       </span>
                     </td>
@@ -611,7 +615,7 @@ export default function OuRegarderPage() {
                 key={m.id}
                 className={`rounded-xl border p-4 ${
                   m.isFrance
-                    ? "bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-700"
+                    ? "bg-secondary/5 dark:bg-secondary/10 border-secondary/30 dark:border-secondary/40"
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
                 }`}
               >
@@ -625,15 +629,15 @@ export default function OuRegarderPage() {
                   {m.tvFR.map((ch) => (
                     <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                       ch === "TF1" || ch === "M6"
-                        ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                        : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                        ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
+                        : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                     }`}>{ch}</span>
                   ))}
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-400 italic">{m.note}</span>
                   {m.free && (
-                    <span className="text-[10px] font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-1.5 py-0.5 rounded-full">GRATUIT</span>
+                    <span className="text-[10px] font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-1.5 py-0.5 rounded-full">GRATUIT</span>
                   )}
                 </div>
               </div>
@@ -658,7 +662,7 @@ export default function OuRegarderPage() {
                     key={m.id}
                     className={`border-t border-gray-100 dark:border-gray-700 ${
                       m.isFrance
-                        ? "bg-blue-50/60 dark:bg-blue-900/15 hover:bg-blue-50 dark:hover:bg-blue-900/25"
+                        ? "bg-secondary/5 dark:bg-secondary/10 hover:bg-secondary/10 dark:hover:bg-secondary/15"
                         : "hover:bg-gray-50 dark:hover:bg-gray-700/30"
                     }`}
                   >
@@ -674,8 +678,8 @@ export default function OuRegarderPage() {
                         {m.tvFR.map((ch) => (
                           <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
                             ch === "TF1" || ch === "M6"
-                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                              ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
+                              : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                           }`}>{ch}</span>
                         ))}
                       </div>
@@ -688,7 +692,7 @@ export default function OuRegarderPage() {
 
           <p className="text-xs text-gray-400 dark:text-gray-500 mt-3 italic">
             * Programme indicatif. Horaires en heure française (CEST, UTC+2).
-            Légende : <span className="font-semibold text-green-600 dark:text-green-400">Vert = Gratuit</span> · <span className="font-semibold text-blue-600 dark:text-blue-400">Bleu = Abonnement</span>
+            Légende : <span className="font-semibold text-field dark:text-field">Vert = Gratuit</span> · <span className="font-semibold text-secondary dark:text-secondary">Bleu = Abonnement</span>
           </p>
         </section>
 
@@ -740,7 +744,7 @@ export default function OuRegarderPage() {
                 key={s.local}
                 className={`rounded-xl p-4 border ${
                   s.hot
-                    ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700"
+                    ? "bg-field/5 dark:bg-field/10 border-field/20 dark:border-field/30"
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
                 }`}
               >

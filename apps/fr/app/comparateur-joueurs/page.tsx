@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PlayerComparator } from "./PlayerComparator";
 
 export const metadata: Metadata = {
@@ -25,11 +26,29 @@ export default function ComparateurJoueursPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <h1 className="text-3xl font-bold text-center mb-2">⚽ Comparateur de Joueurs</h1>
-        <p className="text-center text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-          Sélectionnez 2 ou 3 joueurs pour comparer leurs statistiques côte à côte.
-        </p>
+
+      {/* Breadcrumb */}
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li>/</li>
+            <li className="text-gray-900 dark:text-white font-medium">Comparateur de joueurs</li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">⚽ Comparateur de Joueurs</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Sélectionnez 2 ou 3 joueurs pour comparer leurs statistiques côte à côte.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <PlayerComparator />
 
         {/* CTA affilié */}
@@ -39,7 +58,7 @@ export default function ComparateurJoueursPage() {
           <a
             href="#"
             rel="noopener noreferrer sponsored nofollow"
-            className="inline-block rounded-lg bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-accent/90"
+            className="inline-block rounded-xl bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-accent/90"
           >
             Voir les cotes sur Winamax &rarr;
           </a>

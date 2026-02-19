@@ -84,7 +84,7 @@ export default function ProfilPage() {
 
   if (!loaded || !ctx) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-16 text-center">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 text-center">
         <p className="text-gray-500">Chargement...</p>
       </div>
     );
@@ -106,11 +106,11 @@ export default function ProfilPage() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1">
-          <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">Accueil</Link></li>
+        <ol className="flex items-center gap-2">
+          <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
           <li>/</li>
           <li className="text-gray-800 dark:text-gray-200 font-medium">Mon Profil</li>
         </ol>
@@ -121,7 +121,7 @@ export default function ProfilPage() {
 
       {/* ─── Onboarding / Team selector ─── */}
       {showOnboarding ? (
-        <div className="mb-10 rounded-2xl border-2 border-dashed border-blue-300 bg-blue-50/50 p-6 dark:border-blue-700 dark:bg-slate-800/50 sm:p-8">
+        <div className="mb-10 rounded-2xl border-2 border-dashed border-secondary/30 bg-secondary/5 p-6 dark:border-secondary/30 dark:bg-slate-800/50 sm:p-8">
           <h2 className="mb-2 text-xl font-bold dark:text-white">⚽ Quelle est ton équipe ?</h2>
           <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">
             Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
@@ -131,7 +131,7 @@ export default function ProfilPage() {
               <button
                 key={team.slug}
                 onClick={() => selectTeam(team.slug)}
-                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-blue-400 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-blue-500"
+                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-secondary/40 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-secondary/50"
               >
                 <span className="text-2xl">{team.flag}</span>
                 <span className="text-xs font-medium text-gray-700 dark:text-gray-300 leading-tight">{team.name}</span>
@@ -146,7 +146,7 @@ export default function ProfilPage() {
         /* ─── Team dashboard ─── */
         <div className="mb-10 space-y-4">
           {/* Team header */}
-          <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 text-white shadow-lg">
+          <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-primary to-primary/80 px-6 py-5 text-white shadow-lg">
             <span className="text-4xl sm:text-5xl">{myTeam.flag}</span>
             <div className="flex-1">
               <p className="text-sm font-medium opacity-80">Tu supportes</p>
@@ -181,7 +181,7 @@ export default function ProfilPage() {
                     <p className="text-xs text-gray-400">{m.stage}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                    <p className="text-sm font-bold text-secondary dark:text-secondary">
                       {daysUntil(m.date)}j
                     </p>
                     <p className="text-xs text-gray-400">
@@ -240,7 +240,7 @@ export default function ProfilPage() {
             key={s.label}
             className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]"
           >
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 dark:bg-slate-700 text-2xl">
+            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 dark:bg-slate-700 text-2xl">
               {s.icon}
             </div>
             <p className="text-2xl font-bold dark:text-white">{s.value}</p>
@@ -274,7 +274,7 @@ export default function ProfilPage() {
               <p className="mt-2 font-bold text-sm dark:text-white">{badge.name}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{badge.description}</p>
               {unlocked && (
-                <span className="mt-2 inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-700 font-semibold dark:bg-green-900/30 dark:text-green-400">
+                <span className="mt-2 inline-block rounded-full bg-field/10 px-2 py-0.5 text-xs text-field font-semibold dark:bg-field/20 dark:text-field">
                   ✅ Débloqué
                 </span>
               )}
@@ -286,7 +286,7 @@ export default function ProfilPage() {
       {/* Share */}
       <button
         onClick={shareText}
-        className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
+        className="w-full rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
       >
         Partager mes badges 🚀
       </button>

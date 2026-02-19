@@ -42,7 +42,7 @@ export default function MethodologiePage() {
 
       {/* Hero */}
       <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Notre méthodologie</h1>
           <p className="mt-3 text-lg text-gray-300 max-w-3xl">
             Comment nous calculons nos pronostics pour la Coupe du Monde 2026 :
@@ -117,14 +117,14 @@ export default function MethodologiePage() {
 
           <div className="grid gap-4 md:grid-cols-3">
             {/* Expert */}
-            <div className="rounded-lg border-2 border-purple-200 bg-purple-50 p-5">
+            <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-5">
               <div className="mb-3 flex items-center gap-2">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-600 text-lg text-white font-bold">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg text-white font-bold">
                   1
                 </span>
                 <div>
-                  <p className="font-bold text-purple-900">Expert</p>
-                  <p className="text-xs text-purple-600">Claude (Anthropic)</p>
+                  <p className="font-bold text-primary dark:text-white">Expert</p>
+                  <p className="text-xs text-primary/70 dark:text-gray-400">Claude (Anthropic)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -135,14 +135,14 @@ export default function MethodologiePage() {
             </div>
 
             {/* Factuel */}
-            <div className="rounded-lg border-2 border-blue-200 bg-blue-50 p-5">
+            <div className="rounded-lg border-2 border-secondary/20 bg-secondary/5 p-5">
               <div className="mb-3 flex items-center gap-2">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-lg text-white font-bold">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg text-white font-bold">
                   2
                 </span>
                 <div>
-                  <p className="font-bold text-blue-900">Factuel</p>
-                  <p className="text-xs text-blue-600">Gemini (Google)</p>
+                  <p className="font-bold text-secondary dark:text-white">Factuel</p>
+                  <p className="text-xs text-secondary/70 dark:text-gray-400">Gemini (Google)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -153,14 +153,14 @@ export default function MethodologiePage() {
             </div>
 
             {/* Infra */}
-            <div className="rounded-lg border-2 border-green-200 bg-green-50 p-5">
+            <div className="rounded-lg border-2 border-field/20 bg-field/5 p-5">
               <div className="mb-3 flex items-center gap-2">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-lg text-white font-bold">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-field text-lg text-white font-bold">
                   3
                 </span>
                 <div>
-                  <p className="font-bold text-green-900">Infra</p>
-                  <p className="text-xs text-green-600">GPT (OpenAI)</p>
+                  <p className="font-bold text-field dark:text-white">Infra</p>
+                  <p className="text-xs text-field/70 dark:text-gray-400">GPT (OpenAI)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">

@@ -17,7 +17,7 @@ export function H2HSection({
   awayName,
 }: H2HSectionProps) {
   return (
-    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
       <h2 className="mb-4 text-xl font-bold">
         Historique des confrontations
       </h2>

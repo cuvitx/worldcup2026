@@ -162,7 +162,7 @@ export default function PronosticHubPage() {
 
       {/* ===== TENDANCES ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-b border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
             📈 Tendances & stats CDM 2026
           </h2>
@@ -183,7 +183,7 @@ export default function PronosticHubPage() {
 
       {/* ===== PRONOSTIC VAINQUEUR ===== */}
       <section id="vainqueur" className="bg-gray-50 dark:bg-slate-900/50 py-12">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -249,7 +249,7 @@ export default function PronosticHubPage() {
 
       {/* ===== PRONOSTICS PAR GROUPE ===== */}
       <section id="groupes" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -329,7 +329,7 @@ export default function PronosticHubPage() {
 
       {/* ===== PRONOSTICS MATCHS ===== */}
       <section id="matchs" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -416,7 +416,7 @@ export default function PronosticHubPage() {
 
       {/* ===== LIENS RAPIDES ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             🔗 Outils complémentaires
           </h2>
@@ -474,7 +474,7 @@ export default function PronosticHubPage() {
 
       {/* ===== DISCLAIMER ===== */}
       <section className="bg-gray-50 dark:bg-slate-900/50 py-6 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-gray-400 dark:text-gray-500 text-center leading-relaxed max-w-3xl mx-auto">
             📌 Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
             Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}

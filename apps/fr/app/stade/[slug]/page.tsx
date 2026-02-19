@@ -98,7 +98,7 @@ export default async function StadiumPage({ params }: PageProps) {
       </section>
 
       {/* Stadium hero image */}
-      <div className="mx-auto max-w-7xl px-4 mt-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
         <HeroImage
           src={`/images/stadiums/${stadium.slug}.jpg`}
           alt={`${stadium.name}, ${stadium.city}`}

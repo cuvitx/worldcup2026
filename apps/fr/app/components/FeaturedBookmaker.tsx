@@ -22,7 +22,7 @@ export function FeaturedBookmaker() {
 
   return (
     <section className="py-12">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
           Meilleur bonus du moment
         </h2>

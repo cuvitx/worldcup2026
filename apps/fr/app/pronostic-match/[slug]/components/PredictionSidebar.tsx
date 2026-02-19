@@ -42,7 +42,7 @@ export function PredictionSidebar({
       <BetOfTheDay compact />
 
       {/* Match info card */}
-      <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+      <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
         <h3 className="mb-4 text-lg font-bold">Resume du pronostic</h3>
         {prediction ? (
           <div className="space-y-3">
@@ -89,7 +89,7 @@ export function PredictionSidebar({
 
       {/* Team links */}
       {home && away && (
-        <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+        <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h3 className="mb-4 text-lg font-bold">Fiches équipes</h3>
           <div className="space-y-3">
             <Link
@@ -121,7 +121,7 @@ export function PredictionSidebar({
 
       {/* Stadium card */}
       {stadium && (
-        <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+        <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
           <Link
             href={`/stade/${stadium.slug}`}
@@ -199,7 +199,7 @@ export function PredictionSidebar({
 
       {/* Autres pronostics */}
       {relatedMatches.length > 0 && (
-        <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+        <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h3 className="mb-4 text-lg font-bold">Autres pronostics</h3>
           <div className="space-y-2">
             {relatedMatches.map((rm) => {
@@ -228,7 +228,7 @@ export function PredictionSidebar({
       )}
 
       {/* Link to match page */}
-      <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+      <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
         <Link
           href={`/match/${match.slug}`}
           className="block w-full rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90 transition-colors"

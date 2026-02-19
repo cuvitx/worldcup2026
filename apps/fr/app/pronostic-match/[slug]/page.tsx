@@ -148,7 +148,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="mx-auto max-w-7xl px-4 py-2.5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2.5">
           <ol className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
             <li>
               <Link href="/" className="hover:text-accent transition-colors">
@@ -184,7 +184,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
       {/* Share buttons */}
       <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
-        <div className="mx-auto max-w-7xl px-4 py-2.5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2.5">
           <ShareButtons
             url={`https://www.cdm2026.fr/pronostic-match/${match.slug}`}
             text={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! 🏆 #CDM2026 #WorldCup2026`}
@@ -196,7 +196,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
       {/* Tabs — sticky below header */}
       <MatchTabsClient>
         {/* Tab 0: Pronostic */}
-        <div className="mx-auto max-w-7xl px-4 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-6">
               {prediction && (
@@ -260,7 +260,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         </div>
 
         {/* Tab 1: Cotes */}
-        <div className="mx-auto max-w-7xl px-4 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-6">
               {odds && (
@@ -291,7 +291,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         </div>
 
         {/* Tab 2: Stats */}
-        <div className="mx-auto max-w-7xl px-4 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {/* ELO + proba stats */}
             {predHome && predAway ? (
@@ -366,7 +366,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
                   <div className="text-center">
                     <span className="text-3xl">{away?.flag ?? "🏳️"}</span>
                     <p className="text-sm font-bold mt-1">{awayName}</p>
-                    <p className="text-2xl font-extrabold text-blue-500 mt-1">
+                    <p className="text-2xl font-extrabold text-secondary mt-1">
                       {Math.round(prediction.team2WinProb * 100)}%
                     </p>
                   </div>
@@ -384,7 +384,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
                     title={`Nul: ${Math.round(prediction.drawProb * 100)}%`}
                   />
                   <div
-                    className="h-full bg-blue-500 rounded-r-full transition-all duration-700"
+                    className="h-full bg-secondary rounded-r-full transition-all duration-700"
                     style={{ width: `${Math.round(prediction.team2WinProb * 100)}%` }}
                     title={`${awayName}: ${Math.round(prediction.team2WinProb * 100)}%`}
                   />
@@ -400,7 +400,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         </div>
 
         {/* Tab 3: H2H */}
-        <div className="mx-auto max-w-7xl px-4 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           {home && away ? (
             <H2HSection
               home={home}
@@ -417,7 +417,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         </div>
 
         {/* Tab 4: Infos */}
-        <div className="mx-auto max-w-7xl px-4 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid gap-6 lg:grid-cols-2">
             <MatchInfo
               match={match}
@@ -467,7 +467,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
       />
 
       {/* Related content */}
-      <div className="mx-auto max-w-6xl px-4 pb-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
         <RelatedContent
           items={[
             ...(home ? [{
@@ -537,7 +537,7 @@ function StatDuelRow({
         </span>
         <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{label}</span>
         <span
-          className={`text-sm font-bold ${awayIsBetter ? "text-blue-500" : "text-gray-700 dark:text-gray-300"}`}
+          className={`text-sm font-bold ${awayIsBetter ? "text-secondary" : "text-gray-700 dark:text-gray-300"}`}
         >
           {away}{suffix}
         </span>
@@ -548,7 +548,7 @@ function StatDuelRow({
           style={{ width: `${homePct}%` }}
         />
         <div
-          className={`h-full rounded-r-full transition-all duration-700 ${awayIsBetter ? "bg-blue-500" : "bg-gray-200 dark:bg-gray-700"}`}
+          className={`h-full rounded-r-full transition-all duration-700 ${awayIsBetter ? "bg-secondary" : "bg-gray-200 dark:bg-gray-700"}`}
           style={{ width: `${awayPct}%` }}
         />
       </div>

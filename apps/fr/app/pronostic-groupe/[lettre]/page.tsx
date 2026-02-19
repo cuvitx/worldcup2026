@@ -63,15 +63,15 @@ function getSortedGroupTeams(group: { teams: string[] }) {
 // ── Arguments for each ranking position ────────────────────────────────────
 const RANK_LABEL = ["🥇 1er", "🥈 2e", "🥉 3e", "4e"];
 const RANK_COLOR = [
-  "border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20",
+  "border-gold bg-gold/5 dark:bg-gold/10",
   "border-gray-400 bg-gray-50 dark:bg-gray-800/40",
-  "border-orange-400 bg-orange-50 dark:bg-orange-900/20",
+  "border-accent/60 bg-accent/5 dark:bg-accent/10",
   "border-red-300 bg-red-50 dark:bg-red-900/10",
 ];
 const RANK_BADGE = [
-  "bg-yellow-400 text-yellow-900",
+  "bg-gold text-gray-900",
   "bg-gray-300 text-gray-700",
-  "bg-orange-400 text-orange-900",
+  "bg-accent text-white",
   "bg-red-200 text-red-700",
 ];
 
@@ -147,7 +147,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
             <div>
-              <p className="text-sm font-medium text-green-300 uppercase tracking-widest mb-1">
+              <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-1">
                 Pronostic · Coupe du Monde 2026
               </p>
               <h1 className="text-3xl font-extrabold sm:text-5xl">
@@ -162,7 +162,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* ── Main Column ─────────────────────────────────── */}
           <div className="lg:col-span-2 space-y-8">
@@ -202,7 +202,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             </span>
                             <span>{team!.name}</span>
                             {team!.isHost && (
-                              <span className="rounded bg-yellow-100 dark:bg-yellow-900/30 px-1.5 py-0.5 text-xs text-yellow-700 dark:text-yellow-400">
+                              <span className="rounded bg-gold/10 dark:bg-gold/20 px-1.5 py-0.5 text-xs text-gold dark:text-gold">
                                 Hôte
                               </span>
                             )}
@@ -278,7 +278,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           </span>
                         )}
                         {idx === 2 && (
-                          <span className="ml-auto rounded-full bg-yellow-100 dark:bg-yellow-900/30 px-2 py-0.5 text-xs font-semibold text-yellow-700 dark:text-yellow-400">
+                          <span className="ml-auto rounded-full bg-gold/10 dark:bg-gold/20 px-2 py-0.5 text-xs font-semibold text-gold dark:text-gold">
                             ⚠️ Meilleur 3e possible
                           </span>
                         )}
@@ -355,7 +355,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           idx < 2
                             ? "bg-green-50 dark:bg-green-900/10"
                             : idx === 2
-                            ? "bg-yellow-50 dark:bg-yellow-900/10"
+                            ? "bg-gold/5 dark:bg-gold/10"
                             : "bg-red-50/50 dark:bg-red-900/5";
                         const goalDiffStr =
                           ep.predictedGoalDiff > 0
@@ -385,7 +385,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             </td>
                             {/* Points prévus */}
                             <td className="px-4 py-3 text-center">
-                              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 dark:bg-primary/20 font-extrabold text-primary dark:text-blue-300 text-base">
+                              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 dark:bg-primary/20 font-extrabold text-primary dark:text-white text-base">
                                 {ep.predictedPoints}
                               </span>
                             </td>
@@ -415,7 +415,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                                 </span>
                                 <div className="w-12 h-1.5 bg-gray-200 dark:bg-slate-600 rounded-full overflow-hidden">
                                   <div
-                                    className={`h-full rounded-full ${idx < 2 ? "bg-green-500" : idx === 2 ? "bg-yellow-400" : "bg-red-400"}`}
+                                    className={`h-full rounded-full ${idx < 2 ? "bg-green-500" : idx === 2 ? "bg-gold" : "bg-red-400"}`}
                                     style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }}
                                   />
                                 </div>
@@ -428,7 +428,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                                   ✅ Qualifié
                                 </span>
                               ) : idx === 2 ? (
-                                <span className="inline-block rounded-full bg-yellow-100 dark:bg-yellow-900/30 px-2 py-0.5 text-xs font-semibold text-yellow-700 dark:text-yellow-400">
+                                <span className="inline-block rounded-full bg-gold/10 dark:bg-gold/20 px-2 py-0.5 text-xs font-semibold text-gold dark:text-gold">
                                   ⚠️ Meilleur 3e
                                 </span>
                               ) : (
@@ -496,10 +496,10 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               {/* Maybe */}
               {maybeQualify?.team && (
                 <div className="mb-4">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-yellow-600 dark:text-yellow-400 mb-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gold dark:text-gold mb-2">
                     ⚠️ Meilleur 3e possible
                   </h3>
-                  <div className="flex items-center gap-3 rounded-lg border border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20 p-3">
+                  <div className="flex items-center gap-3 rounded-lg border border-gold/20 dark:border-gold/30 bg-gold/5 dark:bg-gold/10 p-3">
                     <span className="text-2xl">{maybeQualify.team.flag}</span>
                     <div>
                       <Link
@@ -567,13 +567,13 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                     </p>
                     {pred && (
                       <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                        <span className="rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 px-2 py-1">
+                        <span className="rounded-full bg-secondary/10 dark:bg-secondary/20 border border-secondary/20 dark:border-secondary/30 px-2 py-1">
                           🏆 Titre : {probToOdds(pred.winnerProb)}
                         </span>
-                        <span className="rounded-full bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 px-2 py-1">
+                        <span className="rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 px-2 py-1">
                           🎽 Finale : {Math.round(pred.finalProb * 100)}%
                         </span>
-                        <span className="rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 px-2 py-1">
+                        <span className="rounded-full bg-field/10 dark:bg-field/20 border border-field/20 dark:border-field/30 px-2 py-1">
                           ✅ Groupe : {Math.round(pred.groupStageProb * 100)}%
                         </span>
                         <Link
@@ -755,7 +755,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Pronostic vainqueur */}
             <div className="rounded-xl bg-primary/10 dark:bg-primary/20 border border-primary/20 p-6">
-              <h3 className="mb-2 font-bold text-primary dark:text-blue-300">
+              <h3 className="mb-2 font-bold text-primary dark:text-white">
                 🏆 Pronostic vainqueur CDM 2026
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">

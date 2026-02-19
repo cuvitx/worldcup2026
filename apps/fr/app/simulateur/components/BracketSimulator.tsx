@@ -36,10 +36,10 @@ const ROUND_LABELS: Record<RoundName, string> = {
 
 const ROUND_COLORS: Record<RoundName, string> = {
   R32: "bg-slate-500",
-  R16: "bg-blue-600",
-  QF: "bg-purple-600",
-  SF: "bg-orange-500",
-  F: "bg-yellow-500",
+  R16: "bg-secondary",
+  QF: "bg-primary",
+  SF: "bg-accent",
+  F: "bg-gold",
 };
 
 const ROUND_ORDER: RoundName[] = ["R32", "R16", "QF", "SF", "F"];
@@ -500,7 +500,7 @@ function RoundColumn({
   return (
     <div className="flex flex-col items-center min-w-[130px] w-[130px] lg:min-w-[145px] lg:w-[145px] xl:min-w-[160px] xl:w-[160px] 2xl:min-w-[180px] 2xl:w-[180px]">
       {/* Round label */}
-      <div className={`text-[11px] font-bold uppercase tracking-wider mb-3 px-3 py-1.5 rounded-full text-white shadow-sm ${colorClass} ${round === "F" ? "text-yellow-900" : ""}`}>
+      <div className={`text-[11px] font-bold uppercase tracking-wider mb-3 px-3 py-1.5 rounded-full text-white shadow-sm ${colorClass} ${round === "F" ? "text-gray-900" : ""}`}>
         {label}
       </div>
 

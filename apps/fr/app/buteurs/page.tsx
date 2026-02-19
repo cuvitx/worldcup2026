@@ -374,7 +374,7 @@ export default function ButeursPage() {
                 const teamScorers = scorersByTeam[team.id];
                 if (!teamScorers || teamScorers.length === 0) return null;
                 return (
-                  <div key={team.id} className="rounded-lg border border-gray-200 dark:border-slate-700 p-4">
+                  <div key={team.id} className="rounded-xl border border-gray-200 dark:border-slate-700 p-4">
                     <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-accent">
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                       <h3 className="font-bold">{team.name}</h3>

@@ -591,7 +591,7 @@ export default function HistoirePage() {
           <div className="absolute bottom-10 right-10 text-9xl">🏆</div>
           <div className="absolute top-1/2 left-1/4 text-6xl rotate-12">🌍</div>
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 text-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
             Coupe du Monde FIFA
           </p>
@@ -618,7 +618,7 @@ export default function HistoirePage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
 
         {/* ── Intro ────────────────────────────────────────────── */}
         <div className="text-center mb-12 max-w-2xl mx-auto">

@@ -31,7 +31,7 @@ export function MatchAnalysis({
   stadium,
 }: MatchAnalysisProps) {
   return (
-    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
       <h2 className="mb-4 text-xl font-bold">
         Analyse du match : {homeName} vs {awayName}
       </h2>

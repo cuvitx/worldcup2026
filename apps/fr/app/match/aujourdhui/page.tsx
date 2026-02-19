@@ -40,8 +40,8 @@ export default function AujourdhuiPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Matchs du jour</h1>
           <p className="mt-2 text-gray-300">
             {todaysMatches.length > 0

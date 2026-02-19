@@ -319,7 +319,7 @@ export default function JeuResponsablePage() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-lg bg-blue-50 border border-blue-200 p-4">
+            <div className="mt-6 rounded-lg bg-secondary/5 border border-secondary/20 p-4">
               <h3 className="font-bold text-gray-900 dark:text-white">
                 Outils chez les principaux bookmakers
               </h3>

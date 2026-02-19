@@ -262,8 +262,8 @@ export default function BilletsPage() {
       </nav>
 
       {/* ===== HERO ===== */}
-      <section className="bg-primary text-white py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-gold">
               🎟️ Guide officiel
@@ -328,7 +328,7 @@ export default function BilletsPage() {
 
       {/* ===== PRIX PAR PHASE ===== */}
       <section id="prix" className="bg-gray-50 dark:bg-slate-900/50 py-12">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             💰 Prix des billets par phase
           </h2>
@@ -388,7 +388,7 @@ export default function BilletsPage() {
 
       {/* ===== COMMENT ACHETER ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🛒 Comment acheter sur FIFA.com — Guide étape par étape
           </h2>
@@ -473,7 +473,7 @@ export default function BilletsPage() {
 
       {/* ===== PHASES DE VENTE ===== */}
       <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             📅 Calendrier des phases de vente
           </h2>
@@ -506,7 +506,7 @@ export default function BilletsPage() {
 
       {/* ===== CATEGORIES ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🎫 Les catégories de billets
           </h2>
@@ -540,7 +540,7 @@ export default function BilletsPage() {
 
       {/* ===== CONSEILS ANTI-ARNAQUES ===== */}
       <section className="bg-red-50 dark:bg-red-900/10 py-12 border-t border-red-100 dark:border-red-900/30">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-red-800 dark:text-red-400 mb-2">
             🚨 Conseils pratiques — Éviter les arnaques
           </h2>
@@ -648,7 +648,7 @@ export default function BilletsPage() {
 
       {/* ===== CTA FINAL ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
             <h2 className="text-2xl font-extrabold mb-3">
               🎟️ Prêt à vivre la CDM 2026 en direct ?

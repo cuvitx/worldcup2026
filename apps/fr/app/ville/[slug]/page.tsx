@@ -75,7 +75,7 @@ export default async function CityPage({ params }: PageProps) {
       </nav>
 
       {/* Hero image */}
-      <div className="mx-auto max-w-7xl px-4 pt-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
         <HeroImage
           src={`/images/cities/${slug}.jpg`}
           alt={city.name}
@@ -91,7 +91,7 @@ export default async function CityPage({ params }: PageProps) {
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 pb-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
@@ -108,7 +108,7 @@ export default async function CityPage({ params }: PageProps) {
                   <Link
                     key={stadium.id}
                     href={`/stade/${stadium.slug}`}
-                    className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-slate-700 p-4 transition-colors hover:border-accent hover:bg-accent/5"
                   >
                     <div>
                       <p className="font-semibold">{stadium.name}</p>
@@ -137,7 +137,7 @@ export default async function CityPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
                       >
                         <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-lg" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳️"}</span>

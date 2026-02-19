@@ -129,7 +129,7 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Adaptive Hero: LiveMatchWidget for live/recent matches, static for upcoming */}
       {isLive || isCompleted ? (
-        <section className="bg-primary py-10 sm:py-14">
+        <section className="bg-primary py-12 sm:py-16">
           <div className="mx-auto max-w-2xl px-4 sm:px-6">
             <p className="mb-4 text-center text-sm text-gold font-medium uppercase tracking-wide">
               {stage}
@@ -483,7 +483,7 @@ export default async function MatchPage({ params }: PageProps) {
       {/* Same-day matches */}
       {sameDayMatches.length > 0 && (
         <section className="border-t border-gray-200 dark:border-slate-700 py-8">
-          <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-4 text-xl font-bold">Matchs de la même journée</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {sameDayMatches.map((m) => {
