@@ -33,10 +33,10 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
     }
   };
 
-  const btnBase = "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors";
+  const btnBase = "inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors min-h-[44px]";
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-wrap items-center gap-3">
       <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{label}</span>
 
       {/* Twitter/X */}

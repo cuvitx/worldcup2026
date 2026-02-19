@@ -22,7 +22,7 @@ const tvFranceDetailed = [
     matches: "Matchs de la France + finale + demi-finales",
     details:
       "Chaîne historique du foot français. Diffuse tous les matchs des Bleus, les demi-finales et la finale en clair. Droits en cours de finalisation.",
-    logo: "📺",
+    logo: "/images/logos/tf1.svg",
     free: true,
   },
   {
@@ -31,7 +31,7 @@ const tvFranceDetailed = [
     matches: "54 matchs",
     details:
       "Co-diffusion avec TF1 sur certains matchs clés (ouverture, quarts). Large couverture de la phase de groupes et des 8es de finale.",
-    logo: "📺",
+    logo: "/images/logos/m6.svg",
     free: true,
   },
   {
@@ -40,7 +40,7 @@ const tvFranceDetailed = [
     matches: "104 matchs (intégralité)",
     details:
       "Seul diffuseur à proposer l'intégralité des 104 matchs du tournoi. Studio d'analyse, multi-diffusion sur beIN Sports 1, 2 et 3.",
-    logo: "⚽",
+    logo: "/images/logos/bein.svg",
     free: false,
   },
 ];
@@ -340,7 +340,7 @@ export default function OuRegarderPage() {
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{ch.logo}</span>
+                  <img src={ch.logo} alt={ch.name} className="h-10 w-20 object-contain" />
                   <div>
                     <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100">{ch.name}</h3>
                     <span

@@ -248,7 +248,7 @@ export function Header() {
                               <li key={link.href}>
                                 <Link
                                   href={link.href}
-                                  className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-[#e8e8f0] hover:bg-gray-100 dark:hover:bg-[rgba(255,255,255,0.08)] hover:text-[#e94560] transition-colors"
+                                  className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-[#E8ECF1] hover:bg-gray-100 dark:hover:bg-[rgba(255,255,255,0.08)] hover:text-[#2EC4B6] transition-colors"
                                   onClick={() => setActiveMenu(null)}
                                 >
                                   <span>{link.label}</span>
@@ -273,16 +273,16 @@ export function Header() {
           {/* Direct links */}
           <Link
             href="/match/calendrier"
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-gray-100 dark:hover:bg-white/10 ${
-              pathname.startsWith("/match") ? "text-accent dark:text-gold" : "text-gray-700 dark:text-gray-300"
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
+              pathname.startsWith("/match") ? "text-[#FF6B35]" : "text-white/80"
             }`}
           >
             📅 Calendrier
           </Link>
           <Link
             href="/live"
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-1 ${
-              pathname === "/live" ? "text-accent dark:text-gold" : "text-gray-700 dark:text-gray-300"
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 flex items-center gap-1 ${
+              pathname === "/live" ? "text-[#FF6B35]" : "text-white/80"
             }`}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -296,8 +296,8 @@ export function Header() {
           <Link
             href="/recherche"
             aria-label="Page de recherche"
-            className={`hidden md:flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:bg-gray-100 dark:hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none ${
-              pathname === "/recherche" ? "text-accent dark:text-gold" : "text-gray-700 dark:text-gray-300"
+            className={`hidden md:flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none ${
+              pathname === "/recherche" ? "text-[#FF6B35]" : "text-white/80"
             }`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -316,7 +316,7 @@ export function Header() {
           <div className="relative" ref={langRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm text-white/80 hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none"
               aria-label="Changer de langue"
               aria-expanded={langOpen}
             >
@@ -353,7 +353,7 @@ export function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 -mr-1 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="md:hidden p-2 -mr-1 rounded-lg text-white hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
@@ -386,13 +386,13 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.08)] animate-[slideDown_200ms_ease-out] bg-white/98 dark:bg-[#1a1a2e]/98">
+        <div className="md:hidden border-t border-[rgba(255,255,255,0.1)] animate-[slideDown_200ms_ease-out] bg-[#0D3B66]">
           <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
             {(Object.entries(megaMenus) as [MenuKey, typeof megaMenus[MenuKey]][]).map(([key, menu]) => (
               <div key={key}>
                 <button
                   onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
-                  className="w-full flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                  className="w-full flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
                   aria-expanded={mobileExpanded === key}
                   aria-label={`${menu.label} — sous-menu`}
                 >
@@ -424,7 +424,7 @@ export function Header() {
                           <Link
                             key={link.href}
                             href={link.href}
-                            className="block rounded-lg px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/8 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            className="block rounded-lg px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors"
                             onClick={() => setOpen(false)}
                           >
                             {link.label}
@@ -440,30 +440,30 @@ export function Header() {
             {/* Direct links */}
             <Link
               href="/match/calendrier"
-              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
               onClick={() => setOpen(false)}
             >
               📅 Calendrier des matchs
             </Link>
             <Link
               href="/live"
-              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
               onClick={() => setOpen(false)}
             >
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#06D6A0] animate-pulse" />
               Scores en direct
             </Link>
             <Link
               href="/profil"
-              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
               onClick={() => setOpen(false)}
             >
               🏅 Mon profil
             </Link>
             <Link
               href="/recherche"
-              className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-colors ${
-                pathname === "/recherche" ? "text-accent dark:text-gold" : ""
+              className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors ${
+                pathname === "/recherche" ? "text-[#FF6B35]" : "text-white"
               }`}
               onClick={() => setOpen(false)}
             >

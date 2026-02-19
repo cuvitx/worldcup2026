@@ -16,9 +16,9 @@ export type ButtonSize    = "sm" | "md" | "lg";
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#e94560] text-white hover:bg-[#d63851] hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(233,69,96,0.3)]",
+    "bg-[#FF6B35] text-white hover:bg-[#e05a28] hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(255,107,53,0.3)]",
   secondary:
-    "bg-transparent text-[#e94560] border border-[#e94560] hover:bg-[rgba(233,69,96,0.08)] hover:-translate-y-px",
+    "bg-transparent text-[#2EC4B6] border border-[#2EC4B6] hover:bg-[rgba(46,196,182,0.08)] hover:-translate-y-px",
   ghost:
     "bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/[0.18] hover:-translate-y-px",
 };
@@ -39,7 +39,7 @@ export function buildBtnClass(
     "inline-flex items-center justify-center gap-1.5",
     "font-semibold leading-none tracking-[0.05em]",
     "cursor-pointer transition-all duration-200",
-    "focus-visible:outline-2 focus-visible:outline-[#e94560] focus-visible:outline-offset-2",
+    "focus-visible:outline-2 focus-visible:outline-[#2EC4B6] focus-visible:outline-offset-2",
     "active:scale-[0.97] no-underline",
     pill ? "rounded-full" : "rounded-lg",
     VARIANT_CLASSES[variant],

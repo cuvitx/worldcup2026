@@ -36,7 +36,7 @@ export function Countdown() {
     <section
       className="relative overflow-hidden py-8"
       style={{
-        background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #1a0a1a 100%)",
+        background: "linear-gradient(135deg, #0D3B66 0%, #0F1923 40%, #091420 100%)",
       }}
     >
       {/* Subtle top border glow */}

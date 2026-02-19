@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { domains, getHomeAlternates } from "@repo/data/route-mapping";
@@ -30,11 +30,19 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "700"],
 });
 
+/* ── Space Grotesk — titres (h1, h2, h3) Direction A Continental ── */
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#1a1a2e",
+  themeColor: "#0D3B66",
 };
 
 export const metadata: Metadata = {
@@ -81,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${jetBrainsMono.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -98,8 +106,8 @@ export default function RootLayout({
       </head>
       {/*
         Body — Brand Book CDM2026 :
-        - Light mode  : bg #f0f0f5 (Gris Clair), text #1a1a2e (Bleu Nuit)
-        - Dark mode   : bg #0f0f1a (Noir Profond), text #e8e8f0
+        - Light mode  : bg #F7F7F8 (Blanc Pelouse), text #1A1A2E (Texte sur clair)
+        - Dark mode   : bg #0F1923 (Nuit de Match), text #E8ECF1 (Texte sur sombre)
         CSS vars --color-bg / --color-text sont surchargés par .dark via globals.css
       */}
       <body

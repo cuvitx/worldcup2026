@@ -1,7 +1,7 @@
 /**
  * MatchCard — Brand Book CDM2026
  * - border-radius 12px (var --radius-lg)
- * - border-left accent : live=#e94560, upcoming=#f5a623, finished=#8a8a9a
+ * - border-left accent : live=#FF6B35, upcoming=#f5a623, finished=#8a8a9a
  * - score en JetBrains Mono 700
  * - badge LIVE avec dot pulsant
  */
@@ -159,7 +159,7 @@ export function MatchCard({
               <span
                 className={
                   scoreHome > scoreAway
-                    ? "text-[#e94560]"
+                    ? "text-[#FF6B35]"
                     : scoreHome === scoreAway
                     ? ""
                     : "opacity-60"
@@ -171,7 +171,7 @@ export function MatchCard({
               <span
                 className={
                   scoreAway > scoreHome
-                    ? "text-[#e94560]"
+                    ? "text-[#FF6B35]"
                     : scoreHome === scoreAway
                     ? ""
                     : "opacity-60"
@@ -182,7 +182,7 @@ export function MatchCard({
             </div>
           ) : (
             <span
-              className={`font-bold text-[#e94560] ${
+              className={`font-bold text-[#FF6B35] ${
                 compact ? "text-xs" : "text-sm"
               }`}
             >
@@ -210,7 +210,7 @@ export function MatchCard({
         </div>
 
         {/* Flèche */}
-        <span className="text-[#e94560] text-sm shrink-0 ml-1" aria-hidden="true">
+        <span className="text-[#FF6B35] text-sm shrink-0 ml-1" aria-hidden="true">
           ›
         </span>
       </div>

@@ -29,7 +29,7 @@ export function MatchHero({
       className="relative overflow-hidden text-white py-10 md:py-14"
       style={{
         background:
-          "linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%)",
+          "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
       }}
     >
       {/* Top glow line */}
