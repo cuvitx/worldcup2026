@@ -12,7 +12,7 @@ export function BettingCta({
   matchLabel,
 }: BettingCtaProps) {
   return (
-    <section className="rounded-lg bg-gradient-to-br from-accent to-accent/80 p-6 shadow-md text-white">
+    <section className="rounded-lg bg-gradient-to-br from-primary to-primary/80 p-6 shadow-md text-white">
       <h2 className="mb-4 text-xl font-bold">
         {matchLabel ? `Parier sur ${matchLabel}` : "Parier sur ce match"}
       </h2>

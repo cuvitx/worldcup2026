@@ -12,7 +12,7 @@ function Bar({ pct, accent }: { pct: number; accent?: boolean }) {
   return (
     <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
       <div
-        className={`h-full rounded-full transition-all ${accent ? "bg-accent" : "bg-primary/60"}`}
+        className={`h-full rounded-full transition-all ${accent ? "bg-primary" : "bg-primary/60"}`}
         style={{ width: `${pct}%` }}
       />
     </div>
@@ -23,8 +23,8 @@ export function FeaturedPrediction() {
   return (
     <section className="py-12">
       <div className="mx-auto max-w-3xl px-4">
-        <div className="overflow-hidden rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-accent/10 p-6 dark:from-accent/10 dark:to-accent/20 md:p-8">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-accent">
+        <div className="overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 p-6 dark:from-primary/10 dark:to-primary/20 md:p-8">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
             ⭐ Pronostic vedette
           </p>
           <h3 className="mb-6 text-xl font-bold text-gray-900 dark:text-white md:text-2xl">
@@ -73,12 +73,12 @@ export function FeaturedPrediction() {
 
           <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
             Cote estimée du favori :{" "}
-            <span className="font-bold text-accent">{prediction.favoriCote}</span>
+            <span className="font-bold text-primary">{prediction.favoriCote}</span>
           </p>
 
           <Link
             href={`/pronostic-match/${prediction.slug}`}
-            className="mt-6 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
+            className="mt-6 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
           >
             Voir le pronostic complet &rarr;
           </Link>

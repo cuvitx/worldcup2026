@@ -43,7 +43,7 @@ export default function AnalyseTactiqueEspagne() {
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="mb-4 flex items-center gap-3">
-            <span className="inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent dark:bg-accent/20 dark:text-accent">Analyse tactique</span>
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary dark:bg-primary/20 dark:text-secondary">Analyse tactique</span>
             <time className="text-sm text-gray-500 dark:text-gray-400" dateTime="2026-02-19">19 février 2026</time>
           </div>
 

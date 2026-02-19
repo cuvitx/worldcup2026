@@ -75,7 +75,7 @@ export default function H2HIndexPage() {
       {/* Breadcrumbs */}
       <nav className="border-b border-gray-200 bg-white dark:border-slate-700 dark:bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil

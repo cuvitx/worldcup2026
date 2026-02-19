@@ -51,7 +51,7 @@ export default function ButeursPage() {
     <>
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Buteurs</li>
@@ -195,12 +195,12 @@ export default function ButeursPage() {
                         {team && (
                           <div className="flex items-center gap-1.5">
                             <span className="text-xl">{team.flag}</span>
-                            <Link href={`/equipe/${team.slug}`} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-accent transition-colors">
+                            <Link href={`/equipe/${team.slug}`} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
                               {team.name}
                             </Link>
                           </div>
                         )}
-                        <span className="inline-block rounded-full bg-accent/10 border border-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
+                        <span className="inline-block rounded-full bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-bold text-primary">
                           {impliedPct}% de chances
                         </span>
                       </div>
@@ -219,7 +219,7 @@ export default function ButeursPage() {
                         <div className="flex-1 flex flex-col justify-center min-w-[100px]">
                           <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-gradient-to-r from-accent to-gold rounded-full"
+                              className="h-full bg-gradient-to-r from-primary to-gold rounded-full"
                               style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
                             />
                           </div>
@@ -243,9 +243,9 @@ export default function ButeursPage() {
                       <p className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-accent/5 dark:bg-accent/10 border-accent/10 dark:border-accent/20"}`}>
-                        <span className="text-xs font-semibold text-accent dark:text-accent">Winamax</span>
-                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-gold" : "text-accent dark:text-accent"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-primary/5 dark:bg-primary/10 border-primary/20 dark:border-primary/20"}`}>
+                        <span className="text-xs font-semibold text-primary dark:text-secondary">Winamax</span>
+                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-gold" : "text-primary dark:text-secondary"}`}>
                           {candidate.winamax.toFixed(2)}
                         </span>
                       </div>
@@ -261,9 +261,9 @@ export default function ButeursPage() {
                           {candidate.draftkings.toFixed(2)}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between rounded-lg px-3 py-2 bg-accent/5 border border-accent/15">
-                        <span className="text-xs font-semibold text-accent">Moy.</span>
-                        <span className="text-sm font-bold text-accent">{candidate.avgOdds.toFixed(2)}</span>
+                      <div className="flex items-center justify-between rounded-lg px-3 py-2 bg-primary/5 border border-primary/20">
+                        <span className="text-xs font-semibold text-primary">Moy.</span>
+                        <span className="text-sm font-bold text-primary">{candidate.avgOdds.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>
@@ -307,14 +307,14 @@ export default function ButeursPage() {
                       <td className="py-3 text-gray-500 font-medium">{i + 1}</td>
                       <td className="py-3">
                         {player && (
-                          <Link href={`/buteur/${player.slug}`} className="font-medium hover:text-accent">
+                          <Link href={`/buteur/${player.slug}`} className="font-medium hover:text-primary">
                             {player.name}
                           </Link>
                         )}
                       </td>
                       <td className="py-3">
                         {team && (
-                          <Link href={`/equipe/${team.slug}`} className="flex items-center gap-1 hover:text-accent">
+                          <Link href={`/equipe/${team.slug}`} className="flex items-center gap-1 hover:text-primary">
                             <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             <span className="text-gray-600">{team.name}</span>
                           </Link>
@@ -346,7 +346,7 @@ export default function ButeursPage() {
                 <Link
                   key={so.playerId}
                   href={`/buteur/${player.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                 >
                   <div>
                     <p className="font-semibold">{player.name}</p>
@@ -375,7 +375,7 @@ export default function ButeursPage() {
                 if (!teamScorers || teamScorers.length === 0) return null;
                 return (
                   <div key={team.id} className="rounded-xl border border-gray-200 dark:border-slate-700 p-4">
-                    <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-accent">
+                    <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-primary">
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                       <h3 className="font-bold">{team.name}</h3>
                     </Link>
@@ -387,7 +387,7 @@ export default function ButeursPage() {
                           <li key={so.playerId}>
                             <Link
                               href={`/buteur/${player.slug}`}
-                              className="flex items-center justify-between text-sm hover:text-accent"
+                              className="flex items-center justify-between text-sm hover:text-primary"
                             >
                               <span>{player.name}</span>
                               <span className="font-medium text-primary">{so.expectedGoals} buts</span>
@@ -403,8 +403,8 @@ export default function ButeursPage() {
         </section>
 
         {/* CTA */}
-        <section className="rounded-lg bg-accent/5 border border-accent/20 p-6 text-center">
-          <h2 className="mb-2 text-xl font-bold text-accent">Parier sur les buteurs CDM 2026</h2>
+        <section className="rounded-lg bg-primary/5 border border-primary/20 p-6 text-center">
+          <h2 className="mb-2 text-xl font-bold text-primary">Parier sur les buteurs CDM 2026</h2>
           <p className="mb-4 text-sm text-gray-600">
             Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>
@@ -415,7 +415,7 @@ export default function ButeursPage() {
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
               >
                 {bk.bonus} sur {bk.name}
               </a>

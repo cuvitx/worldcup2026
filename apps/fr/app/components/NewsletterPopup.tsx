@@ -140,12 +140,12 @@ export function NewsletterPopup() {
                 aria-label="Votre adresse email"
                 required
                 disabled={status === 'loading'}
-                className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-60"
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-60"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full rounded-lg bg-accent py-3 text-sm font-bold text-white shadow-md shadow-accent/30 hover:bg-accent/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
+                className="w-full rounded-lg bg-accent py-3 text-sm font-bold text-white shadow-md shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
                 {status === 'loading' ? '⏳ Inscription...' : '📧 Je m\'abonne gratuitement'}
               </button>

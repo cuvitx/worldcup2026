@@ -76,7 +76,7 @@ export default async function PlayerPage({ params }: PageProps) {
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Joueurs",url:"/joueurs"},{name:player.name,url:"/joueur/"+player.slug}]} baseUrl={domains.fr} />
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -201,7 +201,7 @@ export default async function PlayerPage({ params }: PageProps) {
                     <Link
                       key={mate.id}
                       href={`/joueur/${mate.slug}`}
-                      className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
                       {/* Mini avatar */}
                       {mateImg ? (
@@ -219,7 +219,7 @@ export default async function PlayerPage({ params }: PageProps) {
                           {positionLabels[mate.position]} &middot; {mate.club}
                         </p>
                       </div>
-                      <span className="text-accent shrink-0">&rarr;</span>
+                      <span className="text-primary shrink-0">&rarr;</span>
                     </Link>
                     );
                   })}
@@ -272,7 +272,7 @@ export default async function PlayerPage({ params }: PageProps) {
                 <h3 className="mb-4 text-lg font-bold">Équipe</h3>
                 <Link
                   href={`/equipe/${team.slug}`}
-                  className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+                  className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
                 >
                   <span className="text-2xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                   <div>

@@ -86,7 +86,7 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/equipes" className="hover:text-primary">Équipes</Link></li>
@@ -130,7 +130,7 @@ export default async function TeamPage({ params }: PageProps) {
               )}
               <Link
                 href={`/pronostic/${team.slug}`}
-                className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
+                className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
               >
                 Voir le pronostic &rarr;
               </Link>
@@ -407,7 +407,7 @@ export default async function TeamPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                       >
                         <span className="text-sm text-gray-500 w-20 shrink-0">
                           {match.date.slice(5)}
@@ -431,7 +431,7 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Group Stage */}
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
-                <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
+                <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">
                   Groupe {team.group}
                 </Link>
               </h2>
@@ -446,7 +446,7 @@ export default async function TeamPage({ params }: PageProps) {
                   >
                     <span className="text-2xl" role="img" aria-label={`Drapeau de ${opponent.name}`}>{opponent.flag}</span>
                     <div className="flex-1 min-w-0">
-                      <Link href={`/equipe/${opponent.slug}`} className="font-semibold hover:text-accent">
+                      <Link href={`/equipe/${opponent.slug}`} className="font-semibold hover:text-primary">
                         {opponent.name}
                       </Link>
                       <p className="text-sm text-gray-500">
@@ -455,7 +455,7 @@ export default async function TeamPage({ params }: PageProps) {
                     </div>
                     <Link
                       href={`/h2h/${team.slug}-vs-${opponent.slug}`}
-                      className="shrink-0 rounded bg-accent/10 px-2 py-1 text-xs text-accent font-medium hover:bg-accent/20"
+                      className="shrink-0 rounded bg-primary/10 px-2 py-1 text-xs text-primary font-medium hover:bg-primary/20"
                     >
                       H2H &rarr;
                     </Link>
@@ -482,7 +482,7 @@ export default async function TeamPage({ params }: PageProps) {
                       <Link
                         key={stadium.id}
                         href={`/stade/${stadium.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                       >
                         <span className="text-2xl">🏟️</span>
                         <div className="flex-1 min-w-0">
@@ -491,7 +491,7 @@ export default async function TeamPage({ params }: PageProps) {
                             {stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
                           </p>
                         </div>
-                        <span className="text-accent text-sm shrink-0">&rarr;</span>
+                        <span className="text-primary text-sm shrink-0">&rarr;</span>
                       </Link>
                     ))}
                   </div>
@@ -566,11 +566,11 @@ export default async function TeamPage({ params }: PageProps) {
               return (
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-gray-900 p-6 shadow-sm">
                   <h3 className="mb-4 text-lg font-bold">
-                    <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
+                    <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">
                       Groupe {team.group}
                     </Link>
                   </h3>
-                  <table className="w-full text-sm">
+                  <div className="overflow-x-auto"><table className="w-full text-sm">
                     <thead>
                       <tr className="bg-gray-50 dark:bg-gray-800 text-gray-500 text-xs">
                         <th className="py-2 px-2 text-left">#</th>
@@ -583,7 +583,7 @@ export default async function TeamPage({ params }: PageProps) {
                       {standings.map((row, idx) => (
                         <tr
                           key={row.team.id}
-                          className={`border-b border-gray-100 dark:border-gray-800 ${row.team.id === team.id ? "bg-accent/5 font-bold" : ""}`}
+                          className={`border-b border-gray-100 dark:border-gray-800 ${row.team.id === team.id ? "bg-primary/5 font-bold" : ""}`}
                         >
                           <td className="py-2">
                             <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" : "bg-gray-100 text-gray-500 dark:bg-gray-800"}`}>
@@ -591,7 +591,7 @@ export default async function TeamPage({ params }: PageProps) {
                             </span>
                           </td>
                           <td className="py-2">
-                            <Link href={`/equipe/${row.team.slug}`} className="hover:text-accent flex items-center gap-1">
+                            <Link href={`/equipe/${row.team.slug}`} className="hover:text-primary flex items-center gap-1">
                               <span>{row.team.flag}</span>
                               <span className="truncate">{row.team.code}</span>
                             </Link>
@@ -605,7 +605,7 @@ export default async function TeamPage({ params }: PageProps) {
                         </tr>
                       ))}
                     </tbody>
-                  </table>
+                  </table></div>
                   <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
                     <span className="inline-block h-2 w-2 rounded-full bg-green-500" />
                     Qualifié (top 2)
@@ -705,8 +705,8 @@ export default async function TeamPage({ params }: PageProps) {
             )}
 
             {/* CTA Betting */}
-            <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">Pronostic {team.name}</h3>
+            <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
+              <h3 className="mb-2 text-lg font-bold text-primary">Pronostic {team.name}</h3>
               {prediction ? (
                 <div className="space-y-3">
                   <div className="flex justify-between text-sm">
@@ -739,7 +739,7 @@ export default async function TeamPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
               >
                 {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; Parier sur {team.name}
               </a>
@@ -755,7 +755,7 @@ export default async function TeamPage({ params }: PageProps) {
                       className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10 transition-colors text-sm"
                     >
                       <span className="flex items-center gap-2 font-semibold">{bk.logo && <img src={bk.logo} alt={bk.name} className="h-5 w-5 rounded object-contain" />}{bk.name} <span className="text-white/70">{bk.bonus}</span></span>
-                      <span className="text-accent font-semibold">Parier sur {team.name} &rarr;</span>
+                      <span className="text-primary font-semibold">Parier sur {team.name} &rarr;</span>
                     </a>
                   ))}
               </div>
@@ -770,7 +770,7 @@ export default async function TeamPage({ params }: PageProps) {
                   <li key={t.id}>
                     <Link
                       href={`/equipe/${t.slug}`}
-                      className="flex items-center gap-2 text-sm hover:text-accent"
+                      className="flex items-center gap-2 text-sm hover:text-primary"
                     >
                       <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
                       <span>{t.name}</span>

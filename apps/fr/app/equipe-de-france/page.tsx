@@ -214,9 +214,9 @@ export default function EquipeDeFrancePage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
-            <li><Link href="/" className="hover:text-accent">Accueil</Link></li>
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/equipes" className="hover:text-accent">Équipes</Link></li>
+            <li><Link href="/equipes" className="hover:text-primary">Équipes</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">🇫🇷 Équipe de France</li>
           </ol>
@@ -258,7 +258,7 @@ export default function EquipeDeFrancePage() {
                   <p className="text-xs text-white/60 mt-0.5">Cote titre</p>
                 </div>
                 <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
-                  <p className="text-2xl font-extrabold text-accent-light">{winPct}%</p>
+                  <p className="text-2xl font-extrabold text-primary-light">{winPct}%</p>
                   <p className="text-xs text-white/60 mt-0.5">% de chance</p>
                 </div>
                 <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
@@ -391,7 +391,7 @@ export default function EquipeDeFrancePage() {
                       <p className="text-lg font-extrabold text-gray-900 dark:text-white">
                         {dateObj.getDate()}/{dateObj.getMonth() + 1}
                       </p>
-                      <p className="text-xs text-accent">{timeStr} (FR)</p>
+                      <p className="text-xs text-primary">{timeStr} (FR)</p>
                     </div>
 
                     {/* Match */}
@@ -434,7 +434,7 @@ export default function EquipeDeFrancePage() {
                       )}
                       <Link
                         href={`/pronostic-match/${match.slug}`}
-                        className="mt-1 inline-flex text-xs text-accent hover:underline font-medium"
+                        className="mt-1 inline-flex text-xs text-primary hover:underline font-medium"
                       >
                         Pronostic →
                       </Link>
@@ -446,7 +446,7 @@ export default function EquipeDeFrancePage() {
           </div>
 
           <div className="mt-4 text-center">
-            <Link href="/match/calendrier" className="text-sm text-accent hover:underline font-medium">
+            <Link href="/match/calendrier" className="text-sm text-primary hover:underline font-medium">
               Voir le calendrier complet des 104 matchs →
             </Link>
           </div>
@@ -471,7 +471,7 @@ export default function EquipeDeFrancePage() {
               return (
                 <div key={pos}>
                   <h3 className="text-sm font-extrabold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                    <span className="w-1 h-4 bg-accent rounded-full inline-block" />
+                    <span className="w-1 h-4 bg-primary rounded-full inline-block" />
                     {positionLabels[pos]} ({posPlayers.length})
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -479,7 +479,7 @@ export default function EquipeDeFrancePage() {
                       <Link
                         key={player.id}
                         href={`/joueur/${player.slug}`}
-                        className="group flex items-center gap-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 hover:border-accent/50 hover:shadow-sm transition-all"
+                        className="group flex items-center gap-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 hover:border-primary/30 hover:shadow-sm transition-all"
                       >
                         {/* Number badge */}
                         <div className="shrink-0 w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-extrabold text-sm">
@@ -488,7 +488,7 @@ export default function EquipeDeFrancePage() {
 
                         {/* Info */}
                         <div className="flex-1 min-w-0">
-                          <p className="font-bold text-gray-900 dark:text-white text-sm group-hover:text-accent transition-colors truncate">
+                          <p className="font-bold text-gray-900 dark:text-white text-sm group-hover:text-primary transition-colors truncate">
                             {player.name}
                           </p>
                           <p className="text-xs text-gray-500 dark:text-gray-400">{player.club}</p>
@@ -498,7 +498,7 @@ export default function EquipeDeFrancePage() {
                         <div className="shrink-0 text-right">
                           <p className="text-xs font-bold text-gray-700 dark:text-gray-300">{player.caps} sél.</p>
                           {player.goals > 0 && (
-                            <p className="text-xs text-accent">{player.goals} buts</p>
+                            <p className="text-xs text-primary">{player.goals} buts</p>
                           )}
                         </div>
                       </Link>
@@ -510,7 +510,7 @@ export default function EquipeDeFrancePage() {
           </div>
 
           <div className="mt-4 text-center">
-            <Link href="/equipe/france" className="text-sm text-accent hover:underline font-medium">
+            <Link href="/equipe/france" className="text-sm text-primary hover:underline font-medium">
               Fiche complète de l&apos;équipe de France →
             </Link>
           </div>
@@ -543,9 +543,9 @@ export default function EquipeDeFrancePage() {
                       href={bm.url}
                       target="_blank"
                       rel="noopener noreferrer sponsored nofollow"
-                      className="flex items-center gap-3 rounded-lg border border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-4 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
+                      className="flex items-center gap-3 rounded-lg border border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
                     >
-                      <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-accent transition-colors">
+                      <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">
                         {bm.name}
                       </span>
                       <span className="text-xs text-green-600 dark:text-green-400 font-semibold">{bm.bonus}</span>
@@ -687,7 +687,7 @@ export default function EquipeDeFrancePage() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-2xl">{anecdote.icon}</span>
-                  <span className="text-xs font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
                     {anecdote.year}
                   </span>
                 </div>
@@ -719,20 +719,20 @@ export default function EquipeDeFrancePage() {
                 <Link
                   key={match.id}
                   href={`/pronostic-match/${match.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-lg">{homeTeam?.flag ?? "🏳️"}</span>
                     <span className="text-xs font-bold text-gray-400 dark:text-gray-500">VS</span>
                     <span className="text-lg">{awayTeam?.flag ?? "🏳️"}</span>
                   </div>
-                  <p className="text-sm font-bold text-gray-900 dark:text-white text-center group-hover:text-accent transition-colors">
+                  <p className="text-sm font-bold text-gray-900 dark:text-white text-center group-hover:text-primary transition-colors">
                     {homeTeam?.name ?? match.homeTeamId} vs {awayTeam?.name ?? match.awayTeamId}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-1">
                     📅 {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
                   </p>
-                  <p className="text-xs text-accent text-center mt-2 font-medium group-hover:underline">
+                  <p className="text-xs text-primary text-center mt-2 font-medium group-hover:underline">
                     Voir le pronostic →
                   </p>
                 </Link>
@@ -755,7 +755,7 @@ export default function EquipeDeFrancePage() {
                 className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
               >
                 <details className="group">
-                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-accent transition-colors list-none">
+                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
                     <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform">
                       ▼

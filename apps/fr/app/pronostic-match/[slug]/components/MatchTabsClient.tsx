@@ -40,9 +40,9 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
                 aria-controls={`tabpanel-${tab.id}`}
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-3 sm:py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
                   activeTab === tab.id
-                    ? "border-accent text-accent"
+                    ? "border-primary/20 text-primary"
                     : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
                 }`}
               >

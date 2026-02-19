@@ -114,12 +114,12 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
             aria-label="Votre adresse email"
             required
             disabled={status === 'loading'}
-            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-accent dark:focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all disabled:opacity-60"
+            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-primary/20 dark:focus:border-primary/20 focus:ring-1 focus:ring-primary/30 transition-all disabled:opacity-60"
           />
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/90 transition-all hover:-translate-y-0.5 shadow-md shadow-accent/20 disabled:opacity-60 disabled:cursor-wait"
+            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-primary/90 transition-all hover:-translate-y-0.5 shadow-md shadow-primary/20 disabled:opacity-60 disabled:cursor-wait"
           >
             {status === 'loading' ? '⏳' : 'OK'}
           </button>
@@ -134,7 +134,7 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
         )}
         <p className="mt-2 text-[10px] text-gray-400 dark:text-gray-500">
           Gratuit · Sans spam ·{' '}
-          <Link href="/newsletter" className="underline hover:text-accent transition-colors">
+          <Link href="/newsletter" className="underline hover:text-primary transition-colors">
             Voir un exemple
           </Link>
         </p>
@@ -187,16 +187,16 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
                 aria-label="Votre adresse email"
                 required
                 disabled={status === 'loading'}
-                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-accent/50 disabled:opacity-60 ${
+                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
                   status === 'error' || status === 'duplicate'
                     ? 'border-red-400/50'
-                    : 'border-white/20 focus:border-accent/60'
+                    : 'border-white/20 focus:border-primary/20'
                 }`}
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
+                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
                 {status === 'loading' ? '⏳' : "S'abonner →"}
               </button>

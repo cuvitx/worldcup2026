@@ -31,7 +31,7 @@ export default function PolitiqueConfidentialitePage() {
 
       <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -87,7 +87,7 @@ export default function PolitiqueConfidentialitePage() {
               <li><strong>Site :</strong> cdm2026.fr</li>
               <li>
                 <strong>Contact :</strong>{" "}
-                <a href="mailto:contact@cdm2026.fr" className="text-accent hover:underline">
+                <a href="mailto:contact@cdm2026.fr" className="text-primary hover:underline">
                   contact@cdm2026.fr
                 </a>
               </li>
@@ -176,7 +176,7 @@ export default function PolitiqueConfidentialitePage() {
                   href="https://policies.google.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent hover:underline text-xs"
+                  className="text-primary hover:underline text-xs"
                 >
                   Politique de confidentialité Google →
                 </a>
@@ -267,7 +267,7 @@ export default function PolitiqueConfidentialitePage() {
             </ul>
             <p className="mt-4">
               Pour exercer ces droits, contactez-nous à :{" "}
-              <a href="mailto:contact@cdm2026.fr" className="text-accent hover:underline">
+              <a href="mailto:contact@cdm2026.fr" className="text-primary hover:underline">
                 contact@cdm2026.fr
               </a>
               . Nous nous engageons à répondre dans un délai d&apos;un mois.
@@ -279,7 +279,7 @@ export default function PolitiqueConfidentialitePage() {
                 href="https://www.cnil.fr/fr/plaintes"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:underline"
+                className="text-primary hover:underline"
               >
                 CNIL (Commission Nationale de l&apos;Informatique et des Libertés)
               </a>
@@ -314,12 +314,12 @@ export default function PolitiqueConfidentialitePage() {
               de données personnelles concernant des personnes de moins de 18 ans. Si vous
               êtes parent ou tuteur et pensez que votre enfant nous a fourni des données
               personnelles, contactez-nous immédiatement à{" "}
-              <a href="mailto:contact@cdm2026.fr" className="text-accent hover:underline">
+              <a href="mailto:contact@cdm2026.fr" className="text-primary hover:underline">
                 contact@cdm2026.fr
               </a>
               .
             </p>
-            <div className="mt-3 rounded-lg border border-accent/30 bg-accent/5 p-4 text-sm">
+            <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm">
               <strong>⚠️ Rappel :</strong> Les jeux d&apos;argent sont interdits aux personnes
               mineures. Appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
             </div>
@@ -355,18 +355,18 @@ export default function PolitiqueConfidentialitePage() {
             <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">Contact</h2>
             <p>
               Pour toute question relative à cette politique de confidentialité :{" "}
-              <a href="mailto:contact@cdm2026.fr" className="text-accent hover:underline">
+              <a href="mailto:contact@cdm2026.fr" className="text-primary hover:underline">
                 contact@cdm2026.fr
               </a>
             </p>
             <div className="mt-4 flex flex-wrap gap-4 text-sm">
-              <Link href="/mentions-legales" className="text-accent hover:underline">
+              <Link href="/mentions-legales" className="text-primary hover:underline">
                 Mentions légales
               </Link>
-              <Link href="/contact" className="text-accent hover:underline">
+              <Link href="/contact" className="text-primary hover:underline">
                 Contact
               </Link>
-              <Link href="/jeu-responsable" className="text-accent hover:underline">
+              <Link href="/jeu-responsable" className="text-primary hover:underline">
                 Jeu responsable
               </Link>
             </div>

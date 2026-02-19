@@ -146,7 +146,7 @@ export default function GlossairePage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/paris-sportifs" className="hover:text-primary">Paris sportifs</Link></li>

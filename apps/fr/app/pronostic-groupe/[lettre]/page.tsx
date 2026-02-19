@@ -65,13 +65,13 @@ const RANK_LABEL = ["🥇 1er", "🥈 2e", "🥉 3e", "4e"];
 const RANK_COLOR = [
   "border-gold bg-gold/5 dark:bg-gold/10",
   "border-gray-400 bg-gray-50 dark:bg-gray-800/40",
-  "border-accent/60 bg-accent/5 dark:bg-accent/10",
+  "border-primary/20 bg-primary/5 dark:bg-primary/10",
   "border-red-300 bg-red-50 dark:bg-red-900/10",
 ];
 const RANK_BADGE = [
   "bg-gold text-gray-900",
   "bg-gray-300 text-gray-700",
-  "bg-accent text-white",
+  "bg-primary text-white",
   "bg-red-200 text-red-700",
 ];
 
@@ -195,7 +195,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         <td className="px-4 py-3">
                           <Link
                             href={`/equipe/${team!.slug}`}
-                            className="flex items-center gap-2 font-medium hover:text-accent transition-colors"
+                            className="flex items-center gap-2 font-medium hover:text-primary transition-colors"
                           >
                             <span className="text-xl" aria-label={team!.name}>
                               {team!.flag}
@@ -268,7 +268,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         </span>
                         <Link
                           href={`/equipe/${team!.slug}`}
-                          className="font-bold text-lg hover:text-accent transition-colors"
+                          className="font-bold text-lg hover:text-primary transition-colors"
                         >
                           {team!.name}
                         </Link>
@@ -374,7 +374,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                               {team ? (
                                 <Link
                                   href={`/equipe/${team.slug}`}
-                                  className="flex items-center gap-2 font-medium hover:text-accent transition-colors"
+                                  className="flex items-center gap-2 font-medium hover:text-primary transition-colors"
                                 >
                                   <span className="text-xl">{team.flag}</span>
                                   <span>{team.name}</span>
@@ -478,7 +478,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                       <div>
                         <Link
                           href={`/pronostic/${team!.slug}`}
-                          className="font-bold hover:text-accent transition-colors"
+                          className="font-bold hover:text-primary transition-colors"
                         >
                           {team!.name}
                         </Link>
@@ -504,7 +504,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                     <div>
                       <Link
                         href={`/pronostic/${maybeQualify.team.slug}`}
-                        className="font-bold hover:text-accent transition-colors"
+                        className="font-bold hover:text-primary transition-colors"
                       >
                         {maybeQualify.team.name}
                       </Link>
@@ -546,12 +546,12 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               </h2>
               <div className="space-y-4">
                 {sortedTeams.map(({ team, pred }, idx) => (
-                  <div key={team!.id} className="border-l-4 border-accent pl-4">
+                  <div key={team!.id} className="border-l-4 border-primary/20 pl-4">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-xl">{team!.flag}</span>
                       <Link
                         href={`/equipe/${team!.slug}`}
-                        className="font-bold hover:text-accent transition-colors"
+                        className="font-bold hover:text-primary transition-colors"
                       >
                         {team!.name}
                       </Link>
@@ -578,7 +578,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         </span>
                         <Link
                           href={`/pronostic/${team!.slug}`}
-                          className="rounded-full bg-accent/10 border border-accent/30 px-2 py-1 text-accent hover:bg-accent/20 transition-colors"
+                          className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1 text-primary hover:bg-primary/20 transition-colors"
                         >
                           Voir pronostic complet →
                         </Link>
@@ -608,7 +608,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-all hover:border-accent hover:bg-accent/5 group"
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-all hover:border-primary/30 hover:bg-primary/5 group"
                       >
                         <div className="text-xs text-gray-500 dark:text-gray-400 w-24 shrink-0">
                           <div>{dateStr}</div>
@@ -616,20 +616,20 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             {match.time} UTC
                           </div>
                         </div>
-                        <div className="flex flex-1 items-center gap-2 justify-center">
-                          <span className="text-lg" aria-label={home?.name}>{home?.flag ?? "🏳️"}</span>
-                          <span className="font-semibold text-sm text-right flex-1">
+                        <div className="flex flex-1 items-center gap-1 justify-center min-w-0">
+                          <span className="text-base shrink-0" aria-label={home?.name}>{home?.flag ?? "🏳️"}</span>
+                          <span className="font-semibold text-xs text-right flex-1 min-w-0 truncate">
                             {home?.name ?? "TBD"}
                           </span>
-                          <span className="text-xs text-gray-400 bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded font-mono">
+                          <span className="text-xs text-gray-400 bg-gray-100 dark:bg-slate-700 px-1.5 py-1 rounded font-mono shrink-0">
                             vs
                           </span>
-                          <span className="font-semibold text-sm flex-1">
+                          <span className="font-semibold text-xs flex-1 min-w-0 truncate">
                             {away?.name ?? "TBD"}
                           </span>
-                          <span className="text-lg" aria-label={away?.name}>{away?.flag ?? "🏳️"}</span>
+                          <span className="text-base shrink-0" aria-label={away?.name}>{away?.flag ?? "🏳️"}</span>
                         </div>
-                        <span className="text-xs text-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                        <span className="text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                           Pronostic →
                         </span>
                       </Link>
@@ -698,7 +698,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               <div className="space-y-2">
                 <Link
                   href={`/groupe/${lettre}`}
-                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-accent hover:text-accent hover:bg-accent/5"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-primary/30 hover:text-primary hover:bg-primary/5"
                 >
                   📊 Groupe {group.letter} — statistiques
                 </Link>
@@ -707,7 +707,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                     <Link
                       key={team.id}
                       href={`/pronostic/${team.slug}`}
-                      className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-accent hover:text-accent hover:bg-accent/5"
+                      className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-primary/30 hover:text-primary hover:bg-primary/5"
                     >
                       <span>{team.flag}</span>
                       Pronostic {team.name}
@@ -727,8 +727,8 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                     href={`/pronostic-groupe/${g.slug}`}
                     className={`rounded-lg border p-2 text-center text-sm font-bold transition-all ${
                       g.letter === group.letter
-                        ? "border-accent bg-accent text-white shadow-md"
-                        : "border-gray-200 dark:border-slate-600 hover:border-accent hover:text-accent"
+                        ? "border-primary/20 bg-primary text-white shadow-md"
+                        : "border-gray-200 dark:border-slate-600 hover:border-primary/30 hover:text-primary"
                     }`}
                   >
                     {g.letter}
@@ -738,7 +738,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
             </div>
 
             {/* CTA paris */}
-            <div className="rounded-xl bg-gradient-to-br from-accent to-accent/80 p-6 text-white shadow-sm">
+            <div className="rounded-xl bg-gradient-to-br from-primary to-primary/80 p-6 text-white shadow-sm">
               <h3 className="mb-2 text-lg font-bold">
                 🎰 Parier sur le Groupe {group.letter}
               </h3>
@@ -747,7 +747,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               </p>
               <Link
                 href="/comparateur-cotes"
-                className="block rounded-lg bg-white text-accent font-bold text-center py-2.5 text-sm hover:bg-gray-50 transition-colors"
+                className="block rounded-lg bg-white text-primary font-bold text-center py-2.5 text-sm hover:bg-gray-50 transition-colors"
               >
                 Comparer les cotes →
               </Link>
@@ -763,7 +763,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               </p>
               <Link
                 href="/pronostic-vainqueur"
-                className="text-sm font-semibold text-accent hover:underline"
+                className="text-sm font-semibold text-primary hover:underline"
               >
                 Voir le pronostic vainqueur →
               </Link>

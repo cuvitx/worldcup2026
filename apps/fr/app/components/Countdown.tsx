@@ -40,21 +40,21 @@ export function Countdown() {
       }}
     >
       {/* Subtle top border glow */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="mx-auto max-w-4xl px-4">
         {/* Match label */}
         <div className="text-center mb-5">
           <div className="inline-flex items-center gap-2 mb-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
+            <span className="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse" />
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary">
               Compte à rebours
             </p>
-            <span className="inline-block w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse" />
           </div>
           <p className="text-white font-bold text-lg">
-            🇲🇽 Mexique <span className="text-accent mx-2">vs</span> 🇿🇦 Afrique du Sud
+            🇲🇽 Mexique <span className="text-primary mx-2">vs</span> 🇿🇦 Afrique du Sud
           </p>
           <p className="text-gray-400 text-xs mt-0.5">
             11 juin 2026 · 21h00 (Paris) · Estadio Azteca, Mexico
@@ -102,7 +102,7 @@ export function Countdown() {
               {/* Colon separator */}
               {i < blocks.length - 1 && (
                 <span
-                  className="absolute text-accent font-bold text-2xl"
+                  className="absolute text-primary font-bold text-2xl"
                   style={{ marginTop: "calc(clamp(60px, 16vw, 90px) / 2 - 10px)" }}
                 >
                 </span>

@@ -62,7 +62,7 @@ export default async function ButeurPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/buteurs" className="hover:text-primary">Buteurs</Link></li>
@@ -223,7 +223,7 @@ export default async function ButeurPage({ params }: PageProps) {
                       <Link
                         key={tm.id}
                         href={`/buteur/${tm.slug}`}
-                        className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                       >
                         <div>
                           <p className="font-semibold">{tm.name}</p>
@@ -277,7 +277,7 @@ export default async function ButeurPage({ params }: PageProps) {
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
-                            isFeatured ? "bg-gold hover:bg-gold/90" : "bg-accent hover:bg-accent/90"
+                            isFeatured ? "bg-gold hover:bg-gold/90" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
                           Parier
@@ -365,8 +365,8 @@ export default async function ButeurPage({ params }: PageProps) {
             </div>
 
             {/* Sidebar CTA */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
+            <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
+              <h3 className="mb-2 text-lg font-bold text-primary">
                 Parier sur {player.name}
               </h3>
               {scorer && (
@@ -385,7 +385,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>
@@ -399,12 +399,12 @@ export default async function ButeurPage({ params }: PageProps) {
               <h3 className="mb-2 text-lg font-bold">Guides paris buteurs</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/guide/parier-buteurs" className="text-accent hover:underline">
+                  <Link href="/guide/parier-buteurs" className="text-primary hover:underline">
                     Comment parier sur les buteurs CDM 2026 &rarr;
                   </Link>
                 </li>
                 <li>
-                  <Link href="/guide/comment-parier-cdm-2026" className="text-accent hover:underline">
+                  <Link href="/guide/comment-parier-cdm-2026" className="text-primary hover:underline">
                     Guide complet pour parier sur la CDM &rarr;
                   </Link>
                 </li>

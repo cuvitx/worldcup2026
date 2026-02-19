@@ -63,7 +63,7 @@ export default function GuidesPage() {
       />
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Guides</li>
@@ -96,12 +96,12 @@ export default function GuidesPage() {
                   <Link
                     key={guide.id}
                     href={`/guide/${guide.slug}`}
-                    className="group rounded-xl border border-gray-200 dark:border-gray-600 p-5 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md hover:-translate-y-0.5"
+                    className="group rounded-xl border border-gray-200 dark:border-gray-600 p-5 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md hover:-translate-y-0.5"
                   >
                     <div className="text-3xl mb-3">{emoji}</div>
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-accent transition-colors">{guide.title}</h3>
+                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-primary transition-colors">{guide.title}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-3">{guide.intro}</p>
-                    <p className="text-sm font-bold text-accent">Lire →</p>
+                    <p className="text-sm font-bold text-primary">Lire →</p>
                   </Link>
                 ))}
               </div>
@@ -122,7 +122,7 @@ export default function GuidesPage() {
               <Link
                 key={bk.id}
                 href={`/bookmaker/${bk.slug}`}
-                className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md"
+                className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
               >
                 <div>
                   <p className="font-bold text-gray-900 dark:text-gray-100">{bk.name}</p>

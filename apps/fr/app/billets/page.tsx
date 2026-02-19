@@ -254,7 +254,7 @@ export default function BilletsPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
-            <li><Link href="/" className="hover:text-accent">Accueil</Link></li>
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Billets CDM 2026</li>
           </ol>
@@ -280,7 +280,7 @@ export default function BilletsPage() {
                 href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-lg"
               >
                 🎟️ Acheter sur FIFA.com (officiel)
               </a>
@@ -440,18 +440,18 @@ export default function BilletsPage() {
             ].map((step) => (
               <div
                 key={step.step}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:border-accent/40 hover:shadow-sm transition-all"
+                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:border-primary/30 hover:shadow-sm transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center font-extrabold text-sm shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-extrabold text-sm shrink-0">
                     {step.step}
                   </div>
                   <span className="text-xl">{step.icon}</span>
                   <h3 className="font-bold text-gray-900 dark:text-white text-sm">{step.title}</h3>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">{step.desc}</p>
-                <div className="rounded-lg bg-accent/5 dark:bg-accent/10 border border-accent/20 p-2.5">
-                  <p className="text-xs text-accent font-medium">💡 {step.tip}</p>
+                <div className="rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/20 p-2.5">
+                  <p className="text-xs text-primary font-medium">💡 {step.tip}</p>
                 </div>
               </div>
             ))}
@@ -462,7 +462,7 @@ export default function BilletsPage() {
               href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-bold text-white text-lg shadow-lg shadow-accent/30 hover:bg-accent/90 hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-bold text-white text-lg shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all"
             >
               🎟️ Aller sur fifa.com/tickets →
             </a>
@@ -495,7 +495,7 @@ export default function BilletsPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white">{phase.phase}</h3>
-                  <p className="text-sm text-accent font-medium mb-1">📅 {phase.period}</p>
+                  <p className="text-sm text-primary font-medium mb-1">📅 {phase.period}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">{phase.desc}</p>
                 </div>
               </div>
@@ -609,7 +609,7 @@ export default function BilletsPage() {
             <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
               <li>• Signalez immédiatement à votre banque pour bloquer le paiement (chargeback)</li>
               <li>• Déposez plainte auprès de votre service de police local</li>
-              <li>• Signalez le site sur <a href="https://www.signal-spam.fr" target="_blank" rel="noopener noreferrer" className="text-accent underline">Signal-Spam</a> (France)</li>
+              <li>• Signalez le site sur <a href="https://www.signal-spam.fr" target="_blank" rel="noopener noreferrer" className="text-primary underline">Signal-Spam</a> (France)</li>
               <li>• Contactez la FIFA via fifa.com/contact</li>
             </ul>
           </div>
@@ -630,7 +630,7 @@ export default function BilletsPage() {
                 className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
               >
                 <details className="group">
-                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-accent transition-colors list-none">
+                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
                     <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform">
                       ▼
@@ -662,7 +662,7 @@ export default function BilletsPage() {
                 href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-accent px-8 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg"
+                className="rounded-lg bg-accent px-8 py-3 font-bold text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-lg"
               >
                 Acheter sur FIFA.com →
               </a>

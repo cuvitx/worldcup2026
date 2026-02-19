@@ -531,7 +531,7 @@ export default function PalmaresPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
@@ -551,7 +551,7 @@ export default function PalmaresPage() {
           <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
             Coupe du Monde FIFA
           </p>
-          <h1 className="text-4xl font-extrabold sm:text-6xl mb-4">
+          <h1 className="text-2xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
             🏆 Palmarès Historique
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -603,7 +603,7 @@ export default function PalmaresPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-center">
                   <div className="rounded-lg bg-white dark:bg-slate-700 py-2">
-                    <div className="text-2xl font-extrabold text-accent">
+                    <div className="text-2xl font-extrabold text-primary">
                       {cr.titles}
                     </div>
                     <div className="text-xs text-gray-500">titre{cr.titles > 1 ? "s" : ""}</div>
@@ -619,7 +619,7 @@ export default function PalmaresPage() {
                   {cr.years.map((y) => (
                     <span
                       key={y}
-                      className="rounded bg-accent/10 dark:bg-accent/20 px-2 py-0.5 text-xs font-semibold text-accent"
+                      className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-0.5 text-xs font-semibold text-primary"
                     >
                       {y}
                     </span>
@@ -642,18 +642,18 @@ export default function PalmaresPage() {
           {/* Timeline visual */}
           <div className="relative">
             {/* Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-primary to-accent hidden sm:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary to-primary hidden sm:block" />
             <div className="space-y-3 sm:pl-20">
               {editions.map((ed) => (
                 <div
                   key={ed.year}
-                  className="group relative rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-4 shadow-sm hover:border-accent hover:shadow-md transition-all"
+                  className="group relative rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-4 shadow-sm hover:border-primary/30 hover:shadow-md transition-all"
                 >
                   {/* Dot on timeline */}
-                  <div className="absolute left-[26px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-accent bg-white dark:bg-slate-800 hidden sm:block group-hover:bg-accent transition-colors" />
+                  <div className="absolute left-[26px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-primary/20 bg-white dark:bg-slate-800 hidden sm:block group-hover:bg-primary transition-colors" />
                   <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 items-center">
                     <div className="col-span-2 sm:col-span-1">
-                      <span className="text-2xl font-extrabold text-accent">{ed.year}</span>
+                      <span className="text-2xl font-extrabold text-primary">{ed.year}</span>
                       <div className="text-xs text-gray-500 flex items-center gap-1">
                         <span>{ed.hostFlag}</span>
                         <span>{ed.host}</span>
@@ -723,7 +723,7 @@ export default function PalmaresPage() {
                       key={ed.year}
                       className="hover:bg-gray-50 dark:hover:bg-slate-700/40 transition-colors"
                     >
-                      <td className="px-4 py-3 font-bold text-accent">
+                      <td className="px-4 py-3 font-bold text-primary">
                         {ed.year}
                       </td>
                       <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
@@ -773,7 +773,7 @@ export default function PalmaresPage() {
             {records.map((rec) => (
               <div
                 key={rec.label}
-                className="rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-accent transition-colors"
+                className="rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-primary/30 transition-colors"
               >
                 <div className="text-3xl mb-3">{rec.icon}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
@@ -789,7 +789,7 @@ export default function PalmaresPage() {
         </section>
 
         {/* ── Section "Et en 2026 ?" ────────────────────────────── */}
-        <section className="rounded-2xl bg-gradient-to-br from-primary to-accent text-white p-8 text-center shadow-xl">
+        <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
           <h2 className="text-3xl font-extrabold mb-3">
             🌟 Et en 2026 ?
           </h2>

@@ -10,7 +10,7 @@ export function GroupCard({ group, teams }: GroupCardProps) {
   return (
     <Link
       href={`/groupe/${group.slug}`}
-      className="block rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm transition-all hover:shadow-md hover:border-accent/40 hover:-translate-y-0.5"
+      className="block rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm transition-all hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5"
     >
       <h3 className="mb-4 text-base font-bold text-primary dark:text-white">
         Groupe {group.letter}

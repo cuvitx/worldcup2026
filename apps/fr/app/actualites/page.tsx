@@ -17,7 +17,7 @@ const categoryColors: Record<NewsCategory, string> = {
   stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   billets: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
   equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
+  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
 };
 
 function formatDate(dateStr: string) {
@@ -62,7 +62,7 @@ export default function ActualitesPage() {
       {/* Breadcrumb */}
       <nav aria-label="Fil d'Ariane" className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Actualités</li>
@@ -89,7 +89,7 @@ export default function ActualitesPage() {
           className="group block rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
         >
           <div className="grid md:grid-cols-[1fr_1fr] gap-0">
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 dark:from-primary/20 dark:to-accent/20 flex items-center justify-center p-12">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/10 dark:from-primary/20 dark:to-primary/20 flex items-center justify-center p-12">
               <span className="text-4xl sm:text-8xl">{featured.imageEmoji}</span>
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center">
@@ -107,7 +107,7 @@ export default function ActualitesPage() {
               <p className="text-gray-600 dark:text-gray-300 line-clamp-3 mb-4">
                 {featured.excerpt}
               </p>
-              <span className="text-sm font-bold text-accent">Lire l&apos;article →</span>
+              <span className="text-sm font-bold text-primary">Lire l&apos;article →</span>
             </div>
           </div>
         </Link>

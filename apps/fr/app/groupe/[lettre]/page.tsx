@@ -51,7 +51,7 @@ export default async function GroupPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/groupes" className="hover:text-primary">Groupes</Link></li>
@@ -95,7 +95,7 @@ export default async function GroupPage({ params }: PageProps) {
                         <td className="py-3">
                           <Link
                             href={`/equipe/${team.slug}`}
-                            className="flex items-center gap-2 font-medium hover:text-accent"
+                            className="flex items-center gap-2 font-medium hover:text-primary"
                           >
                             <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             {team.name}
@@ -126,7 +126,7 @@ export default async function GroupPage({ params }: PageProps) {
                   {groupTeams.map((t, i) => (
                     <span key={t.id}>
                       {i > 0 && (i === groupTeams.length - 1 ? " et " : ", ")}
-                      <Link href={`/equipe/${t.slug}`} className="text-accent hover:underline font-medium">
+                      <Link href={`/equipe/${t.slug}`} className="text-primary hover:underline font-medium">
                         {t.name}
                       </Link>
                       {" "}({t.confederation}, #{t.fifaRanking})
@@ -153,15 +153,15 @@ export default async function GroupPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
-                        <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                        <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
-                        <span className="text-xs text-gray-500">vs</span>
-                        <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
-                        <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-                        <span className="text-xs text-gray-500 w-12 text-right shrink-0">{match.time}</span>
+                        <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
+                        <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
+                        <span className="text-xs text-gray-500 shrink-0">vs</span>
+                        <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
+                        <span className="text-xs text-gray-500 w-10 text-right shrink-0">{match.time}</span>
                       </Link>
                     );
                   })}
@@ -178,7 +178,7 @@ export default async function GroupPage({ params }: PageProps) {
                     <Link
                       key={`${team1.id}-${team2.id}`}
                       href={`/h2h/${team1.slug}-vs-${team2.slug}`}
-                      className="flex items-center justify-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-4 text-center transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center justify-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-4 text-center transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
                       <span className="font-semibold">{team1.name}</span>
@@ -204,8 +204,8 @@ export default async function GroupPage({ params }: PageProps) {
                     href={`/groupe/${g.slug}`}
                     className={`rounded-lg border p-2 text-center text-sm font-medium transition-colors ${
                       g.letter === group.letter
-                        ? "border-accent bg-accent text-white"
-                        : "border-gray-200 dark:border-slate-700 hover:border-accent hover:text-accent"
+                        ? "border-primary/20 bg-primary text-white"
+                        : "border-gray-200 dark:border-slate-700 hover:border-primary/30 hover:text-primary"
                     }`}
                   >
                     {g.letter}
@@ -215,8 +215,8 @@ export default async function GroupPage({ params }: PageProps) {
             </div>
 
             {/* Pronostic Groupe CTA */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
+            <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
+              <h3 className="mb-2 text-lg font-bold text-primary">
                 Pronostics Groupe {group.letter}
               </h3>
               <p className="text-sm text-gray-600 mb-3">
@@ -224,7 +224,7 @@ export default async function GroupPage({ params }: PageProps) {
               </p>
               <Link
                 href={`/pronostic-groupe/${lettre}`}
-                className="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
               >
                 Voir le pronostic Groupe {group.letter} &rarr;
               </Link>

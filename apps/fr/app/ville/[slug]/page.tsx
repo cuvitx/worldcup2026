@@ -64,7 +64,7 @@ export default async function CityPage({ params }: PageProps) {
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Villes",url:"/villes"},{name:city.name,url:"/ville/"+city.slug}]} baseUrl={domains.fr} />
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/villes" className="hover:text-primary">Villes</Link></li>
@@ -96,7 +96,7 @@ export default async function CityPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{city.description}</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed break-words">{city.description}</p>
             </section>
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
@@ -108,7 +108,7 @@ export default async function CityPage({ params }: PageProps) {
                   <Link
                     key={stadium.id}
                     href={`/stade/${stadium.slug}`}
-                    className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-slate-700 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-slate-700 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <div>
                       <p className="font-semibold">{stadium.name}</p>
@@ -117,7 +117,7 @@ export default async function CityPage({ params }: PageProps) {
                         Toit {stadium.roofType === "retractable" ? "rétractable" : stadium.roofType === "fixed" ? "fixe" : "ouvert"}
                       </p>
                     </div>
-                    <span className="text-accent">&rarr;</span>
+                    <span className="text-primary">&rarr;</span>
                   </Link>
                 ))}
               </div>
@@ -137,15 +137,15 @@ export default async function CityPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
-                        <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-lg" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳️"}</span>
-                        <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
-                        <span className="text-xs text-gray-500">vs</span>
-                        <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
-                        <span className="text-lg" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳️"}</span>
-                        <span className="rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary shrink-0">
+                        <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳️"}</span>
+                        <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
+                        <span className="text-xs text-gray-500 shrink-0">vs</span>
+                        <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳️"}</span>
+                        <span className="hidden sm:inline rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
                       </Link>
@@ -297,7 +297,7 @@ export default async function CityPage({ params }: PageProps) {
                   .slice(0, 6)
                   .map((c) => (
                     <li key={c.id}>
-                      <Link href={`/ville/${c.slug}`} className="hover:text-accent">
+                      <Link href={`/ville/${c.slug}`} className="hover:text-primary">
                         {c.name} ({c.country})
                       </Link>
                     </li>
@@ -305,8 +305,8 @@ export default async function CityPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">Hôtels à {city.name}</h3>
+            <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
+              <h3 className="mb-2 text-lg font-bold text-primary">Hôtels à {city.name}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Trouvez les meilleurs hôtels près des stades pour la Coupe du Monde 2026.
               </p>

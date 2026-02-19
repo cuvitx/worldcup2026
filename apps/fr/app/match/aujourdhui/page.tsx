@@ -22,7 +22,7 @@ export default function AujourdhuiPage() {
     <>
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -63,9 +63,9 @@ export default function AujourdhuiPage() {
                 <Link
                   key={match.id}
                   href={`/match/${match.slug}`}
-                  className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                  className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                 >
-                  <span className="text-sm font-semibold text-accent w-14 text-center shrink-0">
+                  <span className="text-sm font-semibold text-primary w-14 text-center shrink-0">
                     {match.time}
                   </span>
                   <div className="flex items-center gap-2 flex-1 min-w-0">
@@ -113,7 +113,7 @@ export default function AujourdhuiPage() {
                   <p className="text-sm text-gray-500 mb-3">Prochain match :</p>
                   <Link
                     href={`/match/${nextMatch.slug}`}
-                    className="inline-block rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-6 py-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="inline-block rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-6 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <p className="text-sm text-gray-500 mb-1">
                       {matchDate} a {nextMatch.time} UTC

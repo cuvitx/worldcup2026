@@ -231,7 +231,7 @@ const CONFEDERATION_COLORS: Record<string, { bg: string; border: string; label: 
   UEFA: { bg: "bg-primary", border: "border-primary/60", label: "UEFA (Europe)" },
   CONMEBOL: { bg: "bg-field", border: "border-field/60", label: "CONMEBOL (Amérique du Sud)" },
   CONCACAF: { bg: "bg-amber-500", border: "border-amber-400", label: "CONCACAF (Amérique du Nord)" },
-  CAF: { bg: "bg-accent", border: "border-accent/60", label: "CAF (Afrique)" },
+  CAF: { bg: "bg-primary", border: "border-primary/20", label: "CAF (Afrique)" },
   AFC: { bg: "bg-secondary", border: "border-secondary/60", label: "AFC (Asie)" },
   OFC: { bg: "bg-teal-500", border: "border-teal-400", label: "OFC (Océanie)" },
 };
@@ -363,7 +363,7 @@ export default function PronosticVainqueurPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
-            <li><Link href="/" className="hover:text-accent">Accueil</Link></li>
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Pronostic vainqueur</li>
           </ol>
@@ -386,10 +386,10 @@ export default function PronosticVainqueurPage() {
             Le classement qui dérange — mis à jour en temps réel.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm">
-            <a href="#top10" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all">
+            <a href="#top10" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all">
               🔥 Top 10 des favoris
             </a>
-            <a href="#analyse-top5" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
+            <a href="#analyse-top5" className="rounded-lg border border-primary/20 bg-primary/10 px-5 py-2.5 font-semibold text-primary hover:bg-primary/20 transition-all">
               💡 Pourquoi ils peuvent gagner
             </a>
             <a href="#cotes" className="rounded-lg border border-gold/30 bg-gold/10 px-5 py-2.5 font-semibold text-gold hover:bg-gold/20 transition-all">
@@ -513,7 +513,7 @@ export default function PronosticVainqueurPage() {
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                       index === 0 ? "bg-gold/20 text-gold border-2 border-gold/50" :
                       index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                      index === 2 ? "bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent" :
+                      index === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary" :
                       "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400"
                     }`}>
                       {index + 1}
@@ -524,7 +524,7 @@ export default function PronosticVainqueurPage() {
                     <div className="flex-1 min-w-0">
                       <Link
                         href={`/equipe/${team.slug}`}
-                        className="text-lg font-bold text-gray-900 dark:text-white hover:text-accent transition-colors"
+                        className="text-lg font-bold text-gray-900 dark:text-white hover:text-primary transition-colors"
                       >
                         {team.name}
                       </Link>
@@ -543,7 +543,7 @@ export default function PronosticVainqueurPage() {
 
                     {/* Stats */}
                     <div className="shrink-0 text-right hidden sm:block">
-                      <p className="text-2xl font-extrabold text-accent">
+                      <p className="text-2xl font-extrabold text-primary">
                         {winPct < 1 ? "<1" : winPct}%
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">chance titre</p>
@@ -565,7 +565,7 @@ export default function PronosticVainqueurPage() {
                   {fav && (
                     <div className="flex items-center gap-2 px-5 pb-2 flex-wrap">
                       <span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide">Cotes réelles :</span>
-                      <span className="inline-flex items-center gap-1 rounded bg-accent/10 dark:bg-accent/20 border border-accent/20 dark:border-accent/30 px-2 py-0.5 text-xs font-bold text-accent dark:text-accent">
+                      <span className="inline-flex items-center gap-1 rounded bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/20 px-2 py-0.5 text-xs font-bold text-primary dark:text-secondary">
                         Winamax {fav.winamax.toFixed(2)}
                       </span>
                       <span className="inline-flex items-center gap-1 rounded bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/50 px-2 py-0.5 text-xs font-bold text-teal-600 dark:text-teal-400">
@@ -575,7 +575,7 @@ export default function PronosticVainqueurPage() {
                         DraftKings {fav.draftkings.toFixed(2)}
                       </span>
                       {impliedPct !== null && (
-                        <span className="ml-auto inline-flex items-center gap-1 rounded bg-accent/10 border border-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
+                        <span className="ml-auto inline-flex items-center gap-1 rounded bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-bold text-primary">
                           Proba : {impliedPct}%
                         </span>
                       )}
@@ -584,7 +584,7 @@ export default function PronosticVainqueurPage() {
 
                   {/* Mobile: chance titre */}
                   <div className="flex sm:hidden items-center gap-4 px-5 pb-3">
-                    <span className="text-xl font-extrabold text-accent">{winPct < 1 ? "<1" : winPct}%</span>
+                    <span className="text-xl font-extrabold text-primary">{winPct < 1 ? "<1" : winPct}%</span>
                     <span className="text-sm text-gray-500 dark:text-gray-400">chance de gagner le titre</span>
                   </div>
 
@@ -593,7 +593,7 @@ export default function PronosticVainqueurPage() {
                     <div className="flex items-center gap-3">
                       <div className="flex-1 h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-accent to-gold rounded-full transition-all"
+                          className="h-full bg-gradient-to-r from-primary to-gold rounded-full transition-all"
                           style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                         />
                       </div>
@@ -666,7 +666,7 @@ export default function PronosticVainqueurPage() {
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                       index === 0 ? "bg-gold/20 text-gold border-2 border-gold/50" :
                       index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                      index === 2 ? "bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent" :
+                      index === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary" :
                       "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400"
                     }`}>
                       {index + 1}
@@ -677,7 +677,7 @@ export default function PronosticVainqueurPage() {
                         {team.name}
                       </h3>
                       <div className="flex items-center gap-3 mt-0.5 flex-wrap">
-                        <span className="text-sm text-accent font-bold">{winPct}% de chance de titre</span>
+                        <span className="text-sm text-primary font-bold">{winPct}% de chance de titre</span>
                         <span className="text-sm text-gold font-bold">Cote {analysis.betOdds}</span>
                         <span className="text-xs text-gray-500 dark:text-gray-400">{team.bestResult}</span>
                       </div>
@@ -743,7 +743,7 @@ export default function PronosticVainqueurPage() {
           {/* Stats globales */}
           <div className="grid sm:grid-cols-3 gap-4 mb-6">
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 text-center">
-              <p className="text-4xl font-extrabold text-accent mb-1">{homeWins}</p>
+              <p className="text-4xl font-extrabold text-primary mb-1">{homeWins}</p>
               <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">pays hôtes vainqueurs</p>
               <p className="text-xs text-gray-400 mt-1">sur {totalEditions} éditions depuis 1930</p>
             </div>
@@ -785,7 +785,7 @@ export default function PronosticVainqueurPage() {
 
           {/* Timeline complète (compacte) */}
           <details className="group">
-            <summary className="cursor-pointer flex items-center gap-2 text-sm font-semibold text-accent hover:underline list-none mb-4">
+            <summary className="cursor-pointer flex items-center gap-2 text-sm font-semibold text-primary hover:underline list-none mb-4">
               <span className="group-open:rotate-90 transition-transform inline-block">▶</span>
               Voir l&apos;historique complet ({totalEditions} éditions)
             </summary>
@@ -847,7 +847,7 @@ export default function PronosticVainqueurPage() {
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xl">{host.flag}</span>
                     <span className="font-bold text-sm text-gray-900 dark:text-white">{host.name}</span>
-                    <span className="ml-auto text-xs font-bold text-accent">{host.chance}</span>
+                    <span className="ml-auto text-xs font-bold text-primary">{host.chance}</span>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">{host.note}</p>
                 </div>
@@ -914,7 +914,7 @@ export default function PronosticVainqueurPage() {
                   <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#00A0A0]">Bet365</th>
                   <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#53B648]">DraftKings</th>
                   <th className="text-center px-4 py-3 font-bold text-gold whitespace-nowrap">Moy. marché</th>
-                  <th className="text-center px-4 py-3 font-bold text-accent whitespace-nowrap">Proba.</th>
+                  <th className="text-center px-4 py-3 font-bold text-primary whitespace-nowrap">Proba.</th>
                   <th className="text-center px-4 py-3 font-bold text-gray-500 dark:text-gray-400 whitespace-nowrap">Tendance</th>
                 </tr>
               </thead>
@@ -938,7 +938,7 @@ export default function PronosticVainqueurPage() {
                       key={fav.teamId}
                       className={`border-t border-gray-100 dark:border-slate-700/50 ${
                         i % 2 === 0 ? "bg-white dark:bg-slate-800/50" : "bg-gray-50/50 dark:bg-slate-800"
-                      } hover:bg-accent/5 dark:hover:bg-accent/10 transition-colors`}
+                      } hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors`}
                     >
                       {/* Team */}
                       <td className="px-4 py-3">
@@ -946,11 +946,11 @@ export default function PronosticVainqueurPage() {
                           <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
                             i === 0 ? "bg-gold/20 text-gold" :
                             i === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                            i === 2 ? "bg-accent/10 dark:bg-accent/20 text-accent" :
+                            i === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary" :
                             "bg-gray-100 dark:bg-slate-700 text-gray-500"
                           }`}>{i + 1}</span>
                           <span className="text-xl">{team.flag}</span>
-                          <Link href={`/equipe/${team.slug}`} className="font-medium text-gray-900 dark:text-white hover:text-accent transition-colors">
+                          <Link href={`/equipe/${team.slug}`} className="font-medium text-gray-900 dark:text-white hover:text-primary transition-colors">
                             {team.name}
                           </Link>
                         </div>
@@ -980,10 +980,10 @@ export default function PronosticVainqueurPage() {
                       {/* Proba implicite */}
                       <td className="px-4 py-3 text-center">
                         <div className="flex flex-col items-center gap-1">
-                          <span className="font-bold text-accent text-sm">{impliedPct}%</span>
+                          <span className="font-bold text-primary text-sm">{impliedPct}%</span>
                           <div className="w-16 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-gradient-to-r from-accent to-gold rounded-full"
+                              className="h-full bg-gradient-to-r from-primary to-gold rounded-full"
                               style={{ width: `${Math.min(impliedPct * 5, 100)}%` }}
                             />
                           </div>
@@ -1023,13 +1023,13 @@ export default function PronosticVainqueurPage() {
                 rel="noopener noreferrer sponsored nofollow"
                 className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-md ${
                   bm.highlight
-                    ? "border-accent/40 bg-accent/5 dark:bg-accent/10"
+                    ? "border-primary/20 bg-primary/5 dark:bg-primary/10"
                     : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                 }`}
               >
                 <div>
                   <p className="font-bold text-gray-900 dark:text-white">{bm.name}</p>
-                  <p className="text-sm text-accent font-semibold">{bm.bonus}</p>
+                  <p className="text-sm text-primary font-semibold">{bm.bonus}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">{bm.bonusDetail}</p>
                 </div>
                 <div className="text-right">
@@ -1064,12 +1064,12 @@ export default function PronosticVainqueurPage() {
                 <Link
                   key={team.id}
                   href={`/equipe/${team.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-3xl">{team.flag}</span>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                      <p className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                         {team.name}
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">#{team.fifaRanking} FIFA · ELO {pred.eloRating}</p>
@@ -1077,7 +1077,7 @@ export default function PronosticVainqueurPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-2 mt-3">
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
-                      <p className="text-lg font-bold text-accent">{winPct}%</p>
+                      <p className="text-lg font-bold text-primary">{winPct}%</p>
                       <p className="text-[10px] text-gray-500 dark:text-gray-400">chance titre</p>
                     </div>
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
@@ -1136,7 +1136,7 @@ export default function PronosticVainqueurPage() {
             </div>
             <Link
               href="/methodologie"
-              className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+              className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
             >
               Lire notre méthodologie complète →
             </Link>
@@ -1158,7 +1158,7 @@ export default function PronosticVainqueurPage() {
                 className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
               >
                 <details className="group">
-                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-accent transition-colors list-none">
+                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
                     <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform">
                       ▼
@@ -1181,7 +1181,7 @@ export default function PronosticVainqueurPage() {
       <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/comparateur-cotes" className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-md">
+            <Link href="/comparateur-cotes" className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-md">
               📊 Comparer toutes les cotes
             </Link>
             <Link href="/equipe-de-france" className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 dark:border-secondary/40 bg-secondary/5 dark:bg-secondary/10 px-6 py-3 font-semibold text-secondary dark:text-secondary hover:-translate-y-0.5 transition-all">

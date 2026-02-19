@@ -64,7 +64,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-gray-400 dark:bg-slate-900">
       {/* Top accent line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
       <div className="mx-auto max-w-7xl px-4 pt-12 pb-6">
 
@@ -183,7 +183,7 @@ export function Footer() {
               <Link
                 key={g}
                 href={`/groupe/${g.toLowerCase()}`}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/8 text-sm font-bold hover:bg-accent/20 hover:border-accent/40 hover:text-white transition-all"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/8 text-sm font-bold hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-all"
               >
                 {g}
               </Link>

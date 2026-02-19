@@ -96,7 +96,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           aria-label="Votre adresse email"
           required
           disabled={status === 'loading'}
-          className={`flex-1 rounded-lg border bg-white dark:bg-gray-800 px-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-accent/50 disabled:opacity-60 ${
+          className={`flex-1 rounded-lg border bg-white dark:bg-gray-800 px-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
             status === 'error' || status === 'duplicate'
               ? 'border-red-300 dark:border-red-700'
               : 'border-gray-300 dark:border-gray-600'
@@ -105,7 +105,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className={`shrink-0 rounded-lg bg-accent font-bold text-white shadow-md shadow-accent/30 transition-all hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-wait ${
+          className={`shrink-0 rounded-lg bg-primary font-bold text-white shadow-md shadow-primary/30 transition-all hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-wait ${
             compact ? 'px-4 py-2 text-sm' : 'px-6 py-3 text-base'
           }`}
         >

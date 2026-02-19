@@ -93,7 +93,7 @@ export default function JeuResponsablePage() {
 
       <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -260,7 +260,7 @@ export default function JeuResponsablePage() {
                       href={r.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-semibold text-accent hover:underline"
+                      className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"
                     >
                       🌐 {r.url.replace("https://www.", "")}
                     </a>
@@ -310,7 +310,7 @@ export default function JeuResponsablePage() {
                     href="https://www.anj.fr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:underline"
+                    className="text-primary hover:underline"
                   >
                     anj.fr
                   </a>
@@ -345,7 +345,7 @@ export default function JeuResponsablePage() {
           </section>
 
           {/* Rappel final */}
-          <div className="rounded-xl border-2 border-accent/30 bg-accent/5 p-6 text-center">
+          <div className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6 text-center">
             <p className="text-lg font-bold text-gray-900 dark:text-white">
               Les jeux d&apos;argent sont interdits aux mineurs.
             </p>

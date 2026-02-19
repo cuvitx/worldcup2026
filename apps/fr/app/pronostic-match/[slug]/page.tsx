@@ -149,15 +149,15 @@ export default async function PronosticMatchPage({ params }: PageProps) {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2.5">
-          <ol className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-accent transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
               </Link>
             </li>
             <li className="text-gray-300 dark:text-gray-600">/</li>
             <li>
-              <Link href="/match/calendrier" className="hover:text-accent transition-colors">
+              <Link href="/match/calendrier" className="hover:text-primary transition-colors">
                 Calendrier
               </Link>
             </li>
@@ -353,7 +353,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
                   <div className="text-center">
                     <span className="text-3xl">{home?.flag ?? "🏳️"}</span>
                     <p className="text-sm font-bold mt-1">{homeName}</p>
-                    <p className="text-2xl font-extrabold text-accent mt-1">
+                    <p className="text-2xl font-extrabold text-primary mt-1">
                       {Math.round(prediction.team1WinProb * 100)}%
                     </p>
                   </div>
@@ -374,7 +374,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
                 {/* Visual stacked bar */}
                 <div className="w-full h-4 rounded-full flex overflow-hidden gap-0.5 shadow-inner bg-gray-100 dark:bg-gray-700">
                   <div
-                    className="h-full bg-accent rounded-l-full transition-all duration-700"
+                    className="h-full bg-primary rounded-l-full transition-all duration-700"
                     style={{ width: `${Math.round(prediction.team1WinProb * 100)}%` }}
                     title={`${homeName}: ${Math.round(prediction.team1WinProb * 100)}%`}
                   />
@@ -531,7 +531,7 @@ function StatDuelRow({
     <div>
       <div className="flex items-center justify-between mb-1.5">
         <span
-          className={`text-sm font-bold ${homeIsBetter ? "text-accent" : "text-gray-700 dark:text-gray-300"}`}
+          className={`text-sm font-bold ${homeIsBetter ? "text-primary" : "text-gray-700 dark:text-gray-300"}`}
         >
           {home}{suffix}
         </span>
@@ -544,7 +544,7 @@ function StatDuelRow({
       </div>
       <div className="w-full h-2 rounded-full flex overflow-hidden gap-0.5">
         <div
-          className={`h-full rounded-l-full transition-all duration-700 ${homeIsBetter ? "bg-accent" : "bg-gray-300 dark:bg-gray-600"}`}
+          className={`h-full rounded-l-full transition-all duration-700 ${homeIsBetter ? "bg-primary" : "bg-gray-300 dark:bg-gray-600"}`}
           style={{ width: `${homePct}%` }}
         />
         <div

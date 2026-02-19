@@ -108,7 +108,7 @@ export default function PronosticHubPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
-            <li><Link href="/" className="hover:text-accent">Accueil</Link></li>
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Pronostics</li>
           </ol>
@@ -147,7 +147,7 @@ export default function PronosticHubPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 text-sm">
-            <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/90 transition-all">
+            <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-primary/90 transition-all">
               🏆 Pronostic vainqueur
             </a>
             <a href="#groupes" className="rounded-lg border border-gold/30 bg-gold/10 px-5 py-2.5 font-semibold text-gold hover:bg-gold/20 transition-all">
@@ -193,7 +193,7 @@ export default function PronosticHubPage() {
                 Top 5 favoris selon notre modèle ELO
               </p>
             </div>
-            <Link href="/pronostic-vainqueur" className="ml-auto text-sm font-semibold text-accent hover:underline shrink-0">
+            <Link href="/pronostic-vainqueur" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
               Analyse complète →
             </Link>
           </div>
@@ -217,17 +217,17 @@ export default function PronosticHubPage() {
                     </span>
                   )}
                   <span className="text-3xl block mb-2">{team.flag}</span>
-                  <p className="font-bold text-sm text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                  <p className="font-bold text-sm text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                     {team.name}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">#{index + 1} mondial</p>
                   <div className="mt-2 flex items-center justify-between text-xs">
-                    <span className="text-accent font-bold">{winPct}%</span>
+                    <span className="text-primary font-bold">{winPct}%</span>
                     <span className="text-gold font-bold">{odds}</span>
                   </div>
                   <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-accent to-gold rounded-full"
+                      className="h-full bg-gradient-to-r from-primary to-gold rounded-full"
                       style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                     />
                   </div>
@@ -239,7 +239,7 @@ export default function PronosticHubPage() {
           <div className="text-center">
             <Link
               href="/pronostic-vainqueur"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-8 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-8 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
               🎯 Voir le pronostic vainqueur complet (Top 10 + dark horses)
             </Link>
@@ -278,7 +278,7 @@ export default function PronosticHubPage() {
                 <Link
                   key={group.slug}
                   href={`/pronostic-groupe/${group.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-primary to-secondary dark:from-slate-900 dark:to-slate-800 text-white">
@@ -306,7 +306,7 @@ export default function PronosticHubPage() {
                           <span className="text-base shrink-0">{team.flag}</span>
                           <span className="flex-1 font-medium truncate">{team.name}</span>
                           {i < 2 && (
-                            <span className="text-accent font-bold shrink-0">{winPct}%</span>
+                            <span className="text-primary font-bold shrink-0">{winPct}%</span>
                           )}
                         </div>
                       );
@@ -339,7 +339,7 @@ export default function PronosticHubPage() {
                 Analyses détaillées des affiches les plus attendues
               </p>
             </div>
-            <Link href="/pronostic-match" className="ml-auto text-sm font-semibold text-accent hover:underline shrink-0">
+            <Link href="/pronostic-match" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
               Tous les matchs →
             </Link>
           </div>
@@ -354,7 +354,7 @@ export default function PronosticHubPage() {
                 <Link
                   key={match.id}
                   href={`/pronostic-match/${match.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   <div className="flex items-center gap-2 mb-2">
                     {match.group && (
@@ -363,7 +363,7 @@ export default function PronosticHubPage() {
                       </span>
                     )}
                     {match.stage && match.stage !== "group" && (
-                      <span className="text-[10px] bg-accent/10 text-accent px-2 py-0.5 rounded font-bold">
+                      <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">
                         {match.stage.replace("-", " ").toUpperCase()}
                       </span>
                     )}
@@ -371,7 +371,7 @@ export default function PronosticHubPage() {
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
                       <span className="text-2xl shrink-0">{home.flag}</span>
-                      <span className="text-sm font-bold text-gray-900 dark:text-white truncate group-hover:text-accent transition-colors">
+                      <span className="text-sm font-bold text-gray-900 dark:text-white truncate group-hover:text-primary transition-colors">
                         {home.name}
                       </span>
                     </div>
@@ -393,7 +393,7 @@ export default function PronosticHubPage() {
                     {match.time ? ` · ${match.time.slice(0, 5)}` : ""}
                   </p>
                   <div className="mt-3 flex items-center justify-between">
-                    <span className="text-xs text-accent font-semibold group-hover:underline">
+                    <span className="text-xs text-primary font-semibold group-hover:underline">
                       Voir le pronostic →
                     </span>
                     <span className="text-[10px] text-gray-400">Analyse IA + ELO</span>
@@ -406,7 +406,7 @@ export default function PronosticHubPage() {
           <div className="mt-6 text-center">
             <Link
               href="/pronostic-match"
-              className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-3 font-semibold text-gray-700 dark:text-gray-200 hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-3 font-semibold text-gray-700 dark:text-gray-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
               📋 Voir tous les pronostics matchs
             </Link>
@@ -478,7 +478,7 @@ export default function PronosticHubPage() {
           <p className="text-xs text-gray-400 dark:text-gray-500 text-center leading-relaxed max-w-3xl mx-auto">
             📌 Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
             Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}
-            <Link href="/jeu-responsable" className="underline hover:text-accent">Jeu responsable — 18+</Link>
+            <Link href="/jeu-responsable" className="underline hover:text-primary">Jeu responsable — 18+</Link>
           </p>
         </div>
       </section>

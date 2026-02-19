@@ -65,7 +65,7 @@ export default async function GuidePage({ params }: PageProps) {
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Guides",url:"/guides"},{name:guide.title,url:"/guide/"+guide.slug}]} baseUrl={domains.fr} />
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/guides" className="hover:text-primary">Guides</Link></li>
@@ -104,7 +104,7 @@ export default async function GuidePage({ params }: PageProps) {
 
                 {/* CTA between sections */}
                 {(i + 1) % ctaInterval === 0 && i < guide.sections.length - 1 && (
-                  <div className="my-6 rounded-xl bg-gradient-to-r from-accent/5 to-primary/5 dark:from-accent/10 dark:to-primary/10 border border-accent/20 p-5 flex flex-col sm:flex-row items-center gap-4">
+                  <div className="my-6 rounded-xl bg-gradient-to-r from-primary/5 to-primary/5 dark:from-primary/10 dark:to-primary/10 border border-primary/20 p-5 flex flex-col sm:flex-row items-center gap-4">
                     <div className="flex-1">
                       <p className="font-bold text-gray-900 dark:text-gray-100">🎯 Prêt à parier ?</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{featuredBookmaker.bonus} chez {featuredBookmaker.name}</p>
@@ -113,7 +113,7 @@ export default async function GuidePage({ params }: PageProps) {
                       href={featuredBookmaker.url}
                       target="_blank"
                       rel="noopener noreferrer sponsored nofollow"
-                      className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                      className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
                     >
                       Voir l&apos;offre →
                     </a>
@@ -159,7 +159,7 @@ export default async function GuidePage({ params }: PageProps) {
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
-                            isFeatured ? "bg-gold hover:bg-gold/90" : "bg-accent hover:bg-accent/90"
+                            isFeatured ? "bg-gold hover:bg-gold/90" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
                           Parier
@@ -183,7 +183,7 @@ export default async function GuidePage({ params }: PageProps) {
                     <Link
                       key={rg.id}
                       href={`/guide/${rg.slug}`}
-                      className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md"
+                      className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
                     >
                       <h3 className="font-semibold mb-1 text-gray-900 dark:text-gray-100">{rg.title}</h3>
                       <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{rg.metaDescription}</p>
@@ -205,7 +205,7 @@ export default async function GuidePage({ params }: PageProps) {
                       <Link
                         key={g.id}
                         href={`/guide/${g.slug}`}
-                        className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md"
+                        className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
                       >
                         <h3 className="font-semibold mb-1 text-gray-900 dark:text-gray-100">{g.title}</h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{g.metaDescription}</p>
@@ -229,9 +229,9 @@ export default async function GuidePage({ params }: PageProps) {
                     <li key={i}>
                       <a
                         href={`#section-${i}`}
-                        className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-accent transition-colors"
+                        className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                       >
-                        <span className="shrink-0 w-5 h-5 rounded-full bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">
+                        <span className="shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center mt-0.5">
                           {i + 1}
                         </span>
                         <span className="line-clamp-2">{section.title}</span>
@@ -242,8 +242,8 @@ export default async function GuidePage({ params }: PageProps) {
               </nav>
 
               {/* CTA */}
-              <div className="rounded-xl bg-accent/5 dark:bg-accent/10 border border-accent/20 p-5">
-                <h3 className="mb-2 text-lg font-bold text-accent">Commencer a parier</h3>
+              <div className="rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20 p-5">
+                <h3 className="mb-2 text-lg font-bold text-primary">Commencer a parier</h3>
                 <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
                   Profitez des bonus de bienvenue pour la CDM 2026.
                 </p>
@@ -251,7 +251,7 @@ export default async function GuidePage({ params }: PageProps) {
                   href={featuredBookmaker.url}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
-                  className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                  className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
                 >
                   {featuredBookmaker.bonus} sur {featuredBookmaker.name}
                 </a>
@@ -267,7 +267,7 @@ export default async function GuidePage({ params }: PageProps) {
                       <li key={rb.id}>
                         <Link
                           href={`/bookmaker/${rb.slug}`}
-                          className="flex items-center justify-between text-sm hover:text-accent transition-colors"
+                          className="flex items-center justify-between text-sm hover:text-primary transition-colors"
                         >
                           <span className="font-medium text-gray-700 dark:text-gray-300">{rb.name}</span>
                           <span className="text-field font-bold">{rb.bonus}</span>
@@ -287,7 +287,7 @@ export default async function GuidePage({ params }: PageProps) {
                     .slice(0, 6)
                     .map((g) => (
                       <li key={g.id}>
-                        <Link href={`/guide/${g.slug}`} className="text-sm text-accent hover:underline">
+                        <Link href={`/guide/${g.slug}`} className="text-sm text-primary hover:underline">
                           {g.title} →
                         </Link>
                       </li>
@@ -304,10 +304,10 @@ export default async function GuidePage({ params }: PageProps) {
               <div className="rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-gray-100 dark:border-gray-700">
                 <h3 className="mb-4 text-sm font-bold text-gray-900 dark:text-gray-100 uppercase tracking-wider">Explorer</h3>
                 <ul className="space-y-2 text-sm">
-                  <li><Link href="/buteurs" className="text-accent hover:underline">Cotes buteurs CDM 2026 →</Link></li>
-                  <li><Link href="/paris-sportifs" className="text-accent hover:underline">Paris sportifs CDM 2026 →</Link></li>
-                  <li><Link href="/pronostic/france" className="text-accent hover:underline">Pronostic France →</Link></li>
-                  <li><Link href="/match/calendrier" className="text-accent hover:underline">Calendrier des matchs →</Link></li>
+                  <li><Link href="/buteurs" className="text-primary hover:underline">Cotes buteurs CDM 2026 →</Link></li>
+                  <li><Link href="/paris-sportifs" className="text-primary hover:underline">Paris sportifs CDM 2026 →</Link></li>
+                  <li><Link href="/pronostic/france" className="text-primary hover:underline">Pronostic France →</Link></li>
+                  <li><Link href="/match/calendrier" className="text-primary hover:underline">Calendrier des matchs →</Link></li>
                 </ul>
               </div>
             </div>

@@ -80,7 +80,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="text-sm font-semibold text-accent hover:underline truncate block"
+                className="text-sm font-semibold text-primary hover:underline truncate block"
               >
                 {bk.name}
               </a>
@@ -99,7 +99,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
               href={bk.url}
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="inline-block rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white hover:bg-accent/90 transition-colors whitespace-nowrap"
+              className="inline-block rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white hover:bg-primary/90 transition-colors whitespace-nowrap"
             >
               {bk.bonus}
             </a>

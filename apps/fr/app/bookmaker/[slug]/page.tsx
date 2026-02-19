@@ -60,7 +60,7 @@ export default async function BookmakerPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/paris-sportifs" className="hover:text-primary">Paris sportifs</Link></li>
@@ -248,7 +248,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                 <ul className="space-y-2">
                   {relatedGuides.map((guide) => (
                     <li key={guide.id}>
-                      <Link href={`/guide/${guide.slug}`} className="text-sm text-accent hover:underline">
+                      <Link href={`/guide/${guide.slug}`} className="text-sm text-primary hover:underline">
                         {guide.title} &rarr;
                       </Link>
                     </li>
@@ -265,7 +265,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                   <li key={other.id}>
                     <Link
                       href={`/bookmaker/${other.slug}`}
-                      className="flex items-center justify-between text-sm hover:text-accent transition-colors"
+                      className="flex items-center justify-between text-sm hover:text-primary transition-colors"
                     >
                       <span className="font-medium">{other.name}</span>
                       <span className="text-field">{other.bonus}</span>

@@ -135,7 +135,7 @@ export default function Quiz() {
           <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">Difficulté :</span>
           <button
             onClick={() => setDifficulty("all")}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-accent text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
           >
             Toutes
           </button>
@@ -143,7 +143,7 @@ export default function Quiz() {
             <button
               key={d}
               onClick={() => setDifficulty(d)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-accent text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
             >
               {difficultyLabels[d].emoji} {difficultyLabels[d].label}
             </button>
@@ -176,7 +176,7 @@ export default function Quiz() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={() => setPhase("menu")}
-            className="px-6 py-3 rounded-lg bg-accent hover:bg-accent/90 font-semibold text-white transition-colors"
+            className="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 font-semibold text-white transition-colors"
           >
             🔄 Rejouer
           </button>
@@ -226,7 +226,7 @@ export default function Quiz() {
       </div>
       <div className="w-full h-3 bg-gray-200 dark:bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
-          className="h-full bg-gradient-to-r from-accent to-gold rounded-full transition-all duration-500 ease-out relative"
+          className="h-full bg-gradient-to-r from-primary to-gold rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 rounded-full" />

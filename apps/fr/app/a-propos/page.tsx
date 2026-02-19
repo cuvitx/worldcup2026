@@ -16,7 +16,7 @@ export default function AProposPage() {
     <>
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -148,12 +148,12 @@ export default function AProposPage() {
             <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">Liens utiles</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/mentions-legales" className="text-accent hover:underline">
+                <Link href="/mentions-legales" className="text-primary hover:underline">
                   Mentions legales
                 </Link>
               </li>
               <li>
-                <Link href="/jeu-responsable" className="text-accent hover:underline">
+                <Link href="/jeu-responsable" className="text-primary hover:underline">
                   Jeu responsable
                 </Link>
               </li>

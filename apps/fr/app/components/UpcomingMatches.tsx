@@ -28,7 +28,7 @@ export function UpcomingMatches() {
           </h2>
           <Link
             href="/match/calendrier"
-            className="text-sm font-medium text-accent hover:underline"
+            className="text-sm font-medium text-primary hover:underline"
           >
             Voir le calendrier complet &rarr;
           </Link>
@@ -42,7 +42,7 @@ export function UpcomingMatches() {
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-accent hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+                className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-primary/30 hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
               >
                 <div className="mb-3 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                   <span>

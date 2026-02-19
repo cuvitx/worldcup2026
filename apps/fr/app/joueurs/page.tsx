@@ -28,7 +28,7 @@ export default function PlayersPage() {
     <>
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Joueurs</li>
@@ -69,13 +69,13 @@ export default function PlayersPage() {
                     return (
                       <tr key={player.id} className="hover:bg-gray-50 dark:bg-slate-700">
                         <td className="py-3">
-                          <Link href={`/joueur/${player.slug}`} className="font-medium hover:text-accent">
+                          <Link href={`/joueur/${player.slug}`} className="font-medium hover:text-primary">
                             {player.name}
                           </Link>
                         </td>
                         <td className="py-3">
                           {team && (
-                            <Link href={`/equipe/${team.slug}`} className="flex items-center gap-1 hover:text-accent">
+                            <Link href={`/equipe/${team.slug}`} className="flex items-center gap-1 hover:text-primary">
                               <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                               <span className="text-gray-600">{team.name}</span>
                             </Link>
@@ -107,7 +107,7 @@ export default function PlayersPage() {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
                       <div>
                         <p className="font-semibold">{player.name}</p>

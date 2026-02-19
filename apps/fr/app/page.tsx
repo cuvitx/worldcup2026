@@ -86,7 +86,7 @@ const categoryColors: Record<string, string> = {
   stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   billets: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
   equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
+  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
   transferts: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
 };
 

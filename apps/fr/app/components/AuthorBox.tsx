@@ -16,7 +16,7 @@ export function AuthorBox() {
           </p>
           <Link
             href="/methodologie"
-            className="mt-2 inline-block text-sm font-medium text-accent hover:underline"
+            className="mt-2 inline-block text-sm font-medium text-primary hover:underline"
           >
             Découvrir notre méthodologie &rarr;
           </Link>

@@ -54,13 +54,13 @@ export default function Error({
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
         <button
           onClick={reset}
-          className="inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/90 hover:shadow-accent/50 transition-all hover:-translate-y-0.5 text-sm"
+          className="inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3.5 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/50 transition-all hover:-translate-y-0.5 text-sm"
         >
           🔄 Réessayer
         </button>
         <a
           href="/"
-          className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 px-7 py-3.5 font-bold text-gray-700 dark:text-gray-200 shadow-sm hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all hover:-translate-y-0.5 text-sm"
+          className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 px-7 py-3.5 font-bold text-gray-700 dark:text-gray-200 shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:-translate-y-0.5 text-sm"
         >
           🏠 Retour à l&apos;accueil
         </a>
@@ -71,7 +71,7 @@ export default function Error({
         Si le problème persiste,{" "}
         <a
           href="/contact"
-          className="underline underline-offset-2 hover:text-accent transition-colors"
+          className="underline underline-offset-2 hover:text-primary transition-colors"
         >
           contactez-nous
         </a>

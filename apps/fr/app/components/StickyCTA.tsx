@@ -31,7 +31,7 @@ export function StickyCTA() {
     <div className="fixed bottom-16 sm:bottom-0 inset-x-0 z-40 md:hidden">
       <div className="flex items-center justify-between gap-3 bg-white/90 backdrop-blur-sm border-t border-gray-200 px-4 py-3 shadow-lg dark:bg-slate-900/90 dark:border-slate-700">
         <p className="text-sm font-bold text-gray-900 dark:text-gray-100">
-          🎁 <span className="text-accent">{featuredBookmaker.bonus}</span>{" "}
+          🎁 <span className="text-primary">{featuredBookmaker.bonus}</span>{" "}
           <span className="text-gray-500 font-normal text-xs">{featuredBookmaker.bonusDetail}</span>
         </p>
         <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export function StickyCTA() {
             href={featuredBookmaker.url}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90 transition-colors whitespace-nowrap"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 transition-colors whitespace-nowrap"
           >
             Parier →
           </a>

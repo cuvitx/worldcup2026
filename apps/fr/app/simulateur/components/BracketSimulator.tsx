@@ -38,7 +38,7 @@ const ROUND_COLORS: Record<RoundName, string> = {
   R32: "bg-slate-500",
   R16: "bg-secondary",
   QF: "bg-primary",
-  SF: "bg-accent",
+  SF: "bg-primary",
   F: "bg-gold",
 };
 
@@ -214,7 +214,7 @@ function ProgressBar({ rounds }: { rounds: Record<RoundName, MatchData[]> }) {
       </span>
       <div className="flex-1 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-accent to-gold transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-primary to-gold transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -322,7 +322,7 @@ export function BracketSimulator() {
   if (!loaded) {
     return (
       <div className="text-center py-20">
-        <div className="inline-block w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+        <div className="inline-block w-8 h-8 border-2 border-primary/20 border-t-transparent rounded-full animate-spin" />
         <p className="mt-3 text-gray-500">Chargement du simulateur…</p>
       </div>
     );

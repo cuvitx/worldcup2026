@@ -74,7 +74,7 @@ export default function LivePage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -171,7 +171,7 @@ export default function LivePage() {
             <div className="bg-primary text-white px-6 py-4">
               <div className="flex items-center justify-between text-xs text-gray-300 mb-3">
                 <span>Phase de groupes · Groupe A</span>
-                <span className="inline-flex items-center gap-2 bg-accent/90 px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-2 bg-primary/90 px-3 py-1 rounded-full">
                   <span className="relative flex h-2.5 w-2.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />

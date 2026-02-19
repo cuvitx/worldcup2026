@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 // ── Couleurs disponibles ────────────────────────────────────────────────────
 
 const colorMap: Record<string, string> = {
-  accent: "bg-accent",
+  accent: "bg-primary",
   gold: "bg-gold",
   green: "bg-field",
   blue: "bg-secondary",
   purple: "bg-secondary",
-  orange: "bg-accent",
+  orange: "bg-primary",
   teal: "bg-secondary",
 };
 
@@ -62,7 +62,7 @@ export function StatBar({
   }, []);
 
   const pct = Math.min(100, Math.round((value / maxValue) * 100));
-  const barColor = colorMap[color] ?? "bg-accent";
+  const barColor = colorMap[color] ?? "bg-primary";
   const heightClass = size === "sm" ? "h-1.5" : size === "lg" ? "h-4" : "h-2.5";
   const textClass = size === "sm" ? "text-xs" : size === "lg" ? "text-base" : "text-sm";
 
@@ -154,17 +154,17 @@ export function DuelStatBar({
   return (
     <div ref={ref} className="w-full">
       <div className="flex items-center justify-between mb-1.5">
-        <span className={`text-sm font-bold ${homeWins ? "text-accent" : "text-gray-700 dark:text-gray-300"}`}>
+        <span className={`text-sm font-bold ${homeWins ? "text-primary" : "text-gray-700 dark:text-gray-300"}`}>
           {home}{suffix}
         </span>
         <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{label}</span>
-        <span className={`text-sm font-bold ${awayWins ? "text-accent" : "text-gray-700 dark:text-gray-300"}`}>
+        <span className={`text-sm font-bold ${awayWins ? "text-primary" : "text-gray-700 dark:text-gray-300"}`}>
           {away}{suffix}
         </span>
       </div>
       <div className="w-full h-2 rounded-full flex overflow-hidden gap-0.5 bg-gray-100 dark:bg-gray-700">
         <div
-          className={`h-full rounded-l-full transition-all ease-out duration-700 ${homeWins ? "bg-accent" : "bg-gray-400 dark:bg-gray-500"}`}
+          className={`h-full rounded-l-full transition-all ease-out duration-700 ${homeWins ? "bg-primary" : "bg-gray-400 dark:bg-gray-500"}`}
           style={{ width: visible ? `${homePct}%` : "0%" }}
         />
         <div

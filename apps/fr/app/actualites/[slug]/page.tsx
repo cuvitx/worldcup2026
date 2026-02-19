@@ -10,7 +10,7 @@ const categoryColors: Record<NewsCategory, string> = {
   stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   billets: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
   equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
+  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
 };
 
 function formatDate(dateStr: string) {

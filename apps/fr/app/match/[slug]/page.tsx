@@ -107,7 +107,7 @@ export default async function MatchPage({ params }: PageProps) {
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Calendrier",url:"/match/calendrier"},{name:(home?.name ?? "TBD")+" vs "+(away?.name ?? "TBD"),url:"/match/"+match.slug}]} baseUrl={domains.fr} />
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -120,7 +120,7 @@ export default async function MatchPage({ params }: PageProps) {
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">
+            <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">
               {home?.name ?? "TBD"} vs {away?.name ?? "TBD"}
             </li>
           </ol>
@@ -221,13 +221,13 @@ export default async function MatchPage({ params }: PageProps) {
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="bg-gray-50 dark:bg-slate-700">
-                        <th className="py-3 px-3 text-left text-sm font-medium text-accent">
+                        <th className="py-3 px-3 text-left text-sm font-medium text-primary">
                           {home.name}
                         </th>
                         <th className="py-3 px-3 text-center text-sm font-medium text-gray-500">
                           Critere
                         </th>
-                        <th className="py-3 px-3 text-right text-sm font-medium text-accent">
+                        <th className="py-3 px-3 text-right text-sm font-medium text-primary">
                           {away.name}
                         </th>
                       </tr>
@@ -273,7 +273,7 @@ export default async function MatchPage({ params }: PageProps) {
                 <div className="mt-4 text-center">
                   <Link
                     href={`/h2h/${home.slug}-vs-${away.slug}`}
-                    className="text-sm font-medium text-accent hover:underline"
+                    className="text-sm font-medium text-primary hover:underline"
                   >
                     Voir l&apos;historique complet des confrontations &rarr;
                   </Link>
@@ -330,15 +330,15 @@ export default async function MatchPage({ params }: PageProps) {
                       <p className="text-sm text-gray-500">Score predit</p>
                       <p className="text-2xl font-extrabold text-primary">{pred.predictedScore}</p>
                     </div>
-                    <div className="rounded-lg border border-accent/30 bg-accent/5 p-4">
+                    <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="font-bold text-accent">{featuredBookmaker.name}</p>
+                          <p className="font-bold text-primary">{featuredBookmaker.name}</p>
                           <p className="text-sm text-gray-600">{featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}</p>
                         </div>
                         <Link
                           href={`/pronostic-match/${match.slug}`}
-                          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90"
+                          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90"
                         >
                           Voir le pronostic &rarr;
                         </Link>
@@ -357,7 +357,7 @@ export default async function MatchPage({ params }: PageProps) {
                 <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
                 <Link
                   href={`/stade/${stadium.slug}`}
-                  className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+                  className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
                 >
                   <p className="font-semibold">{stadium.name}</p>
                   <p className="text-sm text-gray-500">
@@ -368,7 +368,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {city && (
                   <Link
                     href={`/ville/${city.slug}`}
-                    className="mt-2 block text-sm text-accent hover:underline"
+                    className="mt-2 block text-sm text-primary hover:underline"
                   >
                     Guide de {city.name} &rarr;
                   </Link>
@@ -389,7 +389,7 @@ export default async function MatchPage({ params }: PageProps) {
                     <dd className="font-medium">
                       <Link
                         href={`/groupe/${match.group.toLowerCase()}`}
-                        className="text-accent hover:underline"
+                        className="text-primary hover:underline"
                       >
                         Groupe {match.group}
                       </Link>
@@ -445,7 +445,7 @@ export default async function MatchPage({ params }: PageProps) {
                       <Link
                         key={m.slug}
                         href={`/match/${m.slug}`}
-                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-3 transition-colors hover:border-accent hover:bg-accent/5 text-sm"
+                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 text-sm"
                       >
                         <span role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳️"}</span>
                         <span className="flex-1 truncate font-medium">{mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}</span>
@@ -466,8 +466,8 @@ export default async function MatchPage({ params }: PageProps) {
                 locale="fr"
               />
             ) : (
-              <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
-                <h3 className="mb-2 text-lg font-bold text-accent">
+              <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
+                <h3 className="mb-2 text-lg font-bold text-primary">
                   Cotes du match
                 </h3>
                 <p className="text-sm text-gray-600">
@@ -493,7 +493,7 @@ export default async function MatchPage({ params }: PageProps) {
                   <Link
                     key={m.slug}
                     href={`/match/${m.slug}`}
-                    className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <span className="text-xl" role="img" aria-label={`Drapeau de ${mHome?.name ?? "Inconnu"}`}>{mHome?.flag ?? "🏳️"}</span>
                     <div className="flex-1 min-w-0">

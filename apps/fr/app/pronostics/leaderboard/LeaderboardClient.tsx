@@ -141,7 +141,7 @@ export function LeaderboardClient() {
             />
             <button
               onClick={savePseudo}
-              className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white hover:bg-accent/90"
+              className="rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary/90"
             >
               Valider
             </button>

@@ -114,7 +114,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
   const reset = () => { setTeam(""); setGroup(""); setStadium(""); setPhase(""); };
 
-  const selectClass = "rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-accent focus:ring-1 focus:ring-accent outline-none";
+  const selectClass = "rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-primary/20 focus:ring-1 focus:ring-primary outline-none";
 
   return (
     <>
@@ -177,7 +177,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
               <a
                 key={stage}
                 href={`#${stage}`}
-                className="rounded-full bg-gray-100 dark:bg-gray-800 px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent/10 hover:text-accent transition-colors"
+                className="rounded-full bg-gray-100 dark:bg-gray-800 px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {stageLabels[stage]} ({sm.length})
               </a>
@@ -224,7 +224,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                             <Link
                               key={match.id}
                               href={`/match/${match.slug}`}
-                              className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                              className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                             >
                               <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-12 text-center shrink-0">
                                 {match.time}

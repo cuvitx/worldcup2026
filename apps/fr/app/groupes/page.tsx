@@ -21,8 +21,8 @@ export default function GroupsPage() {
     <>
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Groupes</li>
           </ol>
@@ -53,14 +53,14 @@ export default function GroupsPage() {
               <Link
                 key={group.letter}
                 href={`/groupe/${group.slug}`}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md hover:border-accent dark:hover:border-accent transition-all duration-200"
+                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-200"
               >
                 {/* Header */}
                 <div className="bg-primary dark:bg-gray-900 px-4 py-3 flex items-center justify-between">
                   <h2 className="text-lg font-extrabold text-white">
                     Groupe {group.letter}
                   </h2>
-                  <span className="text-xs text-gray-300 group-hover:text-accent transition-colors">
+                  <span className="text-xs text-gray-300 group-hover:text-primary transition-colors">
                     Voir détails →
                   </span>
                 </div>
@@ -97,7 +97,7 @@ export default function GroupsPage() {
                           </span>
                         )}
                         {pred && (
-                          <span className="text-xs font-bold text-primary dark:text-accent tabular-nums">
+                          <span className="text-xs font-bold text-primary dark:text-secondary tabular-nums">
                             {(pred.groupStageProb * 100).toFixed(0)}%
                           </span>
                         )}

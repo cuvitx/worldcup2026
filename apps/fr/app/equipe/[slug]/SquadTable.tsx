@@ -26,7 +26,7 @@ const POSITION_COLORS: Record<string, string> = {
   GK: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
   DF: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   MF: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
-  FW: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
+  FW: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
 };
 
 type SortKey = "position" | "name" | "age" | "club" | "caps" | "goals";
@@ -100,7 +100,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
           {sorted.map((player, idx) => (
             <tr
               key={player.id}
-              className={`border-b border-gray-100 dark:border-slate-700 transition-colors hover:bg-accent/5 ${
+              className={`border-b border-gray-100 dark:border-slate-700 transition-colors hover:bg-primary/5 ${
                 idx % 2 === 0 ? "" : "bg-gray-50/50 dark:bg-slate-700/20"
               }`}
             >
@@ -116,7 +116,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
               <td className="px-3 py-2.5">
                 <Link
                   href={`/joueur/${player.slug}`}
-                  className="font-semibold text-gray-900 dark:text-white hover:text-accent transition-colors"
+                  className="font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors"
                 >
                   {player.name}
                 </Link>

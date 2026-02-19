@@ -30,7 +30,7 @@ export default function ParisSportifsPage() {
     <>
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Paris sportifs</li>
@@ -62,7 +62,7 @@ export default function ParisSportifsPage() {
                   key={bk.id}
                   href={`/bookmaker/${bk.slug}`}
                   className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-5 transition-all hover:shadow-md ${
-                    i === 0 ? "border-gold bg-gold/5" : "border-gray-200 dark:border-slate-700 hover:border-accent"
+                    i === 0 ? "border-gold bg-gold/5" : "border-gray-200 dark:border-slate-700 hover:border-primary/30"
                   }`}
                 >
                   {i === 0 && (
@@ -122,11 +122,11 @@ export default function ParisSportifsPage() {
                   <Link
                     key={guide.id}
                     href={`/guide/${guide.slug}`}
-                    className="rounded-xl border border-gray-200 dark:border-slate-700 p-4 sm:p-5 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="rounded-xl border border-gray-200 dark:border-slate-700 p-4 sm:p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <h3 className="font-semibold mb-1">{guide.title}</h3>
                     <p className="text-sm text-gray-500 line-clamp-2">{guide.metaDescription}</p>
-                    <p className="mt-2 text-xs font-medium text-accent">Lire le guide &rarr;</p>
+                    <p className="mt-2 text-xs font-medium text-primary">Lire le guide &rarr;</p>
                   </Link>
                 ))}
               </div>

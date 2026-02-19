@@ -94,7 +94,7 @@ export function MatchAnalysis({
             Ce match se déroule dans le cadre du{" "}
             <Link
               href={`/groupe/${match.group.toLowerCase()}`}
-              className="text-accent hover:underline"
+              className="text-primary hover:underline"
             >
               Groupe {match.group}
             </Link>{" "}

@@ -32,8 +32,8 @@ export default function CitiesPage() {
     <>
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Villes hôtes</li>
           </ol>
@@ -64,12 +64,12 @@ export default function CitiesPage() {
                     <Link
                       key={city.id}
                       href={`/ville/${city.slug}`}
-                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm hover:shadow-lg hover:border-accent dark:hover:border-accent transition-all duration-300 hover:-translate-y-0.5"
+                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div className="flex items-start gap-3">
                         <span className="text-3xl">{countryFlags[country]}</span>
                         <div className="min-w-0 flex-1">
-                          <p className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                          <p className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                             {city.name}
                           </p>
                           <p className="text-sm text-gray-500 dark:text-gray-400">

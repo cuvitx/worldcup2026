@@ -33,7 +33,7 @@ export function MatchHero({
       }}
     >
       {/* Top glow line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
       {/* Bottom accent strip */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       {/* Background dot pattern */}
@@ -48,8 +48,8 @@ export function MatchHero({
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Stage badge */}
-        <div className="flex justify-center mb-6">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold backdrop-blur-sm">
+        <div className="flex justify-center mb-6 px-2">
+          <span className="inline-flex flex-wrap items-center justify-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-widest text-gold backdrop-blur-sm text-center max-w-full">
             ⚽ {stage}
             {match.group ? ` — Groupe ${match.group}` : ""}
             {match.matchday ? ` · Journée ${match.matchday}` : ""}
@@ -74,12 +74,12 @@ export function MatchHero({
             {home ? (
               <Link
                 href={`/equipe/${home.slug}`}
-                className="text-xl md:text-2xl font-extrabold hover:text-gold transition-colors"
+                className="text-base sm:text-xl md:text-2xl font-extrabold hover:text-gold transition-colors break-words text-center"
               >
                 {home.name}
               </Link>
             ) : (
-              <p className="text-xl md:text-2xl font-extrabold">À déterminer</p>
+              <p className="text-base sm:text-xl md:text-2xl font-extrabold">À déterminer</p>
             )}
             {home && (
               <span className="text-xs font-medium text-gray-400 bg-white/8 rounded-full px-2.5 py-0.5">
@@ -116,12 +116,12 @@ export function MatchHero({
             {away ? (
               <Link
                 href={`/equipe/${away.slug}`}
-                className="text-xl md:text-2xl font-extrabold hover:text-gold transition-colors"
+                className="text-base sm:text-xl md:text-2xl font-extrabold hover:text-gold transition-colors break-words text-center"
               >
                 {away.name}
               </Link>
             ) : (
-              <p className="text-xl md:text-2xl font-extrabold">À déterminer</p>
+              <p className="text-base sm:text-xl md:text-2xl font-extrabold">À déterminer</p>
             )}
             {away && (
               <span className="text-xs font-medium text-gray-400 bg-white/8 rounded-full px-2.5 py-0.5">

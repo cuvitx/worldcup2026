@@ -23,8 +23,8 @@ export default function TeamsPage() {
     <>
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Équipes</li>
           </ol>
@@ -63,7 +63,7 @@ export default function TeamsPage() {
                     <tr key={team.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 border-b border-gray-100 dark:border-gray-700/40 transition-colors">
                       <td className="py-3 font-medium text-gray-900 dark:text-white">{team.fifaRanking}</td>
                       <td className="py-3">
-                        <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent">
+                        <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary">
                           <span className="text-lg" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                           <span className="font-medium text-gray-900 dark:text-white">{team.name}</span>
                           {team.isHost && <span className="text-xs text-gold font-semibold">(Hôte)</span>}
@@ -71,11 +71,11 @@ export default function TeamsPage() {
                       </td>
                       <td className="py-3 text-gray-500 dark:text-gray-400">{team.confederation}</td>
                       <td className="py-3">
-                        <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent text-gray-700 dark:text-gray-300">{team.group}</Link>
+                        <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary text-gray-700 dark:text-gray-300">{team.group}</Link>
                       </td>
                       <td className="py-3 text-right">
                         {pred ? (
-                          <span className="font-bold text-primary dark:text-accent">
+                          <span className="font-bold text-primary dark:text-secondary">
                             {pred.winnerProb >= 0.01
                               ? `${(pred.winnerProb * 100).toFixed(1)}%`
                               : `${(pred.winnerProb * 100).toFixed(2)}%`}
@@ -85,7 +85,7 @@ export default function TeamsPage() {
                         )}
                       </td>
                       <td className="py-3 text-right">
-                        <Link href={`/pronostic/${team.slug}`} className="text-accent hover:underline text-sm font-medium">
+                        <Link href={`/pronostic/${team.slug}`} className="text-primary hover:underline text-sm font-medium">
                           Pronostic →
                         </Link>
                       </td>

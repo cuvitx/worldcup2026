@@ -30,7 +30,7 @@ export default function ComparateurJoueursPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Comparateur de joueurs</li>
@@ -58,7 +58,7 @@ export default function ComparateurJoueursPage() {
           <a
             href="#"
             rel="noopener noreferrer sponsored nofollow"
-            className="inline-block rounded-xl bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-accent/90"
+            className="inline-block rounded-xl bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90"
           >
             Voir les cotes sur Winamax &rarr;
           </a>

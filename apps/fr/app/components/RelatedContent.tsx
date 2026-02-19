@@ -27,10 +27,10 @@ export function RelatedContent({ items, title = 'Vous pourriez aussi aimer' }: R
           <Link
             key={item.href}
             href={item.href}
-            className="group rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800/80 p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-accent/40"
+            className="group rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800/80 p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-primary/30"
           >
             <span className="mb-3 block text-3xl">{item.emoji}</span>
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors line-clamp-2 mb-1">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2 mb-1">
               {item.title}
             </h3>
             <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">

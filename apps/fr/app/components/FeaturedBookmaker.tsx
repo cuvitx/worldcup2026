@@ -29,14 +29,14 @@ export function FeaturedBookmaker() {
         <div className="mx-auto max-w-2xl rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-50 to-white p-6 shadow-md dark:from-yellow-950/20 dark:to-slate-800 dark:border-yellow-600/40">
           <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
             {/* Logo placeholder */}
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-accent text-2xl font-bold text-white">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-2xl font-bold text-white">
               B
             </div>
             <div className="flex-1">
               <p className="text-lg font-bold text-gray-900 dark:text-gray-100">
                 {bk.name}
               </p>
-              <p className="text-2xl font-extrabold text-accent">
+              <p className="text-2xl font-extrabold text-primary">
                 {bk.bonus}
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -50,7 +50,7 @@ export function FeaturedBookmaker() {
               href={bk.url}
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="inline-block shrink-0 rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent/90"
+              className="inline-block shrink-0 rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
             >
               Ouvrir un compte →
             </a>

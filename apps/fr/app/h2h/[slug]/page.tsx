@@ -76,10 +76,10 @@ export default async function H2HPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">{team1.name} vs {team2.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">{team1.name} vs {team2.name}</li>
           </ol>
         </div>
       </nav>
@@ -139,10 +139,10 @@ export default async function H2HPage({ params }: PageProps) {
                             <div className="h-full rounded-l-full bg-primary transition-all duration-700" style={{ width: `${pct1}%` }} />
                           </div>
                           <div className="flex-1 h-5 rounded-r-full bg-gray-100 dark:bg-slate-700 overflow-hidden">
-                            <div className="h-full rounded-r-full bg-accent transition-all duration-700" style={{ width: `${pct2}%` }} />
+                            <div className="h-full rounded-r-full bg-primary transition-all duration-700" style={{ width: `${pct2}%` }} />
                           </div>
                         </div>
-                        <span className="w-16 text-left text-sm font-bold text-accent dark:text-accent">{row.v2}</span>
+                        <span className="w-16 text-left text-sm font-bold text-primary dark:text-secondary">{row.v2}</span>
                       </div>
                     </div>
                   );
@@ -170,16 +170,16 @@ export default async function H2HPage({ params }: PageProps) {
               {h2h && h2h.totalMatches > 0 ? (
                 <>
                   <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
-                    <div className="rounded-lg bg-accent/5 p-2 text-center sm:p-4">
-                      <p className="text-xl font-bold text-accent sm:text-3xl">{h2h.team1Wins}</p>
+                    <div className="rounded-lg bg-primary/5 p-2 text-center sm:p-4">
+                      <p className="text-xl font-bold text-primary sm:text-3xl">{h2h.team1Wins}</p>
                       <p className="text-xs text-gray-500">Victoires {team1.name}</p>
                     </div>
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2 text-center sm:p-4">
                       <p className="text-xl font-bold text-gray-600 sm:text-3xl">{h2h.draws}</p>
                       <p className="text-xs text-gray-500">Nuls</p>
                     </div>
-                    <div className="rounded-lg bg-accent/5 p-2 text-center sm:p-4">
-                      <p className="text-xl font-bold text-accent sm:text-3xl">{h2h.team2Wins}</p>
+                    <div className="rounded-lg bg-primary/5 p-2 text-center sm:p-4">
+                      <p className="text-xl font-bold text-primary sm:text-3xl">{h2h.team2Wins}</p>
                       <p className="text-xs text-gray-500">Victoires {team2.name}</p>
                     </div>
                   </div>
@@ -264,14 +264,14 @@ export default async function H2HPage({ params }: PageProps) {
               <div className="space-y-3">
                 <Link
                   href={`/equipe/${team1.slug}`}
-                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
                 >
                   <span className="text-xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
                   <span className="font-medium">{team1.name}</span>
                 </Link>
                 <Link
                   href={`/equipe/${team2.slug}`}
-                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
                 >
                   <span className="text-xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
                   <span className="font-medium">{team2.name}</span>
@@ -280,8 +280,8 @@ export default async function H2HPage({ params }: PageProps) {
             </div>
 
             {/* Betting CTA */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
+            <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
+              <h3 className="mb-2 text-lg font-bold text-primary">
                 Cotes {team1.name} vs {team2.name}
               </h3>
               <p className="text-sm text-gray-600">

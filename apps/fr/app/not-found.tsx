@@ -35,14 +35,14 @@ export default function NotFound() {
       </div>
 
       {/* Badge arbitre */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-sm font-semibold mb-6">
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6">
         🟥 Carton Rouge — Expulsion immédiate
       </div>
 
       {/* Titre */}
       <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
         Cette page a pris{" "}
-        <span className="text-accent">un carton rouge</span>&nbsp;!
+        <span className="text-primary">un carton rouge</span>&nbsp;!
       </h1>
 
       {/* Sous-titre */}
@@ -64,28 +64,28 @@ export default function NotFound() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
         <Link
           href="/"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl">🏠</span>
           Accueil
         </Link>
         <Link
           href="/groupes"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl">🏆</span>
           Groupes
         </Link>
         <Link
           href="/simulateur"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl">🎮</span>
           Simulateur
         </Link>
         <Link
           href="/calendrier"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl">📅</span>
           Calendrier
@@ -95,7 +95,7 @@ export default function NotFound() {
       {/* CTA principal */}
       <Link
         href="/"
-        className="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3.5 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/90 hover:shadow-accent/50 transition-all hover:-translate-y-0.5 text-sm"
+        className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/50 transition-all hover:-translate-y-0.5 text-sm"
       >
         ← Retour à l&apos;accueil
       </Link>

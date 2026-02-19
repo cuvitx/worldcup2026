@@ -100,10 +100,10 @@ export function LiveTicker() {
           {isLive && (
             <span className="flex items-center gap-1.5 shrink-0">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
               </span>
-              <span className="font-bold text-accent dark:text-accent uppercase text-xs tracking-wide">
+              <span className="font-bold text-primary dark:text-secondary uppercase text-xs tracking-wide">
                 En direct
               </span>
             </span>

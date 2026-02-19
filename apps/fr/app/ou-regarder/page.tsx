@@ -306,8 +306,8 @@ export default function OuRegarderPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Où regarder les matchs</li>
           </ol>
@@ -358,7 +358,7 @@ export default function OuRegarderPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-lg font-bold text-primary dark:text-accent mb-2">{ch.matches}</p>
+                <p className="text-lg font-bold text-primary dark:text-secondary mb-2">{ch.matches}</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 flex-1">{ch.details}</p>
               </div>
             ))}
@@ -465,7 +465,7 @@ export default function OuRegarderPage() {
                               }`}>{ch.type}</span>
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{ch.details}</p>
-                            <p className="text-xs font-semibold text-primary dark:text-accent mt-1">{ch.matches}</p>
+                            <p className="text-xs font-semibold text-primary dark:text-secondary mt-1">{ch.matches}</p>
                           </div>
                         </div>
                       ))}
@@ -484,14 +484,14 @@ export default function OuRegarderPage() {
                         >
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-accent transition-colors">{s.name}</span>
+                              <span className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-primary transition-colors">{s.name}</span>
                               {s.free && (
                                 <span className="text-xs font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">Gratuit</span>
                               )}
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.desc}</p>
                           </div>
-                          <svg className="w-4 h-4 text-gray-400 group-hover:text-primary dark:group-hover:text-accent shrink-0 mt-0.5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg className="w-4 h-4 text-gray-400 group-hover:text-primary dark:group-hover:text-primary shrink-0 mt-0.5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                             <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
                           </svg>
@@ -519,7 +519,7 @@ export default function OuRegarderPage() {
                   <span className="text-2xl">{b.flag}</span>
                   <span className="font-bold text-gray-900 dark:text-gray-100">{b.country}</span>
                 </div>
-                <p className="text-sm font-semibold text-primary dark:text-accent mb-1">{b.channels}</p>
+                <p className="text-sm font-semibold text-primary dark:text-secondary mb-1">{b.channels}</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{b.details}</p>
                 <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">
                   Gratuit : {b.free}
@@ -545,7 +545,7 @@ export default function OuRegarderPage() {
                     <td className="px-4 py-3 font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
                       {b.flag} {b.country}
                     </td>
-                    <td className="px-4 py-3 font-semibold text-primary dark:text-accent">{b.channels}</td>
+                    <td className="px-4 py-3 font-semibold text-primary dark:text-secondary">{b.channels}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{b.details}</td>
                     <td className="px-4 py-3">
                       <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-1 rounded-full">
@@ -579,7 +579,7 @@ export default function OuRegarderPage() {
                 { step: "3", title: "Regarder les matchs", desc: "Accédez à TF1+, M6+ ou beIN Connect normalement. Le streaming fonctionne comme si vous étiez en France." },
               ].map((s) => (
                 <div key={s.step} className="rounded-xl bg-gray-50 dark:bg-gray-700/50 p-5">
-                  <div className="w-10 h-10 rounded-full bg-primary dark:bg-accent text-white flex items-center justify-center font-extrabold text-lg mb-3">
+                  <div className="w-10 h-10 rounded-full bg-primary dark:bg-primary text-white flex items-center justify-center font-extrabold text-lg mb-3">
                     {s.step}
                   </div>
                   <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">{s.title}</h3>
@@ -621,7 +621,7 @@ export default function OuRegarderPage() {
               >
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{m.date}</span>
-                  <span className="text-lg font-extrabold text-primary dark:text-accent shrink-0">{m.timeFR}</span>
+                  <span className="text-lg font-extrabold text-primary dark:text-secondary shrink-0">{m.timeFR}</span>
                 </div>
                 <p className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">{m.match}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{m.stage} · {m.stadium}</p>
@@ -667,7 +667,7 @@ export default function OuRegarderPage() {
                     }`}
                   >
                     <td className="px-4 py-3 font-medium text-gray-700 dark:text-gray-300 text-xs whitespace-nowrap">{m.date}</td>
-                    <td className="px-4 py-3 font-extrabold text-primary dark:text-accent whitespace-nowrap">{m.timeFR}</td>
+                    <td className="px-4 py-3 font-extrabold text-primary dark:text-secondary whitespace-nowrap">{m.timeFR}</td>
                     <td className="px-4 py-3">
                       <div className="font-semibold text-gray-900 dark:text-gray-100">{m.match}</div>
                       <div className="text-xs text-gray-400 dark:text-gray-500">{m.stadium}</div>
@@ -720,7 +720,7 @@ export default function OuRegarderPage() {
                   <tr key={tz.city} className="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30">
                     <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100 text-xs">{tz.city}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400 font-mono text-xs">{tz.utcOffset}</td>
-                    <td className="px-4 py-3 font-bold text-primary dark:text-accent">{tz.frDiff}</td>
+                    <td className="px-4 py-3 font-bold text-primary dark:text-secondary">{tz.frDiff}</td>
                     <td className="px-4 py-3 text-gray-500 dark:text-gray-400 text-xs">{tz.frTime}</td>
                   </tr>
                 ))}
@@ -749,7 +749,7 @@ export default function OuRegarderPage() {
                 }`}
               >
                 <div className="font-mono text-sm text-gray-500 dark:text-gray-400">{s.local}</div>
-                <div className="text-2xl font-extrabold text-primary dark:text-accent mt-1">{s.france}</div>
+                <div className="text-2xl font-extrabold text-primary dark:text-secondary mt-1">{s.france}</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{s.note}</div>
               </div>
             ))}

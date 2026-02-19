@@ -34,7 +34,7 @@ export function MatchInfo({
             <dd>
               <Link
                 href={`/stade/${stadium.slug}`}
-                className="font-semibold text-accent hover:underline"
+                className="font-semibold text-primary hover:underline"
               >
                 {stadium.name}
               </Link>
@@ -50,7 +50,7 @@ export function MatchInfo({
             <dd>
               <Link
                 href={`/ville/${city.slug}`}
-                className="font-semibold text-accent hover:underline"
+                className="font-semibold text-primary hover:underline"
               >
                 {city.name}
               </Link>
@@ -70,7 +70,7 @@ export function MatchInfo({
             <dd>
               <Link
                 href={`/groupe/${match.group.toLowerCase()}`}
-                className="font-semibold text-accent hover:underline"
+                className="font-semibold text-primary hover:underline"
               >
                 Groupe {match.group}
               </Link>

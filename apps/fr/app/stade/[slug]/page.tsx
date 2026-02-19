@@ -68,12 +68,12 @@ export default async function StadiumPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/stades" className="hover:text-primary">Stades</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">{stadium.name}</li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 min-w-0 flex-wrap">
+            <li className="shrink-0"><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li className="shrink-0">/</li>
+            <li className="shrink-0"><Link href="/stades" className="hover:text-primary">Stades</Link></li>
+            <li className="shrink-0">/</li>
+            <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">{stadium.name}</li>
           </ol>
         </div>
       </nav>
@@ -114,10 +114,10 @@ export default async function StadiumPage({ params }: PageProps) {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <div className="lg:col-span-2 space-y-8 min-w-0">
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm overflow-hidden">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
-              <p className="text-gray-700 leading-relaxed">{stadium.description}</p>
+              <p className="text-gray-700 leading-relaxed break-words">{stadium.description}</p>
             </section>
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
@@ -191,10 +191,10 @@ export default async function StadiumPage({ params }: PageProps) {
                 )}
                 {/* Mini map link */}
                 <div className="mt-4 rounded-lg bg-primary/5 dark:bg-primary/20 border border-gray-200 dark:border-slate-700 p-4">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">🗺️</span>
-                      <div>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-2xl shrink-0">🗺️</span>
+                      <div className="min-w-0">
                         <p className="text-sm font-semibold text-primary dark:text-gray-200">Voir sur la carte des stades</p>
                         <p className="text-xs text-primary dark:text-secondary">Positionnement de tous les stades CDM 2026</p>
                       </div>
@@ -213,7 +213,7 @@ export default async function StadiumPage({ params }: PageProps) {
                     href={`https://www.openstreetmap.org/?mlat=${stadium.latitude}&mlon=${stadium.longitude}&zoom=15`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-accent hover:underline"
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
                   >
                     <span>🔗</span>
                     Ouvrir dans OpenStreetMap
@@ -236,15 +236,15 @@ export default async function StadiumPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
-                        <span className="text-xs text-gray-500 w-16 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                        <span className="font-medium flex-1">{home?.name ?? "TBD"}</span>
-                        <span className="text-xs text-gray-500">vs</span>
-                        <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
-                        <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-                        <span className="rounded-full px-3 py-1 text-xs font-medium bg-primary/10 text-primary shrink-0">
+                        <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
+                        <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
+                        <span className="text-xs text-gray-500 shrink-0">vs</span>
+                        <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
+                        <span className="hidden sm:inline rounded-full px-2 py-1 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
                       </Link>
@@ -263,7 +263,7 @@ export default async function StadiumPage({ params }: PageProps) {
                   <dt className="text-gray-500">Ville</dt>
                   <dd className="font-medium">
                     {city ? (
-                      <Link href={`/ville/${city.slug}`} className="text-accent hover:underline">
+                      <Link href={`/ville/${city.slug}`} className="text-primary hover:underline">
                         {stadium.city}
                       </Link>
                     ) : (
@@ -331,7 +331,7 @@ export default async function StadiumPage({ params }: PageProps) {
                       <li key={t.id}>
                         <Link
                           href={`/equipe/${t.slug}`}
-                          className="flex items-center gap-2 hover:text-accent transition-colors"
+                          className="flex items-center gap-2 hover:text-primary transition-colors"
                         >
                           <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
                           <span>{t.name}</span>
@@ -352,7 +352,7 @@ export default async function StadiumPage({ params }: PageProps) {
                   .slice(0, 5)
                   .map((s) => (
                     <li key={s.id}>
-                      <Link href={`/stade/${s.slug}`} className="hover:text-accent">
+                      <Link href={`/stade/${s.slug}`} className="hover:text-primary">
                         {s.name} ({s.city})
                       </Link>
                     </li>

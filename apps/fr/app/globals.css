@@ -879,3 +879,28 @@ details[open] .faq-icon {
 .dark .odds-badge-best {
   color: #4ade80;
 }
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Overflow wrap anywhere utility */
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+
+/* Global mobile overflow prevention */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Prevent long words from breaking layout on mobile */
+p, li, dd, blockquote, figcaption, .prose {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}

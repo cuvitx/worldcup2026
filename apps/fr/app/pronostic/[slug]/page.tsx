@@ -106,7 +106,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -173,7 +173,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                 {/* Visual gauge */}
                 <div className="relative h-4 rounded-full bg-gray-200 overflow-hidden">
                   <div
-                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-accent via-gold to-field"
+                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-primary via-gold to-field"
                     style={{ width: `${eloPercent}%` }}
                   />
                 </div>
@@ -416,7 +416,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                         <div className="mt-3 flex gap-2">
                           <Link
                             href={`/match/${match.slug}`}
-                            className="text-xs text-accent hover:underline"
+                            className="text-xs text-primary hover:underline"
                           >
                             Voir le match &rarr;
                           </Link>
@@ -451,7 +451,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
                       <div>
                         <p className="font-semibold">{player.name}</p>
@@ -520,7 +520,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
                             isFeatured
                               ? "bg-gold hover:bg-gold/90"
-                              : "bg-accent hover:bg-accent/90"
+                              : "bg-primary hover:bg-primary/90"
                           }`}
                         >
                           Parier sur {team.name}
@@ -555,7 +555,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   <dd className="font-medium">
                     <Link
                       href={`/groupe/${team.group.toLowerCase()}`}
-                      className="text-accent hover:underline"
+                      className="text-primary hover:underline"
                     >
                       Groupe {team.group}
                     </Link>
@@ -628,7 +628,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               <div className="mt-3">
                 <Link
                   href={`/groupe/${team.group.toLowerCase()}`}
-                  className="text-sm text-accent hover:underline"
+                  className="text-sm text-primary hover:underline"
                 >
                   Voir le Groupe {team.group} &rarr;
                 </Link>
@@ -646,7 +646,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <li key={t.id}>
                       <Link
                         href={`/h2h/${team.slug}-vs-${t.slug}`}
-                        className="flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"
+                        className="flex items-center gap-2 text-sm text-primary hover:text-primary transition-colors"
                       >
                         <span>
                           {team.flag} vs {t.flag}
@@ -662,8 +662,8 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             )}
 
             {/* Sidebar CTA */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">
+            <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
+              <h3 className="mb-2 text-lg font-bold text-primary">
                 Parier sur {team.name}
               </h3>
               {prediction ? (
@@ -690,7 +690,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>

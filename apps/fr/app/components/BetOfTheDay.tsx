@@ -90,7 +90,7 @@ const todaysBet = DAILY_BETS[0]!;
 
 const CONFIDENCE_LABELS: Record<number, { label: string; color: string }> = {
   1: { label: "Risqué", color: "text-red-400" },
-  2: { label: "Incertain", color: "text-accent" },
+  2: { label: "Incertain", color: "text-primary" },
   3: { label: "Modéré", color: "text-gold" },
   4: { label: "Confiant", color: "text-secondary" },
   5: { label: "Très confiant", color: "text-field" },
@@ -139,7 +139,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
           href={display.bookmakerUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
-          className="block w-full text-center rounded-lg bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-accent/90 transition-colors"
+          className="block w-full text-center rounded-lg bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-primary/90 transition-colors"
         >
           Parier sur {display.bookmaker} →
         </a>
@@ -154,7 +154,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]" />
       {/* Déco orb */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/10 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
 
       <div className="relative z-10 p-6 md:p-8">
         {/* Header */}
@@ -221,7 +221,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             href={display.bookmakerUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="flex-1 min-w-[140px] flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-5 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm"
+            className="flex-1 min-w-[140px] flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-5 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm"
           >
             Parier sur {display.bookmaker}
             <span className="text-gold font-extrabold">{display.odds}</span>

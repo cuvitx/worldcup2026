@@ -3,7 +3,7 @@ export default function TeamLoading() {
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 animate-pulse">
       {/* Breadcrumb */}
       <div className="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 px-4 py-3">
-        <div className="max-w-7xl mx-auto flex gap-2 items-center">
+        <div className="max-w-7xl mx-auto px-4 flex gap-2 items-center">
           <div className="h-3.5 w-12 bg-gray-200 dark:bg-slate-700 rounded-full" />
           <span className="text-gray-300 dark:text-slate-600">/</span>
           <div className="h-3.5 w-20 bg-gray-200 dark:bg-slate-700 rounded-full" />
@@ -14,7 +14,7 @@ export default function TeamLoading() {
 
       {/* Hero équipe */}
       <div className="bg-gradient-to-br from-primary to-secondary text-white py-12 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:items-start gap-6">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center sm:items-start gap-6">
           {/* Drapeau */}
           <div className="w-24 h-16 rounded-lg bg-white/10 flex-shrink-0" />
           <div className="flex-1 text-center sm:text-left">

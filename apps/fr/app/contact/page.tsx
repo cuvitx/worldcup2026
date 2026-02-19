@@ -50,7 +50,7 @@ export default function ContactPage() {
 
       <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -138,7 +138,7 @@ export default function ContactPage() {
           </section>
 
           {/* Jeu responsable */}
-          <section className="rounded-xl border-2 border-accent/30 bg-accent/5 p-6">
+          <section className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6">
             <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               Jeu responsable
             </h2>
@@ -150,7 +150,7 @@ export default function ContactPage() {
             <p className="mt-3">
               <Link
                 href="/jeu-responsable"
-                className="font-medium text-accent hover:underline"
+                className="font-medium text-primary hover:underline"
               >
                 Consulter notre page Jeu responsable →
               </Link>
@@ -164,22 +164,22 @@ export default function ContactPage() {
             </h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/a-propos" className="text-accent hover:underline">
+                <Link href="/a-propos" className="text-primary hover:underline">
                   À propos
                 </Link>
               </li>
               <li>
-                <Link href="/mentions-legales" className="text-accent hover:underline">
+                <Link href="/mentions-legales" className="text-primary hover:underline">
                   Mentions légales
                 </Link>
               </li>
               <li>
-                <Link href="/methodologie" className="text-accent hover:underline">
+                <Link href="/methodologie" className="text-primary hover:underline">
                   Méthodologie
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-accent hover:underline">
+                <Link href="/faq" className="text-primary hover:underline">
                   FAQ complète
                 </Link>
               </li>

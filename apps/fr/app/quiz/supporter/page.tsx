@@ -193,7 +193,7 @@ export default function QuizSupporterPage() {
     <div className="mx-auto max-w-2xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-2">
+        <ol className="flex items-center gap-2 flex-wrap min-w-0">
           <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
           <li>/</li>
           <li><Link href="/quiz" className="hover:text-secondary dark:hover:text-secondary">Quiz</Link></li>
@@ -212,7 +212,7 @@ export default function QuizSupporterPage() {
       {/* Progress bar */}
       <div className="mb-8 h-2 w-full rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-accent to-secondary transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>

@@ -11,7 +11,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
     return (
       <Link
         href={`/equipe/${team.slug}`}
-        className="flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 px-3 py-2.5 transition-all hover:border-accent/60 hover:shadow-sm hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60"
+        className="flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60"
       >
         <span className="text-2xl shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
         <div className="min-w-0 flex-1">
@@ -32,7 +32,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
   return (
     <Link
       href={`/equipe/${team.slug}`}
-      className="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm transition-all hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5"
+      className="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
     >
       {/* Ranking badge */}
       {team.fifaRanking > 0 && team.fifaRanking <= 10 && (
@@ -62,7 +62,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
         )}
       </div>
 
-      <span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity ml-auto shrink-0">›</span>
+      <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity ml-auto shrink-0">›</span>
     </Link>
   );
 }

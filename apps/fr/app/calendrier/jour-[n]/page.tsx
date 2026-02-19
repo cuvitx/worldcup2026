@@ -54,7 +54,7 @@ function stageLabel(stage: string, group?: string): string {
 function stageBadgeClass(stage: string): string {
   if (stage === "final") return "bg-gold/20 text-gold font-bold";
   if (stage === "semi-final") return "bg-primary/20 text-primary font-semibold";
-  if (stage === "quarter-final") return "bg-accent/20 text-accent";
+  if (stage === "quarter-final") return "bg-primary/20 text-primary";
   if (stage === "round-of-16" || stage === "round-of-32") return "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary";
   return "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300";
 }
@@ -421,7 +421,7 @@ export default async function JourPage({ params }: PageProps) {
                 >
                   {d}
                   {cnt > 0 && !isActive && (
-                    <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-accent" />
+                    <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-primary" />
                   )}
                 </Link>
               );

@@ -3,7 +3,7 @@ export default function Loading() {
     <div className="flex flex-1 flex-col min-h-[70vh] bg-gray-50 dark:bg-slate-900">
       {/* Barre de progression en haut */}
       <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-gray-200 dark:bg-slate-800 overflow-hidden">
-        <div className="h-full w-1/3 bg-accent rounded-full animate-[loading-bar_1.5s_ease-in-out_infinite]" />
+        <div className="h-full w-1/3 bg-secondary rounded-full animate-[loading-bar_1.5s_ease-in-out_infinite]" />
       </div>
 
       {/* Skeleton navbar */}

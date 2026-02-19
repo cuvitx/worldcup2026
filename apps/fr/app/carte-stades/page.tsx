@@ -70,15 +70,15 @@ export default function CarteStadesPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary dark:hover:text-accent transition-colors">
+              <Link href="/" className="hover:text-primary dark:hover:text-primary transition-colors">
                 Accueil
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/stades" className="hover:text-primary dark:hover:text-accent transition-colors">
+              <Link href="/stades" className="hover:text-primary dark:hover:text-primary transition-colors">
                 Stades
               </Link>
             </li>
@@ -107,7 +107,7 @@ export default function CarteStadesPage() {
               3 au Mexique
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-accent border-2 border-accent" />
+              <span className="w-3 h-3 rounded-full bg-primary border-2 border-primary/20" />
               2 au Canada
             </span>
           </div>
@@ -194,23 +194,23 @@ export default function CarteStadesPage() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-accent">16</div>
+              <div className="text-3xl font-extrabold text-primary dark:text-secondary">16</div>
               <div className="text-sm text-gray-500 dark:text-gray-400">Stades</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-accent">
+              <div className="text-3xl font-extrabold text-primary dark:text-secondary">
                 {stadiums.reduce((s, st) => s + st.capacity, 0).toLocaleString("fr-FR")}
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400">Places totales</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-accent">
+              <div className="text-3xl font-extrabold text-primary dark:text-secondary">
                 {Math.max(...stadiums.map((s) => s.capacity)).toLocaleString("fr-FR")}
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400">Capacité max (Azteca)</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-accent">
+              <div className="text-3xl font-extrabold text-primary dark:text-secondary">
                 {Math.round(stadiums.reduce((s, st) => s + st.capacity, 0) / stadiums.length).toLocaleString("fr-FR")}
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400">Capacité moyenne</div>

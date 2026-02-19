@@ -35,10 +35,10 @@ export function BottomNav() {
                 aria-current={active ? "page" : undefined}
                 className={[
                   "flex flex-col items-center justify-center h-full gap-0.5 px-1 transition-all duration-200",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset",
                   "active:scale-95",
                   active
-                    ? "text-accent dark:text-accent"
+                    ? "text-primary dark:text-secondary"
                     : "text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100",
                 ].join(" ")}
               >
@@ -47,7 +47,7 @@ export function BottomNav() {
                   className={[
                     "flex items-center justify-center w-10 h-6 rounded-full text-lg leading-none transition-all duration-200",
                     active
-                      ? "bg-accent/10 dark:bg-accent/20 scale-110"
+                      ? "bg-primary/10 dark:bg-primary/20 scale-110"
                       : "scale-100",
                   ].join(" ")}
                   aria-hidden="true"
@@ -64,7 +64,7 @@ export function BottomNav() {
                 </span>
                 {/* Active dot */}
                 {active && (
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" aria-hidden="true" />
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary rounded-full" aria-hidden="true" />
                 )}
               </Link>
             </li>

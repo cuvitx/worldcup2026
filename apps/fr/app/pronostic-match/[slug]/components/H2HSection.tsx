@@ -24,8 +24,8 @@ export function H2HSection({
       {h2h && h2h.totalMatches > 0 ? (
         <>
           <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
-            <div className="rounded-lg bg-accent/5 p-4 text-center">
-              <p className="text-3xl font-bold text-accent">
+            <div className="rounded-lg bg-primary/5 p-4 text-center">
+              <p className="text-3xl font-bold text-primary">
                 {h2h.team1Wins}
               </p>
               <p className="text-xs text-gray-500">
@@ -38,8 +38,8 @@ export function H2HSection({
               </p>
               <p className="text-xs text-gray-500">Nuls</p>
             </div>
-            <div className="rounded-lg bg-accent/5 p-4 text-center">
-              <p className="text-3xl font-bold text-accent">
+            <div className="rounded-lg bg-primary/5 p-4 text-center">
+              <p className="text-3xl font-bold text-primary">
                 {h2h.team2Wins}
               </p>
               <p className="text-xs text-gray-500">
@@ -79,7 +79,7 @@ export function H2HSection({
           <div className="text-center">
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="text-sm font-medium text-accent hover:underline"
+              className="text-sm font-medium text-primary hover:underline"
             >
               Voir l&apos;historique complet des confrontations &rarr;
             </Link>
@@ -95,7 +95,7 @@ export function H2HSection({
           <div className="text-center">
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="text-sm font-medium text-accent hover:underline"
+              className="text-sm font-medium text-primary hover:underline"
             >
               Voir la page de confrontation &rarr;
             </Link>

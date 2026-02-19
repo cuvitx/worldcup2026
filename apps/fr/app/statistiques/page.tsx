@@ -213,7 +213,7 @@ function GoalsChart() {
         {/* Légende */}
         <div className="mt-6 flex items-center gap-4 justify-center text-xs text-gray-500 dark:text-gray-400">
           <span className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-accent inline-block" />
+            <span className="w-3 h-3 rounded-sm bg-primary inline-block" />
             Record (172 buts en 2022)
           </span>
           <span className="flex items-center gap-1.5">
@@ -245,7 +245,7 @@ export default function StatistiquesPage() {
       {/* Fil d'Ariane */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary dark:hover:text-white transition-colors">
                 Accueil
@@ -403,17 +403,17 @@ export default function StatistiquesPage() {
                       key={ed.year}
                       className={`hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors ${
                         ed.goals === maxGoals
-                          ? "bg-accent/5 dark:bg-accent/10"
+                          ? "bg-primary/5 dark:bg-primary/10"
                           : ""
                       }`}
                     >
-                      <td className="py-1.5 px-2 font-bold text-accent text-left">{ed.year}</td>
+                      <td className="py-1.5 px-2 font-bold text-primary text-left">{ed.year}</td>
                       <td className="py-1.5 px-2 text-gray-600 dark:text-gray-400">{ed.teams}</td>
                       <td className="py-1.5 px-2 text-gray-600 dark:text-gray-400">{ed.matches}</td>
                       <td className="py-1.5 px-2 font-bold text-gray-900 dark:text-gray-100">
                         {ed.goals}
                         {ed.goals === maxGoals && (
-                          <span className="ml-1 text-accent text-[9px]">★</span>
+                          <span className="ml-1 text-primary text-[9px]">★</span>
                         )}
                       </td>
                       <td className="py-1.5 px-2 text-gray-500">{ed.avg.toFixed(2)}</td>
@@ -437,7 +437,7 @@ export default function StatistiquesPage() {
             {records.map((rec) => (
               <div
                 key={rec.title}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-accent hover:shadow-md transition-all group"
+                className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
               >
                 <div className="flex items-start gap-3">
                   <span className="text-3xl flex-shrink-0">{rec.icon}</span>
@@ -452,7 +452,7 @@ export default function StatistiquesPage() {
                         {rec.badge}
                       </span>
                     </div>
-                    <div className="font-bold text-gray-900 dark:text-white text-sm mb-1 group-hover:text-accent transition-colors">
+                    <div className="font-bold text-gray-900 dark:text-white text-sm mb-1 group-hover:text-primary transition-colors">
                       {rec.title}
                     </div>
                     <div className="text-xs text-gray-500 dark:text-gray-400">{rec.detail}</div>
@@ -475,7 +475,7 @@ export default function StatistiquesPage() {
             {funFacts.map((ff, i) => (
               <div
                 key={i}
-                className="flex gap-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-accent transition-colors"
+                className="flex gap-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-primary/30 transition-colors"
               >
                 <span className="text-3xl flex-shrink-0">{ff.emoji}</span>
                 <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -487,7 +487,7 @@ export default function StatistiquesPage() {
         </section>
 
         {/* ── CTA / liens ──────────────────────────────────────── */}
-        <section className="rounded-2xl bg-gradient-to-br from-primary to-accent text-white p-8 text-center shadow-xl">
+        <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
           <h2 className="text-2xl font-extrabold mb-3">
             🌟 Explorez toute l'histoire
           </h2>

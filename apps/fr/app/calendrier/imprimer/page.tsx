@@ -59,7 +59,7 @@ export default function CalendrierImprimerPage() {
 
       <div className="no-print mb-6 flex gap-3">
         <button
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent/90"
+          className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
           id="print-btn"
         >
           🖨️ Imprimer
@@ -97,7 +97,7 @@ export default function CalendrierImprimerPage() {
             <h2 className="text-lg font-bold mb-2 text-gray-900 dark:text-white capitalize">
               {formatted}
             </h2>
-            <table>
+            <div className="overflow-x-auto"><table>
               <thead>
                 <tr>
                   <th className="w-16">Heure</th>
@@ -122,7 +122,7 @@ export default function CalendrierImprimerPage() {
                     </tr>
                   ))}
               </tbody>
-            </table>
+            </table></div>
           </div>
         );
       })}

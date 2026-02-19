@@ -27,7 +27,7 @@ export default function MentionsLegalesPage() {
 
       <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -68,7 +68,7 @@ export default function MentionsLegalesPage() {
                 <strong>Contact :</strong>{" "}
                 <a
                   href="mailto:contact@cdm2026.fr"
-                  className="text-accent hover:underline"
+                  className="text-primary hover:underline"
                 >
                   contact@cdm2026.fr
                 </a>
@@ -92,7 +92,7 @@ export default function MentionsLegalesPage() {
                   href="https://vercel.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent hover:underline"
+                  className="text-primary hover:underline"
                 >
                   vercel.com
                 </a>
@@ -138,7 +138,7 @@ export default function MentionsLegalesPage() {
               Pour exercer vos droits, contactez-nous à l&apos;adresse :{" "}
               <a
                 href="mailto:contact@cdm2026.fr"
-                className="text-accent hover:underline"
+                className="text-primary hover:underline"
               >
                 contact@cdm2026.fr
               </a>
@@ -191,7 +191,7 @@ export default function MentionsLegalesPage() {
             <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               7. Clause de non-responsabilité — Paris sportifs
             </h2>
-            <div className="rounded-lg border-2 border-accent/30 bg-accent/5 p-5">
+            <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-5">
               <p>
                 Les pronostics, analyses et comparaisons de cotes présentés sur
                 ce site sont fournis <strong>à titre informatif uniquement</strong>{" "}
@@ -213,7 +213,7 @@ export default function MentionsLegalesPage() {
               <p className="mt-3">
                 <Link
                   href="/jeu-responsable"
-                  className="font-medium text-accent hover:underline"
+                  className="font-medium text-primary hover:underline"
                 >
                   Consulter notre page Jeu responsable →
                 </Link>
@@ -255,7 +255,7 @@ export default function MentionsLegalesPage() {
               Pour toute question concernant ces mentions légales :{" "}
               <a
                 href="mailto:contact@cdm2026.fr"
-                className="text-accent hover:underline"
+                className="text-primary hover:underline"
               >
                 contact@cdm2026.fr
               </a>

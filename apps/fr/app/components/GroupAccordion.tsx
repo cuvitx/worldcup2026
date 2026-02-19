@@ -30,7 +30,7 @@ export function GroupAccordion({ groups }: GroupAccordionProps) {
         {!isExpanded && (
           <button
             onClick={() => setIsExpanded(true)}
-            className="mt-4 w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-3 text-center font-semibold text-accent transition-colors hover:bg-accent/5 min-h-[44px]"
+            className="mt-4 w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-3 text-center font-semibold text-primary transition-colors hover:bg-primary/5 min-h-[44px]"
           >
             Voir les {groups.length - 4} autres groupes ↓
           </button>

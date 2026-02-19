@@ -459,7 +459,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
           isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
         }`}
       >
-        <div className="group bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-accent transition-all p-5">
+        <div className="group bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all p-5">
           {/* Header */}
           <div
             className={`flex items-center gap-3 mb-3 ${
@@ -516,7 +516,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
               isLeft ? "md:text-right" : ""
             }`}
           >
-            <div className="text-xs font-bold text-accent uppercase tracking-wide mb-1">
+            <div className="text-xs font-bold text-primary uppercase tracking-wide mb-1">
               {edition.highlight}
             </div>
             <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -571,7 +571,7 @@ export default function HistoirePage() {
       {/* Fil d'Ariane */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary dark:hover:text-white transition-colors">
                 Accueil
@@ -634,7 +634,7 @@ export default function HistoirePage() {
         {/* ── Timeline ─────────────────────────────────────────── */}
         <div className="relative">
           {/* Ligne centrale verticale (desktop uniquement) */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-primary/30 to-accent" />
+          <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/30 to-primary" />
 
           <div className="space-y-8">
             {editions.map((ed, i) => (
@@ -651,17 +651,17 @@ export default function HistoirePage() {
         <div className="mt-16">
           <div className="relative">
             {/* Continuation de la ligne */}
-            <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 -top-8 w-0.5 h-8 bg-gradient-to-b from-accent to-transparent" />
+            <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 -top-8 w-0.5 h-8 bg-gradient-to-b from-primary to-transparent" />
             <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10 top-0">
-              <div className="w-12 h-12 rounded-full border-4 border-white dark:border-slate-900 flex items-center justify-center text-xl font-bold text-white shadow-xl bg-gradient-to-br from-accent to-primary">
+              <div className="w-12 h-12 rounded-full border-4 border-white dark:border-slate-900 flex items-center justify-center text-xl font-bold text-white shadow-xl bg-gradient-to-br from-primary to-primary">
                 🌟
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl bg-gradient-to-br from-primary via-accent/20 to-primary border-2 border-accent/40 p-8 shadow-2xl text-white mt-8">
+          <div className="rounded-3xl bg-gradient-to-br from-primary via-primary to-primary border-2 border-primary/20 p-8 shadow-2xl text-white mt-8">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 rounded-full px-4 py-1.5 text-sm font-medium mb-4">
+              <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/20 rounded-full px-4 py-1.5 text-sm font-medium mb-4">
                 <span>🌟</span>
                 <span>Édition historique</span>
               </div>
@@ -818,11 +818,11 @@ export default function HistoirePage() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-4 shadow-sm hover:border-accent hover:shadow-md transition-all group"
+              className="flex items-center gap-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-4 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
             >
               <span className="text-3xl flex-shrink-0">{icon}</span>
               <div>
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                   {label}
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">{desc}</div>

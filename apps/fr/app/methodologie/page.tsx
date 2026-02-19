@@ -28,7 +28,7 @@ export default function MethodologiePage() {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">
                 Accueil
@@ -302,7 +302,7 @@ export default function MethodologiePage() {
               Consultez notre page{" "}
               <Link
                 href="/jeu-responsable"
-                className="text-accent hover:underline font-medium"
+                className="text-primary hover:underline font-medium"
               >
                 Jeu responsable
               </Link>
@@ -323,7 +323,7 @@ export default function MethodologiePage() {
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/match/calendrier"
-              className="rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white hover:bg-accent/90"
+              className="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Calendrier des matchs
             </Link>

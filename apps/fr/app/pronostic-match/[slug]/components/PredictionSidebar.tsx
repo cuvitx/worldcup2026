@@ -94,21 +94,21 @@ export function PredictionSidebar({
           <div className="space-y-3">
             <Link
               href={`/equipe/${home.slug}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
             >
               <span className="text-xl" role="img" aria-label={`Drapeau de ${home.name}`}>{home.flag}</span>
               <span className="font-medium">{home.name}</span>
             </Link>
             <Link
               href={`/equipe/${away.slug}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
             >
               <span className="text-xl" role="img" aria-label={`Drapeau de ${away.name}`}>{away.flag}</span>
               <span className="font-medium">{away.name}</span>
             </Link>
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
             >
               <span className="text-xl">&#9878;</span>
               <span className="font-medium">
@@ -125,7 +125,7 @@ export function PredictionSidebar({
           <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
           <Link
             href={`/stade/${stadium.slug}`}
-            className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-accent"
+            className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
           >
             <p className="font-semibold">{stadium.name}</p>
             <p className="text-sm text-gray-500">
@@ -136,7 +136,7 @@ export function PredictionSidebar({
           {city && (
             <Link
               href={`/ville/${city.slug}`}
-              className="mt-2 block text-sm text-accent hover:underline"
+              className="mt-2 block text-sm text-primary hover:underline"
             >
               Guide de {city.name} &rarr;
             </Link>
@@ -177,8 +177,8 @@ export function PredictionSidebar({
       )}
 
       {/* Sidebar CTA */}
-      <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-        <h3 className="mb-2 text-lg font-bold text-accent">
+      <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
+        <h3 className="mb-2 text-lg font-bold text-primary">
           Parier sur ce match
         </h3>
         <p className="mb-3 text-sm text-gray-600">
@@ -188,7 +188,7 @@ export function PredictionSidebar({
           href={featuredBookmaker.url}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
-          className="block w-full rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+          className="block w-full rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90 transition-colors"
         >
           Parier sur {featuredBookmaker.name} &rarr;
         </a>
@@ -209,7 +209,7 @@ export function PredictionSidebar({
                 <Link
                   key={rm.id}
                   href={`/pronostic-match/${rm.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 text-sm transition-colors hover:border-accent"
+                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 text-sm transition-colors hover:border-primary/30"
                 >
                   <span>
                     <span role="img" aria-label={`Drapeau de ${rmHome?.name ?? "Inconnu"}`}>{rmHome?.flag ?? "\ud83c\udff3\ufe0f"}</span>{" "}

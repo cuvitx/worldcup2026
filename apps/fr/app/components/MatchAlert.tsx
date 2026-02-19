@@ -83,7 +83,7 @@ export function MatchAlert() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="shrink-0 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white shadow transition hover:bg-accent/90 active:scale-95 disabled:opacity-60"
+            className="shrink-0 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white shadow transition hover:bg-primary/90 active:scale-95 disabled:opacity-60"
           >
             {status === "loading" ? "⏳" : "🔔 Activer"}
           </button>

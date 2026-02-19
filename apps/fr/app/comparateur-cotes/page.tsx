@@ -42,7 +42,7 @@ export default function ComparateurCotesPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Comparateur de cotes</li>
@@ -93,16 +93,16 @@ export default function ComparateurCotesPage() {
             return (
               <div key={match.matchId} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                 {/* Match header */}
-                <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-600">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">
+                <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 dark:border-gray-600">
+                  <div className="flex items-center gap-2 flex-wrap min-w-0">
+                    <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded shrink-0">
                       Groupe {match.group}
                     </span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-100">
+                    <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm truncate min-w-0">
                       {match.homeFlag} {match.homeTeam} vs {match.awayTeam} {match.awayFlag}
                     </span>
                   </div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">{match.date} 2026</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{match.date} 2026</span>
                 </div>
 
                 {/* Odds table */}

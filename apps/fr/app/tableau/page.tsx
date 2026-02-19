@@ -175,7 +175,7 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
     <Link
       href={`/equipe/${team.slug}`}
       className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
-        isWinner ? "font-bold text-primary dark:text-accent" : "text-gray-700 dark:text-gray-300"
+        isWinner ? "font-bold text-primary dark:text-secondary" : "text-gray-700 dark:text-gray-300"
       }`}
     >
       <span className="text-base" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
@@ -246,8 +246,8 @@ export default function BracketPage() {
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Tableau final</li>
           </ol>
@@ -623,7 +623,7 @@ export default function BracketPage() {
                     return (
                       <tr key={pred.teamId} className="hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/50 transition-colors">
                         <td className="py-2.5">
-                          <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent text-gray-900 dark:text-white">
+                          <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary text-gray-900 dark:text-white">
                             <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             <span className="font-medium">{team.name}</span>
                           </Link>

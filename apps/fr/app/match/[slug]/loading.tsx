@@ -3,7 +3,7 @@ export default function MatchLoading() {
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 animate-pulse">
       {/* Breadcrumb */}
       <div className="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 px-4 py-3">
-        <div className="max-w-7xl mx-auto flex gap-2 items-center">
+        <div className="max-w-7xl mx-auto px-4 flex gap-2 items-center">
           <div className="h-3.5 w-12 bg-gray-200 dark:bg-slate-700 rounded-full" />
           <span className="text-gray-300 dark:text-slate-600">/</span>
           <div className="h-3.5 w-16 bg-gray-200 dark:bg-slate-700 rounded-full" />

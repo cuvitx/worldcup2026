@@ -109,7 +109,7 @@ export default function ProfilPage() {
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-2">
+        <ol className="flex items-center gap-2 flex-wrap min-w-0">
           <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
           <li>/</li>
           <li className="text-gray-800 dark:text-gray-200 font-medium">Mon Profil</li>
