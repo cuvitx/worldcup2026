@@ -84,7 +84,7 @@ export default async function TeamPage({ params }: PageProps) {
       </nav>
 
       {/* Team Header */}
-      <section className="bg-primary text-white py-12">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center gap-6">
             <span className="text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
@@ -114,14 +114,14 @@ export default async function TeamPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Presentation</h2>
               <p className="text-gray-700 leading-relaxed">{team.description}</p>
             </section>
 
             {/* AI Analysis */}
             {enriched?.analysis && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="mb-4 flex items-center gap-2">
                   <h2 className="text-xl font-bold">Analyse</h2>
                   <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">IA</span>
@@ -131,7 +131,7 @@ export default async function TeamPage({ params }: PageProps) {
             )}
 
             {/* World Cup History */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Historique en Coupe du Monde</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
@@ -147,7 +147,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Predictions */}
             {prediction && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Pronostics CDM 2026</h2>
                 <div className="mb-4 flex items-center gap-3">
                   <div className="rounded-lg bg-primary/5 px-4 py-2">
@@ -179,7 +179,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Key Players */}
             {teamPlayers.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Joueurs clés</h2>
                 <ExpandablePlayerList players={teamPlayers} />
               </section>
@@ -187,7 +187,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Group Matches */}
             {teamMatches.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Matchs de groupe</h2>
                 <div className="space-y-3">
                   {teamMatches.map((match) => {
@@ -225,7 +225,7 @@ export default async function TeamPage({ params }: PageProps) {
             )}
 
             {/* Group Stage */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
                   Groupe {team.group}
@@ -289,7 +289,7 @@ export default async function TeamPage({ params }: PageProps) {
                 D: "Défaite",
               };
               return (
-                <div className="rounded-lg bg-white dark:bg-gray-900 p-6 shadow-sm">
+                <div className="rounded-xl border border-gray-200 bg-white dark:bg-gray-900 p-6 shadow-sm">
                   <h3 className="mb-4 text-lg font-bold">Forme récente</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">5 derniers matchs</p>
                   <div className="flex gap-2">
@@ -325,7 +325,7 @@ export default async function TeamPage({ params }: PageProps) {
                 })
                 .sort((a, b) => b.pts - a.pts || b.gd - a.gd);
               return (
-                <div className="rounded-lg bg-white dark:bg-gray-900 p-6 shadow-sm">
+                <div className="rounded-xl border border-gray-200 bg-white dark:bg-gray-900 p-6 shadow-sm">
                   <h3 className="mb-4 text-lg font-bold">
                     <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-accent">
                       Groupe {team.group}
@@ -333,11 +333,11 @@ export default async function TeamPage({ params }: PageProps) {
                   </h3>
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200 dark:border-gray-700 text-gray-500 text-xs">
-                        <th className="pb-2 text-left">#</th>
-                        <th className="pb-2 text-left">Équipe</th>
-                        <th className="pb-2 text-center">Pts</th>
-                        <th className="pb-2 text-center">+/-</th>
+                      <tr className="bg-gray-50 dark:bg-gray-800 text-gray-500 text-xs">
+                        <th className="py-2 px-2 text-left">#</th>
+                        <th className="py-2 px-2 text-left">Équipe</th>
+                        <th className="py-2 px-2 text-center">Pts</th>
+                        <th className="py-2 px-2 text-center">+/-</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -377,7 +377,7 @@ export default async function TeamPage({ params }: PageProps) {
             })()}
 
             {/* Quick Stats */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Fiche technique</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -409,7 +409,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Live Form & Stats */}
             {(enriched?.form || enriched?.goalStats) && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="mb-4 text-lg font-bold">Forme actuelle</h3>
                 {enriched?.form && (
                   <div className="mb-3">
@@ -449,7 +449,7 @@ export default async function TeamPage({ params }: PageProps) {
 
             {/* Injuries */}
             {(enriched?.injuries?.length ?? 0) > 0 && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="mb-3 text-lg font-bold">Blessures</h3>
                 <ul className="space-y-2">
                   {enriched?.injuries?.map((inj) => (
@@ -466,7 +466,7 @@ export default async function TeamPage({ params }: PageProps) {
             )}
 
             {/* CTA Betting */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
+            <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
               <h3 className="mb-2 text-lg font-bold text-accent">Pronostic {team.name}</h3>
               {prediction ? (
                 <div className="space-y-3">
@@ -524,7 +524,7 @@ export default async function TeamPage({ params }: PageProps) {
             </div>
 
             {/* Related Teams */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Équipes du groupe {team.group}</h3>
               <ul className="space-y-2">
                 {groupTeams.map((t) => (

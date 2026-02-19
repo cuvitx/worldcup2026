@@ -158,7 +158,7 @@ export default async function MatchPage({ params }: PageProps) {
           </div>
         </section>
       ) : (
-        <section className="bg-primary text-white py-12">
+        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
           <div className="mx-auto max-w-7xl px-4">
             <p className="mb-2 text-sm text-gold font-medium uppercase tracking-wide">
               {stage}
@@ -215,24 +215,24 @@ export default async function MatchPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             {home && away && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Comparaison</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="pb-3 text-left font-medium text-accent">
+                      <tr className="bg-gray-50">
+                        <th className="py-3 px-3 text-left text-sm font-medium text-accent">
                           {home.name}
                         </th>
-                        <th className="pb-3 text-center font-medium text-gray-500">
+                        <th className="py-3 px-3 text-center text-sm font-medium text-gray-500">
                           Critere
                         </th>
-                        <th className="pb-3 text-right font-medium text-accent">
+                        <th className="py-3 px-3 text-right text-sm font-medium text-accent">
                           {away.name}
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-100">
+                    <tbody className="divide-y divide-gray-200">
                       {[
                         {
                           label: "Classement FIFA",
@@ -295,7 +295,7 @@ export default async function MatchPage({ params }: PageProps) {
               />
             )}
 
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 {isCompleted ? "Resultat & Analyse" : "Pronostic"}
               </h2>
@@ -353,7 +353,7 @@ export default async function MatchPage({ params }: PageProps) {
 
           <div className="space-y-6">
             {stadium && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
                 <Link
                   href={`/stade/${stadium.slug}`}
@@ -376,7 +376,7 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             )}
 
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Infos match</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -435,7 +435,7 @@ export default async function MatchPage({ params }: PageProps) {
 
             {/* Same-day matches in sidebar */}
             {sameDayMatches.length > 0 && (
-              <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-900">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:bg-gray-900">
                 <h3 className="mb-4 text-lg font-bold">Autres matchs du {match.date.slice(5)}</h3>
                 <div className="space-y-2">
                   {sameDayMatches.slice(0, 5).map((m) => {
@@ -466,7 +466,7 @@ export default async function MatchPage({ params }: PageProps) {
                 locale="fr"
               />
             ) : (
-              <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
+              <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
                 <h3 className="mb-2 text-lg font-bold text-accent">
                   Cotes du match
                 </h3>

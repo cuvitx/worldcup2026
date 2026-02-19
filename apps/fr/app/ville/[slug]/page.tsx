@@ -46,29 +46,39 @@ export default async function CityPage({ params }: PageProps) {
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
+            <li><Link href="/villes" className="hover:text-primary">Villes</Link></li>
+            <li>/</li>
             <li className="text-gray-900 font-medium">{city.name}</li>
           </ol>
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">{city.name}</h1>
-          <p className="mt-2 text-gray-300">
-            {city.state}, {city.country} &middot; Ville hôte CDM 2026
-          </p>
+          <div className="flex items-center gap-6">
+            <span className="text-7xl">🏙️</span>
+            <div>
+              <h1 className="text-4xl font-extrabold">{city.name}</h1>
+              <p className="mt-2 text-gray-300">
+                {city.state}, {city.country} &middot; Ville hôte CDM 2026
+              </p>
+              <span className="mt-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
+                {cityStadiums.length} stade{cityStadiums.length > 1 ? "s" : ""}
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
               <p className="text-gray-700 leading-relaxed">{city.description}</p>
             </section>
 
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
                 {cityStadiums.length > 1 ? "Stades" : "Stade"} de la Coupe du Monde
               </h2>
@@ -92,7 +102,7 @@ export default async function CityPage({ params }: PageProps) {
               </div>
             </section>
 
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Informations pratiques</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
@@ -110,7 +120,7 @@ export default async function CityPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Fiche ville</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -132,7 +142,7 @@ export default async function CityPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Autres villes hôtes</h3>
               <ul className="space-y-2 text-sm">
                 {cities
@@ -148,7 +158,7 @@ export default async function CityPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
+            <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
               <h3 className="mb-2 text-lg font-bold text-accent">Hôtels à {city.name}</h3>
               <p className="text-sm text-gray-600">
                 Trouvez les meilleurs hôtels près des stades pour la Coupe du Monde 2026.

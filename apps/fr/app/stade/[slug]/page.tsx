@@ -67,13 +67,21 @@ export default async function StadiumPage({ params }: PageProps) {
       </nav>
 
       {/* Header */}
-      <section className="bg-primary text-white py-12">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">{stadium.name}</h1>
-          <p className="mt-2 text-gray-300">
-            {stadium.city}, {stadium.country} &middot;{" "}
-            {stadium.capacity.toLocaleString("fr-FR")} places
-          </p>
+          <div className="flex items-center gap-6">
+            <span className="text-7xl">🏟️</span>
+            <div>
+              <h1 className="text-4xl font-extrabold">{stadium.name}</h1>
+              <p className="mt-2 text-gray-300">
+                {stadium.city}, {stadium.country} &middot;{" "}
+                {stadium.capacity.toLocaleString("fr-FR")} places
+              </p>
+              <span className="mt-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
+                {stadium.roofType === "retractable" ? "Toit rétractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Toit ouvert"}
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -90,12 +98,12 @@ export default async function StadiumPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Présentation</h2>
               <p className="text-gray-700 leading-relaxed">{stadium.description}</p>
             </section>
 
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
@@ -123,7 +131,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* Matches at this stadium */}
             {stadiumMatches.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">
                   Matchs au {stadium.name} ({stadiumMatches.length})
                 </h2>
@@ -143,7 +151,7 @@ export default async function StadiumPage({ params }: PageProps) {
                         <span className="text-xs text-gray-500">vs</span>
                         <span className="font-medium flex-1 text-right">{away?.name ?? "TBD"}</span>
                         <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-                        <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">
+                        <span className="rounded-full px-3 py-1 text-xs font-medium bg-blue-100 text-blue-700 shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
                       </Link>
@@ -155,7 +163,7 @@ export default async function StadiumPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Informations</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -192,7 +200,7 @@ export default async function StadiumPage({ params }: PageProps) {
             </div>
 
             {/* Other stadiums */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold">Autres stades</h3>
               <ul className="space-y-2 text-sm">
                 {stadiums
