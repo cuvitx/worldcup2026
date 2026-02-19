@@ -1,0 +1,10 @@
+# Players without free Wikimedia Commons photos (as of 2026-02-19)
+# These need manual sourcing or alternative free sources
+
+theo-hernandez | Theo Hernandez | France | No Wikipedia pageimage
+fofana-youssouf | Youssouf Fofana | France | No Wikipedia pageimage  
+alvarez-julian | Julián Álvarez | Argentina | No Wikipedia pageimage
+mainoo | Kobbie Mainoo | England | No Wikipedia pageimage
+marquinhos | Marquinhos | Brazil | No Wikipedia pageimage (disambiguation)
+endrick | Endrick | Brazil | No Wikipedia pageimage
+vitinha | Vitinha | Portugal | No Wikipedia pageimage (disambiguation)

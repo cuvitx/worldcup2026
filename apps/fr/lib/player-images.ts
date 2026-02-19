@@ -5,8 +5,34 @@
 export const playerImageMap: Record<string, string> = {
   // France
   mbappe: "kylian-mbappe",
+  griezmann: "antoine-griezmann",
+  maignan: "mike-maignan",
   tchouameni: "aurelien-tchouameni",
+  saliba: "william-saliba",
+  kounde: "jules-kounde",
+  upamecano: "dayot-upamecano",
   camavinga: "eduardo-camavinga",
+  rabiot: "adrien-rabiot",
+  kante: "ngolo-kante",
+  dembele: "ousmane-dembele",
+  "thuram-marcus": "marcus-thuram",
+  olise: "michael-olise",
+  barcola: "bradley-barcola",
+  "zaire-emery": "warren-zaire-emery",
+  pavard: "benjamin-pavard",
+
+  // Argentina
+  messi: "lionel-messi",
+  "martinez-lautaro": "lautaro-martinez",
+  "de-paul": "rodrigo-de-paul",
+  "dibu-martinez": "emiliano-martinez",
+  "mac-allister": "alexis-mac-allister",
+  "enzo-fernandez": "enzo-fernandez",
+  "di-maria": "angel-di-maria",
+  otamendi: "nicolas-otamendi",
+  "romero-cristian": "cristian-romero",
+  garnacho: "alejandro-garnacho",
+  molina: "nahuel-molina",
 
   // England
   bellingham: "jude-bellingham",
@@ -14,27 +40,61 @@ export const playerImageMap: Record<string, string> = {
   foden: "phil-foden",
   "trent-alexander-arnold": "trent-alexander-arnold",
   kane: "harry-kane",
+  rice: "declan-rice",
+  pickford: "jordan-pickford",
+  walker: "kyle-walker",
+  stones: "john-stones",
+  shaw: "luke-shaw",
+  guehi: "marc-guehi",
+  gordon: "anthony-gordon",
+  watkins: "ollie-watkins",
+  "cole-palmer": "cole-palmer",
 
   // Spain
   yamal: "lamine-yamal",
   pedri: "pedri",
   rodri: "rodri",
   gavi: "gavi",
+  morata: "alvaro-morata",
+  simon: "unai-simon",
+  carvajal: "dani-carvajal",
+  "nico-williams": "nico-williams",
+  olmo: "dani-olmo",
+  laporte: "aymeric-laporte",
+  cucurella: "marc-cucurella",
+  "le-normand": "robin-le-normand",
+  "fabian-ruiz": "fabian-ruiz",
 
   // Brazil
   vinicius: "vinicius-jr",
   alisson: "alisson-becker",
-
-  // Argentina
-  messi: "lionel-messi",
+  rodrygo: "rodrygo",
+  casemiro: "casemiro",
+  raphinha: "raphinha",
+  militao: "eder-militao",
+  paqueta: "lucas-paqueta",
 
   // Germany
   musiala: "jamal-musiala",
   wirtz: "florian-wirtz",
   neuer: "manuel-neuer",
+  havertz: "kai-havertz",
+  rudiger: "antonio-rudiger",
+  gundogan: "ilkay-gundogan",
+  sane: "leroy-sane",
+  fullkrug: "niclas-fullkrug",
+  kimmich: "joshua-kimmich",
+  "ter-stegen": "marc-andre-ter-stegen",
+  schlotterbeck: "nico-schlotterbeck",
 
   // Portugal
   ronaldo: "cristiano-ronaldo",
+  "bernardo-silva": "bernardo-silva",
+  "bruno-fernandes": "bruno-fernandes",
+  dias: "ruben-dias",
+  "rafael-leao": "rafael-leao",
+  "joao-felix": "joao-felix",
+  cancelo: "joao-cancelo",
 
   // Belgium
   "de-bruyne": "kevin-de-bruyne",
@@ -43,7 +103,7 @@ export const playerImageMap: Record<string, string> = {
   // Morocco
   hakimi: "achraf-hakimi",
 
-  // Egypt (via players.ts slug)
+  // Egypt
   salah: "mohamed-salah",
 
   // Poland
@@ -63,9 +123,6 @@ export const playerImageMap: Record<string, string> = {
 
   // Uruguay
   valverde: "federico-valverde",
-
-  // England extra
-  "cole-palmer": "cole-palmer",
 };
 
 /**
