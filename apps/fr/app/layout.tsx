@@ -45,9 +45,10 @@ export const metadata: Metadata = {
     site: "@cdm2026",
     creator: "@cdm2026",
   },
+  // TODO: Switch to index: true, follow: true when site is ready for launch
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   icons: {
     icon: "/icon",

@@ -1,16 +1,15 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://cdm2026.fr";
-
+// TODO: Remove Disallow: / and restore Allow: / when site is ready for launch
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: "/",
       },
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    // Sitemap hidden until launch
+    // sitemap: "https://cdm2026.fr/sitemap.xml",
   };
 }
