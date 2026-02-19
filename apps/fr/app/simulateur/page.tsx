@@ -39,7 +39,7 @@ export default function SimulateurPage() {
         className="relative overflow-hidden text-white py-12 sm:py-16"
         style={{
           background:
-            "linear-gradient(160deg, #060D18 0%, #0F1923 50%, #091420 100%)",
+            "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
         }}
       >
         {/* Top glow */}
@@ -89,7 +89,7 @@ export default function SimulateurPage() {
             {/* Share CTA */}
             <div className="shrink-0">
               <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-                <p className="text-xs text-gray-400 mb-2">
+                <p className="text-xs text-gray-500 mb-2">
                   Partagez votre bracket
                 </p>
                 <Link

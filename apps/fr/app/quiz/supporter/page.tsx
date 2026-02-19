@@ -268,14 +268,14 @@ export default function QuizSupporterPage() {
 
           <button
             onClick={handleRestart}
-            className="mt-6 block mx-auto text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
+            className="mt-6 block mx-auto text-sm text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 underline"
           >
             Recommencer le quiz
           </button>
 
           {/* Top 3 */}
           <div className="mt-8 border-t border-gray-200 pt-6 dark:border-slate-600">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 text-center uppercase tracking-wider text-gray-400">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 text-center uppercase tracking-wider text-gray-500">
               Ton top 3
             </h3>
             <div className="flex justify-center gap-4">
@@ -292,7 +292,7 @@ export default function QuizSupporterPage() {
                       </div>
                       <div className="text-2xl">{t.flag}</div>
                       <div className="text-xs font-medium text-gray-500 dark:text-gray-300">{t.name}</div>
-                      <div className="text-xs text-gray-400">{pts} pts</div>
+                      <div className="text-xs text-gray-500">{pts} pts</div>
                     </div>
                   );
                 })}

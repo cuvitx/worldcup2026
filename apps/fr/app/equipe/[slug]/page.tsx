@@ -542,7 +542,7 @@ export default async function TeamPage({ params }: PageProps) {
                       </span>
                     ))}
                   </div>
-                  <p className="mt-3 text-xs text-gray-400">Données indicatives (qualifications)</p>
+                  <p className="mt-3 text-xs text-gray-500">Données indicatives (qualifications)</p>
                 </div>
               );
             })()}
@@ -606,11 +606,11 @@ export default async function TeamPage({ params }: PageProps) {
                       ))}
                     </tbody>
                   </table></div>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
                     <span className="inline-block h-2 w-2 rounded-full bg-green-500" />
                     Qualifié (top 2)
                   </div>
-                  <p className="mt-1 text-xs text-gray-400">Classement simulé (pré-tournoi)</p>
+                  <p className="mt-1 text-xs text-gray-500">Classement simulé (pré-tournoi)</p>
                 </div>
               );
             })()}

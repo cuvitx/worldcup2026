@@ -678,14 +678,14 @@ export default function PalmaresPage() {
                         <div className="font-semibold text-sm text-gray-600 dark:text-gray-300">
                           {ed.runnerUp}
                         </div>
-                        <div className="text-xs text-gray-400">🥈 Finaliste</div>
+                        <div className="text-xs text-gray-500">🥈 Finaliste</div>
                       </div>
                     </div>
                     <div className="text-xs text-gray-500 dark:text-gray-300 hidden sm:block">
                       <div className="flex items-center gap-1">
                         <span>{ed.thirdPlaceFlag}</span>
                         <span>{ed.thirdPlace}</span>
-                        <span className="text-gray-300 dark:text-gray-600">(3e)</span>
+                        <span className="text-gray-500 dark:text-gray-600">(3e)</span>
                       </div>
                       <div className="mt-1">
                         ⚽ {ed.topScorer} ({ed.topScorerGoals} buts)
@@ -776,7 +776,7 @@ export default function PalmaresPage() {
                 className="rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-primary/30 transition-colors"
               >
                 <div className="text-3xl mb-3">{rec.icon}</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
+                <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">
                   {rec.label}
                 </div>
                 <div className="font-bold text-lg mb-1">{rec.value}</div>

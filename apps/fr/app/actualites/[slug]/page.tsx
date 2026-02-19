@@ -169,7 +169,7 @@ export default async function ArticlePage({ params }: Props) {
               >
                 Voir les offres →
               </a>
-              <p className="mt-3 text-[10px] text-gray-400 text-center">
+              <p className="mt-3 text-[10px] text-gray-500 text-center">
                 18+ | Jouer comporte des risques | 09 74 75 13 13
               </p>
             </div>

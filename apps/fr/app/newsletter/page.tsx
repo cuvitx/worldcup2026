@@ -110,7 +110,7 @@ export default function NewsletterPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden py-20 md:py-28 text-white"
-        style={{ background: 'linear-gradient(135deg, #060D18 0%, #0F1923 40%, #0d2e1a 100%)' }}
+        style={{ background: 'linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)' }}
       >
         {/* Decorative circles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -148,7 +148,7 @@ export default function NewsletterPage() {
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-2xl font-extrabold text-secondary">{s.value}</p>
-                <p className="text-xs text-gray-400">{s.label}</p>
+                <p className="text-xs text-gray-500">{s.label}</p>
               </div>
             ))}
           </div>
@@ -232,7 +232,7 @@ export default function NewsletterPage() {
               <div className="space-y-4">
                 <div
                   className="rounded-xl p-4 text-white text-center"
-                  style={{ background: 'linear-gradient(135deg, #060D18, #0F1923)' }}
+                  style={{ background: 'linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)' }}
                 >
                   <p className="text-xs uppercase tracking-widest text-secondary mb-1">CDM 2026 · Semaine 3</p>
                   <p className="font-extrabold text-lg">Programme du 28 juin – 4 juillet</p>
@@ -247,7 +247,7 @@ export default function NewsletterPage() {
                         <span className="font-bold text-sm text-gray-900 dark:text-white">France</span>
                       </div>
                       <div className="text-center">
-                        <span className="text-xs font-bold text-gray-400 bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded">VS</span>
+                        <span className="text-xs font-bold text-gray-500 bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded">VS</span>
                         <p className="text-[10px] text-gray-500 mt-0.5">8e de finale · 22h00</p>
                       </div>
                       <div className="flex items-center gap-2">
@@ -320,7 +320,7 @@ export default function NewsletterPage() {
       {/* ===== FORM FINAL ===== */}
       <section
         className="py-20 text-white"
-        style={{ background: 'linear-gradient(135deg, #060D18 0%, #0F1923 60%, #0d2e1a 100%)' }}
+        style={{ background: 'linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)' }}
       >
         <div className="mx-auto max-w-2xl px-4 text-center">
           <div className="text-4xl mb-4">📧</div>

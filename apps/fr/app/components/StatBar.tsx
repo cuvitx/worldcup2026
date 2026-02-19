@@ -174,8 +174,8 @@ export function DuelStatBar({
       </div>
       {(homeName || awayName) && (
         <div className="flex items-center justify-between mt-0.5">
-          <span className="text-[10px] text-gray-400 truncate max-w-[80px]">{homeName}</span>
-          <span className="text-[10px] text-gray-400 truncate max-w-[80px] text-right">{awayName}</span>
+          <span className="text-[10px] text-gray-500 truncate max-w-[80px]">{homeName}</span>
+          <span className="text-[10px] text-gray-500 truncate max-w-[80px] text-right">{awayName}</span>
         </div>
       )}
     </div>

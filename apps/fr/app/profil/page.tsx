@@ -178,13 +178,13 @@ export default function ProfilPage() {
                 >
                   <div>
                     <p className="text-sm font-medium dark:text-white">{m.opponent}</p>
-                    <p className="text-xs text-gray-400">{m.stage}</p>
+                    <p className="text-xs text-gray-500">{m.stage}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-sm font-bold text-secondary dark:text-secondary">
                       {daysUntil(m.date)}j
                     </p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-gray-500">
                       {m.date.toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
                     </p>
                   </div>
@@ -213,7 +213,7 @@ export default function ProfilPage() {
 
           <button
             onClick={() => setShowOnboarding(true)}
-            className="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
+            className="text-sm text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 underline"
           >
             Changer d&apos;équipe
           </button>

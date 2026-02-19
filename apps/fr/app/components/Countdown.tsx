@@ -36,7 +36,7 @@ export function Countdown() {
     <section
       className="relative overflow-hidden py-8"
       style={{
-        background: "linear-gradient(135deg, #060D18 0%, #0F1923 40%, #091420 100%)",
+        background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
       }}
     >
       {/* Subtle top border glow */}
@@ -56,7 +56,7 @@ export function Countdown() {
           <p className="text-white font-bold text-lg">
             🇲🇽 Mexique <span className="text-primary mx-2">vs</span> 🇿🇦 Afrique du Sud
           </p>
-          <p className="text-gray-400 text-xs mt-0.5">
+          <p className="text-gray-500 text-xs mt-0.5">
             11 juin 2026 · 21h00 (Paris) · Estadio Azteca, Mexico
           </p>
         </div>
@@ -95,7 +95,7 @@ export function Countdown() {
               </div>
 
               {/* Label */}
-              <span className="mt-1.5 text-xs font-semibold uppercase tracking-widest text-gray-400">
+              <span className="mt-1.5 text-xs font-semibold uppercase tracking-widest text-gray-500">
                 {b.label}
               </span>
 

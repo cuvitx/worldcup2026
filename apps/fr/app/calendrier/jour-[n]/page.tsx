@@ -294,7 +294,7 @@ export default async function JourPage({ params }: PageProps) {
                         <span className="flex items-center gap-1">
                           <span>🕐</span>
                           <span className="font-medium text-gray-800 dark:text-gray-200">{frTime} (heure FR)</span>
-                          <span className="text-xs text-gray-400">| {match.time} UTC</span>
+                          <span className="text-xs text-gray-500">| {match.time} UTC</span>
                         </span>
                       </div>
                     </div>

@@ -106,7 +106,7 @@ export default function ButeursPage() {
                       {medal ? (
                         <span className="text-xl">{medal}</span>
                       ) : (
-                        <span className="text-sm font-bold text-gray-400">{scorer.rank}</span>
+                        <span className="text-sm font-bold text-gray-500">{scorer.rank}</span>
                       )}
                     </div>
 
@@ -139,7 +139,7 @@ export default function ButeursPage() {
                       <span className={`text-xl font-extrabold ${idx === 0 ? "text-secondary" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-secondary dark:text-secondary"}`}>
                         {scorer.goals}
                       </span>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-wide">buts</p>
+                      <p className="text-[10px] text-gray-500 uppercase tracking-wide">buts</p>
                     </div>
                   </div>
                 </div>
@@ -209,11 +209,11 @@ export default function ButeursPage() {
                       <div className="flex flex-wrap gap-4 mb-3">
                         <div className="text-center">
                           <p className="text-2xl font-extrabold text-primary dark:text-white">{candidate.expectedGoals}</p>
-                          <p className="text-[10px] text-gray-400 uppercase tracking-wide">Buts attendus</p>
+                          <p className="text-[10px] text-gray-500 uppercase tracking-wide">Buts attendus</p>
                         </div>
                         <div className="text-center">
                           <p className="text-2xl font-extrabold text-secondary">{candidate.internationalGoals}</p>
-                          <p className="text-[10px] text-gray-400 uppercase tracking-wide">Buts sélection</p>
+                          <p className="text-[10px] text-gray-500 uppercase tracking-wide">Buts sélection</p>
                         </div>
                         {/* Bar */}
                         <div className="flex-1 flex flex-col justify-center min-w-[100px]">
@@ -223,7 +223,7 @@ export default function ButeursPage() {
                               style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
                             />
                           </div>
-                          <p className="text-[10px] text-gray-400 mt-1">Probabilité implicite</p>
+                          <p className="text-[10px] text-gray-500 mt-1">Probabilité implicite</p>
                         </div>
                       </div>
 

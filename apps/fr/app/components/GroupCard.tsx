@@ -20,7 +20,7 @@ export function GroupCard({ group, teams }: GroupCardProps) {
           <li key={team.id} className="flex items-center gap-2.5 text-sm">
             <span className="text-lg shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <span className="text-gray-900 dark:text-gray-100 font-medium truncate flex-1">{team.name}</span>
-            <span className="ml-auto text-xs text-gray-400 dark:text-gray-400 shrink-0">
+            <span className="ml-auto text-xs text-gray-500 dark:text-gray-400 shrink-0">
               #{team.fifaRanking}
             </span>
           </li>

@@ -141,7 +141,7 @@ export default function PronosticHubPage() {
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-2xl font-extrabold text-secondary">{s.value}</p>
-                <p className="text-xs text-gray-400">{s.label}</p>
+                <p className="text-xs text-gray-500">{s.label}</p>
               </div>
             ))}
           </div>

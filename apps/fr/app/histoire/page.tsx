@@ -474,7 +474,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
             <div
               className={`flex-1 ${isLeft ? "md:text-right" : ""}`}
             >
-              <div className="text-xs text-gray-400 uppercase tracking-wide">
+              <div className="text-xs text-gray-500 uppercase tracking-wide">
                 {edition.hostFlag} {edition.host}
               </div>
             </div>
@@ -526,7 +526,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
 
           {/* Stats footer */}
           <div
-            className={`flex items-center gap-3 mt-3 text-xs text-gray-400 ${
+            className={`flex items-center gap-3 mt-3 text-xs text-gray-500 ${
               isLeft ? "md:justify-end" : ""
             }`}
           >

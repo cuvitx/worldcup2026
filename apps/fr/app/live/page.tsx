@@ -169,7 +169,7 @@ export default function LivePage() {
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
             {/* Match header */}
             <div className="bg-primary text-white px-6 py-4">
-              <div className="flex items-center justify-between text-xs text-gray-300 mb-3">
+              <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
                 <span>Phase de groupes · Groupe A</span>
                 <span className="inline-flex items-center gap-2 bg-primary/90 px-3 py-1 rounded-full">
                   <span className="relative flex h-2.5 w-2.5">

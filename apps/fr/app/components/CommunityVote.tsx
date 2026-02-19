@@ -102,7 +102,7 @@ export default function CommunityVote({
                     : "hover:border-secondary hover:bg-secondary/5 dark:hover:border-secondary dark:hover:bg-secondary/10"
               }`}
             >
-              <span className="text-2xl font-black text-gray-300 dark:text-gray-600 group-hover:text-gray-500">
+              <span className="text-2xl font-black text-gray-500 dark:text-gray-600 group-hover:text-gray-500">
                 {opt.key}
               </span>
               <span className="text-center text-xs leading-tight text-gray-700 dark:text-gray-300 sm:text-sm">

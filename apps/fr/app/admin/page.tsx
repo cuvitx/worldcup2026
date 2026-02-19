@@ -6,7 +6,7 @@ import { useEffect, useState, Suspense } from "react"
 const SECRET = "cdm2026-admin-secret"
 
 const colors = [
-  { name: "Primary", hex: "#1a1a2e", tw: "bg-[#1a1a2e]" },
+  { name: "Primary", hex: "#0D3B66", tw: "bg-[#0D3B66]" },
   { name: "Accent Blue", hex: "#0f3460", tw: "bg-[#0f3460]" },
   { name: "Accent Red", hex: "#e94560", tw: "bg-[#e94560]" },
   { name: "Gold", hex: "#f5c518", tw: "bg-[#f5c518]" },
@@ -149,7 +149,7 @@ function AdminContent() {
           <p className="mt-3 text-sm text-gray-500">{checklist.filter((c) => c.done).length}/{checklist.length} complétés</p>
         </section>
 
-        <p className="text-center text-xs text-gray-400 pb-8">Admin interne — ne pas indexer</p>
+        <p className="text-center text-xs text-gray-500 pb-8">Admin interne — ne pas indexer</p>
       </div>
     </div>
   )

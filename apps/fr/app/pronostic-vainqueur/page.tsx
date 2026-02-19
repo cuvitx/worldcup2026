@@ -745,12 +745,12 @@ export default function PronosticVainqueurPage() {
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
               <p className="text-4xl font-extrabold text-primary mb-1">{homeWins}</p>
               <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">pays hôtes vainqueurs</p>
-              <p className="text-xs text-gray-400 mt-1">sur {totalEditions} éditions depuis 1930</p>
+              <p className="text-xs text-gray-500 mt-1">sur {totalEditions} éditions depuis 1930</p>
             </div>
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
               <p className="text-4xl font-extrabold text-secondary mb-1">{homeWinPct}%</p>
               <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">taux de victoire à domicile</p>
-              <p className="text-xs text-gray-400 mt-1">Avantage terrain non négligeable</p>
+              <p className="text-xs text-gray-500 mt-1">Avantage terrain non négligeable</p>
             </div>
             <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50 dark:bg-amber-900/20 p-5 text-center">
               <p className="text-4xl font-extrabold text-amber-600 mb-1">3</p>
@@ -858,7 +858,7 @@ export default function PronosticVainqueurPage() {
       </section>
 
       {/* ===== CTA SIMULATEUR BRACKET ===== */}
-      <section id="simulateur-cta" className="bg-gradient-to-br from-[#060D18] via-[#0F1923] to-[#091420] py-12">
+      <section id="simulateur-cta" className="py-12" style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}>
         <div className="mx-auto max-w-4xl px-4 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary mb-4">
             <span className="text-secondary">🏆</span>
@@ -1036,7 +1036,7 @@ export default function PronosticVainqueurPage() {
                   <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
                     Voir →
                   </span>
-                  <p className="text-[10px] text-gray-400 mt-1">{"⭐".repeat(bm.rating)}</p>
+                  <p className="text-[10px] text-gray-500 mt-1">{"⭐".repeat(bm.rating)}</p>
                 </div>
               </a>
             ))}

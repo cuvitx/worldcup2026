@@ -420,7 +420,7 @@ export default function HomePage() {
                             : "text-gray-400 dark:text-gray-400"
                         }`}
                       >
-                        <span className="text-xs text-gray-300 dark:text-gray-600 w-3 shrink-0 font-bold">
+                        <span className="text-xs text-gray-500 dark:text-gray-600 w-3 shrink-0 font-bold">
                           {i + 1}
                         </span>
                         <span className="text-sm shrink-0" role="img" aria-label={team.name}>

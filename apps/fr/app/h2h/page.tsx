@@ -130,7 +130,7 @@ export default function H2HIndexPage() {
                         {m.home.name}
                       </span>
                     </div>
-                    <span className="text-xs font-bold text-gray-400">VS</span>
+                    <span className="text-xs font-bold text-gray-500">VS</span>
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-semibold text-gray-900 dark:text-white">
                         {m.away.name}
@@ -165,7 +165,7 @@ export default function H2HIndexPage() {
                         {m.home.name}
                       </span>
                     </div>
-                    <span className="text-xs font-bold text-gray-400">VS</span>
+                    <span className="text-xs font-bold text-gray-500">VS</span>
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-semibold text-gray-900 dark:text-white">
                         {m.away.name}

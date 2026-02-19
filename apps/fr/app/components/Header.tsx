@@ -253,7 +253,7 @@ export function Header() {
                                 >
                                   <span>{link.label}</span>
                                   {"sub" in link && link.sub && (
-                                    <span className="text-[10px] text-gray-400 ml-2 shrink-0">
+                                    <span className="text-[10px] text-gray-500 ml-2 shrink-0">
                                       {link.sub}
                                     </span>
                                   )}

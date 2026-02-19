@@ -337,7 +337,7 @@ export function BracketSimulator() {
           <div
             className="relative z-10 flex flex-col items-center gap-3 py-8 px-6 text-center champion-glow rounded-2xl"
             style={{
-              background: "linear-gradient(135deg, #060D18 0%, #0F1923 50%, #060D18 100%)",
+              background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
               border: "2px solid rgba(245,166,35,0.6)",
             }}
           >
@@ -351,7 +351,7 @@ export function BracketSimulator() {
                 <p className="text-3xl font-extrabold text-white">{champion.name}</p>
               </div>
               {champion.fifaRanking > 0 && (
-                <p className="text-sm text-gray-400 mt-1">#{champion.fifaRanking} FIFA</p>
+                <p className="text-sm text-gray-500 mt-1">#{champion.fifaRanking} FIFA</p>
               )}
             </div>
             <ShareButtons
@@ -638,7 +638,7 @@ function TeamSlot({
 }) {
   if (!team) {
     return (
-      <div className="flex items-center gap-2 px-2.5 py-2 text-gray-400 dark:text-gray-600">
+      <div className="flex items-center gap-2 px-2.5 py-2 text-gray-500 dark:text-gray-600">
         <span className="text-base opacity-40">⬜</span>
         <span className="text-xs italic">À déterminer</span>
       </div>

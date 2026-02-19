@@ -39,7 +39,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
           ))}
         </select>
 
-        <span className="text-lg font-bold text-gray-400">VS</span>
+        <span className="text-lg font-bold text-gray-500">VS</span>
 
         <select
           value={team2}

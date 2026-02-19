@@ -60,7 +60,7 @@ export default function GroupsPage() {
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                     Groupe {group.letter}
                   </h2>
-                  <span className="text-xs text-gray-300 group-hover:text-primary transition-colors">
+                  <span className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">
                     Voir détails →
                   </span>
                 </div>
@@ -78,7 +78,7 @@ export default function GroupsPage() {
                             : ""
                         }`}
                       >
-                        <span className="w-5 text-center text-xs font-bold text-gray-400 dark:text-gray-400">
+                        <span className="w-5 text-center text-xs font-bold text-gray-600 dark:text-gray-300">
                           {idx + 1}
                         </span>
                         <span className="text-xl" role="img" aria-label={team?.name ?? id}>
@@ -92,7 +92,7 @@ export default function GroupsPage() {
                           {team?.name ?? id}
                         </span>
                         {team && (
-                          <span className="text-xs text-gray-400 dark:text-gray-400">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
                             #{team.fifaRanking}
                           </span>
                         )}

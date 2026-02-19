@@ -635,7 +635,7 @@ export default function OuRegarderPage() {
                   ))}
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-400 italic">{m.note}</span>
+                  <span className="text-xs text-gray-500 italic">{m.note}</span>
                   {m.free && (
                     <span className="text-[10px] font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-1.5 py-0.5 rounded-full">GRATUIT</span>
                   )}

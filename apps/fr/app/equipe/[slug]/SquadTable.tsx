@@ -64,7 +64,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
   });
 
   function SortIcon({ col }: { col: SortKey }) {
-    if (sortKey !== col) return <span className="text-gray-300 ml-1">↕</span>;
+    if (sortKey !== col) return <span className="text-gray-500 ml-1">↕</span>;
     return <span className="text-primary ml-1">{sortAsc ? "↑" : "↓"}</span>;
   }
 
