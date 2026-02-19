@@ -28,6 +28,8 @@ export { bookmakerReviews, bookmakerReviewsById, bookmakerReviewsBySlug } from "
 export type { PlayerStats } from "./player-stats";
 export { playerStats, playerStatsById, playerStatsByTeam } from "./player-stats";
 export type { Guide } from "./guides";
+export type { TeamRating } from "./team-ratings";
+export { teamRatings } from "./team-ratings";
 export { guides, guidesById, guidesBySlug, guidesByCategory } from "./guides";
 export type { TournamentPhase, MatchPhase } from "./tournament-state";
 export { getTournamentPhase, getDaysUntilKickoff, getTodaysMatches, getNextMatch, getMatchPhase, getMatchesByDate, getMatchDates } from "./tournament-state";

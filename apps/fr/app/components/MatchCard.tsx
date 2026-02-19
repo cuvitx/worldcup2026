@@ -1,4 +1,14 @@
+/**
+ * MatchCard — Brand Book CDM2026
+ * - border-radius 12px (var --radius-lg)
+ * - border-left accent : live=#e94560, upcoming=#f5a623, finished=#8a8a9a
+ * - score en JetBrains Mono 700
+ * - badge LIVE avec dot pulsant
+ */
+
 import Link from "next/link";
+
+type MatchStatus = "live" | "upcoming" | "finished";
 
 interface MatchCardProps {
   slug: string;
@@ -12,6 +22,13 @@ interface MatchCardProps {
   matchday?: number;
   stage?: string;
   odds?: { home: string; draw: string; away: string };
+  /** Score home (si match en cours ou terminé) */
+  scoreHome?: number;
+  /** Score away (si match en cours ou terminé) */
+  scoreAway?: number;
+  /** Minute en cours (si live) */
+  minute?: number;
+  status?: MatchStatus;
   isHot?: boolean;
   isTop?: boolean;
   compact?: boolean;
@@ -23,6 +40,16 @@ function formatDate(date: string) {
     month: "short",
     timeZone: "UTC",
   });
+}
+
+/** Classe CSS border-left selon l'état du match */
+function statusClass(status?: MatchStatus): string {
+  switch (status) {
+    case "live":     return "match-card--live";
+    case "finished": return "match-card--finished";
+    case "upcoming":
+    default:         return "match-card--upcoming";
+  }
 }
 
 export function MatchCard({
@@ -37,18 +64,30 @@ export function MatchCard({
   matchday,
   stage,
   odds,
+  scoreHome,
+  scoreAway,
+  minute,
+  status,
   isHot,
   isTop,
   compact = false,
 }: MatchCardProps) {
+  const isLive     = status === "live";
+  const isFinished = status === "finished";
+  const showScore  = isLive || isFinished;
+
   return (
     <Link
       href={`/pronostic-match/${slug}`}
-      className="match-card block"
+      className={`match-card ${statusClass(status)} block`}
     >
-      {/* Top bar: meta info + badges */}
-      <div className={`flex items-center justify-between ${compact ? "px-3 py-1.5" : "px-4 py-2"} border-b border-gray-100 dark:border-white/5`}>
-        <span className="text-xs text-gray-500 dark:text-gray-400 truncate">
+      {/* ── Top bar : meta + badges ── */}
+      <div
+        className={`flex items-center justify-between ${
+          compact ? "px-3 py-1.5" : "px-4 py-2"
+        } border-b border-[var(--color-border)]`}
+      >
+        <span className="text-xs text-[#8a8a9a] truncate">
           {stage && stage !== "group"
             ? stage
             : group
@@ -57,58 +96,136 @@ export function MatchCard({
             ? `Journée ${matchday}`
             : ""}
         </span>
+
         <div className="flex items-center gap-1.5 shrink-0 ml-2">
-          {isHot && <span className="badge-hot">🔥 Hot</span>}
-          {isTop && <span className="badge-top">⭐ Top</span>}
-          <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-            {formatDate(date)}
-            {time && <span className="ml-1 text-gray-400">{time}</span>}
-          </span>
+          {/* Badge LIVE */}
+          {isLive && (
+            <span className="badge-brand badge-live flex items-center gap-1">
+              <span className="live-dot" aria-hidden="true" />
+              LIVE
+              {minute !== undefined && (
+                <span className="font-normal normal-case tracking-normal opacity-90 ml-0.5">
+                  {minute}&apos;
+                </span>
+              )}
+            </span>
+          )}
+
+          {/* Badges hot / top */}
+          {!isLive && isHot && <span className="badge-hot">🔥 Hot</span>}
+          {!isLive && isTop && <span className="badge-top">⭐ Top</span>}
+
+          {/* Date/heure */}
+          {!isLive && (
+            <span className="text-xs font-medium text-[#8a8a9a]">
+              {formatDate(date)}
+              {time && <span className="ml-1 opacity-75">{time}</span>}
+            </span>
+          )}
         </div>
       </div>
 
-      {/* Teams row */}
-      <div className={`flex items-center ${compact ? "px-3 py-2.5 gap-2" : "px-4 py-3.5 gap-3"}`}>
-        {/* Home team */}
+      {/* ── Équipes + score ── */}
+      <div
+        className={`flex items-center ${
+          compact ? "px-3 py-2.5 gap-2" : "px-4 py-3.5 gap-3"
+        }`}
+      >
+        {/* Équipe domicile */}
         <div className="flex items-center gap-1.5 flex-1 min-w-0 justify-end">
           <span
-            className={`font-semibold truncate text-gray-900 dark:text-gray-100 ${compact ? "text-sm" : "text-base"}`}
+            className={`font-semibold truncate text-[var(--color-text)] ${
+              compact ? "text-sm" : "text-base"
+            } ${isFinished && scoreHome !== undefined && scoreAway !== undefined && scoreHome > scoreAway ? "font-bold" : ""}`}
           >
             {homeName}
           </span>
-          <span className={compact ? "text-xl" : "text-2xl"} role="img" aria-label={`Drapeau ${homeName}`}>
+          <span
+            className={compact ? "text-xl" : "text-2xl"}
+            role="img"
+            aria-label={`Drapeau ${homeName}`}
+          >
             {homeFlag}
           </span>
         </div>
 
-        {/* VS */}
-        <div className="flex flex-col items-center shrink-0">
-          <span className={`font-bold text-accent ${compact ? "text-xs" : "text-sm"}`}>VS</span>
+        {/* Score ou VS */}
+        <div className="flex flex-col items-center shrink-0 min-w-[52px]">
+          {showScore && scoreHome !== undefined && scoreAway !== undefined ? (
+            <div
+              className="score-display text-[var(--color-text)] flex items-center gap-1"
+              aria-label={`Score : ${scoreHome} - ${scoreAway}`}
+            >
+              <span
+                className={
+                  scoreHome > scoreAway
+                    ? "text-[#e94560]"
+                    : scoreHome === scoreAway
+                    ? ""
+                    : "opacity-60"
+                }
+              >
+                {scoreHome}
+              </span>
+              <span className="opacity-40 text-lg">-</span>
+              <span
+                className={
+                  scoreAway > scoreHome
+                    ? "text-[#e94560]"
+                    : scoreHome === scoreAway
+                    ? ""
+                    : "opacity-60"
+                }
+              >
+                {scoreAway}
+              </span>
+            </div>
+          ) : (
+            <span
+              className={`font-bold text-[#e94560] ${
+                compact ? "text-xs" : "text-sm"
+              }`}
+            >
+              VS
+            </span>
+          )}
         </div>
 
-        {/* Away team */}
+        {/* Équipe extérieure */}
         <div className="flex items-center gap-1.5 flex-1 min-w-0">
-          <span className={compact ? "text-xl" : "text-2xl"} role="img" aria-label={`Drapeau ${awayName}`}>
+          <span
+            className={compact ? "text-xl" : "text-2xl"}
+            role="img"
+            aria-label={`Drapeau ${awayName}`}
+          >
             {awayFlag}
           </span>
           <span
-            className={`font-semibold truncate text-gray-900 dark:text-gray-100 ${compact ? "text-sm" : "text-base"}`}
+            className={`font-semibold truncate text-[var(--color-text)] ${
+              compact ? "text-sm" : "text-base"
+            } ${isFinished && scoreHome !== undefined && scoreAway !== undefined && scoreAway > scoreHome ? "font-bold" : ""}`}
           >
             {awayName}
           </span>
         </div>
 
-        {/* Arrow */}
-        <span className="text-accent text-sm shrink-0 ml-1">›</span>
+        {/* Flèche */}
+        <span className="text-[#e94560] text-sm shrink-0 ml-1" aria-hidden="true">
+          ›
+        </span>
       </div>
 
-      {/* Odds row (optional) */}
-      {odds && (
-        <div className={`flex items-center justify-center gap-2 ${compact ? "px-3 pb-2.5" : "px-4 pb-3.5"} border-t border-gray-50 dark:border-white/5 pt-2`}>
+      {/* ── Cotes (optionnel) ── */}
+      {odds && !showScore && (
+        <div
+          className={`flex items-center justify-center gap-2 ${
+            compact ? "px-3 pb-2.5" : "px-4 pb-3.5"
+          } border-t border-[var(--color-border)] pt-2`}
+        >
           <OddPill label="1" value={odds.home} />
           <OddPill label="N" value={odds.draw} />
           <OddPill label="2" value={odds.away} />
-          <span className="ml-auto text-xs text-gray-400 dark:text-gray-500">Pronostic →</span>
+          <span className="ml-auto text-xs text-[#8a8a9a]">Pronostic →</span>
         </div>
       )}
     </Link>
@@ -118,7 +235,7 @@ export function MatchCard({
 function OddPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col items-center gap-0.5">
-      <span className="text-[10px] text-gray-400 font-medium">{label}</span>
+      <span className="text-[10px] text-[#8a8a9a] font-medium">{label}</span>
       <span className="odds-badge text-xs">{value}</span>
     </div>
   );

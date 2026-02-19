@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BracketSimulator } from "./components/BracketSimulator";
+import { SocialProof } from "../components/SocialProof";
 
 export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
@@ -62,7 +63,7 @@ export default function SimulateurPage() {
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
                 Construisez votre bracket CDM 2026
               </h1>
-              <p className="mt-2 text-gray-300 text-sm md:text-base max-w-xl">
+              <p className="mt-2 text-gray-200 text-sm md:text-base max-w-xl">
                 Qui soulèvera la Coupe ? Jouez le tournoi complet : 32 équipes,
                 16 matchs à prédire. Résultat en 2 minutes.
               </p>
@@ -76,7 +77,7 @@ export default function SimulateurPage() {
                 ].map((item) => (
                   <span
                     key={item.text}
-                    className="flex items-center gap-1.5 text-xs text-gray-400"
+                    className="flex items-center gap-1.5 text-xs text-gray-300"
                   >
                     <span>{item.icon}</span>
                     {item.text}
@@ -109,6 +110,8 @@ export default function SimulateurPage() {
           <BracketSimulator />
         </div>
       </section>
+
+      <SocialProof />
 
       {/* JSON-LD Breadcrumb */}
       <script

@@ -207,7 +207,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                 <div className="space-y-6">
                   {Array.from(byDate.entries()).map(([date, dateMatches]) => (
                     <div key={date}>
-                      <h3 className="mb-3 text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                      <h3 className="mb-3 text-sm font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-wide">
                         {new Date(date).toLocaleDateString("fr-FR", {
                           weekday: "long",
                           day: "numeric",
@@ -226,16 +226,16 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                               href={`/match/${match.slug}`}
                               className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-colors hover:border-accent hover:bg-accent/5"
                             >
-                              <span className="text-sm text-gray-500 w-12 text-center shrink-0">
+                              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-12 text-center shrink-0">
                                 {match.time}
                               </span>
                               <div className="flex items-center gap-2 flex-1 min-w-0">
                                 <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                                <span className="font-medium truncate">{home?.name ?? "À déterminer"}</span>
+                                <span className="font-medium text-gray-900 dark:text-gray-100 truncate">{home?.name ?? "À déterminer"}</span>
                               </div>
-                              <span className="text-xs text-gray-500 shrink-0">vs</span>
+                              <span className="text-xs font-bold text-gray-400 dark:text-gray-500 shrink-0">vs</span>
                               <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                                <span className="font-medium truncate text-right">{away?.name ?? "À déterminer"}</span>
+                                <span className="font-medium text-gray-900 dark:text-gray-100 truncate text-right">{away?.name ?? "À déterminer"}</span>
                                 <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                               </div>
                               {match.group && (
@@ -244,7 +244,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                                 </span>
                               )}
                               {stad && (
-                                <span className="text-xs text-gray-500 hidden sm:block shrink-0 w-32 text-right truncate">
+                                <span className="text-xs text-gray-600 dark:text-gray-400 hidden sm:block shrink-0 w-32 text-right truncate">
                                   {stad.name}
                                 </span>
                               )}

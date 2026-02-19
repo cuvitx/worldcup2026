@@ -11,6 +11,7 @@ import { newsArticles } from "@repo/data/news";
 import { favoritesByTeamId } from "@repo/data/predictions-2026";
 import { Countdown } from "./components/Countdown";
 import { NewsletterCTA } from "./components/NewsletterCTA";
+import { SocialProof } from "./components/SocialProof";
 import { StadiumCarousel } from "./components/StadiumCarousel";
 
 export const metadata: Metadata = {
@@ -186,10 +187,10 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="mx-auto mb-10 max-w-xl text-base text-gray-300/80 leading-relaxed sm:text-lg">
+          <p className="mx-auto mb-10 max-w-xl text-base text-gray-200 leading-relaxed sm:text-lg">
             Pronostics d&apos;experts · Cotes live · Analyses exclusives
             <br />
-            <span className="text-sm text-gray-400/70">
+            <span className="text-sm text-gray-300">
               🇺🇸 États-Unis · 🇨🇦 Canada · 🇲🇽 Mexique — 48 équipes · 104 matchs
             </span>
           </p>
@@ -227,19 +228,19 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           STATS RIBBON
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#0d1117] dark:bg-[#0d1117] border-y border-white/5">
+      <section className="bg-white dark:bg-[#0d1117] border-y border-gray-200 dark:border-white/5">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-4 divide-x divide-white/5">
+          <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-white/5">
             {[
               { value: "48", label: "Équipes", icon: "🌍" },
               { value: "104", label: "Matchs", icon: "⚽" },
               { value: "16", label: "Stades", icon: "🏟️" },
               { value: "3", label: "Pays hôtes", icon: "🌎" },
             ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center py-5 px-3 text-center gap-0.5">
-                <span className="text-lg mb-0.5">{stat.icon}</span>
-                <p className="text-2xl font-black text-white leading-none">{stat.value}</p>
-                <p className="text-[11px] text-gray-500 font-medium mt-0.5">{stat.label}</p>
+              <div key={stat.label} className="flex flex-col items-center py-5 px-2 text-center gap-0.5">
+                <span className="text-base sm:text-lg mb-0.5">{stat.icon}</span>
+                <p className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-none">{stat.value}</p>
+                <p className="text-[10px] sm:text-[11px] text-gray-500 dark:text-gray-500 font-medium mt-0.5">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -708,6 +709,11 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           7. NEWSLETTER CTA
           ══════════════════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════════════════════
+          SOCIAL PROOF
+          ══════════════════════════════════════════════════════════════════ */}
+      <SocialProof />
+
       <NewsletterCTA />
     </>
   );

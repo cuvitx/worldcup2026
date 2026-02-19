@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
   { href: "/", label: "Accueil", emoji: "🏠" },
-  { href: "/calendrier", label: "Matchs", emoji: "⚽" },
+  { href: "/match/calendrier", label: "Matchs", emoji: "⚽" },
   { href: "/pronostic-vainqueur", label: "Pronostics", emoji: "📊" },
-  { href: "/equipe", label: "Équipes", emoji: "🏆" },
+  { href: "/equipes", label: "Équipes", emoji: "🏆" },
   { href: "/recherche", label: "Recherche", emoji: "🔍" },
 ] as const;
 

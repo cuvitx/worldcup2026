@@ -29,7 +29,7 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
   return (
     <div>
       {/* Tab bar */}
-      <div className="sticky top-[65px] z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="sticky top-[105px] z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="mx-auto max-w-7xl px-4">
           <div role="tablist" aria-label="Sections du match" className="flex overflow-x-auto scrollbar-hide gap-0.5">
             {TABS.map((tab) => (

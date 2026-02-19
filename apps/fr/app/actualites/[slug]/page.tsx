@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { newsArticles, newsBySlug, newsCategories, type NewsCategory } from "@repo/data/news";
 import { bookmakers } from "@repo/data/affiliates";
+import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 
 const categoryColors: Record<NewsCategory, string> = {
   transferts: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
@@ -174,6 +175,21 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </aside>
         </div>
+      </div>
+
+      {/* Related content */}
+      <div className="mx-auto max-w-4xl px-4 pb-8">
+        <RelatedContent
+          items={newsArticles
+            .filter((a) => a.id !== article.id)
+            .slice(0, 4)
+            .map((a): RelatedItem => ({
+              href: `/actualites/${a.slug}`,
+              emoji: a.imageEmoji,
+              title: a.title,
+              description: a.excerpt.slice(0, 80) + '…',
+            }))}
+        />
       </div>
     </>
   );

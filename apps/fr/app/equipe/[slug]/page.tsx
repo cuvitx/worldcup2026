@@ -16,6 +16,9 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { teamWorldCupHistory } from "@repo/data/team-history";
 import { getFlagPath, getISOCode } from "@repo/data/country-codes";
+import { teamRatings } from "@repo/data/team-ratings";
+import RadarChart from "../../components/RadarChart";
+import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 import ExpandablePlayerList from "./ExpandablePlayerList";
 import SquadTable from "./SquadTable";
 
@@ -144,6 +147,14 @@ export default async function TeamPage({ params }: PageProps) {
               <h2 className="mb-4 text-xl font-bold">Presentation</h2>
               <p className="text-gray-700 leading-relaxed">{team.description}</p>
             </section>
+
+            {/* Radar Chart */}
+            {teamRatings[team.slug] && (
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold dark:text-white">Profil de l&apos;équipe</h2>
+                <RadarChart rating={teamRatings[team.slug]!} color="#3b82f6" />
+              </section>
+            )}
 
             {/* AI Analysis */}
             {enriched?.analysis && (
@@ -768,6 +779,29 @@ export default async function TeamPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Related content */}
+      <div className="mx-auto max-w-6xl px-4 pb-8">
+        <RelatedContent
+          items={[
+            ...groupTeams
+              .filter((t) => t.slug !== team.slug)
+              .slice(0, 3)
+              .map((t): RelatedItem => ({
+                href: `/equipe/${t.slug}`,
+                emoji: t.flag,
+                title: t.name,
+                description: `Groupe ${team.group} · FIFA #${t.fifaRanking}`,
+              })),
+            {
+              href: '/pronostic-vainqueur',
+              emoji: '🏆',
+              title: 'Pronostic vainqueur',
+              description: 'Qui va remporter la CDM 2026 ?',
+            },
+          ]}
+        />
       </div>
 
       {/* Schema.org structured data */}

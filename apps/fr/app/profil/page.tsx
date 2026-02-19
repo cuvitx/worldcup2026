@@ -1,11 +1,88 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useBadges, ALL_BADGES } from "../components/BadgeSystem";
+
+/* ─── Team data for onboarding ─────────────────────────────── */
+
+const TEAMS = [
+  { slug: "france", flag: "🇫🇷", name: "France" },
+  { slug: "bresil", flag: "🇧🇷", name: "Brésil" },
+  { slug: "argentine", flag: "🇦🇷", name: "Argentine" },
+  { slug: "allemagne", flag: "🇩🇪", name: "Allemagne" },
+  { slug: "espagne", flag: "🇪🇸", name: "Espagne" },
+  { slug: "angleterre", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", name: "Angleterre" },
+  { slug: "portugal", flag: "🇵🇹", name: "Portugal" },
+  { slug: "pays-bas", flag: "🇳🇱", name: "Pays-Bas" },
+  { slug: "belgique", flag: "🇧🇪", name: "Belgique" },
+  { slug: "italie", flag: "🇮🇹", name: "Italie" },
+  { slug: "japon", flag: "🇯🇵", name: "Japon" },
+  { slug: "maroc", flag: "🇲🇦", name: "Maroc" },
+  { slug: "etats-unis", flag: "🇺🇸", name: "États-Unis" },
+  { slug: "mexique", flag: "🇲🇽", name: "Mexique" },
+  { slug: "senegal", flag: "🇸🇳", name: "Sénégal" },
+  { slug: "croatie", flag: "🇭🇷", name: "Croatie" },
+  { slug: "uruguay", flag: "🇺🇾", name: "Uruguay" },
+  { slug: "colombie", flag: "🇨🇴", name: "Colombie" },
+  { slug: "cameroun", flag: "🇨🇲", name: "Cameroun" },
+  { slug: "coree-du-sud", flag: "🇰🇷", name: "Corée du Sud" },
+  { slug: "australie", flag: "🇦🇺", name: "Australie" },
+  { slug: "canada", flag: "🇨🇦", name: "Canada" },
+  { slug: "suisse", flag: "🇨🇭", name: "Suisse" },
+  { slug: "danemark", flag: "🇩🇰", name: "Danemark" },
+];
+
+/* ─── Mock upcoming matches (static for now) ───────────────── */
+
+function getUpcomingMatchesForTeam(teamName: string) {
+  const CDM_START = new Date("2026-06-11");
+  return [
+    { opponent: "Phase de groupes - Match 1", date: CDM_START, stage: "Groupe" },
+    { opponent: "Phase de groupes - Match 2", date: new Date("2026-06-16"), stage: "Groupe" },
+    { opponent: "Phase de groupes - Match 3", date: new Date("2026-06-21"), stage: "Groupe" },
+  ];
+}
+
+function daysUntil(date: Date): number {
+  const now = new Date();
+  return Math.max(0, Math.ceil((date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)));
+}
+
+/* ─── Component ────────────────────────────────────────────── */
 
 export default function ProfilPage() {
   const ctx = useBadges();
+  const [myTeamSlug, setMyTeamSlug] = useState<string | null>(null);
+  const [loaded, setLoaded] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
-  if (!ctx) {
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("cdm2026_my_team");
+      if (saved) {
+        setMyTeamSlug(saved);
+      } else {
+        setShowOnboarding(true);
+      }
+    } catch {}
+    setLoaded(true);
+  }, []);
+
+  const selectTeam = (slug: string) => {
+    setMyTeamSlug(slug);
+    setShowOnboarding(false);
+    try {
+      localStorage.setItem("cdm2026_my_team", slug);
+    } catch {}
+  };
+
+  const myTeam = TEAMS.find((t) => t.slug === myTeamSlug);
+  const upcomingMatches = myTeam ? getUpcomingMatchesForTeam(myTeam.name) : [];
+  const nextMatch = upcomingMatches[0];
+  const daysToNext = nextMatch ? daysUntil(nextMatch.date) : null;
+
+  if (!loaded || !ctx) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-16 text-center">
         <p className="text-gray-500">Chargement...</p>
@@ -17,9 +94,10 @@ export default function ProfilPage() {
 
   const shareText = () => {
     const earned = ALL_BADGES.filter((b) => unlockedBadges.includes(b.id));
+    const teamPart = myTeam ? `\n⚽ Mon équipe : ${myTeam.flag} ${myTeam.name}` : "";
     const text = earned.length
-      ? `🏅 Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\n🔥 Streak : ${stats.streak} jour(s)\n\nhttps://cdm2026.fr/profil`
-      : "Je n'ai pas encore de badges CDM 2026 ! 🏟️\nhttps://cdm2026.fr/profil";
+      ? `🏅 Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\n🔥 Streak : ${stats.streak} jour(s)${teamPart}\n\nhttps://cdm2026.fr/profil`
+      : `Je n'ai pas encore de badges CDM 2026 ! 🏟️${teamPart}\nhttps://cdm2026.fr/profil`;
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
     } else {
@@ -29,14 +107,124 @@ export default function ProfilPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-2 text-3xl font-bold dark:text-white">Mon Profil 🏅</h1>
-      <p className="mb-8 text-gray-500 dark:text-gray-400">Tes stats et badges — sans compte, tout est local.</p>
+      {/* Breadcrumb */}
+      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1">
+          <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">Accueil</Link></li>
+          <li>/</li>
+          <li className="text-gray-800 dark:text-gray-200 font-medium">Mon Profil</li>
+        </ol>
+      </nav>
+
+      <h1 className="mb-2 text-3xl font-bold dark:text-white">Mon CDM 2026 🏆</h1>
+      <p className="mb-8 text-gray-500 dark:text-gray-400">Ton espace perso — sans compte, tout est local.</p>
+
+      {/* ─── Onboarding / Team selector ─── */}
+      {showOnboarding ? (
+        <div className="mb-10 rounded-2xl border-2 border-dashed border-blue-300 bg-blue-50/50 p-6 dark:border-blue-700 dark:bg-slate-800/50 sm:p-8">
+          <h2 className="mb-2 text-xl font-bold dark:text-white">⚽ Quelle est ton équipe ?</h2>
+          <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">
+            Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
+          </p>
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
+            {TEAMS.map((team) => (
+              <button
+                key={team.slug}
+                onClick={() => selectTeam(team.slug)}
+                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-blue-400 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-blue-500"
+              >
+                <span className="text-2xl">{team.flag}</span>
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300 leading-tight">{team.name}</span>
+              </button>
+            ))}
+          </div>
+          <p className="mt-3 text-center text-xs text-gray-400 dark:text-gray-500">
+            Tu pourras changer plus tard !
+          </p>
+        </div>
+      ) : myTeam ? (
+        /* ─── Team dashboard ─── */
+        <div className="mb-10 space-y-4">
+          {/* Team header */}
+          <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 text-white shadow-lg">
+            <span className="text-4xl sm:text-5xl">{myTeam.flag}</span>
+            <div className="flex-1">
+              <p className="text-sm font-medium opacity-80">Tu supportes</p>
+              <p className="text-2xl font-extrabold tracking-tight sm:text-3xl">{myTeam.name}</p>
+              {daysToNext !== null && (
+                <p className="mt-1 text-sm opacity-90">
+                  {daysToNext === 0
+                    ? "🔴 Match aujourd'hui !"
+                    : `Prochain match dans ${daysToNext}j`}
+                </p>
+              )}
+            </div>
+            <Link
+              href={`/equipe/${myTeam.slug}`}
+              className="shrink-0 rounded-lg bg-white/20 px-3 py-2 text-sm font-medium backdrop-blur transition hover:bg-white/30"
+            >
+              Voir fiche →
+            </Link>
+          </div>
+
+          {/* Upcoming matches */}
+          <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+            <h3 className="mb-3 font-bold dark:text-white">📅 Prochains matchs</h3>
+            <div className="space-y-2">
+              {upcomingMatches.map((m, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3 dark:bg-slate-700/50"
+                >
+                  <div>
+                    <p className="text-sm font-medium dark:text-white">{m.opponent}</p>
+                    <p className="text-xs text-gray-400">{m.stage}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                      {daysUntil(m.date)}j
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      {m.date.toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div className="grid grid-cols-2 gap-3">
+            <Link
+              href="/pronostic-vainqueur"
+              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+            >
+              <span className="text-2xl block mb-1">🔮</span>
+              <span className="text-sm font-medium dark:text-white">Mes pronostics</span>
+            </Link>
+            <Link
+              href="/quiz/supporter"
+              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+            >
+              <span className="text-2xl block mb-1">🎯</span>
+              <span className="text-sm font-medium dark:text-white">Quiz supporter</span>
+            </Link>
+          </div>
+
+          <button
+            onClick={() => setShowOnboarding(true)}
+            className="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
+          >
+            Changer d&apos;équipe
+          </button>
+        </div>
+      ) : null}
 
       {/* Streak — big animated flame */}
       <div className="mb-8 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-6 py-5 text-white shadow-lg">
         <span className="text-3xl animate-pulse drop-shadow-lg sm:text-5xl">🔥</span>
         <div>
-          <p className="text-sm font-medium opacity-90">Streak actuel</p>
+          <p className="text-sm font-medium text-white/95">Streak actuel</p>
           <p className="text-2xl font-extrabold tracking-tight sm:text-4xl">{stats.streak} jour{stats.streak !== 1 ? "s" : ""}</p>
         </div>
       </div>
@@ -72,7 +260,7 @@ export default function ProfilPage() {
               className={`relative rounded-xl p-5 text-center transition-all duration-300 ${
                 unlocked
                   ? "bg-white shadow-lg shadow-yellow-200/50 ring-2 ring-yellow-400 dark:bg-slate-800 dark:shadow-yellow-500/20"
-                  : "bg-gray-100 opacity-50 grayscale dark:bg-slate-800/50"
+                  : "bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 opacity-60"
               }`}
             >
               {!unlocked && (

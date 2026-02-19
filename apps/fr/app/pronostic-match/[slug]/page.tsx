@@ -31,6 +31,7 @@ import {
   PredictionSidebar,
   MatchTabsClient,
 } from "./components";
+import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 
 export const revalidate = 300;
 
@@ -464,6 +465,39 @@ export default async function PronosticMatchPage({ params }: PageProps) {
           }),
         }}
       />
+
+      {/* Related content */}
+      <div className="mx-auto max-w-6xl px-4 pb-8">
+        <RelatedContent
+          items={[
+            ...(home ? [{
+              href: `/equipe/${home.slug}`,
+              emoji: home.flag,
+              title: home.name,
+              description: `Fiche équipe · FIFA #${home.fifaRanking}`,
+            }] : []),
+            ...(away ? [{
+              href: `/equipe/${away.slug}`,
+              emoji: away.flag,
+              title: away.name,
+              description: `Fiche équipe · FIFA #${away.fifaRanking}`,
+            }] : []),
+            ...matches
+              .filter((m) => m.slug !== slug && m.date === match.date)
+              .slice(0, 2)
+              .map((m): RelatedItem => {
+                const mHome = teamsById[m.homeTeamId];
+                const mAway = teamsById[m.awayTeamId];
+                return {
+                  href: `/pronostic-match/${m.slug}`,
+                  emoji: '⚽',
+                  title: `${mHome?.name ?? 'TBD'} - ${mAway?.name ?? 'TBD'}`,
+                  description: `Même jour · ${stageLabels[m.stage] ?? m.stage}`,
+                };
+              }),
+          ]}
+        />
+      </div>
     </>
   );
 }

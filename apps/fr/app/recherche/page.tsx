@@ -57,7 +57,7 @@ export default function RecherchePage() {
           <h1 className="text-2xl font-extrabold sm:text-3xl mb-1">
             🔍 Recherche CDM 2026
           </h1>
-          <p className="text-gray-300 text-sm sm:text-base">
+          <p className="text-gray-200 text-sm sm:text-base">
             Accédez à toutes les infos : équipes, joueurs, stades, matchs et villes.
           </p>
         </div>

@@ -178,12 +178,12 @@ export default async function MatchPage({ params }: PageProps) {
                   <p className="mt-2 text-2xl font-extrabold">A determiner</p>
                 )}
                 {home && (
-                  <p className="text-sm text-gray-500">#{home.fifaRanking} FIFA</p>
+                  <p className="text-sm text-gray-300">#{home.fifaRanking} FIFA</p>
                 )}
               </div>
               <div className="text-center">
                 <span className="text-3xl font-bold text-gold">VS</span>
-                <p className="mt-1 text-sm text-gray-500">{match.time} UTC</p>
+                <p className="mt-1 text-sm text-gray-300">{match.time} UTC</p>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
@@ -198,7 +198,7 @@ export default async function MatchPage({ params }: PageProps) {
                   <p className="mt-2 text-2xl font-extrabold">A determiner</p>
                 )}
                 {away && (
-                  <p className="text-sm text-gray-500">#{away.fifaRanking} FIFA</p>
+                  <p className="text-sm text-gray-300">#{away.fifaRanking} FIFA</p>
                 )}
               </div>
             </div>
@@ -518,7 +518,9 @@ export default async function MatchPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${home?.name ?? "TBD"} vs ${away?.name ?? "TBD"} - Coupe du Monde 2026`,
+            description: `${home?.name ?? "TBD"} contre ${away?.name ?? "TBD"}, ${stage} de la Coupe du Monde FIFA 2026.`,
             eventStatus: "https://schema.org/EventScheduled",
+            eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
             startDate: `${match.date}T${match.time}:00Z`,
             location: stadium
               ? {
@@ -529,6 +531,7 @@ export default async function MatchPage({ params }: PageProps) {
                     addressLocality: stadium.city,
                     addressCountry: stadium.country,
                   },
+                  maximumAttendeeCapacity: stadium.capacity,
                 }
               : undefined,
             homeTeam: home
@@ -537,6 +540,11 @@ export default async function MatchPage({ params }: PageProps) {
             awayTeam: away
               ? { "@type": "SportsTeam", name: away.name }
               : undefined,
+            organizer: {
+              "@type": "Organization",
+              name: "FIFA",
+              url: "https://www.fifa.com",
+            },
             sport: "Football",
           }),
         }}

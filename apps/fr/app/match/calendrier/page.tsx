@@ -107,6 +107,13 @@ export default function CalendrierPage() {
           >
             📅 Ajouter au calendrier
           </a>
+          <a
+            href="/calendrier/imprimer"
+            target="_blank"
+            className="mt-4 ml-2 inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
+          >
+            📄 Télécharger le calendrier PDF
+          </a>
         </div>
       </section>
 

@@ -165,7 +165,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {/* Search input */}
       <div className="relative mb-6">
         <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-          <IconSearch className="w-5 h-5 text-gray-400" />
+          <IconSearch className="w-5 h-5 text-gray-500 dark:text-gray-400" />
         </div>
         <input
           ref={inputRef}
@@ -179,7 +179,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
             border-2 border-gray-200 dark:border-gray-600
             rounded-2xl shadow-sm
             text-gray-900 dark:text-gray-100
-            placeholder-gray-400 dark:placeholder-gray-500
+            placeholder-gray-500 dark:placeholder-gray-400
             focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
             transition-all duration-200
           "
@@ -203,7 +203,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {!query && (
         <div className="text-center py-8">
           <div className="text-5xl mb-4">🔍</div>
-          <p className="text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Recherchez parmi{" "}
             <strong className="text-gray-700 dark:text-gray-200">48 équipes</strong>,{" "}
             <strong className="text-gray-700 dark:text-gray-200">966 joueurs</strong>,{" "}

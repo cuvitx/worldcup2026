@@ -6,6 +6,7 @@ import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
 import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
+import { RelatedContent } from "../components/RelatedContent";
 
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
 const historicalScorers = [
@@ -118,7 +119,7 @@ export default function ButeursPage() {
                         <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">
                           {scorer.name}
                         </span>
-                        <span className="hidden sm:inline text-xs text-gray-400 dark:text-gray-500">
+                        <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">
                           {scorer.editions}
                         </span>
                       </div>
@@ -424,6 +425,15 @@ export default function ButeursPage() {
             18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement.
           </p>
         </section>
+
+        <RelatedContent
+          items={[
+            { href: '/pronostic-vainqueur', emoji: '🏆', title: 'Pronostic vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
+            { href: '/groupes', emoji: '📊', title: 'Tous les groupes', description: 'Les 12 groupes et classements' },
+            { href: '/simulateur', emoji: '🎮', title: 'Simulateur de bracket', description: 'Créez votre bracket complet' },
+            { href: '/comparateur-cotes', emoji: '📈', title: 'Comparateur de cotes', description: 'Meilleures cotes bookmakers' },
+          ]}
+        />
       </div>
     </>
   );

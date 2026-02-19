@@ -323,8 +323,11 @@ export default async function GuidePage({ params }: PageProps) {
             "@type": "Article",
             headline: guide.title,
             description: guide.metaDescription,
-            author: { "@type": "Organization", name: "CDM 2026" },
-            publisher: { "@type": "Organization", name: "CDM 2026" },
+            datePublished: "2025-01-15",
+            dateModified: "2025-02-15",
+            author: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
+            publisher: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr", logo: { "@type": "ImageObject", url: "https://cdm2026.fr/icon-512.png" } },
+            mainEntityOfPage: `${domains.fr}/guide/${guide.slug}`,
             url: `${domains.fr}/guide/${guide.slug}`,
           }),
         }}

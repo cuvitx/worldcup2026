@@ -346,8 +346,8 @@ export default function OuRegarderPage() {
                     <span
                       className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                         ch.free
-                          ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                          : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                          ? "bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300"
+                          : "bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300"
                       }`}
                     >
                       {ch.type}

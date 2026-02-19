@@ -2,8 +2,22 @@
 
 import { useEffect, useState, useCallback, createContext, useContext } from "react";
 import { usePathname } from "next/navigation";
+import {
+  BADGE_DEFS,
+  BADGE_KEYS,
+  TOTAL_STADIUMS,
+  getLS,
+  setLS,
+  checkBadge,
+  type BadgeDef,
+  type BadgeState,
+} from "../../lib/badges";
 
-// --- Types ---
+// Re-export for consumers
+export { BADGE_DEFS } from "../../lib/badges";
+export type { BadgeDef } from "../../lib/badges";
+
+// Legacy compat — keep ALL_BADGES shape
 export interface Badge {
   id: string;
   emoji: string;
@@ -18,66 +32,43 @@ export interface UserStats {
   quizScore: number;
   bracketCompleted: boolean;
   streak: number;
+  pronoCount: number;
+  pronoCorrectStreak: number;
+  visitDays: number;
+  quizBestPercent: number;
+  visitedStadiums: number;
 }
 
-// --- Badges definition ---
-const BADGES: Badge[] = [
-  { id: "explorer", emoji: "🌍", name: "Explorateur", description: "Visiter 10+ pages différentes", check: (s) => s.visitedPages.length >= 10 },
-  { id: "predictor", emoji: "🎯", name: "Pronostiqueur", description: "Faire 5+ votes communautaires", check: (s) => s.votes >= 5 },
-  { id: "expert", emoji: "🧠", name: "Expert", description: "Score quiz > 15/20", check: (s) => s.quizScore > 15 },
-  { id: "complete", emoji: "🏆", name: "Complet", description: "Terminer le simulateur de bracket", check: (s) => s.bracketCompleted },
-  { id: "loyal", emoji: "🔥", name: "Fidèle", description: "3+ jours consécutifs de visite", check: (s) => s.streak >= 3 },
-];
-
-// Superfan added dynamically
-const SUPERFAN: Badge = { id: "superfan", emoji: "⭐", name: "Superfan", description: "Débloquer tous les autres badges", check: () => false };
-
-export const ALL_BADGES = [...BADGES, SUPERFAN];
-
-// --- localStorage keys ---
-const KEYS = {
-  visitedPages: "cdm2026-visited-pages",
-  streak: "cdm2026-streak",
-  streakLastDate: "cdm2026-streak-last-date",
-  votes: "cdm2026-votes",
-  quizScore: "cdm2026-quiz-score",
-  bracketDone: "cdm2026-bracket-done",
-  unlockedBadges: "cdm2026-unlocked-badges",
-};
-
-// --- Helpers ---
-function getJSON<T>(key: string, fallback: T): T {
-  if (typeof window === "undefined") return fallback;
-  try {
-    const v = localStorage.getItem(key);
-    return v ? JSON.parse(v) : fallback;
-  } catch { return fallback; }
-}
-
-function setJSON(key: string, value: unknown) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
+// Map new badges to legacy Badge interface
+export const ALL_BADGES: Badge[] = BADGE_DEFS.map((b) => ({
+  id: b.id,
+  emoji: b.emoji,
+  name: b.name,
+  description: b.description,
+  check: () => false,
+}));
 
 function todayStr() {
   return new Date().toISOString().slice(0, 10);
 }
 
-// --- Context for toast ---
 interface BadgeContextType {
   stats: UserStats;
   unlockedBadges: string[];
   trackVote: () => void;
   trackQuizScore: (score: number) => void;
   trackBracketComplete: () => void;
+  trackProno: () => void;
+  trackPronoCorrect: () => void;
+  trackPronoWrong: () => void;
 }
 
 const BadgeContext = createContext<BadgeContextType | null>(null);
 export const useBadges = () => useContext(BadgeContext);
 
-// --- Toast component ---
-function BadgeToast({ badge, onDone }: { badge: Badge; onDone: () => void }) {
+function BadgeToast({ badge, onDone }: { badge: BadgeDef; onDone: () => void }) {
   useEffect(() => {
-    const t = setTimeout(onDone, 3000);
+    const t = setTimeout(onDone, 3500);
     return () => clearTimeout(t);
   }, [onDone]);
 
@@ -94,79 +85,112 @@ function BadgeToast({ badge, onDone }: { badge: Badge; onDone: () => void }) {
   );
 }
 
-// --- Main component ---
 export function BadgeSystem({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [stats, setStats] = useState<UserStats>({ visitedPages: [], votes: 0, quizScore: 0, bracketCompleted: false, streak: 0 });
+  const [stats, setStats] = useState<UserStats>({
+    visitedPages: [], votes: 0, quizScore: 0, bracketCompleted: false, streak: 0,
+    pronoCount: 0, pronoCorrectStreak: 0, visitDays: 0, quizBestPercent: 0, visitedStadiums: 0,
+  });
   const [unlockedBadges, setUnlockedBadges] = useState<string[]>([]);
-  const [toastBadge, setToastBadge] = useState<Badge | null>(null);
-  const [toastQueue, setToastQueue] = useState<Badge[]>([]);
+  const [toastBadge, setToastBadge] = useState<BadgeDef | null>(null);
+  const [toastQueue, setToastQueue] = useState<BadgeDef[]>([]);
 
-  // Load stats from localStorage on mount
+  // Load from localStorage
   useEffect(() => {
-    const visitedPages: string[] = getJSON(KEYS.visitedPages, []);
-    const votes: number = getJSON(KEYS.votes, 0);
-    const quizScore: number = getJSON(KEYS.quizScore, 0);
-    const bracketCompleted: boolean = getJSON(KEYS.bracketDone, false);
+    const visitedPages: string[] = getLS(BADGE_KEYS.visitedPages, []);
+    const votes: number = getLS("cdm2026-votes", 0);
+    const quizScore: number = getLS("cdm2026-quiz-score", 0);
+    const bracketCompleted: boolean = getLS(BADGE_KEYS.bracketDone, false);
+    const pronoCount: number = getLS(BADGE_KEYS.pronoCount, 0);
+    const pronoCorrectStreak: number = getLS(BADGE_KEYS.pronoCorrectStreak, 0);
+    const visitedStadiums: number = getLS(BADGE_KEYS.visitedStadiums, []).length || 0;
+    const quizBestPercent: number = getLS(BADGE_KEYS.quizBestPercent, 0);
 
-    // Streak logic
-    const lastDate = localStorage.getItem(KEYS.streakLastDate) || "";
-    let streak: number = getJSON(KEYS.streak, 0);
+    // Visit days
+    const visitDaysArr: string[] = getLS(BADGE_KEYS.visitDays, []);
     const today = todayStr();
-
-    if (lastDate !== today) {
-      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-      if (lastDate === yesterday) {
-        streak += 1;
-      } else if (lastDate !== today) {
-        streak = 1;
-      }
-      setJSON(KEYS.streak, streak);
-      localStorage.setItem(KEYS.streakLastDate, today);
+    if (!visitDaysArr.includes(today)) {
+      visitDaysArr.push(today);
+      setLS(BADGE_KEYS.visitDays, visitDaysArr);
     }
 
-    const loaded: UserStats = { visitedPages, votes, quizScore, bracketCompleted, streak };
-    setStats(loaded);
-    setUnlockedBadges(getJSON(KEYS.unlockedBadges, []));
+    // Streak
+    const lastDate = typeof window !== "undefined" ? localStorage.getItem(BADGE_KEYS.streakLastDate) || "" : "";
+    let streak: number = getLS(BADGE_KEYS.streak, 0);
+    if (lastDate !== today) {
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      streak = lastDate === yesterday ? streak + 1 : 1;
+      setLS(BADGE_KEYS.streak, streak);
+      if (typeof window !== "undefined") localStorage.setItem(BADGE_KEYS.streakLastDate, today);
+    }
+
+    setStats({
+      visitedPages, votes, quizScore, bracketCompleted, streak,
+      pronoCount, pronoCorrectStreak, visitDays: visitDaysArr.length,
+      quizBestPercent: quizBestPercent || (quizScore > 0 ? (quizScore / 20) * 100 : 0),
+      visitedStadiums,
+    });
+    setUnlockedBadges(getLS(BADGE_KEYS.unlockedBadges, []));
   }, []);
 
-  // Track page visits
+  // Track page visits + stadium visits
   useEffect(() => {
     if (!pathname) return;
     setStats((prev) => {
-      if (prev.visitedPages.includes(pathname)) return prev;
-      const updated = [...prev.visitedPages, pathname];
-      setJSON(KEYS.visitedPages, updated);
-      return { ...prev, visitedPages: updated };
+      const updates: Partial<UserStats> = {};
+      let changed = false;
+
+      if (!prev.visitedPages.includes(pathname)) {
+        updates.visitedPages = [...prev.visitedPages, pathname];
+        setLS(BADGE_KEYS.visitedPages, updates.visitedPages);
+        changed = true;
+      }
+
+      // Track stadium page visits
+      if (pathname.startsWith("/stade/")) {
+        const stadiumSlugs: string[] = getLS(BADGE_KEYS.visitedStadiums, []);
+        const slug = pathname.replace("/stade/", "").replace(/\/$/, "");
+        if (!stadiumSlugs.includes(slug)) {
+          stadiumSlugs.push(slug);
+          setLS(BADGE_KEYS.visitedStadiums, stadiumSlugs);
+          updates.visitedStadiums = stadiumSlugs.length;
+          changed = true;
+        }
+      }
+
+      return changed ? { ...prev, ...updates } : prev;
     });
   }, [pathname]);
 
-  // Check badges whenever stats change
+  // Check badges
   useEffect(() => {
-    const currentUnlocked = getJSON<string[]>(KEYS.unlockedBadges, []);
-    const newlyUnlocked: Badge[] = [];
+    const currentUnlocked: string[] = getLS(BADGE_KEYS.unlockedBadges, []);
+    const badgeState: BadgeState = {
+      pronoCount: stats.pronoCount,
+      pronoCorrectStreak: stats.pronoCorrectStreak,
+      streak: stats.streak,
+      visitDays: stats.visitDays,
+      quizBestPercent: stats.quizBestPercent,
+      bracketDone: stats.bracketCompleted,
+      visitedStadiums: stats.visitedStadiums,
+    };
 
-    for (const badge of BADGES) {
-      if (!currentUnlocked.includes(badge.id) && badge.check(stats)) {
-        currentUnlocked.push(badge.id);
-        newlyUnlocked.push(badge);
+    const newlyUnlocked: BadgeDef[] = [];
+    for (const b of BADGE_DEFS) {
+      if (!currentUnlocked.includes(b.id) && checkBadge(b.id, badgeState)) {
+        currentUnlocked.push(b.id);
+        newlyUnlocked.push(b);
       }
     }
 
-    // Superfan check
-    if (!currentUnlocked.includes("superfan") && BADGES.every((b) => currentUnlocked.includes(b.id))) {
-      currentUnlocked.push("superfan");
-      newlyUnlocked.push(SUPERFAN);
-    }
-
     if (newlyUnlocked.length > 0) {
-      setJSON(KEYS.unlockedBadges, currentUnlocked);
+      setLS(BADGE_KEYS.unlockedBadges, currentUnlocked);
       setUnlockedBadges([...currentUnlocked]);
       setToastQueue((q) => [...q, ...newlyUnlocked]);
     }
   }, [stats]);
 
-  // Toast queue processing
+  // Toast queue
   useEffect(() => {
     if (!toastBadge && toastQueue.length > 0) {
       setToastBadge(toastQueue[0]!);
@@ -177,29 +201,55 @@ export function BadgeSystem({ children }: { children: React.ReactNode }) {
   const trackVote = useCallback(() => {
     setStats((prev) => {
       const v = prev.votes + 1;
-      setJSON(KEYS.votes, v);
+      setLS("cdm2026-votes", v);
       return { ...prev, votes: v };
     });
   }, []);
 
   const trackQuizScore = useCallback((score: number) => {
     setStats((prev) => {
-      if (score <= prev.quizScore) return prev;
-      setJSON(KEYS.quizScore, score);
-      return { ...prev, quizScore: score };
+      const pct = (score / 20) * 100;
+      const bestPct = Math.max(prev.quizBestPercent, pct);
+      setLS("cdm2026-quiz-score", score);
+      setLS(BADGE_KEYS.quizBestPercent, bestPct);
+      return { ...prev, quizScore: score, quizBestPercent: bestPct };
     });
   }, []);
 
   const trackBracketComplete = useCallback(() => {
     setStats((prev) => {
       if (prev.bracketCompleted) return prev;
-      setJSON(KEYS.bracketDone, true);
+      setLS(BADGE_KEYS.bracketDone, true);
       return { ...prev, bracketCompleted: true };
     });
   }, []);
 
+  const trackProno = useCallback(() => {
+    setStats((prev) => {
+      const c = prev.pronoCount + 1;
+      setLS(BADGE_KEYS.pronoCount, c);
+      return { ...prev, pronoCount: c };
+    });
+  }, []);
+
+  const trackPronoCorrect = useCallback(() => {
+    setStats((prev) => {
+      const s = prev.pronoCorrectStreak + 1;
+      setLS(BADGE_KEYS.pronoCorrectStreak, s);
+      return { ...prev, pronoCorrectStreak: s };
+    });
+  }, []);
+
+  const trackPronoWrong = useCallback(() => {
+    setLS(BADGE_KEYS.pronoCorrectStreak, 0);
+    setStats((prev) => ({ ...prev, pronoCorrectStreak: 0 }));
+  }, []);
+
   return (
-    <BadgeContext.Provider value={{ stats, unlockedBadges, trackVote, trackQuizScore, trackBracketComplete }}>
+    <BadgeContext.Provider value={{
+      stats, unlockedBadges, trackVote, trackQuizScore, trackBracketComplete,
+      trackProno, trackPronoCorrect, trackPronoWrong,
+    }}>
       {children}
       {toastBadge && <BadgeToast badge={toastBadge} onDone={() => setToastBadge(null)} />}
     </BadgeContext.Provider>

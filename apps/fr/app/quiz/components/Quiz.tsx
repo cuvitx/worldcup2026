@@ -110,32 +110,32 @@ export default function Quiz() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <button
             onClick={() => startGame("all")}
-            className="rounded-xl border-2 border-yellow-500 bg-yellow-500/10 p-5 text-left hover:bg-yellow-500/20 transition-colors"
+            className="rounded-xl border-2 border-yellow-500 bg-yellow-50 dark:bg-yellow-500/10 p-5 text-left hover:bg-yellow-100 dark:hover:bg-yellow-500/20 transition-colors shadow-sm"
           >
             <span className="text-3xl">🌍</span>
-            <h3 className="text-lg font-semibold mt-2">Toutes les catégories</h3>
-            <p className="text-sm text-gray-500">{questions.length} questions</p>
+            <h3 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">Toutes les catégories</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{questions.length} questions</p>
           </button>
 
           {(Object.keys(categoryLabels) as Question["category"][]).map((cat) => (
             <button
               key={cat}
               onClick={() => startGame(cat)}
-              className="rounded-xl border border-gray-700 bg-gray-800/50 p-5 text-left hover:border-blue-500 hover:bg-blue-500/10 transition-colors"
+              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-5 text-left shadow-sm hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors"
             >
               <span className="text-3xl">{categoryLabels[cat].emoji}</span>
-              <h3 className="text-lg font-semibold mt-2">{categoryLabels[cat].label}</h3>
-              <p className="text-sm text-gray-500">{categoryCounts[cat] || 0} questions</p>
+              <h3 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">{categoryLabels[cat].label}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{categoryCounts[cat] || 0} questions</p>
             </button>
           ))}
         </div>
 
         {/* Difficulty filter */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-          <span className="text-sm text-gray-500 mr-1">Difficulté :</span>
+          <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">Difficulté :</span>
           <button
             onClick={() => setDifficulty("all")}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-blue-600 text-white" : "bg-gray-700/50 text-gray-400 hover:bg-gray-600/50"}`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-blue-600 text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
           >
             Toutes
           </button>
@@ -143,14 +143,14 @@ export default function Quiz() {
             <button
               key={d}
               onClick={() => setDifficulty(d)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-blue-600 text-white" : "bg-gray-700/50 text-gray-400 hover:bg-gray-600/50"}`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-blue-600 text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
             >
               {difficultyLabels[d].emoji} {difficultyLabels[d].label}
             </button>
           ))}
         </div>
 
-        <label className="flex items-center justify-center gap-2 text-sm text-gray-500 cursor-pointer">
+        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
           <input
             type="checkbox"
             checked={timerEnabled}
@@ -171,12 +171,12 @@ export default function Quiz() {
         <h2 className="text-3xl font-bold mb-2">
           {score}/{gameQuestions.length}
         </h2>
-        <p className="text-gray-600 mb-6">{scoreMessage}</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-6">{scoreMessage}</p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={() => setPhase("menu")}
-            className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold transition-colors"
+            className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold text-white transition-colors"
           >
             🔄 Rejouer
           </button>
@@ -189,7 +189,7 @@ export default function Quiz() {
                 alert("Score copié dans le presse-papier !");
               }
             }}
-            className="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 font-semibold transition-colors"
+            className="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 font-semibold text-white transition-colors"
           >
             📤 Partager mon score
           </button>
@@ -211,10 +211,10 @@ export default function Quiz() {
           Question {currentIndex + 1}/{gameQuestions.length}
         </span>
         <span className="flex items-center gap-2">
-          <span className="text-xs px-2 py-0.5 rounded bg-gray-700">
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
             {categoryLabels[currentQuestion.category].emoji} {categoryLabels[currentQuestion.category].label}
           </span>
-          <span className="text-xs px-2 py-0.5 rounded bg-gray-700">
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
             {difficultyLabels[currentQuestion.difficulty].emoji} {difficultyLabels[currentQuestion.difficulty].label}
           </span>
           {timerEnabled && (
@@ -224,7 +224,7 @@ export default function Quiz() {
           )}
         </span>
       </div>
-      <div className="w-full h-3 bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
+      <div className="w-full h-3 bg-gray-200 dark:bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
@@ -234,20 +234,20 @@ export default function Quiz() {
       </div>
 
       {/* Question */}
-      <h3 className="text-xl font-semibold mb-6">{currentQuestion.question}</h3>
+      <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">{currentQuestion.question}</h3>
 
       {/* Options */}
       <div className="grid gap-3">
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-600 bg-gray-800/50 hover:border-blue-400 hover:bg-blue-500/15 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800/50 text-gray-900 dark:text-gray-100 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/15 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
-            classes += "border-green-400 bg-green-500/20 text-green-300 shadow-lg shadow-green-500/20 scale-[1.01]";
+            classes += "border-green-500 bg-green-50 dark:bg-green-500/20 text-green-700 dark:text-green-300 shadow-lg shadow-green-500/20 scale-[1.01]";
           } else if (idx === selected) {
-            classes += "border-red-400 bg-red-500/20 text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
+            classes += "border-red-500 bg-red-50 dark:bg-red-500/20 text-red-700 dark:text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
-            classes += "border-gray-700 bg-gray-800/30 text-gray-500 opacity-50";
+            classes += "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/30 text-gray-400 dark:text-gray-500 opacity-50";
           }
 
           return (
@@ -264,8 +264,8 @@ export default function Quiz() {
         <div
           className={`mt-4 p-4 rounded-xl text-sm animate-[fadeSlideIn_0.3s_ease-out] ${
             selected === currentQuestion.correctIndex
-              ? "bg-green-500/10 border border-green-500/30 text-green-300"
-              : "bg-red-500/10 border border-red-500/30 text-red-300"
+              ? "bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/30 text-green-800 dark:text-green-300"
+              : "bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300"
           }`}
         >
           {selected === currentQuestion.correctIndex ? "✅ Bonne réponse ! " : "❌ Mauvaise réponse. "}

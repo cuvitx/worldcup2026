@@ -385,9 +385,113 @@ export default function BracketPage() {
         </section>
 
         {/* ============================================================ */}
-        {/* MOBILE BRACKET — vertical sections */}
+        {/* MOBILE BRACKET — horizontal scrollable */}
         {/* ============================================================ */}
-        <div className="lg:hidden space-y-10">
+        <section className="lg:hidden overflow-x-auto -mx-4 px-4">
+          <div className="flex gap-4 items-start min-w-max pb-4">
+            {/* Round of 32 */}
+            <div className="space-y-2 shrink-0 w-[200px]">
+              <div className="text-center mb-3">
+                <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold text-white ${roundColors["round-of-32"]!.badge}`}>
+                  32e
+                </span>
+              </div>
+              {r32Bracket.map((m, i) => (
+                <MatchCard
+                  key={m.matchId}
+                  matchId={m.matchId}
+                  homeTeamId={m.homeTeamId}
+                  awayTeamId={m.awayTeamId}
+                  homeLabel={m.homeLabel}
+                  awayLabel={m.awayLabel}
+                  winnerId={r32Winners[i] ?? null}
+                  stage="round-of-32"
+                />
+              ))}
+            </div>
+
+            {/* Round of 16 */}
+            <div className="space-y-2 shrink-0 w-[200px] pt-[28px]">
+              <div className="text-center mb-3">
+                <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold text-white ${roundColors["round-of-16"]!.badge}`}>
+                  16e
+                </span>
+              </div>
+              {r16Matches.map((m, i) => (
+                <div key={m.matchId} className="mb-[40px]">
+                  <MatchCard
+                    matchId={m.matchId}
+                    homeTeamId={m.homeTeamId}
+                    awayTeamId={m.awayTeamId}
+                    winnerId={r16Winners[i] ?? null}
+                    stage="round-of-16"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Quarter-finals */}
+            <div className="space-y-2 shrink-0 w-[200px] pt-[80px]">
+              <div className="text-center mb-3">
+                <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold text-white ${roundColors["quarter-final"]!.badge}`}>
+                  Quarts
+                </span>
+              </div>
+              {qfMatches.map((m, i) => (
+                <div key={m.matchId} className="mb-[130px]">
+                  <MatchCard
+                    matchId={m.matchId}
+                    homeTeamId={m.homeTeamId}
+                    awayTeamId={m.awayTeamId}
+                    winnerId={qfWinners[i] ?? null}
+                    stage="quarter-final"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Semi-finals */}
+            <div className="space-y-2 shrink-0 w-[200px] pt-[180px]">
+              <div className="text-center mb-3">
+                <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold text-white ${roundColors["semi-final"]!.badge}`}>
+                  Demis
+                </span>
+              </div>
+              {sfMatches.map((m, i) => (
+                <div key={m.matchId} className="mb-[300px]">
+                  <MatchCard
+                    matchId={m.matchId}
+                    homeTeamId={m.homeTeamId}
+                    awayTeamId={m.awayTeamId}
+                    winnerId={sfWinners[i] ?? null}
+                    stage="semi-final"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Final */}
+            <div className="space-y-2 shrink-0 w-[200px] pt-[350px]">
+              <div className="text-center mb-3">
+                <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold text-white ${roundColors.final!.badge}`}>
+                  Finale
+                </span>
+              </div>
+              <MatchCard
+                matchId={finalMatchData.matchId}
+                homeTeamId={finalMatchData.homeTeamId}
+                awayTeamId={finalMatchData.awayTeamId}
+                winnerId={champion}
+                stage="final"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* MOBILE BRACKET — vertical fallback (accordion style) */}
+        {/* ============================================================ */}
+        <div className="hidden space-y-10">
           {/* Round of 32 */}
           <section>
             <h2 className="flex items-center gap-2 text-lg font-bold mb-4">

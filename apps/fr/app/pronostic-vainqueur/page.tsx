@@ -381,7 +381,7 @@ export default function PronosticVainqueurPage() {
             🏆 Argentine, France, Espagne :{" "}
             <span className="gradient-text">qui décroche le titre ?</span>
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-300/90 mb-6">
+          <p className="mx-auto max-w-2xl text-lg text-gray-200 mb-6">
             Modèle ELO + cotes bookmakers + 48 analyses d&apos;équipes.
             Le classement qui dérange — mis à jour en temps réel.
           </p>

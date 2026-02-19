@@ -1,21 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { domains, getHomeAlternates } from "@repo/data/route-mapping";
 import { OrganizationSchema } from "@repo/ui/organization-schema";
 import { LiveScoreBarWrapper } from "./components/LiveScoreBarWrapper";
+import { LiveTicker } from "./components/LiveTicker";
 import { CookieConsent } from "@repo/ui/cookie-consent";
 import { BackToTop } from "@repo/ui/back-to-top";
 import { StickyCTA } from "./components/StickyCTA";
 import { BadgeSystem } from "./components/BadgeSystem";
 import { BottomNav } from "./components/BottomNav";
+import { NewsletterPopup } from "./components/NewsletterPopup";
 import "./globals.css";
 
+/* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+/* ── JetBrains Mono — scores & stats ── */
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
+  weight: ["400", "700"],
 });
 
 export const viewport: Viewport = {
@@ -69,12 +81,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" className={`${inter.variable} ${jetBrainsMono.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        {/* next/font/google self-hosts Inter → pas besoin de dns-prefetch CDN Google Fonts */}
-        {/* Le preload de la font (.woff2) est injecté automatiquement par next/font */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* next/font/google self-hosts Inter + JetBrains Mono → pas besoin de CDN externe */}
+        {/* Le preload des fonts (.woff2) est injecté automatiquement par next/font */}
         {/* max-image-preview:large → autorise Google Discover à afficher des grandes images */}
         <meta name="robots" content="max-image-preview:large" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
@@ -82,7 +96,17 @@ export default function RootLayout({
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" /> */}
         {/* <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{anonymize_ip:true})` }} /> */}
       </head>
-      <body className={`${inter.className} flex min-h-screen flex-col bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100 antialiased`} suppressHydrationWarning>
+      {/*
+        Body — Brand Book CDM2026 :
+        - Light mode  : bg #f0f0f5 (Gris Clair), text #1a1a2e (Bleu Nuit)
+        - Dark mode   : bg #0f0f1a (Noir Profond), text #e8e8f0
+        CSS vars --color-bg / --color-text sont surchargés par .dark via globals.css
+      */}
+      <body
+        className={`${inter.className} flex min-h-screen flex-col antialiased`}
+        style={{ background: "var(--color-bg)", color: "var(--color-text)" } as React.CSSProperties}
+        suppressHydrationWarning
+      >
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`,
@@ -92,11 +116,13 @@ export default function RootLayout({
         <BadgeSystem>
         <Header />
         <LiveScoreBarWrapper />
+        <LiveTicker />
         <main id="main-content" className="flex-1 pb-16 sm:pb-0">{children}</main>
         <Footer />
         <BackToTop />
         <StickyCTA />
         <CookieConsent lang="fr" />
+        <NewsletterPopup />
         <BottomNav />
         </BadgeSystem>
       </body>
