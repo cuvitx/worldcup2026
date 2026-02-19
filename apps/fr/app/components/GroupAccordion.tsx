@@ -14,7 +14,7 @@ export function GroupAccordion({ groups }: GroupAccordionProps) {
   return (
     <>
       {/* Desktop: show all */}
-      <div className="hidden md:grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="hidden md:grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {groups.map(({ group, teams }) => (
           <GroupCard key={group.letter} group={group} teams={teams} />
         ))}
@@ -22,7 +22,7 @@ export function GroupAccordion({ groups }: GroupAccordionProps) {
 
       {/* Mobile: accordion - show first 4, expand for rest */}
       <div className="md:hidden">
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+        <div className="grid gap-5 grid-cols-1 sm:grid-cols-2">
           {(isExpanded ? groups : groups.slice(0, 4)).map(({ group, teams }) => (
             <GroupCard key={group.letter} group={group} teams={teams} />
           ))}

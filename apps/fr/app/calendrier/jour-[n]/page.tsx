@@ -55,7 +55,7 @@ function stageBadgeClass(stage: string): string {
   if (stage === "final") return "bg-gold/20 text-gold font-bold";
   if (stage === "semi-final") return "bg-primary/20 text-primary font-semibold";
   if (stage === "quarter-final") return "bg-accent/20 text-accent";
-  if (stage === "round-of-16" || stage === "round-of-32") return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
+  if (stage === "round-of-16" || stage === "round-of-32") return "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary";
   return "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300";
 }
 

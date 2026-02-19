@@ -229,7 +229,7 @@ export default function HomePage() {
           STATS RIBBON
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-white dark:bg-[#0d1117] border-y border-gray-200 dark:border-white/5">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-white/5">
             {[
               { value: "48", label: "Équipes", icon: "🌍" },
@@ -678,8 +678,8 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           FAQ
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 dark:bg-gray-900/60 py-14 border-t border-gray-100 dark:border-gray-800">
-        <div className="mx-auto max-w-3xl px-4">
+      <section className="bg-gray-50 dark:bg-gray-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-xl font-black text-gray-900 dark:text-white mb-6 text-center">
             ❓ Questions fréquentes — CDM 2026
           </h2>

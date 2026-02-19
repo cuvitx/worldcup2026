@@ -99,15 +99,15 @@ export default function CarteStadesPage() {
           </p>
           <div className="flex gap-4 mt-4 text-sm">
             <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-blue-400 border-2 border-blue-600" />
+              <span className="w-3 h-3 rounded-full bg-secondary border-2 border-secondary" />
               11 aux États-Unis
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-green-400 border-2 border-green-600" />
+              <span className="w-3 h-3 rounded-full bg-field border-2 border-field" />
               3 au Mexique
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-red-400 border-2 border-red-600" />
+              <span className="w-3 h-3 rounded-full bg-accent border-2 border-accent" />
               2 au Canada
             </span>
           </div>

@@ -156,7 +156,7 @@ export default function GlossairePage() {
         </div>
       </nav>
 
-      <main className="mx-auto max-w-7xl px-4 py-8">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
           Glossaire des Paris Sportifs
         </h1>

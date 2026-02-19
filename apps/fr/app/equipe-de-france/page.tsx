@@ -243,7 +243,7 @@ export default function EquipeDeFrancePage() {
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-3">
                 🇫🇷 Les Bleus à la conquête d&apos;une 3ᵉ étoile
               </h1>
-              <p className="text-xl sm:text-2xl font-light text-blue-100 mb-4">
+              <p className="text-xl sm:text-2xl font-light text-white/70 mb-4">
                 2ᵉ au classement FIFA · 13% de chances de titre · L&apos;effectif le plus complet du monde
               </p>
               <p className="text-gray-200 max-w-2xl leading-relaxed mb-6 text-sm md:text-base">
@@ -255,20 +255,20 @@ export default function EquipeDeFrancePage() {
               <div className="grid grid-cols-3 gap-3 mb-6 max-w-sm mx-auto md:mx-0">
                 <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
                   <p className="text-2xl font-extrabold text-gold">{winnerOdds}</p>
-                  <p className="text-xs text-blue-200 mt-0.5">Cote titre</p>
+                  <p className="text-xs text-white/60 mt-0.5">Cote titre</p>
                 </div>
                 <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
                   <p className="text-2xl font-extrabold text-accent-light">{winPct}%</p>
-                  <p className="text-xs text-blue-200 mt-0.5">% de chance</p>
+                  <p className="text-xs text-white/60 mt-0.5">% de chance</p>
                 </div>
                 <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
                   <p className="text-2xl font-extrabold text-white">#2</p>
-                  <p className="text-xs text-blue-200 mt-0.5">FIFA Ranking</p>
+                  <p className="text-xs text-white/60 mt-0.5">FIFA Ranking</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <a href="#calendrier" className="rounded-lg bg-white text-blue-900 px-5 py-2.5 font-bold text-sm hover:bg-blue-50 transition-all hover:-translate-y-0.5">
+                <a href="#calendrier" className="rounded-lg bg-white text-primary px-5 py-2.5 font-bold text-sm hover:bg-primary/5 transition-all hover:-translate-y-0.5">
                   📅 Voir les matchs des Bleus
                 </a>
                 <a href="#effectif" className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 font-semibold text-sm hover:bg-white/20 transition-all">
@@ -289,7 +289,7 @@ export default function EquipeDeFrancePage() {
                 <div className="text-7xl mb-3">🇫🇷</div>
                 <p className="font-extrabold text-xl mb-1">France</p>
                 <p className="text-gold font-semibold text-sm mb-4">⭐⭐ Champion 1998 &amp; 2018</p>
-                <div className="space-y-2 text-sm text-blue-100">
+                <div className="space-y-2 text-sm text-white/70">
                   <div className="flex justify-between gap-4">
                     <span>Confédération</span>
                     <span className="font-semibold text-white">UEFA</span>
@@ -329,7 +329,7 @@ export default function EquipeDeFrancePage() {
               ].map((item) => (
                 <span
                   key={item.label}
-                  className="rounded-full px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 font-medium"
+                  className="rounded-full px-3 py-1 bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary font-medium"
                 >
                   {item.label} : <strong>{Math.round(item.value * 100)}%</strong>
                 </span>
@@ -380,7 +380,7 @@ export default function EquipeDeFrancePage() {
               return (
                 <div
                   key={match.id}
-                  className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-blue-300 dark:hover:border-blue-700"
+                  className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-secondary/30 dark:hover:border-secondary/40"
                 >
                   <div className="flex items-center gap-4 px-5 py-4">
                     {/* Date/Stade */}
@@ -409,7 +409,7 @@ export default function EquipeDeFrancePage() {
                       </div>
                       <div className="flex items-center gap-2 flex-wrap">
                         {match.group && (
-                          <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded font-medium">
+                          <span className="text-xs bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary px-2 py-0.5 rounded font-medium">
                             Groupe {match.group}
                           </span>
                         )}
@@ -482,7 +482,7 @@ export default function EquipeDeFrancePage() {
                         className="group flex items-center gap-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 hover:border-accent/50 hover:shadow-sm transition-all"
                       >
                         {/* Number badge */}
-                        <div className="shrink-0 w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-extrabold text-sm">
+                        <div className="shrink-0 w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-extrabold text-sm">
                           {player.number ?? "—"}
                         </div>
 
@@ -782,12 +782,12 @@ export default function EquipeDeFrancePage() {
           <h2 className="text-2xl font-extrabold text-white mb-3">
             🇫🇷 Allez les Bleus !
           </h2>
-          <p className="text-blue-100 text-sm mb-6 max-w-lg mx-auto">
+          <p className="text-white/70 text-sm mb-6 max-w-lg mx-auto">
             La France vise la 3e étoile. Suivez tous les matchs, comparez les cotes
             et faites vos pronostics sur CDM2026.fr
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/comparateur-cotes" className="rounded-lg bg-white text-blue-900 font-bold px-6 py-3 hover:bg-blue-50 transition-all hover:-translate-y-0.5">
+            <Link href="/comparateur-cotes" className="rounded-lg bg-white text-primary font-bold px-6 py-3 hover:bg-primary/5 transition-all hover:-translate-y-0.5">
               📊 Comparer les cotes
             </Link>
             <Link href="/pronostic-vainqueur" className="rounded-lg border border-gold/40 bg-gold/15 text-gold font-bold px-6 py-3 hover:bg-gold/25 transition-all">

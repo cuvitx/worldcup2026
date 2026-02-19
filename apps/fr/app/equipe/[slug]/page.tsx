@@ -163,7 +163,7 @@ export default async function TeamPage({ params }: PageProps) {
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <div className="mb-4 flex items-center gap-2">
                   <h2 className="text-xl font-bold">Analyse</h2>
-                  <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">IA</span>
+                  <span className="rounded-full bg-secondary/10 px-2.5 py-0.5 text-xs font-medium text-secondary">IA</span>
                 </div>
                 <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(enriched?.analysis.content ?? "") }} />
               </section>
@@ -242,7 +242,7 @@ export default async function TeamPage({ params }: PageProps) {
               const history = teamWorldCupHistory[team.id]!;
               const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
               return titles.length > 0 ? (
-                <section className="rounded-xl border border-yellow-200 dark:border-yellow-700/50 bg-yellow-50 dark:bg-slate-800 p-6 shadow-sm">
+                <section className="rounded-xl border border-gold/30 dark:border-gold/20 bg-gold/5 dark:bg-slate-800 p-6 shadow-sm">
                   <h2 className="mb-5 text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                     <span>🏆</span> Palmarès en Coupe du Monde
                   </h2>
@@ -250,10 +250,10 @@ export default async function TeamPage({ params }: PageProps) {
                     {titles.map((title) => (
                       <div
                         key={title.year}
-                        className="flex flex-col items-center rounded-xl bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 px-5 py-4 min-w-[110px] text-center"
+                        className="flex flex-col items-center rounded-xl bg-gold/10 dark:bg-gold/20 border border-gold/40 dark:border-gold/30 px-5 py-4 min-w-[110px] text-center"
                       >
                         <span className="text-4xl mb-1">🏆</span>
-                        <span className="text-2xl font-extrabold text-yellow-700 dark:text-yellow-400">{title.year}</span>
+                        <span className="text-2xl font-extrabold text-gold dark:text-gold">{title.year}</span>
                         {title.detail && (
                           <span className="mt-1 text-xs text-gray-600 dark:text-gray-400 leading-snug max-w-[120px]">{title.detail}</span>
                         )}
@@ -261,7 +261,7 @@ export default async function TeamPage({ params }: PageProps) {
                     ))}
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    <span className="font-semibold text-yellow-700 dark:text-yellow-400">
+                    <span className="font-semibold text-gold dark:text-gold">
                       {titles.length} titre{titles.length > 1 ? "s" : ""} mondial{titles.length > 1 ? "aux" : ""}
                     </span>{" "}
                     remporté{titles.length > 1 ? "s" : ""} en Coupe du Monde.

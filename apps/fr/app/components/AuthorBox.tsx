@@ -9,7 +9,7 @@ export function AuthorBox() {
         </div>
         <div>
           <p className="font-bold text-gray-900 dark:text-white">Équipe CDM 2026</p>
-          <p className="mt-1 text-sm text-gray-600 leading-relaxed">
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
             Notre équipe combine analyse statistique (modèle ELO), intelligence
             artificielle et expertise football pour produire les pronostics les
             plus fiables de la Coupe du Monde 2026.

@@ -143,8 +143,8 @@ export default async function PronosticGroupPage({ params }: PageProps) {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
             <div>
               <p className="text-sm font-medium text-green-300 uppercase tracking-widest mb-1">

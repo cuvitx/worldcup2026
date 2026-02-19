@@ -90,10 +90,10 @@ const todaysBet = DAILY_BETS[0]!;
 
 const CONFIDENCE_LABELS: Record<number, { label: string; color: string }> = {
   1: { label: "Risqué", color: "text-red-400" },
-  2: { label: "Incertain", color: "text-orange-400" },
-  3: { label: "Modéré", color: "text-yellow-400" },
-  4: { label: "Confiant", color: "text-green-400" },
-  5: { label: "Très confiant", color: "text-emerald-400" },
+  2: { label: "Incertain", color: "text-accent" },
+  3: { label: "Modéré", color: "text-gold" },
+  4: { label: "Confiant", color: "text-secondary" },
+  5: { label: "Très confiant", color: "text-field" },
 };
 
 interface BetOfTheDayProps {
@@ -126,7 +126,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         <p className="text-sm font-bold text-white mb-1">
           {display.homeFlag} {display.matchLabel} {display.awayFlag}
         </p>
-        <p className="text-xs text-purple-300 mb-3">{display.dateLabel}</p>
+        <p className="text-xs text-white/50 mb-3">{display.dateLabel}</p>
 
         {/* Bet */}
         <div className="flex items-center justify-between bg-white/5 rounded-lg px-3 py-2 mb-3">
@@ -149,7 +149,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
   }
 
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-purple-900/30">
+    <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/30">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]" />
       {/* Déco orb */}

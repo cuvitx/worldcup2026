@@ -548,7 +548,7 @@ export default function PalmaresPage() {
       {/* Hero */}
       <section className="bg-primary text-white py-14">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <p className="text-sm font-medium text-green-300 uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
             Coupe du Monde FIFA
           </p>
           <h1 className="text-4xl font-extrabold sm:text-6xl mb-4">

@@ -7,11 +7,11 @@ import { useEffect, useRef, useState } from "react";
 const colorMap: Record<string, string> = {
   accent: "bg-accent",
   gold: "bg-gold",
-  green: "bg-emerald-500",
-  blue: "bg-blue-500",
-  purple: "bg-purple-500",
-  orange: "bg-orange-500",
-  teal: "bg-teal-500",
+  green: "bg-field",
+  blue: "bg-secondary",
+  purple: "bg-secondary",
+  orange: "bg-accent",
+  teal: "bg-secondary",
 };
 
 // ── StatBar simple (barre horizontale animée au scroll) ────────────────────
@@ -20,7 +20,7 @@ interface StatBarProps {
   label: string;
   value: number;
   maxValue?: number;
-  color?: "accent" | "gold" | "green" | "blue" | "purple" | "orange" | "teal";
+  color?: "accent" | "gold" | "green" | "blue" | "purple" | "orange" | "teal" | "secondary" | "field";
   showValue?: boolean;
   suffix?: string;
   size?: "sm" | "md" | "lg";
@@ -168,7 +168,7 @@ export function DuelStatBar({
           style={{ width: visible ? `${homePct}%` : "0%" }}
         />
         <div
-          className={`h-full rounded-r-full transition-all ease-out duration-700 ${awayWins ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"}`}
+          className={`h-full rounded-r-full transition-all ease-out duration-700 ${awayWins ? "bg-secondary" : "bg-gray-300 dark:bg-gray-600"}`}
           style={{ width: visible ? `${awayPct}%` : "0%" }}
         />
       </div>

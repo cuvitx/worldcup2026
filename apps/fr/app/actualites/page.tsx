@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 };
 
 const categoryColors: Record<NewsCategory, string> = {
-  transferts: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
-  stades: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
-  billets: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
-  equipes: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
-  paris: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300",
+  transferts: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
+  billets: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
+  paris: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
 };
 
 function formatDate(dateStr: string) {
@@ -54,26 +54,33 @@ export default function ActualitesPage() {
   const rest = newsArticles.slice(1);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
       />
       {/* Breadcrumb */}
-      <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-        <ol className="flex items-center gap-1">
-          <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
-          <li>/</li>
-          <li className="text-gray-900 dark:text-white font-medium">Actualités</li>
-        </ol>
+      <nav aria-label="Fil d'Ariane" className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li>/</li>
+            <li className="text-gray-900 dark:text-white font-medium">Actualités</li>
+          </ol>
+        </div>
       </nav>
 
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl mb-2">
-        Actualités Coupe du Monde 2026
-      </h1>
-      <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-        Toutes les dernières informations sur la Coupe du Monde 2026 : stades, équipes, billets, paris sportifs et plus encore.
-      </p>
+      {/* Hero */}
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">Actualités Coupe du Monde 2026</h1>
+          <p className="text-gray-300 max-w-2xl">
+            Toutes les dernières informations sur la Coupe du Monde 2026 : stades, équipes, billets, paris sportifs et plus encore.
+          </p>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
 
       {/* Featured article */}
       {featured && (
@@ -131,6 +138,7 @@ export default function ActualitesPage() {
             </p>
           </Link>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -33,17 +33,17 @@ export default function ComparateurJoueursPage() {
         <PlayerComparator />
 
         {/* CTA affilié */}
-        <div className="mt-10 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 p-6 text-center text-white shadow-lg">
+        <div className="mt-10 rounded-xl bg-gradient-to-r from-primary to-primary/80 p-6 text-center text-white shadow-lg">
           <p className="text-lg font-bold mb-2">Envie de parier sur vos joueurs préférés ?</p>
-          <p className="text-sm text-blue-100 mb-4">Comparez les cotes et profitez des meilleurs bonus.</p>
+          <p className="text-sm text-white/70 mb-4">Comparez les cotes et profitez des meilleurs bonus.</p>
           <a
             href="#"
             rel="noopener noreferrer sponsored nofollow"
-            className="inline-block rounded-lg bg-yellow-400 px-8 py-3 text-sm font-bold text-blue-900 transition-colors hover:bg-yellow-300"
+            className="inline-block rounded-lg bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-accent/90"
           >
             Voir les cotes sur Winamax &rarr;
           </a>
-          <p className="mt-3 text-xs text-blue-200">18+. Pariez responsablement.</p>
+          <p className="mt-3 text-xs text-white/60">18+. Pariez responsablement.</p>
         </div>
       </section>
     </>

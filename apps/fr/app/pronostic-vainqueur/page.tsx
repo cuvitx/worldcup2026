@@ -371,8 +371,8 @@ export default function PronosticVainqueurPage() {
       </nav>
 
       {/* ===== HERO ===== */}
-      <section className="hero-animated py-14 md:py-20 text-white">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="hero-animated py-12 sm:py-16 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
             <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-gold" />
             CDM 2026 · Pronostic vainqueur

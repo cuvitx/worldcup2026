@@ -23,10 +23,10 @@ const POSITION_LABELS: Record<string, string> = {
   FW: "Attaquant",
 };
 const POSITION_COLORS: Record<string, string> = {
-  GK: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300",
-  DF: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
-  MF: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
-  FW: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
+  GK: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  DF: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
+  MF: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
+  FW: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
 };
 
 type SortKey = "position" | "name" | "age" | "club" | "caps" | "goals";

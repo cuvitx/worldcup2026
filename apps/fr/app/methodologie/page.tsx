@@ -51,7 +51,7 @@ export default function MethodologiePage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-4 py-8 space-y-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12 space-y-8">
         {/* ELO Rating System */}
         <section className="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-sm">
           <h2 className="mb-4 text-2xl font-bold text-primary">

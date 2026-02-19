@@ -10,6 +10,7 @@ export interface BookmakerReview {
   bonus: string;
   bonusDetail: string;
   url: string;
+  logo?: string;
   foundedYear: number;
   license: string;
   description: string;

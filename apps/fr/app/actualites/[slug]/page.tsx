@@ -6,11 +6,11 @@ import { bookmakers } from "@repo/data/affiliates";
 import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 
 const categoryColors: Record<NewsCategory, string> = {
-  transferts: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
-  stades: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
-  billets: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
-  equipes: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
-  paris: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300",
+  transferts: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
+  billets: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
+  paris: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
 };
 
 function formatDate(dateStr: string) {
@@ -75,7 +75,7 @@ export default async function ArticlePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto max-w-7xl px-4 py-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-400">
           <ol className="flex items-center gap-1 flex-wrap">

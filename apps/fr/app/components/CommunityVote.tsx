@@ -74,7 +74,7 @@ export default function CommunityVote({
   const options = [
     { key: "1", label: homeName, pct: results.home, color: "bg-emerald-500", colorLight: "bg-emerald-500/20", text: "text-emerald-400" },
     { key: "N", label: "Match nul", pct: results.draw, color: "bg-gray-400", colorLight: "bg-gray-400/20", text: "text-gray-400" },
-    { key: "2", label: awayName, pct: results.away, color: "bg-blue-500", colorLight: "bg-blue-500/20", text: "text-blue-400" },
+    { key: "2", label: awayName, pct: results.away, color: "bg-secondary", colorLight: "bg-secondary/20", text: "text-secondary" },
   ];
 
   return (
@@ -99,7 +99,7 @@ export default function CommunityVote({
                   ? "hover:border-emerald-500 hover:bg-emerald-50 dark:hover:border-emerald-400 dark:hover:bg-emerald-900/20"
                   : opt.key === "N"
                     ? "hover:border-gray-400 hover:bg-gray-50 dark:bg-slate-700 dark:hover:border-gray-400 dark:hover:bg-gray-700/40"
-                    : "hover:border-blue-500 hover:bg-blue-50 dark:hover:border-blue-400 dark:hover:bg-blue-900/20"
+                    : "hover:border-secondary hover:bg-secondary/5 dark:hover:border-secondary dark:hover:bg-secondary/10"
               }`}
             >
               <span className="text-2xl font-black text-gray-300 dark:text-gray-600 group-hover:text-gray-500">

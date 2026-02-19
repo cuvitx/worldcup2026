@@ -136,7 +136,7 @@ export default function ButeursPage() {
 
                     {/* Nombre de buts */}
                     <div className="shrink-0 text-right">
-                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-amber-500" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-blue-600 dark:text-blue-400"}`}>
+                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-gold" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-secondary dark:text-secondary"}`}>
                         {scorer.goals}
                       </span>
                       <p className="text-[10px] text-gray-400 uppercase tracking-wide">buts</p>
@@ -208,7 +208,7 @@ export default function ButeursPage() {
                       {/* Buts stats */}
                       <div className="flex flex-wrap gap-4 mb-3">
                         <div className="text-center">
-                          <p className="text-2xl font-extrabold text-primary dark:text-blue-300">{candidate.expectedGoals}</p>
+                          <p className="text-2xl font-extrabold text-primary dark:text-white">{candidate.expectedGoals}</p>
                           <p className="text-[10px] text-gray-400 uppercase tracking-wide">Buts attendus</p>
                         </div>
                         <div className="text-center">
@@ -243,9 +243,9 @@ export default function ButeursPage() {
                       <p className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-orange-50 dark:bg-orange-900/20 border-orange-100 dark:border-orange-800/30"}`}>
-                        <span className="text-xs font-semibold text-orange-700 dark:text-orange-400">Winamax</span>
-                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-gold" : "text-orange-600 dark:text-orange-300"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-accent/5 dark:bg-accent/10 border-accent/10 dark:border-accent/20"}`}>
+                        <span className="text-xs font-semibold text-accent dark:text-accent">Winamax</span>
+                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-gold" : "text-accent dark:text-accent"}`}>
                           {candidate.winamax.toFixed(2)}
                         </span>
                       </div>
@@ -255,9 +255,9 @@ export default function ButeursPage() {
                           {candidate.betclic.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800/30"}`}>
-                        <span className="text-xs font-semibold text-green-700 dark:text-green-400">DraftKings</span>
-                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-gold" : "text-green-600 dark:text-green-300"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-field/5 dark:bg-field/10 border-field/10 dark:border-field/20"}`}>
+                        <span className="text-xs font-semibold text-field dark:text-field">DraftKings</span>
+                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-gold" : "text-field dark:text-field"}`}>
                           {candidate.draftkings.toFixed(2)}
                         </span>
                       </div>

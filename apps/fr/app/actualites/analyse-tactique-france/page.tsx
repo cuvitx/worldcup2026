@@ -35,9 +35,9 @@ export default function AnalyseTactiqueFrance() {
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-400">
           <ol className="flex items-center gap-1 flex-wrap">
-            <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">Accueil</Link></li>
+            <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/actualites" className="hover:text-blue-600 dark:hover:text-blue-400">Actualités</Link></li>
+            <li><Link href="/actualites" className="hover:text-secondary dark:hover:text-secondary">Actualités</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Analyse tactique France</li>
           </ol>
@@ -45,7 +45,7 @@ export default function AnalyseTactiqueFrance() {
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="mb-4 flex items-center gap-3">
-            <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary dark:bg-primary/20 dark:text-white">
               Analyse tactique
             </span>
             <time className="text-sm text-gray-500 dark:text-gray-400" dateTime="2026-02-19">

@@ -52,8 +52,8 @@ export default function RecherchePage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-10">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-3xl mb-1">
             🔍 Recherche CDM 2026
           </h1>
@@ -63,7 +63,7 @@ export default function RecherchePage() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-4xl px-4 py-8" id="main-content">
+      <main className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12" id="main-content">
         {/* Stats bar */}
         <div className="flex flex-wrap gap-4 mb-8 text-center">
           {[

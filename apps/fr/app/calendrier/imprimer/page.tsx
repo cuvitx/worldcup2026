@@ -39,7 +39,7 @@ export default function CalendrierImprimerPage() {
   const sortedDates = [...matchesByDate.keys()].sort();
 
   return (
-    <div className="print-calendar mx-auto max-w-4xl px-4 py-8">
+    <div className="print-calendar mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
       <style>{`
         @media print {
           body * { visibility: hidden; }
@@ -59,7 +59,7 @@ export default function CalendrierImprimerPage() {
 
       <div className="no-print mb-6 flex gap-3">
         <button
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700"
+          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent/90"
           id="print-btn"
         >
           🖨️ Imprimer

@@ -258,8 +258,8 @@ export default function StatistiquesPage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary via-secondary to-primary text-white py-14">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="bg-gradient-to-br from-primary via-secondary to-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-green-300 uppercase tracking-widest mb-2">
             Coupe du Monde FIFA · 1930–2026
           </p>

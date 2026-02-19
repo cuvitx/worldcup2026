@@ -285,7 +285,7 @@ export function Header() {
               pathname === "/live" ? "text-[#FF6B35]" : "text-white/80"
             }`}
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             Live
           </Link>
         </div>

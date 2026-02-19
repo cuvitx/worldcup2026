@@ -133,16 +133,16 @@ export default async function H2HPage({ params }: PageProps) {
                     <div key={row.label}>
                       <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 text-center mb-2">{row.label}</p>
                       <div className="flex items-center gap-3">
-                        <span className="w-16 text-right text-sm font-bold text-blue-600 dark:text-blue-400">{row.v1}</span>
+                        <span className="w-16 text-right text-sm font-bold text-primary dark:text-secondary">{row.v1}</span>
                         <div className="flex-1 flex gap-1">
                           <div className="flex-1 h-5 rounded-l-full bg-gray-100 dark:bg-slate-700 overflow-hidden flex justify-end">
-                            <div className="h-full rounded-l-full bg-blue-500 transition-all duration-700" style={{ width: `${pct1}%` }} />
+                            <div className="h-full rounded-l-full bg-primary transition-all duration-700" style={{ width: `${pct1}%` }} />
                           </div>
                           <div className="flex-1 h-5 rounded-r-full bg-gray-100 dark:bg-slate-700 overflow-hidden">
-                            <div className="h-full rounded-r-full bg-red-500 transition-all duration-700" style={{ width: `${pct2}%` }} />
+                            <div className="h-full rounded-r-full bg-accent transition-all duration-700" style={{ width: `${pct2}%` }} />
                           </div>
                         </div>
-                        <span className="w-16 text-left text-sm font-bold text-red-600 dark:text-red-400">{row.v2}</span>
+                        <span className="w-16 text-left text-sm font-bold text-accent dark:text-accent">{row.v2}</span>
                       </div>
                     </div>
                   );

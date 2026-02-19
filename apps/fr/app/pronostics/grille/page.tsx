@@ -112,8 +112,8 @@ export default function GrillePronosticsPage() {
         </div>
       </nav>
 
-      <section className="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-10">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">📝 Grille de pronostics</h1>
           <p className="mt-2 text-gray-300">
             Entrez vos scores pour les {groupMatches.length} matchs de groupes · {filledCount} remplis
@@ -135,7 +135,7 @@ export default function GrillePronosticsPage() {
         </div>
       </section>
 
-      <div className="print-grid mx-auto max-w-7xl px-4 py-8">
+      <div className="print-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {groups.map((g) => {
             const gm = matchesByGroup.get(g.letter) ?? [];

@@ -36,7 +36,7 @@ export default function SimulateurPage() {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden text-white py-10 md:py-14"
+        className="relative overflow-hidden text-white py-12 sm:py-16"
         style={{
           background:
             "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #091420 100%)",
@@ -54,7 +54,7 @@ export default function SimulateurPage() {
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/30 px-3 py-1 text-xs font-bold text-gold mb-3">
@@ -105,7 +105,7 @@ export default function SimulateurPage() {
       </section>
 
       {/* Simulator */}
-      <section className="bg-gray-50 dark:bg-gray-900/50 py-6 lg:py-10">
+      <section className="bg-gray-50 dark:bg-gray-900/50 py-8 sm:py-12">
         <div className="mx-auto max-w-[1600px] px-2 lg:px-4">
           <BracketSimulator />
         </div>

@@ -488,7 +488,7 @@ export default function BilletsPage() {
                   phase.statusColor === "green"
                     ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
                     : phase.statusColor === "blue"
-                    ? "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400"
+                    ? "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                     : "bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 line-through"
                 }`}>
                   {phase.status}
