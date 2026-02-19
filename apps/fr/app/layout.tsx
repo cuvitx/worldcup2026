@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { domains, getHomeAlternates } from "@repo/data/route-mapping";
@@ -7,7 +8,14 @@ import { LiveScoreBarWrapper } from "./components/LiveScoreBarWrapper";
 import { CookieConsent } from "@repo/ui/cookie-consent";
 import { BackToTop } from "@repo/ui/back-to-top";
 import { StickyCTA } from "./components/StickyCTA";
+import { BadgeSystem } from "./components/BadgeSystem";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -29,10 +37,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     siteName: "CDM 2026",
+    url: domains.fr,
+    images: [{ url: `${domains.fr}/images/og-default.png`, width: 1200, height: 630, alt: "Coupe du Monde 2026" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@mondial2026",
+    creator: "@mondial2026",
   },
   robots: {
     index: true,
@@ -50,14 +61,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className="flex min-h-screen flex-col bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100 antialiased" suppressHydrationWarning>
+    <html lang="fr" className={inter.variable}>
+      <head>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+      </head>
+      <body className={`${inter.className} flex min-h-screen flex-col bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100 antialiased`} suppressHydrationWarning>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`,
           }}
         />
         <OrganizationSchema url={domains.fr} name="CDM 2026 - Coupe du Monde" />
+        <BadgeSystem>
         <Header />
         <LiveScoreBarWrapper />
         <main id="main-content" className="flex-1">{children}</main>
@@ -65,6 +81,7 @@ export default function RootLayout({
         <BackToTop />
         <StickyCTA />
         <CookieConsent lang="fr" />
+        </BadgeSystem>
       </body>
     </html>
   );

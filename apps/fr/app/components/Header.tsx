@@ -96,6 +96,7 @@ const navLinks = [
   { href: "/actualites", label: "Actualités" },
   { href: "/live", label: "Live" },
   { href: "/simulateur", label: "Simulateur" },
+  { href: "/profil", label: "Mon profil 🏅" },
 ];
 
 export function Header() {
@@ -150,6 +151,11 @@ export function Header() {
         </ul>
 
         <div className="flex items-center gap-2">
+          {/* Profile link */}
+          <Link href="/profil" className="hidden sm:flex items-center gap-1 rounded px-2 py-1 text-sm hover:bg-white/10 transition-colors">
+            Mon profil 🏅
+          </Link>
+
           {/* Search command palette */}
           <SearchDialog lang="fr" data={searchData} onNavigate={(href) => router.push(href)} />
 
