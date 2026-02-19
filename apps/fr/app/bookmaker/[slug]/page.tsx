@@ -58,14 +58,14 @@ export default async function BookmakerPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Paris sportifs",url:"/paris-sportifs"},{name:bk.name,url:"/bookmaker/"+bk.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/paris-sportifs" className="hover:text-primary">Paris sportifs</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{bk.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{bk.name}</li>
           </ol>
         </div>
       </nav>
@@ -106,19 +106,19 @@ export default async function BookmakerPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Presentation de {bk.name}</h2>
-              <p className="text-gray-700">{bk.description}</p>
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold dark:text-white">Presentation de {bk.name}</h2>
+              <p className="text-gray-700 dark:text-gray-300">{bk.description}</p>
             </section>
 
             {/* Ratings */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Notes détaillées</h2>
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold dark:text-white">Notes détaillées</h2>
               <div className="space-y-3">
                 {Object.entries(bk.ratings).map(([key, value]) => (
                   <div key={key}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-gray-700">{ratingLabels[key] ?? key}</span>
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{ratingLabels[key] ?? key}</span>
                       <span className="text-sm font-bold text-primary">{value}/5</span>
                     </div>
                     <div className="relative h-3 rounded-full bg-gray-200 overflow-hidden">
@@ -137,8 +137,8 @@ export default async function BookmakerPage({ params }: PageProps) {
             </section>
 
             {/* Pros & Cons */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-2 text-xl font-bold">Avantages et inconvenients</h2>
+            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="mb-2 text-xl font-bold dark:text-white">Avantages et inconvenients</h2>
               <p className="mb-4 text-sm text-gray-600">{bk.prosConsIntro}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg bg-field/5 border border-field/20 p-4">
@@ -152,7 +152,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-lg bg-red-50 border border-red-200 p-4">
+                <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4">
                   <h3 className="font-bold text-red-600 mb-3">Inconvenients</h3>
                   <ul className="space-y-2">
                     {bk.cons.map((con, i) => (
@@ -168,9 +168,9 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Content Sections */}
             {bk.sections.map((section, i) => (
-              <section key={i} className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">{section.title}</h2>
-                <p className="text-gray-700">{section.content}</p>
+              <section key={i} className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold dark:text-white">{section.title}</h2>
+                <p className="text-gray-700 dark:text-gray-300">{section.content}</p>
               </section>
             ))}
 
@@ -195,8 +195,8 @@ export default async function BookmakerPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Info Card */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Infos {bk.name}</h3>
+            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold dark:text-white">Infos {bk.name}</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Bonus</dt>
@@ -230,11 +230,11 @@ export default async function BookmakerPage({ params }: PageProps) {
             </div>
 
             {/* Payment methods */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Moyens de paiement</h3>
+            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold dark:text-white">Moyens de paiement</h3>
               <div className="flex flex-wrap gap-2">
                 {bk.paymentMethods.map((method) => (
-                  <span key={method} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
+                  <span key={method} className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700">
                     {method}
                   </span>
                 ))}
@@ -243,8 +243,8 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Guides utiles</h3>
+              <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h3 className="mb-4 text-lg font-bold dark:text-white">Guides utiles</h3>
                 <ul className="space-y-2">
                   {relatedGuides.map((guide) => (
                     <li key={guide.id}>
@@ -258,8 +258,8 @@ export default async function BookmakerPage({ params }: PageProps) {
             )}
 
             {/* Other bookmakers */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Autres bookmakers</h3>
+            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold dark:text-white">Autres bookmakers</h3>
               <ul className="space-y-2">
                 {otherBookmakers.map((other) => (
                   <li key={other.id}>

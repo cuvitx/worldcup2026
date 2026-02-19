@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { playerStats, playerStatsByTeam } from "@repo/data/player-stats";
 import { teams } from "@repo/data/teams";
 import type { PlayerStats } from "@repo/data/player-stats";
@@ -12,7 +12,7 @@ const STAT_LABELS: { key: StatKey; label: string; max: number }[] = [
   { key: "assists", label: "Passes décisives", max: 25 },
   { key: "appearances", label: "Matchs joués", max: 50 },
   { key: "minutesPlayed", label: "Minutes jouées", max: 4000 },
-  { key: "passAccuracy", label: "Précision passes (%)", max: 100 },
+  { key: "passAccuracy", label: "Précision des passes (%)", max: 100 },
   { key: "dribbleSuccess", label: "Dribbles réussis (%)", max: 100 },
   { key: "aerialDuels", label: "Duels aériens (%)", max: 100 },
   { key: "rating", label: "Note globale", max: 10 },
@@ -61,6 +61,24 @@ function PlayerSelector({
   );
 }
 
+function AnimatedBar({ pct, color, delay }: { pct: number; color: string; delay: number }) {
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setWidth(pct), 50 + delay * 60);
+    return () => clearTimeout(timer);
+  }, [pct, delay]);
+
+  return (
+    <div
+      ref={ref}
+      className="h-full rounded-full transition-all duration-700 ease-out"
+      style={{ width: `${width}%`, backgroundColor: color }}
+    />
+  );
+}
+
 export function PlayerComparator() {
   const [ids, setIds] = useState<string[]>(["mbappe", "haaland", ""]);
 
@@ -102,22 +120,22 @@ export function PlayerComparator() {
 
       {selected.length >= 2 && (
         <>
-          {/* Player cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          {/* Player cards — stack vertically on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
             {selected.map((p, i) => (
               <div
                 key={p.id}
-                className="rounded-xl border-2 p-4 text-center"
+                className="rounded-xl border-2 p-5 text-center bg-white dark:bg-slate-800 shadow-md transition-transform hover:scale-[1.02]"
                 style={{ borderColor: COLORS[i] }}
               >
                 <div
-                  className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full text-white font-bold text-lg"
+                  className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full text-white font-bold text-xl shadow-lg"
                   style={{ backgroundColor: COLORS[i] }}
                 >
                   {p.name.charAt(0)}
                 </div>
-                <h3 className="font-bold text-lg">{p.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <h3 className="font-bold text-lg dark:text-white">{p.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                   {p.club} · {p.position} · {p.age} ans
                 </p>
                 <p className="text-sm text-gray-400 dark:text-gray-500">
@@ -128,15 +146,15 @@ export function PlayerComparator() {
             ))}
           </div>
 
-          {/* Stats bars */}
+          {/* Stats bars — smooth animated */}
           <div className="space-y-6">
-            {STAT_LABELS.map(({ key, label, max }) => {
+            {STAT_LABELS.map(({ key, label, max }, statIdx) => {
               const values = selected.map((p) => p[key] as number);
               const best = Math.max(...values);
 
               return (
-                <div key={key}>
-                  <h4 className="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
+                <div key={key} className="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-sm">
+                  <h4 className="text-sm font-semibold mb-3 text-gray-700 dark:text-gray-300">
                     {label}
                   </h4>
                   <div className="space-y-2">
@@ -146,20 +164,18 @@ export function PlayerComparator() {
                       const pct = Math.min((val / max) * 100, 100);
                       return (
                         <div key={p.id} className="flex items-center gap-3">
-                          <span className="w-28 text-xs truncate text-right text-gray-600 dark:text-gray-400">
+                          <span className="w-24 sm:w-28 text-xs truncate text-right text-gray-600 dark:text-gray-400 font-medium">
                             {p.name.split(" ").pop()}
                           </span>
-                          <div className="flex-1 h-6 rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden relative">
-                            <div
-                              className="h-full rounded-full transition-all duration-500"
-                              style={{
-                                width: `${pct}%`,
-                                backgroundColor: isBest ? BEST_COLOR : COLORS[i],
-                              }}
+                          <div className="flex-1 h-7 rounded-full bg-gray-100 dark:bg-slate-700 overflow-hidden">
+                            <AnimatedBar
+                              pct={pct}
+                              color={isBest ? BEST_COLOR : COLORS[i]!}
+                              delay={statIdx * selected.length + i}
                             />
                           </div>
                           <span
-                            className="w-14 text-sm font-bold text-right"
+                            className="w-16 text-sm font-bold text-right tabular-nums"
                             style={{ color: isBest ? BEST_COLOR : COLORS[i] }}
                           >
                             {key === "rating" ? val.toFixed(1) : val.toLocaleString("fr-FR")}
@@ -174,13 +190,13 @@ export function PlayerComparator() {
           </div>
 
           {/* Summary table */}
-          <div className="mt-10 overflow-x-auto">
+          <div className="mt-10 overflow-x-auto rounded-lg bg-white dark:bg-slate-800 shadow-sm">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-200 dark:border-gray-700">
                   <th className="py-3 px-4 text-left text-gray-600 dark:text-gray-400">Statistique</th>
                   {selected.map((p, i) => (
-                    <th key={p.id} className="py-3 px-4 text-center" style={{ color: COLORS[i] }}>
+                    <th key={p.id} className="py-3 px-4 text-center font-bold" style={{ color: COLORS[i] }}>
                       {p.name.split(" ").pop()}
                     </th>
                   ))}
@@ -192,14 +208,14 @@ export function PlayerComparator() {
                   const best = Math.max(...values);
                   return (
                     <tr key={key} className="border-b border-gray-100 dark:border-gray-800">
-                      <td className="py-2 px-4 text-gray-600 dark:text-gray-400">{label}</td>
+                      <td className="py-2.5 px-4 text-gray-600 dark:text-gray-400">{label}</td>
                       {selected.map((p, i) => {
                         const val = p[key] as number;
                         const isBest = val === best;
                         return (
                           <td
                             key={p.id}
-                            className="py-2 px-4 text-center font-semibold"
+                            className="py-2.5 px-4 text-center font-semibold"
                             style={{ color: isBest ? BEST_COLOR : undefined }}
                           >
                             {key === "rating" ? val.toFixed(1) : val.toLocaleString("fr-FR")}
