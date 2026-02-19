@@ -263,7 +263,7 @@ export default function StatistiquesPage() {
           <p className="text-sm font-medium text-green-300 uppercase tracking-widest mb-2">
             Coupe du Monde FIFA · 1930–2026
           </p>
-          <h1 className="text-4xl font-extrabold sm:text-6xl mb-4">
+          <h1 className="text-2xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
             📊 Statistiques &amp; Records
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-6">

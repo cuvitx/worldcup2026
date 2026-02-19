@@ -240,7 +240,7 @@ export default function EquipeDeFrancePage() {
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
                 <span>⭐⭐ Double championne du monde</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-3">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3">
                 🇫🇷 Les Bleus à la conquête d&apos;une 3ᵉ étoile
               </h1>
               <p className="text-xl sm:text-2xl font-light text-white/70 mb-4">

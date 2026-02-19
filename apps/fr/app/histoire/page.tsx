@@ -595,7 +595,7 @@ export default function HistoirePage() {
           <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
             Coupe du Monde FIFA
           </p>
-          <h1 className="text-4xl font-extrabold sm:text-6xl mb-4">
+          <h1 className="text-2xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
             📅 L'Histoire du Mondial
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
