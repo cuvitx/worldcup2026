@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description:
     "Découvrez les 16 villes hôtes de la Coupe du Monde 2026 aux États-Unis, au Canada et au Mexique. Population, stades, fuseaux horaires.",
   alternates: getStaticAlternates("cities", "fr"),
+  openGraph: {
+    title: "Les 16 villes hôtes de la Coupe du Monde 2026",
+    description: "Découvrez les 16 villes hôtes de la CDM 2026 aux USA, Canada et Mexique.",
+  },
 };
 
 export default function CitiesPage() {

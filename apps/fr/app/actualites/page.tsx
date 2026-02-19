@@ -28,9 +28,34 @@ function formatDate(dateStr: string) {
   });
 }
 
+const newsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Actualités Coupe du Monde 2026",
+  url: "https://mondial2026.fr/actualites",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: newsArticles.map((article, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "NewsArticle",
+        headline: article.title.fr,
+        datePublished: article.date,
+        url: `https://mondial2026.fr/actualites#${article.id}`,
+        publisher: { "@type": "Organization", name: "CDM 2026" },
+      },
+    })),
+  },
+};
+
 export default function ActualitesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-400">
         <ol className="flex items-center gap-1">

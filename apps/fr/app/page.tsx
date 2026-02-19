@@ -18,11 +18,47 @@ export const metadata: Metadata = {
   description:
     "Guide complet de la Coupe du Monde 2026 : pronostics, cotes des bookmakers, analyses des 48 équipes, calendrier des 104 matchs. Tout pour parier sur la CDM 2026.",
   alternates: getHomeAlternates(),
+  openGraph: {
+    title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
+    description: "Pronostics, cotes, analyses des 48 équipes et calendrier des 104 matchs de la CDM 2026.",
+    url: "https://mondial2026.fr",
+  },
 };
+
+const homepageJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "CDM 2026 - Coupe du Monde",
+    url: "https://mondial2026.fr",
+    description: "Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 équipes.",
+    inLanguage: "fr",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: "Coupe du Monde FIFA 2026",
+    startDate: "2026-06-11",
+    endDate: "2026-07-19",
+    location: {
+      "@type": "Place",
+      name: "États-Unis, Canada, Mexique",
+    },
+    sport: "Football",
+    description: "Première Coupe du Monde FIFA à 48 équipes. 104 matchs dans 16 stades.",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
+      {homepageJsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* Hero Section — animated gradient + dot pattern overlay */}
       <section className="hero-animated py-20 md:py-28 text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">

@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   description:
     "Guide complet des 16 stades de la Coupe du Monde 2026. Capacite, ville, pays, matchs programmes et informations pratiques.",
   alternates: getStaticAlternates("stadiums", "fr"),
+  openGraph: {
+    title: "Les 16 stades de la Coupe du Monde 2026",
+    description: "Guide des 16 stades de la CDM 2026 : capacité, ville et matchs.",
+  },
 };
 
 export default function StadiumsPage() {

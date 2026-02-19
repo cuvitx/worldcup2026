@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description:
     "Les 210 joueurs cles des 48 équipes de la Coupe du Monde 2026. Statistiques, clubs, selections et buts pour chaque joueur.",
   alternates: getStaticAlternates("players", "fr"),
+  openGraph: {
+    title: "210 joueurs clés de la Coupe du Monde 2026",
+    description: "Stats, clubs et sélections des 210 joueurs clés des 48 équipes de la CDM 2026.",
+  },
 };
 
 export default function PlayersPage() {

@@ -4,11 +4,38 @@ import { domains, getStaticAlternates } from "@repo/data/route-mapping";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact — Contactez l'équipe CDM 2026",
   description:
-    "Contactez l'équipe CDM 2026. Pour toute question relative au site, à nos contenus ou à nos partenariats.",
+    "Contactez l'équipe CDM 2026 pour toute question, suggestion ou demande de partenariat. FAQ et informations utiles.",
   alternates: getStaticAlternates("contact", "fr"),
+  openGraph: {
+    title: "Contact - CDM 2026",
+    description: "Contactez l'équipe CDM 2026 pour toute question ou partenariat.",
+  },
 };
+
+const faqs = [
+  {
+    question: "Vos pronostics sont-ils gratuits ?",
+    answer:
+      "Oui, tous nos pronostics et analyses sont entièrement gratuits. Nous nous finançons via des liens d'affiliation vers des bookmakers agréés ANJ.",
+  },
+  {
+    question: "Êtes-vous affiliés à la FIFA ?",
+    answer:
+      "Non, CDM 2026 est un site d'information indépendant. Nous ne sommes affiliés ni à la FIFA ni à aucune fédération de football.",
+  },
+  {
+    question: "Comment sont calculés vos pronostics ?",
+    answer:
+      "Nos pronostics s'appuient sur des modèles statistiques combinant classement ELO, forme récente, historique des confrontations et cotes des bookmakers. Consultez notre page Méthodologie pour en savoir plus.",
+  },
+  {
+    question: "Puis-je reprendre vos contenus sur mon site ?",
+    answer:
+      "Nos contenus sont protégés par le droit d'auteur. Pour toute demande de reproduction ou de partenariat éditorial, contactez-nous par email.",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -40,94 +67,120 @@ export default function ContactPage() {
           <h1 className="text-4xl font-extrabold">Contact</h1>
           <p className="mt-4 text-lg text-gray-300">
             Une question, une suggestion ou une demande de partenariat ?
-            N&apos;hesitez pas a nous contacter.
+            N&apos;hésitez pas à nous contacter.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-4xl px-4 py-12">
-        <div className="space-y-8 text-gray-700 leading-relaxed">
+        <div className="space-y-12 text-gray-700 leading-relaxed">
+          {/* Contact form-like section */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
-              Nous contacter
+            <h2 className="mb-4 text-2xl font-bold text-gray-900">
+              Nous écrire
             </h2>
-            <p>
-              Pour toute question relative au site, à nos contenus ou a nos
-              analyses, vous pouvez nous ecrire a l&apos;adresse suivante :
-            </p>
-            <p className="mt-4">
+            <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
+              <p className="mb-4">
+                Pour toute question relative au site, à nos contenus, à nos
+                analyses ou à une demande de partenariat, envoyez-nous un email :
+              </p>
               <a
-                href="mailto:contact@mondial2026.fr"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 font-semibold text-primary hover:bg-primary/20"
+                href="mailto:contact@coupe-du-monde-2026.fr?subject=Contact%20CDM%202026"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
               >
-                contact@mondial2026.fr
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+                contact@coupe-du-monde-2026.fr
               </a>
-            </p>
+              <p className="mt-4 text-sm text-gray-500">
+                Nous nous efforçons de répondre sous 48 heures.
+              </p>
+            </div>
           </section>
 
+          {/* FAQ */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
-              A propos du site
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
+              Questions fréquentes
+            </h2>
+            <div className="space-y-4">
+              {faqs.map((faq) => (
+                <details
+                  key={faq.question}
+                  className="group rounded-lg border border-gray-200 bg-white"
+                >
+                  <summary className="cursor-pointer px-5 py-4 font-semibold text-gray-900 transition-colors hover:text-primary">
+                    {faq.question}
+                  </summary>
+                  <p className="px-5 pb-4 text-gray-600">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          {/* À propos */}
+          <section>
+            <h2 className="mb-3 text-2xl font-bold text-gray-900">
+              À propos du site
             </h2>
             <p>
-              CDM 2026 est un site d&apos;information indépendant dédié a la
+              CDM 2026 est un site d&apos;information indépendant dédié à la
               Coupe du Monde FIFA 2026. Nous proposons des pronostics, des
               analyses statistiques, des comparaisons de cotes et des guides
               pratiques pour les supporters.
             </p>
             <p className="mt-2">
-              Ce site n&apos;est pas affiliéà la FIFA ni à aucun opérateur de
-              paris sportifs. Nos contenus sont a caractere informatif et ne
+              Ce site n&apos;est pas affilié à la FIFA ni à aucun opérateur de
+              paris sportifs. Nos contenus sont à caractère informatif et ne
               constituent pas des conseils de paris.
             </p>
           </section>
 
-          <section>
+          {/* Jeu responsable */}
+          <section className="rounded-xl border-2 border-accent/30 bg-accent/5 p-6">
             <h2 className="mb-3 text-xl font-bold text-gray-900">
               Jeu responsable
             </h2>
             <p>
-              Si vous pariez, faites-le de maniere responsable. Les jeux
-              d&apos;argent comportent des risques. Consultez notre page
-              dédiée pour plus d&apos;informations.
+              Si vous pariez, faites-le de manière responsable. Les jeux
+              d&apos;argent comportent des risques de pertes financières et
+              d&apos;addiction.
             </p>
-            <p className="mt-4">
+            <p className="mt-3">
               <Link
                 href="/jeu-responsable"
-                className="text-accent font-medium hover:underline"
+                className="font-medium text-accent hover:underline"
               >
-                Consulter notre page Jeu responsable
+                Consulter notre page Jeu responsable →
               </Link>
             </p>
           </section>
 
+          {/* Liens utiles */}
           <section>
             <h2 className="mb-3 text-xl font-bold text-gray-900">
               Liens utiles
             </h2>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/a-propos"
-                  className="text-accent hover:underline"
-                >
-                  A propos
+                <Link href="/a-propos" className="text-accent hover:underline">
+                  À propos
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/mentions-legales"
-                  className="text-accent hover:underline"
-                >
-                  Mentions legales
+                <Link href="/mentions-legales" className="text-accent hover:underline">
+                  Mentions légales
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/jeu-responsable"
-                  className="text-accent hover:underline"
-                >
-                  Jeu responsable
+                <Link href="/methodologie" className="text-accent hover:underline">
+                  Méthodologie
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-accent hover:underline">
+                  FAQ complète
                 </Link>
               </li>
             </ul>

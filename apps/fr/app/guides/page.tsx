@@ -16,6 +16,23 @@ export const metadata: Metadata = {
   },
 };
 
+const guidesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Guides paris sportifs CDM 2026",
+  description: "Tous nos guides de paris sportifs pour la Coupe du Monde 2026.",
+  url: "https://mondial2026.fr/guides",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: guides.map((guide, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://mondial2026.fr/guide/${guide.slug}`,
+      name: guide.title.fr,
+    })),
+  },
+};
+
 export default function GuidesPage() {
   const categoryLabels: Record<string, string> = {
     cdm2026: "Coupe du Monde 2026",
@@ -34,6 +51,10 @@ export default function GuidesPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(guidesJsonLd) }}
+      />
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">

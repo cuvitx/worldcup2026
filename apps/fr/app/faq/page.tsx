@@ -11,6 +11,11 @@ export function generateMetadata(): Metadata {
     description:
       "Retrouvez toutes les réponses à vos questions sur la Coupe du Monde 2026 : format du tournoi, équipes qualifiées, paris sportifs, pronostics et plus encore.",
     alternates: getStaticAlternates("faq", "fr"),
+    openGraph: {
+      title: "FAQ - Coupe du Monde 2026",
+      description: "Réponses à toutes vos questions sur la CDM 2026 : format, équipes, paris et pronostics.",
+      url: "https://mondial2026.fr/faq",
+    },
   };
 }
 

@@ -1,0 +1,5 @@
+# https://mondial2026.fr
+User-agent: *
+Allow: /
+
+Sitemap: https://mondial2026.fr/sitemap.xml

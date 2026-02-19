@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "A propos",
+  title: "À propos de CDM 2026 | Coupe du Monde 2026",
   description:
-    "A propos de CDM 2026 : votre guide complet pour la Coupe du Monde 2026. Pronostics, statistiques et analyses pour les 48 équipes.",
+    "À propos de CDM 2026 : votre guide complet pour la Coupe du Monde 2026. Pronostics, statistiques et analyses pour les 48 équipes.",
+  openGraph: {
+    title: "À propos de CDM 2026",
+    description: "Votre guide complet pour la Coupe du Monde 2026.",
+  },
 };
 
 export default function AProposPage() {
