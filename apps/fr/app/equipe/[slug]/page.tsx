@@ -730,7 +730,7 @@ export default async function TeamPage({ params }: PageProps) {
             </div>
 
                         {/* Betting CTA */}
-            <div className="rounded-lg bg-gradient-to-br from-accent to-accent/80 p-6 shadow-md text-white">
+            <div className="rounded-lg bg-gradient-to-br from-primary to-secondary/90 p-6 shadow-md text-white">
               <h3 className="mb-3 text-lg font-bold">Parier sur {team.name} championne</h3>
               <p className="mb-4 text-sm text-white/80">
                 Comparez les meilleurs sites agrees pour parier sur {team.name} à la Coupe du Monde 2026.
@@ -739,7 +739,7 @@ export default async function TeamPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary hover:bg-gold/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; Parier sur {team.name}
               </a>
@@ -755,7 +755,7 @@ export default async function TeamPage({ params }: PageProps) {
                       className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10 transition-colors text-sm"
                     >
                       <span className="font-semibold">{bk.name} <span className="text-white/70">{bk.bonus}</span></span>
-                      <span className="text-gold">Parier sur {team.name} &rarr;</span>
+                      <span className="text-accent font-semibold">Parier sur {team.name} &rarr;</span>
                     </a>
                   ))}
               </div>

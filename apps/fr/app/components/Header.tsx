@@ -181,7 +181,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-[#1a1a2e]/95 backdrop-blur-[12px] text-gray-900 dark:text-[#e8e8f0] border-b border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.08)]">
+    <header className="sticky top-0 z-50 bg-[#0D3B66] backdrop-blur-[12px] text-white border-b border-[rgba(255,255,255,0.1)]">
       {/* Skip to content */}
       <a
         href="#main-content"
@@ -194,10 +194,10 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-extrabold tracking-tight hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded"
+          className="text-lg font-extrabold tracking-tight hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none rounded"
         >
-          <span className="text-accent dark:text-gold">⚽ CDM</span>{" "}
-          <span className="text-gray-900 dark:text-white">2026</span>
+          <span className="text-[#FF6B35]">⚽ CDM</span>{" "}
+          <span className="text-white">2026</span>
         </Link>
 
         {/* Desktop mega-menu nav */}
@@ -211,8 +211,8 @@ export function Header() {
             >
               <button
                 onClick={() => setActiveMenu(activeMenu === key ? null : key)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-gray-100 dark:hover:bg-white/10 ${
-                  activeMenu === key ? "bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white" : "text-gray-700 dark:text-gray-300"
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
+                  activeMenu === key ? "bg-white/10 text-white" : "text-white/80"
                 }`}
                 aria-expanded={activeMenu === key}
                 aria-label={`${menu.label} — menu principal`}

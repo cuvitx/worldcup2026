@@ -46,12 +46,12 @@
 /* ── Variables sémantiques CSS — light mode par défaut ── */
 :root {
   /* Backgrounds */
-  --color-bg:          #f0f0f5;
+  --color-bg:          #F7F7F8;   /* Blanc Pelouse */
   --color-bg-card:     #ffffff;
   --color-bg-elevated: #ffffff;
 
   /* Textes */
-  --color-text:           #1a1a2e;
+  --color-text:           #1A1A2E; /* Texte sur clair */
   --color-text-secondary: #8a8a9a;
 
   /* Bordures */
@@ -133,7 +133,7 @@ html {
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d6304d;
+  background: #e05a28;
 }
 /* Firefox */
 * {
@@ -171,8 +171,8 @@ html {
 
 /* Pulse glow */
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(233, 69, 96, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 107, 53, 0); }
 }
 
 /* Countdown flip */
@@ -333,10 +333,10 @@ textarea:focus-visible {
 
 /* Utility: alternating section background — brand book */
 .section-alt {
-  background: #f0f0f5;  /* Gris Clair brand book */
+  background: #F7F7F8;  /* Blanc Pelouse brand book */
 }
 .dark .section-alt {
-  background: #1a1a2e;  /* Bleu Nuit brand book */
+  background: #0D3B66;  /* Bleu Stade brand book */
 }
 
 /* Touch targets */
@@ -360,7 +360,7 @@ textarea:focus-visible {
    ============================================================ */
 
 .hero-animated {
-  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0d1b3e, #1a1a2e, #2d1a3e);
+  background: linear-gradient(-45deg, #0D3B66, #0F1923, #0d2b4e, #0D3B66, #1a2e4e);
   background-size: 300% 300%;
   animation: hero-gradient 12s ease infinite;
   position: relative;
@@ -382,7 +382,7 @@ textarea:focus-visible {
   left: 0;
   right: 0;
   height: 140px;
-  background: linear-gradient(to top, rgba(233,69,96,0.06), transparent);
+  background: linear-gradient(to top, rgba(255,107,53,0.06), transparent);
   pointer-events: none;
 }
 
@@ -407,13 +407,13 @@ textarea:focus-visible {
 }
 .match-card:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 4px 16px rgba(233, 69, 96, 0.12);
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.12);
   transform: translateY(-2px);
 }
 
 /* Accents border-left selon état du match */
 .match-card--live {
-  border-left: 3px solid #e94560; /* Rouge Passion = LIVE */
+  border-left: 3px solid #FF6B35; /* Orange Kick-off = LIVE */
 }
 .match-card--upcoming {
   border-left: 3px solid #f5a623; /* Or Champion = à venir */
@@ -499,13 +499,13 @@ textarea:focus-visible {
    ============================================================ */
 
 .skeleton {
-  background: linear-gradient(90deg, #f0f0f5 25%, #e0e0ea 50%, #f0f0f5 75%);
+  background: linear-gradient(90deg, #F7F7F8 25%, #e8e8ec 50%, #F7F7F8 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 6px;
 }
 .dark .skeleton {
-  background: linear-gradient(90deg, #2c2c3e 25%, #3a3a50 50%, #2c2c3e 75%);
+  background: linear-gradient(90deg, #1e2d3d 25%, #253545 50%, #1e2d3d 75%);
   background-size: 200% 100%;
 }
 
@@ -515,19 +515,19 @@ textarea:focus-visible {
    ============================================================ */
 
 .dark {
-  /* Backgrounds brand book dark */
-  --color-bg:          #0f0f1a;   /* Noir Profond */
-  --color-bg-card:     #2c2c3e;   /* Gris Foncé */
-  --color-bg-elevated: #1a1a2e;   /* Bleu Nuit */
+  /* Backgrounds — Direction A Continental dark */
+  --color-bg:          #0F1923;   /* Nuit de Match */
+  --color-bg-card:     #1e2d3d;   /* Gris Foncé dark */
+  --color-bg-elevated: #0D3B66;   /* Bleu Stade */
 
   /* Textes */
-  --color-text:           #e8e8f0; /* Jamais blanc pur (#fff = éblouissant) */
+  --color-text:           #E8ECF1; /* Texte sur sombre */
   --color-text-secondary: #8a8a9a; /* Gris Moyen (inchangé) */
 
   /* Bordures subtiles */
   --color-border: rgba(255, 255, 255, 0.08);
 
-  /* Or : version complète en dark (light mode = version assombrie) */
+  /* Or : version complète en dark */
   --color-gold-current: #f5a623;
 
   /* Shadows : pas d'ombres en dark, bordures subtiles à la place */
@@ -536,11 +536,11 @@ textarea:focus-visible {
   --shadow-lg: none;
 
   /* Compat aliases (pour les classes existantes qui les utilisent) */
-  --color-bg-secondary:  #1a1a2e;
+  --color-bg-secondary:  #0D3B66;
   --color-text-muted:    #8a8a9a;
   --color-border-compat: rgba(255, 255, 255, 0.08);
-  --color-card:          #2c2c3e;
-  --color-card-hover:    #3a3a50;
+  --color-card:          #1e2d3d;
+  --color-card-hover:    #253545;
 }
 
 /* ============================================================
@@ -618,7 +618,7 @@ details[open] .faq-icon {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  background: linear-gradient(135deg, #e94560, #ff6b6b);
+  background: linear-gradient(135deg, #FF6B35, #ff9060);
   color: white;
   font-size: 10px;
   font-weight: 700;
@@ -634,7 +634,7 @@ details[open] .faq-icon {
   align-items: center;
   gap: 3px;
   background: linear-gradient(135deg, #f5a623, #ffcc44);
-  color: #1a1a2e;
+  color: #1A1A2E;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -662,19 +662,19 @@ details[open] .faq-icon {
   white-space: nowrap;
 }
 .badge-live {
-  background: #e94560;
+  background: #FF6B35;
   color: #ffffff;
 }
 .badge-new {
   background: #f5a623;
-  color: #1a1a2e;
+  color: #1A1A2E;
 }
 .badge-group {
   background: #2d6a4f;
   color: #ffffff;
 }
 .badge-premium {
-  background: linear-gradient(135deg, #f5a623, #e94560);
+  background: linear-gradient(135deg, #f5a623, #FF6B35);
   color: #ffffff;
 }
 
@@ -684,7 +684,7 @@ details[open] .faq-icon {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #e94560;
+  background: #FF6B35;
   animation: pulse 2s ease-in-out infinite;
   margin-right: 4px;
 }
@@ -729,23 +729,23 @@ details[open] .faq-icon {
 
 /* Variant Primary */
 .btn-primary {
-  background: #e94560;
+  background: #FF6B35;
   color: #ffffff;
 }
 .btn-primary:hover {
-  background: #d63851;
+  background: #e05a28;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
 }
 
 /* Variant Secondary */
 .btn-secondary {
   background: transparent;
-  color: #e94560;
-  border: 1.5px solid #e94560;
+  color: #2EC4B6;
+  border: 1.5px solid #2EC4B6;
 }
 .btn-secondary:hover {
-  background: rgba(233, 69, 96, 0.08);
+  background: rgba(46, 196, 182, 0.08);
   transform: translateY(-1px);
 }
 
@@ -852,9 +852,9 @@ details[open] .faq-icon {
   font-weight: 700;
   font-size: 13px;
   font-variant-numeric: tabular-nums;
-  background: rgba(233,69,96,0.1);
+  background: rgba(255,107,53,0.1);
   color: var(--color-accent);
-  border: 1px solid rgba(233,69,96,0.2);
+  border: 1px solid rgba(255,107,53,0.2);
   transition: all 0.15s ease;
 }
 .odds-badge:hover {
