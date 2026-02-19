@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "ignoreCommand": "if [ \"$VERCEL_GIT_COMMIT_REF\" = \"backup\" ]; then exit 0; fi; exit 1",
+  "ignoreCommand": "if [ \"$VERCEL_GIT_COMMIT_REF\" = \"backup\" ]; then exit 0; fi",
   "buildCommand": "npx turbo build --filter=fr",
   "outputDirectory": "apps/fr/.next",
   "framework": "nextjs",
