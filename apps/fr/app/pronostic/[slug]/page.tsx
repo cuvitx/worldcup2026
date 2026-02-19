@@ -134,8 +134,8 @@ export default async function PronosticTeamPage({ params }: PageProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <div>
@@ -154,7 +154,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* ============ Main Content ============ */}
           <div className="lg:col-span-2 space-y-8">

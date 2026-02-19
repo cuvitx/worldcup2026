@@ -39,7 +39,7 @@ export default function ParisSportifsPage() {
       </nav>
 
       <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Paris sportifs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             Comparatif des meilleurs bookmakers, guides de paris et stratégies pour la Coupe du Monde 2026.

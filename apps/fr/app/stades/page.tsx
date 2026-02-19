@@ -38,7 +38,7 @@ export default function StadiumsPage() {
       </nav>
 
       <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Les 16 stades de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             11 stades aux États-Unis, 3 au Mexique et 2 au Canada accueilleront les 104 matchs.

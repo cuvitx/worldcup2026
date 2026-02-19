@@ -642,15 +642,15 @@ export default function PalmaresPage() {
           {/* Timeline visual */}
           <div className="relative">
             {/* Line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-primary to-accent hidden sm:block" />
-            <div className="space-y-3 sm:pl-16">
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-primary to-accent hidden sm:block" />
+            <div className="space-y-3 sm:pl-20">
               {editions.map((ed) => (
                 <div
                   key={ed.year}
                   className="group relative rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-4 shadow-sm hover:border-accent hover:shadow-md transition-all"
                 >
                   {/* Dot on timeline */}
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-accent bg-white dark:bg-slate-800 hidden sm:block group-hover:bg-accent transition-colors" />
+                  <div className="absolute left-[26px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-accent bg-white dark:bg-slate-800 hidden sm:block group-hover:bg-accent transition-colors" />
                   <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 items-center">
                     <div className="col-span-2 sm:col-span-1">
                       <span className="text-2xl font-extrabold text-accent">{ed.year}</span>

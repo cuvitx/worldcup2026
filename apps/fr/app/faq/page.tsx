@@ -69,7 +69,7 @@ export default function FaqPage() {
       </nav>
 
       <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Questions fréquentes</h1>
           <p className="mt-2 text-gray-300">
             Tout ce que vous devez savoir sur la Coupe du Monde FIFA 2026
@@ -79,7 +79,7 @@ export default function FaqPage() {
 
       {/* Category badges */}
       <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 sticky top-0 z-10">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
             {itemsByCategory.map(({ key, label, emoji, items }) => (
               <a

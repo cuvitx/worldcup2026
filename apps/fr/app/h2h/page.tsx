@@ -90,8 +90,8 @@ export default function H2HIndexPage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary py-12 text-white">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="bg-primary py-12 sm:py-16 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mb-3 text-2xl font-extrabold sm:text-4xl">
             ⚔️ Confrontations H2H
           </h1>
@@ -103,7 +103,7 @@ export default function H2HIndexPage() {
       </section>
 
       {/* Team Selector */}
-      <section className="bg-gray-50 py-8 dark:bg-slate-800/50">
+      <section className="bg-gray-50 py-10 sm:py-12 dark:bg-slate-800/50">
         <div className="mx-auto max-w-3xl px-4">
           <H2HSelector teams={teamList} />
         </div>
@@ -111,7 +111,7 @@ export default function H2HIndexPage() {
 
       {/* Popular Matchups */}
       <section className="py-10">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
             🔥 Confrontations populaires
           </h2>
@@ -146,7 +146,7 @@ export default function H2HIndexPage() {
 
       {/* Group Stage Matchups */}
       <section className="border-t border-gray-200 bg-gray-50 py-10 dark:border-slate-700 dark:bg-slate-800/50">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
             📅 Matchs de la phase de groupes
           </h2>
@@ -181,7 +181,7 @@ export default function H2HIndexPage() {
 
       {/* All Teams Grid */}
       <section className="py-10">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
             🌍 Toutes les équipes
           </h2>

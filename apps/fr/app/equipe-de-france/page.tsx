@@ -233,7 +233,7 @@ export default function EquipeDeFrancePage() {
         {/* Overlay sombre pour lisibilité */}
         <div className="absolute inset-0 bg-[#002395]/85" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
             {/* Left: Info */}
             <div className="flex-1 text-center md:text-left">
@@ -341,7 +341,7 @@ export default function EquipeDeFrancePage() {
 
       {/* ===== CALENDRIER DES MATCHS ===== */}
       <section id="calendrier" className="bg-gray-50 dark:bg-slate-900/50 py-12">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📅 Calendrier des matchs de la France
           </h2>
@@ -455,7 +455,7 @@ export default function EquipeDeFrancePage() {
 
       {/* ===== EFFECTIF ===== */}
       <section id="effectif" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             👥 Effectif probable — {francePlayers.length} joueurs
           </h2>
@@ -519,7 +519,7 @@ export default function EquipeDeFrancePage() {
 
       {/* ===== PRONOSTIC FRANCE ===== */}
       <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🏆 Pronostic France — Cotes & Analyse
           </h2>
@@ -610,7 +610,7 @@ export default function EquipeDeFrancePage() {
 
       {/* ===== HISTORIQUE CDM ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📜 Historique en Coupe du Monde (1930–2022)
           </h2>
@@ -674,7 +674,7 @@ export default function EquipeDeFrancePage() {
 
       {/* ===== ANECDOTES MARQUANTES ===== */}
       <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             ✨ Les anecdotes marquantes de l&apos;histoire des Bleus
           </h2>
@@ -705,7 +705,7 @@ export default function EquipeDeFrancePage() {
 
       {/* ===== LIENS PRONOSTICS MATCHS FRANCE ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🔮 Pronostics des matchs de la France
           </h2>

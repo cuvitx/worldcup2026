@@ -80,7 +80,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
       {/* Header */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-4xl sm:text-7xl">🏟️</span>
             <div>
