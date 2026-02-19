@@ -34,7 +34,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:">Équipes par confédération</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Équipes par confédération</h2>
 
       {/* Filter pills */}
       <div className="flex flex-wrap gap-2">

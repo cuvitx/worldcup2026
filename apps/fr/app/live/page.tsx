@@ -76,7 +76,7 @@ export default function LivePage() {
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="text-primary dark:text-secondary hover:underline">
                 Accueil
               </Link>
             </li>
@@ -198,7 +198,7 @@ export default function LivePage() {
 
             {/* Events timeline */}
             <div className="px-6 py-5">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm mb-4 uppercase tracking-wide">
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wide">
                 Événements du match
               </h3>
               <div className="relative">

@@ -87,11 +87,11 @@ export default async function TeamPage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/equipes" className="hover:text-primary">Équipes</Link></li>
+            <li><Link href="/equipes" className="text-primary dark:text-secondary hover:underline">Équipes</Link></li>
             <li>/</li>
-            <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">Groupe {team.group}</Link></li>
+            <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary dark:text-secondary hover:underline">Groupe {team.group}</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">{team.name}</li>
           </ol>
@@ -146,14 +146,14 @@ export default async function TeamPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8 min-w-0">
             {/* Description */}
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Présentation</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Présentation</h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed break-words">{team.description}</p>
             </section>
 
             {/* Radar Chart */}
             {teamRatings[team.slug] && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Profil de l&apos;équipe</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Profil de l&apos;équipe</h2>
                 <RadarChart rating={teamRatings[team.slug]!} color="#3b82f6" />
               </section>
             )}
@@ -174,7 +174,7 @@ export default async function TeamPage({ params }: PageProps) {
               const history = teamWorldCupHistory[team.id];
               return (
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Historique en Coupe du Monde</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Historique en Coupe du Monde</h2>
                   {/* Stats grid */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
@@ -190,7 +190,7 @@ export default async function TeamPage({ params }: PageProps) {
                   {/* Years participated */}
                   {history && history.yearsParticipated.length > 0 && (
                     <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm text-gray-500 uppercase tracking-wide mb-2">Années de participation</h3>
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Années de participation</h3>
                       <div className="flex flex-wrap gap-2">
                         {history.yearsParticipated.map((year) => (
                           <span
@@ -207,7 +207,7 @@ export default async function TeamPage({ params }: PageProps) {
                   {/* Notable results table */}
                   {history && history.notableResults.length > 0 && (
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm text-gray-500 uppercase tracking-wide mb-3">Résultats notables</h3>
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">Résultats notables</h3>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm">
                           <thead>
@@ -243,7 +243,7 @@ export default async function TeamPage({ params }: PageProps) {
               const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
               return titles.length > 0 ? (
                 <section className="rounded-xl border border-secondary/30 dark:border-secondary/20 bg-secondary/5 dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 dark: flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
                     <span>🏆</span> Palmarès en Coupe du Monde
                   </h2>
                   <div className="flex flex-wrap gap-4 mb-4">
@@ -275,10 +275,10 @@ export default async function TeamPage({ params }: PageProps) {
               const history = teamWorldCupHistory[team.id]!;
               return (
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 dark:">Forces &amp; Faiblesses</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Forces &amp; Faiblesses</h2>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2 text-sm text-green-700 dark:text-green-400 uppercase tracking-wide">
+                      <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-green-700 dark:text-green-400 uppercase tracking-wide">
                         <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-400 text-xs">✓</span>
                         Forces
                       </h3>
@@ -292,7 +292,7 @@ export default async function TeamPage({ params }: PageProps) {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2 text-sm text-red-600 dark:text-red-400 uppercase tracking-wide">
+                      <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-red-600 dark:text-red-400 uppercase tracking-wide">
                         <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 text-xs">✗</span>
                         Faiblesses
                       </h3>
@@ -313,7 +313,7 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Style de jeu */}
             {teamWorldCupHistory[team.id]?.playingStyle && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Style de jeu</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Style de jeu</h2>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   {teamWorldCupHistory[team.id]!.playingStyle}
                 </p>
@@ -325,7 +325,7 @@ export default async function TeamPage({ params }: PageProps) {
               const history = teamWorldCupHistory[team.id]!;
               return history.anecdotes.length > 0 ? (
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 dark:">Anecdotes &amp; Moments inoubliables</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Anecdotes &amp; Moments inoubliables</h2>
                   <div className="space-y-4">
                     {history.anecdotes.map((anecdote, idx) => (
                       <div key={idx} className="flex gap-4 rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
@@ -431,7 +431,7 @@ export default async function TeamPage({ params }: PageProps) {
             {/* Group Stage */}
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">
+                <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary dark:text-secondary hover:underline">
                   Groupe {team.group}
                 </Link>
               </h2>
@@ -566,7 +566,7 @@ export default async function TeamPage({ params }: PageProps) {
               return (
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">
+                    <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary dark:text-secondary hover:underline">
                       Groupe {team.group}
                     </Link>
                   </h3>

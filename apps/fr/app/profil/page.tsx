@@ -110,7 +110,7 @@ export default function ProfilPage() {
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
-          <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
+          <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
           <li>/</li>
           <li className="text-gray-800 dark:text-gray-200 font-medium">Mon Profil</li>
         </ol>
@@ -122,7 +122,7 @@ export default function ProfilPage() {
       {/* ─── Onboarding / Team selector ─── */}
       {showOnboarding ? (
         <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">⚽ Quelle est ton équipe ?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">⚽ Quelle est ton équipe ?</h2>
           <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">
             Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
           </p>
@@ -169,7 +169,7 @@ export default function ProfilPage() {
 
           {/* Upcoming matches */}
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 dark:">📅 Prochains matchs</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">📅 Prochains matchs</h3>
             <div className="space-y-2">
               {upcomingMatches.map((m, i) => (
                 <div
@@ -250,7 +250,7 @@ export default function ProfilPage() {
       </div>
 
       {/* Badges — grid 3x2 with glow/lock */}
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Badges</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Badges</h2>
       <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
         {ALL_BADGES.map((badge) => {
           const unlocked = unlockedBadges.includes(badge.id);

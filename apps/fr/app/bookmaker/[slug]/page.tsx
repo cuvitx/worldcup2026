@@ -61,9 +61,9 @@ export default async function BookmakerPage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/paris-sportifs" className="hover:text-primary">Paris sportifs</Link></li>
+            <li><Link href="/paris-sportifs" className="text-primary dark:text-secondary hover:underline">Paris sportifs</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">{bk.name}</li>
           </ol>
@@ -107,13 +107,13 @@ export default async function BookmakerPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Presentation de {bk.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Presentation de {bk.name}</h2>
               <p className="text-gray-700 dark:text-gray-300">{bk.description}</p>
             </section>
 
             {/* Ratings */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Notes détaillées</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Notes détaillées</h2>
               <div className="space-y-3">
                 {Object.entries(bk.ratings).map(([key, value]) => (
                   <div key={key}>
@@ -138,7 +138,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Pros & Cons */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">Avantages et inconvenients</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Avantages et inconvenients</h2>
               <p className="mb-4 text-sm text-gray-600">{bk.prosConsIntro}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg bg-field/5 border border-field/20 p-4">
@@ -169,7 +169,7 @@ export default async function BookmakerPage({ params }: PageProps) {
             {/* Content Sections */}
             {bk.sections.map((section, i) => (
               <section key={i} className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{section.title}</h2>
                 <p className="text-gray-700 dark:text-gray-300">{section.content}</p>
               </section>
             ))}
@@ -196,7 +196,7 @@ export default async function BookmakerPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Info Card */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Infos {bk.name}</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Infos {bk.name}</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Bonus</dt>
@@ -231,7 +231,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Payment methods */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Moyens de paiement</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Moyens de paiement</h3>
               <div className="flex flex-wrap gap-2">
                 {bk.paymentMethods.map((method) => (
                   <span key={method} className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700">
@@ -244,7 +244,7 @@ export default async function BookmakerPage({ params }: PageProps) {
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
               <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Guides utiles</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Guides utiles</h3>
                 <ul className="space-y-2">
                   {relatedGuides.map((guide) => (
                     <li key={guide.id}>
@@ -259,7 +259,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Other bookmakers */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Autres bookmakers</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres bookmakers</h3>
               <ul className="space-y-2">
                 {otherBookmakers.map((other) => (
                   <li key={other.id}>

@@ -194,9 +194,9 @@ export default function QuizSupporterPage() {
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
-          <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
+          <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
           <li>/</li>
-          <li><Link href="/quiz" className="hover:text-secondary dark:hover:text-secondary">Quiz</Link></li>
+          <li><Link href="/quiz" className="text-primary dark:text-secondary hover:underline">Quiz</Link></li>
           <li>/</li>
           <li className="text-gray-800 dark:text-gray-200 font-medium">Quel pays supporter ?</li>
         </ol>
@@ -223,7 +223,7 @@ export default function QuizSupporterPage() {
           <div className="mb-1 text-sm font-medium text-gray-400 dark:text-gray-400">
             Question {currentQ + 1}/{questions.length}
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             {questions[currentQ]!.emoji} {questions[currentQ]!.question}
           </h2>
           <div className="grid gap-3">
@@ -243,7 +243,7 @@ export default function QuizSupporterPage() {
         <div className="rounded-2xl border border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-6 shadow-xl dark:border-yellow-800/50 dark:from-slate-800 dark:to-slate-800 sm:p-8">
           <div className="mb-4 text-center">
             <span className="text-7xl block mb-4">{resultTeam.flag}</span>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
               Tu devrais supporter {resultTeam.flag} {resultTeam.name} !
             </h2>
           </div>
@@ -275,7 +275,7 @@ export default function QuizSupporterPage() {
 
           {/* Top 3 */}
           <div className="mt-8 border-t border-gray-200 pt-6 dark:border-slate-600">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-center text-sm uppercase tracking-wider text-gray-400">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 text-center uppercase tracking-wider text-gray-400">
               Ton top 3
             </h3>
             <div className="flex justify-center gap-4">

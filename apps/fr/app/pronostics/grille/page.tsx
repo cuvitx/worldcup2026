@@ -103,9 +103,9 @@ export default function GrillePronosticsPage() {
       <nav className="no-print bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-secondary00">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/pronostics" className="hover:text-secondary00">Pronostics</Link></li>
+            <li><Link href="/pronostics" className="text-primary dark:text-secondary hover:underline">Pronostics</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Grille</li>
           </ol>

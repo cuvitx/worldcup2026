@@ -307,7 +307,7 @@ export default function OuRegarderPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Où regarder les matchs</li>
           </ol>
@@ -383,7 +383,7 @@ export default function OuRegarderPage() {
             {/* Gratuit */}
             <div className="rounded-2xl border border-field/20 dark:border-field/30 overflow-hidden">
               <div className="bg-field/5 dark:bg-field/10 px-6 py-4 border-b border-field/20 dark:border-field/30">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-field dark:">✅ Streaming gratuit</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-field">✅ Streaming gratuit</h3>
                 <p className="text-sm text-field dark:text-field">Aucun abonnement requis</p>
               </div>
               <div className="p-6 space-y-3 bg-white dark:bg-slate-800">
@@ -408,7 +408,7 @@ export default function OuRegarderPage() {
             {/* Payant */}
             <div className="rounded-2xl border border-secondary/20 dark:border-secondary/30 overflow-hidden">
               <div className="bg-secondary/5 dark:bg-secondary/10 px-6 py-4 border-b border-secondary/20 dark:border-secondary/30">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🔒 Streaming payant</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🔒 Streaming payant</h3>
                 <p className="text-sm text-secondary dark:text-secondary">Abonnement requis — 104 matchs</p>
               </div>
               <div className="p-6 space-y-3 bg-white dark:bg-slate-800">

@@ -108,7 +108,7 @@ export default function PronosticHubPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Pronostics</li>
           </ol>
@@ -163,7 +163,7 @@ export default function PronosticHubPage() {
       {/* ===== TENDANCES ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-b border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg dark: mb-4">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">
             📈 Tendances & stats CDM 2026
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -417,7 +417,7 @@ export default function PronosticHubPage() {
       {/* ===== LIENS RAPIDES ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             🔗 Outils complémentaires
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -460,7 +460,7 @@ export default function PronosticHubPage() {
                   <span className="text-3xl mb-3 block transition-transform group-hover:scale-110 duration-200">
                     {item.icon}
                   </span>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm mb-1">{item.title}</h3>
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">{item.title}</h3>
                   <p className="text-xs text-white/70">{item.desc}</p>
                   <p className="mt-3 text-xs font-bold text-white/80 group-hover:gap-2 transition-all">
                     Accéder →

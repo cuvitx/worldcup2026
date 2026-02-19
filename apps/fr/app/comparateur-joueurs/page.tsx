@@ -31,7 +31,7 @@ export default function ComparateurJoueursPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Comparateur de joueurs</li>
           </ol>

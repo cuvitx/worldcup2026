@@ -73,7 +73,7 @@ function AdminContent() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🎨 Brand Book</h2>
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm text-gray-500 uppercase mb-2">Palette</h3>
+              <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Palette</h3>
               <div className="flex flex-wrap gap-3">
                 {colors.map((c) => (
                   <div key={c.hex} className="flex flex-col items-center gap-1">
@@ -85,7 +85,7 @@ function AdminContent() {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm text-gray-500 uppercase mb-2">Typographie</h3>
+              <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Typographie</h3>
               <div className="flex flex-wrap gap-6">
                 <div>
                   <p className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold">Space Grotesk</p>

@@ -207,7 +207,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                 <div className="space-y-6">
                   {Array.from(byDate.entries()).map(([date, dateMatches]) => (
                     <div key={date}>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wide">
+                      <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
                         {new Date(date).toLocaleDateString("fr-FR", {
                           weekday: "long",
                           day: "numeric",

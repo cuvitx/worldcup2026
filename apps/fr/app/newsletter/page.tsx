@@ -159,7 +159,7 @@ export default function NewsletterPage() {
       <section className="bg-gray-50 dark:bg-slate-900/50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               Pourquoi s&apos;abonner ?
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-300">
@@ -179,7 +179,7 @@ export default function NewsletterPage() {
                   </span>
                 )}
                 <div className="mb-3 text-3xl">{b.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-1.5">{b.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1.5">{b.title}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -191,7 +191,7 @@ export default function NewsletterPage() {
       <section className="bg-white dark:bg-slate-900 py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               📬 À quoi ressemble notre newsletter ?
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-300">
@@ -284,7 +284,7 @@ export default function NewsletterPage() {
       <section className="bg-gray-50 dark:bg-slate-900/50 py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               ❤️ Ils nous font confiance
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-300">Plus de 12 000 fans du football abonnés</p>

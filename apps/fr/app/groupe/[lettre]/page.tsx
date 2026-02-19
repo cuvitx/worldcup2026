@@ -52,9 +52,9 @@ export default async function GroupPage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/groupes" className="hover:text-primary">Groupes</Link></li>
+            <li><Link href="/groupes" className="text-primary dark:text-secondary hover:underline">Groupes</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Groupe {group.letter}</li>
           </ol>
@@ -77,7 +77,7 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Teams Table */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Équipes du Groupe {group.letter}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Équipes du Groupe {group.letter}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
@@ -119,7 +119,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Group Analysis */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Analyse du Groupe {group.letter}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Analyse du Groupe {group.letter}</h2>
               <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300">
                 <p>
                   Le Groupe {group.letter} de la Coupe du Monde 2026 reunit{" "}
@@ -144,7 +144,7 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Group Matches */}
             {groupMatches.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Calendrier du Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Calendrier du Groupe {group.letter}</h2>
                 <div className="space-y-3">
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
@@ -171,7 +171,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Head to Head Links */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Confrontations directes</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Confrontations directes</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {groupTeams.flatMap((team1, i) =>
                   groupTeams.slice(i + 1).map((team2) => (
@@ -196,7 +196,7 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Group Navigation */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Tous les groupes</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Tous les groupes</h3>
               <div className="grid grid-cols-4 gap-2">
                 {groups.map((g) => (
                   <Link

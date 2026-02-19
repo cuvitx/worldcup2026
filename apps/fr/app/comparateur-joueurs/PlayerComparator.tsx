@@ -156,7 +156,7 @@ export function PlayerComparator() {
                     {initials}
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{p.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{p.name}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                   {p.club} · {p.position} · {p.age} ans
                 </p>

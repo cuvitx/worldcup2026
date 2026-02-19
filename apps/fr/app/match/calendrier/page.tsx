@@ -84,7 +84,7 @@ export default function CalendrierPage() {
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="text-primary dark:text-secondary hover:underline">
                 Accueil
               </Link>
             </li>

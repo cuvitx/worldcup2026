@@ -33,7 +33,7 @@ export default function CitiesPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Villes hôtes</li>
           </ol>
@@ -54,7 +54,7 @@ export default function CitiesPage() {
           const countryCities = cities.filter((c) => c.country === country);
           return (
             <section key={country}>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 {countryLabels[country]} ({countryCities.length} villes)
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

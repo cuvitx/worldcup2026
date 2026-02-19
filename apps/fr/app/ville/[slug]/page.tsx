@@ -65,9 +65,9 @@ export default async function CityPage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/villes" className="hover:text-primary">Villes</Link></li>
+            <li><Link href="/villes" className="text-primary dark:text-secondary hover:underline">Villes</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">{city.name}</li>
           </ol>
@@ -297,7 +297,7 @@ export default async function CityPage({ params }: PageProps) {
                   .slice(0, 6)
                   .map((c) => (
                     <li key={c.id}>
-                      <Link href={`/ville/${c.slug}`} className="hover:text-primary">
+                      <Link href={`/ville/${c.slug}`} className="text-primary dark:text-secondary hover:underline">
                         {c.name} ({c.country})
                       </Link>
                     </li>

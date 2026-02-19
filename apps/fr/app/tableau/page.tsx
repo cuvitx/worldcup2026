@@ -247,7 +247,7 @@ export default function BracketPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Tableau final</li>
           </ol>
@@ -494,7 +494,7 @@ export default function BracketPage() {
         <div className="hidden space-y-10">
           {/* Round of 32 */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 text-lg mb-4">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-4">
               <span className={`inline-block w-3 h-3 rounded-full ${roundColors["round-of-32"]!.badge}`} />
               32e de finale
             </h2>
@@ -516,7 +516,7 @@ export default function BracketPage() {
 
           {/* Round of 16 */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 text-lg mb-4">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-4">
               <span className={`inline-block w-3 h-3 rounded-full ${roundColors["round-of-16"]!.badge}`} />
               16e de finale
             </h2>
@@ -536,7 +536,7 @@ export default function BracketPage() {
 
           {/* Quarter-finals */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 text-lg mb-4">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-4">
               <span className={`inline-block w-3 h-3 rounded-full ${roundColors["quarter-final"]!.badge}`} />
               Quarts de finale
             </h2>
@@ -556,7 +556,7 @@ export default function BracketPage() {
 
           {/* Semi-finals */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 text-lg mb-4">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-4">
               <span className={`inline-block w-3 h-3 rounded-full ${roundColors["semi-final"]!.badge}`} />
               Demi-finales
             </h2>
@@ -576,7 +576,7 @@ export default function BracketPage() {
 
           {/* Final */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 text-lg mb-4">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-4">
               <span className={`inline-block w-3 h-3 rounded-full ${roundColors.final!.badge}`} />
               Finale
             </h2>
@@ -596,7 +596,7 @@ export default function BracketPage() {
         {/* Tournament Probabilities Summary */}
         {/* ============================================================ */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Probabilités par tour</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Probabilités par tour</h2>
           <p className="text-sm text-gray-500 dark:text-gray-300 mb-4">
             Chances de chaque équipe d&#39;atteindre chaque tour, basees sur les classements ELO.
           </p>

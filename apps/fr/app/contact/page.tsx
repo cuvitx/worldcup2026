@@ -52,7 +52,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="text-primary dark:text-secondary hover:underline">
                 Accueil
               </Link>
             </li>
@@ -139,7 +139,7 @@ export default function ContactPage() {
 
           {/* Jeu responsable */}
           <section className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               Jeu responsable
             </h2>
             <p>
@@ -159,7 +159,7 @@ export default function ContactPage() {
 
           {/* Liens utiles */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               Liens utiles
             </h2>
             <ul className="space-y-2">

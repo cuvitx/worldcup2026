@@ -94,7 +94,7 @@ export default function CalendrierImprimerPage() {
         });
         return (
           <div key={date} className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg mb-2 dark: capitalize">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
               {formatted}
             </h2>
             <div className="overflow-x-auto"><table>

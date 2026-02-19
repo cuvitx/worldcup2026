@@ -465,7 +465,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
               {/* Qualified */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-green-600 dark:text-green-400 mb-2">
                   ✅ Qualifiés directs pour les huitièmes
                 </h3>
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -496,7 +496,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               {/* Maybe */}
               {maybeQualify?.team && (
                 <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-secondary dark:text-secondary mb-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-secondary dark:text-secondary mb-2">
                     ⚠️ Meilleur 3e possible
                   </h3>
                   <div className="flex items-center gap-3 rounded-lg border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-3">
@@ -521,7 +521,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               {/* Eliminated */}
               {eliminated?.team && (
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-red-500 dark:text-red-400 mb-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500 dark:text-red-400 mb-2">
                     ❌ Éliminé en phase de groupes
                   </h3>
                   <div className="flex items-center gap-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/10 p-3">
@@ -755,7 +755,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Pronostic vainqueur */}
             <div className="rounded-xl bg-primary/10 dark:bg-primary/20 border border-primary/20 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 dark:">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 🏆 Pronostic vainqueur CDM 2026
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">

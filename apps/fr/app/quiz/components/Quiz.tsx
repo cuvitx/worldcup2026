@@ -113,7 +113,7 @@ export default function Quiz() {
             className="rounded-xl border-2 border-secondary/50 bg-secondary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
           >
             <span className="text-3xl">🌍</span>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 dark:">Toutes les catégories</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">Toutes les catégories</h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">{questions.length} questions</p>
           </button>
 
@@ -124,7 +124,7 @@ export default function Quiz() {
               className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm hover:border-secondary/50 hover:bg-secondary/5 dark:hover:bg-secondary/10 transition-colors"
             >
               <span className="text-3xl">{categoryLabels[cat].emoji}</span>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 dark:">{categoryLabels[cat].label}</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">{categoryLabels[cat].label}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">{categoryCounts[cat] || 0} questions</p>
             </button>
           ))}
@@ -234,7 +234,7 @@ export default function Quiz() {
       </div>
 
       {/* Question */}
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 dark:">{currentQuestion.question}</h3>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">{currentQuestion.question}</h3>
 
       {/* Options */}
       <div className="grid gap-3">

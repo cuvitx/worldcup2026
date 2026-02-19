@@ -258,7 +258,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
                 Phase de groupes
               </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
                 Prochains matchs
               </h2>
             </div>
@@ -373,7 +373,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
                 12 groupes · 48 équipes
               </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
                 Groupes en un coup d&apos;œil
               </h2>
             </div>
@@ -454,7 +454,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
                 Actualités
               </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
                 Articles récents
               </h2>
             </div>
@@ -496,7 +496,7 @@ export default function HomePage() {
                     {categoryLabels[article.category] ?? article.category}
                   </span>
 
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
                     {article.title}
                   </h3>
 
@@ -534,7 +534,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-secondary mb-1.5">
                 🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
               </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
                 Stades CDM 2026
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
@@ -560,7 +560,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
                 Cotes Vainqueur
               </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
                 Équipes favorites
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
@@ -680,7 +680,7 @@ export default function HomePage() {
           ══════════════════════════════════════════════════════════════════ */}
       <section className="bg-gray-50 dark:bg-slate-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             ❓ Questions fréquentes — CDM 2026
           </h2>
           <div className="space-y-3">

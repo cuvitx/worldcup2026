@@ -22,7 +22,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
 
   return (
     <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center text-lg dark:">
+      <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
         Choisissez deux équipes
       </h2>
       <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">

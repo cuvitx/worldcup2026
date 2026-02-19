@@ -31,7 +31,7 @@ export default function ParisSportifsPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Paris sportifs</li>
           </ol>
@@ -136,7 +136,7 @@ export default function ParisSportifsPage() {
 
         {/* Cross-links */}
         <section className="rounded-xl bg-primary/5 border border-primary/10 p-6 sm:p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-lg">Voir aussi</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/buteurs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs CDM 2026

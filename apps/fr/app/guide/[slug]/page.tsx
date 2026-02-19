@@ -66,9 +66,9 @@ export default async function GuidePage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/guides" className="hover:text-primary">Guides</Link></li>
+            <li><Link href="/guides" className="text-primary dark:text-secondary hover:underline">Guides</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">{guide.title}</li>
           </ol>
@@ -223,7 +223,7 @@ export default async function GuidePage({ params }: PageProps) {
             <div className="sticky top-8 space-y-6">
               {/* Table of Contents */}
               <nav className="rounded-xl bg-white dark:bg-slate-800 p-5 shadow-sm border border-gray-100 dark:border-gray-700">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wider">📑 Sommaire</h3>
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">📑 Sommaire</h3>
                 <ol className="space-y-2">
                   {guide.sections.map((section, i) => (
                     <li key={i}>
@@ -261,7 +261,7 @@ export default async function GuidePage({ params }: PageProps) {
               {/* Related Bookmakers */}
               {relatedBookmakers.length > 0 && (
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-sm uppercase tracking-wider">Bookmakers cites</h3>
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">Bookmakers cites</h3>
                   <ul className="space-y-2">
                     {relatedBookmakers.map((rb) => (
                       <li key={rb.id}>
@@ -280,7 +280,7 @@ export default async function GuidePage({ params }: PageProps) {
 
               {/* All guides */}
               <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-sm uppercase tracking-wider">Tous nos guides</h3>
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">Tous nos guides</h3>
                 <ul className="space-y-2">
                   {guides
                     .filter((g) => g.id !== guide.id)
@@ -302,7 +302,7 @@ export default async function GuidePage({ params }: PageProps) {
 
               {/* Explorer */}
               <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-sm uppercase tracking-wider">Explorer</h3>
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">Explorer</h3>
                 <ul className="space-y-2 text-sm">
                   <li><Link href="/buteurs" className="text-primary hover:underline">Cotes buteurs CDM 2026 →</Link></li>
                   <li><Link href="/paris-sportifs" className="text-primary hover:underline">Paris sportifs CDM 2026 →</Link></li>

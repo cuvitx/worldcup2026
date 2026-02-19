@@ -111,9 +111,9 @@ export function LeaderboardClient() {
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300">
-        <Link href="/" className="hover:text-secondary">Accueil</Link>
+        <Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link>
         <span className="mx-2">›</span>
-        <Link href="/pronostics" className="hover:text-secondary">Pronostics</Link>
+        <Link href="/pronostics" className="text-primary dark:text-secondary hover:underline">Pronostics</Link>
         <span className="mx-2">›</span>
         <span className="text-gray-800 dark:text-white">Classement</span>
       </nav>
@@ -247,7 +247,7 @@ export function LeaderboardClient() {
 
       {/* Scoring explanation */}
       <div className="mt-8 rounded-xl bg-gray-50 p-6 dark:bg-slate-800/50">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 text-lg dark:">Comment ça marche ?</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">Comment ça marche ?</h2>
         <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
           <li className="flex items-start gap-2">
             <span className="mt-0.5 text-green-500">●</span>

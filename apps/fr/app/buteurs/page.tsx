@@ -52,7 +52,7 @@ export default function ButeursPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Buteurs</li>
           </ol>
@@ -75,7 +75,7 @@ export default function ButeursPage() {
           <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">👑</span>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Top 20 meilleurs buteurs de l&apos;histoire de la CDM
               </h2>
             </div>
@@ -159,7 +159,7 @@ export default function ButeursPage() {
           <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">🌟</span>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Top 5 candidats au Soulier d&apos;Or
               </h2>
             </div>
@@ -189,7 +189,7 @@ export default function ButeursPage() {
                     {/* Player info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                           {candidate.name}
                         </h3>
                         {team && (
@@ -282,7 +282,7 @@ export default function ButeursPage() {
 
         {/* Top Scorer Ranking */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">Favoris pour le Soulier d&apos;Or</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Favoris pour le Soulier d&apos;Or</h2>
           <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
           </p>
@@ -333,7 +333,7 @@ export default function ButeursPage() {
 
         {/* All scorers by expected goals */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">Tous les buteurs potentiels</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Tous les buteurs potentiels</h2>
           <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
           </p>
@@ -366,7 +366,7 @@ export default function ButeursPage() {
 
         {/* By Team */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">Buteurs par équipe</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .sort((a, b) => a.fifaRanking - b.fifaRanking)

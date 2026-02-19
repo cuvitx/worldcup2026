@@ -67,9 +67,9 @@ export default function GuideVisaEsta() {
       <div className="mx-auto max-w-4xl px-4 py-10">
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
-            <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/guides" className="hover:text-secondary dark:hover:text-secondary">Guides</Link></li>
+            <li><Link href="/guides" className="text-primary dark:text-secondary hover:underline">Guides</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Visa ESTA</li>
           </ol>
@@ -160,22 +160,22 @@ export default function GuideVisaEsta() {
         </article>
 
         <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-4">Guides liés</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Guides liés</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🏨 Où dormir pendant la CDM 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🏨 Où dormir pendant la CDM 2026</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Guide hébergement villes hôtes</p>
             </Link>
             <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🚆 Se déplacer entre les stades</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🚆 Se déplacer entre les stades</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Transport inter-villes et logistique</p>
             </Link>
             <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">💰 Budget CDM 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">💰 Budget CDM 2026</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Combien ça coûte ? Estimation complète</p>
             </Link>
             <Link href="/stades" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🏟️ Les stades de la CDM 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🏟️ Les stades de la CDM 2026</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Tous les stades du Mondial</p>
             </Link>
           </div>

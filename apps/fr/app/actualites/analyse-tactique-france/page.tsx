@@ -35,9 +35,9 @@ export default function AnalyseTactiqueFrance() {
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
-            <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/actualites" className="hover:text-secondary dark:hover:text-secondary">Actualités</Link></li>
+            <li><Link href="/actualites" className="text-primary dark:text-secondary hover:underline">Actualités</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Analyse tactique France</li>
           </ol>
@@ -139,22 +139,22 @@ export default function AnalyseTactiqueFrance() {
 
         {/* Related */}
         <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-4">Analyses tactiques liées</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Analyses tactiques liées</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/actualites/analyse-tactique-argentine" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇦🇷 Analyse tactique Argentine</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🇦🇷 Analyse tactique Argentine</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Messi dernière CDM ? Système Scaloni décrypté</p>
             </Link>
             <Link href="/actualites/analyse-tactique-espagne" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇪🇸 Analyse tactique Espagne</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🇪🇸 Analyse tactique Espagne</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Tiki-taka 2.0 et la jeune garde espagnole</p>
             </Link>
             <Link href="/actualites/analyse-tactique-angleterre" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Analyse tactique Angleterre</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Analyse tactique Angleterre</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Potentiel immense vs déception historique</p>
             </Link>
             <Link href="/actualites/analyse-tactique-bresil" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇧🇷 Analyse tactique Brésil</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🇧🇷 Analyse tactique Brésil</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Le Brésil de retour au sommet ?</p>
             </Link>
           </div>

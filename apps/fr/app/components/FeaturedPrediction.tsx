@@ -27,7 +27,7 @@ export function FeaturedPrediction() {
           <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
             ⭐ Pronostic vedette
           </p>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 dark: md:">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
             <span role="img" aria-label={`Drapeau de ${prediction.home.name}`}>{prediction.home.flag}</span> {prediction.home.name} vs{" "}
             {prediction.away.name} <span role="img" aria-label={`Drapeau de ${prediction.away.name}`}>{prediction.away.flag}</span>
           </h3>

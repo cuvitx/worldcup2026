@@ -24,7 +24,7 @@ export default function TeamsPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Équipes</li>
           </ol>
@@ -43,7 +43,7 @@ export default function TeamsPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Ranking Table */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">Classement FIFA des 48 équipes</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>

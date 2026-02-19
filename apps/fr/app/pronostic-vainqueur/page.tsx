@@ -363,7 +363,7 @@ export default function PronosticVainqueurPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Pronostic vainqueur</li>
           </ol>
@@ -673,7 +673,7 @@ export default function PronosticVainqueurPage() {
                     </div>
                     <span className="text-4xl">{team.flag}</span>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         {team.name}
                       </h3>
                       <div className="flex items-center gap-3 mt-0.5 flex-wrap">
@@ -761,7 +761,7 @@ export default function PronosticVainqueurPage() {
 
           {/* Pays hôtes vainqueurs */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-3">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               🏆 Les 6 champions du monde à domicile
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -831,7 +831,7 @@ export default function PronosticVainqueurPage() {
 
           {/* Impact pour 2026 */}
           <div className="mt-6 rounded-xl border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-5">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-secondary dark: mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-secondary mb-2">
               🔭 Implications pour 2026 : États-Unis, Canada, Mexique
             </h3>
             <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
@@ -864,7 +864,7 @@ export default function PronosticVainqueurPage() {
             <span className="text-secondary">🏆</span>
             Simulateur interactif
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm: mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Construisez votre propre bracket
           </h2>
           <p className="text-gray-300/80 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
@@ -1112,7 +1112,7 @@ export default function PronosticVainqueurPage() {
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               📐 Méthodologie
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">

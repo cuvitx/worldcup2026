@@ -157,13 +157,13 @@ export default async function JourPage({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="text-primary dark:text-secondary hover:underline">
                 Accueil
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/match/calendrier" className="hover:text-primary">
+              <Link href="/match/calendrier" className="text-primary dark:text-secondary hover:underline">
                 Calendrier
               </Link>
             </li>
@@ -398,7 +398,7 @@ export default async function JourPage({ params }: PageProps) {
 
         {/* Quick jump: all days */}
         <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-lg dark:">Navigation rapide</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Navigation rapide</h2>
           <div className="flex flex-wrap gap-2">
             {Array.from({ length: TOTAL_DAYS }, (_, i) => {
               const d = i + 1;

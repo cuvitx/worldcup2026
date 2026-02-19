@@ -79,7 +79,7 @@ export default function CommunityVote({
 
   return (
     <section className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-slate-800">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1 dark:">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
         🗳️ L&apos;avis de la communauté
       </h2>
       <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">

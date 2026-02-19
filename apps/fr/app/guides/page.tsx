@@ -64,7 +64,7 @@ export default function GuidesPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Guides</li>
           </ol>
@@ -99,7 +99,7 @@ export default function GuidesPage() {
                     className="group rounded-xl border border-gray-200 dark:border-gray-600 p-5 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md hover:-translate-y-0.5"
                   >
                     <div className="text-3xl mb-3">{emoji}</div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover: transition-colors">{guide.title}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 transition-colors">{guide.title}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-300 line-clamp-2 mb-3">{guide.intro}</p>
                     <p className="text-sm font-bold text-primary">Lire →</p>
                   </Link>
@@ -136,7 +136,7 @@ export default function GuidesPage() {
 
         {/* Cross-links */}
         <section className="rounded-xl bg-primary/5 dark:bg-primary/10 p-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-lg">Voir aussi</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/paris-sportifs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Paris sportifs CDM 2026

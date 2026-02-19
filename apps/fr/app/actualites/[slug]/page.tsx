@@ -79,9 +79,9 @@ export default async function ArticlePage({ params }: Props) {
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/actualites" className="hover:text-primary">Actualités</Link></li>
+            <li><Link href="/actualites" className="text-primary dark:text-secondary hover:underline">Actualités</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium truncate max-w-xs">{article.title}</li>
           </ol>
@@ -128,7 +128,7 @@ export default async function ArticlePage({ params }: Props) {
             {/* Related articles */}
             {related.length > 0 && (
               <section className="mt-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Articles liés
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -139,7 +139,7 @@ export default async function ArticlePage({ params }: Props) {
                       className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition dark:border-gray-700 dark:bg-slate-800"
                     >
                       <div className="text-2xl mb-2">{r.imageEmoji}</div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm dark: line-clamp-2">
+                      <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                         {r.title}
                       </h3>
                       <time className="text-xs text-gray-500 dark:text-gray-300 mt-1 block">
@@ -155,7 +155,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* Sidebar CTA */}
           <aside className="hidden lg:block">
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 🎯 Pariez sur la CDM 2026
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">

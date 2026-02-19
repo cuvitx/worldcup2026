@@ -77,7 +77,7 @@ export default async function H2HPage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">{team1.name} vs {team2.name}</li>
           </ol>
@@ -120,7 +120,7 @@ export default async function H2HPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Comparison — visual face-to-face */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">Comparaison</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Comparaison</h2>
               <div className="space-y-4">
                 {[
                   { label: "Classement FIFA", v1: `#${team1.fifaRanking}`, v2: `#${team2.fifaRanking}`, n1: team1.fifaRanking, n2: team2.fifaRanking, invert: true },
@@ -166,7 +166,7 @@ export default async function H2HPage({ params }: PageProps) {
 
             {/* Historical H2H */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Historique des confrontations</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Historique des confrontations</h2>
               {h2h && h2h.totalMatches > 0 ? (
                 <>
                   <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
@@ -209,7 +209,7 @@ export default async function H2HPage({ params }: PageProps) {
 
             {/* Prediction */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Pronostic</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Pronostic</h2>
               {matchPred ? (
                 <>
                   <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
@@ -260,7 +260,7 @@ export default async function H2HPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Team Links */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Fiches équipes</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiches équipes</h3>
               <div className="space-y-3">
                 <Link
                   href={`/equipe/${team1.slug}`}

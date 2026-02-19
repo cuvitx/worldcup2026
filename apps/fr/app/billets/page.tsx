@@ -254,7 +254,7 @@ export default function BilletsPage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Billets CDM 2026</li>
           </ol>
@@ -447,7 +447,7 @@ export default function BilletsPage() {
                     {step.step}
                   </div>
                   <span className="text-xl">{step.icon}</span>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: text-sm">{step.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{step.title}</h3>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">{step.desc}</p>
                 <div className="rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/20 p-2.5">
@@ -494,7 +494,7 @@ export default function BilletsPage() {
                   {phase.status}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{phase.phase}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{phase.phase}</h3>
                   <p className="text-sm text-primary font-medium mb-1">📅 {phase.period}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">{phase.desc}</p>
                 </div>
@@ -519,7 +519,7 @@ export default function BilletsPage() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xl">{cat.emoji}</span>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{cat.cat}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{cat.cat}</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2">
@@ -591,7 +591,7 @@ export default function BilletsPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">{tip.icon}</span>
-                  <h3 className={`text-lg font-semibold text-gray-900 dark:text-white text-sm ${ tip.icon === "✅" ? "text-green-800 dark:text-green-400" : "text-red-800 dark:text-red-400" }`}>
+                  <h3 className={`text-sm font-semibold ${ tip.icon === "✅" ? "text-green-800 dark:text-green-400" : "text-red-800 dark:text-red-400" }`}>
                     {tip.title}
                   </h3>
                 </div>

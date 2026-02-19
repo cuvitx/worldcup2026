@@ -622,7 +622,7 @@ export default function HistoirePage() {
 
         {/* ── Intro ────────────────────────────────────────────── */}
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Une timeline de légendes
           </h2>
           <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">
@@ -665,7 +665,7 @@ export default function HistoirePage() {
                 <span>🌟</span>
                 <span>Édition historique</span>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm: mb-3">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 2026 : La Plus Grande CDM de l'Histoire
               </h2>
               <p className="text-white/80 text-lg max-w-2xl mx-auto">

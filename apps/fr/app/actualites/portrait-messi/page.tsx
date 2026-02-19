@@ -34,9 +34,9 @@ export default function PortraitMessi() {
       <div className="mx-auto max-w-4xl px-4 py-10">
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
-            <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/actualites" className="hover:text-secondary dark:hover:text-secondary">Actualités</Link></li>
+            <li><Link href="/actualites" className="text-primary dark:text-secondary hover:underline">Actualités</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Portrait Messi</li>
           </ol>
@@ -108,16 +108,16 @@ export default function PortraitMessi() {
         </article>
 
         <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-4">Portraits liés</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Portraits liés</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/actualites/portrait-mbappe" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇫🇷 Mbappé, le destin d&apos;un roi</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🇫🇷 Mbappé, le destin d&apos;un roi</h3>
             </Link>
             <Link href="/actualites/portrait-yamal" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇪🇸 Yamal, 18 ans et déjà légende ?</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🇪🇸 Yamal, 18 ans et déjà légende ?</h3>
             </Link>
             <Link href="/actualites/analyse-tactique-argentine" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇦🇷 Analyse tactique Argentine</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🇦🇷 Analyse tactique Argentine</h3>
             </Link>
           </div>
         </div>

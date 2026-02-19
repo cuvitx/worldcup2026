@@ -69,9 +69,9 @@ export default async function StadiumPage({ params }: PageProps) {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 min-w-0 flex-wrap">
-            <li className="shrink-0"><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li className="shrink-0"><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li className="shrink-0">/</li>
-            <li className="shrink-0"><Link href="/stades" className="hover:text-primary">Stades</Link></li>
+            <li className="shrink-0"><Link href="/stades" className="text-primary dark:text-secondary hover:underline">Stades</Link></li>
             <li className="shrink-0">/</li>
             <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">{stadium.name}</li>
           </ol>
@@ -352,7 +352,7 @@ export default async function StadiumPage({ params }: PageProps) {
                   .slice(0, 5)
                   .map((s) => (
                     <li key={s.id}>
-                      <Link href={`/stade/${s.slug}`} className="hover:text-primary">
+                      <Link href={`/stade/${s.slug}`} className="text-primary dark:text-secondary hover:underline">
                         {s.name} ({s.city})
                       </Link>
                     </li>

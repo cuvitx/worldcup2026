@@ -22,7 +22,7 @@ export default function GroupsPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Groupes</li>
           </ol>
@@ -57,7 +57,7 @@ export default function GroupsPage() {
               >
                 {/* Header */}
                 <div className="bg-primary dark:bg-slate-900 px-4 py-3 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                     Groupe {group.letter}
                   </h2>
                   <span className="text-xs text-gray-300 group-hover:text-primary transition-colors">

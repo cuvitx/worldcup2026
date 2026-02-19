@@ -109,13 +109,13 @@ export default async function MatchPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="text-primary dark:text-secondary hover:underline">
                 Accueil
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/match/calendrier" className="hover:text-primary">
+              <Link href="/match/calendrier" className="text-primary dark:text-secondary hover:underline">
                 Calendrier
               </Link>
             </li>

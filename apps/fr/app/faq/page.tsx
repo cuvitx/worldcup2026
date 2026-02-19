@@ -60,7 +60,7 @@ export default function FaqPage() {
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary">Accueil</Link>
+              <Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link>
             </li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">FAQ</li>

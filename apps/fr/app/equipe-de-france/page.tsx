@@ -214,9 +214,9 @@ export default function EquipeDeFrancePage() {
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/equipes" className="hover:text-primary">Équipes</Link></li>
+            <li><Link href="/equipes" className="text-primary dark:text-secondary hover:underline">Équipes</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">🇫🇷 Équipe de France</li>
           </ol>
@@ -470,7 +470,7 @@ export default function EquipeDeFrancePage() {
 
               return (
                 <div key={pos}>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
                     <span className="w-1 h-4 bg-primary rounded-full inline-block" />
                     {positionLabels[pos]} ({posPlayers.length})
                   </h3>
@@ -527,7 +527,7 @@ export default function EquipeDeFrancePage() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Cotes par bookmaker */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 📊 Cotes vainqueur CDM 2026 — France
               </h3>
               <div className="space-y-2">
@@ -691,7 +691,7 @@ export default function EquipeDeFrancePage() {
                     {anecdote.year}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-2 text-sm">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
                   {anecdote.title}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
