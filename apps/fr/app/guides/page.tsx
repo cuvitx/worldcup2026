@@ -28,7 +28,7 @@ const guidesJsonLd = {
       "@type": "ListItem",
       position: i + 1,
       url: `https://mondial2026.fr/guide/${guide.slug}`,
-      name: guide.title.fr,
+      name: guide.title,
     })),
   },
 };

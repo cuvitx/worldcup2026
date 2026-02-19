@@ -40,7 +40,7 @@ const newsJsonLd = {
       position: i + 1,
       item: {
         "@type": "NewsArticle",
-        headline: article.title.fr,
+        headline: article.title,
         datePublished: article.date,
         url: `https://mondial2026.fr/actualites#${article.id}`,
         publisher: { "@type": "Organization", name: "CDM 2026" },
