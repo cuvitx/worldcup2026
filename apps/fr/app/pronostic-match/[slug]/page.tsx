@@ -34,6 +34,7 @@ import {
 import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 
 export const revalidate = 300;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -498,7 +499,11 @@ export default async function PronosticMatchPage({ params }: PageProps) {
           ]}
         />
       </div>
-    </>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+      </p>
+</>
   );
 }
 

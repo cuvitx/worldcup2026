@@ -9,6 +9,7 @@ import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
 
 export const revalidate = 3600;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
@@ -20,7 +21,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lettre } = await params;
-  const group = groupsBySlug[lettre];
+  const group = groupsBySlug[lettre] ?? groupsBySlug[lettre.toLowerCase()];
   if (!group) return {};
 
   const groupTeams = group.teams.map((id) => teamsById[id]).filter((t): t is NonNullable<typeof t> => t != null);
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function GroupPage({ params }: PageProps) {
   const { lettre } = await params;
-  const group = groupsBySlug[lettre];
+  const group = groupsBySlug[lettre] ?? groupsBySlug[lettre.toLowerCase()];
   if (!group) notFound();
 
   const groupTeams = group.teams.map((id) => teamsById[id]).filter((t): t is NonNullable<typeof t> => t != null);
@@ -249,6 +250,10 @@ export default async function GroupPage({ params }: PageProps) {
           }),
         }}
       />
-    </>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+      </p>
+</>
   );
 }

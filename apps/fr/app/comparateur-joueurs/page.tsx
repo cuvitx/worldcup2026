@@ -56,13 +56,16 @@ export default function ComparateurJoueursPage() {
           <p className="text-lg font-bold mb-2">Envie de parier sur vos joueurs préférés ?</p>
           <p className="text-sm text-white/70 mb-4">Comparez les cotes et profitez des meilleurs bonus.</p>
           <a
-            href="#"
-            rel="noopener noreferrer sponsored nofollow"
+            href="/comparateur-cotes"
             className="inline-block rounded-xl bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90"
           >
-            Voir les cotes sur Winamax &rarr;
+            Voir le comparateur de cotes &rarr;
           </a>
           <p className="mt-3 text-xs text-white/60">18+. Pariez responsablement.</p>
+          <p className="text-xs text-white/50 mt-2">
+            🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+            Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+          </p>
         </div>
       </section>
     </>

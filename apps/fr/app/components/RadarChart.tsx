@@ -23,7 +23,7 @@ function polarToXY(angle: number, radius: number): [number, number] {
   return [CX + radius * Math.cos(a), CY + radius * Math.sin(a)];
 }
 
-interface RadarChartProps {
+export interface RadarChartProps {
   rating: TeamRating;
   /** Accent colour (hex). Falls back to #3b82f6 */
   color?: string;

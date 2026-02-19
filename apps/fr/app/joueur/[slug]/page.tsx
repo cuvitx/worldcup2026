@@ -20,6 +20,7 @@ const PLAYER_PHOTO_SLUGS = new Set([
 import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
 
 export const revalidate = 3600;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

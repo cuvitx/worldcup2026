@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Bookmaker } from "@repo/data";
 
 interface BettingCtaProps {
@@ -71,7 +72,11 @@ export function BettingCta({
           ))}
       </div>
       <p className="mt-4 text-xs text-white/60">
-        Cotes estimees, susceptibles d&apos;evoluer. Pariez responsablement. 18+
+        Cotes estimées, susceptibles d&apos;évoluer. Pariez responsablement. 18+
+      </p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
       </p>
     </section>
   );

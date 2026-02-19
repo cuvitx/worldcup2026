@@ -202,9 +202,9 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   {stageLabels[stage]}
                 </h2>
-                <div className="space-y-6">
-                  {Array.from(byDate.entries()).map(([date, dateMatches]) => (
-                    <div key={date}>
+                <div className="space-y-8">
+                  {Array.from(byDate.entries()).map(([date, dateMatches], idx) => (
+                    <div key={date} className={idx > 0 ? "border-t border-gray-200 dark:border-slate-700 pt-6" : ""}>
                       <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
                         {new Date(date).toLocaleDateString("fr-FR", {
                           weekday: "long",
@@ -212,7 +212,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                           month: "long",
                         })}
                       </h3>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {dateMatches.map((match) => {
                           const home = teamsById[match.homeTeamId];
                           const away = teamsById[match.awayTeamId];
@@ -222,27 +222,27 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                             <Link
                               key={match.id}
                               href={`/match/${match.slug}`}
-                              className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                              className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                             >
-                              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-12 text-center shrink-0">
+                              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 w-14 text-center shrink-0">
                                 {match.time}
                               </span>
                               <div className="flex items-center gap-2 flex-1 min-w-0">
                                 <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                                <span className="text-sm text-gray-900 dark:text-gray-100">{home?.name ?? "À déterminer"}</span>
+                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{home?.name ?? "À déterminer"}</span>
                               </div>
-                              <span className="text-xs font-bold text-gray-600 dark:text-gray-400 shrink-0">vs</span>
+                              <span className="text-sm font-bold text-gray-600 dark:text-gray-400 shrink-0">vs</span>
                               <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                                <span className="text-sm text-gray-900 dark:text-gray-100 text-right">{away?.name ?? "À déterminer"}</span>
+                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100 text-right">{away?.name ?? "À déterminer"}</span>
                                 <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                               </div>
                               {match.group && (
-                                <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-gray-500 dark:text-gray-300 shrink-0">
+                                <span className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 dark:text-gray-300 shrink-0">
                                   Gr. {match.group}
                                 </span>
                               )}
                               {stad && (
-                                <span className="text-xs text-gray-600 dark:text-gray-300 hidden sm:block shrink-0 w-32 text-right truncate">
+                                <span className="text-sm text-gray-600 dark:text-gray-300 hidden sm:block shrink-0 w-36 text-right truncate">
                                   {stad.name}
                                 </span>
                               )}

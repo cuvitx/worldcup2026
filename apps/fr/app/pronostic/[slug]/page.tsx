@@ -17,6 +17,7 @@ import {
 } from "@repo/data/affiliates";
 
 export const revalidate = 300;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

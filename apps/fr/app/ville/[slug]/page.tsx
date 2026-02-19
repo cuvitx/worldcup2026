@@ -12,6 +12,7 @@ import { HeroImage } from "../../components/hero-image";
 import { cityEnrichmentData } from "./city-enrichment";
 
 export const revalidate = 86400;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

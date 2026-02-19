@@ -121,6 +121,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Pages statiques — date de dernière modif du code
     {
+      url: `${BASE_URL}/groupes`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/newsletter`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+    {
       url: `${BASE_URL}/equipes`,
       lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: "weekly",

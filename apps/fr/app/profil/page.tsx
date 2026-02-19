@@ -138,7 +138,7 @@ export default function ProfilPage() {
               </button>
             ))}
           </div>
-          <p className="mt-3 text-center text-xs text-gray-400 dark:text-gray-400">
+          <p className="mt-3 text-center text-xs text-gray-600 dark:text-gray-400">
             Tu pourras changer plus tard !
           </p>
         </div>
@@ -234,7 +234,7 @@ export default function ProfilPage() {
         {[
           { label: "Pages visitées", value: stats.visitedPages.length, icon: "📄" },
           { label: "Votes", value: stats.votes, icon: "🗳️" },
-          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "—", icon: "🧠" },
+          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "Pas encore joué", icon: "🧠" },
         ].map((s) => (
           <div
             key={s.label}

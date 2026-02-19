@@ -20,6 +20,7 @@ import { matchPredictionByPair } from "@repo/data/predictions";
 import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
 
 export const revalidate = 300;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -32,7 +33,7 @@ export async function generateStaticParams() {
 const stageLabels: Record<string, string> = {
   group: "Phase de groupes",
   "round-of-32": "32e de finale",
-  "round-of-16": "Huitieme de finale",
+  "round-of-16": "Huitième de finale",
   "quarter-final": "Quart de finale",
   "semi-final": "Demi-finale",
   "third-place": "Match pour la 3e place",
@@ -59,8 +60,9 @@ export async function generateMetadata({
     description: `${homeName} contre ${awayName}, ${stage} de la Coupe du Monde 2026. Le ${new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })} au ${stadium?.name ?? "stade a confirmer"}.`,
     alternates: getAlternates("match", slug, "fr"),
     openGraph: {
-      title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""}`,
+      title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — CDM 2026`,
       description: `${stage} - CDM 2026 | ${match.date} ${match.time} UTC`,
+      images: [{ url: `${domains.fr}/images/og-default.png`, width: 1200, height: 630, alt: `${homeName} vs ${awayName} - CDM 2026` }],
     },
   };
 }
@@ -536,10 +538,22 @@ export default async function MatchPage({ params }: PageProps) {
               name: "FIFA",
               url: "https://www.fifa.com",
             },
+            offers: {
+              "@type": "Offer",
+              url: `https://cdm2026.fr/billets`,
+              availability: "https://schema.org/InStock",
+              priceCurrency: "USD",
+              price: "0",
+              validFrom: "2025-01-01",
+            },
             sport: "Football",
           }),
         }}
       />
-    </>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+      </p>
+</>
   );
 }

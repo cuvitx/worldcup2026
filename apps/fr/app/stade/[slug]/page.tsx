@@ -11,6 +11,7 @@ import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 
 export const revalidate = 86400;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -73,7 +74,7 @@ export default async function StadiumPage({ params }: PageProps) {
             <li className="shrink-0">/</li>
             <li className="shrink-0"><Link href="/stades" className="text-primary dark:text-secondary hover:underline">Stades</Link></li>
             <li className="shrink-0">/</li>
-            <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">{stadium.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{stadium.name}</li>
           </ol>
         </div>
       </nav>

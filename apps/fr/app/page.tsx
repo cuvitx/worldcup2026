@@ -60,6 +60,14 @@ const homepageJsonLd = [
     url: "https://cdm2026.fr",
     description: "Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 équipes.",
     inLanguage: "fr",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://cdm2026.fr/recherche?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
   },
   {
     "@context": "https://schema.org",

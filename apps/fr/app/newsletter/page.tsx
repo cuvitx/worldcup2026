@@ -287,7 +287,7 @@ export default function NewsletterPage() {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               ❤️ Ils nous font confiance
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-300">Plus de 12 000 fans du football abonnés</p>
+            <p className="text-sm text-gray-500 dark:text-gray-300">Ils ont rejoint la communauté CDM 2026</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
@@ -325,7 +325,7 @@ export default function NewsletterPage() {
         <div className="mx-auto max-w-2xl px-4 text-center">
           <div className="text-4xl mb-4">📧</div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            Rejoignez <span className="text-secondary">12 000+</span> fans du Mondial
+            Rejoignez <span className="text-secondary">nos abonnés</span> fans du Mondial
           </h2>
           <p className="text-gray-300/90 text-sm mb-8 leading-relaxed">
             Pronostics exclusifs · Programme hebdo · Alertes matchs · Meilleures cotes.

@@ -11,6 +11,7 @@ import { probToOdds } from "@repo/data/affiliates";
 import { groupPredictionsByGroup } from "@repo/data/predictions-2026";
 
 export const revalidate = 3600;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
@@ -789,6 +790,10 @@ export default async function PronosticGroupPage({ params }: PageProps) {
           }),
         }}
       />
-    </>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+      </p>
+</>
   );
 }

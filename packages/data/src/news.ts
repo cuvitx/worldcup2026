@@ -155,7 +155,7 @@ Ce nouveau format suscite des débats. Ses partisans y voient une opportunité d
     excerpt: "Les bookmakers rivalisent d'offres spéciales pour la Coupe du Monde 2026. Comparatif des meilleurs bonus disponibles pour les parieurs français.",
     content: `À l'approche de la Coupe du Monde 2026, les opérateurs de paris sportifs agréés en France déploient des offres promotionnelles exceptionnelles. Betclic propose un bonus de bienvenue allant jusqu'à 100€ en freebets, tandis que Winamax offre jusqu'à 100€ de paris gratuits.
 
-Parler-Foot a analysé les différentes offres disponibles : Unibet se distingue avec un cashback de 50€ sur le premier pari, et PMU Sport propose des cotes boostées sur tous les matchs de l'équipe de France. Les offres sont valables pour les nouveaux inscrits majeurs.
+Parier-Foot a analysé les différentes offres disponibles : Unibet se distingue avec un cashback de 50€ sur le premier pari, et PMU Sport propose des cotes boostées sur tous les matchs de l'équipe de France. Les offres sont valables pour les nouveaux inscrits majeurs.
 
 Rappelons que les paris sportifs comportent des risques de dépendance et d'endettement. Il est essentiel de jouer de manière responsable et de ne jamais parier plus que ce que l'on peut se permettre de perdre. Le numéro d'aide est le 09 74 75 13 13 (appel non surtaxé).`,
     date: "2026-01-20",

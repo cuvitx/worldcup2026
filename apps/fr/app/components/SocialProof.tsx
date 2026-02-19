@@ -9,8 +9,8 @@ interface Counter {
 }
 
 const COUNTERS: Counter[] = [
-  { value: 47832, label: 'fans ont soumis leur bracket', emoji: '🏆' },
-  { value: 12500, label: 'pronostics réalisés', emoji: '🎯' },
+  { value: 48, label: 'équipes qualifiées', emoji: '🏆' },
+  { value: 104, label: 'matchs à pronostiquer', emoji: '🎯' },
   { value: 202, label: 'questions au quiz', emoji: '🧩' },
 ];
 

@@ -81,6 +81,11 @@ export function LiveTicker() {
   const awayTeam = teamsById[nextMatch.awayTeamId];
   if (!homeTeam || !awayTeam) return null;
 
+  // Abbreviate long team names for ticker display
+  const abbreviate = (name: string) => name.length > 15 ? name.slice(0, 13) + "…" : name;
+  const homeName = abbreviate(homeTeam.name);
+  const awayName = abbreviate(awayTeam.name);
+
   const handleDismiss = () => {
     setDismissed(true);
     sessionStorage.setItem("ticker-dismissed", "1");
@@ -110,10 +115,10 @@ export function LiveTicker() {
           )}
           <span className="truncate">
             <span role="img" aria-label={homeTeam.name}>{homeTeam.flag}</span>{" "}
-            <span className="font-semibold">{homeTeam.name}</span>
+            <span className="font-semibold">{homeName}</span>
             {" "}vs{" "}
             <span role="img" aria-label={awayTeam.name}>{awayTeam.flag}</span>{" "}
-            <span className="font-semibold">{awayTeam.name}</span>
+            <span className="font-semibold">{awayName}</span>
           </span>
         </Link>
         {countdown && (

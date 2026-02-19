@@ -367,9 +367,9 @@ export default function BilletsPage() {
                         key={cat.cat}
                         className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center"
                       >
-                        <p className="text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">{cat.cat}</p>
-                        <p className="text-sm font-extrabold text-gray-900 dark:text-white">{cat.price}</p>
-                        <p className="text-[10px] text-gray-500 dark:text-gray-300 mt-0.5">{cat.desc}</p>
+                        <p className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-1">{cat.cat}</p>
+                        <p className="text-base font-extrabold text-gray-900 dark:text-white">{cat.price}</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">{cat.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -379,7 +379,7 @@ export default function BilletsPage() {
             ))}
           </div>
 
-          <p className="mt-4 text-xs text-gray-400 dark:text-gray-400">
+          <p className="mt-4 text-xs text-gray-600 dark:text-gray-400">
             * Prix indicatifs basés sur les annonces FIFA 2025. Les prix finaux seront confirmés sur fifa.com/tickets.
             Taux de change USD/EUR fluctue — prévoir ~0.92 EUR par USD.
           </p>
@@ -466,7 +466,7 @@ export default function BilletsPage() {
             >
               🎟️ Aller sur fifa.com/tickets →
             </a>
-            <p className="mt-2 text-xs text-gray-400 dark:text-gray-400">Lien officiel FIFA — Seul canal d&apos;achat garanti</p>
+            <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">Lien officiel FIFA — Seul canal d&apos;achat garanti</p>
           </div>
         </div>
       </section>
@@ -630,7 +630,7 @@ export default function BilletsPage() {
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
-                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-400 group-open:rotate-180 transition-transform">
+                    <span className="ml-4 shrink-0 text-gray-600 dark:text-gray-400 group-open:rotate-180 transition-transform">
                       ▼
                     </span>
                   </summary>

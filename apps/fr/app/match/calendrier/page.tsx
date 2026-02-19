@@ -140,7 +140,7 @@ export default function CalendrierPage() {
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
-                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-400 group-open:rotate-180 transition-transform">
+                    <span className="ml-4 shrink-0 text-gray-600 dark:text-gray-400 group-open:rotate-180 transition-transform">
                       ▼
                     </span>
                   </summary>

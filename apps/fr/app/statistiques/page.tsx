@@ -203,8 +203,8 @@ function GoalsChart() {
                     {ed.goals} buts · {ed.avg}/match
                   </div>
                 </div>
-                <span className="text-[9px] text-gray-500 dark:text-gray-300 rotate-45 origin-left translate-y-3 whitespace-nowrap">
-                  {ed.year}
+                <span className="text-[10px] text-gray-600 dark:text-gray-300 rotate-45 origin-left translate-y-3 whitespace-nowrap">
+                  {goalsByEdition.indexOf(ed) % 2 === 0 ? ed.year : ""}
                 </span>
               </div>
             );

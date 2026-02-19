@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
@@ -17,12 +18,13 @@ import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { teamWorldCupHistory } from "@repo/data/team-history";
 import { getFlagPath, getISOCode } from "@repo/data/country-codes";
 import { teamRatings } from "@repo/data/team-ratings";
-import RadarChart from "../../components/RadarChart";
+import RadarChartLazy from "../../components/RadarChartLazy";
 import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 import ExpandablePlayerList from "./ExpandablePlayerList";
 import SquadTable from "./SquadTable";
 
 export const revalidate = 3600;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -47,8 +49,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: `Tout sur ${team.name} à la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
     alternates: getAlternates("team", slug, "fr"),
     openGraph: {
-      title: `${team.flag} ${team.name} - CDM 2026`,
-      description: `Fiche complete de ${team.name} pour la Coupe du Monde 2026. Groupe ${team.group}, classement FIFA #${team.fifaRanking}.`,
+      title: `Équipe ${team.name} — CDM 2026`,
+      description: `${team.flag} Fiche complète de ${team.name} pour la Coupe du Monde 2026. Groupe ${team.group}, classement FIFA #${team.fifaRanking}.`,
       images: ogImages,
     },
   };
@@ -154,7 +156,7 @@ export default async function TeamPage({ params }: PageProps) {
             {teamRatings[team.slug] && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Profil de l&apos;équipe</h2>
-                <RadarChart rating={teamRatings[team.slug]!} color="#3b82f6" />
+                <RadarChartLazy rating={teamRatings[team.slug]!} color="#3b82f6" />
               </section>
             )}
 
@@ -825,6 +827,10 @@ export default async function TeamPage({ params }: PageProps) {
           }),
         }}
       />
-    </>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
+        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+      </p>
+</>
   );
 }

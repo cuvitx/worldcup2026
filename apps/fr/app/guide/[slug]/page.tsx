@@ -10,6 +10,7 @@ import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { AuthorBox } from "../../components/AuthorBox";
 
 export const revalidate = 86400;
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
