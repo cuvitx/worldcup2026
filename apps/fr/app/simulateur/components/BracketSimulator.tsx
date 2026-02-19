@@ -387,8 +387,10 @@ export function BracketSimulator() {
       </div>
 
       {/* Desktop bracket */}
-      <div className="hidden lg:block overflow-x-auto pb-4">
-        <DesktopBracket rounds={rounds} onPick={pickWinner} />
+      <div className="hidden lg:block overflow-x-auto pb-4 -mx-4 px-4">
+        <div className="min-w-fit mx-auto">
+          <DesktopBracket rounds={rounds} onPick={pickWinner} />
+        </div>
       </div>
 
       {/* Mobile bracket */}
@@ -411,7 +413,7 @@ function DesktopBracket({
   onPick: (round: RoundName, matchIndex: number, teamId: string) => void;
 }) {
   return (
-    <div className="flex items-stretch justify-center gap-3 min-h-[800px]">
+    <div className="flex items-stretch justify-center gap-2 xl:gap-3 min-h-[800px]">
       <RoundColumn label={ROUND_LABELS.R32} matches={rounds.R32.slice(0, 8)} round="R32" onPick={onPick} baseIndex={0} />
       <RoundColumn label={ROUND_LABELS.R16} matches={rounds.R16.slice(0, 4)} round="R16" onPick={onPick} baseIndex={0} />
       <RoundColumn label={ROUND_LABELS.QF} matches={rounds.QF.slice(0, 2)} round="QF" onPick={onPick} baseIndex={0} />
@@ -443,7 +445,7 @@ function RoundColumn({
   const colorClass = ROUND_COLORS[round];
 
   return (
-    <div className="flex flex-col items-center min-w-[155px]">
+    <div className="flex flex-col items-center min-w-[160px] w-[160px] xl:min-w-[180px] xl:w-[180px]">
       {/* Round label */}
       <div className={`text-[11px] font-bold uppercase tracking-wider mb-3 px-3 py-1.5 rounded-full text-white shadow-sm ${colorClass} ${round === "F" ? "text-yellow-900" : ""}`}>
         {label}
