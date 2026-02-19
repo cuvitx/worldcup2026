@@ -162,6 +162,8 @@ const megaMenus = {
           { href: "/actualites", label: "📰 Actualités" },
           { href: "/guides", label: "📖 Guides" },
           { href: "/ou-regarder", label: "📺 Où regarder" },
+          { href: "/carte-stades", label: "🗺️ Carte des stades" },
+          { href: "/recherche", label: "🔍 Recherche" },
           { href: "/profil", label: "🏅 Mon profil" },
         ],
       },
@@ -206,7 +208,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-primary/95 backdrop-blur-md text-white border-b border-white/8">
+    <header className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md text-white border-b border-white/8">
       {/* Skip to content */}
       <a
         href="#main-content"

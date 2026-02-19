@@ -34,3 +34,5 @@ export { getTournamentPhase, getDaysUntilKickoff, getTodaysMatches, getNextMatch
 export { teamApiIds, stadiumApiIds, getApiTeamId, getApiVenueId, hasApiMapping } from "./api-football-ids";
 export type { NewsArticle, NewsCategory } from "./news";
 export { newsArticles, newsCategories, newsBySlug, newsByCategory } from "./news";
+export type { TeamHistoryEntry } from "./team-history";
+export { teamWorldCupHistory } from "./team-history";

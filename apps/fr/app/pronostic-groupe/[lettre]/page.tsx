@@ -1,0 +1,649 @@
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains, getAlternates } from "@repo/data/route-mapping";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { groups, groupsBySlug } from "@repo/data/groups";
+import { teamsById } from "@repo/data/teams";
+import { matchesByGroup } from "@repo/data/matches";
+import { predictionsByTeamId } from "@repo/data/predictions";
+import { probToOdds } from "@repo/data/affiliates";
+
+export const revalidate = 3600;
+
+interface PageProps {
+  params: Promise<{ lettre: string }>;
+}
+
+export async function generateStaticParams() {
+  return groups.map((group) => ({ lettre: group.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { lettre } = await params;
+  const group = groupsBySlug[lettre];
+  if (!group) return {};
+
+  const groupTeams = group.teams
+    .map((id) => teamsById[id])
+    .filter((t): t is NonNullable<typeof t> => t != null && !t.id.startsWith("barrage"));
+  const teamNames = groupTeams.map((t) => t.name).join(", ");
+
+  return {
+    title: `Pronostic Groupe ${group.letter} CDM 2026 | Analyse & Qualification`,
+    description: `Pronostic Groupe ${group.letter} Coupe du Monde 2026 : ${teamNames}. Classement prédit, analyse des forces, cotes qualification et calendrier complet du groupe.`,
+    alternates: getAlternates("group", lettre, "fr"),
+    openGraph: {
+      title: `Pronostic Groupe ${group.letter} - CDM 2026`,
+      description: `${teamNames} — Qui se qualifie ? Analyse et pronostics du Groupe ${group.letter}.`,
+    },
+  };
+}
+
+// ── Helper: sort teams in a group by their group-stage probability ──────────
+function getSortedGroupTeams(group: { teams: string[] }) {
+  return group.teams
+    .map((id) => {
+      const team = teamsById[id];
+      const pred = predictionsByTeamId[id];
+      return { team, pred, id };
+    })
+    .filter((x) => x.team != null)
+    .sort((a, b) => {
+      const probA = a.pred?.groupStageProb ?? 0;
+      const probB = b.pred?.groupStageProb ?? 0;
+      if (probB !== probA) return probB - probA;
+      const eloA = a.pred?.eloRating ?? 0;
+      const eloB = b.pred?.eloRating ?? 0;
+      return eloB - eloA;
+    });
+}
+
+// ── Arguments for each ranking position ────────────────────────────────────
+const RANK_LABEL = ["🥇 1er", "🥈 2e", "🥉 3e", "4e"];
+const RANK_COLOR = [
+  "border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20",
+  "border-gray-400 bg-gray-50 dark:bg-gray-800/40",
+  "border-orange-400 bg-orange-50 dark:bg-orange-900/20",
+  "border-red-300 bg-red-50 dark:bg-red-900/10",
+];
+const RANK_BADGE = [
+  "bg-yellow-400 text-yellow-900",
+  "bg-gray-300 text-gray-700",
+  "bg-orange-400 text-orange-900",
+  "bg-red-200 text-red-700",
+];
+
+export default async function PronosticGroupPage({ params }: PageProps) {
+  const { lettre } = await params;
+  const group = groupsBySlug[lettre];
+  if (!group) notFound();
+
+  const sortedTeams = getSortedGroupTeams(group);
+  const groupMatches = matchesByGroup[group.letter] ?? [];
+  const allGroupTeams = group.teams
+    .map((id) => teamsById[id])
+    .filter((t): t is NonNullable<typeof t> => t != null);
+
+  // The top 2 qualify directly, 3rd may qualify as best third
+  const qualified = sortedTeams.slice(0, 2);
+  const maybeQualify = sortedTeams[2];
+  const eliminated = sortedTeams[3];
+
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Pronostics", url: "/pronostic" },
+          {
+            name: `Pronostic Groupe ${group.letter}`,
+            url: `/pronostic-groupe/${lettre}`,
+          },
+        ]}
+        baseUrl={domains.fr}
+      />
+
+      {/* Breadcrumb nav */}
+      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
+        <div className="mx-auto max-w-7xl px-4 py-3">
+          <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <li>
+              <Link href="/" className="hover:text-primary transition-colors">
+                Accueil
+              </Link>
+            </li>
+            <li>/</li>
+            <li>
+              <Link href="/pronostic" className="hover:text-primary transition-colors">
+                Pronostics
+              </Link>
+            </li>
+            <li>/</li>
+            <li className="text-gray-900 dark:text-white font-medium">
+              Groupe {group.letter}
+            </li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section className="bg-primary text-white py-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-wrap items-center gap-4">
+            <div>
+              <p className="text-sm font-medium text-green-300 uppercase tracking-widest mb-1">
+                Pronostic · Coupe du Monde 2026
+              </p>
+              <h1 className="text-3xl font-extrabold sm:text-5xl">
+                Groupe {group.letter}
+              </h1>
+              <p className="mt-3 text-gray-300 text-lg">
+                {allGroupTeams.map((t) => t.flag).join("  ")} &nbsp;
+                {allGroupTeams.map((t) => t.name).join(" · ")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* ── Main Column ─────────────────────────────────── */}
+          <div className="lg:col-span-2 space-y-8">
+
+            {/* Équipes du groupe */}
+            <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
+              <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
+                <h2 className="text-xl font-bold">
+                  🌍 Équipes du Groupe {group.letter}
+                </h2>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 dark:bg-slate-700/50 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">
+                    <tr>
+                      <th className="px-4 py-3 text-left">Équipe</th>
+                      <th className="px-4 py-3 text-center">FIFA</th>
+                      <th className="px-4 py-3 text-center">Conf.</th>
+                      <th className="px-4 py-3 text-center">CDM</th>
+                      <th className="px-4 py-3 text-left hidden sm:table-cell">Meilleur résultat</th>
+                      <th className="px-4 py-3 text-center">Proba qual.</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
+                    {sortedTeams.map(({ team, pred }, idx) => (
+                      <tr
+                        key={team!.id}
+                        className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                      >
+                        <td className="px-4 py-3">
+                          <Link
+                            href={`/equipe/${team!.slug}`}
+                            className="flex items-center gap-2 font-medium hover:text-accent transition-colors"
+                          >
+                            <span className="text-xl" aria-label={team!.name}>
+                              {team!.flag}
+                            </span>
+                            <span>{team!.name}</span>
+                            {team!.isHost && (
+                              <span className="rounded bg-yellow-100 dark:bg-yellow-900/30 px-1.5 py-0.5 text-xs text-yellow-700 dark:text-yellow-400">
+                                Hôte
+                              </span>
+                            )}
+                          </Link>
+                        </td>
+                        <td className="px-4 py-3 text-center text-gray-600 dark:text-gray-300">
+                          {team!.fifaRanking > 0 ? `#${team!.fifaRanking}` : "—"}
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-2 py-0.5 text-xs">
+                            {team!.confederation}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-center text-gray-600 dark:text-gray-300">
+                          {team!.wcAppearances}
+                        </td>
+                        <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs hidden sm:table-cell">
+                          {team!.bestResult}
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          {pred ? (
+                            <span
+                              className={`font-bold text-sm ${
+                                idx < 2
+                                  ? "text-green-600 dark:text-green-400"
+                                  : "text-gray-500 dark:text-gray-400"
+                              }`}
+                            >
+                              {Math.round(pred.groupStageProb * 100)}%
+                            </span>
+                          ) : (
+                            <span className="text-gray-400">—</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* Classement prédit */}
+            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="text-xl font-bold mb-5">
+                🏆 Classement prédit
+              </h2>
+              <div className="space-y-3">
+                {sortedTeams.map(({ team, pred }, idx) => {
+                  const qual = idx < 2;
+                  return (
+                    <div
+                      key={team!.id}
+                      className={`rounded-xl border-2 p-4 ${RANK_COLOR[idx]}`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={`rounded-full px-2.5 py-1 text-xs font-bold ${RANK_BADGE[idx]}`}
+                        >
+                          {RANK_LABEL[idx]}
+                        </span>
+                        <span className="text-2xl" aria-label={team!.name}>
+                          {team!.flag}
+                        </span>
+                        <Link
+                          href={`/equipe/${team!.slug}`}
+                          className="font-bold text-lg hover:text-accent transition-colors"
+                        >
+                          {team!.name}
+                        </Link>
+                        {qual && (
+                          <span className="ml-auto rounded-full bg-green-100 dark:bg-green-900/30 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-400">
+                            ✅ Qualifié
+                          </span>
+                        )}
+                        {idx === 2 && (
+                          <span className="ml-auto rounded-full bg-yellow-100 dark:bg-yellow-900/30 px-2 py-0.5 text-xs font-semibold text-yellow-700 dark:text-yellow-400">
+                            ⚠️ Meilleur 3e possible
+                          </span>
+                        )}
+                        {idx === 3 && (
+                          <span className="ml-auto rounded-full bg-red-100 dark:bg-red-900/30 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">
+                            ❌ Éliminé
+                          </span>
+                        )}
+                      </div>
+                      <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-gray-600 dark:text-gray-300">
+                        <div>
+                          <span className="block text-gray-400 uppercase">FIFA</span>
+                          <span className="font-semibold">
+                            {team!.fifaRanking > 0 ? `#${team!.fifaRanking}` : "—"}
+                          </span>
+                        </div>
+                        {pred && (
+                          <>
+                            <div>
+                              <span className="block text-gray-400 uppercase">ELO</span>
+                              <span className="font-semibold">{pred.eloRating}</span>
+                            </div>
+                            <div>
+                              <span className="block text-gray-400 uppercase">Proba groupe</span>
+                              <span className="font-semibold">
+                                {Math.round(pred.groupStageProb * 100)}%
+                              </span>
+                            </div>
+                            <div>
+                              <span className="block text-gray-400 uppercase">Cote victoire</span>
+                              <span className="font-semibold">
+                                {probToOdds(pred.winnerProb)}
+                              </span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Pronostic qualification */}
+            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="text-xl font-bold mb-4">
+                🎯 Pronostic qualification
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-5 text-sm leading-relaxed">
+                Dans le format de la Coupe du Monde 2026 (48 équipes, 12 groupes de 4),{" "}
+                <strong>les 2 premiers de chaque groupe</strong> sont directement qualifiés pour les huitièmes de finale.{" "}
+                <strong>8 meilleurs troisièmes</strong> (sur 12) se qualifient également.
+              </p>
+
+              {/* Qualified */}
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-green-600 dark:text-green-400 mb-2">
+                  ✅ Qualifiés directs pour les huitièmes
+                </h3>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {qualified.map(({ team, pred }) => (
+                    <div
+                      key={team!.id}
+                      className="flex items-center gap-3 rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 p-3"
+                    >
+                      <span className="text-2xl">{team!.flag}</span>
+                      <div>
+                        <Link
+                          href={`/pronostic/${team!.slug}`}
+                          className="font-bold hover:text-accent transition-colors"
+                        >
+                          {team!.name}
+                        </Link>
+                        {pred && (
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            ELO {pred.eloRating} · {Math.round(pred.groupStageProb * 100)}% qualification
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Maybe */}
+              {maybeQualify?.team && (
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-yellow-600 dark:text-yellow-400 mb-2">
+                    ⚠️ Meilleur 3e possible
+                  </h3>
+                  <div className="flex items-center gap-3 rounded-lg border border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20 p-3">
+                    <span className="text-2xl">{maybeQualify.team.flag}</span>
+                    <div>
+                      <Link
+                        href={`/pronostic/${maybeQualify.team.slug}`}
+                        className="font-bold hover:text-accent transition-colors"
+                      >
+                        {maybeQualify.team.name}
+                      </Link>
+                      {maybeQualify.pred && (
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          {Math.round(maybeQualify.pred.groupStageProb * 100)}% de se qualifier comme meilleur 3e · ELO {maybeQualify.pred.eloRating}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Eliminated */}
+              {eliminated?.team && (
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500 dark:text-red-400 mb-2">
+                    ❌ Éliminé en phase de groupes
+                  </h3>
+                  <div className="flex items-center gap-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/10 p-3">
+                    <span className="text-2xl">{eliminated.team.flag}</span>
+                    <div>
+                      <span className="font-bold">{eliminated.team.name}</span>
+                      {eliminated.pred && (
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Seulement {Math.round(eliminated.pred.groupStageProb * 100)}% de chances de se qualifier · ELO {eliminated.pred.eloRating}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </section>
+
+            {/* Analyse des forces */}
+            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="text-xl font-bold mb-4">
+                🔍 Analyse des forces en présence
+              </h2>
+              <div className="space-y-4">
+                {sortedTeams.map(({ team, pred }, idx) => (
+                  <div key={team!.id} className="border-l-4 border-accent pl-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl">{team!.flag}</span>
+                      <Link
+                        href={`/equipe/${team!.slug}`}
+                        className="font-bold hover:text-accent transition-colors"
+                      >
+                        {team!.name}
+                      </Link>
+                      <span className="text-xs text-gray-400">
+                        (#{team!.fifaRanking > 0 ? team!.fifaRanking : "—"} FIFA
+                        {pred ? `, ELO ${pred.eloRating}` : ""})
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {team!.description
+                        ? team!.description.slice(0, 250) + (team!.description.length > 250 ? "…" : "")
+                        : `${team!.name} disputera le Groupe ${group.letter} avec l'objectif de se qualifier pour les huitièmes de finale.`}
+                    </p>
+                    {pred && (
+                      <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                        <span className="rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 px-2 py-1">
+                          🏆 Titre : {probToOdds(pred.winnerProb)}
+                        </span>
+                        <span className="rounded-full bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 px-2 py-1">
+                          🎽 Finale : {Math.round(pred.finalProb * 100)}%
+                        </span>
+                        <span className="rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 px-2 py-1">
+                          ✅ Groupe : {Math.round(pred.groupStageProb * 100)}%
+                        </span>
+                        <Link
+                          href={`/pronostic/${team!.slug}`}
+                          className="rounded-full bg-accent/10 border border-accent/30 px-2 py-1 text-accent hover:bg-accent/20 transition-colors"
+                        >
+                          Voir pronostic complet →
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Calendrier */}
+            {groupMatches.length > 0 && (
+              <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h2 className="text-xl font-bold mb-4">
+                  📅 Calendrier du Groupe {group.letter}
+                </h2>
+                <div className="space-y-2">
+                  {groupMatches.map((match) => {
+                    const home = teamsById[match.homeTeamId];
+                    const away = teamsById[match.awayTeamId];
+                    const dateStr = new Date(match.date).toLocaleDateString("fr-FR", {
+                      weekday: "short",
+                      day: "numeric",
+                      month: "long",
+                    });
+                    return (
+                      <Link
+                        key={match.id}
+                        href={`/match/${match.slug}`}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-all hover:border-accent hover:bg-accent/5 group"
+                      >
+                        <div className="text-xs text-gray-500 dark:text-gray-400 w-24 shrink-0">
+                          <div>{dateStr}</div>
+                          <div className="font-medium text-gray-700 dark:text-gray-300">
+                            {match.time} UTC
+                          </div>
+                        </div>
+                        <div className="flex flex-1 items-center gap-2 justify-center">
+                          <span className="text-lg" aria-label={home?.name}>{home?.flag ?? "🏳️"}</span>
+                          <span className="font-semibold text-sm text-right flex-1">
+                            {home?.name ?? "TBD"}
+                          </span>
+                          <span className="text-xs text-gray-400 bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded font-mono">
+                            vs
+                          </span>
+                          <span className="font-semibold text-sm flex-1">
+                            {away?.name ?? "TBD"}
+                          </span>
+                          <span className="text-lg" aria-label={away?.name}>{away?.flag ?? "🏳️"}</span>
+                        </div>
+                        <span className="text-xs text-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                          Pronostic →
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {/* Cotes qualification */}
+            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="text-xl font-bold mb-4">
+                💰 Cotes de qualification (estimées)
+              </h2>
+              <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
+                Cotes calculées à partir des probabilités ELO avec marge bookmaker (8%). À titre indicatif.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 dark:bg-slate-700/50 text-gray-500 text-xs uppercase tracking-wide">
+                    <tr>
+                      <th className="px-4 py-2 text-left">Équipe</th>
+                      <th className="px-4 py-2 text-center">Qual. groupes</th>
+                      <th className="px-4 py-2 text-center">1/8 de finale</th>
+                      <th className="px-4 py-2 text-center">1/4 de finale</th>
+                      <th className="px-4 py-2 text-center">Vainqueur</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
+                    {sortedTeams.map(({ team, pred }) => (
+                      <tr
+                        key={team!.id}
+                        className="hover:bg-gray-50 dark:hover:bg-slate-700/40 transition-colors"
+                      >
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <span>{team!.flag}</span>
+                            <span className="font-medium">{team!.name}</span>
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">
+                          {pred ? probToOdds(pred.groupStageProb / 1.08) : "—"}
+                        </td>
+                        <td className="px-4 py-3 text-center font-mono">
+                          {pred ? probToOdds(pred.roundOf16Prob / 1.08) : "—"}
+                        </td>
+                        <td className="px-4 py-3 text-center font-mono text-gray-500 dark:text-gray-400">
+                          {pred ? probToOdds(pred.quarterFinalProb / 1.08) : "—"}
+                        </td>
+                        <td className="px-4 py-3 text-center font-mono text-gray-400 dark:text-gray-500">
+                          {pred ? probToOdds(pred.winnerProb / 1.08) : "—"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          {/* ── Sidebar ──────────────────────────────────────── */}
+          <div className="space-y-6">
+            {/* Liens vers le groupe */}
+            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold">🔗 Liens utiles</h3>
+              <div className="space-y-2">
+                <Link
+                  href={`/groupe/${lettre}`}
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-accent hover:text-accent hover:bg-accent/5"
+                >
+                  📊 Groupe {group.letter} — statistiques
+                </Link>
+                {sortedTeams.slice(0, 4).map(({ team }) => (
+                  team && (
+                    <Link
+                      key={team.id}
+                      href={`/pronostic/${team.slug}`}
+                      className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-accent hover:text-accent hover:bg-accent/5"
+                    >
+                      <span>{team.flag}</span>
+                      Pronostic {team.name}
+                    </Link>
+                  )
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation groupes */}
+            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold">Tous les groupes</h3>
+              <div className="grid grid-cols-4 gap-2">
+                {groups.map((g) => (
+                  <Link
+                    key={g.letter}
+                    href={`/pronostic-groupe/${g.slug}`}
+                    className={`rounded-lg border p-2 text-center text-sm font-bold transition-all ${
+                      g.letter === group.letter
+                        ? "border-accent bg-accent text-white shadow-md"
+                        : "border-gray-200 dark:border-slate-600 hover:border-accent hover:text-accent"
+                    }`}
+                  >
+                    {g.letter}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA paris */}
+            <div className="rounded-xl bg-gradient-to-br from-accent to-accent/80 p-6 text-white shadow-sm">
+              <h3 className="mb-2 text-lg font-bold">
+                🎰 Parier sur le Groupe {group.letter}
+              </h3>
+              <p className="text-sm text-white/80 mb-4">
+                Comparez les meilleures cotes pour la qualification dans ce groupe.
+              </p>
+              <Link
+                href="/comparateur-cotes"
+                className="block rounded-lg bg-white text-accent font-bold text-center py-2.5 text-sm hover:bg-gray-50 transition-colors"
+              >
+                Comparer les cotes →
+              </Link>
+            </div>
+
+            {/* Pronostic vainqueur */}
+            <div className="rounded-xl bg-primary/10 dark:bg-primary/20 border border-primary/20 p-6">
+              <h3 className="mb-2 font-bold text-primary dark:text-blue-300">
+                🏆 Pronostic vainqueur CDM 2026
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                Qui soulèvera le trophée ? Découvrez notre analyse complète.
+              </p>
+              <Link
+                href="/pronostic-vainqueur"
+                className="text-sm font-semibold text-accent hover:underline"
+              >
+                Voir le pronostic vainqueur →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SportsEvent",
+            name: `Coupe du Monde 2026 — Groupe ${group.letter}`,
+            sport: "Football",
+            startDate: groupMatches[0]?.date ?? "2026-06-11",
+            competitor: allGroupTeams.map((t) => ({
+              "@type": "SportsTeam",
+              name: t.name,
+            })),
+          }),
+        }}
+      />
+    </>
+  );
+}

@@ -11,6 +11,7 @@ import { playersByTeamId } from "@repo/data/players";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { teamWorldCupHistory } from "@repo/data/team-history";
 import ExpandablePlayerList from "./ExpandablePlayerList";
 
 export const revalidate = 3600;
@@ -130,20 +131,143 @@ export default async function TeamPage({ params }: PageProps) {
               </section>
             )}
 
-            {/* World Cup History */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Historique en Coupe du Monde</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                  <p className="text-3xl font-bold text-primary">{team.wcAppearances}</p>
-                  <p className="text-sm text-gray-500">Participations</p>
-                </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                  <p className="text-lg font-bold text-primary">{team.bestResult}</p>
-                  <p className="text-sm text-gray-500">Meilleur résultat</p>
-                </div>
-              </div>
-            </section>
+            {/* World Cup History — enhanced */}
+            {(() => {
+              const history = teamWorldCupHistory[team.id];
+              return (
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-4 text-xl font-bold dark:text-white">Historique en Coupe du Monde</h2>
+                  {/* Stats grid */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                      <p className="text-3xl font-bold text-primary">{history?.participations ?? team.wcAppearances}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Participations</p>
+                    </div>
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                      <p className="text-lg font-bold text-primary">{history?.bestResult ?? team.bestResult}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Meilleur résultat</p>
+                    </div>
+                  </div>
+
+                  {/* Years participated */}
+                  {history && history.yearsParticipated.length > 0 && (
+                    <div className="mb-6">
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Années de participation</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {history.yearsParticipated.map((year) => (
+                          <span
+                            key={year}
+                            className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary dark:bg-primary/20"
+                          >
+                            {year}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Notable results table */}
+                  {history && history.notableResults.length > 0 && (
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">Résultats notables</h3>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="bg-gray-50 dark:bg-slate-700 text-left">
+                              <th className="px-3 py-2 font-semibold text-gray-600 dark:text-gray-300">Année</th>
+                              <th className="px-3 py-2 font-semibold text-gray-600 dark:text-gray-300">Stade</th>
+                              <th className="px-3 py-2 font-semibold text-gray-600 dark:text-gray-300 hidden sm:table-cell">Détail</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {history.notableResults.map((result, idx) => (
+                              <tr
+                                key={result.year}
+                                className={`border-b border-gray-100 dark:border-slate-700 ${idx % 2 === 0 ? "" : "bg-gray-50/50 dark:bg-slate-700/30"}`}
+                              >
+                                <td className="px-3 py-2 font-bold text-primary">{result.year}</td>
+                                <td className="px-3 py-2 text-gray-800 dark:text-gray-200">{result.stage}</td>
+                                <td className="px-3 py-2 text-gray-500 dark:text-gray-400 hidden sm:table-cell">{result.detail ?? "—"}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+                </section>
+              );
+            })()}
+
+            {/* Forces & Faiblesses */}
+            {teamWorldCupHistory[team.id] && (() => {
+              const history = teamWorldCupHistory[team.id]!;
+              return (
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-5 text-xl font-bold dark:text-white">Forces &amp; Faiblesses</h2>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-green-700 dark:text-green-400 uppercase tracking-wide">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-400 text-xs">✓</span>
+                        Forces
+                      </h3>
+                      <ul className="space-y-2">
+                        {history.strengths.map((s, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                            <span className="mt-0.5 h-2 w-2 rounded-full bg-green-500 shrink-0" />
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-red-600 dark:text-red-400 uppercase tracking-wide">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 text-xs">✗</span>
+                        Faiblesses
+                      </h3>
+                      <ul className="space-y-2">
+                        {history.weaknesses.map((w, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                            <span className="mt-0.5 h-2 w-2 rounded-full bg-red-500 shrink-0" />
+                            {w}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+              );
+            })()}
+
+            {/* Style de jeu */}
+            {teamWorldCupHistory[team.id]?.playingStyle && (
+              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-bold dark:text-white">Style de jeu</h2>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {teamWorldCupHistory[team.id]!.playingStyle}
+                </p>
+              </section>
+            )}
+
+            {/* Anecdotes */}
+            {teamWorldCupHistory[team.id] && (() => {
+              const history = teamWorldCupHistory[team.id]!;
+              return history.anecdotes.length > 0 ? (
+                <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+                  <h2 className="mb-5 text-xl font-bold dark:text-white">Anecdotes &amp; Moments inoubliables</h2>
+                  <div className="space-y-4">
+                    {history.anecdotes.map((anecdote, idx) => (
+                      <div key={idx} className="flex gap-4 rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                          {idx + 1}
+                        </span>
+                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{anecdote}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ) : null;
+            })()}
 
             {/* Predictions */}
             {prediction && (
