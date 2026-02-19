@@ -36,10 +36,10 @@ export default function SimulateurPage() {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden text-white py-6 md:py-8"
+        className="relative overflow-hidden text-white py-10 md:py-14"
         style={{
           background:
-            "linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0d1b3e 100%)",
+            "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #091420 100%)",
         }}
       >
         {/* Top glow */}
@@ -105,7 +105,7 @@ export default function SimulateurPage() {
       </section>
 
       {/* Simulator */}
-      <section className="bg-gray-50 dark:bg-gray-900/50 py-4 lg:py-6">
+      <section className="bg-gray-50 dark:bg-gray-900/50 py-6 lg:py-10">
         <div className="mx-auto max-w-[1600px] px-2 lg:px-4">
           <BracketSimulator />
         </div>

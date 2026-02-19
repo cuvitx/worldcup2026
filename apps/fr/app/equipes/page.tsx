@@ -31,8 +31,8 @@ export default function TeamsPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Les 48 équipes de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             Classement FIFA, groupe, pronostics et fiche complète de chaque sélection qualifiée.
@@ -40,10 +40,10 @@ export default function TeamsPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Ranking Table */}
-        <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-8">
-          <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Classement FIFA des 48 équipes</h2>
+        <section className="rounded-xl bg-white dark:bg-gray-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
+          <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>

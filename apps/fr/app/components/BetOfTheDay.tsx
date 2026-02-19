@@ -110,7 +110,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
   if (compact) {
     return (
-      <div className="rounded-xl border border-gold/30 bg-gradient-to-br from-[#1a1035] to-[#2d1a3e] p-4 shadow-lg shadow-purple-900/20">
+      <div className="rounded-xl border border-gold/30 bg-gradient-to-br from-[#0D3B66] to-[#0F1923] p-4 shadow-lg shadow-blue-900/20">
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">

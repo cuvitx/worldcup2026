@@ -166,7 +166,7 @@ function ConfettiParticles() {
     id: i,
     left: `${Math.random() * 100}%`,
     delay: `${Math.random() * 0.8}s`,
-    color: ["#e94560", "#f5a623", "#4ade80", "#60a5fa", "#a78bfa"][
+    color: ["#FF6B35", "#f5a623", "#06D6A0", "#2EC4B6", "#a78bfa"][
       Math.floor(Math.random() * 5)
     ],
     size: `${6 + Math.random() * 8}px`,
@@ -337,7 +337,7 @@ export function BracketSimulator() {
           <div
             className="relative z-10 flex flex-col items-center gap-3 py-8 px-6 text-center champion-glow rounded-2xl"
             style={{
-              background: "linear-gradient(135deg, #1a1a2e 0%, #2d1a3e 50%, #1a1a2e 100%)",
+              background: "linear-gradient(135deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
               border: "2px solid rgba(245,166,35,0.6)",
             }}
           >

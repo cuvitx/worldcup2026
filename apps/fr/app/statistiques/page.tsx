@@ -194,8 +194,8 @@ function GoalsChart() {
                   style={{
                     height: `${heightPct}%`,
                     background: isRecord
-                      ? "linear-gradient(to top, #e94560, #ff7e9c)"
-                      : "linear-gradient(to top, #1a1a2e, #4a4a7e)",
+                      ? "linear-gradient(to top, #FF6B35, #ff9060)"
+                      : "linear-gradient(to top, #0D3B66, #2EC4B6)",
                   }}
                 >
                   {/* Tooltip */}

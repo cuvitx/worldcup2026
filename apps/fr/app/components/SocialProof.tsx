@@ -72,12 +72,12 @@ export function SocialProof() {
   return (
     <section
       ref={ref}
-      className="py-10 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 dark:from-accent/10 dark:via-primary/10 dark:to-accent/10 border-y border-gray-200 dark:border-gray-700/40"
+      className="py-12 sm:py-16 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 dark:from-accent/10 dark:via-primary/10 dark:to-accent/10 border-y border-gray-200 dark:border-gray-700/40"
     >
-      <div className="mx-auto max-w-4xl px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {COUNTERS.map((c) => (
-            <div key={c.label} className="flex flex-col items-center gap-1">
+            <div key={c.label} className="flex flex-col items-center gap-2">
               <span className="text-3xl">{c.emoji}</span>
               <span className="text-3xl sm:text-4xl font-black text-accent tabular-nums">
                 <AnimatedCounter target={c.value} started={visible} />

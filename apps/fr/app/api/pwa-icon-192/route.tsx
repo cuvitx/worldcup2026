@@ -5,7 +5,7 @@ export async function GET() {
     (
       <div
         style={{
-          background: "#1a1a2e",
+          background: "#0D3B66",
           width: "100%",
           height: "100%",
           display: "flex",
