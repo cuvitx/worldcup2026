@@ -125,7 +125,7 @@ export default function RootLayout({
         <Header />
         <LiveScoreBarWrapper />
         <LiveTicker />
-        <main id="main-content" className="flex-1 pb-16 sm:pb-0">{children}</main>
+        <main id="main-content" className="flex-1 pb-32 sm:pb-0">{children}</main>
         <Footer />
         <BackToTop />
         <StickyCTA />

@@ -165,7 +165,7 @@ export default async function TeamPage({ params }: PageProps) {
                   <h2 className="text-xl font-bold">Analyse</h2>
                   <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">IA</span>
                 </div>
-                <div className="prose prose-sm max-w-none text-gray-700" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(enriched?.analysis.content ?? "") }} />
+                <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(enriched?.analysis.content ?? "") }} />
               </section>
             )}
 
@@ -754,7 +754,7 @@ export default async function TeamPage({ params }: PageProps) {
                       rel="noopener noreferrer sponsored nofollow"
                       className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10 transition-colors text-sm"
                     >
-                      <span className="font-semibold">{bk.name} <span className="text-white/70">{bk.bonus}</span></span>
+                      <span className="flex items-center gap-2 font-semibold">{bk.logo && <img src={bk.logo} alt={bk.name} className="h-5 w-5 rounded object-contain" />}{bk.name} <span className="text-white/70">{bk.bonus}</span></span>
                       <span className="text-accent font-semibold">Parier sur {team.name} &rarr;</span>
                     </a>
                   ))}

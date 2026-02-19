@@ -71,8 +71,8 @@ export default async function BookmakerPage({ params }: PageProps) {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="flex-1">
               <h1 className="text-2xl font-extrabold sm:text-4xl">Avis {bk.name} 2026</h1>
@@ -101,7 +101,7 @@ export default async function BookmakerPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">

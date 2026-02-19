@@ -25,7 +25,7 @@ export default function ComparateurJoueursPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <section className="mx-auto max-w-7xl px-4 py-10">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <h1 className="text-3xl font-bold text-center mb-2">⚽ Comparateur de Joueurs</h1>
         <p className="text-center text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           Sélectionnez 2 ou 3 joueurs pour comparer leurs statistiques côte à côte.

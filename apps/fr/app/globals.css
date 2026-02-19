@@ -839,7 +839,7 @@ details[open] .faq-icon {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .section-header::before {
   content: "";

@@ -90,7 +90,7 @@ export default function CarteStadesPage() {
 
       {/* Hero */}
       <section className="bg-primary text-white py-10">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-3xl mb-1">
             🗺️ Carte des Stades — CDM 2026
           </h1>
@@ -114,7 +114,7 @@ export default function CarteStadesPage() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-7xl px-4 py-8" id="main-content">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12" id="main-content">
         {/* Interactive map */}
         <section className="mb-10" aria-label="Carte interactive">
           <StadiumMap />

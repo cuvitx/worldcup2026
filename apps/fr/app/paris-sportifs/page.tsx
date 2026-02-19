@@ -71,7 +71,10 @@ export default function ParisSportifsPage() {
                     </span>
                   )}
                   <div className="flex-1 text-center sm:text-left">
-                    <p className="text-xl font-bold">{bk.name}</p>
+                    <div className="flex items-center justify-center sm:justify-start gap-3">
+                      {bk.logo && <img src={bk.logo} alt={bk.name} className="h-10 w-10 rounded-lg object-contain" />}
+                      <p className="text-xl font-bold">{bk.name}</p>
+                    </div>
                     <p className="text-sm text-gray-500">{bk.tagline}</p>
                     <div className="flex items-center gap-1 mt-1">
                       <span className="text-sm text-gold">{"★".repeat(Math.round(avgRating))}</span>

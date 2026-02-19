@@ -19,7 +19,8 @@ export function BettingCta({
       {/* Featured bookmaker */}
       <div className="mb-6 rounded-lg bg-white/10 backdrop-blur-sm p-5">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
+          <div className="flex items-center gap-3">
+            {featuredBookmaker.logo && <img src={featuredBookmaker.logo} alt={featuredBookmaker.name} className="h-10 w-10 rounded-lg bg-white p-1 object-contain" />}
             <p className="text-lg font-bold">{featuredBookmaker.name}</p>
             <p className="text-sm text-white/80">
               {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
@@ -56,7 +57,8 @@ export function BettingCta({
               rel="noopener noreferrer sponsored nofollow"
               className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3 hover:bg-white/10 transition-colors"
             >
-              <div>
+              <div className="flex items-center gap-2">
+                {bk.logo && <img src={bk.logo} alt={bk.name} className="h-6 w-6 rounded object-contain" />}
                 <span className="font-semibold">{bk.name}</span>
                 <span className="ml-2 text-sm text-white/70">
                   {bk.bonus} {bk.bonusDetail}

@@ -303,7 +303,7 @@ export default function ButeursPage() {
                   const player = playersById[so.playerId];
                   const team = player ? teamsById[player.teamId] : undefined;
                   return (
-                    <tr key={so.playerId} className="hover:bg-gray-50 dark:bg-slate-700">
+                    <tr key={so.playerId} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 border-b border-gray-100 dark:border-slate-700/40 transition-colors">
                       <td className="py-3 text-gray-500 font-medium">{i + 1}</td>
                       <td className="py-3">
                         {player && (

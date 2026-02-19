@@ -91,7 +91,7 @@ export default async function GroupPage({ params }: PageProps) {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {groupTeams.map((team) => (
-                      <tr key={team.id} className="hover:bg-gray-50 dark:bg-slate-700">
+                      <tr key={team.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 border-b border-gray-100 dark:border-slate-700/50 transition-colors">
                         <td className="py-3">
                           <Link
                             href={`/equipe/${team.slug}`}

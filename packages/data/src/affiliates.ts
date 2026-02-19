@@ -28,6 +28,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "en freebets sur votre 1er pari",
     url: "https://www.betclic.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 5,
+    logo: "/images/logos/betclic.png",
     highlight: true,
   },
   {
@@ -38,6 +39,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "sur votre 1er pari",
     url: "https://www.winamax.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 5,
+    logo: "/images/logos/winamax.png",
     highlight: true,
   },
   {
@@ -48,6 +50,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "en freebets sans condition",
     url: "https://www.enligne.parionssport.fdj.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 4,
+    logo: "/images/logos/parionssport.png",
     highlight: false,
   },
   {
@@ -58,6 +61,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "en paris gratuits",
     url: "https://www.unibet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 4,
+    logo: "/images/logos/unibet.png",
     highlight: false,
   },
   {
@@ -68,6 +72,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "sur votre 1er pari",
     url: "https://www.zebet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 4,
+    logo: "/images/logos/zebet.png",
     highlight: false,
   },
 ];

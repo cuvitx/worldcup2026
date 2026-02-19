@@ -120,7 +120,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
     <>
       {/* Filters */}
       <section className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 py-4">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Filtres :</span>
 
@@ -171,7 +171,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
       {/* Quick nav */}
       <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 sticky top-0 z-10">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
             {Array.from(matchesByStage.entries()).map(([stage, sm]) => (
               <a
@@ -187,7 +187,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       </section>
 
       {/* Match list */}
-      <div className="mx-auto max-w-7xl px-4 py-8 space-y-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {filtered.length === 0 ? (
           <p className="text-center text-gray-500 py-12">Aucun match ne correspond aux filtres sélectionnés.</p>
         ) : (

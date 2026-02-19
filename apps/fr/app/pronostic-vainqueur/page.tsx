@@ -407,7 +407,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== GRAPHIQUE VISUEL DES COTES PAR CONTINENT ===== */}
       <section id="graphique" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -479,7 +479,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== TOP 10 FAVORIS ===== */}
       <section id="top10" className="bg-gray-50 dark:bg-slate-900/50 py-12">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -637,7 +637,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== POURQUOI ILS PEUVENT GAGNER — TOP 5 ===== */}
       <section id="analyse-top5" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -728,7 +728,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== HISTORIQUE CDM À DOMICILE ===== */}
       <section id="historique" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -894,7 +894,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== TABLEAU COMPARATIF DES COTES MULTI-BOOKMAKERS (données réelles) ===== */}
       <section id="cotes" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📊 Cotes vainqueur CDM 2026 — Multi-bookmakers
           </h2>
@@ -1046,7 +1046,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== DARK HORSES ===== */}
       <section id="dark-horses" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             🐎 Dark Horses — Les outsiders à surveiller
           </h2>
@@ -1110,7 +1110,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== METHODOLOGIE ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 p-6">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
               📐 Méthodologie
@@ -1179,7 +1179,7 @@ export default function PronosticVainqueurPage() {
 
       {/* ===== CTA FINAL ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/comparateur-cotes" className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-md">
               📊 Comparer toutes les cotes
