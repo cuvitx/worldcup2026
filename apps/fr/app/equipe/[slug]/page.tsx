@@ -3,6 +3,7 @@ import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import { generateFullTeamAnalysis } from "@repo/ai/generators";
 import type { Metadata } from "next";
+import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -107,7 +108,6 @@ export default async function TeamPage({ params }: PageProps) {
                   fill
                   className="object-cover"
                   priority
-                  unoptimized
                   sizes="(max-width: 640px) 144px, 192px"
                 />
               </div>
@@ -152,7 +152,7 @@ export default async function TeamPage({ params }: PageProps) {
                   <h2 className="text-xl font-bold">Analyse</h2>
                   <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">IA</span>
                 </div>
-                <div className="prose prose-sm max-w-none text-gray-700" dangerouslySetInnerHTML={{ __html: enriched?.analysis.content }} />
+                <div className="prose prose-sm max-w-none text-gray-700" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(enriched?.analysis.content ?? "") }} />
               </section>
             )}
 

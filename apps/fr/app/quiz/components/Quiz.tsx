@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { questions, categoryLabels, type Question } from "../data/questions";
+import { questions, categoryLabels, difficultyLabels, type Question, type Difficulty } from "../data/questions";
 
 type Category = Question["category"] | "all";
+type DifficultyFilter = Difficulty | "all";
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -20,6 +21,7 @@ const TIMER_SECONDS = 30;
 export default function Quiz() {
   const [phase, setPhase] = useState<"menu" | "playing" | "result">("menu");
   const [category, setCategory] = useState<Category>("all");
+  const [difficulty, setDifficulty] = useState<DifficultyFilter>("all");
   const [gameQuestions, setGameQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -37,7 +39,8 @@ export default function Quiz() {
 
   const startGame = useCallback((cat: Category) => {
     setCategory(cat);
-    const pool = cat === "all" ? questions : questions.filter((q) => q.category === cat);
+    let pool = cat === "all" ? questions : questions.filter((q) => q.category === cat);
+    if (difficulty !== "all") pool = pool.filter((q) => q.difficulty === difficulty);
     const picked = shuffle(pool).slice(0, QUESTIONS_PER_GAME);
     setGameQuestions(picked);
     setCurrentIndex(0);
@@ -45,7 +48,7 @@ export default function Quiz() {
     setSelected(null);
     setTimeLeft(TIMER_SECONDS);
     setPhase("playing");
-  }, []);
+  }, [difficulty]);
 
   // Timer
   useEffect(() => {
@@ -127,6 +130,26 @@ export default function Quiz() {
           ))}
         </div>
 
+        {/* Difficulty filter */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+          <span className="text-sm text-gray-500 mr-1">Difficulté :</span>
+          <button
+            onClick={() => setDifficulty("all")}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-blue-600 text-white" : "bg-gray-700/50 text-gray-400 hover:bg-gray-600/50"}`}
+          >
+            Toutes
+          </button>
+          {(Object.keys(difficultyLabels) as Difficulty[]).map((d) => (
+            <button
+              key={d}
+              onClick={() => setDifficulty(d)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-blue-600 text-white" : "bg-gray-700/50 text-gray-400 hover:bg-gray-600/50"}`}
+            >
+              {difficultyLabels[d].emoji} {difficultyLabels[d].label}
+            </button>
+          ))}
+        </div>
+
         <label className="flex items-center justify-center gap-2 text-sm text-gray-500 cursor-pointer">
           <input
             type="checkbox"
@@ -190,6 +213,9 @@ export default function Quiz() {
         <span className="flex items-center gap-2">
           <span className="text-xs px-2 py-0.5 rounded bg-gray-700">
             {categoryLabels[currentQuestion.category].emoji} {categoryLabels[currentQuestion.category].label}
+          </span>
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-700">
+            {difficultyLabels[currentQuestion.difficulty].emoji} {difficultyLabels[currentQuestion.difficulty].label}
           </span>
           {timerEnabled && (
             <span className={`font-mono ${timeLeft <= 10 ? "text-red-400" : ""}`}>

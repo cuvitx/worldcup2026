@@ -16,6 +16,7 @@
     "@repo/data": "*",
     "@repo/ui": "*",
     "@tailwindcss/postcss": "^4.1.18",
+    "isomorphic-dompurify": "^2.36.0",
     "next": "16.1.5",
     "postcss": "^8.4.31",
     "react": "^19.2.0",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@types/dompurify": "^3.0.5",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",

@@ -4,74 +4,138 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
   description:
-    "Toutes les infos pour regarder la Coupe du Monde 2026 : chaînes TV par pays (France, Belgique, Suisse, Canada), streaming légal, horaires convertis en heure française et FAQ complète.",
+    "Toutes les infos pour regarder la Coupe du Monde 2026 : chaînes TV par pays (France, Belgique, Suisse, Canada + international), streaming légal gratuit et payant, VPN et FAQ complète.",
   openGraph: {
     title: "Où regarder la CDM 2026 — TV & Streaming par pays",
     description:
-      "TF1, beIN, RTBF, RTS, TSN, RDS… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
+      "TF1, M6, beIN Sports, BBC, Fox Sports… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
     url: "https://cdm2026.fr/ou-regarder",
   },
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const tvByCountry = [
+const tvFranceDetailed = [
   {
-    country: "🇫🇷 France",
-    channels: [
-      { name: "TF1", type: "Gratuit (TNT)", matches: "28 matchs en clair", details: "Match d'ouverture, matchs de la France, demies & finale." },
-      { name: "beIN Sports 1-3", type: "Abonnement (~15€/mois)", matches: "104 matchs (intégralité)", details: "Intégrale du tournoi avec studio d'analyse et multi-diffusion." },
-      { name: "Canal+", type: "Abonnement", matches: "~35 matchs sélectionnés", details: "Affiches du soir et phases finales en co-diffusion." },
-    ],
-    streaming: [
-      { name: "TF1+ (MyTF1)", url: "https://www.tf1.fr/", free: true, desc: "Streaming gratuit des matchs TF1. App iOS, Android, Smart TV." },
-      { name: "beIN Connect", url: "https://connect.bein.net/", free: false, desc: "Service streaming officiel beIN Sports. Tous les matchs en direct." },
-      { name: "MyCanal", url: "https://www.canalplus.com/", free: false, desc: "Canal+ & beIN Sports pour abonnés. Replay inclus." },
-    ],
+    name: "TF1",
+    type: "Gratuit (TNT)",
+    matches: "Matchs de la France + finale + demi-finales",
+    details:
+      "Chaîne historique du foot français. Diffuse tous les matchs des Bleus, les demi-finales et la finale en clair. Droits en cours de finalisation.",
+    logo: "📺",
+    free: true,
   },
+  {
+    name: "M6",
+    type: "Gratuit (TNT)",
+    matches: "54 matchs",
+    details:
+      "Co-diffusion avec TF1 sur certains matchs clés (ouverture, quarts). Large couverture de la phase de groupes et des 8es de finale.",
+    logo: "📺",
+    free: true,
+  },
+  {
+    name: "beIN Sports",
+    type: "Abonnement (~15 €/mois)",
+    matches: "104 matchs (intégralité)",
+    details:
+      "Seul diffuseur à proposer l'intégralité des 104 matchs du tournoi. Studio d'analyse, multi-diffusion sur beIN Sports 1, 2 et 3.",
+    logo: "⚽",
+    free: false,
+  },
+];
+
+const streamingFrance = {
+  gratuit: [
+    {
+      name: "TF1+",
+      url: "https://www.tf1.fr/",
+      desc: "Streaming gratuit des matchs TF1 (France, demi-finales, finale). App iOS, Android, Smart TV.",
+    },
+    {
+      name: "M6+",
+      url: "https://www.6play.fr/",
+      desc: "Streaming gratuit des 54 matchs M6. Disponible sur mobile et navigateur.",
+    },
+    {
+      name: "Molotov",
+      url: "https://www.molotov.tv/",
+      desc: "Accès gratuit aux chaînes TNT (TF1, M6). Replay et start-over disponibles.",
+    },
+  ],
+  payant: [
+    {
+      name: "myCANAL",
+      url: "https://www.canalplus.com/",
+      desc: "Pour les abonnés beIN Sports via Canal+. Tous les 104 matchs en streaming.",
+      price: "~35 €/mois (pack sport)",
+    },
+    {
+      name: "beIN Connect",
+      url: "https://connect.bein.net/",
+      desc: "Service streaming officiel beIN Sports. Intégralité du tournoi en direct et replay.",
+      price: "~15 €/mois",
+    },
+    {
+      name: "Amazon Prime Video (Ligue 1 Pass)",
+      url: "https://www.primevideo.com/",
+      desc: "Possibilité d'ajout du pass beIN Sports. À confirmer pour la CDM 2026.",
+      price: "~15 €/mois (en sus)",
+    },
+  ],
+};
+
+const tvByCountryFrancophone = [
   {
     country: "🇧🇪 Belgique",
     channels: [
       { name: "RTBF (La Une / La Deux)", type: "Gratuit", matches: "Matchs des Diables Rouges + sélection", details: "Service public belge francophone, diffusion en clair." },
       { name: "RTL Belgium", type: "Gratuit", matches: "Sélection de matchs", details: "Co-diffusion avec RTBF pour les grands rendez-vous." },
-      { name: "Eleven Sports", type: "Abonnement (~7€/mois)", matches: "Intégralité des matchs", details: "Plateforme dédiée au sport, anciennement Play Sports." },
+      { name: "Eleven Sports", type: "Abonnement (~7 €/mois)", matches: "Intégralité des matchs", details: "Plateforme dédiée au sport." },
     ],
     streaming: [
-      { name: "Auvio (RTBF)", url: "https://www.rtbf.be/auvio/", free: true, desc: "Streaming gratuit des matchs RTBF. App officielle." },
+      { name: "Auvio (RTBF)", url: "https://www.rtbf.be/auvio/", free: true, desc: "Streaming gratuit des matchs RTBF." },
       { name: "Eleven+ / Pickx", url: "https://www.proximus.be/", free: false, desc: "Streaming Eleven Sports via Proximus Pickx." },
     ],
   },
   {
     country: "🇨🇭 Suisse",
     channels: [
-      { name: "RTS (RTS 1 / RTS 2)", type: "Gratuit", matches: "Matchs de la Nati + sélection", details: "Service public romand, diffusion en clair des grands matchs." },
+      { name: "RTS (RTS 1 / RTS 2)", type: "Gratuit", matches: "Matchs de la Nati + sélection", details: "Service public romand." },
       { name: "SRF (SRF 2)", type: "Gratuit (en allemand)", matches: "Sélection de matchs", details: "Télévision publique alémanique." },
       { name: "Blue TV / Teleclub", type: "Abonnement", matches: "Intégralité", details: "Droits étendus pour les abonnés Sunrise/UPC." },
     ],
     streaming: [
-      { name: "Play RTS", url: "https://www.rts.ch/play/", free: true, desc: "Streaming gratuit RTS. Live et replay. App officielle." },
+      { name: "Play RTS", url: "https://www.rts.ch/play/", free: true, desc: "Streaming gratuit RTS. Live et replay." },
       { name: "Blue TV", url: "https://blue.ch/", free: false, desc: "Streaming Sunrise/UPC avec droits complets." },
     ],
   },
   {
     country: "🇨🇦 Canada (franco)",
     channels: [
-      { name: "TVA Sports", type: "Abonnement (câble/satellite)", matches: "Matchs en français", details: "Chaîne sportive du groupe Québecor, commentaires en français." },
+      { name: "TVA Sports", type: "Abonnement", matches: "Matchs en français", details: "Chaîne sportive du groupe Québecor." },
       { name: "RDS", type: "Abonnement", matches: "Sélection matchs FR", details: "Réseau Des Sports, diffusion en français au Québec." },
       { name: "TSN / CTV", type: "Abonnement / Gratuit", matches: "Matchs en anglais", details: "TSN pour les droits complets, CTV pour les grands matchs en clair." },
     ],
     streaming: [
-      { name: "TVA+ / TVA Sports", url: "https://www.tvasports.ca/", free: false, desc: "Streaming TVA Sports. App disponible." },
-      { name: "RDS.ca", url: "https://www.rds.ca/", free: false, desc: "Streaming RDS pour les abonnés." },
-      { name: "TSN Direct", url: "https://www.tsn.ca/", free: false, desc: "Streaming TSN, anglophone, droits complets au Canada." },
+      { name: "TVA+", url: "https://www.tvasports.ca/", free: false, desc: "Streaming TVA Sports." },
+      { name: "TSN Direct", url: "https://www.tsn.ca/", free: false, desc: "Streaming TSN, anglophone, droits complets." },
     ],
   },
 ];
 
+const internationalBroadcasters = [
+  { flag: "🇺🇸", country: "États-Unis", channels: "Fox Sports / Telemundo", details: "Fox (anglais) + Telemundo (espagnol). Streaming sur Peacock et Tubi.", free: "Telemundo (espagnol)" },
+  { flag: "🇬🇧", country: "Royaume-Uni", channels: "BBC / ITV", details: "Couverture partagée entre BBC (iPlayer gratuit) et ITV (ITVX gratuit).", free: "BBC iPlayer + ITVX" },
+  { flag: "🇩🇪", country: "Allemagne", channels: "ARD / ZDF", details: "Service public allemand, intégralité en clair. Streaming sur ARD/ZDF Mediathek.", free: "Oui (intégralité)" },
+  { flag: "🇪🇸", country: "Espagne", channels: "TVE (RTVE)", details: "Télévision publique espagnole. Streaming gratuit sur RTVE Play.", free: "Oui (RTVE Play)" },
+  { flag: "🇮🇹", country: "Italie", channels: "RAI", details: "RAI 1 et RAI Sport. Streaming gratuit sur RaiPlay.", free: "Oui (RaiPlay)" },
+  { flag: "🇧🇷", country: "Brésil", channels: "Globo", details: "TV Globo en clair + Globoplay (streaming). Plus grande audience mondiale.", free: "TV Globo + Globoplay" },
+  { flag: "🇲🇽", country: "Mexique", channels: "Televisa / TV Azteca", details: "Double diffusion en clair. Pays hôte avec forte couverture.", free: "Oui (les deux)" },
+];
+
 // ─── Matchs à suivre — programme TV ───────────────────────────────────────────
-// Heures en CEST (UTC+2) — France en été (juin–juillet 2026)
 const featuredMatches = [
-  // ── Match d'ouverture ──────────────────────────────────────────────────
   {
     id: "m01",
     date: "Jeu 11 juin 2026",
@@ -79,47 +143,11 @@ const featuredMatches = [
     match: "Mexique 🇲🇽 vs 🇿🇦 Afrique du Sud",
     stage: "Phase de groupes — Gr. A",
     stadium: "Estadio Azteca, Mexico",
-    tvFR: ["TF1", "beIN Sports 1"],
-    tvBE: ["RTBF La Une", "Eleven Sports"],
-    tvCH: ["RTS 1", "Blue TV"],
-    tvCA: ["TVA Sports", "TSN"],
+    tvFR: ["TF1", "M6", "beIN Sports 1"],
     isFrance: false,
     note: "🎉 Match d'ouverture",
     free: true,
   },
-  // ── Belgique ─────────────────────────────────────────────────────────
-  {
-    id: "m13",
-    date: "Dim 14 juin 2026",
-    timeFR: "21h00",
-    match: "Belgique 🇧🇪 vs 🇹🇳 Tunisie",
-    stage: "Phase de groupes — Gr. C",
-    stadium: "AT&T Stadium, Dallas",
-    tvFR: ["beIN Sports 2"],
-    tvBE: ["RTBF La Une", "RTL Belgium"],
-    tvCH: ["Blue TV"],
-    tvCA: ["RDS", "TSN"],
-    isFrance: false,
-    note: "🇧🇪 Diables Rouges",
-    free: false,
-  },
-  // ── Suisse ────────────────────────────────────────────────────────────
-  {
-    id: "m05",
-    date: "Sam 13 juin 2026",
-    timeFR: "21h00",
-    match: "Qatar 🇶🇦 vs 🇨🇭 Suisse",
-    stage: "Phase de groupes — Gr. B",
-    stadium: "Levi's Stadium, San Francisco",
-    tvFR: ["beIN Sports 3"],
-    tvBE: ["Eleven Sports"],
-    tvCH: ["RTS 1", "SRF 2"],
-    tvCA: ["TSN"],
-    isFrance: false,
-    note: "🇨🇭 Premier match de la Nati",
-    free: false,
-  },
-  // ── France — Match 1 ──────────────────────────────────────────────────
   {
     id: "m17",
     date: "Mar 16 juin 2026",
@@ -128,46 +156,10 @@ const featuredMatches = [
     stage: "Phase de groupes — Gr. I",
     stadium: "MetLife Stadium, New York/NJ",
     tvFR: ["TF1", "beIN Sports 1"],
-    tvBE: ["RTBF La Deux", "Eleven Sports"],
-    tvCH: ["RTS 1", "Blue TV"],
-    tvCA: ["TVA Sports", "RDS", "TSN"],
     isFrance: true,
     note: "🇫🇷 Premier match des Bleus",
     free: true,
   },
-  // ── Suisse — Match 2 ─────────────────────────────────────────────────
-  {
-    id: "m36",
-    date: "Jeu 18 juin 2026",
-    timeFR: "21h00",
-    match: "Suisse 🇨🇭 vs 🇸🇰 Slovaquie",
-    stage: "Phase de groupes — Gr. B",
-    stadium: "Arrowhead Stadium, Kansas City",
-    tvFR: ["beIN Sports 2"],
-    tvBE: ["Eleven Sports"],
-    tvCH: ["RTS 2", "SRF 2"],
-    tvCA: ["TSN"],
-    isFrance: false,
-    note: "🇨🇭 La Nati J2",
-    free: false,
-  },
-  // ── Belgique — Match 2 ────────────────────────────────────────────────
-  {
-    id: "m38",
-    date: "Sam 20 juin 2026",
-    timeFR: "21h00",
-    match: "Belgique 🇧🇪 vs 🇮🇷 Iran",
-    stage: "Phase de groupes — Gr. C",
-    stadium: "Mercedes-Benz Stadium, Atlanta",
-    tvFR: ["beIN Sports 3"],
-    tvBE: ["RTBF La Une", "RTL Belgium"],
-    tvCH: ["Blue TV"],
-    tvCA: ["RDS", "TSN"],
-    isFrance: false,
-    note: "🇧🇪 Diables Rouges J2",
-    free: false,
-  },
-  // ── France — Match 2 ──────────────────────────────────────────────────
   {
     id: "m43",
     date: "Lun 22 juin 2026",
@@ -176,30 +168,10 @@ const featuredMatches = [
     stage: "Phase de groupes — Gr. I",
     stadium: "Lincoln Financial Field, Philadelphia",
     tvFR: ["TF1", "beIN Sports 1"],
-    tvBE: ["RTBF La Deux", "Eleven Sports"],
-    tvCH: ["RTS 1", "Blue TV"],
-    tvCA: ["TVA Sports", "RDS", "TSN"],
     isFrance: true,
     note: "🇫🇷 Bleus J2",
     free: true,
   },
-  // ── Canada ────────────────────────────────────────────────────────────
-  {
-    id: "m53",
-    date: "Mer 24 juin 2026",
-    timeFR: "21h00",
-    match: "Suisse 🇨🇭 vs 🇨🇦 Canada",
-    stage: "Phase de groupes — Gr. B",
-    stadium: "Levi's Stadium, San Francisco",
-    tvFR: ["beIN Sports 2"],
-    tvBE: ["Eleven Sports"],
-    tvCH: ["RTS 1", "Blue TV"],
-    tvCA: ["TVA Sports", "TSN"],
-    isFrance: false,
-    note: "🇨🇦🇨🇭 Double intérêt",
-    free: false,
-  },
-  // ── France — Match 3 ──────────────────────────────────────────────────
   {
     id: "m66",
     date: "Ven 26 juin 2026",
@@ -208,14 +180,34 @@ const featuredMatches = [
     stage: "Phase de groupes — Gr. I",
     stadium: "Gillette Stadium, Boston",
     tvFR: ["TF1", "beIN Sports 1"],
-    tvBE: ["RTBF La Deux", "Eleven Sports"],
-    tvCH: ["RTS 1", "Blue TV"],
-    tvCA: ["TVA Sports", "RDS", "TSN"],
     isFrance: true,
     note: "🇫🇷 Bleus J3 (décisif !)",
     free: true,
   },
-  // ── Finale ────────────────────────────────────────────────────────────
+  {
+    id: "sf1",
+    date: "Mar 15 juil. 2026",
+    timeFR: "21h00",
+    match: "Demi-finale 1",
+    stage: "Demi-finale",
+    stadium: "MetLife Stadium, New York/NJ",
+    tvFR: ["TF1", "beIN Sports 1"],
+    isFrance: false,
+    note: "🔥 Demi-finale",
+    free: true,
+  },
+  {
+    id: "sf2",
+    date: "Mer 16 juil. 2026",
+    timeFR: "21h00",
+    match: "Demi-finale 2",
+    stage: "Demi-finale",
+    stadium: "AT&T Stadium, Dallas",
+    tvFR: ["TF1", "beIN Sports 1"],
+    isFrance: false,
+    note: "🔥 Demi-finale",
+    free: true,
+  },
   {
     id: "final",
     date: "Dim 19 juil. 2026",
@@ -224,9 +216,6 @@ const featuredMatches = [
     stage: "Finale",
     stadium: "MetLife Stadium, New York/NJ",
     tvFR: ["TF1", "beIN Sports 1"],
-    tvBE: ["RTBF La Une", "RTL Belgium"],
-    tvCH: ["RTS 1", "SRF 2"],
-    tvCA: ["TVA Sports", "RDS", "TSN"],
     isFrance: false,
     note: "🏆 Grand final du Mondial",
     free: true,
@@ -234,56 +223,56 @@ const featuredMatches = [
 ];
 
 const timeZones = [
-  { city: "New York / Miami / Atlanta / Philly / Boston",   utcOffset: "UTC-4 (EDT)", frDiff: "-6h", frTime: "19h → 1h du matin" },
-  { city: "Chicago / Houston / Dallas / Kansas City",       utcOffset: "UTC-5 (CDT)", frDiff: "-7h", frTime: "19h → 2h du matin" },
-  { city: "Denver",                                         utcOffset: "UTC-6 (MDT)", frDiff: "-8h", frTime: "19h → 3h du matin" },
+  { city: "New York / Miami / Atlanta / Philly / Boston", utcOffset: "UTC-4 (EDT)", frDiff: "-6h", frTime: "19h → 1h du matin" },
+  { city: "Chicago / Houston / Dallas / Kansas City", utcOffset: "UTC-5 (CDT)", frDiff: "-7h", frTime: "19h → 2h du matin" },
+  { city: "Denver", utcOffset: "UTC-6 (MDT)", frDiff: "-8h", frTime: "19h → 3h du matin" },
   { city: "Los Angeles / Seattle / San Francisco / Vancouver", utcOffset: "UTC-7 (PDT)", frDiff: "-9h", frTime: "19h → 4h du matin" },
   { city: "Mexico City / Guadalajara / Monterrey / Toronto", utcOffset: "UTC-5 (CDT)", frDiff: "-7h", frTime: "19h → 2h du matin" },
 ];
 
 const typicalSchedule = [
-  { local: "13h00 (EDT)", france: "19h00 (CET)", note: "1er créneau — soirée accessible 🌟", hot: true },
-  { local: "16h00 (EDT)", france: "22h00 (CET)", note: "2e créneau — début de soirée" },
-  { local: "19h00 (EDT)", france: "01h00 (CET+1)", note: "3e créneau — tard dans la nuit 🌙" },
-  { local: "21h00 (EDT)", france: "03h00 (CET+1)", note: "4e créneau — milieu de nuit ⚠️" },
+  { local: "13h00 (EDT)", france: "19h00 (CEST)", note: "1er créneau — soirée accessible 🌟", hot: true },
+  { local: "16h00 (EDT)", france: "22h00 (CEST)", note: "2e créneau — début de soirée" },
+  { local: "19h00 (EDT)", france: "01h00 (CEST+1)", note: "3e créneau — tard dans la nuit 🌙" },
+  { local: "21h00 (EDT)", france: "03h00 (CEST+1)", note: "4e créneau — milieu de nuit ⚠️" },
 ];
 
 const faqItems = [
   {
     q: "Peut-on regarder la CDM 2026 gratuitement en France ?",
-    a: "Oui, TF1 diffusera environ 28 matchs en clair dont tous les matchs de la France, les demi-finales et la finale. La plateforme gratuite TF1+ permettra également de les regarder en streaming sans abonnement.",
+    a: "Oui ! TF1 diffusera les matchs de la France, les demi-finales et la finale en clair. M6 proposera 54 matchs en clair. En streaming gratuit : TF1+, M6+ (6play) et Molotov permettent de suivre ces matchs sans abonnement.",
+  },
+  {
+    q: "Combien de matchs sont diffusés sur chaque chaîne en France ?",
+    a: "beIN Sports diffuse l'intégralité des 104 matchs (abonnement requis). M6 propose 54 matchs en clair. TF1 couvre les matchs de la France, les demi-finales et la finale. Certains matchs clés sont en co-diffusion TF1/M6.",
   },
   {
     q: "Quel est le décalage horaire entre la France et les États-Unis ?",
-    a: "En été (heure CEST, UTC+2), il faut ajouter entre 6h et 9h selon la ville hôte. Un match à 19h locale à New York (EDT) est diffusé à 1h du matin en France. Les matchs sur la côte Est sont les plus accessibles.",
+    a: "En été (heure CEST, UTC+2), le décalage est de -6h avec la côte Est (New York), -7h avec le centre (Dallas, Chicago), et -9h avec la côte Ouest (Los Angeles). Un match à 19h locale à New York est diffusé à 1h du matin en France.",
   },
   {
-    q: "Comment regarder la CDM 2026 en Belgique ?",
-    a: "La RTBF (La Une) diffuse les matchs des Diables Rouges et une sélection en clair. La plateforme Auvio permet le streaming gratuit. Pour tous les matchs, Eleven Sports (abonnement) est disponible.",
+    q: "Comment regarder tous les matchs de la CDM 2026 ?",
+    a: "Pour voir les 104 matchs, un abonnement beIN Sports (~15 €/mois) est nécessaire. Accessible via beIN Connect, myCANAL ou Amazon Prime Video (pass beIN). Sans abonnement, TF1 et M6 couvrent une large sélection en clair.",
   },
   {
-    q: "La CDM 2026 sera-t-elle diffusée en Suisse ?",
-    a: "Oui, RTS (RTS 1 et RTS 2) diffusera les matchs de la Nati et une sélection en clair. Le streaming est disponible via Play RTS gratuitement. Blue TV propose l'intégralité pour les abonnés.",
+    q: "Comment regarder la CDM 2026 depuis l'étranger ?",
+    a: "Si vous êtes à l'étranger, les plateformes françaises (TF1+, M6+) sont géo-bloquées. Un VPN permet de simuler une connexion depuis la France. Choisissez un VPN fiable (NordVPN, ExpressVPN, CyberGhost), connectez-vous à un serveur français, puis accédez normalement aux plateformes de streaming.",
   },
   {
-    q: "Peut-on regarder la Coupe du Monde en direct sur téléphone ?",
-    a: "Absolument. TF1+, beIN Connect, MyCanal, Auvio (RTBF), Play RTS, TVA Sports et TSN Direct proposent tous des applications mobiles iOS et Android permettant de suivre les matchs en direct.",
+    q: "Peut-on regarder la CDM 2026 sur téléphone ?",
+    a: "Oui. TF1+, M6+, beIN Connect, myCANAL et Molotov proposent tous des applications mobiles iOS et Android. Les matchs gratuits sur TF1+ et M6+ ne nécessitent aucun abonnement.",
   },
   {
-    q: "Quand ont lieu les matchs de la France à la CDM 2026 ?",
-    a: "Les matchs de la France seront programmés en priorité sur des créneaux favorables au public européen (typiquement 19h ou 22h heure française). TF1 diffusera tous les matchs des Bleus en clair. Le calendrier exact sera disponible dès le tirage au sort.",
+    q: "La CDM 2026 est-elle diffusée gratuitement dans d'autres pays ?",
+    a: "Oui ! Au Royaume-Uni (BBC iPlayer + ITVX), en Allemagne (ARD/ZDF Mediathek), en Espagne (RTVE Play), en Italie (RaiPlay), au Brésil (Globoplay) et au Mexique (Televisa/TV Azteca) — la Coupe du Monde est diffusée gratuitement sur les chaînes publiques.",
+  },
+  {
+    q: "Quelles chaînes diffusent la CDM 2026 aux États-Unis ?",
+    a: "Fox Sports (en anglais) et Telemundo (en espagnol) détiennent les droits TV aux États-Unis. Le streaming est disponible sur Peacock (NBC) et Tubi (Fox). Telemundo est accessible gratuitement.",
   },
   {
     q: "Existe-t-il des fan zones en France pour la CDM 2026 ?",
-    a: "Les fan zones officielles seront annoncées par les municipalités et la fédération. Les grandes villes (Paris, Lyon, Marseille, Bordeaux, Lille) proposeront très probablement des écrans géants. Des bars sportifs retransmettront également tous les matchs.",
-  },
-  {
-    q: "Comment regarder la CDM 2026 sans abonnement ?",
-    a: "En France, TF1 et TF1+ (streaming) diffusent environ 28 matchs gratuitement, dont tous les matchs de la France, les demi-finales et la finale. En Belgique, la RTBF (La Une) et son service Auvio sont 100% gratuits. En Suisse, RTS et Play RTS sont gratuits pour les matchs de la Nati et les grandes affiches. Au Canada, CTV propose quelques matchs en accès libre. Les fan zones et bars sportifs retransmettent également les matchs sans frais supplémentaires.",
-  },
-  {
-    q: "Quelles chaînes sont gratuites pour la CDM 2026 ?",
-    a: "Les chaînes gratuites selon les pays : 🇫🇷 France : TF1 (TNT), M6 (grandes affiches) ; streaming gratuit sur TF1+. 🇧🇪 Belgique : RTBF La Une, La Deux, RTL Belgium ; streaming sur Auvio (RTBF). 🇨🇭 Suisse : RTS 1, RTS 2 (francophone), SRF 2 (alémanique) ; streaming sur Play RTS. 🇨🇦 Canada : CTV pour quelques matchs ; le reste nécessite un abonnement (TVA Sports, RDS, TSN).",
+    a: "Les fan zones officielles seront annoncées par les municipalités et la FFF. Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants. Les bars sportifs retransmettront également tous les matchs.",
   },
 ];
 
@@ -330,51 +319,146 @@ export default function OuRegarderPage() {
           📺 Où regarder la Coupe du Monde 2026
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-3xl">
-          TV en clair, abonnements et streaming légal — guide complet par pays (France, Belgique, Suisse, Canada)
-          avec les horaires convertis en heure française.
+          Guide complet des droits TV et du streaming légal pour suivre les 104 matchs du Mondial 2026.
+          France en détail, pays francophones et diffuseurs internationaux.
         </p>
 
-        {/* ── TV par pays ─────────────────────────────────────────────────── */}
+        {/* ── 1. FRANCE — Droits TV détaillés ─────────────────────────────── */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-            📡 Droits TV par pays
+            🇫🇷 Droits TV en France — Détail par chaîne
           </h2>
 
-          <div className="space-y-10">
-            {tvByCountry.map((country) => (
+          <div className="grid gap-4 md:grid-cols-3">
+            {tvFranceDetailed.map((ch) => (
+              <div
+                key={ch.name}
+                className={`rounded-2xl border p-6 flex flex-col ${
+                  ch.free
+                    ? "bg-green-50 dark:bg-green-900/15 border-green-200 dark:border-green-700"
+                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                }`}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">{ch.logo}</span>
+                  <div>
+                    <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100">{ch.name}</h3>
+                    <span
+                      className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                        ch.free
+                          ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                          : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                      }`}
+                    >
+                      {ch.type}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-lg font-bold text-primary dark:text-accent mb-2">{ch.matches}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 flex-1">{ch.details}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-sm text-amber-800 dark:text-amber-200">
+            <p className="font-semibold">⚠️ Note importante</p>
+            <p className="mt-1">
+              Les droits TV de TF1 sont encore en cours de finalisation. M6 a confirmé 54 matchs.
+              beIN Sports reste le seul diffuseur de l&apos;intégralité (104 matchs). Cette page sera mise à jour dès confirmation officielle.
+            </p>
+          </div>
+        </section>
+
+        {/* ── 2. Streaming France — Gratuit vs Payant ─────────────────────── */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            💻 Streaming en France — Gratuit vs Payant
+          </h2>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* Gratuit */}
+            <div className="rounded-2xl border border-green-200 dark:border-green-700 overflow-hidden">
+              <div className="bg-green-50 dark:bg-green-900/30 px-6 py-4 border-b border-green-200 dark:border-green-700">
+                <h3 className="text-lg font-bold text-green-800 dark:text-green-200">✅ Streaming gratuit</h3>
+                <p className="text-sm text-green-600 dark:text-green-400">Aucun abonnement requis</p>
+              </div>
+              <div className="p-6 space-y-3 bg-white dark:bg-gray-800">
+                {streamingFrance.gratuit.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="block p-4 rounded-xl bg-green-50 dark:bg-green-900/10 hover:bg-green-100 dark:hover:bg-green-900/20 transition-colors"
+                  >
+                    <span className="font-bold text-gray-900 dark:text-gray-100">{s.name}</span>
+                    <span className="ml-2 text-xs font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">
+                      Gratuit
+                    </span>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{s.desc}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Payant */}
+            <div className="rounded-2xl border border-blue-200 dark:border-blue-700 overflow-hidden">
+              <div className="bg-blue-50 dark:bg-blue-900/30 px-6 py-4 border-b border-blue-200 dark:border-blue-700">
+                <h3 className="text-lg font-bold text-blue-800 dark:text-blue-200">🔒 Streaming payant</h3>
+                <p className="text-sm text-blue-600 dark:text-blue-400">Abonnement requis — 104 matchs</p>
+              </div>
+              <div className="p-6 space-y-3 bg-white dark:bg-gray-800">
+                {streamingFrance.payant.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="block p-4 rounded-xl bg-blue-50 dark:bg-blue-900/10 hover:bg-blue-100 dark:hover:bg-blue-900/20 transition-colors"
+                  >
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <span className="font-bold text-gray-900 dark:text-gray-100">{s.name}</span>
+                      <span className="text-xs font-bold bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full">
+                        {s.price}
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{s.desc}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 3. Pays francophones ────────────────────────────────────────── */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            📡 Droits TV — Belgique, Suisse, Canada
+          </h2>
+
+          <div className="space-y-8">
+            {tvByCountryFrancophone.map((country) => (
               <div
                 key={country.country}
                 className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm"
               >
-                {/* Country header */}
                 <div className="bg-gray-50 dark:bg-gray-700/50 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{country.country}</h3>
                 </div>
-
                 <div className="p-6 grid gap-6 lg:grid-cols-2">
-                  {/* Channels */}
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
-                      📺 Chaînes TV
-                    </h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">📺 Chaînes TV</h4>
                     <div className="space-y-3">
                       {country.channels.map((ch) => (
-                        <div
-                          key={ch.name}
-                          className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50"
-                        >
+                        <div key={ch.name} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="font-bold text-gray-900 dark:text-gray-100">{ch.name}</span>
-                              <span
-                                className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                                  ch.type.toLowerCase().includes("gratuit")
-                                    ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                                    : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
-                                }`}
-                              >
-                                {ch.type}
-                              </span>
+                              <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                                ch.type.toLowerCase().includes("gratuit")
+                                  ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                                  : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                              }`}>{ch.type}</span>
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{ch.details}</p>
                             <p className="text-xs font-semibold text-primary dark:text-accent mt-1">{ch.matches}</p>
@@ -383,12 +467,8 @@ export default function OuRegarderPage() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Streaming */}
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
-                      💻 Streaming légal
-                    </h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">💻 Streaming légal</h4>
                     <div className="space-y-3">
                       {country.streaming.map((s) => (
                         <a
@@ -400,13 +480,9 @@ export default function OuRegarderPage() {
                         >
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-accent transition-colors">
-                                {s.name}
-                              </span>
+                              <span className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-accent transition-colors">{s.name}</span>
                               {s.free && (
-                                <span className="text-xs font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">
-                                  Gratuit
-                                </span>
+                                <span className="text-xs font-bold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">Gratuit</span>
                               )}
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.desc}</p>
@@ -425,16 +501,110 @@ export default function OuRegarderPage() {
           </div>
         </section>
 
-        {/* ── Programme TV par match ──────────────────────────────────────── */}
+        {/* ── 4. Diffuseurs internationaux ────────────────────────────────── */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            🌍 Diffuseurs internationaux
+          </h2>
+
+          {/* Mobile: cards */}
+          <div className="md:hidden space-y-3">
+            {internationalBroadcasters.map((b) => (
+              <div key={b.country} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-2xl">{b.flag}</span>
+                  <span className="font-bold text-gray-900 dark:text-gray-100">{b.country}</span>
+                </div>
+                <p className="text-sm font-semibold text-primary dark:text-accent mb-1">{b.channels}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{b.details}</p>
+                <span className="text-xs font-semibold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">
+                  Gratuit : {b.free}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: table */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+            <table className="w-full text-sm bg-white dark:bg-gray-800">
+              <thead className="bg-gray-50 dark:bg-gray-700">
+                <tr>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Pays</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Chaînes / Diffuseurs</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Détails</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Accès gratuit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {internationalBroadcasters.map((b) => (
+                  <tr key={b.country} className="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30">
+                    <td className="px-4 py-3 font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                      {b.flag} {b.country}
+                    </td>
+                    <td className="px-4 py-3 font-semibold text-primary dark:text-accent">{b.channels}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{b.details}</td>
+                    <td className="px-4 py-3">
+                      <span className="text-xs font-semibold bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-1 rounded-full">
+                        {b.free}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ── 5. Regarder depuis l'étranger (VPN) ─────────────────────────── */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            🌐 Comment regarder depuis l&apos;étranger (VPN)
+          </h2>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              Les plateformes de streaming françaises (TF1+, M6+, myCANAL) sont <strong className="text-gray-900 dark:text-gray-100">géo-bloquées</strong> à
+              l&apos;étranger. Un VPN (Virtual Private Network) vous permet de simuler une connexion depuis la France
+              pour accéder aux flux en direct.
+            </p>
+
+            <div className="grid gap-4 md:grid-cols-3 mb-6">
+              {[
+                { step: "1", title: "Choisir un VPN", desc: "Optez pour un VPN fiable avec des serveurs en France : NordVPN, ExpressVPN, CyberGhost ou Surfshark." },
+                { step: "2", title: "Se connecter à un serveur 🇫🇷", desc: "Lancez le VPN et sélectionnez un serveur situé en France (Paris, Lyon…)." },
+                { step: "3", title: "Regarder les matchs", desc: "Accédez à TF1+, M6+ ou beIN Connect normalement. Le streaming fonctionne comme si vous étiez en France." },
+              ].map((s) => (
+                <div key={s.step} className="rounded-xl bg-gray-50 dark:bg-gray-700/50 p-5">
+                  <div className="w-10 h-10 rounded-full bg-primary dark:bg-accent text-white flex items-center justify-center font-extrabold text-lg mb-3">
+                    {s.step}
+                  </div>
+                  <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">{s.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-sm text-amber-800 dark:text-amber-200">
+              <p className="font-semibold">⚠️ Légalité du VPN</p>
+              <p className="mt-1">
+                L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage
+                peut enfreindre les conditions d&apos;utilisation de certaines plateformes. Nous recommandons de vérifier les conditions
+                du service que vous utilisez.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 6. Programme TV par match ───────────────────────────────────── */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            📅 Programme TV — Matchs à suivre
+            📅 Programme TV — Matchs clés en France
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-            Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la 🇫🇷 France sont prioritairement sur TF1 (gratuit).
+            Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la 🇫🇷 France sont sur TF1 (gratuit).
           </p>
 
-          {/* Mobile : cards */}
+          {/* Mobile: cards */}
           <div className="md:hidden space-y-3">
             {featuredMatches.map((m) => (
               <div
@@ -452,10 +622,9 @@ export default function OuRegarderPage() {
                 <p className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">{m.match}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{m.stage} · {m.stadium}</p>
                 <div className="flex flex-wrap gap-1 mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400 self-center">🇫🇷</span>
                   {m.tvFR.map((ch) => (
                     <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                      ch === "TF1" || ch.includes("Gratuit")
+                      ch === "TF1" || ch === "M6"
                         ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
                         : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
                     }`}>{ch}</span>
@@ -471,7 +640,7 @@ export default function OuRegarderPage() {
             ))}
           </div>
 
-          {/* Desktop : table */}
+          {/* Desktop: table */}
           <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
             <table className="w-full text-sm bg-white dark:bg-gray-800">
               <thead className="bg-gray-50 dark:bg-gray-700">
@@ -480,10 +649,7 @@ export default function OuRegarderPage() {
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Heure 🇫🇷</th>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Match</th>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Phase</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">France 🇫🇷</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Belgique 🇧🇪</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Suisse 🇨🇭</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Canada 🇨🇦</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Chaînes 🇫🇷</th>
                 </tr>
               </thead>
               <tbody>
@@ -514,39 +680,6 @@ export default function OuRegarderPage() {
                         ))}
                       </div>
                     </td>
-                    <td className="px-4 py-3">
-                      <div className="flex flex-wrap gap-1">
-                        {m.tvBE.map((ch) => (
-                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
-                            ch.includes("RTBF") || ch.includes("RTL")
-                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
-                          }`}>{ch}</span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex flex-wrap gap-1">
-                        {m.tvCH.map((ch) => (
-                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
-                            ch.includes("RTS") || ch.includes("SRF")
-                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
-                          }`}>{ch}</span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex flex-wrap gap-1">
-                        {m.tvCA.map((ch) => (
-                          <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
-                            ch === "CTV"
-                              ? "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                              : "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
-                          }`}>{ch}</span>
-                        ))}
-                      </div>
-                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -554,19 +687,18 @@ export default function OuRegarderPage() {
           </div>
 
           <p className="text-xs text-gray-400 dark:text-gray-500 mt-3 italic">
-            * Programme indicatif basé sur les droits TV connus. Horaires en heure française (CEST, UTC+2). Certaines diffusions peuvent changer selon les négociations en cours.
+            * Programme indicatif. Horaires en heure française (CEST, UTC+2).
             Légende : <span className="font-semibold text-green-600 dark:text-green-400">Vert = Gratuit</span> · <span className="font-semibold text-blue-600 dark:text-blue-400">Bleu = Abonnement</span>
           </p>
         </section>
 
-        {/* ── Décalage horaire ─────────────────────────────────────────────── */}
+        {/* ── 7. Décalage horaire ─────────────────────────────────────────── */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            🕐 Décalage horaire — Villes hôtes → France (CEST)
+            🕐 Décalage horaire — Villes hôtes → France
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-            La CDM 2026 se joue en été (juin–juillet). La France est à l'heure CEST (UTC+2).
-            Voici les décalages par rapport à chaque ville hôte :
+            La CDM 2026 se joue en été (juin–juillet). La France est à l&apos;heure CEST (UTC+2).
           </p>
 
           <div className="overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
@@ -593,7 +725,7 @@ export default function OuRegarderPage() {
           </div>
         </section>
 
-        {/* ── Horaires types ───────────────────────────────────────────────── */}
+        {/* ── 8. Horaires types ───────────────────────────────────────────── */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             ⏰ Horaires types des matchs (EDT → France CEST)
@@ -613,9 +745,7 @@ export default function OuRegarderPage() {
                 }`}
               >
                 <div className="font-mono text-sm text-gray-500 dark:text-gray-400">{s.local}</div>
-                <div className="text-2xl font-extrabold text-primary dark:text-accent mt-1">
-                  {s.france}
-                </div>
+                <div className="text-2xl font-extrabold text-primary dark:text-accent mt-1">{s.france}</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{s.note}</div>
               </div>
             ))}
@@ -625,12 +755,12 @@ export default function OuRegarderPage() {
             <p className="font-semibold">💡 Bon à savoir</p>
             <p className="mt-1">
               Les matchs de la France seront programmés en priorité sur des créneaux accessibles pour le public européen.
-              TF1 diffusera tous les matchs des Bleus en clair, y compris ceux à l'heure tardive.
+              TF1 diffusera tous les matchs des Bleus en clair, y compris ceux à l&apos;heure tardive.
             </p>
           </div>
         </section>
 
-        {/* ── Fan Zones ────────────────────────────────────────────────────── */}
+        {/* ── 9. Fan Zones ────────────────────────────────────────────────── */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🎉 Bars & Fan Zones</h2>
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
@@ -642,10 +772,6 @@ export default function OuRegarderPage() {
                   Les fan zones officielles en France seront annoncées prochainement par les municipalités et la FFF.
                   Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants et des animations.
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 mt-3 text-sm">
-                  En Belgique, la RTBF et les villes organisent des dispositifs similaires lors des tournois.
-                  En Suisse, RTS coordinate des retransmissions publiques dans les grandes villes romandes.
-                </p>
                 <p className="text-sm text-gray-500 dark:text-gray-500 mt-3 italic">
                   Cette section sera mise à jour dès l&apos;annonce officielle des fan zones.
                 </p>
@@ -654,7 +780,7 @@ export default function OuRegarderPage() {
           </div>
         </section>
 
-        {/* ── FAQ ─────────────────────────────────────────────────────────── */}
+        {/* ── 10. FAQ ─────────────────────────────────────────────────────── */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             ❓ Questions fréquentes

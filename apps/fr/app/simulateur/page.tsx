@@ -35,7 +35,7 @@ export default function SimulateurPage() {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden text-white py-10 md:py-14"
+        className="relative overflow-hidden text-white py-6 md:py-8"
         style={{
           background:
             "linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0d1b3e 100%)",
@@ -59,7 +59,7 @@ export default function SimulateurPage() {
               <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/30 px-3 py-1 text-xs font-bold text-gold mb-3">
                 🏆 Outil interactif
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
                 Construisez votre bracket CDM 2026
               </h1>
               <p className="mt-2 text-gray-300 text-sm md:text-base max-w-xl">
@@ -104,8 +104,8 @@ export default function SimulateurPage() {
       </section>
 
       {/* Simulator */}
-      <section className="bg-gray-50 dark:bg-gray-900/50 py-8">
-        <div className="mx-auto max-w-[1400px] px-4">
+      <section className="bg-gray-50 dark:bg-gray-900/50 py-4 lg:py-6">
+        <div className="mx-auto max-w-[1600px] px-2 lg:px-4">
           <BracketSimulator />
         </div>
       </section>

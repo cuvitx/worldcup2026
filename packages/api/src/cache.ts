@@ -5,6 +5,10 @@
 
 import { Redis } from "@upstash/redis";
 
+// Re-export so packages/ai can import Redis from @repo/api/cache
+// instead of adding @upstash/redis as a direct dependency.
+export { Redis };
+
 interface CacheEntry<T> {
   data: T;
   expiresAt: number;

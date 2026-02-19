@@ -9,29 +9,66 @@ interface NewsletterCTAProps {
   className?: string;
 }
 
+type Status = 'idle' | 'loading' | 'success' | 'error' | 'duplicate';
+
 export function NewsletterCTA({ variant = 'banner', className = '' }: NewsletterCTAProps) {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'duplicate'>('idle');
+  const [status, setStatus] = useState<Status>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) {
+
+    const trimmed = email.trim().toLowerCase();
+    if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
       setStatus('error');
+      setErrorMsg('Email invalide.');
       return;
     }
+
+    setStatus('loading');
+
+    // ── Appel API Brevo ──────────────────────────────────────────────────────
     try {
-      const stored = JSON.parse(localStorage.getItem('cdm2026_newsletter') ?? '[]') as string[];
-      if (stored.includes(email.toLowerCase())) {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: trimmed }),
+      });
+
+      const data = (await res.json()) as { success?: boolean; error?: string };
+
+      if (res.status === 409) {
+        saveToLocalStorage(trimmed);
         setStatus('duplicate');
         return;
       }
-      stored.push(email.toLowerCase());
-      localStorage.setItem('cdm2026_newsletter', JSON.stringify(stored));
-      localStorage.setItem('cdm2026_newsletter_date', new Date().toISOString());
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error ?? 'Erreur inconnue');
+      }
+
+      saveToLocalStorage(trimmed);
+      setStatus('success');
+      setEmail('');
+      return;
+    } catch (err) {
+      console.warn('[newsletter] API call failed, falling back to localStorage:', err);
+    }
+
+    // ── Fallback localStorage si l'API est down ──────────────────────────────
+    try {
+      const stored = JSON.parse(localStorage.getItem('cdm2026_newsletter') ?? '[]') as string[];
+      if (stored.includes(trimmed)) {
+        setStatus('duplicate');
+        return;
+      }
+      saveToLocalStorage(trimmed);
       setStatus('success');
       setEmail('');
     } catch {
       setStatus('error');
+      setErrorMsg('Une erreur est survenue. Réessayez plus tard.');
     }
   };
 
@@ -72,21 +109,25 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
           <input
             type="email"
             value={email}
-            onChange={(e) => { setEmail(e.target.value); setStatus('idle'); }}
+            onChange={(e) => { setEmail(e.target.value); setStatus('idle'); setErrorMsg(''); }}
             placeholder="votre@email.fr"
             aria-label="Votre adresse email"
             required
-            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-accent dark:focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all"
+            disabled={status === 'loading'}
+            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-accent dark:focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all disabled:opacity-60"
           />
           <button
             type="submit"
-            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/90 transition-all hover:-translate-y-0.5 shadow-md shadow-accent/20"
+            disabled={status === 'loading'}
+            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/90 transition-all hover:-translate-y-0.5 shadow-md shadow-accent/20 disabled:opacity-60 disabled:cursor-wait"
           >
-            OK
+            {status === 'loading' ? '⏳' : 'OK'}
           </button>
         </form>
         {status === 'error' && (
-          <p className="mt-1.5 text-xs text-red-500 dark:text-red-400">Email invalide.</p>
+          <p className="mt-1.5 text-xs text-red-500 dark:text-red-400">
+            {errorMsg || 'Email invalide.'}
+          </p>
         )}
         {status === 'duplicate' && (
           <p className="mt-1.5 text-xs text-amber-600 dark:text-amber-400">Déjà inscrit(e) !</p>
@@ -103,7 +144,8 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
 
   /* ────── BANNER VARIANT (default) ────── */
   return (
-    <section className={`border-t border-gray-100 dark:border-gray-800 ${className}`}
+    <section
+      className={`border-t border-gray-100 dark:border-gray-800 ${className}`}
       style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #2d1a3e 50%, #16213e 100%)' }}
     >
       <div className="mx-auto max-w-7xl px-4 py-10">
@@ -124,7 +166,10 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
             </p>
             <div className="mt-3 flex flex-wrap gap-3 justify-center md:justify-start">
               {['✅ Gratuit', '🚫 Sans spam', '📅 1×/semaine'].map((tag) => (
-                <span key={tag} className="text-xs text-gray-400 bg-white/5 border border-white/10 rounded-full px-3 py-1">
+                <span
+                  key={tag}
+                  className="text-xs text-gray-400 bg-white/5 border border-white/10 rounded-full px-3 py-1"
+                >
                   {tag}
                 </span>
               ))}
@@ -137,11 +182,12 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
               <input
                 type="email"
                 value={email}
-                onChange={(e) => { setEmail(e.target.value); setStatus('idle'); }}
+                onChange={(e) => { setEmail(e.target.value); setStatus('idle'); setErrorMsg(''); }}
                 placeholder="votre@email.fr"
                 aria-label="Votre adresse email"
                 required
-                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-accent/50 ${
+                disabled={status === 'loading'}
+                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-accent/50 disabled:opacity-60 ${
                   status === 'error' || status === 'duplicate'
                     ? 'border-red-400/50'
                     : 'border-white/20 focus:border-accent/60'
@@ -149,22 +195,28 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
               />
               <button
                 type="submit"
-                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/90 hover:-translate-y-0.5 transition-all"
+                disabled={status === 'loading'}
+                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
-                S&apos;abonner →
+                {status === 'loading' ? '⏳' : "S'abonner →"}
               </button>
             </form>
 
             {status === 'error' && (
-              <p className="mt-2 text-xs text-red-400">⚠️ Veuillez entrer un email valide.</p>
+              <p className="mt-2 text-xs text-red-400">
+                ⚠️ {errorMsg || 'Veuillez entrer un email valide.'}
+              </p>
             )}
             {status === 'duplicate' && (
               <p className="mt-2 text-xs text-amber-400">📬 Cette adresse est déjà inscrite !</p>
             )}
-            {status === 'idle' && (
+            {(status === 'idle' || status === 'loading') && (
               <p className="mt-2 text-xs text-gray-500">
                 12 000+ fans abonnés ·{' '}
-                <Link href="/newsletter" className="text-gray-400 hover:text-white underline transition-colors">
+                <Link
+                  href="/newsletter"
+                  className="text-gray-400 hover:text-white underline transition-colors"
+                >
                   Voir un exemple
                 </Link>
               </p>
@@ -174,4 +226,17 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
       </div>
     </section>
   );
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+function saveToLocalStorage(email: string) {
+  try {
+    const stored = JSON.parse(localStorage.getItem('cdm2026_newsletter') ?? '[]') as string[];
+    if (!stored.includes(email)) stored.push(email);
+    localStorage.setItem('cdm2026_newsletter', JSON.stringify(stored));
+    localStorage.setItem('cdm2026_newsletter_date', new Date().toISOString());
+  } catch {
+    // localStorage indisponible → silencieux
+  }
 }

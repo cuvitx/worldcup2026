@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { ShareButtons } from "../../components/ShareButtons";
 import { teams as allTeams } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
@@ -406,22 +406,30 @@ export function BracketSimulator() {
 // ---------------------------------------------------------------------------
 
 function BracketScaler({ children }: { children: React.ReactNode }) {
-  const containerRef = useState<HTMLDivElement | null>(null);
-  const innerRef = useState<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [innerHeight, setInnerHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     function recalc() {
-      const container = document.getElementById("bracket-container");
-      const inner = document.getElementById("bracket-inner");
+      const container = containerRef.current;
+      const inner = innerRef.current;
       if (!container || !inner) return;
+      // Reset scale to measure natural width
+      inner.style.transform = "none";
       const containerW = container.clientWidth;
       const innerW = inner.scrollWidth;
+      const naturalH = inner.scrollHeight;
       if (innerW > containerW) {
-        setScale(Math.max(0.55, containerW / innerW));
+        const s = Math.max(0.4, containerW / innerW);
+        setScale(s);
+        setInnerHeight(naturalH * s);
       } else {
         setScale(1);
+        setInnerHeight(undefined);
       }
+      // Re-apply transform (will happen via React re-render)
     }
     recalc();
     window.addEventListener("resize", recalc);
@@ -429,17 +437,19 @@ function BracketScaler({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div id="bracket-container" className="w-full overflow-hidden">
+    <div ref={containerRef} className="w-full overflow-hidden">
       <div
-        id="bracket-inner"
+        ref={innerRef}
         style={{
           transform: `scale(${scale})`,
-          transformOrigin: "top center",
-          height: scale < 1 ? `${scale * 100}%` : "auto",
+          transformOrigin: "top left",
+          ...(innerHeight ? { height: `${innerHeight}px`, marginBottom: 0 } : {}),
         }}
       >
         {children}
       </div>
+      {/* Spacer to account for scaled height */}
+      {innerHeight && <div style={{ height: 0 }} />}
     </div>
   );
 }
@@ -456,7 +466,7 @@ function DesktopBracket({
   onPick: (round: RoundName, matchIndex: number, teamId: string) => void;
 }) {
   return (
-    <div className="inline-flex items-stretch justify-center gap-2 xl:gap-3 min-h-[800px]">
+    <div className="inline-flex items-stretch justify-center gap-1 lg:gap-1.5 xl:gap-2 2xl:gap-3 min-h-[800px]">
       <RoundColumn label={ROUND_LABELS.R32} matches={rounds.R32.slice(0, 8)} round="R32" onPick={onPick} baseIndex={0} />
       <RoundColumn label={ROUND_LABELS.R16} matches={rounds.R16.slice(0, 4)} round="R16" onPick={onPick} baseIndex={0} />
       <RoundColumn label={ROUND_LABELS.QF} matches={rounds.QF.slice(0, 2)} round="QF" onPick={onPick} baseIndex={0} />
@@ -488,7 +498,7 @@ function RoundColumn({
   const colorClass = ROUND_COLORS[round];
 
   return (
-    <div className="flex flex-col items-center min-w-[160px] w-[160px] xl:min-w-[180px] xl:w-[180px]">
+    <div className="flex flex-col items-center min-w-[130px] w-[130px] lg:min-w-[145px] lg:w-[145px] xl:min-w-[160px] xl:w-[160px] 2xl:min-w-[180px] 2xl:w-[180px]">
       {/* Round label */}
       <div className={`text-[11px] font-bold uppercase tracking-wider mb-3 px-3 py-1.5 rounded-full text-white shadow-sm ${colorClass} ${round === "F" ? "text-yellow-900" : ""}`}>
         {label}

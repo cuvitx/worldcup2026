@@ -7,56 +7,21 @@ import { SearchDialog } from "@repo/ui/search-dialog";
 import { ThemeToggle } from "@repo/ui/theme-toggle";
 import { buildSearchIndex } from "@repo/data/search-index";
 
+import { routePrefixes, domains, type Lang } from "@repo/data/route-mapping";
+
 const CURRENT_LANG = "fr" as const;
 
-const domains = {
-  fr: "https://cdm2026.fr",
-  en: "https://worldcup2026guide.com",
-  es: "https://mundial2026.es",
-};
-
-const routePrefixes: Record<string, Record<string, string>> = {
-  fr: {
-    team: "équipe", teams: "équipes", match: "match", matchSchedule: "match/calendrier",
-    prediction: "pronostic", predictionMatch: "pronostic-match", group: "groupe",
-    player: "joueur", players: "joueurs", scorer: "buteur", scorers: "buteurs",
-    stadium: "stade", stadiums: "stades", city: "ville", cities: "villes",
-    h2h: "h2h", bookmaker: "bookmaker", guide: "guide", guides: "guides",
-    betting: "paris-sportifs", about: "a-propos", legal: "mentions-legales",
-    responsibleGambling: "jeu-responsable",
-  },
-  en: {
-    team: "team", teams: "teams", match: "match", matchSchedule: "match/schedule",
-    prediction: "prediction", predictionMatch: "prediction-match", group: "group",
-    player: "player", players: "players", scorer: "scorer", scorers: "scorers",
-    stadium: "stadium", stadiums: "stadiums", city: "city", cities: "cities",
-    h2h: "h2h", bookmaker: "bookmaker", guide: "guide", guides: "guides",
-    betting: "betting", about: "about", legal: "legal",
-    responsibleGambling: "responsible-gambling",
-  },
-  es: {
-    team: "equipo", teams: "equipos", match: "match", matchSchedule: "match/calendario",
-    prediction: "pronostico", predictionMatch: "pronostico-partido", group: "grupo",
-    player: "jugador", players: "jugadores", scorer: "goleador", scorers: "goleadores",
-    stadium: "estadio", stadiums: "estadios", city: "ciudad", cities: "ciudades",
-    h2h: "h2h", bookmaker: "casa-apuestas", guide: "guia", guides: "guias",
-    betting: "apuestas", about: "acerca-de", legal: "aviso-legal",
-    responsibleGambling: "juego-responsable",
-  },
-};
-
-const langOptions = [
-  { lang: "fr" as const, flag: "🇫🇷", label: "Français" },
-  { lang: "en" as const, flag: "🇬🇧", label: "English" },
-  { lang: "es" as const, flag: "🇪🇸", label: "Español" },
+const langOptions: Array<{ lang: Lang; flag: string; label: string }> = [
+  { lang: "fr", flag: "🇫🇷", label: "Français" },
+  { lang: "en", flag: "🇬🇧", label: "English" },
+  { lang: "es", flag: "🇪🇸", label: "Español" },
 ];
 
-function convertPath(pathname: string, fromLang: string, toLang: string): string {
+function convertPath(pathname: string, fromLang: Lang, toLang: Lang): string {
   if (pathname === "/") return "/";
   const segments = pathname.replace(/^\//, "").split("/");
-  const fromPrefixes = routePrefixes[fromLang];
-  const toPrefixes = routePrefixes[toLang];
-  if (!fromPrefixes || !toPrefixes) return "/";
+  const fromPrefixes = routePrefixes[fromLang] as Record<string, string>;
+  const toPrefixes = routePrefixes[toLang] as Record<string, string>;
   const sortedKeys = Object.keys(fromPrefixes).sort(
     (a, b) => (fromPrefixes[b] ?? "").split("/").length - (fromPrefixes[a] ?? "").split("/").length
   );
@@ -74,9 +39,9 @@ function convertPath(pathname: string, fromLang: string, toLang: string): string
   return "/";
 }
 
-function getUrlForLang(pathname: string, targetLang: string): string {
+function getUrlForLang(pathname: string, targetLang: Lang): string {
   const convertedPath = convertPath(pathname, CURRENT_LANG, targetLang);
-  return `${domains[targetLang as keyof typeof domains]}${convertedPath}`;
+  return `${domains[targetLang]}${convertedPath}`;
 }
 
 // Mega menu definitions
@@ -238,9 +203,13 @@ export function Header() {
         {/* Desktop mega-menu nav */}
         <div ref={menuRef} className="hidden md:flex items-center gap-1">
           {(Object.entries(megaMenus) as [MenuKey, typeof megaMenus[MenuKey]][]).map(([key, menu]) => (
-            <div key={key} className="relative">
+            <div
+              key={key}
+              className="relative"
+              onMouseEnter={() => setActiveMenu(key)}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
               <button
-                onMouseEnter={() => setActiveMenu(key)}
                 onClick={() => setActiveMenu(activeMenu === key ? null : key)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
                   activeMenu === key ? "bg-white/10 text-white" : "text-gray-300"
@@ -266,10 +235,7 @@ export function Header() {
 
               {/* Mega menu dropdown */}
               {activeMenu === key && (
-                <div
-                  className="mega-menu"
-                  onMouseLeave={() => setActiveMenu(null)}
-                >
+                <div className="mega-menu">
                   <div className="p-4">
                     <div className={`grid gap-4 ${menu.sections.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
                       {menu.sections.map((section) => (

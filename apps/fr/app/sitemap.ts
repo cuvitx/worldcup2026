@@ -11,223 +11,236 @@ import { guides } from "@repo/data/guides";
 import { newsArticles } from "@repo/data/news";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://cdm2026.fr";
-const LAST_UPDATED = new Date();
+/** Date du jour — homepage & pages dynamiques */
+const TODAY = new Date();
+/** Date de dernière modif du code pour les pages statiques */
+const STATIC_LAST_MODIFIED = new Date("2026-02-19");
+
+function matchLastModified(matchDate: string): Date {
+  const d = new Date(matchDate);
+  // Si le match est dans le futur → on renvoie la date du match (contenu susceptible de changer)
+  // Sinon → date du jour (résultats live)
+  return d > TODAY ? d : TODAY;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
+    // Homepage — toujours la date du jour
     {
       url: BASE_URL,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "daily",
       priority: 1.0,
     },
+    // Pages dynamiques (contenu qui change fréquemment)
     {
       url: `${BASE_URL}/match/calendrier`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/equipes`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
+      url: `${BASE_URL}/match/aujourdhui`,
+      lastModified: TODAY,
+      changeFrequency: "daily",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/stades`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/joueurs`,
-      lastModified: LAST_UPDATED,
+      url: `${BASE_URL}/tableau`,
+      lastModified: TODAY,
       changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/villes`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/a-propos`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
-    {
-      url: `${BASE_URL}/mentions-legales`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.2,
-    },
-    {
-      url: `${BASE_URL}/jeu-responsable`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.9,
     },
     {
       url: `${BASE_URL}/buteurs`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/comparateur-cotes`,
+      lastModified: TODAY,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/pronostic-vainqueur`,
+      lastModified: TODAY,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/equipe-de-france`,
+      lastModified: TODAY,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/paris-sportifs`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "weekly",
       priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/guides`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/match/aujourdhui`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/faq`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/tableau`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/simulateur`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/quiz`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/comparateur-joueurs`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/comparateur-cotes`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/guide/glossaire`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/ou-regarder`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/methodologie`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.5,
     },
     {
       url: `${BASE_URL}/live`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/contact`,
-      lastModified: LAST_UPDATED,
+      url: `${BASE_URL}/statistiques`,
+      lastModified: TODAY,
       changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.8,
     },
     {
-      url: `${BASE_URL}/politique-de-confidentialite`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.2,
-    },
-    {
-      url: `${BASE_URL}/pronostic-vainqueur`,
-      lastModified: LAST_UPDATED,
+      url: `${BASE_URL}/comparateur-joueurs`,
+      lastModified: TODAY,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/simulateur`,
+      lastModified: TODAY,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/billets`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/equipe-de-france`,
-      lastModified: LAST_UPDATED,
+      url: `${BASE_URL}/recherche`,
+      lastModified: TODAY,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    // Pages statiques — date de dernière modif du code
+    {
+      url: `${BASE_URL}/equipes`,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/palmares`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/statistiques`,
-      lastModified: LAST_UPDATED,
+      url: `${BASE_URL}/stades`,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/histoire`,
-      lastModified: LAST_UPDATED,
+      url: `${BASE_URL}/joueurs`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/villes`,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/guides`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/ou-regarder`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/carte-stades`,
-      lastModified: LAST_UPDATED,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/recherche`,
-      lastModified: LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.6,
+      url: `${BASE_URL}/histoire`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/palmares`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/faq`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/quiz`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/guide/glossaire`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/methodologie`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/a-propos`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/jeu-responsable`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/mentions-legales`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/politique-de-confidentialite`,
+      lastModified: STATIC_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.2,
     },
     // Calendrier jour par jour (39 jours : 11 juin → 19 juillet 2026)
     ...Array.from({ length: 39 }, (_, i) => ({
       url: `${BASE_URL}/calendrier/jour-${i + 1}`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "daily" as const,
       priority: 0.8,
     })),
   ];
 
-  // Team pages
+  // Team pages — pages statiques (données ne changent pas souvent)
   const teamPages: MetadataRoute.Sitemap = teams.map((team) => ({
     url: `${BASE_URL}/equipe/${team.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -235,36 +248,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Team pronostic pages (high priority for betting conversion)
   const pronosticPages: MetadataRoute.Sitemap = teams.map((team) => ({
     url: `${BASE_URL}/pronostic/${team.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: TODAY,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
 
-  // Group pages
+  // Group pages — statiques
   const groupPages: MetadataRoute.Sitemap = groups.map((group) => ({
     url: `${BASE_URL}/groupe/${group.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
 
-  // Match pages
+  // Match pages — date du match si futur, sinon date actuelle
   const matchPages: MetadataRoute.Sitemap = matches.map((match) => ({
     url: `${BASE_URL}/match/${match.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: matchLastModified(match.date),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  // Match pronostic pages (high priority for betting conversion)
+  // Match pronostic pages — idem, lié à la date du match
   const pronosticMatchPages: MetadataRoute.Sitemap = matches.map((match) => ({
     url: `${BASE_URL}/pronostic-match/${match.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: matchLastModified(match.date),
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
 
-  // H2H pages (all combinations)
+  // H2H pages (all combinations) — statiques
   const h2hPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < teams.length; i++) {
     for (let j = i + 1; j < teams.length; j++) {
@@ -273,7 +286,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (t1 && t2) {
         h2hPages.push({
           url: `${BASE_URL}/h2h/${t1.slug}-vs-${t2.slug}`,
-          lastModified: LAST_UPDATED,
+          lastModified: STATIC_LAST_MODIFIED,
           changeFrequency: "monthly" as const,
           priority: 0.7,
         });
@@ -281,50 +294,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Stadium pages
+  // Stadium pages — statiques
   const stadiumPages: MetadataRoute.Sitemap = stadiums.map((stadium) => ({
     url: `${BASE_URL}/stade/${stadium.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  // City pages
+  // City pages — statiques
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${BASE_URL}/ville/${city.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  // Player pages
+  // Player pages — statiques
   const playerPages: MetadataRoute.Sitemap = players.map((player) => ({
     url: `${BASE_URL}/joueur/${player.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  // Scorer (buteur) pages
+  // Scorer (buteur) pages — dynamiques (cotes changent)
   const scorerPages: MetadataRoute.Sitemap = scorerPlayers.map((player) => ({
     url: `${BASE_URL}/buteur/${player.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: TODAY,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  // Bookmaker review pages
+  // Bookmaker review pages — statiques
   const bookmakerPages: MetadataRoute.Sitemap = bookmakerReviews.map((bk) => ({
     url: `${BASE_URL}/bookmaker/${bk.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  // Guide pages
+  // Guide pages — statiques
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${BASE_URL}/guide/${guide.slug}`,
-    lastModified: LAST_UPDATED,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -333,7 +346,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const newsListingPage: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/actualites`,
-      lastModified: LAST_UPDATED,
+      lastModified: TODAY,
       changeFrequency: "daily",
       priority: 0.9,
     },

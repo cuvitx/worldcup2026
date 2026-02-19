@@ -3,13 +3,13 @@ import Link from "next/link";
 import Quiz from "./components/Quiz";
 
 export const metadata: Metadata = {
-  title: "Quiz Coupe du Monde 2026 | Testez vos connaissances",
+  title: "Quiz Coupe du Monde 2026 | 200+ questions pour tester vos connaissances",
   description:
-    "Quiz CDM 2026 : 60+ questions sur l'histoire, les joueurs et les stades. Testez votre niveau et défiez vos amis — c'est gratuit !",
+    "Quiz CDM 2026 : 200+ questions sur l'histoire (1930-2022), les joueurs légendaires, les stades, les records, les règles et la géographie des villes hôtes. Testez votre niveau et défiez vos amis — c'est gratuit !",
   openGraph: {
     title: "Quiz CDM 2026 | Êtes-vous vraiment incollable ?",
     description:
-      "60+ questions sur l'histoire, les joueurs et les stades. Prouvez que vous êtes un expert — et défiez vos amis !",
+      "200+ questions sur l'histoire, les joueurs, les stades, les règles et les villes hôtes 2026. Prouvez que vous êtes un expert — et défiez vos amis !",
   },
 };
 
@@ -50,7 +50,7 @@ export default function QuizPage() {
             ⚽ Êtes-vous vraiment incollable sur la CDM 2026 ?
           </h1>
           <p className="text-gray-500 max-w-xl mx-auto">
-            60+ questions sur l&apos;histoire, les joueurs et les stades.
+            200+ questions sur l&apos;histoire (1930-2022), les joueurs légendaires, les stades, les règles et les villes hôtes 2026.
             Prouvez que vous êtes un expert — et défiez vos amis !
           </p>
         </div>

@@ -47,11 +47,10 @@ export const metadata: Metadata = {
     creator: "@cdm2026",
     images: [`${domains.fr}/og-default.jpg`],
   },
-  // TODO: Switch to index: true, follow: true when site is ready for launch
-  robots: {
-    index: false,
-    follow: false,
-  },
+  // Controlled by IS_LAUNCHED env variable — set to "true" to enable indexing at launch
+  robots: process.env.IS_LAUNCHED === "true"
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

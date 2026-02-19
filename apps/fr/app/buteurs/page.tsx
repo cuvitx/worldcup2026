@@ -4,18 +4,42 @@ import Link from "next/link";
 import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers";
 import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
-import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
 
+// ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
+const historicalScorers = [
+  { rank: 1,  name: "Miroslav Klose",    country: "🇩🇪", countryName: "Allemagne",   goals: 16, editions: "2002, 2006, 2010, 2014" },
+  { rank: 2,  name: "Ronaldo (R9)",      country: "🇧🇷", countryName: "Brésil",      goals: 15, editions: "1994, 1998, 2002, 2006" },
+  { rank: 3,  name: "Gerd Müller",       country: "🇩🇪", countryName: "Allemagne",   goals: 14, editions: "1970, 1974" },
+  { rank: 4,  name: "Just Fontaine",     country: "🇫🇷", countryName: "France",      goals: 13, editions: "1958" },
+  { rank: 4,  name: "Lionel Messi",      country: "🇦🇷", countryName: "Argentine",   goals: 13, editions: "2006, 2010, 2014, 2018, 2022" },
+  { rank: 6,  name: "Pelé",              country: "🇧🇷", countryName: "Brésil",      goals: 12, editions: "1958, 1962, 1966, 1970" },
+  { rank: 7,  name: "Kylian Mbappé",     country: "🇫🇷", countryName: "France",      goals: 12, editions: "2018, 2022" },
+  { rank: 8,  name: "Sándor Kocsis",     country: "🇭🇺", countryName: "Hongrie",     goals: 11, editions: "1954" },
+  { rank: 8,  name: "Jürgen Klinsmann",  country: "🇩🇪", countryName: "Allemagne",   goals: 11, editions: "1990, 1994, 1998" },
+  { rank: 10, name: "Gabriel Batistuta", country: "🇦🇷", countryName: "Argentine",   goals: 10, editions: "1994, 1998, 2002" },
+  { rank: 10, name: "Gary Lineker",      country: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", countryName: "Angleterre", goals: 10, editions: "1986, 1990" },
+  { rank: 10, name: "Teófilo Cubillas",  country: "🇵🇪", countryName: "Pérou",       goals: 10, editions: "1970, 1978" },
+  { rank: 10, name: "Grzegorz Lato",     country: "🇵🇱", countryName: "Pologne",     goals: 10, editions: "1974, 1978, 1982" },
+  { rank: 10, name: "Thomas Müller",     country: "🇩🇪", countryName: "Allemagne",   goals: 10, editions: "2010, 2014, 2018" },
+  { rank: 10, name: "Ronaldo (CR7)",     country: "🇵🇹", countryName: "Portugal",    goals: 8,  editions: "2006, 2010, 2014, 2018, 2022" },
+  { rank: 16, name: "Helmut Rahn",       country: "🇩🇪", countryName: "Allemagne",   goals: 10, editions: "1954, 1958" },
+  { rank: 17, name: "Eusébio",           country: "🇵🇹", countryName: "Portugal",    goals: 9,  editions: "1966" },
+  { rank: 17, name: "David Villa",       country: "🇪🇸", countryName: "Espagne",     goals: 9,  editions: "2006, 2010" },
+  { rank: 19, name: "Uwe Seeler",        country: "🇩🇪", countryName: "Allemagne",   goals: 9,  editions: "1958, 1962, 1966, 1970" },
+  { rank: 20, name: "Neymar",            country: "🇧🇷", countryName: "Brésil",      goals: 8,  editions: "2014, 2018, 2022" },
+] as const;
+
 export const metadata: Metadata = {
-  title: "Cotes buteurs CDM 2026 | Meilleur buteur, stats & pronostics",
+  title: "Buteurs CDM 2026 | Top 20 historique (Klose 16, Messi 13, Mbappé 12) + Cotes 2026",
   description:
-    "Cotes buteurs de la Coupe du Monde 2026. Classement des meilleurs buteurs potentiels, probabilites de buts, cotes anytime scorer et pronostics pour chaque attaquant et milieu offensif.",
+    "Meilleurs buteurs de l'histoire de la Coupe du Monde (Klose 16, Ronaldo R9 15, Müller 14, Fontaine 13…) et cotes buteurs pour la CDM 2026. Classement historique 1930-2022 et pronostics pour le Soulier d'Or 2026.",
   alternates: getStaticAlternates("scorers", "fr"),
   openGraph: {
-    title: "Cotes buteurs - Coupe du Monde 2026",
+    title: "Top 20 buteurs historiques CDM + Cotes 2026",
     description:
-      "Tous les attaquants et milieux offensifs de la CDM 2026 avec leurs cotes buteur, stats et probabilites.",
+      "Klose 16 buts, Ronaldo R9 15, Müller 14, Fontaine 13, Messi 13, Mbappé 12... Le palmarès complet + cotes buteurs pour 2026.",
   },
 };
 
@@ -44,6 +68,90 @@ export default function ButeursPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
+
+        {/* ── TOP 20 MEILLEURS BUTEURS HISTORIQUES ── */}
+        <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
+          <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-2xl">👑</span>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                Top 20 meilleurs buteurs de l&apos;histoire de la CDM
+              </h2>
+            </div>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Classement historique toutes éditions confondues (1930–2022) — Record : Klose avec 16 buts
+            </p>
+          </div>
+
+          <div className="divide-y divide-gray-100 dark:divide-slate-700">
+            {historicalScorers.map((scorer, idx) => {
+              const maxGoals = 16; // Klose
+              const barPct = Math.round((scorer.goals / maxGoals) * 100);
+              const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : null;
+              const barColor =
+                idx === 0 ? "bg-gradient-to-r from-amber-400 to-yellow-300" :
+                idx === 1 ? "bg-gradient-to-r from-slate-400 to-gray-300" :
+                idx === 2 ? "bg-gradient-to-r from-orange-500 to-amber-400" :
+                "bg-gradient-to-r from-blue-500 to-blue-400";
+
+              return (
+                <div
+                  key={`${scorer.name}-${idx}`}
+                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-amber-50/50 dark:bg-amber-900/10" : ""}`}
+                >
+                  <div className="flex items-center gap-3">
+                    {/* Rang */}
+                    <div className="shrink-0 w-8 text-center">
+                      {medal ? (
+                        <span className="text-xl">{medal}</span>
+                      ) : (
+                        <span className="text-sm font-bold text-gray-400">{scorer.rank}</span>
+                      )}
+                    </div>
+
+                    {/* Drapeau + Nom + Éditions */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-lg shrink-0" role="img" aria-label={scorer.countryName}>
+                          {scorer.country}
+                        </span>
+                        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">
+                          {scorer.name}
+                        </span>
+                        <span className="hidden sm:inline text-xs text-gray-400 dark:text-gray-500">
+                          {scorer.editions}
+                        </span>
+                      </div>
+                      {/* Barre visuelle */}
+                      <div className="mt-1.5 flex items-center gap-2">
+                        <div className="flex-1 h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full transition-all ${barColor}`}
+                            style={{ width: `${barPct}%` }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Nombre de buts */}
+                    <div className="shrink-0 text-right">
+                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-amber-500" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-blue-600 dark:text-blue-400"}`}>
+                        {scorer.goals}
+                      </span>
+                      <p className="text-[10px] text-gray-400 uppercase tracking-wide">buts</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
+            <p className="text-[11px] text-gray-400 dark:text-gray-500">
+              Sources : FIFA · Statistiques arrêtées à la CDM 2022 · Mbappé (12 buts) actif, peut dépasser Klose en 2026
+            </p>
+          </div>
+        </section>
 
         {/* ── TOP 5 CANDIDATS (données prédictions-2026) ── */}
         <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">

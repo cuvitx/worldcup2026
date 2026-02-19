@@ -1,7 +1,21 @@
 import type { MetadataRoute } from "next";
 
-// TODO: Remove Disallow: / and restore Allow: / when site is ready for launch
+const isLaunched = process.env.IS_LAUNCHED === "true";
+
 export default function robots(): MetadataRoute.Robots {
+  if (isLaunched) {
+    return {
+      rules: [
+        {
+          userAgent: "*",
+          allow: "/",
+        },
+      ],
+      sitemap: "https://cdm2026.fr/sitemap.xml",
+    };
+  }
+
+  // Site not launched yet — block all crawlers
   return {
     rules: [
       {
@@ -10,6 +24,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     // Sitemap hidden until launch
-    // sitemap: "https://cdm2026.fr/sitemap.xml",
   };
 }
