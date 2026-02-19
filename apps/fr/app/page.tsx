@@ -23,27 +23,27 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-primary py-16 text-white">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-6xl">
+      {/* Hero Section — animated gradient + dot pattern overlay */}
+      <section className="hero-animated py-20 md:py-28 text-white">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
+          <h1 className="mb-4 text-5xl font-extrabold tracking-tight md:text-7xl drop-shadow-lg">
             Coupe du Monde <span className="text-gold">2026</span>
           </h1>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-300/90 leading-relaxed">
             Pronostics, statistiques et guide complet de la première Coupe du
-            Monde à 48 équipes. 104 matchs, 210 joueurs, 16 stades a travers
+            Monde à 48 équipes. 104 matchs, 210 joueurs, 16 stades à travers
             les États-Unis, le Canada et le Mexique.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/groupe/a"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 min-h-[44px] font-semibold text-white transition-colors hover:bg-accent/90"
+              className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3.5 min-h-[44px] font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/40"
             >
               Voir les groupes
             </Link>
             <Link
               href="/match/calendrier"
-              className="inline-flex items-center justify-center rounded-lg border border-white/20 px-6 py-3 min-h-[44px] font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-3.5 min-h-[44px] font-semibold text-white transition-all hover:bg-white/15"
             >
               Calendrier des matchs
             </Link>
@@ -55,32 +55,36 @@ export default function HomePage() {
       <Countdown />
 
       {/* Key Stats */}
-      <section className="border-b border-gray-200 bg-white py-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 md:grid-cols-4">
+      <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-10">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 md:grid-cols-4">
           {[
             { value: "48", label: "Équipes" },
             { value: "104", label: "Matchs" },
-            { value: "16", label: "Villes hotes" },
+            { value: "16", label: "Villes hôtes" },
             { value: "39", label: "Jours" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-primary">{stat.value}</p>
-              <p className="text-sm text-gray-500">{stat.label}</p>
+              <p className="text-4xl font-bold text-primary dark:text-white">{stat.value}</p>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{stat.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Upcoming Matches */}
-      <UpcomingMatches />
+      <section className="bg-gray-50 dark:bg-gray-800/50">
+        <UpcomingMatches />
+      </section>
 
       {/* Featured Prediction */}
-      <FeaturedPrediction />
+      <section className="bg-white dark:bg-gray-900">
+        <FeaturedPrediction />
+      </section>
 
       {/* Groups */}
-      <section className="py-12">
+      <section className="bg-gray-50 dark:bg-gray-800/50 py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
+          <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-gray-100">
             Les 12 groupes
           </h2>
           <GroupAccordion
@@ -95,17 +99,17 @@ export default function HomePage() {
       </section>
 
       {/* Favorites */}
-      <section className="border-t border-gray-200 bg-white py-12">
+      <section className="bg-white dark:bg-gray-900 py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               Équipes favorites
             </h2>
             <Link href="/equipes" className="text-sm font-medium text-accent hover:underline">
               Voir les 48 équipes &rarr;
             </Link>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .filter((t) => t.fifaRanking > 0 && t.fifaRanking <= 10)
               .sort((a, b) => a.fifaRanking - b.fifaRanking)
@@ -117,13 +121,15 @@ export default function HomePage() {
       </section>
 
       {/* Featured Bookmaker CTA */}
-      <FeaturedBookmaker />
+      <section className="bg-gray-50 dark:bg-gray-800/50">
+        <FeaturedBookmaker />
+      </section>
 
       {/* Stades & Villes */}
-      <section className="py-12">
+      <section className="bg-white dark:bg-gray-900 py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               Stades et villes hôtes
             </h2>
             <div className="flex gap-4">
@@ -135,17 +141,17 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stadiums.slice(0, 8).map((stadium) => {
               const city = cities.find((c) => c.id === stadium.cityId);
               return (
                 <Link
                   key={stadium.id}
                   href={`/stade/${stadium.slug}`}
-                  className="rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                  className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm transition-all hover:shadow-md hover:border-accent/50"
                 >
-                  <p className="font-semibold">{stadium.name}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">{stadium.name}</p>
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     {city?.name ?? stadium.city} &middot;{" "}
                     {stadium.capacity.toLocaleString("fr-FR")} places
                   </p>
@@ -157,9 +163,9 @@ export default function HomePage() {
       </section>
 
       {/* Popular Pronostics */}
-      <section className="py-12">
+      <section className="bg-gray-50 dark:bg-gray-800/50 py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
+          <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-gray-100">
             Pronostics les plus populaires
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -174,12 +180,12 @@ export default function HomePage() {
               <Link
                 key={t.slug}
                 href={`/pronostic/${t.slug}`}
-                className="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                className="flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm transition-all hover:shadow-md hover:border-accent/50"
               >
                 <span className="text-4xl" role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span>
                 <div>
-                  <p className="font-bold">Pronostic {t.name}</p>
-                  <p className="text-sm text-gray-500">#{t.ranking} FIFA</p>
+                  <p className="font-bold text-gray-900 dark:text-gray-100">Pronostic {t.name}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">#{t.ranking} FIFA</p>
                 </div>
                 <span className="ml-auto text-accent font-medium text-sm">&rarr;</span>
               </Link>
@@ -193,13 +199,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-field py-12 text-white">
+      {/* Bottom CTA */}
+      <section className="bg-field py-14 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="mb-4 text-2xl font-bold">
-            11 juin - 19 juillet 2026
+          <h2 className="mb-4 text-3xl font-bold">
+            11 juin – 19 juillet 2026
           </h2>
-          <p className="mx-auto mb-6 max-w-xl text-field-light">
+          <p className="mx-auto mb-8 max-w-xl text-field-light leading-relaxed">
             La première Coupe du Monde à 48 équipes se déroule aux États-Unis,
             au Canada et au Mexique. Découvrez toutes les équipes, les stades et
             les pronostics.
@@ -207,25 +213,25 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/match/calendrier"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 min-h-[44px] font-semibold text-white transition-colors hover:bg-accent/90"
+              className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3.5 min-h-[44px] font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:bg-accent/90 hover:shadow-xl"
             >
               Calendrier des matchs
             </Link>
             <Link
               href="/stade/metlife-stadium"
-              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3 min-h-[44px] font-semibold transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3.5 min-h-[44px] font-semibold transition-all hover:bg-white/20"
             >
               Guide des stades
             </Link>
             <Link
               href="/ville/new-york-new-jersey"
-              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3 min-h-[44px] font-semibold transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3.5 min-h-[44px] font-semibold transition-all hover:bg-white/20"
             >
-              Villes hotes
+              Villes hôtes
             </Link>
             <Link
               href="/guides"
-              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3 min-h-[44px] font-semibold transition-colors hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-lg bg-white/10 px-6 py-3.5 min-h-[44px] font-semibold transition-all hover:bg-white/20"
             >
               Guides
             </Link>

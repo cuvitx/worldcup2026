@@ -21,7 +21,7 @@ export function FeaturedBookmaker() {
   const bk = featuredBookmaker;
 
   return (
-    <section className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-12">
+    <section className="py-12">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
           Meilleur bonus du moment
@@ -55,8 +55,8 @@ export function FeaturedBookmaker() {
               Ouvrir un compte →
             </a>
           </div>
-          <p className="mt-4 text-center text-xs text-gray-500">
-            18+. Les jeux d&apos;argent sont interdits aux mineurs.
+          <p className="mt-4 text-center text-xs text-gray-500 dark:text-gray-400">
+            18+ | Jeu responsable — Les jeux d&apos;argent sont interdits aux mineurs. Appelez le 09 74 75 13 13.
           </p>
         </div>
       </div>
