@@ -54,7 +54,7 @@ export default async function GroupPage({ params }: PageProps) {
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Groupe {group.letter}</li>
+            <li className="text-gray-900 dark:text-white font-medium">Groupe {group.letter}</li>
           </ol>
         </div>
       </nav>

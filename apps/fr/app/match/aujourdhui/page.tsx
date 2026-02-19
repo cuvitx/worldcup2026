@@ -35,7 +35,7 @@ export default function AujourdhuiPage() {
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Matchs du jour</li>
+            <li className="text-gray-900 dark:text-white font-medium">Matchs du jour</li>
           </ol>
         </div>
       </nav>
@@ -118,7 +118,7 @@ export default function AujourdhuiPage() {
                     <p className="text-sm text-gray-500 mb-1">
                       {matchDate} a {nextMatch.time} UTC
                     </p>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-gray-900 dark:text-white">
                       <span role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag}</span> {home?.name ?? "A determiner"} vs{" "}
                       {away?.name ?? "A determiner"} <span role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag}</span>
                     </p>

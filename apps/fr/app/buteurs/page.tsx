@@ -28,7 +28,7 @@ export default function ButeursPage() {
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Buteurs</li>
+            <li className="text-gray-900 dark:text-white font-medium">Buteurs</li>
           </ol>
         </div>
       </nav>

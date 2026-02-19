@@ -120,7 +120,7 @@ export default function ComparateurCotesPage() {
                     <tbody>
                       {match.odds.map((o, idx) => (
                         <tr key={o.bookmaker} className={`border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ${
-                          idx % 2 === 0 ? "bg-gray-50/50 dark:bg-gray-750/30" : "bg-white dark:bg-gray-800"
+                          idx % 2 === 0 ? "bg-gray-50/50 dark:bg-slate-700/50" : "bg-white dark:bg-gray-800"
                         }`}>
                           <td className="px-4 py-2.5 font-medium text-gray-900 dark:text-gray-100">
                             <div className="flex items-center gap-2">

@@ -340,7 +340,7 @@ export function Header() {
               </svg>
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-1 min-w-[150px] rounded-xl bg-white dark:bg-slate-800 text-gray-900 shadow-xl ring-1 ring-black/8 z-50 overflow-hidden animate-scaleIn">
+              <div className="absolute right-0 top-full mt-1 min-w-[150px] rounded-xl bg-white dark:bg-slate-800 text-gray-900 dark:text-white shadow-xl ring-1 ring-black/8 z-50 overflow-hidden animate-scaleIn">
                 {otherOptions.map((opt) => (
                   <a
                     key={opt.lang}

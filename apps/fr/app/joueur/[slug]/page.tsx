@@ -78,7 +78,7 @@ export default async function PlayerPage({ params }: PageProps) {
                 <li>/</li>
               </>
             )}
-            <li className="text-gray-900 font-medium">{player.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{player.name}</li>
           </ol>
         </div>
       </nav>

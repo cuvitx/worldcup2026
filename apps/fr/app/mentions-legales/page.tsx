@@ -34,7 +34,7 @@ export default function MentionsLegalesPage() {
               </Link>
             </li>
             <li>/</li>
-            <li className="font-medium text-gray-900">Mentions légales</li>
+            <li className="font-medium text-gray-900 dark:text-white">Mentions légales</li>
           </ol>
         </div>
       </nav>
@@ -51,7 +51,7 @@ export default function MentionsLegalesPage() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8 text-gray-700 leading-relaxed">
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               1. Éditeur du site
             </h2>
             <p>
@@ -77,7 +77,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               2. Hébergeur
             </h2>
             <p>Le Site est hébergé par :</p>
@@ -101,7 +101,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               3. Propriété intellectuelle
             </h2>
             <p>
@@ -118,7 +118,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               4. Protection des données personnelles (CNIL / RGPD)
             </h2>
             <p>
@@ -146,7 +146,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               5. Cookies
             </h2>
             <p>
@@ -175,7 +175,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               6. Liens d&apos;affiliation
             </h2>
             <p>
@@ -188,7 +188,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               7. Clause de non-responsabilité — Paris sportifs
             </h2>
             <div className="rounded-lg border-2 border-accent/30 bg-accent/5 p-5">
@@ -222,7 +222,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               8. Limitation de responsabilité
             </h2>
             <p>
@@ -239,7 +239,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
               9. Droit applicable
             </h2>
             <p>
@@ -250,7 +250,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900">Contact</h2>
+            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">Contact</h2>
             <p>
               Pour toute question concernant ces mentions légales :{" "}
               <a

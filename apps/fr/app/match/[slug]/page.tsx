@@ -120,7 +120,7 @@ export default async function MatchPage({ params }: PageProps) {
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">
+            <li className="text-gray-900 dark:text-white font-medium">
               {home?.name ?? "TBD"} vs {away?.name ?? "TBD"}
             </li>
           </ol>

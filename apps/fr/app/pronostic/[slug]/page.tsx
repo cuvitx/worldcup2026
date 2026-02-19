@@ -128,7 +128,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Pronostic</li>
+            <li className="text-gray-900 dark:text-white font-medium">Pronostic</li>
           </ol>
         </div>
       </nav>

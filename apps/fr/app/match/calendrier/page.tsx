@@ -48,7 +48,7 @@ export default function CalendrierPage() {
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Calendrier des matchs</li>
+            <li className="text-gray-900 dark:text-white font-medium">Calendrier des matchs</li>
           </ol>
         </div>
       </nav>

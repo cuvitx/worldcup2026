@@ -61,7 +61,7 @@ export default async function StadiumPage({ params }: PageProps) {
             <li>/</li>
             <li><Link href="/stades" className="hover:text-primary">Stades</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{stadium.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{stadium.name}</li>
           </ol>
         </div>
       </nav>

@@ -78,7 +78,7 @@ export default async function TeamPage({ params }: PageProps) {
             <li>/</li>
             <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary">Groupe {team.group}</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{team.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{team.name}</li>
           </ol>
         </div>
       </nav>

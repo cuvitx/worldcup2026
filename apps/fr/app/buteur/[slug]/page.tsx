@@ -67,7 +67,7 @@ export default async function ButeurPage({ params }: PageProps) {
             <li>/</li>
             <li><Link href="/buteurs" className="hover:text-primary">Buteurs</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{player.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{player.name}</li>
           </ol>
         </div>
       </nav>

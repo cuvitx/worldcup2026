@@ -39,7 +39,7 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
                 className={`flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
                   activeTab === tab.id
                     ? "border-accent text-accent"
-                    : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
+                    : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
                 }`}
               >
                 <span className="text-base">{tab.icon}</span>

@@ -48,7 +48,7 @@ export default async function CityPage({ params }: PageProps) {
             <li>/</li>
             <li><Link href="/villes" className="hover:text-primary">Villes</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{city.name}</li>
+            <li className="text-gray-900 dark:text-white font-medium">{city.name}</li>
           </ol>
         </div>
       </nav>
