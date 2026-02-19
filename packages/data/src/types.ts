@@ -46,6 +46,12 @@ export interface Stadium {
   latitude: number;
   longitude: number;
   description: string;
+  /** Year the stadium was built / opened */
+  yearBuilt?: number;
+  /** Primary resident team(s) */
+  homeTeam?: string;
+  /** Approximate distance from city/downtown center in km */
+  distanceFromCenter?: number;
 }
 
 export interface City {

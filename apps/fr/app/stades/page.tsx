@@ -68,7 +68,8 @@ export default function StadiumsPage() {
                           slug={stadium.slug}
                           name={stadium.name}
                           city={stadium.city}
-                          className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+                          containerClassName="w-full h-44"
+                          className="transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
                       <div className="p-4">

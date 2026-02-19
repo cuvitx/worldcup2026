@@ -139,9 +139,85 @@ export default async function StadiumPage({ params }: PageProps) {
                   </p>
                   <p className="text-sm text-gray-500">Toit</p>
                 </div>
+                {stadium.yearBuilt && (
+                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                    <p className="text-2xl font-bold text-primary">{stadium.yearBuilt}</p>
+                    <p className="text-sm text-gray-500">Année de construction</p>
+                  </div>
+                )}
+                {stadium.distanceFromCenter && (
+                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                    <p className="text-2xl font-bold text-primary">{stadium.distanceFromCenter} km</p>
+                    <p className="text-sm text-gray-500">Du centre-ville</p>
+                  </div>
+                )}
                 <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{stadium.country}</p>
                   <p className="text-sm text-gray-500">Pays</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Équipe résidente + GPS + Carte mini */}
+            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold">Localisation &amp; équipe résidente</h2>
+              <div className="space-y-4">
+                {stadium.homeTeam && (
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">🏈</span>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-0.5">Équipe résidente</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">{stadium.homeTeam}</p>
+                    </div>
+                  </div>
+                )}
+                <div className="flex items-start gap-3">
+                  <span className="text-xl mt-0.5">📍</span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-0.5">Coordonnées GPS</p>
+                    <p className="text-sm font-mono text-gray-900 dark:text-white">
+                      {stadium.latitude.toFixed(4)}° N, {Math.abs(stadium.longitude).toFixed(4)}° O
+                    </p>
+                  </div>
+                </div>
+                {stadium.distanceFromCenter && (
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">🚗</span>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-0.5">Distance du centre-ville</p>
+                      <p className="text-sm text-gray-900 dark:text-white">≈ {stadium.distanceFromCenter} km</p>
+                    </div>
+                  </div>
+                )}
+                {/* Mini map link */}
+                <div className="mt-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">🗺️</span>
+                      <div>
+                        <p className="text-sm font-semibold text-blue-900 dark:text-blue-200">Voir sur la carte des stades</p>
+                        <p className="text-xs text-blue-700 dark:text-blue-400">Positionnement de tous les stades CDM 2026</p>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/carte-stades#${stadium.slug}`}
+                      className="shrink-0 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 transition-colors"
+                    >
+                      Voir la carte →
+                    </Link>
+                  </div>
+                </div>
+                {/* External map link */}
+                <div className="mt-2">
+                  <a
+                    href={`https://www.openstreetmap.org/?mlat=${stadium.latitude}&mlon=${stadium.longitude}&zoom=15`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-accent hover:underline"
+                  >
+                    <span>🔗</span>
+                    Ouvrir dans OpenStreetMap
+                  </a>
                 </div>
               </div>
             </section>
@@ -211,6 +287,24 @@ export default async function StadiumPage({ params }: PageProps) {
                       : stadium.roofType === "fixed"
                         ? "Fixe"
                         : "Ouvert"}
+                  </dd>
+                </div>
+                {stadium.yearBuilt && (
+                  <div className="flex justify-between">
+                    <dt className="text-gray-500">Construction</dt>
+                    <dd className="font-medium">{stadium.yearBuilt}</dd>
+                  </div>
+                )}
+                {stadium.distanceFromCenter && (
+                  <div className="flex justify-between">
+                    <dt className="text-gray-500">Distance centre</dt>
+                    <dd className="font-medium">≈ {stadium.distanceFromCenter} km</dd>
+                  </div>
+                )}
+                <div className="flex justify-between">
+                  <dt className="text-gray-500">GPS</dt>
+                  <dd className="font-mono text-xs text-right">
+                    {stadium.latitude.toFixed(4)}, {stadium.longitude.toFixed(4)}
                   </dd>
                 </div>
               </dl>

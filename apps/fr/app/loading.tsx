@@ -6,6 +6,33 @@ export default function Loading() {
         <div className="h-full w-1/3 bg-accent rounded-full animate-[loading-bar_1.5s_ease-in-out_infinite]" />
       </div>
 
+      {/* Skeleton navbar */}
+      <div className="fixed top-0.5 left-0 right-0 z-40 h-14 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-gray-100 dark:border-slate-800 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Logo skeleton */}
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-md bg-gray-200 dark:bg-slate-700 animate-pulse" />
+          <div className="h-4 w-28 bg-gray-200 dark:bg-slate-700 rounded-full animate-pulse" />
+        </div>
+        {/* Nav links skeleton (desktop) */}
+        <div className="hidden md:flex items-center gap-4">
+          {[72, 60, 80, 56, 68].map((w, i) => (
+            <div
+              key={i}
+              className="h-3.5 bg-gray-200 dark:bg-slate-700 rounded-full animate-pulse"
+              style={{ width: `${w}px`, animationDelay: `${i * 0.07}s` }}
+            />
+          ))}
+        </div>
+        {/* Actions skeleton (search + CTA) */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-gray-200 dark:bg-slate-700 animate-pulse" />
+          <div className="hidden sm:block h-8 w-24 rounded-lg bg-gray-200 dark:bg-slate-700 animate-pulse" />
+        </div>
+      </div>
+
+      {/* Spacer pour compenser la navbar fixe */}
+      <div className="h-14" />
+
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
         {/* Hero skeleton */}
         <div className="rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-8 mb-8 overflow-hidden relative">

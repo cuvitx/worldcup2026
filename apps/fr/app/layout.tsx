@@ -72,9 +72,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={inter.variable}>
       <head>
+        <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* next/font/google self-hosts Inter → pas besoin de dns-prefetch CDN Google Fonts */}
+        {/* Le preload de la font (.woff2) est injecté automatiquement par next/font */}
+        {/* max-image-preview:large → autorise Google Discover à afficher des grandes images */}
+        <meta name="robots" content="max-image-preview:large" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
         {/* GA4: G-XXXXXXXXXX — décommenter et remplacer l'ID pour activer Google Analytics 4 */}
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" /> */}

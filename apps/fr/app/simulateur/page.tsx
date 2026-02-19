@@ -5,11 +5,11 @@ import { BracketSimulator } from "./components/BracketSimulator";
 export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
   description:
-    "Simulez le tableau final de la Coupe du Monde 2026. Choisissez les vainqueurs de chaque match et découvrez votre champion.",
+    "Simulateur CDM 2026 : construisez votre bracket, prédisez les 16 matchs et couronnez votre champion. 32 équipes, 100% interactif et gratuit !",
   openGraph: {
-    title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
+    title: "Simulateur CDM 2026 | Construisez votre bracket",
     description:
-      "Simulez le tableau final de la Coupe du Monde 2026. Choisissez les vainqueurs de chaque match et découvrez votre champion.",
+      "Construisez votre bracket CDM 2026 : 32 équipes, 16 matchs à prédire. Couronnez votre champion en 2 minutes — 100% gratuit !",
   },
 };
 
@@ -60,11 +60,11 @@ export default function SimulateurPage() {
                 🏆 Outil interactif
               </div>
               <h1 className="text-4xl md:text-5xl font-extrabold">
-                Simulateur de Bracket
+                Construisez votre bracket CDM 2026
               </h1>
               <p className="mt-2 text-gray-300 text-sm md:text-base max-w-xl">
-                Construisez votre arbre de tournoi, sélectionnez vos vainqueurs
-                et découvrez qui soulèvera la Coupe du Monde 2026.
+                Qui soulèvera la Coupe ? Jouez le tournoi complet : 32 équipes,
+                16 matchs à prédire. Résultat en 2 minutes.
               </p>
 
               {/* Quick stats */}

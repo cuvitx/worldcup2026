@@ -26,7 +26,8 @@
     "./news": "./src/news.ts",
     "./player-stats": "./src/player-stats.ts",
     "./team-history": "./src/team-history.ts",
-    "./country-codes": "./src/country-codes.ts"
+    "./country-codes": "./src/country-codes.ts",
+    "./predictions-2026": "./src/predictions-2026.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

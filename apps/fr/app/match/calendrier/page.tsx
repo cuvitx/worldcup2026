@@ -6,6 +6,29 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import CalendarFilters from "./CalendarFilters";
 
+const faqCalendrierItems = [
+  {
+    question: "Quand commence la Coupe du Monde 2026 ?",
+    answer:
+      "La Coupe du Monde 2026 débute le 11 juin 2026 avec le match d'ouverture au stade Azteca de Mexico (Mexique). La finale est prévue le 19 juillet 2026 au MetLife Stadium de New York/New Jersey. Le tournoi s'étend donc sur 39 jours.",
+  },
+  {
+    question: "Combien de matchs compte la CDM 2026 ?",
+    answer:
+      "La Coupe du Monde 2026 comprend 104 matchs au total : 72 matchs de phase de groupes (12 groupes × 3 matchs + 1 match par groupe), 32 matchs à élimination directe (huitièmes, quarts, demi-finales, match pour la 3e place et finale). C'est 40 matchs de plus que les éditions à 32 équipes.",
+  },
+  {
+    question: "Quelle chaîne diffuse la CDM 2026 en France ?",
+    answer:
+      "En France, les droits de diffusion de la Coupe du Monde 2026 sont partagés entre TF1 et M6 pour les matchs en clair (dont tous les matchs de l'équipe de France), et beIN Sports pour une couverture intégrale. Les matchs peuvent également être suivis en streaming via les applications de ces chaînes.",
+  },
+  {
+    question: "Où se déroulent les matchs de l'équipe de France ?",
+    answer:
+      "Les matchs de phase de groupes de la France (Groupe I) se jouent aux États-Unis : au MetLife Stadium (New York/NJ, ~82 500 places), au Lincoln Financial Field (Philadelphia, ~69 000 places) et au Gillette Stadium (Boston, ~65 000 places). En cas de qualification, les matchs à élimination directe peuvent avoir lieu dans d'autres villes hôtes.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Calendrier des matchs - Coupe du Monde 2026",
   description:
@@ -37,8 +60,26 @@ export default function CalendrierPage() {
     if (s) stadiumData[id] = { id: s.id, name: s.name };
   }
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqCalendrierItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -67,6 +108,35 @@ export default function CalendrierPage() {
         teamsById={teamData}
         stadiumsById={stadiumData}
       />
+
+      {/* ===== FAQ ===== */}
+      <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            ❓ Questions fréquentes — Calendrier CDM 2026
+          </h2>
+          <div className="space-y-3">
+            {faqCalendrierItems.map((item, i) => (
+              <div
+                key={i}
+                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
+              >
+                <details className="group">
+                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-accent transition-colors list-none">
+                    {item.question}
+                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform">
+                      ▼
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-700 pt-3">
+                    {item.answer}
+                  </div>
+                </details>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

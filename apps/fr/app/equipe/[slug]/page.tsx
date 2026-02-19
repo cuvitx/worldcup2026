@@ -108,6 +108,7 @@ export default async function TeamPage({ params }: PageProps) {
                   className="object-cover"
                   priority
                   unoptimized
+                  sizes="(max-width: 640px) 144px, 192px"
                 />
               </div>
             ) : (

@@ -98,6 +98,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 // ============================================================
+//  FAQ items (static — same for all day pages)
+// ============================================================
+const faqCalendrierItems = [
+  {
+    question: "Quand débute et se termine la Coupe du Monde 2026 ?",
+    answer:
+      "La Coupe du Monde 2026 commence le 11 juin 2026 avec le match d'ouverture à l'Estadio Azteca de Mexico. La grande finale est prévue le 19 juillet 2026 au MetLife Stadium de New York/New Jersey, soit 39 jours de compétition au total.",
+  },
+  {
+    question: "Combien de matchs au total à la CDM 2026 ?",
+    answer:
+      "La Coupe du Monde 2026 compte 104 matchs au total : 72 matchs de phase de groupes (12 groupes × 6 matchs), puis 32 matchs de phase finale (16 huitièmes + 8 quarts + 4 demi-finales + 1 match pour la 3e place + 1 finale). C'est 24 matchs de plus qu'en 2022.",
+  },
+  {
+    question: "Dans quel fuseau horaire sont affichés les horaires des matchs ?",
+    answer:
+      "Les horaires sur ce site sont affichés en heure de Paris (CEST, UTC+2 en été). Les matchs se jouent en heure locale américaine (EDT = UTC-4, CDT = UTC-5, PDT = UTC-7), soit généralement en soirée française (entre 18h et 3h du matin selon le fuseau de la ville hôte).",
+  },
+];
+
+// ============================================================
 //  Page component
 // ============================================================
 export default async function JourPage({ params }: PageProps) {

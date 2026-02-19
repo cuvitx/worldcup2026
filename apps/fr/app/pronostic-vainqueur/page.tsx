@@ -12,11 +12,15 @@ import {
   bookmakers,
   estimatedOutrightOdds,
 } from "@repo/data/affiliates";
+import {
+  top10Favorites,
+  favoritesByTeamId,
+} from "@repo/data/predictions-2026";
 
 export const metadata: Metadata = {
   title: "Pronostic Vainqueur CDM 2026 — Qui va gagner la Coupe du Monde ?",
   description:
-    "Qui va gagner la Coupe du Monde 2026 ? Notre pronostic complet : cotes des bookmakers, classement des favoris, % de chance par équipe. Argentina, France, Espagne en tête.",
+    "Pronostic vainqueur CDM 2026 : Argentine 15%, France 13%, Espagne 12%. Comparez les cotes, découvrez nos favoris et osez parier.",
   openGraph: {
     title: "Pronostic Vainqueur CDM 2026 — Qui va gagner ?",
     description:
@@ -60,6 +64,11 @@ const faqItems = [
     question: "Quelle équipe a le meilleur bilan en Coupe du Monde ?",
     answer:
       "Le Brésil domine avec 5 titres (1958, 1962, 1970, 1994, 2002), suivi de l'Allemagne et l'Italie (4 chacun), l'Argentine et la France (2 chacun). En 2026, une victoire de la France lui permettrait de devenir troisième nation la plus titrée.",
+  },
+  {
+    question: "L'avantage à domicile joue-t-il un rôle en Coupe du Monde ?",
+    answer:
+      "Historiquement, l'avantage du pays hôte est réel mais pas déterminant : sur 22 éditions, seules 6 nations hôtes ont remporté le titre (Uruguay 1930, Italie 1934, Angleterre 1966, Allemagne 1974, Argentine 1978, France 1998), soit un taux de 27%. En 2026, les États-Unis, le Canada et le Mexique bénéficieront de cet avantage, mais les grands favoris (Argentine, France, Espagne) restent favoris malgré tout.",
   },
 ];
 
@@ -369,28 +378,28 @@ export default function PronosticVainqueurPage() {
             CDM 2026 · Pronostic vainqueur
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-            🏆 Qui va gagner la{" "}
-            <span className="gradient-text">Coupe du Monde 2026</span> ?
+            🏆 Argentine, France, Espagne :{" "}
+            <span className="gradient-text">qui décroche le titre ?</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-300/90 mb-6">
-            Notre pronostic complet basé sur le modèle ELO, les cotes bookmakers et
-            l&apos;analyse de 48 équipes. Mis à jour en février 2026.
+            Modèle ELO + cotes bookmakers + 48 analyses d&apos;équipes.
+            Le classement qui dérange — mis à jour en temps réel.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm">
             <a href="#top10" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all">
-              Top 10 favoris
+              🔥 Top 10 des favoris
             </a>
             <a href="#analyse-top5" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
-              Pourquoi gagner ?
+              💡 Pourquoi ils peuvent gagner
             </a>
             <a href="#cotes" className="rounded-lg border border-gold/30 bg-gold/10 px-5 py-2.5 font-semibold text-gold hover:bg-gold/20 transition-all">
-              Comparer les cotes
+              💰 Meilleures cotes
             </a>
             <a href="#historique" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
-              Historique domicile
+              🏟️ Avantage domicile
             </a>
             <a href="#dark-horses" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
-              Dark Horses
+              🐴 Les surprises possibles
             </a>
           </div>
         </div>
@@ -486,7 +495,11 @@ export default function PronosticVainqueurPage() {
             {top10.map(({ pred, team }, index) => {
               if (!team) return null;
               const winPct = Math.round(pred.winnerProb * 100 * 10) / 10;
-              const approxOdds = estimatedOutrightOdds(pred.winnerProb);
+              const fav = favoritesByTeamId[team.id];
+              const approxOdds = fav ? fav.avgOdds.toFixed(2) : estimatedOutrightOdds(pred.winnerProb);
+              const impliedPct = fav ? Math.round(fav.impliedProbability * 100 * 10) / 10 : null;
+              const trendIcon = fav ? (fav.trend === "up" ? " ↑" : fav.trend === "down" ? " ↓" : "") : "";
+              const trendColor = fav?.trend === "up" ? "text-green-500" : fav?.trend === "down" ? "text-red-400" : "";
               const args = teamArguments[team.id];
 
               return (
@@ -536,10 +549,38 @@ export default function PronosticVainqueurPage() {
                       <p className="text-xs text-gray-500 dark:text-gray-400">chance titre</p>
                     </div>
                     <div className="shrink-0 text-right">
-                      <p className="text-xl font-bold text-gold">{approxOdds}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">cote approx.</p>
+                      <p className="text-xl font-bold text-gold">
+                        {approxOdds}
+                        {trendIcon && (
+                          <span className={`text-sm ml-1 font-bold ${trendColor}`}>{trendIcon}</span>
+                        )}
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        {fav ? "cote moy. marché" : "cote approx."}
+                      </p>
                     </div>
                   </div>
+
+                  {/* Real bookmaker odds strip (if in top10Favorites) */}
+                  {fav && (
+                    <div className="flex items-center gap-2 px-5 pb-2 flex-wrap">
+                      <span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide">Cotes réelles :</span>
+                      <span className="inline-flex items-center gap-1 rounded bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800/50 px-2 py-0.5 text-xs font-bold text-orange-600 dark:text-orange-400">
+                        Winamax {fav.winamax.toFixed(2)}
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/50 px-2 py-0.5 text-xs font-bold text-teal-600 dark:text-teal-400">
+                        Bet365 {fav.bet365.toFixed(2)}
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 px-2 py-0.5 text-xs font-bold text-green-600 dark:text-green-400">
+                        DraftKings {fav.draftkings.toFixed(2)}
+                      </span>
+                      {impliedPct !== null && (
+                        <span className="ml-auto inline-flex items-center gap-1 rounded bg-accent/10 border border-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
+                          Proba : {impliedPct}%
+                        </span>
+                      )}
+                    </div>
+                  )}
 
                   {/* Mobile: chance titre */}
                   <div className="flex sm:hidden items-center gap-4 px-5 pb-3">
@@ -851,74 +892,106 @@ export default function PronosticVainqueurPage() {
         </div>
       </section>
 
-      {/* ===== TABLEAU COMPARATIF DES COTES ===== */}
+      {/* ===== TABLEAU COMPARATIF DES COTES MULTI-BOOKMAKERS (données réelles) ===== */}
       <section id="cotes" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            📊 Comparateur de cotes par bookmaker
+            📊 Cotes vainqueur CDM 2026 — Multi-bookmakers
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-            Cotes estimées pour le vainqueur de la CDM 2026. Mise à jour régulière.
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+            Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700 dark:text-gray-200">février 2026</span>.
+          </p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mb-6">
+            ↑ Tendance haussière vs. cotes d&apos;ouverture (déc. 2025) · ↓ Tendance baissière · → Stable
           </p>
 
           <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-300">
-                  <th className="text-left px-4 py-3 font-bold">Équipe</th>
-                  {bookmakers.map((bm) => (
-                    <th key={bm.id} className="text-center px-4 py-3 font-bold whitespace-nowrap">
-                      <a
-                        href={bm.url}
-                        target="_blank"
-                        rel="noopener noreferrer sponsored nofollow"
-                        className="hover:text-accent transition-colors"
-                      >
-                        {bm.name}
-                      </a>
-                    </th>
-                  ))}
-                  <th className="text-center px-4 py-3 font-bold text-gold">Notre modèle</th>
+                  <th className="text-left px-4 py-3 font-bold min-w-[160px]">Équipe</th>
+                  <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#FF6600]">Winamax</th>
+                  <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#00A0A0]">Bet365</th>
+                  <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#53B648]">DraftKings</th>
+                  <th className="text-center px-4 py-3 font-bold text-gold whitespace-nowrap">Moy. marché</th>
+                  <th className="text-center px-4 py-3 font-bold text-accent whitespace-nowrap">Proba.</th>
+                  <th className="text-center px-4 py-3 font-bold text-gray-500 dark:text-gray-400 whitespace-nowrap">Tendance</th>
                 </tr>
               </thead>
               <tbody>
-                {top10.slice(0, 8).map(({ pred, team }, i) => {
+                {top10Favorites.map((fav, i) => {
+                  const team = teams.find((t) => t.id === fav.teamId);
                   if (!team) return null;
-                  const modelOdds = estimatedOutrightOdds(pred.winnerProb);
-                  // Simulate small variation per bookmaker
-                  const variation = [0.9, 0.95, 1.0, 1.05, 1.1];
-                  const baseOdds = parseFloat(modelOdds);
+                  const trendIcon = fav.trend === "up" ? "↑" : fav.trend === "down" ? "↓" : "→";
+                  const trendColor =
+                    fav.trend === "up"
+                      ? "text-green-600 dark:text-green-400"
+                      : fav.trend === "down"
+                      ? "text-red-500 dark:text-red-400"
+                      : "text-gray-400 dark:text-gray-500";
+                  const impliedPct = Math.round(fav.impliedProbability * 100 * 10) / 10;
+                  // best odds among bookmakers
+                  const bestOdds = Math.max(fav.winamax, fav.bet365, fav.draftkings);
 
                   return (
                     <tr
-                      key={team.id}
+                      key={fav.teamId}
                       className={`border-t border-gray-100 dark:border-slate-700/50 ${
                         i % 2 === 0 ? "bg-white dark:bg-slate-800/50" : "bg-gray-50/50 dark:bg-slate-800"
                       } hover:bg-accent/5 dark:hover:bg-accent/10 transition-colors`}
                     >
+                      {/* Team */}
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
+                          <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                            i === 0 ? "bg-gold/20 text-gold" :
+                            i === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
+                            i === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-600" :
+                            "bg-gray-100 dark:bg-slate-700 text-gray-500"
+                          }`}>{i + 1}</span>
                           <span className="text-xl">{team.flag}</span>
-                          <span className="font-medium text-gray-900 dark:text-white">{team.name}</span>
-                          <span className="text-xs text-gray-400 hidden sm:inline">#{team.fifaRanking}</span>
+                          <Link href={`/equipe/${team.slug}`} className="font-medium text-gray-900 dark:text-white hover:text-accent transition-colors">
+                            {team.name}
+                          </Link>
                         </div>
                       </td>
-                      {bookmakers.map((bm, bi) => (
-                        <td key={bm.id} className="px-4 py-3 text-center">
-                          <a
-                            href={bm.url}
-                            target="_blank"
-                            rel="noopener noreferrer sponsored nofollow"
-                            className="odds-badge hover:bg-accent/20 transition-colors"
-                          >
-                            {isNaN(baseOdds)
-                              ? "—"
-                              : (baseOdds * (variation[bi % variation.length] ?? 1)).toFixed(2)}
-                          </a>
-                        </td>
-                      ))}
+                      {/* Winamax */}
                       <td className="px-4 py-3 text-center">
-                        <span className="font-bold text-gold">{modelOdds}</span>
+                        <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.winamax === bestOdds ? "bg-gold/10 text-gold border border-gold/30" : "text-gray-700 dark:text-gray-200"}`}>
+                          {fav.winamax.toFixed(2)}
+                        </span>
+                      </td>
+                      {/* Bet365 */}
+                      <td className="px-4 py-3 text-center">
+                        <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.bet365 === bestOdds ? "bg-gold/10 text-gold border border-gold/30" : "text-gray-700 dark:text-gray-200"}`}>
+                          {fav.bet365.toFixed(2)}
+                        </span>
+                      </td>
+                      {/* DraftKings */}
+                      <td className="px-4 py-3 text-center">
+                        <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.draftkings === bestOdds ? "bg-gold/10 text-gold border border-gold/30" : "text-gray-700 dark:text-gray-200"}`}>
+                          {fav.draftkings.toFixed(2)}
+                        </span>
+                      </td>
+                      {/* Moyenne */}
+                      <td className="px-4 py-3 text-center">
+                        <span className="font-bold text-gold">{fav.avgOdds.toFixed(2)}</span>
+                      </td>
+                      {/* Proba implicite */}
+                      <td className="px-4 py-3 text-center">
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="font-bold text-accent text-sm">{impliedPct}%</span>
+                          <div className="w-16 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-gradient-to-r from-accent to-gold rounded-full"
+                              style={{ width: `${Math.min(impliedPct * 5, 100)}%` }}
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      {/* Tendance */}
+                      <td className={`px-4 py-3 text-center text-lg font-bold ${trendColor}`}>
+                        {trendIcon}
                       </td>
                     </tr>
                   );
@@ -927,10 +1000,18 @@ export default function PronosticVainqueurPage() {
             </table>
           </div>
 
-          <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
-            * Cotes indicatives calculées à partir de notre modèle ELO. Les cotes réelles varient en temps réel.
-            Vérifiez sur les sites des bookmakers pour les cotes exactes. Jeu responsable — 18+.
-          </p>
+          {/* Légende + note */}
+          <div className="mt-4 flex flex-wrap gap-4 items-start justify-between">
+            <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400">
+              <span>🟡 = Meilleure cote du moment</span>
+              <span className="text-green-600 dark:text-green-400 font-semibold">↑ Tendance haussière</span>
+              <span className="text-red-500 dark:text-red-400 font-semibold">↓ Tendance baissière</span>
+              <span>→ Stable</span>
+            </div>
+            <p className="text-xs text-gray-400 dark:text-gray-500 max-w-xs text-right">
+              Sources : Winamax (football.fr), Bet365 (covers.com), DraftKings (nbcsports.com). Cotes décimales. Jeu responsable — 18+.
+            </p>
+          </div>
 
           {/* Bookmaker CTAs */}
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">

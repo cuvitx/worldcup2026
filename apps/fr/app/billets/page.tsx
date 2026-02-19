@@ -6,7 +6,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
   title: "Billets CDM 2026 — Prix, dates et comment acheter | Coupe du Monde",
   description:
-    "Tout sur les billets Coupe du Monde 2026 : prix par phase (poules 60-150€, finale 300-1500€+), comment acheter sur FIFA.com, phases de vente, catégories et conseils anti-arnaques.",
+    "Billets CDM 2026 : prix officiels (60$–1500$+), dates de vente, arnaques à éviter. Guide complet pour acheter sur FIFA.com en toute sécurité.",
   openGraph: {
     title: "Billets CDM 2026 — Prix, dates et comment acheter",
     description:
@@ -201,6 +201,11 @@ const faqItems = [
     answer:
       "Oui ! La CDM 2026 se déroule dans 16 villes réparties dans 3 pays : 11 villes aux États-Unis (Atlanta, Boston, Dallas, Kansas City, Los Angeles, Miami, New York/NJ, Philadelphia, San Francisco, Seattle, Toronto — ville canadienne désignée), 3 au Canada (Toronto, Vancouver, Calgary) et 3 au Mexique (Mexico, Guadalajara, Monterrey).",
   },
+  {
+    question: "Faut-il un visa pour assister à la CDM 2026 ?",
+    answer:
+      "Cela dépend de votre nationalité et du pays hôte où vous vous rendez. Les ressortissants français voyageant aux États-Unis doivent obtenir une autorisation ESTA (14 USD, valable 2 ans) s'ils voyagent sans visa. Pour le Canada et le Mexique, d'autres conditions s'appliquent. La FIFA et les gouvernements des pays hôtes ont mis en place des facilités d'entrée spéciales pour les détenteurs de billets officiels CDM 2026. Vérifiez les conditions actuelles sur le site de l'ambassade du pays concerné et sur fifa.com.",
+  },
 ];
 
 export default function BilletsPage() {
@@ -264,11 +269,11 @@ export default function BilletsPage() {
               🎟️ Guide officiel
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
-              Billets Coupe du Monde 2026
+              🎟️ Billets CDM 2026 : prix, dates & arnaques à éviter
             </h1>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Prix, dates de vente et comment acheter vos billets pour la CDM 2026.
-              Guide complet mis à jour en temps réel.
+              De 60 $ la phase de groupes à 1 500 $+ pour la finale. Tout pour
+              acheter au bon prix, au bon moment — sans se faire arnaquer.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -277,10 +282,10 @@ export default function BilletsPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg"
               >
-                🎟️ Acheter sur FIFA.com →
+                🎟️ Acheter sur FIFA.com (officiel)
               </a>
               <a href="#prix" className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-all">
-                Voir les prix
+                📊 Consulter les tarifs
               </a>
             </div>
           </div>

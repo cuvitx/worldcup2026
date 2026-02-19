@@ -5,6 +5,7 @@ import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers"
 import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { topScorerCandidates } from "@repo/data/predictions-2026";
 
 export const metadata: Metadata = {
   title: "Cotes buteurs CDM 2026 | Meilleur buteur, stats & pronostics",
@@ -43,6 +44,133 @@ export default function ButeursPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
+
+        {/* ── TOP 5 CANDIDATS (données prédictions-2026) ── */}
+        <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
+          <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-2xl">🌟</span>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                Top 5 candidats au Soulier d&apos;Or
+              </h2>
+            </div>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Cotes réelles multi-bookmakers · Buts attendus (modèle ELO) · Fév. 2026
+            </p>
+          </div>
+
+          <div className="divide-y divide-gray-100 dark:divide-slate-700">
+            {topScorerCandidates.map((candidate, idx) => {
+              const team = teamsById[candidate.teamId];
+              const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `${idx + 1}.`;
+              const podiumBg =
+                idx === 0 ? "bg-gradient-to-r from-gold/5 to-amber-50/30 dark:from-gold/10 dark:to-amber-900/10" :
+                idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50 dark:from-slate-800/80 dark:to-slate-800/40" :
+                idx === 2 ? "bg-gradient-to-r from-orange-50/50 to-amber-50/20 dark:from-orange-900/10 dark:to-amber-900/5" :
+                "bg-white dark:bg-slate-800";
+              const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
+              const bestBookmakerOdds = Math.max(candidate.winamax, candidate.betclic, candidate.draftkings);
+
+              return (
+                <div key={candidate.playerId} className={`p-6 ${podiumBg}`}>
+                  <div className="flex flex-wrap items-start gap-4">
+                    {/* Medal + rank */}
+                    <div className="shrink-0 text-3xl w-10 text-center">{medal}</div>
+
+                    {/* Player info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
+                          {candidate.name}
+                        </h3>
+                        {team && (
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-xl">{team.flag}</span>
+                            <Link href={`/equipe/${team.slug}`} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-accent transition-colors">
+                              {team.name}
+                            </Link>
+                          </div>
+                        )}
+                        <span className="inline-block rounded-full bg-accent/10 border border-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
+                          {impliedPct}% de chances
+                        </span>
+                      </div>
+
+                      {/* Buts stats */}
+                      <div className="flex flex-wrap gap-4 mb-3">
+                        <div className="text-center">
+                          <p className="text-2xl font-extrabold text-primary dark:text-blue-300">{candidate.expectedGoals}</p>
+                          <p className="text-[10px] text-gray-400 uppercase tracking-wide">Buts attendus</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-2xl font-extrabold text-gold">{candidate.internationalGoals}</p>
+                          <p className="text-[10px] text-gray-400 uppercase tracking-wide">Buts sélection</p>
+                        </div>
+                        {/* Bar */}
+                        <div className="flex-1 flex flex-col justify-center min-w-[100px]">
+                          <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-gradient-to-r from-accent to-gold rounded-full"
+                              style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
+                            />
+                          </div>
+                          <p className="text-[10px] text-gray-400 mt-1">Probabilité implicite</p>
+                        </div>
+                      </div>
+
+                      {/* Strengths */}
+                      <ul className="space-y-0.5">
+                        {candidate.strengths.map((s, si) => (
+                          <li key={si} className="flex items-start gap-1.5 text-xs text-gray-600 dark:text-gray-300">
+                            <span className="shrink-0 mt-0.5 text-green-500">✓</span>
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Bookmaker odds column */}
+                    <div className="shrink-0 flex flex-col gap-2 min-w-[130px]">
+                      <p className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide font-semibold mb-1">
+                        Cotes meilleur buteur
+                      </p>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-orange-50 dark:bg-orange-900/20 border-orange-100 dark:border-orange-800/30"}`}>
+                        <span className="text-xs font-semibold text-orange-700 dark:text-orange-400">Winamax</span>
+                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-gold" : "text-orange-600 dark:text-orange-300"}`}>
+                          {candidate.winamax.toFixed(2)}
+                        </span>
+                      </div>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-teal-50 dark:bg-teal-900/20 border-teal-100 dark:border-teal-800/30"}`}>
+                        <span className="text-xs font-semibold text-teal-700 dark:text-teal-400">Betclic</span>
+                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-gold" : "text-teal-600 dark:text-teal-300"}`}>
+                          {candidate.betclic.toFixed(2)}
+                        </span>
+                      </div>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800/30"}`}>
+                        <span className="text-xs font-semibold text-green-700 dark:text-green-400">DraftKings</span>
+                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-gold" : "text-green-600 dark:text-green-300"}`}>
+                          {candidate.draftkings.toFixed(2)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between rounded-lg px-3 py-2 bg-accent/5 border border-accent/15">
+                        <span className="text-xs font-semibold text-accent">Moy.</span>
+                        <span className="text-sm font-bold text-accent">{candidate.avgOdds.toFixed(2)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
+            <p className="text-[11px] text-gray-400 dark:text-gray-500">
+              🟡 = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
+              Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
+            </p>
+          </div>
+        </section>
+
         {/* Top Scorer Ranking */}
         <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-2 text-xl font-bold">Favoris pour le Soulier d&apos;Or</h2>
