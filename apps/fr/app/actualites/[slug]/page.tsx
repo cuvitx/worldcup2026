@@ -63,9 +63,9 @@ export default async function ArticlePage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "CDM 2026",
-      url: "https://mondial2026.fr",
+      url: "https://cdm2026.fr",
     },
-    mainEntityOfPage: `https://mondial2026.fr/actualites/${article.slug}`,
+    mainEntityOfPage: `https://cdm2026.fr/actualites/${article.slug}`,
   };
 
   return (

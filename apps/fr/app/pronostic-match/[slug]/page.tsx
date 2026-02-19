@@ -188,7 +188,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
       {/* Share buttons */}
       <div className="mx-auto max-w-7xl px-4 pt-4">
         <ShareButtons
-          url={`https://www.coupe-du-monde-2026.fr/pronostic-match/${match.slug}`}
+          url={`https://www.cdm2026.fr/pronostic-match/${match.slug}`}
           text={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! 🏆 #CDM2026 #WorldCup2026`}
           label="Partager ce pronostic"
         />

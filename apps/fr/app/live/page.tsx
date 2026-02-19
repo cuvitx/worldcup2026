@@ -53,13 +53,13 @@ export default function LivePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.coupe-du-monde-2026.fr",
+        item: "https://www.cdm2026.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Résultats en direct",
-        item: "https://www.coupe-du-monde-2026.fr/live",
+        item: "https://www.cdm2026.fr/live",
       },
     ],
   };

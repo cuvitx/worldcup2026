@@ -18,8 +18,8 @@ export default function ProfilPage() {
   const shareText = () => {
     const earned = ALL_BADGES.filter((b) => unlockedBadges.includes(b.id));
     const text = earned.length
-      ? `🏅 Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\n🔥 Streak : ${stats.streak} jour(s)\n\nhttps://mondial2026.fr/profil`
-      : "Je n'ai pas encore de badges CDM 2026 ! 🏟️\nhttps://mondial2026.fr/profil";
+      ? `🏅 Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\n🔥 Streak : ${stats.streak} jour(s)\n\nhttps://cdm2026.fr/profil`
+      : "Je n'ai pas encore de badges CDM 2026 ! 🏟️\nhttps://cdm2026.fr/profil";
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
     } else {

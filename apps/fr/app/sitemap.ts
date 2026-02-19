@@ -10,8 +10,8 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides } from "@repo/data/guides";
 import { newsArticles } from "@repo/data/news";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://mondial2026.fr";
-const LAST_UPDATED = new Date("2026-02-12");
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://cdm2026.fr";
+const LAST_UPDATED = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {
 

@@ -55,7 +55,7 @@ Parmi les surprises, on note la présence de Désiré Doué (PSG), auteur d'une 
 Les absences notables incluent plusieurs joueurs du championnat de France qui espéraient une convocation. Deschamps a précisé que "la compétition est immense et les choix sont toujours difficiles, mais nous visons un objectif clair : ramener la troisième étoile".`,
     date: "2026-02-12",
     category: "equipes",
-    tags: ["France", "Deschamps", "sélection", "Bleus"],
+    tags: ["France", "Deschamps", "sélection", "Bleus", "Simulation éditoriale"],
     imageEmoji: "🇫🇷",
   },
   {
@@ -130,7 +130,7 @@ Son entente avec Vinícius Jr et Bellingham fait des merveilles en Liga et en Li
 Les observateurs notent que Mbappé a considérablement amélioré son jeu dos au but et sa capacité à décrocher pour créer. Une évolution qui en fait un danger encore plus complet pour les défenses adverses. Son duel annoncé avec Vinícius Jr, qu'il côtoie au quotidien, sera l'un des fils rouges de la compétition.`,
     date: "2026-01-28",
     category: "equipes",
-    tags: ["Mbappé", "Real Madrid", "France", "forme"],
+    tags: ["Mbappé", "Real Madrid", "France", "forme", "Simulation éditoriale"],
     imageEmoji: "⚡",
   },
   {

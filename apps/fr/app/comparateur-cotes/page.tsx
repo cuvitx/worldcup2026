@@ -32,8 +32,8 @@ export default function ComparateurCotesPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.mondial2026.fr/" },
-              { "@type": "ListItem", position: 2, name: "Comparateur de cotes", item: "https://www.mondial2026.fr/comparateur-cotes" },
+              { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr/" },
+              { "@type": "ListItem", position: 2, name: "Comparateur de cotes", item: "https://www.cdm2026.fr/comparateur-cotes" },
             ],
           }),
         }}

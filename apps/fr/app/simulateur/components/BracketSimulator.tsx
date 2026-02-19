@@ -316,7 +316,7 @@ export function BracketSimulator() {
             </div>
             <div className="mt-3">
               <ShareButtons
-                url="https://www.coupe-du-monde-2026.fr/simulateur"
+                url="https://www.cdm2026.fr/simulateur"
                 text={`Mon pronostic pour la CDM 2026 : ${champion.flag} ${champion.name} champion du monde ! 🏆 #CDM2026 #WorldCup2026`}
                 label="Partager mon bracket"
               />

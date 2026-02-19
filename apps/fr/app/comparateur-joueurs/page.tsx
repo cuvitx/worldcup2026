@@ -17,8 +17,8 @@ export default function ComparateurJoueursPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mondial2026.fr" },
-      { "@type": "ListItem", position: 2, name: "Comparateur joueurs", item: "https://mondial2026.fr/comparateur-joueurs" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://cdm2026.fr" },
+      { "@type": "ListItem", position: 2, name: "Comparateur joueurs", item: "https://cdm2026.fr/comparateur-joueurs" },
     ],
   };
 

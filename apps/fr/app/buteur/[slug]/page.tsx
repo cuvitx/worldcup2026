@@ -428,7 +428,7 @@ export default async function ButeurPage({ params }: PageProps) {
               name: team?.name ?? "",
             },
             description: `Cote buteur ${player.name} pour la CDM 2026. ${player.goals} buts en ${player.caps} selections.`,
-            url: `https://mondial2026.fr/buteur/${player.slug}`,
+            url: `https://cdm2026.fr/buteur/${player.slug}`,
           }),
         }}
       />

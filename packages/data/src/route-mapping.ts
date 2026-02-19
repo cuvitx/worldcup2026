@@ -6,7 +6,7 @@
 export type Lang = "fr" | "en" | "es";
 
 export const domains: Record<Lang, string> = {
-  fr: "https://mondial2026.fr",
+  fr: "https://cdm2026.fr",
   en: "https://worldcup2026guide.com",
   es: "https://mundial2026.es",
 };

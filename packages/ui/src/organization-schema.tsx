@@ -11,7 +11,7 @@ export function OrganizationSchema({
     name,
     url,
     sameAs: [
-      "https://mondial2026.fr",
+      "https://cdm2026.fr",
       "https://worldcup2026guide.com",
       "https://mundial2026.es",
     ],

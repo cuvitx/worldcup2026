@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@mondial2026",
-    creator: "@mondial2026",
+    site: "@cdm2026",
+    creator: "@cdm2026",
   },
   robots: {
     index: true,

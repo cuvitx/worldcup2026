@@ -128,9 +128,9 @@ export default function GlossairePage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.mondial2026.fr/" },
-      { "@type": "ListItem", position: 2, name: "Guide", item: "https://www.mondial2026.fr/guide" },
-      { "@type": "ListItem", position: 3, name: "Glossaire", item: "https://www.mondial2026.fr/guide/glossaire" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr/" },
+      { "@type": "ListItem", position: 2, name: "Guide", item: "https://www.cdm2026.fr/guide" },
+      { "@type": "ListItem", position: 3, name: "Glossaire", item: "https://www.cdm2026.fr/guide/glossaire" },
     ],
   };
 

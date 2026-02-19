@@ -62,8 +62,8 @@ export default function OuRegarderPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.mondial2026.fr/" },
-      { "@type": "ListItem", position: 2, name: "Où regarder", item: "https://www.mondial2026.fr/ou-regarder" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr/" },
+      { "@type": "ListItem", position: 2, name: "Où regarder", item: "https://www.cdm2026.fr/ou-regarder" },
     ],
   };
 

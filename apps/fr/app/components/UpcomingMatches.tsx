@@ -3,7 +3,11 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 
-const upcomingMatches = matches.filter((m) => m.stage === "group").slice(0, 4);
+const now = new Date();
+const upcomingMatches = matches
+  .filter((m) => new Date(`${m.date}T${m.time ?? "00:00"}Z`) >= now)
+  .sort((a, b) => new Date(`${a.date}T${a.time ?? "00:00"}Z`).getTime() - new Date(`${b.date}T${b.time ?? "00:00"}Z`).getTime())
+  .slice(0, 4);
 
 function formatDate(date: string) {
   return new Date(date + "T00:00:00Z").toLocaleDateString("fr-FR", {

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
     description: "Pronostics, cotes, analyses des 48 équipes et calendrier des 104 matchs de la CDM 2026.",
-    url: "https://mondial2026.fr",
+    url: "https://cdm2026.fr",
   },
 };
 
@@ -30,7 +30,7 @@ const homepageJsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "CDM 2026 - Coupe du Monde",
-    url: "https://mondial2026.fr",
+    url: "https://cdm2026.fr",
     description: "Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 équipes.",
     inLanguage: "fr",
   },

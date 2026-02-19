@@ -43,7 +43,7 @@ export default function MentionsLegalesPage() {
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="text-4xl font-extrabold">Mentions légales</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Informations légales relatives au site coupe-du-monde-2026.fr
+            Informations légales relatives au site cdm2026.fr
           </p>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function MentionsLegalesPage() {
               1. Éditeur du site
             </h2>
             <p>
-              Le site <strong>coupe-du-monde-2026.fr</strong> (ci-après « le
+              Le site <strong>cdm2026.fr</strong> (ci-après « le
               Site ») est édité à titre personnel dans le cadre d&apos;un projet
               d&apos;information sportive.
             </p>
@@ -67,10 +67,10 @@ export default function MentionsLegalesPage() {
               <li>
                 <strong>Contact :</strong>{" "}
                 <a
-                  href="mailto:contact@coupe-du-monde-2026.fr"
+                  href="mailto:contact@cdm2026.fr"
                   className="text-accent hover:underline"
                 >
-                  contact@coupe-du-monde-2026.fr
+                  contact@cdm2026.fr
                 </a>
               </li>
             </ul>
@@ -137,10 +137,10 @@ export default function MentionsLegalesPage() {
             <p className="mt-2">
               Pour exercer vos droits, contactez-nous à l&apos;adresse :{" "}
               <a
-                href="mailto:contact@coupe-du-monde-2026.fr"
+                href="mailto:contact@cdm2026.fr"
                 className="text-accent hover:underline"
               >
-                contact@coupe-du-monde-2026.fr
+                contact@cdm2026.fr
               </a>
             </p>
           </section>
@@ -254,10 +254,10 @@ export default function MentionsLegalesPage() {
             <p>
               Pour toute question concernant ces mentions légales :{" "}
               <a
-                href="mailto:contact@coupe-du-monde-2026.fr"
+                href="mailto:contact@cdm2026.fr"
                 className="text-accent hover:underline"
               >
-                contact@coupe-du-monde-2026.fr
+                contact@cdm2026.fr
               </a>
             </p>
           </section>

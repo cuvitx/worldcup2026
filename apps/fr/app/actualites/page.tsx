@@ -32,7 +32,7 @@ const newsJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Actualités Coupe du Monde 2026",
-  url: "https://mondial2026.fr/actualites",
+  url: "https://cdm2026.fr/actualites",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: newsArticles.map((article, i) => ({
@@ -42,7 +42,7 @@ const newsJsonLd = {
         "@type": "NewsArticle",
         headline: article.title,
         datePublished: article.date,
-        url: `https://mondial2026.fr/actualites#${article.id}`,
+        url: `https://cdm2026.fr/actualites#${article.id}`,
         publisher: { "@type": "Organization", name: "CDM 2026" },
       },
     })),

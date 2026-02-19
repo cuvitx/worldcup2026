@@ -20,13 +20,13 @@ const guidesJsonLd = {
   "@type": "CollectionPage",
   name: "Guides paris sportifs CDM 2026",
   description: "Tous nos guides de paris sportifs pour la Coupe du Monde 2026.",
-  url: "https://mondial2026.fr/guides",
+  url: "https://cdm2026.fr/guides",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: guides.map((guide, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://mondial2026.fr/guide/${guide.slug}`,
+      url: `https://cdm2026.fr/guide/${guide.slug}`,
       name: guide.title,
     })),
   },

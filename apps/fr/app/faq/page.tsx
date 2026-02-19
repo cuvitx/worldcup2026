@@ -14,7 +14,7 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "FAQ - Coupe du Monde 2026",
       description: "Réponses à toutes vos questions sur la CDM 2026 : format, équipes, paris et pronostics.",
-      url: "https://mondial2026.fr/faq",
+      url: "https://cdm2026.fr/faq",
     },
   };
 }

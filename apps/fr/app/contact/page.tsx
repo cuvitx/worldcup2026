@@ -85,13 +85,13 @@ export default function ContactPage() {
                 analyses ou à une demande de partenariat, envoyez-nous un email :
               </p>
               <a
-                href="mailto:contact@coupe-du-monde-2026.fr?subject=Contact%20CDM%202026"
+                href="mailto:contact@cdm2026.fr?subject=Contact%20CDM%202026"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
-                contact@coupe-du-monde-2026.fr
+                contact@cdm2026.fr
               </a>
               <p className="mt-4 text-sm text-gray-500">
                 Nous nous efforçons de répondre sous 48 heures.
