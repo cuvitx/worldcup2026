@@ -92,10 +92,10 @@ export function LiveTicker() {
 
   return (
     <div className="sticky top-[64px] z-40 w-full backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-gray-200/50 dark:border-gray-700/50">
-      <div className="mx-auto max-w-7xl flex items-center justify-center gap-3 px-4 py-2.5 text-sm">
+      <div className="mx-auto max-w-7xl flex items-center justify-center gap-2 px-4 py-2 text-sm">
         <Link
           href={`/match/${nextMatch.slug}`}
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0 truncate"
         >
           {isLive && (
             <span className="flex items-center gap-1.5 shrink-0">
@@ -108,21 +108,16 @@ export function LiveTicker() {
               </span>
             </span>
           )}
-          <span className="min-w-0 break-words">
+          <span className="truncate">
             <span role="img" aria-label={homeTeam.name}>{homeTeam.flag}</span>{" "}
             <span className="font-semibold">{homeTeam.name}</span>
             {" "}vs{" "}
             <span role="img" aria-label={awayTeam.name}>{awayTeam.flag}</span>{" "}
             <span className="font-semibold">{awayTeam.name}</span>
           </span>
-          {countdown && (
-            <span className="text-gray-500 dark:text-gray-300 shrink-0 hidden sm:inline">
-              — {countdownText}
-            </span>
-          )}
         </Link>
         {countdown && (
-          <span className="text-gray-500 dark:text-gray-300 text-xs sm:hidden shrink-0">
+          <span className="text-gray-500 dark:text-gray-300 text-xs shrink-0">
             {countdownText}
           </span>
         )}
