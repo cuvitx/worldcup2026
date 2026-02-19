@@ -121,7 +121,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="bg-primary text-white">
+    <header className="sticky top-0 z-40 bg-primary/90 backdrop-blur-md text-white border-b border-white/5">
       {/* Skip to content */}
       <a
         href="#main-content"
@@ -132,14 +132,17 @@ export function Header() {
 
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         <Link href="/" className="text-xl font-bold tracking-tight focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded">
-          <span className="text-gold">CDM</span> 2026
+          <span className="text-gold">⚽ CDM</span> 2026
         </Link>
 
         {/* Desktop nav */}
         <ul className="hidden gap-6 text-sm font-medium md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="hover:text-gold transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded">
+              <Link
+                href={link.href}
+                className={`relative py-1 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded hover:text-gold after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300 ${pathname.startsWith(link.href) ? "text-gold after:w-full" : "after:w-0 hover:after:w-full"}`}
+              >
                 {link.label}
               </Link>
             </li>
@@ -210,13 +213,13 @@ export function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden border-t border-white/10">
+        <div className="md:hidden border-t border-white/10 animate-[slideDown_200ms_ease-out]">
           <ul className="flex flex-col px-4 py-3 gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none ${pathname.startsWith(link.href) ? "bg-white/15 text-gold" : "hover:bg-white/10"}`}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
