@@ -66,7 +66,7 @@ export function MatchAlert() {
           <p className="font-bold text-gray-900 dark:text-white">
             🔔 Alerte matchs des Bleus 🇫🇷
           </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             Reçois une alerte par email avant chaque match de l&apos;équipe de France !
           </p>
         </div>

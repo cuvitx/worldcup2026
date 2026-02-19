@@ -21,9 +21,9 @@ export default function TeamsPage() {
 
   return (
     <>
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Équipes</li>
@@ -42,18 +42,18 @@ export default function TeamsPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Ranking Table */}
-        <section className="rounded-xl bg-white dark:bg-gray-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
-          <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">Classement FIFA des 48 équipes</h2>
+        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 dark:border-gray-600 text-left">
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400">#</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400">Équipe</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400">Conf.</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400">Groupe</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Chances CDM</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Pronostic</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">#</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Équipe</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Conf.</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Groupe</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right">Chances CDM</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right">Pronostic</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
@@ -69,7 +69,7 @@ export default function TeamsPage() {
                           {team.isHost && <span className="text-xs text-gold font-semibold">(Hôte)</span>}
                         </Link>
                       </td>
-                      <td className="py-3 text-gray-500 dark:text-gray-400">{team.confederation}</td>
+                      <td className="py-3 text-gray-500 dark:text-gray-300">{team.confederation}</td>
                       <td className="py-3">
                         <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary text-gray-700 dark:text-gray-300">{team.group}</Link>
                       </td>

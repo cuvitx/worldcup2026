@@ -197,15 +197,15 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         </div>
 
         {/* Bet card */}
-        <div className="rounded-xl border border-gold/20 bg-white/5 backdrop-blur-sm p-4 mb-4">
-          <div className="flex items-center justify-between">
-            <div>
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-4">
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0 flex-1">
               <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Type de pari</p>
-              <p className="text-base font-bold text-white">{display.betType}</p>
+              <p className="text-sm sm:text-base font-bold text-white break-words">{display.betType}</p>
             </div>
-            <div className="text-right ml-4">
+            <div className="text-right shrink-0">
               <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Cote</p>
-              <p className="text-3xl font-extrabold text-gold">{display.odds}</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-gold">{display.odds}</p>
             </div>
           </div>
         </div>

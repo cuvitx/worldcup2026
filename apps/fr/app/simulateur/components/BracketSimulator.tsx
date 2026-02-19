@@ -209,7 +209,7 @@ function ProgressBar({ rounds }: { rounds: Record<RoundName, MatchData[]> }) {
 
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap font-medium">
+      <span className="text-xs text-gray-500 dark:text-gray-300 whitespace-nowrap font-medium">
         Progression
       </span>
       <div className="flex-1 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
@@ -362,12 +362,12 @@ export function BracketSimulator() {
           </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-5 text-center">
+        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800 p-5 text-center">
           <p className="text-2xl mb-2">🏆</p>
           <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">
             Sélectionnez les vainqueurs pour simuler le tournoi
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
             Cliquez sur une équipe pour la qualifier au tour suivant
           </p>
         </div>
@@ -380,7 +380,7 @@ export function BracketSimulator() {
         </div>
         <button
           onClick={reset}
-          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 transition-all"
+          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 transition-all"
         >
           🔄 Réinitialiser
         </button>
@@ -552,7 +552,7 @@ function MobileBracket({
           <div key={round} className="rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             {/* Round header */}
             <button
-              className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700 transition-colors"
+              className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700 transition-colors"
               onClick={() => setExpandedRound(isExpanded ? round : round)}
             >
               <div className="flex items-center gap-2">
@@ -561,13 +561,13 @@ function MobileBracket({
                   {ROUND_LABELS[round]}
                 </span>
               </div>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-xs text-gray-500 dark:text-gray-300">
                 {filledCount}/{totalCount} ✓
               </span>
             </button>
 
             {/* Matches */}
-            <div className="divide-y divide-gray-100 dark:divide-gray-700/50 px-3 py-2 bg-gray-50 dark:bg-gray-900/30 space-y-2">
+            <div className="divide-y divide-gray-100 dark:divide-gray-700/50 px-3 py-2 bg-gray-50 dark:bg-slate-900/30 space-y-2">
               {rounds[round].map((match, i) => (
                 <BracketMatchCard
                   key={match.id}
@@ -606,7 +606,7 @@ function BracketMatchCard({
         winner
           ? "border-green-300 dark:border-green-700 shadow-sm"
           : "border-gray-200 dark:border-gray-600"
-      } ${isFinal ? "shadow-lg shadow-gold/10 border-gold/30" : ""} bg-white dark:bg-gray-800`}
+      } ${isFinal ? "shadow-lg shadow-gold/10 border-gold/30" : ""} bg-white dark:bg-slate-800`}
     >
       <TeamSlot
         team={team1}

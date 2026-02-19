@@ -459,7 +459,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
           isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
         }`}
       >
-        <div className="group bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all p-5">
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow group">
           {/* Header */}
           <div
             className={`flex items-center gap-3 mb-3 ${
@@ -499,7 +499,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
 
           {/* Meilleur buteur */}
           <div
-            className={`flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3 ${
+            className={`flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-3 ${
               isLeft ? "md:justify-end" : ""
             }`}
           >
@@ -519,7 +519,7 @@ function EditionCard({ edition, side }: EditionCardProps) {
             <div className="text-xs font-bold text-primary uppercase tracking-wide mb-1">
               {edition.highlight}
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
               {edition.highlightDetail}
             </p>
           </div>
@@ -571,7 +571,7 @@ export default function HistoirePage() {
       {/* Fil d'Ariane */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary dark:hover:text-white transition-colors">
                 Accueil
@@ -622,10 +622,10 @@ export default function HistoirePage() {
 
         {/* ── Intro ────────────────────────────────────────────── */}
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-3">
             Une timeline de légendes
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">
             De Pelé à Maradona, de Zidane à Messi, chaque édition a produit ses propres héros et moments mythiques.
             Découvrez l'histoire complète du tournoi le plus regardé de la planète.
           </p>
@@ -665,7 +665,7 @@ export default function HistoirePage() {
                 <span>🌟</span>
                 <span>Édition historique</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold mb-3">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm: mb-3">
                 2026 : La Plus Grande CDM de l'Histoire
               </h2>
               <p className="text-white/80 text-lg max-w-2xl mx-auto">
@@ -734,8 +734,8 @@ export default function HistoirePage() {
             </div>
 
             {/* Nouveau format */}
-            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 mb-6">
-              <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                 🔄 Nouveau format révolutionnaire
               </h3>
               <div className="grid sm:grid-cols-2 gap-4 text-sm text-white/80">
@@ -761,7 +761,7 @@ export default function HistoirePage() {
 
             {/* Favoris 2026 */}
             <div className="mb-6">
-              <h3 className="font-bold text-center mb-4">🎯 Favoris pour 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center mb-4">🎯 Favoris pour 2026</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
                   { flag: "🇧🇷", country: "Brésil", cote: "5e titre ?" },
@@ -825,7 +825,7 @@ export default function HistoirePage() {
                 <div className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{desc}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-300">{desc}</div>
               </div>
             </Link>
           ))}

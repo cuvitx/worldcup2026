@@ -3,7 +3,7 @@ export default function MatchLoading() {
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 animate-pulse">
       {/* Breadcrumb */}
       <div className="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 px-4 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex gap-2 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8flex gap-2 items-center">
           <div className="h-3.5 w-12 bg-gray-200 dark:bg-slate-700 rounded-full" />
           <span className="text-gray-300 dark:text-slate-600">/</span>
           <div className="h-3.5 w-16 bg-gray-200 dark:bg-slate-700 rounded-full" />
@@ -55,7 +55,7 @@ export default function MatchLoading() {
           {/* Colonne principale */}
           <div className="lg:col-span-2 space-y-6">
             {/* Analyse IA */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-5 w-5 bg-gray-200 dark:bg-slate-700 rounded" />
                 <div className="h-5 w-40 bg-gray-200 dark:bg-slate-700 rounded" />
@@ -72,7 +72,7 @@ export default function MatchLoading() {
             </div>
 
             {/* Cotes */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-36 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="grid grid-cols-3 gap-4 mb-4">
                 {[1, 2, 3].map((i) => (
@@ -86,7 +86,7 @@ export default function MatchLoading() {
             </div>
 
             {/* Stats H2H */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-32 bg-gray-200 dark:bg-slate-700 rounded mb-5" />
               <div className="space-y-4">
                 {[1, 2, 3].map((i) => (
@@ -108,7 +108,7 @@ export default function MatchLoading() {
           {/* Sidebar */}
           <div className="space-y-5">
             {/* Météo */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-24 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 bg-gray-200 dark:bg-slate-700 rounded-full" />
@@ -120,7 +120,7 @@ export default function MatchLoading() {
             </div>
 
             {/* Blessés / absents */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-36 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-2.5">
                 {[1, 2, 3].map((i) => (
@@ -133,7 +133,7 @@ export default function MatchLoading() {
             </div>
 
             {/* Pronostic expert */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-40 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="h-20 w-full bg-gray-100 dark:bg-slate-700 rounded-lg" />
             </div>

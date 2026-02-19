@@ -108,7 +108,7 @@ export default function ProfilPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
+      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
           <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
           <li>/</li>
@@ -117,13 +117,13 @@ export default function ProfilPage() {
       </nav>
 
       <h1 className="mb-2 text-3xl font-bold dark:text-white">Mon CDM 2026 🏆</h1>
-      <p className="mb-8 text-gray-500 dark:text-gray-400">Ton espace perso — sans compte, tout est local.</p>
+      <p className="mb-8 text-gray-500 dark:text-gray-300">Ton espace perso — sans compte, tout est local.</p>
 
       {/* ─── Onboarding / Team selector ─── */}
       {showOnboarding ? (
-        <div className="mb-10 rounded-2xl border-2 border-dashed border-secondary/30 bg-secondary/5 p-6 dark:border-secondary/30 dark:bg-slate-800/50 sm:p-8">
-          <h2 className="mb-2 text-xl font-bold dark:text-white">⚽ Quelle est ton équipe ?</h2>
-          <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">⚽ Quelle est ton équipe ?</h2>
+          <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">
             Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
           </p>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
@@ -138,7 +138,7 @@ export default function ProfilPage() {
               </button>
             ))}
           </div>
-          <p className="mt-3 text-center text-xs text-gray-400 dark:text-gray-500">
+          <p className="mt-3 text-center text-xs text-gray-400 dark:text-gray-400">
             Tu pourras changer plus tard !
           </p>
         </div>
@@ -147,10 +147,10 @@ export default function ProfilPage() {
         <div className="mb-10 space-y-4">
           {/* Team header */}
           <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-primary to-primary/80 px-6 py-5 text-white shadow-lg">
-            <span className="text-4xl sm:text-5xl">{myTeam.flag}</span>
-            <div className="flex-1">
+            <span className="text-4xl sm:text-5xl shrink-0">{myTeam.flag}</span>
+            <div className="flex-1 min-w-0">
               <p className="text-sm font-medium opacity-80">Tu supportes</p>
-              <p className="text-2xl font-extrabold tracking-tight sm:text-3xl">{myTeam.name}</p>
+              <p className="text-xl font-extrabold tracking-tight sm:text-2xl truncate">{myTeam.name}</p>
               {daysToNext !== null && (
                 <p className="mt-1 text-sm opacity-90">
                   {daysToNext === 0
@@ -168,8 +168,8 @@ export default function ProfilPage() {
           </div>
 
           {/* Upcoming matches */}
-          <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-            <h3 className="mb-3 font-bold dark:text-white">📅 Prochains matchs</h3>
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 dark:">📅 Prochains matchs</h3>
             <div className="space-y-2">
               {upcomingMatches.map((m, i) => (
                 <div
@@ -244,13 +244,13 @@ export default function ProfilPage() {
               {s.icon}
             </div>
             <p className="text-2xl font-bold dark:text-white">{s.value}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{s.label}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">{s.label}</p>
           </div>
         ))}
       </div>
 
       {/* Badges — grid 3x2 with glow/lock */}
-      <h2 className="mb-4 text-xl font-bold dark:text-white">Badges</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Badges</h2>
       <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
         {ALL_BADGES.map((badge) => {
           const unlocked = unlockedBadges.includes(badge.id);
@@ -264,7 +264,7 @@ export default function ProfilPage() {
               }`}
             >
               {!unlocked && (
-                <div className="absolute top-2 right-2 text-gray-400 dark:text-gray-500">
+                <div className="absolute top-2 right-2 text-gray-400 dark:text-gray-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                   </svg>
@@ -272,7 +272,7 @@ export default function ProfilPage() {
               )}
               <span className="text-4xl block">{badge.emoji}</span>
               <p className="mt-2 font-bold text-sm dark:text-white">{badge.name}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{badge.description}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">{badge.description}</p>
               {unlocked && (
                 <span className="mt-2 inline-block rounded-full bg-field/10 px-2 py-0.5 text-xs text-field font-semibold dark:bg-field/20 dark:text-field">
                   ✅ Débloqué

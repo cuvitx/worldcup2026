@@ -34,7 +34,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-xl font-bold text-gray-900 dark:text-white">Équipes par confédération</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:">Équipes par confédération</h2>
 
       {/* Filter pills */}
       <div className="flex flex-wrap gap-2">
@@ -63,14 +63,14 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
           <Link
             key={team.id}
             href={`/equipe/${team.slug}`}
-            className="group flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
+            className="group flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
           >
             <span className="text-4xl group-hover:scale-110 transition-transform duration-200" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}
             </span>
             <div className="min-w-0">
               <p className="font-semibold text-gray-900 dark:text-white truncate">{team.name}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500 dark:text-gray-300">
                 #{team.fifaRanking} FIFA · Groupe {team.group}
               </p>
               {team.isHost && (

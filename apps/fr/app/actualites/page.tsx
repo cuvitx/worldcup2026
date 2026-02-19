@@ -60,9 +60,9 @@ export default function ActualitesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
       />
       {/* Breadcrumb */}
-      <nav aria-label="Fil d'Ariane" className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav aria-label="Fil d'Ariane" className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Actualités</li>
@@ -97,11 +97,11 @@ export default function ActualitesPage() {
                 <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryColors[featured.category]}`}>
                   {newsCategories[featured.category]}
                 </span>
-                <time className="text-xs text-gray-500 dark:text-gray-400" dateTime={featured.date}>
+                <time className="text-xs text-gray-500 dark:text-gray-300" dateTime={featured.date}>
                   {formatDate(featured.date)}
                 </time>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-3">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white md: dark: group-hover: transition-colors mb-3">
                 {featured.title}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 line-clamp-3 mb-4">
@@ -126,11 +126,11 @@ export default function ActualitesPage() {
               <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[article.category]}`}>
                 {newsCategories[article.category]}
               </span>
-              <time className="text-xs text-gray-500 dark:text-gray-400" dateTime={article.date}>
+              <time className="text-xs text-gray-500 dark:text-gray-300" dateTime={article.date}>
                 {formatDate(article.date)}
               </time>
             </div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2 mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg dark: group-hover: transition-colors line-clamp-2 mb-2">
               {article.title}
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">

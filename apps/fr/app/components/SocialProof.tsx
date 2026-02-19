@@ -82,7 +82,7 @@ export function SocialProof() {
               <span className="text-3xl sm:text-4xl font-black text-primary tabular-nums">
                 <AnimatedCounter target={c.value} started={visible} />
               </span>
-              <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+              <span className="text-sm text-gray-600 dark:text-gray-300 font-medium">
                 {c.label}
               </span>
             </div>

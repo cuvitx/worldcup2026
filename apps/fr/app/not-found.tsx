@@ -46,11 +46,11 @@ export default function NotFound() {
       </h1>
 
       {/* Sous-titre */}
-      <p className="text-gray-500 dark:text-gray-400 text-lg max-w-md mb-3">
+      <p className="text-gray-500 dark:text-gray-300 text-lg max-w-md mb-3">
         L&apos;arbitre a expulsé cette URL du terrain. Elle ne joue plus pour
         cette équipe.
       </p>
-      <p className="text-gray-400 dark:text-gray-500 text-sm mb-10 font-mono">
+      <p className="text-gray-400 dark:text-gray-400 text-sm mb-10 font-mono">
         Erreur 404 — Page introuvable
       </p>
 
@@ -58,7 +58,7 @@ export default function NotFound() {
       <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-green-500/40 to-transparent mb-10" />
 
       {/* Liens utiles */}
-      <p className="text-sm text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wider mb-5">
+      <p className="text-sm text-gray-400 dark:text-gray-400 font-medium uppercase tracking-wider mb-5">
         Retour sur le terrain
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">

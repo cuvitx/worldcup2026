@@ -65,7 +65,7 @@ export default function GuideVisaEsta() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="mx-auto max-w-4xl px-4 py-10">
-        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-400">
+        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
             <li>/</li>
@@ -78,7 +78,7 @@ export default function GuideVisaEsta() {
         <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="mb-4 flex items-center gap-3">
             <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary dark:bg-secondary/20 dark:text-secondary">Guide pratique</span>
-            <time className="text-sm text-gray-500 dark:text-gray-400" dateTime="2026-02-19">19 février 2026</time>
+            <time className="text-sm text-gray-500 dark:text-gray-300" dateTime="2026-02-19">19 février 2026</time>
           </div>
 
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white md:text-4xl mb-6">
@@ -119,7 +119,7 @@ export default function GuideVisaEsta() {
           </p>
 
           <div className="not-prose my-8 rounded-xl bg-amber-50 border border-amber-200 p-6 dark:bg-amber-900/20 dark:border-amber-700">
-            <h3 className="text-lg font-bold text-amber-800 dark:text-amber-300 mb-2">⚠️ Attention aux arnaques</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-amber-800 dark:text-amber-300 mb-2">⚠️ Attention aux arnaques</h3>
             <p className="text-sm text-amber-700 dark:text-amber-400">
               De nombreux sites frauduleux proposent des « ESTA express » à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
             </p>
@@ -160,23 +160,23 @@ export default function GuideVisaEsta() {
         </article>
 
         <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Guides liés</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-4">Guides liés</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">🏨 Où dormir pendant la CDM 2026</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Guide hébergement villes hôtes</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🏨 Où dormir pendant la CDM 2026</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Guide hébergement villes hôtes</p>
             </Link>
             <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">🚆 Se déplacer entre les stades</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Transport inter-villes et logistique</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🚆 Se déplacer entre les stades</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Transport inter-villes et logistique</p>
             </Link>
             <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">💰 Budget CDM 2026</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Combien ça coûte ? Estimation complète</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">💰 Budget CDM 2026</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Combien ça coûte ? Estimation complète</p>
             </Link>
             <Link href="/stades" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">🏟️ Les stades de la CDM 2026</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Tous les stades du Mondial</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🏟️ Les stades de la CDM 2026</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Tous les stades du Mondial</p>
             </Link>
           </div>
         </div>

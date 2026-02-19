@@ -304,9 +304,9 @@ export default function OuRegarderPage() {
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Où regarder les matchs</li>
@@ -329,7 +329,7 @@ export default function OuRegarderPage() {
 
         {/* ── 1. FRANCE — Droits TV détaillés ─────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🇫🇷 Droits TV en France — Détail par chaîne
           </h2>
 
@@ -340,13 +340,13 @@ export default function OuRegarderPage() {
                 className={`rounded-2xl border p-6 flex flex-col ${
                   ch.free
                     ? "bg-field/5 dark:bg-field/10 border-field/20 dark:border-field/30"
-                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                    : "bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700"
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <img src={ch.logo} alt={ch.name} className="h-12 w-12 rounded-lg object-contain" />
                   <div>
-                    <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100">{ch.name}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{ch.name}</h3>
                     <span
                       className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                         ch.free
@@ -359,7 +359,7 @@ export default function OuRegarderPage() {
                   </div>
                 </div>
                 <p className="text-lg font-bold text-primary dark:text-secondary mb-2">{ch.matches}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400 flex-1">{ch.details}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 flex-1">{ch.details}</p>
               </div>
             ))}
           </div>
@@ -375,7 +375,7 @@ export default function OuRegarderPage() {
 
         {/* ── 2. Streaming France — Gratuit vs Payant ─────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             💻 Streaming en France — Gratuit vs Payant
           </h2>
 
@@ -383,10 +383,10 @@ export default function OuRegarderPage() {
             {/* Gratuit */}
             <div className="rounded-2xl border border-field/20 dark:border-field/30 overflow-hidden">
               <div className="bg-field/5 dark:bg-field/10 px-6 py-4 border-b border-field/20 dark:border-field/30">
-                <h3 className="text-lg font-bold text-field dark:text-white">✅ Streaming gratuit</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-field dark:">✅ Streaming gratuit</h3>
                 <p className="text-sm text-field dark:text-field">Aucun abonnement requis</p>
               </div>
-              <div className="p-6 space-y-3 bg-white dark:bg-gray-800">
+              <div className="p-6 space-y-3 bg-white dark:bg-slate-800">
                 {streamingFrance.gratuit.map((s) => (
                   <a
                     key={s.name}
@@ -399,7 +399,7 @@ export default function OuRegarderPage() {
                     <span className="ml-2 text-xs font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">
                       Gratuit
                     </span>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{s.desc}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{s.desc}</p>
                   </a>
                 ))}
               </div>
@@ -408,10 +408,10 @@ export default function OuRegarderPage() {
             {/* Payant */}
             <div className="rounded-2xl border border-secondary/20 dark:border-secondary/30 overflow-hidden">
               <div className="bg-secondary/5 dark:bg-secondary/10 px-6 py-4 border-b border-secondary/20 dark:border-secondary/30">
-                <h3 className="text-lg font-bold text-primary dark:text-white">🔒 Streaming payant</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🔒 Streaming payant</h3>
                 <p className="text-sm text-secondary dark:text-secondary">Abonnement requis — 104 matchs</p>
               </div>
-              <div className="p-6 space-y-3 bg-white dark:bg-gray-800">
+              <div className="p-6 space-y-3 bg-white dark:bg-slate-800">
                 {streamingFrance.payant.map((s) => (
                   <a
                     key={s.name}
@@ -426,7 +426,7 @@ export default function OuRegarderPage() {
                         {s.price}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{s.desc}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{s.desc}</p>
                   </a>
                 ))}
               </div>
@@ -436,7 +436,7 @@ export default function OuRegarderPage() {
 
         {/* ── 3. Pays francophones ────────────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             📡 Droits TV — Belgique, Suisse, Canada
           </h2>
 
@@ -444,14 +444,14 @@ export default function OuRegarderPage() {
             {tvByCountryFrancophone.map((country) => (
               <div
                 key={country.country}
-                className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm"
+                className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm"
               >
                 <div className="bg-gray-50 dark:bg-gray-700/50 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{country.country}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{country.country}</h3>
                 </div>
                 <div className="p-6 grid gap-6 lg:grid-cols-2">
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">📺 Chaînes TV</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3">📺 Chaînes TV</h4>
                     <div className="space-y-3">
                       {country.channels.map((ch) => (
                         <div key={ch.name} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
@@ -464,7 +464,7 @@ export default function OuRegarderPage() {
                                   : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                               }`}>{ch.type}</span>
                             </div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{ch.details}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">{ch.details}</p>
                             <p className="text-xs font-semibold text-primary dark:text-secondary mt-1">{ch.matches}</p>
                           </div>
                         </div>
@@ -472,7 +472,7 @@ export default function OuRegarderPage() {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">💻 Streaming légal</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3">💻 Streaming légal</h4>
                     <div className="space-y-3">
                       {country.streaming.map((s) => (
                         <a
@@ -489,7 +489,7 @@ export default function OuRegarderPage() {
                                 <span className="text-xs font-bold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">Gratuit</span>
                               )}
                             </div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.desc}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">{s.desc}</p>
                           </div>
                           <svg className="w-4 h-4 text-gray-400 group-hover:text-primary dark:group-hover:text-primary shrink-0 mt-0.5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -507,20 +507,20 @@ export default function OuRegarderPage() {
 
         {/* ── 4. Diffuseurs internationaux ────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🌍 Diffuseurs internationaux
           </h2>
 
           {/* Mobile: cards */}
           <div className="md:hidden space-y-3">
             {internationalBroadcasters.map((b) => (
-              <div key={b.country} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+              <div key={b.country} className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-2xl">{b.flag}</span>
                   <span className="font-bold text-gray-900 dark:text-gray-100">{b.country}</span>
                 </div>
                 <p className="text-sm font-semibold text-primary dark:text-secondary mb-1">{b.channels}</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{b.details}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">{b.details}</p>
                 <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">
                   Gratuit : {b.free}
                 </span>
@@ -530,8 +530,8 @@ export default function OuRegarderPage() {
 
           {/* Desktop: table */}
           <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-            <table className="w-full text-sm bg-white dark:bg-gray-800">
-              <thead className="bg-gray-50 dark:bg-gray-700">
+            <table className="w-full text-sm bg-white dark:bg-slate-800">
+              <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500dark:bg-gray-700">
                 <tr>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Pays</th>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Chaînes / Diffuseurs</th>
@@ -546,7 +546,7 @@ export default function OuRegarderPage() {
                       {b.flag} {b.country}
                     </td>
                     <td className="px-4 py-3 font-semibold text-primary dark:text-secondary">{b.channels}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{b.details}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs">{b.details}</td>
                     <td className="px-4 py-3">
                       <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-1 rounded-full">
                         {b.free}
@@ -561,12 +561,12 @@ export default function OuRegarderPage() {
 
         {/* ── 5. Regarder depuis l'étranger (VPN) ─────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🌐 Comment regarder depuis l&apos;étranger (VPN)
           </h2>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 md:p-8">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               Les plateformes de streaming françaises (TF1+, M6+, myCANAL) sont <strong className="text-gray-900 dark:text-gray-100">géo-bloquées</strong> à
               l&apos;étranger. Un VPN (Virtual Private Network) vous permet de simuler une connexion depuis la France
               pour accéder aux flux en direct.
@@ -582,8 +582,8 @@ export default function OuRegarderPage() {
                   <div className="w-10 h-10 rounded-full bg-primary dark:bg-primary text-white flex items-center justify-center font-extrabold text-lg mb-3">
                     {s.step}
                   </div>
-                  <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">{s.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{s.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -601,10 +601,10 @@ export default function OuRegarderPage() {
 
         {/* ── 6. Programme TV par match ───────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📅 Programme TV — Matchs clés en France
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
             Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la 🇫🇷 France sont sur TF1 (gratuit).
           </p>
 
@@ -616,15 +616,15 @@ export default function OuRegarderPage() {
                 className={`rounded-xl border p-4 ${
                   m.isFrance
                     ? "bg-secondary/5 dark:bg-secondary/10 border-secondary/30 dark:border-secondary/40"
-                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                    : "bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700"
                 }`}
               >
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{m.date}</span>
+                  <span className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wide">{m.date}</span>
                   <span className="text-lg font-extrabold text-primary dark:text-secondary shrink-0">{m.timeFR}</span>
                 </div>
                 <p className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">{m.match}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{m.stage} · {m.stadium}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-300 mb-2">{m.stage} · {m.stadium}</p>
                 <div className="flex flex-wrap gap-1 mb-2">
                   {m.tvFR.map((ch) => (
                     <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
@@ -646,8 +646,8 @@ export default function OuRegarderPage() {
 
           {/* Desktop: table */}
           <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-            <table className="w-full text-sm bg-white dark:bg-gray-800">
-              <thead className="bg-gray-50 dark:bg-gray-700">
+            <table className="w-full text-sm bg-white dark:bg-slate-800">
+              <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500dark:bg-gray-700">
                 <tr>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">Date</th>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Heure 🇫🇷</th>
@@ -670,9 +670,9 @@ export default function OuRegarderPage() {
                     <td className="px-4 py-3 font-extrabold text-primary dark:text-secondary whitespace-nowrap">{m.timeFR}</td>
                     <td className="px-4 py-3">
                       <div className="font-semibold text-gray-900 dark:text-gray-100">{m.match}</div>
-                      <div className="text-xs text-gray-400 dark:text-gray-500">{m.stadium}</div>
+                      <div className="text-xs text-gray-400 dark:text-gray-400">{m.stadium}</div>
                     </td>
-                    <td className="px-4 py-3 text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">{m.stage}</td>
+                    <td className="px-4 py-3 text-xs text-gray-500 dark:text-gray-300 whitespace-nowrap">{m.stage}</td>
                     <td className="px-4 py-3">
                       <div className="flex flex-wrap gap-1">
                         {m.tvFR.map((ch) => (
@@ -690,7 +690,7 @@ export default function OuRegarderPage() {
             </table>
           </div>
 
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-3 italic">
+          <p className="text-xs text-gray-400 dark:text-gray-400 mt-3 italic">
             * Programme indicatif. Horaires en heure française (CEST, UTC+2).
             Légende : <span className="font-semibold text-field dark:text-field">Vert = Gratuit</span> · <span className="font-semibold text-secondary dark:text-secondary">Bleu = Abonnement</span>
           </p>
@@ -698,16 +698,16 @@ export default function OuRegarderPage() {
 
         {/* ── 7. Décalage horaire ─────────────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             🕐 Décalage horaire — Villes hôtes → France
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
             La CDM 2026 se joue en été (juin–juillet). La France est à l&apos;heure CEST (UTC+2).
           </p>
 
           <div className="overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-            <table className="w-full text-sm bg-white dark:bg-gray-800">
-              <thead className="bg-gray-50 dark:bg-gray-700">
+            <table className="w-full text-sm bg-white dark:bg-slate-800">
+              <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500dark:bg-gray-700">
                 <tr>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Villes hôtes</th>
                   <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Fuseau local</th>
@@ -719,9 +719,9 @@ export default function OuRegarderPage() {
                 {timeZones.map((tz) => (
                   <tr key={tz.city} className="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30">
                     <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100 text-xs">{tz.city}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400 font-mono text-xs">{tz.utcOffset}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300 font-mono text-xs">{tz.utcOffset}</td>
                     <td className="px-4 py-3 font-bold text-primary dark:text-secondary">{tz.frDiff}</td>
-                    <td className="px-4 py-3 text-gray-500 dark:text-gray-400 text-xs">{tz.frTime}</td>
+                    <td className="px-4 py-3 text-gray-500 dark:text-gray-300 text-xs">{tz.frTime}</td>
                   </tr>
                 ))}
               </tbody>
@@ -731,10 +731,10 @@ export default function OuRegarderPage() {
 
         {/* ── 8. Horaires types ───────────────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             ⏰ Horaires types des matchs (EDT → France CEST)
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
             La majorité des matchs de groupes se joue sur la côte Est américaine (EDT = UTC-4).
           </p>
 
@@ -745,12 +745,12 @@ export default function OuRegarderPage() {
                 className={`rounded-xl p-4 border ${
                   s.hot
                     ? "bg-field/5 dark:bg-field/10 border-field/20 dark:border-field/30"
-                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                    : "bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700"
                 }`}
               >
-                <div className="font-mono text-sm text-gray-500 dark:text-gray-400">{s.local}</div>
+                <div className="font-mono text-sm text-gray-500 dark:text-gray-300">{s.local}</div>
                 <div className="text-2xl font-extrabold text-primary dark:text-secondary mt-1">{s.france}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{s.note}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-300 mt-1">{s.note}</div>
               </div>
             ))}
           </div>
@@ -766,17 +766,17 @@ export default function OuRegarderPage() {
 
         {/* ── 9. Fan Zones ────────────────────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🎉 Bars & Fan Zones</h2>
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🎉 Bars & Fan Zones</h2>
+          <div className="bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
             <div className="flex items-start gap-4">
               <div className="text-4xl">🏟️</div>
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">Fan zones officielles</h3>
-                <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Fan zones officielles</h3>
+                <p className="text-gray-600 dark:text-gray-300 mt-1 text-sm">
                   Les fan zones officielles en France seront annoncées prochainement par les municipalités et la FFF.
                   Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants et des animations.
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mt-3 italic">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 italic">
                   Cette section sera mise à jour dès l&apos;annonce officielle des fan zones.
                 </p>
               </div>
@@ -786,14 +786,14 @@ export default function OuRegarderPage() {
 
         {/* ── 10. FAQ ─────────────────────────────────────────────────────── */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             ❓ Questions fréquentes
           </h2>
           <div className="space-y-4">
             {faqItems.map((faq, i) => (
               <details
                 key={i}
-                className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+                className="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
               >
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors list-none">
                   <span>{faq.q}</span>
@@ -809,7 +809,7 @@ export default function OuRegarderPage() {
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </summary>
-                <div className="px-5 pb-5 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-100 dark:border-gray-700">
+                <div className="px-5 pb-5 pt-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed border-t border-gray-100 dark:border-gray-700">
                   {faq.a}
                 </div>
               </details>
@@ -822,7 +822,7 @@ export default function OuRegarderPage() {
           <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
             Envie de parier sur les matchs ?
           </p>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             Comparez les cotes des meilleurs bookmakers français pour la CDM 2026.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -834,7 +834,7 @@ export default function OuRegarderPage() {
             </Link>
             <Link
               href="/carte-stades"
-              className="inline-block bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              className="inline-block bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
             >
               🗺️ Carte des stades
             </Link>

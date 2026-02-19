@@ -11,12 +11,12 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
     return (
       <Link
         href={`/equipe/${team.slug}`}
-        className="flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60"
+        className="flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/60 px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60"
       >
         <span className="text-2xl shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
         <div className="min-w-0 flex-1">
           <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{team.name}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
+          <p className="text-xs text-gray-500 dark:text-gray-300">
             Groupe {team.group} · #{team.fifaRanking || "–"} FIFA
           </p>
         </div>
@@ -32,7 +32,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
   return (
     <Link
       href={`/equipe/${team.slug}`}
-      className="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
+      className="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
     >
       {/* Ranking badge */}
       {team.fifaRanking > 0 && team.fifaRanking <= 10 && (
@@ -50,8 +50,8 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
       </span>
 
       <div className="min-w-0 flex-1">
-        <h3 className="font-bold text-gray-900 dark:text-gray-100 truncate">{team.name}</h3>
-        <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">{team.name}</h3>
+        <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-300">
           Groupe {team.group} · {team.confederation}
           {team.fifaRanking > 0 ? ` · #${team.fifaRanking} FIFA` : ""}
         </p>

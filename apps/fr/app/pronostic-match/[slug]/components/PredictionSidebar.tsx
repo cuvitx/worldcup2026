@@ -42,8 +42,8 @@ export function PredictionSidebar({
       <BetOfTheDay compact />
 
       {/* Match info card */}
-      <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-        <h3 className="mb-4 text-lg font-bold">Resume du pronostic</h3>
+      <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Resume du pronostic</h3>
         {prediction ? (
           <div className="space-y-3">
             <div className="flex justify-between text-sm">
@@ -89,8 +89,8 @@ export function PredictionSidebar({
 
       {/* Team links */}
       {home && away && (
-        <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h3 className="mb-4 text-lg font-bold">Fiches équipes</h3>
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiches équipes</h3>
           <div className="space-y-3">
             <Link
               href={`/equipe/${home.slug}`}
@@ -121,8 +121,8 @@ export function PredictionSidebar({
 
       {/* Stadium card */}
       {stadium && (
-        <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Lieu du match</h3>
           <Link
             href={`/stade/${stadium.slug}`}
             className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
@@ -178,7 +178,7 @@ export function PredictionSidebar({
 
       {/* Sidebar CTA */}
       <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-        <h3 className="mb-2 text-lg font-bold text-primary">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
           Parier sur ce match
         </h3>
         <p className="mb-3 text-sm text-gray-600">
@@ -199,8 +199,8 @@ export function PredictionSidebar({
 
       {/* Autres pronostics */}
       {relatedMatches.length > 0 && (
-        <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h3 className="mb-4 text-lg font-bold">Autres pronostics</h3>
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres pronostics</h3>
           <div className="space-y-2">
             {relatedMatches.map((rm) => {
               const rmHome = teamsById[rm.homeTeamId];
@@ -209,15 +209,15 @@ export function PredictionSidebar({
                 <Link
                   key={rm.id}
                   href={`/pronostic-match/${rm.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 text-sm transition-colors hover:border-primary/30"
+                  className="flex items-center justify-between gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 text-sm transition-colors hover:border-primary/30"
                 >
-                  <span>
+                  <span className="min-w-0 truncate">
                     <span role="img" aria-label={`Drapeau de ${rmHome?.name ?? "Inconnu"}`}>{rmHome?.flag ?? "\ud83c\udff3\ufe0f"}</span>{" "}
                     {rmHome?.name ?? "TBD"} vs{" "}
                     {rmAway?.name ?? "TBD"}{" "}
                     <span role="img" aria-label={`Drapeau de ${rmAway?.name ?? "Inconnu"}`}>{rmAway?.flag ?? "\ud83c\udff3\ufe0f"}</span>
                   </span>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-500 shrink-0">
                     {rm.date}
                   </span>
                 </Link>
@@ -228,7 +228,7 @@ export function PredictionSidebar({
       )}
 
       {/* Link to match page */}
-      <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+      <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
         <Link
           href={`/match/${match.slug}`}
           className="block w-full rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90 transition-colors"

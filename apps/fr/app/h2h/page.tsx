@@ -112,7 +112,7 @@ export default function H2HIndexPage() {
       {/* Popular Matchups */}
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">
             🔥 Confrontations populaires
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -147,7 +147,7 @@ export default function H2HIndexPage() {
       {/* Group Stage Matchups */}
       <section className="border-t border-gray-200 bg-gray-50 py-10 dark:border-slate-700 dark:bg-slate-800/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">
             📅 Matchs de la phase de groupes
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -182,10 +182,10 @@ export default function H2HIndexPage() {
       {/* All Teams Grid */}
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">
             🌍 Toutes les équipes
           </h2>
-          <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mb-4 text-sm text-gray-500 dark:text-gray-300">
             Cliquez sur une équipe pour voir toutes ses confrontations possibles.
           </p>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

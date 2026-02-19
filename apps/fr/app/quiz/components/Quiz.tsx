@@ -104,7 +104,7 @@ export default function Quiz() {
   if (phase === "menu") {
     return (
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-2">Choisissez une catégorie</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">Choisissez une catégorie</h2>
         <p className="text-center text-gray-500 mb-6">ou jouez avec toutes les questions</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -113,26 +113,26 @@ export default function Quiz() {
             className="rounded-xl border-2 border-gold/50 bg-gold/5 dark:bg-gold/10 p-5 text-left hover:bg-gold/10 dark:hover:bg-gold/15 transition-colors shadow-sm"
           >
             <span className="text-3xl">🌍</span>
-            <h3 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">Toutes les catégories</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{questions.length} questions</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 dark:">Toutes les catégories</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">{questions.length} questions</p>
           </button>
 
           {(Object.keys(categoryLabels) as Question["category"][]).map((cat) => (
             <button
               key={cat}
               onClick={() => startGame(cat)}
-              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-5 text-left shadow-sm hover:border-secondary/50 hover:bg-secondary/5 dark:hover:bg-secondary/10 transition-colors"
+              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm hover:border-secondary/50 hover:bg-secondary/5 dark:hover:bg-secondary/10 transition-colors"
             >
               <span className="text-3xl">{categoryLabels[cat].emoji}</span>
-              <h3 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">{categoryLabels[cat].label}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{categoryCounts[cat] || 0} questions</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 dark:">{categoryLabels[cat].label}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">{categoryCounts[cat] || 0} questions</p>
             </button>
           ))}
         </div>
 
         {/* Difficulty filter */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-          <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">Difficulté :</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300 mr-1">Difficulté :</span>
           <button
             onClick={() => setDifficulty("all")}
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
@@ -150,7 +150,7 @@ export default function Quiz() {
           ))}
         </div>
 
-        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
+        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-300 cursor-pointer">
           <input
             type="checkbox"
             checked={timerEnabled}
@@ -168,10 +168,10 @@ export default function Quiz() {
     return (
       <div className="max-w-lg mx-auto text-center">
         <div className="text-4xl mb-4 sm:text-7xl">{scoreEmoji}</div>
-        <h2 className="text-3xl font-bold mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
           {score}/{gameQuestions.length}
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">{scoreMessage}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-6">{scoreMessage}</p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
@@ -234,20 +234,20 @@ export default function Quiz() {
       </div>
 
       {/* Question */}
-      <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">{currentQuestion.question}</h3>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 dark:">{currentQuestion.question}</h3>
 
       {/* Options */}
       <div className="grid gap-3">
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800/50 text-gray-900 dark:text-gray-100 hover:border-secondary/40 hover:bg-secondary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-secondary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-secondary/40 hover:bg-secondary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-secondary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
             classes += "border-green-500 bg-green-50 dark:bg-green-500/20 text-green-700 dark:text-green-300 shadow-lg shadow-green-500/20 scale-[1.01]";
           } else if (idx === selected) {
             classes += "border-red-500 bg-red-50 dark:bg-red-500/20 text-red-700 dark:text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
-            classes += "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/30 text-gray-400 dark:text-gray-500 opacity-50";
+            classes += "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800/30 text-gray-400 dark:text-gray-400 opacity-50";
           }
 
           return (

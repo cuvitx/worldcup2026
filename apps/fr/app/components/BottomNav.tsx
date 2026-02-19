@@ -39,7 +39,7 @@ export function BottomNav() {
                   "active:scale-95",
                   active
                     ? "text-primary dark:text-secondary"
-                    : "text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100",
+                    : "text-gray-500 dark:text-slate-300 hover:text-gray-900 dark:hover:text-slate-100",
                 ].join(" ")}
               >
                 {/* Indicator pill on active */}

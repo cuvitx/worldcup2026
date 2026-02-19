@@ -115,7 +115,7 @@ export function PlayerComparator() {
       </div>
 
       {selected.length < 2 && (
-        <p className="text-center text-gray-400 dark:text-gray-500 py-12">
+        <p className="text-center text-gray-400 dark:text-gray-400 py-12">
           Sélectionnez au moins 2 joueurs pour lancer la comparaison.
         </p>
       )}
@@ -156,11 +156,11 @@ export function PlayerComparator() {
                     {initials}
                   </div>
                 )}
-                <h3 className="font-bold text-lg dark:text-white">{p.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{p.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                   {p.club} · {p.position} · {p.age} ans
                 </p>
-                <p className="text-sm text-gray-400 dark:text-gray-500">
+                <p className="text-sm text-gray-400 dark:text-gray-400">
                   {teams.find((t) => t.id === p.teamId)?.flag}{" "}
                   {teams.find((t) => t.id === p.teamId)?.name}
                 </p>
@@ -187,7 +187,7 @@ export function PlayerComparator() {
                       const pct = Math.min((val / max) * 100, 100);
                       return (
                         <div key={p.id} className="flex items-center gap-3">
-                          <span className="w-24 sm:w-28 text-xs truncate text-right text-gray-600 dark:text-gray-400 font-medium">
+                          <span className="w-24 sm:w-28 text-xs truncate text-right text-gray-600 dark:text-gray-300 font-medium">
                             {p.name.split(" ").pop()}
                           </span>
                           <div className="flex-1 h-7 rounded-full bg-gray-100 dark:bg-slate-700 overflow-hidden">
@@ -213,11 +213,11 @@ export function PlayerComparator() {
           </div>
 
           {/* Summary table */}
-          <div className="mt-10 overflow-x-auto rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mt-10 overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-                  <th className="py-3 px-4 text-left text-gray-600 dark:text-gray-400">Statistique</th>
+                  <th className="py-3 px-4 text-left text-gray-600 dark:text-gray-300">Statistique</th>
                   {selected.map((p, i) => (
                     <th key={p.id} className="py-3 px-4 text-center font-bold" style={{ color: COLORS[i] }}>
                       {p.name.split(" ").pop()}
@@ -231,7 +231,7 @@ export function PlayerComparator() {
                   const best = Math.max(...values);
                   return (
                     <tr key={key} className="border-b border-gray-100 dark:border-gray-800">
-                      <td className="py-2.5 px-4 text-gray-600 dark:text-gray-400">{label}</td>
+                      <td className="py-2.5 px-4 text-gray-600 dark:text-gray-300">{label}</td>
                       {selected.map((p, i) => {
                         const val = p[key] as number;
                         const isBest = val === best;

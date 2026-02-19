@@ -56,9 +56,9 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary">Accueil</Link>
             </li>
@@ -78,18 +78,18 @@ export default function FaqPage() {
       </section>
 
       {/* Category badges */}
-      <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 sticky top-0 z-10">
+      <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 py-4 sticky top-0 z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
             {itemsByCategory.map(({ key, label, emoji, items }) => (
               <a
                 key={key}
                 href={`#${key}`}
-                className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 dark:bg-slate-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 <span>{emoji}</span>
                 {label}
-                <span className="ml-1 rounded-full bg-gray-200 dark:bg-gray-700 px-2 py-0.5 text-xs font-bold text-gray-500 dark:text-gray-400">
+                <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 ml-1">
                   {items.length}
                 </span>
               </a>
@@ -101,18 +101,18 @@ export default function FaqPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {itemsByCategory.map(({ key, label, emoji, items }) => (
           <section key={key} id={key}>
-            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
               <span>{emoji}</span> {label}
             </h2>
             <div className="space-y-3">
               {items.map((item) => (
                 <details
                   key={item.id}
-                  className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow"
+                  className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <summary className="cursor-pointer px-6 py-4 font-medium text-gray-900 dark:text-gray-100 hover:text-primary transition-colors list-none flex items-center justify-between gap-4">
-                    <h3 className="text-base font-semibold">{item.question.fr}</h3>
-                    <span className="faq-icon shrink-0 w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{item.question.fr}</h3>
+                    <span className="faq-icon shrink-0 w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-300">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                       </svg>

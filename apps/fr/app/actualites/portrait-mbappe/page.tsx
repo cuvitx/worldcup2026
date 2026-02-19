@@ -32,7 +32,7 @@ export default function PortraitMbappe() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mx-auto max-w-4xl px-4 py-10">
-        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-400">
+        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
             <li>/</li>
@@ -53,7 +53,7 @@ export default function PortraitMbappe() {
         <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="mb-4 flex items-center gap-3">
             <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary dark:bg-secondary/20 dark:text-secondary">Portrait</span>
-            <time className="text-sm text-gray-500 dark:text-gray-400" dateTime="2026-02-19">19 février 2026</time>
+            <time className="text-sm text-gray-500 dark:text-gray-300" dateTime="2026-02-19">19 février 2026</time>
           </div>
 
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white md:text-4xl mb-6">
@@ -109,16 +109,16 @@ export default function PortraitMbappe() {
         </article>
 
         <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Portraits liés</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-4">Portraits liés</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/actualites/portrait-messi" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">🇦🇷 Messi : dernière danse ?</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇦🇷 Messi : dernière danse ?</h3>
             </Link>
             <Link href="/actualites/portrait-bellingham" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bellingham, le prodige</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bellingham, le prodige</h3>
             </Link>
             <Link href="/actualites/portrait-vinicius" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="font-semibold text-gray-900 dark:text-white">🇧🇷 Vinicius Jr, l&apos;électron libre</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🇧🇷 Vinicius Jr, l&apos;électron libre</h3>
             </Link>
           </div>
         </div>

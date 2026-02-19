@@ -80,7 +80,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 1. Responsable du traitement */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               1. Responsable du traitement
             </h2>
             <ul className="space-y-1 text-sm">
@@ -96,7 +96,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 2. Données collectées */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               2. Données collectées et finalités
             </h2>
             <p className="mb-3">
@@ -107,7 +107,7 @@ export default function PolitiqueConfidentialitePage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse border border-gray-200 dark:border-slate-700">
                 <thead>
-                  <tr className="bg-gray-100 dark:bg-slate-700">
+                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
                     <th className="border border-gray-200 dark:border-slate-600 px-4 py-2 text-left font-semibold">Données</th>
                     <th className="border border-gray-200 dark:border-slate-600 px-4 py-2 text-left font-semibold">Finalité</th>
                     <th className="border border-gray-200 dark:border-slate-600 px-4 py-2 text-left font-semibold">Base légale</th>
@@ -119,7 +119,7 @@ export default function PolitiqueConfidentialitePage() {
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Analyse d&apos;audience, sécurité</td>
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Intérêt légitime</td>
                   </tr>
-                  <tr className="bg-gray-50 dark:bg-slate-800">
+                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Données de navigation (pages vues, durée)</td>
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Amélioration du service</td>
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Consentement</td>
@@ -129,7 +129,7 @@ export default function PolitiqueConfidentialitePage() {
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Personnalisation</td>
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Intérêt légitime</td>
                   </tr>
-                  <tr className="bg-gray-50 dark:bg-slate-800">
+                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Adresse email (newsletter)</td>
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Envoi de la newsletter</td>
                     <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Consentement</td>
@@ -146,7 +146,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 3. Cookies */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               3. Cookies et traceurs
             </h2>
             <p className="mb-3">
@@ -155,7 +155,7 @@ export default function PolitiqueConfidentialitePage() {
               non essentiels.
             </p>
 
-            <h3 className="mt-4 mb-2 font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2 dark:">
               3.1 Cookies essentiels (pas de consentement requis)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -163,7 +163,7 @@ export default function PolitiqueConfidentialitePage() {
               <li><strong>theme</strong> — Préférence de thème clair/sombre (durée : session)</li>
             </ul>
 
-            <h3 className="mt-4 mb-2 font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2 dark:">
               3.2 Cookies analytiques (avec consentement)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -183,7 +183,7 @@ export default function PolitiqueConfidentialitePage() {
               </li>
             </ul>
 
-            <h3 className="mt-4 mb-2 font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2 dark:">
               3.3 Cookies tiers / affiliation (avec consentement)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -198,7 +198,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 4. Hébergement et transfert de données */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               4. Hébergement et transferts hors UE
             </h2>
             <p>
@@ -215,7 +215,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 5. Durée de conservation */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               5. Durée de conservation des données
             </h2>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -228,7 +228,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 6. Vos droits */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               6. Vos droits (RGPD)
             </h2>
             <p className="mb-3">
@@ -289,7 +289,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 7. Sécurité */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               7. Sécurité des données
             </h2>
             <p>
@@ -306,7 +306,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 8. Mineurs */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               8. Mineurs
             </h2>
             <p>
@@ -327,7 +327,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 9. Liens externes */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               9. Liens vers des sites tiers
             </h2>
             <p>
@@ -339,7 +339,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 10. Modifications */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               10. Modifications de la présente politique
             </h2>
             <p>
@@ -352,7 +352,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* Contact */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">Contact</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">Contact</h2>
             <p>
               Pour toute question relative à cette politique de confidentialité :{" "}
               <a href="mailto:contact@cdm2026.fr" className="text-primary hover:underline">

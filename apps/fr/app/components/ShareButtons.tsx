@@ -37,7 +37,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
 
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-      <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{label}</span>
+      <span className="text-sm font-medium text-gray-600 dark:text-gray-300">{label}</span>
       <div className="flex flex-wrap gap-2 sm:contents">
 
       {/* Twitter/X */}

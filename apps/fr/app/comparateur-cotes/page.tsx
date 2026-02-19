@@ -40,7 +40,7 @@ export default function ComparateurCotesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
@@ -54,7 +54,7 @@ export default function ComparateurCotesPage() {
         <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
           Comparateur de cotes – Coupe du Monde 2026
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-3xl">
+        <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-3xl">
           Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de groupes du Mondial 2026.
           Trouvez la meilleure cote pour chaque rencontre.
         </p>
@@ -66,7 +66,7 @@ export default function ComparateurCotesPage() {
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
               selectedGroup === "all"
                 ? "bg-primary text-white"
-                : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                : "bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
             }`}
           >
             Tous les groupes
@@ -78,7 +78,7 @@ export default function ComparateurCotesPage() {
               className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
                 selectedGroup === g
                   ? "bg-primary text-white"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               }`}
             >
               Groupe {g}
@@ -91,7 +91,7 @@ export default function ComparateurCotesPage() {
           {filtered.map((match) => {
             const best = getBestOdds(match);
             return (
-              <div key={match.matchId} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div key={match.matchId} className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                 {/* Match header */}
                 <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 dark:border-gray-600">
                   <div className="flex items-center gap-2 flex-wrap min-w-0">
@@ -102,14 +102,14 @@ export default function ComparateurCotesPage() {
                       {match.homeFlag} {match.homeTeam} vs {match.awayTeam} {match.awayFlag}
                     </span>
                   </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{match.date} 2026</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-300 shrink-0">{match.date} 2026</span>
                 </div>
 
                 {/* Odds table */}
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="text-gray-500 dark:text-gray-400 text-xs uppercase">
+                      <tr className="text-gray-500 dark:text-gray-300 text-xs uppercase">
                         <th className="px-4 py-2 text-left font-medium">Bookmaker</th>
                         <th className="px-4 py-2 text-center font-medium">1 ({match.homeTeam})</th>
                         <th className="px-4 py-2 text-center font-medium">N (Nul)</th>
@@ -120,7 +120,7 @@ export default function ComparateurCotesPage() {
                     <tbody>
                       {match.odds.map((o, idx) => (
                         <tr key={o.bookmaker} className={`border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ${
-                          idx % 2 === 0 ? "bg-gray-50/50 dark:bg-slate-700/50" : "bg-white dark:bg-gray-800"
+                          idx % 2 === 0 ? "bg-gray-50/50 dark:bg-slate-700/50" : "bg-white dark:bg-slate-800"
                         }`}>
                           <td className="px-4 py-2.5 font-medium text-gray-900 dark:text-gray-100">
                             <div className="flex items-center gap-2">

@@ -35,7 +35,7 @@ export default function Loading() {
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
         {/* Hero skeleton */}
-        <div className="rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-8 mb-8 overflow-hidden relative">
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-8 overflow-hidden relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 dark:via-slate-700/30 to-transparent animate-[shimmer_1.8s_infinite] -translate-x-full" />
           <div className="h-4 w-24 bg-gray-200 dark:bg-slate-700 rounded-full mb-4 animate-pulse" />
           <div className="h-8 w-3/4 bg-gray-200 dark:bg-slate-700 rounded-lg mb-3 animate-pulse" />
@@ -56,7 +56,7 @@ export default function Loading() {
         {/* Ballon centré en bas */}
         <div className="flex flex-col items-center justify-center py-8 gap-3">
           <BouncingBall />
-          <p className="text-sm text-gray-400 dark:text-gray-500 font-medium animate-pulse">
+          <p className="text-sm text-gray-400 dark:text-gray-400 font-medium animate-pulse">
             Chargement en cours…
           </p>
         </div>
@@ -89,8 +89,7 @@ export default function Loading() {
 
 function SkeletonCard({ delay }: { delay: number }) {
   return (
-    <div
-      className="rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 overflow-hidden relative"
+    <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden relative"
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-slate-700/20 to-transparent animate-[shimmer_1.8s_infinite] -translate-x-full" />

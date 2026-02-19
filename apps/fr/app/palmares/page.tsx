@@ -531,7 +531,7 @@ export default function PalmaresPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
@@ -577,7 +577,7 @@ export default function PalmaresPage() {
 
         {/* ── Palmarès par pays ────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             🌍 Palmarès par pays
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -588,7 +588,7 @@ export default function PalmaresPage() {
                   idx === 0
                     ? "border-gold bg-gold/5 dark:bg-gold/10"
                     : idx <= 2
-                    ? "border-gray-300 bg-gray-50 dark:bg-gray-800/40"
+                    ? "border-gray-300 bg-gray-50 dark:bg-slate-800/40"
                     : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                 }`}
               >
@@ -596,7 +596,7 @@ export default function PalmaresPage() {
                   <span className="text-4xl">{cr.flag}</span>
                   <div>
                     <div className="font-bold text-lg">{cr.country}</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                    <div className="text-xs text-gray-500 dark:text-gray-300">
                       {cr.confederation}
                     </div>
                   </div>
@@ -632,10 +632,10 @@ export default function PalmaresPage() {
 
         {/* ── Timeline ─────────────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             📅 Timeline — tous les vainqueurs
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Cliquez sur une édition pour voir les détails.
           </p>
 
@@ -668,7 +668,7 @@ export default function PalmaresPage() {
                         </div>
                       </div>
                     </div>
-                    <div className="text-center text-gray-500 dark:text-gray-400">
+                    <div className="text-center text-gray-500 dark:text-gray-300">
                       <div className="font-mono font-bold text-lg">{ed.score}</div>
                       <div className="text-xs">Score final</div>
                     </div>
@@ -681,7 +681,7 @@ export default function PalmaresPage() {
                         <div className="text-xs text-gray-400">🥈 Finaliste</div>
                       </div>
                     </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400 hidden sm:block">
+                    <div className="text-xs text-gray-500 dark:text-gray-300 hidden sm:block">
                       <div className="flex items-center gap-1">
                         <span>{ed.thirdPlaceFlag}</span>
                         <span>{ed.thirdPlace}</span>
@@ -700,10 +700,10 @@ export default function PalmaresPage() {
 
         {/* ── Tableau complet ──────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             📊 Tableau complet des finales
           </h2>
-          <div className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-primary text-white text-xs uppercase tracking-wide">
@@ -747,13 +747,13 @@ export default function PalmaresPage() {
                           <span>{ed.runnerUp}</span>
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-gray-500 dark:text-gray-400 hidden md:table-cell">
+                      <td className="px-4 py-3 text-gray-500 dark:text-gray-300 hidden md:table-cell">
                         <span className="flex items-center gap-1">
                           <span>{ed.thirdPlaceFlag}</span>
                           <span>{ed.thirdPlace}</span>
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-gray-500 dark:text-gray-400 text-xs hidden lg:table-cell">
+                      <td className="px-4 py-3 text-gray-500 dark:text-gray-300 text-xs hidden lg:table-cell">
                         {ed.topScorer} ({ed.topScorerGoals})
                       </td>
                     </tr>
@@ -766,7 +766,7 @@ export default function PalmaresPage() {
 
         {/* ── Records ──────────────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             🏅 Records &amp; stats marquantes
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -780,7 +780,7 @@ export default function PalmaresPage() {
                   {rec.label}
                 </div>
                 <div className="font-bold text-lg mb-1">{rec.value}</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-sm text-gray-500 dark:text-gray-300">
                   {rec.detail}
                 </div>
               </div>
@@ -790,7 +790,7 @@ export default function PalmaresPage() {
 
         {/* ── Section "Et en 2026 ?" ────────────────────────────── */}
         <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
-          <h2 className="text-3xl font-extrabold mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             🌟 Et en 2026 ?
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto mb-6">

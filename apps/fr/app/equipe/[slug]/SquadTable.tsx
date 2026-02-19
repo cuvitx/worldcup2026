@@ -69,13 +69,13 @@ export default function SquadTable({ players }: { players: Player[] }) {
   }
 
   const thClass =
-    "px-3 py-2 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide cursor-pointer select-none hover:text-primary transition-colors";
+    "px-3 py-2 text-left text-xs font-semibold text-gray-500 dark:text-gray-300 uppercase tracking-wide cursor-pointer select-none hover:text-primary transition-colors";
 
   return (
     <div className="overflow-x-auto -mx-6 px-6">
       <table className="w-full text-sm min-w-[540px]">
         <thead>
-          <tr className="bg-gray-50 dark:bg-slate-700 border-b border-gray-200 dark:border-slate-600">
+          <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500border-b border-gray-200 dark:border-slate-600">
             <th className={thClass} onClick={() => handleSort("position")}>
               Poste <SortIcon col="position" />
             </th>
@@ -121,8 +121,8 @@ export default function SquadTable({ players }: { players: Player[] }) {
                   {player.name}
                 </Link>
               </td>
-              <td className="px-3 py-2.5 text-gray-600 dark:text-gray-400">{player.age} ans</td>
-              <td className="px-3 py-2.5 text-gray-600 dark:text-gray-400 max-w-[140px] truncate">
+              <td className="px-3 py-2.5 text-gray-600 dark:text-gray-300">{player.age} ans</td>
+              <td className="px-3 py-2.5 text-gray-600 dark:text-gray-300 max-w-[140px] truncate">
                 {player.club}
               </td>
               <td className="px-3 py-2.5 text-center font-medium text-primary">{player.caps}</td>

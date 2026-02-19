@@ -116,12 +116,12 @@ export default async function StadiumPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8 min-w-0">
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm overflow-hidden">
-              <h2 className="mb-4 text-xl font-bold">Présentation</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Présentation</h2>
               <p className="text-gray-700 leading-relaxed break-words">{stadium.description}</p>
             </section>
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Caractéristiques</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
@@ -160,13 +160,13 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* Équipe résidente + GPS + Carte mini */}
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Localisation &amp; équipe résidente</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Localisation &amp; équipe résidente</h2>
               <div className="space-y-4">
                 {stadium.homeTeam && (
                   <div className="flex items-start gap-3">
                     <span className="text-xl mt-0.5">🏈</span>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-0.5">Équipe résidente</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Équipe résidente</p>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{stadium.homeTeam}</p>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ export default async function StadiumPage({ params }: PageProps) {
                 <div className="flex items-start gap-3">
                   <span className="text-xl mt-0.5">📍</span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-0.5">Coordonnées GPS</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Coordonnées GPS</p>
                     <p className="text-sm font-mono text-gray-900 dark:text-white">
                       {stadium.latitude.toFixed(4)}° N, {Math.abs(stadium.longitude).toFixed(4)}° O
                     </p>
@@ -184,7 +184,7 @@ export default async function StadiumPage({ params }: PageProps) {
                   <div className="flex items-start gap-3">
                     <span className="text-xl mt-0.5">🚗</span>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-0.5">Distance du centre-ville</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Distance du centre-ville</p>
                       <p className="text-sm text-gray-900 dark:text-white">≈ {stadium.distanceFromCenter} km</p>
                     </div>
                   </div>
@@ -225,7 +225,7 @@ export default async function StadiumPage({ params }: PageProps) {
             {/* Matches at this stadium */}
             {stadiumMatches.length > 0 && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Matchs au {stadium.name} ({stadiumMatches.length})
                 </h2>
                 <div className="space-y-2">
@@ -256,8 +256,8 @@ export default async function StadiumPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Informations</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Informations</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Ville</dt>
@@ -324,8 +324,8 @@ export default async function StadiumPage({ params }: PageProps) {
                 .filter((t): t is NonNullable<typeof t> => t != null);
               if (playingTeams.length === 0) return null;
               return (
-                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h3 className="mb-4 text-lg font-bold">Équipes qui jouent ici</h3>
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Équipes qui jouent ici</h3>
                   <ul className="space-y-2 text-sm">
                     {playingTeams.map((t) => (
                       <li key={t.id}>
@@ -344,8 +344,8 @@ export default async function StadiumPage({ params }: PageProps) {
             })()}
 
             {/* Other stadiums */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Autres stades</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres stades</h3>
               <ul className="space-y-2 text-sm">
                 {stadiums
                   .filter((s) => s.id !== stadium.id)

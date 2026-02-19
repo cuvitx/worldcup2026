@@ -18,7 +18,7 @@ export function H2HSection({
 }: H2HSectionProps) {
   return (
     <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="mb-4 text-xl font-bold">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
         Historique des confrontations
       </h2>
       {h2h && h2h.totalMatches > 0 ? (

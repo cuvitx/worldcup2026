@@ -13,7 +13,7 @@ export function BettingCta({
 }: BettingCtaProps) {
   return (
     <section className="rounded-lg bg-gradient-to-br from-primary to-primary/80 p-6 shadow-md text-white">
-      <h2 className="mb-4 text-xl font-bold">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
         {matchLabel ? `Parier sur ${matchLabel}` : "Parier sur ce match"}
       </h2>
       {/* Featured bookmaker */}

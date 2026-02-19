@@ -3,7 +3,7 @@ export default function TeamLoading() {
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 animate-pulse">
       {/* Breadcrumb */}
       <div className="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 px-4 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex gap-2 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8flex gap-2 items-center">
           <div className="h-3.5 w-12 bg-gray-200 dark:bg-slate-700 rounded-full" />
           <span className="text-gray-300 dark:text-slate-600">/</span>
           <div className="h-3.5 w-20 bg-gray-200 dark:bg-slate-700 rounded-full" />
@@ -14,7 +14,7 @@ export default function TeamLoading() {
 
       {/* Hero équipe */}
       <div className="bg-gradient-to-br from-primary to-secondary text-white py-12 px-4">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8flex flex-col sm:flex-row items-center sm:items-start gap-6">
           {/* Drapeau */}
           <div className="w-24 h-16 rounded-lg bg-white/10 flex-shrink-0" />
           <div className="flex-1 text-center sm:text-left">
@@ -34,7 +34,7 @@ export default function TeamLoading() {
           {/* Colonne principale */}
           <div className="lg:col-span-2 space-y-6">
             {/* Stats rapides */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-32 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="grid grid-cols-3 gap-4">
                 {[1, 2, 3].map((i) => (
@@ -47,7 +47,7 @@ export default function TeamLoading() {
             </div>
 
             {/* Description IA */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-40 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-2.5">
                 <div className="h-4 w-full bg-gray-100 dark:bg-slate-700 rounded" />
@@ -58,7 +58,7 @@ export default function TeamLoading() {
             </div>
 
             {/* Effectif */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-28 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-3">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -78,7 +78,7 @@ export default function TeamLoading() {
           {/* Sidebar */}
           <div className="space-y-5">
             {/* Groupe */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-24 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-2.5">
                 {[1, 2, 3, 4].map((i) => (
@@ -92,13 +92,13 @@ export default function TeamLoading() {
             </div>
 
             {/* Cotes */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-32 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="h-16 w-full bg-gray-100 dark:bg-slate-700 rounded-lg" />
             </div>
 
             {/* Calendrier matchs */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-28 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-3">
                 {[1, 2, 3].map((i) => (

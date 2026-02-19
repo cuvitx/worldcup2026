@@ -50,7 +50,7 @@ export default function ParisSportifsPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
         {/* Bookmaker Reviews */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="mb-2 text-xl font-bold">Meilleurs sites de paris sportifs 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Meilleurs sites de paris sportifs 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
             Nos avis détaillés sur les {bookmakerReviews.length} bookmakers agréés en France pour parier sur la CDM 2026.
           </p>
@@ -116,7 +116,7 @@ export default function ParisSportifsPage() {
           if (!catGuides || catGuides.length === 0) return null;
           return (
             <section key={cat} className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-              <h2 className="mb-4 text-xl font-bold">{categoryLabels[cat]}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{categoryLabels[cat]}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
                   <Link
@@ -124,7 +124,7 @@ export default function ParisSportifsPage() {
                     href={`/guide/${guide.slug}`}
                     className="rounded-xl border border-gray-200 dark:border-slate-700 p-4 sm:p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
-                    <h3 className="font-semibold mb-1">{guide.title}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{guide.title}</h3>
                     <p className="text-sm text-gray-500 line-clamp-2">{guide.metaDescription}</p>
                     <p className="mt-2 text-xs font-medium text-primary">Lire le guide &rarr;</p>
                   </Link>
@@ -136,7 +136,7 @@ export default function ParisSportifsPage() {
 
         {/* Cross-links */}
         <section className="rounded-xl bg-primary/5 border border-primary/10 p-6 sm:p-8">
-          <h2 className="mb-4 text-lg font-bold">Voir aussi</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-lg">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/buteurs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs CDM 2026

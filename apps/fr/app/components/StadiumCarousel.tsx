@@ -30,7 +30,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
         type="button"
         onClick={() => scroll("left")}
         aria-label="Défiler à gauche"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 shadow-xl text-gray-700 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700 backdrop-blur-sm text-xl font-bold"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 dark:bg-slate-800/90 border border-gray-200 dark:border-gray-600 shadow-xl text-gray-700 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700 backdrop-blur-sm text-xl font-bold"
       >
         ‹
       </button>
@@ -38,7 +38,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
         type="button"
         onClick={() => scroll("right")}
         aria-label="Défiler à droite"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 shadow-xl text-gray-700 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700 backdrop-blur-sm text-xl font-bold"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 dark:bg-slate-800/90 border border-gray-200 dark:border-gray-600 shadow-xl text-gray-700 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700 backdrop-blur-sm text-xl font-bold"
       >
         ›
       </button>
@@ -57,7 +57,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
           <Link
             key={stadium.id}
             href={`/stade/${stadium.slug}`}
-            className="group/card flex-none w-56 snap-start rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+            className="group/card flex-none w-56 snap-start rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
           >
             {/* Image container */}
             <div className="relative h-36 bg-gradient-to-br from-blue-900/80 to-gray-900 overflow-hidden">
@@ -85,10 +85,10 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
 
             {/* Card info */}
             <div className="p-3">
-              <h3 className="text-xs font-extrabold text-gray-900 dark:text-gray-100 leading-snug mb-1 line-clamp-1 group-hover/card:text-[#e63946] transition-colors">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-xs leading-snug mb-1 line-clamp-1 group-hover/card:text-[#e63946] transition-colors">
                 {stadium.name}
               </h3>
-              <p className="text-[10px] text-gray-500 dark:text-gray-400 truncate">
+              <p className="text-[10px] text-gray-500 dark:text-gray-300 truncate">
                 📍 {stadium.city}
               </p>
             </div>

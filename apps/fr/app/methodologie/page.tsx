@@ -26,7 +26,7 @@ export default function MethodologiePage() {
       />
 
       {/* Breadcrumbs */}
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
@@ -53,8 +53,8 @@ export default function MethodologiePage() {
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12 space-y-8">
         {/* ELO Rating System */}
-        <section className="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-sm">
-          <h2 className="mb-4 text-2xl font-bold text-primary">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             📊 Le modèle ELO
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
@@ -66,13 +66,13 @@ export default function MethodologiePage() {
           </p>
 
           <div className="rounded-lg bg-gray-50 dark:bg-gray-700 p-5 mb-4">
-            <h3 className="font-bold mb-2">Formule simplifiée</h3>
-            <div className="font-mono text-sm bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-600">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Formule simplifiée</h3>
+            <div className="font-mono text-sm bg-white dark:bg-slate-800 rounded p-3 border border-gray-200 dark:border-gray-600">
               <p>
                 R<sub>new</sub> = R<sub>old</sub> + K × (S - E)
               </p>
             </div>
-            <ul className="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+            <ul className="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-300">
               <li>
                 <strong>R</strong> = Rating ELO de l&apos;équipe
               </li>
@@ -91,13 +91,13 @@ export default function MethodologiePage() {
           </div>
 
           <div className="rounded-lg bg-gray-50 dark:bg-gray-700 p-5">
-            <h3 className="font-bold mb-2">Score attendu (Expected Score)</h3>
-            <div className="font-mono text-sm bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-600">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Score attendu (Expected Score)</h3>
+            <div className="font-mono text-sm bg-white dark:bg-slate-800 rounded p-3 border border-gray-200 dark:border-gray-600">
               <p>
                 E = 1 / (1 + 10<sup>(R<sub>adversaire</sub> - R<sub>équipe</sub>) / 400</sup>)
               </p>
             </div>
-            <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+            <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
               Cette formule calcule la probabilité de victoire en fonction de la
               différence de rating entre les deux équipes. Plus l&apos;écart est
               grand, plus le favori a de chances de l&apos;emporter.
@@ -106,8 +106,8 @@ export default function MethodologiePage() {
         </section>
 
         {/* AI Pipeline */}
-        <section className="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-sm">
-          <h2 className="mb-4 text-2xl font-bold text-primary">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             🤖 Pipeline IA triple-tier
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
@@ -124,7 +124,7 @@ export default function MethodologiePage() {
                 </span>
                 <div>
                   <p className="font-bold text-primary dark:text-white">Expert</p>
-                  <p className="text-xs text-primary/70 dark:text-gray-400">Claude (Anthropic)</p>
+                  <p className="text-xs text-primary/70 dark:text-gray-300">Claude (Anthropic)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -142,7 +142,7 @@ export default function MethodologiePage() {
                 </span>
                 <div>
                   <p className="font-bold text-secondary dark:text-white">Factuel</p>
-                  <p className="text-xs text-secondary/70 dark:text-gray-400">Gemini (Google)</p>
+                  <p className="text-xs text-secondary/70 dark:text-gray-300">Gemini (Google)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -160,7 +160,7 @@ export default function MethodologiePage() {
                 </span>
                 <div>
                   <p className="font-bold text-field dark:text-white">Infra</p>
-                  <p className="text-xs text-field/70 dark:text-gray-400">GPT (OpenAI)</p>
+                  <p className="text-xs text-field/70 dark:text-gray-300">GPT (OpenAI)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -179,8 +179,8 @@ export default function MethodologiePage() {
         </section>
 
         {/* Factors */}
-        <section className="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-sm">
-          <h2 className="mb-4 text-2xl font-bold text-primary">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             🔍 Facteurs d&apos;analyse
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
@@ -238,7 +238,7 @@ export default function MethodologiePage() {
                 <span className="text-2xl shrink-0">{factor.icon}</span>
                 <div>
                   <p className="font-semibold dark:text-gray-100">{factor.title}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{factor.desc}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">{factor.desc}</p>
                 </div>
               </div>
             ))}
@@ -246,8 +246,8 @@ export default function MethodologiePage() {
         </section>
 
         {/* How predictions work */}
-        <section className="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-sm">
-          <h2 className="mb-4 text-2xl font-bold text-primary">
+        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             🎯 Comment sont calculées les probabilités
           </h2>
           <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -269,10 +269,10 @@ export default function MethodologiePage() {
               Les cotes estimées sont dérivées des probabilités selon la formule :
             </p>
             <div className="rounded-lg bg-gray-50 dark:bg-gray-700 p-4">
-              <div className="font-mono text-sm bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-600 text-center">
+              <div className="font-mono text-sm bg-white dark:bg-slate-800 rounded p-3 border border-gray-200 dark:border-gray-600 text-center">
                 Cote = 1 / Probabilité
               </div>
-              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center">
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-300 text-center">
                 Exemple : 40% de chances → cote de 2.50
               </p>
             </div>
@@ -281,7 +281,7 @@ export default function MethodologiePage() {
 
         {/* Transparency */}
         <section className="rounded-lg border-2 border-gold/30 bg-gold/5 p-6">
-          <h2 className="mb-4 text-2xl font-bold text-primary">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             ⚠️ Transparence & limites
           </h2>
           <div className="space-y-3 text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -313,7 +313,7 @@ export default function MethodologiePage() {
 
         {/* CTA */}
         <section className="rounded-lg bg-primary text-white p-6 text-center">
-          <h2 className="text-xl font-bold mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Découvrez nos pronostics en action
           </h2>
           <p className="text-gray-300 mb-4">

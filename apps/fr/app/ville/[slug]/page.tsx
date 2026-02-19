@@ -95,12 +95,12 @@ export default async function CityPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Présentation</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Présentation</h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed break-words">{city.description}</p>
             </section>
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 {cityStadiums.length > 1 ? "Stades" : "Stade"} de la Coupe du Monde
               </h2>
               <div className="space-y-4">
@@ -126,7 +126,7 @@ export default async function CityPage({ params }: PageProps) {
             {/* Matches in this city */}
             {cityMatches.length > 0 && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Matchs à {city.name} ({cityMatches.length})
                 </h2>
                 <div className="space-y-2">
@@ -160,37 +160,37 @@ export default async function CityPage({ params }: PageProps) {
               <>
                 {/* Météo */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     🌤️ Météo en juin-juillet
                   </h2>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className="rounded-lg bg-primary/5 dark:bg-primary/20 p-4 text-center">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Juin</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-300 mb-1">Juin</p>
                       <p className="text-2xl font-bold text-secondary dark:text-secondary">
                         {enrichment.weather.juinMin}° – {enrichment.weather.juinMax}°C
                       </p>
                     </div>
                     <div className="rounded-lg bg-orange-50 dark:bg-orange-900/20 p-4 text-center">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Juillet</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-300 mb-1">Juillet</p>
                       <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
                         {enrichment.weather.juilletMin}° – {enrichment.weather.juilletMax}°C
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 italic">{enrichment.weather.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 italic">{enrichment.weather.description}</p>
                 </section>
 
                 {/* Transport */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     🚗 Comment s'y rendre
                   </h2>
                   <div className="mb-3">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">✈️ Aéroport principal</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-1">✈️ Aéroport principal</p>
                     <p className="text-sm text-gray-700 dark:text-gray-300">{enrichment.transport.aeroport}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">🚌 Transports locaux</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-2">🚌 Transports locaux</p>
                     <ul className="space-y-1">
                       {enrichment.transport.transports.map((t, i) => (
                         <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
@@ -204,44 +204,44 @@ export default async function CityPage({ params }: PageProps) {
 
                 {/* Budget */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     💰 Budget moyen
                   </h2>
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                      <p className="text-xl font-bold text-primary">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 sm:p-4 text-center">
+                      <p className="text-lg font-bold text-primary">
                         {enrichment.budget.hotelMin}–{enrichment.budget.hotelMax}
-                        <span className="text-sm font-normal ml-1">{enrichment.budget.currency}</span>
+                        <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Hôtel / nuit</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Hôtel / nuit</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                      <p className="text-xl font-bold text-primary">
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 sm:p-4 text-center">
+                      <p className="text-lg font-bold text-primary">
                         ~{enrichment.budget.repas}
-                        <span className="text-sm font-normal ml-1">{enrichment.budget.currency}</span>
+                        <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Repas moyen</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Repas moyen</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                      <p className="text-xl font-bold text-primary">
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 sm:p-4 text-center">
+                      <p className="text-lg font-bold text-primary">
                         ~{enrichment.budget.biere}
-                        <span className="text-sm font-normal ml-1">{enrichment.budget.currency}</span>
+                        <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Bière (50cl)</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Bière (50cl)</p>
                     </div>
                   </div>
                 </section>
 
                 {/* Activités */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                  <h2 className="mb-4 text-xl font-bold flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     🎯 Que faire en dehors des matchs
                   </h2>
                   <div className="space-y-4">
                     {enrichment.activities.map((activity, i) => (
                       <div key={i} className="rounded-lg border border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-700/50 p-4">
                         <p className="font-semibold text-gray-900 dark:text-white mb-1">{activity.title}</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">{activity.description}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">{activity.description}</p>
                       </div>
                     ))}
                   </div>
@@ -250,25 +250,25 @@ export default async function CityPage({ params }: PageProps) {
             )}
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Informations pratiques</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Informations pratiques</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {(city.population / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Population metro</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">Population metro</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{city.timezone.split("/").pop()?.replace(/_/g, " ")}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Fuseau horaire</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">Fuseau horaire</p>
                 </div>
               </div>
             </section>
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Fiche ville</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiche ville</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Pays</dt>
@@ -289,8 +289,8 @@ export default async function CityPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Autres villes hôtes</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres villes hôtes</h3>
               <ul className="space-y-2 text-sm">
                 {cities
                   .filter((c) => c.id !== city.id)
@@ -306,8 +306,8 @@ export default async function CityPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-primary">Hôtels à {city.name}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Hôtels à {city.name}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Trouvez les meilleurs hôtels près des stades pour la Coupe du Monde 2026.
               </p>
             </div>

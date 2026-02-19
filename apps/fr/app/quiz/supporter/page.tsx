@@ -192,7 +192,7 @@ export default function QuizSupporterPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
+      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
           <li><Link href="/" className="hover:text-secondary dark:hover:text-secondary">Accueil</Link></li>
           <li>/</li>
@@ -205,7 +205,7 @@ export default function QuizSupporterPage() {
       <h1 className="mb-2 text-3xl font-extrabold dark:text-white">
         🏆 Quel pays vas-tu supporter ?
       </h1>
-      <p className="mb-8 text-gray-500 dark:text-gray-400">
+      <p className="mb-8 text-gray-500 dark:text-gray-300">
         Réponds à {questions.length} questions et découvre ton équipe idéale pour la CDM 2026 !
       </p>
 
@@ -219,11 +219,11 @@ export default function QuizSupporterPage() {
 
       {!showResult ? (
         /* ─── Question ─── */
-        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg dark:border-slate-700 dark:bg-slate-800 sm:p-8">
-          <div className="mb-1 text-sm font-medium text-gray-400 dark:text-gray-500">
+        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow sm:p-8">
+          <div className="mb-1 text-sm font-medium text-gray-400 dark:text-gray-400">
             Question {currentQ + 1}/{questions.length}
           </div>
-          <h2 className="mb-6 text-xl font-bold dark:text-white">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">
             {questions[currentQ]!.emoji} {questions[currentQ]!.question}
           </h2>
           <div className="grid gap-3">
@@ -243,7 +243,7 @@ export default function QuizSupporterPage() {
         <div className="rounded-2xl border border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-6 shadow-xl dark:border-yellow-800/50 dark:from-slate-800 dark:to-slate-800 sm:p-8">
           <div className="mb-4 text-center">
             <span className="text-7xl block mb-4">{resultTeam.flag}</span>
-            <h2 className="text-2xl font-extrabold dark:text-white sm:text-3xl">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
               Tu devrais supporter {resultTeam.flag} {resultTeam.name} !
             </h2>
           </div>
@@ -275,7 +275,7 @@ export default function QuizSupporterPage() {
 
           {/* Top 3 */}
           <div className="mt-8 border-t border-gray-200 pt-6 dark:border-slate-600">
-            <h3 className="mb-3 text-center text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-center text-sm uppercase tracking-wider text-gray-400">
               Ton top 3
             </h3>
             <div className="flex justify-center gap-4">
@@ -291,7 +291,7 @@ export default function QuizSupporterPage() {
                         {i === 0 ? "🥇" : i === 1 ? "🥈" : "🥉"}
                       </div>
                       <div className="text-2xl">{t.flag}</div>
-                      <div className="text-xs font-medium text-gray-500 dark:text-gray-400">{t.name}</div>
+                      <div className="text-xs font-medium text-gray-500 dark:text-gray-300">{t.name}</div>
                       <div className="text-xs text-gray-400">{pts} pts</div>
                     </div>
                   );

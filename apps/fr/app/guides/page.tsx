@@ -61,9 +61,9 @@ export default function GuidesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guidesJsonLd) }}
       />
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-gray-100 font-medium">Guides</li>
@@ -86,11 +86,11 @@ export default function GuidesPage() {
           if (!catGuides || catGuides.length === 0) return null;
           const emoji = categoryEmojis[cat] || "📌";
           return (
-            <section key={cat} className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-              <h2 className="mb-1 text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+            <section key={cat} className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">
                 <span className="text-2xl">{emoji}</span> {categoryLabels[cat]}
               </h2>
-              <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">{categoryDescriptions[cat]}</p>
+              <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">{categoryDescriptions[cat]}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
                   <Link
@@ -99,8 +99,8 @@ export default function GuidesPage() {
                     className="group rounded-xl border border-gray-200 dark:border-gray-600 p-5 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md hover:-translate-y-0.5"
                   >
                     <div className="text-3xl mb-3">{emoji}</div>
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-primary transition-colors">{guide.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-3">{guide.intro}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover: transition-colors">{guide.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-300 line-clamp-2 mb-3">{guide.intro}</p>
                     <p className="text-sm font-bold text-primary">Lire →</p>
                   </Link>
                 ))}
@@ -110,11 +110,11 @@ export default function GuidesPage() {
         })}
 
         {/* Bookmaker reviews */}
-        <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-          <h2 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             <span className="text-2xl">⭐</span> Avis bookmakers
           </h2>
-          <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mb-4 text-sm text-gray-500 dark:text-gray-300">
             Tests et avis détaillés des meilleurs bookmakers agréés en France.
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -126,7 +126,7 @@ export default function GuidesPage() {
               >
                 <div>
                   <p className="font-bold text-gray-900 dark:text-gray-100">{bk.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">{bk.tagline}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-300">{bk.tagline}</p>
                 </div>
                 <p className="font-bold text-field">{bk.bonus}</p>
               </Link>
@@ -136,15 +136,15 @@ export default function GuidesPage() {
 
         {/* Cross-links */}
         <section className="rounded-xl bg-primary/5 dark:bg-primary/10 p-6">
-          <h2 className="mb-4 text-lg font-bold text-gray-900 dark:text-gray-100">Voir aussi</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-lg">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/paris-sportifs" className="rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/paris-sportifs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Paris sportifs CDM 2026
             </Link>
-            <Link href="/buteurs" className="rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/buteurs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs
             </Link>
-            <Link href="/pronostic/france" className="rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/pronostic/france" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Pronostic France
             </Link>
           </div>

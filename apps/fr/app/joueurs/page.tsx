@@ -48,7 +48,7 @@ export default function PlayersPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-8">
         {/* Top Scorers */}
         <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold">Meilleurs buteurs en sélection</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Meilleurs buteurs en sélection</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -99,7 +99,7 @@ export default function PlayersPage() {
             .sort((a, b) => b.goals - a.goals || b.caps - a.caps);
           return (
             <section key={pos} className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">{positionLabels[pos]} ({posPlayers.length})</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{positionLabels[pos]} ({posPlayers.length})</h2>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {posPlayers.map((player) => {
                   const team = teamsById[player.teamId];

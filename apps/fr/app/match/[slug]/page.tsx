@@ -216,11 +216,11 @@ export default async function MatchPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {home && away && (
               <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Comparaison</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Comparaison</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="bg-gray-50 dark:bg-slate-700">
+                      <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
                         <th className="py-3 px-3 text-left text-sm font-medium text-primary">
                           {home.name}
                         </th>
@@ -296,7 +296,7 @@ export default async function MatchPage({ params }: PageProps) {
             )}
 
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 {isCompleted ? "Resultat & Analyse" : "Pronostic"}
               </h2>
               {home && away && (() => {
@@ -353,8 +353,8 @@ export default async function MatchPage({ params }: PageProps) {
 
           <div className="space-y-6">
             {stadium && (
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Lieu du match</h3>
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Lieu du match</h3>
                 <Link
                   href={`/stade/${stadium.slug}`}
                   className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
@@ -376,8 +376,8 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             )}
 
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Infos match</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Infos match</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Phase</dt>
@@ -435,8 +435,8 @@ export default async function MatchPage({ params }: PageProps) {
 
             {/* Same-day matches in sidebar */}
             {sameDayMatches.length > 0 && (
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white p-6 shadow-sm dark:bg-gray-900">
-                <h3 className="mb-4 text-lg font-bold">Autres matchs du {match.date.slice(5)}</h3>
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres matchs du {match.date.slice(5)}</h3>
                 <div className="space-y-2">
                   {sameDayMatches.slice(0, 5).map((m) => {
                     const mHome = teamsById[m.homeTeamId];
@@ -467,7 +467,7 @@ export default async function MatchPage({ params }: PageProps) {
               />
             ) : (
               <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
-                <h3 className="mb-2 text-lg font-bold text-primary">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   Cotes du match
                 </h3>
                 <p className="text-sm text-gray-600">
@@ -484,7 +484,7 @@ export default async function MatchPage({ params }: PageProps) {
       {sameDayMatches.length > 0 && (
         <section className="border-t border-gray-200 dark:border-slate-700 py-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-4 text-xl font-bold">Matchs de la même journée</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Matchs de la même journée</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {sameDayMatches.map((m) => {
                 const mHome = teamsById[m.homeTeamId];

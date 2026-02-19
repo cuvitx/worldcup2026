@@ -165,7 +165,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {/* Search input */}
       <div className="relative mb-6">
         <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-          <IconSearch className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+          <IconSearch className="w-5 h-5 text-gray-500 dark:text-gray-300" />
         </div>
         <input
           ref={inputRef}
@@ -175,7 +175,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
           placeholder="Rechercher une équipe, un joueur, un stade..."
           className="
             w-full pl-12 pr-12 py-4 text-base
-            bg-white dark:bg-gray-800
+            bg-white dark:bg-slate-800
             border-2 border-gray-200 dark:border-gray-600
             rounded-2xl shadow-sm
             text-gray-900 dark:text-gray-100
@@ -203,7 +203,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {!query && (
         <div className="text-center py-8">
           <div className="text-5xl mb-4">🔍</div>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
             Recherchez parmi{" "}
             <strong className="text-gray-700 dark:text-gray-200">48 équipes</strong>,{" "}
             <strong className="text-gray-700 dark:text-gray-200">966 joueurs</strong>,{" "}
@@ -229,11 +229,11 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {query && totalCount === 0 && (
         <div className="text-center py-12">
           <div className="text-5xl mb-3">😕</div>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
             Aucun résultat pour{" "}
             <strong className="text-gray-900 dark:text-gray-100">« {query} »</strong>
           </p>
-          <p className="text-gray-400 dark:text-gray-500 mt-2 text-sm">
+          <p className="text-gray-400 dark:text-gray-400 mt-2 text-sm">
             Essayez un autre terme ou vérifiez l&apos;orthographe
           </p>
         </div>
@@ -243,7 +243,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {query && totalCount > 0 && (
         <>
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-300">
               <strong className="text-gray-900 dark:text-gray-100">{totalCount}</strong> résultat{totalCount > 1 ? "s" : ""} pour{" "}
               <strong className="text-gray-900 dark:text-gray-100">« {query} »</strong>
             </p>
@@ -290,7 +290,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                     <h2 id={`group-${type}`} className="font-bold text-gray-900 dark:text-gray-100">
                       {TYPE_LABELS[type]}
                     </h2>
-                    <span className="text-xs text-gray-400 dark:text-gray-500 ml-1">
+                    <span className="text-xs text-gray-400 dark:text-gray-400 ml-1">
                       {items.length} résultat{items.length > 1 ? "s" : ""}
                     </span>
                   </div>
@@ -303,7 +303,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                         href={item.href}
                         className="
                           flex items-center gap-3 p-3 rounded-xl
-                          bg-white dark:bg-gray-800
+                          bg-white dark:bg-slate-800
                           border border-gray-200 dark:border-gray-700
                           hover:border-primary/40 hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-700/50
                           transition-all duration-150 group
@@ -316,7 +316,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                           <div className="font-medium text-gray-900 dark:text-gray-100 text-sm truncate group-hover:text-primary dark:group-hover:text-primary transition-colors">
                             {item.title}
                           </div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">
+                          <div className="text-xs text-gray-500 dark:text-gray-300 truncate mt-0.5">
                             {item.description}
                           </div>
                         </div>

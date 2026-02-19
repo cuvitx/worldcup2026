@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
-import { StadiumMap } from "./StadiumMap";
+import dynamic from "next/dynamic";
+
+const StadiumMap = dynamic(() => import("./StadiumMap").then((m) => m.StadiumMap), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[400px] md:h-[600px] rounded-2xl bg-gray-100 dark:bg-slate-800 animate-pulse flex items-center justify-center text-gray-400">
+      Chargement de la carte…
+    </div>
+  ),
+});
 
 export const metadata: Metadata = {
   title: "Carte des Stades CDM 2026 | Les 16 stades de la Coupe du Monde",
@@ -68,9 +77,9 @@ export default function CarteStadesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary dark:hover:text-primary transition-colors">
                 Accueil
@@ -118,7 +127,7 @@ export default function CarteStadesPage() {
         {/* Interactive map */}
         <section className="mb-10" aria-label="Carte interactive">
           <StadiumMap />
-          <p className="text-xs text-center text-gray-400 dark:text-gray-500 mt-2">
+          <p className="text-xs text-center text-gray-400 dark:text-gray-400 mt-2">
             Survolez un marqueur pour voir les détails · Cliquez pour accéder à la fiche du stade
           </p>
         </section>
@@ -140,9 +149,9 @@ export default function CarteStadesPage() {
 
               return (
                 <div key={country}>
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                     {COUNTRY_LABELS[country]}
-                    <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+                    <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-300">
                       ({countryStadiums.length} stade{countryStadiums.length > 1 ? "s" : ""})
                     </span>
                   </h3>
@@ -188,32 +197,32 @@ export default function CarteStadesPage() {
         </section>
 
         {/* Stats summary */}
-        <section className="mt-12 bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        <section className="mt-12 bg-gray-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             📊 Chiffres clés
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-3xl font-extrabold text-primary dark:text-secondary">16</div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">Stades</div>
+              <div className="text-sm text-gray-500 dark:text-gray-300">Stades</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-primary dark:text-secondary">
                 {stadiums.reduce((s, st) => s + st.capacity, 0).toLocaleString("fr-FR")}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">Places totales</div>
+              <div className="text-sm text-gray-500 dark:text-gray-300">Places totales</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-primary dark:text-secondary">
                 {Math.max(...stadiums.map((s) => s.capacity)).toLocaleString("fr-FR")}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">Capacité max (Azteca)</div>
+              <div className="text-sm text-gray-500 dark:text-gray-300">Capacité max (Azteca)</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-primary dark:text-secondary">
                 {Math.round(stadiums.reduce((s, st) => s + st.capacity, 0) / stadiums.length).toLocaleString("fr-FR")}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">Capacité moyenne</div>
+              <div className="text-sm text-gray-500 dark:text-gray-300">Capacité moyenne</div>
             </div>
           </div>
         </section>
@@ -228,7 +237,7 @@ export default function CarteStadesPage() {
           </Link>
           <Link
             href="/match/calendrier"
-            className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             📅 Calendrier des matchs
           </Link>

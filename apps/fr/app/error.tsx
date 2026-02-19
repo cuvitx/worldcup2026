@@ -34,7 +34,7 @@ export default function Error({
         Le VAR a détecté un problème !
       </h1>
 
-      <p className="text-gray-500 dark:text-gray-400 text-base max-w-md mb-2">
+      <p className="text-gray-500 dark:text-gray-300 text-base max-w-md mb-2">
         Une erreur inattendue s&apos;est produite. Notre équipe technique est
         déjà sur le terrain pour intervenir.
       </p>

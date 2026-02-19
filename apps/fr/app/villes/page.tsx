@@ -30,9 +30,9 @@ export default function CitiesPage() {
 
   return (
     <>
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Villes hôtes</li>
@@ -54,7 +54,7 @@ export default function CitiesPage() {
           const countryCities = cities.filter((c) => c.country === country);
           return (
             <section key={country}>
-              <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">
                 {countryLabels[country]} ({countryCities.length} villes)
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -64,7 +64,7 @@ export default function CitiesPage() {
                     <Link
                       key={city.id}
                       href={`/ville/${city.slug}`}
-                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5 shadow-sm hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div className="flex items-start gap-3">
                         <span className="text-3xl">{countryFlags[country]}</span>
@@ -72,26 +72,26 @@ export default function CitiesPage() {
                           <p className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                             {city.name}
                           </p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                          <p className="text-sm text-gray-500 dark:text-gray-300">
                             {city.state}
                           </p>
                         </div>
                       </div>
                       <div className="mt-4 grid grid-cols-2 gap-3">
                         <div className="rounded-lg bg-gray-50 dark:bg-gray-700/50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500 dark:text-gray-400">Population</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-300">Population</p>
                           <p className="text-sm font-bold text-gray-900 dark:text-white">
                             {(city.population / 1_000_000).toFixed(1)}M
                           </p>
                         </div>
                         <div className="rounded-lg bg-gray-50 dark:bg-gray-700/50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500 dark:text-gray-400">Stades</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-300">Stades</p>
                           <p className="text-sm font-bold text-gray-900 dark:text-white">
                             {cityStadiums.length}
                           </p>
                         </div>
                       </div>
-                      <div className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+                      <div className="mt-3 text-xs text-gray-500 dark:text-gray-300">
                         🏟️ {cityStadiums.map((s) => s.name).join(", ") || "—"}
                       </div>
                     </Link>

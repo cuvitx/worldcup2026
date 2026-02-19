@@ -107,7 +107,7 @@ export default function PronosticHubPage() {
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Pronostics</li>
@@ -163,7 +163,7 @@ export default function PronosticHubPage() {
       {/* ===== TENDANCES ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-b border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg dark: mb-4">
             📈 Tendances & stats CDM 2026
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -189,7 +189,7 @@ export default function PronosticHubPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 🏆 Pronostic Vainqueur CDM 2026
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Top 5 favoris selon notre modèle ELO
               </p>
             </div>
@@ -220,7 +220,7 @@ export default function PronosticHubPage() {
                   <p className="font-bold text-sm text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                     {team.name}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">#{index + 1} mondial</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">#{index + 1} mondial</p>
                   <div className="mt-2 flex items-center justify-between text-xs">
                     <span className="text-primary font-bold">{winPct}%</span>
                     <span className="text-gold font-bold">{odds}</span>
@@ -255,7 +255,7 @@ export default function PronosticHubPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 🗂️ Pronostics par groupe (A → L)
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Qualifiés et outsiders de chaque groupe de la CDM 2026
               </p>
             </div>
@@ -299,7 +299,7 @@ export default function PronosticHubPage() {
                         <div
                           key={team.id}
                           className={`flex items-center gap-2 text-xs ${
-                            i < 2 ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-500"
+                            i < 2 ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-400"
                           }`}
                         >
                           <span className="w-4 text-center text-gray-300 dark:text-gray-600 font-bold">{i + 1}</span>
@@ -335,7 +335,7 @@ export default function PronosticHubPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 ⚽ Pronostics des matchs clés
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Analyses détaillées des affiches les plus attendues
               </p>
             </div>
@@ -383,7 +383,7 @@ export default function PronosticHubPage() {
                       <span className="text-2xl shrink-0">{away.flag}</span>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
+                  <p className="text-xs text-gray-400 dark:text-gray-400 mt-2">
                     {new Date(match.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
                       day: "numeric",
                       month: "long",
@@ -417,7 +417,7 @@ export default function PronosticHubPage() {
       {/* ===== LIENS RAPIDES ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-6 text-center">
             🔗 Outils complémentaires
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -460,7 +460,7 @@ export default function PronosticHubPage() {
                   <span className="text-3xl mb-3 block transition-transform group-hover:scale-110 duration-200">
                     {item.icon}
                   </span>
-                  <h3 className="text-sm font-bold mb-1">{item.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm mb-1">{item.title}</h3>
                   <p className="text-xs text-white/70">{item.desc}</p>
                   <p className="mt-3 text-xs font-bold text-white/80 group-hover:gap-2 transition-all">
                     Accéder →
@@ -475,7 +475,7 @@ export default function PronosticHubPage() {
       {/* ===== DISCLAIMER ===== */}
       <section className="bg-gray-50 dark:bg-slate-900/50 py-6 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs text-gray-400 dark:text-gray-500 text-center leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xs text-gray-400 dark:text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
             📌 Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
             Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}
             <Link href="/jeu-responsable" className="underline hover:text-primary">Jeu responsable — 18+</Link>

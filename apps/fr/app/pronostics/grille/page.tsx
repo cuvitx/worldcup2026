@@ -152,7 +152,7 @@ export default function GrillePronosticsPage() {
                     const p = pronostics[m.id] ?? { home: "", away: "" };
                     return (
                       <div key={m.id} className="px-4 py-3">
-                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">
+                        <div className="text-xs text-gray-500 dark:text-gray-300 mb-1.5">
                           {new Date(m.date + "T12:00:00Z").toLocaleDateString("fr-FR", { day: "numeric", month: "short" })} · {m.time}
                         </div>
                         <div className="flex items-center gap-2">

@@ -78,11 +78,11 @@ export default function CommunityVote({
   ];
 
   return (
-    <section className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
-      <h2 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">
+    <section className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-slate-800">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1 dark:">
         🗳️ L&apos;avis de la communauté
       </h2>
-      <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">
+      <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">
         {showResults
           ? `${results.totalVotes.toLocaleString("fr-FR")} votes`
           : "Quel est votre pronostic pour ce match ?"}
@@ -115,11 +115,11 @@ export default function CommunityVote({
         <div className="space-y-3">
           {options.map((opt) => (
             <div key={opt.key} className="relative">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className={`text-sm font-medium ${voted === opt.key ? opt.text + " font-bold" : "text-gray-700 dark:text-gray-300"}`}>
+              <div className="flex items-center justify-between gap-2 mb-1.5">
+                <span className={`text-sm font-medium min-w-0 truncate ${voted === opt.key ? opt.text + " font-bold" : "text-gray-700 dark:text-gray-300"}`}>
                   {voted === opt.key && "✓ "}{opt.label}
                 </span>
-                <span className={`text-sm font-bold tabular-nums ${voted === opt.key ? opt.text : "text-gray-600 dark:text-gray-400"}`}>
+                <span className={`text-sm font-bold tabular-nums shrink-0 ${voted === opt.key ? opt.text : "text-gray-600 dark:text-gray-300"}`}>
                   {opt.pct}%
                 </span>
               </div>

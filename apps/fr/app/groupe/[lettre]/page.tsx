@@ -77,7 +77,7 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Teams Table */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold dark:text-white">Équipes du Groupe {group.letter}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Équipes du Groupe {group.letter}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
@@ -119,7 +119,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Group Analysis */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold dark:text-white">Analyse du Groupe {group.letter}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Analyse du Groupe {group.letter}</h2>
               <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300">
                 <p>
                   Le Groupe {group.letter} de la Coupe du Monde 2026 reunit{" "}
@@ -144,7 +144,7 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Group Matches */}
             {groupMatches.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold dark:text-white">Calendrier du Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Calendrier du Groupe {group.letter}</h2>
                 <div className="space-y-3">
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
@@ -171,7 +171,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Head to Head Links */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold dark:text-white">Confrontations directes</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Confrontations directes</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {groupTeams.flatMap((team1, i) =>
                   groupTeams.slice(i + 1).map((team2) => (
@@ -195,8 +195,8 @@ export default async function GroupPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Group Navigation */}
-            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold dark:text-white">Tous les groupes</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Tous les groupes</h3>
               <div className="grid grid-cols-4 gap-2">
                 {groups.map((g) => (
                   <Link
@@ -216,7 +216,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Pronostic Groupe CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-primary">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Pronostics Groupe {group.letter}
               </h3>
               <p className="text-sm text-gray-600 mb-3">

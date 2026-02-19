@@ -32,7 +32,7 @@ export default function QuizPage() {
 
       <nav className="bg-white dark:bg-white/5 border-b border-gray-200 dark:border-gray-800">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                 Accueil
@@ -49,7 +49,7 @@ export default function QuizPage() {
           <h1 className="text-3xl sm:text-4xl font-bold mb-3">
             ⚽ Êtes-vous vraiment incollable sur la CDM 2026 ?
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
             200+ questions sur l&apos;histoire (1930-2022), les joueurs légendaires, les stades, les règles et les villes hôtes 2026.
             Prouvez que vous êtes un expert — et défiez vos amis !
           </p>

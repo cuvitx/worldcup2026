@@ -161,7 +161,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             {/* ELO Rating Card */}
             {prediction && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Rating ELO de {team.name}
                 </h2>
                 <div className="flex items-end gap-4 mb-4">
@@ -200,7 +200,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             {/* Probability Table with Progress Bars */}
             {prediction && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Probabilites par tour - {team.name}
                 </h2>
                 <p className="mb-4 text-sm text-gray-600">
@@ -245,7 +245,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             {/* Cotes estimees */}
             {prediction && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Cotes estimees - {team.name} vainqueur CDM 2026
                 </h2>
                 <div className="grid grid-cols-2 gap-4 mb-4">
@@ -305,7 +305,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             {/* Match Predictions for Group Stage */}
             {teamMatches.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Pronostics des matchs de groupe
                 </h2>
                 <p className="mb-4 text-sm text-gray-600">
@@ -439,7 +439,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             {/* Key Players */}
             {teamPlayers.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Joueurs cles de {team.name}
                 </h2>
                 <p className="mb-4 text-sm text-gray-600">
@@ -451,11 +451,11 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                      className="flex items-center justify-between gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
-                      <div>
-                        <p className="font-semibold">{player.name}</p>
-                        <p className="text-sm text-gray-500">
+                      <div className="min-w-0 flex-1">
+                        <p className="font-semibold truncate">{player.name}</p>
+                        <p className="text-sm text-gray-500 truncate">
                           {positionLabels[player.position]} &middot;{" "}
                           {player.club}
                         </p>
@@ -473,7 +473,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* ============ Affiliate CTA Section ============ */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-2 text-xl font-bold text-primary">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 Parier sur {team.name}
               </h2>
               <p className="mb-6 text-sm text-gray-600">
@@ -543,8 +543,8 @@ export default async function PronosticTeamPage({ params }: PageProps) {
           {/* ============ Sidebar ============ */}
           <div className="space-y-6">
             {/* Quick Stats Card */}
-            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Fiche rapide</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiche rapide</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Classement FIFA</dt>
@@ -603,8 +603,8 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             </div>
 
             {/* Related Teams (same group) */}
-            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Équipes du Groupe {team.group}
               </h3>
               <ul className="space-y-2">
@@ -637,8 +637,8 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* H2H Links */}
             {groupTeams.length > 0 && (
-              <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Confrontations directes
                 </h3>
                 <ul className="space-y-2">
@@ -663,7 +663,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
 
             {/* Sidebar CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-primary">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Parier sur {team.name}
               </h3>
               {prediction ? (

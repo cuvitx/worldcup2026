@@ -70,7 +70,7 @@ export function StatBar({
     <div ref={ref} className="w-full">
       {layout === "default" && (
         <div className={`flex items-center justify-between mb-1.5 ${textClass}`}>
-          <span className="text-gray-600 dark:text-gray-400 font-medium truncate pr-2">{label}</span>
+          <span className="text-gray-600 dark:text-gray-300 font-medium truncate pr-2">{label}</span>
           {showValue && (
             <span className="font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
               {value}{suffix}
@@ -79,7 +79,7 @@ export function StatBar({
         </div>
       )}
       {layout === "inline" && (
-        <span className={`${textClass} text-gray-600 dark:text-gray-400 font-medium block mb-1`}>{label}</span>
+        <span className={`${textClass} text-gray-600 dark:text-gray-300 font-medium block mb-1`}>{label}</span>
       )}
       <div
         className={`w-full rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700 ${heightClass}`}
@@ -157,7 +157,7 @@ export function DuelStatBar({
         <span className={`text-sm font-bold ${homeWins ? "text-primary" : "text-gray-700 dark:text-gray-300"}`}>
           {home}{suffix}
         </span>
-        <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{label}</span>
+        <span className="text-xs text-gray-500 dark:text-gray-300 font-medium">{label}</span>
         <span className={`text-sm font-bold ${awayWins ? "text-primary" : "text-gray-700 dark:text-gray-300"}`}>
           {away}{suffix}
         </span>

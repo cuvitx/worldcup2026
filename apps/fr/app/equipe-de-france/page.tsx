@@ -213,7 +213,7 @@ export default function EquipeDeFrancePage() {
       {/* Breadcrumb nav */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/equipes" className="hover:text-primary">Équipes</Link></li>
@@ -253,15 +253,15 @@ export default function EquipeDeFrancePage() {
 
               {/* Quick stats */}
               <div className="grid grid-cols-3 gap-3 mb-6 max-w-sm mx-auto md:mx-0">
-                <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                   <p className="text-2xl font-extrabold text-gold">{winnerOdds}</p>
                   <p className="text-xs text-white/60 mt-0.5">Cote titre</p>
                 </div>
-                <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                   <p className="text-2xl font-extrabold text-primary-light">{winPct}%</p>
                   <p className="text-xs text-white/60 mt-0.5">% de chance</p>
                 </div>
-                <div className="rounded-xl bg-white/10 border border-white/20 p-3 text-center">
+                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                   <p className="text-2xl font-extrabold text-white">#2</p>
                   <p className="text-xs text-white/60 mt-0.5">FIFA Ranking</p>
                 </div>
@@ -285,7 +285,7 @@ export default function EquipeDeFrancePage() {
 
             {/* Right: Blason / Stats bloc */}
             <div className="shrink-0">
-              <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 text-center min-w-[200px]">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center min-w-[200px]">
                 <div className="text-7xl mb-3">🇫🇷</div>
                 <p className="font-extrabold text-xl mb-1">France</p>
                 <p className="text-gold font-semibold text-sm mb-4">⭐⭐ Champion 1998 &amp; 2018</p>
@@ -318,7 +318,7 @@ export default function EquipeDeFrancePage() {
         <section className="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-700">
           <div className="mx-auto max-w-7xl px-4 py-4">
             <div className="flex flex-wrap items-center gap-2 text-sm">
-              <span className="text-gray-500 dark:text-gray-400 font-medium">Probabilités France CDM 2026 :</span>
+              <span className="text-gray-500 dark:text-gray-300 font-medium">Probabilités France CDM 2026 :</span>
               {[
                 { label: "Sortir des groupes", value: prediction.groupStageProb },
                 { label: "Top 16", value: prediction.roundOf16Prob },
@@ -345,7 +345,7 @@ export default function EquipeDeFrancePage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📅 Calendrier des matchs de la France
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Groupe I · CDM 2026 · Heure UTC
           </p>
 
@@ -385,7 +385,7 @@ export default function EquipeDeFrancePage() {
                   <div className="flex items-center gap-4 px-5 py-4">
                     {/* Date/Stade */}
                     <div className="shrink-0 text-center hidden sm:block w-20">
-                      <p className="text-xs text-gray-400 dark:text-gray-500 capitalize">
+                      <p className="text-xs text-gray-400 dark:text-gray-400 capitalize">
                         {dateObj.toLocaleDateString("fr-FR", { weekday: "short" })}
                       </p>
                       <p className="text-lg font-extrabold text-gray-900 dark:text-white">
@@ -401,7 +401,7 @@ export default function EquipeDeFrancePage() {
                         <span className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
                           {homeTeam?.name ?? match.homeTeamId}
                         </span>
-                        <span className="text-gray-400 dark:text-gray-500 font-bold">vs</span>
+                        <span className="text-gray-400 dark:text-gray-400 font-bold">vs</span>
                         <span className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
                           {awayTeam?.name ?? match.awayTeamId}
                         </span>
@@ -414,11 +414,11 @@ export default function EquipeDeFrancePage() {
                           </span>
                         )}
                         {stadium && (
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                          <span className="text-xs text-gray-500 dark:text-gray-300">
                             🏟️ {stadium.name}
                           </span>
                         )}
-                        <span className="text-xs text-gray-400 dark:text-gray-500 sm:hidden">
+                        <span className="text-xs text-gray-400 dark:text-gray-400 sm:hidden">
                           {dateStr} · {timeStr}
                         </span>
                       </div>
@@ -429,7 +429,7 @@ export default function EquipeDeFrancePage() {
                       {franceWinOdds && franceWinOdds !== "—" && (
                         <div>
                           <p className="text-lg font-extrabold text-gold">{franceWinOdds}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">victoire 🇫🇷</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-300">victoire 🇫🇷</p>
                         </div>
                       )}
                       <Link
@@ -459,7 +459,7 @@ export default function EquipeDeFrancePage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             👥 Effectif probable — {francePlayers.length} joueurs
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Sélection probable pour la CDM 2026 selon notre analyse. Mis à jour en février 2026.
           </p>
 
@@ -470,7 +470,7 @@ export default function EquipeDeFrancePage() {
 
               return (
                 <div key={pos}>
-                  <h3 className="text-sm font-extrabold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-2">
                     <span className="w-1 h-4 bg-primary rounded-full inline-block" />
                     {positionLabels[pos]} ({posPlayers.length})
                   </h3>
@@ -491,7 +491,7 @@ export default function EquipeDeFrancePage() {
                           <p className="font-bold text-gray-900 dark:text-white text-sm group-hover:text-primary transition-colors truncate">
                             {player.name}
                           </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{player.club}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-300">{player.club}</p>
                         </div>
 
                         {/* Stats */}
@@ -526,8 +526,8 @@ export default function EquipeDeFrancePage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Cotes par bookmaker */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-4">
                 📊 Cotes vainqueur CDM 2026 — France
               </h3>
               <div className="space-y-2">
@@ -554,7 +554,7 @@ export default function EquipeDeFrancePage() {
                   );
                 })}
               </div>
-              <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
+              <p className="mt-3 text-xs text-gray-400 dark:text-gray-400">
                 * Cotes indicatives. Vérifiez en temps réel sur chaque site. 18+ · Jeu responsable.
               </p>
             </div>
@@ -563,7 +563,7 @@ export default function EquipeDeFrancePage() {
             <div className="space-y-4">
               {/* Forces */}
               <div className="rounded-xl border border-green-200 dark:border-green-800/50 bg-green-50 dark:bg-green-900/15 p-5">
-                <h3 className="font-bold text-green-800 dark:text-green-400 mb-3">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-green-800 dark:text-green-400 mb-3">
                   ✅ Forces des Bleus
                 </h3>
                 <ul className="space-y-1.5">
@@ -585,7 +585,7 @@ export default function EquipeDeFrancePage() {
 
               {/* Faiblesses */}
               <div className="rounded-xl border border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/15 p-5">
-                <h3 className="font-bold text-red-700 dark:text-red-400 mb-3">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-red-700 dark:text-red-400 mb-3">
                   ⚠️ Points de vigilance
                 </h3>
                 <ul className="space-y-1.5">
@@ -614,14 +614,14 @@ export default function EquipeDeFrancePage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📜 Historique en Coupe du Monde (1930–2022)
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             16 participations, 2 titres, 2 finales perdues, 2 troisièmes places.
           </p>
 
           <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm">
             <table className="w-full text-sm min-w-[480px]">
               <thead>
-                <tr className="bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-300">
+                <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500text-gray-700 dark:text-gray-300">
                   <th className="text-left px-4 py-3 font-bold">Année</th>
                   <th className="text-left px-4 py-3 font-bold">Résultat</th>
                   <th className="text-left px-4 py-3 font-bold hidden sm:table-cell">Note</th>
@@ -651,7 +651,7 @@ export default function EquipeDeFrancePage() {
                           : edition.result.includes("Finaliste")
                           ? "text-gray-600 dark:text-gray-200"
                           : edition.result === "Non participante" || edition.result === "Non qualifiée"
-                          ? "text-gray-400 dark:text-gray-500"
+                          ? "text-gray-400 dark:text-gray-400"
                           : "text-gray-700 dark:text-gray-300"
                       }`}>
                         {edition.flag !== "—" && edition.flag !== "⭐⭐" && (
@@ -661,7 +661,7 @@ export default function EquipeDeFrancePage() {
                         {edition.result}
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 text-xs text-gray-500 dark:text-gray-400 hidden sm:table-cell max-w-xs">
+                    <td className="px-4 py-2.5 text-xs text-gray-500 dark:text-gray-300 hidden sm:table-cell max-w-xs">
                       {edition.note}
                     </td>
                   </tr>
@@ -691,7 +691,7 @@ export default function EquipeDeFrancePage() {
                     {anecdote.year}
                   </span>
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-sm">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-2 text-sm">
                   {anecdote.title}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -723,13 +723,13 @@ export default function EquipeDeFrancePage() {
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-lg">{homeTeam?.flag ?? "🏳️"}</span>
-                    <span className="text-xs font-bold text-gray-400 dark:text-gray-500">VS</span>
+                    <span className="text-xs font-bold text-gray-400 dark:text-gray-400">VS</span>
                     <span className="text-lg">{awayTeam?.flag ?? "🏳️"}</span>
                   </div>
                   <p className="text-sm font-bold text-gray-900 dark:text-white text-center group-hover:text-primary transition-colors">
                     {homeTeam?.name ?? match.homeTeamId} vs {awayTeam?.name ?? match.awayTeamId}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-300 text-center mt-1">
                     📅 {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
                   </p>
                   <p className="text-xs text-primary text-center mt-2 font-medium group-hover:underline">
@@ -757,7 +757,7 @@ export default function EquipeDeFrancePage() {
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
-                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform">
+                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-400 group-open:rotate-180 transition-transform">
                       ▼
                     </span>
                   </summary>
@@ -779,7 +779,7 @@ export default function EquipeDeFrancePage() {
         style={{ background: "linear-gradient(135deg, #002395 0%, #1a237e 50%, #c62828 100%)" }}
       >
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-white mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             🇫🇷 Allez les Bleus !
           </h2>
           <p className="text-white/70 text-sm mb-6 max-w-lg mx-auto">

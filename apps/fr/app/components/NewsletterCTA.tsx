@@ -93,14 +93,14 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
   /* ────── CARD VARIANT ────── */
   if (variant === 'card') {
     return (
-      <div className={`rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm p-5 ${className}`}>
+      <div className={`rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm p-5 ${className}`}>
         <div className="flex items-start gap-3 mb-3">
           <span className="text-2xl shrink-0">📧</span>
           <div>
             <p className="font-bold text-gray-900 dark:text-white text-sm leading-snug">
               Recevez nos pronostics par email
             </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+            <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">
               Programme hebdo · Alertes matchs · Cotes exclusives
             </p>
           </div>
@@ -114,7 +114,7 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
             aria-label="Votre adresse email"
             required
             disabled={status === 'loading'}
-            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-primary/20 dark:focus:border-primary/20 focus:ring-1 focus:ring-primary/30 transition-all disabled:opacity-60"
+            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-slate-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-primary/20 dark:focus:border-primary/20 focus:ring-1 focus:ring-primary/30 transition-all disabled:opacity-60"
           />
           <button
             type="submit"
@@ -132,7 +132,7 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
         {status === 'duplicate' && (
           <p className="mt-1.5 text-xs text-amber-600 dark:text-amber-400">Déjà inscrit(e) !</p>
         )}
-        <p className="mt-2 text-[10px] text-gray-400 dark:text-gray-500">
+        <p className="mt-2 text-[10px] text-gray-400 dark:text-gray-400">
           Gratuit · Sans spam ·{' '}
           <Link href="/newsletter" className="underline hover:text-primary transition-colors">
             Voir un exemple
@@ -158,7 +158,7 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
                 Newsletter CDM 2026
               </span>
             </div>
-            <h2 className="text-xl font-extrabold text-white mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               Recevez nos pronostics par email
             </h2>
             <p className="text-sm text-gray-400 leading-relaxed">

@@ -32,7 +32,7 @@ export function MatchAnalysis({
 }: MatchAnalysisProps) {
   return (
     <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="mb-4 text-xl font-bold">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
         Analyse du match : {homeName} vs {awayName}
       </h2>
       <div className="prose prose-sm max-w-none text-gray-700 space-y-4">

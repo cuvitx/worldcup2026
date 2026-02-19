@@ -149,14 +149,14 @@ export default async function PlayerPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Profil</h2>
-              <p className="text-gray-700 leading-relaxed">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Profil</h2>
+              <p className="text-gray-700 leading-relaxed break-words">
                 {player.description}
               </p>
             </section>
 
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Statistiques internationales
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -189,7 +189,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
             {teammates.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Coequipiers en sélection
                 </h2>
                 <div className="space-y-3">
@@ -229,8 +229,8 @@ export default async function PlayerPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Fiche technique</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiche technique</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Nom complet</dt>
@@ -268,8 +268,8 @@ export default async function PlayerPage({ params }: PageProps) {
             </div>
 
             {team && (
-              <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Équipe</h3>
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Équipe</h3>
                 <Link
                   href={`/equipe/${team.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"

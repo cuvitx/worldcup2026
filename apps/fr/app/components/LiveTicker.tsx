@@ -87,7 +87,7 @@ export function LiveTicker() {
   };
 
   const countdownText = countdown
-    ? `dans ${countdown.days > 0 ? `${countdown.days}j ` : ""}${countdown.hours}h ${String(countdown.minutes).padStart(2, "0")}min ${String(countdown.seconds).padStart(2, "0")}s`
+    ? `dans ${countdown.days > 0 ? `${countdown.days}j ` : ""}${countdown.hours}h${String(countdown.minutes).padStart(2, "0")}`
     : "";
 
   return (
@@ -108,7 +108,7 @@ export function LiveTicker() {
               </span>
             </span>
           )}
-          <span className="truncate">
+          <span className="whitespace-nowrap">
             <span role="img" aria-label={homeTeam.name}>{homeTeam.flag}</span>{" "}
             <span className="font-semibold">{homeTeam.name}</span>
             {" "}vs{" "}
@@ -116,13 +116,13 @@ export function LiveTicker() {
             <span className="font-semibold">{awayTeam.name}</span>
           </span>
           {countdown && (
-            <span className="text-gray-500 dark:text-gray-400 shrink-0 hidden sm:inline">
+            <span className="text-gray-500 dark:text-gray-300 shrink-0 hidden sm:inline">
               — {countdownText}
             </span>
           )}
         </Link>
         {countdown && (
-          <span className="text-gray-500 dark:text-gray-400 text-xs sm:hidden shrink-0">
+          <span className="text-gray-500 dark:text-gray-300 text-xs sm:hidden shrink-0">
             {countdownText}
           </span>
         )}

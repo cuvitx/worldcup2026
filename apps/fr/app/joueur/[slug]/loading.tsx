@@ -3,7 +3,7 @@ export default function PlayerLoading() {
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 animate-pulse">
       {/* Breadcrumb */}
       <div className="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 px-4 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex gap-2 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8flex gap-2 items-center">
           <div className="h-3.5 w-12 bg-gray-200 dark:bg-slate-700 rounded-full" />
           <span className="text-gray-300 dark:text-slate-600">/</span>
           <div className="h-3.5 w-16 bg-gray-200 dark:bg-slate-700 rounded-full" />
@@ -46,7 +46,7 @@ export default function PlayerLoading() {
           {/* Colonne principale */}
           <div className="lg:col-span-2 space-y-6">
             {/* Biographie */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-24 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-2.5">
                 <div className="h-4 w-full bg-gray-100 dark:bg-slate-700 rounded" />
@@ -59,7 +59,7 @@ export default function PlayerLoading() {
             </div>
 
             {/* Statistiques détaillées */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-36 bg-gray-200 dark:bg-slate-700 rounded mb-5" />
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[1, 2, 3, 4].map((i) => (
@@ -72,7 +72,7 @@ export default function PlayerLoading() {
             </div>
 
             {/* Barres de compétences */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-28 bg-gray-200 dark:bg-slate-700 rounded mb-5" />
               <div className="space-y-4">
                 {[90, 75, 85, 70, 80].map((w, i) => (
@@ -94,7 +94,7 @@ export default function PlayerLoading() {
           {/* Sidebar */}
           <div className="space-y-5">
             {/* Infos personnelles */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-28 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-3">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -107,7 +107,7 @@ export default function PlayerLoading() {
             </div>
 
             {/* Matchs à la CDM */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-32 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-3">
                 {[1, 2, 3].map((i) => (
@@ -117,7 +117,7 @@ export default function PlayerLoading() {
             </div>
 
             {/* Joueurs similaires */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="h-5 w-40 bg-gray-200 dark:bg-slate-700 rounded mb-4" />
               <div className="space-y-3">
                 {[1, 2, 3].map((i) => (

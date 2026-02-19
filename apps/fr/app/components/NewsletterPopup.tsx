@@ -99,7 +99,7 @@ export function NewsletterPopup() {
       aria-modal="true"
       aria-label="Newsletter"
     >
-      <div className="relative w-full max-w-md rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6 shadow-2xl">
+      <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow relative w-full max-w-md">
         {/* Close */}
         <button
           onClick={dismiss}
@@ -115,7 +115,7 @@ export function NewsletterPopup() {
           <div className="text-center py-4">
             <span className="text-5xl block mb-3">✅</span>
             <p className="text-lg font-bold text-gray-900 dark:text-white">Inscription confirmée !</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
               À très bientôt dans votre boîte mail.
             </p>
           </div>
@@ -123,10 +123,10 @@ export function NewsletterPopup() {
           <>
             <div className="text-center mb-5">
               <span className="text-4xl block mb-2">⚽📬</span>
-              <h3 className="text-lg font-black text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-black dark:">
                 Ne manquez rien de la CDM 2026
               </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Pronostics, analyses et actus chaque semaine. Gratuit, sans spam.
               </p>
             </div>
@@ -157,7 +157,7 @@ export function NewsletterPopup() {
               </p>
             )}
 
-            <p className="mt-3 text-center text-[10px] text-gray-400 dark:text-gray-500">
+            <p className="mt-3 text-center text-[10px] text-gray-400 dark:text-gray-400">
               Désinscription en 1 clic · Pas de spam, promis 🤞
             </p>
           </>

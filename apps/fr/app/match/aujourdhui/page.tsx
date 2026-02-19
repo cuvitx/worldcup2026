@@ -96,7 +96,7 @@ export default function AujourdhuiPage() {
             })}
           </div>
         ) : (
-          <div className="rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 text-center">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
             <p className="text-lg text-gray-600">
               Aucun match aujourd&apos;hui.
             </p>

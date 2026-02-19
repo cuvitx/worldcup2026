@@ -75,11 +75,11 @@ export default function ButeursPage() {
           <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">👑</span>
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:">
                 Top 20 meilleurs buteurs de l&apos;histoire de la CDM
               </h2>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-300">
               Classement historique toutes éditions confondues (1930–2022) — Record : Klose avec 16 buts
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function ButeursPage() {
                         <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">
                           {scorer.name}
                         </span>
-                        <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">
+                        <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-300">
                           {scorer.editions}
                         </span>
                       </div>
@@ -148,7 +148,7 @@ export default function ButeursPage() {
           </div>
 
           <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
-            <p className="text-[11px] text-gray-400 dark:text-gray-500">
+            <p className="text-[11px] text-gray-400 dark:text-gray-400">
               Sources : FIFA · Statistiques arrêtées à la CDM 2022 · Mbappé (12 buts) actif, peut dépasser Klose en 2026
             </p>
           </div>
@@ -159,11 +159,11 @@ export default function ButeursPage() {
           <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">🌟</span>
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:">
                 Top 5 candidats au Soulier d&apos;Or
               </h2>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-300">
               Cotes réelles multi-bookmakers · Buts attendus (modèle ELO) · Fév. 2026
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function ButeursPage() {
                     {/* Player info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">
                           {candidate.name}
                         </h3>
                         {team && (
@@ -240,7 +240,7 @@ export default function ButeursPage() {
 
                     {/* Bookmaker odds column */}
                     <div className="shrink-0 flex flex-col gap-2 min-w-[130px]">
-                      <p className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wide font-semibold mb-1">
+                      <p className="text-[10px] text-gray-400 dark:text-gray-400 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
                       <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-gold/10 border-gold/30" : "bg-primary/5 dark:bg-primary/10 border-primary/20 dark:border-primary/20"}`}>
@@ -273,7 +273,7 @@ export default function ButeursPage() {
           </div>
 
           <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
-            <p className="text-[11px] text-gray-400 dark:text-gray-500">
+            <p className="text-[11px] text-gray-400 dark:text-gray-400">
               🟡 = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
               Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
             </p>
@@ -282,8 +282,8 @@ export default function ButeursPage() {
 
         {/* Top Scorer Ranking */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="mb-2 text-xl font-bold dark:text-white">Favoris pour le Soulier d&apos;Or</h2>
-          <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">Favoris pour le Soulier d&apos;Or</h2>
+          <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
           </p>
           <div className="overflow-x-auto">
@@ -333,8 +333,8 @@ export default function ButeursPage() {
 
         {/* All scorers by expected goals */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="mb-2 text-xl font-bold dark:text-white">Tous les buteurs potentiels</h2>
-          <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 dark:">Tous les buteurs potentiels</h2>
+          <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
           </p>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -366,7 +366,7 @@ export default function ButeursPage() {
 
         {/* By Team */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="mb-6 text-xl font-bold dark:text-white">Buteurs par équipe</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .sort((a, b) => a.fifaRanking - b.fifaRanking)
@@ -377,7 +377,7 @@ export default function ButeursPage() {
                   <div key={team.id} className="rounded-xl border border-gray-200 dark:border-slate-700 p-4">
                     <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-primary">
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
-                      <h3 className="font-bold">{team.name}</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{team.name}</h3>
                     </Link>
                     <ul className="space-y-1">
                       {teamScorers.slice(0, 3).map((so) => {
@@ -404,7 +404,7 @@ export default function ButeursPage() {
 
         {/* CTA */}
         <section className="rounded-lg bg-primary/5 border border-primary/20 p-6 text-center">
-          <h2 className="mb-2 text-xl font-bold text-primary">Parier sur les buteurs CDM 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Parier sur les buteurs CDM 2026</h2>
           <p className="mb-4 text-sm text-gray-600">
             Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>

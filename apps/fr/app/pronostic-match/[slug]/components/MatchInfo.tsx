@@ -18,7 +18,7 @@ export function MatchInfo({
 }: MatchInfoProps) {
   return (
     <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="mb-4 text-xl font-bold">Informations du match</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Informations du match</h2>
       <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
           <dt className="text-gray-500 mb-1">Date</dt>

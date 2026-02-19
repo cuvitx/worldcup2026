@@ -203,7 +203,7 @@ function GoalsChart() {
                     {ed.goals} buts · {ed.avg}/match
                   </div>
                 </div>
-                <span className="text-[9px] text-gray-500 dark:text-gray-400 rotate-45 origin-left translate-y-3 whitespace-nowrap">
+                <span className="text-[9px] text-gray-500 dark:text-gray-300 rotate-45 origin-left translate-y-3 whitespace-nowrap">
                   {ed.year}
                 </span>
               </div>
@@ -211,7 +211,7 @@ function GoalsChart() {
           })}
         </div>
         {/* Légende */}
-        <div className="mt-6 flex items-center gap-4 justify-center text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-6 flex items-center gap-4 justify-center text-xs text-gray-500 dark:text-gray-300">
           <span className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-primary inline-block" />
             Record (172 buts en 2022)
@@ -245,7 +245,7 @@ export default function StatistiquesPage() {
       {/* Fil d'Ariane */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary dark:hover:text-white transition-colors">
                 Accueil
@@ -289,13 +289,13 @@ export default function StatistiquesPage() {
 
         {/* ── Top buteurs all-time ─────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             ⚽ Top buteurs all-time
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Meilleurs réalisateurs de l'histoire de la Coupe du Monde FIFA.
           </p>
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <div className="space-y-4">
               {topScorers.map((scorer, i) => (
                 <div key={scorer.name} className="flex items-center gap-3">
@@ -342,13 +342,13 @@ export default function StatistiquesPage() {
 
         {/* ── Pays les plus titrés ─────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             🏆 Pays les plus titrés
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Seules 8 nations ont remporté la Coupe du Monde depuis 1930.
           </p>
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <div className="space-y-5">
               {titledCountries.map((c, i) => (
                 <div key={c.country} className="flex items-center gap-3">
@@ -377,13 +377,13 @@ export default function StatistiquesPage() {
 
         {/* ── Buts par édition ─────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             📈 Buts marqués par édition (1930–2022)
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Survolez les barres pour voir le détail. Édition 1954 : 5,38 buts/match — record absolu.
           </p>
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <GoalsChart />
             {/* Tableau compact */}
             <div className="mt-6 overflow-x-auto">
@@ -408,8 +408,8 @@ export default function StatistiquesPage() {
                       }`}
                     >
                       <td className="py-1.5 px-2 font-bold text-primary text-left">{ed.year}</td>
-                      <td className="py-1.5 px-2 text-gray-600 dark:text-gray-400">{ed.teams}</td>
-                      <td className="py-1.5 px-2 text-gray-600 dark:text-gray-400">{ed.matches}</td>
+                      <td className="py-1.5 px-2 text-gray-600 dark:text-gray-300">{ed.teams}</td>
+                      <td className="py-1.5 px-2 text-gray-600 dark:text-gray-300">{ed.matches}</td>
                       <td className="py-1.5 px-2 font-bold text-gray-900 dark:text-gray-100">
                         {ed.goals}
                         {ed.goals === maxGoals && (
@@ -427,10 +427,10 @@ export default function StatistiquesPage() {
 
         {/* ── Records ──────────────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             🏅 Records historiques
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Les moments qui ont marqué l'histoire du football mondial.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -455,7 +455,7 @@ export default function StatistiquesPage() {
                     <div className="font-bold text-gray-900 dark:text-white text-sm mb-1 group-hover:text-primary transition-colors">
                       {rec.title}
                     </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">{rec.detail}</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-300">{rec.detail}</div>
                   </div>
                 </div>
               </div>
@@ -465,10 +465,10 @@ export default function StatistiquesPage() {
 
         {/* ── Fun facts ────────────────────────────────────────── */}
         <section>
-          <h2 className="text-2xl font-extrabold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
             💡 Saviez-vous que…
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Les anecdotes et curiosités méconnues de la Coupe du Monde.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -488,7 +488,7 @@ export default function StatistiquesPage() {
 
         {/* ── CTA / liens ──────────────────────────────────────── */}
         <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
-          <h2 className="text-2xl font-extrabold mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             🌟 Explorez toute l'histoire
           </h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">

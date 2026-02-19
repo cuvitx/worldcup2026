@@ -96,7 +96,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           aria-label="Votre adresse email"
           required
           disabled={status === 'loading'}
-          className={`flex-1 rounded-lg border bg-white dark:bg-gray-800 px-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
+          className={`flex-1 rounded-lg border bg-white dark:bg-slate-800 px-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
             status === 'error' || status === 'duplicate'
               ? 'border-red-300 dark:border-red-700'
               : 'border-gray-300 dark:border-gray-600'
@@ -124,7 +124,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
       {!compact && (status === 'idle' || status === 'loading') && (
-        <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
+        <p className="mt-2 text-xs text-gray-400 dark:text-gray-400">
           Gratuit · Sans spam · Désinscription en 1 clic
         </p>
       )}

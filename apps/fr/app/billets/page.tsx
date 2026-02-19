@@ -253,7 +253,7 @@ export default function BilletsPage() {
       {/* Breadcrumb nav */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Billets CDM 2026</li>
@@ -280,11 +280,11 @@ export default function BilletsPage() {
                 href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-lg"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg w-full sm:w-auto"
               >
                 🎟️ Acheter sur FIFA.com (officiel)
               </a>
-              <a href="#prix" className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-all">
+              <a href="#prix" className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-all w-full sm:w-auto">
                 📊 Consulter les tarifs
               </a>
             </div>
@@ -319,7 +319,7 @@ export default function BilletsPage() {
               <div key={stat.label} className="text-center py-2">
                 <p className="text-2xl mb-1">{stat.icon}</p>
                 <p className="text-2xl font-extrabold text-primary dark:text-white">{stat.value}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{stat.label}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -332,7 +332,7 @@ export default function BilletsPage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             💰 Prix des billets par phase
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Tarifs officiels FIFA en USD (convertibles en EUR selon taux de change). Phase de groupes à la finale.
           </p>
 
@@ -355,7 +355,7 @@ export default function BilletsPage() {
                 }`}>
                   <span className="text-2xl">{phase.icon}</span>
                   <div>
-                    <h3 className="font-bold text-lg">{phase.phase}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{phase.phase}</h3>
                     <p className="text-sm opacity-80">📅 {phase.dates}</p>
                   </div>
                 </div>
@@ -369,17 +369,17 @@ export default function BilletsPage() {
                       >
                         <p className="text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">{cat.cat}</p>
                         <p className="text-sm font-extrabold text-gray-900 dark:text-white">{cat.price}</p>
-                        <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{cat.desc}</p>
+                        <p className="text-[10px] text-gray-500 dark:text-gray-300 mt-0.5">{cat.desc}</p>
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 italic">ℹ️ {phase.note}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-300 italic">ℹ️ {phase.note}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="mt-4 text-xs text-gray-400 dark:text-gray-500">
+          <p className="mt-4 text-xs text-gray-400 dark:text-gray-400">
             * Prix indicatifs basés sur les annonces FIFA 2025. Les prix finaux seront confirmés sur fifa.com/tickets.
             Taux de change USD/EUR fluctue — prévoir ~0.92 EUR par USD.
           </p>
@@ -447,7 +447,7 @@ export default function BilletsPage() {
                     {step.step}
                   </div>
                   <span className="text-xl">{step.icon}</span>
-                  <h3 className="font-bold text-gray-900 dark:text-white text-sm">{step.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: text-sm">{step.title}</h3>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">{step.desc}</p>
                 <div className="rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/20 p-2.5">
@@ -466,7 +466,7 @@ export default function BilletsPage() {
             >
               🎟️ Aller sur fifa.com/tickets →
             </a>
-            <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">Lien officiel FIFA — Seul canal d&apos;achat garanti</p>
+            <p className="mt-2 text-xs text-gray-400 dark:text-gray-400">Lien officiel FIFA — Seul canal d&apos;achat garanti</p>
           </div>
         </div>
       </section>
@@ -489,12 +489,12 @@ export default function BilletsPage() {
                     ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
                     : phase.statusColor === "blue"
                     ? "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
-                    : "bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 line-through"
+                    : "bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-300 line-through"
                 }`}>
                   {phase.status}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white">{phase.phase}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{phase.phase}</h3>
                   <p className="text-sm text-primary font-medium mb-1">📅 {phase.period}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">{phase.desc}</p>
                 </div>
@@ -519,7 +519,7 @@ export default function BilletsPage() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xl">{cat.emoji}</span>
-                  <h3 className="font-bold text-gray-900 dark:text-white">{cat.cat}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{cat.cat}</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2">
@@ -530,7 +530,7 @@ export default function BilletsPage() {
                     <span className="text-gray-400 shrink-0">📍</span>
                     <span className="text-gray-700 dark:text-gray-300"><strong>Accès :</strong> {cat.access}</span>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">{cat.desc}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">{cat.desc}</p>
                 </div>
               </div>
             ))}
@@ -541,7 +541,7 @@ export default function BilletsPage() {
       {/* ===== CONSEILS ANTI-ARNAQUES ===== */}
       <section className="bg-red-50 dark:bg-red-900/10 py-12 border-t border-red-100 dark:border-red-900/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-red-800 dark:text-red-400 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-red-800 dark:text-red-400 mb-2">
             🚨 Conseils pratiques — Éviter les arnaques
           </h2>
           <p className="text-sm text-red-700 dark:text-red-300/80 mb-6">
@@ -591,9 +591,7 @@ export default function BilletsPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">{tip.icon}</span>
-                  <h3 className={`font-bold text-sm ${
-                    tip.icon === "✅" ? "text-green-800 dark:text-green-400" : "text-red-800 dark:text-red-400"
-                  }`}>
+                  <h3 className={`text-lg font-semibold text-gray-900 dark:text-white text-sm ${ tip.icon === "✅" ? "text-green-800 dark:text-green-400" : "text-red-800 dark:text-red-400" }`}>
                     {tip.title}
                   </h3>
                 </div>
@@ -602,8 +600,8 @@ export default function BilletsPage() {
             ))}
           </div>
 
-          <div className="rounded-xl border border-red-300 dark:border-red-700/50 bg-white dark:bg-slate-800 p-5">
-            <h3 className="font-bold text-red-800 dark:text-red-400 mb-2">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-red-800 dark:text-red-400 mb-2">
               🛡️ Que faire si vous avez été arnaqué ?
             </h3>
             <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -632,7 +630,7 @@ export default function BilletsPage() {
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
-                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform">
+                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-400 group-open:rotate-180 transition-transform">
                       ▼
                     </span>
                   </summary>
@@ -650,7 +648,7 @@ export default function BilletsPage() {
       <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
-            <h2 className="text-2xl font-extrabold mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               🎟️ Prêt à vivre la CDM 2026 en direct ?
             </h2>
             <p className="text-gray-300 mb-6 max-w-lg mx-auto text-sm">

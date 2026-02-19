@@ -110,7 +110,7 @@ export function LeaderboardClient() {
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400">
+      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300">
         <Link href="/" className="hover:text-secondary">Accueil</Link>
         <span className="mx-2">›</span>
         <Link href="/pronostics" className="hover:text-secondary">Pronostics</Link>
@@ -119,7 +119,7 @@ export function LeaderboardClient() {
       </nav>
 
       <h1 className="mb-2 text-3xl font-bold dark:text-white">🏆 Classement Pronostics</h1>
-      <p className="mb-6 text-gray-500 dark:text-gray-400">
+      <p className="mb-6 text-gray-500 dark:text-gray-300">
         3 pts pour un résultat exact · 1 pt pour le bon vainqueur
       </p>
 
@@ -168,7 +168,7 @@ export function LeaderboardClient() {
               <p className={`text-xs sm:text-sm font-bold truncate max-w-full dark:text-white ${p.isCurrentUser ? "text-secondary dark:text-secondary" : ""}`}>
                 {p.pseudo}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">{p.points} pts</p>
+              <p className="text-xs text-gray-500 dark:text-gray-300">{p.points} pts</p>
               <div className={`mt-2 w-full rounded-t-xl bg-gradient-to-b ${bgs[rank - 1]} ${heights[rank - 1]}`} />
             </div>
           );
@@ -179,7 +179,7 @@ export function LeaderboardClient() {
       <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-50 text-left text-xs font-semibold uppercase text-gray-500 dark:bg-slate-800 dark:text-gray-400">
+            <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500text-left text-xs font-semibold uppercase text-gray-500 dark:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500dark:text-gray-300">
               <th className="px-4 py-3 w-12">#</th>
               <th className="px-4 py-3">Pseudo</th>
               <th className="px-4 py-3 text-right">Points</th>
@@ -203,7 +203,7 @@ export function LeaderboardClient() {
                       : "hover:bg-gray-50 dark:hover:bg-slate-800/50"
                   }`}
                 >
-                  <td className="px-4 py-3 font-bold text-gray-400 dark:text-gray-500">
+                  <td className="px-4 py-3 font-bold text-gray-400 dark:text-gray-400">
                     {rank <= 3 ? ["🥇", "🥈", "🥉"][rank - 1] : rank}
                   </td>
                   <td className={`px-4 py-3 ${p.isCurrentUser ? "text-secondary dark:text-secondary" : "dark:text-white"}`}>
@@ -211,13 +211,13 @@ export function LeaderboardClient() {
                     {p.isCurrentUser && <span className="ml-2 text-xs opacity-70">(toi)</span>}
                   </td>
                   <td className="px-4 py-3 text-right font-bold dark:text-white">{p.points}</td>
-                  <td className="hidden px-4 py-3 text-right text-gray-500 dark:text-gray-400 sm:table-cell">{p.totalPronos}</td>
-                  <td className="hidden px-4 py-3 text-right text-gray-500 dark:text-gray-400 sm:table-cell">{p.exactResults}</td>
+                  <td className="hidden px-4 py-3 text-right text-gray-500 dark:text-gray-300 sm:table-cell">{p.totalPronos}</td>
+                  <td className="hidden px-4 py-3 text-right text-gray-500 dark:text-gray-300 sm:table-cell">{p.exactResults}</td>
                   <td className="hidden px-4 py-3 text-right md:table-cell">
                     <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
                       successRate >= 50
                         ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
-                        : "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-400"
+                        : "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300"
                     }`}>
                       {successRate}%
                     </span>
@@ -247,8 +247,8 @@ export function LeaderboardClient() {
 
       {/* Scoring explanation */}
       <div className="mt-8 rounded-xl bg-gray-50 p-6 dark:bg-slate-800/50">
-        <h2 className="mb-3 text-lg font-bold dark:text-white">Comment ça marche ?</h2>
-        <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 text-lg dark:">Comment ça marche ?</h2>
+        <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
           <li className="flex items-start gap-2">
             <span className="mt-0.5 text-green-500">●</span>
             <span><strong>3 points</strong> — Résultat exact (bon score)</span>

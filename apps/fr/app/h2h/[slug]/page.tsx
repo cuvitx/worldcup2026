@@ -120,7 +120,7 @@ export default async function H2HPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Comparison — visual face-to-face */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-6 text-xl font-bold dark:text-white">Comparaison</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 dark:">Comparaison</h2>
               <div className="space-y-4">
                 {[
                   { label: "Classement FIFA", v1: `#${team1.fifaRanking}`, v2: `#${team2.fifaRanking}`, n1: team1.fifaRanking, n2: team2.fifaRanking, invert: true },
@@ -131,7 +131,7 @@ export default async function H2HPage({ params }: PageProps) {
                   const pct2 = row.invert ? ((max - row.n2 + 1) / (max + 1)) * 100 : (row.n2 / max) * 100;
                   return (
                     <div key={row.label}>
-                      <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 text-center mb-2">{row.label}</p>
+                      <p className="text-xs font-semibold text-gray-500 dark:text-gray-300 text-center mb-2">{row.label}</p>
                       <div className="flex items-center gap-3">
                         <span className="w-16 text-right text-sm font-bold text-primary dark:text-secondary">{row.v1}</span>
                         <div className="flex-1 flex gap-1">
@@ -156,7 +156,7 @@ export default async function H2HPage({ params }: PageProps) {
                   ].map((row) => (
                     <React.Fragment key={row.label}>
                       <div className="text-right font-medium dark:text-white">{row.v1}</div>
-                      <div className="text-center text-gray-500 dark:text-gray-400 text-xs leading-5">{row.label}</div>
+                      <div className="text-center text-gray-500 dark:text-gray-300 text-xs leading-5">{row.label}</div>
                       <div className="text-left font-medium dark:text-white">{row.v2}</div>
                     </React.Fragment>
                   ))}
@@ -166,7 +166,7 @@ export default async function H2HPage({ params }: PageProps) {
 
             {/* Historical H2H */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold dark:text-white">Historique des confrontations</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Historique des confrontations</h2>
               {h2h && h2h.totalMatches > 0 ? (
                 <>
                   <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
@@ -209,7 +209,7 @@ export default async function H2HPage({ params }: PageProps) {
 
             {/* Prediction */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold dark:text-white">Pronostic</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 dark:">Pronostic</h2>
               {matchPred ? (
                 <>
                   <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
@@ -259,8 +259,8 @@ export default async function H2HPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Team Links */}
-            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold dark:text-white">Fiches équipes</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 dark:">Fiches équipes</h3>
               <div className="space-y-3">
                 <Link
                   href={`/equipe/${team1.slug}`}
@@ -281,7 +281,7 @@ export default async function H2HPage({ params }: PageProps) {
 
             {/* Betting CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-primary">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Cotes {team1.name} vs {team2.name}
               </h3>
               <p className="text-sm text-gray-600">

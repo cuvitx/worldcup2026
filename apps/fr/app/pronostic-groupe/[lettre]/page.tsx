@@ -64,7 +64,7 @@ function getSortedGroupTeams(group: { teams: string[] }) {
 const RANK_LABEL = ["🥇 1er", "🥈 2e", "🥉 3e", "4e"];
 const RANK_COLOR = [
   "border-gold bg-gold/5 dark:bg-gold/10",
-  "border-gray-400 bg-gray-50 dark:bg-gray-800/40",
+  "border-gray-400 bg-gray-50 dark:bg-slate-800/40",
   "border-primary/20 bg-primary/5 dark:bg-primary/10",
   "border-red-300 bg-red-50 dark:bg-red-900/10",
 ];
@@ -122,7 +122,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
       {/* Breadcrumb nav */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-300">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
@@ -170,13 +170,13 @@ export default async function PronosticGroupPage({ params }: PageProps) {
             {/* Équipes du groupe */}
             <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
               <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
-                <h2 className="text-xl font-bold">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   🌍 Équipes du Groupe {group.letter}
                 </h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
-                  <thead className="bg-gray-50 dark:bg-slate-700/50 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">
+                  <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 dark:text-gray-300 text-xs uppercase tracking-wide">
                     <tr>
                       <th className="px-4 py-3 text-left">Équipe</th>
                       <th className="px-4 py-3 text-center">FIFA</th>
@@ -212,7 +212,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           {team!.fifaRanking > 0 ? `#${team!.fifaRanking}` : "—"}
                         </td>
                         <td className="px-4 py-3 text-center">
-                          <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-2 py-0.5 text-xs">
+                          <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700 dark:text-gray-300">
                             {team!.confederation}
                           </span>
                         </td>
@@ -228,7 +228,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                               className={`font-bold text-sm ${
                                 idx < 2
                                   ? "text-green-600 dark:text-green-400"
-                                  : "text-gray-500 dark:text-gray-400"
+                                  : "text-gray-500 dark:text-gray-300"
                               }`}
                             >
                               {Math.round(pred.groupStageProb * 100)}%
@@ -246,7 +246,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Classement prédit */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-xl font-bold mb-5">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">
                 🏆 Classement prédit
               </h2>
               <div className="space-y-3">
@@ -326,17 +326,17 @@ export default async function PronosticGroupPage({ params }: PageProps) {
             {enrichedSorted.length > 0 && (
               <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
                 <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
-                  <h2 className="text-xl font-bold flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                     🔮 Pronostic détaillé — Points & Buts attendus
                   </h2>
-                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                  <p className="text-xs text-gray-400 dark:text-gray-400 mt-1">
                     Classement prédit après 3 matchs de groupe · Modèle ELO + cotes bookmakers · Fév. 2026
                   </p>
                 </div>
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
-                    <thead className="bg-gray-50 dark:bg-slate-700/50 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">
+                    <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 dark:text-gray-300 text-xs uppercase tracking-wide">
                       <tr>
                         <th className="px-4 py-3 text-left">Rang prédit</th>
                         <th className="px-4 py-3 text-left">Équipe</th>
@@ -445,7 +445,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                 </div>
 
                 <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
-                  <p className="text-[11px] text-gray-400 dark:text-gray-500">
+                  <p className="text-[11px] text-gray-400 dark:text-gray-400">
                     Pts prévus = total après 3 matchs de groupe · +/- buts = différence de buts attendue · Proba qual. = probabilité de se qualifier (1er ou 2e direct + meilleur 3e inclus)
                   </p>
                 </div>
@@ -454,7 +454,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Pronostic qualification */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-xl font-bold mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 🎯 Pronostic qualification
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-5 text-sm leading-relaxed">
@@ -465,7 +465,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
               {/* Qualified */}
               <div className="mb-4">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-green-600 dark:text-green-400 mb-2">
                   ✅ Qualifiés directs pour les huitièmes
                 </h3>
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -483,7 +483,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           {team!.name}
                         </Link>
                         {pred && (
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                          <p className="text-xs text-gray-500 dark:text-gray-300">
                             ELO {pred.eloRating} · {Math.round(pred.groupStageProb * 100)}% qualification
                           </p>
                         )}
@@ -496,7 +496,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               {/* Maybe */}
               {maybeQualify?.team && (
                 <div className="mb-4">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gold dark:text-gold mb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-gold dark:text-gold mb-2">
                     ⚠️ Meilleur 3e possible
                   </h3>
                   <div className="flex items-center gap-3 rounded-lg border border-gold/20 dark:border-gold/30 bg-gold/5 dark:bg-gold/10 p-3">
@@ -509,7 +509,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         {maybeQualify.team.name}
                       </Link>
                       {maybeQualify.pred && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-gray-500 dark:text-gray-300">
                           {Math.round(maybeQualify.pred.groupStageProb * 100)}% de se qualifier comme meilleur 3e · ELO {maybeQualify.pred.eloRating}
                         </p>
                       )}
@@ -521,7 +521,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               {/* Eliminated */}
               {eliminated?.team && (
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500 dark:text-red-400 mb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-red-500 dark:text-red-400 mb-2">
                     ❌ Éliminé en phase de groupes
                   </h3>
                   <div className="flex items-center gap-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/10 p-3">
@@ -529,7 +529,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                     <div>
                       <span className="font-bold">{eliminated.team.name}</span>
                       {eliminated.pred && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-gray-500 dark:text-gray-300">
                           Seulement {Math.round(eliminated.pred.groupStageProb * 100)}% de chances de se qualifier · ELO {eliminated.pred.eloRating}
                         </p>
                       )}
@@ -541,7 +541,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Analyse des forces */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-xl font-bold mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 🔍 Analyse des forces en présence
               </h2>
               <div className="space-y-4">
@@ -592,7 +592,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
             {/* Calendrier */}
             {groupMatches.length > 0 && (
               <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-xl font-bold mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   📅 Calendrier du Groupe {group.letter}
                 </h2>
                 <div className="space-y-2">
@@ -610,7 +610,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         href={`/match/${match.slug}`}
                         className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-all hover:border-primary/30 hover:bg-primary/5 group"
                       >
-                        <div className="text-xs text-gray-500 dark:text-gray-400 w-24 shrink-0">
+                        <div className="text-xs text-gray-500 dark:text-gray-300 w-24 shrink-0">
                           <div>{dateStr}</div>
                           <div className="font-medium text-gray-700 dark:text-gray-300">
                             {match.time} UTC
@@ -641,15 +641,15 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Cotes qualification */}
             <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-xl font-bold mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 💰 Cotes de qualification (estimées)
               </h2>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
+              <p className="text-xs text-gray-400 dark:text-gray-400 mb-4">
                 Cotes calculées à partir des probabilités ELO avec marge bookmaker (8%). À titre indicatif.
               </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
-                  <thead className="bg-gray-50 dark:bg-slate-700/50 text-gray-500 text-xs uppercase tracking-wide">
+                  <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
                     <tr>
                       <th className="px-4 py-2 text-left">Équipe</th>
                       <th className="px-4 py-2 text-center">Qual. groupes</th>
@@ -676,10 +676,10 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         <td className="px-4 py-3 text-center font-mono">
                           {pred ? probToOdds(pred.roundOf16Prob / 1.08) : "—"}
                         </td>
-                        <td className="px-4 py-3 text-center font-mono text-gray-500 dark:text-gray-400">
+                        <td className="px-4 py-3 text-center font-mono text-gray-500 dark:text-gray-300">
                           {pred ? probToOdds(pred.quarterFinalProb / 1.08) : "—"}
                         </td>
-                        <td className="px-4 py-3 text-center font-mono text-gray-400 dark:text-gray-500">
+                        <td className="px-4 py-3 text-center font-mono text-gray-400 dark:text-gray-400">
                           {pred ? probToOdds(pred.winnerProb / 1.08) : "—"}
                         </td>
                       </tr>
@@ -693,8 +693,8 @@ export default async function PronosticGroupPage({ params }: PageProps) {
           {/* ── Sidebar ──────────────────────────────────────── */}
           <div className="space-y-6">
             {/* Liens vers le groupe */}
-            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">🔗 Liens utiles</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">🔗 Liens utiles</h3>
               <div className="space-y-2">
                 <Link
                   href={`/groupe/${lettre}`}
@@ -718,8 +718,8 @@ export default async function PronosticGroupPage({ params }: PageProps) {
             </div>
 
             {/* Navigation groupes */}
-            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Tous les groupes</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Tous les groupes</h3>
               <div className="grid grid-cols-4 gap-2">
                 {groups.map((g) => (
                   <Link
@@ -739,7 +739,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* CTA paris */}
             <div className="rounded-xl bg-gradient-to-br from-primary to-primary/80 p-6 text-white shadow-sm">
-              <h3 className="mb-2 text-lg font-bold">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 🎰 Parier sur le Groupe {group.letter}
               </h3>
               <p className="text-sm text-white/80 mb-4">
@@ -755,7 +755,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
             {/* Pronostic vainqueur */}
             <div className="rounded-xl bg-primary/10 dark:bg-primary/20 border border-primary/20 p-6">
-              <h3 className="mb-2 font-bold text-primary dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 dark:">
                 🏆 Pronostic vainqueur CDM 2026
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">

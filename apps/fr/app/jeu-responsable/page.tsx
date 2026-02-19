@@ -175,7 +175,7 @@ export default function JeuResponsablePage() {
                   key={conseil.title}
                   className="rounded-lg bg-gray-50 dark:bg-slate-700 p-5"
                 >
-                  <h3 className="font-bold text-gray-900 dark:text-white">{conseil.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{conseil.title}</h3>
                   <p className="mt-2 text-sm">{conseil.text}</p>
                 </div>
               ))}
@@ -205,7 +205,7 @@ export default function JeuResponsablePage() {
 
           {/* Test rapide */}
           <section className="rounded-xl bg-gray-50 dark:bg-slate-700 p-6">
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               🧪 Auto-évaluation rapide
             </h2>
             <p className="mb-3">
@@ -243,7 +243,7 @@ export default function JeuResponsablePage() {
                   key={r.name}
                   className="rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{r.name}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">{r.name}</h3>
                   <p className="mt-1 text-sm text-gray-600">
                     {r.description}
                   </p>
@@ -281,28 +281,28 @@ export default function JeuResponsablePage() {
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white">💰 Limites de dépôts</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">💰 Limites de dépôts</h3>
                 <p className="mt-1 text-sm">
                   Fixez un plafond journalier, hebdomadaire ou mensuel de
                   dépôts sur votre compte.
                 </p>
               </div>
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white">⏱️ Limites de temps</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">⏱️ Limites de temps</h3>
                 <p className="mt-1 text-sm">
                   Définissez un temps maximum de connexion pour éviter les
                   sessions prolongées.
                 </p>
               </div>
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white">🚫 Auto-exclusion temporaire</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🚫 Auto-exclusion temporaire</h3>
                 <p className="mt-1 text-sm">
                   Bloquez votre compte pendant une période choisie (24h, 1
                   semaine, 1 mois…).
                 </p>
               </div>
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white">🔒 Interdiction volontaire de jeu</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">🔒 Interdiction volontaire de jeu</h3>
                 <p className="mt-1 text-sm">
                   Inscrivez-vous au fichier national des interdits de jeux pour
                   une durée de 3 ans (renouvelable). Demande sur{" "}
@@ -320,7 +320,7 @@ export default function JeuResponsablePage() {
             </div>
 
             <div className="mt-6 rounded-lg bg-secondary/5 border border-secondary/20 p-4">
-              <h3 className="font-bold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:">
                 Outils chez les principaux bookmakers
               </h3>
               <ul className="mt-2 space-y-1 text-sm">

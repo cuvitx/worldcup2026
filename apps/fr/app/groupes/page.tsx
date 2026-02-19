@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 export default function GroupsPage() {
   return (
     <>
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li><Link href="/" className="hover:text-primary dark:hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Groupes</li>
@@ -53,11 +53,11 @@ export default function GroupsPage() {
               <Link
                 key={group.letter}
                 href={`/groupe/${group.slug}`}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-200"
+                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-200"
               >
                 {/* Header */}
-                <div className="bg-primary dark:bg-gray-900 px-4 py-3 flex items-center justify-between">
-                  <h2 className="text-lg font-extrabold text-white">
+                <div className="bg-primary dark:bg-slate-900 px-4 py-3 flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg">
                     Groupe {group.letter}
                   </h2>
                   <span className="text-xs text-gray-300 group-hover:text-primary transition-colors">
@@ -78,7 +78,7 @@ export default function GroupsPage() {
                             : ""
                         }`}
                       >
-                        <span className="w-5 text-center text-xs font-bold text-gray-400 dark:text-gray-500">
+                        <span className="w-5 text-center text-xs font-bold text-gray-400 dark:text-gray-400">
                           {idx + 1}
                         </span>
                         <span className="text-xl" role="img" aria-label={team?.name ?? id}>
@@ -92,7 +92,7 @@ export default function GroupsPage() {
                           {team?.name ?? id}
                         </span>
                         {team && (
-                          <span className="text-xs text-gray-400 dark:text-gray-500">
+                          <span className="text-xs text-gray-400 dark:text-gray-400">
                             #{team.fifaRanking}
                           </span>
                         )}
@@ -111,7 +111,7 @@ export default function GroupsPage() {
         </div>
 
         {/* Legend */}
-        <div className="mt-8 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-8 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-300">
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-3 h-3 rounded bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-700" />
             Qualifié (top 2)

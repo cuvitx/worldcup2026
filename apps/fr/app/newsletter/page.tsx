@@ -156,13 +156,13 @@ export default function NewsletterPage() {
       </section>
 
       {/* ===== BÉNÉFICES ===== */}
-      <section className="bg-gray-50 dark:bg-gray-900/50 py-16">
+      <section className="bg-gray-50 dark:bg-slate-900/50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-2">
               Pourquoi s&apos;abonner ?
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-300">
               Chaque semaine, l&apos;essentiel de la CDM 2026 dans votre boîte mail
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function NewsletterPage() {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="relative rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+                className="relative rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
               >
                 {b.badge && (
                   <span className="absolute top-3 right-3 rounded-full bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 text-xs font-bold text-primary">
@@ -179,8 +179,8 @@ export default function NewsletterPage() {
                   </span>
                 )}
                 <div className="mb-3 text-3xl">{b.icon}</div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-1.5">{b.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{b.desc}</p>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark: mb-1.5">{b.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -188,13 +188,13 @@ export default function NewsletterPage() {
       </section>
 
       {/* ===== APERÇU D'UN MAIL ===== */}
-      <section className="bg-white dark:bg-gray-900 py-16 border-t border-gray-100 dark:border-gray-800">
+      <section className="bg-white dark:bg-slate-900 py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-2">
               📬 À quoi ressemble notre newsletter ?
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-300">
               Un aperçu d&apos;un email type que vous recevrez chaque semaine
             </p>
           </div>
@@ -202,26 +202,26 @@ export default function NewsletterPage() {
           {/* Email mockup */}
           <div className="mx-auto max-w-2xl rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden">
             {/* Email client bar */}
-            <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-2 bg-gray-100 dark:bg-slate-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-primary" />
                 <div className="w-3 h-3 rounded-full bg-gold" />
                 <div className="w-3 h-3 rounded-full bg-field" />
               </div>
-              <div className="flex-1 ml-4 rounded-md bg-white dark:bg-gray-700 px-3 py-1 text-xs text-gray-500 dark:text-gray-400">
+              <div className="flex-1 ml-4 rounded-md bg-white dark:bg-gray-700 px-3 py-1 text-xs text-gray-500 dark:text-gray-300">
                 newsletter@cdm2026.fr → vous
               </div>
             </div>
 
             {/* Email content */}
-            <div className="bg-white dark:bg-gray-900 p-6">
+            <div className="bg-white dark:bg-slate-900 p-6">
               <div className="border-b border-gray-100 dark:border-gray-800 pb-4 mb-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400">DE :</span>
+                  <span className="text-xs font-bold text-gray-500 dark:text-gray-300">DE :</span>
                   <span className="text-xs text-gray-700 dark:text-gray-300">CDM 2026 &lt;newsletter@cdm2026.fr&gt;</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400">OBJET :</span>
+                  <span className="text-xs font-bold text-gray-500 dark:text-gray-300">OBJET :</span>
                   <span className="text-xs font-semibold text-gray-900 dark:text-white">
                     🏆 CDM 2026 · Semaine 3 : France-Argentine en 8e de finale !
                   </span>
@@ -239,8 +239,8 @@ export default function NewsletterPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">🔥 Match de la semaine</p>
-                  <div className="rounded-lg border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800 p-3">
+                  <p className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wide">🔥 Match de la semaine</p>
+                  <div className="rounded-lg border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-slate-800 p-3">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">🇫🇷</span>
@@ -264,14 +264,14 @@ export default function NewsletterPage() {
                     { label: 'Nul (ap)', value: '25%', color: 'text-gray-500' },
                     { label: 'Victoire Argentine', value: '30%', color: 'text-gold' },
                   ].map((p) => (
-                    <div key={p.label} className="rounded-lg bg-gray-50 dark:bg-gray-800 p-2">
+                    <div key={p.label} className="rounded-lg bg-gray-50 dark:bg-slate-800 p-2">
                       <p className={`text-lg font-extrabold ${p.color}`}>{p.value}</p>
-                      <p className="text-[10px] text-gray-500 dark:text-gray-400">{p.label}</p>
+                      <p className="text-[10px] text-gray-500 dark:text-gray-300">{p.label}</p>
                     </div>
                   ))}
                 </div>
 
-                <p className="text-xs text-gray-400 dark:text-gray-500 text-center border-t border-gray-100 dark:border-gray-800 pt-3">
+                <p className="text-xs text-gray-400 dark:text-gray-400 text-center border-t border-gray-100 dark:border-gray-800 pt-3">
                   Se désinscrire · Voir dans le navigateur · cdm2026.fr
                 </p>
               </div>
@@ -281,26 +281,26 @@ export default function NewsletterPage() {
       </section>
 
       {/* ===== TESTIMONIALS ===== */}
-      <section className="bg-gray-50 dark:bg-gray-900/50 py-16 border-t border-gray-100 dark:border-gray-800">
+      <section className="bg-gray-50 dark:bg-slate-900/50 py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-2">
               ❤️ Ils nous font confiance
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Plus de 12 000 fans du football abonnés</p>
+            <p className="text-sm text-gray-500 dark:text-gray-300">Plus de 12 000 fans du football abonnés</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm"
+                className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5 shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl">{t.avatar}</span>
                   <div>
                     <p className="font-bold text-sm text-gray-900 dark:text-white">{t.name}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{t.city}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-300">{t.city}</p>
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic">
@@ -324,7 +324,7 @@ export default function NewsletterPage() {
       >
         <div className="mx-auto max-w-2xl px-4 text-center">
           <div className="text-4xl mb-4">📧</div>
-          <h2 className="text-2xl font-extrabold mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Rejoignez <span className="text-gold">12 000+</span> fans du Mondial
           </h2>
           <p className="text-gray-300/90 text-sm mb-8 leading-relaxed">
@@ -333,7 +333,7 @@ export default function NewsletterPage() {
             Gratuit. Sans spam. Désinscription en 1 clic.
           </p>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <NewsletterForm />
           </div>
 

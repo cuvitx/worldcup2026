@@ -27,15 +27,15 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
   const bestAway = findBest(allAway);
 
   return (
-    <section className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
+    <section className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
+      <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-900/50">
         <div className="section-header mb-0">
-          <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-base">
             Comparateur de cotes
           </h2>
         </div>
-        <span className="text-xs text-gray-500 dark:text-gray-400">
+        <span className="text-xs text-gray-500 dark:text-gray-300">
           Cotes estimées · Vérifier avant pari
         </span>
       </div>
@@ -44,7 +44,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       <div className="overflow-x-auto">
 
       {/* Column headers */}
-      <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] px-4 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
+      <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] px-4 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
         <span>Bookmaker</span>
         <span className="text-center truncate" title={`Victoire ${homeName}`}>1 {homeName.length > 8 ? homeName.slice(0, 8) + "…" : homeName}</span>
         <span className="text-center">N</span>
@@ -61,7 +61,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
         <OddsCell value={odds.home} isBest={parseOdds(odds.home) >= bestHome} />
         <OddsCell value={odds.draw} isBest={parseOdds(odds.draw) >= bestDraw} />
         <OddsCell value={odds.away} isBest={parseOdds(odds.away) >= bestAway} />
-        <span className="text-right text-xs text-gray-400 dark:text-gray-500">—</span>
+        <span className="text-right text-xs text-gray-400 dark:text-gray-400">—</span>
       </div>
 
       {/* Bookmaker rows */}
@@ -110,7 +110,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       </div>{/* end overflow-x-auto */}
 
       {/* Footer */}
-      <div className="px-5 py-3 bg-gray-50 dark:bg-gray-900/30 text-[11px] text-gray-400 dark:text-gray-500">
+      <div className="px-5 py-3 bg-gray-50 dark:bg-slate-900/30 text-[11px] text-gray-400 dark:text-gray-400">
         * Cotes estimées à partir de notre modèle. Les cotes réelles peuvent varier.{" "}
         <span className="text-green-600 dark:text-green-400 font-semibold">Vert = meilleure valeur</span>
       </div>

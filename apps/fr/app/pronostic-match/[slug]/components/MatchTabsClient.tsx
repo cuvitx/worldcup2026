@@ -29,7 +29,7 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
   return (
     <div>
       {/* Tab bar */}
-      <div className="sticky top-[105px] z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="sticky top-[105px] z-30 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div role="tablist" aria-label="Sections du match" className="flex overflow-x-auto scrollbar-hide gap-0.5">
             {TABS.map((tab) => (
@@ -43,7 +43,7 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
                 className={`flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-3 sm:py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
                   activeTab === tab.id
                     ? "border-primary/20 text-primary"
-                    : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
+                    : "border-transparent text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
                 }`}
               >
                 <span className="text-base" aria-hidden="true">{tab.icon}</span>

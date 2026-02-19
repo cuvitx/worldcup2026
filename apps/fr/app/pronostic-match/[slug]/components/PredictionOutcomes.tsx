@@ -18,15 +18,15 @@ export function PredictionOutcomes({
   awayName,
 }: PredictionOutcomesProps) {
   return (
-    <section className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
+    <section className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
+      <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-900/50">
         <div className="section-header mb-0">
-          <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-base">
             Pronostic 1-N-2
           </h2>
         </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+        <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">
           {homeName} vs {awayName} · Probabilités estimées
         </p>
       </div>
@@ -57,7 +57,7 @@ export function PredictionOutcomes({
                   className={`text-2xl font-black mb-1 ${
                     isHighlighted
                       ? "text-primary"
-                      : "text-gray-400 dark:text-gray-500"
+                      : "text-gray-400 dark:text-gray-400"
                   }`}
                 >
                   {outcome.key}
@@ -74,7 +74,7 @@ export function PredictionOutcomes({
                 </p>
 
                 {/* Label */}
-                <p className="mt-1.5 text-xs text-gray-500 dark:text-gray-400 leading-tight">
+                <p className="mt-1.5 text-xs text-gray-500 dark:text-gray-300 leading-tight">
                   {outcome.label}
                 </p>
 
@@ -99,7 +99,7 @@ export function PredictionOutcomes({
             const isHighlighted = outcome.prob === maxProb;
             return (
               <div key={`bar-${outcome.key}`} className="flex items-center gap-3">
-                <span className="w-6 text-sm font-bold text-gray-500 dark:text-gray-400 text-right shrink-0">
+                <span className="w-6 text-sm font-bold text-gray-500 dark:text-gray-300 text-right shrink-0">
                   {outcome.key}
                 </span>
                 <div className="flex-1 h-2 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
@@ -117,7 +117,7 @@ export function PredictionOutcomes({
                 >
                   {pct}%
                 </span>
-                <span className="text-xs text-gray-500 dark:text-gray-400 w-28 truncate shrink-0">
+                <span className="text-xs text-gray-500 dark:text-gray-300 w-28 truncate shrink-0">
                   {outcome.label}
                 </span>
               </div>

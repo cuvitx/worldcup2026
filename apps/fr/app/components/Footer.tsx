@@ -154,7 +154,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10 border-t border-white/5 pt-8">
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="mb-4 text-xs font-bold text-white uppercase tracking-widest">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-xs uppercase tracking-widest">
                 {col.title}
               </h3>
               <ul className="space-y-2">

@@ -139,7 +139,7 @@ export default function ContactPage() {
 
           {/* Jeu responsable */}
           <section className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6">
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               Jeu responsable
             </h2>
             <p>
@@ -159,7 +159,7 @@ export default function ContactPage() {
 
           {/* Liens utiles */}
           <section>
-            <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 dark:">
               Liens utiles
             </h2>
             <ul className="space-y-2">

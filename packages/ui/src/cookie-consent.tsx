@@ -58,7 +58,7 @@ export function CookieConsent({ lang }: CookieConsentProps) {
   const t = translations[lang];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 backdrop-blur-sm bg-white/80 dark:bg-slate-900/80">
+    <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 z-[60] p-4 backdrop-blur-sm bg-white/80 dark:bg-slate-900/80">
       <div className="mx-auto max-w-7xl rounded-lg bg-white dark:bg-slate-800 p-4 shadow-lg dark:shadow-slate-900/50">
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <div className="text-sm text-gray-700 dark:text-gray-300">
@@ -66,7 +66,7 @@ export function CookieConsent({ lang }: CookieConsentProps) {
               {t.message}{" "}
               <a
                 href={t.learnMoreLink}
-                className="underline text-accent hover:text-accent/80"
+                className="underline text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary/80"
               >
                 {t.learnMore}
               </a>

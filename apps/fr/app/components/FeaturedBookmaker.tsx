@@ -23,7 +23,7 @@ export function FeaturedBookmaker() {
   return (
     <section className="py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Meilleur bonus du moment
         </h2>
         <div className="mx-auto max-w-2xl rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-50 to-white p-6 shadow-md dark:from-yellow-950/20 dark:to-slate-800 dark:border-yellow-600/40">
@@ -39,7 +39,7 @@ export function FeaturedBookmaker() {
               <p className="text-2xl font-extrabold text-primary">
                 {bk.bonus}
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-500 dark:text-gray-300">
                 {bk.bonusDetail}
               </p>
               <div className="mt-2">
@@ -55,7 +55,7 @@ export function FeaturedBookmaker() {
               Ouvrir un compte →
             </a>
           </div>
-          <p className="mt-4 text-center text-xs text-gray-500 dark:text-gray-400">
+          <p className="mt-4 text-center text-xs text-gray-500 dark:text-gray-300">
             18+ | Jeu responsable — Les jeux d&apos;argent sont interdits aux mineurs. Appelez le 09 74 75 13 13.
           </p>
         </div>

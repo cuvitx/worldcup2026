@@ -42,9 +42,9 @@ export function UpcomingMatches() {
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-primary/30 hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+                className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-primary/30 hover:shadow-md dark:border-gray-700 dark:bg-slate-800"
               >
-                <div className="mb-3 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                <div className="mb-3 flex items-center justify-between text-xs text-gray-500 dark:text-gray-300">
                   <span>
                     Groupe {match.group} · Journée {match.matchday}
                   </span>
@@ -59,7 +59,7 @@ export function UpcomingMatches() {
                     <span role="img" aria-label={`Drapeau de ${away?.name ?? match.awayTeamId}`}>{away?.flag ?? "🏳️"}</span> {away?.name ?? match.awayTeamId}
                   </span>
                 </div>
-                <div className="mt-3 text-center text-xs text-gray-500 dark:text-gray-400">
+                <div className="mt-3 text-center text-xs text-gray-500 dark:text-gray-300">
                   {match.time} UTC · {stadium?.name ?? match.stadiumId}
                 </div>
               </Link>

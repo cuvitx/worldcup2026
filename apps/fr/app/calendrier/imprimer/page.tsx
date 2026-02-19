@@ -80,7 +80,7 @@ export default function CalendrierImprimerPage() {
       <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
         🏆 Calendrier Coupe du Monde 2026
       </h1>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
         104 matchs · 11 juin – 19 juillet 2026 · USA / Mexique / Canada
       </p>
 
@@ -94,7 +94,7 @@ export default function CalendrierImprimerPage() {
         });
         return (
           <div key={date} className="mb-6">
-            <h2 className="text-lg font-bold mb-2 text-gray-900 dark:text-white capitalize">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-lg mb-2 dark: capitalize">
               {formatted}
             </h2>
             <div className="overflow-x-auto"><table>
@@ -116,7 +116,7 @@ export default function CalendrierImprimerPage() {
                         {teamName(m.homeTeamId)} vs {teamName(m.awayTeamId)}
                       </td>
                       <td className="text-xs">{stageLabel(m.stage, m.group)}</td>
-                      <td className="hidden sm:table-cell text-xs text-gray-500 dark:text-gray-400">
+                      <td className="hidden sm:table-cell text-xs text-gray-500 dark:text-gray-300">
                         {stadiumName(m.stadiumId)}
                       </td>
                     </tr>

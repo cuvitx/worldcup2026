@@ -240,7 +240,7 @@ export default function HomePage() {
               <div key={stat.label} className="flex flex-col items-center py-5 px-2 text-center gap-0.5">
                 <span className="text-base sm:text-lg mb-0.5">{stat.icon}</span>
                 <p className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-none">{stat.value}</p>
-                <p className="text-[10px] sm:text-[11px] text-gray-500 dark:text-gray-500 font-medium mt-0.5">{stat.label}</p>
+                <p className="text-[10px] sm:text-[11px] text-gray-500 dark:text-gray-400 font-medium mt-0.5">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -258,7 +258,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e63946] mb-1.5">
                 Phase de groupes
               </p>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Prochains matchs
               </h2>
             </div>
@@ -285,18 +285,18 @@ export default function HomePage() {
                   <Link
                     key={match.id}
                     href={`/pronostic-match/${match.slug}`}
-                    className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
+                    className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
                   >
                     {/* Top accent */}
                     <div className="h-0.5 bg-gradient-to-r from-[#e63946] to-[#e8c547]" />
 
                     {/* Match group badge */}
                     <div className="flex items-center justify-between px-4 pt-3 pb-2">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-400">
                         {match.group ? `Groupe ${match.group}` : match.stage}
                         {match.matchday ? ` · J${match.matchday}` : ""}
                       </span>
-                      <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400">
+                      <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-300">
                         {formatMatchDate(match.date)}
                         {match.time && (
                           <span className="ml-1 text-gray-400"> {match.time}</span>
@@ -335,13 +335,13 @@ export default function HomePage() {
                     {/* Stadium */}
                     {stadium && (
                       <div className="px-4 pb-4 mt-auto">
-                        <div className="flex items-center gap-1.5 rounded-xl bg-gray-50 dark:bg-gray-800/60 px-3 py-2">
+                        <div className="flex items-center gap-1.5 rounded-xl bg-gray-50 dark:bg-slate-800/60 px-3 py-2">
                           <span className="text-sm">🏟️</span>
                           <div className="min-w-0">
                             <p className="text-[10px] font-bold text-gray-700 dark:text-gray-300 truncate">
                               {stadium.name}
                             </p>
-                            <p className="text-[9px] text-gray-400 dark:text-gray-500">
+                            <p className="text-[9px] text-gray-400 dark:text-gray-400">
                               {stadium.city}
                             </p>
                           </div>
@@ -366,14 +366,14 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           3. GROUPES EN UN COUP D'ŒEIL — 12 cartes A-L
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 dark:bg-gray-900/60 py-16">
+      <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e8c547] mb-1.5">
                 12 groupes · 48 équipes
               </p>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Groupes en un coup d&apos;œil
               </h2>
             </div>
@@ -397,7 +397,7 @@ export default function HomePage() {
                 <Link
                   key={group.slug}
                   href={`/groupe/${group.slug}`}
-                  className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+                  className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-[#0d1117] to-[#1a2035]">
@@ -417,7 +417,7 @@ export default function HomePage() {
                         className={`flex items-center gap-2 px-3 py-1.5 ${
                           i < 2
                             ? "text-gray-900 dark:text-gray-100"
-                            : "text-gray-400 dark:text-gray-500"
+                            : "text-gray-400 dark:text-gray-400"
                         }`}
                       >
                         <span className="text-xs text-gray-300 dark:text-gray-600 w-3 shrink-0 font-bold">
@@ -454,7 +454,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e63946] mb-1.5">
                 Actualités
               </p>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Articles récents
               </h2>
             </div>
@@ -468,7 +468,7 @@ export default function HomePage() {
               <Link
                 key={article.id}
                 href={`/actualites/${article.slug}`}
-                className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+                className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
                 {/* Thumbnail zone */}
                 <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
@@ -496,16 +496,16 @@ export default function HomePage() {
                     {categoryLabels[article.category] ?? article.category}
                   </span>
 
-                  <h3 className="text-sm font-extrabold text-gray-900 dark:text-gray-100 leading-snug mb-2 line-clamp-2 group-hover:text-[#e63946] transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm leading-snug mb-2 line-clamp-2 group-hover:text-[#e63946] transition-colors duration-200">
                     {article.title}
                   </h3>
 
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed line-clamp-2 flex-1">
                     {article.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50 dark:border-gray-800">
-                    <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">
+                    <p className="text-[10px] text-gray-400 dark:text-gray-400 font-medium">
                       {new Date(article.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
                         day: "numeric",
                         month: "long",
@@ -527,17 +527,17 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           5. STADES CDM 2026 — Carousel horizontal 16 stades
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 dark:bg-gray-900/60 py-16">
+      <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#3b82f6] mb-1.5">
                 🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
               </p>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Stades CDM 2026
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 16 stades répartis dans 3 pays hôtes
               </p>
             </div>
@@ -560,10 +560,10 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e8c547] mb-1.5">
                 Cotes Vainqueur
               </p>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Équipes favorites
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Top 5 FIFA · Pronostics &amp; chances de titre
               </p>
             </div>
@@ -589,7 +589,7 @@ export default function HomePage() {
                 <Link
                   key={team.id}
                   href={`/equipe/${team.slug}`}
-                  className="group relative flex flex-col items-center rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-sm text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  className="group relative flex flex-col items-center rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 p-5 shadow-sm text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden"
                 >
                   {/* Glow effect for top 3 */}
                   {index < 3 && (
@@ -599,7 +599,7 @@ export default function HomePage() {
                   {/* Rank badge */}
                   <span className="absolute top-2.5 left-2.5 text-[11px] font-black">
                     {index < 3 ? medals[index] : (
-                      <span className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-1.5 py-0.5 rounded text-[10px]">
+                      <span className="bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-300 px-1.5 py-0.5 rounded text-[10px]">
                         #{team.fifaRanking}
                       </span>
                     )}
@@ -628,7 +628,7 @@ export default function HomePage() {
                           {winPct < 1 ? "<1" : winPct}%
                         </span>
                       </div>
-                      <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1">
+                      <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-1">
                         <div
                           className="bg-gradient-to-r from-[#e63946] to-[#e8c547] h-1 rounded-full transition-all duration-700"
                           style={{ width: `${Math.min(winPct * 4, 100)}%` }}
@@ -640,7 +640,7 @@ export default function HomePage() {
                   {/* Odds badge — real bookmaker data when available */}
                   {outrightOdds && (
                     <div className="mt-1 w-full rounded-xl border border-[#e8c547]/30 bg-[#e8c547]/5 dark:bg-[#e8c547]/10 px-3 py-2">
-                      <p className="text-[9px] text-gray-500 dark:text-gray-400 mb-0.5">
+                      <p className="text-[9px] text-gray-500 dark:text-gray-300 mb-0.5">
                         {favData ? "Cote moy. marché" : "Cote vainqueur"}
                       </p>
                       <p className="text-lg font-black text-[#e8c547]">
@@ -652,7 +652,7 @@ export default function HomePage() {
                         )}
                       </p>
                       {favData && (
-                        <p className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5">
+                        <p className="text-[9px] text-gray-400 dark:text-gray-400 mt-0.5">
                           Proba : {Math.round(favData.impliedProbability * 100)}%
                         </p>
                       )}
@@ -678,16 +678,16 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           FAQ
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 dark:bg-gray-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
+      <section className="bg-gray-50 dark:bg-slate-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <h2 className="text-xl font-black text-gray-900 dark:text-white mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: mb-6 text-center">
             ❓ Questions fréquentes — CDM 2026
           </h2>
           <div className="space-y-3">
             {faqHomepageItems.map((item, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 overflow-hidden"
+                className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800/60 overflow-hidden"
               >
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-bold text-gray-900 dark:text-white hover:text-[#e63946] dark:hover:text-[#e63946] transition-colors list-none">

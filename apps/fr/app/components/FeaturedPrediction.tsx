@@ -27,7 +27,7 @@ export function FeaturedPrediction() {
           <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
             ⭐ Pronostic vedette
           </p>
-          <h3 className="mb-6 text-xl font-bold text-gray-900 dark:text-white md:text-2xl">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 dark: md:">
             <span role="img" aria-label={`Drapeau de ${prediction.home.name}`}>{prediction.home.flag}</span> {prediction.home.name} vs{" "}
             {prediction.away.name} <span role="img" aria-label={`Drapeau de ${prediction.away.name}`}>{prediction.away.flag}</span>
           </h3>
@@ -71,7 +71,7 @@ export function FeaturedPrediction() {
             </div>
           </div>
 
-          <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-4 text-sm text-gray-500 dark:text-gray-300">
             Cote estimée du favori :{" "}
             <span className="font-bold text-primary">{prediction.favoriCote}</span>
           </p>

@@ -18,9 +18,9 @@ export default function SimulateurPage() {
   return (
     <>
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-2.5">
-          <ol className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
@@ -88,7 +88,7 @@ export default function SimulateurPage() {
 
             {/* Share CTA */}
             <div className="shrink-0">
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-center">
+              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
                 <p className="text-xs text-gray-400 mb-2">
                   Partagez votre bracket
                 </p>
@@ -105,7 +105,7 @@ export default function SimulateurPage() {
       </section>
 
       {/* Simulator */}
-      <section className="bg-gray-50 dark:bg-gray-900/50 py-8 sm:py-12">
+      <section className="bg-gray-50 dark:bg-slate-900/50 py-8 sm:py-12">
         <div className="mx-auto max-w-[1600px] px-2 lg:px-4">
           <BracketSimulator />
         </div>
