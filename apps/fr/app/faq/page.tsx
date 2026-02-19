@@ -68,7 +68,7 @@ export default function FaqPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
+      <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Questions fréquentes</h1>
           <p className="mt-2 text-gray-300">
@@ -98,7 +98,7 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 space-y-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {itemsByCategory.map(({ key, label, emoji, items }) => (
           <section key={key} id={key}>
             <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">

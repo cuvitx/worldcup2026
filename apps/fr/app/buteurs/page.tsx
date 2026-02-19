@@ -59,8 +59,8 @@ export default function ButeursPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Cotes buteurs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             {scorerOdds.length} attaquants et milieux offensifs analyses. Cotes buteur, buts attendus et probabilites pour chaque joueur.
@@ -68,12 +68,12 @@ export default function ButeursPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
 
         {/* ── TOP 20 MEILLEURS BUTEURS HISTORIQUES ── */}
         <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
-          <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
-            <div className="flex items-center gap-3 mb-1">
+          <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
+            <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">👑</span>
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Top 20 meilleurs buteurs de l&apos;histoire de la CDM
@@ -156,8 +156,8 @@ export default function ButeursPage() {
 
         {/* ── TOP 5 CANDIDATS (données prédictions-2026) ── */}
         <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
-          <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
-            <div className="flex items-center gap-3 mb-1">
+          <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
+            <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">🌟</span>
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Top 5 candidats au Soulier d&apos;Or
@@ -281,9 +281,9 @@ export default function ButeursPage() {
         </section>
 
         {/* Top Scorer Ranking */}
-        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h2 className="mb-2 text-xl font-bold">Favoris pour le Soulier d&apos;Or</h2>
-          <p className="mb-4 text-sm text-gray-600">
+        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
+          <h2 className="mb-2 text-xl font-bold dark:text-white">Favoris pour le Soulier d&apos;Or</h2>
+          <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
           </p>
           <div className="overflow-x-auto">
@@ -332,9 +332,9 @@ export default function ButeursPage() {
         </section>
 
         {/* All scorers by expected goals */}
-        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h2 className="mb-2 text-xl font-bold">Tous les buteurs potentiels</h2>
-          <p className="mb-4 text-sm text-gray-600">
+        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
+          <h2 className="mb-2 text-xl font-bold dark:text-white">Tous les buteurs potentiels</h2>
+          <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
           </p>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -365,8 +365,8 @@ export default function ButeursPage() {
         </section>
 
         {/* By Team */}
-        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold">Buteurs par équipe</h2>
+        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
+          <h2 className="mb-6 text-xl font-bold dark:text-white">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .sort((a, b) => a.fifaRanking - b.fifaRanking)

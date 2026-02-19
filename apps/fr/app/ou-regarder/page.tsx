@@ -22,7 +22,7 @@ const tvFranceDetailed = [
     matches: "Matchs de la France + finale + demi-finales",
     details:
       "Chaîne historique du foot français. Diffuse tous les matchs des Bleus, les demi-finales et la finale en clair. Droits en cours de finalisation.",
-    logo: "/images/logos/tf1.svg",
+    logo: "TF1",
     free: true,
   },
   {
@@ -31,7 +31,7 @@ const tvFranceDetailed = [
     matches: "54 matchs",
     details:
       "Co-diffusion avec TF1 sur certains matchs clés (ouverture, quarts). Large couverture de la phase de groupes et des 8es de finale.",
-    logo: "/images/logos/m6.svg",
+    logo: "M6",
     free: true,
   },
   {
@@ -40,7 +40,7 @@ const tvFranceDetailed = [
     matches: "104 matchs (intégralité)",
     details:
       "Seul diffuseur à proposer l'intégralité des 104 matchs du tournoi. Studio d'analyse, multi-diffusion sur beIN Sports 1, 2 et 3.",
-    logo: "/images/logos/bein.svg",
+    logo: "beIN",
     free: false,
   },
 ];
@@ -314,7 +314,7 @@ export default function OuRegarderPage() {
         </div>
       </nav>
 
-      <main className="mx-auto max-w-7xl px-4 py-8" id="main-content">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12" id="main-content">
         <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
           📺 Où regarder la Coupe du Monde 2026
         </h1>
@@ -340,7 +340,7 @@ export default function OuRegarderPage() {
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <img src={ch.logo} alt={ch.name} className="h-10 w-20 object-contain" />
+                  <span className="inline-flex items-center justify-center h-10 w-20 rounded-lg bg-primary text-white font-bold text-sm">{ch.logo}</span>
                   <div>
                     <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100">{ch.name}</h3>
                     <span

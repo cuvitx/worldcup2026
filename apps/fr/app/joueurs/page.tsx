@@ -36,7 +36,7 @@ export default function PlayersPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
+      <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Joueurs cles de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
@@ -45,7 +45,7 @@ export default function PlayersPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-8">
         {/* Top Scorers */}
         <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-bold">Meilleurs buteurs en sélection</h2>

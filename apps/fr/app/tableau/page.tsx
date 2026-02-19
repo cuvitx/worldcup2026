@@ -255,7 +255,7 @@ export default function BracketPage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12">
+      <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Tableau final CDM 2026</h1>
           <p className="mt-2 text-gray-300 max-w-2xl">
@@ -265,7 +265,7 @@ export default function BracketPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 space-y-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {/* Champion prediction */}
         {champion && teamsById[champion] && (
           <section className="rounded-xl border-2 border-yellow-400 dark:border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/30 p-6 text-center">

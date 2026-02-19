@@ -99,8 +99,8 @@ export default async function TeamPage({ params }: PageProps) {
       </nav>
 
       {/* Team Header */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-6 sm:gap-8">
             {/* Flag image — real SVG when available, emoji fallback */}
             {getFlagPath(team.slug) ? (
@@ -140,14 +140,14 @@ export default async function TeamPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-8 min-w-0">
             {/* Description */}
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Presentation</h2>
-              <p className="text-gray-700 leading-relaxed">{team.description}</p>
+              <h2 className="mb-4 text-xl font-bold dark:text-white">Présentation</h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed break-words">{team.description}</p>
             </section>
 
             {/* Radar Chart */}
@@ -435,7 +435,7 @@ export default async function TeamPage({ params }: PageProps) {
                   Groupe {team.group}
                 </Link>
               </h2>
-              <p className="mb-4 text-gray-600">
+              <p className="mb-4 text-gray-600 dark:text-gray-300">
                 Adversaires de {team.name} en phase de groupes :
               </p>
               <div className="space-y-3">
@@ -784,7 +784,7 @@ export default async function TeamPage({ params }: PageProps) {
       </div>
 
       {/* Related content */}
-      <div className="mx-auto max-w-6xl px-4 pb-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-12">
         <RelatedContent
           items={[
             ...groupTeams

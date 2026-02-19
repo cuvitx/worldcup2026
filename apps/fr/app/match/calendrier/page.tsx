@@ -94,26 +94,28 @@ export default function CalendrierPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Calendrier des matchs</h1>
           <p className="mt-2 text-gray-300">
             104 matchs du 11 juin au 19 juillet 2026
           </p>
-          <a
-            href="/api/calendar"
-            download="cdm2026.ics"
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
-          >
-            📅 Ajouter au calendrier
-          </a>
-          <a
-            href="/calendrier/imprimer"
-            target="_blank"
-            className="mt-4 ml-2 inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
-          >
-            📄 Télécharger le calendrier PDF
-          </a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/api/calendar"
+              download="cdm2026.ics"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
+            >
+              📅 Ajouter au calendrier
+            </a>
+            <a
+              href="/calendrier/imprimer"
+              target="_blank"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
+            >
+              📄 Télécharger le calendrier PDF
+            </a>
+          </div>
         </div>
       </section>
 

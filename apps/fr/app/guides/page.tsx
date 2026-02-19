@@ -71,7 +71,7 @@ export default function GuidesPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12">
+      <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Guides paris sportifs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
@@ -80,7 +80,7 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
         {categories.map((cat) => {
           const catGuides = guidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;

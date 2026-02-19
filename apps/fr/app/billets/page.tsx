@@ -149,7 +149,7 @@ const faqItems = [
   {
     question: "Où acheter des billets officiels pour la CDM 2026 ?",
     answer:
-      "Les seuls billets officiels sont vendus sur FIFA.com (ticketing.fifa.com). Tout autre site est soit une arnaque soit de la revente non officielle. Créez un compte FIFA+ gratuitement pour accéder aux ventes.",
+      "Les seuls billets officiels sont vendus sur FIFA.com (fifa.com/tickets). Tout autre site est soit une arnaque soit de la revente non officielle. Créez un compte FIFA+ gratuitement pour accéder aux ventes.",
   },
   {
     question: "Combien coûtent les billets pour la Coupe du Monde 2026 ?",
@@ -277,7 +277,7 @@ export default function BilletsPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://ticketing.fifa.com"
+                href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg"
@@ -298,8 +298,8 @@ export default function BilletsPage() {
           <span className="text-amber-500 shrink-0 mt-0.5">⚠️</span>
           <p className="text-sm text-amber-800 dark:text-amber-300">
             <strong>Important :</strong> Achetez uniquement sur{" "}
-            <a href="https://ticketing.fifa.com" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
-              ticketing.fifa.com
+            <a href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
+              fifa.com/tickets
             </a>{" "}
             — c&apos;est le seul canal officiel. Tout billet acheté sur un autre site peut être annulé.
           </p>
@@ -380,7 +380,7 @@ export default function BilletsPage() {
           </div>
 
           <p className="mt-4 text-xs text-gray-400 dark:text-gray-500">
-            * Prix indicatifs basés sur les annonces FIFA 2025. Les prix finaux seront confirmés sur ticketing.fifa.com.
+            * Prix indicatifs basés sur les annonces FIFA 2025. Les prix finaux seront confirmés sur fifa.com/tickets.
             Taux de change USD/EUR fluctue — prévoir ~0.92 EUR par USD.
           </p>
         </div>
@@ -413,7 +413,7 @@ export default function BilletsPage() {
                 step: 3,
                 icon: "🎯",
                 title: "Choisir ses matchs",
-                desc: "Parcourez le calendrier sur ticketing.fifa.com. Sélectionnez votre groupe de matchs (ticket package) ou des matchs individuels selon disponibilité.",
+                desc: "Parcourez le calendrier sur fifa.com/tickets. Sélectionnez votre groupe de matchs (ticket package) ou des matchs individuels selon disponibilité.",
                 tip: "Packages multi-matchs souvent disponibles à prix réduit.",
               },
               {
@@ -459,12 +459,12 @@ export default function BilletsPage() {
 
           <div className="mt-6 text-center">
             <a
-              href="https://ticketing.fifa.com"
+              href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-bold text-white text-lg shadow-lg shadow-accent/30 hover:bg-accent/90 hover:-translate-y-0.5 transition-all"
             >
-              🎟️ Aller sur ticketing.fifa.com →
+              🎟️ Aller sur fifa.com/tickets →
             </a>
             <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">Lien officiel FIFA — Seul canal d&apos;achat garanti</p>
           </div>
@@ -553,7 +553,7 @@ export default function BilletsPage() {
               {
                 icon: "❌",
                 title: "Sites non officiels",
-                desc: "Méfiez-vous de TOUS les sites autres que ticketing.fifa.com. Des centaines de faux sites existent.",
+                desc: "Méfiez-vous de TOUS les sites autres que fifa.com/tickets. Des centaines de faux sites existent.",
               },
               {
                 icon: "❌",
@@ -568,7 +568,7 @@ export default function BilletsPage() {
               {
                 icon: "✅",
                 title: "Canal officiel unique",
-                desc: "ticketing.fifa.com est le SEUL endroit où acheter. Bookmarkez cette URL exacte.",
+                desc: "fifa.com/tickets est le SEUL endroit où acheter. Bookmarkez cette URL exacte.",
               },
               {
                 icon: "✅",
@@ -578,7 +578,7 @@ export default function BilletsPage() {
               {
                 icon: "✅",
                 title: "Vérifiez l'URL",
-                desc: "Assurez-vous que l'URL commence par ticketing.fifa.com avec HTTPS. Pas de tirets, variantes ou sous-domaines suspects.",
+                desc: "Assurez-vous que l'URL commence par fifa.com/tickets avec HTTPS. Pas de tirets, variantes ou sous-domaines suspects.",
               },
             ].map((tip) => (
               <div
@@ -659,7 +659,7 @@ export default function BilletsPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <a
-                href="https://ticketing.fifa.com"
+                href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg bg-accent px-8 py-3 font-bold text-white hover:bg-accent/90 hover:-translate-y-0.5 transition-all shadow-lg"

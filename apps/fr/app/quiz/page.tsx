@@ -44,8 +44,8 @@ export default function QuizPage() {
         </div>
       </nav>
 
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
-        <div className="text-center mb-10">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="text-center mb-10 sm:mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold mb-3">
             ⚽ Êtes-vous vraiment incollable sur la CDM 2026 ?
           </h1>

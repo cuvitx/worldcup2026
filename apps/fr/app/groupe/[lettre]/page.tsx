@@ -62,8 +62,8 @@ export default async function GroupPage({ params }: PageProps) {
       </nav>
 
       {/* Header */}
-      <section className="bg-primary text-white py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="bg-primary text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Groupe {group.letter}</h1>
           <p className="mt-2 text-gray-300">
             Coupe du Monde 2026 &middot; Phase de groupes
@@ -71,13 +71,13 @@ export default async function GroupPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Teams Table */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Équipes du Groupe {group.letter}</h2>
+              <h2 className="mb-4 text-xl font-bold dark:text-white">Équipes du Groupe {group.letter}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
@@ -119,8 +119,8 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Group Analysis */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Analyse du Groupe {group.letter}</h2>
-              <div className="prose prose-sm max-w-none text-gray-700">
+              <h2 className="mb-4 text-xl font-bold dark:text-white">Analyse du Groupe {group.letter}</h2>
+              <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300">
                 <p>
                   Le Groupe {group.letter} de la Coupe du Monde 2026 reunit{" "}
                   {groupTeams.map((t, i) => (
@@ -144,8 +144,8 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Group Matches */}
             {groupMatches.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Calendrier du Groupe {group.letter}</h2>
-                <div className="space-y-2">
+                <h2 className="mb-4 text-xl font-bold dark:text-white">Calendrier du Groupe {group.letter}</h2>
+                <div className="space-y-3">
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
                     const away = teamsById[match.awayTeamId];
@@ -171,7 +171,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Head to Head Links */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">Confrontations directes</h2>
+              <h2 className="mb-4 text-xl font-bold dark:text-white">Confrontations directes</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {groupTeams.flatMap((team1, i) =>
                   groupTeams.slice(i + 1).map((team2) => (
@@ -196,7 +196,7 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Group Navigation */}
             <div className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Tous les groupes</h3>
+              <h3 className="mb-4 text-lg font-bold dark:text-white">Tous les groupes</h3>
               <div className="grid grid-cols-4 gap-2">
                 {groups.map((g) => (
                   <Link

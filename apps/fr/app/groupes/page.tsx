@@ -72,7 +72,7 @@ export default function GroupsPage() {
                     return (
                       <div
                         key={id}
-                        className={`flex items-center gap-3 px-4 py-2.5 text-sm ${
+                        className={`flex items-center gap-3 px-4 py-3 text-sm ${
                           isQualified
                             ? "bg-green-50/60 dark:bg-green-900/20"
                             : ""
@@ -111,7 +111,7 @@ export default function GroupsPage() {
         </div>
 
         {/* Legend */}
-        <div className="mt-6 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-8 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-3 h-3 rounded bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-700" />
             Qualifié (top 2)

@@ -41,7 +41,7 @@ export default function MethodologiePage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12">
+      <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Notre méthodologie</h1>
           <p className="mt-3 text-lg text-gray-300 max-w-3xl">

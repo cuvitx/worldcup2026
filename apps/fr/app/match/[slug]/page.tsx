@@ -129,8 +129,8 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Adaptive Hero: LiveMatchWidget for live/recent matches, static for upcoming */}
       {isLive || isCompleted ? (
-        <section className="bg-primary py-8">
-          <div className="mx-auto max-w-2xl px-4">
+        <section className="bg-primary py-10 sm:py-14">
+          <div className="mx-auto max-w-2xl px-4 sm:px-6">
             <p className="mb-4 text-center text-sm text-gold font-medium uppercase tracking-wide">
               {stage}
               {match.group ? ` - Groupe ${match.group}` : ""}
@@ -158,8 +158,8 @@ export default async function MatchPage({ params }: PageProps) {
           </div>
         </section>
       ) : (
-        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
-          <div className="mx-auto max-w-7xl px-4">
+        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <p className="mb-2 text-sm text-gold font-medium uppercase tracking-wide">
               {stage}
               {match.group ? ` - Groupe ${match.group}` : ""}
@@ -211,7 +211,7 @@ export default async function MatchPage({ params }: PageProps) {
         </section>
       )}
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             {home && away && (
