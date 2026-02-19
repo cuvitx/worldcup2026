@@ -122,17 +122,19 @@ export default async function TeamPage({ params }: PageProps) {
               <p className="mt-2 text-gray-300">
                 {team.confederation} &middot; Classement FIFA #{team.fifaRanking} &middot; Groupe {team.group}
               </p>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
               {team.isHost && (
-                <span className="mt-2 inline-block rounded-full bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
+                <span className="inline-block rounded-full bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
                   Pays hôte
                 </span>
               )}
               <Link
                 href={`/pronostic/${team.slug}`}
-                className="mt-3 inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
+                className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
               >
                 Voir le pronostic &rarr;
               </Link>
+              </div>
             </div>
           </div>
         </div>

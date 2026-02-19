@@ -8,28 +8,29 @@
    ============================================================ */
 
 @theme {
-  /* ── Couleurs primaires ── */
-  --color-primary: #1a1a2e;       /* Bleu Nuit */
-  --color-accent: #e94560;        /* Rouge Passion */
-  --color-gold: #d4910e;          /* Or Champion (light mode, assombri pour contraste) */
+  /* ── Couleurs primaires — Direction A Continental ── */
+  --color-primary: #0D3B66;       /* Bleu Stade */
+  --color-accent: #FF6B35;        /* Orange Kick-off */
+  --color-gold: #f5a623;          /* Or Champion */
   --color-green: #2d6a4f;         /* Vert Terrain */
 
-  /* ── Couleurs secondaires (compatibilité existante) ── */
-  --color-secondary: #16213e;
+  /* ── Couleurs secondaires ── */
+  --color-secondary: #2EC4B6;     /* Turquoise Azteca */
+  --color-turquoise: #2EC4B6;     /* Turquoise Azteca (alias explicite) */
   --color-field: #2d6a4f;
   --color-field-light: #40916c;
 
   /* ── Couleurs sémantiques ── */
-  --color-success: #27ae60;
-  --color-error:   #e74c3c;
+  --color-success: #06D6A0;       /* But ! */
+  --color-error:   #EF476F;       /* Carton Rouge */
   --color-warning: #f39c12;
   --color-info:    #3498db;
 
   /* ── Neutres ── */
-  --color-gray-light: #f0f0f5;    /* Gris Clair */
+  --color-gray-light: #F7F7F8;    /* Blanc Pelouse */
   --color-gray-mid:   #8a8a9a;    /* Gris Moyen */
-  --color-gray-dark:  #2c2c3e;    /* Gris Foncé */
-  --color-deep:       #0f0f1a;    /* Noir Profond */
+  --color-gray-dark:  #1e2d3d;    /* Gris Foncé dark */
+  --color-deep:       #0F1923;    /* Nuit de Match */
 
   /* ── Pays hôtes ── */
   --color-usa:    #3c3b6e;
@@ -38,6 +39,7 @@
 
   /* ── Typographie ── */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
 }
 
