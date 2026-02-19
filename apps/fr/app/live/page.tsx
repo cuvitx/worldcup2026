@@ -171,9 +171,12 @@ export default function LivePage() {
             <div className="bg-primary text-white px-6 py-4">
               <div className="flex items-center justify-between text-xs text-gray-300 mb-3">
                 <span>Phase de groupes · Groupe A</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                  <span className="font-semibold text-white">EN DIRECT — 67&apos;</span>
+                <span className="inline-flex items-center gap-2 bg-red-600/90 px-3 py-1 rounded-full">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-100" />
+                  </span>
+                  <span className="font-bold text-white text-xs uppercase tracking-wider">LIVE — 67&apos;</span>
                 </span>
               </div>
               <div className="flex items-center justify-center gap-6">
@@ -198,7 +201,10 @@ export default function LivePage() {
               <h3 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
                 Événements du match
               </h3>
-              <div className="space-y-3">
+              <div className="relative">
+                {/* Vertical timeline line */}
+                <div className="absolute left-[2.35rem] top-2 bottom-2 w-0.5 bg-gray-200 dark:bg-gray-600" />
+                <div className="space-y-0">
                 {[
                   { minute: "12'", icon: "⚽", text: "H. Lozano (Mexique)", side: "home" },
                   { minute: "34'", icon: "🟨", text: "S. Xulu (Afrique du Sud)", side: "away" },
@@ -209,17 +215,20 @@ export default function LivePage() {
                 ].map((evt, i) => (
                   <div
                     key={i}
-                    className={`flex items-center gap-3 text-sm ${
+                    className={`relative flex items-center gap-3 text-sm py-3 ${
                       evt.side === "center" ? "justify-center text-gray-500 font-medium" : ""
                     }`}
                   >
-                    <span className="w-10 text-right text-xs font-mono text-gray-500">
+                    <span className="w-10 text-right text-xs font-mono text-gray-400 dark:text-gray-500 font-semibold shrink-0">
                       {evt.minute}
                     </span>
-                    <span>{evt.icon}</span>
-                    <span className="text-gray-800 dark:text-gray-200">{evt.text}</span>
+                    <span className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-600 shadow-sm shrink-0">
+                      {evt.icon}
+                    </span>
+                    <span className={`text-gray-800 dark:text-gray-200 ${evt.side === "center" ? "bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-xs" : ""}`}>{evt.text}</span>
                   </div>
                 ))}
+              </div>
               </div>
             </div>
 

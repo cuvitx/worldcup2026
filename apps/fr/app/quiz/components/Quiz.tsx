@@ -198,11 +198,13 @@ export default function Quiz() {
           )}
         </span>
       </div>
-      <div className="w-full h-2 bg-gray-700 rounded-full mb-6 overflow-hidden">
+      <div className="w-full h-3 bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
-          className="h-full bg-blue-500 rounded-full transition-all duration-300"
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
-        />
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 rounded-full" />
+        </div>
       </div>
 
       {/* Question */}
@@ -211,15 +213,15 @@ export default function Quiz() {
       {/* Options */}
       <div className="grid gap-3">
         {currentQuestion.options.map((opt, idx) => {
-          let classes = "w-full text-left px-5 py-4 rounded-lg border font-medium transition-all duration-200 ";
+          let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-600 bg-gray-800/50 hover:border-blue-500 hover:bg-blue-500/10 cursor-pointer";
+            classes += "border-gray-600 bg-gray-800/50 hover:border-blue-400 hover:bg-blue-500/15 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
-            classes += "border-green-500 bg-green-500/20 text-green-300";
+            classes += "border-green-400 bg-green-500/20 text-green-300 shadow-lg shadow-green-500/20 scale-[1.01]";
           } else if (idx === selected) {
-            classes += "border-red-500 bg-red-500/20 text-red-300";
+            classes += "border-red-400 bg-red-500/20 text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
-            classes += "border-gray-700 bg-gray-800/30 text-gray-500";
+            classes += "border-gray-700 bg-gray-800/30 text-gray-500 opacity-50";
           }
 
           return (
@@ -234,7 +236,7 @@ export default function Quiz() {
       {/* Explanation */}
       {selected !== null && (
         <div
-          className={`mt-4 p-4 rounded-lg text-sm ${
+          className={`mt-4 p-4 rounded-xl text-sm animate-[fadeSlideIn_0.3s_ease-out] ${
             selected === currentQuestion.correctIndex
               ? "bg-green-500/10 border border-green-500/30 text-green-300"
               : "bg-red-500/10 border border-red-500/30 text-red-300"

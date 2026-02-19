@@ -118,9 +118,18 @@ export default function ComparateurCotesPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {match.odds.map((o) => (
-                        <tr key={o.bookmaker} className="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
-                          <td className="px-4 py-2.5 font-medium text-gray-900 dark:text-gray-100">{o.bookmaker}</td>
+                      {match.odds.map((o, idx) => (
+                        <tr key={o.bookmaker} className={`border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ${
+                          idx % 2 === 0 ? "bg-gray-50/50 dark:bg-gray-750/30" : "bg-white dark:bg-gray-800"
+                        }`}>
+                          <td className="px-4 py-2.5 font-medium text-gray-900 dark:text-gray-100">
+                            <div className="flex items-center gap-2">
+                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gray-200 dark:bg-gray-600 text-xs font-bold text-gray-600 dark:text-gray-300">
+                                {o.bookmaker.charAt(0)}
+                              </span>
+                              {o.bookmaker}
+                            </div>
+                          </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
                             o.home === best.home ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
                           }`}>

@@ -471,7 +471,13 @@ function RoundColumn({
 
   return (
     <div className="flex flex-col items-center min-w-[150px]">
-      <div className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+      <div className={`text-xs font-bold uppercase tracking-wider mb-3 px-3 py-1.5 rounded-full text-white shadow-sm ${
+        round === "R32" ? "bg-gray-500" :
+        round === "R16" ? "bg-blue-500" :
+        round === "QF" ? "bg-purple-500" :
+        round === "SF" ? "bg-orange-500" :
+        "bg-yellow-500 text-yellow-900"
+      }`}>
         {label}
       </div>
       <div
@@ -510,7 +516,13 @@ function MobileBracket({
       {ROUND_ORDER.map((round) => (
         <div key={round}>
           <div className="mb-3">
-            <span className="inline-block bg-primary text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+            <span className={`inline-block text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full text-white shadow-sm ${
+              round === "R32" ? "bg-gray-500" :
+              round === "R16" ? "bg-blue-500" :
+              round === "QF" ? "bg-purple-500" :
+              round === "SF" ? "bg-orange-500" :
+              "bg-yellow-500 text-yellow-900"
+            }`}>
               {ROUND_LABELS[round]}
             </span>
           </div>
@@ -551,7 +563,7 @@ function MatchCard({
 
   return (
     <div
-      className={`rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden ${
+      className={`rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden transition-shadow hover:shadow-md ${
         compact ? "text-sm" : ""
       }`}
     >
