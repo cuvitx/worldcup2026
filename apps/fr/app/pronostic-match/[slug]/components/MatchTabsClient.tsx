@@ -1,0 +1,59 @@
+"use client";
+
+import { useState } from "react";
+
+interface Tab {
+  id: string;
+  label: string;
+  icon: string;
+}
+
+const TABS: Tab[] = [
+  { id: "pronostic", label: "Pronostic", icon: "🎯" },
+  { id: "cotes", label: "Cotes", icon: "💰" },
+  { id: "stats", label: "Stats", icon: "📊" },
+  { id: "h2h", label: "H2H", icon: "⚔️" },
+  { id: "infos", label: "Infos", icon: "📋" },
+];
+
+interface MatchTabsClientProps {
+  children: React.ReactNode[];
+  // children[0] = pronostic, [1] = cotes, [2] = stats, [3] = h2h, [4] = infos
+}
+
+export function MatchTabsClient({ children }: MatchTabsClientProps) {
+  const [activeTab, setActiveTab] = useState("pronostic");
+  const tabIndex = TABS.findIndex((t) => t.id === activeTab);
+  const content = children[tabIndex] ?? children[0];
+
+  return (
+    <div>
+      {/* Tab bar */}
+      <div className="sticky top-[65px] z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex overflow-x-auto scrollbar-hide gap-0.5">
+            {TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
+                  activeTab === tab.id
+                    ? "border-accent text-accent"
+                    : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600"
+                }`}
+              >
+                <span className="text-base">{tab.icon}</span>
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Tab content */}
+      <div className="animate-fadeIn">
+        {content}
+      </div>
+    </div>
+  );
+}

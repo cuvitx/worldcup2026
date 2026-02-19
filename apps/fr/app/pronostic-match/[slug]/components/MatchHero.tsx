@@ -25,56 +25,144 @@ export function MatchHero({
   dateFormatted,
 }: MatchHeroProps) {
   return (
-    <section className="bg-primary text-white py-12">
-      <div className="mx-auto max-w-7xl px-4">
-        <p className="mb-2 text-center text-sm text-gold font-medium uppercase tracking-wide">
-          {stage}
-          {match.group ? ` - Groupe ${match.group}` : ""}
-          {match.matchday ? ` - Journee ${match.matchday}` : ""}
-        </p>
-        <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
-          <div className="flex flex-col items-center">
-            <span className="text-6xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "\ud83c\udff3\ufe0f"}</span>
+    <section
+      className="relative overflow-hidden text-white py-10 md:py-14"
+      style={{
+        background:
+          "linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%)",
+      }}
+    >
+      {/* Top glow line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+      {/* Bottom accent strip */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      {/* Background dot pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,1) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
+        {/* Stage badge */}
+        <div className="flex justify-center mb-6">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold backdrop-blur-sm">
+            ⚽ {stage}
+            {match.group ? ` — Groupe ${match.group}` : ""}
+            {match.matchday ? ` · Journée ${match.matchday}` : ""}
+          </span>
+        </div>
+
+        {/* Teams face-off */}
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-8 max-w-2xl mx-auto">
+          {/* Home team */}
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="relative">
+              <span
+                className="text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
+                role="img"
+                aria-label={`Drapeau de ${homeName}`}
+              >
+                {home?.flag ?? "🏳️"}
+              </span>
+              {/* Glow effect behind flag */}
+              <div className="absolute inset-0 blur-2xl opacity-20 -z-10 bg-white rounded-full" />
+            </div>
             {home ? (
               <Link
                 href={`/equipe/${home.slug}`}
-                className="mt-2 text-2xl font-extrabold hover:text-gold"
+                className="text-xl md:text-2xl font-extrabold hover:text-gold transition-colors"
               >
                 {home.name}
               </Link>
             ) : (
-              <p className="mt-2 text-2xl font-extrabold">A determiner</p>
+              <p className="text-xl md:text-2xl font-extrabold">À déterminer</p>
             )}
             {home && (
-              <p className="text-sm text-gray-400">#{home.fifaRanking} FIFA</p>
+              <span className="text-xs font-medium text-gray-400 bg-white/8 rounded-full px-2.5 py-0.5">
+                #{home.fifaRanking > 0 ? home.fifaRanking : "–"} FIFA
+              </span>
             )}
           </div>
-          <div className="text-center">
-            <span className="text-3xl font-bold text-gold">VS</span>
-            <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
+
+          {/* VS center */}
+          <div className="flex flex-col items-center gap-1 shrink-0">
+            <span
+              className="text-2xl md:text-3xl font-black text-gold"
+              style={{ textShadow: "0 0 20px rgba(245,166,35,0.5)" }}
+            >
+              VS
+            </span>
+            <span className="text-xs text-gray-400 font-medium tabular-nums">
+              {match.time} UTC
+            </span>
           </div>
-          <div className="flex flex-col items-center">
-            <span className="text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "\ud83c\udff3\ufe0f"}</span>
+
+          {/* Away team */}
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="relative">
+              <span
+                className="text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
+                role="img"
+                aria-label={`Drapeau de ${awayName}`}
+              >
+                {away?.flag ?? "🏳️"}
+              </span>
+              <div className="absolute inset-0 blur-2xl opacity-20 -z-10 bg-white rounded-full" />
+            </div>
             {away ? (
               <Link
                 href={`/equipe/${away.slug}`}
-                className="mt-2 text-2xl font-extrabold hover:text-gold"
+                className="text-xl md:text-2xl font-extrabold hover:text-gold transition-colors"
               >
                 {away.name}
               </Link>
             ) : (
-              <p className="mt-2 text-2xl font-extrabold">A determiner</p>
+              <p className="text-xl md:text-2xl font-extrabold">À déterminer</p>
             )}
             {away && (
-              <p className="text-sm text-gray-400">#{away.fifaRanking} FIFA</p>
+              <span className="text-xs font-medium text-gray-400 bg-white/8 rounded-full px-2.5 py-0.5">
+                #{away.fifaRanking > 0 ? away.fifaRanking : "–"} FIFA
+              </span>
             )}
           </div>
         </div>
-        <p className="mt-6 text-center text-gray-300">
-          {dateFormatted}
-          {stadium ? ` | ${stadium.name}` : ""}
-          {city ? `, ${city.name}` : ""}
-        </p>
+
+        {/* Match info bar */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-sm text-gray-400">
+          <span className="flex items-center gap-1.5">
+            <span className="text-xs">📅</span>
+            {dateFormatted}
+          </span>
+          {stadium && (
+            <span className="flex items-center gap-1.5">
+              <span className="text-xs">🏟️</span>
+              <Link
+                href={`/stade/${stadium.slug}`}
+                className="hover:text-white transition-colors"
+              >
+                {stadium.name}
+              </Link>
+              {city && (
+                <span>
+                  ,{" "}
+                  <Link href={`/ville/${city.slug}`} className="hover:text-white transition-colors">
+                    {city.name}
+                  </Link>
+                </span>
+              )}
+            </span>
+          )}
+          {stadium && (
+            <span className="flex items-center gap-1.5">
+              <span className="text-xs">👥</span>
+              {stadium.capacity.toLocaleString("fr-FR")} places
+            </span>
+          )}
+        </div>
       </div>
     </section>
   );

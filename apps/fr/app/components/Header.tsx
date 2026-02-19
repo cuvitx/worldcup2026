@@ -46,24 +46,20 @@ const routePrefixes: Record<string, Record<string, string>> = {
 };
 
 const langOptions = [
-  { lang: "fr" as const, flag: "\u{1F1EB}\u{1F1F7}", label: "Fran\u00E7ais" },
-  { lang: "en" as const, flag: "\u{1F1EC}\u{1F1E7}", label: "English" },
-  { lang: "es" as const, flag: "\u{1F1EA}\u{1F1F8}", label: "Espa\u00F1ol" },
+  { lang: "fr" as const, flag: "🇫🇷", label: "Français" },
+  { lang: "en" as const, flag: "🇬🇧", label: "English" },
+  { lang: "es" as const, flag: "🇪🇸", label: "Español" },
 ];
 
 function convertPath(pathname: string, fromLang: string, toLang: string): string {
   if (pathname === "/") return "/";
   const segments = pathname.replace(/^\//, "").split("/");
-  // Try matching longest prefix first (e.g. match/calendrier before match)
   const fromPrefixes = routePrefixes[fromLang];
   const toPrefixes = routePrefixes[toLang];
   if (!fromPrefixes || !toPrefixes) return "/";
-
-  // Sort route keys by prefix length descending so longer prefixes match first
   const sortedKeys = Object.keys(fromPrefixes).sort(
     (a, b) => (fromPrefixes[b] ?? "").split("/").length - (fromPrefixes[a] ?? "").split("/").length
   );
-
   for (const key of sortedKeys) {
     const fromPrefix = fromPrefixes[key];
     if (!fromPrefix) continue;
@@ -75,7 +71,6 @@ function convertPath(pathname: string, fromLang: string, toLang: string): string
       return slug ? `/${toPrefix}/${slug}` : `/${toPrefix}`;
     }
   }
-  // Fallback: return homepage
   return "/";
 }
 
@@ -84,26 +79,105 @@ function getUrlForLang(pathname: string, targetLang: string): string {
   return `${domains[targetLang as keyof typeof domains]}${convertedPath}`;
 }
 
-const navLinks = [
-  { href: "/equipes", label: "Équipes" },
-  { href: "/groupe/a", label: "Groupes" },
-  { href: "/match/calendrier", label: "Calendrier" },
-  { href: "/pronostic/france", label: "Pronostics" },
-  { href: "/stades", label: "Stades" },
-  { href: "/joueurs", label: "Joueurs" },
-  { href: "/buteurs", label: "Buteurs" },
-  { href: "/paris-sportifs", label: "Paris sportifs" },
-  { href: "/actualites", label: "Actualités" },
-  { href: "/live", label: "Live" },
-  { href: "/simulateur", label: "Simulateur" },
-  { href: "/comparateur-joueurs", label: "Comparateur" },
-  { href: "/profil", label: "Mon profil 🏅" },
-];
+// Mega menu definitions
+const megaMenus = {
+  equipes: {
+    label: "Équipes & Groupes",
+    icon: "🌍",
+    sections: [
+      {
+        title: "Favoris",
+        links: [
+          { href: "/equipe/france", label: "🇫🇷 France", sub: "#2 FIFA" },
+          { href: "/equipe/argentine", label: "🇦🇷 Argentine", sub: "#1 FIFA" },
+          { href: "/equipe/espagne", label: "🇪🇸 Espagne", sub: "#3 FIFA" },
+          { href: "/equipe/angleterre", label: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", sub: "#4 FIFA" },
+          { href: "/equipe/bresil", label: "🇧🇷 Brésil", sub: "#5 FIFA" },
+        ],
+      },
+      {
+        title: "Groupes",
+        links: [
+          { href: "/groupe/a", label: "Groupe A" },
+          { href: "/groupe/b", label: "Groupe B" },
+          { href: "/groupe/c", label: "Groupe C" },
+          { href: "/groupe/d", label: "Groupe D" },
+          { href: "/groupe/e", label: "Groupe E" },
+          { href: "/groupe/f", label: "Groupe F" },
+        ],
+      },
+      {
+        title: "Explorer",
+        links: [
+          { href: "/equipes", label: "Toutes les équipes →" },
+          { href: "/joueurs", label: "Joueurs clés" },
+          { href: "/buteurs", label: "Cotes buteurs" },
+          { href: "/h2h", label: "Confrontations H2H" },
+        ],
+      },
+    ],
+  },
+  pronostics: {
+    label: "Pronostics & Paris",
+    icon: "💰",
+    sections: [
+      {
+        title: "Pronostics",
+        links: [
+          { href: "/pronostic/france", label: "🇫🇷 France" },
+          { href: "/pronostic/bresil", label: "🇧🇷 Brésil" },
+          { href: "/pronostic/argentine", label: "🇦🇷 Argentine" },
+          { href: "/pronostic/espagne", label: "🇪🇸 Espagne" },
+          { href: "/pronostic/allemagne", label: "🇩🇪 Allemagne" },
+        ],
+      },
+      {
+        title: "Paris sportifs",
+        links: [
+          { href: "/paris-sportifs", label: "Guide paris CDM" },
+          { href: "/comparateur-cotes", label: "Comparateur cotes" },
+          { href: "/bookmaker/betclic", label: "Betclic" },
+          { href: "/bookmaker/winamax", label: "Winamax" },
+          { href: "/match/calendrier", label: "Calendrier matchs" },
+        ],
+      },
+    ],
+  },
+  interactif: {
+    label: "Interactif",
+    icon: "⚡",
+    sections: [
+      {
+        title: "Outils",
+        links: [
+          { href: "/simulateur", label: "🏆 Simulateur bracket" },
+          { href: "/quiz", label: "🧩 Quiz CDM 2026" },
+          { href: "/comparateur-joueurs", label: "⚖️ Comparateur joueurs" },
+          { href: "/live", label: "⚡ Scores en direct" },
+        ],
+      },
+      {
+        title: "Contenu",
+        links: [
+          { href: "/actualites", label: "📰 Actualités" },
+          { href: "/guides", label: "📖 Guides" },
+          { href: "/ou-regarder", label: "📺 Où regarder" },
+          { href: "/profil", label: "🏅 Mon profil" },
+        ],
+      },
+    ],
+  },
+};
+
+type MenuKey = keyof typeof megaMenus;
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<MenuKey | null>(null);
   const langRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
   const searchData = useMemo(() => buildSearchIndex("fr"), []);
@@ -111,19 +185,28 @@ export function Header() {
   const currentOption = langOptions.find((o) => o.lang === CURRENT_LANG)!;
   const otherOptions = langOptions.filter((o) => o.lang !== CURRENT_LANG);
 
-  // Close language dropdown on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
+      }
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setActiveMenu(null);
       }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  // Close on route change
+  useEffect(() => {
+    setOpen(false);
+    setActiveMenu(null);
+    setLangOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="sticky top-0 z-40 bg-primary/90 backdrop-blur-md text-white border-b border-white/5">
+    <header className="sticky top-0 z-40 bg-primary/95 backdrop-blur-md text-white border-b border-white/8">
       {/* Skip to content */}
       <a
         href="#main-content"
@@ -132,32 +215,104 @@ export function Header() {
         Aller au contenu
       </a>
 
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-xl font-bold tracking-tight focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded">
-          <span className="text-gold">⚽ CDM</span> 2026
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="text-lg font-extrabold tracking-tight hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded"
+        >
+          <span className="text-gold">⚽ CDM</span>{" "}
+          <span className="text-white">2026</span>
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden gap-6 text-sm font-medium md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`relative py-1 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded hover:text-gold after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300 ${pathname.startsWith(link.href) ? "text-gold after:w-full" : "after:w-0 hover:after:w-full"}`}
+        {/* Desktop mega-menu nav */}
+        <div ref={menuRef} className="hidden md:flex items-center gap-1">
+          {(Object.entries(megaMenus) as [MenuKey, typeof megaMenus[MenuKey]][]).map(([key, menu]) => (
+            <div key={key} className="relative">
+              <button
+                onMouseEnter={() => setActiveMenu(key)}
+                onClick={() => setActiveMenu(activeMenu === key ? null : key)}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
+                  activeMenu === key ? "bg-white/10 text-white" : "text-gray-300"
+                }`}
+                aria-expanded={activeMenu === key}
               >
-                {link.label}
-              </Link>
-            </li>
+                <span>{menu.icon}</span>
+                <span>{menu.label}</span>
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className={`transition-transform duration-200 ${activeMenu === key ? "rotate-180" : ""}`}
+                >
+                  <path d="M2 4l3 3 3-3" />
+                </svg>
+              </button>
+
+              {/* Mega menu dropdown */}
+              {activeMenu === key && (
+                <div
+                  className="mega-menu p-4"
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <div className={`grid gap-4 ${menu.sections.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
+                    {menu.sections.map((section) => (
+                      <div key={section.title}>
+                        <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 px-2">
+                          {section.title}
+                        </p>
+                        <ul className="space-y-0.5">
+                          {section.links.map((link) => (
+                            <li key={link.href}>
+                              <Link
+                                href={link.href}
+                                className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-accent transition-colors"
+                                onClick={() => setActiveMenu(null)}
+                              >
+                                <span>{link.label}</span>
+                                {"sub" in link && link.sub && (
+                                  <span className="text-[10px] text-gray-400 ml-2 shrink-0">
+                                    {link.sub}
+                                  </span>
+                                )}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
-        </ul>
 
-        <div className="flex items-center gap-2">
-          {/* Profile link */}
-          <Link href="/profil" className="hidden sm:flex items-center gap-1 rounded px-2 py-1 text-sm hover:bg-white/10 transition-colors">
-            Mon profil 🏅
+          {/* Direct links */}
+          <Link
+            href="/match/calendrier"
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
+              pathname.startsWith("/match") ? "text-gold" : "text-gray-300"
+            }`}
+          >
+            📅 Calendrier
           </Link>
+          <Link
+            href="/live"
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 flex items-center gap-1 ${
+              pathname === "/live" ? "text-gold" : "text-gray-300"
+            }`}
+          >
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            Live
+          </Link>
+        </div>
 
-          {/* Search command palette */}
+        {/* Right actions */}
+        <div className="flex items-center gap-1.5">
+          {/* Search */}
           <SearchDialog lang="fr" data={searchData} onNavigate={(href) => router.push(href)} />
 
           {/* Theme toggle */}
@@ -167,50 +322,66 @@ export function Header() {
           <div className="relative" ref={langRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded px-2 py-1 text-sm hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
               aria-label="Changer de langue"
               aria-expanded={langOpen}
             >
               <span>{currentOption.flag}</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <path d="M3 5l3 3 3-3" />
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M2 4l3 3 3-3" />
               </svg>
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-1 min-w-[140px] rounded-lg bg-white text-gray-900 shadow-lg ring-1 ring-black/5 z-50">
+              <div className="absolute right-0 top-full mt-1 min-w-[150px] rounded-xl bg-white text-gray-900 shadow-xl ring-1 ring-black/8 z-50 overflow-hidden animate-scaleIn">
                 {otherOptions.map((opt) => (
                   <a
                     key={opt.lang}
                     href={getUrlForLang(pathname, opt.lang)}
-                    className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 first:rounded-t-lg last:rounded-b-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm hover:bg-gray-50 transition-colors"
                     hrefLang={opt.lang}
                   >
                     <span>{opt.flag}</span>
-                    <span>{opt.label}</span>
+                    <span className="font-medium">{opt.label}</span>
                   </a>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Mobile hamburger button */}
+          {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 -mr-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none rounded"
+            className="md:hidden p-2 -mr-1 rounded-lg hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
               {open ? (
                 <>
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                  <line x1="6" y1="18" x2="18" y2="6" />
+                  <line x1="5" y1="5" x2="17" y2="17" />
+                  <line x1="5" y1="17" x2="17" y2="5" />
                 </>
               ) : (
                 <>
-                  <line x1="4" y1="7" x2="20" y2="7" />
-                  <line x1="4" y1="12" x2="20" y2="12" />
-                  <line x1="4" y1="17" x2="20" y2="17" />
+                  <line x1="3" y1="7" x2="19" y2="7" />
+                  <line x1="3" y1="11" x2="19" y2="11" />
+                  <line x1="3" y1="15" x2="19" y2="15" />
                 </>
               )}
             </svg>
@@ -218,22 +389,80 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile dropdown */}
+      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-white/10 animate-[slideDown_200ms_ease-out]">
-          <ul className="flex flex-col px-4 py-3 gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none ${pathname.startsWith(link.href) ? "bg-white/15 text-gold" : "hover:bg-white/10"}`}
-                  onClick={() => setOpen(false)}
+        <div className="md:hidden border-t border-white/10 animate-[slideDown_200ms_ease-out] bg-primary/98">
+          <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
+            {(Object.entries(megaMenus) as [MenuKey, typeof megaMenus[MenuKey]][]).map(([key, menu]) => (
+              <div key={key}>
+                <button
+                  onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
+                  className="w-full flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-white/10 transition-colors"
                 >
-                  {link.label}
-                </Link>
-              </li>
+                  <span className="flex items-center gap-2">
+                    <span>{menu.icon}</span>
+                    <span>{menu.label}</span>
+                  </span>
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    className={`transition-transform duration-200 ${mobileExpanded === key ? "rotate-180" : ""}`}
+                  >
+                    <path d="M2 4l3 3 3-3" />
+                  </svg>
+                </button>
+                {mobileExpanded === key && (
+                  <div className="pl-4 pb-2 animate-fadeIn">
+                    {menu.sections.map((section) => (
+                      <div key={section.title} className="mb-2">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-3 py-1">
+                          {section.title}
+                        </p>
+                        {section.links.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            className="block rounded-lg px-3 py-2 text-sm text-gray-300 hover:bg-white/8 hover:text-white transition-colors"
+                            onClick={() => setOpen(false)}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
-          </ul>
+
+            {/* Direct links */}
+            <Link
+              href="/match/calendrier"
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              📅 Calendrier des matchs
+            </Link>
+            <Link
+              href="/live"
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              Scores en direct
+            </Link>
+            <Link
+              href="/profil"
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              🏅 Mon profil
+            </Link>
+          </div>
         </div>
       )}
     </header>

@@ -48,6 +48,128 @@ html {
   scrollbar-color: var(--color-accent) transparent;
 }
 
+/* ============================================================
+   ANIMATIONS — Sprint 2 Premium Design
+   ============================================================ */
+
+/* Fade in from below */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide up */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide down (mobile menu) */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(233, 69, 96, 0); }
+}
+
+/* Countdown flip */
+@keyframes countFlip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Champion confetti drop */
+@keyframes confettiFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100px) rotate(720deg); opacity: 0; }
+}
+
+/* Gradient pulse for hero */
+@keyframes hero-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Progress bar fill */
+@keyframes progressFill {
+  from { width: 0; }
+}
+
+/* Stat number count up */
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   ANIMATION UTILITY CLASSES
+   ============================================================ */
+
+.animate-fadeInUp { animation: fadeInUp 0.5s ease forwards; }
+.animate-fadeIn { animation: fadeIn 0.4s ease forwards; }
+.animate-slideUp { animation: slideUp 0.35s ease forwards; }
+.animate-scaleIn { animation: scaleIn 0.3s ease forwards; }
+.animate-pulseGlow { animation: pulseGlow 2s ease-in-out infinite; }
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+/* Stagger children */
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.10s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.20s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.30s; }
+
+/* ============================================================
+   INTERACTIVE DEFAULTS
+   ============================================================ */
+
+/* Smooth transitions on all interactive elements */
+a, button, [role="button"] {
+  transition: all 0.2s ease;
+}
+
+/* Hover card scale */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* ============================================================
+   EXISTING UTILITIES
+   ============================================================ */
+
 /* Utility: card */
 .card {
   border-radius: 0.75rem;
@@ -68,21 +190,12 @@ html {
   background: #1e293b;
 }
 
-/* Touch targets - ensure minimum 44px for interactive elements on mobile */
+/* Touch targets */
 @media (pointer: coarse) {
-  a,
-  button,
-  [role="button"],
-  input,
-  select,
-  textarea {
+  a, button, [role="button"], input, select, textarea {
     min-height: 44px;
   }
-
-  /* Exclude inline text links */
-  p a,
-  li a,
-  span a {
+  p a, li a, span a {
     min-height: auto;
   }
 }
@@ -93,38 +206,163 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Hero animated gradient */
-@keyframes hero-gradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+/* ============================================================
+   HERO
+   ============================================================ */
+
 .hero-animated {
   background: linear-gradient(-45deg, #1a1a2e, #16213e, #0d1b3e, #1a1a2e, #2d1a3e);
   background-size: 300% 300%;
   animation: hero-gradient 12s ease infinite;
   position: relative;
+  overflow: hidden;
 }
 .hero-animated::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
 }
-
-/* Mobile menu slide */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Stadium silhouette subtle overlay */
+.hero-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to top, rgba(233,69,96,0.06), transparent);
+  pointer-events: none;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translate(-50%, 20px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+/* ============================================================
+   MATCH CARD (FlashScore style)
+   ============================================================ */
+
+.match-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+}
+.dark .match-card {
+  background: #1e293b;
+  border-color: rgba(255,255,255,0.08);
+}
+.match-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 16px rgba(233,69,96,0.12);
+  transform: translateY(-1px);
 }
 
-/* Quiz animations */
+/* ============================================================
+   STAT BAR
+   ============================================================ */
+
+.stat-bar-fill {
+  animation: progressFill 0.8s ease forwards;
+  animation-delay: 0.2s;
+  width: 0;
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+
+.tab-underline {
+  position: relative;
+  padding-bottom: 8px;
+  transition: color 0.2s ease;
+}
+.tab-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.tab-underline.active::after,
+.tab-underline:hover::after {
+  transform: scaleX(1);
+}
+.tab-underline.active {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ============================================================
+   BRACKET SIMULATOR
+   ============================================================ */
+
+.bracket-connector {
+  position: relative;
+}
+.bracket-connector::before {
+  content: "";
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  width: 16px;
+  height: 1px;
+  background: #6b7280;
+  opacity: 0.5;
+}
+
+/* Champion glow */
+.champion-glow {
+  box-shadow: 0 0 0 2px var(--color-gold), 0 0 40px rgba(245, 166, 35, 0.4);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Confetti particle */
+.confetti-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: confettiFall 1s ease forwards;
+}
+
+/* ============================================================
+   SHIMMER LOADING SKELETON
+   ============================================================ */
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+.dark .skeleton {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+.dark {
+  --color-bg: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-card: #1e293b;
+  --color-card-hover: #334155;
+}
+
+/* ============================================================
+   QUIZ & FAQ ANIMATIONS (preserved from original)
+   ============================================================ */
+
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   20% { transform: translateX(-4px); }
@@ -138,7 +376,6 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* FAQ accordion animation */
 details .faq-content {
   display: grid;
   grid-template-rows: 0fr;
@@ -159,13 +396,119 @@ details[open] .faq-icon {
   transform: rotate(45deg);
 }
 
-/* Dark mode */
-.dark {
-  --color-bg: #0f172a;
-  --color-bg-secondary: #1e293b;
-  --color-text: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-card: #1e293b;
-  --color-card-hover: #334155;
+/* ============================================================
+   MEGA MENU (Header dropdown)
+   ============================================================ */
+
+.mega-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 480px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  z-index: 100;
+  animation: scaleIn 0.15s ease forwards;
+  transform-origin: top center;
+}
+.dark .mega-menu {
+  background: #1e293b;
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* ============================================================
+   HOT BADGE
+   ============================================================ */
+
+.badge-hot {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #e94560, #ff6b6b);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #f5a623, #ffcc44);
+  color: #1a1a2e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-gold), #ffcc44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.section-header::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   ODDS DISPLAY
+   ============================================================ */
+
+.odds-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  background: rgba(233,69,96,0.1);
+  color: var(--color-accent);
+  border: 1px solid rgba(233,69,96,0.2);
+  transition: all 0.15s ease;
+}
+.odds-badge:hover {
+  background: var(--color-accent);
+  color: white;
+}
+.odds-badge-best {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border-color: rgba(34,197,94,0.25);
+}
+.dark .odds-badge-best {
+  color: #4ade80;
 }

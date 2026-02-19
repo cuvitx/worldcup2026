@@ -7,3 +7,4 @@ export { MatchAnalysis } from "./MatchAnalysis";
 export { H2HSection } from "./H2HSection";
 export { MatchInfo } from "./MatchInfo";
 export { PredictionSidebar } from "./PredictionSidebar";
+export { MatchTabsClient } from "./MatchTabsClient";
