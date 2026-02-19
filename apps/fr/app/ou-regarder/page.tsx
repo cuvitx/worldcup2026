@@ -364,7 +364,7 @@ export default function OuRegarderPage() {
             ))}
           </div>
 
-          <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-sm text-amber-800 dark:text-amber-200">
+          <div className="mt-4 p-4 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-xl text-sm text-[#FF6B35] dark:text-[#FF6B35]">
             <p className="font-semibold">⚠️ Note importante</p>
             <p className="mt-1">
               Les droits TV de TF1 sont encore en cours de finalisation. M6 a confirmé 54 matchs.
@@ -588,7 +588,7 @@ export default function OuRegarderPage() {
               ))}
             </div>
 
-            <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-sm text-amber-800 dark:text-amber-200">
+            <div className="p-4 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-xl text-sm text-[#FF6B35] dark:text-[#FF6B35]">
               <p className="font-semibold">⚠️ Légalité du VPN</p>
               <p className="mt-1">
                 L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage
@@ -755,7 +755,7 @@ export default function OuRegarderPage() {
             ))}
           </div>
 
-          <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-sm text-amber-800 dark:text-amber-200">
+          <div className="mt-4 p-4 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-xl text-sm text-[#FF6B35] dark:text-[#FF6B35]">
             <p className="font-semibold">💡 Bon à savoir</p>
             <p className="mt-1">
               Les matchs de la France seront programmés en priorité sur des créneaux accessibles pour le public européen.

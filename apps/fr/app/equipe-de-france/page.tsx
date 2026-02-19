@@ -548,7 +548,7 @@ export default function EquipeDeFrancePage() {
                       <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">
                         {bm.name}
                       </span>
-                      <span className="text-xs text-green-600 dark:text-green-400 font-semibold">{bm.bonus}</span>
+                      <span className="text-xs text-[#06D6A0] dark:text-[#06D6A0] font-semibold">{bm.bonus}</span>
                       <span className="odds-badge text-base font-extrabold">{displayOdds}</span>
                     </a>
                   );
@@ -562,8 +562,8 @@ export default function EquipeDeFrancePage() {
             {/* Analyse */}
             <div className="space-y-4">
               {/* Forces */}
-              <div className="rounded-xl border border-green-200 dark:border-green-800/50 bg-green-50 dark:bg-green-900/15 p-5">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-green-800 dark:text-green-400 mb-3">
+              <div className="rounded-xl border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 p-5">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-[#06D6A0] dark:text-[#06D6A0] mb-3">
                   ✅ Forces des Bleus
                 </h3>
                 <ul className="space-y-1.5">
@@ -575,8 +575,8 @@ export default function EquipeDeFrancePage() {
                     "Saliba / Upamecano : défense jeune et solide",
                     "Faim de revanche après la défaite 2022 face à l'Argentine",
                   ].map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-green-800 dark:text-green-300">
-                      <span className="shrink-0 text-green-500 mt-0.5">✓</span>
+                    <li key={i} className="flex items-start gap-2 text-sm text-[#06D6A0] dark:text-[#06D6A0]">
+                      <span className="shrink-0 text-[#06D6A0] mt-0.5">✓</span>
                       {point}
                     </li>
                   ))}

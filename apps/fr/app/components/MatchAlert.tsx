@@ -12,7 +12,7 @@ export function MatchAlert() {
   if (dismissed || status === "success") {
     if (status === "success") {
       return (
-        <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-sm font-medium text-green-700 dark:border-green-800/50 dark:bg-green-900/20 dark:text-green-400">
+        <div className="rounded-xl border border-[#06D6A0]/30 bg-[#06D6A0]/10 px-4 py-3 text-center text-sm font-medium text-[#06D6A0] dark:border-[#06D6A0]/20 dark:bg-[#06D6A0]/10 dark:text-[#06D6A0]">
           ✅ C&apos;est noté ! Tu recevras une alerte avant chaque match des Bleus.
         </div>
       );

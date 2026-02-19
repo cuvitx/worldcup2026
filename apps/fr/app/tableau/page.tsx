@@ -157,8 +157,8 @@ const roundColors: Record<string, { bg: string; border: string; text: string; ba
   "round-of-32": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-gray-200 dark:border-slate-700", text: "text-primary dark:text-secondary", badge: "bg-primary" },
   "round-of-16": { bg: "bg-primary/50 dark:bg-primary/950/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-secondary800 dark:text-secondary300", badge: "bg-primary/600" },
   "quarter-final": { bg: "bg-primary/50 dark:bg-primary/950/30", border: "border-purple-200 dark:border-purple-800", text: "text-secondary800 dark:text-secondary300", badge: "bg-primary/600" },
-  "semi-final": { bg: "bg-amber-50 dark:bg-amber-950/30", border: "border-amber-200 dark:border-amber-800", text: "text-amber-800 dark:text-amber-300", badge: "bg-amber-600" },
-  final: { bg: "bg-yellow-50 dark:bg-yellow-950/30", border: "border-yellow-300 dark:border-yellow-700", text: "text-yellow-800 dark:text-yellow-300", badge: "bg-yellow-600" },
+  "semi-final": { bg: "bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10", border: "border-[#FF6B35]/30 dark:border-[#FF6B35]/20", text: "text-[#FF6B35] dark:text-[#FF6B35]", badge: "bg-[#FF6B35]" },
+  final: { bg: "bg-[#FF6B35]/5 dark:bg-[#FF6B35]/10", border: "border-[#FF6B35]/30 dark:border-[#FF6B35]/20", text: "text-[#FF6B35] dark:text-[#FF6B35]", badge: "bg-[#FF6B35]" },
 };
 
 function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner?: boolean; label?: string }) {
@@ -180,7 +180,7 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
     >
       <span className="text-base" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
       <span className="truncate">{team.name}</span>
-      {isWinner && <span className="ml-auto text-xs text-green-600 font-semibold">&#10003;</span>}
+      {isWinner && <span className="ml-auto text-xs text-[#06D6A0] font-semibold">&#10003;</span>}
     </Link>
   );
 }
@@ -269,7 +269,7 @@ export default function BracketPage() {
         {/* Champion prediction */}
         {champion && teamsById[champion] && (
           <section className="rounded-xl border-2 border-yellow-400 dark:border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/30 p-6 text-center">
-            <p className="text-sm font-medium text-amber-700 dark:text-amber-400 uppercase tracking-wide mb-2">🏆 Champion prédit</p>
+            <p className="text-sm font-medium text-[#FF6B35] dark:text-[#FF6B35] uppercase tracking-wide mb-2">🏆 Champion prédit</p>
             <Link href={`/equipe/${teamsById[champion]!.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
               <span className="text-3xl sm:text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
               <span className="text-3xl font-extrabold text-gray-900 dark:text-white">{teamsById[champion]!.name}</span>

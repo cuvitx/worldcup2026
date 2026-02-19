@@ -90,15 +90,15 @@ export default function ButeursPage() {
               const barPct = Math.round((scorer.goals / maxGoals) * 100);
               const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : null;
               const barColor =
-                idx === 0 ? "bg-gradient-to-r from-amber-400 to-yellow-300" :
+                idx === 0 ? "bg-gradient-to-r from-[#FF6B35] to-[#FF6B35]/70" :
                 idx === 1 ? "bg-gradient-to-r from-slate-400 to-gray-300" :
-                idx === 2 ? "bg-gradient-to-r from-orange-500 to-amber-400" :
+                idx === 2 ? "bg-gradient-to-r from-[#FF6B35]/80 to-[#FF6B35]/60" :
                 "bg-gradient-to-r from-blue-500 to-blue-400";
 
               return (
                 <div
                   key={`${scorer.name}-${idx}`}
-                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-amber-50/50 dark:bg-amber-900/10" : ""}`}
+                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-[#FF6B35]/5 dark:bg-[#FF6B35]/5" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     {/* Rang */}
@@ -173,9 +173,9 @@ export default function ButeursPage() {
               const team = teamsById[candidate.teamId];
               const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `${idx + 1}.`;
               const podiumBg =
-                idx === 0 ? "bg-gradient-to-r from-secondary/5 to-amber-50/30 dark:from-secondary/10 dark:to-amber-900/10" :
+                idx === 0 ? "bg-gradient-to-r from-secondary/5 to-[#FF6B35]/5 dark:from-secondary/10 dark:to-[#FF6B35]/5" :
                 idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50 dark:from-slate-800/80 dark:to-slate-800/40" :
-                idx === 2 ? "bg-gradient-to-r from-orange-50/50 to-amber-50/20 dark:from-orange-900/10 dark:to-amber-900/5" :
+                idx === 2 ? "bg-gradient-to-r from-[#FF6B35]/5 to-[#FF6B35]/5 dark:from-[#FF6B35]/5 dark:to-[#FF6B35]/5" :
                 "bg-white dark:bg-slate-800";
               const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
               const bestBookmakerOdds = Math.max(candidate.winamax, candidate.betclic, candidate.draftkings);
@@ -231,7 +231,7 @@ export default function ButeursPage() {
                       <ul className="space-y-0.5">
                         {candidate.strengths.map((s, si) => (
                           <li key={si} className="flex items-start gap-1.5 text-xs text-gray-600 dark:text-gray-300">
-                            <span className="shrink-0 mt-0.5 text-green-500">✓</span>
+                            <span className="shrink-0 mt-0.5 text-[#06D6A0]">✓</span>
                             {s}
                           </li>
                         ))}
@@ -249,9 +249,9 @@ export default function ButeursPage() {
                           {candidate.winamax.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-secondary/10 border-secondary/30" : "bg-teal-50 dark:bg-teal-900/20 border-teal-100 dark:border-teal-800/30"}`}>
-                        <span className="text-xs font-semibold text-teal-700 dark:text-teal-400">Betclic</span>
-                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-secondary" : "text-teal-600 dark:text-teal-300"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-secondary/10 border-secondary/30" : "bg-secondary/10 dark:bg-secondary/10 border-secondary/30 dark:border-secondary/20"}`}>
+                        <span className="text-xs font-semibold text-secondary dark:text-secondary">Betclic</span>
+                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-secondary" : "text-secondary dark:text-secondary"}`}>
                           {candidate.betclic.toFixed(2)}
                         </span>
                       </div>

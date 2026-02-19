@@ -293,10 +293,10 @@ export default function BilletsPage() {
       </section>
 
       {/* ===== ALERTE IMPORTANT ===== */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-800/50">
+      <div className="bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border-b border-[#FF6B35]/30 dark:border-[#FF6B35]/20">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-start gap-3">
-          <span className="text-amber-500 shrink-0 mt-0.5">⚠️</span>
-          <p className="text-sm text-amber-800 dark:text-amber-300">
+          <span className="text-[#FF6B35] shrink-0 mt-0.5">⚠️</span>
+          <p className="text-sm text-[#FF6B35] dark:text-[#FF6B35]">
             <strong>Important :</strong> Achetez uniquement sur{" "}
             <a href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
               fifa.com/tickets
@@ -486,7 +486,7 @@ export default function BilletsPage() {
               >
                 <div className={`shrink-0 mt-1 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap ${
                   phase.statusColor === "green"
-                    ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
+                    ? "bg-[#06D6A0]/15 dark:bg-[#06D6A0]/10 text-[#06D6A0] dark:text-[#06D6A0]"
                     : phase.statusColor === "blue"
                     ? "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
                     : "bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-300 line-through"
@@ -585,13 +585,13 @@ export default function BilletsPage() {
                 key={tip.title}
                 className={`rounded-xl border p-4 ${
                   tip.icon === "✅"
-                    ? "border-green-200 dark:border-green-800/50 bg-green-50/50 dark:bg-green-900/10"
+                    ? "border-[#06D6A0]/30 dark:border-[#06D6A0]/20 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10"
                     : "border-red-200 dark:border-red-800/50 bg-red-50/50 dark:bg-red-900/10"
                 }`}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">{tip.icon}</span>
-                  <h3 className={`text-sm font-semibold ${ tip.icon === "✅" ? "text-green-800 dark:text-green-400" : "text-red-800 dark:text-red-400" }`}>
+                  <h3 className={`text-sm font-semibold ${ tip.icon === "✅" ? "text-[#06D6A0] dark:text-[#06D6A0]" : "text-red-800 dark:text-red-400" }`}>
                     {tip.title}
                   </h3>
                 </div>

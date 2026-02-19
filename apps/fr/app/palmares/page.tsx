@@ -663,7 +663,7 @@ export default function PalmaresPage() {
                       <span className="text-3xl">{ed.winnerFlag}</span>
                       <div>
                         <div className="font-bold text-sm">{ed.winner}</div>
-                        <div className="text-xs text-green-600 dark:text-green-400">
+                        <div className="text-xs text-[#06D6A0] dark:text-[#06D6A0]">
                           🏆 Champion
                         </div>
                       </div>

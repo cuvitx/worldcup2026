@@ -146,22 +146,22 @@ export default function ProfilPage() {
         /* ─── Team dashboard ─── */
         <div className="mb-10 space-y-4">
           {/* Team header */}
-          <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-primary to-primary/80 px-6 py-5 text-white shadow-lg">
-            <span className="text-4xl sm:text-5xl shrink-0">{myTeam.flag}</span>
+          <div className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary to-primary/80 px-4 py-3 text-white shadow-lg">
+            <span className="text-3xl sm:text-4xl shrink-0">{myTeam.flag}</span>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium opacity-80">Tu supportes</p>
-              <p className="text-xl font-extrabold tracking-tight sm:text-2xl truncate">{myTeam.name}</p>
-              {daysToNext !== null && (
-                <p className="mt-1 text-sm opacity-90">
+              <p className="text-xs font-medium opacity-80">Tu supportes</p>
+              <p className="text-lg font-extrabold tracking-tight sm:text-xl truncate">{myTeam.name}</p>
+              {daysToNext !== null && nextMatch && (
+                <p className="mt-0.5 text-xs opacity-90">
                   {daysToNext === 0
                     ? "🔴 Match aujourd'hui !"
-                    : `Prochain match dans ${daysToNext}j`}
+                    : `Prochain match dans ${daysToNext}j · ${nextMatch.date.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}`}
                 </p>
               )}
             </div>
             <Link
               href={`/equipe/${myTeam.slug}`}
-              className="shrink-0 rounded-lg bg-white/20 px-3 py-2 text-sm font-medium backdrop-blur transition hover:bg-white/30"
+              className="shrink-0 text-sm font-medium text-white/90 hover:text-white underline underline-offset-2 transition"
             >
               Voir fiche →
             </Link>

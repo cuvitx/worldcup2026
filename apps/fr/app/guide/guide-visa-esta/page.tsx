@@ -118,9 +118,9 @@ export default function GuideVisaEsta() {
             En période de Coupe du Monde, le volume de demandes ESTA va exploser. Nous recommandons de faire votre demande <strong>au minimum 3 mois avant votre départ</strong>. Si vous avez déjà un ESTA valide, vérifiez sa date d&apos;expiration dès maintenant.
           </p>
 
-          <div className="not-prose my-8 rounded-xl bg-amber-50 border border-amber-200 p-6 dark:bg-amber-900/20 dark:border-amber-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-amber-800 dark:text-amber-300 mb-2">⚠️ Attention aux arnaques</h3>
-            <p className="text-sm text-amber-700 dark:text-amber-400">
+          <div className="not-prose my-8 rounded-xl bg-[#FF6B35]/10 border border-[#FF6B35]/30 p-6 dark:bg-[#FF6B35]/10 dark:border-[#FF6B35]/20">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-[#FF6B35] dark:text-[#FF6B35] mb-2">⚠️ Attention aux arnaques</h3>
+            <p className="text-sm text-[#FF6B35] dark:text-[#FF6B35]">
               De nombreux sites frauduleux proposent des « ESTA express » à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
             </p>
           </div>

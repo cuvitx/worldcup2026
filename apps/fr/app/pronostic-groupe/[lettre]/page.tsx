@@ -227,7 +227,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             <span
                               className={`font-bold text-sm ${
                                 idx < 2
-                                  ? "text-green-600 dark:text-green-400"
+                                  ? "text-[#06D6A0] dark:text-[#06D6A0]"
                                   : "text-gray-500 dark:text-gray-300"
                               }`}
                             >
@@ -273,7 +273,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           {team!.name}
                         </Link>
                         {qual && (
-                          <span className="ml-auto rounded-full bg-green-100 dark:bg-green-900/30 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-400">
+                          <span className="ml-auto rounded-full bg-[#06D6A0]/15 dark:bg-[#06D6A0]/10/30 px-2 py-0.5 text-xs font-semibold text-[#06D6A0] dark:text-[#06D6A0]">
                             ✅ Qualifié
                           </span>
                         )}
@@ -353,7 +353,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                         const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "4️⃣";
                         const qualifyBg =
                           idx < 2
-                            ? "bg-green-50 dark:bg-green-900/10"
+                            ? "bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10/10"
                             : idx === 2
                             ? "bg-secondary/5 dark:bg-secondary/10"
                             : "bg-red-50/50 dark:bg-red-900/5";
@@ -363,7 +363,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             : `${ep.predictedGoalDiff}`;
                         const goalDiffColor =
                           ep.predictedGoalDiff > 0
-                            ? "text-green-600 dark:text-green-400"
+                            ? "text-[#06D6A0] dark:text-[#06D6A0]"
                             : ep.predictedGoalDiff < 0
                             ? "text-red-500 dark:text-red-400"
                             : "text-gray-500";
@@ -410,12 +410,12 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             {/* Prob qual */}
                             <td className="px-4 py-3 text-center">
                               <div className="flex flex-col items-center gap-1">
-                                <span className={`text-xs font-bold ${idx < 2 ? "text-green-600 dark:text-green-400" : "text-gray-500"}`}>
+                                <span className={`text-xs font-bold ${idx < 2 ? "text-[#06D6A0] dark:text-[#06D6A0]" : "text-gray-500"}`}>
                                   {Math.round(ep.qualifyProb * 100)}%
                                 </span>
                                 <div className="w-12 h-1.5 bg-gray-200 dark:bg-slate-600 rounded-full overflow-hidden">
                                   <div
-                                    className={`h-full rounded-full ${idx < 2 ? "bg-green-500" : idx === 2 ? "bg-secondary" : "bg-red-400"}`}
+                                    className={`h-full rounded-full ${idx < 2 ? "bg-[#06D6A0]" : idx === 2 ? "bg-secondary" : "bg-red-400"}`}
                                     style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }}
                                   />
                                 </div>
@@ -424,7 +424,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             {/* Statut */}
                             <td className="px-4 py-3 text-center">
                               {idx < 2 ? (
-                                <span className="inline-block rounded-full bg-green-100 dark:bg-green-900/30 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-400">
+                                <span className="inline-block rounded-full bg-[#06D6A0]/15 dark:bg-[#06D6A0]/10/30 px-2 py-0.5 text-xs font-semibold text-[#06D6A0] dark:text-[#06D6A0]">
                                   ✅ Qualifié
                                 </span>
                               ) : idx === 2 ? (
@@ -465,14 +465,14 @@ export default async function PronosticGroupPage({ params }: PageProps) {
 
               {/* Qualified */}
               <div className="mb-4">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-[#06D6A0] dark:text-[#06D6A0] mb-2">
                   ✅ Qualifiés directs pour les huitièmes
                 </h3>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {qualified.map(({ team, pred }) => (
                     <div
                       key={team!.id}
-                      className="flex items-center gap-3 rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 p-3"
+                      className="flex items-center gap-3 rounded-lg border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10/20 p-3"
                     >
                       <span className="text-2xl">{team!.flag}</span>
                       <div>
@@ -670,7 +670,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             <span className="font-medium">{team!.name}</span>
                           </div>
                         </td>
-                        <td className="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">
+                        <td className="px-4 py-3 text-center font-mono font-bold text-[#06D6A0] dark:text-[#06D6A0]">
                           {pred ? probToOdds(pred.groupStageProb / 1.08) : "—"}
                         </td>
                         <td className="px-4 py-3 text-center font-mono">

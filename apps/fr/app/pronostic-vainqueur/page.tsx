@@ -228,12 +228,12 @@ const teamArguments: Record<
 
 // Couleurs par confédération pour le graphique
 const CONFEDERATION_COLORS: Record<string, { bg: string; border: string; label: string }> = {
-  UEFA: { bg: "bg-primary", border: "border-primary/60", label: "UEFA (Europe)" },
-  CONMEBOL: { bg: "bg-field", border: "border-field/60", label: "CONMEBOL (Amérique du Sud)" },
-  CONCACAF: { bg: "bg-amber-500", border: "border-amber-400", label: "CONCACAF (Amérique du Nord)" },
-  CAF: { bg: "bg-primary", border: "border-primary/20", label: "CAF (Afrique)" },
-  AFC: { bg: "bg-secondary", border: "border-secondary/60", label: "AFC (Asie)" },
-  OFC: { bg: "bg-teal-500", border: "border-teal-400", label: "OFC (Océanie)" },
+  UEFA: { bg: "bg-[#2EC4B6]", border: "border-[#2EC4B6]/60", label: "UEFA (Europe)" },
+  CONMEBOL: { bg: "bg-[#0D3B66]", border: "border-[#0D3B66]/60", label: "CONMEBOL (Amérique du Sud)" },
+  CONCACAF: { bg: "bg-[#FF6B35]", border: "border-[#FF6B35]/60", label: "CONCACAF (Amérique du Nord)" },
+  CAF: { bg: "bg-[#0D3B66]/70", border: "border-[#0D3B66]/20", label: "CAF (Afrique)" },
+  AFC: { bg: "bg-[#2EC4B6]/70", border: "border-[#2EC4B6]/60", label: "AFC (Asie)" },
+  OFC: { bg: "bg-[#06D6A0]", border: "border-[#06D6A0]/60", label: "OFC (Océanie)" },
 };
 
 // Analyse narrative pour le top 5 "Pourquoi ils peuvent gagner"
@@ -362,7 +362,7 @@ export default function PronosticVainqueurPage() {
       {/* Breadcrumb nav */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 flex-wrap">
             <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Pronostic vainqueur</li>
@@ -413,7 +413,7 @@ export default function PronosticVainqueurPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 📊 Chances de titre par confédération
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 Barres proportionnelles aux probabilités — colorées par confédération
               </p>
             </div>
@@ -441,7 +441,7 @@ export default function PronosticVainqueurPage() {
               return (
                 <div key={team.id} className="flex items-center gap-3">
                   {/* Rank */}
-                  <span className="shrink-0 w-6 text-right text-xs font-bold text-gray-400 dark:text-gray-400">
+                  <span className="shrink-0 w-6 text-right text-xs font-bold text-gray-600 dark:text-gray-400">
                     {index + 1}
                   </span>
                   {/* Flag + name */}
@@ -471,7 +471,7 @@ export default function PronosticVainqueurPage() {
             })}
           </div>
 
-          <div className="mt-4 text-xs text-gray-400 dark:text-gray-400">
+          <div className="mt-4 text-xs text-gray-600 dark:text-gray-400">
             * Largeur des barres proportionnelle à la probabilité de remporter le titre (modèle ELO). Les cotes sont indicatives.
           </div>
         </div>
@@ -485,7 +485,7 @@ export default function PronosticVainqueurPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 🥇 Top 10 des favoris CDM 2026
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 Classement par probabilité de victoire (modèle ELO + cotes bookmakers)
               </p>
             </div>
@@ -499,7 +499,7 @@ export default function PronosticVainqueurPage() {
               const approxOdds = fav ? fav.avgOdds.toFixed(2) : estimatedOutrightOdds(pred.winnerProb);
               const impliedPct = fav ? Math.round(fav.impliedProbability * 100 * 10) / 10 : null;
               const trendIcon = fav ? (fav.trend === "up" ? " ↑" : fav.trend === "down" ? " ↓" : "") : "";
-              const trendColor = fav?.trend === "up" ? "text-green-500" : fav?.trend === "down" ? "text-red-400" : "";
+              const trendColor = fav?.trend === "up" ? "text-[#06D6A0]" : fav?.trend === "down" ? "text-red-400" : "";
               const args = teamArguments[team.id];
 
               return (
@@ -529,10 +529,10 @@ export default function PronosticVainqueurPage() {
                         {team.name}
                       </Link>
                       <div className="flex items-center gap-3 mt-0.5 flex-wrap">
-                        <span className="text-xs text-gray-500 dark:text-gray-300">
+                        <span className="text-xs text-gray-600 dark:text-gray-300">
                           #{team.fifaRanking} FIFA
                         </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-300">
+                        <span className="text-xs text-gray-600 dark:text-gray-300">
                           ELO {pred.eloRating}
                         </span>
                         <span className="text-xs bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
@@ -546,7 +546,7 @@ export default function PronosticVainqueurPage() {
                       <p className="text-2xl font-extrabold text-primary">
                         {winPct < 1 ? "<1" : winPct}%
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-300">chance titre</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-300">chance titre</p>
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="text-xl font-bold text-secondary">
@@ -555,7 +555,7 @@ export default function PronosticVainqueurPage() {
                           <span className={`text-sm ml-1 font-bold ${trendColor}`}>{trendIcon}</span>
                         )}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-300">
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
                         {fav ? "cote moy. marché" : "cote approx."}
                       </p>
                     </div>
@@ -564,14 +564,14 @@ export default function PronosticVainqueurPage() {
                   {/* Real bookmaker odds strip (if in top10Favorites) */}
                   {fav && (
                     <div className="flex items-center gap-2 px-5 pb-2 flex-wrap">
-                      <span className="text-[10px] text-gray-400 dark:text-gray-400 uppercase tracking-wide">Cotes réelles :</span>
+                      <span className="text-[10px] text-gray-600 dark:text-gray-400 uppercase tracking-wide">Cotes réelles :</span>
                       <span className="inline-flex items-center gap-1 rounded bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/20 px-2 py-0.5 text-xs font-bold text-primary dark:text-secondary">
                         Winamax {fav.winamax.toFixed(2)}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/50 px-2 py-0.5 text-xs font-bold text-teal-600 dark:text-teal-400">
+                      <span className="inline-flex items-center gap-1 rounded bg-secondary/10 dark:bg-secondary/10 border border-secondary/30 dark:border-secondary/20 px-2 py-0.5 text-xs font-bold text-secondary dark:text-secondary">
                         Bet365 {fav.bet365.toFixed(2)}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 px-2 py-0.5 text-xs font-bold text-green-600 dark:text-green-400">
+                      <span className="inline-flex items-center gap-1 rounded bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 px-2 py-0.5 text-xs font-bold text-[#06D6A0] dark:text-[#06D6A0]">
                         DraftKings {fav.draftkings.toFixed(2)}
                       </span>
                       {impliedPct !== null && (
@@ -585,7 +585,7 @@ export default function PronosticVainqueurPage() {
                   {/* Mobile: chance titre */}
                   <div className="flex sm:hidden items-center gap-4 px-5 pb-3">
                     <span className="text-xl font-extrabold text-primary">{winPct < 1 ? "<1" : winPct}%</span>
-                    <span className="text-sm text-gray-500 dark:text-gray-300">chance de gagner le titre</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-300">chance de gagner le titre</span>
                   </div>
 
                   {/* Probability bar */}
@@ -597,7 +597,7 @@ export default function PronosticVainqueurPage() {
                           style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                         />
                       </div>
-                      <span className="text-xs text-gray-400 dark:text-gray-400 shrink-0 w-20 text-right">
+                      <span className="text-xs text-gray-600 dark:text-gray-400 shrink-0 w-20 text-right">
                         finale: {Math.round(pred.finalProb * 100)}%
                       </span>
                     </div>
@@ -606,8 +606,8 @@ export default function PronosticVainqueurPage() {
                   {/* Pro/Con */}
                   {args && (
                     <div className="grid sm:grid-cols-2 gap-0 border-t border-gray-100 dark:border-slate-700">
-                      <div className="p-4 bg-green-50/50 dark:bg-green-900/10">
-                        <p className="text-xs font-bold text-green-700 dark:text-green-400 mb-2">✅ Points forts</p>
+                      <div className="p-4 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10">
+                        <p className="text-xs font-bold text-[#06D6A0] dark:text-[#06D6A0] mb-2">✅ Points forts</p>
                         <ul className="space-y-1">
                           {args.pros.slice(0, 3).map((pro, i) => (
                             <li key={i} className="text-xs text-gray-700 dark:text-gray-300">
@@ -643,7 +643,7 @@ export default function PronosticVainqueurPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 🔍 Pourquoi ils peuvent gagner — Analyse top 5
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 Décryptage en profondeur des 5 équipes les plus probables de soulever le trophée
               </p>
             </div>
@@ -679,7 +679,7 @@ export default function PronosticVainqueurPage() {
                       <div className="flex items-center gap-3 mt-0.5 flex-wrap">
                         <span className="text-sm text-primary font-bold">{winPct}% de chance de titre</span>
                         <span className="text-sm text-secondary font-bold">Cote {analysis.betOdds}</span>
-                        <span className="text-xs text-gray-500 dark:text-gray-300">{team.bestResult}</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-300">{team.bestResult}</span>
                       </div>
                     </div>
                   </div>
@@ -734,7 +734,7 @@ export default function PronosticVainqueurPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 🏠 Historique : qui a gagné à domicile ?
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 Le pays hôte peut-il vraiment faire la différence ? Retour sur 22 éditions.
               </p>
             </div>
@@ -752,10 +752,10 @@ export default function PronosticVainqueurPage() {
               <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">taux de victoire à domicile</p>
               <p className="text-xs text-gray-500 mt-1">Avantage terrain non négligeable</p>
             </div>
-            <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50 dark:bg-amber-900/20 p-5 text-center">
-              <p className="text-4xl font-extrabold text-amber-600 mb-1">3</p>
-              <p className="text-sm text-amber-700 dark:text-amber-300 font-medium">pays hôtes en 2026</p>
-              <p className="text-xs text-amber-600/70 dark:text-amber-400/70 mt-1">USA, Canada, Mexique — triple avantage terrain</p>
+            <div className="rounded-xl border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 p-5 text-center">
+              <p className="text-4xl font-extrabold text-[#FF6B35] mb-1">3</p>
+              <p className="text-sm text-[#FF6B35] dark:text-[#FF6B35] font-medium">pays hôtes en 2026</p>
+              <p className="text-xs text-[#FF6B35]/70 dark:text-[#FF6B35]/70 mt-1">USA, Canada, Mexique — triple avantage terrain</p>
             </div>
           </div>
 
@@ -775,7 +775,7 @@ export default function PronosticVainqueurPage() {
                     <p className="font-bold text-gray-900 dark:text-white">
                       {s.host} {s.year}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-300">{s.note}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-300">{s.note}</p>
                   </div>
                   <span className="ml-auto text-secondary font-extrabold text-lg">🏆</span>
                 </div>
@@ -786,7 +786,7 @@ export default function PronosticVainqueurPage() {
           {/* Timeline complète (compacte) */}
           <details className="group">
             <summary className="cursor-pointer flex items-center gap-2 text-sm font-semibold text-primary hover:underline list-none mb-4">
-              <span className="group-open:rotate-90 transition-transform inline-block">▶</span>
+              <svg className="w-4 h-4 group-open:rotate-90 transition-transform duration-200 inline-block" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" /></svg>
               Voir l&apos;historique complet ({totalEditions} éditions)
             </summary>
             <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
@@ -818,9 +818,9 @@ export default function PronosticVainqueurPage() {
                       <td className={`px-3 py-2 font-semibold ${s.hostWon ? "text-secondary" : "text-gray-600 dark:text-gray-300"}`}>
                         {s.winner} {s.hostWon ? "🏆" : ""}
                       </td>
-                      <td className="px-3 py-2 text-gray-500 dark:text-gray-300 hidden sm:table-cell">{s.note}</td>
+                      <td className="px-3 py-2 text-gray-600 dark:text-gray-300 hidden sm:table-cell">{s.note}</td>
                       <td className="px-3 py-2 text-center">
-                        {s.hostWon ? <span className="text-green-500 font-bold">✓</span> : <span className="text-red-400">✗</span>}
+                        {s.hostWon ? <span className="text-[#06D6A0] font-bold">✓</span> : <span className="text-red-400">✗</span>}
                       </td>
                     </tr>
                   ))}
@@ -849,7 +849,7 @@ export default function PronosticVainqueurPage() {
                     <span className="font-bold text-sm text-gray-900 dark:text-white">{host.name}</span>
                     <span className="ml-auto text-xs font-bold text-primary">{host.chance}</span>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-300">{host.note}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-300">{host.note}</p>
                 </div>
               ))}
             </div>
@@ -864,7 +864,7 @@ export default function PronosticVainqueurPage() {
             <span className="text-secondary">🏆</span>
             Simulateur interactif
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-2xl font-bold text-white mb-3">
             Construisez votre propre bracket
           </h2>
           <p className="text-gray-300/80 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
@@ -875,7 +875,7 @@ export default function PronosticVainqueurPage() {
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/simulateur"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-secondary to-amber-500 px-8 py-3.5 font-bold text-primary shadow-lg shadow-secondary/30 hover:shadow-xl hover:-translate-y-1 transition-all text-base"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-8 py-3.5 font-bold text-white shadow-lg shadow-secondary/30 hover:shadow-xl hover:-translate-y-1 transition-all text-base"
             >
               🎮 Lancer le simulateur bracket
             </Link>
@@ -898,10 +898,10 @@ export default function PronosticVainqueurPage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             📊 Cotes vainqueur CDM 2026 — Multi-bookmakers
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-300 mb-1">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">
             Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700 dark:text-gray-200">février 2026</span>.
           </p>
-          <p className="text-xs text-gray-400 dark:text-gray-400 mb-6">
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
             ↑ Tendance haussière vs. cotes d&apos;ouverture (déc. 2025) · ↓ Tendance baissière · → Stable
           </p>
 
@@ -915,7 +915,7 @@ export default function PronosticVainqueurPage() {
                   <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#53B648]">DraftKings</th>
                   <th className="text-center px-4 py-3 font-bold text-secondary whitespace-nowrap">Moy. marché</th>
                   <th className="text-center px-4 py-3 font-bold text-primary whitespace-nowrap">Proba.</th>
-                  <th className="text-center px-4 py-3 font-bold text-gray-500 dark:text-gray-300 whitespace-nowrap">Tendance</th>
+                  <th className="text-center px-4 py-3 font-bold text-gray-600 dark:text-gray-300 whitespace-nowrap">Tendance</th>
                 </tr>
               </thead>
               <tbody>
@@ -925,10 +925,10 @@ export default function PronosticVainqueurPage() {
                   const trendIcon = fav.trend === "up" ? "↑" : fav.trend === "down" ? "↓" : "→";
                   const trendColor =
                     fav.trend === "up"
-                      ? "text-green-600 dark:text-green-400"
+                      ? "text-[#06D6A0] dark:text-[#06D6A0]"
                       : fav.trend === "down"
                       ? "text-red-500 dark:text-red-400"
-                      : "text-gray-400 dark:text-gray-400";
+                      : "text-gray-600 dark:text-gray-400";
                   const impliedPct = Math.round(fav.impliedProbability * 100 * 10) / 10;
                   // best odds among bookmakers
                   const bestOdds = Math.max(fav.winamax, fav.bet365, fav.draftkings);
@@ -1002,13 +1002,13 @@ export default function PronosticVainqueurPage() {
 
           {/* Légende + note */}
           <div className="mt-4 flex flex-wrap gap-4 items-start justify-between">
-            <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-300">
+            <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-300">
               <span>🟡 = Meilleure cote du moment</span>
-              <span className="text-green-600 dark:text-green-400 font-semibold">↑ Tendance haussière</span>
+              <span className="text-[#06D6A0] dark:text-[#06D6A0] font-semibold">↑ Tendance haussière</span>
               <span className="text-red-500 dark:text-red-400 font-semibold">↓ Tendance baissière</span>
               <span>→ Stable</span>
             </div>
-            <p className="text-xs text-gray-400 dark:text-gray-400 max-w-xs text-right">
+            <p className="text-xs text-gray-600 dark:text-gray-400 max-w-xs text-right">
               Sources : Winamax (football.fr), Bet365 (covers.com), DraftKings (nbcsports.com). Cotes décimales. Jeu responsable — 18+.
             </p>
           </div>
@@ -1030,7 +1030,7 @@ export default function PronosticVainqueurPage() {
                 <div>
                   <p className="font-bold text-gray-900 dark:text-white">{bm.name}</p>
                   <p className="text-sm text-primary font-semibold">{bm.bonus}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-300">{bm.bonusDetail}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-300">{bm.bonusDetail}</p>
                 </div>
                 <div className="text-right">
                   <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
@@ -1050,7 +1050,7 @@ export default function PronosticVainqueurPage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             🐎 Dark Horses — Les outsiders à surveiller
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
             Ces équipes peuvent créer la surprise et aller loin dans le tournoi.
           </p>
 
@@ -1072,17 +1072,17 @@ export default function PronosticVainqueurPage() {
                       <p className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                         {team.name}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-300">#{team.fifaRanking} FIFA · ELO {pred.eloRating}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-300">#{team.fifaRanking} FIFA · ELO {pred.eloRating}</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2 mt-3">
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
                       <p className="text-lg font-bold text-primary">{winPct}%</p>
-                      <p className="text-[10px] text-gray-500 dark:text-gray-300">chance titre</p>
+                      <p className="text-[10px] text-gray-600 dark:text-gray-300">chance titre</p>
                     </div>
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
                       <p className="text-lg font-bold text-secondary">{qfPct}%</p>
-                      <p className="text-[10px] text-gray-500 dark:text-gray-300">quart de finale</p>
+                      <p className="text-[10px] text-gray-600 dark:text-gray-300">quart de finale</p>
                     </div>
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
@@ -1094,11 +1094,11 @@ export default function PronosticVainqueurPage() {
           </div>
 
           {/* Special mention: hosts */}
-          <div className="mt-6 rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50 dark:bg-amber-900/20 p-5">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-amber-800 dark:text-amber-400 mb-2">
+          <div className="mt-6 rounded-xl border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 p-5">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-[#FF6B35] dark:text-[#FF6B35] mb-2">
               🏠 Les pays organisateurs : avantage terrain
             </h3>
-            <p className="text-sm text-amber-700 dark:text-amber-300/80 leading-relaxed">
+            <p className="text-sm text-[#FF6B35] dark:text-[#FF6B35]/80 leading-relaxed">
               États-Unis, Canada et Mexique jouent à domicile. Historiquement, le pays hôte
               bénéficie d&apos;un bonus de 6 à 8 points ELO grâce au soutien du public et à la
               connaissance des terrains. Le Canada (Alphonso Davies) et le Mexique (Azteca) sont
@@ -1130,7 +1130,7 @@ export default function PronosticVainqueurPage() {
                 <div key={item.title} className="rounded-lg bg-white dark:bg-slate-900 p-4 border border-gray-200 dark:border-slate-700">
                   <p className="text-2xl mb-2">{item.icon}</p>
                   <p className="font-bold text-gray-900 dark:text-white text-sm mb-1">{item.title}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed">{item.desc}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -1160,8 +1160,8 @@ export default function PronosticVainqueurPage() {
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors list-none">
                     {item.question}
-                    <span className="ml-4 shrink-0 text-gray-400 dark:text-gray-400 group-open:rotate-180 transition-transform">
-                      ▼
+                    <span className="ml-4 shrink-0 w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 group-open:rotate-45 transition-transform duration-200">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
                     </span>
                   </summary>
                   <div className="px-5 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-700 pt-3">

@@ -112,7 +112,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       {/* Footer */}
       <div className="px-5 py-3 bg-gray-50 dark:bg-slate-900/30 text-[11px] text-gray-400 dark:text-gray-400">
         * Cotes estimées à partir de notre modèle. Les cotes réelles peuvent varier.{" "}
-        <span className="text-green-600 dark:text-green-400 font-semibold">Vert = meilleure valeur</span>
+        <span className="text-[#06D6A0] dark:text-[#06D6A0] font-semibold">Surligné = meilleure valeur</span>
       </div>
     </section>
   );
@@ -124,7 +124,7 @@ function OddsCell({ value, isBest }: { value: string; isBest: boolean }) {
       <span
         className={`inline-block rounded-lg px-2.5 py-1 text-sm font-bold tabular-nums transition-all ${
           isBest
-            ? "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-700/50"
+            ? "bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 text-[#06D6A0] dark:text-[#06D6A0] border border-[#06D6A0]/30 dark:border-[#06D6A0]/20"
             : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
         }`}
       >

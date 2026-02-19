@@ -65,7 +65,7 @@ const TYPE_COLORS: Record<SearchItem["type"], string> = {
   team: "text-primary dark:text-white bg-primary/10 dark:bg-primary/20",
   player: "text-field dark:text-field bg-field/10 dark:bg-field/20",
   match: "text-secondary dark:text-secondary bg-secondary/10 dark:bg-secondary/20",
-  stadium: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30",
+  stadium: "text-[#FF6B35] dark:text-[#FF6B35] bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10",
   city: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30",
 };
 

@@ -60,7 +60,7 @@ function AdminContent() {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Banner */}
-        <div className="bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 rounded-xl px-6 py-4 text-center font-semibold text-yellow-800 dark:text-yellow-200">
+        <div className="bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-xl px-6 py-4 text-center font-semibold text-[#FF6B35] dark:text-[#FF6B35]">
           🔒 Page admin — accès restreint
         </div>
 
@@ -139,7 +139,7 @@ function AdminContent() {
           <ul className="space-y-2">
             {checklist.map((item) => (
               <li key={item.task} className="flex items-center gap-3">
-                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400" : "bg-gray-100 dark:bg-slate-800 text-gray-400"}`}>
+                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-[#06D6A0]/15 dark:bg-[#06D6A0]/10 text-[#06D6A0] dark:text-[#06D6A0]" : "bg-gray-100 dark:bg-slate-800 text-gray-400"}`}>
                   {item.done ? "✓" : "○"}
                 </span>
                 <span className={item.done ? "line-through text-gray-400" : ""}>{item.task}</span>

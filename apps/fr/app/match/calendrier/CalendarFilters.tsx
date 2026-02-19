@@ -160,7 +160,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
             )}
           </div>
           {hasFilters && (
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-600">
               {filtered.length} match{filtered.length !== 1 ? "s" : ""} trouvé{filtered.length !== 1 ? "s" : ""}
             </p>
           )}
@@ -229,11 +229,11 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                               </span>
                               <div className="flex items-center gap-2 flex-1 min-w-0">
                                 <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                                <span className="font-medium text-gray-900 dark:text-gray-100 truncate">{home?.name ?? "À déterminer"}</span>
+                                <span className="text-sm text-gray-900 dark:text-gray-100">{home?.name ?? "À déterminer"}</span>
                               </div>
-                              <span className="text-xs font-bold text-gray-400 dark:text-gray-400 shrink-0">vs</span>
+                              <span className="text-xs font-bold text-gray-600 dark:text-gray-400 shrink-0">vs</span>
                               <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                                <span className="font-medium text-gray-900 dark:text-gray-100 truncate text-right">{away?.name ?? "À déterminer"}</span>
+                                <span className="text-sm text-gray-900 dark:text-gray-100 text-right">{away?.name ?? "À déterminer"}</span>
                                 <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                               </div>
                               {match.group && (

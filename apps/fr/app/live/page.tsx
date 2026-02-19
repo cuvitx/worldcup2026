@@ -100,16 +100,16 @@ export default function LivePage() {
       <Countdown />
 
       {/* Pre-tournament notice */}
-      <section className="bg-amber-50 dark:bg-amber-900/20 border-y border-amber-200 dark:border-amber-700 py-6">
+      <section className="bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border-y border-[#FF6B35]/30 dark:border-[#FF6B35]/20 py-6">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 dark:bg-amber-800 px-4 py-2 text-amber-800 dark:text-amber-100 font-semibold text-sm mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#FF6B35]/15 dark:bg-[#FF6B35]/15 px-4 py-2 text-[#FF6B35] dark:text-[#FF6B35] font-semibold text-sm mb-3">
             <span>📡</span>
             <span>En attente du coup d&apos;envoi</span>
           </div>
-          <p className="text-amber-900 dark:text-amber-100 text-lg font-medium">
+          <p className="text-[#FF6B35] dark:text-[#FF6B35] text-lg font-medium">
             Les résultats en direct seront disponibles dès le 11 juin 2026
           </p>
-          <p className="text-amber-700 dark:text-amber-300 text-sm mt-1">
+          <p className="text-[#FF6B35] dark:text-[#FF6B35] text-sm mt-1">
             Scores actualisés en temps réel, événements et compositions d&apos;équipe
           </p>
         </div>

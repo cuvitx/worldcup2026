@@ -216,7 +216,7 @@ export function LeaderboardClient() {
                   <td className="hidden px-4 py-3 text-right md:table-cell">
                     <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
                       successRate >= 50
-                        ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                        ? "bg-[#06D6A0]/15 text-[#06D6A0] dark:bg-[#06D6A0]/10 dark:text-[#06D6A0]"
                         : "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300"
                     }`}>
                       {successRate}%
@@ -250,11 +250,11 @@ export function LeaderboardClient() {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">Comment ça marche ?</h2>
         <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
           <li className="flex items-start gap-2">
-            <span className="mt-0.5 text-green-500">●</span>
+            <span className="mt-0.5 text-[#06D6A0]">●</span>
             <span><strong>3 points</strong> — Résultat exact (bon score)</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="mt-0.5 text-yellow-500">●</span>
+            <span className="mt-0.5 text-[#FF6B35]">●</span>
             <span><strong>1 point</strong> — Bon vainqueur (ou match nul correctement prédit)</span>
           </li>
           <li className="flex items-start gap-2">

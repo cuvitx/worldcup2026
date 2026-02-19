@@ -87,7 +87,7 @@ const categoryColors: Record<string, string> = {
   billets: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
   equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
   paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
-  transferts: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+  transferts: "bg-[#FF6B35]/15 text-[#FF6B35] dark:bg-[#FF6B35]/10 dark:text-[#FF6B35]",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -646,7 +646,7 @@ export default function HomePage() {
                       <p className="text-lg font-black text-secondary">
                         {outrightOdds}
                         {trendIcon && (
-                          <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-green-500" : "text-red-400"}`}>
+                          <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-[#06D6A0]" : "text-red-400"}`}>
                             {trendIcon}
                           </span>
                         )}

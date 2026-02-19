@@ -131,17 +131,17 @@ export default function ComparateurCotesPage() {
                             </div>
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.home === best.home ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
+                            o.home === best.home ? "text-[#06D6A0] dark:text-[#06D6A0] bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.home.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.draw === best.draw ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
+                            o.draw === best.draw ? "text-[#06D6A0] dark:text-[#06D6A0] bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.draw.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.away === best.away ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30" : "text-gray-700 dark:text-gray-300"
+                            o.away === best.away ? "text-[#06D6A0] dark:text-[#06D6A0] bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.away.toFixed(2)}
                           </td>
@@ -166,7 +166,7 @@ export default function ComparateurCotesPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg text-sm text-amber-800 dark:text-amber-200">
+        <div className="mt-8 p-4 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-lg text-sm text-[#FF6B35] dark:text-[#FF6B35]">
           <p className="font-semibold mb-1">⚠️ Avertissement</p>
           <p>
             Cotes indicatives, susceptibles de varier. Les cotes affichées sont fournies à titre informatif et peuvent

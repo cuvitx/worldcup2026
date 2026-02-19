@@ -158,53 +158,44 @@ export default async function MatchPage({ params }: PageProps) {
           </div>
         </section>
       ) : (
-        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
+        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-5 sm:py-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
+            <p className="mb-2 text-center text-xs text-secondary font-medium uppercase tracking-wide">
               {stage}
               {match.group ? ` - Groupe ${match.group}` : ""}
             </p>
-            <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
-              <div className="flex flex-col items-center">
-                <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                {home ? (
-                  <Link
-                    href={`/equipe/${home.slug}`}
-                    className="mt-2 text-2xl font-extrabold hover:text-secondary"
-                  >
-                    {home.name}
-                  </Link>
-                ) : (
-                  <p className="mt-2 text-2xl font-extrabold">A determiner</p>
-                )}
-                {home && (
-                  <p className="text-sm text-gray-300">#{home.fifaRanking} FIFA</p>
-                )}
+            <div className="flex items-center justify-center gap-3 sm:gap-6">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-2xl sm:text-4xl shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
+                <div className="min-w-0">
+                  {home ? (
+                    <Link href={`/equipe/${home.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary truncate block">
+                      {home.name}
+                    </Link>
+                  ) : (
+                    <p className="text-lg sm:text-2xl font-extrabold">TBD</p>
+                  )}
+                  {home && <p className="text-xs text-gray-300">#{home.fifaRanking} FIFA</p>}
+                </div>
               </div>
-              <div className="text-center">
-                <span className="text-3xl font-bold text-secondary">VS</span>
-                <p className="mt-1 text-sm text-gray-300">{match.time} UTC</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-                {away ? (
-                  <Link
-                    href={`/equipe/${away.slug}`}
-                    className="mt-2 text-2xl font-extrabold hover:text-secondary"
-                  >
-                    {away.name}
-                  </Link>
-                ) : (
-                  <p className="mt-2 text-2xl font-extrabold">A determiner</p>
-                )}
-                {away && (
-                  <p className="text-sm text-gray-300">#{away.fifaRanking} FIFA</p>
-                )}
+              <span className="text-xl sm:text-2xl font-bold text-secondary shrink-0">VS</span>
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="min-w-0 text-right">
+                  {away ? (
+                    <Link href={`/equipe/${away.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary truncate block">
+                      {away.name}
+                    </Link>
+                  ) : (
+                    <p className="text-lg sm:text-2xl font-extrabold">TBD</p>
+                  )}
+                  {away && <p className="text-xs text-gray-300">#{away.fifaRanking} FIFA</p>}
+                </div>
+                <span className="text-2xl sm:text-4xl shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
               </div>
             </div>
-            <p className="mt-6 text-center text-gray-300">
-              {dateFormatted}
-              {stadium ? ` | ${stadium.name}` : ""}
+            <p className="mt-2 text-center text-sm text-gray-300">
+              {match.time} UTC · {dateFormatted}
+              {stadium ? ` · ${stadium.name}` : ""}
               {city ? `, ${city.name}` : ""}
             </p>
           </div>
@@ -221,13 +212,13 @@ export default async function MatchPage({ params }: PageProps) {
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
-                        <th className="py-3 px-3 text-left text-sm font-medium text-primary">
+                        <th className="py-3 px-3 text-left text-xs font-medium text-primary uppercase">
                           {home.name}
                         </th>
-                        <th className="py-3 px-3 text-center text-sm font-medium text-gray-500">
-                          Critere
+                        <th className="py-3 px-3 text-center text-xs font-medium text-gray-600">
+                          Critère
                         </th>
-                        <th className="py-3 px-3 text-right text-sm font-medium text-primary">
+                        <th className="py-3 px-3 text-right text-xs font-medium text-primary uppercase">
                           {away.name}
                         </th>
                       </tr>
@@ -256,13 +247,13 @@ export default async function MatchPage({ params }: PageProps) {
                         },
                       ].map((row) => (
                         <tr key={row.label}>
-                          <td className="py-3 text-left font-medium">
+                          <td className="py-3 px-3 text-left text-sm font-medium text-gray-900 dark:text-white">
                             {row.v1}
                           </td>
-                          <td className="py-3 text-center text-gray-500">
+                          <td className="py-3 px-3 text-center text-sm text-gray-600 dark:text-gray-300 break-words">
                             {row.label}
                           </td>
-                          <td className="py-3 text-right font-medium">
+                          <td className="py-3 px-3 text-right text-sm font-medium text-gray-900 dark:text-white">
                             {row.v2}
                           </td>
                         </tr>
@@ -330,17 +321,17 @@ export default async function MatchPage({ params }: PageProps) {
                       <p className="text-sm text-gray-500">Score predit</p>
                       <p className="text-2xl font-extrabold text-primary">{pred.predictedScore}</p>
                     </div>
-                    <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="font-bold text-primary">{featuredBookmaker.name}</p>
-                          <p className="text-sm text-gray-600">{featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}</p>
+                    <div className="rounded-lg border border-primary/20 bg-primary/5 p-3">
+                      <div className="flex items-center gap-3">
+                        <div className="flex-1 min-w-0">
+                          <p className="font-bold text-primary text-sm">{featuredBookmaker.name}</p>
+                          <p className="text-xs text-gray-600 truncate">{featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}</p>
                         </div>
                         <Link
                           href={`/pronostic-match/${match.slug}`}
-                          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90"
+                          className="shrink-0 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-white hover:bg-accent/90 transition-colors"
                         >
-                          Voir le pronostic &rarr;
+                          Pronostic →
                         </Link>
                       </div>
                     </div>

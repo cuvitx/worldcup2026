@@ -194,7 +194,7 @@ export default async function CityPage({ params }: PageProps) {
                     <ul className="space-y-1">
                       {enrichment.transport.transports.map((t, i) => (
                         <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                          <span className="text-green-500 mt-0.5">✓</span>
+                          <span className="text-[#06D6A0] mt-0.5">✓</span>
                           <span>{t}</span>
                         </li>
                       ))}

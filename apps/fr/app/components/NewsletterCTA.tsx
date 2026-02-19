@@ -75,11 +75,11 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
   /* ────── SUCCESS STATE ────── */
   if (status === 'success') {
     return (
-      <div className={`rounded-2xl border border-green-200 dark:border-green-800/40 bg-green-50 dark:bg-green-900/20 p-5 flex items-center gap-4 ${className}`}>
+      <div className={`rounded-2xl border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 p-5 flex items-center gap-4 ${className}`}>
         <span className="text-3xl shrink-0">✅</span>
         <div>
-          <p className="font-bold text-green-700 dark:text-green-400">Inscription réussie !</p>
-          <p className="text-sm text-green-600 dark:text-green-500 mt-0.5">
+          <p className="font-bold text-[#06D6A0] dark:text-[#06D6A0]">Inscription réussie !</p>
+          <p className="text-sm text-[#06D6A0] dark:text-[#06D6A0]/80 mt-0.5">
             Vous recevrez nos pronostics chaque semaine.{' '}
             <Link href="/newsletter" className="underline hover:no-underline">
               En savoir plus →
@@ -130,7 +130,7 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
           </p>
         )}
         {status === 'duplicate' && (
-          <p className="mt-1.5 text-xs text-amber-600 dark:text-amber-400">Déjà inscrit(e) !</p>
+          <p className="mt-1.5 text-xs text-[#FF6B35] dark:text-[#FF6B35]">Déjà inscrit(e) !</p>
         )}
         <p className="mt-2 text-[10px] text-gray-400 dark:text-gray-400">
           Gratuit · Sans spam ·{' '}
@@ -158,10 +158,10 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
                 Newsletter CDM 2026
               </span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-2xl font-bold text-white mb-2">
               Recevez nos pronostics par email
             </h2>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-300 leading-relaxed">
               Programme de la semaine · Pronostics exclusifs · Alertes matchs · Meilleures cotes
             </p>
             <div className="mt-3 flex flex-wrap gap-3 justify-center md:justify-start">
@@ -208,11 +208,11 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
               </p>
             )}
             {status === 'duplicate' && (
-              <p className="mt-2 text-xs text-amber-400">📬 Cette adresse est déjà inscrite !</p>
+              <p className="mt-2 text-xs text-[#FF6B35]">📬 Cette adresse est déjà inscrite !</p>
             )}
             {(status === 'idle' || status === 'loading') && (
-              <p className="mt-2 text-xs text-gray-500">
-                12 000+ fans abonnés ·{' '}
+              <p className="mt-2 text-xs text-gray-400">
+                Rejoignez nos abonnés ·{' '}
                 <Link
                   href="/newsletter"
                   className="text-gray-400 hover:text-white underline transition-colors"
