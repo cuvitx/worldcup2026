@@ -10,7 +10,8 @@ const AXES: { key: keyof TeamRating; label: string }[] = [
   { key: "experience", label: "Expérience CDM" },
 ];
 
-const SIZE = 300;
+const PAD = 50;
+const SIZE = 300 + PAD * 2;
 const CX = SIZE / 2;
 const CY = SIZE / 2;
 const R = 120; // max radius
@@ -80,7 +81,7 @@ export default function RadarChart({ rating, color = "#3b82f6", className }: Rad
   return (
     <svg
       viewBox={`0 0 ${SIZE} ${SIZE}`}
-      className={`w-full max-w-[280px] mx-auto ${className ?? ""}`}
+      className={`w-full max-w-[320px] mx-auto ${className ?? ""}`}
       role="img"
       aria-label="Radar chart des notes de l'équipe"
     >
