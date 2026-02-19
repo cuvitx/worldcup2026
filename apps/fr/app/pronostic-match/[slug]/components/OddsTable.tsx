@@ -40,8 +40,11 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
         </span>
       </div>
 
+      {/* Scrollable table on mobile */}
+      <div className="overflow-x-auto">
+
       {/* Column headers */}
-      <div className="grid grid-cols-[1fr_repeat(3,80px)_100px] px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
+      <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] px-4 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
         <span>Bookmaker</span>
         <span className="text-center truncate" title={`Victoire ${homeName}`}>1 {homeName.length > 8 ? homeName.slice(0, 8) + "…" : homeName}</span>
         <span className="text-center">N</span>
@@ -50,7 +53,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       </div>
 
       {/* Estimation row */}
-      <div className="grid grid-cols-[1fr_repeat(3,80px)_100px] items-center px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700">
+      <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
         <div className="flex items-center gap-2">
           <span className="w-5 h-5 rounded-full bg-primary dark:bg-gray-700 text-gold text-[9px] font-bold flex items-center justify-center shrink-0">AI</span>
           <span className="text-sm font-bold text-primary dark:text-gray-100">Estimation CDM</span>
@@ -65,7 +68,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       {bookmakers.map((bk) => (
         <div
           key={bk.id}
-          className="grid grid-cols-[1fr_repeat(3,80px)_100px] items-center px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors"
+          className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors min-w-[420px]"
         >
           <div className="flex items-center gap-2 min-w-0">
             {/* Bookmaker logo placeholder */}
@@ -103,6 +106,8 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
           </div>
         </div>
       ))}
+
+      </div>{/* end overflow-x-auto */}
 
       {/* Footer */}
       <div className="px-5 py-3 bg-gray-50 dark:bg-gray-900/30 text-[11px] text-gray-400 dark:text-gray-500">

@@ -57,12 +57,12 @@ export function MatchHero({
         </div>
 
         {/* Teams face-off */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-8 max-w-2xl mx-auto">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 md:gap-8 max-w-2xl mx-auto px-2">
           {/* Home team */}
           <div className="flex flex-col items-center gap-2 text-center">
             <div className="relative">
               <span
-                className="text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
+                className="text-5xl sm:text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
                 role="img"
                 aria-label={`Drapeau de ${homeName}`}
               >
@@ -105,7 +105,7 @@ export function MatchHero({
           <div className="flex flex-col items-center gap-2 text-center">
             <div className="relative">
               <span
-                className="text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
+                className="text-5xl sm:text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
                 role="img"
                 aria-label={`Drapeau de ${awayName}`}
               >
