@@ -23,7 +23,8 @@
     "./api-football-ids": "./src/api-football-ids.ts",
     "./faq": "./src/faq.ts",
     "./search-index": "./src/search-index.ts",
-    "./news": "./src/news.ts"
+    "./news": "./src/news.ts",
+    "./player-stats": "./src/player-stats.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

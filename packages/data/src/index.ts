@@ -25,6 +25,8 @@ export type { ScorerOdds } from "./scorers";
 export { scorerPlayers, scorerOdds, scorerOddsById, topScorerRanking, scorersByTeam } from "./scorers";
 export type { BookmakerReview } from "./bookmaker-reviews";
 export { bookmakerReviews, bookmakerReviewsById, bookmakerReviewsBySlug } from "./bookmaker-reviews";
+export type { PlayerStats } from "./player-stats";
+export { playerStats, playerStatsById, playerStatsByTeam } from "./player-stats";
 export type { Guide } from "./guides";
 export { guides, guidesById, guidesBySlug, guidesByCategory } from "./guides";
 export type { TournamentPhase, MatchPhase } from "./tournament-state";

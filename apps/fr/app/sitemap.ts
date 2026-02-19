@@ -120,6 +120,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${BASE_URL}/comparateur-joueurs`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/comparateur-cotes`,
       lastModified: LAST_UPDATED,
       changeFrequency: "daily",

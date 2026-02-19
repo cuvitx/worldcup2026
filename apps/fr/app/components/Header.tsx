@@ -96,6 +96,7 @@ const navLinks = [
   { href: "/actualites", label: "Actualités" },
   { href: "/live", label: "Live" },
   { href: "/simulateur", label: "Simulateur" },
+  { href: "/comparateur-joueurs", label: "Comparateur" },
   { href: "/profil", label: "Mon profil 🏅" },
 ];
 
