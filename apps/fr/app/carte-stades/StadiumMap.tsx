@@ -58,7 +58,7 @@ function createColoredIcon(color: string) {
   });
 }
 
-export function StadiumMap() {
+export default function StadiumMap() {
   return (
     <div className="relative w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg">
       <div className="w-full h-full dark:invert dark:hue-rotate-180 dark:brightness-150">

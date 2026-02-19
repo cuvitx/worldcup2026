@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
-import dynamic from "next/dynamic";
-
-const StadiumMap = dynamic(() => import("./StadiumMap").then((m) => m.StadiumMap), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[400px] md:h-[600px] rounded-2xl bg-gray-100 dark:bg-slate-800 animate-pulse flex items-center justify-center text-gray-400">
-      Chargement de la carte…
-    </div>
-  ),
-});
+import StadiumMapLazy from "./StadiumMapLazy";
 
 export const metadata: Metadata = {
   title: "Carte des Stades CDM 2026 | Les 16 stades de la Coupe du Monde",
@@ -126,7 +117,7 @@ export default function CarteStadesPage() {
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12" id="main-content">
         {/* Interactive map */}
         <section className="mb-10" aria-label="Carte interactive">
-          <StadiumMap />
+          <StadiumMapLazy />
           <p className="text-xs text-center text-gray-400 dark:text-gray-400 mt-2">
             Survolez un marqueur pour voir les détails · Cliquez pour accéder à la fiche du stade
           </p>

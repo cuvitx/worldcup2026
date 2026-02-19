@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 const StadiumMap = dynamic(
-  () => import("./StadiumMap").then((m) => m.StadiumMap),
+  () => import("./StadiumMap"),
   {
     ssr: false,
     loading: () => (
