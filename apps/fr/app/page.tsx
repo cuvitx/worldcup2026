@@ -142,21 +142,21 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           1. HERO — Cinematic full-screen avec countdown intégré
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-[#070b18] text-white">
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden text-white" style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}>
         {/* Background — stade fantôme */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: "url('/images/stadiums/metlife-stadium.jpg')" }}
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070b18]/60 via-[#070b18]/40 to-[#070b18]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D3B66]/60 via-[#0F1923]/40 to-[#0D3B66]" />
 
         {/* Orbs décoratifs */}
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
+        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center pt-16 sm:pt-20">
           {/* Badge event */}
           <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
@@ -228,7 +228,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
           STATS RIBBON
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-white dark:bg-[#0d1117] border-y border-gray-200 dark:border-white/5">
+      <section className="bg-white dark:bg-[#0D3B66] border-y border-gray-200 dark:border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-white/5">
             {[
@@ -272,7 +272,7 @@ export default function HomePage() {
 
           <div className="grid gap-4 sm:grid-cols-3">
             {upcomingMatches.length === 0 ? (
-              <p className="col-span-3 text-center text-gray-400 py-8">
+              <p className="col-span-3 text-center text-gray-500 py-8">
                 Aucun match à venir.
               </p>
             ) : (
@@ -292,14 +292,14 @@ export default function HomePage() {
 
                     {/* Match group badge */}
                     <div className="flex items-center justify-between px-4 pt-3 pb-2">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-400">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         {match.group ? `Groupe ${match.group}` : match.stage}
                         {match.matchday ? ` · J${match.matchday}` : ""}
                       </span>
                       <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-300">
                         {formatMatchDate(match.date)}
                         {match.time && (
-                          <span className="ml-1 text-gray-400"> {match.time}</span>
+                          <span className="ml-1 text-gray-500"> {match.time}</span>
                         )}
                       </span>
                     </div>
@@ -341,7 +341,7 @@ export default function HomePage() {
                             <p className="text-[10px] font-bold text-gray-700 dark:text-gray-300 truncate">
                               {stadium.name}
                             </p>
-                            <p className="text-[9px] text-gray-400 dark:text-gray-400">
+                            <p className="text-[9px] text-gray-500 dark:text-gray-400">
                               {stadium.city}
                             </p>
                           </div>
@@ -400,7 +400,7 @@ export default function HomePage() {
                   className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
                 >
                   {/* Header */}
-                  <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-[#0d1117] to-[#1a2035]">
+                  <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-[#0D3B66] to-[#0F1923]">
                     <span className="text-xs font-black text-secondary">
                       GROUPE {group.letter}
                     </span>
@@ -505,7 +505,7 @@ export default function HomePage() {
                   </p>
 
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50 dark:border-gray-800">
-                    <p className="text-[10px] text-gray-400 dark:text-gray-400 font-medium">
+                    <p className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
                       {new Date(article.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
                         day: "numeric",
                         month: "long",
@@ -622,7 +622,7 @@ export default function HomePage() {
                   {/* Win probability bar */}
                   {winPct !== null && winPct > 0 && (
                     <div className="w-full mt-1.5 mb-2">
-                      <div className="flex justify-between text-[9px] text-gray-400 mb-1">
+                      <div className="flex justify-between text-[9px] text-gray-500 mb-1">
                         <span>Chances</span>
                         <span className="font-bold text-primary">
                           {winPct < 1 ? "<1" : winPct}%
@@ -652,14 +652,14 @@ export default function HomePage() {
                         )}
                       </p>
                       {favData && (
-                        <p className="text-[9px] text-gray-400 dark:text-gray-400 mt-0.5">
+                        <p className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5">
                           Proba : {Math.round(favData.impliedProbability * 100)}%
                         </p>
                       )}
                     </div>
                   )}
 
-                  <p className="text-[9px] text-gray-400 dark:text-gray-600 mt-2">
+                  <p className="text-[9px] text-gray-500 dark:text-gray-600 mt-2">
                     Groupe {team.group}
                   </p>
                 </Link>
@@ -668,7 +668,7 @@ export default function HomePage() {
           </div>
 
           {/* Disclaimer */}
-          <p className="mt-4 text-center text-[10px] text-gray-400 dark:text-gray-600">
+          <p className="mt-4 text-center text-[10px] text-gray-500 dark:text-gray-600">
             * Cotes indicatives basées sur nos modèles. Vérifiez sur les bookmakers agréés.
             Pariez responsablement. 18+
           </p>
