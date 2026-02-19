@@ -144,7 +144,7 @@ export default function Quiz() {
   if (phase === "result") {
     return (
       <div className="max-w-lg mx-auto text-center">
-        <div className="text-7xl mb-4">{scoreEmoji}</div>
+        <div className="text-4xl mb-4 sm:text-7xl">{scoreEmoji}</div>
         <h2 className="text-3xl font-bold mb-2">
           {score}/{gameQuestions.length}
         </h2>

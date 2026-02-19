@@ -55,7 +55,7 @@ export default function CalendrierPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Calendrier des matchs</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Calendrier des matchs</h1>
           <p className="mt-2 text-gray-300">
             104 matchs du 11 juin au 19 juillet 2026
           </p>

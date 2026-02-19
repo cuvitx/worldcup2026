@@ -35,7 +35,7 @@ export default function ButeursPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Cotes buteurs CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Cotes buteurs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             {scorerOdds.length} attaquants et milieux offensifs analyses. Cotes buteur, buts attendus et probabilites pour chaque joueur.
           </p>

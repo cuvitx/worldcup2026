@@ -31,7 +31,7 @@ export default function GroupsPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Les 12 groupes de la CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Les 12 groupes de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             48 équipes réparties en 12 groupes de 4. Les 2 premiers de chaque groupe et les 8 meilleurs 3e sont qualifiés.
           </p>

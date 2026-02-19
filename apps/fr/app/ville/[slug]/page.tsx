@@ -55,10 +55,10 @@ export default async function CityPage({ params }: PageProps) {
 
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center gap-6">
-            <span className="text-7xl">🏙️</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="text-4xl sm:text-7xl">🏙️</span>
             <div>
-              <h1 className="text-4xl font-extrabold">{city.name}</h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">{city.name}</h1>
               <p className="mt-2 text-gray-300">
                 {city.state}, {city.country} &middot; Ville hôte CDM 2026
               </p>

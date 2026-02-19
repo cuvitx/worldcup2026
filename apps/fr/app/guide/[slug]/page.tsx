@@ -80,7 +80,7 @@ export default async function GuidePage({ params }: PageProps) {
           <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium mb-3">
             {categoryLabels[guide.category] ?? guide.category}
           </span>
-          <h1 className="text-4xl font-extrabold">{guide.title}</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">{guide.title}</h1>
           <p className="mt-3 text-lg text-gray-300 max-w-3xl">{guide.intro}</p>
         </div>
       </section>

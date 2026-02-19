@@ -75,7 +75,7 @@ export default async function BookmakerPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="flex-1">
-              <h1 className="text-4xl font-extrabold">Avis {bk.name} 2026</h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">Avis {bk.name} 2026</h1>
               <p className="mt-2 text-xl text-gray-300">{bk.tagline}</p>
               <p className="mt-1 text-gray-500">
                 Fonde en {bk.foundedYear} &middot; Licence {bk.license}
@@ -132,7 +132,7 @@ export default async function BookmakerPage({ params }: PageProps) {
               </div>
               <div className="mt-4 rounded-lg bg-gold/10 border border-gold/30 p-4 text-center">
                 <p className="text-sm text-gray-500">Note globale</p>
-                <p className="text-4xl font-extrabold text-gold">{avgRating.toFixed(1)}/5</p>
+                <p className="text-2xl font-extrabold text-gold sm:text-4xl">{avgRating.toFixed(1)}/5</p>
               </div>
             </section>
 

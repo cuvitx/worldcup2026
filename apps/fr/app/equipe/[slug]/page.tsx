@@ -86,10 +86,10 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Team Header */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center gap-6">
-            <span className="text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <div>
-              <h1 className="text-4xl font-extrabold">{team.name}</h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">{team.name}</h1>
               <p className="mt-2 text-gray-300">
                 {team.confederation} &middot; Classement FIFA #{team.fifaRanking} &middot; Groupe {team.group}
               </p>

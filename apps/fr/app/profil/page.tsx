@@ -34,15 +34,15 @@ export default function ProfilPage() {
 
       {/* Streak — big animated flame */}
       <div className="mb-8 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-6 py-5 text-white shadow-lg">
-        <span className="text-5xl animate-pulse drop-shadow-lg">🔥</span>
+        <span className="text-3xl animate-pulse drop-shadow-lg sm:text-5xl">🔥</span>
         <div>
           <p className="text-sm font-medium opacity-90">Streak actuel</p>
-          <p className="text-4xl font-extrabold tracking-tight">{stats.streak} jour{stats.streak !== 1 ? "s" : ""}</p>
+          <p className="text-2xl font-extrabold tracking-tight sm:text-4xl">{stats.streak} jour{stats.streak !== 1 ? "s" : ""}</p>
         </div>
       </div>
 
       {/* Stats cards with icons */}
-      <div className="mb-10 grid grid-cols-3 gap-4">
+      <div className="mb-10 grid grid-cols-3 gap-2 sm:gap-4">
         {[
           { label: "Pages visitées", value: stats.visitedPages.length, icon: "📄" },
           { label: "Votes", value: stats.votes, icon: "🗳️" },

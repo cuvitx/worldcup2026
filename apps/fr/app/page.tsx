@@ -115,7 +115,7 @@ export default function HomePage() {
             Coupe du Monde 2026 · 11 juin – 19 juillet
           </div>
 
-          <h1 className="mb-4 text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl drop-shadow-lg">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight sm:text-5xl md:text-7xl lg:text-8xl drop-shadow-lg">
             <span className="gradient-text">CDM 2026</span>
           </h1>
 
@@ -159,7 +159,7 @@ export default function HomePage() {
           ================================================================ */}
       <section className="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 py-5">
-          <div className="grid grid-cols-4 divide-x divide-gray-100 dark:divide-gray-800 md:grid-cols-8">
+          <div className="grid grid-cols-2 divide-x divide-gray-100 dark:divide-gray-800 sm:grid-cols-4 md:grid-cols-8">
             {[
               { value: "48", label: "Équipes", icon: "🌍" },
               { value: "104", label: "Matchs", icon: "⚽" },

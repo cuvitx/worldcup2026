@@ -136,10 +136,10 @@ export default async function PronosticTeamPage({ params }: PageProps) {
       {/* Hero Section */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center gap-6">
-            <span className="text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             <div>
-              <h1 className="text-4xl font-extrabold">
+              <h1 className="text-2xl font-extrabold sm:text-4xl">
                 Pronostic {team.name}
               </h1>
               <p className="mt-2 text-xl text-gray-300">
@@ -165,7 +165,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   Rating ELO de {team.name}
                 </h2>
                 <div className="flex items-end gap-4 mb-4">
-                  <p className="text-5xl font-extrabold text-primary">
+                  <p className="text-3xl font-extrabold text-primary sm:text-5xl">
                     {prediction.eloRating}
                   </p>
                   <p className="text-sm text-gray-500 pb-1">points ELO</p>
@@ -253,7 +253,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <p className="text-sm text-gray-500 mb-1">
                       Cote vainqueur CDM
                     </p>
-                    <p className="text-4xl font-extrabold text-gold">
+                    <p className="text-2xl font-extrabold text-gold sm:text-4xl">
                       {estimatedOutrightOdds(prediction.winnerProb)}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">cote decimale estimee</p>
@@ -262,13 +262,13 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     <p className="text-sm text-gray-500 mb-1">
                       Probabilite de victoire
                     </p>
-                    <p className="text-4xl font-extrabold text-primary">
+                    <p className="text-2xl font-extrabold text-primary sm:text-4xl">
                       {formatProb(prediction.winnerProb)}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">selon le modele ELO</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {[
                     {
                       label: "Passer les groupes",

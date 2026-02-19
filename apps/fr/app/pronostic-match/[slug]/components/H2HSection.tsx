@@ -23,7 +23,7 @@ export function H2HSection({
       </h2>
       {h2h && h2h.totalMatches > 0 ? (
         <>
-          <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
             <div className="rounded-lg bg-accent/5 p-4 text-center">
               <p className="text-3xl font-bold text-accent">
                 {h2h.team1Wins}

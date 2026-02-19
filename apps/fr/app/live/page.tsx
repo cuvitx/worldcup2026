@@ -89,7 +89,7 @@ export default function LivePage() {
       {/* Hero */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Résultats en direct</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Résultats en direct</h1>
           <p className="mt-2 text-gray-300">
             Scores, buteurs et événements minute par minute
           </p>
@@ -185,9 +185,9 @@ export default function LivePage() {
                   <span className="text-sm font-semibold">Mexique</span>
                 </div>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-5xl font-extrabold tabular-nums">2</span>
+                  <span className="text-3xl font-extrabold tabular-nums sm:text-5xl">2</span>
                   <span className="text-2xl text-gray-500">-</span>
-                  <span className="text-5xl font-extrabold tabular-nums">1</span>
+                  <span className="text-3xl font-extrabold tabular-nums sm:text-5xl">1</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                   <span className="text-3xl">🇿🇦</span>

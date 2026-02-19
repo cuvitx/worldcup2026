@@ -62,7 +62,7 @@ export default async function GroupPage({ params }: PageProps) {
       {/* Header */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Groupe {group.letter}</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Groupe {group.letter}</h1>
           <p className="mt-2 text-gray-300">
             Coupe du Monde 2026 &middot; Phase de groupes
           </p>

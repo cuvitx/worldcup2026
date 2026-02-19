@@ -347,7 +347,7 @@ export function BracketSimulator() {
                 Votre champion CDM 2026
               </p>
               <div className="flex items-center justify-center gap-3">
-                <span className="text-5xl">{champion.flag}</span>
+                <span className="text-3xl sm:text-5xl">{champion.flag}</span>
                 <p className="text-3xl font-extrabold text-white">{champion.name}</p>
               </div>
               {champion.fifaRanking > 0 && (
@@ -387,15 +387,58 @@ export function BracketSimulator() {
       </div>
 
       {/* Desktop bracket */}
-      <div className="hidden lg:block overflow-x-auto pb-4 -mx-4 px-4">
-        <div className="min-w-fit mx-auto">
+      <div className="hidden lg:block pb-4">
+        <BracketScaler>
           <DesktopBracket rounds={rounds} onPick={pickWinner} />
-        </div>
+        </BracketScaler>
       </div>
 
       {/* Mobile bracket */}
       <div className="lg:hidden">
         <MobileBracket rounds={rounds} onPick={pickWinner} />
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Bracket scaler — fits the bracket to available width
+// ---------------------------------------------------------------------------
+
+function BracketScaler({ children }: { children: React.ReactNode }) {
+  const containerRef = useState<HTMLDivElement | null>(null);
+  const innerRef = useState<HTMLDivElement | null>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    function recalc() {
+      const container = document.getElementById("bracket-container");
+      const inner = document.getElementById("bracket-inner");
+      if (!container || !inner) return;
+      const containerW = container.clientWidth;
+      const innerW = inner.scrollWidth;
+      if (innerW > containerW) {
+        setScale(Math.max(0.55, containerW / innerW));
+      } else {
+        setScale(1);
+      }
+    }
+    recalc();
+    window.addEventListener("resize", recalc);
+    return () => window.removeEventListener("resize", recalc);
+  }, []);
+
+  return (
+    <div id="bracket-container" className="w-full overflow-hidden">
+      <div
+        id="bracket-inner"
+        style={{
+          transform: `scale(${scale})`,
+          transformOrigin: "top center",
+          height: scale < 1 ? `${scale * 100}%` : "auto",
+        }}
+      >
+        {children}
       </div>
     </div>
   );
@@ -413,7 +456,7 @@ function DesktopBracket({
   onPick: (round: RoundName, matchIndex: number, teamId: string) => void;
 }) {
   return (
-    <div className="flex items-stretch justify-center gap-2 xl:gap-3 min-h-[800px]">
+    <div className="inline-flex items-stretch justify-center gap-2 xl:gap-3 min-h-[800px]">
       <RoundColumn label={ROUND_LABELS.R32} matches={rounds.R32.slice(0, 8)} round="R32" onPick={onPick} baseIndex={0} />
       <RoundColumn label={ROUND_LABELS.R16} matches={rounds.R16.slice(0, 4)} round="R16" onPick={onPick} baseIndex={0} />
       <RoundColumn label={ROUND_LABELS.QF} matches={rounds.QF.slice(0, 2)} round="QF" onPick={onPick} baseIndex={0} />

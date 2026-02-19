@@ -73,7 +73,7 @@ export default function GuidesPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Guides paris sportifs CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Guides paris sportifs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             {guides.length} guides complets pour parier sur la Coupe du Monde 2026. Strategies, conseils debutants et analyses de bookmakers.
           </p>

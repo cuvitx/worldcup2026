@@ -257,7 +257,7 @@ export default function BracketPage() {
       {/* Hero */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Tableau final CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Tableau final CDM 2026</h1>
           <p className="mt-2 text-gray-300 max-w-2xl">
             Bracket complet de la phase a elimination directe : 32e de finale, 16e de finale,
             quarts de finale, demi-finales et finale. Pronostics bases sur les classements ELO.
@@ -271,7 +271,7 @@ export default function BracketPage() {
           <section className="rounded-xl border-2 border-yellow-400 dark:border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/30 p-6 text-center">
             <p className="text-sm font-medium text-amber-700 dark:text-amber-400 uppercase tracking-wide mb-2">🏆 Champion prédit</p>
             <Link href={`/equipe/${teamsById[champion]!.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
-              <span className="text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
+              <span className="text-3xl sm:text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
               <span className="text-3xl font-extrabold text-gray-900 dark:text-white">{teamsById[champion]!.name}</span>
             </Link>
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">

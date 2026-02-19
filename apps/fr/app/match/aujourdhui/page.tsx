@@ -42,7 +42,7 @@ export default function AujourdhuiPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Matchs du jour</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Matchs du jour</h1>
           <p className="mt-2 text-gray-300">
             {todaysMatches.length > 0
               ? `${todaysMatches.length} match${todaysMatches.length > 1 ? "s" : ""} aujourd'hui`

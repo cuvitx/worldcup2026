@@ -69,10 +69,10 @@ export default async function StadiumPage({ params }: PageProps) {
       {/* Header */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center gap-6">
-            <span className="text-7xl">🏟️</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="text-4xl sm:text-7xl">🏟️</span>
             <div>
-              <h1 className="text-4xl font-extrabold">{stadium.name}</h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">{stadium.name}</h1>
               <p className="mt-2 text-gray-300">
                 {stadium.city}, {stadium.country} &middot;{" "}
                 {stadium.capacity.toLocaleString("fr-FR")} places

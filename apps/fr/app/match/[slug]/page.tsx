@@ -166,7 +166,7 @@ export default async function MatchPage({ params }: PageProps) {
             </p>
             <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
               <div className="flex flex-col items-center">
-                <span className="text-6xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
+                <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
                 {home ? (
                   <Link
                     href={`/equipe/${home.slug}`}
@@ -186,7 +186,7 @@ export default async function MatchPage({ params }: PageProps) {
                 <p className="mt-1 text-sm text-gray-500">{match.time} UTC</p>
               </div>
               <div className="flex flex-col items-center">
-                <span className="text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
+                <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
                 {away ? (
                   <Link
                     href={`/equipe/${away.slug}`}

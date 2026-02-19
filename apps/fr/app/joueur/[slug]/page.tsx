@@ -85,14 +85,14 @@ export default async function PlayerPage({ params }: PageProps) {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center gap-6">
-            {team && <span className="text-6xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>}
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            {team && <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>}
             <div>
               <p className="text-sm text-gray-500 uppercase tracking-wide">
                 {positionLabels[player.position] ?? player.position}
                 {player.number ? ` | #${player.number}` : ""}
               </p>
-              <h1 className="text-4xl font-extrabold">{player.name}</h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">{player.name}</h1>
               <p className="mt-1 text-gray-300">
                 {team?.name ?? player.teamId} &middot; {player.club}
               </p>

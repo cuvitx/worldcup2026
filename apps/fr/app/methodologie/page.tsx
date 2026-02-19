@@ -43,7 +43,7 @@ export default function MethodologiePage() {
       {/* Hero */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Notre méthodologie</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Notre méthodologie</h1>
           <p className="mt-3 text-lg text-gray-300 max-w-3xl">
             Comment nous calculons nos pronostics pour la Coupe du Monde 2026 :
             modèle ELO, intelligence artificielle et analyse multi-facteurs.

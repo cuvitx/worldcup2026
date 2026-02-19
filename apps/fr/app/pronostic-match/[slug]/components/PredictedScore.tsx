@@ -25,7 +25,7 @@ export function PredictedScore({
             {homeName}
           </p>
         </div>
-        <p className="text-5xl font-extrabold text-primary tracking-wider">
+        <p className="text-3xl font-extrabold text-primary tracking-wider sm:text-5xl">
           {prediction.predictedScore}
         </p>
         <div className="text-center">

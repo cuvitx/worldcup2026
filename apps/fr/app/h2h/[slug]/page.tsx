@@ -89,7 +89,7 @@ export default async function H2HPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
             <div className="flex flex-col items-center">
-              <span className="text-6xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
+              <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
               <Link href={`/equipe/${team1.slug}`} className="mt-2 text-2xl font-extrabold hover:text-gold">
                 {team1.name}
               </Link>
@@ -97,7 +97,7 @@ export default async function H2HPage({ params }: PageProps) {
             </div>
             <span className="text-3xl font-bold text-gold">VS</span>
             <div className="flex flex-col items-center">
-              <span className="text-6xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
+              <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
               <Link href={`/equipe/${team2.slug}`} className="mt-2 text-2xl font-extrabold hover:text-gold">
                 {team2.name}
               </Link>
@@ -169,17 +169,17 @@ export default async function H2HPage({ params }: PageProps) {
               <h2 className="mb-4 text-xl font-bold dark:text-white">Historique des confrontations</h2>
               {h2h && h2h.totalMatches > 0 ? (
                 <>
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="rounded-lg bg-accent/5 p-4 text-center">
-                      <p className="text-3xl font-bold text-accent">{h2h.team1Wins}</p>
+                  <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
+                    <div className="rounded-lg bg-accent/5 p-2 text-center sm:p-4">
+                      <p className="text-xl font-bold text-accent sm:text-3xl">{h2h.team1Wins}</p>
                       <p className="text-xs text-gray-500">Victoires {team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                      <p className="text-3xl font-bold text-gray-600">{h2h.draws}</p>
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2 text-center sm:p-4">
+                      <p className="text-xl font-bold text-gray-600 sm:text-3xl">{h2h.draws}</p>
                       <p className="text-xs text-gray-500">Nuls</p>
                     </div>
-                    <div className="rounded-lg bg-accent/5 p-4 text-center">
-                      <p className="text-3xl font-bold text-accent">{h2h.team2Wins}</p>
+                    <div className="rounded-lg bg-accent/5 p-2 text-center sm:p-4">
+                      <p className="text-xl font-bold text-accent sm:text-3xl">{h2h.team2Wins}</p>
                       <p className="text-xs text-gray-500">Victoires {team2.name}</p>
                     </div>
                   </div>
@@ -212,18 +212,18 @@ export default async function H2HPage({ params }: PageProps) {
               <h2 className="mb-4 text-xl font-bold dark:text-white">Pronostic</h2>
               {matchPred ? (
                 <>
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="rounded-lg bg-field/10 p-4 text-center">
-                      <p className="text-2xl font-bold text-field">{Math.round(matchPred.team1WinProb * 100)}%</p>
-                      <p className="text-xs text-gray-500">{team1.name}</p>
+                  <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
+                    <div className="rounded-lg bg-field/10 p-2 text-center sm:p-4">
+                      <p className="text-lg font-bold text-field sm:text-2xl">{Math.round(matchPred.team1WinProb * 100)}%</p>
+                      <p className="text-xs text-gray-500 truncate">{team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
-                      <p className="text-2xl font-bold text-gray-600">{Math.round(matchPred.drawProb * 100)}%</p>
+                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2 text-center sm:p-4">
+                      <p className="text-lg font-bold text-gray-600 sm:text-2xl">{Math.round(matchPred.drawProb * 100)}%</p>
                       <p className="text-xs text-gray-500">Nul</p>
                     </div>
-                    <div className="rounded-lg bg-field/10 p-4 text-center">
-                      <p className="text-2xl font-bold text-field">{Math.round(matchPred.team2WinProb * 100)}%</p>
-                      <p className="text-xs text-gray-500">{team2.name}</p>
+                    <div className="rounded-lg bg-field/10 p-2 text-center sm:p-4">
+                      <p className="text-lg font-bold text-field sm:text-2xl">{Math.round(matchPred.team2WinProb * 100)}%</p>
+                      <p className="text-xs text-gray-500 truncate">{team2.name}</p>
                     </div>
                   </div>
                   <div className="rounded-lg bg-primary/5 p-4 text-center mb-4">

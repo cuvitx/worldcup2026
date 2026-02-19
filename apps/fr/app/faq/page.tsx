@@ -70,7 +70,7 @@ export default function FaqPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-extrabold">Questions fréquentes</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Questions fréquentes</h1>
           <p className="mt-2 text-gray-300">
             Tout ce que vous devez savoir sur la Coupe du Monde FIFA 2026
           </p>

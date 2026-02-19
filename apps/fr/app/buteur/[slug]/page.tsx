@@ -75,10 +75,10 @@ export default async function ButeurPage({ params }: PageProps) {
       {/* Hero */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center gap-6">
-            <span className="text-7xl" role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag ?? "\u26bd"}</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag ?? "\u26bd"}</span>
             <div>
-              <h1 className="text-4xl font-extrabold">
+              <h1 className="text-2xl font-extrabold sm:text-4xl">
                 Cote buteur {player.name}
               </h1>
               <p className="mt-2 text-xl text-gray-300">

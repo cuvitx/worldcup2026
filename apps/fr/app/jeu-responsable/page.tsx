@@ -107,7 +107,7 @@ export default function JeuResponsablePage() {
 
       <section className="bg-primary py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h1 className="text-4xl font-extrabold">Jeu responsable</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Jeu responsable</h1>
           <p className="mt-4 text-lg text-gray-300">
             Les paris sportifs doivent rester un divertissement. Jouez de
             manière responsable.

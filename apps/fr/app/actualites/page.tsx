@@ -83,7 +83,7 @@ export default function ActualitesPage() {
         >
           <div className="grid md:grid-cols-[1fr_1fr] gap-0">
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 dark:from-primary/20 dark:to-accent/20 flex items-center justify-center p-12">
-              <span className="text-8xl">{featured.imageEmoji}</span>
+              <span className="text-4xl sm:text-8xl">{featured.imageEmoji}</span>
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-3">
@@ -114,7 +114,7 @@ export default function ActualitesPage() {
             href={`/actualites/${article.slug}`}
             className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 dark:border-gray-700 dark:bg-slate-800"
           >
-            <div className="mb-3 text-4xl">{article.imageEmoji}</div>
+            <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>
             <div className="flex items-center gap-2 mb-2">
               <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[article.category]}`}>
                 {newsCategories[article.category]}

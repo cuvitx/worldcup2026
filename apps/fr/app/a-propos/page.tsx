@@ -30,7 +30,7 @@ export default function AProposPage() {
 
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="text-4xl font-extrabold">A propos de CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">A propos de CDM 2026</h1>
           <p className="mt-4 text-lg text-gray-300">
             Votre guide complet pour la première Coupe du Monde à 48 équipes.
           </p>

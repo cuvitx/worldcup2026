@@ -33,7 +33,7 @@ export function PredictionOutcomes({
 
       <div className="p-5">
         {/* Cards */}
-        <div className="grid grid-cols-3 gap-3 mb-5">
+        <div className="grid grid-cols-1 gap-3 mb-5 sm:grid-cols-3">
           {outcomes.map((outcome) => {
             const isHighlighted = outcome.prob === maxProb;
             const pct = Math.round(outcome.prob * 100);
