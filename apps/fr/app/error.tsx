@@ -21,11 +21,11 @@ export default function Error({
         <div className="text-7xl animate-pulse select-none" aria-hidden="true">
           ⚠️
         </div>
-        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1.5 rounded-full bg-gold/30 blur-sm" />
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1.5 rounded-full bg-secondary/30 blur-sm" />
       </div>
 
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-semibold mb-6">
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-sm font-semibold mb-6">
         🟡 Carton Jaune — Incident technique
       </div>
 

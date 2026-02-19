@@ -21,7 +21,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
           </p>
         </div>
         {team.isHost && (
-          <span className="shrink-0 rounded-full bg-gold/15 px-2 py-0.5 text-[10px] font-bold text-gold uppercase">
+          <span className="shrink-0 rounded-full bg-secondary/15 px-2 py-0.5 text-[10px] font-bold text-secondary uppercase">
             Hôte
           </span>
         )}
@@ -36,7 +36,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
     >
       {/* Ranking badge */}
       {team.fifaRanking > 0 && team.fifaRanking <= 10 && (
-        <span className="absolute top-3 right-3 text-[10px] font-bold text-gold bg-gold/10 rounded px-1.5 py-0.5">
+        <span className="absolute top-3 right-3 text-[10px] font-bold text-secondary bg-secondary/10 rounded px-1.5 py-0.5">
           #{team.fifaRanking}
         </span>
       )}
@@ -56,7 +56,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
           {team.fifaRanking > 0 ? ` · #${team.fifaRanking} FIFA` : ""}
         </p>
         {team.isHost && (
-          <span className="mt-1 inline-block rounded-full bg-gold/10 px-2 py-0.5 text-xs font-medium text-gold">
+          <span className="mt-1 inline-block rounded-full bg-secondary/10 px-2 py-0.5 text-xs font-medium text-secondary">
             Pays hôte
           </span>
         )}

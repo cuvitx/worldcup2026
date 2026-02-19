@@ -63,13 +63,13 @@ function getSortedGroupTeams(group: { teams: string[] }) {
 // ── Arguments for each ranking position ────────────────────────────────────
 const RANK_LABEL = ["🥇 1er", "🥈 2e", "🥉 3e", "4e"];
 const RANK_COLOR = [
-  "border-gold bg-gold/5 dark:bg-gold/10",
+  "border-secondary bg-secondary/5 dark:bg-secondary/10",
   "border-gray-400 bg-gray-50 dark:bg-slate-800/40",
   "border-primary/20 bg-primary/5 dark:bg-primary/10",
   "border-red-300 bg-red-50 dark:bg-red-900/10",
 ];
 const RANK_BADGE = [
-  "bg-gold text-gray-900",
+  "bg-secondary text-gray-900",
   "bg-gray-300 text-gray-700",
   "bg-primary text-white",
   "bg-red-200 text-red-700",
@@ -202,7 +202,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                             </span>
                             <span>{team!.name}</span>
                             {team!.isHost && (
-                              <span className="rounded bg-gold/10 dark:bg-gold/20 px-1.5 py-0.5 text-xs text-gold dark:text-gold">
+                              <span className="rounded bg-secondary/10 dark:bg-secondary/20 px-1.5 py-0.5 text-xs text-secondary dark:text-secondary">
                                 Hôte
                               </span>
                             )}
@@ -278,7 +278,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           </span>
                         )}
                         {idx === 2 && (
-                          <span className="ml-auto rounded-full bg-gold/10 dark:bg-gold/20 px-2 py-0.5 text-xs font-semibold text-gold dark:text-gold">
+                          <span className="ml-auto rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">
                             ⚠️ Meilleur 3e possible
                           </span>
                         )}
@@ -355,7 +355,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                           idx < 2
                             ? "bg-green-50 dark:bg-green-900/10"
                             : idx === 2
-                            ? "bg-gold/5 dark:bg-gold/10"
+                            ? "bg-secondary/5 dark:bg-secondary/10"
                             : "bg-red-50/50 dark:bg-red-900/5";
                         const goalDiffStr =
                           ep.predictedGoalDiff > 0
@@ -401,7 +401,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                                 </span>
                                 <div className="w-12 h-1.5 bg-gray-200 dark:bg-slate-600 rounded-full overflow-hidden">
                                   <div
-                                    className="h-full bg-gold rounded-full"
+                                    className="h-full bg-secondary rounded-full"
                                     style={{ width: `${Math.round(ep.firstProb * 100)}%` }}
                                   />
                                 </div>
@@ -415,7 +415,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                                 </span>
                                 <div className="w-12 h-1.5 bg-gray-200 dark:bg-slate-600 rounded-full overflow-hidden">
                                   <div
-                                    className={`h-full rounded-full ${idx < 2 ? "bg-green-500" : idx === 2 ? "bg-gold" : "bg-red-400"}`}
+                                    className={`h-full rounded-full ${idx < 2 ? "bg-green-500" : idx === 2 ? "bg-secondary" : "bg-red-400"}`}
                                     style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }}
                                   />
                                 </div>
@@ -428,7 +428,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
                                   ✅ Qualifié
                                 </span>
                               ) : idx === 2 ? (
-                                <span className="inline-block rounded-full bg-gold/10 dark:bg-gold/20 px-2 py-0.5 text-xs font-semibold text-gold dark:text-gold">
+                                <span className="inline-block rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">
                                   ⚠️ Meilleur 3e
                                 </span>
                               ) : (
@@ -496,10 +496,10 @@ export default async function PronosticGroupPage({ params }: PageProps) {
               {/* Maybe */}
               {maybeQualify?.team && (
                 <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-gold dark:text-gold mb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide text-secondary dark:text-secondary mb-2">
                     ⚠️ Meilleur 3e possible
                   </h3>
-                  <div className="flex items-center gap-3 rounded-lg border border-gold/20 dark:border-gold/30 bg-gold/5 dark:bg-gold/10 p-3">
+                  <div className="flex items-center gap-3 rounded-lg border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-3">
                     <span className="text-2xl">{maybeQualify.team.flag}</span>
                     <div>
                       <Link

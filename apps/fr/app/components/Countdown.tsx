@@ -90,7 +90,7 @@ export function Countdown() {
 
                 {/* Corner accent */}
                 {i === 0 && (
-                  <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-gold" />
+                  <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-secondary" />
                 )}
               </div>
 

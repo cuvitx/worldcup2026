@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 };
 
 const categoryColors: Record<NewsCategory, string> = {
-  transferts: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  transferts: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
-  billets: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  billets: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
   paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
 };

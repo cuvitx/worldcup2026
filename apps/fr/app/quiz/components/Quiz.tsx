@@ -110,7 +110,7 @@ export default function Quiz() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <button
             onClick={() => startGame("all")}
-            className="rounded-xl border-2 border-gold/50 bg-gold/5 dark:bg-gold/10 p-5 text-left hover:bg-gold/10 dark:hover:bg-gold/15 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-secondary/50 bg-secondary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
           >
             <span className="text-3xl">🌍</span>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 dark:">Toutes les catégories</h3>
@@ -226,7 +226,7 @@ export default function Quiz() {
       </div>
       <div className="w-full h-3 bg-gray-200 dark:bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
-          className="h-full bg-gradient-to-r from-primary to-gold rounded-full transition-all duration-500 ease-out relative"
+          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 rounded-full" />

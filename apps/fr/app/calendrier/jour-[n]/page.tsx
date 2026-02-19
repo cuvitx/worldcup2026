@@ -52,7 +52,7 @@ function stageLabel(stage: string, group?: string): string {
 }
 
 function stageBadgeClass(stage: string): string {
-  if (stage === "final") return "bg-gold/20 text-gold font-bold";
+  if (stage === "final") return "bg-secondary/20 text-secondary font-bold";
   if (stage === "semi-final") return "bg-primary/20 text-primary font-semibold";
   if (stage === "quarter-final") return "bg-primary/20 text-primary";
   if (stage === "round-of-16" || stage === "round-of-32") return "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary";
@@ -280,7 +280,7 @@ export default async function JourPage({ params }: PageProps) {
                   href={`/match/${match.slug}`}
                   className={`block rounded-xl border bg-white dark:bg-slate-800 shadow-sm transition-all hover:shadow-md hover:border-primary/50 ${
                     isFinal
-                      ? "border-gold/40 ring-2 ring-gold/20"
+                      ? "border-secondary/40 ring-2 ring-gold/20"
                       : "border-gray-200 dark:border-slate-700"
                   }`}
                 >
@@ -320,7 +320,7 @@ export default async function JourPage({ params }: PageProps) {
                       <div className="flex flex-col items-center gap-1 shrink-0">
                         <span className="text-xl font-extrabold text-gray-400 dark:text-gray-400">VS</span>
                         {isFinal && (
-                          <span className="text-xs font-bold text-gold">🏆 FINALE</span>
+                          <span className="text-xs font-bold text-secondary">🏆 FINALE</span>
                         )}
                       </div>
 

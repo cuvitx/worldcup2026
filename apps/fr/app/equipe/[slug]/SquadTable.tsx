@@ -23,7 +23,7 @@ const POSITION_LABELS: Record<string, string> = {
   FW: "Attaquant",
 };
 const POSITION_COLORS: Record<string, string> = {
-  GK: "bg-gold/10 text-gold dark:bg-gold/20 dark:text-gold",
+  GK: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   DF: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
   MF: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
   FW: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",

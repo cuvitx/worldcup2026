@@ -55,7 +55,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       {/* Estimation row */}
       <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
         <div className="flex items-center gap-2">
-          <span className="w-5 h-5 rounded-full bg-primary dark:bg-gray-700 text-gold text-[9px] font-bold flex items-center justify-center shrink-0">AI</span>
+          <span className="w-5 h-5 rounded-full bg-primary dark:bg-gray-700 text-secondary text-[9px] font-bold flex items-center justify-center shrink-0">AI</span>
           <span className="text-sm font-bold text-primary dark:text-gray-100">Estimation CDM</span>
         </div>
         <OddsCell value={odds.home} isBest={parseOdds(odds.home) >= bestHome} />
@@ -85,7 +85,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
                 {bk.name}
               </a>
               {bk.highlight && (
-                <span className="text-[10px] bg-gold/15 text-gold rounded px-1 py-0.5 font-bold uppercase">
+                <span className="text-[10px] bg-secondary/15 text-secondary rounded px-1 py-0.5 font-bold uppercase">
                   Recommandé
                 </span>
               )}

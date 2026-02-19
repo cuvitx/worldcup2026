@@ -131,7 +131,7 @@ export default async function MatchPage({ params }: PageProps) {
       {isLive || isCompleted ? (
         <section className="bg-primary py-12 sm:py-16">
           <div className="mx-auto max-w-2xl px-4 sm:px-6">
-            <p className="mb-4 text-center text-sm text-gold font-medium uppercase tracking-wide">
+            <p className="mb-4 text-center text-sm text-secondary font-medium uppercase tracking-wide">
               {stage}
               {match.group ? ` - Groupe ${match.group}` : ""}
             </p>
@@ -145,12 +145,12 @@ export default async function MatchPage({ params }: PageProps) {
             />
             <div className="mt-4 flex justify-center gap-8 text-white">
               {home && (
-                <Link href={`/equipe/${home.slug}`} className="text-sm hover:text-gold transition-colors">
+                <Link href={`/equipe/${home.slug}`} className="text-sm hover:text-secondary transition-colors">
                   <span role="img" aria-label={`Drapeau de ${home.name}`}>{home.flag}</span> {home.name}
                 </Link>
               )}
               {away && (
-                <Link href={`/equipe/${away.slug}`} className="text-sm hover:text-gold transition-colors">
+                <Link href={`/equipe/${away.slug}`} className="text-sm hover:text-secondary transition-colors">
                   <span role="img" aria-label={`Drapeau de ${away.name}`}>{away.flag}</span> {away.name}
                 </Link>
               )}
@@ -160,7 +160,7 @@ export default async function MatchPage({ params }: PageProps) {
       ) : (
         <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-2 text-sm text-gold font-medium uppercase tracking-wide">
+            <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
               {stage}
               {match.group ? ` - Groupe ${match.group}` : ""}
             </p>
@@ -170,7 +170,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {home ? (
                   <Link
                     href={`/equipe/${home.slug}`}
-                    className="mt-2 text-2xl font-extrabold hover:text-gold"
+                    className="mt-2 text-2xl font-extrabold hover:text-secondary"
                   >
                     {home.name}
                   </Link>
@@ -182,7 +182,7 @@ export default async function MatchPage({ params }: PageProps) {
                 )}
               </div>
               <div className="text-center">
-                <span className="text-3xl font-bold text-gold">VS</span>
+                <span className="text-3xl font-bold text-secondary">VS</span>
                 <p className="mt-1 text-sm text-gray-300">{match.time} UTC</p>
               </div>
               <div className="flex flex-col items-center">
@@ -190,7 +190,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {away ? (
                   <Link
                     href={`/equipe/${away.slug}`}
-                    className="mt-2 text-2xl font-extrabold hover:text-gold"
+                    className="mt-2 text-2xl font-extrabold hover:text-secondary"
                   >
                     {away.name}
                   </Link>

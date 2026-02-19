@@ -43,7 +43,7 @@ export default function SimulateurPage() {
         }}
       >
         {/* Top glow */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -57,7 +57,7 @@ export default function SimulateurPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/30 px-3 py-1 text-xs font-bold text-gold mb-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-secondary/15 border border-secondary/30 px-3 py-1 text-xs font-bold text-secondary mb-3">
                 🏆 Outil interactif
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
@@ -94,7 +94,7 @@ export default function SimulateurPage() {
                 </p>
                 <Link
                   href="/quiz"
-                  className="inline-flex items-center gap-2 rounded-lg border border-gold/30 bg-gold/10 px-4 py-2.5 text-sm font-bold text-gold hover:bg-gold/20 transition-all"
+                  className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 bg-secondary/10 px-4 py-2.5 text-sm font-bold text-secondary hover:bg-secondary/20 transition-all"
                 >
                   🧩 Aussi : Quiz CDM
                 </Link>

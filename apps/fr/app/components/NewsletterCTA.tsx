@@ -154,7 +154,7 @@ export function NewsletterCTA({ variant = 'banner', className = '' }: Newsletter
           <div className="flex-1 text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
               <span className="text-2xl">📧</span>
-              <span className="text-xs font-bold uppercase tracking-widest text-gold">
+              <span className="text-xs font-bold uppercase tracking-widest text-secondary">
                 Newsletter CDM 2026
               </span>
             </div>

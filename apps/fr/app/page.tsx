@@ -159,8 +159,8 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
           {/* Badge event */}
           <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#e8c547]" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e8c547]">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
               Coupe du Monde 2026 · 11 juin – 19 juillet
             </span>
           </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
               Chaque match.
             </span>
             <span
-              className="block bg-gradient-to-r from-[#e8c547] via-[#f5d76e] to-[#e8c547] bg-clip-text text-transparent"
+              className="block bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent"
               style={{ letterSpacing: "-0.02em" }}
             >
               Chaque pari.
@@ -199,7 +199,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-3 mb-14">
             <Link
               href="/pronostic-vainqueur"
-              className="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#e63946] to-[#c1121f] px-8 py-4 text-sm font-black text-white shadow-xl shadow-[#e63946]/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#e63946]/40"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white shadow-lg shadow-accent/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/90 w-full sm:w-auto"
             >
               <span className="text-base">🎯</span>
               Mes pronostics
@@ -207,7 +207,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/simulateur"
-              className="group inline-flex items-center gap-2.5 rounded-2xl border border-[#e8c547]/30 bg-[#e8c547]/10 px-8 py-4 text-sm font-black text-[#e8c547] backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:bg-[#e8c547]/20 hover:border-[#e8c547]/50"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 w-full sm:w-auto"
             >
               <span className="text-base">🏆</span>
               Créer mon bracket
@@ -255,7 +255,7 @@ export default function HomePage() {
           {/* Section header */}
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e63946] mb-1.5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
                 Phase de groupes
               </p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
@@ -264,7 +264,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/match/calendrier"
-              className="text-sm font-semibold text-[#e63946] hover:underline"
+              className="text-sm font-semibold text-primary hover:underline"
             >
               Calendrier complet →
             </Link>
@@ -288,7 +288,7 @@ export default function HomePage() {
                     className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
                   >
                     {/* Top accent */}
-                    <div className="h-0.5 bg-gradient-to-r from-[#e63946] to-[#e8c547]" />
+                    <div className="h-0.5 bg-gradient-to-r from-primary to-secondary" />
 
                     {/* Match group badge */}
                     <div className="flex items-center justify-between px-4 pt-3 pb-2">
@@ -318,7 +318,7 @@ export default function HomePage() {
 
                       {/* VS */}
                       <div className="flex flex-col items-center shrink-0">
-                        <span className="text-xs font-black text-[#e63946] tracking-widest">VS</span>
+                        <span className="text-xs font-black text-primary tracking-widest">VS</span>
                       </div>
 
                       {/* Away */}
@@ -351,7 +351,7 @@ export default function HomePage() {
 
                     {/* Hover CTA */}
                     <div className="px-4 pb-3.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="block text-center text-[11px] font-bold text-[#e63946]">
+                      <span className="block text-center text-[11px] font-bold text-primary">
                         Voir le pronostic →
                       </span>
                     </div>
@@ -370,14 +370,14 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e8c547] mb-1.5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
                 12 groupes · 48 équipes
               </p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Groupes en un coup d&apos;œil
               </h2>
             </div>
-            <Link href="/groupes" className="text-sm font-semibold text-[#e8c547] hover:underline">
+            <Link href="/groupes" className="text-sm font-semibold text-secondary hover:underline">
               Voir tous les groupes →
             </Link>
           </div>
@@ -401,10 +401,10 @@ export default function HomePage() {
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-[#0d1117] to-[#1a2035]">
-                    <span className="text-xs font-black text-[#e8c547]">
+                    <span className="text-xs font-black text-secondary">
                       GROUPE {group.letter}
                     </span>
-                    <span className="text-[10px] text-gray-500 group-hover:text-[#e8c547] transition-colors">
+                    <span className="text-[10px] text-gray-500 group-hover:text-secondary transition-colors">
                       {groupTeams.length} éq.
                     </span>
                   </div>
@@ -430,7 +430,7 @@ export default function HomePage() {
                           {team.name}
                         </span>
                         {team.isHost && (
-                          <span className="text-[8px] bg-[#e8c547]/20 text-[#e8c547] px-1 py-0.5 rounded font-bold shrink-0">
+                          <span className="text-[8px] bg-secondary/20 text-secondary px-1 py-0.5 rounded font-bold shrink-0">
                             H
                           </span>
                         )}
@@ -451,14 +451,14 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e63946] mb-1.5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
                 Actualités
               </p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
                 Articles récents
               </h2>
             </div>
-            <Link href="/actualites" className="text-sm font-semibold text-[#e63946] hover:underline">
+            <Link href="/actualites" className="text-sm font-semibold text-primary hover:underline">
               Toutes les actus →
             </Link>
           </div>
@@ -480,7 +480,7 @@ export default function HomePage() {
 
                   {/* Featured badge for first article */}
                   {i === 0 && (
-                    <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-[#e63946] text-white px-2.5 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-primary text-white px-2.5 py-1 rounded-full">
                       À la une
                     </span>
                   )}
@@ -496,7 +496,7 @@ export default function HomePage() {
                     {categoryLabels[article.category] ?? article.category}
                   </span>
 
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm leading-snug mb-2 line-clamp-2 group-hover:text-[#e63946] transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-sm leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
                     {article.title}
                   </h3>
 
@@ -513,7 +513,7 @@ export default function HomePage() {
                         timeZone: "UTC",
                       })}
                     </p>
-                    <span className="text-[11px] font-bold text-[#e63946] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                       Lire →
                     </span>
                   </div>
@@ -531,7 +531,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#3b82f6] mb-1.5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-secondary mb-1.5">
                 🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
               </p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
@@ -541,7 +541,7 @@ export default function HomePage() {
                 16 stades répartis dans 3 pays hôtes
               </p>
             </div>
-            <Link href="/stades" className="text-sm font-semibold text-[#3b82f6] hover:underline">
+            <Link href="/stades" className="text-sm font-semibold text-primary dark:text-secondary hover:underline">
               Tous les stades →
             </Link>
           </div>
@@ -557,7 +557,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e8c547] mb-1.5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
                 Cotes Vainqueur
               </p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark: sm:">
@@ -569,7 +569,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/pronostic-vainqueur"
-              className="text-sm font-semibold text-[#e8c547] hover:underline"
+              className="text-sm font-semibold text-secondary hover:underline"
             >
               Tous les pronostics →
             </Link>
@@ -593,7 +593,7 @@ export default function HomePage() {
                 >
                   {/* Glow effect for top 3 */}
                   {index < 3 && (
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#e8c547]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   )}
 
                   {/* Rank badge */}
@@ -624,13 +624,13 @@ export default function HomePage() {
                     <div className="w-full mt-1.5 mb-2">
                       <div className="flex justify-between text-[9px] text-gray-400 mb-1">
                         <span>Chances</span>
-                        <span className="font-bold text-[#e63946]">
+                        <span className="font-bold text-primary">
                           {winPct < 1 ? "<1" : winPct}%
                         </span>
                       </div>
                       <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-1">
                         <div
-                          className="bg-gradient-to-r from-[#e63946] to-[#e8c547] h-1 rounded-full transition-all duration-700"
+                          className="bg-gradient-to-r from-primary to-secondary h-1 rounded-full transition-all duration-700"
                           style={{ width: `${Math.min(winPct * 4, 100)}%` }}
                         />
                       </div>
@@ -639,11 +639,11 @@ export default function HomePage() {
 
                   {/* Odds badge — real bookmaker data when available */}
                   {outrightOdds && (
-                    <div className="mt-1 w-full rounded-xl border border-[#e8c547]/30 bg-[#e8c547]/5 dark:bg-[#e8c547]/10 px-3 py-2">
+                    <div className="mt-1 w-full rounded-xl border border-secondary/30 bg-secondary/5 dark:bg-secondary/10 px-3 py-2">
                       <p className="text-[9px] text-gray-500 dark:text-gray-300 mb-0.5">
                         {favData ? "Cote moy. marché" : "Cote vainqueur"}
                       </p>
-                      <p className="text-lg font-black text-[#e8c547]">
+                      <p className="text-lg font-black text-secondary">
                         {outrightOdds}
                         {trendIcon && (
                           <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-green-500" : "text-red-400"}`}>
@@ -690,7 +690,7 @@ export default function HomePage() {
                 className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800/60 overflow-hidden"
               >
                 <details className="group">
-                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-bold text-gray-900 dark:text-white hover:text-[#e63946] dark:hover:text-[#e63946] transition-colors list-none">
+                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-bold text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors list-none">
                     {item.question}
                     <span className="ml-4 shrink-0 text-gray-300 dark:text-gray-600 group-open:rotate-180 transition-transform duration-200 text-xs">
                       ▼

@@ -115,20 +115,20 @@ export default function NewsletterPage() {
         {/* Decorative circles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
+          <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-field/20 blur-3xl" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
-            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-gold" />
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
+            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-secondary" />
             CDM 2026 · Newsletter officielle
           </div>
 
           <h1 className="mb-6 text-3xl font-extrabold tracking-tight sm:text-5xl md:text-6xl drop-shadow-lg leading-tight">
             Recevez le{' '}
-            <span className="text-gold">programme CDM 2026</span>
+            <span className="text-secondary">programme CDM 2026</span>
             <br />
             <span className="text-primary">chaque semaine</span>
           </h1>
@@ -147,7 +147,7 @@ export default function NewsletterPage() {
           <div className="mt-6 flex flex-wrap justify-center gap-6">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-2xl font-extrabold text-gold">{s.value}</p>
+                <p className="text-2xl font-extrabold text-secondary">{s.value}</p>
                 <p className="text-xs text-gray-400">{s.label}</p>
               </div>
             ))}
@@ -205,7 +205,7 @@ export default function NewsletterPage() {
             <div className="flex items-center gap-2 bg-gray-100 dark:bg-slate-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-primary" />
-                <div className="w-3 h-3 rounded-full bg-gold" />
+                <div className="w-3 h-3 rounded-full bg-secondary" />
                 <div className="w-3 h-3 rounded-full bg-field" />
               </div>
               <div className="flex-1 ml-4 rounded-md bg-white dark:bg-gray-700 px-3 py-1 text-xs text-gray-500 dark:text-gray-300">
@@ -234,7 +234,7 @@ export default function NewsletterPage() {
                   className="rounded-xl p-4 text-white text-center"
                   style={{ background: 'linear-gradient(135deg, #060D18, #0F1923)' }}
                 >
-                  <p className="text-xs uppercase tracking-widest text-gold mb-1">CDM 2026 · Semaine 3</p>
+                  <p className="text-xs uppercase tracking-widest text-secondary mb-1">CDM 2026 · Semaine 3</p>
                   <p className="font-extrabold text-lg">Programme du 28 juin – 4 juillet</p>
                 </div>
 
@@ -262,7 +262,7 @@ export default function NewsletterPage() {
                   {[
                     { label: 'Victoire France', value: '45%', color: 'text-primary' },
                     { label: 'Nul (ap)', value: '25%', color: 'text-gray-500' },
-                    { label: 'Victoire Argentine', value: '30%', color: 'text-gold' },
+                    { label: 'Victoire Argentine', value: '30%', color: 'text-secondary' },
                   ].map((p) => (
                     <div key={p.label} className="rounded-lg bg-gray-50 dark:bg-slate-800 p-2">
                       <p className={`text-lg font-extrabold ${p.color}`}>{p.value}</p>
@@ -308,7 +308,7 @@ export default function NewsletterPage() {
                 </p>
                 <div className="mt-3 flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-gold text-sm">★</span>
+                    <span key={i} className="text-secondary text-sm">★</span>
                   ))}
                 </div>
               </div>
@@ -325,7 +325,7 @@ export default function NewsletterPage() {
         <div className="mx-auto max-w-2xl px-4 text-center">
           <div className="text-4xl mb-4">📧</div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            Rejoignez <span className="text-gold">12 000+</span> fans du Mondial
+            Rejoignez <span className="text-secondary">12 000+</span> fans du Mondial
           </h2>
           <p className="text-gray-300/90 text-sm mb-8 leading-relaxed">
             Pronostics exclusifs · Programme hebdo · Alertes matchs · Meilleures cotes.

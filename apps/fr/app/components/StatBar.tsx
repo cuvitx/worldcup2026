@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 const colorMap: Record<string, string> = {
   accent: "bg-primary",
-  gold: "bg-gold",
+  gold: "bg-secondary",
   green: "bg-field",
   blue: "bg-secondary",
   purple: "bg-secondary",

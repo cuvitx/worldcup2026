@@ -43,7 +43,7 @@ export default function AnalyseTactiqueBresil() {
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="mb-4 flex items-center gap-3">
-            <span className="inline-block rounded-full bg-gold/10 px-3 py-1 text-xs font-medium text-gold dark:bg-gold/20 dark:text-gold">Analyse tactique</span>
+            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary dark:bg-secondary/20 dark:text-secondary">Analyse tactique</span>
             <time className="text-sm text-gray-500 dark:text-gray-300" dateTime="2026-02-19">19 février 2026</time>
           </div>
 

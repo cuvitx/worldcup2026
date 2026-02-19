@@ -39,7 +39,7 @@ const ROUND_COLORS: Record<RoundName, string> = {
   R16: "bg-secondary",
   QF: "bg-primary",
   SF: "bg-primary",
-  F: "bg-gold",
+  F: "bg-secondary",
 };
 
 const ROUND_ORDER: RoundName[] = ["R32", "R16", "QF", "SF", "F"];
@@ -214,7 +214,7 @@ function ProgressBar({ rounds }: { rounds: Record<RoundName, MatchData[]> }) {
       </span>
       <div className="flex-1 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-primary to-gold transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -343,7 +343,7 @@ export function BracketSimulator() {
           >
             <span className="text-3xl">🏆</span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gold mb-1">
+              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">
                 Votre champion CDM 2026
               </p>
               <div className="flex items-center justify-center gap-3">
@@ -606,7 +606,7 @@ function BracketMatchCard({
         winner
           ? "border-green-300 dark:border-green-700 shadow-sm"
           : "border-gray-200 dark:border-gray-600"
-      } ${isFinal ? "shadow-lg shadow-gold/10 border-gold/30" : ""} bg-white dark:bg-slate-800`}
+      } ${isFinal ? "shadow-lg shadow-secondary/10 border-secondary/30" : ""} bg-white dark:bg-slate-800`}
     >
       <TeamSlot
         team={team1}

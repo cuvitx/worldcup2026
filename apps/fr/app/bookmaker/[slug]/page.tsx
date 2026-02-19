@@ -81,18 +81,18 @@ export default async function BookmakerPage({ params }: PageProps) {
                 Fonde en {bk.foundedYear} &middot; Licence {bk.license}
               </p>
               <div className="flex items-center gap-2 mt-3">
-                <span className="text-2xl text-gold">{"★".repeat(Math.round(avgRating))}</span>
+                <span className="text-2xl text-secondary">{"★".repeat(Math.round(avgRating))}</span>
                 <span className="text-lg font-bold">{avgRating.toFixed(1)}/5</span>
               </div>
             </div>
             <div className="rounded-lg bg-white/10 p-6 text-center">
-              <p className="text-3xl font-extrabold text-gold">{bk.bonus}</p>
+              <p className="text-3xl font-extrabold text-secondary">{bk.bonus}</p>
               <p className="text-sm text-gray-300">{bk.bonusDetail}</p>
               <a
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-white hover:bg-gold/90 transition-colors"
+                className="mt-3 inline-block rounded-lg bg-secondary px-6 py-3 text-sm font-bold text-white hover:bg-secondary/90 transition-colors"
               >
                 Ouvrir un compte
               </a>
@@ -130,9 +130,9 @@ export default async function BookmakerPage({ params }: PageProps) {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-lg bg-gold/10 border border-gold/30 p-4 text-center">
+              <div className="mt-4 rounded-lg bg-secondary/10 border border-secondary/30 p-4 text-center">
                 <p className="text-sm text-gray-500">Note globale</p>
-                <p className="text-2xl font-extrabold text-gold sm:text-4xl">{avgRating.toFixed(1)}/5</p>
+                <p className="text-2xl font-extrabold text-secondary sm:text-4xl">{avgRating.toFixed(1)}/5</p>
               </div>
             </section>
 
@@ -175,14 +175,14 @@ export default async function BookmakerPage({ params }: PageProps) {
             ))}
 
             {/* CTA */}
-            <section className="rounded-lg bg-gold/5 border-2 border-gold p-6 text-center">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-gold">{bk.bonus}</h2>
+            <section className="rounded-lg bg-secondary/5 border-2 border-secondary p-6 text-center">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-secondary">{bk.bonus}</h2>
               <p className="mb-4 text-gray-600">{bk.bonusDetail} sur {bk.name}</p>
               <a
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-gold px-8 py-4 text-lg font-bold text-white hover:bg-gold/90 transition-colors"
+                className="inline-block rounded-lg bg-secondary px-8 py-4 text-lg font-bold text-white hover:bg-secondary/90 transition-colors"
               >
                 S&apos;inscrire sur {bk.name}
               </a>

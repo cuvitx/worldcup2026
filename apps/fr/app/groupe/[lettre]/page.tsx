@@ -100,7 +100,7 @@ export default async function GroupPage({ params }: PageProps) {
                             <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             {team.name}
                             {team.isHost && (
-                              <span className="rounded bg-gold/10 px-1.5 py-0.5 text-xs text-gold">
+                              <span className="rounded bg-secondary/10 px-1.5 py-0.5 text-xs text-secondary">
                                 Hote
                               </span>
                             )}

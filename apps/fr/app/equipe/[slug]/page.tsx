@@ -124,7 +124,7 @@ export default async function TeamPage({ params }: PageProps) {
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-3">
               {team.isHost && (
-                <span className="inline-block rounded-full bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
+                <span className="inline-block rounded-full bg-secondary/20 px-3 py-1 text-sm font-medium text-secondary">
                   Pays hôte
                 </span>
               )}
@@ -242,7 +242,7 @@ export default async function TeamPage({ params }: PageProps) {
               const history = teamWorldCupHistory[team.id]!;
               const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
               return titles.length > 0 ? (
-                <section className="rounded-xl border border-gold/30 dark:border-gold/20 bg-gold/5 dark:bg-slate-800 p-6 shadow-sm">
+                <section className="rounded-xl border border-secondary/30 dark:border-secondary/20 bg-secondary/5 dark:bg-slate-800 p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 dark: flex items-center gap-2">
                     <span>🏆</span> Palmarès en Coupe du Monde
                   </h2>
@@ -250,10 +250,10 @@ export default async function TeamPage({ params }: PageProps) {
                     {titles.map((title) => (
                       <div
                         key={title.year}
-                        className="flex flex-col items-center rounded-xl bg-gold/10 dark:bg-gold/20 border border-gold/40 dark:border-gold/30 px-5 py-4 min-w-[110px] text-center"
+                        className="flex flex-col items-center rounded-xl bg-secondary/10 dark:bg-secondary/20 border border-secondary/40 dark:border-secondary/30 px-5 py-4 min-w-[110px] text-center"
                       >
                         <span className="text-4xl mb-1">🏆</span>
-                        <span className="text-2xl font-extrabold text-gold dark:text-gold">{title.year}</span>
+                        <span className="text-2xl font-extrabold text-secondary dark:text-secondary">{title.year}</span>
                         {title.detail && (
                           <span className="mt-1 text-xs text-gray-600 dark:text-gray-300 leading-snug max-w-[120px]">{title.detail}</span>
                         )}
@@ -261,7 +261,7 @@ export default async function TeamPage({ params }: PageProps) {
                     ))}
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    <span className="font-semibold text-gold dark:text-gold">
+                    <span className="font-semibold text-secondary dark:text-secondary">
                       {titles.length} titre{titles.length > 1 ? "s" : ""} mondial{titles.length > 1 ? "aux" : ""}
                     </span>{" "}
                     remporté{titles.length > 1 ? "s" : ""} en Coupe du Monde.
@@ -349,9 +349,9 @@ export default async function TeamPage({ params }: PageProps) {
                     <span className="text-sm text-gray-500">Rating ELO</span>
                     <p className="text-2xl font-extrabold text-primary">{prediction.eloRating}</p>
                   </div>
-                  <div className="rounded-lg bg-gold/10 px-4 py-2">
+                  <div className="rounded-lg bg-secondary/10 px-4 py-2">
                     <span className="text-sm text-gray-500">Chances de victoire</span>
-                    <p className="text-2xl font-extrabold text-gold">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</p>
+                    <p className="text-2xl font-extrabold text-secondary">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
@@ -719,7 +719,7 @@ export default async function TeamPage({ params }: PageProps) {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Gagner la CDM</span>
-                    <span className="font-bold text-gold">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span>
+                    <span className="font-bold text-secondary">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span>
                   </div>
                 </div>
               ) : (

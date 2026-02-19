@@ -55,7 +55,7 @@ const TRENDS = [
     title: "Argentine favorite",
     desc: "15% de probabilité de titre — championne en titre",
     color: "from-blue-600/20 to-blue-800/10",
-    border: "border-blue-500/20",
+    border: "border-primary/20",
   },
   {
     icon: "⚡",
@@ -118,8 +118,8 @@ export default function PronosticHubPage() {
       {/* ===== HERO ===== */}
       <section className="hero-animated py-14 md:py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
-            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-gold" />
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
+            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-secondary" />
             CDM 2026 · Hub Pronostics
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
@@ -140,7 +140,7 @@ export default function PronosticHubPage() {
               { value: "100K", label: "simulations" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-2xl font-extrabold text-gold">{s.value}</p>
+                <p className="text-2xl font-extrabold text-secondary">{s.value}</p>
                 <p className="text-xs text-gray-400">{s.label}</p>
               </div>
             ))}
@@ -150,7 +150,7 @@ export default function PronosticHubPage() {
             <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-primary/90 transition-all">
               🏆 Pronostic vainqueur
             </a>
-            <a href="#groupes" className="rounded-lg border border-gold/30 bg-gold/10 px-5 py-2.5 font-semibold text-gold hover:bg-gold/20 transition-all">
+            <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">
               🗂️ Pronostics groupes
             </a>
             <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
@@ -208,11 +208,11 @@ export default function PronosticHubPage() {
                   key={team.id}
                   href={`/equipe/${team.slug}`}
                   className={`group relative rounded-xl border bg-white dark:bg-slate-800 p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all ${
-                    index === 0 ? "border-gold/50" : "border-gray-200 dark:border-slate-700"
+                    index === 0 ? "border-secondary/50" : "border-gray-200 dark:border-slate-700"
                   }`}
                 >
                   {index === 0 && (
-                    <span className="absolute top-2 right-2 text-[9px] bg-gold text-primary px-1.5 py-0.5 rounded font-bold">
+                    <span className="absolute top-2 right-2 text-[9px] bg-secondary text-primary px-1.5 py-0.5 rounded font-bold">
                       FAVORI
                     </span>
                   )}
@@ -223,11 +223,11 @@ export default function PronosticHubPage() {
                   <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">#{index + 1} mondial</p>
                   <div className="mt-2 flex items-center justify-between text-xs">
                     <span className="text-primary font-bold">{winPct}%</span>
-                    <span className="text-gold font-bold">{odds}</span>
+                    <span className="text-secondary font-bold">{odds}</span>
                   </div>
                   <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-primary to-gold rounded-full"
+                      className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
                       style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                     />
                   </div>
@@ -282,10 +282,10 @@ export default function PronosticHubPage() {
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-primary to-secondary dark:from-slate-900 dark:to-slate-800 text-white">
-                    <span className="text-sm font-extrabold bg-gold/20 text-gold px-2 py-0.5 rounded">
+                    <span className="text-sm font-extrabold bg-secondary/20 text-secondary px-2 py-0.5 rounded">
                       Groupe {group.letter}
                     </span>
-                    <span className="text-xs text-gray-400 group-hover:text-gold transition-colors">
+                    <span className="text-xs text-gray-400 group-hover:text-secondary transition-colors">
                       Pronostic →
                     </span>
                   </div>

@@ -173,7 +173,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                 {/* Visual gauge */}
                 <div className="relative h-4 rounded-full bg-gray-200 overflow-hidden">
                   <div
-                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-primary via-gold to-field"
+                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-primary via-secondary to-field"
                     style={{ width: `${eloPercent}%` }}
                   />
                 </div>
@@ -222,7 +222,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                         <div
                           className={`absolute inset-y-0 left-0 rounded-full ${
                             stage.key === "winnerProb"
-                              ? "bg-gold"
+                              ? "bg-secondary"
                               : "bg-primary"
                           }`}
                           style={{
@@ -236,7 +236,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                 <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
                   <span className="inline-block h-3 w-3 rounded-full bg-primary" />
                   <span>Tour intermediaire</span>
-                  <span className="ml-2 inline-block h-3 w-3 rounded-full bg-gold" />
+                  <span className="ml-2 inline-block h-3 w-3 rounded-full bg-secondary" />
                   <span>Victoire finale</span>
                 </div>
               </section>
@@ -249,11 +249,11 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                   Cotes estimees - {team.name} vainqueur CDM 2026
                 </h2>
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="rounded-lg bg-gold/10 border border-gold/30 p-4 text-center">
+                  <div className="rounded-lg bg-secondary/10 border border-secondary/30 p-4 text-center">
                     <p className="text-sm text-gray-500 mb-1">
                       Cote vainqueur CDM
                     </p>
-                    <p className="text-2xl font-extrabold text-gold sm:text-4xl">
+                    <p className="text-2xl font-extrabold text-secondary sm:text-4xl">
                       {estimatedOutrightOdds(prediction.winnerProb)}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">cote decimale estimee</p>
@@ -488,12 +488,12 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-4 transition-shadow hover:shadow-md ${
                         isFeatured
-                          ? "border-gold bg-gold/5"
+                          ? "border-secondary bg-secondary/5"
                           : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                       }`}
                     >
                       {isFeatured && (
-                        <span className="absolute -top-3 left-4 rounded-full bg-gold px-3 py-0.5 text-xs font-bold text-white">
+                        <span className="absolute -top-3 left-4 rounded-full bg-secondary px-3 py-0.5 text-xs font-bold text-white">
                           Recommande
                         </span>
                       )}
@@ -519,7 +519,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                           rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
                             isFeatured
-                              ? "bg-gold hover:bg-gold/90"
+                              ? "bg-secondary hover:bg-secondary/90"
                               : "bg-primary hover:bg-primary/90"
                           }`}
                         >
@@ -585,7 +585,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-500">Cote vainqueur</dt>
-                      <dd className="font-bold text-gold">
+                      <dd className="font-bold text-secondary">
                         {estimatedOutrightOdds(prediction.winnerProb)}
                       </dd>
                     </div>
@@ -670,7 +670,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Cote vainqueur</span>
-                    <span className="font-bold text-gold">
+                    <span className="font-bold text-secondary">
                       {estimatedOutrightOdds(prediction.winnerProb)}
                     </span>
                   </div>

@@ -28,7 +28,7 @@ export function BettingCta({
             <div className="mt-1 flex items-center gap-0.5">
               {Array.from({ length: featuredBookmaker.rating }).map(
                 (_, i) => (
-                  <span key={i} className="text-gold text-sm">
+                  <span key={i} className="text-secondary text-sm">
                     &#9733;
                   </span>
                 )
@@ -39,7 +39,7 @@ export function BettingCta({
             href={featuredBookmaker.url}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="inline-block rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary hover:bg-gold/90 transition-colors whitespace-nowrap"
+            className="inline-block rounded-lg bg-secondary px-6 py-3 text-sm font-bold text-primary hover:bg-secondary/90 transition-colors whitespace-nowrap"
           >
             {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; {matchLabel ? `Parier sur ${matchLabel}` : "Parier maintenant"}
           </a>
@@ -64,7 +64,7 @@ export function BettingCta({
                   {bk.bonus} {bk.bonusDetail}
                 </span>
               </div>
-              <span className="text-sm font-medium text-gold">
+              <span className="text-sm font-medium text-secondary">
                 Voir l&apos;offre &rarr;
               </span>
             </a>

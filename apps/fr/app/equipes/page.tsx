@@ -66,7 +66,7 @@ export default function TeamsPage() {
                         <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary">
                           <span className="text-lg" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                           <span className="font-medium text-gray-900 dark:text-white">{team.name}</span>
-                          {team.isHost && <span className="text-xs text-gold font-semibold">(Hôte)</span>}
+                          {team.isHost && <span className="text-xs text-secondary font-semibold">(Hôte)</span>}
                         </Link>
                       </td>
                       <td className="py-3 text-gray-500 dark:text-gray-300">{team.confederation}</td>

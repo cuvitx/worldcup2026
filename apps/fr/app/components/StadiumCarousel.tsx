@@ -85,7 +85,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
 
             {/* Card info */}
             <div className="p-3">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-xs leading-snug mb-1 line-clamp-1 group-hover/card:text-[#e63946] transition-colors">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-xs leading-snug mb-1 line-clamp-1 group-hover/card:text-primary transition-colors">
                 {stadium.name}
               </h3>
               <p className="text-[10px] text-gray-500 dark:text-gray-300 truncate">

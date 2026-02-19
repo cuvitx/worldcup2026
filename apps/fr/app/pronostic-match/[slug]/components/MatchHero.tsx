@@ -35,7 +35,7 @@ export function MatchHero({
       {/* Top glow line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
       {/* Bottom accent strip */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
       {/* Background dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -49,7 +49,7 @@ export function MatchHero({
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Stage badge */}
         <div className="flex justify-center mb-6 px-2">
-          <span className="inline-flex flex-wrap items-center justify-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-widest text-gold backdrop-blur-sm text-center max-w-full">
+          <span className="inline-flex flex-wrap items-center justify-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-widest text-secondary backdrop-blur-sm text-center max-w-full">
             ⚽ {stage}
             {match.group ? ` — Groupe ${match.group}` : ""}
             {match.matchday ? ` · Journée ${match.matchday}` : ""}
@@ -74,7 +74,7 @@ export function MatchHero({
             {home ? (
               <Link
                 href={`/equipe/${home.slug}`}
-                className="text-base sm:text-xl md:text-2xl font-extrabold hover:text-gold transition-colors break-words text-center"
+                className="text-base sm:text-xl md:text-2xl font-extrabold hover:text-secondary transition-colors break-words text-center"
               >
                 {home.name}
               </Link>
@@ -91,7 +91,7 @@ export function MatchHero({
           {/* VS center */}
           <div className="flex flex-col items-center gap-1 shrink-0">
             <span
-              className="text-2xl md:text-3xl font-black text-gold"
+              className="text-2xl md:text-3xl font-black text-secondary"
               style={{ textShadow: "0 0 20px rgba(245,166,35,0.5)" }}
             >
               VS
@@ -116,7 +116,7 @@ export function MatchHero({
             {away ? (
               <Link
                 href={`/equipe/${away.slug}`}
-                className="text-base sm:text-xl md:text-2xl font-extrabold hover:text-gold transition-colors break-words text-center"
+                className="text-base sm:text-xl md:text-2xl font-extrabold hover:text-secondary transition-colors break-words text-center"
               >
                 {away.name}
               </Link>

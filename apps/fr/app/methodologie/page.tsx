@@ -280,7 +280,7 @@ export default function MethodologiePage() {
         </section>
 
         {/* Transparency */}
-        <section className="rounded-lg border-2 border-gold/30 bg-gold/5 p-6">
+        <section className="rounded-lg border-2 border-secondary/30 bg-secondary/5 p-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             ⚠️ Transparence & limites
           </h2>

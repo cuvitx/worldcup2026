@@ -127,7 +127,7 @@ const records = [
     title: "Pelé — 3 couronnes mondiales",
     detail: "Brésil 1958, 1962, 1970 — le seul joueur à avoir remporté 3 CDM",
     badge: "Légende absolue",
-    badgeColor: "bg-gold",
+    badgeColor: "bg-secondary",
   },
   {
     icon: "🥅",

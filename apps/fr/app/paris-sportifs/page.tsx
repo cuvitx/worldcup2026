@@ -62,11 +62,11 @@ export default function ParisSportifsPage() {
                   key={bk.id}
                   href={`/bookmaker/${bk.slug}`}
                   className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-5 transition-all hover:shadow-md ${
-                    i === 0 ? "border-gold bg-gold/5" : "border-gray-200 dark:border-slate-700 hover:border-primary/30"
+                    i === 0 ? "border-secondary bg-secondary/5" : "border-gray-200 dark:border-slate-700 hover:border-primary/30"
                   }`}
                 >
                   {i === 0 && (
-                    <span className="absolute -top-3 left-4 rounded-full bg-gold px-3 py-0.5 text-xs font-bold text-white">
+                    <span className="absolute -top-3 left-4 rounded-full bg-secondary px-3 py-0.5 text-xs font-bold text-white">
                       #1 Recommande
                     </span>
                   )}
@@ -77,7 +77,7 @@ export default function ParisSportifsPage() {
                     </div>
                     <p className="text-sm text-gray-500">{bk.tagline}</p>
                     <div className="flex items-center gap-1 mt-1">
-                      <span className="text-sm text-gold">{"★".repeat(Math.round(avgRating))}</span>
+                      <span className="text-sm text-secondary">{"★".repeat(Math.round(avgRating))}</span>
                       <span className="text-xs text-gray-500">{avgRating.toFixed(1)}/5</span>
                     </div>
                   </div>

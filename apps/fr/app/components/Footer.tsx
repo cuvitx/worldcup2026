@@ -75,7 +75,7 @@ export function Footer() {
           <div className="max-w-xs">
             <Link href="/" className="inline-block mb-3">
               <span className="text-xl font-extrabold">
-                <span className="text-gold">⚽ CDM</span>{" "}
+                <span className="text-secondary">⚽ CDM</span>{" "}
                 <span className="text-white">2026</span>
               </span>
             </Link>

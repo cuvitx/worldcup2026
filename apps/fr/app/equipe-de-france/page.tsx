@@ -254,7 +254,7 @@ export default function EquipeDeFrancePage() {
               {/* Quick stats */}
               <div className="grid grid-cols-3 gap-3 mb-6 max-w-sm mx-auto md:mx-0">
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-                  <p className="text-2xl font-extrabold text-gold">{winnerOdds}</p>
+                  <p className="text-2xl font-extrabold text-secondary">{winnerOdds}</p>
                   <p className="text-xs text-white/60 mt-0.5">Cote titre</p>
                 </div>
                 <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
@@ -276,7 +276,7 @@ export default function EquipeDeFrancePage() {
                 </a>
                 <Link
                   href="/pronostic-vainqueur"
-                  className="rounded-lg border border-gold/40 bg-gold/15 px-5 py-2.5 font-semibold text-gold text-sm hover:bg-gold/25 transition-all"
+                  className="rounded-lg border border-secondary/40 bg-secondary/15 px-5 py-2.5 font-semibold text-secondary text-sm hover:bg-secondary/25 transition-all"
                 >
                   🏆 Pronostic vainqueur
                 </Link>
@@ -288,7 +288,7 @@ export default function EquipeDeFrancePage() {
               <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center min-w-[200px]">
                 <div className="text-7xl mb-3">🇫🇷</div>
                 <p className="font-extrabold text-xl mb-1">France</p>
-                <p className="text-gold font-semibold text-sm mb-4">⭐⭐ Champion 1998 &amp; 2018</p>
+                <p className="text-secondary font-semibold text-sm mb-4">⭐⭐ Champion 1998 &amp; 2018</p>
                 <div className="space-y-2 text-sm text-white/70">
                   <div className="flex justify-between gap-4">
                     <span>Confédération</span>
@@ -304,7 +304,7 @@ export default function EquipeDeFrancePage() {
                   </div>
                   <div className="flex justify-between gap-4">
                     <span>ELO Rating</span>
-                    <span className="font-semibold text-gold">2065</span>
+                    <span className="font-semibold text-secondary">2065</span>
                   </div>
                 </div>
               </div>
@@ -428,7 +428,7 @@ export default function EquipeDeFrancePage() {
                     <div className="shrink-0 text-right">
                       {franceWinOdds && franceWinOdds !== "—" && (
                         <div>
-                          <p className="text-lg font-extrabold text-gold">{franceWinOdds}</p>
+                          <p className="text-lg font-extrabold text-secondary">{franceWinOdds}</p>
                           <p className="text-xs text-gray-500 dark:text-gray-300">victoire 🇫🇷</p>
                         </div>
                       )}
@@ -633,7 +633,7 @@ export default function EquipeDeFrancePage() {
                     key={edition.year}
                     className={`border-t border-gray-100 dark:border-slate-700/50 ${
                       edition.result.includes("CHAMPION")
-                        ? "bg-gold/5 dark:bg-gold/10"
+                        ? "bg-secondary/5 dark:bg-secondary/10"
                         : edition.result.includes("Finaliste")
                         ? "bg-gray-50/50 dark:bg-slate-800/50"
                         : i % 2 === 0
@@ -647,7 +647,7 @@ export default function EquipeDeFrancePage() {
                     <td className="px-4 py-2.5">
                       <span className={`font-semibold ${
                         edition.result.includes("CHAMPION")
-                          ? "text-gold text-base"
+                          ? "text-secondary text-base"
                           : edition.result.includes("Finaliste")
                           ? "text-gray-600 dark:text-gray-200"
                           : edition.result === "Non participante" || edition.result === "Non qualifiée"
@@ -657,7 +657,7 @@ export default function EquipeDeFrancePage() {
                         {edition.flag !== "—" && edition.flag !== "⭐⭐" && (
                           <span className="mr-1">{edition.flag}</span>
                         )}
-                        {edition.flag === "⭐⭐" && <span className="mr-1 text-gold">⭐⭐</span>}
+                        {edition.flag === "⭐⭐" && <span className="mr-1 text-secondary">⭐⭐</span>}
                         {edition.result}
                       </span>
                     </td>
@@ -790,7 +790,7 @@ export default function EquipeDeFrancePage() {
             <Link href="/comparateur-cotes" className="rounded-lg bg-white text-primary font-bold px-6 py-3 hover:bg-primary/5 transition-all hover:-translate-y-0.5">
               📊 Comparer les cotes
             </Link>
-            <Link href="/pronostic-vainqueur" className="rounded-lg border border-gold/40 bg-gold/15 text-gold font-bold px-6 py-3 hover:bg-gold/25 transition-all">
+            <Link href="/pronostic-vainqueur" className="rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 hover:bg-secondary/25 transition-all">
               🏆 Pronostic vainqueur
             </Link>
             <Link href="/billets" className="rounded-lg border border-white/20 bg-white/10 text-white font-semibold px-6 py-3 hover:bg-white/20 transition-all">

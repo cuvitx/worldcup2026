@@ -91,7 +91,7 @@ const todaysBet = DAILY_BETS[0]!;
 const CONFIDENCE_LABELS: Record<number, { label: string; color: string }> = {
   1: { label: "Risqué", color: "text-red-400" },
   2: { label: "Incertain", color: "text-primary" },
-  3: { label: "Modéré", color: "text-gold" },
+  3: { label: "Modéré", color: "text-secondary" },
   4: { label: "Confiant", color: "text-secondary" },
   5: { label: "Très confiant", color: "text-field" },
 };
@@ -110,12 +110,12 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
   if (compact) {
     return (
-      <div className="rounded-xl border border-gold/30 bg-gradient-to-br from-[#060D18] to-[#0F1923] p-4 shadow-lg shadow-blue-900/20">
+      <div className="rounded-xl border border-secondary/30 bg-gradient-to-br from-[#060D18] to-[#0F1923] p-4 shadow-lg shadow-blue-900/20">
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <span className="animate-pulse inline-block w-2 h-2 rounded-full bg-gold" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gold">
+            <span className="animate-pulse inline-block w-2 h-2 rounded-full bg-secondary" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">
               Pari du jour
             </span>
           </div>
@@ -131,7 +131,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         {/* Bet */}
         <div className="flex items-center justify-between bg-white/5 rounded-lg px-3 py-2 mb-3">
           <span className="text-xs text-gray-300">{display.betType}</span>
-          <span className="text-lg font-extrabold text-gold">{display.odds}</span>
+          <span className="text-lg font-extrabold text-secondary">{display.odds}</span>
         </div>
 
         {/* CTA */}
@@ -153,18 +153,18 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]" />
       {/* Déco orb */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
 
       <div className="relative z-10 p-6 md:p-8">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
           <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold/20 border border-gold/40">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 border border-secondary/40">
               🎯
             </span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gold">
+              <p className="text-xs font-bold uppercase tracking-widest text-secondary">
                 Pari du jour
               </p>
               <p className="text-[10px] text-gray-400">Par nos experts CDM 2026</p>
@@ -172,7 +172,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
           </div>
           <div className="flex items-center gap-2">
             <span className={`text-xs font-semibold ${conf.color}`}>{conf.label}</span>
-            <span className="text-gold text-xs tracking-tighter">{confidenceStars}</span>
+            <span className="text-secondary text-xs tracking-tighter">{confidenceStars}</span>
           </div>
         </div>
 
@@ -205,7 +205,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             </div>
             <div className="text-right shrink-0">
               <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Cote</p>
-              <p className="text-2xl sm:text-3xl font-extrabold text-gold">{display.odds}</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-secondary">{display.odds}</p>
             </div>
           </div>
         </div>
@@ -224,7 +224,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             className="flex-1 min-w-[140px] flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-5 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm"
           >
             Parier sur {display.bookmaker}
-            <span className="text-gold font-extrabold">{display.odds}</span>
+            <span className="text-secondary font-extrabold">{display.odds}</span>
           </a>
           {display.matchSlug && (
             <Link

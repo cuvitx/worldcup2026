@@ -83,7 +83,7 @@ export function StadiumMap() {
                   <br />
                   🏟️ {s.capacity.toLocaleString("fr-FR")} places
                   <br />
-                  <Link href={`/stade/${s.slug}`} className="text-blue-600 underline text-xs">
+                  <Link href={`/stade/${s.slug}`} className="text-primary underline text-xs">
                     Voir la fiche →
                   </Link>
                 </div>
