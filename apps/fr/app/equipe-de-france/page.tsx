@@ -7,7 +7,7 @@ import { playersByTeamId } from "@repo/data/players";
 import { matches } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { bookmakers, estimatedMatchOdds } from "@repo/data/affiliates";
+import { bookmakers, estimatedMatchOdds, estimatedOutrightOdds } from "@repo/data/affiliates";
 import { matchPredictionByPair } from "@repo/data/predictions";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "🇫🇷 Équipe de France CDM 2026 — Bleus, Effectif & Pronostics",
     description:
-      "Les Bleus à la CDM 2026 : effectif 26 joueurs, calendrier Groupe I, cotes vainqueur 7.50, analyse forces/faiblesses. Double champion du monde.",
+      "Les Bleus à la CDM 2026 : effectif complet des joueurs, calendrier Groupe I, cotes vainqueur, analyse forces/faiblesses. Double champion du monde.",
     url: "https://cdm2026.fr/equipe-de-france",
   },
 };
@@ -113,7 +113,7 @@ export default function EquipeDeFrancePage() {
     playersByPosition[pos] = francePlayers.filter((p) => p.position === pos);
   }
 
-  const winnerOdds = prediction ? (prediction.winnerProb) : "—";
+  const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;
 
   const breadcrumbJsonLd = {

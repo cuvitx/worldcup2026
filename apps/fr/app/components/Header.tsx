@@ -104,6 +104,13 @@ const megaMenus = {
           { href: "/groupe/d", label: "Groupe D" },
           { href: "/groupe/e", label: "Groupe E" },
           { href: "/groupe/f", label: "Groupe F" },
+          { href: "/groupe/g", label: "Groupe G" },
+          { href: "/groupe/h", label: "Groupe H" },
+          { href: "/groupe/i", label: "Groupe I" },
+          { href: "/groupe/j", label: "Groupe J" },
+          { href: "/groupe/k", label: "Groupe K" },
+          { href: "/groupe/l", label: "Groupe L" },
+          { href: "/groupes", label: "Tous les groupes →" },
         ],
       },
       {
@@ -124,11 +131,12 @@ const megaMenus = {
       {
         title: "Pronostics",
         links: [
-          { href: "/pronostic/france", label: "🇫🇷 France" },
-          { href: "/pronostic/bresil", label: "🇧🇷 Brésil" },
+          { href: "/pronostic-vainqueur", label: "🏆 Pronostic vainqueur" },
+          { href: "/equipe-de-france", label: "🇫🇷 Équipe de France" },
+          { href: "/pronostic/france", label: "🔮 Pronostic France" },
           { href: "/pronostic/argentine", label: "🇦🇷 Argentine" },
           { href: "/pronostic/espagne", label: "🇪🇸 Espagne" },
-          { href: "/pronostic/allemagne", label: "🇩🇪 Allemagne" },
+          { href: "/palmares", label: "🥇 Palmarès CDM" },
         ],
       },
       {
@@ -138,7 +146,7 @@ const megaMenus = {
           { href: "/comparateur-cotes", label: "Comparateur cotes" },
           { href: "/bookmaker/betclic", label: "Betclic" },
           { href: "/bookmaker/winamax", label: "Winamax" },
-          { href: "/match/calendrier", label: "Calendrier matchs" },
+          { href: "/billets", label: "🎟️ Billets CDM 2026" },
         ],
       },
     ],

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Glossaire des Paris Sportifs – CDM 2026",
     description: "Plus de 80 termes de paris sportifs expliqués simplement avec des exemples Coupe du Monde 2026.",
+    url: "https://cdm2026.fr/guide/glossaire",
   },
 };
 

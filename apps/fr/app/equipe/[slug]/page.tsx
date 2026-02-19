@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${team.name} - Coupe du Monde 2026 | Effectif, Stats & Pronostics`,
-    description: `Tout sur ${team.name}à la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
+    description: `Tout sur ${team.name} à la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
     alternates: getAlternates("team", slug, "fr"),
     openGraph: {
       title: `${team.flag} ${team.name} - CDM 2026`,

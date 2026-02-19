@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Recherche CDM 2026",
     description: "Trouvez une équipe, un joueur, un stade ou un match de la Coupe du Monde 2026.",
+    url: "https://cdm2026.fr/recherche",
   },
 };
 

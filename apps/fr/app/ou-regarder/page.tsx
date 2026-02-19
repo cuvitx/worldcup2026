@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: "Où regarder la CDM 2026 — TV & Streaming par pays",
     description:
       "TF1, beIN, RTBF, RTS, TSN, RDS… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
+    url: "https://cdm2026.fr/ou-regarder",
   },
 };
 

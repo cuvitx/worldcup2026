@@ -7,6 +7,8 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 
+export const revalidate = 3600;
+
 // ============================================================
 //  Tournament dates: June 11 (day 1) to July 19 (day 39)
 // ============================================================

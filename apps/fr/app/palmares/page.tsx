@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "Palmarès CDM FIFA 1930–2022",
     description:
       "Tous les champions du Monde depuis 1930 : Brésil 5 titres, Allemagne 4, Italie 4, Argentine 3…",
+    url: "https://cdm2026.fr/palmares",
   },
 };
 

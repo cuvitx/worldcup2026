@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: "Carte interactive des 16 stades CDM 2026",
     description:
       "Localisez les 16 stades de la Coupe du Monde 2026 sur une carte interactive de l'Amérique du Nord.",
+    url: "https://cdm2026.fr/carte-stades",
   },
 };
 
