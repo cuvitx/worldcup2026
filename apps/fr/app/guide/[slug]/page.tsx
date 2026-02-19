@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { guides, guidesBySlug, guidesById } from "@repo/data/guides";
 import { bookmakerReviewsById } from "@repo/data/bookmaker-reviews";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
-import { AuthorBox } from "../../components/AuthorBox";
+import { AuthorBox } from "@repo/ui/author-box";
 
 export const revalidate = 86400;
 export const dynamicParams = false;

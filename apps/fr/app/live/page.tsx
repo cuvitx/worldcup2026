@@ -3,7 +3,7 @@ import Link from "next/link";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
-import { Countdown } from "../components/Countdown";
+import { Countdown } from "@repo/ui/countdown";
 
 export const metadata: Metadata = {
   title: "Résultats en direct - Coupe du Monde 2026",
@@ -100,16 +100,16 @@ export default function LivePage() {
       <Countdown />
 
       {/* Pre-tournament notice */}
-      <section className="bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border-y border-[#FF6B35]/30 dark:border-[#FF6B35]/20 py-6">
+      <section className="bg-accent//10 dark:bg-accent//10 border-y border-accent//30 dark:border-accent//20 py-6">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#FF6B35]/15 dark:bg-[#FF6B35]/15 px-4 py-2 text-[#FF6B35] dark:text-[#FF6B35] font-semibold text-sm mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full bg-accent//15 dark:bg-accent//15 px-4 py-2 text-accent dark:text-accent font-semibold text-sm mb-3">
             <span>📡</span>
             <span>En attente du coup d&apos;envoi</span>
           </div>
-          <p className="text-[#FF6B35] dark:text-[#FF6B35] text-lg font-medium">
+          <p className="text-accent dark:text-accent text-lg font-medium">
             Les résultats en direct seront disponibles dès le 11 juin 2026
           </p>
-          <p className="text-[#FF6B35] dark:text-[#FF6B35] text-sm mt-1">
+          <p className="text-accent dark:text-accent text-sm mt-1">
             Scores actualisés en temps réel, événements et compositions d&apos;équipe
           </p>
         </div>

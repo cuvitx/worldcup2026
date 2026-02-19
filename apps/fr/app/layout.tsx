@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { domains, getHomeAlternates } from "@repo/data/route-mapping";
@@ -9,9 +9,9 @@ import { LiveTicker } from "./components/LiveTicker";
 import { CookieConsent } from "@repo/ui/cookie-consent";
 import { BackToTop } from "@repo/ui/back-to-top";
 import { StickyCTA } from "./components/StickyCTA";
-import { BadgeSystem } from "./components/BadgeSystem";
+import { BadgeSystem } from "@repo/ui/badge-system";
 import { BottomNav } from "./components/BottomNav";
-import { NewsletterPopup } from "./components/NewsletterPopup";
+import { NewsletterPopup } from "@repo/ui/newsletter-popup";
 import "./globals.css";
 
 /* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
@@ -20,14 +20,6 @@ const inter = Inter({
   display: "swap",
   variable: "--font-inter",
   weight: ["400", "500", "600", "700", "800"],
-});
-
-/* ── JetBrains Mono — scores & stats ── */
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jetbrains",
-  weight: ["400", "700"],
 });
 
 /* ── Space Grotesk — titres (h1, h2, h3) Direction A Continental ── */
@@ -89,20 +81,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        {/* next/font/google self-hosts Inter + JetBrains Mono → pas besoin de CDN externe */}
+        {/* next/font/google self-hosts Inter → pas besoin de CDN externe */}
         {/* Le preload des fonts (.woff2) est injecté automatiquement par next/font */}
         {/* max-image-preview:large → autorise Google Discover à afficher des grandes images */}
         <meta name="robots" content="max-image-preview:large" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
-        {/* GA4: G-XXXXXXXXXX — décommenter et remplacer l'ID pour activer Google Analytics 4 */}
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" /> */}
-        {/* <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{anonymize_ip:true})` }} /> */}
+        {/* TODO: Activer GA4 — remplacer G-XXXXXXXXXX par l'ID réel puis décommenter les scripts gtag */}
       </head>
       {/*
         Body — Brand Book CDM2026 :

@@ -18,7 +18,8 @@ import {
 } from "@repo/data/affiliates";
 import CommunityVote from "../../components/CommunityVote";
 import Link from "next/link";
-import { ShareButtons } from "../../components/ShareButtons";
+import { stageLabels } from "@repo/data/constants";
+import { ShareButtons } from "@repo/ui/share-buttons";
 import {
   MatchHero,
   PredictionOutcomes,
@@ -40,15 +41,6 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-const stageLabels: Record<string, string> = {
-  group: "Phase de groupes",
-  "round-of-32": "32e de finale",
-  "round-of-16": "8e de finale",
-  "quarter-final": "Quart de finale",
-  "semi-final": "Demi-finale",
-  "third-place": "Match pour la 3e place",
-  final: "Finale",
-};
 
 export async function generateStaticParams() {
   return matches.map((m) => ({ slug: m.slug }));

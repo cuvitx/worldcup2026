@@ -243,7 +243,7 @@ export default function Quiz() {
           if (selected === null) {
             classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-secondary/40 hover:bg-secondary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-secondary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
-            classes += "border-[#06D6A0] bg-[#06D6A0]/10 dark:bg-[#06D6A0]/15 text-[#06D6A0] dark:text-[#06D6A0] shadow-lg shadow-[#06D6A0]/20 scale-[1.01]";
+            classes += "border-success bg-success//10 dark:bg-success//15 text-success dark:text-success shadow-lg shadow-success//20 scale-[1.01]";
           } else if (idx === selected) {
             classes += "border-red-500 bg-red-50 dark:bg-red-500/20 text-red-700 dark:text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
@@ -264,7 +264,7 @@ export default function Quiz() {
         <div
           className={`mt-4 p-4 rounded-xl text-sm animate-[fadeSlideIn_0.3s_ease-out] ${
             selected === currentQuestion.correctIndex
-              ? "bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 text-[#06D6A0] dark:text-[#06D6A0]"
+              ? "bg-success//10 dark:bg-success//10 border border-success//30 dark:border-success//20 text-success dark:text-success"
               : "bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300"
           }`}
         >

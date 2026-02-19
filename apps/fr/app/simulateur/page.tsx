@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BracketSimulator } from "./components/BracketSimulator";
-import { SocialProof } from "../components/SocialProof";
+import { SocialProof } from "@repo/ui/social-proof";
 
 export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",

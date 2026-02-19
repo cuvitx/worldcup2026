@@ -28,7 +28,8 @@
     "./team-history": "./src/team-history.ts",
     "./team-ratings": "./src/team-ratings.ts",
     "./country-codes": "./src/country-codes.ts",
-    "./predictions-2026": "./src/predictions-2026.ts"
+    "./predictions-2026": "./src/predictions-2026.ts",
+    "./constants": "./src/constants.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

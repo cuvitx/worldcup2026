@@ -69,14 +69,14 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className={`flex items-center gap-3 rounded-xl border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 ${compact ? 'p-3' : 'p-5'}`}>
+      <div className={`flex items-center gap-3 rounded-xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 ${compact ? 'p-3' : 'p-5'}`}>
         <span className="text-2xl">✅</span>
         <div>
-          <p className={`font-bold text-[#06D6A0] dark:text-[#06D6A0] ${compact ? 'text-sm' : 'text-base'}`}>
+          <p className={`font-bold text-success dark:text-success ${compact ? 'text-sm' : 'text-base'}`}>
             Inscription confirmée !
           </p>
           {!compact && (
-            <p className="text-sm text-[#06D6A0] dark:text-[#06D6A0]/80 mt-0.5">
+            <p className="text-sm text-success dark:text-success//80 mt-0.5">
               Vous recevrez notre newsletter chaque semaine dès le coup d&apos;envoi de la CDM 2026.
             </p>
           )}
@@ -119,7 +119,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
       {status === 'duplicate' && (
-        <p className="mt-2 text-xs text-[#FF6B35] dark:text-[#FF6B35]">
+        <p className="mt-2 text-xs text-accent dark:text-accent">
           📬 Cette adresse est déjà inscrite. À très bientôt !
         </p>
       )}

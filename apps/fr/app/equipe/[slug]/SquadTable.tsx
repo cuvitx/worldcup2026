@@ -8,7 +8,7 @@ interface Player {
   slug: string;
   name: string;
   position: "GK" | "DF" | "MF" | "FW";
-  number?: number;
+  number?: number | null;
   age: number;
   club: string;
   goals: number;

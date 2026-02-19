@@ -1,3 +1,5 @@
+import { HeroSection } from "@repo/ui/hero-section";
+import { SectionHeading } from "@repo/ui/section-heading";
 import { StadiumImage } from "../components/stadium-image";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
@@ -37,23 +39,18 @@ export default function StadiumsPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Les 16 stades de la CDM 2026</h1>
-          <p className="mt-2 text-gray-300">
-            11 stades aux États-Unis, 3 au Mexique et 2 au Canada accueilleront les 104 matchs.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Les 16 stades de la CDM 2026"
+        subtitle="11 stades aux États-Unis, 3 au Mexique et 2 au Canada accueilleront les 104 matchs."
+        className="bg-primary"
+      />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
         {countries.map((country) => {
           const countryStadiums = sorted.filter((s) => s.country === country);
           return (
             <section key={country}>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                {countryLabels[country]} ({countryStadiums.length} stades)
-              </h2>
+              <SectionHeading title={`${countryLabels[country]} (${countryStadiums.length} stades)`} />
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {countryStadiums.map((stadium) => {
                   const city = cities.find((c) => c.id === stadium.cityId);

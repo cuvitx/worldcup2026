@@ -1,0 +1,86 @@
+import { SectionHeading } from "@repo/ui/section-heading";
+import Link from "next/link";
+
+interface GroupData {
+  letter: string;
+  slug: string;
+  teams: string[];
+}
+
+interface GroupsOverviewProps {
+  groups: GroupData[];
+  teamsById: Record<string, { id: string; name: string; flag: string; fifaRanking: number; isHost: boolean }>;
+}
+
+export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
+  return (
+    <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
+            12 groupes · 48 équipes
+          </p>
+          <SectionHeading title="Groupes en un coup d'œil" linkHref="/groupes" linkLabel="Voir tous les groupes →" />
+        </div>
+
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {groups.map((group) => {
+            const groupTeams = group.teams
+              .map((id) => teamsById[id])
+              .filter((t): t is NonNullable<typeof t> => t != null)
+              .sort((a, b) => {
+                if (a.fifaRanking === 0) return 1;
+                if (b.fifaRanking === 0) return -1;
+                return a.fifaRanking - b.fifaRanking;
+              });
+
+            return (
+              <Link
+                key={group.slug}
+                href={`/groupe/${group.slug}`}
+                className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-[#0D3B66] to-[#0F1923]">
+                  <span className="text-xs font-black text-secondary">
+                    GROUPE {group.letter}
+                  </span>
+                  <span className="text-[10px] text-gray-500 group-hover:text-secondary transition-colors">
+                    {groupTeams.length} éq.
+                  </span>
+                </div>
+
+                <div className="divide-y divide-gray-50 dark:divide-gray-700/30 py-1">
+                  {groupTeams.map((team, i) => (
+                    <div
+                      key={team.id}
+                      className={`flex items-center gap-2 px-3 py-1.5 ${
+                        i < 2
+                          ? "text-gray-900 dark:text-gray-100"
+                          : "text-gray-400 dark:text-gray-400"
+                      }`}
+                    >
+                      <span className="text-xs text-gray-500 dark:text-gray-600 w-3 shrink-0 font-bold">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm shrink-0" role="img" aria-label={team.name}>
+                        {team.flag}
+                      </span>
+                      <span className="text-[11px] font-semibold truncate flex-1">
+                        {team.name}
+                      </span>
+                      {team.isHost && (
+                        <span className="text-[8px] bg-secondary/20 text-secondary px-1 py-0.5 rounded font-bold shrink-0">
+                          H
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

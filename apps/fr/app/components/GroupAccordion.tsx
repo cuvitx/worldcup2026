@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Group, Team } from "@repo/data/types";
-import { GroupCard } from "./GroupCard";
+import { GroupCard } from "@repo/ui/group-card";
 
 interface GroupAccordionProps {
   groups: { group: Group; teams: Team[] }[];

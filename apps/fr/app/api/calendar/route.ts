@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+import { rateLimit } from "../_lib/rate-limit";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
@@ -90,6 +92,12 @@ function stageLabel(stage: string, group?: string): string {
 // ─── iCalendar generation ────────────────────────────────────────────────────
 
 export async function GET(): Promise<Response> {
+  const headersList = await headers();
+  const ip = headersList.get("x-forwarded-for") ?? headersList.get("x-real-ip") ?? "unknown";
+  if (!rateLimit(ip, 30)) {
+    return Response.json({ error: "Trop de requêtes. Réessayez dans 1 minute." }, { status: 429 });
+  }
+
   const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
   const lines: string[] = [];
 

@@ -84,15 +84,23 @@ export function LiveTicker() {
   // Abbreviate long team names for ticker display
   const abbreviations: Record<string, string> = {
     "Afrique du Sud": "Afr. du Sud",
-    "Corée du Sud": "Corée du S.",
-    "Arabie saoudite": "Arabie sao.",
+    "Corée du Sud": "Corée S.",
+    "Arabie saoudite": "Arabie S.",
     "Nouvelle-Zélande": "Nvl-Zélande",
     "République tchèque": "Rép. tchèque",
     "Trinité-et-Tobago": "Trinité-Tob.",
-    "Bosnie-Herzégovine": "Bosnie-Herz.",
+    "Bosnie-Herzégovine": "Bosnie-H.",
     "République dominicaine": "Rép. dom.",
+    "Barrage UEFA A": "Barrage A",
+    "Barrage UEFA B": "Barrage B",
+    "Barrage UEFA C": "Barrage C",
+    "Barrage UEFA D": "Barrage D",
+    "Barrage intercontinental 1": "Barrage IC1",
+    "Barrage intercontinental 2": "Barrage IC2",
+    "Côte d'Ivoire": "Côte d'Iv.",
+    "États-Unis": "USA",
   };
-  const abbreviate = (name: string) => abbreviations[name] ?? (name.length > 12 ? name.slice(0, 10) + "…" : name);
+  const abbreviate = (name: string) => abbreviations[name] ?? (name.length > 10 ? name.slice(0, 8) + "…" : name);
   const homeName = abbreviate(homeTeam.name);
   const awayName = abbreviate(awayTeam.name);
 

@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
 import { stadiums, stadiumsById } from "@repo/data/stadiums";
 import { getHomeAlternates } from "@repo/data/route-mapping";
-import { predictionsByTeamId } from "@repo/data/predictions";
-import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { newsArticles } from "@repo/data/news";
-import { favoritesByTeamId } from "@repo/data/predictions-2026";
-import { Countdown } from "./components/Countdown";
-import { NewsletterCTA } from "./components/NewsletterCTA";
-import { SocialProof } from "./components/SocialProof";
+import { Newsletter } from "@repo/ui/newsletter";
+import { SocialProof } from "@repo/ui/social-proof";
 import { StadiumCarousel } from "./components/StadiumCarousel";
+import { SectionHeading } from "@repo/ui/section-heading";
+
+import { HeroSection } from "./components/home/HeroSection";
+import { UpcomingMatches } from "./components/home/UpcomingMatches";
+import { GroupsOverview } from "./components/home/GroupsOverview";
+import { RecentArticles } from "./components/home/RecentArticles";
+import { FavoriteTeams } from "./components/home/FavoriteTeams";
 
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-/* ──────────────────────────────── helpers ──────────────────────────────── */
+/* ──────────────────────────────── data ──────────────────────────────── */
 
 const faqHomepageItems = [
   {
@@ -90,37 +92,11 @@ const homepageJsonLd = [
   },
 ];
 
-const categoryColors: Record<string, string> = {
-  stades: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary",
-  billets: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
-  equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
-  transferts: "bg-[#FF6B35]/15 text-[#FF6B35] dark:bg-[#FF6B35]/10 dark:text-[#FF6B35]",
-};
-
-const categoryLabels: Record<string, string> = {
-  stades: "Stades",
-  billets: "Billets",
-  equipes: "Équipes",
-  paris: "Paris",
-  transferts: "Transferts",
-};
-
-function formatMatchDate(date: string) {
-  return new Date(date + "T00:00:00Z").toLocaleDateString("fr-FR", {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    timeZone: "UTC",
-  });
-}
-
 /* ══════════════════════════════════════════════════════════════════════════
    PAGE COMPONENT
    ══════════════════════════════════════════════════════════════════════════ */
 
 export default function HomePage() {
-  /* ── data ── */
   const upcomingMatches = matches
     .filter((m) => new Date(`${m.date}T${m.time ?? "00:00"}Z`) >= new Date())
     .sort(
@@ -147,95 +123,10 @@ export default function HomePage() {
         />
       ))}
 
-      {/* ══════════════════════════════════════════════════════════════════
-          1. HERO — Cinematic full-screen avec countdown intégré
-          ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden text-white" style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}>
-        {/* Background — stade fantôme */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/images/stadiums/metlife-stadium.jpg')" }}
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0D3B66]/60 via-[#0F1923]/40 to-[#0D3B66]" />
+      {/* 1. HERO */}
+      <HeroSection />
 
-        {/* Orbs décoratifs */}
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
-
-        {/* Content */}
-        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center pt-16 sm:pt-20">
-          {/* Badge event */}
-          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
-              Coupe du Monde 2026 · 11 juin – 19 juillet
-            </span>
-          </div>
-
-          {/* Headline principale */}
-          <h1 className="mb-4 text-4xl font-black tracking-tight leading-none sm:text-5xl md:text-6xl lg:text-7xl">
-            <span
-              className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Chaque match.
-            </span>
-            <span
-              className="block bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Chaque pari.
-            </span>
-            <span
-              className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Chaque champion.
-            </span>
-          </h1>
-
-          <p className="mx-auto mb-10 max-w-xl text-base text-gray-200 leading-relaxed sm:text-lg">
-            Pronostics d&apos;experts · Cotes live · Analyses exclusives
-            <br />
-            <span className="text-sm text-gray-300">
-              🇺🇸 États-Unis · 🇨🇦 Canada · 🇲🇽 Mexique — 48 équipes · 104 matchs
-            </span>
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-14">
-            <Link
-              href="/pronostic-vainqueur"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white shadow-lg shadow-accent/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/90 w-full sm:w-auto"
-            >
-              <span className="text-base">🎯</span>
-              Mes pronostics
-              <span className="opacity-70 group-hover:translate-x-0.5 transition-transform">→</span>
-            </Link>
-            <Link
-              href="/simulateur"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 w-full sm:w-auto"
-            >
-              <span className="text-base">🏆</span>
-              Créer mon bracket
-              <span className="opacity-70 group-hover:translate-x-0.5 transition-transform">→</span>
-            </Link>
-          </div>
-
-          {/* Countdown intégré dans le hero */}
-          <Countdown />
-        </div>
-
-        {/* Arrow scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/80 text-xl">
-          ↓
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          STATS RIBBON
-          ══════════════════════════════════════════════════════════════════ */}
+      {/* STATS RIBBON */}
       <section className="bg-white dark:bg-[#0D3B66] border-y border-gray-200 dark:border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-white/5">
@@ -255,437 +146,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════
-          2. PROCHAINS MATCHS — 3 matchs avec stade
-          ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-white dark:bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Section header */}
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
-                Phase de groupes
-              </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
-                Prochains matchs
-              </h2>
-            </div>
-            <Link
-              href="/match/calendrier"
-              className="text-sm font-semibold text-primary hover:underline"
-            >
-              Calendrier complet →
-            </Link>
-          </div>
+      {/* 2. PROCHAINS MATCHS */}
+      <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {upcomingMatches.length === 0 ? (
-              <p className="col-span-3 text-center text-gray-500 py-8">
-                Aucun match à venir.
-              </p>
-            ) : (
-              upcomingMatches.map((match) => {
-                const home = teamsById[match.homeTeamId];
-                const away = teamsById[match.awayTeamId];
-                const stadium = stadiumsById[match.stadiumId];
+      {/* 3. GROUPES */}
+      <GroupsOverview groups={groups} teamsById={teamsById} />
 
-                return (
-                  <Link
-                    key={match.id}
-                    href={`/pronostic-match/${match.slug}`}
-                    className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
-                  >
-                    {/* Top accent */}
-                    <div className="h-0.5 bg-gradient-to-r from-primary to-secondary" />
+      {/* 4. ARTICLES RÉCENTS */}
+      <RecentArticles recentArticles={recentArticles} />
 
-                    {/* Match group badge */}
-                    <div className="flex items-center justify-between px-4 pt-3 pb-2">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
-                        {match.group ? `Groupe ${match.group}` : match.stage}
-                        {match.matchday ? ` · J${match.matchday}` : ""}
-                      </span>
-                      <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-300">
-                        {formatMatchDate(match.date)}
-                        {match.time && (
-                          <span className="ml-1 text-gray-500"> {match.time}</span>
-                        )}
-                      </span>
-                    </div>
-
-                    {/* Teams */}
-                    <div className="flex items-center justify-between gap-2 px-4 py-4">
-                      {/* Home */}
-                      <div className="flex flex-col items-center gap-1.5 flex-1 min-w-0">
-                        <span className="text-4xl drop-shadow-sm" role="img" aria-label={home?.name}>
-                          {home?.flag ?? "🏳️"}
-                        </span>
-                        <span className="text-xs font-bold text-gray-900 dark:text-gray-100 text-center truncate w-full">
-                          {home?.name ?? match.homeTeamId}
-                        </span>
-                      </div>
-
-                      {/* VS */}
-                      <div className="flex flex-col items-center shrink-0">
-                        <span className="text-xs font-black text-primary tracking-widest">VS</span>
-                      </div>
-
-                      {/* Away */}
-                      <div className="flex flex-col items-center gap-1.5 flex-1 min-w-0">
-                        <span className="text-4xl drop-shadow-sm" role="img" aria-label={away?.name}>
-                          {away?.flag ?? "🏳️"}
-                        </span>
-                        <span className="text-xs font-bold text-gray-900 dark:text-gray-100 text-center truncate w-full">
-                          {away?.name ?? match.awayTeamId}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Stadium */}
-                    {stadium && (
-                      <div className="px-4 pb-4 mt-auto">
-                        <div className="flex items-center gap-1.5 rounded-xl bg-gray-50 dark:bg-slate-800/60 px-3 py-2">
-                          <span className="text-sm">🏟️</span>
-                          <div className="min-w-0">
-                            <p className="text-[10px] font-bold text-gray-700 dark:text-gray-300 truncate">
-                              {stadium.name}
-                            </p>
-                            <p className="text-[9px] text-gray-500 dark:text-gray-400">
-                              {stadium.city}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Hover CTA */}
-                    <div className="px-4 pb-3.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="block text-center text-[11px] font-bold text-primary">
-                        Voir le pronostic →
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          3. GROUPES EN UN COUP D'ŒEIL — 12 cartes A-L
-          ══════════════════════════════════════════════════════════════════ */}
+      {/* 5. STADES CDM 2026 */}
       <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
-                12 groupes · 48 équipes
-              </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
-                Groupes en un coup d&apos;œil
-              </h2>
-            </div>
-            <Link href="/groupes" className="text-sm font-semibold text-secondary hover:underline">
-              Voir tous les groupes →
-            </Link>
-          </div>
-
-          <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            {groups.map((group) => {
-              const groupTeams = group.teams
-                .map((id) => teamsById[id])
-                .filter((t): t is NonNullable<typeof t> => t != null)
-                .sort((a, b) => {
-                  if (a.fifaRanking === 0) return 1;
-                  if (b.fifaRanking === 0) return -1;
-                  return a.fifaRanking - b.fifaRanking;
-                });
-
-              return (
-                <Link
-                  key={group.slug}
-                  href={`/groupe/${group.slug}`}
-                  className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
-                >
-                  {/* Header */}
-                  <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-[#0D3B66] to-[#0F1923]">
-                    <span className="text-xs font-black text-secondary">
-                      GROUPE {group.letter}
-                    </span>
-                    <span className="text-[10px] text-gray-500 group-hover:text-secondary transition-colors">
-                      {groupTeams.length} éq.
-                    </span>
-                  </div>
-
-                  {/* Teams list */}
-                  <div className="divide-y divide-gray-50 dark:divide-gray-700/30 py-1">
-                    {groupTeams.map((team, i) => (
-                      <div
-                        key={team.id}
-                        className={`flex items-center gap-2 px-3 py-1.5 ${
-                          i < 2
-                            ? "text-gray-900 dark:text-gray-100"
-                            : "text-gray-400 dark:text-gray-400"
-                        }`}
-                      >
-                        <span className="text-xs text-gray-500 dark:text-gray-600 w-3 shrink-0 font-bold">
-                          {i + 1}
-                        </span>
-                        <span className="text-sm shrink-0" role="img" aria-label={team.name}>
-                          {team.flag}
-                        </span>
-                        <span className="text-[11px] font-semibold truncate flex-1">
-                          {team.name}
-                        </span>
-                        {team.isHost && (
-                          <span className="text-[8px] bg-secondary/20 text-secondary px-1 py-0.5 rounded font-bold shrink-0">
-                            H
-                          </span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          4. ARTICLES RÉCENTS — 3 derniers articles
-          ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-white dark:bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
-                Actualités
-              </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
-                Articles récents
-              </h2>
-            </div>
-            <Link href="/actualites" className="text-sm font-semibold text-primary hover:underline">
-              Toutes les actus →
-            </Link>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-3">
-            {recentArticles.map((article, i) => (
-              <Link
-                key={article.id}
-                href={`/actualites/${article.slug}`}
-                className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-              >
-                {/* Thumbnail zone */}
-                <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                  <span className="text-6xl opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500">
-                    {article.imageEmoji}
-                  </span>
-                  {/* Glassmorphism on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Featured badge for first article */}
-                  {i === 0 && (
-                    <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-primary text-white px-2.5 py-1 rounded-full">
-                      À la une
-                    </span>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-5">
-                  <span
-                    className={`self-start text-[10px] font-bold px-2.5 py-1 rounded-full mb-3 uppercase tracking-wider ${
-                      categoryColors[article.category] ?? "bg-gray-100 text-gray-600"
-                    }`}
-                  >
-                    {categoryLabels[article.category] ?? article.category}
-                  </span>
-
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
-                    {article.title}
-                  </h3>
-
-                  <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed line-clamp-2 flex-1">
-                    {article.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50 dark:border-gray-800">
-                    <p className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
-                      {new Date(article.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                        timeZone: "UTC",
-                      })}
-                    </p>
-                    <span className="text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                      Lire →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          5. STADES CDM 2026 — Carousel horizontal 16 stades
-          ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-secondary mb-1.5">
-                🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
-              </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
-                Stades CDM 2026
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                16 stades répartis dans 3 pays hôtes
-              </p>
-            </div>
-            <Link href="/stades" className="text-sm font-semibold text-primary dark:text-secondary hover:underline">
-              Tous les stades →
-            </Link>
+          <div className="mb-8">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-secondary mb-1.5">
+              🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
+            </p>
+            <SectionHeading title="Stades CDM 2026" subtitle="16 stades répartis dans 3 pays hôtes" linkHref="/stades" linkLabel="Tous les stades →" />
           </div>
 
           <StadiumCarousel stadiums={stadiums} />
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════
-          6. ÉQUIPES FAVORITES — Top 5 avec cotes et drapeaux
-          ══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-white dark:bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
-                Cotes Vainqueur
-              </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
-                Équipes favorites
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                Top 5 FIFA · Pronostics &amp; chances de titre
-              </p>
-            </div>
-            <Link
-              href="/pronostic-vainqueur"
-              className="text-sm font-semibold text-secondary hover:underline"
-            >
-              Tous les pronostics →
-            </Link>
-          </div>
+      {/* 6. ÉQUIPES FAVORITES */}
+      <FavoriteTeams topTeams={topTeams} />
 
-          <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
-            {topTeams.map((team, index) => {
-              const pred = predictionsByTeamId[team.id];
-              const favData = favoritesByTeamId[team.id];
-              const winPct = pred ? Math.round(pred.winnerProb * 100) : null;
-              // Prefer real bookmaker avg odds over estimated
-              const outrightOdds = favData ? favData.avgOdds.toFixed(2) : pred ? estimatedOutrightOdds(pred.winnerProb) : null;
-              const trendIcon = favData?.trend === "up" ? " ↑" : favData?.trend === "down" ? " ↓" : null;
-              const medals = ["🥇", "🥈", "🥉"];
-
-              return (
-                <Link
-                  key={team.id}
-                  href={`/equipe/${team.slug}`}
-                  className="group relative flex flex-col items-center rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 p-5 shadow-sm text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden"
-                >
-                  {/* Glow effect for top 3 */}
-                  {index < 3 && (
-                    <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  )}
-
-                  {/* Rank badge */}
-                  <span className="absolute top-2.5 left-2.5 text-[11px] font-black">
-                    {index < 3 ? medals[index] : (
-                      <span className="bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-300 px-1.5 py-0.5 rounded text-[10px]">
-                        #{team.fifaRanking}
-                      </span>
-                    )}
-                  </span>
-
-                  {/* Flag */}
-                  <span
-                    className="text-5xl mb-3 transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                    role="img"
-                    aria-label={team.name}
-                  >
-                    {team.flag}
-                  </span>
-
-                  {/* Team name */}
-                  <p className="text-sm font-extrabold text-gray-900 dark:text-gray-100 mb-1">
-                    {team.name}
-                  </p>
-
-                  {/* Win probability bar */}
-                  {winPct !== null && winPct > 0 && (
-                    <div className="w-full mt-1.5 mb-2">
-                      <div className="flex justify-between text-[9px] text-gray-500 mb-1">
-                        <span>Chances</span>
-                        <span className="font-bold text-primary">
-                          {winPct < 1 ? "<1" : winPct}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-1">
-                        <div
-                          className="bg-gradient-to-r from-primary to-secondary h-1 rounded-full transition-all duration-700"
-                          style={{ width: `${Math.min(winPct * 4, 100)}%` }}
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Odds badge — real bookmaker data when available */}
-                  {outrightOdds && (
-                    <div className="mt-1 w-full rounded-xl border border-secondary/30 bg-secondary/5 dark:bg-secondary/10 px-3 py-2">
-                      <p className="text-[9px] text-gray-500 dark:text-gray-300 mb-0.5">
-                        {favData ? "Cote moy. marché" : "Cote vainqueur"}
-                      </p>
-                      <p className="text-lg font-black text-secondary">
-                        {outrightOdds}
-                        {trendIcon && (
-                          <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-[#06D6A0]" : "text-red-400"}`}>
-                            {trendIcon}
-                          </span>
-                        )}
-                      </p>
-                      {favData && (
-                        <p className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5">
-                          Proba : {Math.round(favData.impliedProbability * 100)}%
-                        </p>
-                      )}
-                    </div>
-                  )}
-
-                  <p className="text-[9px] text-gray-500 dark:text-gray-600 mt-2">
-                    Groupe {team.group}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Disclaimer */}
-          <p className="mt-4 text-center text-[10px] text-gray-500 dark:text-gray-600">
-            * Cotes indicatives basées sur nos modèles. Vérifiez sur les bookmakers agréés.
-            Pariez responsablement. 18+
-          </p>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          FAQ
-          ══════════════════════════════════════════════════════════════════ */}
+      {/* FAQ */}
       <section className="bg-gray-50 dark:bg-slate-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
@@ -714,15 +201,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════
-          7. NEWSLETTER CTA
-          ══════════════════════════════════════════════════════════════════ */}
-      {/* ══════════════════════════════════════════════════════════════════
-          SOCIAL PROOF
-          ══════════════════════════════════════════════════════════════════ */}
+      {/* SOCIAL PROOF + NEWSLETTER */}
       <SocialProof />
-
-      <NewsletterCTA />
+      <Newsletter variant="banner" />
     </>
   );
 }

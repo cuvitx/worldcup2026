@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
-import { StatBar } from "../components/StatBar";
+import { StatBar } from "@repo/ui/stat-bar";
 
 export const metadata: Metadata = {
   title: "Statistiques Coupe du Monde - Records et chiffres clés | CDM 2026",
@@ -95,7 +95,7 @@ const records = [
     title: "Pelé — 17 ans, 239 jours",
     detail: "Brésil vs Pays de Galles — CDM 1958, quart de finale",
     badge: "Record de jeunesse",
-    badgeColor: "bg-[#06D6A0]",
+    badgeColor: "bg-success",
   },
   {
     icon: "👴",
@@ -260,7 +260,7 @@ export default function StatistiquesPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary via-secondary to-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-[#06D6A0] uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-success uppercase tracking-widest mb-2">
             Coupe du Monde FIFA · 1930–2026
           </p>
           <h1 className="text-2xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -302,11 +302,11 @@ export default function StatistiquesPage() {
                   <span
                     className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${
                       i === 0
-                        ? "bg-[#FF6B35] text-white"
+                        ? "bg-accent text-white"
                         : i === 1
                         ? "bg-gray-300 text-gray-700"
                         : i === 2
-                        ? "bg-[#FF6B35]/80 text-white"
+                        ? "bg-accent//80 text-white"
                         : "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300"
                     }`}
                   >

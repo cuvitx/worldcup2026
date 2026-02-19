@@ -3,10 +3,33 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    ".": "./src/index.ts",
     "./*": "./src/*.tsx",
+    "./card": "./src/card.tsx",
+    "./section-heading": "./src/section-heading.tsx",
+    "./stat-card": "./src/stat-card.tsx",
+    "./data-row": "./src/data-row.tsx",
+    "./hero-section": "./src/hero-section.tsx",
+    "./match-row": "./src/match-row.tsx",
+    "./responsive-table": "./src/responsive-table.tsx",
     "./cookie-consent": "./src/cookie-consent.tsx",
     "./search": "./src/search.tsx",
-    "./search-dialog": "./src/search-dialog.tsx"
+    "./search-dialog": "./src/search-dialog.tsx",
+    "./newsletter": "./src/newsletter.tsx",
+    "./newsletter-popup": "./src/newsletter-popup.tsx",
+    "./button": "./src/button.tsx",
+    "./match-card": "./src/match-card.tsx",
+    "./team-card": "./src/team-card.tsx",
+    "./group-card": "./src/group-card.tsx",
+    "./share-buttons": "./src/share-buttons.tsx",
+    "./countdown": "./src/countdown.tsx",
+    "./stat-bar": "./src/stat-bar.tsx",
+    "./flag": "./src/flag.tsx",
+    "./badge-system": "./src/badge-system.tsx",
+    "./button": "./src/button.tsx",
+    "./social-proof": "./src/social-proof.tsx",
+    "./author-box": "./src/author-box.tsx",
+    "./badges": "./src/badges.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -24,6 +47,7 @@
   },
   "dependencies": {
     "@repo/data": "*",
+    "next": ">=14.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }

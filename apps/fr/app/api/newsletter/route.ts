@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { headers } from 'next/headers';
+import { rateLimit } from '../_lib/rate-limit';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
+  const headersList = await headers();
+  const ip = headersList.get("x-forwarded-for") ?? headersList.get("x-real-ip") ?? "unknown";
+  if (!rateLimit(ip, 5)) {
+    return NextResponse.json({ error: "Trop de requêtes. Réessayez dans 1 minute." }, { status: 429 });
+  }
+
   let body: unknown;
   try {
     body = await req.json();

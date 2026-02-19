@@ -1,3 +1,4 @@
+import { HeroSection } from "@repo/ui/hero-section";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -29,14 +30,11 @@ export default function GroupsPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Les 12 groupes de la CDM 2026</h1>
-          <p className="mt-2 text-gray-300">
-            48 équipes réparties en 12 groupes de 4. Les 2 premiers de chaque groupe et les 8 meilleurs 3e sont qualifiés.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Les 12 groupes de la CDM 2026"
+        subtitle="48 équipes réparties en 12 groupes de 4. Les 2 premiers de chaque groupe et les 8 meilleurs 3e sont qualifiés."
+        className="bg-primary"
+      />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useBadges, ALL_BADGES } from "../components/BadgeSystem";
+import { useBadges, ALL_BADGES } from "@repo/ui/badge-system";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
 

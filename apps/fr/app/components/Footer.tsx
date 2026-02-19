@@ -157,12 +157,12 @@ export function Footer() {
               <h3 className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
                 {col.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm hover:text-white transition-colors"
+                      className="text-sm hover:text-white transition-colors py-1 inline-block"
                     >
                       {link.label}
                     </Link>
@@ -199,7 +199,7 @@ export function Footer() {
         {/* Legal bottom */}
         <div className="border-t border-white/5 pt-6">
           <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-gray-600">
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
               {[
                 { href: "/mentions-legales", label: "Mentions légales" },
                 { href: "/politique-de-confidentialite", label: "Politique de confidentialité" },
@@ -209,7 +209,7 @@ export function Footer() {
                 { href: "/contact", label: "Contact" },
                 { href: "/faq", label: "FAQ" },
               ].map((item) => (
-                <Link key={item.href} href={item.href} className="hover:text-gray-400 transition-colors">
+                <Link key={item.href} href={item.href} className="hover:text-gray-400 transition-colors py-1 inline-block">
                   {item.label}
                 </Link>
               ))}

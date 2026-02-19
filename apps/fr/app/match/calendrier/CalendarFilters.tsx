@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { MatchRow } from "@repo/ui/match-row";
 import { useState, useMemo } from "react";
+import { stageLabels } from "@repo/data/constants";
 
 interface MatchData {
   id: string;
@@ -26,15 +28,6 @@ interface StadiumInfo {
   name: string;
 }
 
-const stageLabels: Record<string, string> = {
-  group: "Phase de groupes",
-  "round-of-32": "32es de finale",
-  "round-of-16": "Huitièmes de finale",
-  "quarter-final": "Quarts de finale",
-  "semi-final": "Demi-finales",
-  "third-place": "Match pour la 3e place",
-  final: "Finale",
-};
 
 const stageOrder = [
   "group",
@@ -219,34 +212,17 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                           const stad = stadiumsById[match.stadiumId];
 
                           return (
-                            <Link
+                            <MatchRow
                               key={match.id}
                               href={`/match/${match.slug}`}
-                              className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
-                            >
-                              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 w-14 text-center shrink-0">
-                                {match.time}
-                              </span>
-                              <div className="flex items-center gap-2 flex-1 min-w-0">
-                                <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{home?.name ?? "À déterminer"}</span>
-                              </div>
-                              <span className="text-sm font-bold text-gray-600 dark:text-gray-400 shrink-0">vs</span>
-                              <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100 text-right">{away?.name ?? "À déterminer"}</span>
-                                <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-                              </div>
-                              {match.group && (
-                                <span className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 dark:text-gray-300 shrink-0">
-                                  Gr. {match.group}
-                                </span>
-                              )}
-                              {stad && (
-                                <span className="text-sm text-gray-600 dark:text-gray-300 hidden sm:block shrink-0 w-36 text-right truncate">
-                                  {stad.name}
-                                </span>
-                              )}
-                            </Link>
+                              homeFlag={home?.flag ?? "🏳️"}
+                              homeName={home?.name ?? "TBD"}
+                              awayFlag={away?.flag ?? "🏳️"}
+                              awayName={away?.name ?? "TBD"}
+                              time={match.time}
+                              group={match.group}
+                              stadium={stad?.name}
+                            />
                           );
                         })}
                       </div>

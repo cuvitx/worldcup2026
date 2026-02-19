@@ -83,6 +83,7 @@ const megaMenus = {
         links: [
           { href: "/equipes", label: "Toutes les équipes →" },
           { href: "/joueurs", label: "Joueurs clés" },
+          { href: "/portrait/kylian-mbappe", label: "⭐ Portraits joueurs" },
           { href: "/buteurs", label: "Cotes buteurs" },
           { href: "/h2h", label: "Confrontations H2H" },
         ],
@@ -134,6 +135,7 @@ const megaMenus = {
         links: [
           { href: "/actualites", label: "📰 Actualités" },
           { href: "/guides", label: "📖 Guides" },
+          { href: "/guide-ville/new-york", label: "🏙️ Guides villes" },
           { href: "/ou-regarder", label: "📺 Où regarder" },
           { href: "/carte-stades", label: "🗺️ Carte des stades" },
           { href: "/recherche", label: "🔍 Recherche" },
@@ -194,9 +196,9 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-extrabold tracking-tight hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none rounded"
+          className="text-lg font-extrabold tracking-tight hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none rounded"
         >
-          <span className="text-[#FF6B35]">⚽ CDM</span>{" "}
+          <span className="text-accent">⚽ CDM</span>{" "}
           <span className="text-white">2026</span>
         </Link>
 
@@ -248,7 +250,7 @@ export function Header() {
                               <li key={link.href}>
                                 <Link
                                   href={link.href}
-                                  className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-[#E8ECF1] hover:bg-gray-100 dark:hover:bg-[rgba(255,255,255,0.08)] hover:text-[#2EC4B6] transition-colors"
+                                  className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-[#E8ECF1] hover:bg-gray-100 dark:hover:bg-[rgba(255,255,255,0.08)] hover:text-secondary transition-colors"
                                   onClick={() => setActiveMenu(null)}
                                 >
                                   <span>{link.label}</span>
@@ -274,7 +276,7 @@ export function Header() {
           <Link
             href="/match/calendrier"
             className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
-              pathname.startsWith("/match") ? "text-[#FF6B35]" : "text-white/80"
+              pathname.startsWith("/match") ? "text-accent" : "text-white/80"
             }`}
           >
             📅 Calendrier
@@ -282,7 +284,7 @@ export function Header() {
           <Link
             href="/live"
             className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 flex items-center gap-1 ${
-              pathname === "/live" ? "text-[#FF6B35]" : "text-white/80"
+              pathname === "/live" ? "text-accent" : "text-white/80"
             }`}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
@@ -296,8 +298,8 @@ export function Header() {
           <Link
             href="/recherche"
             aria-label="Page de recherche"
-            className={`hidden md:flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none ${
-              pathname === "/recherche" ? "text-[#FF6B35]" : "text-white/80"
+            className={`hidden md:flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none ${
+              pathname === "/recherche" ? "text-accent" : "text-white/80"
             }`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -316,7 +318,7 @@ export function Header() {
           <div className="relative" ref={langRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm text-white/80 hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm text-white/80 hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none"
               aria-label="Changer de langue"
               aria-expanded={langOpen}
             >
@@ -353,7 +355,7 @@ export function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 -mr-1 rounded-lg text-white hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#2EC4B6] focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="md:hidden p-2 -mr-1 rounded-lg text-white hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
@@ -450,7 +452,7 @@ export function Header() {
               className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
               onClick={() => setOpen(false)}
             >
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#06D6A0] animate-pulse" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
               Scores en direct
             </Link>
             <Link
@@ -463,7 +465,7 @@ export function Header() {
             <Link
               href="/recherche"
               className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors ${
-                pathname === "/recherche" ? "text-[#FF6B35]" : "text-white"
+                pathname === "/recherche" ? "text-accent" : "text-white"
               }`}
               onClick={() => setOpen(false)}
             >

@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -73,7 +73,7 @@ export default function ParisSportifsPage() {
                   )}
                   <div className="flex-1 text-center sm:text-left">
                     <div className="flex items-center justify-center sm:justify-start gap-3">
-                      {bk.logo && <img src={bk.logo} alt={bk.name} className="h-10 w-10 rounded-lg object-contain" />}
+                      {bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={40} height={40} className="h-10 w-10 rounded-lg object-contain" />}
                       <p className="text-xl font-bold">{bk.name}</p>
                     </div>
                     <p className="text-sm text-gray-500">{bk.tagline}</p>

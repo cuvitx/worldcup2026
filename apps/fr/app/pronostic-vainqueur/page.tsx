@@ -1,6 +1,9 @@
+import { Card } from "@repo/ui/card";
+import { SectionHeading } from "@repo/ui/section-heading";
+import { StatCard } from "@repo/ui/stat-card";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { NewsletterCTA } from "../components/NewsletterCTA";
+import { Newsletter } from "@repo/ui/newsletter";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { teams } from "@repo/data/teams";
@@ -17,6 +20,12 @@ import {
   favoritesByTeamId,
 } from "@repo/data/predictions-2026";
 
+import { TopFavorites } from "./TopFavorites";
+import { OddsTable } from "./OddsTable";
+import { WhyTheyCanWin } from "./WhyTheyCanWin";
+import { HostHistory } from "./HostHistory";
+import { DarkHorses } from "./DarkHorses";
+
 export const metadata: Metadata = {
   title: "Pronostic Vainqueur CDM 2026 — Qui va gagner la Coupe du Monde ?",
   description:
@@ -28,6 +37,10 @@ export const metadata: Metadata = {
     url: "https://cdm2026.fr/pronostic-vainqueur",
   },
 };
+
+// ============================================================================
+// DATA
+// ============================================================================
 
 const faqItems = [
   {
@@ -72,7 +85,6 @@ const faqItems = [
   },
 ];
 
-// Top 10 favorites from predictions sorted by winnerProb
 const teamsById = Object.fromEntries(teams.map((t) => [t.id, t]));
 
 const top10 = [...teamPredictions]
@@ -82,9 +94,8 @@ const top10 = [...teamPredictions]
     pred,
     team: teamsById[pred.teamId],
   }))
-  .filter((x) => x.team != null);
+  .filter((x): x is { pred: typeof x.pred; team: NonNullable<typeof x.team> } => x.team != null);
 
-// Dark horses: rank 11-18 by winnerProb
 const darkHorses = [...teamPredictions]
   .sort((a, b) => b.winnerProb - a.winnerProb)
   .slice(10, 16)
@@ -92,13 +103,9 @@ const darkHorses = [...teamPredictions]
     pred,
     team: teamsById[pred.teamId],
   }))
-  .filter((x) => x.team != null);
+  .filter((x): x is { pred: typeof x.pred; team: NonNullable<typeof x.team> } => x.team != null);
 
-// Pro/con arguments per team
-const teamArguments: Record<
-  string,
-  { pros: string[]; cons: string[] }
-> = {
+const teamArguments: Record<string, { pros: string[]; cons: string[] }> = {
   argentine: {
     pros: [
       "Championne du monde en titre (Qatar 2022)",
@@ -222,11 +229,6 @@ const teamArguments: Record<
   },
 };
 
-// ============================================================================
-// Données enrichies pour les sections additionnelles
-// ============================================================================
-
-// Couleurs par confédération pour le graphique
 const CONFEDERATION_COLORS: Record<string, { bg: string; border: string; label: string }> = {
   UEFA: { bg: "bg-[#2EC4B6]", border: "border-[#2EC4B6]/60", label: "UEFA (Europe)" },
   CONMEBOL: { bg: "bg-[#0D3B66]", border: "border-[#0D3B66]/60", label: "CONMEBOL (Amérique du Sud)" },
@@ -236,7 +238,6 @@ const CONFEDERATION_COLORS: Record<string, { bg: string; border: string; label: 
   OFC: { bg: "bg-[#06D6A0]", border: "border-[#06D6A0]/60", label: "OFC (Océanie)" },
 };
 
-// Analyse narrative pour le top 5 "Pourquoi ils peuvent gagner"
 const whyTheyCanWin: Record<string, {
   narrative: string;
   keyPlayer: string;
@@ -287,7 +288,6 @@ const whyTheyCanWin: Record<string, {
   },
 };
 
-// Historique CDM à domicile (stats réelles)
 const cdmHomeStats = [
   { year: 1930, host: "Uruguay", winner: "Uruguay", hostWon: true, hostFlag: "🇺🇾", note: "Première CDM" },
   { year: 1934, host: "Italie", winner: "Italie", hostWon: true, hostFlag: "🇮🇹", note: "Organisation fasciste" },
@@ -316,6 +316,10 @@ const cdmHomeStats = [
 const homeWins = cdmHomeStats.filter((s) => s.hostWon).length;
 const totalEditions = cdmHomeStats.length;
 const homeWinPct = Math.round((homeWins / totalEditions) * 100);
+
+// ============================================================================
+// PAGE
+// ============================================================================
 
 export default function PronosticVainqueurPage() {
   const faqJsonLd = {
@@ -408,16 +412,7 @@ export default function PronosticVainqueurPage() {
       {/* ===== GRAPHIQUE VISUEL DES COTES PAR CONTINENT ===== */}
       <section id="graphique" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="section-header mb-6">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                📊 Chances de titre par confédération
-              </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                Barres proportionnelles aux probabilités — colorées par confédération
-              </p>
-            </div>
-          </div>
+          <SectionHeading emoji="📊" title="Chances de titre par confédération" subtitle="Barres proportionnelles aux probabilités — colorées par confédération" />
 
           {/* Légende confédérations */}
           <div className="flex flex-wrap gap-3 mb-6">
@@ -440,18 +435,15 @@ export default function PronosticVainqueurPage() {
 
               return (
                 <div key={team.id} className="flex items-center gap-3">
-                  {/* Rank */}
                   <span className="shrink-0 w-6 text-right text-xs font-bold text-gray-600 dark:text-gray-400">
                     {index + 1}
                   </span>
-                  {/* Flag + name */}
-                  <div className="flex items-center gap-2 w-36 shrink-0">
-                    <span className="text-xl shrink-0">{team.flag}</span>
-                    <span className="text-sm font-semibold text-gray-900 dark:text-white break-words">
+                  <div className="flex items-center gap-1.5 w-24 sm:w-36 shrink-0">
+                    <span className="text-lg sm:text-xl shrink-0">{team.flag}</span>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white break-words leading-tight">
                       {team.name}
                     </span>
                   </div>
-                  {/* Bar */}
                   <div className="flex-1 h-7 bg-gray-100 dark:bg-slate-800 rounded-lg overflow-hidden relative">
                     <div
                       className={`h-full ${conf.bg} opacity-85 rounded-lg transition-all duration-700 flex items-center pl-3`}
@@ -462,7 +454,6 @@ export default function PronosticVainqueurPage() {
                       </span>
                     </div>
                   </div>
-                  {/* Odds */}
                   <span className="shrink-0 w-14 text-right text-sm font-bold text-secondary">
                     {approxOdds}
                   </span>
@@ -478,384 +469,13 @@ export default function PronosticVainqueurPage() {
       </section>
 
       {/* ===== TOP 10 FAVORIS ===== */}
-      <section id="top10" className="bg-gray-50 dark:bg-slate-900/50 py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="section-header mb-6">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🥇 Top 10 des favoris CDM 2026
-              </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                Classement par probabilité de victoire (modèle ELO + cotes bookmakers)
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {top10.map(({ pred, team }, index) => {
-              if (!team) return null;
-              const winPct = Math.round(pred.winnerProb * 100 * 10) / 10;
-              const fav = favoritesByTeamId[team.id];
-              const approxOdds = fav ? fav.avgOdds.toFixed(2) : estimatedOutrightOdds(pred.winnerProb);
-              const impliedPct = fav ? Math.round(fav.impliedProbability * 100 * 10) / 10 : null;
-              const trendIcon = fav ? (fav.trend === "up" ? " ↑" : fav.trend === "down" ? " ↓" : "") : "";
-              const trendColor = fav?.trend === "up" ? "text-[#06D6A0]" : fav?.trend === "down" ? "text-red-400" : "";
-              const args = teamArguments[team.id];
-
-              return (
-                <div
-                  key={team.id}
-                  className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-                >
-                  {/* Header row */}
-                  <div className="flex items-center gap-4 px-5 py-4">
-                    {/* Rank */}
-                    <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
-                      index === 0 ? "bg-secondary/20 text-secondary border-2 border-secondary/50" :
-                      index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                      index === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary" :
-                      "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300"
-                    }`}>
-                      {index + 1}
-                    </div>
-
-                    {/* Flag + Name */}
-                    <span className="text-4xl shrink-0">{team.flag}</span>
-                    <div className="flex-1 min-w-0">
-                      <Link
-                        href={`/equipe/${team.slug}`}
-                        className="text-lg font-bold text-gray-900 dark:text-white hover:text-primary transition-colors"
-                      >
-                        {team.name}
-                      </Link>
-                      <div className="flex items-center gap-3 mt-0.5 flex-wrap">
-                        <span className="text-xs text-gray-600 dark:text-gray-300">
-                          #{team.fifaRanking} FIFA
-                        </span>
-                        <span className="text-xs text-gray-600 dark:text-gray-300">
-                          ELO {pred.eloRating}
-                        </span>
-                        <span className="text-xs bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
-                          {team.bestResult}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="shrink-0 text-right hidden sm:block">
-                      <p className="text-2xl font-extrabold text-primary">
-                        {winPct < 1 ? "<1" : winPct}%
-                      </p>
-                      <p className="text-xs text-gray-600 dark:text-gray-300">chance titre</p>
-                    </div>
-                    <div className="shrink-0 text-right">
-                      <p className="text-xl font-bold text-secondary">
-                        {approxOdds}
-                        {trendIcon && (
-                          <span className={`text-sm ml-1 font-bold ${trendColor}`}>{trendIcon}</span>
-                        )}
-                      </p>
-                      <p className="text-xs text-gray-600 dark:text-gray-300">
-                        {fav ? "cote moy. marché" : "cote approx."}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Real bookmaker odds strip (if in top10Favorites) */}
-                  {fav && (
-                    <div className="flex items-center gap-2 px-5 pb-2 flex-wrap">
-                      <span className="text-[10px] text-gray-600 dark:text-gray-400 uppercase tracking-wide">Cotes réelles :</span>
-                      <span className="inline-flex items-center gap-1 rounded bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/20 px-2 py-0.5 text-xs font-bold text-primary dark:text-secondary">
-                        Winamax {fav.winamax.toFixed(2)}
-                      </span>
-                      <span className="inline-flex items-center gap-1 rounded bg-secondary/10 dark:bg-secondary/10 border border-secondary/30 dark:border-secondary/20 px-2 py-0.5 text-xs font-bold text-secondary dark:text-secondary">
-                        Bet365 {fav.bet365.toFixed(2)}
-                      </span>
-                      <span className="inline-flex items-center gap-1 rounded bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10 border border-[#06D6A0]/30 dark:border-[#06D6A0]/20 px-2 py-0.5 text-xs font-bold text-[#06D6A0] dark:text-[#06D6A0]">
-                        DraftKings {fav.draftkings.toFixed(2)}
-                      </span>
-                      {impliedPct !== null && (
-                        <span className="ml-auto inline-flex items-center gap-1 rounded bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-bold text-primary">
-                          Proba : {impliedPct}%
-                        </span>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Mobile: chance titre */}
-                  <div className="flex sm:hidden items-center gap-4 px-5 pb-3">
-                    <span className="text-xl font-extrabold text-primary">{winPct < 1 ? "<1" : winPct}%</span>
-                    <span className="text-sm text-gray-600 dark:text-gray-300">chance de gagner le titre</span>
-                  </div>
-
-                  {/* Probability bar */}
-                  <div className="px-5 pb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all"
-                          style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
-                        />
-                      </div>
-                      <span className="text-xs text-gray-600 dark:text-gray-400 shrink-0 w-20 text-right">
-                        finale: {Math.round(pred.finalProb * 100)}%
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Pro/Con */}
-                  {args && (
-                    <div className="grid sm:grid-cols-2 gap-0 border-t border-gray-100 dark:border-slate-700">
-                      <div className="p-4 bg-[#06D6A0]/10 dark:bg-[#06D6A0]/10">
-                        <p className="text-xs font-bold text-[#06D6A0] dark:text-[#06D6A0] mb-2">✅ Points forts</p>
-                        <ul className="space-y-1">
-                          {args.pros.slice(0, 3).map((pro, i) => (
-                            <li key={i} className="text-xs text-gray-700 dark:text-gray-300">
-                              • {pro}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="p-4 bg-red-50/50 dark:bg-red-900/10 border-t sm:border-t-0 sm:border-l border-gray-100 dark:border-slate-700">
-                        <p className="text-xs font-bold text-red-600 dark:text-red-400 mb-2">⚠️ Points faibles</p>
-                        <ul className="space-y-1">
-                          {args.cons.slice(0, 3).map((con, i) => (
-                            <li key={i} className="text-xs text-gray-700 dark:text-gray-300">
-                              • {con}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <TopFavorites top10={top10} teamArguments={teamArguments} />
 
       {/* ===== POURQUOI ILS PEUVENT GAGNER — TOP 5 ===== */}
-      <section id="analyse-top5" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="section-header mb-6">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🔍 Pourquoi ils peuvent gagner — Analyse top 5
-              </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                Décryptage en profondeur des 5 équipes les plus probables de soulever le trophée
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            {top10.slice(0, 5).map(({ team, pred }, index) => {
-              if (!team) return null;
-              const analysis = whyTheyCanWin[team.id];
-              if (!analysis) return null;
-              const winPct = (pred.winnerProb * 100).toFixed(1);
-
-              return (
-                <div
-                  key={team.id}
-                  className="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm"
-                >
-                  {/* Header */}
-                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 border-b border-gray-100 dark:border-slate-700">
-                    <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
-                      index === 0 ? "bg-secondary/20 text-secondary border-2 border-secondary/50" :
-                      index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                      index === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary" :
-                      "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300"
-                    }`}>
-                      {index + 1}
-                    </div>
-                    <span className="text-4xl">{team.flag}</span>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        {team.name}
-                      </h3>
-                      <div className="flex items-center gap-3 mt-0.5 flex-wrap">
-                        <span className="text-sm text-primary font-bold">{winPct}% de chance de titre</span>
-                        <span className="text-sm text-secondary font-bold">Cote {analysis.betOdds}</span>
-                        <span className="text-xs text-gray-600 dark:text-gray-300">{team.bestResult}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Body */}
-                  <div className="p-6 grid md:grid-cols-3 gap-6">
-                    {/* Narrative */}
-                    <div className="md:col-span-2">
-                      <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wide">
-                        📝 Notre analyse
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {analysis.narrative}
-                      </p>
-                    </div>
-
-                    {/* Key info */}
-                    <div className="space-y-3">
-                      <div className="rounded-xl bg-secondary/5 dark:bg-secondary/10 border border-secondary/10 dark:border-secondary/20 p-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-secondary dark:text-secondary mb-1">
-                          ⭐ Joueur clé
-                        </p>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">{analysis.keyPlayer}</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-300 mt-0.5">{analysis.keyPlayerDesc}</p>
-                      </div>
-                      <div className="rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10 dark:border-primary/20 p-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-primary dark:text-white mb-1">
-                          ⚙️ Avantage tactique
-                        </p>
-                        <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.tacticalEdge}</p>
-                      </div>
-                      <div className="rounded-xl bg-secondary/5 border border-secondary/20 p-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-secondary mb-1">
-                          ✨ Facteur X
-                        </p>
-                        <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.xFactor}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <WhyTheyCanWin top10={top10} whyTheyCanWin={whyTheyCanWin} />
 
       {/* ===== HISTORIQUE CDM À DOMICILE ===== */}
-      <section id="historique" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="section-header mb-6">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🏠 Historique : qui a gagné à domicile ?
-              </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                Le pays hôte peut-il vraiment faire la différence ? Retour sur 22 éditions.
-              </p>
-            </div>
-          </div>
-
-          {/* Stats globales */}
-          <div className="grid sm:grid-cols-3 gap-4 mb-6">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-              <p className="text-4xl font-extrabold text-primary mb-1">{homeWins}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">pays hôtes vainqueurs</p>
-              <p className="text-xs text-gray-500 mt-1">sur {totalEditions} éditions depuis 1930</p>
-            </div>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-              <p className="text-4xl font-extrabold text-secondary mb-1">{homeWinPct}%</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">taux de victoire à domicile</p>
-              <p className="text-xs text-gray-500 mt-1">Avantage terrain non négligeable</p>
-            </div>
-            <div className="rounded-xl border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 p-5 text-center">
-              <p className="text-4xl font-extrabold text-[#FF6B35] mb-1">3</p>
-              <p className="text-sm text-[#FF6B35] dark:text-[#FF6B35] font-medium">pays hôtes en 2026</p>
-              <p className="text-xs text-[#FF6B35]/70 dark:text-[#FF6B35]/70 mt-1">USA, Canada, Mexique — triple avantage terrain</p>
-            </div>
-          </div>
-
-          {/* Pays hôtes vainqueurs */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-              🏆 Les 6 champions du monde à domicile
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {cdmHomeStats.filter((s) => s.hostWon).map((s) => (
-                <div
-                  key={s.year}
-                  className="flex items-center gap-3 rounded-xl border border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-4"
-                >
-                  <span className="text-3xl">{s.hostFlag}</span>
-                  <div>
-                    <p className="font-bold text-gray-900 dark:text-white">
-                      {s.host} {s.year}
-                    </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-300">{s.note}</p>
-                  </div>
-                  <span className="ml-auto text-secondary font-extrabold text-lg">🏆</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Timeline complète (compacte) */}
-          <details className="group">
-            <summary className="cursor-pointer flex items-center gap-2 text-sm font-semibold text-primary hover:underline list-none mb-4">
-              <svg className="w-4 h-4 group-open:rotate-90 transition-transform duration-200 inline-block" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" /></svg>
-              Voir l&apos;historique complet ({totalEditions} éditions)
-            </summary>
-            <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
-              <table className="w-full text-xs">
-                <thead>
-                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500text-gray-700 dark:text-gray-300">
-                    <th className="text-left px-3 py-2">Année</th>
-                    <th className="text-left px-3 py-2">Hôte</th>
-                    <th className="text-left px-3 py-2">Vainqueur</th>
-                    <th className="text-left px-3 py-2 hidden sm:table-cell">Anecdote</th>
-                    <th className="text-center px-3 py-2">🏠</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cdmHomeStats.map((s, i) => (
-                    <tr
-                      key={s.year}
-                      className={`border-t border-gray-100 dark:border-slate-700/50 ${
-                        s.hostWon
-                          ? "bg-secondary/5 dark:bg-secondary/10"
-                          : i % 2 === 0 ? "bg-white dark:bg-slate-800/50" : "bg-gray-50/50 dark:bg-slate-800"
-                      }`}
-                    >
-                      <td className="px-3 py-2 font-bold text-gray-900 dark:text-white">{s.year}</td>
-                      <td className="px-3 py-2">
-                        <span className="mr-1">{s.hostFlag}</span>
-                        {s.host}
-                      </td>
-                      <td className={`px-3 py-2 font-semibold ${s.hostWon ? "text-secondary" : "text-gray-600 dark:text-gray-300"}`}>
-                        {s.winner} {s.hostWon ? "🏆" : ""}
-                      </td>
-                      <td className="px-3 py-2 text-gray-600 dark:text-gray-300 hidden sm:table-cell">{s.note}</td>
-                      <td className="px-3 py-2 text-center">
-                        {s.hostWon ? <span className="text-[#06D6A0] font-bold">✓</span> : <span className="text-red-400">✗</span>}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </details>
-
-          {/* Impact pour 2026 */}
-          <div className="mt-6 rounded-xl border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-5">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-secondary mb-2">
-              🔭 Implications pour 2026 : États-Unis, Canada, Mexique
-            </h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
-              Pour la première fois de l&apos;histoire, <strong>3 pays partagent l&apos;organisation</strong>. L&apos;avantage terrain est donc dilué mais présent. Historiquement, le pays hôte bénéficie de <strong>+6 à +8 pts ELO</strong> grâce au soutien du public et à la connaissance des conditions locales.
-            </p>
-            <div className="grid sm:grid-cols-3 gap-3">
-              {[
-                { flag: "🇺🇸", name: "États-Unis", note: "Jouent devant 80 000 supporters à domicile. Objectif réaliste : quarts de finale.", chance: "4.2%" },
-                { flag: "🇨🇦", name: "Canada", note: "Alphonso Davies au sommet. Première CDM — la ferveur peut créer des miracles.", chance: "1.8%" },
-                { flag: "🇲🇽", name: "Mexique", note: "L'Azteca en altitude (2240m) — avantage physique considérable en phase de groupes.", chance: "2.1%" },
-              ].map((host) => (
-                <div key={host.name} className="rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-3">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xl">{host.flag}</span>
-                    <span className="font-bold text-sm text-gray-900 dark:text-white">{host.name}</span>
-                    <span className="ml-auto text-xs font-bold text-primary">{host.chance}</span>
-                  </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-300">{host.note}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <HostHistory cdmHomeStats={cdmHomeStats} homeWins={homeWins} totalEditions={totalEditions} homeWinPct={homeWinPct} />
 
       {/* ===== CTA SIMULATEUR BRACKET ===== */}
       <section id="simulateur-cta" className="py-12" style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}>
@@ -892,229 +512,17 @@ export default function PronosticVainqueurPage() {
         </div>
       </section>
 
-      {/* ===== TABLEAU COMPARATIF DES COTES MULTI-BOOKMAKERS (données réelles) ===== */}
-      <section id="cotes" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            📊 Cotes vainqueur CDM 2026 — Multi-bookmakers
-          </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">
-            Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700 dark:text-gray-200">février 2026</span>.
-          </p>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            ↑ Tendance haussière vs. cotes d&apos;ouverture (déc. 2025) · ↓ Tendance baissière · → Stable
-          </p>
-
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500text-gray-700 dark:text-gray-300">
-                  <th className="text-left px-4 py-3 font-bold min-w-[160px]">Équipe</th>
-                  <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#FF6600]">Winamax</th>
-                  <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#00A0A0]">Bet365</th>
-                  <th className="text-center px-4 py-3 font-bold whitespace-nowrap text-[#53B648]">DraftKings</th>
-                  <th className="text-center px-4 py-3 font-bold text-secondary whitespace-nowrap">Moy. marché</th>
-                  <th className="text-center px-4 py-3 font-bold text-primary whitespace-nowrap">Proba.</th>
-                  <th className="text-center px-4 py-3 font-bold text-gray-600 dark:text-gray-300 whitespace-nowrap">Tendance</th>
-                </tr>
-              </thead>
-              <tbody>
-                {top10Favorites.map((fav, i) => {
-                  const team = teams.find((t) => t.id === fav.teamId);
-                  if (!team) return null;
-                  const trendIcon = fav.trend === "up" ? "↑" : fav.trend === "down" ? "↓" : "→";
-                  const trendColor =
-                    fav.trend === "up"
-                      ? "text-[#06D6A0] dark:text-[#06D6A0]"
-                      : fav.trend === "down"
-                      ? "text-red-500 dark:text-red-400"
-                      : "text-gray-600 dark:text-gray-400";
-                  const impliedPct = Math.round(fav.impliedProbability * 100 * 10) / 10;
-                  // best odds among bookmakers
-                  const bestOdds = Math.max(fav.winamax, fav.bet365, fav.draftkings);
-
-                  return (
-                    <tr
-                      key={fav.teamId}
-                      className={`border-t border-gray-100 dark:border-slate-700/50 ${
-                        i % 2 === 0 ? "bg-white dark:bg-slate-800/50" : "bg-gray-50/50 dark:bg-slate-800"
-                      } hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors`}
-                    >
-                      {/* Team */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                            i === 0 ? "bg-secondary/20 text-secondary" :
-                            i === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
-                            i === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary" :
-                            "bg-gray-100 dark:bg-slate-700 text-gray-500"
-                          }`}>{i + 1}</span>
-                          <span className="text-xl">{team.flag}</span>
-                          <Link href={`/equipe/${team.slug}`} className="font-medium text-gray-900 dark:text-white hover:text-primary transition-colors">
-                            {team.name}
-                          </Link>
-                        </div>
-                      </td>
-                      {/* Winamax */}
-                      <td className="px-4 py-3 text-center">
-                        <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.winamax === bestOdds ? "bg-secondary/10 text-secondary border border-secondary/30" : "text-gray-700 dark:text-gray-200"}`}>
-                          {fav.winamax.toFixed(2)}
-                        </span>
-                      </td>
-                      {/* Bet365 */}
-                      <td className="px-4 py-3 text-center">
-                        <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.bet365 === bestOdds ? "bg-secondary/10 text-secondary border border-secondary/30" : "text-gray-700 dark:text-gray-200"}`}>
-                          {fav.bet365.toFixed(2)}
-                        </span>
-                      </td>
-                      {/* DraftKings */}
-                      <td className="px-4 py-3 text-center">
-                        <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.draftkings === bestOdds ? "bg-secondary/10 text-secondary border border-secondary/30" : "text-gray-700 dark:text-gray-200"}`}>
-                          {fav.draftkings.toFixed(2)}
-                        </span>
-                      </td>
-                      {/* Moyenne */}
-                      <td className="px-4 py-3 text-center">
-                        <span className="font-bold text-secondary">{fav.avgOdds.toFixed(2)}</span>
-                      </td>
-                      {/* Proba implicite */}
-                      <td className="px-4 py-3 text-center">
-                        <div className="flex flex-col items-center gap-1">
-                          <span className="font-bold text-primary text-sm">{impliedPct}%</span>
-                          <div className="w-16 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                            <div
-                              className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
-                              style={{ width: `${Math.min(impliedPct * 5, 100)}%` }}
-                            />
-                          </div>
-                        </div>
-                      </td>
-                      {/* Tendance */}
-                      <td className={`px-4 py-3 text-center text-lg font-bold ${trendColor}`}>
-                        {trendIcon}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Légende + note */}
-          <div className="mt-4 flex flex-wrap gap-4 items-start justify-between">
-            <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-300">
-              <span>🟡 = Meilleure cote du moment</span>
-              <span className="text-[#06D6A0] dark:text-[#06D6A0] font-semibold">↑ Tendance haussière</span>
-              <span className="text-red-500 dark:text-red-400 font-semibold">↓ Tendance baissière</span>
-              <span>→ Stable</span>
-            </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 max-w-xs text-right">
-              Sources : Winamax (football.fr), Bet365 (covers.com), DraftKings (nbcsports.com). Cotes décimales. Jeu responsable — 18+.
-            </p>
-          </div>
-
-          {/* Bookmaker CTAs */}
-          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {bookmakers.slice(0, 3).map((bm) => (
-              <a
-                key={bm.id}
-                href={bm.url}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-md ${
-                  bm.highlight
-                    ? "border-primary/20 bg-primary/5 dark:bg-primary/10"
-                    : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
-                }`}
-              >
-                <div>
-                  <p className="font-bold text-gray-900 dark:text-white">{bm.name}</p>
-                  <p className="text-sm text-primary font-semibold">{bm.bonus}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-300">{bm.bonusDetail}</p>
-                </div>
-                <div className="text-right">
-                  <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
-                    Voir →
-                  </span>
-                  <p className="text-[10px] text-gray-500 mt-1">{"⭐".repeat(bm.rating)}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== TABLEAU COMPARATIF DES COTES MULTI-BOOKMAKERS ===== */}
+      <OddsTable />
 
       {/* ===== DARK HORSES ===== */}
-      <section id="dark-horses" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            🐎 Dark Horses — Les outsiders à surveiller
-          </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            Ces équipes peuvent créer la surprise et aller loin dans le tournoi.
-          </p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {darkHorses.map(({ pred, team }) => {
-              if (!team) return null;
-              const winPct = (pred.winnerProb * 100).toFixed(1);
-              const qfPct = Math.round(pred.quarterFinalProb * 100);
-
-              return (
-                <Link
-                  key={team.id}
-                  href={`/equipe/${team.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-3xl">{team.flag}</span>
-                    <div>
-                      <p className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                        {team.name}
-                      </p>
-                      <p className="text-xs text-gray-600 dark:text-gray-300">#{team.fifaRanking} FIFA · ELO {pred.eloRating}</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 mt-3">
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
-                      <p className="text-lg font-bold text-primary">{winPct}%</p>
-                      <p className="text-[10px] text-gray-600 dark:text-gray-300">chance titre</p>
-                    </div>
-                    <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
-                      <p className="text-lg font-bold text-secondary">{qfPct}%</p>
-                      <p className="text-[10px] text-gray-600 dark:text-gray-300">quart de finale</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
-                    {team.bestResult}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Special mention: hosts */}
-          <div className="mt-6 rounded-xl border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 p-5">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-[#FF6B35] dark:text-[#FF6B35] mb-2">
-              🏠 Les pays organisateurs : avantage terrain
-            </h3>
-            <p className="text-sm text-[#FF6B35] dark:text-[#FF6B35]/80 leading-relaxed">
-              États-Unis, Canada et Mexique jouent à domicile. Historiquement, le pays hôte
-              bénéficie d&apos;un bonus de 6 à 8 points ELO grâce au soutien du public et à la
-              connaissance des terrains. Le Canada (Alphonso Davies) et le Mexique (Azteca) sont
-              particulièrement à surveiller.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DarkHorses darkHorses={darkHorses} />
 
       {/* ===== METHODOLOGIE ===== */}
       <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-              📐 Méthodologie
-            </h2>
+          <Card hover padding="md">
+            <SectionHeading emoji="📐" title="Méthodologie" />
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
               Nos pronostics sont calculés à partir d&apos;un modèle ELO adapté au football
               international, combiné à des simulations Monte Carlo du tournoi (100 000 itérations).
@@ -1140,7 +548,7 @@ export default function PronosticVainqueurPage() {
             >
               Lire notre méthodologie complète →
             </Link>
-          </div>
+          </Card>
         </div>
       </section>
 
@@ -1175,7 +583,7 @@ export default function PronosticVainqueurPage() {
       </section>
 
       {/* ===== NEWSLETTER CTA ===== */}
-      <NewsletterCTA />
+      <Newsletter variant="banner" />
 
       {/* ===== CTA FINAL ===== */}
       <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">

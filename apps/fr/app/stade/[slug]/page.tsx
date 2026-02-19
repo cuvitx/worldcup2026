@@ -9,6 +9,7 @@ import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
+import { stageLabels } from "@repo/data/constants";
 
 export const revalidate = 86400;
 export const dynamicParams = false;
@@ -53,15 +54,6 @@ export default async function StadiumPage({ params }: PageProps) {
   const city = citiesById[stadium.cityId];
   const stadiumMatches = matchesByStadium[stadium.id] ?? [];
 
-  const stageLabels: Record<string, string> = {
-    group: "Phase de groupes",
-    "round-of-32": "32e de finale",
-    "round-of-16": "8e de finale",
-    "quarter-final": "Quart de finale",
-    "semi-final": "Demi-finale",
-    "third-place": "3e place",
-    final: "Finale",
-  };
 
   return (
     <>

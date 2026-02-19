@@ -28,7 +28,7 @@
 
   /* ── Neutres ── */
   --color-gray-light: #F7F7F8;    /* Blanc Pelouse */
-  --color-gray-mid:   #8a8a9a;    /* Gris Moyen */
+  --color-gray-mid:   #636370;    /* Gris Moyen */
   --color-gray-dark:  #1e2d3d;    /* Gris Foncé dark */
   --color-deep:       #080E1A;    /* Nuit de Match */
 
@@ -40,7 +40,7 @@
   /* ── Typographie ── */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* ── Variables sémantiques CSS — light mode par défaut ── */
@@ -52,7 +52,7 @@
 
   /* Textes */
   --color-text:           #1A1A2E; /* Texte sur clair */
-  --color-text-secondary: #8a8a9a;
+  --color-text-secondary: #636370;
 
   /* Bordures */
   --color-border: rgba(0, 0, 0, 0.06);
@@ -532,7 +532,7 @@ textarea:focus-visible {
 
   /* Textes */
   --color-text:           #E8ECF1; /* Texte sur sombre */
-  --color-text-secondary: #8a8a9a; /* Gris Moyen (inchangé) */
+  --color-text-secondary: #636370; /* Gris Moyen (inchangé) */
 
   /* Bordures subtiles */
   --color-border: rgba(255, 255, 255, 0.08);

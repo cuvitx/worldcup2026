@@ -8,6 +8,7 @@ import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
+import { stageLabels } from "@repo/data/constants";
 import { HeroImage } from "../../components/hero-image";
 import { cityEnrichmentData } from "./city-enrichment";
 
@@ -50,15 +51,6 @@ export default async function CityPage({ params }: PageProps) {
 
   const enrichment = cityEnrichmentData[slug];
 
-  const stageLabels: Record<string, string> = {
-    group: "Phase de groupes",
-    "round-of-32": "32e de finale",
-    "round-of-16": "8e de finale",
-    "quarter-final": "Quart de finale",
-    "semi-final": "Demi-finale",
-    "third-place": "3e place",
-    final: "Finale",
-  };
 
   return (
     <>
@@ -195,7 +187,7 @@ export default async function CityPage({ params }: PageProps) {
                     <ul className="space-y-1">
                       {enrichment.transport.transports.map((t, i) => (
                         <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                          <span className="text-[#06D6A0] mt-0.5">✓</span>
+                          <span className="text-success mt-0.5">✓</span>
                           <span>{t}</span>
                         </li>
                       ))}
