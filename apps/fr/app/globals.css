@@ -138,6 +138,27 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* FAQ accordion animation */
+details .faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+details[open] .faq-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+details .faq-content > div {
+  overflow: hidden;
+}
+details .faq-icon {
+  transition: transform 0.3s ease;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
 /* Dark mode */
 .dark {
   --color-bg: #0f172a;

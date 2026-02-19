@@ -50,6 +50,9 @@ const newsJsonLd = {
 };
 
 export default function ActualitesPage() {
+  const featured = newsArticles[0];
+  const rest = newsArticles.slice(1);
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <script
@@ -72,9 +75,40 @@ export default function ActualitesPage() {
         Toutes les dernières informations sur la Coupe du Monde 2026 : stades, équipes, billets, paris sportifs et plus encore.
       </p>
 
-      {/* Articles grid */}
+      {/* Featured article */}
+      {featured && (
+        <Link
+          href={`/actualites/${featured.slug}`}
+          className="group block rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
+        >
+          <div className="grid md:grid-cols-[1fr_1fr] gap-0">
+            <div className="bg-gradient-to-br from-primary/10 to-accent/10 dark:from-primary/20 dark:to-accent/20 flex items-center justify-center p-12">
+              <span className="text-8xl">{featured.imageEmoji}</span>
+            </div>
+            <div className="p-6 md:p-8 flex flex-col justify-center">
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryColors[featured.category]}`}>
+                  {newsCategories[featured.category]}
+                </span>
+                <time className="text-xs text-gray-500 dark:text-gray-400" dateTime={featured.date}>
+                  {formatDate(featured.date)}
+                </time>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-3">
+                {featured.title}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 line-clamp-3 mb-4">
+                {featured.excerpt}
+              </p>
+              <span className="text-sm font-bold text-accent">Lire l&apos;article →</span>
+            </div>
+          </div>
+        </Link>
+      )}
+
+      {/* Rest of articles grid */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {newsArticles.map((article) => (
+        {rest.map((article) => (
           <Link
             key={article.id}
             href={`/actualites/${article.slug}`}

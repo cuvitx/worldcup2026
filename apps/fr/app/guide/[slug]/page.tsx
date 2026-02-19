@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+const sectionIcons = ["🎯", "📊", "💡", "⚡", "🔑", "📋", "🏆", "🎲", "📈", "🛡️"];
+
 export default async function GuidePage({ params }: PageProps) {
   const { slug } = await params;
   const guide = guidesBySlug[slug];
@@ -55,23 +57,24 @@ export default async function GuidePage({ params }: PageProps) {
     debutant: "Debutant",
   };
 
+  // Insert CTA after every 2 sections
+  const ctaInterval = 2;
+
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Guides",url:"/guides"},{name:guide.title,url:"/guide/"+guide.slug}]} baseUrl={domains.fr} />
-      {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
             <li><Link href="/guides" className="hover:text-primary">Guides</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{guide.title}</li>
+            <li className="text-gray-900 dark:text-gray-100 font-medium">{guide.title}</li>
           </ol>
         </div>
       </nav>
 
-      {/* Hero */}
       <section className="bg-primary text-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium mb-3">
@@ -83,37 +86,48 @@ export default async function GuidePage({ params }: PageProps) {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8">
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Table of Contents */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-3 text-lg font-bold">Sommaire</h2>
-              <ol className="space-y-2 list-decimal list-inside">
-                {guide.sections.map((section, i) => (
-                  <li key={i} className="text-sm text-accent">
-                    <a href={`#section-${i}`} className="hover:underline">{section.title}</a>
-                  </li>
-                ))}
-              </ol>
-            </section>
-
-            {/* Sections */}
+          <div className="space-y-6 min-w-0">
+            {/* Sections with interleaved CTAs */}
             {guide.sections.map((section, i) => (
-              <section key={i} id={`section-${i}`} className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">{section.title}</h2>
-                <div className="prose prose-sm max-w-none text-gray-700">
-                  <p>{section.content}</p>
-                </div>
-              </section>
+              <div key={i}>
+                <section id={`section-${i}`} className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                  <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                    <span className="text-2xl">{sectionIcons[i % sectionIcons.length]}</span>
+                    {section.title}
+                  </h2>
+                  <div className="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                    <p>{section.content}</p>
+                  </div>
+                </section>
+
+                {/* CTA between sections */}
+                {(i + 1) % ctaInterval === 0 && i < guide.sections.length - 1 && (
+                  <div className="my-6 rounded-xl bg-gradient-to-r from-accent/5 to-primary/5 dark:from-accent/10 dark:to-primary/10 border border-accent/20 p-5 flex flex-col sm:flex-row items-center gap-4">
+                    <div className="flex-1">
+                      <p className="font-bold text-gray-900 dark:text-gray-100">🎯 Prêt à parier ?</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{featuredBookmaker.bonus} chez {featuredBookmaker.name}</p>
+                    </div>
+                    <a
+                      href={featuredBookmaker.url}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored nofollow"
+                      className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                    >
+                      Voir l&apos;offre →
+                    </a>
+                  </div>
+                )}
+              </div>
             ))}
 
-            {/* Bookmaker CTA (mid-article) */}
-            <section className="rounded-lg bg-white p-6 shadow-sm">
+            {/* Bookmaker CTA block */}
+            <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
               <h2 className="mb-2 text-xl font-bold text-primary">
                 Meilleurs bookmakers pour la CDM 2026
               </h2>
-              <p className="mb-6 text-sm text-gray-600">
+              <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
                 Comparez les meilleurs sites de paris sportifs agréés en France.
               </p>
               <div className="space-y-4">
@@ -122,8 +136,8 @@ export default async function GuidePage({ params }: PageProps) {
                   return (
                     <div
                       key={bk.id}
-                      className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-gold bg-gold/5" : "border-gray-200 bg-white"
+                      className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
+                        isFeatured ? "border-gold bg-gold/5 dark:bg-gold/10" : "border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800"
                       }`}
                     >
                       {isFeatured && (
@@ -132,12 +146,12 @@ export default async function GuidePage({ params }: PageProps) {
                         </span>
                       )}
                       <div className="flex-1 text-center sm:text-left">
-                        <p className="text-lg font-bold">{bk.name}</p>
+                        <p className="text-lg font-bold text-gray-900 dark:text-gray-100">{bk.name}</p>
                         <p className="text-sm text-gray-500">{"★".repeat(bk.rating)}{"☆".repeat(5 - bk.rating)}</p>
                       </div>
                       <div className="flex-1 text-center">
                         <p className="text-lg font-extrabold text-field">{bk.bonus}</p>
-                        <p className="text-xs text-gray-500">{bk.bonusDetail}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{bk.bonusDetail}</p>
                       </div>
                       <div className="flex-shrink-0">
                         <a
@@ -162,27 +176,27 @@ export default async function GuidePage({ params }: PageProps) {
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Guides recommandes</h2>
+              <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Guides recommandes</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {relatedGuides.map((rg) => (
                     <Link
                       key={rg.id}
                       href={`/guide/${rg.slug}`}
-                      className="rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                      className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md"
                     >
-                      <h3 className="font-semibold mb-1">{rg.title}</h3>
-                      <p className="text-xs text-gray-500 line-clamp-2">{rg.metaDescription}</p>
+                      <h3 className="font-semibold mb-1 text-gray-900 dark:text-gray-100">{rg.title}</h3>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{rg.metaDescription}</p>
                     </Link>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* All Other Guides (internal linking) */}
+            {/* Other Guides */}
             {guides.filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id)).length > 0 && (
-              <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-xl font-bold">Guides liés</h2>
+              <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Guides liés</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guides
                     .filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id))
@@ -191,96 +205,116 @@ export default async function GuidePage({ params }: PageProps) {
                       <Link
                         key={g.id}
                         href={`/guide/${g.slug}`}
-                        className="rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                        className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md"
                       >
-                        <h3 className="font-semibold mb-1">{g.title}</h3>
-                        <p className="text-xs text-gray-500 line-clamp-2">{g.metaDescription}</p>
+                        <h3 className="font-semibold mb-1 text-gray-900 dark:text-gray-100">{g.title}</h3>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{g.metaDescription}</p>
                       </Link>
                     ))}
                 </div>
               </section>
             )}
 
-            {/* Author Box */}
             <AuthorBox />
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* CTA */}
-            <div className="rounded-lg bg-accent/5 border border-accent/20 p-6">
-              <h3 className="mb-2 text-lg font-bold text-accent">Commencer a parier</h3>
-              <p className="mb-4 text-sm text-gray-600">
-                Profitez des bonus de bienvenue pour la CDM 2026.
-              </p>
-              <a
-                href={featuredBookmaker.url}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
-              >
-                {featuredBookmaker.bonus} sur {featuredBookmaker.name}
-              </a>
-              <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>
-            </div>
-
-            {/* Related Bookmakers */}
-            {relatedBookmakers.length > 0 && (
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-bold">Bookmakers cites</h3>
-                <ul className="space-y-2">
-                  {relatedBookmakers.map((rb) => (
-                    <li key={rb.id}>
-                      <Link
-                        href={`/bookmaker/${rb.slug}`}
-                        className="flex items-center justify-between text-sm hover:text-accent transition-colors"
+          {/* Sidebar - Sticky TOC + CTA */}
+          <div className="hidden lg:block">
+            <div className="sticky top-8 space-y-6">
+              {/* Table of Contents */}
+              <nav className="rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 className="mb-3 text-sm font-bold text-gray-900 dark:text-gray-100 uppercase tracking-wider">📑 Sommaire</h3>
+                <ol className="space-y-2">
+                  {guide.sections.map((section, i) => (
+                    <li key={i}>
+                      <a
+                        href={`#section-${i}`}
+                        className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-accent transition-colors"
                       >
-                        <span className="font-medium">{rb.name}</span>
-                        <span className="text-field font-bold">{rb.bonus}</span>
-                      </Link>
+                        <span className="shrink-0 w-5 h-5 rounded-full bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">
+                          {i + 1}
+                        </span>
+                        <span className="line-clamp-2">{section.title}</span>
+                      </a>
                     </li>
                   ))}
+                </ol>
+              </nav>
+
+              {/* CTA */}
+              <div className="rounded-xl bg-accent/5 dark:bg-accent/10 border border-accent/20 p-5">
+                <h3 className="mb-2 text-lg font-bold text-accent">Commencer a parier</h3>
+                <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+                  Profitez des bonus de bienvenue pour la CDM 2026.
+                </p>
+                <a
+                  href={featuredBookmaker.url}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
+                >
+                  {featuredBookmaker.bonus} sur {featuredBookmaker.name}
+                </a>
+                <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>
+              </div>
+
+              {/* Related Bookmakers */}
+              {relatedBookmakers.length > 0 && (
+                <div className="rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-gray-100 dark:border-gray-700">
+                  <h3 className="mb-4 text-sm font-bold text-gray-900 dark:text-gray-100 uppercase tracking-wider">Bookmakers cites</h3>
+                  <ul className="space-y-2">
+                    {relatedBookmakers.map((rb) => (
+                      <li key={rb.id}>
+                        <Link
+                          href={`/bookmaker/${rb.slug}`}
+                          className="flex items-center justify-between text-sm hover:text-accent transition-colors"
+                        >
+                          <span className="font-medium text-gray-700 dark:text-gray-300">{rb.name}</span>
+                          <span className="text-field font-bold">{rb.bonus}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* All guides */}
+              <div className="rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 className="mb-4 text-sm font-bold text-gray-900 dark:text-gray-100 uppercase tracking-wider">Tous nos guides</h3>
+                <ul className="space-y-2">
+                  {guides
+                    .filter((g) => g.id !== guide.id)
+                    .slice(0, 6)
+                    .map((g) => (
+                      <li key={g.id}>
+                        <Link href={`/guide/${g.slug}`} className="text-sm text-accent hover:underline">
+                          {g.title} →
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+                <div className="mt-3">
+                  <Link href="/guides" className="text-sm font-medium text-primary hover:underline">
+                    Voir tous les guides →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Explorer */}
+              <div className="rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 className="mb-4 text-sm font-bold text-gray-900 dark:text-gray-100 uppercase tracking-wider">Explorer</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/buteurs" className="text-accent hover:underline">Cotes buteurs CDM 2026 →</Link></li>
+                  <li><Link href="/paris-sportifs" className="text-accent hover:underline">Paris sportifs CDM 2026 →</Link></li>
+                  <li><Link href="/pronostic/france" className="text-accent hover:underline">Pronostic France →</Link></li>
+                  <li><Link href="/match/calendrier" className="text-accent hover:underline">Calendrier des matchs →</Link></li>
                 </ul>
               </div>
-            )}
-
-            {/* All guides */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Tous nos guides</h3>
-              <ul className="space-y-2">
-                {guides
-                  .filter((g) => g.id !== guide.id)
-                  .slice(0, 6)
-                  .map((g) => (
-                    <li key={g.id}>
-                      <Link href={`/guide/${g.slug}`} className="text-sm text-accent hover:underline">
-                        {g.title} &rarr;
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-              <div className="mt-3">
-                <Link href="/guides" className="text-sm font-medium text-primary hover:underline">
-                  Voir tous les guides &rarr;
-                </Link>
-              </div>
-            </div>
-
-            {/* Cross-links */}
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold">Explorer</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/buteurs" className="text-accent hover:underline">Cotes buteurs CDM 2026 &rarr;</Link></li>
-                <li><Link href="/paris-sportifs" className="text-accent hover:underline">Paris sportifs CDM 2026 &rarr;</Link></li>
-                <li><Link href="/pronostic/france" className="text-accent hover:underline">Pronostic France &rarr;</Link></li>
-                <li><Link href="/match/calendrier" className="text-accent hover:underline">Calendrier des matchs &rarr;</Link></li>
-              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {/* JSON-LD Article */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -289,19 +323,12 @@ export default async function GuidePage({ params }: PageProps) {
             "@type": "Article",
             headline: guide.title,
             description: guide.metaDescription,
-            author: {
-              "@type": "Organization",
-              name: "CDM 2026",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "CDM 2026",
-            },
+            author: { "@type": "Organization", name: "CDM 2026" },
+            publisher: { "@type": "Organization", name: "CDM 2026" },
             url: `${domains.fr}/guide/${guide.slug}`,
           }),
         }}
       />
-      {/* JSON-LD FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

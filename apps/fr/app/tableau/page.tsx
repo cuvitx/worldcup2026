@@ -154,11 +154,11 @@ const champion = predictedWinner(finalMatchData.homeTeamId, finalMatchData.awayT
 // ---------------------------------------------------------------------------
 
 const roundColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
-  "round-of-32": { bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-800", badge: "bg-blue-600" },
-  "round-of-16": { bg: "bg-indigo-50", border: "border-indigo-200", text: "text-indigo-800", badge: "bg-indigo-600" },
-  "quarter-final": { bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-800", badge: "bg-purple-600" },
-  "semi-final": { bg: "bg-amber-50", border: "border-amber-200", text: "text-amber-800", badge: "bg-amber-600" },
-  final: { bg: "bg-yellow-50", border: "border-yellow-300", text: "text-yellow-800", badge: "bg-yellow-600" },
+  "round-of-32": { bg: "bg-blue-50 dark:bg-blue-950/30", border: "border-blue-200 dark:border-blue-800", text: "text-blue-800 dark:text-blue-300", badge: "bg-blue-600" },
+  "round-of-16": { bg: "bg-indigo-50 dark:bg-indigo-950/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-indigo-800 dark:text-indigo-300", badge: "bg-indigo-600" },
+  "quarter-final": { bg: "bg-purple-50 dark:bg-purple-950/30", border: "border-purple-200 dark:border-purple-800", text: "text-purple-800 dark:text-purple-300", badge: "bg-purple-600" },
+  "semi-final": { bg: "bg-amber-50 dark:bg-amber-950/30", border: "border-amber-200 dark:border-amber-800", text: "text-amber-800 dark:text-amber-300", badge: "bg-amber-600" },
+  final: { bg: "bg-yellow-50 dark:bg-yellow-950/30", border: "border-yellow-300 dark:border-yellow-700", text: "text-yellow-800 dark:text-yellow-300", badge: "bg-yellow-600" },
 };
 
 function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner?: boolean; label?: string }) {
@@ -167,15 +167,15 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
     return (
       <div className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 italic">
         <span className="text-base">🏳️</span>
-        <span>{label ?? "A determiner"}</span>
+        <span>{label ?? "À déterminer"}</span>
       </div>
     );
   }
   return (
     <Link
       href={`/equipe/${team.slug}`}
-      className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-100 rounded ${
-        isWinner ? "font-bold text-primary" : "text-gray-700"
+      className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
+        isWinner ? "font-bold text-primary dark:text-accent" : "text-gray-700 dark:text-gray-300"
       }`}
     >
       <span className="text-base" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
@@ -219,7 +219,7 @@ function MatchCard({
             <TeamSlot teamId={homeTeamId} isWinner={winnerId === homeTeamId} label={homeLabel} />
             <TeamSlot teamId={awayTeamId} isWinner={winnerId === awayTeamId} label={awayLabel} />
           </div>
-          <div className="px-3 py-1.5 text-xs text-gray-500 bg-white/60 flex justify-between">
+          <div className="px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 bg-white/60 dark:bg-black/20 flex justify-between">
             <span>{dateStr}</span>
             <span className="text-gray-500">{match.slug}</span>
           </div>
@@ -244,12 +244,12 @@ export default function BracketPage() {
   return (
     <>
       {/* Breadcrumbs */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Tableau final</li>
+            <li className="text-gray-900 dark:text-white font-medium">Tableau final</li>
           </ol>
         </div>
       </nav>
@@ -268,13 +268,13 @@ export default function BracketPage() {
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-12">
         {/* Champion prediction */}
         {champion && teamsById[champion] && (
-          <section className="rounded-xl border-2 border-yellow-400 bg-gradient-to-r from-yellow-50 to-amber-50 p-6 text-center">
-            <p className="text-sm font-medium text-amber-700 uppercase tracking-wide mb-2">Champion predit</p>
+          <section className="rounded-xl border-2 border-yellow-400 dark:border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/30 p-6 text-center">
+            <p className="text-sm font-medium text-amber-700 dark:text-amber-400 uppercase tracking-wide mb-2">🏆 Champion prédit</p>
             <Link href={`/equipe/${teamsById[champion]!.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
               <span className="text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
-              <span className="text-3xl font-extrabold text-gray-900">{teamsById[champion]!.name}</span>
+              <span className="text-3xl font-extrabold text-gray-900 dark:text-white">{teamsById[champion]!.name}</span>
             </Link>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
               Base sur les classements ELO et les pronostics de la phase de groupes
             </p>
           </section>
@@ -491,25 +491,25 @@ export default function BracketPage() {
         {/* ============================================================ */}
         {/* Tournament Probabilities Summary */}
         {/* ============================================================ */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold">Probabilites par tour</h2>
-          <p className="text-sm text-gray-500 mb-4">
+        <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+          <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Probabilités par tour</h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
             Chances de chaque équipe d&#39;atteindre chaque tour, basees sur les classements ELO.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 text-left">
-                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Sortie groupes</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">16e</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Quarts</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Demis</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Finale</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Champion</th>
+                <tr className="border-b border-gray-200 dark:border-gray-600 text-left">
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400">Équipe</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Sortie groupes</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">16e</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Quarts</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Demis</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Finale</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-400 text-right">Champion</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
                 {[...Object.values(predictionsByTeamId)]
                   .sort((a, b) => b.winnerProb - a.winnerProb)
                   .slice(0, 16)
@@ -517,9 +517,9 @@ export default function BracketPage() {
                     const team = teamsById[pred.teamId];
                     if (!team) return null;
                     return (
-                      <tr key={pred.teamId} className="hover:bg-gray-50">
+                      <tr key={pred.teamId} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                         <td className="py-2.5">
-                          <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent">
+                          <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-accent text-gray-900 dark:text-white">
                             <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             <span className="font-medium">{team.name}</span>
                           </Link>

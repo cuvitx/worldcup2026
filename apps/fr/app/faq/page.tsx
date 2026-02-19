@@ -3,7 +3,7 @@ import Link from "next/link";
 import { faqItems, faqCategories } from "@repo/data/faq";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 
-export const revalidate = 86400; // 24 hours
+export const revalidate = 86400;
 
 export function generateMetadata(): Metadata {
   return {
@@ -19,17 +19,23 @@ export function generateMetadata(): Metadata {
   };
 }
 
+const categoryEmojis: Record<string, string> = {
+  tournament: "🏆",
+  betting: "🎯",
+  predictions: "📊",
+  teams: "⚽",
+};
+
 export default function FaqPage() {
   const categories = ["tournament", "betting", "predictions", "teams"] as const;
 
-  // Group FAQ items by category
   const itemsByCategory = categories.map((cat) => ({
     key: cat,
     label: faqCategories[cat].fr,
+    emoji: categoryEmojis[cat] || "📌",
     items: faqItems.filter((item) => item.category === cat),
   }));
 
-  // Build JSON-LD FAQPage schema
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,16 +56,14 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <li>
-              <Link href="/" className="hover:text-primary">
-                Accueil
-              </Link>
+              <Link href="/" className="hover:text-primary">Accueil</Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">FAQ</li>
+            <li className="text-gray-900 dark:text-gray-100 font-medium">FAQ</li>
           </ol>
         </div>
       </nav>
@@ -73,17 +77,21 @@ export default function FaqPage() {
         </div>
       </section>
 
-      {/* Category nav */}
-      <section className="border-b border-gray-200 bg-white py-4 sticky top-0 z-10">
+      {/* Category badges */}
+      <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 sticky top-0 z-10">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-wrap gap-2">
-            {itemsByCategory.map(({ key, label, items }) => (
+            {itemsByCategory.map(({ key, label, emoji, items }) => (
               <a
                 key={key}
                 href={`#${key}`}
-                className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent/10 hover:text-accent transition-colors"
               >
-                {label} ({items.length})
+                <span>{emoji}</span>
+                {label}
+                <span className="ml-1 rounded-full bg-gray-200 dark:bg-gray-700 px-2 py-0.5 text-xs font-bold text-gray-500 dark:text-gray-400">
+                  {items.length}
+                </span>
               </a>
             ))}
           </div>
@@ -91,39 +99,31 @@ export default function FaqPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-12">
-        {itemsByCategory.map(({ key, label, items }) => (
+        {itemsByCategory.map(({ key, label, emoji, items }) => (
           <section key={key} id={key}>
-            <h2 className="mb-6 text-2xl font-bold text-gray-900">{label}</h2>
-            <div className="space-y-4">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+              <span>{emoji}</span> {label}
+            </h2>
+            <div className="space-y-3">
               {items.map((item) => (
                 <details
                   key={item.id}
-                  className="group rounded-lg border border-gray-200 bg-white"
+                  className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <summary className="cursor-pointer px-6 py-4 font-medium text-gray-900 hover:text-accent transition-colors list-none flex items-center justify-between">
-                    <h3 className="text-base font-semibold pr-4">
-                      {item.question.fr}
-                    </h3>
-                    <span className="shrink-0 text-gray-500 group-open:rotate-180 transition-transform">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5 7.5L10 12.5L15 7.5"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+                  <summary className="cursor-pointer px-6 py-4 font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors list-none flex items-center justify-between gap-4">
+                    <h3 className="text-base font-semibold">{item.question.fr}</h3>
+                    <span className="faq-icon shrink-0 w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                       </svg>
                     </span>
                   </summary>
-                  <div className="px-6 pb-4 text-gray-600 leading-relaxed">
-                    {item.answer.fr}
+                  <div className="faq-content">
+                    <div>
+                      <div className="px-6 pb-5 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700 pt-4">
+                        {item.answer.fr}
+                      </div>
+                    </div>
                   </div>
                 </details>
               ))}

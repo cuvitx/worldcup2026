@@ -6,9 +6,9 @@ import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 
 export const metadata: Metadata = {
-  title: "Les 16 stades de la Coupe du Monde 2026 | Capacite, Ville & Matchs",
+  title: "Les 16 stades de la Coupe du Monde 2026 | Capacité, Ville & Matchs",
   description:
-    "Guide complet des 16 stades de la Coupe du Monde 2026. Capacite, ville, pays, matchs programmes et informations pratiques.",
+    "Guide complet des 16 stades de la Coupe du Monde 2026. Capacité, ville, pays, matchs programmés et informations pratiques.",
   alternates: getStaticAlternates("stadiums", "fr"),
   openGraph: {
     title: "Les 16 stades de la Coupe du Monde 2026",
@@ -20,19 +20,19 @@ export default function StadiumsPage() {
   const sorted = [...stadiums].sort((a, b) => b.capacity - a.capacity);
   const countries = ["USA", "Canada", "Mexico"] as const;
   const countryLabels: Record<string, string> = {
-    USA: "États-Unis",
-    Canada: "Canada",
-    Mexico: "Mexique",
+    USA: "🇺🇸 États-Unis",
+    Canada: "🇨🇦 Canada",
+    Mexico: "🇲🇽 Mexique",
   };
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <li><Link href="/" className="hover:text-primary dark:hover:text-accent">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Stades</li>
+            <li className="text-gray-900 dark:text-white font-medium">Stades</li>
           </ol>
         </div>
       </nav>
@@ -50,31 +50,40 @@ export default function StadiumsPage() {
         {countries.map((country) => {
           const countryStadiums = sorted.filter((s) => s.country === country);
           return (
-            <section key={country} className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">{countryLabels[country]} ({countryStadiums.length} stades)</h2>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <section key={country}>
+              <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                {countryLabels[country]} ({countryStadiums.length} stades)
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {countryStadiums.map((stadium) => {
                   const city = cities.find((c) => c.id === stadium.cityId);
                   return (
                     <Link
                       key={stadium.id}
                       href={`/stade/${stadium.slug}`}
-                      className="rounded-lg border border-gray-200 overflow-hidden transition-colors hover:border-accent hover:bg-accent/5"
+                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-lg hover:border-accent dark:hover:border-accent transition-all duration-300 hover:-translate-y-0.5"
                     >
-                      <StadiumImage
-                        slug={stadium.slug}
-                        name={stadium.name}
-                        city={stadium.city}
-                        className="w-full h-40 object-cover"
-                      />
+                      <div className="overflow-hidden">
+                        <StadiumImage
+                          slug={stadium.slug}
+                          name={stadium.name}
+                          city={stadium.city}
+                          className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
                       <div className="p-4">
-                        <p className="font-semibold">{stadium.name}</p>
-                        <p className="text-sm text-gray-500">
-                          {city?.name ?? stadium.city} &middot; {stadium.capacity.toLocaleString("fr-FR")} places
+                        <p className="font-bold text-gray-900 dark:text-white">{stadium.name}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                          📍 {city?.name ?? stadium.city}
                         </p>
-                        <p className="mt-1 text-xs text-gray-500">
-                          {stadium.roofType === "retractable" ? "Toit retractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
-                        </p>
+                        <div className="mt-2 flex items-center justify-between">
+                          <span className="text-sm font-semibold text-primary dark:text-accent">
+                            🏟️ {stadium.capacity.toLocaleString("fr-FR")} places
+                          </span>
+                          <span className="text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">
+                            {stadium.roofType === "retractable" ? "Toit rétractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
+                          </span>
+                        </div>
                       </div>
                     </Link>
                   );

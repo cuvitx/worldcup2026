@@ -179,24 +179,38 @@ export default function GlossairePage() {
 
         {/* Terms */}
         <div className="space-y-10">
-          {letters.map((letter) => (
-            <section key={letter} id={letter}>
-              <h2 className="text-2xl font-bold text-primary mb-4 border-b-2 border-primary/20 pb-2">
-                {letter}
-              </h2>
-              <div className="space-y-4">
-                {grouped[letter]!.map((term) => (
-                  <div key={term.name} className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-sm transition">
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">{term.name}</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mt-1">{term.definition}</p>
-                    <p className="text-sm text-gray-500 mt-2 italic">
-                      💡 Exemple : {term.example}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          ))}
+          {letters.map((letter, li) => {
+            const borderColors = [
+              "border-l-blue-500", "border-l-green-500", "border-l-purple-500",
+              "border-l-amber-500", "border-l-red-500", "border-l-teal-500",
+              "border-l-pink-500", "border-l-indigo-500", "border-l-orange-500",
+              "border-l-cyan-500",
+            ];
+            const color = borderColors[li % borderColors.length];
+            return (
+              <section key={letter} id={letter}>
+                <h2 className="text-2xl font-bold text-primary mb-4 border-b-2 border-primary/20 pb-2 flex items-center gap-2">
+                  <span className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary font-extrabold">
+                    {letter}
+                  </span>
+                </h2>
+                <div className="space-y-3">
+                  {grouped[letter]!.map((term) => (
+                    <div
+                      key={term.name}
+                      className={`bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 border-l-4 ${color} p-4 hover:shadow-md transition-shadow`}
+                    >
+                      <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">{term.name}</h3>
+                      <p className="text-gray-700 dark:text-gray-300 mt-1">{term.definition}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 italic bg-gray-50 dark:bg-gray-700/50 rounded-lg px-3 py-2">
+                        💡 {term.example}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
 
         {/* CTA */}

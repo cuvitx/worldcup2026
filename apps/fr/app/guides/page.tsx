@@ -11,8 +11,7 @@ export const metadata: Metadata = {
   alternates: getStaticAlternates("guides", "fr"),
   openGraph: {
     title: "Guides paris sportifs - CDM 2026",
-    description:
-      "Guides complets pour parier sur la Coupe du Monde 2026.",
+    description: "Guides complets pour parier sur la Coupe du Monde 2026.",
   },
 };
 
@@ -31,6 +30,13 @@ const guidesJsonLd = {
       name: guide.title,
     })),
   },
+};
+
+const categoryEmojis: Record<string, string> = {
+  cdm2026: "🏆",
+  stratégie: "🧠",
+  bookmaker: "📚",
+  debutant: "🎓",
 };
 
 export default function GuidesPage() {
@@ -55,12 +61,12 @@ export default function GuidesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guidesJsonLd) }}
       />
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <li><Link href="/" className="hover:text-primary">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Guides</li>
+            <li className="text-gray-900 dark:text-gray-100 font-medium">Guides</li>
           </ol>
         </div>
       </nav>
@@ -75,24 +81,27 @@ export default function GuidesPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
-        {/* All guides by category */}
         {categories.map((cat) => {
           const catGuides = guidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;
+          const emoji = categoryEmojis[cat] || "📌";
           return (
-            <section key={cat} className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="mb-1 text-xl font-bold">{categoryLabels[cat]}</h2>
-              <p className="mb-4 text-sm text-gray-500">{categoryDescriptions[cat]}</p>
+            <section key={cat} className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+              <h2 className="mb-1 text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                <span className="text-2xl">{emoji}</span> {categoryLabels[cat]}
+              </h2>
+              <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">{categoryDescriptions[cat]}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
                   <Link
                     key={guide.id}
                     href={`/guide/${guide.slug}`}
-                    className="rounded-lg border border-gray-200 p-5 transition-colors hover:border-accent hover:bg-accent/5"
+                    className="group rounded-xl border border-gray-200 dark:border-gray-600 p-5 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <h3 className="font-bold mb-2">{guide.title}</h3>
-                    <p className="text-sm text-gray-500 line-clamp-2">{guide.intro}</p>
-                    <p className="mt-3 text-xs font-bold text-accent">Lire le guide &rarr;</p>
+                    <div className="text-3xl mb-3">{emoji}</div>
+                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-accent transition-colors">{guide.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-3">{guide.intro}</p>
+                    <p className="text-sm font-bold text-accent">Lire →</p>
                   </Link>
                 ))}
               </div>
@@ -100,10 +109,12 @@ export default function GuidesPage() {
           );
         })}
 
-        {/* Bookmaker reviews links */}
-        <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="mb-2 text-xl font-bold">Avis bookmakers</h2>
-          <p className="mb-4 text-sm text-gray-500">
+        {/* Bookmaker reviews */}
+        <section className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+          <h2 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+            <span className="text-2xl">⭐</span> Avis bookmakers
+          </h2>
+          <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
             Tests et avis détaillés des meilleurs bookmakers agréés en France.
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -111,11 +122,11 @@ export default function GuidesPage() {
               <Link
                 key={bk.id}
                 href={`/bookmaker/${bk.slug}`}
-                className="flex items-center justify-between rounded-lg border border-gray-200 p-4 transition-colors hover:border-accent hover:bg-accent/5"
+                className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-accent hover:bg-accent/5 hover:shadow-md"
               >
                 <div>
-                  <p className="font-bold">{bk.name}</p>
-                  <p className="text-xs text-gray-500">{bk.tagline}</p>
+                  <p className="font-bold text-gray-900 dark:text-gray-100">{bk.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{bk.tagline}</p>
                 </div>
                 <p className="font-bold text-field">{bk.bonus}</p>
               </Link>
@@ -124,16 +135,16 @@ export default function GuidesPage() {
         </section>
 
         {/* Cross-links */}
-        <section className="rounded-lg bg-primary/5 p-6">
-          <h2 className="mb-4 text-lg font-bold">Voir aussi</h2>
+        <section className="rounded-xl bg-primary/5 dark:bg-primary/10 p-6">
+          <h2 className="mb-4 text-lg font-bold text-gray-900 dark:text-gray-100">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/paris-sportifs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/paris-sportifs" className="rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Paris sportifs CDM 2026
             </Link>
-            <Link href="/buteurs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/buteurs" className="rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs
             </Link>
-            <Link href="/pronostic/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/pronostic/france" className="rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Pronostic France
             </Link>
           </div>
