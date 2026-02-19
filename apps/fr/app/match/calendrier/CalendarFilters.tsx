@@ -121,31 +121,29 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       {/* Filters */}
       <section className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800 py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Filtres :</span>
-
-            <select value={team} onChange={(e) => setTeam(e.target.value)} className={selectClass}>
-              <option value="">Toutes les équipes</option>
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 sm:gap-3">
+            <select value={team} onChange={(e) => setTeam(e.target.value)} className={selectClass + " col-span-2 sm:col-span-1"}>
+              <option value="">🏳️ Toutes les équipes</option>
               {teamOptions.map((t) => (
                 <option key={t.id} value={t.id}>{t.flag} {t.name}</option>
               ))}
             </select>
 
             <select value={group} onChange={(e) => setGroup(e.target.value)} className={selectClass}>
-              <option value="">Tous les groupes</option>
+              <option value="">Groupe</option>
               {groupOptions.map((g) => (
                 <option key={g} value={g}>Groupe {g}</option>
               ))}
             </select>
 
             <select value={stadium} onChange={(e) => setStadium(e.target.value)} className={selectClass}>
-              <option value="">Tous les stades</option>
+              <option value="">Stade</option>
               {stadiumOptions.map((s) => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}
             </select>
 
-            <select value={phase} onChange={(e) => setPhase(e.target.value)} className={selectClass}>
+            <select value={phase} onChange={(e) => setPhase(e.target.value)} className={selectClass + " col-span-2 sm:col-span-1"}>
               <option value="">Toutes les phases</option>
               {phaseOptions.map((p) => (
                 <option key={p} value={p}>{stageLabels[p]}</option>
@@ -155,7 +153,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
             {hasFilters && (
               <button
                 onClick={reset}
-                className="rounded-lg bg-gray-200 dark:bg-gray-700 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                className="col-span-2 sm:col-span-1 rounded-lg bg-gray-200 dark:bg-gray-700 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
                 ✕ Réinitialiser
               </button>
@@ -172,12 +170,12 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       {/* Quick nav */}
       <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 py-4 sticky top-0 z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
             {Array.from(matchesByStage.entries()).map(([stage, sm]) => (
               <a
                 key={stage}
                 href={`#${stage}`}
-                className="rounded-full bg-gray-100 dark:bg-slate-800 px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
+                className="shrink-0 rounded-full bg-gray-100 dark:bg-slate-800 px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {stageLabels[stage]} ({sm.length})
               </a>

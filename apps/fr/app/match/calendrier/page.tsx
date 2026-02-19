@@ -100,20 +100,20 @@ export default function CalendrierPage() {
           <p className="mt-2 text-gray-300">
             104 matchs du 11 juin au 19 juillet 2026
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex gap-2">
             <a
               href="/api/calendar"
               download="cdm2026.ics"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/20 transition-colors"
             >
-              📅 Ajouter au calendrier
+              📅 Calendrier
             </a>
             <a
               href="/calendrier/imprimer"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors backdrop-blur-sm"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/20 transition-colors"
             >
-              📄 Télécharger le calendrier PDF
+              📄 PDF
             </a>
           </div>
         </div>
