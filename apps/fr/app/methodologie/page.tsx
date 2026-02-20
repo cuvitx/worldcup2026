@@ -125,14 +125,14 @@ export default function MethodologiePage() {
             </div>
 
             {/* Factuel */}
-            <div className="rounded-lg border-2 border-secondary/20 bg-secondary/5 p-5">
+            <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-5">
               <div className="mb-3 flex items-center gap-2">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg text-white font-bold">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg text-white font-bold">
                   2
                 </span>
                 <div>
-                  <p className="font-bold text-secondary dark:text-white">Factuel</p>
-                  <p className="text-xs text-secondary/70 dark:text-gray-300">Gemini (Google)</p>
+                  <p className="font-bold text-primary dark:text-white">Factuel</p>
+                  <p className="text-xs text-primary/70 dark:text-gray-300">Gemini (Google)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -270,7 +270,7 @@ export default function MethodologiePage() {
         </section>
 
         {/* Transparency */}
-        <section className="rounded-lg border-2 border-secondary/30 bg-secondary/5 p-6">
+        <section className="rounded-lg border-2 border-primary/30 bg-primary/5 p-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Transparence & limites
           </h2>

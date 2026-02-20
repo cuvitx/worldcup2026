@@ -63,7 +63,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="text-gray-400">
+    <footer className="text-gray-300">
       <ANJBanner />
       <div className="hero-animated">
       {/* Top accent line */}
@@ -134,14 +134,14 @@ export function Footer() {
 
           {/* Bookmaker partners */}
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-2">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
               Partenaires agréés ANJ
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {["Betclic", "Winamax", "Unibet", "PMU"].map((bk) => (
                 <span
                   key={bk}
-                  className="inline-block rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+                  className="inline-block rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-gray-300 hover:text-white hover:border-white/20 transition-colors"
                 >
                   {bk}
                 </span>
@@ -175,7 +175,7 @@ export function Footer() {
 
         {/* Groupes row */}
         <div className="border-t border-white/5 pt-6 mb-6">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-3">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">
             Les 12 groupes
           </p>
           <div className="flex flex-wrap gap-2">
@@ -198,7 +198,7 @@ export function Footer() {
 
         {/* Legal bottom */}
         <div className="border-t border-white/5 pt-6">
-          <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-gray-600">
+          <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-gray-400">
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               {[
                 { href: "/mentions-legales", label: "Mentions légales" },
@@ -209,7 +209,7 @@ export function Footer() {
                 { href: "/contact", label: "Contact" },
                 { href: "/faq", label: "FAQ" },
               ].map((item) => (
-                <Link key={item.href} href={item.href} className="hover:text-gray-400 transition-colors py-1 inline-block">
+                <Link key={item.href} href={item.href} className="hover:text-gray-300 transition-colors py-1 inline-block">
                   {item.label}
                 </Link>
               ))}

@@ -165,7 +165,7 @@ export default function ButeursPage() {
 
                     {/* Nombre de buts */}
                     <div className="shrink-0 text-right">
-                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-secondary" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-secondary dark:text-secondary"}`}>
+                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-accent" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-accent dark:text-secondary"}`}>
                         {scorer.goals}
                       </span>
                       <p className="text-[10px] text-gray-500 uppercase tracking-wide">buts</p>
@@ -241,7 +241,7 @@ export default function ButeursPage() {
                           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Buts attendus</p>
                         </div>
                         <div className="text-center">
-                          <p className="text-2xl font-extrabold text-secondary">{candidate.internationalGoals}</p>
+                          <p className="text-2xl font-extrabold text-accent">{candidate.internationalGoals}</p>
                           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Buts sélection</p>
                         </div>
                         {/* Bar */}
@@ -272,21 +272,21 @@ export default function ButeursPage() {
                       <p className="text-[10px] text-gray-400 dark:text-gray-400 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-secondary/10 border-secondary/30" : "bg-primary/5 dark:bg-primary/10 border-primary/20 dark:border-primary/20"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5 dark:bg-primary/10 border-primary/20 dark:border-primary/20"}`}>
                         <span className="text-xs font-semibold text-primary dark:text-secondary">Winamax</span>
-                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-secondary" : "text-primary dark:text-secondary"}`}>
+                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-accent" : "text-primary dark:text-secondary"}`}>
                           {candidate.winamax.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-secondary/10 border-secondary/30" : "bg-secondary/10 dark:bg-secondary/10 border-secondary/30 dark:border-secondary/20"}`}>
-                        <span className="text-xs font-semibold text-secondary dark:text-secondary">Betclic</span>
-                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-secondary" : "text-secondary dark:text-secondary"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10 dark:bg-secondary/10 border-primary/30 dark:border-secondary/20"}`}>
+                        <span className="text-xs font-semibold text-accent dark:text-secondary">Betclic</span>
+                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-accent" : "text-accent dark:text-secondary"}`}>
                           {candidate.betclic.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-secondary/10 border-secondary/30" : "bg-field/5 dark:bg-field/10 border-field/10 dark:border-field/20"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5 dark:bg-field/10 border-field/10 dark:border-field/20"}`}>
                         <span className="text-xs font-semibold text-field dark:text-field">DraftKings</span>
-                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-secondary" : "text-field dark:text-field"}`}>
+                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-accent" : "text-field dark:text-field"}`}>
                           {candidate.draftkings.toFixed(2)}
                         </span>
                       </div>
@@ -351,7 +351,7 @@ export default function ButeursPage() {
                       </td>
                       <td className="py-3 text-right font-bold text-primary">{so.expectedGoals}</td>
                       <td className="py-3 text-right font-medium text-field">{so.anytimeScorerOdds}</td>
-                      <td className="py-3 text-right font-bold text-secondary">{so.topScorerOdds}</td>
+                      <td className="py-3 text-right font-bold text-accent">{so.topScorerOdds}</td>
                     </tr>
                   );
                 })}

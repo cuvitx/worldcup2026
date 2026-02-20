@@ -29,7 +29,7 @@ export function OddsTable() {
                 <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#FF6600] hidden sm:table-cell">Winamax</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#00A0A0] hidden lg:table-cell">Bet365</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#53B648] hidden lg:table-cell">DraftKings</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold text-secondary whitespace-nowrap">Cote</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold text-accent whitespace-nowrap">Cote</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-primary whitespace-nowrap">Proba.</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-gray-600 dark:text-gray-300 whitespace-nowrap hidden sm:table-cell">Trend</th>
               </tr>
@@ -59,7 +59,7 @@ export function OddsTable() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                          i === 0 ? "bg-secondary/20 text-secondary" :
+                          i === 0 ? "bg-accent/20 text-accent" :
                           i === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
                           i === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary" :
                           "bg-gray-100 dark:bg-slate-700 text-gray-500"
@@ -72,25 +72,25 @@ export function OddsTable() {
                     </td>
                     {/* Winamax */}
                     <td className="px-2 sm:px-4 py-3 text-center hidden sm:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.winamax === bestOdds ? "bg-secondary/10 text-secondary border border-secondary/30" : "text-gray-700 dark:text-gray-200"}`}>
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.winamax === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700 dark:text-gray-200"}`}>
                         {fav.winamax.toFixed(2)}
                       </span>
                     </td>
                     {/* Bet365 */}
                     <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.bet365 === bestOdds ? "bg-secondary/10 text-secondary border border-secondary/30" : "text-gray-700 dark:text-gray-200"}`}>
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.bet365 === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700 dark:text-gray-200"}`}>
                         {fav.bet365.toFixed(2)}
                       </span>
                     </td>
                     {/* DraftKings */}
                     <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.draftkings === bestOdds ? "bg-secondary/10 text-secondary border border-secondary/30" : "text-gray-700 dark:text-gray-200"}`}>
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.draftkings === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700 dark:text-gray-200"}`}>
                         {fav.draftkings.toFixed(2)}
                       </span>
                     </td>
                     {/* Moyenne */}
                     <td className="px-2 sm:px-4 py-3 text-center">
-                      <span className="font-bold text-secondary">{fav.avgOdds.toFixed(2)}</span>
+                      <span className="font-bold text-accent">{fav.avgOdds.toFixed(2)}</span>
                     </td>
                     {/* Proba implicite */}
                     <td className="px-2 sm:px-4 py-3 text-center">

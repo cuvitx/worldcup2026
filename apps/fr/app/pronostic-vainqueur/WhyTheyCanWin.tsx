@@ -45,7 +45,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                 {/* Header */}
                 <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 border-b border-gray-100 dark:border-slate-700">
                   <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
-                    index === 0 ? "bg-secondary/20 text-secondary border-2 border-secondary/50" :
+                    index === 0 ? "bg-accent/20 text-accent border-2 border-accent/50" :
                     index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
                     index === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary" :
                     "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300"
@@ -59,7 +59,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                     </h3>
                     <div className="flex items-center gap-3 mt-0.5 flex-wrap">
                       <span className="text-sm text-primary font-bold">{winPct}% de chance de titre</span>
-                      <span className="text-sm text-secondary font-bold">Cote {analysis.betOdds}</span>
+                      <span className="text-sm text-accent font-bold">Cote {analysis.betOdds}</span>
                       <span className="text-xs text-gray-600 dark:text-gray-300">{team.bestResult}</span>
                     </div>
                   </div>
@@ -79,8 +79,8 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
 
                   {/* Key info */}
                   <div className="space-y-3">
-                    <div className="rounded-xl bg-secondary/5 dark:bg-secondary/10 border border-secondary/10 dark:border-secondary/20 p-3">
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-secondary dark:text-secondary mb-1">
+                    <div className="rounded-xl bg-accent/5 dark:bg-secondary/10 border border-accent/10 dark:border-secondary/20 p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-accent dark:text-secondary mb-1">
                         Joueur clé
                       </p>
                       <p className="text-sm font-bold text-gray-900 dark:text-white">{analysis.keyPlayer}</p>
@@ -92,8 +92,8 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                       </p>
                       <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.tacticalEdge}</p>
                     </div>
-                    <div className="rounded-xl bg-secondary/5 border border-secondary/20 p-3">
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-secondary mb-1">
+                    <div className="rounded-xl bg-accent/5 border border-accent/20 p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-accent mb-1">
                         Facteur X
                       </p>
                       <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.xFactor}</p>

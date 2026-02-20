@@ -131,9 +131,9 @@ export default async function BookmakerPage({ params }: PageProps) {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-lg bg-secondary/10 border border-secondary/30 p-4 text-center">
+              <div className="mt-4 rounded-lg bg-accent/10 border border-accent/30 p-4 text-center">
                 <p className="text-sm text-gray-500">Note globale</p>
-                <p className="text-2xl font-extrabold text-secondary sm:text-4xl">{avgRating.toFixed(1)}/5</p>
+                <p className="text-2xl font-extrabold text-accent sm:text-4xl">{avgRating.toFixed(1)}/5</p>
               </div>
             </section>
 
@@ -176,14 +176,14 @@ export default async function BookmakerPage({ params }: PageProps) {
             ))}
 
             {/* CTA */}
-            <section className="rounded-lg bg-secondary/5 border-2 border-secondary p-6 text-center">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-secondary">{bk.bonus}</h2>
+            <section className="rounded-lg bg-accent/5 border-2 border-accent p-6 text-center">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-accent">{bk.bonus}</h2>
               <p className="mb-4 text-gray-600">{bk.bonusDetail} sur {bk.name}</p>
               <a
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-secondary px-8 py-4 text-lg font-bold text-white hover:bg-secondary/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-8 py-4 text-lg font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 S&apos;inscrire sur {bk.name}
               </a>
