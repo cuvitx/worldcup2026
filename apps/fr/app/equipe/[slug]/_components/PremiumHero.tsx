@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Team } from "@repo/data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
+import { teamColors } from "@repo/data/team-colors";
 
 type Prediction = NonNullable<(typeof predictionsByTeamId)[string]>;
 
@@ -12,9 +13,19 @@ interface PremiumHeroProps {
 }
 
 export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHeroProps) {
+  const colors = teamColors[team.slug];
+  const flagGradient = colors
+    ? `linear-gradient(135deg, ${colors[0]} 0%, ${colors[0]} 33%, ${colors[1]} 33%, ${colors[1]} 66%, ${colors[2] ?? colors[0]} 66%, ${colors[2] ?? colors[0]} 100%)`
+    : undefined;
+
   return (
-    <section className="relative py-16 md:py-24 text-white overflow-clip hero-animated">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 opacity-95" />
+    <section className="relative py-16 md:py-24 text-white overflow-clip">
+      {/* Flag gradient background */}
+      {flagGradient && (
+        <div className="absolute inset-0" style={{ background: flagGradient }} />
+      )}
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-[#0D3B66]/80" />
       
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8">
