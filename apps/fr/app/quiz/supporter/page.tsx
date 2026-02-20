@@ -131,10 +131,10 @@ const questions: QuizQuestion[] = [
     question: "Dernière question : choisis un emoji !",
     emoji: "",
     options: [
-      { label: "🐓 Le coq", points: { france: 3 } },
-      { label: "🦁 Le lion", points: { maroc: 2, senegal: 2, angleterre: 2 } },
+      { label: "Le coq", points: { france: 3 } },
+      { label: "Le lion", points: { maroc: 2, senegal: 2, angleterre: 2 } },
       { label: "L'étoile", points: { bresil: 2, argentine: 2, allemagne: 1 } },
-      { label: "🌸 La fleur de cerisier", points: { japon: 3, portugal: 1 } },
+      { label: "La fleur de cerisier", points: { japon: 3, portugal: 1 } },
     ],
   },
 ];

@@ -65,22 +65,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Pronostics",url:"/equipes"},{name:team.name,url:"/pronostic/"+team.slug}]} baseUrl={domains.fr} />
-
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/equipes" className="text-primary dark:text-secondary hover:underline">Équipes</Link></li>
-            <li>/</li>
-            <li><Link href={`/equipe/${team.slug}`} className="text-primary dark:text-secondary hover:underline">{team.name}</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Pronostic</li>
-          </ol>
-        </div>
-      </nav>
-
-      <section className="hero-animated text-white py-12 sm:py-16">
+<section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>

@@ -108,17 +108,7 @@ export default function PronosticHubPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Pronostics</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* ===== HERO ===== */}
+{/* ===== HERO ===== */}
       <section className="hero-animated py-14 md:py-20 text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">

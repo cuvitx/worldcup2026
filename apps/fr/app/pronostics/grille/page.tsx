@@ -107,20 +107,7 @@ export default function GrillePronosticsPage() {
           .print-grid input { border: 1px solid #ccc; background: white; color: black; }
         }
       `}</style>
-
-      <nav className="no-print bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/pronostics" className="text-primary dark:text-secondary hover:underline">Pronostics</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Grille</li>
-          </ol>
-        </div>
-      </nav>
-
-      <section className="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-12 sm:py-16">
+<section className="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Grille de pronostics</h1>
           <p className="mt-2 text-gray-300">

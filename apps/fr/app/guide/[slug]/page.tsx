@@ -64,19 +64,7 @@ export default async function GuidePage({ params }: PageProps) {
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Guides",url:"/guides"},{name:guide.title,url:"/guide/"+guide.slug}]} baseUrl={domains.fr} />
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/guides" className="text-primary dark:text-secondary hover:underline">Guides</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">{guide.title}</li>
-          </ol>
-        </div>
-      </nav>
-
-      <section className="hero-animated text-white py-12 sm:py-16">
+<section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium mb-3">
             {categoryLabels[guide.category] ?? guide.category}

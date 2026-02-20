@@ -75,34 +75,7 @@ export default async function PlayerPage({ params }: PageProps) {
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Joueurs",url:"/joueurs"},{name:player.name,url:"/joueur/"+player.slug}]} baseUrl={domains.fr} />
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            {team && (
-              <>
-                <li>
-                  <Link
-                    href={`/equipe/${team.slug}`}
-                    className="text-primary dark:text-secondary hover:underline"
-                  >
-                    {team.name}
-                  </Link>
-                </li>
-                <li>/</li>
-              </>
-            )}
-            <li className="text-gray-900 dark:text-white font-medium">{player.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      <section className="hero-animated text-white py-12 sm:py-16">
+<section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             {/* Player photo or initials fallback */}

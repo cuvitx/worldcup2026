@@ -54,24 +54,11 @@ export default async function StadiumPage({ params }: PageProps) {
   const city = citiesById[stadium.cityId];
   const stadiumMatches = matchesByStadium[stadium.id] ?? [];
 
-
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Stades",url:"/stades"},{name:stadium.name,url:"/stade/"+stadium.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 min-w-0 flex-wrap">
-            <li className="shrink-0"><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li className="shrink-0">/</li>
-            <li className="shrink-0"><Link href="/stades" className="text-primary dark:text-secondary hover:underline">Stades</Link></li>
-            <li className="shrink-0">/</li>
-            <li className="text-gray-900 dark:text-white font-medium">{stadium.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Header */}
+{/* Header */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">

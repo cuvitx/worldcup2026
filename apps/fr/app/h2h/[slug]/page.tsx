@@ -75,17 +75,7 @@ export default async function H2HPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:team1.name+" vs "+team2.name,url:"/h2h/"+slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium truncate min-w-0">{team1.name} vs {team2.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Header */}
+{/* Header */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">

@@ -22,21 +22,7 @@ export function TeamHeader({ team }: TeamHeaderProps) {
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/equipes" className="text-primary dark:text-secondary hover:underline">Équipes</Link></li>
-            <li>/</li>
-            <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary dark:text-secondary hover:underline">Groupe {team.group}</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">{team.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Team Header */}
+{/* Team Header */}
       <HeroSection title={team.name} subtitle={`${team.confederation} · Classement FIFA #${team.fifaRanking} · Groupe ${team.group}`}>
         <div className="flex flex-wrap items-center gap-6 sm:gap-8 mt-4">
           {getFlagPath(team.slug) ? (

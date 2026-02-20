@@ -37,17 +37,7 @@ export default function CitiesPage() {
           { label: "Villes hôtes" },
         ]}
       />
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Villes hôtes</li>
-          </ol>
-        </div>
-      </nav>
-
-      <section className="hero-animated text-white py-14 sm:py-20">
+<section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Villes hôtes</span>

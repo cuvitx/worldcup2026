@@ -154,29 +154,7 @@ export default async function JourPage({ params }: PageProps) {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-5xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link href="/match/calendrier" className="text-primary dark:text-secondary hover:underline">
-                Calendrier
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">
-              Jour {dayNum}
-            </li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Hero header */}
+{/* Hero header */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
         <div className="mx-auto max-w-5xl px-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

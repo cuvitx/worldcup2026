@@ -51,23 +51,10 @@ export default async function CityPage({ params }: PageProps) {
 
   const enrichment = cityEnrichmentData[slug];
 
-
   return (
     <>
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Villes",url:"/villes"},{name:city.name,url:"/ville/"+city.slug}]} baseUrl={domains.fr} />
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/villes" className="text-primary dark:text-secondary hover:underline">Villes</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">{city.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Hero image */}
+{/* Hero image */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
         <HeroImage
           src={`/images/cities/${slug}.jpg`}

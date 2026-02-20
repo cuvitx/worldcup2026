@@ -99,21 +99,7 @@ export default async function TeamPage({ params }: PageProps) {
       />
 
       {/* Breadcrumbs */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/equipes" className="text-primary dark:text-secondary hover:underline">Équipes</Link></li>
-            <li>/</li>
-            <li><Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary dark:text-secondary hover:underline">Groupe {team.group}</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">{team.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Premium Hero + Probability (single hero-animated section) */}
+{/* Premium Hero + Probability (single hero-animated section) */}
       <section className="hero-animated text-white">
         <PremiumHero 
           team={team} 

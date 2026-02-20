@@ -90,22 +90,7 @@ export default function JeuResponsablePage() {
           { name: "Jeu responsable", url: "/jeu-responsable" },
         ]}
       />
-
-      <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="font-medium text-gray-900 dark:text-white">Jeu responsable</li>
-          </ol>
-        </div>
-      </nav>
-
-      <section className="hero-animated text-white py-14 sm:py-20">
+<section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Prévention & aide</span>

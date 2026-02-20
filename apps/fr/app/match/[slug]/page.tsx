@@ -130,35 +130,7 @@ export default async function MatchPage({ params }: PageProps) {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap min-w-0">
-            <li>
-              <Link
-                href="/"
-                className="text-primary dark:text-secondary hover:underline py-2 inline-block"
-              >
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link
-                href="/match/calendrier"
-                className="text-primary dark:text-secondary hover:underline py-2 inline-block"
-              >
-                Calendrier
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium break-words min-w-0">
-              {home?.name ?? "TBD"} vs {away?.name ?? "TBD"}
-            </li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Hero */}
+{/* Hero */}
       <MatchHeroAdaptive
         matchPhase={matchPhase}
         home={home}

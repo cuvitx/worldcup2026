@@ -92,21 +92,7 @@ export default function HistoirePage() {
       />
 
       {/* Fil d'Ariane */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="hover:text-primary dark:hover:text-white transition-colors">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Histoire</li>
-          </ol>
-        </div>
-      </nav>
-
-      {/* Hero */}
+{/* Hero */}
       <section className="relative bg-primary text-white py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 left-10 text-9xl"></div>
