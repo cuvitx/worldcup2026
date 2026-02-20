@@ -25,17 +25,7 @@ export function PrixParPhase() {
               key={phase.phase}
               className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm"
             >
-              <div className={`flex items-center gap-3 px-5 py-4 ${
-                phase.color === "gold"
-                  ? "bg-gradient-to-r from-yellow-900/80 to-yellow-700/80 text-white"
-                  : phase.color === "purple"
-                  ? "bg-gradient-to-r from-purple-900/80 to-purple-700/80 text-white"
-                  : phase.color === "orange"
-                  ? "bg-gradient-to-r from-orange-700/80 to-orange-600/80 text-white"
-                  : phase.color === "green"
-                  ? "bg-accent text-white"
-                  : "bg-gradient-to-r from-blue-800/80 to-blue-700/80 text-white"
-              }`}>
+              <div className="hero-animated flex items-center gap-3 px-5 py-4 text-white">
                 <span className="text-2xl">{phaseIcons[phase.icon] ?? phase.icon}</span>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{phase.phase}</h3>

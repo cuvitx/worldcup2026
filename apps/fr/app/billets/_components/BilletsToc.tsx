@@ -12,7 +12,7 @@ const tocItems = [
 
 export function BilletsToc() {
   return (
-    <div className="hidden lg:block fixed right-[max(1rem,calc((100vw-80rem)/2+1rem))] top-24 w-[200px]">
+    <div className="hidden xl:block fixed right-[max(1rem,calc((100vw-80rem)/2+1rem))] top-24 w-[200px]">
       <TableOfContents items={tocItems} />
     </div>
   );

@@ -96,10 +96,10 @@ export default function ComparateurCotesPage() {
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
 
         {/* Group filter */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex gap-2 mb-8 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible">
           <button
             onClick={() => setSelectedGroup("all")}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
+            className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition ${
               selectedGroup === "all"
                 ? "bg-primary text-white"
                 : "bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -111,7 +111,7 @@ export default function ComparateurCotesPage() {
             <button
               key={g}
               onClick={() => setSelectedGroup(g)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
+              className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition ${
                 selectedGroup === g
                   ? "bg-primary text-white"
                   : "bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
