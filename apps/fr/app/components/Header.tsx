@@ -68,7 +68,7 @@ export function Header() {
           href="/"
           className="hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none rounded"
         >
-          <img src="/images/logo-navbar.png" srcSet="/images/logo-navbar.png 2x, /images/logo-navbar@3x.png 3x" alt="CDM 2026" width={130} height={80} className="h-10 w-auto" />
+          <img src="/images/logo-navbar.png?v=2" srcSet="/images/logo-navbar.png?v=2 2x, /images/logo-navbar@3x.png?v=2 3x" alt="CDM 2026" width={130} height={80} className="h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}

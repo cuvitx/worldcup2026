@@ -77,7 +77,7 @@ export function Footer() {
           {/* Logo + description */}
           <div className="max-w-xs">
             <Link href="/" className="inline-block mb-3">
-              <img src="/images/logo-navbar.png" srcSet="/images/logo-navbar.png 2x, /images/logo-navbar@3x.png 3x" alt="CDM 2026" width={130} height={80} className="h-10 w-auto" />
+              <img src="/images/logo-navbar.png?v=2" srcSet="/images/logo-navbar.png?v=2 2x, /images/logo-navbar@3x.png?v=2 3x" alt="CDM 2026" width={130} height={80} className="h-10 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed mb-4">
               Guide complet de la Coupe du Monde 2026. Pronostics, cotes,
