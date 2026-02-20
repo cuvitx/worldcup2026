@@ -211,11 +211,11 @@ export default function PronosticHubPage() {
                   key={team.id}
                   href={`/equipe/${team.slug}`}
                   className={`group relative rounded-xl border bg-white dark:bg-slate-800 p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all ${
-                    index === 0 ? "border-secondary/50" : "border-gray-200 dark:border-slate-700"
+                    index === 0 ? "border-accent/50" : "border-gray-200 dark:border-slate-700"
                   }`}
                 >
                   {index === 0 && (
-                    <span className="absolute top-2 right-2 text-[9px] bg-secondary text-primary px-1.5 py-0.5 rounded font-bold">
+                    <span className="absolute top-2 right-2 text-[9px] bg-accent text-white px-1.5 py-0.5 rounded font-bold">
                       FAVORI
                     </span>
                   )}
@@ -226,7 +226,7 @@ export default function PronosticHubPage() {
                   <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">#{index + 1} mondial</p>
                   <div className="mt-2 flex items-center justify-between text-xs">
                     <span className="text-primary font-bold">{winPct}%</span>
-                    <span className="text-secondary font-bold">{odds}</span>
+                    <span className="text-accent font-bold">{odds}</span>
                   </div>
                   <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
@@ -285,10 +285,10 @@ export default function PronosticHubPage() {
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between px-4 py-2.5 bg-primary dark:from-slate-900 dark:to-slate-800 text-white">
-                    <span className="text-sm font-extrabold bg-secondary/20 text-secondary px-2 py-0.5 rounded">
+                    <span className="text-sm font-extrabold bg-accent/20 text-accent px-2 py-0.5 rounded">
                       Groupe {group.letter}
                     </span>
-                    <span className="text-xs text-gray-400 group-hover:text-secondary transition-colors">
+                    <span className="text-xs text-gray-400 group-hover:text-accent transition-colors">
                       Pronostic →
                     </span>
                   </div>

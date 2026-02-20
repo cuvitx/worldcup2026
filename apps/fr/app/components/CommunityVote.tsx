@@ -72,9 +72,9 @@ export default function CommunityVote({
   };
 
   const options = [
-    { key: "1", label: homeName, pct: results.home, color: "bg-secondary", colorLight: "bg-secondary/20", text: "text-secondary" },
+    { key: "1", label: homeName, pct: results.home, color: "bg-primary", colorLight: "bg-primary/20", text: "text-primary" },
     { key: "N", label: "Match nul", pct: results.draw, color: "bg-gray-400", colorLight: "bg-gray-400/20", text: "text-gray-400" },
-    { key: "2", label: awayName, pct: results.away, color: "bg-secondary", colorLight: "bg-secondary/20", text: "text-secondary" },
+    { key: "2", label: awayName, pct: results.away, color: "bg-accent", colorLight: "bg-accent/20", text: "text-accent" },
   ];
 
   return (
@@ -96,10 +96,10 @@ export default function CommunityVote({
               onClick={() => handleVote(opt.key)}
               className={`group relative flex flex-col items-center gap-2 rounded-xl border-2 border-gray-200 px-3 py-4 font-semibold transition-all hover:scale-[1.03] hover:shadow-md dark:border-gray-600 ${
                 opt.key === "1"
-                  ? "hover:border-secondary hover:bg-secondary/10 dark:hover:border-secondary dark:hover:bg-secondary/10"
+                  ? "hover:border-primary hover:bg-primary/10 dark:hover:border-secondary dark:hover:bg-secondary/10"
                   : opt.key === "N"
                     ? "hover:border-gray-400 hover:bg-gray-50 dark:bg-slate-700 dark:hover:border-gray-400 dark:hover:bg-gray-700/40"
-                    : "hover:border-secondary hover:bg-secondary/5 dark:hover:border-secondary dark:hover:bg-secondary/10"
+                    : "hover:border-accent hover:bg-accent/5 dark:hover:border-secondary dark:hover:bg-secondary/10"
               }`}
             >
               <span className="text-2xl font-black text-gray-500 dark:text-gray-600 group-hover:text-gray-500">

@@ -110,7 +110,7 @@ export default function Quiz() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <button
             onClick={() => startGame("all")}
-            className="rounded-xl border-2 border-secondary/50 bg-secondary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-primary/50 bg-primary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
           >
             <span className="text-3xl"></span>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">Toutes les catégories</h3>
@@ -121,7 +121,7 @@ export default function Quiz() {
             <button
               key={cat}
               onClick={() => startGame(cat)}
-              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm hover:border-secondary/50 hover:bg-secondary/5 dark:hover:bg-secondary/10 transition-colors"
+              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm hover:border-primary/50 hover:bg-primary/5 dark:hover:bg-secondary/10 transition-colors"
             >
               <span className="text-3xl">{categoryLabels[cat].emoji}</span>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">{categoryLabels[cat].label}</h3>
@@ -241,7 +241,7 @@ export default function Quiz() {
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-secondary/40 hover:bg-secondary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-secondary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-primary/40 hover:bg-primary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
             classes += "border-success bg-success//10 dark:bg-success//15 text-success dark:text-success shadow-lg shadow-success//20 scale-[1.01]";
           } else if (idx === selected) {

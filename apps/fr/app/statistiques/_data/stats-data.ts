@@ -121,7 +121,7 @@ export const records = [
     title: "Lothar Matthäus — 25 matchs",
     detail: "Allemagne, 5 Coupes du Monde (1982–1998)",
     badge: "25 matchs",
-    badgeColor: "bg-secondary",
+    badgeColor: "bg-accent",
   },
   {
     icon: "🏆",
@@ -130,7 +130,7 @@ export const records = [
     detail:
       "Brésil 1958, 1962, 1970 — le seul joueur à avoir remporté 3 CDM",
     badge: "Légende absolue",
-    badgeColor: "bg-secondary",
+    badgeColor: "bg-accent",
   },
   {
     icon: "🥅",

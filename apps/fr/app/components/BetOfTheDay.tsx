@@ -143,7 +143,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         >
           Parier sur {display.bookmaker} →
         </a>
-        <p className="mt-2 text-center text-[9px] text-gray-500">18+ · Jeu responsable</p>
+        <p className="mt-2 text-center text-[9px] text-gray-400">18+ · Jeu responsable</p>
       </div>
     );
   }
@@ -167,7 +167,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
               <p className="text-xs font-bold uppercase tracking-widest text-secondary">
                 Pari du jour
               </p>
-              <p className="text-[10px] text-gray-600">Par nos experts CDM 2026</p>
+              <p className="text-[10px] text-gray-300">Par nos experts CDM 2026</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -185,8 +185,8 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             </span>
           </div>
           <div className="text-center px-4">
-            <span className="block text-lg font-extrabold text-gray-400">VS</span>
-            <span className="block text-[10px] text-gray-500 mt-1">{display.dateLabel}</span>
+            <span className="block text-lg font-extrabold text-gray-300">VS</span>
+            <span className="block text-[10px] text-gray-400 mt-1">{display.dateLabel}</span>
           </div>
           <div className="text-center">
             <span className="text-5xl block mb-1">{display.awayFlag}</span>
@@ -236,10 +236,10 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
           )}
         </div>
 
-        <p className="mt-3 text-center text-[10px] text-gray-600">
+        <p className="mt-3 text-center text-[10px] text-gray-300">
           18+ · Jeu responsable · Les paris sportifs peuvent créer une dépendance.
         </p>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+        <p className="text-xs text-gray-400 dark:text-gray-400 mt-2 text-center">
           🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
           Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
         </p>

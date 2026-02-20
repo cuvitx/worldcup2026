@@ -63,7 +63,7 @@ export function MatchHero({
               <p className="text-base sm:text-xl md:text-2xl font-extrabold">À déterminer</p>
             )}
             {home && (
-              <span className="text-xs font-medium text-gray-400 bg-white/8 rounded-full px-2.5 py-0.5">
+              <span className="text-xs font-medium text-gray-300 bg-white/8 rounded-full px-2.5 py-0.5">
                 #{home.fifaRanking > 0 ? home.fifaRanking : "–"} FIFA
               </span>
             )}
@@ -77,7 +77,7 @@ export function MatchHero({
             >
               VS
             </span>
-            <span className="text-xs text-gray-400 font-medium tabular-nums">
+            <span className="text-xs text-gray-300 font-medium tabular-nums">
               {match.time} UTC
             </span>
           </div>
@@ -105,7 +105,7 @@ export function MatchHero({
               <p className="text-base sm:text-xl md:text-2xl font-extrabold">À déterminer</p>
             )}
             {away && (
-              <span className="text-xs font-medium text-gray-400 bg-white/8 rounded-full px-2.5 py-0.5">
+              <span className="text-xs font-medium text-gray-300 bg-white/8 rounded-full px-2.5 py-0.5">
                 #{away.fifaRanking > 0 ? away.fifaRanking : "–"} FIFA
               </span>
             )}
@@ -113,7 +113,7 @@ export function MatchHero({
         </div>
 
         {/* Match info bar */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-sm text-gray-400">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-sm text-gray-300">
           <span className="flex items-center gap-1.5">
             <span className="text-xs"></span>
             {dateFormatted}

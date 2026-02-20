@@ -38,7 +38,7 @@ export function HeroSection() {
           <span className="font-semibold text-white">48 équipes</span> —{" "}
           <span className="font-semibold text-white">16 stades</span>
           <br />
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-gray-300">
             Du 11 juin au 19 juillet 2026
           </span>
         </p>

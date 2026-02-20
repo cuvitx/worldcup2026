@@ -50,7 +50,7 @@ export function HeroCountdown() {
               <span className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${key === "seconds" ? "text-secondary" : "text-white"}`}>
                 {mounted ? String(time[key]).padStart(2, "0") : "--"}
               </span>
-              <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wide">{label}</span>
+              <span className="text-[10px] text-gray-300 font-medium uppercase tracking-wide">{label}</span>
             </div>
             {i < units.length - 1 && (
               <span className="text-white/20 font-light text-lg mb-3">:</span>
@@ -60,7 +60,7 @@ export function HeroCountdown() {
       </div>
 
       {/* Sub info */}
-      <p className="text-[11px] text-gray-400">
+      <p className="text-[11px] text-gray-300">
         Match d&apos;ouverture · 11 juin 2026 · Estadio Azteca, Mexico
       </p>
     </div>

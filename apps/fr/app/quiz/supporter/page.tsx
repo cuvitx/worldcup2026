@@ -231,7 +231,7 @@ export default function QuizSupporterPage() {
               <button
                 key={i}
                 onClick={() => handleAnswer(i)}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 text-left font-medium text-gray-800 transition-all hover:border-secondary/40 hover:bg-secondary/5 hover:shadow-md active:scale-[0.98] dark:border-slate-600 dark:bg-slate-700 dark:text-gray-200 dark:hover:border-secondary/50 dark:hover:bg-slate-600"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 text-left font-medium text-gray-800 transition-all hover:border-primary/40 hover:bg-primary/5 hover:shadow-md active:scale-[0.98] dark:border-slate-600 dark:bg-slate-700 dark:text-gray-200 dark:hover:border-secondary/50 dark:hover:bg-slate-600"
               >
                 {opt.label}
               </button>
@@ -260,7 +260,7 @@ export default function QuizSupporterPage() {
             </Link>
             <button
               onClick={handleShare}
-              className="inline-flex items-center justify-center rounded-xl border-2 border-secondary px-6 py-3 font-bold text-secondary transition-all hover:bg-secondary/5 active:scale-95 dark:border-secondary dark:text-secondary dark:hover:bg-slate-700"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-primary px-6 py-3 font-bold text-primary transition-all hover:bg-primary/5 active:scale-95 dark:border-secondary dark:text-secondary dark:hover:bg-slate-700"
             >
               Partager 🚀
             </button>

@@ -45,7 +45,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
               <div className="pl-4 pb-2 animate-fadeIn">
                 {menu.sections.map((section) => (
                   <div key={section.title} className="mb-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-3 py-1">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 px-3 py-1">
                       {section.title}
                     </p>
                     {section.links.map((link) => (
