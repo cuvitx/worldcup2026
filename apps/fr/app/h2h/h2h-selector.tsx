@@ -16,7 +16,11 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
 
   const handleCompare = () => {
     if (team1 && team2 && team1 !== team2) {
-      router.push(`/h2h/${team1}-vs-${team2}`);
+      // Normalize order to match generateStaticParams (sorted by index in teams array)
+      const idx1 = teams.findIndex((t) => t.slug === team1);
+      const idx2 = teams.findIndex((t) => t.slug === team2);
+      const [a, b] = idx1 < idx2 ? [team1, team2] : [team2, team1];
+      router.push(`/h2h/${a}-vs-${b}`);
     }
   };
 
