@@ -378,7 +378,11 @@ textarea:focus-visible {
      Using a large negative delay forces them to the same phase regardless of render time. */
   animation-delay: -9999s;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
+}
+/* Header needs visible overflow for dropdown menus */
+header.hero-animated {
+  overflow: visible;
 }
 .hero-animated::before {
   content: "";
