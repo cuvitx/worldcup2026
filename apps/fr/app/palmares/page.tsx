@@ -16,7 +16,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
  title: "Palmarès Coupe du Monde FIFA | Historique 1930–2022",
  description:
- "Palmarès complet de la Coupe du Monde FIFA de 1930 à 2022. Tous les vainqueurs, finalistes, scores, records et statistiques historiques. Qui a le plus de titres ?",
+ "Palmarès complet de la Coupe du Monde FIFA de 1930 à 2022 : vainqueurs, finalistes, scores et records. Qui a le plus de titres ?",
  alternates: {
  canonical: "https://cdm2026.fr/palmares",
  },

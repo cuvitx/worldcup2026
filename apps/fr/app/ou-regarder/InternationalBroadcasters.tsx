@@ -47,7 +47,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
                   <div key={idx} className="h-6 max-h-6 flex items-center">
                     <Image 
                       src={logo} 
-                      alt="" 
+                      alt={`Logo diffuseur ${b.country}`} 
                       width={60}
                       height={24}
                       className="max-h-6 w-auto object-contain grayscale hover:grayscale-0 transition"
@@ -89,7 +89,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
                         <div key={idx} className="h-8 max-h-8 flex items-center">
                           <Image 
                             src={logo} 
-                            alt="" 
+                            alt={`Logo diffuseur ${b.country}`} 
                             width={80}
                             height={32}
                             className="max-h-8 w-auto object-contain grayscale hover:grayscale-0 transition"

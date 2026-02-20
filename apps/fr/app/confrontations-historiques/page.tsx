@@ -245,7 +245,7 @@ export default function ConfrontationsHistoriquesPage() {
             Wall of Fame CDM <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/palmares-cdm"
+            href="/palmares"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
           >
             Palmarès complet

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Cote ${team.name} Championne du Monde 2026 — Analyse & Value Bet`,
-    description: `Cote ${team.name} pour gagner la Coupe du Monde 2026 : comparaison bookmakers, évolution des cotes, analyse value bet et probabilités. Groupe ${team.group}, FIFA #${team.fifaRanking}.`,
+    description: `Cote ${team.name} pour gagner la Coupe du Monde 2026 : comparatif bookmakers, évolution des cotes et analyse value bet. Groupe ${team.group}.`,
     openGraph: {
       title: `${team.flag} Cote ${team.name} Championne du Monde 2026`,
       description: `Analyse complète de la cote ${team.name} pour remporter la CDM 2026.`,

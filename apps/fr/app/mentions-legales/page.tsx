@@ -8,7 +8,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
   title: "Mentions légales | CDM 2026",
   description:
-    "Mentions légales du site CDM 2026 : éditeur, hébergeur, données personnelles, cookies et conditions d'utilisation.",
+    "Mentions légales du site CDM 2026 : éditeur, hébergeur, protection des données personnelles, politique cookies et conditions d'utilisation.",
   alternates: getStaticAlternates("legal", "fr"),
   openGraph: {
     title: "Mentions légales - CDM 2026",

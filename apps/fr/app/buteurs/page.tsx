@@ -40,7 +40,7 @@ const historicalScorers = [
 export const metadata: Metadata = {
   title: "Buteurs CDM 2026 | Top 20 historique (Klose 16, Messi 13, Mbappé 12) + Cotes 2026",
   description:
-    "Meilleurs buteurs de l'histoire de la Coupe du Monde (Klose 16, Ronaldo R9 15, Müller 14, Fontaine 13…) et cotes buteurs pour la CDM 2026. Classement historique 1930-2022 et pronostics pour le Soulier d'Or 2026.",
+    "Meilleurs buteurs de la Coupe du Monde : Klose 16, Ronaldo 15, Müller 14. Classement historique 1930-2022 et cotes Soulier d'Or CDM 2026.",
   alternates: getStaticAlternates("scorers", "fr"),
   openGraph: {
     title: "Top 20 buteurs historiques CDM + Cotes 2026",

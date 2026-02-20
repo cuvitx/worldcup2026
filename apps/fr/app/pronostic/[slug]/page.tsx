@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Pronostic ${team.name} CDM 2026 | Cotes, Prediction & Analyse`,
-    description: `Pronostic ${team.name} Coupe du Monde 2026 : cotes, probabilites de victoire, analyse ELO, predictions des matchs de groupe et joueurs cles. Toutes les infos pour parier sur ${team.name}.`,
+    description: `Pronostic ${team.name} Coupe du Monde 2026 : cotes, probabilités de victoire, analyse ELO et prédictions des matchs de groupe.`,
     alternates: getAlternates("prediction", slug, "fr"),
     openGraph: {
       title: `${team.flag} Pronostic ${team.name} - CDM 2026`,

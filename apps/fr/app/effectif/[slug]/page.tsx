@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Effectif ${team.name} — Liste des 26 joueurs CDM 2026`,
-    description: `Effectif complet de ${team.name} pour la Coupe du Monde 2026 : liste des 26 joueurs, postes, clubs, âges et sélections. Gardiens, défenseurs, milieux et attaquants.`,
+    description: `Effectif complet de ${team.name} pour la Coupe du Monde 2026 : liste des 26 joueurs, postes, clubs et sélections par poste.`,
     openGraph: {
       title: `${team.flag} Effectif ${team.name} — CDM 2026`,
       description: `Liste des 26 joueurs de ${team.name} pour la Coupe du Monde 2026.`,

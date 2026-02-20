@@ -18,7 +18,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
   description:
-    "Toutes les infos pour regarder la Coupe du Monde 2026 : chaînes TV par pays (France, Belgique, Suisse, Canada + international), streaming légal gratuit et payant, VPN et FAQ complète.",
+    "Où regarder la Coupe du Monde 2026 : chaînes TV par pays, streaming légal gratuit et payant, VPN et FAQ. Guide complet.",
   openGraph: {
     title: "Où regarder la CDM 2026 — TV & Streaming par pays",
     description:

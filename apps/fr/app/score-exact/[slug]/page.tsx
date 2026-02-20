@@ -198,7 +198,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Pronostic Score Exact ${homeName} vs ${awayName} – CDM 2026 | cdm2026.fr`,
-    description: `Découvrez nos pronostics score exact pour ${homeName} - ${awayName} (${stage}, Coupe du Monde 2026). 3 scénarios probables, cotes comparées Winamax, Betclic, Unibet.`,
+    description: `Pronostics score exact ${homeName} - ${awayName} (${stage}, Coupe du Monde 2026). 3 scénarios et cotes comparées des bookmakers.`,
     alternates: { canonical: `${EXTERNAL_URLS.SITE}/score-exact/${slug}` },
     openGraph: {
       title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — Score Exact CDM 2026`,

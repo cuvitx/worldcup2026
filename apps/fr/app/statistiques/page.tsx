@@ -23,7 +23,7 @@ import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
   title: "Statistiques Coupe du Monde - Records et chiffres clés | CDM 2026",
   description:
-    "Toutes les statistiques de la Coupe du Monde FIFA : top buteurs all-time, pays les plus titrés, buts par édition, records historiques et fun facts. De 1930 à 2026.",
+    "Statistiques Coupe du Monde FIFA : top buteurs all-time, pays les plus titrés, buts par édition et records historiques de 1930 à 2026.",
   openGraph: {
     title: "Statistiques Coupe du Monde - Records et chiffres clés",
     description:

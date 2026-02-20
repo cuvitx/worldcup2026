@@ -114,7 +114,7 @@ export function LeaderboardClient() {
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300">
         <Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link>
         <span className="mx-2">›</span>
-        <Link href="/pronostics" className="text-primary dark:text-secondary hover:underline">Pronostics</Link>
+        <Link href="/pronostic" className="text-primary dark:text-secondary hover:underline">Pronostics</Link>
         <span className="mx-2">›</span>
         <span className="text-gray-800 dark:text-white">Classement</span>
       </nav>

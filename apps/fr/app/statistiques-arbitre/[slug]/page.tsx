@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${ref.name} — Statistiques Arbitre CDM 2026 | Cartons, Sévérité & Impact Paris`,
-    description: `Profil et statistiques de ${ref.name} (${ref.nationality}, ${age} ans). ${ref.yellowPerMatch} cartons jaunes/match, style ${ref.style}. Impact sur les paris sportifs CDM 2026.`,
+    description: `Profil et stats de ${ref.name} (${ref.nationality}) : ${ref.yellowPerMatch} jaunes/match, style ${ref.style}. Impact sur les paris CDM 2026.`,
     openGraph: {
       title: `${ref.name} — Arbitre CDM 2026`,
       description: `Stats de ${ref.name} : ${ref.yellowPerMatch} jaunes/match, sévérité ${ref.severity}/10. Impact sur les paris.`,

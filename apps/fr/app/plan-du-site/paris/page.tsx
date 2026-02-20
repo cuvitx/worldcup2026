@@ -10,7 +10,7 @@ export function generateMetadata(): Metadata {
   return {
     title: "Plan du site - Paris sportifs - Coupe du Monde 2026",
     description:
-      "Toutes les pages paris sportifs de cdm2026.fr : bookmakers, bonus, guides, types de paris et player props.",
+      "Toutes les pages paris sportifs pour la Coupe du Monde 2026 : bookmakers, bonus, guides, types de paris et player props sur cdm2026.fr.",
     openGraph: {
       title: "Plan du site - Paris sportifs CDM 2026",
       description: "Bookmakers, bonus, guides de paris et player props pour le Mondial 2026.",

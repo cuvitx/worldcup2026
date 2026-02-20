@@ -11,7 +11,7 @@ export function generateMetadata(): Metadata {
   return {
     title: "Plan du site - Matchs - Coupe du Monde 2026",
     description:
-      "Liste complete des 104 matchs de la Coupe du Monde 2026 avec liens vers pronostics, compositions, arbitres et corners.",
+      "Liste complète des 104 matchs de la Coupe du Monde 2026 : liens vers pronostics, compositions, arbitres et corners pour chaque rencontre.",
     openGraph: {
       title: "Plan du site - Tous les matchs CDM 2026",
       description: "Les 104 matchs du Mondial 2026 : phase de groupes, eliminatoires et finale.",

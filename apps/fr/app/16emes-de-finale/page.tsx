@@ -9,7 +9,7 @@ import { Swords, Calendar, ArrowRight, Info, Trophy } from "lucide-react";
 export const metadata: Metadata = {
   title: "16èmes de finale Coupe du Monde 2026 - Tableau & Dates | CDM 2026",
   description:
-    "16èmes de finale (Round of 32) de la CDM 2026 : format, dates du 28 juin au 2 juillet, tableau des matchs possibles et explication du nouveau bracket à 48 équipes.",
+    "16èmes de finale de la Coupe du Monde 2026 : format, dates du 28 juin au 2 juillet, tableau des matchs et nouveau bracket à 48 équipes.",
   openGraph: {
     title: "16èmes de finale CDM 2026 - Tableau complet",
     description:

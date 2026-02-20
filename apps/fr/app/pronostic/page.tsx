@@ -11,7 +11,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
   title: "Pronostics CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
   description:
-    "Hub central de tous les pronostics de la Coupe du Monde 2026 : vainqueur, pronostics par groupe (A à L), analyses match par match, cotes et tendances. Modèle ELO + 100K simulations.",
+    "Tous les pronostics Coupe du Monde 2026 : vainqueur, groupes A à L, analyses match par match et cotes. Modèle ELO + 100K simulations.",
   alternates: {
     canonical: "https://cdm2026.fr/pronostic",
   },
@@ -332,7 +332,7 @@ export default function PronosticHubPage() {
                 Analyses détaillées des affiches les plus attendues
               </p>
             </div>
-            <Link href="/pronostic-match" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
+            <Link href="/pronostic" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
               Tous les matchs →
             </Link>
           </div>
@@ -398,7 +398,7 @@ export default function PronosticHubPage() {
 
           <div className="mt-6 text-center">
             <Link
-              href="/pronostic-match"
+              href="/pronostic"
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-3 font-semibold text-gray-700 dark:text-gray-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Voir tous les pronostics matchs

@@ -9,6 +9,8 @@ import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Calendrier CDM 2026 — Version imprimable",
+  description:
+    "Version imprimable du calendrier complet de la Coupe du Monde 2026 : les 104 matchs avec dates, horaires, stades et équipes. Format PDF.",
   robots: { index: false, follow: false },
 };
 

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Parier sur ${team.name} — CDM 2026 : Cotes, Pronostics et Bonus`,
-    description: `Parier sur ${team.name} lors de la Coupe du Monde 2026 : meilleures cotes, pronostics, bonus bookmakers et analyse complète. Groupe ${team.group}, FIFA #${team.fifaRanking}.`,
+    description: `Parier sur ${team.name} à la Coupe du Monde 2026 : meilleures cotes, pronostics et bonus bookmakers. Analyse complète Groupe ${team.group}.`,
     openGraph: {
       title: `${team.flag} Parier sur ${team.name} — CDM 2026`,
       description: `Cotes, pronostics et bonus pour parier sur ${team.name} à la Coupe du Monde 2026.`,

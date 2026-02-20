@@ -10,7 +10,7 @@ import { MapPin, Plane, Clock, FileText, Globe, DollarSign } from "lucide-react"
 export const metadata: Metadata = {
   title: "Pays Hôtes CDM 2026 : USA, Canada, Mexique - Visa, Transport, Infos Pratiques",
   description:
-    "Découvrez les 3 pays hôtes de la Coupe du Monde 2026 : États-Unis, Canada et Mexique. Infos pratiques sur les visas ESTA, décalage horaire, transport et villes organisatrices.",
+    "Les 3 pays hôtes de la Coupe du Monde 2026 : États-Unis, Canada et Mexique. Visas, décalage horaire, transport et villes hôtes.",
   openGraph: {
     title: "Pays Hôtes CDM 2026 : USA, Canada, Mexique",
     description:

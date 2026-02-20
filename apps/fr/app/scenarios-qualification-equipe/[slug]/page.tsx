@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${team.name} qualifiée si… — Scénarios de Qualification CDM 2026`,
-    description: `Tous les scénarios de qualification de ${team.name} (Groupe ${team.group}) pour la Coupe du Monde 2026. 1er, 2ème, 3ème ou éliminée ? Probabilités et matchs clés.`,
+    description: `Scénarios de qualification de ${team.name} (Groupe ${team.group}) à la Coupe du Monde 2026. 1er, 2ème ou 3ème ? Probabilités et matchs clés.`,
     openGraph: {
       title: `${team.flag} ${team.name} qualifiée si… — CDM 2026`,
       description: `Scénarios de qualification du Groupe ${team.group} pour ${team.name}. Probabilités, matchs clés et simulations.`,

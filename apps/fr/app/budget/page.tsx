@@ -9,7 +9,7 @@ import { Wallet, Plane, Hotel, Ticket, Utensils, ArrowRight } from "lucide-react
 export const metadata: Metadata = {
   title: "Budget Coupe du Monde 2026 - Combien ça coûte ? | CDM 2026",
   description:
-    "Estimez votre budget pour la CDM 2026 : vols (800-1500€), hôtels (150-400€/nuit), billets (70-1600$), transport et nourriture. 3 profils : budget, moyen, premium.",
+    "Estimez votre budget Coupe du Monde 2026 : vols, hôtels, billets et repas. 3 profils (budget, moyen, premium) avec prix détaillés.",
   openGraph: {
     title: "Budget CDM 2026 - Guide complet des coûts",
     description: "Combien coûte un voyage pour la Coupe du Monde 2026 ? Estimations détaillées.",

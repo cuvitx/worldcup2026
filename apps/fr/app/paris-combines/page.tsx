@@ -9,7 +9,7 @@ import { Layers, ArrowRight, AlertTriangle, CheckCircle, XCircle, Calculator, Ex
 export const metadata: Metadata = {
   title: "Guide des paris combinés CDM 2026 — Combiné, System, Trixie, Yankee",
   description:
-    "Maîtrisez les paris combinés pour la CDM 2026 : explication combiné, system, Trixie, Yankee. 5 exemples concrets avec calcul de cotes, avantages, risques et meilleurs bookmakers.",
+    "Paris combinés Coupe du Monde 2026 : combiné, system, Trixie, Yankee. Exemples concrets, calcul de cotes et meilleurs bookmakers.",
   openGraph: {
     title: "Paris combinés CDM 2026 — Le guide complet",
     description: "Combinés, system, Trixie : boostez vos gains CDM 2026 avec nos exemples et stratégies.",

@@ -10,7 +10,7 @@ import { Trophy, ArrowRight, Info, BarChart3, Scale, Shield, Target } from "luci
 export const metadata: Metadata = {
   title: "Classement des meilleurs 3èmes - Qui se qualifie en 16èmes ? | CDM 2026",
   description:
-    "Comprendre le classement des meilleurs troisièmes de la Coupe du Monde 2026 : 8 des 12 troisièmes de groupe se qualifient pour les 16èmes de finale. Critères FIFA, scénarios et simulations.",
+    "Classement des meilleurs troisièmes de la Coupe du Monde 2026 : 8 sur 12 se qualifient. Critères FIFA, scénarios et simulations.",
   openGraph: {
     title: "Meilleurs 3èmes - CDM 2026 : Qui passe en 16èmes ?",
     description:

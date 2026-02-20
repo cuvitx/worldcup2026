@@ -7,7 +7,7 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "Glossaire Paris Sportifs | Tous les termes expliqués",
   description:
-    "Glossaire complet des paris sportifs : plus de 80 termes expliqués avec des exemples concrets liés à la Coupe du Monde 2026. De A à Z, tout le vocabulaire du parieur.",
+    "Glossaire des paris sportifs : 80+ termes expliqués avec exemples Coupe du Monde 2026. De A à Z, tout le vocabulaire du parieur.",
   alternates: {
     canonical: "https://cdm2026.fr/guide/glossaire",
   },

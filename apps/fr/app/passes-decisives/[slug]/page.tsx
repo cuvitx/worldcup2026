@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote passe décisive ${player.name} — CDM 2026`,
-    description: `Cotes et stats passes décisives de ${player.name} pour la Coupe du Monde 2026. Comparatif Winamax, Betclic, Unibet.`,
+    description: `Cotes et stats passes décisives de ${player.name} pour la Coupe du Monde 2026. Comparatif Winamax, Betclic, Unibet et pronostics.`,
     alternates: { canonical: `https://cdm2026.fr/passes-decisives/${slug}` },
   };
 }

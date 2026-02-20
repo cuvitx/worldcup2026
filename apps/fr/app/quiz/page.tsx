@@ -21,7 +21,7 @@ const Quiz = dynamic(() => import("./components/Quiz"), {
 export const metadata: Metadata = {
   title: "Quiz Coupe du Monde 2026 | 200+ questions pour tester vos connaissances",
   description:
-    "Quiz CDM 2026 : 200+ questions sur l'histoire (1930-2022), les joueurs légendaires, les stades, les records, les règles et la géographie des villes hôtes. Testez votre niveau et défiez vos amis — c'est gratuit !",
+    "Quiz Coupe du Monde 2026 : 200+ questions sur l'histoire, les joueurs, les stades et les records. Testez-vous gratuitement !",
   alternates: {
     canonical: "https://cdm2026.fr/quiz",
   },

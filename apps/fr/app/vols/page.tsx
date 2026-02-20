@@ -9,7 +9,7 @@ import { Plane, Clock, MapPin, ArrowRight, Calendar, DollarSign, ExternalLink } 
 export const metadata: Metadata = {
   title: "Vols pour la Coupe du Monde 2026 — Compagnies, prix, aéroports | CDM 2026",
   description:
-    "Guide complet des vols pour la CDM 2026 : compagnies directes depuis Paris, prix moyens par destination (NYC 600-1200€, LA 700-1400€, Mexico 500-900€), aéroports, escales et astuces.",
+    "Guide des vols pour la Coupe du Monde 2026 : compagnies depuis Paris, prix par destination, aéroports et astuces pour voyager malin.",
   openGraph: {
     title: "Guide des vols CDM 2026 — Prix, compagnies, aéroports",
     description: "Trouvez les meilleurs vols pour la Coupe du Monde 2026 aux USA, Canada et Mexique.",

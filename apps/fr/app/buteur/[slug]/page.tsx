@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Cote buteur ${player.name} CDM 2026 | Stats, buts & pronostic`,
-    description: `Cote buteur ${player.name} (${team?.name}) pour la Coupe du Monde 2026. ${player.goals} buts en ${player.caps} selections, probabilites de buts, cotes anytime scorer et meilleur buteur.`,
+    description: `Cote buteur ${player.name} (${team?.name}) pour la Coupe du Monde 2026. ${player.goals} buts en ${player.caps} sélections, cotes anytime scorer et Soulier d'Or.`,
     alternates: getAlternates("scorer", slug, "fr"),
     openGraph: {
       title: `${team?.flag ?? ""} Cote buteur ${player.name} - CDM 2026`,

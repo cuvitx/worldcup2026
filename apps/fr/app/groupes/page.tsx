@@ -14,7 +14,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
   title: "Les 12 groupes de la Coupe du Monde 2026 | Classement & Pronostics",
   description:
-    "Tous les groupes de la Coupe du Monde 2026 (A à L). Classement, équipes qualifiées et pronostics pour chaque groupe.",
+    "Tous les groupes de la Coupe du Monde 2026 (A à L). Classement, équipes qualifiées, calendrier des matchs et pronostics pour chaque groupe.",
   alternates: getStaticAlternates("teams", "fr"),
   openGraph: {
     title: "Les 12 groupes - Coupe du Monde 2026",

@@ -84,7 +84,7 @@ export default function NotFound() {
           Simulateur
         </Link>
         <Link
-          href="/calendrier"
+          href="/match/calendrier"
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>

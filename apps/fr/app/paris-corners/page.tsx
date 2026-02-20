@@ -9,7 +9,7 @@ import { CornerDownRight, ArrowRight, AlertTriangle, TrendingUp, BarChart3, Exte
 export const metadata: Metadata = {
   title: "Paris Corners CDM 2026 — Over/Under, Stats & Stratégies",
   description:
-    "Guide complet des paris corners pour la Coupe du Monde 2026 : over/under 9.5 et 11.5, stats historiques, équipes offensives, cotes comparées Winamax/Betclic/Unibet et stratégies gagnantes.",
+    "Paris corners Coupe du Monde 2026 : over/under 9.5, stats historiques, équipes offensives et cotes comparées. Guide et stratégies.",
   openGraph: {
     title: "Paris Corners CDM 2026 — Guide & Stratégies",
     description:
@@ -275,7 +275,7 @@ export default function ParisCornersPage() {
             over/under, 1er corner, corners par mi-temps.
           </p>
           <Link
-            href="/corners"
+            href="/paris-corners"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
           >
             Voir les pronostics corners <ArrowRight className="h-4 w-4" />
