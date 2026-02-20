@@ -63,7 +63,9 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="hero-animated text-gray-400">
+    <footer className="text-gray-400">
+      <ANJBanner />
+      <div className="hero-animated">
       {/* Top accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
 
@@ -216,7 +218,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <ANJBanner />
+      </div>
     </footer>
   );
 }
