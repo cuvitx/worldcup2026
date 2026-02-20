@@ -125,8 +125,8 @@ export function LeaderboardClient() {
 
       {/* Pseudo input */}
       {!hasPseudo && (
-        <div className="mb-8 rounded-xl border border-secondary/20 bg-secondary/5 p-4 dark:border-secondary/30 dark:bg-secondary/10">
-          <p className="mb-3 text-sm font-medium text-secondary dark:text-secondary">
+        <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-4 dark:border-secondary/30 dark:bg-secondary/10">
+          <p className="mb-3 text-sm font-medium text-primary dark:text-secondary">
             Choisis un pseudo pour apparaître dans le classement :
           </p>
           <div className="flex gap-2">
@@ -165,7 +165,7 @@ export function LeaderboardClient() {
           return (
             <div key={p.pseudo} className={`flex flex-col items-center justify-end ${idx === 0 ? "order-2" : idx === 1 ? "order-1" : "order-3"}`}>
               <span className="text-2xl sm:text-4xl mb-1">{medals[rank - 1]}</span>
-              <p className={`text-xs sm:text-sm font-bold truncate max-w-full dark:text-white ${p.isCurrentUser ? "text-secondary dark:text-secondary" : ""}`}>
+              <p className={`text-xs sm:text-sm font-bold truncate max-w-full dark:text-white ${p.isCurrentUser ? "text-accent dark:text-secondary" : ""}`}>
                 {p.pseudo}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-300">{p.points} pts</p>
@@ -199,14 +199,14 @@ export function LeaderboardClient() {
                   key={p.pseudo}
                   className={`transition-colors ${
                     p.isCurrentUser
-                      ? "bg-secondary/5 font-semibold dark:bg-secondary/10"
+                      ? "bg-primary/5 font-semibold dark:bg-secondary/10"
                       : "hover:bg-gray-50 dark:hover:bg-slate-800/50"
                   }`}
                 >
                   <td className="px-4 py-3 font-bold text-gray-400 dark:text-gray-400">
                     {rank <= 3 ? ["", "🥈", "🥉"][rank - 1] : rank}
                   </td>
-                  <td className={`px-4 py-3 ${p.isCurrentUser ? "text-secondary dark:text-secondary" : "dark:text-white"}`}>
+                  <td className={`px-4 py-3 ${p.isCurrentUser ? "text-accent dark:text-secondary" : "dark:text-white"}`}>
                     {p.pseudo}
                     {p.isCurrentUser && <span className="ml-2 text-xs opacity-70">(toi)</span>}
                   </td>

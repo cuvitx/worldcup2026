@@ -74,7 +74,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
                 #{team.fifaRanking} FIFA · Groupe {team.group}
               </p>
               {team.isHost && (
-                <span className="inline-block mt-1 text-[10px] font-bold text-secondary bg-secondary/10 px-1.5 py-0.5 rounded">
+                <span className="inline-block mt-1 text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
                   Pays hôte
                 </span>
               )}

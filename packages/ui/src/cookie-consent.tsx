@@ -64,8 +64,8 @@ export function CookieConsent({ lang }: CookieConsentProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/50 p-4"
-      style={{ WebkitBackdropFilter: "blur(4px)", backdropFilter: "blur(4px)" }}
+      className="fixed inset-0 flex items-center justify-center bg-black/50 p-4"
+      style={{ WebkitBackdropFilter: "blur(4px)", backdropFilter: "blur(4px)", zIndex: 2147483647, WebkitTransform: "translateZ(0)" }}
       role="dialog"
       aria-modal="true"
       aria-label="Consentement cookies"

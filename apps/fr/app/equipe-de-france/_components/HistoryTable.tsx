@@ -63,7 +63,7 @@ export function HistoryTable() {
                   <td className="px-4 py-2.5">
                     <span className={`font-semibold ${
                       edition.result.includes("CHAMPION")
-                        ? "text-secondary text-base"
+                        ? "text-accent text-base"
                         : edition.result.includes("Finaliste")
                         ? "text-gray-600 dark:text-gray-200"
                         : edition.result === "Non participante" || edition.result === "Non qualifiée"
@@ -73,7 +73,7 @@ export function HistoryTable() {
                       {edition.flag !== "—" && edition.flag !== "" && (
                         <span className="mr-1">{edition.flag}</span>
                       )}
-                      {edition.flag === "" && <span className="mr-1 text-secondary"></span>}
+                      {edition.flag === "" && <span className="mr-1 text-accent"></span>}
                       {edition.result}
                     </span>
                   </td>

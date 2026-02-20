@@ -137,7 +137,7 @@ export default async function GroupPage({ params }: PageProps) {
                             <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                             {team.name}
                             {team.isHost && (
-                              <span className="rounded bg-secondary/10 px-1.5 py-0.5 text-xs text-secondary">
+                              <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs text-primary">
                                 Hote
                               </span>
                             )}
@@ -175,7 +175,7 @@ export default async function GroupPage({ params }: PageProps) {
                 <div className="mt-4 p-4 bg-gray-50 dark:bg-slate-900/50 rounded-lg border border-gray-200 dark:border-slate-700">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">⚡ Forces en présence</h3>
                   <p>
-                    <strong className="text-secondary">{favorite?.name}</strong> (#{favorite?.fifaRanking} FIFA) part grand favori de ce groupe avec {favorite?.wcAppearances} participations en Coupe du monde. 
+                    <strong className="text-primary">{favorite?.name}</strong> (#{favorite?.fifaRanking} FIFA) part grand favori de ce groupe avec {favorite?.wcAppearances} participations en Coupe du monde. 
                     {rankedTeams[1] && (
                       <> <strong>{rankedTeams[1].name}</strong> (#{rankedTeams[1].fifaRanking}) devrait être le principal concurrent pour la première place.</>
                     )}
@@ -253,7 +253,7 @@ export default async function GroupPage({ params }: PageProps) {
                         </p>
                         <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
                           <span className="flex items-center gap-1">
-                            <span className="font-semibold text-secondary">{player.goals}</span> buts
+                            <span className="font-semibold text-accent">{player.goals}</span> buts
                           </span>
                           <span className="flex items-center gap-1">
                             <span className="font-semibold text-primary">{player.caps}</span> sél.

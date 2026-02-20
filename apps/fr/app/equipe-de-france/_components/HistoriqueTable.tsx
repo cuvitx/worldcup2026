@@ -50,7 +50,7 @@ export function HistoriqueTable() {
                       {edition.flag !== "—" && edition.flag !== "" && (
                         <span className="mr-1">{edition.flag}</span>
                       )}
-                      {edition.flag === "" && <span className="mr-1 text-secondary"></span>}
+                      {edition.flag === "" && <span className="mr-1 text-accent"></span>}
                       {edition.result}
                     </span>
                   </td>

@@ -132,7 +132,7 @@ export default function ProfilPage() {
               <button
                 key={team.slug}
                 onClick={() => selectTeam(team.slug)}
-                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-secondary/40 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-secondary/50"
+                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-primary/40 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-secondary/50"
               >
                 <span className="text-2xl">{team.flag}</span>
                 <span className="text-xs font-medium text-gray-700 dark:text-gray-300 leading-tight">{team.name}</span>
@@ -182,7 +182,7 @@ export default function ProfilPage() {
                     <p className="text-xs text-gray-500">{m.stage}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-bold text-secondary dark:text-secondary">
+                    <p className="text-sm font-bold text-accent dark:text-secondary">
                       {daysUntil(m.date)}j
                     </p>
                     <p className="text-xs text-gray-500">
@@ -241,7 +241,7 @@ export default function ProfilPage() {
             key={s.label}
             className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]"
           >
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 dark:bg-slate-700 text-2xl">
+            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700 text-2xl">
               {s.icon}
             </div>
             <p className="text-2xl font-bold dark:text-white">{s.value}</p>
