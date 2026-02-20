@@ -38,7 +38,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       </div>
 
       {/* Column headers */}
-      <div className="grid grid-cols-[1fr_repeat(3,1fr)] sm:grid-cols-[1fr_repeat(3,80px)_110px] px-4 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700">
+      <div className="grid grid-cols-[1fr_repeat(3,52px)] sm:grid-cols-[1fr_repeat(3,80px)_110px] px-4 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700">
         <span>Bookmaker</span>
         <span className="text-center">1</span>
         <span className="text-center">N</span>
@@ -47,7 +47,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       </div>
 
       {/* Estimation row */}
-      <div className="grid grid-cols-[1fr_repeat(3,1fr)] sm:grid-cols-[1fr_repeat(3,80px)_110px] items-center px-4 sm:px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700">
+      <div className="grid grid-cols-[1fr_repeat(3,52px)] sm:grid-cols-[1fr_repeat(3,80px)_110px] items-center px-4 sm:px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700">
         <div className="flex items-center gap-2 min-w-0">
           <span className="w-6 h-6 rounded-full bg-primary text-white text-[9px] font-bold flex items-center justify-center shrink-0">AI</span>
           <span className="text-xs sm:text-sm font-bold text-primary dark:text-gray-100 truncate">Estimation</span>
@@ -65,7 +65,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
           className="border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors"
         >
           {/* Main row */}
-          <div className="grid grid-cols-[1fr_repeat(3,1fr)] sm:grid-cols-[1fr_repeat(3,80px)_110px] items-center px-4 sm:px-5 py-3">
+          <div className="grid grid-cols-[1fr_repeat(3,52px)] sm:grid-cols-[1fr_repeat(3,80px)_110px] items-center px-4 sm:px-5 py-3">
             <div className="flex items-center gap-2 min-w-0">
               {bk.logo ? (
                 <img src={bk.logo} alt={bk.name} className="w-6 h-6 sm:w-7 sm:h-7 rounded-md object-contain shrink-0" loading="lazy" />
@@ -127,7 +127,7 @@ function OddsCell({ value, isBest }: { value: string; isBest: boolean }) {
   return (
     <div className="flex justify-center">
       <span
-        className={`inline-block rounded-lg px-2 py-1 text-xs sm:text-sm font-bold tabular-nums ${
+        className={`inline-block rounded-lg px-1.5 py-0.5 sm:px-2 sm:py-1 text-[11px] sm:text-sm font-bold tabular-nums ${
           isBest
             ? "bg-accent/10 text-accent border border-accent/30"
             : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
