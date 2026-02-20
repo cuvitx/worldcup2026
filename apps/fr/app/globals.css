@@ -2,11 +2,11 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Global button text vertical centering fix */
-a[class*="bg-accent"],
-a[class*="bg-primary"],
-button[class*="bg-accent"],
-button[class*="bg-primary"] {
+/* Global button text vertical centering fix — only target actual CTA buttons, not cards/links with bg-primary/opacity */
+a.bg-accent,
+a.bg-primary,
+button.bg-accent,
+button.bg-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
