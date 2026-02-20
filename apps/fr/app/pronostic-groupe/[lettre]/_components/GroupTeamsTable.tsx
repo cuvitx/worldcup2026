@@ -44,7 +44,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
                     <span className="text-xl" aria-label={team!.name}>{team!.flag}</span>
                     <span>{team!.name}</span>
                     {team!.isHost && (
-                      <span className="rounded bg-secondary/10 dark:bg-secondary/20 px-1.5 py-0.5 text-xs text-secondary dark:text-secondary">Hôte</span>
+                      <span className="rounded bg-primary/10 dark:bg-secondary/20 px-1.5 py-0.5 text-xs text-primary dark:text-secondary">Hôte</span>
                     )}
                   </Link>
                 </td>

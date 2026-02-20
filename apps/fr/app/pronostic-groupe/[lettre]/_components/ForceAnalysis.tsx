@@ -36,7 +36,7 @@ export function ForceAnalysis({ sortedTeams, groupLetter }: ForceAnalysisProps) 
             </p>
             {pred && (
               <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                <span className="rounded-full bg-secondary/10 dark:bg-secondary/20 border border-secondary/20 dark:border-secondary/30 px-2 py-1">Titre : {probToOdds(pred.winnerProb)}</span>
+                <span className="rounded-full bg-primary/10 dark:bg-secondary/20 border border-primary/20 dark:border-secondary/30 px-2 py-1">Titre : {probToOdds(pred.winnerProb)}</span>
                 <span className="rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 px-2 py-1">🎽 Finale : {Math.round(pred.finalProb * 100)}%</span>
                 <span className="rounded-full bg-field/10 dark:bg-field/20 border border-field/20 dark:border-field/30 px-2 py-1">Groupe : {Math.round(pred.groupStageProb * 100)}%</span>
                 <Link href={`/pronostic/${team!.slug}`} className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1 text-primary hover:bg-primary/20 transition-colors">Voir pronostic complet →</Link>

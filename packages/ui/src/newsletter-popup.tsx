@@ -116,8 +116,8 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4"
-      style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)' }}
+      className="fixed inset-0 flex items-center justify-center bg-black/60 p-4"
+      style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', zIndex: 2147483646, WebkitTransform: 'translateZ(0)' }}
       onClick={(e) => { if (e.target === e.currentTarget) dismiss(); }}
       role="dialog"
       aria-modal="true"

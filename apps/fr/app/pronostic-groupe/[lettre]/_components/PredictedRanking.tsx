@@ -14,13 +14,13 @@ interface SortedTeam {
 
 const RANK_LABEL = ["1er", "2e", "3e", "4e"];
 const RANK_COLOR = [
-  "border-secondary bg-secondary/5 dark:bg-secondary/10",
+  "border-primary bg-primary/5 dark:bg-secondary/10",
   "border-gray-400 bg-gray-50 dark:bg-slate-800/40",
   "border-primary/20 bg-primary/5 dark:bg-primary/10",
   "border-red-300 bg-red-50 dark:bg-red-900/10",
 ];
 const RANK_BADGE = [
-  "bg-secondary text-gray-900",
+  "bg-primary text-white",
   "bg-gray-300 text-gray-700",
   "bg-primary text-white",
   "bg-red-200 text-red-700",
@@ -47,7 +47,7 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
                   <span className="ml-auto rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">Qualifié</span>
                 )}
                 {idx === 2 && (
-                  <span className="ml-auto rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">Meilleur 3e possible</span>
+                  <span className="ml-auto rounded-full bg-primary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-primary dark:text-secondary">Meilleur 3e possible</span>
                 )}
                 {idx === 3 && (
                   <span className="ml-auto rounded-full bg-red-100 dark:bg-red-900/30 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">❌ Éliminé</span>

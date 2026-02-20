@@ -111,7 +111,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
             <div>
-              <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-1">Pronostic · Coupe du Monde 2026</p>
+              <p className="text-sm font-medium text-primary uppercase tracking-widest mb-1">Pronostic · Coupe du Monde 2026</p>
               <h1 className="text-3xl font-extrabold sm:text-5xl">Groupe {group.letter}</h1>
               <p className="mt-3 text-gray-300 text-lg">
                 {allGroupTeams.map((t) => t.flag).join("  ")} &nbsp;

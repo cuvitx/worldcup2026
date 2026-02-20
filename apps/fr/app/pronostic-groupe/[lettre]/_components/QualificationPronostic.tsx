@@ -46,8 +46,8 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
 
       {maybeQualify?.team && (
         <div className="mb-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-secondary dark:text-secondary mb-2">Meilleur 3e possible</h3>
-          <div className="flex items-center gap-3 rounded-lg border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-3">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-primary dark:text-secondary mb-2">Meilleur 3e possible</h3>
+          <div className="flex items-center gap-3 rounded-lg border border-primary/20 dark:border-secondary/30 bg-primary/5 dark:bg-secondary/10 p-3">
             <span className="text-2xl">{maybeQualify.team.flag}</span>
             <div>
               <Link href={`/pronostic/${maybeQualify.team.slug}`} className="font-bold hover:text-primary transition-colors">{maybeQualify.team.name}</Link>

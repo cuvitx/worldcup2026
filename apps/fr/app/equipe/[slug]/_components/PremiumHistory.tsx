@@ -30,7 +30,7 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
               <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold mb-2">
                 Meilleur résultat
               </p>
-              <p className="text-lg font-bold text-secondary">
+              <p className="text-lg font-bold text-accent">
                 {team.bestResult}
               </p>
             </div>

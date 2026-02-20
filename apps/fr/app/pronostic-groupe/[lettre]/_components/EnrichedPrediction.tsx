@@ -49,7 +49,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                 idx < 2
                   ? "bg-success//10 dark:bg-success//10/10"
                   : idx === 2
-                  ? "bg-secondary/5 dark:bg-secondary/10"
+                  ? "bg-primary/5 dark:bg-secondary/10"
                   : "bg-red-50/50 dark:bg-red-900/5";
               const goalDiffStr = ep.predictedGoalDiff > 0 ? `+${ep.predictedGoalDiff}` : `${ep.predictedGoalDiff}`;
               const goalDiffColor =
@@ -91,7 +91,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                     {idx < 2 ? (
                       <span className="inline-block rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">Qualifié</span>
                     ) : idx === 2 ? (
-                      <span className="inline-block rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">Meilleur 3e</span>
+                      <span className="inline-block rounded-full bg-primary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-primary dark:text-secondary">Meilleur 3e</span>
                     ) : (
                       <span className="inline-block rounded-full bg-red-100 dark:bg-red-900/20 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">❌ Éliminé</span>
                     )}
