@@ -4,7 +4,7 @@ export {
   getPastMatches,
   isMatchLive,
   formatMatchDate,
-} from "./match-helpers.js";
+} from "./match-helpers";
 
 // Team helpers
 export {
@@ -12,4 +12,4 @@ export {
   getTeamBySlug,
   sortTeamsByRanking,
   getTopTeams,
-} from "./team-helpers.js";
+} from "./team-helpers";

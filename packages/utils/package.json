@@ -12,6 +12,9 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint --max-warnings 0"
   },
+  "dependencies": {
+    "@repo/data": "*"
+  },
   "devDependencies": {
     "@repo/typescript-config": "*",
     "typescript": "5.9.2"
