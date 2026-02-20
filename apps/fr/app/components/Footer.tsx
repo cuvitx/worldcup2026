@@ -63,7 +63,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="text-gray-300">
+    <footer className="text-gray-300 pb-24 sm:pb-0">
       <ANJBanner />
       <div className="hero-animated">
       {/* Top accent line */}
