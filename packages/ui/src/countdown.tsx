@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 
 const TARGET = new Date("2026-06-11T19:00:00Z").getTime();
 
-/**
- * Calculate time remaining until World Cup 2026 opening match.
- */
 function getTimeLeft() {
   const now = Date.now();
   const diff = Math.max(0, TARGET - now);
@@ -18,17 +15,6 @@ function getTimeLeft() {
   };
 }
 
-/**
- * Countdown component — Live countdown to World Cup 2026 opening match (Mexico vs South Africa).
- * 
- * Updates every second. Displays days, hours, minutes, and seconds remaining.
- * Handles SSR hydration with suppressHydrationWarning.
- * 
- * @example
- * ```tsx
- * <Countdown />
- * ```
- */
 export function Countdown() {
   const [time, setTime] = useState(getTimeLeft);
   const [mounted, setMounted] = useState(false);
@@ -41,51 +27,51 @@ export function Countdown() {
 
   const val = (n: number) => (mounted ? String(n).padStart(2, "0") : "--");
 
-  return (
-    <section className="py-5 bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800">
-      <div className="mx-auto max-w-4xl px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
-          {/* Left — match info */}
-          <div className="flex items-center gap-3 text-center sm:text-left">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">🇲🇽</span>
-              <span className="text-sm font-bold text-gray-900 dark:text-white">Mexique</span>
-            </div>
-            <span className="text-xs font-black text-primary">VS</span>
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-gray-900 dark:text-white">Afrique du Sud</span>
-              <span className="text-2xl">🇿🇦</span>
-            </div>
-          </div>
+  const units: { key: keyof ReturnType<typeof getTimeLeft>; label: string }[] = [
+    { key: "days", label: "jours" },
+    { key: "hours", label: "heures" },
+    { key: "minutes", label: "min" },
+    { key: "seconds", label: "sec" },
+  ];
 
-          {/* Right — countdown */}
-          <div className="flex items-center gap-1" suppressHydrationWarning>
-            <div className="flex flex-col items-center min-w-[40px]">
-              <span className="text-2xl font-bold tabular-nums text-gray-900 dark:text-white">{val(time.days)}</span>
-              <span className="text-[10px] text-gray-500 font-medium uppercase">jours</span>
+  return (
+    <section className="bg-gray-50 dark:bg-slate-800/50 py-8">
+      <div className="mx-auto max-w-4xl px-4">
+        {/* Countdown cards */}
+        <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6" suppressHydrationWarning>
+          {units.map((u, i) => (
+            <div key={u.key} className="flex items-center gap-3 sm:gap-4">
+              <div className="flex flex-col items-center rounded-xl bg-white/70 dark:bg-white/10 backdrop-blur-sm border border-white/50 dark:border-white/10 shadow-sm px-3 py-2.5 sm:px-5 sm:py-3 min-w-[56px] sm:min-w-[72px]">
+                <span className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${u.key === "seconds" ? "text-secondary" : "text-gray-900 dark:text-white"}`}>
+                  {val(time[u.key])}
+                </span>
+                <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">
+                  {u.label}
+                </span>
+              </div>
+              {i < units.length - 1 && (
+                <span className="text-gray-300 dark:text-gray-600 font-light text-xl sm:text-2xl">:</span>
+              )}
             </div>
-            <span className="text-gray-300 dark:text-gray-600 font-light text-lg mb-3">:</span>
-            <div className="flex flex-col items-center min-w-[40px]">
-              <span className="text-2xl font-bold tabular-nums text-gray-900 dark:text-white">{val(time.hours)}</span>
-              <span className="text-[10px] text-gray-500 font-medium uppercase">heures</span>
-            </div>
-            <span className="text-gray-300 dark:text-gray-600 font-light text-lg mb-3">:</span>
-            <div className="flex flex-col items-center min-w-[40px]">
-              <span className="text-2xl font-bold tabular-nums text-gray-900 dark:text-white">{val(time.minutes)}</span>
-              <span className="text-[10px] text-gray-500 font-medium uppercase">min</span>
-            </div>
-            <span className="text-gray-300 dark:text-gray-600 font-light text-lg mb-3">:</span>
-            <div className="flex flex-col items-center min-w-[40px]">
-              <span className="text-2xl font-bold tabular-nums text-secondary">{val(time.seconds)}</span>
-              <span className="text-[10px] text-gray-500 font-medium uppercase">sec</span>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Subtitle */}
-        <p className="text-center sm:text-right text-[11px] text-gray-400 mt-1">
-          Match d&apos;ouverture · 11 juin 2026 · Estadio Azteca, Mexico
-        </p>
+        {/* Opening match — bigger flags */}
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Match d&apos;ouverture · 11 juin 2026</span>
+          <div className="flex items-center gap-4">
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-4xl sm:text-5xl">🇲🇽</span>
+              <span className="text-sm font-bold text-gray-900 dark:text-white">Mexique</span>
+            </div>
+            <span className="text-xs font-black text-primary bg-primary/10 rounded-full px-3 py-1">VS</span>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-4xl sm:text-5xl">🇿🇦</span>
+              <span className="text-sm font-bold text-gray-900 dark:text-white">Afrique du Sud</span>
+            </div>
+          </div>
+          <span className="text-xs text-gray-400">Estadio Azteca, Mexico</span>
+        </div>
       </div>
     </section>
   );
