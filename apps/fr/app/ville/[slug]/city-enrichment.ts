@@ -145,7 +145,7 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
     },
     activities: [
       { title: "🐟 Pike Place Market", description: "Le marché public historique de Seattle — les fameux lanceurs de poissons, producteurs locaux et vue sur le Puget Sound" },
-      { title: "🚀 Space Needle", description: "Symbole de Seattle depuis 1962 — vue à 360° sur la ville, le Mont Rainier et les Cascades" },
+      { title: " Space Needle", description: "Symbole de Seattle depuis 1962 — vue à 360° sur la ville, le Mont Rainier et les Cascades" },
       { title: "☕ Quartier Capitol Hill", description: "Épicentre de la culture coffee à Seattle — des dizaines de micro-torréfacteurs et une nightlife animée" },
     ],
   },
@@ -169,7 +169,7 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🚀 Space Center Houston", description: "Centre officiel de la NASA — voir de vraies fusées et vivre l'histoire de la conquête spatiale" },
+      { title: " Space Center Houston", description: "Centre officiel de la NASA — voir de vraies fusées et vivre l'histoire de la conquête spatiale" },
       { title: "🎨 Museum District", description: "19 musées gratuits ou accessibles — Fine Arts, Natural Science, Holocaust Museum en plein cœur de la ville" },
       { title: "🍜 Bellaire Chinatown", description: "L'une des plus grandes et authentiques communautés asiatiques des États-Unis — gastronomie exceptionnelle" },
     ],
@@ -194,7 +194,7 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🔔 Liberty Bell & Independence Hall", description: "Le berceau de la démocratie américaine — où fut signée la Déclaration d'Indépendance en 1776" },
+      { title: " Liberty Bell & Independence Hall", description: "Le berceau de la démocratie américaine — où fut signée la Déclaration d'Indépendance en 1776" },
       { title: "🥩 Reading Terminal Market", description: "Marché couvert historique — cheesesteak, soft pretzels et spécialités amish depuis 1893" },
       { title: "🏃 Art Museum & Rocky Steps", description: "Courez les marches comme Rocky Balboa et profitez d'une vue imprenable sur le Benjamin Franklin Parkway" },
     ],
@@ -255,7 +255,7 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 18,
       juilletMin: 13,
       juilletMax: 20,
-      description: "⚠️ Surprise ! San Francisco est FROIDE en été (brouillard de Karl) — prévoyez imperméable et couches",
+      description: " Surprise ! San Francisco est FROIDE en été (brouillard de Karl) — prévoyez imperméable et couches",
     },
     transport: {
       aeroport: "San Francisco International Airport (SFO) — BART directe vers downtown SF (30 min)",
@@ -294,7 +294,7 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🎬 Hollywood & Universal Studios", description: "Marchez sur Hollywood Boulevard, photographiez le panneau HOLLYWOOD et explorez les studios Universal" },
+      { title: " Hollywood & Universal Studios", description: "Marchez sur Hollywood Boulevard, photographiez le panneau HOLLYWOOD et explorez les studios Universal" },
       { title: "🏖️ Venice Beach & Santa Monica", description: "Le boardwalk de Venice avec ses artistes de rue, son skatepark et ses body-builders à Muscle Beach" },
       { title: "🖼️ Getty Center", description: "Musée d'art de renommée mondiale — collection impressionniste et vue panoramique sur LA — entrée gratuite" },
     ],

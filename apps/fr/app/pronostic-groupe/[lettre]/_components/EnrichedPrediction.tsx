@@ -93,7 +93,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                     ) : idx === 2 ? (
                       <span className="inline-block rounded-full bg-primary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-primary dark:text-secondary">Meilleur 3e</span>
                     ) : (
-                      <span className="inline-block rounded-full bg-red-100 dark:bg-red-900/20 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">❌ Éliminé</span>
+                      <span className="inline-block rounded-full bg-red-100 dark:bg-red-900/20 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé</span>
                     )}
                   </td>
                 </tr>

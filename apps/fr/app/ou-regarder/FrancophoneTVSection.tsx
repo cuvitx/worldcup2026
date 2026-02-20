@@ -26,7 +26,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
   return (
     <section className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-        📡 Droits TV — Belgique, Suisse, Canada
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21 15-3.086-3.086A2 2 0 0 0 16.5 11.5H12"/><path d="m21 3-8.5 8.5"/><path d="M10 17.5A6 6 0 0 1 2.5 10"/><path d="M10 13.5A2 2 0 0 1 7.5 11"/></svg> Droits TV — Belgique, Suisse, Canada
       </h2>
 
       <div className="space-y-8">

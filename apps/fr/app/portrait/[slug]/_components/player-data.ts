@@ -47,7 +47,7 @@ const players: PlayerData[] = [
       { club: "Real Madrid", period: "2024–", note: "Transfert libre, projet galactique" },
     ],
     worldCupHistory: [
-      { year: "2018", team: "France", result: "🏆 Champion du monde", note: "4 buts dont un en finale, élu meilleur jeune joueur" },
+      { year: "2018", team: "France", result: " Champion du monde", note: "4 buts dont un en finale, élu meilleur jeune joueur" },
       { year: "2022", team: "France", result: "Finaliste", note: "Triplé historique en finale, 8 buts dans le tournoi, Soulier d'or" },
     ],
     whyDecisive2026: [
@@ -105,7 +105,7 @@ const players: PlayerData[] = [
       { year: "2006", team: "Argentine", result: "Quarts de finale", note: "Plus jeune buteur argentin en CDM" },
       { year: "2010", team: "Argentine", result: "Quarts de finale", note: "Capitaine, éliminé par l'Allemagne" },
       { year: "2014", team: "Argentine", result: "Finaliste", note: "Ballon d'Or du tournoi" },
-      { year: "2022", team: "Argentine", result: "🏆 Champion du monde", note: "7 buts, 3 passes décisives, meilleur joueur" },
+      { year: "2022", team: "Argentine", result: " Champion du monde", note: "7 buts, 3 passes décisives, meilleur joueur" },
     ],
     whyDecisive2026: [
       "S'il participe (38 ans), ce serait sa 6e Coupe du monde, un record pour l'un des plus grands joueurs de l'histoire.",

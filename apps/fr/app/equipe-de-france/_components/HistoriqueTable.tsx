@@ -47,9 +47,12 @@ export function HistoriqueTable() {
                         ? "text-gray-400 dark:text-gray-400"
                         : "text-gray-700 dark:text-gray-300"
                     }`}>
-                      {edition.flag !== "—" && edition.flag !== "" && (
-                        <span className="mr-1">{edition.flag}</span>
+                      {edition.flag !== "—" && edition.flag !== "" && !["champion","silver","bronze"].includes(edition.flag) && (
+                        <span className={`inline-block w-2.5 h-2.5 rounded-full mr-1.5 ${edition.flag === "green" ? "bg-green-500" : edition.flag === "yellow" ? "bg-yellow-400" : "bg-red-500"}`} />
                       )}
+                      {["champion"].includes(edition.flag) && <span className="mr-1 text-accent">★</span>}
+                      {edition.flag === "silver" && <span className="mr-1 text-gray-400">★</span>}
+                      {edition.flag === "bronze" && <span className="mr-1 text-amber-600">★</span>}
                       {edition.flag === "" && <span className="mr-1 text-accent"></span>}
                       {edition.result}
                     </span>

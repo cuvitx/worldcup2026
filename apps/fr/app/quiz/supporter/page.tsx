@@ -97,7 +97,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "La CDM 2026 se joue aux USA/Canada/Mexique. Ça te donne envie de...",
-    emoji: "✈",
+    emoji: "",
     options: [
       { label: "Voir les matchs à New York !", points: { "etats-unis": 3, angleterre: 1 } },
       { label: "Vivre l'ambiance à Mexico", points: { mexique: 3, argentine: 1 } },
@@ -262,8 +262,7 @@ export default function QuizSupporterPage() {
               onClick={handleShare}
               className="inline-flex items-center justify-center rounded-xl border-2 border-primary px-6 py-3 font-bold text-primary transition-all hover:bg-primary/5 active:scale-95 dark:border-secondary dark:text-secondary dark:hover:bg-slate-700"
             >
-              Partager 🚀
-            </button>
+              Partager </button>
           </div>
 
           <button

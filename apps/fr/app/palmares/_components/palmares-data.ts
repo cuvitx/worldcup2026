@@ -425,7 +425,7 @@ export const countryRecords: CountryRecord[] = [
 
 export const records = [
   {
-    icon: "⚽",
+    icon: " ",
     label: "Meilleur buteur de l'histoire",
     value: "Miroslav Klose",
     detail: "16 buts (Allemagne, 2002–2014)",
@@ -437,7 +437,7 @@ export const records = [
     detail: "25 matchs (Allemagne, 1982–1998)",
   },
   {
-    icon: "🏆",
+    icon: " ",
     label: "Plus de titres (joueur)",
     value: "Pelé",
     detail: "3 titres (Brésil, 1958, 1962, 1970)",
@@ -455,13 +455,13 @@ export const records = [
     detail: "42 ans, 39 jours (Cameroun vs Russie, 1994)",
   },
   {
-    icon: "🎯",
+    icon: " ",
     label: "Record buts en 1 tournoi",
     value: "Just Fontaine",
     detail: "13 buts (France, 1958) — record imbattable",
   },
   {
-    icon: "📅",
+    icon: " ",
     label: "Plus grand nombre de CDM",
     value: "Antonio Carbajal & Lothar Matthäus",
     detail: "5 Coupes du Monde chacun",
@@ -473,7 +473,7 @@ export const records = [
     detail: "Brésil, Allemagne, Italie, Argentine, France, Uruguay, Espagne, Angleterre",
   },
   {
-    icon: "🔥",
+    icon: " ",
     label: "Plus grande victoire",
     value: "Hongrie 10–1 Salvador",
     detail: "Phase de groupes, 1982",

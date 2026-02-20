@@ -34,7 +34,7 @@ const guidesJsonLd = {
 
 const categoryEmojis: Record<string, string> = {
   cdm2026: "",
-  stratégie: "🧠",
+  stratégie: "",
   bookmaker: "",
   debutant: "",
 };

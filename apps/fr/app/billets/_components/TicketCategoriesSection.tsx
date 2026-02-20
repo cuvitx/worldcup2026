@@ -5,7 +5,7 @@ export function TicketCategoriesSection() {
     <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          🎫 Les catégories de billets
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg> Les catégories de billets
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-4">
@@ -15,7 +15,7 @@ export function TicketCategoriesSection() {
               className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">{cat.emoji}</span>
+                <span className={`inline-block w-4 h-4 rounded-full shrink-0 ${cat.emoji === "green" ? "bg-green-500" : cat.emoji === "yellow" ? "bg-yellow-400" : cat.emoji === "red" ? "bg-red-500" : "bg-blue-500"}`} />
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{cat.cat}</h3>
               </div>
               <div className="space-y-2 text-sm">

@@ -38,7 +38,7 @@ export default function BilletsPage() {
 
       <div className="bg-accent//10 dark:bg-accent//10 border-b border-accent//30 dark:border-accent//20">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-start gap-3">
-          <span className="text-accent shrink-0 mt-0.5">⚠</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent shrink-0 mt-0.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
           <p className="text-sm text-accent dark:text-accent">
             <strong>Important :</strong> Achetez uniquement sur{" "}
             <a href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets" target="_blank" rel="noopener noreferrer" className="underline font-semibold">

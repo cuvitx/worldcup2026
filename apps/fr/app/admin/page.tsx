@@ -26,7 +26,7 @@ const links = [
   { name: "GitHub", url: "https://github.com/cuvitx/worldcup2026", icon: "🐙" },
   { name: "Vercel", url: "https://vercel.com", icon: "▲" },
   { name: "Search Console", url: "https://search.google.com/search-console", icon: "" },
-  { name: "Mission Control", url: "#", icon: "🚀" },
+  { name: "Mission Control", url: "#", icon: "▶" },
 ]
 
 const checklist = [
@@ -60,7 +60,7 @@ function AdminContent() {
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Banner */}
         <div className="bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl px-6 py-4 text-center font-semibold text-accent dark:text-accent">
-          🔒 Page admin — accès restreint
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Page admin — accès restreint
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-montserrat)]">
@@ -115,7 +115,7 @@ function AdminContent() {
 
         {/* Liens utiles */}
         <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🔗 Liens utiles</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Liens utiles</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {links.map((l) => (
               <a

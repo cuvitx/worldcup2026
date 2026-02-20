@@ -122,7 +122,7 @@ export default function GuideVisaEsta() {
           </p>
 
           <div className="not-prose my-8 rounded-xl bg-accent//10 border border-accent//30 p-6 dark:bg-accent//10 dark:border-accent//20">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-2">⚠ Attention aux arnaques</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Attention aux arnaques</h3>
             <p className="text-sm text-accent dark:text-accent">
               De nombreux sites frauduleux proposent des « ESTA express  à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
             </p>
@@ -166,7 +166,7 @@ export default function GuideVisaEsta() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Guides liés</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🏨 Où dormir pendant la CDM 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Où dormir pendant la CDM 2026</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Guide hébergement villes hôtes</p>
             </Link>
             <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">

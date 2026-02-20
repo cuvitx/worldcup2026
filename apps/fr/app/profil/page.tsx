@@ -235,7 +235,7 @@ export default function ProfilPage() {
         {[
           { label: "Pages visitées", value: stats.visitedPages.length, icon: "📄" },
           { label: "Votes", value: stats.votes, icon: "🗳" },
-          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "—", icon: "🧠" },
+          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "—", icon: "" },
         ].map((s) => (
           <div
             key={s.label}
@@ -289,8 +289,7 @@ export default function ProfilPage() {
         onClick={shareText}
         className="w-full rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
       >
-        Partager mes badges 🚀
-      </button>
+        Partager mes badges </button>
     </div>
   );
 }

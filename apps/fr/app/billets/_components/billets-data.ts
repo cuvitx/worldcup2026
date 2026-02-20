@@ -1,7 +1,7 @@
 export const ticketPhases = [
   {
     phase: "Phase de groupes",
-    icon: "⚽",
+    icon: "group",
     dates: "11 juin – 27 juin 2026",
     catPrices: [
       { cat: "Cat 1", price: "60 – 100 USD", desc: "Supporters locaux" },
@@ -14,7 +14,7 @@ export const ticketPhases = [
   },
   {
     phase: "Huitièmes de finale (Round of 32)",
-    icon: "🏅",
+    icon: "medal",
     dates: "29 juin – 4 juillet 2026",
     catPrices: [
       { cat: "Cat 1", price: "100 – 150 USD", desc: "Supporters locaux" },
@@ -27,7 +27,7 @@ export const ticketPhases = [
   },
   {
     phase: "Quarts de finale",
-    icon: "🎯",
+    icon: "target",
     dates: "6 – 8 juillet 2026",
     catPrices: [
       { cat: "Cat 1", price: "150 – 250 USD", desc: "Supporters locaux" },
@@ -40,7 +40,7 @@ export const ticketPhases = [
   },
   {
     phase: "Demi-finales",
-    icon: "🔥",
+    icon: "flame",
     dates: "14 – 15 juillet 2026",
     catPrices: [
       { cat: "Cat 1", price: "200 – 400 USD", desc: "Supporters locaux" },
@@ -53,7 +53,7 @@ export const ticketPhases = [
   },
   {
     phase: "Finale",
-    icon: "🏆",
+    icon: "trophy",
     dates: "19 juillet 2026 — MetLife Stadium (NY/NJ)",
     catPrices: [
       { cat: "Cat 1", price: "300 – 500 USD", desc: "Supporters locaux" },
@@ -100,7 +100,7 @@ export const salePhases = [
 export const ticketCategories = [
   {
     cat: "Catégorie 1",
-    emoji: "🟢",
+    emoji: "green",
     target: "Supporters locaux (résidents du pays hôte)",
     desc: "Tarif le plus abordable, réservé aux résidents américains, canadiens et mexicains. Nécessite une preuve de résidence.",
     access: "Toutes zones du stade sauf VIP",
@@ -114,14 +114,14 @@ export const ticketCategories = [
   },
   {
     cat: "Catégorie 3",
-    emoji: "🟡",
+    emoji: "yellow",
     target: "Premium standard",
     desc: "Meilleures places en tribune latérale, meilleure visibilité sur le terrain. Plus cher mais expérience améliorée.",
     access: "Tribunes latérales premium",
   },
   {
     cat: "Catégorie 4 (Hospitalité)",
-    emoji: "🔴",
+    emoji: "red",
     target: "Entreprises & VIP",
     desc: "Packages all-inclusive avec loges, restauration gastronomique, parking et accueil personnalisé. Via FIFA Corporate Hospitality.",
     access: "Loges VIP, suites privatives",

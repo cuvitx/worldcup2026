@@ -136,7 +136,7 @@ const typicalSchedule = [
   { local: "13h00 (EDT)", france: "19h00 (CEST)", note: "1er créneau — soirée accessible ", hot: true },
   { local: "16h00 (EDT)", france: "22h00 (CEST)", note: "2e créneau — début de soirée" },
   { local: "19h00 (EDT)", france: "01h00 (CEST+1)", note: "3e créneau — tard dans la nuit 🌙" },
-  { local: "21h00 (EDT)", france: "03h00 (CEST+1)", note: "4e créneau — milieu de nuit ⚠" },
+  { local: "21h00 (EDT)", france: "03h00 (CEST+1)", note: "4e créneau — milieu de nuit " },
 ];
 
 const faqItems = [
@@ -210,7 +210,7 @@ export default function OuRegarderPage() {
               ))}
             </div>
             <div className="p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
-              <p className="font-semibold">⚠ Légalité du VPN</p>
+              <p className="font-semibold">Légalité du VPN</p>
               <p className="mt-1">
                 L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage
                 peut enfreindre les conditions d&apos;utilisation de certaines plateformes. Nous recommandons de vérifier les conditions

@@ -76,7 +76,7 @@ export const goalsByEdition = [
 
 export const records = [
   {
-    icon: "🔥",
+    icon: " ",
     category: "Record de victoire",
     title: "Hongrie 10–1 Salvador",
     detail: "Phase de groupes — Coupe du Monde 1982, Elche, Espagne",
@@ -84,7 +84,7 @@ export const records = [
     badgeColor: "bg-red-500",
   },
   {
-    icon: "⚽",
+    icon: " ",
     category: "Match le plus prolifique",
     title: "Autriche 7–5 Suisse",
     detail: "Phase de groupes — CDM 1954 (12 buts en un seul match !)",
@@ -108,7 +108,7 @@ export const records = [
     badgeColor: "bg-primary",
   },
   {
-    icon: "🎯",
+    icon: " ",
     category: "Record en 1 tournoi",
     title: "Just Fontaine — 13 buts en 1958",
     detail: "Record imbattu depuis 66 ans ! (France, CDM 1958 Suède)",
@@ -124,7 +124,7 @@ export const records = [
     badgeColor: "bg-accent",
   },
   {
-    icon: "🏆",
+    icon: " ",
     category: "Plus de titres (joueur)",
     title: "Pelé — 3 couronnes mondiales",
     detail:
@@ -160,7 +160,7 @@ export const funFacts = [
     fact: "Paul le Poulpe a prédit correctement tous les résultats de l'équipe d'Allemagne (6/6) et la finale du Mondial 2010.",
   },
   {
-    emoji: "⚽",
+    emoji: " ",
     fact: "Just Fontaine (France) a inscrit ses 13 buts en 1958 en seulement 6 matchs — soit plus de 2 buts par match en moyenne.",
   },
   {

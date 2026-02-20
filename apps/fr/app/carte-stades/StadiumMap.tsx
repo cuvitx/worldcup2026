@@ -120,8 +120,8 @@ export default function StadiumMap() {
                   {s.city} · {COUNTRY_FLAGS[s.country]} {s.country}
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, marginBottom: 8 }}>
-                  <span>🏟️ {s.capacity.toLocaleString("fr-FR")} places</span>
-                  <span>⚽ {s.matches} matchs</span>
+                  <span>{s.capacity.toLocaleString("fr-FR")} places</span>
+                  <span>{s.matches} matchs</span>
                 </div>
                 <Link
                   href={`/stade/${s.slug}`}

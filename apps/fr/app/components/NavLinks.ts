@@ -91,7 +91,7 @@ export const megaMenus = {
         links: [
           { href: "/equipes", label: "Toutes les équipes →" },
           { href: "/joueurs", label: "Joueurs clés" },
-          { href: "/portrait/kylian-mbappe", label: "⭐ Portraits joueurs" },
+          { href: "/portrait/kylian-mbappe", label: "Portraits joueurs" },
           { href: "/buteurs", label: "Cotes buteurs" },
           { href: "/h2h", label: "Confrontations H2H" },
         ],
@@ -100,17 +100,17 @@ export const megaMenus = {
   },
   pronostics: {
     label: "Pronostics & Paris",
-    icon: "💰",
+    icon: "",
     sections: [
       {
         title: "Pronostics",
         links: [
-          { href: "/pronostic-vainqueur", label: "🏆 Pronostic vainqueur" },
+          { href: "/pronostic-vainqueur", label: "Pronostic vainqueur" },
           { href: "/equipe-de-france", label: "🇫🇷 Équipe de France" },
           { href: "/pronostic/france", label: "🔮 Pronostic France" },
           { href: "/pronostic/argentine", label: "🇦🇷 Argentine" },
           { href: "/pronostic/espagne", label: "🇪🇸 Espagne" },
-          { href: "/palmares", label: "🥇 Palmarès CDM" },
+          { href: "/palmares", label: "Palmarès CDM" },
         ],
       },
       {
@@ -132,7 +132,7 @@ export const megaMenus = {
       {
         title: "Outils",
         links: [
-          { href: "/simulateur", label: "🏆 Simulateur bracket" },
+          { href: "/simulateur", label: "Simulateur bracket" },
           { href: "/quiz", label: "🧩 Quiz CDM 2026" },
           { href: "/comparateur-joueurs", label: "⚖️ Comparateur joueurs" },
           { href: "/live", label: "⚡ Scores en direct" },
@@ -146,8 +146,8 @@ export const megaMenus = {
           { href: "/guide-ville/new-york", label: "🏙️ Guides villes" },
           { href: "/ou-regarder", label: "📺 Où regarder" },
           { href: "/carte-stades", label: "🗺️ Carte des stades" },
-          { href: "/recherche", label: "🔍 Recherche" },
-          { href: "/profil", label: "🏅 Mon profil" },
+          { href: "/recherche", label: "Recherche" },
+          { href: "/profil", label: "Mon profil" },
         ],
       },
     ],

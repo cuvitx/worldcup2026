@@ -268,7 +268,7 @@ export default function Quiz() {
               : "bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300"
           }`}
         >
-          {selected === currentQuestion.correctIndex ? "Bonne réponse ! " : "❌ Mauvaise réponse. "}
+          {selected === currentQuestion.correctIndex ? "Bonne réponse ! " : "Mauvaise réponse. "}
           {currentQuestion.explanation}
         </div>
       )}

@@ -52,7 +52,7 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
       </div>
 
       <div className="mt-4 p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
-        <p className="font-semibold">⚠ Note importante</p>
+        <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Note importante</p>
         <p className="mt-1">
           Les droits TV de TF1 sont encore en cours de finalisation. M6 a confirmé 54 matchs.
           beIN Sports reste le seul diffuseur de l&apos;intégralité (104 matchs). Cette page sera mise à jour dès confirmation officielle.

@@ -11,18 +11,18 @@ export interface Question {
 }
 
 export const difficultyLabels: Record<Difficulty, { label: string; emoji: string; color: string }> = {
-  facile: { label: "Facile", emoji: "🟢", color: "green" },
-  moyen: { label: "Moyen", emoji: "🟡", color: "yellow" },
-  difficile: { label: "Difficile", emoji: "🔴", color: "red" },
+  facile: { label: "Facile", emoji: " ", color: "green" },
+  moyen: { label: "Moyen", emoji: " ", color: "yellow" },
+  difficile: { label: "Difficile", emoji: " ", color: "red" },
 };
 
 export const categoryLabels: Record<Question["category"], { label: string; emoji: string }> = {
   histoire: { label: "Histoire", emoji: "📜" },
-  cdm2026: { label: "CDM 2026", emoji: "🏟️" },
-  joueurs: { label: "Joueurs", emoji: "⚽" },
+  cdm2026: { label: "CDM 2026", emoji: " " },
+  joueurs: { label: "Joueurs", emoji: " " },
   stades: { label: "Stades & Villes", emoji: "🏙️" },
-  records: { label: "Records & Stats", emoji: "📊" },
-  regles: { label: "Règles du jeu", emoji: "📋" },
+  records: { label: "Records & Stats", emoji: " " },
+  regles: { label: "Règles du jeu", emoji: " " },
   geographie: { label: "Géographie 2026", emoji: "🗺️" },
 };
 

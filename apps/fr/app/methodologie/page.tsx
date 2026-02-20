@@ -201,7 +201,7 @@ export default function MethodologiePage() {
                 desc: "Température, humidité et conditions météo le jour du match",
               },
               {
-                icon: "✈",
+                icon: "",
                 title: "Fatigue voyage",
                 desc: "Distance parcourue, décalage horaire et temps de récupération",
               },

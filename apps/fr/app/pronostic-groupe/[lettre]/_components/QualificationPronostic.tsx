@@ -59,7 +59,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
 
       {eliminated?.team && (
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500 dark:text-red-400 mb-2">❌ Éliminé en phase de groupes</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500 dark:text-red-400 mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé en phase de groupes</h3>
           <div className="flex items-center gap-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/10 p-3">
             <span className="text-2xl">{eliminated.team.flag}</span>
             <div>

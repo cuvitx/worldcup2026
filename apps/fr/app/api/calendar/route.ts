@@ -90,7 +90,7 @@ function toIcalDateEnd(date: string, time: string): string {
  * @returns {string} Localized stage name in French
  * @example
  * stageLabel("group", "A") // "Phase de groupes — Groupe A"
- * stageLabel("final") // "⭐ FINALE ⭐"
+ * stageLabel("final") // "FINALE"
  */
 function stageLabel(stage: string, group?: string): string {
   switch (stage) {
@@ -107,7 +107,7 @@ function stageLabel(stage: string, group?: string): string {
     case "third-place":
       return "Match pour la 3e place";
     case "final":
-      return "⭐ FINALE ⭐";
+      return "FINALE";
     default:
       return stage;
   }
