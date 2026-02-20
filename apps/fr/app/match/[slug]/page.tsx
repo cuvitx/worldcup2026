@@ -193,19 +193,14 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Sidebar same-day matches */}
+      {/* Same-day matches */}
       {sameDayMatches.length > 0 && (
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8">
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-start-3">
-              <SameDayMatches
-                sameDayMatches={sameDayMatches}
-                teamsById={teamsById}
-                currentDate={match.date}
-                isSidebar
-              />
-            </div>
-          </div>
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-8">
+          <SameDayMatches
+            sameDayMatches={sameDayMatches}
+            teamsById={teamsById}
+            currentDate={match.date}
+          />
         </div>
       )}
 
