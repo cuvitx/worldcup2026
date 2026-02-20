@@ -13,7 +13,7 @@ interface PremiumHeroProps {
 
 export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHeroProps) {
   return (
-    <section className="hero-animated relative py-10 sm:py-16 md:py-24 text-white overflow-clip">
+    <div className="relative py-10 sm:py-16 md:py-24 overflow-clip">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-center md:text-left">
@@ -125,6 +125,6 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

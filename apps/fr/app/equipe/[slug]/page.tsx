@@ -113,21 +113,21 @@ export default async function TeamPage({ params }: PageProps) {
         </div>
       </nav>
 
-      {/* Premium Hero Section */}
-      <PremiumHero 
-        team={team} 
-        prediction={prediction}
-        winnerOdds={winnerOdds}
-        winPct={winPct}
-      />
-
-      {/* Probability Banner */}
-      {prediction && (
-        <PremiumProbabilityBanner 
-          prediction={prediction} 
-          teamName={team.name}
+      {/* Premium Hero + Probability (single hero-animated section) */}
+      <section className="hero-animated text-white">
+        <PremiumHero 
+          team={team} 
+          prediction={prediction}
+          winnerOdds={winnerOdds}
+          winPct={winPct}
         />
-      )}
+        {prediction && (
+          <PremiumProbabilityBanner 
+            prediction={prediction} 
+            teamName={team.name}
+          />
+        )}
+      </section>
 
       {/* Match Calendar */}
       {teamMatches.length > 0 && (

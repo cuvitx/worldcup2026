@@ -4,7 +4,7 @@ import { EVENT_DATES } from "@repo/data/constants";
 
 export function HeroSection() {
   return (
-    <section className="hero-animated relative min-h-[90vh] flex flex-col items-center justify-center text-white">
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-white">
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 text-center pt-16 sm:pt-20">
         {/* Badge event */}

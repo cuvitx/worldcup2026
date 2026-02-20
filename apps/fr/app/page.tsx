@@ -116,11 +116,12 @@ export default function HomePage() {
         />
       ))}
 
-      {/* 1. HERO */}
+      {/* 1. HERO + STATS (single hero-animated) */}
+      <div className="hero-animated">
       <HeroSection />
 
       {/* STATS RIBBON */}
-      <section className="hero-animated relative py-6 sm:py-8">
+      <section className="relative py-6 sm:py-8">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
@@ -142,6 +143,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </div>{/* end hero-animated wrapper */}
 
       {/* 2. PROCHAINS MATCHS */}
       <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />

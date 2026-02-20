@@ -21,7 +21,7 @@ export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbab
   const winnerPct = Math.round(prediction.winnerProb * 100);
 
   return (
-    <section className="hero-animated text-white">
+    <div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
           {/* Left — Title + highlight */}
@@ -70,6 +70,6 @@ export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbab
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
