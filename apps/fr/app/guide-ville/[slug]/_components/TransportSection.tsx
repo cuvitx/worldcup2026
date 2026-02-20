@@ -5,7 +5,7 @@ export function TransportSection({ cityName, transport }: { cityName: string; tr
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
           🚌 Se déplacer à {cityName}
         </h2>
-        <div className="p-5 rounded-xl bg-gray-50 dark:bg-[#162A3E] border border-gray-100 dark:border-white/5">
+        <div className="p-5 rounded-xl bg-gray-50 dark:bg-gray-dark border border-gray-100 dark:border-white/5">
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{transport}</p>
         </div>
       </div>

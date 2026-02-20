@@ -2,7 +2,7 @@ import type { PlayerData } from "./player-data";
 
 export function WorldCupHistory({ history }: { history: PlayerData["worldCupHistory"] }) {
   return (
-    <section className="py-12 md:py-16 bg-gray-50 dark:bg-[#0A1628]">
+    <section className="py-12 md:py-16 bg-gray-50 dark:bg-deep">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
           🏆 Historique en Coupe du Monde
@@ -12,7 +12,7 @@ export function WorldCupHistory({ history }: { history: PlayerData["worldCupHist
             {history.map((wc, i) => (
               <div
                 key={i}
-                className="p-5 rounded-xl bg-white dark:bg-[#162A3E] border border-gray-100 dark:border-white/5 shadow-sm"
+                className="p-5 rounded-xl bg-white dark:bg-gray-dark border border-gray-100 dark:border-white/5 shadow-sm"
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-2xl font-extrabold text-accent">{wc.year}</span>

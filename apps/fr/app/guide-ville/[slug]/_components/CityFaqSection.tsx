@@ -9,7 +9,7 @@ export function CityFaqSection({ faq }: { faq: { question: string; answer: strin
           {faq.map((f, i) => (
             <details
               key={i}
-              className="group p-5 rounded-xl bg-gray-50 dark:bg-[#162A3E] border border-gray-100 dark:border-white/5"
+              className="group p-5 rounded-xl bg-gray-50 dark:bg-gray-dark border border-gray-100 dark:border-white/5"
             >
               <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white flex items-center justify-between">
                 <span>{f.question}</span>

@@ -1,16 +1,8 @@
-import { Card } from "@repo/ui/card";
-import { DataRow } from "@repo/ui/data-row";
-import { SectionHeading } from "@repo/ui/section-heading";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { LiveMatchWidget } from "@repo/ui/live-match-widget";
 import { AiMatchPreview } from "@repo/ui/ai-match-preview";
 import { AiExpertInsight } from "@repo/ui/ai-expert-insight";
-import { WeatherWidget } from "@repo/ui/weather-widget";
-import { OddsCompare } from "@repo/ui/odds-compare";
-import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import { generateFullMatchPreview } from "@repo/ai/generators";
-import { domains } from "@repo/data/route-mapping";
-import { getAlternates } from "@repo/data/route-mapping";
+import { domains, getAlternates } from "@repo/data/route-mapping";
 import { getMatchPhase } from "@repo/data/tournament-state";
 import { stageLabels, EXTERNAL_URLS } from "@repo/data/constants";
 import type { Metadata } from "next";
@@ -21,7 +13,13 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
-import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
+import {
+  MatchHeroAdaptive,
+  TeamComparison,
+  PredictionCard,
+  MatchSidebar,
+  SameDayMatches,
+} from "./_components";
 
 export const revalidate = 300;
 export const dynamicParams = false;
@@ -34,10 +32,7 @@ export async function generateStaticParams() {
   return matches.map((m) => ({ slug: m.slug }));
 }
 
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) return {};
@@ -46,7 +41,6 @@ export async function generateMetadata({
   const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
   const stage = stageLabels[match.stage] ?? match.stage;
-
   const homeName = home?.name ?? "A determiner";
   const awayName = away?.name ?? "A determiner";
 
@@ -57,7 +51,14 @@ export async function generateMetadata({
     openGraph: {
       title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — CDM 2026`,
       description: `${stage} - CDM 2026 | ${match.date} ${match.time} UTC`,
-      images: [{ url: `${domains.fr}/images/og-default.png`, width: 1200, height: 630, alt: `${homeName} vs ${awayName} - CDM 2026` }],
+      images: [
+        {
+          url: `${domains.fr}/images/og-default.png`,
+          width: 1200,
+          height: 630,
+          alt: `${homeName} vs ${awayName} - CDM 2026`,
+        },
+      ],
     },
   };
 }
@@ -70,14 +71,12 @@ export default async function MatchPage({ params }: PageProps) {
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
-  const city = stadium ? citiesById[stadium.cityId] : null;
+  const city = stadium ? citiesById[stadium.cityId] ?? null : null;
   const stage = stageLabels[match.stage] ?? match.stage;
-
   const matchPhase = getMatchPhase(match.date, match.time);
-  const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
 
-  // Fetch AI-enriched data (gracefully falls back to null if APIs unavailable)
+  // Fetch AI-enriched data
   let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
   try {
     enriched = await generateFullMatchPreview(slug, "fr", {
@@ -87,7 +86,6 @@ export default async function MatchPage({ params }: PageProps) {
     // AI generation failed — page renders with static data only
   }
 
-  // Same-day matches for internal linking
   const sameDayMatches = matches.filter(
     (m) => m.date === match.date && m.slug !== match.slug
   );
@@ -99,20 +97,41 @@ export default async function MatchPage({ params }: PageProps) {
     year: "numeric",
   });
 
+  const prediction =
+    home && away ? matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`] : undefined;
+
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Calendrier",url:"/match/calendrier"},{name:(home?.name ?? "TBD")+" vs "+(away?.name ?? "TBD"),url:"/match/"+match.slug}]} baseUrl={domains.fr} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Calendrier", url: "/match/calendrier" },
+          {
+            name: (home?.name ?? "TBD") + " vs " + (away?.name ?? "TBD"),
+            url: "/match/" + match.slug,
+          },
+        ]}
+        baseUrl={domains.fr}
+      />
+
+      {/* Breadcrumb */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline py-2 inline-block">
+              <Link
+                href="/"
+                className="text-primary dark:text-secondary hover:underline py-2 inline-block"
+              >
                 Accueil
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/match/calendrier" className="text-primary dark:text-secondary hover:underline py-2 inline-block">
+              <Link
+                href="/match/calendrier"
+                className="text-primary dark:text-secondary hover:underline py-2 inline-block"
+              >
                 Calendrier
               </Link>
             </li>
@@ -124,122 +143,32 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       </nav>
 
-      {/* Adaptive Hero: LiveMatchWidget for live/recent matches, static for upcoming */}
-      {isLive || isCompleted ? (
-        <section className="bg-primary py-12 sm:py-16">
-          <div className="mx-auto max-w-2xl px-4 sm:px-6">
-            <p className="mb-4 text-center text-sm text-secondary font-medium uppercase tracking-wide">
-              {stage}
-              {match.group ? ` - Groupe ${match.group}` : ""}
-            </p>
-            <LiveMatchWidget
-              matchDate={match.date}
-              matchTime={match.time}
-              homeTeam={home?.name ?? "A determiner"}
-              awayTeam={away?.name ?? "A determiner"}
-              stadium={stadium?.name ?? "Stade a confirmer"}
-              locale="fr"
-            />
-            <div className="mt-4 flex justify-center gap-8 text-white">
-              {home && (
-                <Link href={`/equipe/${home.slug}`} className="text-sm hover:text-secondary transition-colors">
-                  <span role="img" aria-label={`Drapeau de ${home.name}`}>{home.flag}</span> {home.name}
-                </Link>
-              )}
-              {away && (
-                <Link href={`/equipe/${away.slug}`} className="text-sm hover:text-secondary transition-colors">
-                  <span role="img" aria-label={`Drapeau de ${away.name}`}>{away.flag}</span> {away.name}
-                </Link>
-              )}
-            </div>
-          </div>
-        </section>
-      ) : (
-        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-5 sm:py-8">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-2 text-center text-xs text-secondary font-medium uppercase tracking-wide">
-              {stage}
-              {match.group ? ` - Groupe ${match.group}` : ""}
-            </p>
-            <div className="flex items-center justify-center gap-3 sm:gap-6">
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="text-2xl sm:text-4xl shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
-                <div className="min-w-0">
-                  {home ? (
-                    <Link href={`/equipe/${home.slug}`} className="text-sm sm:text-2xl font-extrabold hover:text-secondary break-words block">
-                      {home.name}
-                    </Link>
-                  ) : (
-                    <p className="text-sm sm:text-2xl font-extrabold">TBD</p>
-                  )}
-                  {home && <p className="text-xs text-gray-200">#{home.fifaRanking} FIFA</p>}
-                </div>
-              </div>
-              <span className="text-xl sm:text-2xl font-bold text-secondary shrink-0">VS</span>
-              <div className="flex items-center gap-2 min-w-0">
-                <div className="min-w-0 text-right">
-                  {away ? (
-                    <Link href={`/equipe/${away.slug}`} className="text-sm sm:text-2xl font-extrabold hover:text-secondary break-words block">
-                      {away.name}
-                    </Link>
-                  ) : (
-                    <p className="text-sm sm:text-2xl font-extrabold">TBD</p>
-                  )}
-                  {away && <p className="text-xs text-gray-200">#{away.fifaRanking} FIFA</p>}
-                </div>
-                <span className="text-2xl sm:text-4xl shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
-              </div>
-            </div>
-            <p className="mt-2 text-center text-sm text-gray-200">
-              {match.time} UTC · {dateFormatted}
-              {stadium ? ` · ${stadium.name}` : ""}
-              {city ? `, ${city.name}` : ""}
-            </p>
-          </div>
-        </section>
-      )}
+      {/* Hero */}
+      <MatchHeroAdaptive
+        matchPhase={matchPhase}
+        home={home}
+        away={away}
+        stadium={stadium}
+        stage={stage}
+        match={match}
+        dateFormatted={dateFormatted}
+      />
 
+      {/* Main Content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            {home && away && (
-              <Card>
-                <SectionHeading title="Comparaison" />
-                <div className="space-y-3">
-                  {[
-                    { label: "Classement FIFA", v1: `#${home.fifaRanking}`, v2: `#${away.fifaRanking}` },
-                    { label: "Confédération", v1: home.confederation, v2: away.confederation },
-                    { label: "Participations CDM", v1: String(home.wcAppearances), v2: String(away.wcAppearances) },
-                    { label: "Meilleur résultat", v1: home.bestResult, v2: away.bestResult },
-                  ].map((row) => (
-                    <div key={row.label} className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-2 font-medium">{row.label}</p>
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-sm">{home.flag}</span>
-                          <span className="text-sm font-bold text-gray-900 dark:text-white">{row.v1}</span>
-                        </div>
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-sm font-bold text-gray-900 dark:text-white">{row.v2}</span>
-                          <span className="text-sm">{away.flag}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 text-center">
-                  <Link
-                    href={`/h2h/${home.slug}-vs-${away.slug}`}
-                    className="text-sm font-medium text-primary hover:underline"
-                  >
-                    Voir l&apos;historique complet des confrontations &rarr;
-                  </Link>
-                </div>
-              </Card>
-            )}
+            {home && away && <TeamComparison home={home} away={away} />}
 
             {enriched?.preview && (
-              <AiMatchPreview preview={enriched.preview.preview} keyFactors={enriched.preview.keyFactors} prediction={enriched.preview.prediction} bettingAngle={enriched.preview.bettingAngle} grounded={enriched.preview.grounded} locale="fr" />
+              <AiMatchPreview
+                preview={enriched.preview.preview}
+                keyFactors={enriched.preview.keyFactors}
+                prediction={enriched.preview.prediction}
+                bettingAngle={enriched.preview.bettingAngle}
+                grounded={enriched.preview.grounded}
+                locale="fr"
+              />
             )}
 
             {enriched?.expert && (
@@ -252,205 +181,55 @@ export default async function MatchPage({ params }: PageProps) {
               />
             )}
 
-            <Card>
-              <SectionHeading title={isCompleted ? "Resultat & Analyse" : "Pronostic"} />
-              {home && away && (() => {
-                const pred = matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`];
-                if (!pred) return (
-                  <p className="text-gray-600">
-                    Les pronostics détaillés seront disponibles prochainement.
-                  </p>
-                );
-                const odds = estimatedMatchOdds(pred.team1WinProb, pred.drawProb, pred.team2WinProb);
-                return (
-                  <>
-                    <div className="grid grid-cols-3 gap-3 mb-4">
-                      <div className="rounded-lg bg-field/10 p-3 text-center">
-                        <p className="text-xl font-bold text-field">{Math.round(pred.team1WinProb * 100)}%</p>
-                        <p className="text-xs text-gray-500">{home.name}</p>
-                        <p className="text-sm font-medium text-primary mt-1">{odds.home}</p>
-                      </div>
-                      <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
-                        <p className="text-xl font-bold text-gray-600">{Math.round(pred.drawProb * 100)}%</p>
-                        <p className="text-xs text-gray-500">Nul</p>
-                        <p className="text-sm font-medium text-primary mt-1">{odds.draw}</p>
-                      </div>
-                      <div className="rounded-lg bg-field/10 p-3 text-center">
-                        <p className="text-xl font-bold text-field">{Math.round(pred.team2WinProb * 100)}%</p>
-                        <p className="text-xs text-gray-500">{away.name}</p>
-                        <p className="text-sm font-medium text-primary mt-1">{odds.away}</p>
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-primary/5 p-3 text-center mb-4">
-                      <p className="text-sm text-gray-500">Score predit</p>
-                      <p className="text-2xl font-extrabold text-primary">{pred.predictedScore}</p>
-                    </div>
-                    <div className="rounded-lg border border-primary/20 bg-primary/5 p-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex-1 min-w-0">
-                          <p className="font-bold text-primary text-sm">{featuredBookmaker.name}</p>
-                          <p className="text-xs text-gray-600 truncate">{featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}</p>
-                        </div>
-                        <Link
-                          href={`/pronostic-match/${match.slug}`}
-                          className="shrink-0 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-white hover:bg-accent/90 transition-colors"
-                        >
-                          Pronostic →
-                        </Link>
-                      </div>
-                    </div>
-                    <p className="mt-2 text-xs text-gray-500">Cotes estimees, susceptibles d&apos;evoluer. 18+</p>
-                  </>
-                );
-              })()}
-            </Card>
+            {home && away && (
+              <PredictionCard
+                home={home}
+                away={away}
+                prediction={prediction}
+                isCompleted={isCompleted}
+                matchSlug={match.slug}
+              />
+            )}
           </div>
 
-          <div className="space-y-6">
-            {stadium && (
-              <Card hover padding="md">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Lieu du match</h3>
-                <Link
-                  href={`/stade/${stadium.slug}`}
-                  className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
-                >
-                  <p className="font-semibold">{stadium.name}</p>
-                  <p className="text-sm text-gray-500">
-                    {stadium.capacity.toLocaleString("fr-FR")} places &middot;{" "}
-                    {stadium.city}
-                  </p>
-                </Link>
-                {city && (
-                  <Link
-                    href={`/ville/${city.slug}`}
-                    className="mt-2 block text-sm text-primary hover:underline"
-                  >
-                    Guide de {city.name} &rarr;
-                  </Link>
-                )}
-              </Card>
-            )}
-
-            <Card hover padding="md">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Infos match</h3>
-              <dl className="space-y-3 text-sm">
-                <DataRow label="Phase" value={stage} />
-                {match.group && (
-                  <DataRow label="Groupe">
-                    <Link
-                      href={`/groupe/${match.group.toLowerCase()}`}
-                      className="text-primary hover:underline"
-                    >
-                      Groupe {match.group}
-                    </Link>
-                  </DataRow>
-                )}
-                {match.matchday && (
-                  <DataRow label="Journée" value={`J${match.matchday}`} />
-                )}
-                <DataRow label="Date" value={dateFormatted} />
-                <DataRow label="Heure (UTC)" value={match.time} />
-              </dl>
-            </Card>
-
-            {enriched?.weather && (
-              <WeatherWidget
-                temperature={enriched.weather.temperature}
-                condition={enriched.weather.condition}
-                humidity={enriched.weather.humidity}
-                windSpeed={enriched.weather.windSpeed}
-                locale="fr"
-              />
-            )}
-
-            {enriched?.sources.hasInjuries && home && away && (
-              <InjuriesWidget
-                homeTeam={home.name}
-                awayTeam={away.name}
-                homeInjuries={enriched.injuries.home}
-                awayInjuries={enriched.injuries.away}
-                locale="fr"
-              />
-            )}
-
-            {/* Same-day matches in sidebar */}
-            {sameDayMatches.length > 0 && (
-              <Card hover padding="md">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres matchs du {match.date.slice(5)}</h3>
-                <div className="space-y-2">
-                  {sameDayMatches.slice(0, 5).map((m) => {
-                    const mHome = teamsById[m.homeTeamId];
-                    const mAway = teamsById[m.awayTeamId];
-                    return (
-                      <Link
-                        key={m.slug}
-                        href={`/match/${m.slug}`}
-                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 text-sm"
-                      >
-                        <span role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳️"}</span>
-                        <span className="flex-1 text-sm font-medium break-words">{mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}</span>
-                        <span role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? "🏳️"}</span>
-                        <span className="text-xs text-gray-500">{m.time}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </Card>
-            )}
-
-            {enriched?.sources.hasLiveOdds && home && away ? (
-              <OddsCompare
-                odds={enriched.odds}
-                homeTeam={home.name}
-                awayTeam={away.name}
-                locale="fr"
-              />
-            ) : (
-              <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Cotes du match
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Les cotes des bookmakers pour ce match seront disponibles
-                  prochainement.
-                </p>
-              </div>
-            )}
-          </div>
+          {/* Sidebar */}
+          <MatchSidebar
+            stadium={stadium}
+            city={city}
+            stage={stage}
+            match={match}
+            dateFormatted={dateFormatted}
+            home={home}
+            away={away}
+            enriched={enriched}
+          />
         </div>
       </div>
 
-      {/* Same-day matches */}
+      {/* Sidebar same-day matches */}
       {sameDayMatches.length > 0 && (
-        <section className="border-t border-gray-200 dark:border-slate-700 py-8">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeading title="Matchs de la même journée" />
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {sameDayMatches.map((m) => {
-                const mHome = teamsById[m.homeTeamId];
-                const mAway = teamsById[m.awayTeamId];
-                return (
-                  <Link
-                    key={m.slug}
-                    href={`/match/${m.slug}`}
-                    className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
-                  >
-                    <span className="text-xl" role="img" aria-label={`Drapeau de ${mHome?.name ?? "Inconnu"}`}>{mHome?.flag ?? "🏳️"}</span>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-sm break-words">
-                        {mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}
-                      </p>
-                      <p className="text-xs text-gray-500">{m.time} UTC</p>
-                    </div>
-                    <span className="text-xl" role="img" aria-label={`Drapeau de ${mAway?.name ?? "Inconnu"}`}>{mAway?.flag ?? "🏳️"}</span>
-                  </Link>
-                );
-              })}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8">
+          <div className="grid gap-8 lg:grid-cols-3">
+            <div className="lg:col-start-3">
+              <SameDayMatches
+                sameDayMatches={sameDayMatches}
+                teamsById={teamsById}
+                currentDate={match.date}
+                isSidebar
+              />
             </div>
           </div>
-        </section>
+        </div>
       )}
 
+      {/* Same-day matches full section */}
+      <SameDayMatches
+        sameDayMatches={sameDayMatches}
+        teamsById={teamsById}
+        currentDate={match.date}
+      />
+
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -474,12 +253,8 @@ export default async function MatchPage({ params }: PageProps) {
                   maximumAttendeeCapacity: stadium.capacity,
                 }
               : undefined,
-            homeTeam: home
-              ? { "@type": "SportsTeam", name: home.name }
-              : undefined,
-            awayTeam: away
-              ? { "@type": "SportsTeam", name: away.name }
-              : undefined,
+            homeTeam: home ? { "@type": "SportsTeam", name: home.name } : undefined,
+            awayTeam: away ? { "@type": "SportsTeam", name: away.name } : undefined,
             organizer: {
               "@type": "Organization",
               name: "FIFA",
@@ -497,10 +272,12 @@ export default async function MatchPage({ params }: PageProps) {
           }),
         }}
       />
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques :
+        endettement, isolement, dépendance. Pour être aidé, appelez le{" "}
+        <strong>09 74 75 13 13</strong> (appel non surtaxé).
       </p>
-</>
+    </>
   );
 }

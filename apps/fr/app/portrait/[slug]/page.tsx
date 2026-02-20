@@ -70,7 +70,7 @@ export default async function PortraitPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="min-h-screen bg-white dark:bg-[#0F1923]">
+      <main className="min-h-screen bg-white dark:bg-deep">
         <PortraitHero player={player} />
         <CareerSection career={player.career} />
         <WorldCupHistory history={player.worldCupHistory} />

@@ -60,7 +60,7 @@ export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavPro
                           <li key={link.href}>
                             <Link
                               href={link.href}
-                              className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-[#E8ECF1] hover:bg-gray-100 dark:hover:bg-[rgba(255,255,255,0.08)] hover:text-secondary transition-colors"
+                              className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-text hover:bg-gray-100 dark:hover:bg-white/8 hover:text-secondary transition-colors"
                               onClick={() => setActiveMenu(null)}
                             >
                               <span>{link.label}</span>

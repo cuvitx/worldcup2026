@@ -44,7 +44,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#060D18] backdrop-blur-[12px] text-white border-b border-[rgba(255,255,255,0.1)]">
+    <header className="sticky top-0 z-50 bg-bg-elevated backdrop-blur-[12px] text-white border-b border-white/10">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-white"

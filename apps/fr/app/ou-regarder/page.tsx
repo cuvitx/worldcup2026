@@ -231,7 +231,7 @@ export default function OuRegarderPage() {
                 </div>
               ))}
             </div>
-            <div className="p-4 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-xl text-sm text-[#FF6B35] dark:text-[#FF6B35]">
+            <div className="p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
               <p className="font-semibold">⚠️ Légalité du VPN</p>
               <p className="mt-1">
                 L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage

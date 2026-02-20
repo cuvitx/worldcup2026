@@ -1,0 +1,11 @@
+export { TopFavorites } from "../TopFavorites";
+export { OddsTable } from "../OddsTable";
+export { WhyTheyCanWin } from "../WhyTheyCanWin";
+export { HostHistory } from "../HostHistory";
+export { DarkHorses } from "../DarkHorses";
+export { HeroSection } from "./HeroSection";
+export { ConfederationChart } from "./ConfederationChart";
+export { FaqSection } from "./FaqSection";
+export { SimulatorCta } from "./SimulatorCta";
+export { MethodologySection } from "./MethodologySection";
+export { CtaSection } from "./CtaSection";

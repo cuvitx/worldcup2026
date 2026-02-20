@@ -72,7 +72,7 @@ export default async function GuideVillePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="min-h-screen bg-white dark:bg-[#0F1923]">
+      <main className="min-h-screen bg-white dark:bg-deep">
         <CityHero city={city} />
         <TransportSection cityName={city.name} transport={city.transport} />
         <LodgingSection lodging={city.lodging} />

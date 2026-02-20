@@ -63,7 +63,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
               <div className="font-bold text-gray-900 dark:text-white">
                 {edition.winner}
               </div>
-              <div className="text-xs text-[#06D6A0] dark:text-[#06D6A0] font-medium">
+              <div className="text-xs text-success dark:text-success font-medium">
                 🏆 Champion · {edition.score} vs {edition.runnerUpFlag} {edition.runnerUp}
               </div>
             </div>

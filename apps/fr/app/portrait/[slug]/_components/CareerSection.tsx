@@ -11,7 +11,7 @@ export function CareerSection({ career }: { career: PlayerData["career"] }) {
           {career.map((c, i) => (
             <div
               key={i}
-              className="flex flex-col md:flex-row md:items-center gap-3 p-5 rounded-xl bg-gray-50 dark:bg-[#162A3E] border border-gray-100 dark:border-white/5"
+              className="flex flex-col md:flex-row md:items-center gap-3 p-5 rounded-xl bg-gray-50 dark:bg-gray-dark border border-gray-100 dark:border-white/5"
             >
               <div className="md:w-48 shrink-0">
                 <p className="font-bold text-gray-900 dark:text-white">{c.club}</p>

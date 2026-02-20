@@ -14,7 +14,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
   const pathname = usePathname();
 
   return (
-    <div className="md:hidden border-t border-[rgba(255,255,255,0.1)] animate-[slideDown_200ms_ease-out] bg-[#060D18]">
+    <div className="md:hidden border-t border-white/10 animate-[slideDown_200ms_ease-out] bg-deep">
       <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
         {(Object.entries(megaMenus) as [MenuKey, (typeof megaMenus)[MenuKey]][]).map(([key, menu]) => (
           <div key={key}>

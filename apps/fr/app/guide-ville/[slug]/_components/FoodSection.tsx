@@ -11,7 +11,7 @@ export function FoodSection({ food }: { food: CityGuide["food"] }) {
           {food.map((f, i) => (
             <div
               key={i}
-              className="flex gap-4 items-start p-5 rounded-xl bg-gray-50 dark:bg-[#162A3E] border border-gray-100 dark:border-white/5"
+              className="flex gap-4 items-start p-5 rounded-xl bg-gray-50 dark:bg-gray-dark border border-gray-100 dark:border-white/5"
             >
               <div>
                 <h3 className="font-bold text-gray-900 dark:text-white mb-1">{f.name}</h3>

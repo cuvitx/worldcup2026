@@ -2,7 +2,7 @@ import type { CityGuide } from "./city-data";
 
 export function LodgingSection({ lodging }: { lodging: CityGuide["lodging"] }) {
   return (
-    <section className="py-12 md:py-16 bg-gray-50 dark:bg-[#0A1628]">
+    <section className="py-12 md:py-16 bg-gray-50 dark:bg-deep">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
           🏨 Où loger
@@ -11,7 +11,7 @@ export function LodgingSection({ lodging }: { lodging: CityGuide["lodging"] }) {
           {lodging.map((l, i) => (
             <div
               key={i}
-              className="p-5 rounded-xl bg-white dark:bg-[#162A3E] border border-gray-100 dark:border-white/5 shadow-sm"
+              className="p-5 rounded-xl bg-white dark:bg-gray-dark border border-gray-100 dark:border-white/5 shadow-sm"
             >
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-bold text-gray-900 dark:text-white">{l.quartier}</h3>

@@ -79,7 +79,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
           ))}
         </div>
 
-        <div className="mt-4 p-4 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/10 border border-[#FF6B35]/30 dark:border-[#FF6B35]/20 rounded-xl text-sm text-[#FF6B35] dark:text-[#FF6B35]">
+        <div className="mt-4 p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
           <p className="font-semibold">💡 Bon à savoir</p>
           <p className="mt-1">
             Les matchs de la France seront programmés en priorité sur des créneaux accessibles pour le public européen.

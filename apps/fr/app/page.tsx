@@ -127,7 +127,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* STATS RIBBON */}
-      <section className="bg-white dark:bg-[#0D3B66] border-y border-gray-200 dark:border-white/5">
+      <section className="bg-white dark:bg-primary border-y border-gray-200 dark:border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-white/5">
             {[
