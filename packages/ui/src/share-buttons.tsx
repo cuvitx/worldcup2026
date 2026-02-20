@@ -2,12 +2,31 @@
 
 import { useState } from "react";
 
+/**
+ * Props for the ShareButtons component.
+ * 
+ * @param url - URL to share
+ * @param text - Share text/message
+ * @param label - Label displayed before buttons (default: "Partager ce pronostic")
+ */
 interface ShareButtonsProps {
   url: string;
   text: string;
   label?: string;
 }
 
+/**
+ * ShareButtons component — Social sharing buttons for Twitter, Facebook, WhatsApp, Telegram, and copy link.
+ * 
+ * @example
+ * ```tsx
+ * <ShareButtons
+ *   url="https://cdm2026.fr/match/france-bresil"
+ *   text="France vs Brésil - Pronostic Coupe du Monde 2026"
+ *   label="Partager ce match"
+ * />
+ * ```
+ */
 export function ShareButtons({ url, text, label = "Partager ce pronostic" }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 

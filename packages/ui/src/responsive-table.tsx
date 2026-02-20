@@ -3,12 +3,27 @@
  * Wraps children with responsive overflow behavior.
  */
 
+/**
+ * A table column definition.
+ * 
+ * @param key - Column identifier (matches row data keys)
+ * @param label - Column header label
+ * @param className - Optional CSS classes for alignment (e.g., "text-left")
+ */
 interface Column {
   key: string;
   label: string;
   className?: string;
 }
 
+/**
+ * Props for the ResponsiveTable component.
+ * 
+ * @param columns - Column definitions
+ * @param rows - Array of row data objects (keys must match column keys)
+ * @param highlightBest - Optional: highlight the best value per column (e.g., best odds)
+ * @param className - Additional CSS classes
+ */
 interface ResponsiveTableProps {
   columns: Column[];
   rows: Record<string, React.ReactNode>[];
@@ -17,6 +32,23 @@ interface ResponsiveTableProps {
   className?: string;
 }
 
+/**
+ * ResponsiveTable component — Adaptive table that switches to card layout on mobile.
+ * 
+ * @example
+ * ```tsx
+ * <ResponsiveTable
+ *   columns={[
+ *     { key: "team", label: "Équipe", className: "text-left" },
+ *     { key: "points", label: "Pts", className: "text-center" }
+ *   ]}
+ *   rows={[
+ *     { team: "France", points: 9 },
+ *     { team: "Brésil", points: 6 }
+ *   ]}
+ * />
+ * ```
+ */
 export function ResponsiveTable({ columns, rows, className = "" }: ResponsiveTableProps) {
   if (rows.length === 0) return null;
 

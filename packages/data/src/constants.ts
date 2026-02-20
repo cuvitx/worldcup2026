@@ -38,3 +38,13 @@ export const stageLabels: Record<string, string> = {
   "third-place": "Match pour la 3e place",
   final: "Finale",
 };
+
+/* ─── Display limits ─── */
+export const DISPLAY_LIMITS = {
+  UPCOMING_MATCHES_HOME: 3,
+  TOP_TEAMS: 10,
+  RECENT_ARTICLES: 3,
+  TOP_SCORERS: 20,
+  BOOKMAKERS_PREVIEW: 3,
+  TEAM_SCORERS_PREVIEW: 3,
+} as const;

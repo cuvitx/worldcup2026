@@ -1,9 +1,22 @@
+/**
+ * Translations for AI match preview.
+ */
 const translations = {
   fr: { title: "Analyse du match", verified: "Sources verifiees", factors: "Facteurs decisifs", prediction: "Prediction", bettingAngle: "Angle de pari" },
   en: { title: "Match analysis", verified: "Verified sources", factors: "Key factors", prediction: "Prediction", bettingAngle: "Betting angle" },
   es: { title: "Analisis del partido", verified: "Fuentes verificadas", factors: "Factores clave", prediction: "Prediccion", bettingAngle: "Angulo de apuesta" },
 };
 
+/**
+ * Props for the AiMatchPreview component.
+ * 
+ * @param preview - AI-generated match preview text (2-3 paragraphs)
+ * @param keyFactors - Array of key deciding factors (max 4)
+ * @param prediction - Prediction text
+ * @param bettingAngle - Recommended betting angle
+ * @param grounded - Whether the analysis is grounded in verified data
+ * @param locale - UI language
+ */
 interface AiMatchPreviewProps {
   preview: string;
   keyFactors: string[];
@@ -13,6 +26,9 @@ interface AiMatchPreviewProps {
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * CheckIcon — Verification checkmark icon.
+ */
 function CheckIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -45,6 +61,21 @@ function TargetIcon() {
   );
 }
 
+/**
+ * AiMatchPreview component — AI-generated match preview with key factors and prediction.
+ * 
+ * @example
+ * ```tsx
+ * <AiMatchPreview
+ *   preview="France possède un avantage technique clair. Le Brésil manque de régularité défensive..."
+ *   keyFactors={["Blessure de Neymar", "Forme récente de la France", "Domination au milieu"]}
+ *   prediction="France 2-0"
+ *   bettingAngle="France -1 handicap asiatique"
+ *   grounded={true}
+ *   locale="fr"
+ * />
+ * ```
+ */
 export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, grounded, locale }: AiMatchPreviewProps) {
   const t = translations[locale ?? "fr"];
   // Split long preview into paragraphs (~2-3 sentences each)

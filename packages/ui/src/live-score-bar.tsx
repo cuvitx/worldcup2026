@@ -8,12 +8,18 @@ import { useEffect, useState, useCallback, memo } from "react";
 // Falls back to static match data when no API key is configured.
 // ============================================================================
 
+/**
+ * Translations for live score bar.
+ */
 const translations = {
   fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "Aujourd'hui" },
   en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "Today" },
   es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "Hoy" },
 };
 
+/**
+ * A single live match data structure.
+ */
 export interface LiveMatch {
   id: string;
   homeTeam: string;
@@ -26,6 +32,15 @@ export interface LiveMatch {
   slug: string;
 }
 
+/**
+ * Props for the LiveScoreBar component.
+ * 
+ * @param todaysMatches - Today's matches from static data as fallback
+ * @param matchBasePath - Base path for match links (e.g. "/match" for FR)
+ * @param apiEndpoint - API endpoint to poll (default: "/api/live")
+ * @param pollInterval - Polling interval in ms (default: 30000)
+ * @param locale - UI language
+ */
 interface LiveScoreBarProps {
   /** Today's matches from static data as fallback */
   todaysMatches: LiveMatch[];
@@ -38,6 +53,9 @@ interface LiveScoreBarProps {
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * StatusBadge — Match status badge (LIVE, HT, FT, UPCOMING).
+ */
 function StatusBadge({ status, elapsed, t }: { status: LiveMatch["status"]; elapsed: number | null; t: { halftime: string; finished: string; upcoming: string } }) {
   if (status === "live") {
     return (
@@ -93,6 +111,20 @@ function MatchCard({ match, t }: { match: LiveMatch; t: { halftime: string; fini
   );
 }
 
+/**
+ * LiveScoreBar component — Horizontal scrollable bar showing today's/live matches with real-time scores.
+ * 
+ * Polls API every 30s during tournament. Falls back to static data when API unavailable.
+ * 
+ * @example
+ * ```tsx
+ * <LiveScoreBar
+ *   todaysMatches={staticMatches}
+ *   matchBasePath="/match"
+ *   locale="fr"
+ * />
+ * ```
+ */
 export const LiveScoreBar = memo(function LiveScoreBar({
   todaysMatches,
   matchBasePath,

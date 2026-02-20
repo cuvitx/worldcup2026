@@ -6,12 +6,27 @@ import { useState, useMemo, useCallback } from "react";
 // Types
 // ---------------------------------------------------------------------------
 
+/**
+ * A team participating in the group.
+ * 
+ * @param id - Unique team identifier
+ * @param name - Team display name
+ * @param flag - Team flag emoji
+ */
 interface TeamInput {
   id: string;
   name: string;
   flag: string;
 }
 
+/**
+ * A match between two teams in the group.
+ * 
+ * @param homeId - ID of the home team
+ * @param awayId - ID of the away team
+ * @param homeScore - Optional initial home score
+ * @param awayScore - Optional initial away score
+ */
 interface MatchInput {
   homeId: string;
   awayId: string;
@@ -19,12 +34,22 @@ interface MatchInput {
   awayScore?: number;
 }
 
+/**
+ * Props for the GroupSimulator component.
+ * 
+ * @param teams - Array of teams in the group
+ * @param matches - Array of matches (all combinations within the group)
+ * @param locale - UI language: "fr" | "en" | "es" (default: "en")
+ */
 interface GroupSimulatorProps {
   teams: TeamInput[];
   matches: MatchInput[];
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * Internal standing row for a team (computed from match results).
+ */
 interface Standing {
   teamId: string;
   name: string;
@@ -101,6 +126,39 @@ const labels = {
 // Component
 // ---------------------------------------------------------------------------
 
+/**
+ * GroupSimulator component — Interactive group stage standings calculator.
+ * 
+ * Users can enter match scores, and the component dynamically computes the group standings
+ * based on points, goal difference, and goals scored.
+ * 
+ * Features:
+ * - Real-time standings recalculation
+ * - Highlights top 2 qualified teams
+ * - Reset to initial scores
+ * - Multilingual support (FR, EN, ES)
+ * 
+ * @example
+ * ```tsx
+ * <GroupSimulator
+ *   teams={[
+ *     { id: "fra", name: "France", flag: "🇫🇷" },
+ *     { id: "bra", name: "Brésil", flag: "🇧🇷" },
+ *     { id: "ger", name: "Allemagne", flag: "🇩🇪" },
+ *     { id: "arg", name: "Argentine", flag: "🇦🇷" }
+ *   ]}
+ *   matches={[
+ *     { homeId: "fra", awayId: "bra" },
+ *     { homeId: "ger", awayId: "arg" },
+ *     { homeId: "fra", awayId: "ger" },
+ *     { homeId: "bra", awayId: "arg" },
+ *     { homeId: "fra", awayId: "arg" },
+ *     { homeId: "bra", awayId: "ger" }
+ *   ]}
+ *   locale="fr"
+ * />
+ * ```
+ */
 export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }: GroupSimulatorProps) {
   const t = labels[locale];
 

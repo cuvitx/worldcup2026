@@ -6,7 +6,14 @@
 
 import type { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
+/**
+ * Button visual variant.
+ */
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "cta";
+
+/**
+ * Button size.
+ */
 export type ButtonSize = "sm" | "md" | "lg";
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
@@ -51,12 +58,29 @@ export function buildBtnClass(
 
 /* ── <Button> ──────────────────────────────────────────────────────────────── */
 
+/**
+ * Props for the Button component.
+ * 
+ * @param variant - Visual variant (default: "primary")
+ * @param size - Button size (default: "md")
+ * @param pill - Use pill shape (fully rounded) instead of rounded corners
+ */
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   pill?: boolean;
 }
 
+/**
+ * Button component — Standard HTML button with CDM2026 brand styles.
+ * 
+ * @example
+ * ```tsx
+ * <Button variant="primary" size="lg">
+ *   Voir le calendrier
+ * </Button>
+ * ```
+ */
 export function Button({
   variant = "primary",
   size = "md",
@@ -74,6 +98,16 @@ export function Button({
 
 /* ── <ButtonLink> ──────────────────────────────────────────────────────────── */
 
+/**
+ * Props for the ButtonLink component.
+ * 
+ * @param href - Target URL
+ * @param variant - Visual variant (default: "primary")
+ * @param size - Button size (default: "md")
+ * @param pill - Use pill shape
+ * @param target - HTML target attribute (e.g., "_blank")
+ * @param rel - HTML rel attribute (e.g., "noopener noreferrer")
+ */
 export interface ButtonLinkProps {
   href: string;
   variant?: ButtonVariant;
@@ -85,6 +119,16 @@ export interface ButtonLinkProps {
   rel?: string;
 }
 
+/**
+ * ButtonLink component — Styled link (`<a>`) with button appearance.
+ * 
+ * @example
+ * ```tsx
+ * <ButtonLink href="/equipes" variant="outline">
+ *   Toutes les équipes
+ * </ButtonLink>
+ * ```
+ */
 export function ButtonLink({
   href,
   variant = "primary",
@@ -110,12 +154,31 @@ export function ButtonLink({
 
 /* ── <ButtonAnchor> ────────────────────────────────────────────────────────── */
 
+/**
+ * Props for the ButtonAnchor component.
+ * 
+ * @param variant - Visual variant (default: "primary")
+ * @param size - Button size (default: "md")
+ * @param pill - Use pill shape
+ */
 export interface ButtonAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   pill?: boolean;
 }
 
+/**
+ * ButtonAnchor component — Generic anchor element with button styles.
+ * 
+ * Accepts all standard HTML anchor attributes (href, target, rel, onClick, etc.).
+ * 
+ * @example
+ * ```tsx
+ * <ButtonAnchor href="#section-top" variant="ghost">
+ *   Retour en haut
+ * </ButtonAnchor>
+ * ```
+ */
 export function ButtonAnchor({
   variant = "primary",
   size = "md",

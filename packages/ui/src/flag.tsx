@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * Props for the Flag component.
+ * 
+ * @param flag - Flag emoji (e.g., "🇫🇷", "🇧🇷")
+ * @param name - Country name for accessibility label
+ * @param className - Optional CSS classes
+ */
 interface FlagProps {
   flag: string;
   name: string;
@@ -7,8 +14,19 @@ interface FlagProps {
 }
 
 /**
- * Accessible flag emoji component.
- * Wraps a flag emoji with proper aria-label and role for screen readers.
+ * Flag component — Accessible flag emoji with proper ARIA attributes.
+ * 
+ * Wraps a flag emoji with `role="img"` and `aria-label` for screen reader support.
+ * 
+ * @example
+ * ```tsx
+ * <Flag flag="🇫🇷" name="France" />
+ * ```
+ * 
+ * @example
+ * ```tsx
+ * <Flag flag="🇧🇷" name="Brésil" className="text-3xl" />
+ * ```
  */
 export default function Flag({ flag, name, className }: FlagProps) {
   return (

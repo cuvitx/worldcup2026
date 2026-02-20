@@ -6,6 +6,12 @@ const STORAGE_KEY_DISMISSED = "cdm2026_newsletter_popup_dismissed";
 const STORAGE_KEY_SUBSCRIBED = "newsletter-subscribed";
 const DISMISS_DAYS = 7;
 
+/**
+ * Props for the NewsletterPopup component.
+ * 
+ * @param delayMs - Delay before showing popup (ms, default: 60000 = 1 minute)
+ * @param scrollPct - Scroll percentage trigger (0-1, default: 0.5 = 50%)
+ */
 export interface NewsletterPopupProps {
   /** Delay before showing (ms). Default 60000. */
   delayMs?: number;
@@ -13,6 +19,20 @@ export interface NewsletterPopupProps {
   scrollPct?: number;
 }
 
+/**
+ * NewsletterPopup component — Modal newsletter signup with time and scroll triggers.
+ * 
+ * Features:
+ * - Appears after {delayMs}ms OR {scrollPct}% scroll (whichever comes first)
+ * - Respects dismissal (stores timestamp in localStorage, reappears after 7 days)
+ * - Auto-hides if already subscribed
+ * - Success state with auto-close
+ * 
+ * @example
+ * ```tsx
+ * <NewsletterPopup delayMs={30000} scrollPct={0.3} />
+ * ```
+ */
 export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: NewsletterPopupProps = {}) {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");

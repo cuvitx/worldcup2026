@@ -6,6 +6,14 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 // Types
 // ============================================================================
 
+/**
+ * A single searchable item.
+ * 
+ * @param title - Display title (e.g., team name, match label)
+ * @param description - Secondary description text
+ * @param href - Target URL for navigation
+ * @param type - Item type for grouping and icon display
+ */
 export interface SearchItem {
   title: string;
   description: string;
@@ -13,6 +21,13 @@ export interface SearchItem {
   type: "team" | "match" | "player" | "stadium" | "city";
 }
 
+/**
+ * Props for the SearchDialog component.
+ * 
+ * @param lang - UI language: "fr" | "en" | "es"
+ * @param data - Array of searchable items
+ * @param onNavigate - Callback fired when user selects a result (receives href)
+ */
 interface SearchDialogProps {
   lang: "fr" | "en" | "es";
   data: SearchItem[];
@@ -136,6 +151,28 @@ function TypeIcon({ type }: { type: SearchItem["type"] }) {
 // Search Dialog Component
 // ============================================================================
 
+/**
+ * SearchDialog component — Keyboard-accessible command palette for site-wide search.
+ * 
+ * Features:
+ * - Opens with Ctrl/Cmd+K keyboard shortcut
+ * - Fuzzy search with accent normalization
+ * - Keyboard navigation (arrow keys, Enter, Escape)
+ * - Results grouped by type (teams, matches, players, stadiums, cities)
+ * - Responsive design with mobile support
+ * 
+ * @example
+ * ```tsx
+ * <SearchDialog
+ *   lang="fr"
+ *   data={[
+ *     { title: "France", description: "Équipe nationale", href: "/equipes/france", type: "team" },
+ *     { title: "Brésil vs Argentine", description: "12 juin 2026", href: "/match/bresil-argentine", type: "match" }
+ *   ]}
+ *   onNavigate={(href) => router.push(href)}
+ * />
+ * ```
+ */
 export function SearchDialog({ lang, data, onNavigate }: SearchDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");

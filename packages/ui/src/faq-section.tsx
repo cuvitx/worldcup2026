@@ -1,13 +1,48 @@
+/**
+ * A single FAQ item.
+ * 
+ * @param question - The question text
+ * @param answer - The answer text (plain text or HTML-safe string)
+ */
 interface FAQItem {
   question: string;
   answer: string;
 }
 
+/**
+ * Props for the FAQSection component.
+ * 
+ * @param title - Optional custom title (default: "❓ Questions fréquentes")
+ * @param items - Array of FAQ items with question/answer pairs
+ */
 interface FAQSectionProps {
   title?: string;
   items: FAQItem[];
 }
 
+/**
+ * FAQSection component — Renders an accordion-style FAQ list with JSON-LD schema.
+ * 
+ * Automatically generates schema.org FAQPage markup for SEO.
+ * Uses native HTML `<details>` element for accessibility.
+ * 
+ * @example
+ * ```tsx
+ * <FAQSection
+ *   title="Questions sur la Coupe du Monde 2026"
+ *   items={[
+ *     {
+ *       question: "Combien d'équipes participeront ?",
+ *       answer: "48 équipes participeront à la Coupe du Monde 2026."
+ *     },
+ *     {
+ *       question: "Où se déroule la compétition ?",
+ *       answer: "États-Unis, Canada et Mexique."
+ *     }
+ *   ]}
+ * />
+ * ```
+ */
 export function FAQSection({ title, items }: FAQSectionProps) {
   const defaultTitle = "❓ Questions fréquentes";
 

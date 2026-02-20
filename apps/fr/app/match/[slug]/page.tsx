@@ -1,6 +1,6 @@
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { AiMatchPreview } from "@repo/ui/ai-match-preview";
-import { AiExpertInsight } from "@repo/ui/ai-expert-insight";
+import dynamic from "next/dynamic";
 import { generateFullMatchPreview } from "@repo/ai/generators";
 import { domains, getAlternates } from "@repo/data/route-mapping";
 import { getMatchPhase } from "@repo/data/tournament-state";
@@ -20,6 +20,22 @@ import {
   MatchSidebar,
   SameDayMatches,
 } from "./_components";
+
+const AiExpertInsight = dynamic(
+  () => import("@repo/ui/ai-expert-insight").then((m) => ({ default: m.AiExpertInsight })),
+  {
+    loading: () => (
+      <div className="rounded-xl border border-border bg-card p-6 animate-pulse">
+        <div className="h-6 w-48 bg-muted rounded mb-4" />
+        <div className="space-y-2">
+          <div className="h-4 bg-muted rounded w-full" />
+          <div className="h-4 bg-muted rounded w-5/6" />
+        </div>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 export const revalidate = 300;
 export const dynamicParams = false;

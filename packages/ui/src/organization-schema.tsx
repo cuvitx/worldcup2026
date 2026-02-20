@@ -1,3 +1,14 @@
+/**
+ * OrganizationSchema component — Renders schema.org Organization JSON-LD.
+ * 
+ * @param url - Organization website URL
+ * @param name - Organization name
+ * 
+ * @example
+ * ```tsx
+ * <OrganizationSchema url="https://cdm2026.fr" name="CDM2026" />
+ * ```
+ */
 export function OrganizationSchema({
   url,
   name,

@@ -50,7 +50,7 @@ describe("Sitemap Generation", () => {
 
     entries.forEach((entry) => {
       expect(entry.lastModified).toBeInstanceOf(Date);
-      expect(entry.lastModified.toString()).not.toBe("Invalid Date");
+      expect(entry.lastModified!.toString()).not.toBe("Invalid Date");
     });
   });
 

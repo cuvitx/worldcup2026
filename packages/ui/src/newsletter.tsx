@@ -4,8 +4,19 @@ import { useState } from "react";
 
 /* ── Types ─────────────────────────────────────────────────────────────────── */
 
+/**
+ * Newsletter subscription status.
+ */
 type Status = "idle" | "loading" | "success" | "error" | "duplicate";
 
+/**
+ * Props for the Newsletter component.
+ * 
+ * @param variant - Layout variant: "banner" (full-width section), "card" (compact widget), or "footer" (minimal)
+ * @param locale - UI language: "fr" | "en" | "es" (default: "fr")
+ * @param tags - Optional Brevo tags for segmentation (e.g., ["alerts-france"])
+ * @param className - Additional CSS classes
+ */
 export interface NewsletterProps {
   /** 'banner' = full-width section, 'card' = compact widget, 'footer' = minimal (footer) */
   variant?: "banner" | "card" | "footer";
@@ -151,6 +162,26 @@ function useNewsletter(tags?: string[]) {
 
 /* ── Component ─────────────────────────────────────────────────────────────── */
 
+/**
+ * Newsletter component — Email subscription form with multiple layout variants.
+ * 
+ * Features:
+ * - 3 variants: banner (hero section), card (sidebar widget), footer (minimal)
+ * - API integration with /api/newsletter endpoint
+ * - LocalStorage fallback if API fails
+ * - Duplicate email detection
+ * - Multilingual support (FR, EN, ES)
+ * 
+ * @example
+ * ```tsx
+ * <Newsletter variant="card" locale="fr" tags={["alerts-france"]} />
+ * ```
+ * 
+ * @example
+ * ```tsx
+ * <Newsletter variant="banner" locale="en" />
+ * ```
+ */
 export function Newsletter({
   variant = "footer",
   locale = "fr",

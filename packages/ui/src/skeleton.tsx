@@ -1,5 +1,15 @@
-/** Reusable skeleton loading components */
+/**
+ * Reusable skeleton loading components for placeholder UI.
+ */
 
+/**
+ * SkeletonLine — Single animated skeleton line.
+ * 
+ * @example
+ * ```tsx
+ * <SkeletonLine className="h-4 w-3/4" />
+ * ```
+ */
 export function SkeletonLine({ className = "" }: { className?: string }) {
   return (
     <div className={`animate-pulse rounded bg-gray-200 ${className}`}>
@@ -8,6 +18,14 @@ export function SkeletonLine({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * SkeletonCard — Generic card-shaped skeleton with multiple lines.
+ * 
+ * @example
+ * ```tsx
+ * <SkeletonCard />
+ * ```
+ */
 export function SkeletonCard({ className = "" }: { className?: string }) {
   return (
     <div className={`animate-pulse rounded-lg bg-gray-100 p-4 ${className}`}>
@@ -19,6 +37,17 @@ export function SkeletonCard({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * SkeletonTable — Table-shaped skeleton with configurable rows/columns.
+ * 
+ * @param rows - Number of skeleton rows (default: 3)
+ * @param cols - Number of skeleton columns (default: 4)
+ * 
+ * @example
+ * ```tsx
+ * <SkeletonTable rows={5} cols={6} />
+ * ```
+ */
 export function SkeletonTable({ rows = 3, cols = 4 }: { rows?: number; cols?: number }) {
   return (
     <div className="animate-pulse overflow-hidden rounded-lg bg-gray-100 p-4">
@@ -38,6 +67,14 @@ export function SkeletonTable({ rows = 3, cols = 4 }: { rows?: number; cols?: nu
   );
 }
 
+/**
+ * SkeletonMatchPreview — Match preview skeleton with title, text lines, and button placeholders.
+ * 
+ * @example
+ * ```tsx
+ * <SkeletonMatchPreview />
+ * ```
+ */
 export function SkeletonMatchPreview() {
   return (
     <div className="animate-pulse rounded-xl bg-gray-100 p-6">

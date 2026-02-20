@@ -1,11 +1,35 @@
 import Link from "next/link";
 import type { Team } from "@repo/data/types";
 
+/**
+ * Props for the TeamCard component.
+ * 
+ * @param team - Team data object
+ * @param compact - Use compact layout (default: false)
+ */
 interface TeamCardProps {
   team: Team;
   compact?: boolean;
 }
 
+/**
+ * TeamCard component — Clickable card displaying team info (flag, name, group, ranking).
+ * 
+ * @example
+ * ```tsx
+ * <TeamCard
+ *   team={{
+ *     slug: "france",
+ *     name: "France",
+ *     flag: "🇫🇷",
+ *     group: "A",
+ *     fifaRanking: 4,
+ *     confederation: "UEFA",
+ *     isHost: false
+ *   }}
+ * />
+ * ```
+ */
 export function TeamCard({ team, compact = false }: TeamCardProps) {
   if (compact) {
     return (

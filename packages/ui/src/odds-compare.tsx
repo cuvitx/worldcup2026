@@ -1,9 +1,20 @@
+/**
+ * Translations for odds comparison table.
+ */
 const translations = {
   fr: { title: "Cotes des bookmakers", draw: "Nul", disclaimer: "Cotes indicatives issues des bookmakers. Meilleures cotes en vert. 18+. Jouez responsablement." },
   en: { title: "Bookmaker odds", draw: "Draw", disclaimer: "Indicative bookmaker odds. Best odds in green. 18+. Gamble responsibly." },
   es: { title: "Cuotas de casas de apuestas", draw: "Empate", disclaimer: "Cuotas indicativas de casas de apuestas. Mejores cuotas en verde. 18+. Juegue responsablemente." },
 };
 
+/**
+ * Props for the OddsCompare component.
+ * 
+ * @param odds - Array of bookmaker odds (bookmaker, home, draw, away)
+ * @param homeTeam - Home team name
+ * @param awayTeam - Away team name
+ * @param locale - UI language: "fr" | "en" | "es" (default: "fr")
+ */
 interface OddsCompareProps {
   odds: Array<{
     bookmaker: string;
@@ -16,6 +27,25 @@ interface OddsCompareProps {
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * OddsCompare component — Bookmaker odds comparison table with best odds highlighting.
+ * 
+ * Best odds for each outcome (home, draw, away) are highlighted in green.
+ * Responsive: table on desktop, cards on mobile.
+ * 
+ * @example
+ * ```tsx
+ * <OddsCompare
+ *   odds={[
+ *     { bookmaker: "Bet365", home: 2.10, draw: 3.20, away: 3.50 },
+ *     { bookmaker: "Unibet", home: 2.05, draw: 3.30, away: 3.40 }
+ *   ]}
+ *   homeTeam="France"
+ *   awayTeam="Brésil"
+ *   locale="fr"
+ * />
+ * ```
+ */
 export function OddsCompare({ odds, homeTeam, awayTeam, locale }: OddsCompareProps) {
   const t = translations[locale ?? "fr"];
 

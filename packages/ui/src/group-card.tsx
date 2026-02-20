@@ -1,11 +1,31 @@
 import Link from "next/link";
 import type { Group, Team } from "@repo/data/types";
 
+/**
+ * Props for the GroupCard component.
+ * 
+ * @param group - Group data object
+ * @param teams - Array of teams in the group
+ */
 interface GroupCardProps {
   group: Group;
   teams: Team[];
 }
 
+/**
+ * GroupCard component — Clickable card displaying a World Cup group with its teams.
+ * 
+ * @example
+ * ```tsx
+ * <GroupCard
+ *   group={{ letter: "A", slug: "groupe-a" }}
+ *   teams={[
+ *     { id: "fra", name: "France", flag: "🇫🇷", fifaRanking: 4 },
+ *     { id: "bra", name: "Brésil", flag: "🇧🇷", fifaRanking: 1 }
+ *   ]}
+ * />
+ * ```
+ */
 export function GroupCard({ group, teams }: GroupCardProps) {
   return (
     <Link

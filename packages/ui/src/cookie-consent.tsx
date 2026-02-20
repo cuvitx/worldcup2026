@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 
+/**
+ * Translations for cookie consent banner.
+ */
 const translations = {
   fr: {
     message:
@@ -29,10 +32,26 @@ const translations = {
   },
 };
 
+/**
+ * Props for the CookieConsent component.
+ * 
+ * @param lang - UI language: "fr" | "en" | "es"
+ */
 interface CookieConsentProps {
   lang: "fr" | "en" | "es";
 }
 
+/**
+ * CookieConsent component — GDPR-compliant cookie consent banner (bottom sticky).
+ * 
+ * Stores user choice in localStorage ("cookie-consent": "accepted" | "refused").
+ * Appears only if no previous choice is stored.
+ * 
+ * @example
+ * ```tsx
+ * <CookieConsent lang="fr" />
+ * ```
+ */
 export function CookieConsent({ lang }: CookieConsentProps) {
   const [visible, setVisible] = useState(false);
 

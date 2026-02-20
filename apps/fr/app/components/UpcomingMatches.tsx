@@ -2,10 +2,9 @@ import Link from "next/link";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { getUpcomingMatches } from "@repo/utils";
 
-const now = new Date();
-const upcomingMatches = matches
-  .filter((m) => new Date(`${m.date}T${m.time ?? "00:00"}Z`) >= now)
+const upcomingMatches = getUpcomingMatches(matches)
   .sort((a, b) => new Date(`${a.date}T${a.time ?? "00:00"}Z`).getTime() - new Date(`${b.date}T${b.time ?? "00:00"}Z`).getTime())
   .slice(0, 4);
 

@@ -7,12 +7,18 @@ import { useEffect, useState, useCallback } from "react";
 // Shows score, minute, and live events. Polls every 30s when match is live.
 // ============================================================================
 
+/**
+ * Translations for live match widget.
+ */
 const translations = {
   fr: { halftime: "MI-TEMPS", live: "EN DIRECT", finished: "TERMINE", dateLocale: "fr-FR", timezone: "Europe/Paris" },
   en: { halftime: "HALF TIME", live: "LIVE", finished: "FINISHED", dateLocale: "en-US", timezone: "America/New_York" },
   es: { halftime: "DESCANSO", live: "EN VIVO", finished: "FINALIZADO", dateLocale: "es-ES", timezone: "Europe/Madrid" },
 };
 
+/**
+ * A match event (goal, card, substitution).
+ */
 interface MatchEvent {
   minute: number;
   extra: number | null;
@@ -22,6 +28,9 @@ interface MatchEvent {
   detail: string;
 }
 
+/**
+ * Live match data structure.
+ */
 interface LiveMatchData {
   homeScore: number | null;
   awayScore: number | null;
@@ -30,6 +39,18 @@ interface LiveMatchData {
   events: MatchEvent[];
 }
 
+/**
+ * Props for the LiveMatchWidget component.
+ * 
+ * @param matchDate - Match date in ISO format (e.g., "2026-06-11")
+ * @param matchTime - Match time in UTC (e.g., "19:00")
+ * @param homeTeam - Home team name
+ * @param awayTeam - Away team name
+ * @param stadium - Stadium name for display
+ * @param fixtureId - API-Football fixture ID (optional)
+ * @param apiEndpoint - API endpoint for live data (default: "/api/live")
+ * @param locale - UI language
+ */
 interface LiveMatchWidgetProps {
   /** Match date in ISO format (2026-06-11) */
   matchDate: string;
@@ -46,12 +67,33 @@ interface LiveMatchWidgetProps {
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * EventIcon — Icon for match event type (goal, card, substitution).
+ */
 function EventIcon({ type }: { type: MatchEvent["type"] }) {
   if (type === "goal") return <span>&#9917;</span>;
   if (type === "card") return <span>&#128997;</span>;
   return <span>&#8644;</span>;
 }
 
+/**
+ * LiveMatchWidget component — Real-time score and events widget for match pages.
+ * 
+ * Polls API every 30s when match is live (±30min to +4h window).
+ * Shows score, minute, status, and key events.
+ * 
+ * @example
+ * ```tsx
+ * <LiveMatchWidget
+ *   matchDate="2026-06-11"
+ *   matchTime="19:00"
+ *   homeTeam="Mexique"
+ *   awayTeam="Afrique du Sud"
+ *   stadium="Estadio Azteca"
+ *   locale="fr"
+ * />
+ * ```
+ */
 export function LiveMatchWidget({
   matchDate,
   matchTime,

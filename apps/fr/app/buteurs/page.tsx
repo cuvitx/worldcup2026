@@ -6,6 +6,7 @@ import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
 import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
+import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
 
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
@@ -380,7 +381,7 @@ export default function ButeursPage() {
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{team.name}</h3>
                     </Link>
                     <ul className="space-y-1">
-                      {teamScorers.slice(0, 3).map((so) => {
+                      {teamScorers.slice(0, DISPLAY_LIMITS.TEAM_SCORERS_PREVIEW).map((so) => {
                         const player = playersById[so.playerId];
                         if (!player) return null;
                         return (
@@ -409,7 +410,7 @@ export default function ButeursPage() {
             Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {bookmakers.slice(0, 3).map((bk) => (
+            {bookmakers.slice(0, DISPLAY_LIMITS.BOOKMAKERS_PREVIEW).map((bk) => (
               <a
                 key={bk.id}
                 href={bk.url}

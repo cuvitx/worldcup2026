@@ -1,6 +1,6 @@
 import { HeroSection } from "@repo/ui/hero-section";
 import { SectionHeading } from "@repo/ui/section-heading";
-import { StadiumImage } from "../components/stadium-image";
+import { StadiumImage } from "../components/StadiumImage";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";

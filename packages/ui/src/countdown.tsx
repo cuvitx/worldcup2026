@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 
 const TARGET = new Date("2026-06-11T19:00:00Z").getTime();
 
+/**
+ * Calculate time remaining until World Cup 2026 opening match.
+ */
 function getTimeLeft() {
   const now = Date.now();
   const diff = Math.max(0, TARGET - now);
@@ -15,6 +18,17 @@ function getTimeLeft() {
   };
 }
 
+/**
+ * Countdown component — Live countdown to World Cup 2026 opening match (Mexico vs South Africa).
+ * 
+ * Updates every second. Displays days, hours, minutes, and seconds remaining.
+ * Handles SSR hydration with suppressHydrationWarning.
+ * 
+ * @example
+ * ```tsx
+ * <Countdown />
+ * ```
+ */
 export function Countdown() {
   const [time, setTime] = useState(getTimeLeft);
   const [mounted, setMounted] = useState(false);

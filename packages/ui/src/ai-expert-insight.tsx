@@ -2,12 +2,26 @@
 
 import { useState, memo } from "react";
 
+/**
+ * Translations for AI expert insight widget.
+ */
 const translations = {
   fr: { title: "Analyse Expert", badge: "Claude IA", scorePredicted: "Score predit", tacticalAnalysis: "Analyse tactique", valueBets: "Value Bets detectes", edgeDetected: "Edge detecte", model: "Modele", market: "Marche", seeLess: "Voir moins", seeReasoning: "Voir le raisonnement", disclaimer: "Analyse generee par IA. Ne constitue pas un conseil de paris. 18+. Jouez responsablement." },
   en: { title: "Expert Analysis", badge: "Claude AI", scorePredicted: "Predicted score", tacticalAnalysis: "Tactical analysis", valueBets: "Value Bets detected", edgeDetected: "Edge detected", model: "Model", market: "Market", seeLess: "See less", seeReasoning: "See reasoning", disclaimer: "AI-generated analysis. Not betting advice. 18+. Gamble responsibly." },
   es: { title: "Analisis Experto", badge: "Claude IA", scorePredicted: "Marcador previsto", tacticalAnalysis: "Analisis tactico", valueBets: "Value Bets detectados", edgeDetected: "Edge detectado", model: "Modelo", market: "Mercado", seeLess: "Ver menos", seeReasoning: "Ver razonamiento", disclaimer: "Analisis generado por IA. No constituye consejo de apuestas. 18+. Juegue responsablemente." },
 };
 
+/**
+ * A value bet recommendation from AI analysis.
+ * 
+ * @param market - Bet market (e.g., "1X2", "Over/Under 2.5")
+ * @param selection - Specific selection (e.g., "Home Win", "Over 2.5")
+ * @param bookmakerOdds - Current bookmaker odds
+ * @param modelProbability - AI model probability (0-1 or 0-100)
+ * @param edge - Edge percentage (positive = value, negative = no value)
+ * @param confidence - Confidence score (0-5)
+ * @param reasoning - Explanation text
+ */
 interface ValueBet {
   market: string;
   selection: string;
@@ -18,6 +32,15 @@ interface ValueBet {
   reasoning: string;
 }
 
+/**
+ * Props for the AiExpertInsight component.
+ * 
+ * @param valueBets - Array of value bet recommendations
+ * @param matchAnalysis - AI-generated match analysis text (supports markdown with **bold**)
+ * @param scorePrediction - Predicted score (e.g., "2-0 (France domine)")
+ * @param keyInsight - One-sentence key insight (highlighted box)
+ * @param locale - UI language: "fr" | "en" | "es" (default: "fr")
+ */
 interface AiExpertInsightProps {
   valueBets: ValueBet[];
   matchAnalysis: string;
@@ -154,6 +177,38 @@ function renderMarkdown(text: string): React.ReactNode {
 
 // ─── Main Component ──────────────────────────────────────────────────────────
 
+/**
+ * AiExpertInsight component — Displays AI-generated match analysis with value bets.
+ * 
+ * Features:
+ * - Key insight highlight box
+ * - Score prediction with large display
+ * - Markdown-formatted tactical analysis
+ * - Value bet cards with confidence gauges and edge bars
+ * - Probability comparison charts
+ * - Collapsible reasoning texts
+ * 
+ * @example
+ * ```tsx
+ * <AiExpertInsight
+ *   keyInsight="La France domine largement sur le plan offensif."
+ *   scorePrediction="2-0 (France gagne)"
+ *   matchAnalysis="La France possède **60% de possession**. Le Brésil a des difficultés défensives."
+ *   valueBets={[
+ *     {
+ *       market: "1X2",
+ *       selection: "France Win",
+ *       bookmakerOdds: 2.1,
+ *       modelProbability: 0.55,
+ *       edge: 15.5,
+ *       confidence: 4,
+ *       reasoning: "Strong home advantage and recent form."
+ *     }
+ *   ]}
+ *   locale="fr"
+ * />
+ * ```
+ */
 export const AiExpertInsight = memo(function AiExpertInsight({ valueBets, matchAnalysis, scorePrediction, keyInsight, locale }: AiExpertInsightProps) {
   const t = translations[locale ?? "fr"];
 

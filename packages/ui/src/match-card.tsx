@@ -10,6 +10,28 @@ import Link from "next/link";
 
 type MatchStatus = "live" | "upcoming" | "finished";
 
+/**
+ * Props for the MatchCard component.
+ * 
+ * @param slug - URL slug for the match detail page (e.g., "france-bresil-2026-06-12")
+ * @param homeName - Home team name
+ * @param homeFlag - Home team flag emoji
+ * @param awayName - Away team name
+ * @param awayFlag - Away team flag emoji
+ * @param date - Match date in ISO format (YYYY-MM-DD)
+ * @param time - Optional match time (e.g., "21:00")
+ * @param group - Optional group letter (e.g., "A", "B")
+ * @param matchday - Optional matchday number
+ * @param stage - Optional stage label (e.g., "Quarts de finale")
+ * @param odds - Optional betting odds { home, draw, away }
+ * @param scoreHome - Home team score (shown if live or finished)
+ * @param scoreAway - Away team score (shown if live or finished)
+ * @param minute - Current minute (shown if status is "live")
+ * @param status - Match status: "live" | "upcoming" | "finished"
+ * @param isHot - Display a 🔥 Hot badge
+ * @param isTop - Display a ⭐ Top badge
+ * @param compact - Reduce padding for compact layouts
+ */
 interface MatchCardProps {
   slug: string;
   homeName: string;
@@ -52,6 +74,32 @@ function statusClass(status?: MatchStatus): string {
   }
 }
 
+/**
+ * MatchCard component — Displays a match preview with teams, scores, odds, and status.
+ * 
+ * Design follows CDM2026 Brand Book:
+ * - border-radius: 12px (--radius-lg)
+ * - border-left accent color: live=#FF6B35, upcoming=#f5a623, finished=#8a8a9a
+ * - Score displayed in JetBrains Mono 700
+ * - LIVE badge with pulsating dot animation
+ * 
+ * @example
+ * ```tsx
+ * <MatchCard
+ *   slug="france-bresil-2026-06-12"
+ *   homeName="France"
+ *   homeFlag="🇫🇷"
+ *   awayName="Brésil"
+ *   awayFlag="🇧🇷"
+ *   date="2026-06-12"
+ *   time="21:00"
+ *   group="A"
+ *   matchday={1}
+ *   status="upcoming"
+ *   odds={{ home: "2.10", draw: "3.20", away: "3.50" }}
+ * />
+ * ```
+ */
 export function MatchCard({
   slug,
   homeName,

@@ -16,6 +16,19 @@ const colorMap: Record<string, string> = {
 
 // ── StatBar simple (barre horizontale animée au scroll) ────────────────────
 
+/**
+ * Props for the StatBar component.
+ * 
+ * @param label - Stat label (e.g., "Possession")
+ * @param value - Stat value
+ * @param maxValue - Maximum value for percentage calculation (default: 100)
+ * @param color - Bar color theme
+ * @param showValue - Display numeric value (default: true)
+ * @param suffix - Optional suffix for value (e.g., "%", " km")
+ * @param size - Bar height: "sm" | "md" | "lg" (default: "md")
+ * @param layout - "default" (label + value above bar) or "inline" (stacked)
+ * @param animDelay - Animation delay in ms for cascading lists
+ */
 interface StatBarProps {
   label: string;
   value: number;
@@ -30,6 +43,21 @@ interface StatBarProps {
   animDelay?: number;
 }
 
+/**
+ * StatBar component — Animated horizontal progress bar with IntersectionObserver trigger.
+ * 
+ * @example
+ * ```tsx
+ * <StatBar
+ *   label="Possession"
+ *   value={65}
+ *   maxValue={100}
+ *   color="accent"
+ *   suffix="%"
+ *   size="md"
+ * />
+ * ```
+ */
 export function StatBar({
   label,
   value,
@@ -108,6 +136,16 @@ export function StatBar({
 
 // ── DuelStatBar : comparatif gauche/droite ─────────────────────────────────
 
+/**
+ * Props for the DuelStatBar component.
+ * 
+ * @param label - Stat label (e.g., "Shots on target")
+ * @param home - Home team value
+ * @param away - Away team value
+ * @param homeName - Optional home team name
+ * @param awayName - Optional away team name
+ * @param suffix - Optional suffix (e.g., "%")
+ */
 interface DuelStatBarProps {
   label: string;
   home: number;
@@ -117,6 +155,20 @@ interface DuelStatBarProps {
   suffix?: string;
 }
 
+/**
+ * DuelStatBar component — Bi-directional stat bar for head-to-head comparisons.
+ * 
+ * @example
+ * ```tsx
+ * <DuelStatBar
+ *   label="Tirs cadrés"
+ *   home={12}
+ *   away={8}
+ *   homeName="France"
+ *   awayName="Brésil"
+ * />
+ * ```
+ */
 export function DuelStatBar({
   label,
   home,

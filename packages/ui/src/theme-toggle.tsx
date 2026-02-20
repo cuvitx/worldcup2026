@@ -2,6 +2,17 @@
 
 import { useEffect, useState } from "react";
 
+/**
+ * ThemeToggle component — Dark/light mode toggle button.
+ * 
+ * Reads initial preference from localStorage or system preference.
+ * Toggles `.dark` class on `<html>` element for Tailwind dark mode.
+ * 
+ * @example
+ * ```tsx
+ * <ThemeToggle />
+ * ```
+ */
 export function ThemeToggle() {
   const [dark, setDark] = useState(false);
 

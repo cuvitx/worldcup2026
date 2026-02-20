@@ -1,9 +1,21 @@
+/**
+ * Translations for weather widget.
+ */
 const translations = {
   fr: { title: "Meteo du match", humidity: "Humidite", wind: "Vent" },
   en: { title: "Match weather", humidity: "Humidity", wind: "Wind" },
   es: { title: "Clima del partido", humidity: "Humedad", wind: "Viento" },
 };
 
+/**
+ * Props for the WeatherWidget component.
+ * 
+ * @param temperature - Temperature in Celsius
+ * @param condition - Weather condition (e.g., "Clear", "Rain", "Clouds")
+ * @param humidity - Humidity percentage
+ * @param windSpeed - Wind speed in km/h
+ * @param locale - UI language: "fr" | "en" | "es" (default: "fr")
+ */
 interface WeatherWidgetProps {
   temperature: number;
   condition: string;
@@ -12,6 +24,9 @@ interface WeatherWidgetProps {
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * Weather condition to emoji mapping.
+ */
 const conditionIcons: Record<string, string> = {
   Clear: "☀️",
   Clouds: "☁️",
@@ -24,6 +39,22 @@ const conditionIcons: Record<string, string> = {
   Haze: "🌫️",
 };
 
+/**
+ * WeatherWidget component — Displays match-day weather forecast.
+ * 
+ * Shows temperature, condition icon, humidity, and wind speed.
+ * 
+ * @example
+ * ```tsx
+ * <WeatherWidget
+ *   temperature={22}
+ *   condition="Clear"
+ *   humidity={65}
+ *   windSpeed={12}
+ *   locale="fr"
+ * />
+ * ```
+ */
 export function WeatherWidget({ temperature, condition, humidity, windSpeed, locale }: WeatherWidgetProps) {
   const t = translations[locale ?? "fr"];
   const icon = conditionIcons[condition] ?? "🌤️";

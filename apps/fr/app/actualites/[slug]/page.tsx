@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { newsArticles, newsBySlug, newsCategories, type NewsCategory } from "@repo/data/news";
 import { bookmakers } from "@repo/data/affiliates";
+import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 
 const categoryColors: Record<NewsCategory, string> = {
@@ -50,7 +51,7 @@ export default async function ArticlePage({ params }: Props) {
 
   const related = newsArticles
     .filter((a) => a.id !== article.id && a.category === article.category)
-    .slice(0, 3);
+    .slice(0, DISPLAY_LIMITS.RECENT_ARTICLES);
 
   const cta = bookmakers[0];
 

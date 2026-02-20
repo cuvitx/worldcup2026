@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+/**
+ * AuthorBox component — Displays author information and methodology link.
+ * 
+ * @example
+ * ```tsx
+ * <AuthorBox />
+ * ```
+ */
 export function AuthorBox() {
   return (
     <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">

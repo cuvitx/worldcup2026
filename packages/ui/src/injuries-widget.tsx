@@ -1,15 +1,34 @@
+/**
+ * Translations for injuries widget.
+ */
 const translations = {
   fr: { title: "Blessures & Absences", noInjuries: "Aucune blessure signalee", absent: "Absent" },
   en: { title: "Injuries & Absences", noInjuries: "No injuries reported", absent: "Out" },
   es: { title: "Lesiones & Ausencias", noInjuries: "Sin lesiones reportadas", absent: "Ausente" },
 };
 
+/**
+ * A player injury/absence record.
+ * 
+ * @param player - Player name
+ * @param reason - Injury reason (e.g., "Hamstring")
+ * @param type - Injury type (e.g., "Missing Fixture", "Questionable")
+ */
 interface Injury {
   player: string;
   reason: string;
   type: string;
 }
 
+/**
+ * Props for the InjuriesWidget component.
+ * 
+ * @param homeTeam - Home team name
+ * @param awayTeam - Away team name
+ * @param homeInjuries - Home team injuries
+ * @param awayInjuries - Away team injuries
+ * @param locale - UI language
+ */
 interface InjuriesWidgetProps {
   homeTeam: string;
   awayTeam: string;
@@ -18,6 +37,9 @@ interface InjuriesWidgetProps {
   locale?: "fr" | "en" | "es";
 }
 
+/**
+ * Injury type color mapping.
+ */
 const typeColors: Record<string, string> = {
   "Missing Fixture": "bg-red-100 text-red-700",
   "Questionable": "bg-yellow-100 text-yellow-700",
@@ -52,6 +74,25 @@ function InjuryList({ team, injuries, t }: { team: string; injuries: Injury[]; t
   );
 }
 
+/**
+ * InjuriesWidget component — Displays injuries and absences for both teams.
+ * 
+ * Shows color-coded badges for injury severity.
+ * Hides if no injuries.
+ * 
+ * @example
+ * ```tsx
+ * <InjuriesWidget
+ *   homeTeam="France"
+ *   awayTeam="Brésil"
+ *   homeInjuries={[
+ *     { player: "Benzema", reason: "Hamstring", type: "Missing Fixture" }
+ *   ]}
+ *   awayInjuries={[]}
+ *   locale="fr"
+ * />
+ * ```
+ */
 export function InjuriesWidget({ homeTeam, awayTeam, homeInjuries, awayInjuries, locale }: InjuriesWidgetProps) {
   const t = translations[locale ?? "fr"];
 

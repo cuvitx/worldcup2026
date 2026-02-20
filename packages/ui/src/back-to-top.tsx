@@ -2,6 +2,17 @@
 
 import { useEffect, useState } from "react";
 
+/**
+ * BackToTop component — Floating button to scroll back to page top.
+ * 
+ * Appears after scrolling down 400px.
+ * Smooth scroll animation on click.
+ * 
+ * @example
+ * ```tsx
+ * <BackToTop />
+ * ```
+ */
 export function BackToTop() {
   const [visible, setVisible] = useState(false);
 

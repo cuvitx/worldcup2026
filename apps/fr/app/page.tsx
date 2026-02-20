@@ -5,11 +5,13 @@ import { matches } from "@repo/data/matches";
 import { stadiums, stadiumsById } from "@repo/data/stadiums";
 import { getHomeAlternates } from "@repo/data/route-mapping";
 import { newsArticles } from "@repo/data/news";
+import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { Newsletter } from "@repo/ui/newsletter";
 import { SocialProof } from "@repo/ui/social-proof";
 import { StadiumCarousel } from "./components/StadiumCarousel";
 import { SectionHeading } from "@repo/ui/section-heading";
 import { FAQSection } from "@repo/ui/faq-section";
+import { getUpcomingMatches } from "@repo/utils";
 
 import { HeroSection } from "./components/home/HeroSection";
 import { UpcomingMatches } from "./components/home/UpcomingMatches";
@@ -89,20 +91,19 @@ const homepageJsonLd = [
    ══════════════════════════════════════════════════════════════════════════ */
 
 export default function HomePage() {
-  const upcomingMatches = matches
-    .filter((m) => new Date(`${m.date}T${m.time ?? "00:00"}Z`) >= new Date())
+  const upcomingMatches = getUpcomingMatches(matches)
     .sort(
       (a, b) =>
         new Date(`${a.date}T${a.time ?? "00:00"}Z`).getTime() -
         new Date(`${b.date}T${b.time ?? "00:00"}Z`).getTime()
     )
-    .slice(0, 3);
+    .slice(0, DISPLAY_LIMITS.UPCOMING_MATCHES_HOME);
 
   const topTeams = teams
     .filter((t) => t.fifaRanking > 0 && t.fifaRanking <= 5)
     .sort((a, b) => a.fifaRanking - b.fifaRanking);
 
-  const recentArticles = newsArticles.slice(0, 3);
+  const recentArticles = newsArticles.slice(0, DISPLAY_LIMITS.RECENT_ARTICLES);
 
   return (
     <>

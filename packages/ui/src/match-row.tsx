@@ -1,5 +1,18 @@
 import Link from "next/link";
 
+/**
+ * Props for the MatchRow component.
+ * 
+ * @param homeFlag - Home team flag emoji
+ * @param homeName - Home team name
+ * @param awayFlag - Away team flag emoji
+ * @param awayName - Away team name
+ * @param time - Match time (e.g., "21:00")
+ * @param group - Optional group label (e.g., "Groupe A")
+ * @param stadium - Optional stadium name
+ * @param href - Link URL for match detail page
+ * @param className - Additional CSS classes
+ */
 interface MatchRowProps {
   homeFlag: string;
   homeName: string;
@@ -12,6 +25,23 @@ interface MatchRowProps {
   className?: string;
 }
 
+/**
+ * MatchRow component — Compact horizontal match row for lists and calendars.
+ * 
+ * @example
+ * ```tsx
+ * <MatchRow
+ *   homeFlag="🇫🇷"
+ *   homeName="France"
+ *   awayFlag="🇧🇷"
+ *   awayName="Brésil"
+ *   time="21:00"
+ *   group="Groupe A"
+ *   stadium="Stade de France"
+ *   href="/match/france-bresil"
+ * />
+ * ```
+ */
 export function MatchRow({
   homeFlag,
   homeName,

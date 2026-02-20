@@ -86,10 +86,30 @@ for (const t of teams) {
   teamsById[t.id] = { name: t.name, flag: t.flag };
 }
 
+/**
+ * Props for the Search component.
+ * 
+ * @param lang - UI language: "fr" | "en" | "es"
+ */
 export interface SearchProps {
   lang: Lang;
 }
 
+/**
+ * Search component — Global search with fuzzy matching for teams, players, stadiums, and cities.
+ * 
+ * Features:
+ * - Fuzzy matching with accent normalization
+ * - Keyboard navigation (arrow keys, Enter, Escape)
+ * - Results ranked by match quality
+ * - Type-specific icons and badges
+ * - Responsive dropdown
+ * 
+ * @example
+ * ```tsx
+ * <Search lang="fr" />
+ * ```
+ */
 export function Search({ lang }: SearchProps) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);

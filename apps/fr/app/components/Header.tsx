@@ -3,9 +3,19 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { SearchDialog } from "@repo/ui/search-dialog";
+import dynamic from "next/dynamic";
 import { ThemeToggle } from "@repo/ui/theme-toggle";
 import { buildSearchIndex } from "@repo/data/search-index";
+
+const SearchDialog = dynamic(
+  () => import("@repo/ui/search-dialog").then((m) => ({ default: m.SearchDialog })),
+  {
+    loading: () => (
+      <div className="w-9 h-9 rounded-lg animate-pulse bg-white/10" aria-label="Chargement de la recherche" />
+    ),
+    ssr: false,
+  }
+);
 
 import { CURRENT_LANG, langOptions, getUrlForLang, type MenuKey } from "./NavLinks";
 import { DesktopNav } from "./DesktopNav";

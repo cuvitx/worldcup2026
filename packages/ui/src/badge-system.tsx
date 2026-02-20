@@ -17,7 +17,9 @@ import {
 export { BADGE_DEFS } from "./badges";
 export type { BadgeDef } from "./badges";
 
-// Legacy compat — keep ALL_BADGES shape
+/**
+ * Legacy badge interface for compatibility.
+ */
 export interface Badge {
   id: string;
   emoji: string;
@@ -26,6 +28,9 @@ export interface Badge {
   check: (stats: UserStats) => boolean;
 }
 
+/**
+ * User activity statistics tracked for badge unlocks.
+ */
 export interface UserStats {
   visitedPages: string[];
   votes: number;
@@ -85,6 +90,23 @@ function BadgeToast({ badge, onDone }: { badge: BadgeDef; onDone: () => void }) 
   );
 }
 
+/**
+ * BadgeSystem component — Gamification system that tracks user activity and unlocks badges.
+ * 
+ * Provides a React context with badge state and tracking methods.
+ * Automatically checks for unlocks and displays toast notifications.
+ * 
+ * @example
+ * ```tsx
+ * <BadgeSystem>
+ *   <App />
+ * </BadgeSystem>
+ * 
+ * // In child components:
+ * const badges = useBadges();
+ * badges.trackProno();
+ * ```
+ */
 export function BadgeSystem({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [stats, setStats] = useState<UserStats>({

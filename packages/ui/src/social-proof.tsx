@@ -2,6 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * A single social proof counter.
+ * 
+ * @param value - Target number
+ * @param label - Counter label
+ * @param emoji - Display emoji
+ */
 interface Counter {
   value: number;
   label: string;
@@ -47,6 +54,16 @@ function AnimatedCounter({ target, started }: { target: number; started: boolean
   return <span>{formatNumber(current)}</span>;
 }
 
+/**
+ * SocialProof component — Animated stats counters (teams, matches, quiz questions).
+ * 
+ * Triggers animation on scroll into view with ease-out timing.
+ * 
+ * @example
+ * ```tsx
+ * <SocialProof />
+ * ```
+ */
 export function SocialProof() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);

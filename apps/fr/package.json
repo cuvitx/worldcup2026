@@ -8,13 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@repo/ai": "*",
     "@repo/api": "*",
     "@repo/data": "*",
     "@repo/ui": "*",
+    "@repo/utils": "*",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/leaflet": "^1.9.21",
     "isomorphic-dompurify": "^2.36.0",
@@ -27,6 +29,8 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.1.6",
+    "@playwright/test": "^1.58.2",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/dompurify": "^3.0.5",

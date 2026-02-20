@@ -2,15 +2,43 @@ import Link from "next/link";
 import { BreadcrumbSchema } from "./breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 
+/**
+ * A single breadcrumb item.
+ * 
+ * @param label - Display text for the breadcrumb
+ * @param href - Optional link URL (omit for the current page)
+ */
 interface BreadcrumbItem {
   label: string;
   href?: string;
 }
 
+/**
+ * Props for the Breadcrumb component.
+ * 
+ * @param items - Array of breadcrumb items (first = homepage, last = current page)
+ */
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
 }
 
+/**
+ * Breadcrumb component — Navigation breadcrumb with JSON-LD schema.
+ * 
+ * Renders a horizontal breadcrumb trail with automatic schema.org BreadcrumbList markup.
+ * The last item is styled as current page (non-clickable).
+ * 
+ * @example
+ * ```tsx
+ * <Breadcrumb
+ *   items={[
+ *     { label: "Accueil", href: "/" },
+ *     { label: "Équipes", href: "/equipes" },
+ *     { label: "France" } // current page, no href
+ *   ]}
+ * />
+ * ```
+ */
 export function Breadcrumb({ items }: BreadcrumbProps) {
   // Convert items to BreadcrumbSchema format
   const schemaItems = items.map((item) => ({
