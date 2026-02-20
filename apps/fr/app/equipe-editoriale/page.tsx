@@ -51,6 +51,7 @@ export default function EquipeEditorialePage() {
     <>
       <PersonSchema />
       <BreadcrumbSchema
+        baseUrl="https://cdm2026.fr"
         items={[
           { name: "Accueil", url: "https://cdm2026.fr" },
           { name: "À propos de l'auteur", url: "https://cdm2026.fr/equipe-editoriale" },

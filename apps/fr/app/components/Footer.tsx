@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Newsletter } from "@repo/ui/newsletter";
 import { ANJBanner } from "@repo/ui/anj-banner";
+import { ContextualFooter } from "./ContextualFooter";
 
 const groups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
 
@@ -62,6 +63,7 @@ const columns = [
 export function Footer() {
   return (
     <footer className="text-gray-300 pb-24 sm:pb-0">
+      <ContextualFooter />
       <ANJBanner />
       <div className="hero-animated">
       {/* Top accent line */}
