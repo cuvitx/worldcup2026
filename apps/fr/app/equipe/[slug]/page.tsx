@@ -11,6 +11,7 @@ import { matches } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { getISOCode } from "@repo/data/country-codes";
+import { teamContent } from "@repo/data/team-content";
 
 import { PremiumHero } from "./_components/PremiumHero";
 import { PremiumProbabilityBanner } from "./_components/PremiumProbabilityBanner";
@@ -18,6 +19,9 @@ import { PremiumMatchCalendar } from "./_components/PremiumMatchCalendar";
 import { PremiumSquad } from "./_components/PremiumSquad";
 import { PremiumHistory } from "./_components/PremiumHistory";
 import { PremiumFAQ, generateFAQSchema } from "./_components/PremiumFAQ";
+import { PremiumPronostic } from "./_components/PremiumPronostic";
+import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
+import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
 import { PremiumFinalCTA } from "./_components/PremiumFinalCTA";
 
 export const revalidate = 3600;
@@ -67,6 +71,7 @@ export default async function TeamPage({ params }: PageProps) {
 
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;
+  const content = teamContent[team.slug];
 
   const sportsTeamJsonLd = {
     "@context": "https://schema.org",
@@ -142,8 +147,17 @@ export default async function TeamPage({ params }: PageProps) {
         />
       )}
 
+      {/* Pronostic & Odds */}
+      <PremiumPronostic team={team} prediction={prediction} content={content} />
+
       {/* History */}
       <PremiumHistory team={team} />
+
+      {/* Anecdotes */}
+      <PremiumAnecdotes team={team} content={content} />
+
+      {/* Match Pronostic Links */}
+      <PremiumMatchPronosticLinks team={team} teamMatches={teamMatches} />
 
       {/* FAQ Section */}
       <PremiumFAQ 

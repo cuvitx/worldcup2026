@@ -8,6 +8,7 @@
     "./types": "./src/types.ts",
     "./teams": "./src/teams.ts",
     "./team-colors": "./src/team-colors.ts",
+    "./team-content": "./src/team-content.ts",
     "./groups": "./src/groups.ts",
     "./matches": "./src/matches.ts",
     "./stadiums": "./src/stadiums.ts",
