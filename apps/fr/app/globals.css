@@ -370,7 +370,7 @@ textarea:focus-visible {
    ============================================================ */
 
 .hero-animated {
-  background: linear-gradient(-45deg, #060D18, #080E1A, #0d2b4e, #060D18, #1a2e4e);
+  background: linear-gradient(-45deg, #0A1628, #0D1F35, #0d2b4e, #0A1628, #1a2e4e);
   background-size: 300% 300%;
   animation: hero-gradient 12s ease infinite;
   /* All .hero-animated elements use the same animation name+duration,
