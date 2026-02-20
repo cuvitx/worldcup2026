@@ -19,13 +19,7 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
     : undefined;
 
   return (
-    <section className="relative py-16 md:py-24 text-white overflow-clip">
-      {/* Flag gradient background */}
-      {flagGradient && (
-        <div className="absolute inset-0" style={{ background: flagGradient }} />
-      )}
-      {/* Dark overlay using team's dominant color */}
-      <div className="absolute inset-0" style={{ backgroundColor: colors ? `${colors[0]}cc` : 'var(--color-primary)', opacity: colors ? undefined : 0.75 }} />
+    <section className="hero-animated relative py-16 md:py-24 text-white overflow-clip">
       
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8">
