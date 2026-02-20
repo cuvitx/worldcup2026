@@ -9,6 +9,7 @@ import { TableOfContents } from "@repo/ui";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
+import { BookmakerCTA } from "../components/BookmakerCTA";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -194,6 +195,7 @@ export default function ParisSportifsPage() {
         ]} />
       </div>
 
+      <BookmakerCTA />
       <FAQSection title="Questions sur les paris sportifs CDM 2026" items={faqItems} />
 </>
   );

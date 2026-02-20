@@ -12,6 +12,7 @@ import { StickyCTA } from "./components/StickyCTA";
 import { BadgeSystem } from "@repo/ui/badge-system";
 import { BottomNav } from "./components/BottomNav";
 import { NewsletterPopup } from "@repo/ui/newsletter-popup";
+import { ContextualFooter } from "./components/ContextualFooter";
 import "./globals.css";
 
 /* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
@@ -120,6 +121,7 @@ export default function RootLayout({
         <LiveScoreBarWrapper />
         <LiveTicker />
         <main id="main-content" className="flex-1">{children}</main>
+        <ContextualFooter />
         <Footer />
         <BackToTop />
         <StickyCTA />

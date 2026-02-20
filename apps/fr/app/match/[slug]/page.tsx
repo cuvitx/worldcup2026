@@ -20,6 +20,8 @@ import {
   MatchSidebar,
   SameDayMatches,
 } from "./_components";
+import { ContextualSidebar } from "../../components/ContextualSidebar";
+import { MatchContextBar } from "../../components/MatchContextBar";
 
 const AiExpertInsight = dynamic(
   () => import("@repo/ui/ai-expert-insight").then((m) => ({ default: m.AiExpertInsight })),
@@ -323,6 +325,9 @@ export default async function MatchPage({ params }: PageProps) {
         }}
       />
 
+      {/* Contextual navigation */}
+      <MatchContextBar matchSlug={match.slug} />
+      <ContextualSidebar />
     </>
   );
 }

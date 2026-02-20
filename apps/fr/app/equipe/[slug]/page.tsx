@@ -23,6 +23,8 @@ import { PremiumPronostic } from "./_components/PremiumPronostic";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
 import { PremiumFinalCTA } from "./_components/PremiumFinalCTA";
+import { ContextualSidebar } from "../../components/ContextualSidebar";
+import { TeamQuickNav } from "../../components/TeamQuickNav";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -221,6 +223,10 @@ export default async function TeamPage({ params }: PageProps) {
 
       {/* Newsletter */}
       <Newsletter variant="banner" />
+
+      {/* Quick Nav & Sidebar */}
+      <TeamQuickNav teamSlug={team.slug} />
+      <ContextualSidebar />
 
       {/* Final CTA */}
       <PremiumFinalCTA team={team} />
