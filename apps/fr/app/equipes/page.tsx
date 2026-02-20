@@ -66,7 +66,7 @@ export default function TeamsPage() {
                         <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary min-w-0">
                           <span className="text-lg shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                           <span className="font-medium text-gray-900 dark:text-white truncate">{team.name}</span>
-                          {team.isHost && <span className="text-xs text-amber-500 dark:text-amber-400 font-semibold">(Hôte)</span>}
+                          {team.isHost && <span className="text-xs text-accent font-semibold">(Hôte)</span>}
                         </Link>
                       </td>
                       <td className="py-3 text-gray-500 dark:text-gray-300 hidden sm:table-cell">{team.confederation}</td>
@@ -75,7 +75,7 @@ export default function TeamsPage() {
                       </td>
                       <td className="py-3 text-right hidden sm:table-cell">
                         {pred ? (
-                          <span className="font-bold text-amber-500 dark:text-amber-400">
+                          <span className="font-bold text-accent">
                             {pred.winnerProb >= 0.01
                               ? `${(pred.winnerProb * 100).toFixed(1)}%`
                               : `${(pred.winnerProb * 100).toFixed(2)}%`}
