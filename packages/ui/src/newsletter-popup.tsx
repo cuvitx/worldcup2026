@@ -116,7 +116,8 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4"
+      style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)' }}
       onClick={(e) => { if (e.target === e.currentTarget) dismiss(); }}
       role="dialog"
       aria-modal="true"
@@ -144,7 +145,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
         ) : (
           <>
             <div className="text-center mb-5">
-              <span className="text-4xl block mb-2">📬</span>
+              <span className="text-4xl block mb-2"></span>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-black">
                 Ne manquez rien de la CDM 2026
               </h3>
@@ -169,7 +170,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
                 disabled={status === "loading"}
                 className="w-full rounded-lg bg-accent py-3 text-sm font-bold text-white shadow-md shadow-accent/30 hover:bg-accent/80 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
-                {status === "loading" ? "⏳ Inscription..." : "📧 Je m'abonne gratuitement"}
+                {status === "loading" ? "Inscription..." : "Je m'abonne gratuitement"}
               </button>
             </form>
 
@@ -180,7 +181,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
             )}
 
             <p className="mt-3 text-center text-[10px] text-gray-400 dark:text-gray-400">
-              Désinscription en 1 clic · Pas de spam, promis 🤞
+              Désinscription en 1 clic · Pas de spam, promis 
             </p>
           </>
         )}
