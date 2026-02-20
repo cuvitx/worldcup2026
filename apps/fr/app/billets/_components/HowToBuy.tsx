@@ -35,7 +35,7 @@ export function HowToBuy() {
   ];
 
   return (
-    <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+    <section id="comment-acheter" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           🛒 Comment acheter sur FIFA.com — Guide étape par étape

@@ -10,6 +10,7 @@ import {
   RecordsGrid,
   FunFactsSection,
 } from "./_components";
+import { TableOfContents } from "@repo/ui";
 import {
   topScorers,
   titledCountries,
@@ -156,7 +157,8 @@ export default function StatistiquesPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
+        <div className="space-y-16">
         {/* Top buteurs */}
         <TopScorersSection topScorers={topScorers} />
 
@@ -165,7 +167,7 @@ export default function StatistiquesPage() {
 
         {/* Buts par édition */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+          <h2 id="buts-edition" className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
              Buts marqués par édition (1930–2022)
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
@@ -254,6 +256,14 @@ export default function StatistiquesPage() {
             </Link>
           </div>
         </section>
+        </div>
+        <TableOfContents items={[
+          { id: "top-buteurs", label: "Top buteurs", level: 2 },
+          { id: "pays-titres", label: "Pays titrés", level: 2 },
+          { id: "buts-edition", label: "Buts par édition", level: 2 },
+          { id: "records", label: "Records", level: 2 },
+          { id: "fun-facts", label: "Fun facts", level: 2 },
+        ]} />
       </div>
 
       <FAQSection title="❓ Questions sur les statistiques de la CDM" items={faqItems} />

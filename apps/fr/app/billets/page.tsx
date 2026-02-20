@@ -11,6 +11,7 @@ import { SalePhasesSection } from "./_components/SalePhasesSection";
 import { TicketCategoriesSection } from "./_components/TicketCategoriesSection";
 import { AntiScamSection } from "./_components/AntiScamSection";
 import { BilletsFinalCTA } from "./_components/BilletsFinalCTA";
+import { BilletsToc } from "./_components/BilletsToc";
 
 export const metadata: Metadata = {
   title: "Billets CDM 2026 — Prix, dates et comment acheter | Coupe du Monde",
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function BilletsPage() {
   return (
     <>
+      <BilletsToc />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

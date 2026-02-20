@@ -15,7 +15,7 @@ export function TopScorersSection({ topScorers }: TopScorersSectionProps) {
   const maxGoals = Math.max(...topScorers.map((s) => s.goals));
 
   return (
-    <section>
+    <section id="top-buteurs">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
          Top buteurs all-time
       </h2>

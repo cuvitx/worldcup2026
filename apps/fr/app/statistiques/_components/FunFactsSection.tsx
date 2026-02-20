@@ -9,7 +9,7 @@ interface FunFactsSectionProps {
 
 export function FunFactsSection({ funFacts }: FunFactsSectionProps) {
   return (
-    <section>
+    <section id="fun-facts">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
          Saviez-vous que…
       </h2>

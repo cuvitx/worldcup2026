@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Analyse tactique France CDM 2026 — Système de jeu, forces et faiblesses",
@@ -35,6 +37,7 @@ export default function AnalyseTactiqueFrance() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="mx-auto max-w-4xl px-4 py-10">
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Actualités","url":"/actualites"},{"name":"Analyse tactique France","url":"/actualites/analyse-tactique-france"}]} baseUrl={domains.fr} />
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">

@@ -17,7 +17,7 @@ interface TVScheduleSectionProps {
 
 export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
   return (
-    <section className="mb-14">
+    <section id="programme-tv" className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
          Programme TV — Matchs clés en France
       </h2>

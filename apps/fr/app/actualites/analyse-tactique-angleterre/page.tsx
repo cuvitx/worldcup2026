@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Analyse tactique Angleterre CDM 2026 — Potentiel vs déception historique",
@@ -32,6 +33,13 @@ export default function AnalyseTactiqueAngleterre() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Actualités", href: "/actualites" },
+          { label: "Analyse tactique Angleterre" },
+        ]}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mx-auto max-w-4xl px-4 py-10">
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">

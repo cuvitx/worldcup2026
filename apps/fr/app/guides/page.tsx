@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Guides paris sportifs CDM 2026 | Strategies & conseils",
@@ -57,6 +58,12 @@ export default function GuidesPage() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Guides" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guidesJsonLd) }}

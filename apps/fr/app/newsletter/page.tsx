@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsletterForm } from './NewsletterForm';
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: 'Newsletter CDM 2026 — Recevez le programme chaque semaine',
@@ -103,6 +104,12 @@ const stats = [
 export default function NewsletterPage() {
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Newsletter" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(newsletterJsonLd) }}

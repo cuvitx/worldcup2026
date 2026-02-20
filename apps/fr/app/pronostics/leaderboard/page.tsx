@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { LeaderboardClient } from "./LeaderboardClient";
 
 export const metadata: Metadata = {
@@ -25,5 +26,16 @@ export const metadata: Metadata = {
 };
 
 export default function LeaderboardPage() {
-  return <LeaderboardClient />;
+  return (
+    <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Pronostics", href: "/pronostic" },
+          { label: "Classement" },
+        ]}
+      />
+      <LeaderboardClient />
+    </>
+  );
 }

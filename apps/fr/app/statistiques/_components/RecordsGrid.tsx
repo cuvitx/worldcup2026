@@ -13,7 +13,7 @@ interface RecordsGridProps {
 
 export function RecordsGrid({ records }: RecordsGridProps) {
   return (
-    <section>
+    <section id="records">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
          Records historiques
       </h2>

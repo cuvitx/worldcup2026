@@ -15,7 +15,7 @@ interface TVFranceSectionProps {
 
 export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
   return (
-    <section className="mb-14">
+    <section id="tv-france" className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
         🇫🇷 Droits TV en France — Détail par chaîne
       </h2>

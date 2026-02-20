@@ -4,6 +4,7 @@ import { getTodaysMatches, getNextMatch } from "@repo/data/tournament-state";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const revalidate = 300; // 5 minutes
 
@@ -20,6 +21,13 @@ export default function AujourdhuiPage() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Calendrier", href: "/match/calendrier" },
+          { label: "Matchs du jour" },
+        ]}
+      />
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">

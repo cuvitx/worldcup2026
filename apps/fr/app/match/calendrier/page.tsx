@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 const CalendarFilters = dynamic(() => import("./CalendarFilters"), {
   loading: () => (
@@ -86,6 +87,12 @@ export default function CalendrierPage() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Calendrier des matchs" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

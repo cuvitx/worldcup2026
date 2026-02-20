@@ -10,6 +10,7 @@ import { TVScheduleSection } from "./TVScheduleSection";
 import { TimeZoneSection } from "./TimeZoneSection";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { TableOfContents } from "@repo/ui";
 
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
@@ -177,7 +178,8 @@ export default function OuRegarderPage() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12" id="main-content">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8" id="main-content">
+        <div>
         <TVFranceSection tvFranceDetailed={tvFranceDetailed} />
         <StreamingFranceSection gratuit={streamingFrance.gratuit} payant={streamingFrance.payant} />
         <FrancophoneTVSection tvByCountryFrancophone={tvByCountryFrancophone} />
@@ -185,7 +187,7 @@ export default function OuRegarderPage() {
 
         {/* VPN Section */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 id="vpn" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             🌐 Comment regarder depuis l&apos;étranger (VPN)
           </h2>
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
@@ -225,7 +227,7 @@ export default function OuRegarderPage() {
 
         {/* Fan Zones */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4"> Bars & Fan Zones</h2>
+          <h2 id="fan-zones" className="text-2xl font-bold text-gray-900 dark:text-white mb-4"> Bars & Fan Zones</h2>
           <div className="bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
             <div className="flex items-start gap-4">
               <div className="text-4xl"></div>
@@ -268,6 +270,18 @@ export default function OuRegarderPage() {
             </Link>
           </div>
         </div>
+        </div>
+        <TableOfContents items={[
+          { id: "tv-france", label: "TV en France", level: 2 },
+          { id: "streaming-france", label: "Streaming France", level: 2 },
+          { id: "tv-francophone", label: "Belgique, Suisse, Canada", level: 2 },
+          { id: "diffuseurs-internationaux", label: "International", level: 2 },
+          { id: "vpn", label: "VPN & étranger", level: 2 },
+          { id: "programme-tv", label: "Programme TV", level: 2 },
+          { id: "decalage-horaire", label: "Décalage horaire", level: 2 },
+          { id: "horaires-types", label: "Horaires types", level: 2 },
+          { id: "fan-zones", label: "Bars & Fan Zones", level: 2 },
+        ]} />
       </main>
     </>
   );

@@ -21,7 +21,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
   return (
     <>
       {/* Décalage horaire */}
-      <section className="mb-14">
+      <section id="decalage-horaire" className="mb-14">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
           🕐 Décalage horaire — Villes hôtes → France
         </h2>
@@ -54,7 +54,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
       </section>
 
       {/* Horaires types */}
-      <section className="mb-14">
+      <section id="horaires-types" className="mb-14">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
           <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Horaires types des matchs (EDT → France CEST)
         </h2>

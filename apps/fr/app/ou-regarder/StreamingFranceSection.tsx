@@ -12,7 +12,7 @@ interface StreamingFranceSectionProps {
 
 export function StreamingFranceSection({ gratuit, payant }: StreamingFranceSectionProps) {
   return (
-    <section className="mb-14">
+    <section id="streaming-france" className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
          Streaming en France — Gratuit vs Payant
       </h2>

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { newsArticles, newsCategories, type NewsCategory } from "@repo/data/news";
+import { getAllArticles } from "../../lib/mdx";
 
 export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
@@ -86,6 +89,7 @@ export default function ActualitesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
       />
+      <BreadcrumbSchema items={[{ name: "Accueil", url: "/" }, { name: "Actualités", url: "/actualites" }]} baseUrl={domains.fr} />
       {/* Breadcrumb */}
       <nav aria-label="Fil d'Ariane" className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
@@ -166,6 +170,44 @@ export default function ActualitesPage() {
           </Link>
         ))}
       </div>
+      {/* MDX Articles */}
+      {(() => {
+        const mdxArticles = getAllArticles();
+        if (mdxArticles.length === 0) return null;
+        return (
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">📝 Analyses &amp; Articles</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {mdxArticles.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/actualites/${article.slug}`}
+                  className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 dark:border-gray-700 dark:bg-slate-800"
+                >
+                  {article.imageEmoji && <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>}
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary">
+                      {article.category}
+                    </span>
+                    <time className="text-xs text-gray-500 dark:text-gray-300" dateTime={article.date}>
+                      {formatDate(article.date)}
+                    </time>
+                    {article.readingTime && (
+                      <span className="text-xs text-gray-400">{article.readingTime} min</span>
+                    )}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white transition-colors line-clamp-2 mb-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
+                    {article.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
       </div>
 
       <FAQSection title="Questions fréquentes sur la CDM 2026" items={faqItems} />

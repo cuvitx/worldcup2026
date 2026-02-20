@@ -255,7 +255,7 @@ export default async function MatchPage({ params }: PageProps) {
             description: `${home?.name ?? "TBD"} contre ${away?.name ?? "TBD"}, ${stage} de la Coupe du Monde FIFA 2026.`,
             eventStatus: "https://schema.org/EventScheduled",
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-            startDate: `${match.date}T${match.time}:00Z`,
+            startDate: `${match.date}T${match.time || "00:00"}:00-04:00`,
             location: stadium
               ? {
                   "@type": "StadiumOrArena",

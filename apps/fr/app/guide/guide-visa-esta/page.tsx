@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TableOfContents } from "@repo/ui";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Visa ESTA pour les USA — Tout savoir pour la CDM 2026",
@@ -64,10 +66,18 @@ export default function GuideVisaEsta() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Guides", href: "/guides" },
+          { label: "Guide Visa & ESTA" },
+        ]}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <div className="mx-auto max-w-4xl px-4 py-10">
+      <div className="mx-auto max-w-5xl px-4 py-10 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
+        <div>
         <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
@@ -92,7 +102,7 @@ export default function GuideVisaEsta() {
             La majorité des matchs de la Coupe du Monde 2026 se joueront aux États-Unis. Pour les ressortissants français et européens, l&apos;ESTA est le document indispensable. Voici tout ce qu&apos;il faut savoir.
           </p>
 
-          <h2>Qu&apos;est-ce que l&apos;ESTA ?</h2>
+          <h2 id="esta-definition">Qu&apos;est-ce que l&apos;ESTA ?</h2>
           <p>
             L&apos;ESTA (Electronic System for Travel Authorization) est une <strong>autorisation électronique de voyage</strong> obligatoire pour entrer aux États-Unis sans visa. Elle concerne les ressortissants des 41 pays participants au Programme d&apos;Exemption de Visa (Visa Waiver Program), dont la France, la Belgique, la Suisse et la plupart des pays européens.
           </p>
@@ -100,7 +110,7 @@ export default function GuideVisaEsta() {
             L&apos;ESTA permet un séjour de <strong>90 jours maximum</strong> pour le tourisme ou les affaires. Elle est valable <strong>2 ans</strong> ou jusqu&apos;à expiration du passeport (la date la plus proche).
           </p>
 
-          <h2>Comment faire sa demande ESTA ?</h2>
+          <h2 id="demande-esta">Comment faire sa demande ESTA ?</h2>
           <h3>Étape 1 : Préparer les documents</h3>
           <p>
             Vous aurez besoin de votre <strong>passeport biométrique ou électronique</strong> en cours de validité, d&apos;une adresse e-mail, d&apos;une carte bancaire pour le paiement et de vos coordonnées d&apos;hébergement aux USA (hôtel ou adresse d&apos;un proche).
@@ -116,7 +126,7 @@ export default function GuideVisaEsta() {
             Le coût est de <strong>21 USD</strong> (environ 19 €). La réponse est généralement <strong>immédiate</strong>, mais peut prendre jusqu&apos;à 72 heures. Trois réponses possibles : Autorisation approuvée, Voyage non autorisé, ou Autorisation en attente.
           </p>
 
-          <h2>Délais et timing recommandés</h2>
+          <h2 id="delais">Délais et timing recommandés</h2>
           <p>
             En période de Coupe du Monde, le volume de demandes ESTA va exploser. Nous recommandons de faire votre demande <strong>au minimum 3 mois avant votre départ</strong>. Si vous avez déjà un ESTA valide, vérifiez sa date d&apos;expiration dès maintenant.
           </p>
@@ -128,7 +138,7 @@ export default function GuideVisaEsta() {
             </p>
           </div>
 
-          <h2>Et pour le Mexique et le Canada ?</h2>
+          <h2 id="mexique-canada">Et pour le Mexique et le Canada ?</h2>
           <h3>Mexique</h3>
           <p>
             Bonne nouvelle pour les Français : <strong>aucun visa n&apos;est nécessaire</strong> pour un séjour touristique de moins de 180 jours au Mexique. Un passeport valide suffit. Vous recevrez un formulaire migratoire (FMM) à votre arrivée. Les matchs auront lieu à Mexico (Estadio Azteca), Guadalajara et Monterrey.
@@ -139,7 +149,7 @@ export default function GuideVisaEsta() {
             Pour le Canada, les ressortissants français ont besoin d&apos;une <strong>AVE (Autorisation de Voyage Électronique)</strong>, l&apos;équivalent canadien de l&apos;ESTA. Le coût est de 7 CAD (environ 5 €), et la demande se fait en ligne sur le site officiel du gouvernement canadien. Les matchs canadiens se joueront à Toronto et Vancouver.
           </p>
 
-          <h2>Conseils pratiques pour les supporters</h2>
+          <h2 id="conseils">Conseils pratiques pour les supporters</h2>
           <ul>
             <li><strong>Passeport valide 6 mois après la date de retour</strong> : vérifiez dès maintenant la validité de votre passeport</li>
             <li><strong>Assurance voyage</strong> : indispensable aux USA où les frais médicaux sont exorbitants. Budget 50-100 € pour la durée du séjour</li>
@@ -147,7 +157,7 @@ export default function GuideVisaEsta() {
             <li><strong>Douanes</strong> : déclarez tout ce qui doit l&apos;être. Les contrôles à l&apos;entrée aux USA sont stricts</li>
           </ul>
 
-          <h2>FAQ — Visa ESTA CDM 2026</h2>
+          <h2 id="faq">FAQ — Visa ESTA CDM 2026</h2>
 
           <h3>Puis-je entrer aux USA avec un passeport périmé et un ESTA valide ?</h3>
           <p>Non. Votre passeport doit être valide pendant toute la durée de votre séjour, et idéalement 6 mois après votre date de retour.</p>
@@ -183,6 +193,15 @@ export default function GuideVisaEsta() {
             </Link>
           </div>
         </div>
+        </div>
+        <TableOfContents items={[
+          { id: "esta-definition", label: "Qu'est-ce que l'ESTA ?", level: 2 },
+          { id: "demande-esta", label: "Faire sa demande", level: 2 },
+          { id: "delais", label: "Délais recommandés", level: 2 },
+          { id: "mexique-canada", label: "Mexique & Canada", level: 2 },
+          { id: "conseils", label: "Conseils pratiques", level: 2 },
+          { id: "faq", label: "FAQ", level: 2 },
+        ]} />
       </div>
     </>
   );

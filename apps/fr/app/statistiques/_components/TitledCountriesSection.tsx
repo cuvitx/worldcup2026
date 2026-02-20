@@ -24,7 +24,7 @@ export function TitledCountriesSection({
   const maxTitles = Math.max(...titledCountries.map((c) => c.titles));
 
   return (
-    <section>
+    <section id="pays-titres">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
          Pays les plus titrés
       </h2>

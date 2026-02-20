@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
+import { TableOfContents } from "@repo/ui";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -57,6 +59,12 @@ export default function ParisSportifsPage() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Paris sportifs" },
+        ]}
+      />
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
@@ -76,10 +84,11 @@ export default function ParisSportifsPage() {
         </div>
       </section>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
+        <div className="space-y-10">
         {/* Bookmaker Reviews */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Meilleurs sites de paris sportifs 2026</h2>
+          <h2 id="bookmakers" className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Meilleurs sites de paris sportifs 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
             Nos avis détaillés sur les {bookmakerReviews.length} bookmakers agréés en France pour parier sur la CDM 2026.
           </p>
@@ -145,7 +154,7 @@ export default function ParisSportifsPage() {
           if (!catGuides || catGuides.length === 0) return null;
           return (
             <section key={cat} className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{categoryLabels[cat]}</h2>
+              <h2 id={`guide-${cat}`} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{categoryLabels[cat]}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
                   <Link
@@ -165,7 +174,7 @@ export default function ParisSportifsPage() {
 
         {/* Cross-links */}
         <section className="rounded-xl bg-primary/5 border border-primary/10 p-6 sm:p-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Voir aussi</h2>
+          <h2 id="voir-aussi" className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/buteurs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs CDM 2026
@@ -181,6 +190,15 @@ export default function ParisSportifsPage() {
             </Link>
           </div>
         </section>
+        </div>
+        <TableOfContents items={[
+          { id: "bookmakers", label: "Meilleurs bookmakers", level: 2 },
+          { id: "guide-cdm2026", label: "CDM 2026", level: 2 },
+          { id: "guide-stratégie", label: "Stratégies", level: 2 },
+          { id: "guide-bookmaker", label: "Bookmakers", level: 2 },
+          { id: "guide-debutant", label: "Débutant", level: 2 },
+          { id: "voir-aussi", label: "Voir aussi", level: 2 },
+        ]} />
       </div>
 
       <FAQSection title="Questions sur les paris sportifs CDM 2026" items={faqItems} />

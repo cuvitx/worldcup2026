@@ -7,6 +7,7 @@ import { domains } from "@repo/data/route-mapping";
 import type { CdmEdition } from "./EditionCard";
 import { Timeline } from "./Timeline";
 import { Section2026 } from "./Section2026";
+import { TableOfContents } from "@repo/ui";
 
 export const metadata: Metadata = {
   title: "Histoire de la Coupe du Monde - Timeline 1930 à 2026 | CDM 2026",
@@ -139,10 +140,11 @@ export default function HistoirePage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
+        <div>
         {/* Intro */}
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 id="timeline" className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Une timeline de légendes
           </h2>
           <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">
@@ -179,6 +181,10 @@ export default function HistoirePage() {
             </Link>
           ))}
         </div>
+        </div>
+        <TableOfContents items={[
+          { id: "timeline", label: "Timeline des éditions", level: 2 },
+        ]} />
       </div>
 
       <FAQSection title="❓ Questions sur l'histoire de la CDM" items={faqItems} />

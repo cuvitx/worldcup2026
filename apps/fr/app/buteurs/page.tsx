@@ -9,6 +9,7 @@ import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
 const historicalScorers = [
@@ -78,6 +79,12 @@ export default function ButeursPage() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Buteurs" },
+        ]}
+      />
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">

@@ -24,7 +24,7 @@ export function MatchStructuredData({
     "@type": "SportsEvent",
     name: `${homeName} vs ${awayName} - Coupe du Monde 2026`,
     eventStatus: "https://schema.org/EventScheduled",
-    startDate: `${match.date}T${match.time}:00Z`,
+    startDate: `${match.date}T${match.time || "00:00"}:00-04:00`,
     location: stadium
       ? {
           "@type": "StadiumOrArena",
@@ -38,6 +38,7 @@ export function MatchStructuredData({
       : undefined,
     homeTeam: home ? { "@type": "SportsTeam", name: home.name } : undefined,
     awayTeam: away ? { "@type": "SportsTeam", name: away.name } : undefined,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     sport: "Football",
     description: `Pronostic et cotes pour ${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026.`,
   };

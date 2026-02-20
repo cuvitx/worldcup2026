@@ -12,7 +12,7 @@ interface InternationalBroadcastersProps {
 
 export function InternationalBroadcasters({ internationalBroadcasters }: InternationalBroadcastersProps) {
   return (
-    <section className="mb-14">
+    <section id="diffuseurs-internationaux" className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
          Diffuseurs internationaux
       </h2>

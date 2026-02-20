@@ -6,6 +6,7 @@ import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teamsById } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Les 12 groupes de la Coupe du Monde 2026 | Classement & Pronostics",
@@ -44,6 +45,12 @@ export default function GroupsPage() {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Groupes" },
+        ]}
+      />
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">

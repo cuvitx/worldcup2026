@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
@@ -40,6 +41,14 @@ export default function CalendrierImprimerPage() {
   const sortedDates = [...matchesByDate.keys()].sort();
 
   return (
+    <>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Calendrier", href: "/match/calendrier" },
+          { label: "Calendrier imprimable" },
+        ]}
+      />
     <div className="print-calendar mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
       <style>{`
         @media print {
@@ -118,5 +127,6 @@ export default function CalendrierImprimerPage() {
         );
       })}
     </div>
+    </>
   );
 }
