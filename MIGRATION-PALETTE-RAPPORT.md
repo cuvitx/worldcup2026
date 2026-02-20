@@ -1,15 +1,15 @@
-# 🎨 Rapport Migration Palette CDM2026
+# 🎨 Rapport Migration Palette + Polices CDM2026
 
 **Date:** 20 février 2026  
 **Agent:** Emma (Design & UX)  
-**Mission:** Migration complète de la palette de couleurs du site CDM2026
+**Mission:** Migration complète de la palette de couleurs ET des polices du site CDM2026
 
 ---
 
 ## ✅ RÉSUMÉ EXÉCUTIF
 
-**Statut:** ✅ MIGRATION COMPLÈTE  
-**Fichiers modifiés:** 57 fichiers  
+**Statut:** ✅ MIGRATION COMPLÈTE (Palette + Polices)  
+**Fichiers modifiés:** 59 fichiers (57 palette + 2 polices)  
 **TypeScript check:** ✅ PASSED (exit code 0)  
 
 ### Nouvelle Palette (validée par Xavier)
@@ -207,5 +207,49 @@
 
 ---
 
-**Rapport généré le:** 20/02/2026 11:20 CET  
+---
+
+## 🔤 MIGRATION POLICES (AJOUT)
+
+### Changements typographiques
+
+**Avant :**
+- Titres (h1, h2, h3) : Space Grotesk (400, 500, 600, 700)
+- Corps : Inter (400, 500, 600, 700, 800)
+
+**Après :**
+- Titres (h1, h2, h3, h4) : **Oswald** (400, 500, 600, 700) 🆕
+- Corps : **Inter** (400, 500, 600, 700, 800) ✅ (inchangé)
+
+### Fichiers modifiés
+
+✅ **apps/fr/app/layout.tsx** (4 modifications)
+- Import : `Space_Grotesk` → `Oswald`
+- Config : `spaceGrotesk` → `oswald` avec variable `--font-oswald`
+- Application : `${spaceGrotesk.variable}` → `${oswald.variable}`
+
+✅ **apps/fr/app/globals.css** (6 modifications)
+- Variable @theme : `"Space Grotesk"` → `"Oswald"`
+- Variable :root : `--font-space-grotesk` → `--font-oswald`
+- Sélecteur titres : `h1, h2, h3` → `h1, h2, h3, h4`
+- Commentaires : mise à jour "Oswald pour les titres — Bold & Impact"
+
+### Impact visuel
+
+- **Style Oswald :** Bold, condensé, grande lisibilité, impact fort
+- **Meilleure hiérarchie :** Les titres se distinguent mieux du corps (Inter)
+- **Performance :** Self-hosting via next/font/google, preload automatique
+
+### TypeScript check
+
+```bash
+cd apps/fr && npx tsc --noEmit
+# ✅ Exit code 0 (PASSED)
+```
+
+Voir détails complets dans **MIGRATION-POLICES.md**
+
+---
+
+**Rapport généré le:** 20/02/2026 11:30 CET  
 **Par:** Emma 🎨 (subagent Design & UX)
