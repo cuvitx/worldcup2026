@@ -274,8 +274,18 @@ export default async function GuideSupporterPage({ params }: PageProps) {
     { question: `Combien de matchs se jouent à ${city.name} ?`, answer: `${cityMatches.length} matchs de la Coupe du Monde 2026 se joueront à ${city.name}.` },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TravelAction",
+    name: `Guide supporter ${city.name} — CDM 2026`,
+    description: `Guide complet pour les supporters à ${city.name} pendant la Coupe du Monde 2026.`,
+    url: `https://cdm2026.fr/guide-supporter/${slug}`,
+    location: { "@type": "Place", name: city.name, address: { "@type": "PostalAddress", addressCountry: city.country } },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
 
       {/* Hero */}

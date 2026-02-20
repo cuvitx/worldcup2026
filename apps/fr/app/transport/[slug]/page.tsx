@@ -83,8 +83,22 @@ export default async function TransportPage({ params }: PageProps) {
     { question: `Faut-il louer une voiture à ${city.name} ?`, answer: transport.carRental },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    name: `Transports à ${city.name} — CDM 2026`,
+    description: `Guide transports à ${city.name} pour la Coupe du Monde 2026.`,
+    url: `https://cdm2026.fr/transport/${slug}`,
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
 
       {/* Hero */}

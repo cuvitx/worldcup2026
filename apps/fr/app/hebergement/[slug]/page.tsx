@@ -78,8 +78,18 @@ export default async function HebergementPage({ params }: PageProps) {
     { question: `Quel quartier choisir à ${city.name} ?`, answer: `Cela dépend de vos priorités : proximité du stade, vie nocturne, budget. Consultez notre guide des quartiers ci-dessus pour trouver l'option idéale.` },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: `Hébergement à ${city.name} — Coupe du Monde 2026`,
+    description: `Où dormir à ${city.name} pendant la Coupe du Monde 2026 ? Hôtels, Airbnb, quartiers recommandés et fourchettes de prix.`,
+    url: `https://cdm2026.fr/hebergement/${slug}`,
+    touristType: "Sports fan",
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
 
       {/* Hero */}

@@ -78,8 +78,22 @@ export default async function MeteoPage({ params }: PageProps) {
     { question: "La météo influence-t-elle les résultats de foot ?", answer: "Oui ! La chaleur, l'humidité et l'altitude affectent les performances physiques. Les études montrent que les matchs par forte chaleur produisent en moyenne moins de buts." },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    name: `Météo à ${city.name} en juin-juillet 2026`,
+    description: `Prévisions météo à ${city.name} pour la Coupe du Monde 2026.`,
+    url: `https://cdm2026.fr/meteo/${slug}`,
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
 
       {/* Hero */}
