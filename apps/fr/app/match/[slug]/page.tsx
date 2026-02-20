@@ -14,6 +14,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import {
+import { ANJBanner } from "@repo/ui/anj-banner";
   MatchHeroAdaptive,
   TeamComparison,
   PredictionCard,
@@ -288,11 +289,7 @@ export default async function MatchPage({ params }: PageProps) {
         }}
       />
 
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques :
-        endettement, isolement, dépendance. Pour être aidé, appelez le{" "}
-        <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
     </>
   );
 }

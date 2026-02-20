@@ -17,6 +17,7 @@ import { getFlagPath, getISOCode } from "@repo/data/country-codes";
 import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
 import { TeamMainContent } from "./_components/TeamMainContent";
 import { TeamSidebar } from "./_components/TeamSidebar";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -109,7 +110,7 @@ export default async function TeamPage({ params }: PageProps) {
               {team.isHost && (
                 <span className="inline-block rounded-full bg-secondary/20 px-3 py-1 text-sm font-medium text-secondary">Pays hôte</span>
               )}
-              <Link href={`/pronostic/${team.slug}`} className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90">
+              <Link href={`/pronostic/${team.slug}`} className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/80">
                 Voir le pronostic &rarr;
               </Link>
             </div>
@@ -174,10 +175,7 @@ export default async function TeamPage({ params }: PageProps) {
           }),
         }}
       />
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
     </>
   );
 }

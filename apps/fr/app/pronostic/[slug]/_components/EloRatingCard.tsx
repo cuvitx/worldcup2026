@@ -15,10 +15,13 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
         <p className="text-3xl font-extrabold text-primary sm:text-5xl">{eloRating}</p>
         <p className="text-sm text-gray-500 pb-1">points ELO</p>
       </div>
-      <div className="relative h-4 rounded-full bg-gray-200 overflow-hidden">
+      <div className="relative h-4 rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
         <div
-          className="absolute inset-y-0 left-0 rounded-full bg-primary"
-          style={{ width: `${eloPercent}%` }}
+          className="absolute inset-y-0 left-0 rounded-full"
+          style={{
+            width: `${eloPercent}%`,
+            background: `linear-gradient(90deg, #0D3B66 0%, #00B865 100%)`,
+          }}
         />
       </div>
       <div className="mt-1 flex justify-between text-xs text-gray-500">

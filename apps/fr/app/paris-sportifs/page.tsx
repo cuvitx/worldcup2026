@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -154,10 +155,7 @@ export default function ParisSportifsPage() {
           </div>
         </section>
       </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
 </>
   );
 }

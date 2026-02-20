@@ -114,7 +114,7 @@ export default async function GuidePage({ params }: PageProps) {
                       href={featuredBookmaker.url}
                       target="_blank"
                       rel="noopener noreferrer sponsored nofollow"
-                      className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+                      className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
                     >
                       Voir l&apos;offre →
                     </a>
@@ -252,7 +252,7 @@ export default async function GuidePage({ params }: PageProps) {
                   href={featuredBookmaker.url}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
-                  className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+                  className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
                 >
                   {featuredBookmaker.bonus} sur {featuredBookmaker.name}
                 </a>

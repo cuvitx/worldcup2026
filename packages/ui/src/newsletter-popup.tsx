@@ -167,7 +167,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full rounded-lg bg-accent py-3 text-sm font-bold text-white shadow-md shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
+                className="w-full rounded-lg bg-accent py-3 text-sm font-bold text-white shadow-md shadow-accent/30 hover:bg-accent/80 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
                 {status === "loading" ? "⏳ Inscription..." : "📧 Je m'abonne gratuitement"}
               </button>

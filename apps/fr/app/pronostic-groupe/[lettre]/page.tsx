@@ -17,6 +17,7 @@ import { ForceAnalysis } from "./_components/ForceAnalysis";
 import { GroupCalendar } from "./_components/GroupCalendar";
 import { QualificationOdds } from "./_components/QualificationOdds";
 import { GroupSidebar } from "./_components/GroupSidebar";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -150,10 +151,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
           }),
         }}
       />
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
     </>
   );
 }

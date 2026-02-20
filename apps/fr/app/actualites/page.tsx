@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { newsArticles, newsCategories, type NewsCategory } from "@repo/data/news";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
@@ -143,10 +144,7 @@ export default function ActualitesPage() {
         ))}
       </div>
       </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
 </div>
   );
 }

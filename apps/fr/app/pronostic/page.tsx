@@ -7,6 +7,7 @@ import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { matches } from "@repo/data/matches";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const metadata: Metadata = {
   title: "Pronostics CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
@@ -150,7 +151,7 @@ export default function PronosticHubPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 text-sm">
-            <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-primary/90 transition-all">
+            <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
               🏆 Pronostic vainqueur
             </a>
             <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">
@@ -242,7 +243,7 @@ export default function PronosticHubPage() {
           <div className="text-center">
             <Link
               href="/pronostic-vainqueur"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-8 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
               🎯 Voir le pronostic vainqueur complet (Top 10 + dark horses)
             </Link>
@@ -485,10 +486,7 @@ export default function PronosticHubPage() {
           </p>
         </div>
       </section>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
 </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) => ({ default: mod.PlayerComparator })), {
   loading: () => (
@@ -71,15 +72,12 @@ export default function ComparateurJoueursPage() {
           <p className="text-sm text-white/70 mb-4">Comparez les cotes et profitez des meilleurs bonus.</p>
           <a
             href="/comparateur-cotes"
-            className="inline-block rounded-xl bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90"
+            className="inline-block rounded-xl bg-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-accent/80"
           >
             Voir le comparateur de cotes &rarr;
           </a>
           <p className="mt-3 text-xs text-white/80">18+. Pariez responsablement.</p>
-          <p className="text-xs text-white/80 mt-2">
-            🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-            Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-          </p>
+          <ANJBanner />
         </div>
       </section>
     </>

@@ -264,7 +264,7 @@ export function Newsletter({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-primary/90 transition-all hover:-translate-y-0.5 shadow-md shadow-primary/20 disabled:opacity-60 disabled:cursor-wait"
+            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/80 transition-all hover:-translate-y-0.5 shadow-md shadow-accent/20 disabled:opacity-60 disabled:cursor-wait"
           >
             {status === "loading" ? "⏳" : "OK"}
           </button>
@@ -283,14 +283,14 @@ export function Newsletter({
     >
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="flex-1 text-center md:text-left">
+          <div className="flex-shrink-0 text-center md:text-left md:max-w-xs lg:max-w-sm">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
               <span className="text-2xl">📧</span>
               <span className="text-xs font-bold uppercase tracking-widest text-secondary">
                 {l.title}
               </span>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">{l.bannerTitle}</h2>
+            <h2 className="text-xl font-bold text-white mb-2">{l.bannerTitle}</h2>
             <p className="text-sm text-gray-300 leading-relaxed">{l.bannerSubtitle}</p>
             <div className="mt-3 flex flex-wrap gap-3 justify-center md:justify-start">
               {[`✅ ${l.free}`, `🚫 ${l.noSpam}`, `📅 ${l.weekly}`].map((tag) => (
@@ -301,7 +301,7 @@ export function Newsletter({
             </div>
           </div>
 
-          <div className="w-full md:w-auto md:min-w-[360px]">
+          <div className="w-full md:flex-1 md:min-w-[320px]">
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
@@ -311,16 +311,16 @@ export function Newsletter({
                 aria-label={l.placeholder}
                 required
                 disabled={status === "loading"}
-                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
+                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-accent/50 disabled:opacity-60 ${
                   status === "error" || status === "duplicate"
                     ? "border-red-400/50"
-                    : "border-white/20 focus:border-primary/20"
+                    : "border-white/20 focus:border-accent/30"
                 }`}
               />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
+                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/80 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
                 {status === "loading" ? "⏳" : l.bannerButton}
               </button>

@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -225,7 +226,7 @@ export default async function GroupPage({ params }: PageProps) {
               </p>
               <Link
                 href={`/pronostic-groupe/${lettre}`}
-                className="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/80 transition-colors"
               >
                 Voir le pronostic Groupe {group.letter} &rarr;
               </Link>
@@ -250,10 +251,7 @@ export default async function GroupPage({ params }: PageProps) {
           }),
         }}
       />
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
 </>
   );
 }

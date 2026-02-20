@@ -106,7 +106,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className={`shrink-0 rounded-lg bg-primary font-bold text-white shadow-md shadow-primary/30 transition-all hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-wait ${
+          className={`shrink-0 rounded-lg bg-accent font-bold text-white shadow-md shadow-accent/30 transition-all hover:bg-accent/80 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-wait ${
             compact ? 'px-4 py-2 text-sm' : 'px-6 py-3 text-base'
           }`}
         >

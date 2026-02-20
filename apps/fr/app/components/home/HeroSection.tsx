@@ -1,57 +1,45 @@
 import Link from "next/link";
-import { Countdown } from "@repo/ui/countdown";
+import { HeroCountdown } from "./HeroCountdown";
 import { EVENT_DATES } from "@repo/data/constants";
 
 export function HeroSection() {
   return (
-    <section className="hero-animated relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden text-white">
-      {/* Background — stade fantôme */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
-        style={{ backgroundImage: "url('/images/stadiums/metlife-stadium.jpg')" }}
-      />
-
-      {/* Orbs décoratifs */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-amber-400/10 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-amber-400/10 rounded-full blur-[100px] pointer-events-none z-0" />
-
+    <section className="hero-animated relative min-h-[90vh] flex flex-col items-center justify-center text-white">
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 text-center pt-16 sm:pt-20">
         {/* Badge event */}
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
             Coupe du Monde 2026 · {EVENT_DATES.RANGE_FR.replace(" 2026", "")}
           </span>
         </div>
 
-        {/* Headline principale */}
+        {/* Drapeaux pays hôtes */}
+        <div className="mb-6 flex items-center justify-center gap-4 text-4xl sm:text-5xl">
+          <span title="États-Unis">🇺🇸</span>
+          <span title="Mexique">🇲🇽</span>
+          <span title="Canada">🇨🇦</span>
+        </div>
+
+        {/* Headline */}
         <h1 className="mb-4 text-4xl font-black tracking-tight leading-none sm:text-5xl md:text-6xl lg:text-7xl">
-          <span
-            className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Chaque match.
+          <span className="block text-white" style={{ letterSpacing: "-0.02em" }}>
+            Coupe du Monde 2026
           </span>
-          <span
-            className="block bg-gradient-to-r from-amber-400 via-amber-300/80 to-amber-400 bg-clip-text text-transparent"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Chaque pari.
-          </span>
-          <span
-            className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Chaque champion.
+          <span className="block text-secondary mt-2" style={{ letterSpacing: "-0.02em" }}>
+            Le guide ultime du Mondial
           </span>
         </h1>
 
-        <p className="mx-auto mb-10 max-w-xl text-base text-gray-200 leading-relaxed sm:text-lg">
-          Pronostics d&apos;experts · Cotes live · Analyses exclusives
+        <p className="mx-auto mb-10 max-w-xl text-base text-gray-300 leading-relaxed sm:text-lg">
+          Pronostics, analyses et cotes pour les{" "}
+          <span className="font-semibold text-white">104 matchs</span> —{" "}
+          <span className="font-semibold text-white">48 équipes</span> —{" "}
+          <span className="font-semibold text-white">16 stades</span>
           <br />
-          <span className="text-sm text-gray-300">
-            🇺🇸 États-Unis · 🇨🇦 Canada · 🇲🇽 Mexique — 48 équipes · 104 matchs
+          <span className="text-sm text-gray-400">
+            Du 11 juin au 19 juillet 2026
           </span>
         </p>
 
@@ -59,7 +47,7 @@ export function HeroSection() {
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           <Link
             href="/pronostic-vainqueur"
-            className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-emerald-600 px-8 py-4 text-sm font-bold text-white shadow-lg shadow-emerald-600/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-700 w-full sm:w-auto"
+            className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white shadow-lg shadow-accent/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/80 w-full sm:w-auto"
           >
             <span className="text-base">🎯</span>
             Mes pronostics
@@ -75,12 +63,12 @@ export function HeroSection() {
           </Link>
         </div>
 
-        {/* Countdown intégré dans le hero */}
-        <Countdown />
+        {/* Countdown glassmorphism */}
+        <HeroCountdown />
       </div>
 
       {/* Arrow scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/80 text-xl">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/40 text-xl">
         ↓
       </div>
     </section>

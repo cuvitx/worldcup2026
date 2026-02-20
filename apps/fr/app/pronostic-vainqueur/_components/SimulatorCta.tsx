@@ -26,7 +26,7 @@ export function SimulatorCta() {
         <div className="flex flex-wrap justify-center gap-3">
           <Link
             href="/simulateur"
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white shadow-lg shadow-secondary/30 hover:shadow-xl hover:-translate-y-1 transition-all text-base"
+            className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3.5 font-bold text-white shadow-lg shadow-accent/30 hover:shadow-xl hover:-translate-y-1 transition-all text-base"
           >
             🎮 Lancer le simulateur bracket
           </Link>

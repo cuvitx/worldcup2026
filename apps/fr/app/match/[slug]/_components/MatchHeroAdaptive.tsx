@@ -79,63 +79,67 @@ export function MatchHeroAdaptive({
   }
 
   return (
-    <section className="hero-animated text-white py-12 sm:py-16">
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-2 text-center text-xs text-secondary font-medium uppercase tracking-wide">
-          {stage}
-          {match.group ? ` - Groupe ${match.group}` : ""}
-        </p>
-        <div className="flex items-center justify-center gap-3 sm:gap-6">
-          <div className="flex items-center gap-2 min-w-0">
-            <span
-              className="text-2xl sm:text-4xl shrink-0"
-              role="img"
-              aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}
-            >
+    <section className="hero-animated text-white py-14 sm:py-20">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
+        {/* Badge pill */}
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
+          <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+          <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+            {stage}
+            {match.group ? ` — Groupe ${match.group}` : ""}
+          </span>
+        </div>
+
+        {/* Teams face-off */}
+        <div className="flex items-center justify-center gap-6 sm:gap-12 mb-6">
+          {/* Home */}
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>
               {home?.flag ?? "🏳️"}
             </span>
-            <div className="min-w-0">
-              {home ? (
-                <Link
-                  href={`/equipe/${home.slug}`}
-                  className="text-sm sm:text-2xl font-extrabold hover:text-secondary break-words block"
-                >
-                  {home.name}
-                </Link>
-              ) : (
-                <p className="text-sm sm:text-2xl font-extrabold">TBD</p>
-              )}
-              {home && <p className="text-xs text-gray-200">#{home.fifaRanking} FIFA</p>}
-            </div>
+            {home ? (
+              <Link href={`/equipe/${home.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary transition-colors">
+                {home.name}
+              </Link>
+            ) : (
+              <p className="text-lg sm:text-2xl font-extrabold">À déterminer</p>
+            )}
+            {home && (
+              <span className="inline-block rounded-full bg-white/10 px-3 py-0.5 text-xs text-gray-300">
+                #{home.fifaRanking} FIFA
+              </span>
+            )}
           </div>
-          <span className="text-xl sm:text-2xl font-bold text-secondary shrink-0">VS</span>
-          <div className="flex items-center gap-2 min-w-0">
-            <div className="min-w-0 text-right">
-              {away ? (
-                <Link
-                  href={`/equipe/${away.slug}`}
-                  className="text-sm sm:text-2xl font-extrabold hover:text-secondary break-words block"
-                >
-                  {away.name}
-                </Link>
-              ) : (
-                <p className="text-sm sm:text-2xl font-extrabold">TBD</p>
-              )}
-              {away && <p className="text-xs text-gray-200">#{away.fifaRanking} FIFA</p>}
-            </div>
-            <span
-              className="text-2xl sm:text-4xl shrink-0"
-              role="img"
-              aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}
-            >
+
+          {/* VS */}
+          <span className="text-2xl sm:text-3xl font-black text-secondary">VS</span>
+
+          {/* Away */}
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>
               {away?.flag ?? "🏳️"}
             </span>
+            {away ? (
+              <Link href={`/equipe/${away.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary transition-colors">
+                {away.name}
+              </Link>
+            ) : (
+              <p className="text-lg sm:text-2xl font-extrabold">À déterminer</p>
+            )}
+            {away && (
+              <span className="inline-block rounded-full bg-white/10 px-3 py-0.5 text-xs text-gray-300">
+                #{away.fifaRanking} FIFA
+              </span>
+            )}
           </div>
         </div>
-        <p className="mt-2 text-center text-sm text-gray-200">
-          {match.time} UTC · {dateFormatted}
-          {stadium ? ` · ${stadium.name}` : ""}
-        </p>
+
+        {/* Match info */}
+        <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300">
+          <span>📅 {dateFormatted}</span>
+          {stadium && <span>📍 {stadium.name}{stadium.city ? `, ${stadium.city}` : ""}</span>}
+          {stadium?.capacity && <span>🏟️ {stadium.capacity.toLocaleString("fr-FR")} places</span>}
+        </div>
       </div>
     </section>
   );

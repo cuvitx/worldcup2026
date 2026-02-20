@@ -278,7 +278,7 @@ export default async function ButeurPage({ params }: PageProps) {
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
-                            isFeatured ? "bg-emerald-600 hover:bg-emerald-700" : "bg-primary hover:bg-primary/90"
+                            isFeatured ? "bg-accent hover:bg-accent/80" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
                           Parier
@@ -386,7 +386,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center rounded-lg bg-emerald-600 py-3 text-sm font-bold text-white hover:bg-emerald-700 transition-colors"
+                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>

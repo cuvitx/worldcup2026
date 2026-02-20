@@ -8,6 +8,7 @@ import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
 const historicalScorers = [
@@ -416,7 +417,7 @@ export default function ButeursPage() {
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
               >
                 {bk.bonus} sur {bk.name}
               </a>
@@ -436,10 +437,7 @@ export default function ButeursPage() {
           ]}
         />
       </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques : endettement, isolement, dépendance.
-        Pour être aidé, appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-      </p>
+      <ANJBanner />
 </>
   );
 }

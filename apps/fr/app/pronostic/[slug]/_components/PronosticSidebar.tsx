@@ -77,7 +77,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
         ) : (
           <p className="text-sm text-gray-500 mb-4">Les pronostics seront disponibles prochainement.</p>
         )}
-        <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors">{featuredBookmaker.bonus} sur {featuredBookmaker.name}</a>
+        <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors">{featuredBookmaker.bonus} sur {featuredBookmaker.name}</a>
         <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>
       </div>
     </div>

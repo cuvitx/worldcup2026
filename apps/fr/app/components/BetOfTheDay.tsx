@@ -139,7 +139,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
           href={display.bookmakerUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
-          className="block w-full text-center rounded-lg bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-primary/90 transition-colors"
+          className="block w-full text-center rounded-lg bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-accent/80 transition-colors"
         >
           Parier sur {display.bookmaker} →
         </a>
@@ -221,7 +221,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             href={display.bookmakerUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="flex-1 min-w-[140px] flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-red-600 px-5 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm"
+            className="flex-1 min-w-[140px] flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm"
           >
             Parier sur {display.bookmaker}
             <span className="text-secondary font-extrabold">{display.odds}</span>
