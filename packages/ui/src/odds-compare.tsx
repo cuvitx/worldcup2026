@@ -76,13 +76,13 @@ export function OddsCompare({ odds, homeTeam, awayTeam, locale }: OddsComparePro
             {odds.slice(0, 5).map((o) => (
               <tr key={o.bookmaker}>
                 <td className="py-2 font-medium text-gray-700 dark:text-gray-200">{o.bookmaker}</td>
-                <td className={`py-2 text-center font-mono ${o.home === bestHome ? "font-bold text-green-600" : "text-gray-600 dark:text-gray-300"}`}>
+                <td className={`py-2 text-center font-mono ${o.home === bestHome ? "font-bold text-accent" : "text-gray-600 dark:text-gray-300"}`}>
                   {o.home.toFixed(2)}
                 </td>
-                <td className={`py-2 text-center font-mono ${o.draw === bestDraw ? "font-bold text-green-600" : "text-gray-600 dark:text-gray-300"}`}>
+                <td className={`py-2 text-center font-mono ${o.draw === bestDraw ? "font-bold text-accent" : "text-gray-600 dark:text-gray-300"}`}>
                   {o.draw.toFixed(2)}
                 </td>
-                <td className={`py-2 text-center font-mono ${o.away === bestAway ? "font-bold text-green-600" : "text-gray-600 dark:text-gray-300"}`}>
+                <td className={`py-2 text-center font-mono ${o.away === bestAway ? "font-bold text-accent" : "text-gray-600 dark:text-gray-300"}`}>
                   {o.away.toFixed(2)}
                 </td>
               </tr>
@@ -99,19 +99,19 @@ export function OddsCompare({ odds, homeTeam, awayTeam, locale }: OddsComparePro
             <div className="grid grid-cols-3 gap-2 text-center">
               <div>
                 <div className="text-[10px] text-gray-500 dark:text-gray-400">{homeTeam}</div>
-                <div className={`font-mono text-sm ${o.home === bestHome ? "font-bold text-green-600" : "text-gray-600 dark:text-gray-300"}`}>
+                <div className={`font-mono text-sm ${o.home === bestHome ? "font-bold text-accent" : "text-gray-600 dark:text-gray-300"}`}>
                   {o.home.toFixed(2)}
                 </div>
               </div>
               <div>
                 <div className="text-[10px] text-gray-500 dark:text-gray-400">{t.draw}</div>
-                <div className={`font-mono text-sm ${o.draw === bestDraw ? "font-bold text-green-600" : "text-gray-600 dark:text-gray-300"}`}>
+                <div className={`font-mono text-sm ${o.draw === bestDraw ? "font-bold text-accent" : "text-gray-600 dark:text-gray-300"}`}>
                   {o.draw.toFixed(2)}
                 </div>
               </div>
               <div>
                 <div className="text-[10px] text-gray-500 dark:text-gray-400">{awayTeam}</div>
-                <div className={`font-mono text-sm ${o.away === bestAway ? "font-bold text-green-600" : "text-gray-600 dark:text-gray-300"}`}>
+                <div className={`font-mono text-sm ${o.away === bestAway ? "font-bold text-accent" : "text-gray-600 dark:text-gray-300"}`}>
                   {o.away.toFixed(2)}
                 </div>
               </div>

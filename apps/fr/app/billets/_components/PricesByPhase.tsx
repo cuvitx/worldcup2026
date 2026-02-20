@@ -33,7 +33,7 @@ export function PricesByPhase() {
                   : phase.color === "orange"
                   ? "bg-gradient-to-r from-orange-700/80 to-orange-600/80 text-white"
                   : phase.color === "green"
-                  ? "bg-gradient-to-r from-green-800/80 to-green-700/80 text-white"
+                  ? "bg-accent text-white"
                   : "bg-gradient-to-r from-blue-800/80 to-blue-700/80 text-white"
               }`}>
                 <span className="text-2xl">{phaseIcons[phase.icon] ?? phase.icon}</span>

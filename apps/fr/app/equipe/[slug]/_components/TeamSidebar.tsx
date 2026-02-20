@@ -35,7 +35,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
           italy: ["V", "V", "N", "D", "V"],
         };
         const form = mockForms[team.slug] ?? ["V", "N", "D", "V", "N"];
-        const colors: Record<string, string> = { V: "bg-green-500", N: "bg-gray-400", D: "bg-red-500" };
+        const colors: Record<string, string> = { V: "bg-accent", N: "bg-gray-400", D: "bg-red-500" };
         const labels: Record<string, string> = { V: "Victoire", N: "Nul", D: "Défaite" };
         return (
           <Card hover padding="md">
@@ -83,7 +83,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
                 {standings.map((row, idx) => (
                   <tr key={row.team.id} className={`border-b border-gray-100 dark:border-gray-800 ${row.team.id === team.id ? "bg-primary/5 font-bold" : ""}`}>
                     <td className="py-2">
-                      <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" : "bg-gray-100 text-gray-500 dark:bg-slate-800"}`}>{idx + 1}</span>
+                      <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent" : "bg-gray-100 text-gray-500 dark:bg-slate-800"}`}>{idx + 1}</span>
                     </td>
                     <td className="py-2">
                       <Link href={`/equipe/${row.team.slug}`} className="hover:text-primary flex items-center gap-1">
@@ -92,14 +92,14 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
                     </td>
                     <td className="py-2 text-center font-bold">{row.pts}</td>
                     <td className="py-2 text-center">
-                      <span className={row.gd > 0 ? "text-green-600" : row.gd < 0 ? "text-red-500" : "text-gray-500"}>{row.gd > 0 ? "+" : ""}{row.gd}</span>
+                      <span className={row.gd > 0 ? "text-accent" : row.gd < 0 ? "text-red-500" : "text-gray-500"}>{row.gd > 0 ? "+" : ""}{row.gd}</span>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table></div>
             <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
-              <span className="inline-block h-2 w-2 rounded-full bg-green-500" />Qualifié (top 2)
+              <span className="inline-block h-2 w-2 rounded-full bg-accent" />Qualifié (top 2)
             </div>
             <p className="mt-1 text-xs text-gray-500">Classement simulé (pré-tournoi)</p>
           </Card>
@@ -128,7 +128,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
               <p className="text-sm text-gray-500 mb-1">5 derniers matchs</p>
               <div className="flex gap-1">
                 {enriched?.form.split("").map((r, i) => (
-                  <span key={i} className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${r === "W" ? "bg-green-500" : r === "D" ? "bg-yellow-500" : r === "L" ? "bg-red-500" : "bg-gray-300"}`}>
+                  <span key={i} className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${r === "W" ? "bg-accent" : r === "D" ? "bg-yellow-500" : r === "L" ? "bg-red-500" : "bg-gray-300"}`}>
                     {r === "W" ? "V" : r === "D" ? "N" : r === "L" ? "D" : r}
                   </span>
                 ))}

@@ -3,7 +3,7 @@ export function ConfettiParticles() {
     id: i,
     left: `${Math.random() * 100}%`,
     delay: `${Math.random() * 0.8}s`,
-    color: ["var(--color-accent)", "var(--color-gold)", "#06D6A0", "var(--color-primary)", "#EF476F"][
+    color: ["var(--color-accent)", "var(--color-gold)", "var(--color-accent)", "var(--color-primary)", "#EF476F"][
       Math.floor(Math.random() * 5)
     ], // CTA vert, or, success, primary, error
     size: `${6 + Math.random() * 8}px`,

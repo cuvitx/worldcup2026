@@ -379,7 +379,7 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
                     key={s.teamId}
                     className={`transition-colors ${
                       isQualified
-                        ? "bg-green-50 hover:bg-green-100"
+                        ? "bg-accent/5 hover:bg-accent/10"
                         : "hover:bg-gray-50"
                     }`}
                   >
@@ -387,7 +387,7 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
                       <span
                         className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-xs font-bold ${
                           isQualified
-                            ? "bg-green-500 text-white"
+                            ? "bg-accent text-white"
                             : "bg-gray-200 text-gray-600"
                         }`}
                       >
@@ -397,11 +397,11 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
                     <td className="py-2.5">
                       <div className="flex items-center gap-2">
                         <span className="text-base">{s.flag}</span>
-                        <span className={`font-medium ${isQualified ? "text-green-800" : "text-gray-700"}`}>
+                        <span className={`font-medium ${isQualified ? "text-accent" : "text-gray-700"}`}>
                           {s.name}
                         </span>
                         {isQualified && (
-                          <span className="hidden sm:inline-block rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-bold text-green-700 uppercase tracking-wide">
+                          <span className="hidden sm:inline-block rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-bold text-accent uppercase tracking-wide">
                             {t.qualified}
                           </span>
                         )}
@@ -417,7 +417,7 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
                       <span
                         className={`font-medium ${
                           s.goalDifference > 0
-                            ? "text-green-600"
+                            ? "text-accent"
                             : s.goalDifference < 0
                               ? "text-red-600"
                               : "text-gray-500"
@@ -428,7 +428,7 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
                       </span>
                     </td>
                     <td className="py-2.5 text-center">
-                      <span className={`text-base font-extrabold ${isQualified ? "text-green-700" : "text-gray-800"}`}>
+                      <span className={`text-base font-extrabold ${isQualified ? "text-accent" : "text-gray-800"}`}>
                         {s.points}
                       </span>
                     </td>

@@ -32,14 +32,14 @@ interface AiMatchPreviewProps {
 function CheckIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-      <circle cx="7" cy="7" r="7" fill="#16a34a" opacity="0.15" />
-      <path d="M4 7l2 2 4-4" stroke="#16a34a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="7" cy="7" r="7" fill="#00B865" opacity="0.15" />
+      <path d="M4 7l2 2 4-4" stroke="#00B865" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function FactorIcon({ index }: { index: number }) {
-  const colors = ["#2563eb", "#d97706", "#dc2626", "#059669"];
+  const colors = ["#2563eb", "#d97706", "#dc2626", "#00B865"];
   const color = colors[index % colors.length] ?? "#6b7280";
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -93,7 +93,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{t.title}</h2>
         </div>
         {grounded && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-green-50 dark:bg-green-900/30 px-2.5 py-1 text-xs font-medium text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800">
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent/5 dark:bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent dark:text-accent border border-accent/20 dark:border-accent/30">
             <CheckIcon />
             {t.verified}
           </span>

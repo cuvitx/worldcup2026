@@ -185,8 +185,8 @@ export default function GlossairePage() {
         <div className="space-y-10">
           {letters.map((letter, li) => {
             const borderColors = [
-              "border-l-blue-500", "border-l-green-500", "border-l-purple-500",
-              "border-l-amber-500", "border-l-red-500", "border-l-teal-500",
+              "border-l-blue-500", "border-l-accent", "border-l-purple-500",
+              "border-l-amber-500", "border-l-red-500", "border-l-accent",
               "border-l-pink-500", "border-l-indigo-500", "border-l-orange-500",
               "border-l-cyan-500",
             ];

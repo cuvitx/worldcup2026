@@ -58,7 +58,7 @@ function ConfidenceGauge({ value, size = 48 }: { value: number; size?: number })
   const radius = (size - 6) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference * (1 - percentage);
-  const color = clamped >= 4 ? "#16a34a" : clamped >= 3 ? "#d97706" : "#dc2626";
+  const color = clamped >= 4 ? "#00B865" : clamped >= 3 ? "#d97706" : "#dc2626";
 
   return (
     <div className="flex flex-col items-center gap-0.5">
@@ -90,7 +90,7 @@ function EdgeBar({ edge }: { edge: number }) {
   const width = Math.min((absEdge / maxEdge) * 100, 100);
   const isPositive = edge > 0;
   const color = isPositive
-    ? absEdge >= 15 ? "#16a34a" : absEdge >= 8 ? "#22c55e" : "#86efac"
+    ? absEdge >= 15 ? "#00B865" : absEdge >= 8 ? "#00B865" : "#00B865"
     : "#ef4444";
   const label = `${isPositive ? "+" : ""}${edge.toFixed(1)}%`;
 

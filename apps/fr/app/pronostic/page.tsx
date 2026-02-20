@@ -78,8 +78,8 @@ const TRENDS = [
     icon: "🐎",
     title: "Maroc — Dark horse",
     desc: "Demi-finaliste 2022 · 3.2% de chance de titre",
-    color: "from-green-600/20 to-emerald-800/10",
-    border: "border-green-500/20",
+    color: "from-accent/20 to-accent/10",
+    border: "border-accent/20",
   },
 ];
 
@@ -437,7 +437,7 @@ export default function PronosticHubPage() {
                 icon: "",
                 title: "Comparateur de cotes",
                 desc: "Comparez Betclic, Winamax, Parions Sport...",
-                gradient: "from-emerald-600 to-emerald-800",
+                gradient: "from-accent to-accent/70",
               },
               {
                 href: "/simulateur",

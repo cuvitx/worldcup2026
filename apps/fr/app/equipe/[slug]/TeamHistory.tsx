@@ -112,14 +112,14 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Forces &amp; Faiblesses</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-green-700 dark:text-green-400 uppercase tracking-wide">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-400 text-xs">✓</span>
+              <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-accent dark:text-accent uppercase tracking-wide">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent text-xs">✓</span>
                 Forces
               </h3>
               <ul className="space-y-2">
                 {history.strengths.map((s, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="mt-0.5 h-2 w-2 rounded-full bg-green-500 shrink-0" />
+                    <span className="mt-0.5 h-2 w-2 rounded-full bg-accent shrink-0" />
                     {s}
                   </li>
                 ))}

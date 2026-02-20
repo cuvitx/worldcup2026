@@ -55,7 +55,7 @@ export default function NotFound() {
       </p>
 
       {/* Séparateur terrain */}
-      <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-green-500/40 to-transparent mb-10" />
+      <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-accent/40 to-transparent mb-10" />
 
       {/* Liens utiles */}
       <p className="text-sm text-gray-400 dark:text-gray-400 font-medium uppercase tracking-wider mb-5">

@@ -51,7 +51,7 @@ function InjuryList({ team, injuries, t }: { team: string; injuries: Injury[]; t
     return (
       <div>
         <p className="font-semibold text-gray-700 dark:text-gray-200 mb-2">{team}</p>
-        <p className="text-sm text-green-600">{t.noInjuries}</p>
+        <p className="text-sm text-accent">{t.noInjuries}</p>
       </div>
     );
   }
