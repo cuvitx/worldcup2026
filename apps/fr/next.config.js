@@ -14,7 +14,9 @@ const nextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "flagcdn.com" }],
   },
   async redirects() {
-    return [];
+    return [
+      { source: "/equipe-de-france", destination: "/equipe/france", permanent: true },
+    ];
   },
   async headers() {
     return [
