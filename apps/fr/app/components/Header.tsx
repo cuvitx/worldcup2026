@@ -76,19 +76,6 @@ export function Header() {
 
         {/* Right actions */}
         <div className="flex items-center gap-1.5">
-          <Link
-            href="/recherche"
-            aria-label="Page de recherche"
-            className={`hidden md:flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none ${
-              pathname === "/recherche" ? "text-accent" : "text-white/80"
-            }`}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </Link>
-
           <SearchDialog lang="fr" data={searchData} onNavigate={(href) => router.push(href)} />
           <ThemeToggle />
 
