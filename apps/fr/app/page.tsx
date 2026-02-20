@@ -175,7 +175,7 @@ export default function HomePage() {
       <FAQSection title="Questions fréquentes — CDM 2026" items={faqHomepageItems} />
 
       {/* SOCIAL PROOF + NEWSLETTER */}
-      <SocialProof />
+      {/* SocialProof removed */}
       <Newsletter variant="banner" />
     </>
   );

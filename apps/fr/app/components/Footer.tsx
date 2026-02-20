@@ -26,8 +26,6 @@ const columns = [
       { href: "/pronostic-vainqueur", label: "Pronostic vainqueur" },
       { href: "/pronostic/france", label: "Pronostic France" },
       { href: "/pronostic/bresil", label: "Pronostic Brésil" },
-      { href: "/pronostic/argentine", label: "Pronostic Argentine" },
-      { href: "/pronostic/espagne", label: "Pronostic Espagne" },
       { href: "/comparateur-cotes", label: "Comparateur de cotes" },
       { href: "/paris-sportifs", label: "Paris sportifs" },
       { href: "/comparateur-joueurs", label: "Comparateur joueurs" },
