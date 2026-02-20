@@ -7,7 +7,7 @@ export function SimulatorCta() {
       className="py-12"
       style={{
         background:
-          "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
+          "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)",
       }}
     >
       <div className="mx-auto max-w-4xl px-4 text-center">

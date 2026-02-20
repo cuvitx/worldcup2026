@@ -20,7 +20,7 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
             width: `${eloPercent}%`,
-            background: `linear-gradient(90deg, #0D3B66 0%, #00B865 100%)`,
+            background: `linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%)`,
           }}
         />
       </div>

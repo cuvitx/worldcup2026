@@ -231,7 +231,7 @@ export default function PronosticHubPage() {
                   </div>
                   <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#00B865] rounded-full"
+                      className="h-full bg-accent rounded-full"
                       style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                     />
                   </div>

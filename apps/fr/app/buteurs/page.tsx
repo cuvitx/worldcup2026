@@ -249,7 +249,7 @@ export default function ButeursPage() {
                         <div className="flex-1 flex flex-col justify-center min-w-[100px]">
                           <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-[#00B865] rounded-full"
+                              className="h-full bg-accent rounded-full"
                               style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
                             />
                           </div>

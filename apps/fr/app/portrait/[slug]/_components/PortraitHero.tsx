@@ -2,7 +2,7 @@ import type { PlayerData } from "./player-data";
 
 export function PortraitHero({ player }: { player: PlayerData }) {
   return (
-    <section className="relative bg-gradient-to-br from-[#0A1628] via-[#0F1923] to-[#162A3E] text-white py-16 md:py-24">
+    <section className="relative bg-gradient-to-br from-[var(--color-deep)] via-[var(--color-deep)] to-[var(--color-primary)] text-white py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex flex-col md:flex-row md:items-center gap-8">
           <div className="flex-1">

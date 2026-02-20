@@ -279,7 +279,7 @@ export function Newsletter({
   return (
     <section
       className={`border-t border-gray-100 dark:border-gray-800 ${className}`}
-      style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}
+      style={{ background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="flex flex-col md:flex-row items-center gap-8">

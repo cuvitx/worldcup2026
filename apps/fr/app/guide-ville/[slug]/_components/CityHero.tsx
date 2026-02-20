@@ -2,7 +2,7 @@ import type { CityGuide } from "./city-data";
 
 export function CityHero({ city }: { city: CityGuide }) {
   return (
-    <section className="relative bg-gradient-to-br from-[#0A1628] via-[#0F1923] to-[#162A3E] text-white py-16 md:py-24">
+    <section className="relative bg-gradient-to-br from-[var(--color-deep)] via-[var(--color-deep)] to-[var(--color-primary)] text-white py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-4">
         <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-2">
           {city.flag} {city.country} — Guide CDM 2026

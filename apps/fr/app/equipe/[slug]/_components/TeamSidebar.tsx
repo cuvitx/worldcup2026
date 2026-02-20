@@ -190,14 +190,14 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       <div className="rounded-lg bg-primary p-6 shadow-md text-white">
         <h3 className="text-lg font-semibold text-white mb-3">Parier sur {team.name} championne</h3>
         <p className="mb-4 text-sm text-white/70">Comparez les meilleurs sites agréés pour parier sur {team.name} à la Coupe du Monde 2026.</p>
-        <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full rounded-lg bg-[#00B865] px-6 py-3 text-sm font-bold text-white text-center hover:bg-[#00A058] transition-colors">
+        <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white text-center hover:bg-accent/80 transition-colors">
           {featuredBookmaker.name} - {featuredBookmaker.bonus} → Parier sur {team.name}
         </a>
         <div className="mt-4 space-y-2">
           {bookmakers.filter((bk) => bk.id !== featuredBookmaker.id).map((bk) => (
             <a key={bk.id} href={bk.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="flex items-center justify-between rounded-lg bg-white/10 px-4 py-3 hover:bg-white/15 transition-colors text-sm">
               <span className="flex items-center gap-3 font-semibold">{bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={24} height={24} className="h-6 w-6 rounded object-contain" />}<span>{bk.name}</span> <span className="text-white/60">{bk.bonus}</span></span>
-              <span className="text-[#00B865] font-semibold whitespace-nowrap">Parier sur {team.name} →</span>
+              <span className="text-accent font-semibold whitespace-nowrap">Parier sur {team.name} →</span>
             </a>
           ))}
         </div>

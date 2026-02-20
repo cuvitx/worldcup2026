@@ -133,7 +133,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                   <div className="flex items-center gap-3">
                     <div className="flex-1 h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-[#00B865] rounded-full transition-all"
+                        className="h-full bg-accent rounded-full transition-all"
                         style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                       />
                     </div>

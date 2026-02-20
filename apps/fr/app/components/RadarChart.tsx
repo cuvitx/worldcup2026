@@ -30,7 +30,7 @@ export interface RadarChartProps {
   className?: string;
 }
 
-export default function RadarChart({ rating, color = "#E8C547", className }: RadarChartProps) {
+export default function RadarChart({ rating, color = "var(--color-gold)", className }: RadarChartProps) {
   const n = AXES.length;
   const angleStep = (2 * Math.PI) / n;
 
