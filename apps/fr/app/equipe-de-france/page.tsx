@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Newsletter } from "@repo/ui/newsletter";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
@@ -10,7 +11,6 @@ import { estimatedOutrightOdds } from "@repo/data/affiliates";
 
 import { HeroSection } from "./_components/HeroSection";
 import { ProbabilityBanner } from "./_components/ProbabilityBanner";
-import { MatchCalendar } from "./_components/MatchCalendar";
 import { SquadSection } from "./_components/SquadSection";
 import { PronosticSection } from "./_components/PronosticSection";
 import { HistoryTable } from "./_components/HistoryTable";
@@ -18,6 +18,20 @@ import { AnecdotesSection } from "./_components/AnecdotesSection";
 import { MatchPronosticLinks } from "./_components/MatchPronosticLinks";
 import { faqItems } from "./_components/FaqSection";
 import { FinalCTA } from "./_components/FinalCTA";
+
+const MatchCalendar = dynamic(() => import("./_components/MatchCalendar").then(mod => ({ default: mod.MatchCalendar })), {
+  loading: () => (
+    <div className="animate-pulse">
+      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg w-48 mb-4" />
+      <div className="space-y-3">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="h-20 bg-gray-200 dark:bg-gray-700 rounded-lg" />
+        ))}
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Équipe de France CDM 2026 — Effectif, Calendrier & Pronostics",

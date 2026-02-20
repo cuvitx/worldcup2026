@@ -1,10 +1,22 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
-import CalendarFilters from "./CalendarFilters";
+
+const CalendarFilters = dynamic(() => import("./CalendarFilters"), {
+  loading: () => (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div className="animate-pulse space-y-4">
+        <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
+        <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
 
 const faqCalendrierItems = [
   {

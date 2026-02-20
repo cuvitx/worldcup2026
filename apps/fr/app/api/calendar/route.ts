@@ -7,7 +7,12 @@ import { stadiumsById } from "@repo/data/stadiums";
 // ─── iCalendar helpers ────────────────────────────────────────────────────────
 
 /**
- * Escape text for iCalendar: commas, semicolons and backslashes must be escaped.
+ * Escape text for iCalendar format (RFC 5545)
+ * Commas, semicolons and backslashes must be escaped
+ * @param {string} str - Text to escape
+ * @returns {string} Escaped text safe for iCalendar fields
+ * @example
+ * icsEscape("Match: France, Spain") // "Match: France\\, Spain"
  */
 function icsEscape(str: string): string {
   return str
@@ -18,7 +23,10 @@ function icsEscape(str: string): string {
 }
 
 /**
- * Fold long iCalendar lines at 75 octets (RFC 5545 §3.1).
+ * Fold long iCalendar lines at 75 octets (RFC 5545 §3.1)
+ * Continuation lines start with a space character
+ * @param {string} line - Line to fold if longer than 75 bytes
+ * @returns {string} Folded line with CRLF + space for continuations
  */
 function foldLine(line: string): string {
   const bytes = new TextEncoder().encode(line);
@@ -38,7 +46,12 @@ function foldLine(line: string): string {
 }
 
 /**
- * Convert "YYYY-MM-DD" + "HH:MM" UTC → iCal DTSTART format: 20260611T190000Z
+ * Convert "YYYY-MM-DD" + "HH:MM" UTC → iCal DTSTART format
+ * @param {string} date - Date in YYYY-MM-DD format
+ * @param {string} time - Time in HH:MM format (UTC)
+ * @returns {string} iCalendar datetime (e.g., "20260611T190000Z")
+ * @example
+ * toIcalDate("2026-06-11", "19:00") // "20260611T190000Z"
  */
 function toIcalDate(date: string, time: string): string {
   const [year, month, day] = date.split("-");
@@ -47,7 +60,12 @@ function toIcalDate(date: string, time: string): string {
 }
 
 /**
- * Add 2 hours to the start time for DTEND (default match duration + HT).
+ * Add 2 hours to the start time for DTEND (default match duration + halftime)
+ * @param {string} date - Date in YYYY-MM-DD format
+ * @param {string} time - Time in HH:MM format (UTC)
+ * @returns {string} iCalendar datetime 2 hours after start
+ * @example
+ * toIcalDateEnd("2026-06-11", "19:00") // "20260611T210000Z"
  */
 function toIcalDateEnd(date: string, time: string): string {
   const [year, month, day] = date.split("-").map(Number) as [number, number, number];
@@ -66,7 +84,13 @@ function toIcalDateEnd(date: string, time: string): string {
 }
 
 /**
- * Translate stage code to a human-readable French label.
+ * Translate stage code to a human-readable French label
+ * @param {string} stage - Stage code (e.g., "group", "final")
+ * @param {string} [group] - Group letter (optional, for group stage)
+ * @returns {string} Localized stage name in French
+ * @example
+ * stageLabel("group", "A") // "Phase de groupes — Groupe A"
+ * stageLabel("final") // "⭐ FINALE ⭐"
  */
 function stageLabel(stage: string, group?: string): string {
   switch (stage) {
@@ -91,6 +115,13 @@ function stageLabel(stage: string, group?: string): string {
 
 // ─── iCalendar generation ────────────────────────────────────────────────────
 
+/**
+ * Generate downloadable iCalendar (.ics) file with all World Cup 2026 matches
+ * @returns {Promise<Response>} iCalendar file response with proper headers
+ * @example
+ * // Access via GET /api/calendar
+ * // Returns text/calendar content-type
+ */
 export async function GET(): Promise<Response> {
   const headersList = await headers();
   const ip = headersList.get("x-forwarded-for") ?? headersList.get("x-real-ip") ?? "unknown";

@@ -4,6 +4,16 @@ import { rateLimit } from '../_lib/rate-limit';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/**
+ * Subscribe an email to the CDM 2026 newsletter via Brevo API
+ * Includes rate limiting, duplicate detection, and validation
+ * @param {NextRequest} req - Next.js request with { email: string } body
+ * @returns {Promise<NextResponse>} Success/error JSON response
+ * @example
+ * // POST /api/newsletter
+ * // Body: { "email": "user@example.com" }
+ * // Returns: { "success": true } or { "error": "..." }
+ */
 export async function POST(req: NextRequest) {
   const headersList = await headers();
   const ip = headersList.get("x-forwarded-for") ?? headersList.get("x-real-ip") ?? "unknown";

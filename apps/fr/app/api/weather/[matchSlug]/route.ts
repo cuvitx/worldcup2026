@@ -4,6 +4,15 @@ import { getWeatherForecast } from "@repo/api/weather";
 import { getWeatherImpact, matchSlugSchema } from "@repo/api";
 import { getAltitudeImpact } from "@repo/api/factors";
 
+/**
+ * Fetch weather forecast and impact analysis for a specific match
+ * @param {Request} _req - Next.js request object (unused)
+ * @param {{ params: Promise<{ matchSlug: string }> }} params - Route params with match slug
+ * @returns {Promise<Response>} JSON response with forecast, altitude, and impact data
+ * @example
+ * // GET /api/weather/france-allemagne-demi-finale
+ * // Returns: { forecast, altitude, impact } with 1h cache
+ */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ matchSlug: string }> }

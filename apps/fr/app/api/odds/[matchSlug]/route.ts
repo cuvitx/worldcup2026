@@ -3,6 +3,15 @@ import { teamsById } from "@repo/data/teams";
 import { getOddsForMatch } from "@repo/api/odds";
 import { matchSlugSchema } from "@repo/api";
 
+/**
+ * Fetch betting odds for a specific match via match slug
+ * @param {Request} _req - Next.js request object (unused)
+ * @param {{ params: Promise<{ matchSlug: string }> }} params - Route params with match slug
+ * @returns {Promise<Response>} JSON response with odds data or error
+ * @example
+ * // GET /api/odds/france-allemagne-demi-finale
+ * // Returns: odds object with 5min cache
+ */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ matchSlug: string }> }

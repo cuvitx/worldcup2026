@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Quiz from "./components/Quiz";
+import dynamic from "next/dynamic";
+
+const Quiz = dynamic(() => import("./components/Quiz"), {
+  loading: () => (
+    <div className="flex items-center justify-center min-h-[400px]">
+      <div className="animate-pulse text-center">
+        <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-4" />
+        <p className="text-gray-600 dark:text-gray-300">Chargement du quiz...</p>
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Quiz Coupe du Monde 2026 | 200+ questions pour tester vos connaissances",

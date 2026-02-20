@@ -1,5 +1,12 @@
 import { ImageResponse } from "next/og";
 
+/**
+ * Generate 192×192px PWA icon dynamically (globe design)
+ * @returns {Promise<ImageResponse>} PNG image response
+ * @example
+ * // GET /api/pwa-icon-192
+ * // Used in manifest.json for PWA installation
+ */
 export async function GET() {
   return new ImageResponse(
     (

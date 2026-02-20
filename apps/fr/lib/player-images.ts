@@ -1,6 +1,8 @@
 /**
- * Maps player slugs / player-stats IDs → image filename (without .jpg).
- * Images are stored in public/images/players/.
+ * Maps player slugs / player-stats IDs → image filename (without .jpg)
+ * Images are stored in public/images/players/
+ * @example
+ * playerImageMap["mbappe"] // "kylian-mbappe"
  */
 export const playerImageMap: Record<string, string> = {
   // France
@@ -127,7 +129,12 @@ export const playerImageMap: Record<string, string> = {
 
 /**
  * Returns the /images/players/<filename>.jpg path if an image exists,
- * or null if there is no photo for this player slug / stat ID.
+ * or null if there is no photo for this player slug / stat ID
+ * @param {string} slugOrId - Player slug or stats ID (e.g., "mbappe", "vinicius")
+ * @returns {string | null} Image path or null if no photo available
+ * @example
+ * getPlayerImagePath("mbappe") // "/images/players/kylian-mbappe.jpg"
+ * getPlayerImagePath("unknown") // null
  */
 export function getPlayerImagePath(slugOrId: string): string | null {
   const filename = playerImageMap[slugOrId];
@@ -135,7 +142,12 @@ export function getPlayerImagePath(slugOrId: string): string | null {
 }
 
 /**
- * Generates initials (1-2 chars) from a player name.
+ * Generates initials (1-2 chars) from a player name
+ * @param {string} name - Full player name (e.g., "Kylian Mbappé")
+ * @returns {string} Uppercase initials (e.g., "KM")
+ * @example
+ * getPlayerInitials("Kylian Mbappé") // "KM"
+ * getPlayerInitials("Ronaldo") // "R"
  */
 export function getPlayerInitials(name: string): string {
   const parts = name.trim().split(/\s+/);
@@ -145,7 +157,11 @@ export function getPlayerInitials(name: string): string {
 
 /**
  * Returns a deterministic Tailwind background color class for an avatar fallback,
- * based on the player's name.
+ * based on the player's name (consistent hash-based color)
+ * @param {string} name - Player name to hash
+ * @returns {string} Tailwind CSS class (e.g., "bg-blue-600")
+ * @example
+ * getAvatarColor("Lionel Messi") // "bg-violet-600" (deterministic)
  */
 export function getAvatarColor(name: string): string {
   const colors = [

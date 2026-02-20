@@ -6,6 +6,15 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { getAltitudeImpact } from "@repo/api/factors";
 import { getTravelFatigue, teamSlugSchema } from "@repo/api";
 
+/**
+ * Fetch team statistics including predictions, players, travel fatigue, and altitude impact
+ * @param {Request} _req - Next.js request object (unused)
+ * @param {{ params: Promise<{ slug: string }> }} params - Route params with team slug
+ * @returns {Promise<Response>} JSON response with team stats or error
+ * @example
+ * // GET /api/team/france/stats
+ * // Returns: { team, prediction, playerCount, travelFatigue, altitudeImpactMexico }
+ */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ slug: string }> }

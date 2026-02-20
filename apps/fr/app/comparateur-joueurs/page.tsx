@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PlayerComparator } from "./PlayerComparator";
+import dynamic from "next/dynamic";
+
+const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) => ({ default: mod.PlayerComparator })), {
+  loading: () => (
+    <div className="flex items-center justify-center min-h-[500px]">
+      <div className="animate-pulse text-center">
+        <div className="w-16 h-16 bg-primary/20 rounded-full mx-auto mb-4" />
+        <p className="text-gray-600 dark:text-gray-300">Chargement du comparateur...</p>
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Comparateur de joueurs | Stats côte à côte",
