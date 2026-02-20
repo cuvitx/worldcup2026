@@ -150,7 +150,7 @@ export default function ParisSportifsPage() {
                   <Link
                     key={guide.id}
                     href={`/guide/${guide.slug}`}
-                    className="rounded-xl border border-gray-200 dark:border-slate-700 p-4 sm:p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                    className="block rounded-xl border border-gray-200 dark:border-slate-700 p-4 sm:p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{guide.title}</h3>
                     <p className="text-sm text-gray-500 line-clamp-2">{guide.metaDescription}</p>

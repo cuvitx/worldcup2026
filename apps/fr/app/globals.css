@@ -2,16 +2,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Global button text vertical centering fix — only target actual CTA buttons, not cards/links with bg-primary/opacity */
-a.bg-accent,
-a.bg-primary,
-button.bg-accent,
-button.bg-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.25;
-}
+/* Button vertical centering is now handled inline via Tailwind classes (inline-flex items-center justify-center) */
 
 /* ============================================================
    BRAND BOOK CDM2026 — Design Tokens (Tailwind v4 @theme)
