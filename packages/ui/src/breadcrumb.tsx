@@ -8,7 +8,7 @@ import { domains } from "@repo/data/route-mapping";
  * @param label - Display text for the breadcrumb
  * @param href - Optional link URL (omit for the current page)
  */
-interface BreadcrumbItem {
+export interface BreadcrumbItem {
   label: string;
   href?: string;
 }
