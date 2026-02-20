@@ -106,7 +106,6 @@ export const megaMenus = {
         title: "Pronostics",
         links: [
           { href: "/pronostic-vainqueur", label: "Pronostic vainqueur" },
-          { href: "/equipe-de-france", label: "🇫🇷 Équipe de France" },
           { href: "/pronostic/france", label: "Pronostic France" },
           { href: "/pronostic/argentine", label: "🇦🇷 Argentine" },
           { href: "/pronostic/espagne", label: "🇪🇸 Espagne" },

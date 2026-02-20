@@ -13,7 +13,7 @@ const PAGES = [
   { path: '/', name: 'Homepage' },
   { path: '/equipes', name: 'Équipes' },
   { path: '/equipe/france', name: 'Équipe France' },
-  { path: '/equipe-de-france', name: 'Équipe de France' },
+  { path: '/equipe/france', name: 'Équipe de France' },
   { path: '/groupes', name: 'Groupes' },
   { path: '/groupe/a', name: 'Groupe A' },
   { path: '/match/mexique-afrique-du-sud', name: 'Match' },

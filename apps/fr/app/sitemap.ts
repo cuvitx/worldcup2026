@@ -71,7 +71,6 @@ export default function sitemap({
         { url: `${BASE_URL}/buteurs`, lastModified: TODAY, changeFrequency: "weekly", priority: 0.9 },
         { url: `${BASE_URL}/comparateur-cotes`, lastModified: TODAY, changeFrequency: "daily", priority: 0.9 },
         { url: `${BASE_URL}/pronostic-vainqueur`, lastModified: TODAY, changeFrequency: "weekly", priority: 0.9 },
-        { url: `${BASE_URL}/equipe-de-france`, lastModified: TODAY, changeFrequency: "weekly", priority: 0.9 },
         { url: `${BASE_URL}/paris-sportifs`, lastModified: TODAY, changeFrequency: "weekly", priority: 0.9 },
         { url: `${BASE_URL}/live`, lastModified: TODAY, changeFrequency: "daily", priority: 0.9 },
         { url: `${BASE_URL}/statistiques`, lastModified: TODAY, changeFrequency: "monthly", priority: 0.8 },

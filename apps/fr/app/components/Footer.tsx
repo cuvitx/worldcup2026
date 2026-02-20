@@ -11,7 +11,7 @@ const columns = [
       { href: "/match/calendrier", label: "Calendrier des matchs" },
       { href: "/groupes", label: "Les 12 groupes" },
       { href: "/equipes", label: "48 équipes" },
-      { href: "/equipe-de-france", label: "🇫🇷 Équipe de France" },
+      { href: "/equipe/france", label: "🇫🇷 Équipe de France" },
       { href: "/stades", label: "Stades" },
       { href: "/carte-stades", label: "Carte des stades" },
       { href: "/villes", label: "Villes hôtes" },

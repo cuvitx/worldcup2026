@@ -12,7 +12,7 @@ export function CtaSection() {
             Comparer toutes les cotes
           </Link>
           <Link
-            href="/equipe-de-france"
+            href="/equipe/france"
             className="inline-flex items-center gap-2 rounded-lg border border-primary/30 dark:border-secondary/40 bg-primary/5 dark:bg-secondary/10 px-6 py-3 font-semibold text-primary dark:text-secondary hover:-translate-y-0.5 transition-all"
           >
             🇫🇷 Pronostic France
