@@ -19,7 +19,7 @@ const QUESTIONS_PER_GAME = 20;
 const TIMER_SECONDS = 30;
 
 export default function Quiz() {
-  const [phase, setPhase] = useState<"menu" | "playing" | "result">("menu");
+  const [phase, setPhase] = useState<"difficulty" | "category" | "playing" | "result">("difficulty");
   const [category, setCategory] = useState<Category>("all");
   const [difficulty, setDifficulty] = useState<DifficultyFilter>("all");
   const [gameQuestions, setGameQuestions] = useState<Question[]>([]);
@@ -100,21 +100,80 @@ export default function Quiz() {
 
   const shareText = `J'ai obtenu ${score}/${gameQuestions.length} au Quiz Coupe du Monde 2026 ! ${scoreEmoji} Teste tes connaissances toi aussi !`;
 
-  // MENU
-  if (phase === "menu") {
+  // STEP 1: DIFFICULTY
+  if (phase === "difficulty") {
+    return (
+      <div className="max-w-xl mx-auto">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">Choisissez la difficulté</h2>
+        <p className="text-center text-gray-500 mb-8">Sélectionnez votre niveau avant de commencer</p>
+
+        <div className="grid gap-4">
+          <button
+            onClick={() => { setDifficulty("all"); setPhase("category"); }}
+            className="rounded-xl border-2 border-primary/50 bg-primary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Toutes les difficultés</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Mix de questions faciles, moyennes et difficiles</p>
+          </button>
+
+          {(Object.keys(difficultyLabels) as Difficulty[]).map((d) => {
+            const colors = { facile: "border-green-300 hover:bg-green-50 dark:hover:bg-green-900/20", moyen: "border-yellow-300 hover:bg-yellow-50 dark:hover:bg-yellow-900/20", difficile: "border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20" };
+            const count = questions.filter((q) => q.difficulty === d).length;
+            return (
+              <button
+                key={d}
+                onClick={() => { setDifficulty(d); setPhase("category"); }}
+                className={`rounded-xl border bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm transition-colors ${colors[d]}`}
+              >
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{difficultyLabels[d].label}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{count} questions</p>
+              </button>
+            );
+          })}
+        </div>
+
+        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-300 cursor-pointer mt-6">
+          <input
+            type="checkbox"
+            checked={timerEnabled}
+            onChange={(e) => setTimerEnabled(e.target.checked)}
+            className="accent-primary"
+          />
+          Timer (30s par question)
+        </label>
+      </div>
+    );
+  }
+
+  // STEP 2: CATEGORY
+  if (phase === "category") {
+    const availableCount = (cat: string) => {
+      let pool = cat === "all" ? questions : questions.filter((q) => q.category === cat);
+      if (difficulty !== "all") pool = pool.filter((q) => q.difficulty === difficulty);
+      return pool.length;
+    };
+
     return (
       <div className="max-w-3xl mx-auto">
+        <button
+          onClick={() => setPhase("difficulty")}
+          className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary mb-4 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Retour
+        </button>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">Choisissez une catégorie</h2>
-        <p className="text-center text-gray-500 mb-6">ou jouez avec toutes les questions</p>
+        <p className="text-center text-gray-500 mb-6">
+          Difficulté : <span className="font-semibold text-gray-900 dark:text-white">{difficulty === "all" ? "Toutes" : difficultyLabels[difficulty].label}</span>
+        </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <button
             onClick={() => startGame("all")}
             className="rounded-xl border-2 border-primary/50 bg-primary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
           >
-            <span className="text-3xl"></span>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">Toutes les catégories</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">{questions.length} questions</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-1">Toutes les catégories</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">{availableCount("all")} questions</p>
           </button>
 
           {(Object.keys(categoryLabels) as Question["category"][]).map((cat) => (
@@ -123,42 +182,11 @@ export default function Quiz() {
               onClick={() => startGame(cat)}
               className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm hover:border-primary/50 hover:bg-primary/5 dark:hover:bg-secondary/10 transition-colors"
             >
-              <span className="text-3xl">{categoryLabels[cat].emoji}</span>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">{categoryLabels[cat].label}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">{categoryCounts[cat] || 0} questions</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-1">{categoryLabels[cat].label}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">{availableCount(cat)} questions</p>
             </button>
           ))}
         </div>
-
-        {/* Difficulty filter */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-          <span className="text-sm text-gray-600 dark:text-gray-300 mr-1">Difficulté :</span>
-          <button
-            onClick={() => setDifficulty("all")}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === "all" ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
-          >
-            Toutes
-          </button>
-          {(Object.keys(difficultyLabels) as Difficulty[]).map((d) => (
-            <button
-              key={d}
-              onClick={() => setDifficulty(d)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${difficulty === d ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600/50"}`}
-            >
-              {difficultyLabels[d].emoji} {difficultyLabels[d].label}
-            </button>
-          ))}
-        </div>
-
-        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-300 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={timerEnabled}
-            onChange={(e) => setTimerEnabled(e.target.checked)}
-            className="accent-secondary"
-          />
-          ⏱Timer (30s par question)
-        </label>
       </div>
     );
   }
@@ -175,7 +203,7 @@ export default function Quiz() {
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
-            onClick={() => setPhase("menu")}
+            onClick={() => setPhase("difficulty")}
             className="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 font-semibold text-white transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
@@ -221,7 +249,7 @@ export default function Quiz() {
           </span>
           {timerEnabled && (
             <span className={`font-mono ${timeLeft <= 10 ? "text-red-400" : ""}`}>
-              ⏱{timeLeft}s
+              {timeLeft}s
             </span>
           )}
         </span>
