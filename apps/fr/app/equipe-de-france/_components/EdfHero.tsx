@@ -31,17 +31,17 @@ export function EdfHero({ winnerOdds, winPct }: { winnerOdds: string; winPct: nu
 
             {/* Quick stats */}
             <div className="grid grid-cols-3 gap-3 mb-6 max-w-sm mx-auto md:mx-0">
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
+              <div className="rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 text-center">
                 <p className="text-2xl font-extrabold text-secondary">{winnerOdds}</p>
-                <p className="text-xs text-white/80 mt-0.5">Cote titre</p>
+                <p className="text-xs text-gray-300 mt-0.5">Cote titre</p>
               </div>
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-                <p className="text-2xl font-extrabold text-primary-light">{winPct}%</p>
-                <p className="text-xs text-white/80 mt-0.5">% de chance</p>
+              <div className="rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 text-center">
+                <p className="text-2xl font-extrabold text-white">{winPct}%</p>
+                <p className="text-xs text-gray-300 mt-0.5">% de chance</p>
               </div>
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
+              <div className="rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 text-center">
                 <p className="text-2xl font-extrabold text-white">#2</p>
-                <p className="text-xs text-white/80 mt-0.5">FIFA Ranking</p>
+                <p className="text-xs text-gray-300 mt-0.5">FIFA Ranking</p>
               </div>
             </div>
 
@@ -63,11 +63,11 @@ export function EdfHero({ winnerOdds, winPct }: { winnerOdds: string; winPct: nu
 
           {/* Right: Blason / Stats bloc */}
           <div className="shrink-0">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center min-w-[200px]">
+            <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm p-6 text-center min-w-[200px]">
               <div className="text-7xl mb-3">🇫🇷</div>
-              <p className="font-extrabold text-xl mb-1">France</p>
+              <p className="font-extrabold text-xl text-white mb-1">France</p>
               <p className="text-secondary font-semibold text-sm mb-4">⭐⭐ Champion 1998 &amp; 2018</p>
-              <div className="space-y-2 text-sm text-white/70">
+              <div className="space-y-2 text-sm text-gray-300">
                 <div className="flex justify-between gap-4">
                   <span>Confédération</span>
                   <span className="font-semibold text-white">UEFA</span>
