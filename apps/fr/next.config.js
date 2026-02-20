@@ -13,6 +13,15 @@ const nextConfig = {
     contentDispositionType: "attachment",
     remotePatterns: [{ protocol: "https", hostname: "flagcdn.com" }],
   },
+  async redirects() {
+    return [
+      {
+        source: "/equipe-de-france",
+        destination: "/equipe/france",
+        permanent: true, // 301 redirect
+      },
+    ];
+  },
   async headers() {
     return [
       {

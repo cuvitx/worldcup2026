@@ -1,23 +1,25 @@
-/* eslint-disable @next/next/no-img-element */
-import { HeroSection } from "@repo/ui/hero-section";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
-import { generateFullTeamAnalysis } from "@repo/ai/generators";
+import { Newsletter } from "@repo/ui/newsletter";
+import { ANJBanner } from "@repo/ui/anj-banner";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug } from "@repo/data/teams";
-import { groupsByLetter } from "@repo/data/groups";
+import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
-import { matchesByGroup } from "@repo/data/matches";
+import { matches } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { getFlagPath, getISOCode } from "@repo/data/country-codes";
-import { RelatedContent, type RelatedItem } from "../../components/RelatedContent";
-import { TeamMainContent } from "./_components/TeamMainContent";
-import { TeamSidebar } from "./_components/TeamSidebar";
-import { ANJBanner } from "@repo/ui/anj-banner";
+import { estimatedOutrightOdds } from "@repo/data/affiliates";
+import { getISOCode } from "@repo/data/country-codes";
+
+import { PremiumHero } from "./_components/PremiumHero";
+import { PremiumProbabilityBanner } from "./_components/PremiumProbabilityBanner";
+import { PremiumMatchCalendar } from "./_components/PremiumMatchCalendar";
+import { PremiumSquad } from "./_components/PremiumSquad";
+import { PremiumHistory } from "./_components/PremiumHistory";
+import { PremiumFAQ, generateFAQSchema } from "./_components/PremiumFAQ";
+import { PremiumFinalCTA } from "./_components/PremiumFinalCTA";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -41,12 +43,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : [{ url: "https://cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
-    title: `${team.name} - Coupe du Monde 2026 | Effectif, Stats & Pronostics`,
-    description: `Tout sur ${team.name} à la Coupe du Monde 2026 : effectif, statistiques, historique, groupe ${team.group}, cotes et pronostics. ${team.description}`,
+    title: `${team.name} CDM 2026 — Effectif, Calendrier & Pronostics`,
+    description: `${team.name} CDM 2026 : effectif complet, calendrier Groupe ${team.group}, pronostics vainqueur. ${team.bestResult}. ${team.description.substring(0, 120)}...`,
     alternates: getAlternates("team", slug, "fr"),
     openGraph: {
-      title: `Équipe ${team.name} — CDM 2026`,
-      description: `${team.flag} Fiche complète de ${team.name} pour la Coupe du Monde 2026. Groupe ${team.group}, classement FIFA #${team.fifaRanking}.`,
+      title: `${team.flag} ${team.name} CDM 2026 — Effectif & Pronostics`,
+      description: `${team.name} à la CDM 2026 : effectif complet, calendrier Groupe ${team.group}, cotes vainqueur, analyse. Classement FIFA #${team.fifaRanking}.`,
+      url: `${domains.fr}/equipe/${team.slug}`,
       images: ogImages,
     },
   };
@@ -57,29 +60,39 @@ export default async function TeamPage({ params }: PageProps) {
   const team = teamsBySlug[slug];
   if (!team) notFound();
 
-  const group = groupsByLetter[team.group];
-  const groupTeams = group
-    ? group.teams
-        .map((id) => teams.find((t) => t.id === id))
-        .filter((t): t is NonNullable<typeof t> => t != null && t.id !== team.id)
-    : [];
-
   const prediction = predictionsByTeamId[team.id];
-  const teamPlayers = (playersByTeamId[team.id] ?? []).map(p => ({ ...p, number: p.number ?? undefined }));
-  const teamMatches = (matchesByGroup[team.group] ?? []).filter(
+  const teamPlayers = playersByTeamId[team.id] ?? [];
+  const teamMatches = matches.filter(
     (m) => m.homeTeamId === team.id || m.awayTeamId === team.id
   );
 
-  let enriched: Awaited<ReturnType<typeof generateFullTeamAnalysis>> | null = null;
-  try {
-    enriched = await generateFullTeamAnalysis(team.id, "fr");
-  } catch {
-    // AI generation failed — page renders with static data only
-  }
+  const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
+  const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;
+
+  const sportsTeamJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsTeam",
+    name: team.name,
+    alternateName: team.code,
+    sport: "Football",
+    memberOf: { "@type": "SportsOrganization", name: "FIFA Coupe du Monde 2026" },
+    url: `${domains.fr}/equipe/${team.slug}`,
+    description: team.description,
+  };
+
+  const faqSchema = generateFAQSchema(team, prediction, winnerOdds);
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
+      <BreadcrumbSchema 
+        items={[
+          {name:"Accueil",url:"/"},
+          {name:"Équipes",url:"/equipes"},
+          {name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},
+          {name:team.name,url:"/equipe/"+team.slug}
+        ]} 
+        baseUrl={domains.fr} 
+      />
 
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
@@ -96,86 +109,68 @@ export default async function TeamPage({ params }: PageProps) {
         </div>
       </nav>
 
-      {/* Team Header */}
-      <HeroSection title={team.name} subtitle={`${team.confederation} · Classement FIFA #${team.fifaRanking} · Groupe ${team.group}`}>
-          <div className="flex flex-wrap items-center gap-6 sm:gap-8 mt-4">
-            {getFlagPath(team.slug) ? (
-              <div className="relative h-24 w-36 sm:h-32 sm:w-48 overflow-hidden rounded-xl shadow-lg border-2 border-white/20 shrink-0">
-                <Image src={getFlagPath(team.slug)!} alt={`Drapeau de ${team.name}`} fill className="object-cover" priority sizes="(max-width: 640px) 144px, 192px" />
-              </div>
-            ) : (
-              <span className="text-5xl sm:text-8xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
-            )}
-            <div className="flex flex-wrap items-center gap-3">
-              {team.isHost && (
-                <span className="inline-block rounded-full bg-secondary/20 px-3 py-1 text-sm font-medium text-secondary">Pays hôte</span>
-              )}
-              <Link href={`/pronostic/${team.slug}`} className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/80">
-                Voir le pronostic &rarr;
-              </Link>
-            </div>
-          </div>
-      </HeroSection>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <TeamMainContent
-            team={team}
-            prediction={prediction}
-            teamPlayers={teamPlayers}
-            teamMatches={teamMatches}
-            enriched={enriched}
-            groupTeams={groupTeams}
-          />
-          <TeamSidebar
-            team={team}
-            prediction={prediction}
-            groupTeams={groupTeams}
-            enriched={enriched}
-          />
-        </div>
-      </div>
-
-      {/* Related content */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-12">
-        <RelatedContent
-          items={[
-            ...groupTeams
-              .filter((t) => t.slug !== team.slug)
-              .slice(0, 3)
-              .map((t): RelatedItem => ({
-                href: `/equipe/${t.slug}`,
-                emoji: t.flag,
-                title: t.name,
-                description: `Groupe ${team.group} · FIFA #${t.fifaRanking}`,
-              })),
-            {
-              href: '/pronostic-vainqueur',
-              emoji: '🏆',
-              title: 'Pronostic vainqueur',
-              description: 'Qui va remporter la CDM 2026 ?',
-            },
-          ]}
-        />
-      </div>
-
-      {/* Schema.org */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SportsTeam",
-            name: team.name,
-            alternateName: team.code,
-            sport: "Football",
-            url: `${domains.fr}/equipe/${team.slug}`,
-            description: team.description,
-            memberOf: { "@type": "SportsOrganization", name: "FIFA World Cup 2026" },
-          }),
-        }}
+      {/* Premium Hero Section */}
+      <PremiumHero 
+        team={team} 
+        prediction={prediction}
+        winnerOdds={winnerOdds}
+        winPct={winPct}
       />
+
+      {/* Probability Banner */}
+      {prediction && (
+        <PremiumProbabilityBanner 
+          prediction={prediction} 
+          teamName={team.name}
+        />
+      )}
+
+      {/* Match Calendar */}
+      {teamMatches.length > 0 && (
+        <PremiumMatchCalendar 
+          teamId={team.id}
+          teamName={team.name}
+          teamMatches={teamMatches}
+        />
+      )}
+
+      {/* Squad / Effectif */}
+      {teamPlayers.length > 0 && (
+        <PremiumSquad 
+          players={teamPlayers}
+          teamSlug={team.slug}
+          teamName={team.name}
+        />
+      )}
+
+      {/* History */}
+      <PremiumHistory team={team} />
+
+      {/* FAQ Section */}
+      <PremiumFAQ 
+        team={team}
+        prediction={prediction}
+        winnerOdds={winnerOdds}
+      />
+
+      {/* Newsletter */}
+      <Newsletter variant="banner" />
+
+      {/* Final CTA */}
+      <PremiumFinalCTA team={team} />
+
+      {/* ANJ Banner */}
       <ANJBanner />
+
+      {/* Schema.org JSON-LD */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsTeamJsonLd) }} 
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} 
+      />
     </>
   );
 }
