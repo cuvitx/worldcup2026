@@ -192,12 +192,12 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
             return (
               <section key={stage} id={stage}>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   {stageLabels[stage]}
                 </h2>
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {Array.from(byDate.entries()).map(([date, dateMatches], idx) => (
-                    <div key={date} className={idx > 0 ? "border-t border-gray-200 dark:border-slate-700 pt-6" : ""}>
+                    <div key={date} className={idx > 0 ? "border-t border-gray-100 dark:border-slate-700 pt-4" : ""}>
                       <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
                         {new Date(date).toLocaleDateString("fr-FR", {
                           weekday: "long",
@@ -205,7 +205,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                           month: "long",
                         })}
                       </h3>
-                      <div className="space-y-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {dateMatches.map((match) => {
                           const home = teamsById[match.homeTeamId];
                           const away = teamsById[match.awayTeamId];

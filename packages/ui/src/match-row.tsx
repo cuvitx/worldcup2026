@@ -1,18 +1,5 @@
 import Link from "next/link";
 
-/**
- * Props for the MatchRow component.
- * 
- * @param homeFlag - Home team flag emoji
- * @param homeName - Home team name
- * @param awayFlag - Away team flag emoji
- * @param awayName - Away team name
- * @param time - Match time (e.g., "21:00")
- * @param group - Optional group label (e.g., "Groupe A")
- * @param stadium - Optional stadium name
- * @param href - Link URL for match detail page
- * @param className - Additional CSS classes
- */
 interface MatchRowProps {
   homeFlag: string;
   homeName: string;
@@ -25,23 +12,6 @@ interface MatchRowProps {
   className?: string;
 }
 
-/**
- * MatchRow component — Compact horizontal match row for lists and calendars.
- * 
- * @example
- * ```tsx
- * <MatchRow
- *   homeFlag="🇫🇷"
- *   homeName="France"
- *   awayFlag="🇧🇷"
- *   awayName="Brésil"
- *   time="21:00"
- *   group="Groupe A"
- *   stadium="Stade de France"
- *   href="/match/france-bresil"
- * />
- * ```
- */
 export function MatchRow({
   homeFlag,
   homeName,
@@ -56,29 +26,40 @@ export function MatchRow({
   return (
     <Link
       href={href}
-      className={`flex items-center gap-2 sm:gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-3 sm:px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/5 ${className}`}
+      className={`block w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 transition-all hover:border-primary/30 hover:shadow-md ${className}`}
     >
-      <span className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 w-11 sm:w-14 text-center shrink-0">
-        {time}
-      </span>
-      <div className="flex items-center gap-1.5 flex-1 min-w-0">
-        <span className="text-base sm:text-lg shrink-0" role="img" aria-label={homeName}>{homeFlag}</span>
-        <span className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100 break-words leading-tight">{homeName}</span>
-      </div>
-      <span className="text-xs font-bold text-gray-400 shrink-0">vs</span>
-      <div className="flex items-center gap-1.5 flex-1 min-w-0 justify-end">
-        <span className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100 text-right break-words leading-tight">{awayName}</span>
-        <span className="text-base sm:text-lg shrink-0" role="img" aria-label={awayName}>{awayFlag}</span>
-      </div>
-      {group && (
-        <span className="text-[10px] sm:text-sm bg-gray-100 dark:bg-gray-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-gray-600 dark:text-gray-300 shrink-0">
-          {group}
+      {/* Main row: time | home vs away | group */}
+      <div className="flex items-center gap-3">
+        <span className="text-sm font-bold text-primary tabular-nums w-12 shrink-0">
+          {time}
         </span>
-      )}
+
+        {/* Home team */}
+        <div className="flex items-center gap-1.5 flex-1 min-w-0">
+          <span className="text-lg shrink-0" role="img" aria-label={homeName}>{homeFlag}</span>
+          <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{homeName}</span>
+        </div>
+
+        <span className="text-xs font-bold text-gray-400 shrink-0">vs</span>
+
+        {/* Away team */}
+        <div className="flex items-center gap-1.5 flex-1 min-w-0 justify-end">
+          <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate text-right">{awayName}</span>
+          <span className="text-lg shrink-0" role="img" aria-label={awayName}>{awayFlag}</span>
+        </div>
+
+        {group && (
+          <span className="text-xs bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary px-2 py-0.5 rounded font-medium shrink-0">
+            {group}
+          </span>
+        )}
+      </div>
+
+      {/* Sub row: stadium (visible on sm+) */}
       {stadium && (
-        <span className="text-sm text-gray-600 dark:text-gray-300 hidden sm:block shrink-0 w-36 text-right truncate">
-          {stadium}
-        </span>
+        <div className="mt-1.5 pl-12 hidden sm:block">
+          <span className="text-xs text-gray-500 dark:text-gray-400 truncate">{stadium}</span>
+        </div>
       )}
     </Link>
   );
