@@ -44,16 +44,16 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       <div className="overflow-x-auto">
 
       {/* Column headers */}
-      <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] px-4 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
+      <div className="grid grid-cols-[minmax(80px,1fr)_repeat(3,56px)_72px] sm:grid-cols-[1fr_repeat(3,80px)_100px] px-3 sm:px-5 py-2 text-xs font-semibold text-gray-500 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700">
         <span>Bookmaker</span>
-        <span className="text-center truncate" title={`Victoire ${homeName}`}>1 {homeName.length > 8 ? homeName.slice(0, 8) + "…" : homeName}</span>
+        <span className="text-center">1</span>
         <span className="text-center">N</span>
-        <span className="text-center truncate" title={`Victoire ${awayName}`}>2 {awayName.length > 8 ? awayName.slice(0, 8) + "…" : awayName}</span>
+        <span className="text-center">2</span>
         <span className="text-right">Bonus</span>
       </div>
 
       {/* Estimation row */}
-      <div className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700 min-w-[420px]">
+      <div className="grid grid-cols-[minmax(80px,1fr)_repeat(3,56px)_72px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-3 sm:px-5 py-3 bg-primary/5 dark:bg-primary/20 border-b border-gray-100 dark:border-gray-700 ">
         <div className="flex items-center gap-2">
           <span className="w-5 h-5 rounded-full bg-primary dark:bg-gray-700 text-accent text-[9px] font-bold flex items-center justify-center shrink-0">AI</span>
           <span className="text-sm font-bold text-primary dark:text-gray-100">Estimation CDM</span>
@@ -68,7 +68,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       {bookmakers.map((bk) => (
         <div
           key={bk.id}
-          className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/30 transition-colors min-w-[420px]"
+          className="grid grid-cols-[minmax(80px,1fr)_repeat(3,56px)_72px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-3 sm:px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/30 transition-colors "
         >
           <div className="flex items-center gap-2 min-w-0">
             {bk.logo ? (

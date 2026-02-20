@@ -2,6 +2,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Global button text vertical centering fix */
+a[class*="bg-accent"],
+a[class*="bg-primary"],
+button[class*="bg-accent"],
+button[class*="bg-primary"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.25;
+}
+
 /* ============================================================
    BRAND BOOK CDM2026 — Design Tokens (Tailwind v4 @theme)
    Source : BRAND-BOOK-CDM2026.md v1.0 — Février 2026

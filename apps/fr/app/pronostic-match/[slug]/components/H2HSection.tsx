@@ -79,9 +79,10 @@ export function H2HSection({
           <div className="text-center">
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="text-sm font-medium text-primary hover:underline"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all"
             >
-              Voir l&apos;historique complet des confrontations &rarr;
+              Historique complet
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Link>
           </div>
         </>
@@ -95,9 +96,10 @@ export function H2HSection({
           <div className="text-center">
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="text-sm font-medium text-primary hover:underline"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all"
             >
-              Voir la page de confrontation &rarr;
+              Voir la confrontation
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Link>
           </div>
         </div>
