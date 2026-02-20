@@ -11,7 +11,6 @@ const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) =
       </div>
     </div>
   ),
-  ssr: false,
 });
 
 export const metadata: Metadata = {

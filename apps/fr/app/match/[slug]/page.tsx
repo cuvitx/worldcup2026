@@ -33,7 +33,6 @@ const AiExpertInsight = dynamic(
         </div>
       </div>
     ),
-    ssr: false,
   }
 );
 

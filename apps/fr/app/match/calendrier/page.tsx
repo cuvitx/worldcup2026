@@ -15,7 +15,6 @@ const CalendarFilters = dynamic(() => import("./CalendarFilters"), {
       </div>
     </div>
   ),
-  ssr: false,
 });
 
 const faqCalendrierItems = [

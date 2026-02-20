@@ -30,7 +30,6 @@ const MatchCalendar = dynamic(() => import("./_components/MatchCalendar").then(m
       </div>
     </div>
   ),
-  ssr: false,
 });
 
 export const metadata: Metadata = {

@@ -11,7 +11,6 @@ const Quiz = dynamic(() => import("./components/Quiz"), {
       </div>
     </div>
   ),
-  ssr: false,
 });
 
 export const metadata: Metadata = {
