@@ -14,8 +14,8 @@ import {
   MethodologySection,
   CtaSection,
 } from "./_components";
-import {
 import { ANJBanner } from "@repo/ui/anj-banner";
+import {
   faqItems,
   top10,
   darkHorses,
