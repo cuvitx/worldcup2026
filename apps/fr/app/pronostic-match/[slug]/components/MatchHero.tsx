@@ -25,26 +25,7 @@ export function MatchHero({
   dateFormatted,
 }: MatchHeroProps) {
   return (
-    <section
-      className="relative overflow-hidden text-white py-12 sm:py-16"
-      style={{
-        background:
-          "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)",
-      }}
-    >
-      {/* Top glow line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-      {/* Bottom accent strip */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
-      {/* Background dot pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
-        }}
-      />
+    <section className="hero-animated relative overflow-hidden text-white py-12 sm:py-16">
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Stage badge */}

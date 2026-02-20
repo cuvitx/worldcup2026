@@ -86,7 +86,7 @@ export default async function H2HPage({ params }: PageProps) {
       </nav>
 
       {/* Header */}
-      <section className="bg-primary text-white py-12 sm:py-16">
+      <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
             <div className="flex flex-col items-center">

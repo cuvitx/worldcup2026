@@ -10,13 +10,13 @@
 @theme {
   /* ── Couleurs primaires — Direction A Continental ── */
   --color-primary: #0D3B66;       /* Bleu Marine */
-  --color-accent: #FF6B35;        /* Orange Kick-off */
-  --color-gold: #f5a623;          /* Or Champion */
+  --color-accent: #00B865;        /* Vert Émeraude (CTA Primaire) */
+  --color-gold: #FFB800;          /* Or (Highlight) */
   --color-green: #2d6a4f;         /* Vert Terrain */
 
   /* ── Couleurs secondaires ── */
-  --color-secondary: #2EC4B6;     /* Turquoise Azteca */
-  --color-turquoise: #2EC4B6;     /* Turquoise Azteca (alias explicite) */
+  --color-secondary: #FFB800;     /* Or (Accent/Info) */
+  --color-turquoise: #FFB800;     /* Or (remplace Turquoise Azteca) */
   --color-field: #2d6a4f;
   --color-field-light: #40916c;
 
@@ -39,7 +39,7 @@
 
   /* ── Typographie ── */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
+  --font-display: "Oswald", "Inter", ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -108,13 +108,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── Space Grotesk pour les titres — Direction A Continental ── */
-/* --font-space-grotesk est injecté par Next.js via la variable CSS */
+/* ── Oswald pour les titres — Bold & Impact ── */
+/* --font-oswald est injecté par Next.js via la variable CSS */
 :root {
-  --font-display: var(--font-space-grotesk, "Space Grotesk", "Inter", ui-sans-serif, sans-serif);
+  --font-display: var(--font-oswald, "Oswald", "Inter", ui-sans-serif, sans-serif);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
 
@@ -143,7 +143,7 @@ h1, h2, h3 {
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e05a28;
+  background: #009954;
 }
 /* Firefox */
 * {
@@ -181,8 +181,8 @@ h1, h2, h3 {
 
 /* Pulse glow */
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(255, 107, 53, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 184, 101, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 184, 101, 0); }
 }
 
 /* Countdown flip */
@@ -392,7 +392,7 @@ textarea:focus-visible {
   left: 0;
   right: 0;
   height: 140px;
-  background: linear-gradient(to top, rgba(255,107,53,0.06), transparent);
+  background: linear-gradient(to top, rgba(255,184,0,0.06), transparent);
   pointer-events: none;
 }
 
@@ -417,16 +417,16 @@ textarea:focus-visible {
 }
 .match-card:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 184, 101, 0.12);
   transform: translateY(-2px);
 }
 
 /* Accents border-left selon état du match */
 .match-card--live {
-  border-left: 3px solid #FF6B35; /* Orange Kick-off = LIVE */
+  border-left: 3px solid #00B865; /* Vert Émeraude = LIVE */
 }
 .match-card--upcoming {
-  border-left: 3px solid #f5a623; /* Or Champion = à venir */
+  border-left: 3px solid #FFB800; /* Or = à venir */
 }
 .match-card--finished {
   border-left: 3px solid #8a8a9a; /* Gris Moyen = terminé */
@@ -538,7 +538,7 @@ textarea:focus-visible {
   --color-border: rgba(255, 255, 255, 0.08);
 
   /* Or : version complète en dark */
-  --color-gold-current: #f5a623;
+  --color-gold-current: #FFB800;
 
   /* Shadows : pas d'ombres en dark, bordures subtiles à la place */
   --shadow-sm: none;
@@ -628,7 +628,7 @@ details[open] .faq-icon {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  background: linear-gradient(135deg, #FF6B35, #ff9060);
+  background: linear-gradient(135deg, #00B865, #00d47a);
   color: white;
   font-size: 10px;
   font-weight: 700;
@@ -643,7 +643,7 @@ details[open] .faq-icon {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  background: linear-gradient(135deg, #f5a623, #ffcc44);
+  background: linear-gradient(135deg, #FFB800, #ffc933);
   color: #1A1A2E;
   font-size: 10px;
   font-weight: 700;
@@ -672,11 +672,11 @@ details[open] .faq-icon {
   white-space: nowrap;
 }
 .badge-live {
-  background: #FF6B35;
+  background: #00B865;
   color: #ffffff;
 }
 .badge-new {
-  background: #f5a623;
+  background: #FFB800;
   color: #1A1A2E;
 }
 .badge-group {
@@ -684,7 +684,7 @@ details[open] .faq-icon {
   color: #ffffff;
 }
 .badge-premium {
-  background: linear-gradient(135deg, #f5a623, #FF6B35);
+  background: linear-gradient(135deg, #FFB800, #00B865);
   color: #ffffff;
 }
 
@@ -694,7 +694,7 @@ details[open] .faq-icon {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #FF6B35;
+  background: #00B865;
   animation: pulse 2s ease-in-out infinite;
   margin-right: 4px;
 }
@@ -739,23 +739,23 @@ details[open] .faq-icon {
 
 /* Variant Primary */
 .btn-primary {
-  background: #FF6B35;
+  background: #00B865;
   color: #ffffff;
 }
 .btn-primary:hover {
-  background: #e05a28;
+  background: #009954;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 184, 101, 0.3);
 }
 
 /* Variant Secondary */
 .btn-secondary {
   background: transparent;
-  color: #2EC4B6;
-  border: 1.5px solid #2EC4B6;
+  color: #FFFFFF;
+  border: 1.5px solid #FFFFFF;
 }
 .btn-secondary:hover {
-  background: rgba(46, 196, 182, 0.08);
+  background: rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
 }
 
@@ -775,7 +775,7 @@ details[open] .faq-icon {
    TYPOGRAPHIE — Brand Book CDM2026
    ============================================================ */
 
-/* Headings — Space Grotesk pour titres (Direction A Continental) */
+/* Headings — Oswald pour titres (Bold & Impact) */
 .heading-hero {
   font-family: var(--font-display);
   font-weight: 800;
@@ -825,7 +825,7 @@ details[open] .faq-icon {
    ============================================================ */
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-gold), #ffcc44);
+  background: linear-gradient(135deg, #FFB800, #ffc933);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -862,9 +862,9 @@ details[open] .faq-icon {
   font-weight: 700;
   font-size: 13px;
   font-variant-numeric: tabular-nums;
-  background: rgba(255,107,53,0.1);
+  background: rgba(0,184,101,0.1);
   color: var(--color-accent);
-  border: 1px solid rgba(255,107,53,0.2);
+  border: 1px solid rgba(0,184,101,0.2);
   transition: all 0.15s ease;
 }
 .odds-badge:hover {

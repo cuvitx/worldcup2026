@@ -2,7 +2,7 @@ import { EXTERNAL_URLS } from "@repo/data/constants";
 
 export function HeroSection() {
   return (
-    <section className="bg-primary text-white py-12 sm:py-16">
+    <section className="hero-animated text-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary">

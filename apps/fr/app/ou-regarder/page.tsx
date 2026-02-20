@@ -164,8 +164,8 @@ export default function OuRegarderPage() {
       />
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">📺 Où regarder la Coupe du Monde 2026</h1>
           <p className="text-gray-300 max-w-3xl">
             Guide complet des droits TV et du streaming légal pour suivre les 104 matchs du Mondial 2026.

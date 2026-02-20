@@ -8,7 +8,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 
 const CalendarFilters = dynamic(() => import("./CalendarFilters"), {
   loading: () => (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
       <div className="animate-pulse space-y-4">
         <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
         <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
@@ -92,7 +92,7 @@ export default function CalendrierPage() {
       />
 
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="text-primary dark:text-secondary hover:underline">
@@ -105,8 +105,8 @@ export default function CalendrierPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Calendrier des matchs</h1>
           <p className="mt-2 text-gray-300">
             104 matchs du 11 juin au 19 juillet 2026

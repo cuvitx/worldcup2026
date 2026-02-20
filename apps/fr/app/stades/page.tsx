@@ -32,7 +32,7 @@ export default function StadiumsPage() {
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-amber-400 hover:underline">Accueil</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">Stades</li>
           </ol>
@@ -75,7 +75,7 @@ export default function StadiumsPage() {
                           📍 {city?.name ?? stadium.city}
                         </p>
                         <div className="mt-2 flex items-center justify-between">
-                          <span className="text-sm font-semibold text-primary dark:text-secondary">
+                          <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">
                             🏟️ {stadium.capacity.toLocaleString("fr-FR")} places
                           </span>
                           <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700 dark:text-gray-300">

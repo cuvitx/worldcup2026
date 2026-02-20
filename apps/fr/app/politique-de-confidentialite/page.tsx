@@ -45,7 +45,7 @@ export default function PolitiqueConfidentialitePage() {
         </div>
       </nav>
 
-      <section className="bg-primary py-12 text-white">
+      <section className="hero-animated py-12 text-white">
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="text-2xl font-extrabold sm:text-4xl">
             Politique de confidentialité

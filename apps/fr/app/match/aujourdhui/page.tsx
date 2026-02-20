@@ -21,7 +21,7 @@ export default function AujourdhuiPage() {
   return (
     <>
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="text-primary dark:text-secondary hover:underline">
@@ -40,8 +40,8 @@ export default function AujourdhuiPage() {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Matchs du jour</h1>
           <p className="mt-2 text-gray-300">
             {todaysMatches.length > 0
@@ -51,7 +51,7 @@ export default function AujourdhuiPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8">
         {todaysMatches.length > 0 ? (
           <div className="space-y-3">
             {todaysMatches.map((match) => {

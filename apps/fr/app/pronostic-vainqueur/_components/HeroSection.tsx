@@ -3,7 +3,7 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className="hero-animated py-12 sm:py-16 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
           <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-secondary" />
           CDM 2026 · Pronostic vainqueur

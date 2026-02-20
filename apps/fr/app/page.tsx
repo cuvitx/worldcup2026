@@ -152,7 +152,7 @@ export default function HomePage() {
       <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-secondary mb-1.5">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-amber-400 mb-1.5">
               🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
             </p>
             <SectionHeading title="Stades CDM 2026" subtitle="16 stades répartis dans 3 pays hôtes" linkHref="/stades" linkLabel="Tous les stades →" />

@@ -20,7 +20,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
     <section className="bg-white dark:bg-gray-950 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-1.5">
             Cotes Vainqueur
           </p>
           <SectionHeading title="Équipes favorites" subtitle="Top 5 FIFA · Pronostics & chances de titre" linkHref="/pronostic-vainqueur" linkLabel="Tous les pronostics →" />
@@ -42,7 +42,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                 className="group relative flex flex-col items-center rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 p-5 shadow-sm text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 {index < 3 && (
-                  <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 )}
 
                 <span className="absolute top-2.5 left-2.5 text-[11px] font-black">
@@ -75,7 +75,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                     </div>
                     <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-1">
                       <div
-                        className="bg-gradient-to-r from-primary to-secondary h-1 rounded-full transition-all duration-700"
+                        className="bg-gradient-to-r from-primary to-amber-400 h-1 rounded-full transition-all duration-700"
                         style={{ width: `${Math.min(winPct * 4, 100)}%` }}
                       />
                     </div>
@@ -83,11 +83,11 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                 )}
 
                 {outrightOdds && (
-                  <div className="mt-1 w-full rounded-xl border border-secondary/30 bg-secondary/5 dark:bg-secondary/10 px-3 py-2">
+                  <div className="mt-1 w-full rounded-xl border border-amber-400/30 bg-amber-400/5 dark:bg-amber-400/10 px-3 py-2">
                     <p className="text-[9px] text-gray-500 dark:text-gray-300 mb-0.5">
                       {favData ? "Cote moy. marché" : "Cote vainqueur"}
                     </p>
-                    <p className="text-lg font-black text-secondary">
+                    <p className="text-lg font-black text-amber-500 dark:text-amber-400">
                       {outrightOdds}
                       {trendIcon && (
                         <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-success" : "text-red-400"}`}>

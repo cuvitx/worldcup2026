@@ -1,7 +1,7 @@
 export function PalmaresHero() {
   return (
-    <section className="bg-primary text-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <section className="hero-animated text-white py-12 sm:py-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
           Coupe du Monde FIFA
         </p>

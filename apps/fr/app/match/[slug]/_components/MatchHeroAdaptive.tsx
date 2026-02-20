@@ -35,8 +35,8 @@ export function MatchHeroAdaptive({
 
   if (isLive || isCompleted) {
     return (
-      <section className="bg-primary py-12 sm:py-16">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+      <section className="hero-animated py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6">
           <p className="mb-4 text-center text-sm text-secondary font-medium uppercase tracking-wide">
             {stage}
             {match.group ? ` - Groupe ${match.group}` : ""}
@@ -79,8 +79,8 @@ export function MatchHeroAdaptive({
   }
 
   return (
-    <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-5 sm:py-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="hero-animated text-white py-12 sm:py-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="mb-2 text-center text-xs text-secondary font-medium uppercase tracking-wide">
           {stage}
           {match.group ? ` - Groupe ${match.group}` : ""}

@@ -3,9 +3,9 @@ export function ConfettiParticles() {
     id: i,
     left: `${Math.random() * 100}%`,
     delay: `${Math.random() * 0.8}s`,
-    color: ["#FF6B35", "#f5a623", "#06D6A0", "#2EC4B6", "#EF476F"][
+    color: ["#00B865", "#FFB800", "#06D6A0", "#0D3B66", "#EF476F"][
       Math.floor(Math.random() * 5)
-    ], // accent, gold, success, secondary, error
+    ], // CTA vert, or, success, primary, error
     size: `${6 + Math.random() * 8}px`,
   }));
 

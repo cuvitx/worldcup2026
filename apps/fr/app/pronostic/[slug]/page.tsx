@@ -80,7 +80,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12 sm:py-16">
+      <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>

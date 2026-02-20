@@ -37,7 +37,7 @@ export function StatDuelRow({
           {label}
         </span>
         <span
-          className={`text-sm font-bold ${awayIsBetter ? "text-secondary" : "text-gray-700 dark:text-gray-300"}`}
+          className={`text-sm font-bold ${awayIsBetter ? "text-amber-600 dark:text-amber-400" : "text-gray-700 dark:text-gray-300"}`}
         >
           {away}
           {suffix}
@@ -49,7 +49,7 @@ export function StatDuelRow({
           style={{ width: `${homePct}%` }}
         />
         <div
-          className={`h-full rounded-r-full transition-all duration-700 ${awayIsBetter ? "bg-secondary" : "bg-gray-200 dark:bg-gray-700"}`}
+          className={`h-full rounded-r-full transition-all duration-700 ${awayIsBetter ? "bg-amber-400" : "bg-gray-200 dark:bg-gray-700"}`}
           style={{ width: `${awayPct}%` }}
         />
       </div>

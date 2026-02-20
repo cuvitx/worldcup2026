@@ -17,7 +17,7 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
     <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary mb-1.5">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-1.5">
             12 groupes · 48 équipes
           </p>
           <SectionHeading title="Groupes en un coup d'œil" linkHref="/groupes" linkLabel="Voir tous les groupes →" />
@@ -41,10 +41,10 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
                 className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-primary to-deep">
-                  <span className="text-xs font-black text-secondary">
+                  <span className="text-xs font-black text-amber-400">
                     GROUPE {group.letter}
                   </span>
-                  <span className="text-[10px] text-gray-500 group-hover:text-secondary transition-colors">
+                  <span className="text-[10px] text-gray-500 group-hover:text-amber-400 transition-colors">
                     {groupTeams.length} éq.
                   </span>
                 </div>
@@ -69,7 +69,7 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
                         {team.name}
                       </span>
                       {team.isHost && (
-                        <span className="text-[8px] bg-secondary/20 text-secondary px-1 py-0.5 rounded font-bold shrink-0">
+                        <span className="text-[8px] bg-amber-400/20 text-amber-600 dark:text-amber-400 px-1 py-0.5 rounded font-bold shrink-0">
                           H
                         </span>
                       )}

@@ -34,7 +34,7 @@ export default function BracketPage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12 sm:py-16">
+      <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Tableau final CDM 2026</h1>
           <p className="mt-2 text-gray-300 max-w-2xl">

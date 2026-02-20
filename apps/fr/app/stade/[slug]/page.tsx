@@ -60,7 +60,7 @@ export default async function StadiumPage({ params }: PageProps) {
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Stades",url:"/stades"},{name:stadium.name,url:"/stade/"+stadium.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 min-w-0 flex-wrap">
             <li className="shrink-0"><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
             <li className="shrink-0">/</li>
@@ -72,8 +72,8 @@ export default async function StadiumPage({ params }: PageProps) {
       </nav>
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-4xl sm:text-7xl">🏟️</span>
             <div>
@@ -91,7 +91,7 @@ export default async function StadiumPage({ params }: PageProps) {
       </section>
 
       {/* Stadium hero image */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
         <HeroImage
           src={`/images/stadiums/${stadium.slug}.jpg`}
           alt={`${stadium.name}, ${stadium.city}`}
@@ -105,7 +105,7 @@ export default async function StadiumPage({ params }: PageProps) {
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8 min-w-0">
             <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm overflow-hidden">

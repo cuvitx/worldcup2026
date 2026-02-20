@@ -76,7 +76,7 @@ export default async function GuidePage({ params }: PageProps) {
         </div>
       </nav>
 
-      <section className="bg-primary text-white py-12 sm:py-16">
+      <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium mb-3">
             {categoryLabels[guide.category] ?? guide.category}

@@ -7,9 +7,8 @@ const SECRET = "cdm2026-admin-secret"
 
 const colors = [
   { name: "Primary", hex: "#0D3B66", tw: "bg-primary" },
-  { name: "Secondary", hex: "#2EC4B6", tw: "bg-secondary" },
-  { name: "Accent", hex: "#FF6B35", tw: "bg-accent" },
-  { name: "Gold", hex: "#f5a623", tw: "bg-gold" },
+  { name: "CTA Primaire", hex: "#00B865", tw: "bg-emerald-600" },
+  { name: "Or (Highlight)", hex: "#FFB800", tw: "bg-amber-400" },
   { name: "Success", hex: "#06D6A0", tw: "bg-success" },
   { name: "Error", hex: "#EF476F", tw: "bg-error" },
 ]
@@ -64,7 +63,7 @@ function AdminContent() {
           🔒 Page admin — accès restreint
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-space-grotesk)]">
+        <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-oswald)]">
           Dashboard cdm2026.fr
         </h1>
 
@@ -88,7 +87,7 @@ function AdminContent() {
               <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Typographie</h3>
               <div className="flex flex-wrap gap-6">
                 <div>
-                  <p className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold">Space Grotesk</p>
+                  <p className="font-[family-name:var(--font-oswald)] text-2xl font-bold">Oswald</p>
                   <p className="text-sm text-gray-500">Titres & headings</p>
                 </div>
                 <div>

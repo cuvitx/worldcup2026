@@ -30,8 +30,8 @@ export function GoalsChart({ goalsByEdition }: GoalsChartProps) {
                   style={{
                     height: `${heightPct}%`,
                     background: isRecord
-                      ? "linear-gradient(to top, #FF6B35, #ff9060)"
-                      : "linear-gradient(to top, #060D18, #2EC4B6)",
+                      ? "linear-gradient(to top, #FFB800, #ffc933)"
+                      : "linear-gradient(to top, #0D3B66, #00B865)",
                   }}
                 >
                   {/* Tooltip */}

@@ -77,7 +77,7 @@ export default function LivePage() {
 
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="text-primary dark:text-secondary hover:underline">
@@ -91,8 +91,8 @@ export default function LivePage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Résultats en direct</h1>
           <p className="mt-2 text-gray-300">
             Scores, buteurs et événements minute par minute

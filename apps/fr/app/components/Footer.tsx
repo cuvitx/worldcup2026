@@ -62,11 +62,11 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-gray-400 dark:bg-slate-900">
+    <footer className="hero-animated text-gray-400">
       {/* Top accent line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
 
-      <div className="mx-auto max-w-7xl px-4 pt-12 pb-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-12 pb-6">
 
         {/* Brand + social row */}
         <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">

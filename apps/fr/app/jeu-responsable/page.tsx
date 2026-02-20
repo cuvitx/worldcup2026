@@ -92,7 +92,7 @@ export default function JeuResponsablePage() {
       />
 
       <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
-        <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="text-primary dark:text-secondary hover:underline">
@@ -105,7 +105,7 @@ export default function JeuResponsablePage() {
         </div>
       </nav>
 
-      <section className="bg-primary py-12 text-white">
+      <section className="hero-animated py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Jeu responsable</h1>
           <p className="mt-4 text-lg text-gray-300">

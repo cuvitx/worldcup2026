@@ -93,7 +93,7 @@ export default function H2HIndexPage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary py-12 sm:py-16 text-white">
+      <section className="hero-animated py-12 sm:py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mb-3 text-2xl font-extrabold sm:text-4xl">
             ⚔️ Confrontations H2H

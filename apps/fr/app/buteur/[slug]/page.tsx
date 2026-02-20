@@ -62,11 +62,11 @@ export default async function ButeurPage({ params }: PageProps) {
       <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Buteurs",url:"/buteurs"},{name:player.name,url:"/buteur/"+player.slug}]} baseUrl={domains.fr} />
       {/* Breadcrumbs */}
       <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+            <li><Link href="/" className="text-primary dark:text-amber-400 hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/buteurs" className="text-primary dark:text-secondary hover:underline">Buteurs</Link></li>
+            <li><Link href="/buteurs" className="text-primary dark:text-amber-400 hover:underline">Buteurs</Link></li>
             <li>/</li>
             <li className="text-gray-900 dark:text-white font-medium">{player.name}</li>
           </ol>
@@ -74,8 +74,8 @@ export default async function ButeurPage({ params }: PageProps) {
       </nav>
 
       {/* Hero */}
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag ?? "\u26bd"}</span>
             <div>
@@ -96,7 +96,7 @@ export default async function ButeurPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
@@ -116,8 +116,8 @@ export default async function ButeurPage({ params }: PageProps) {
                   <p className="text-3xl font-extrabold text-primary">{goalsPerCap}</p>
                   <p className="text-xs text-gray-500 mt-1">Buts/match</p>
                 </div>
-                <div className="rounded-lg bg-secondary/10 p-4 text-center">
-                  <p className="text-3xl font-extrabold text-secondary">{scorer?.expectedGoals ?? "—"}</p>
+                <div className="rounded-lg bg-amber-400/10 p-4 text-center">
+                  <p className="text-3xl font-extrabold text-amber-600 dark:text-amber-400">{scorer?.expectedGoals ?? "—"}</p>
                   <p className="text-xs text-gray-500 mt-1">Buts attendus CDM</p>
                 </div>
               </div>
@@ -162,10 +162,10 @@ export default async function ButeurPage({ params }: PageProps) {
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500bg-secondary/5">
+                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 bg-amber-400/5">
                         <td className="py-3 font-bold">Meilleur buteur CDM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
-                        <td className="py-3 text-right font-extrabold text-secondary">{scorer.topScorerOdds}</td>
+                        <td className="py-3 text-right font-extrabold text-amber-600 dark:text-amber-400">{scorer.topScorerOdds}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -256,12 +256,12 @@ export default async function ButeurPage({ params }: PageProps) {
                     <div
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-secondary bg-secondary/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                        isFeatured ? "border-amber-400 bg-amber-400/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                       }`}
                     >
                       {isFeatured && (
-                        <span className="absolute -top-3 left-4 rounded-full bg-secondary px-3 py-0.5 text-xs font-bold text-white">
-                          Recommande
+                        <span className="absolute -top-3 left-4 rounded-full bg-amber-500 dark:bg-amber-400 px-3 py-0.5 text-xs font-bold text-black">
+                          Recommandé
                         </span>
                       )}
                       <div className="flex-1 text-center sm:text-left">
@@ -278,7 +278,7 @@ export default async function ButeurPage({ params }: PageProps) {
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
-                            isFeatured ? "bg-secondary hover:bg-secondary/90" : "bg-primary hover:bg-primary/90"
+                            isFeatured ? "bg-emerald-600 hover:bg-emerald-700" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
                           Parier
@@ -328,7 +328,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   <>
                     <div className="border-t border-gray-100 pt-3 flex justify-between">
                       <dt className="text-gray-500">Buts attendus CDM</dt>
-                      <dd className="font-bold text-secondary">{scorer.expectedGoals}</dd>
+                      <dd className="font-bold text-amber-600 dark:text-amber-400">{scorer.expectedGoals}</dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-500">Cote buteur</dt>
@@ -336,14 +336,14 @@ export default async function ButeurPage({ params }: PageProps) {
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-500">Cote top buteur</dt>
-                      <dd className="font-bold text-secondary">{scorer.topScorerOdds}</dd>
+                      <dd className="font-bold text-amber-600 dark:text-amber-400">{scorer.topScorerOdds}</dd>
                     </div>
                   </>
                 )}
                 {topRank >= 0 && (
                   <div className="flex justify-between">
                     <dt className="text-gray-500">Classement buteur</dt>
-                    <dd className="font-bold text-secondary">#{topRank + 1}</dd>
+                    <dd className="font-bold text-amber-600 dark:text-amber-400">#{topRank + 1}</dd>
                   </div>
                 )}
               </dl>
@@ -378,7 +378,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Buts attendus</span>
-                    <span className="font-bold text-secondary">{scorer.expectedGoals}</span>
+                    <span className="font-bold text-amber-600 dark:text-amber-400">{scorer.expectedGoals}</span>
                   </div>
                 </div>
               )}
@@ -386,7 +386,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+                className="block w-full text-center rounded-lg bg-emerald-600 py-3 text-sm font-bold text-white hover:bg-emerald-700 transition-colors"
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>

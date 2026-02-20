@@ -63,8 +63,8 @@ export default function FaqPage() {
         ]}
       />
 
-      <section className="bg-primary text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-animated text-white py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Questions fréquentes</h1>
           <p className="mt-2 text-gray-300">
             Tout ce que vous devez savoir sur la Coupe du Monde FIFA 2026
@@ -74,7 +74,7 @@ export default function FaqPage() {
 
       {/* Category badges */}
       <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 py-4 sticky top-0 z-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
             {itemsByCategory.map(({ key, label, emoji, items }) => (
               <a
@@ -93,7 +93,7 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {itemsByCategory.map(({ key, label, emoji, items }) => (
           <section key={key} id={key}>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">

@@ -39,7 +39,7 @@ export function WinProbabilityCard({
         <div className="text-center">
           <span className="text-3xl">{away?.flag ?? "🏳️"}</span>
           <p className="text-sm font-bold mt-1">{awayName}</p>
-          <p className="text-2xl font-extrabold text-secondary mt-1">
+          <p className="text-2xl font-extrabold text-amber-500 dark:text-amber-400 mt-1">
             {Math.round(prediction.team2WinProb * 100)}%
           </p>
         </div>
@@ -57,7 +57,7 @@ export function WinProbabilityCard({
           title={`Nul: ${Math.round(prediction.drawProb * 100)}%`}
         />
         <div
-          className="h-full bg-secondary rounded-r-full transition-all duration-700"
+          className="h-full bg-amber-400 rounded-r-full transition-all duration-700"
           style={{ width: `${Math.round(prediction.team2WinProb * 100)}%` }}
           title={`${awayName}: ${Math.round(prediction.team2WinProb * 100)}%`}
         />

@@ -20,7 +20,7 @@ const STAT_LABELS: { key: StatKey; label: string; max: number }[] = [
   { key: "rating", label: "Note globale", max: 10 },
 ];
 
-const COLORS = ["#2EC4B6", "#f5a623", "#EF476F"]; // secondary, gold, error
+const COLORS = ["#FFB800", "#06D6A0", "#EF476F"]; // gold, success, error
 const BEST_COLOR = "#06D6A0"; // success
 
 const teamsWithPlayers = teams.filter((t) => playerStatsByTeam[t.id]?.length);
