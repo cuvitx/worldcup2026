@@ -14,12 +14,12 @@
   --color-primary: #022149;       /* Bleu Marine */
   --color-accent: #00B865;        /* Vert Émeraude (CTA Primaire) */
   --color-gold: #D4AF37;          /* Or (Highlight) */
-  --color-green: #2d6a4f;         /* Vert Terrain */
+  --color-green: #00B865;         /* Vert unique */
 
   /* ── Couleurs secondaires ── */
   --color-secondary: #D4AF37;     /* Or (Accent/Info) */
   --color-turquoise: #D4AF37;     /* Or (remplace Turquoise Azteca) */
-  --color-field: #2d6a4f;
+  --color-field: #00B865;
   --color-field-light: #40916c;
 
   /* ── Couleurs sémantiques ── */
@@ -672,7 +672,7 @@ details[open] .faq-icon {
   color: #1A1A2E;
 }
 .badge-group {
-  background: #2d6a4f;
+  background: var(--color-accent);
   color: #ffffff;
 }
 .badge-premium {

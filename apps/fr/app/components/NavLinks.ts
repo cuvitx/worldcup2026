@@ -142,7 +142,7 @@ export const megaMenus = {
         links: [
           { href: "/actualites", label: "Actualités" },
           { href: "/guides", label: "Guides" },
-          { href: "/guide-ville/new-york", label: "Guides villes" },
+          { href: "/villes", label: "Guides villes" },
           { href: "/ou-regarder", label: "Où regarder" },
           { href: "/carte-stades", label: "Carte des stades" },
           { href: "/recherche", label: "Recherche" },

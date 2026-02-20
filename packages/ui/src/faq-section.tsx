@@ -66,7 +66,7 @@ export function FAQSection({ title, items }: FAQSectionProps) {
       />
 
       {/* FAQ Section */}
-      <section className="bg-gray-50 dark:bg-slate-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
+      <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             {title || defaultTitle}

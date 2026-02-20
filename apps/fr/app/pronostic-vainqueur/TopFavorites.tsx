@@ -109,14 +109,14 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
 
                 {/* Real bookmaker odds strip (if in top10Favorites) */}
                 {fav && (
-                  <div className="grid grid-cols-3 gap-1.5 px-5 pb-2">
-                    <span className="rounded bg-primary/10 dark:bg-primary/20 border border-primary/20 px-2 py-1 text-xs font-bold text-primary dark:text-secondary text-center">
+                  <div className="flex gap-1.5 px-5 pb-2 overflow-x-auto">
+                    <span className="shrink-0 rounded bg-primary/10 dark:bg-primary/20 border border-primary/20 px-2 py-1 text-[11px] font-bold text-primary dark:text-secondary text-center whitespace-nowrap">
                       Winamax {fav.winamax.toFixed(2)}
                     </span>
-                    <span className="rounded bg-accent/10 border border-accent/30 px-2 py-1 text-xs font-bold text-accent text-center">
+                    <span className="shrink-0 rounded bg-accent/10 border border-accent/30 px-2 py-1 text-[11px] font-bold text-accent text-center whitespace-nowrap">
                       Bet365 {fav.bet365.toFixed(2)}
                     </span>
-                    <span className="rounded bg-accent/10 border border-accent/30 px-2 py-1 text-xs font-bold text-accent text-center">
+                    <span className="shrink-0 rounded bg-accent/10 border border-accent/30 px-2 py-1 text-[11px] font-bold text-accent text-center whitespace-nowrap">
                       DraftKings {fav.draftkings.toFixed(2)}
                     </span>
                   </div>
