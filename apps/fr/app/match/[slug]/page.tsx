@@ -13,7 +13,6 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import {
   MatchHeroAdaptive,
   TeamComparison,
@@ -289,7 +288,6 @@ export default async function MatchPage({ params }: PageProps) {
         }}
       />
 
-      <ANJBanner />
     </>
   );
 }

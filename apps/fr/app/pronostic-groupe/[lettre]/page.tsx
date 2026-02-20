@@ -17,7 +17,6 @@ import { ForceAnalysis } from "./_components/ForceAnalysis";
 import { GroupCalendar } from "./_components/GroupCalendar";
 import { QualificationOdds } from "./_components/QualificationOdds";
 import { GroupSidebar } from "./_components/GroupSidebar";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -151,7 +150,6 @@ export default async function PronosticGroupPage({ params }: PageProps) {
           }),
         }}
       />
-      <ANJBanner />
     </>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { newsArticles, newsCategories, type NewsCategory } from "@repo/data/news";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
@@ -170,7 +169,6 @@ export default function ActualitesPage() {
       </div>
 
       <FAQSection title="❓ Questions fréquentes sur la CDM 2026" items={faqItems} />
-      <ANJBanner />
 </div>
   );
 }

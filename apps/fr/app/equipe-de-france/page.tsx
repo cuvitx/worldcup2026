@@ -18,7 +18,6 @@ import { AnecdotesSection } from "./_components/AnecdotesSection";
 import { MatchPronosticLinks } from "./_components/MatchPronosticLinks";
 import { faqItems } from "./_components/FaqSection";
 import { FinalCTA } from "./_components/FinalCTA";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 const MatchCalendar = dynamic(() => import("./_components/MatchCalendar").then(mod => ({ default: mod.MatchCalendar })), {
   loading: () => (
@@ -93,7 +92,6 @@ export default function EquipeDeFrancePage() {
       />
       <Newsletter variant="banner" />
       <FinalCTA />
-      <ANJBanner />
     </>
   );
 }

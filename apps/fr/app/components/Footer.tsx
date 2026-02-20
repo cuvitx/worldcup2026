@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Newsletter } from "@repo/ui/newsletter";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 const groups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
 
@@ -216,16 +217,9 @@ export function Footer() {
             </div>
             <p>&copy; 2026 CDM 2026. Site non affilié à la FIFA.</p>
           </div>
-          <p className="mt-3 text-xs text-gray-700 leading-relaxed">
-            Les jeux d&apos;argent sont interdits aux mineurs. Jouer comporte des risques : endettement, dépendance.
-            Appelez le{" "}
-            <a href="tel:0974751313" className="text-gray-500 hover:text-gray-400 transition-colors">
-              09 74 75 13 13
-            </a>{" "}
-            (appel non surtaxé).
-          </p>
         </div>
       </div>
+      <ANJBanner />
     </footer>
   );
 }

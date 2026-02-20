@@ -7,7 +7,6 @@ import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { matches } from "@repo/data/matches";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const metadata: Metadata = {
   title: "Pronostics CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
@@ -486,7 +485,6 @@ export default function PronosticHubPage() {
           </p>
         </div>
       </section>
-      <ANJBanner />
 </>
   );
 }

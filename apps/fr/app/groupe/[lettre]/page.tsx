@@ -9,7 +9,6 @@ import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
 import { playersByTeamId } from "@repo/data/players";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import type { Player } from "@repo/data/types";
 
 export const revalidate = 3600;
@@ -462,7 +461,6 @@ export default async function GroupPage({ params }: PageProps) {
           }),
         }}
       />
-      <ANJBanner />
     </>
   );
 }

@@ -2,7 +2,6 @@ import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import { Newsletter } from "@repo/ui/newsletter";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -160,7 +159,6 @@ export default async function TeamPage({ params }: PageProps) {
       <PremiumFinalCTA team={team} />
 
       {/* ANJ Banner */}
-      <ANJBanner />
 
       {/* Schema.org JSON-LD */}
       <script 

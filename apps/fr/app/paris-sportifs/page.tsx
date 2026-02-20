@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -185,7 +184,6 @@ export default function ParisSportifsPage() {
       </div>
 
       <FAQSection title="❓ Questions sur les paris sportifs CDM 2026" items={faqItems} />
-      <ANJBanner />
 </>
   );
 }

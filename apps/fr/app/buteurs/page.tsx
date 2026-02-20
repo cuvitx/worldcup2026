@@ -9,7 +9,6 @@ import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
 const historicalScorers = [
@@ -467,7 +466,6 @@ export default function ButeursPage() {
       </div>
 
       <FAQSection title="❓ Questions sur les buteurs de la CDM" items={faqItems} />
-      <ANJBanner />
 </>
   );
 }

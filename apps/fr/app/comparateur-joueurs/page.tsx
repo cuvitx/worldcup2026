@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) => ({ default: mod.PlayerComparator })), {
   loading: () => (
@@ -80,7 +79,6 @@ export default function ComparateurJoueursPage() {
             Voir le comparateur de cotes &rarr;
           </a>
           <p className="mt-3 text-xs text-white/80">18+. Pariez responsablement.</p>
-          <ANJBanner />
         </div>
       </section>
     </>

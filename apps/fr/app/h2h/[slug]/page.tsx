@@ -8,7 +8,6 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 300;
 export const dynamicParams = false;
@@ -308,7 +307,6 @@ export default async function H2HPage({ params }: PageProps) {
           }),
         }}
       />
-      <ANJBanner />
 </>
   );
 }
