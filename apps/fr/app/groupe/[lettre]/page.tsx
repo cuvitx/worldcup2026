@@ -256,13 +256,10 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Pronostic du groupe */}
             {sortedByQualification.length > 0 && (
-              <section className="relative overflow-hidden rounded-lg bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-lg border border-slate-700">
-                {/* Glassmorphism overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm"></div>
-                
-                <div className="relative z-10">
+              <section className="hero-animated rounded-lg p-6 shadow-lg">
+                <div>
                   <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
-                    <svg className="h-6 w-6 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" /></svg>
+                    <svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" /></svg>
                     Notre pronostic pour le Groupe {group.letter}
                   </h2>
                   <p className="text-gray-300 text-sm mb-6">
@@ -279,7 +276,7 @@ export default async function GroupPage({ params }: PageProps) {
                         >
                           <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-3">
-                              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 text-secondary font-bold text-sm">
+                              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/20 text-accent font-bold text-sm">
                                 {index + 1}
                               </span>
                               <span className="text-xl" role="img" aria-label={`Drapeau de ${item.team.name}`}>
@@ -287,13 +284,13 @@ export default async function GroupPage({ params }: PageProps) {
                               </span>
                               <Link
                                 href={`/equipe/${item.team.slug}`}
-                                className="font-bold text-white hover:text-secondary transition-colors"
+                                className="font-bold text-white hover:text-accent transition-colors"
                               >
                                 {item.team.name}
                               </Link>
                             </div>
                             <div className="text-right">
-                              <div className="text-2xl font-bold text-secondary">
+                              <div className="text-2xl font-bold text-white">
                                 {qualifProb}%
                               </div>
                               <div className="text-xs text-gray-400">
@@ -303,7 +300,7 @@ export default async function GroupPage({ params }: PageProps) {
                           </div>
                           <div className="h-2 rounded-full bg-white/10 overflow-hidden">
                             <div
-                              className="h-full bg-gradient-to-r from-secondary to-accent transition-all duration-500"
+                              className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
                               style={{ width: `${qualifProb}%` }}
                             />
                           </div>
