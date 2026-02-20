@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Bookmaker } from "@repo/data";
 
 interface BettingCtaProps {
@@ -12,70 +11,65 @@ export function BettingCta({
   bookmakers,
   matchLabel,
 }: BettingCtaProps) {
+  const title = matchLabel ? `Parier sur ${matchLabel}` : "Parier sur ce match";
+
   return (
-    <section className="rounded-lg bg-gradient-to-br from-primary to-primary/80 p-6 shadow-md text-white">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-        {matchLabel ? `Parier sur ${matchLabel}` : "Parier sur ce match"}
-      </h2>
-      {/* Featured bookmaker */}
-      <div className="mb-6 rounded-lg bg-white/10 backdrop-blur-sm p-5">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            {featuredBookmaker.logo && <Image src={featuredBookmaker.logo} alt={`Logo ${featuredBookmaker.name}`} width={40} height={40} className="h-10 w-10 rounded-lg bg-white p-1 object-contain" />}
-            <p className="text-lg font-bold">{featuredBookmaker.name}</p>
-            <p className="text-sm text-white/80">
-              {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
-            </p>
-            <div className="mt-1 flex items-center gap-0.5">
-              {Array.from({ length: featuredBookmaker.rating }).map(
-                (_, i) => (
-                  <span key={i} className="text-secondary text-sm">
-                    &#9733;
-                  </span>
-                )
-              )}
+    <section className="hero-animated rounded-2xl p-6 text-white overflow-clip">
+      <div className="relative z-10">
+        <h2 className="text-xl font-bold text-white mb-4">{title}</h2>
+
+        {/* Featured bookmaker */}
+        <a
+          href={featuredBookmaker.url}
+          target="_blank"
+          rel="noopener noreferrer sponsored nofollow"
+          className="block mb-4 rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 hover:bg-white/15 transition-all"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            {featuredBookmaker.logo && (
+              <img src={featuredBookmaker.logo} alt={featuredBookmaker.name} className="w-8 h-8 rounded-lg bg-white p-0.5 object-contain" />
+            )}
+            <div className="flex-1 min-w-0">
+              <p className="font-bold text-white">{featuredBookmaker.name}</p>
+              <p className="text-sm text-white/70">{featuredBookmaker.bonus} — {featuredBookmaker.bonusDetail}</p>
             </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider bg-accent/20 text-accent border border-accent/30 rounded-full px-2 py-0.5 shrink-0">
+              Recommandé
+            </span>
           </div>
-          <a
-            href={featuredBookmaker.url}
-            target="_blank"
-            rel="noopener noreferrer sponsored nofollow"
-            className="inline-block rounded-lg bg-secondary px-6 py-3 text-sm font-bold text-primary hover:bg-secondary/90 transition-colors whitespace-nowrap"
-          >
-            {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; {matchLabel ? `Parier sur ${matchLabel}` : "Parier maintenant"}
-          </a>
-        </div>
-      </div>
-      {/* Other bookmakers */}
-      <div className="space-y-2">
-        {bookmakers
-          .filter((bk) => bk.id !== featuredBookmaker.id)
-          .map((bk) => (
-            <a
-              key={bk.id}
-              href={bk.url}
-              target="_blank"
-              rel="noopener noreferrer sponsored nofollow"
-              className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3 hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                {bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={24} height={24} className="h-6 w-6 rounded object-contain" />}
-                <span className="font-semibold">{bk.name}</span>
-                <span className="ml-2 text-sm text-white/70">
-                  {bk.bonus} {bk.bonusDetail}
+          <div className="rounded-lg bg-accent text-white text-center py-2.5 font-bold text-sm hover:bg-accent/80 transition-all">
+            {featuredBookmaker.bonus} → Parier maintenant
+          </div>
+        </a>
+
+        {/* Other bookmakers */}
+        <div className="space-y-1.5">
+          {bookmakers
+            .filter((bk) => bk.id !== featuredBookmaker.id)
+            .map((bk) => (
+              <a
+                key={bk.id}
+                href={bk.url}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="flex items-center justify-between rounded-lg bg-white/5 border border-white/5 px-4 py-3 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  {bk.logo && <img src={bk.logo} alt={bk.name} className="w-6 h-6 rounded object-contain shrink-0" loading="lazy" />}
+                  <span className="font-semibold text-sm">{bk.name}</span>
+                  <span className="text-xs text-white/50 hidden sm:inline">{bk.bonus}</span>
+                </div>
+                <span className="text-xs font-semibold text-accent shrink-0">
+                  Voir l&apos;offre →
                 </span>
-              </div>
-              <span className="text-sm font-medium text-secondary">
-                Voir l&apos;offre &rarr;
-              </span>
-            </a>
-          ))}
+              </a>
+            ))}
+        </div>
+
+        <p className="mt-3 text-[10px] text-white/50">
+          Cotes estimées, susceptibles d&apos;évoluer. Pariez responsablement. 18+
+        </p>
       </div>
-      <p className="mt-4 text-xs text-white/80">
-        Cotes estimées, susceptibles d&apos;évoluer. Pariez responsablement. 18+
-      </p>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
-      </p>
     </section>
   );
 }
