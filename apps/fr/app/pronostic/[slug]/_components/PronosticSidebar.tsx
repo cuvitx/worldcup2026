@@ -25,7 +25,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
           {prediction && (
             <>
               <div className="border-t border-gray-100 pt-3 flex justify-between"><dt className="text-gray-500">Rating ELO</dt><dd className="font-bold text-primary">{prediction.eloRating}</dd></div>
-              <div className="flex justify-between"><dt className="text-gray-500">Cote vainqueur</dt><dd className="font-bold text-secondary">{estimatedOutrightOdds(prediction.winnerProb)}</dd></div>
+              <div className="flex justify-between"><dt className="text-gray-500">Cote vainqueur</dt><dd className="font-bold text-accent">{estimatedOutrightOdds(prediction.winnerProb)}</dd></div>
             </>
           )}
         </dl>

@@ -2,63 +2,49 @@
 
 import { useState, useEffect } from "react";
 
-/**
- * Translations for cookie consent banner.
- */
 const translations = {
   fr: {
+    title: "Nous respectons votre vie privée",
     message:
-      "Ce site utilise des cookies pour ameliorer votre experience et analyser le trafic.",
-    accept: "Accepter",
+      "Ce site utilise des cookies pour améliorer votre expérience et analyser le trafic. Vous pouvez accepter ou refuser leur utilisation.",
+    accept: "Accepter tout",
     decline: "Refuser",
-    learnMore: "En savoir plus",
-    learnMoreLink: "/mentions-legales",
+    learnMore: "Politique de confidentialité",
+    learnMoreLink: "/politique-de-confidentialite",
   },
   en: {
+    title: "We respect your privacy",
     message:
-      "This site uses cookies to improve your experience and analyze traffic.",
-    accept: "Accept",
+      "This site uses cookies to improve your experience and analyze traffic. You can accept or decline their use.",
+    accept: "Accept all",
     decline: "Decline",
-    learnMore: "Learn more",
-    learnMoreLink: "/legal",
+    learnMore: "Privacy policy",
+    learnMoreLink: "/privacy",
   },
   es: {
+    title: "Respetamos tu privacidad",
     message:
-      "Este sitio utiliza cookies para mejorar su experiencia y analizar el trafico.",
-    accept: "Aceptar",
+      "Este sitio utiliza cookies para mejorar su experiencia y analizar el tráfico. Puede aceptar o rechazar su uso.",
+    accept: "Aceptar todo",
     decline: "Rechazar",
-    learnMore: "Saber mas",
-    learnMoreLink: "/aviso-legal",
+    learnMore: "Política de privacidad",
+    learnMoreLink: "/politica-de-privacidad",
   },
 };
 
-/**
- * Props for the CookieConsent component.
- * 
- * @param lang - UI language: "fr" | "en" | "es"
- */
 interface CookieConsentProps {
   lang: "fr" | "en" | "es";
 }
 
-/**
- * CookieConsent component — GDPR-compliant cookie consent banner (bottom sticky).
- * 
- * Stores user choice in localStorage ("cookie-consent": "accepted" | "refused").
- * Appears only if no previous choice is stored.
- * 
- * @example
- * ```tsx
- * <CookieConsent lang="fr" />
- * ```
- */
 export function CookieConsent({ lang }: CookieConsentProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
-      setVisible(true);
+      // Small delay to avoid layout shift on load
+      const timer = setTimeout(() => setVisible(true), 1000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -77,27 +63,45 @@ export function CookieConsent({ lang }: CookieConsentProps) {
   const t = translations[lang];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[60] py-2 px-4 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-t border-gray-200 dark:border-slate-700 shadow-lg">
-      <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 text-center sm:text-left">
+    <div
+      className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/50 p-4"
+      style={{ WebkitBackdropFilter: "blur(4px)", backdropFilter: "blur(4px)" }}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Consentement cookies"
+    >
+      <div className="w-full max-w-lg rounded-2xl bg-white dark:bg-slate-800 shadow-2xl p-6 md:p-8">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+            <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+            {t.title}
+          </h2>
+        </div>
+
+        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
           {t.message}{" "}
           <a
             href={t.learnMoreLink}
-            className="underline text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary/80"
+            className="underline text-primary dark:text-secondary hover:opacity-80 transition-opacity"
           >
             {t.learnMore}
           </a>
         </p>
-        <div className="flex shrink-0 gap-2">
+
+        <div className="flex flex-col-reverse sm:flex-row gap-3">
           <button
             onClick={handleDecline}
-            className="cursor-pointer rounded-lg border border-gray-300 dark:border-slate-600 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors hover:bg-gray-100 dark:hover:bg-slate-700 min-h-[44px] min-w-[44px]"
+            className="flex-1 cursor-pointer rounded-xl border border-gray-300 dark:border-slate-600 px-5 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 transition-all hover:bg-gray-100 dark:hover:bg-slate-700"
           >
             {t.decline}
           </button>
           <button
             onClick={handleAccept}
-            className="cursor-pointer rounded-lg bg-accent px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-accent/90 min-h-[44px] min-w-[44px]"
+            className="flex-1 cursor-pointer rounded-xl bg-accent px-5 py-3 text-sm font-bold text-white shadow-md shadow-accent/20 transition-all hover:bg-accent/80 hover:-translate-y-0.5"
           >
             {t.accept}
           </button>

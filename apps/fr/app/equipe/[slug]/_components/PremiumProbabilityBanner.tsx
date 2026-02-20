@@ -26,7 +26,7 @@ export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbab
           ].map((item) => (
             <span
               key={item.label}
-              className="rounded-full px-3 py-1 bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary font-medium"
+              className="rounded-full px-3 py-1 bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary font-medium"
             >
               {item.label} : <strong>{Math.round(item.value * 100)}%</strong>
             </span>

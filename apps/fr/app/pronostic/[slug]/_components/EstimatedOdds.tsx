@@ -16,9 +16,9 @@ export function EstimatedOdds({ teamName, prediction }: EstimatedOddsProps) {
     <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Cotes estimees - {teamName} vainqueur CDM 2026</h2>
       <div className="grid grid-cols-2 gap-4 mb-4">
-        <div className="rounded-lg bg-secondary/10 border border-secondary/30 p-4 text-center">
+        <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 text-center">
           <p className="text-sm text-gray-500 mb-1">Cote vainqueur CDM</p>
-          <p className="text-2xl font-extrabold text-secondary sm:text-4xl">{estimatedOutrightOdds(prediction.winnerProb)}</p>
+          <p className="text-2xl font-extrabold text-accent sm:text-4xl">{estimatedOutrightOdds(prediction.winnerProb)}</p>
           <p className="text-xs text-gray-500 mt-1">cote decimale estimee</p>
         </div>
         <div className="rounded-lg bg-primary/5 border border-primary/10 p-4 text-center">
