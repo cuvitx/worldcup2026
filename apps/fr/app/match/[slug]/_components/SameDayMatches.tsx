@@ -55,7 +55,7 @@ export function SameDayMatches({
     <section className="border-t border-gray-200 dark:border-slate-700 py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Matchs de la même journée" />
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="space-y-3 max-w-2xl mx-auto">
           {sameDayMatches.map((m) => {
             const mHome = teamsById[m.homeTeamId];
             const mAway = teamsById[m.awayTeamId];
