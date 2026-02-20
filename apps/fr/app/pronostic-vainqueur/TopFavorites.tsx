@@ -57,7 +57,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 <div className="flex items-center gap-4 px-5 py-4">
                   {/* Rank */}
                   <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
-                    index === 0 ? "bg-secondary/20 text-secondary border-2 border-secondary/50" :
+                    index === 0 ? "bg-accent/20 text-accent border-2 border-accent/50" :
                     index === 1 ? "bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-gray-200" :
                     index === 2 ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary" :
                     "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300"
@@ -95,7 +95,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                     <p className="text-xs text-gray-600 dark:text-gray-300">chance titre</p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <p className="text-xl font-bold text-secondary">
+                    <p className="text-xl font-bold text-accent">
                       {approxOdds}
                       {trendIcon && (
                         <span className={`text-sm ml-1 font-bold ${trendColor}`}>{trendIcon}</span>
@@ -113,7 +113,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                     <span className="rounded bg-primary/10 dark:bg-primary/20 border border-primary/20 px-2 py-1 text-xs font-bold text-primary dark:text-secondary text-center">
                       Winamax {fav.winamax.toFixed(2)}
                     </span>
-                    <span className="rounded bg-secondary/10 border border-secondary/30 px-2 py-1 text-xs font-bold text-secondary text-center">
+                    <span className="rounded bg-accent/10 border border-accent/30 px-2 py-1 text-xs font-bold text-accent text-center">
                       Bet365 {fav.bet365.toFixed(2)}
                     </span>
                     <span className="rounded bg-success//10 border border-success//30 px-2 py-1 text-xs font-bold text-success text-center">

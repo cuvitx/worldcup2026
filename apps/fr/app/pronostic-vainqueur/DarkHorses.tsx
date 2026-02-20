@@ -56,7 +56,7 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
                     <p className="text-[10px] text-gray-600 dark:text-gray-300">chance titre</p>
                   </div>
                   <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-2.5 text-center">
-                    <p className="text-lg font-bold text-secondary">{qfPct}%</p>
+                    <p className="text-lg font-bold text-accent">{qfPct}%</p>
                     <p className="text-[10px] text-gray-600 dark:text-gray-300">quart de finale</p>
                   </div>
                 </div>
