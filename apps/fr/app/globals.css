@@ -11,12 +11,12 @@
   /* ── Couleurs primaires — Direction A Continental ── */
   --color-primary: #0D3B66;       /* Bleu Marine */
   --color-accent: #00B865;        /* Vert Émeraude (CTA Primaire) */
-  --color-gold: #E8C547;          /* Or (Highlight) */
+  --color-gold: #D4AF37;          /* Or (Highlight) */
   --color-green: #2d6a4f;         /* Vert Terrain */
 
   /* ── Couleurs secondaires ── */
-  --color-secondary: #E8C547;     /* Or (Accent/Info) */
-  --color-turquoise: #E8C547;     /* Or (remplace Turquoise Azteca) */
+  --color-secondary: #D4AF37;     /* Or (Accent/Info) */
+  --color-turquoise: #D4AF37;     /* Or (remplace Turquoise Azteca) */
   --color-field: #2d6a4f;
   --color-field-light: #40916c;
 
@@ -434,7 +434,7 @@ header.hero-animated {
   border-left: 3px solid #00B865; /* Vert Émeraude = LIVE */
 }
 .match-card--upcoming {
-  border-left: 3px solid #E8C547; /* Or = à venir */
+  border-left: 3px solid #D4AF37; /* Or = à venir */
 }
 .match-card--finished {
   border-left: 3px solid #8a8a9a; /* Gris Moyen = terminé */
@@ -546,7 +546,7 @@ header.hero-animated {
   --color-border: rgba(255, 255, 255, 0.08);
 
   /* Or : version complète en dark */
-  --color-gold-current: #E8C547;
+  --color-gold-current: #D4AF37;
 
   /* Shadows : pas d'ombres en dark, bordures subtiles à la place */
   --shadow-sm: none;
@@ -651,7 +651,7 @@ details[open] .faq-icon {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  background: linear-gradient(135deg, #E8C547, #f0d46a);
+  background: linear-gradient(135deg, #D4AF37, #f0d46a);
   color: #1A1A2E;
   font-size: 10px;
   font-weight: 700;
@@ -684,7 +684,7 @@ details[open] .faq-icon {
   color: #ffffff;
 }
 .badge-new {
-  background: #E8C547;
+  background: #D4AF37;
   color: #1A1A2E;
 }
 .badge-group {
@@ -692,7 +692,7 @@ details[open] .faq-icon {
   color: #ffffff;
 }
 .badge-premium {
-  background: #E8C547;
+  background: #D4AF37;
   color: #ffffff;
 }
 
@@ -833,7 +833,7 @@ details[open] .faq-icon {
    ============================================================ */
 
 .gradient-text {
-  background: linear-gradient(135deg, #E8C547, #f0d46a);
+  background: linear-gradient(135deg, #D4AF37, #f0d46a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
