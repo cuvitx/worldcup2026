@@ -38,8 +38,11 @@ export default function TeamsPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        {/* By Confederation with filter */}
+        <ConfederationFilter teams={sorted} />
+
         {/* Ranking Table */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
+        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10 mt-10">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -94,8 +97,6 @@ export default function TeamsPage() {
           </div>
         </section>
 
-        {/* By Confederation with filter */}
-        <ConfederationFilter teams={sorted} />
       </div>
     </>
   );
