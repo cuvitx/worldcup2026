@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 
 interface TVChannel {
   name: string;
@@ -13,6 +14,13 @@ interface TVFranceSectionProps {
   tvFranceDetailed: TVChannel[];
 }
 
+// Mapping des logos des chaînes TV (utilise les logos existants)
+const tvLogos: Record<string, string> = {
+  "TF1": "/images/logos/tf1.png",
+  "M6": "/images/logos/m6.png",
+  "beIN Sports": "/images/logos/bein.png",
+};
+
 export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
   return (
     <section id="tv-france" className="mb-14">
@@ -21,7 +29,9 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
       </h2>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {tvFranceDetailed.map((ch) => (
+        {tvFranceDetailed.map((ch) => {
+          const logoPath = tvLogos[ch.name];
+          return (
           <div
             key={ch.name}
             className={`rounded-2xl border p-6 flex flex-col ${
@@ -31,7 +41,21 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
             }`}
           >
             <div className="flex items-center gap-3 mb-3">
-              <img src={ch.logo} alt={ch.name} className="h-12 w-12 rounded-lg object-contain" />
+              {logoPath ? (
+                <div className="h-10 max-h-10 w-20 flex items-center justify-center">
+                  <Image 
+                    src={logoPath} 
+                    alt={ch.name} 
+                    width={80}
+                    height={40}
+                    className="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition"
+                  />
+                </div>
+              ) : (
+                <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm">
+                  {ch.name.substring(0, 2).toUpperCase()}
+                </div>
+              )}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{ch.name}</h3>
                 <span
@@ -48,7 +72,7 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
             <p className="text-lg font-bold text-primary dark:text-secondary mb-2">{ch.matches}</p>
             <p className="text-sm text-gray-600 dark:text-gray-300 flex-1">{ch.details}</p>
           </div>
-        ))}
+        )})}
       </div>
 
       <div className="mt-4 p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">

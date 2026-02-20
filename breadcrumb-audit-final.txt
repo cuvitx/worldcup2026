@@ -1,0 +1,14 @@
+# Audit Breadcrumbs
+
+✅ Pages OK: 59
+❌ Breadcrumb manquant: 0
+❌ Schema manquant: 0
+❌ Les deux manquants: 1
+
+Total: 60
+
+## Pages sans breadcrumb NI schema:
+
+- apps/fr/app/page.tsx
+
+Rapport sauvegardé dans breadcrumb-report.json

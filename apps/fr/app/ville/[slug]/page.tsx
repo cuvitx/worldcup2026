@@ -120,11 +120,11 @@ export default async function CityPage({ params }: PageProps) {
                         className="flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? ""}</span>
                         <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500 shrink-0">vs</span>
                         <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? ""}</span>
                         <span className="hidden sm:inline rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
@@ -150,9 +150,9 @@ export default async function CityPage({ params }: PageProps) {
                         {enrichment.weather.juinMin} – {enrichment.weather.juinMax}C
                       </p>
                     </div>
-                    <div className="rounded-lg bg-orange-50 dark:bg-orange-900/20 p-4 text-center">
+                    <div className="rounded-lg bg-secondary/10 dark:bg-secondary/20 p-4 text-center">
                       <p className="text-xs text-gray-500 dark:text-gray-300 mb-1">Juillet</p>
-                      <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                      <p className="text-2xl font-bold text-secondary dark:text-secondary">
                         {enrichment.weather.juilletMin} – {enrichment.weather.juilletMax}C
                       </p>
                     </div>

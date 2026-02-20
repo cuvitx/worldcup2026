@@ -251,7 +251,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
               return (
                 <Link key={match.id} href={`/match/${match.slug}`} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5">
                   <span className="text-sm text-gray-500 w-20 shrink-0">{match.date.slice(5)}</span>
-                  <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? "🏳"}</span>
+                  <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? ""}</span>
                   <div className="flex-1">
                     <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}</p>
                     <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.time} UTC</p>

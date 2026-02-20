@@ -30,7 +30,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
             <div key={match.id} className="rounded-lg border border-gray-200 dark:border-slate-700 p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">{opponent?.flag ?? "🏳"}</span>
+                  <span className="text-2xl">{opponent?.flag ?? ""}</span>
                   <div>
                     <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}</p>
                     <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.date} &middot; {match.time} UTC</p>

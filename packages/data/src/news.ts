@@ -101,7 +101,7 @@ Cette représentation africaine record promet d'apporter une diversité et une i
     date: "2026-02-05",
     category: "equipes",
     tags: ["qualifications", "Afrique", "CAF", "48 équipes"],
-    imageEmoji: "🌍",
+    imageEmoji: "",
   },
   {
     id: 7,
@@ -374,7 +374,7 @@ Pour les paris sportifs autour de la Coupe du Monde, plusieurs marchés sont dis
     date: "2026-02-14",
     category: "paris",
     tags: ["favoris", "cotes", "bookmakers", "pronostics", "France", "Brésil", "Argentine"],
-    imageEmoji: "🏆",
+    imageEmoji: "",
   },
   {
     id: 22,
@@ -500,7 +500,7 @@ En CONCACAF (Amérique du Nord, Centrale et Caraïbes, 6 places hors hôtes), le
     date: "2026-02-08",
     category: "equipes",
     tags: ["qualifications", "équipes qualifiées", "confédérations", "UEFA", "CAF", "AFC"],
-    imageEmoji: "🌍",
+    imageEmoji: "",
   },
   {
     id: 28,
@@ -979,7 +979,7 @@ Si les conditions sont réunies (Mbappé en pleine forme, défense solide, colle
     date: "2026-02-24",
     category: "equipes",
     tags: ["France", "parcours", "pronostic", "Bleus", "finale", "phases éliminatoires", "groupe"],
-    imageEmoji: "🏆",
+    imageEmoji: "",
   },
   {
     id: 41,

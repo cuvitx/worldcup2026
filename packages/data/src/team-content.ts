@@ -36,7 +36,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
     anecdotes: [
       { year: "1958", icon: "⚽", title: "Just Fontaine — Record éternel", desc: "Just Fontaine inscrit 13 buts en une seule édition de la Coupe du Monde, un record absolu qui tient depuis 66 ans et ne sera probablement jamais battu. La France finit 3e." },
       { year: "1982", icon: "💔", title: "La tragédie de Séville", desc: "En demi-finale contre l'Allemagne, le gardien Schumacher assomme Battiston sans être sanctionné. La France, menée 3-1, remonte à 3-3 avant de perdre aux tirs au but." },
-      { year: "1998", icon: "🏆", title: "1998 : L'été de tous les rêves", desc: "À domicile, les Bleus de Aimé Jacquet écrasent le Brésil 3-0 en finale. Zidane inscrit deux buts de la tête. Un pays tout entier sur les Champs-Élysées. La 1ère étoile." },
+      { year: "1998", icon: "", title: "1998 : L'été de tous les rêves", desc: "À domicile, les Bleus de Aimé Jacquet écrasent le Brésil 3-0 en finale. Zidane inscrit deux buts de la tête. Un pays tout entier sur les Champs-Élysées. La 1ère étoile." },
       { year: "2006", icon: "🤯", title: "Zidane : Adieu en coup de tête", desc: "À 34 ans, Zizou sort de sa retraite internationale et mène la France jusqu'en finale. Un coup de tête sur Materazzi le fait expulser. La France perd aux tirs au but." },
       { year: "2018", icon: "⭐", title: "2018 : La génération Mbappé", desc: "En Russie, les Bleus de Deschamps battent la Croatie 4-2. Mbappé (19 ans) marque et devient le 2e joueur après Pelé à inscrire un but en finale à son âge. La 2e étoile." },
       { year: "2022", icon: "🎭", title: "La finale épique de tous les temps", desc: "Menée 2-0 à la 80e, la France remonte grâce à Mbappé (triplé). Score final 3-3, l'Argentine gagne aux tirs au but. La plus grande finale de l'histoire." },
@@ -162,7 +162,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Dépendance aux joueurs nés et formés aux Pays-Bas",
     ],
     anecdotes: [
-      { year: "2019", icon: "🏆", title: "Quart de finale en Gold Cup", desc: "Curaçao atteint les quarts de finale de la Gold Cup 2019, battant le Salvador et l'Inde. Une performance qui met l'île sur la carte du football international." },
+      { year: "2019", icon: "", title: "Quart de finale en Gold Cup", desc: "Curaçao atteint les quarts de finale de la Gold Cup 2019, battant le Salvador et l'Inde. Une performance qui met l'île sur la carte du football international." },
       { year: "2026", icon: "🌴", title: "L'île au Mondial", desc: "Curaçao se qualifie pour sa première Coupe du Monde, exploit phénoménal pour une île néerlandaise des Caraïbes. Tout l'archipel célèbre ce moment historique." },
     ],
   },
@@ -246,8 +246,8 @@ export const teamContent: Record<string, TeamEditorialContent> = {
     ],
     anecdotes: [
       { year: "1958", icon: "👑", title: "Pelé, 17 ans, roi du monde", desc: "Un gamin de 17 ans nommé Pelé inscrit 6 buts dont un doublé en finale (5-2 vs Suède). Le Brésil remporte sa 1re Coupe du Monde et une légende est née." },
-      { year: "1970", icon: "🎨", title: "Le plus beau football jamais joué", desc: "Au Mexique, le Brésil de Pelé, Jairzinho, Tostão et Rivelino écrase l'Italie 4-1 en finale. Considérée comme la plus belle équipe de l'histoire du football." },
-      { year: "1994", icon: "🏆", title: "La Romário-dépendance payante", desc: "Aux États-Unis, portés par un Romário impérial (5 buts), les Brésiliens battent l'Italie aux tirs au but en finale. Baggio rate le dernier penalty." },
+      { year: "1970", icon: "", title: "Le plus beau football jamais joué", desc: "Au Mexique, le Brésil de Pelé, Jairzinho, Tostão et Rivelino écrase l'Italie 4-1 en finale. Considérée comme la plus belle équipe de l'histoire du football." },
+      { year: "1994", icon: "", title: "La Romário-dépendance payante", desc: "Aux États-Unis, portés par un Romário impérial (5 buts), les Brésiliens battent l'Italie aux tirs au but en finale. Baggio rate le dernier penalty." },
       { year: "2002", icon: "⭐", title: "Ronaldo, la rédemption", desc: "Au Japon, Ronaldo — après sa mystérieuse crise de 1998 — inscrit 8 buts dont un doublé en finale contre l'Allemagne (2-0). Le Brésil décroche sa 5e étoile." },
       { year: "2014", icon: "💀", title: "Le 7-1 : cauchemar national", desc: "À domicile, le Brésil s'effondre 7-1 contre l'Allemagne en demi-finale. Le Mineirão de Belo Horizonte est en larmes. Le pire traumatisme du football brésilien." },
     ],
@@ -291,7 +291,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
     ],
     anecdotes: [
       { year: "1954", icon: "✨", title: "Le Miracle de Berne", desc: "Menée 2-0 par la Hongrie de Puskás en finale, l'Allemagne de Fritz Walter renverse le match et gagne 3-2. Le 'Miracle de Berne' marque la renaissance de l'Allemagne d'après-guerre." },
-      { year: "1974", icon: "🏆", title: "Beckenbauer, le Kaiser champion", desc: "À domicile, l'Allemagne de Beckenbauer, Gerd Müller et Breitner bat les Pays-Bas de Cruyff 2-1 en finale. Müller inscrit le but décisif." },
+      { year: "1974", icon: "", title: "Beckenbauer, le Kaiser champion", desc: "À domicile, l'Allemagne de Beckenbauer, Gerd Müller et Breitner bat les Pays-Bas de Cruyff 2-1 en finale. Müller inscrit le but décisif." },
       { year: "1990", icon: "⚡", title: "Revanche sur Maradona", desc: "À Rome, l'Allemagne prend sa revanche sur l'Argentine de Maradona. Un penalty de Brehme à la 85e offre un 3e titre (1-0). Maradona termine en larmes." },
       { year: "2014", icon: "⭐", title: "Götze et le Maracanazo", desc: "Après le 7-1 contre le Brésil, Götze inscrit un but de génie en finale contre l'Argentine à la 113e minute (1-0). La 4e étoile, la consécration d'une génération." },
       { year: "2018", icon: "💥", title: "La chute du champion", desc: "L'Allemagne tenante du titre est éliminée dès les poules après une défaite contre la Corée du Sud (2-0). La fin humiliante d'un cycle doré." },
@@ -314,7 +314,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
     ],
     anecdotes: [
       { year: "1950", icon: "😤", title: "L'affront du Maracanã", desc: "L'Espagne atteint la phase finale à 4 équipes mais s'incline face à l'Uruguay (2-3) et au Brésil (1-6). Un début de longue frustration en Coupe du Monde." },
-      { year: "2010", icon: "🏆", title: "La Roja conquiert le monde", desc: "En Afrique du Sud, l'Espagne de Xavi, Iniesta et Casillas domine la compétition. Iniesta inscrit le seul but de la finale contre les Pays-Bas à la 116e minute. Le tiki-taka est roi." },
+      { year: "2010", icon: "", title: "La Roja conquiert le monde", desc: "En Afrique du Sud, l'Espagne de Xavi, Iniesta et Casillas domine la compétition. Iniesta inscrit le seul but de la finale contre les Pays-Bas à la 116e minute. Le tiki-taka est roi." },
       { year: "2018", icon: "🎭", title: "Le chaos Lopetegui", desc: "Lopetegui est viré la veille du Mondial pour avoir signé au Real Madrid. L'Espagne, déboussolée, est éliminée en 8es par la Russie aux tirs au but." },
       { year: "2022", icon: "🇯🇵", title: "Le cauchemar japonais", desc: "L'Espagne est éliminée en 8es par le Maroc aux tirs au but, après une phase de groupes où le Japon lui avait infligé une défaite surprise." },
     ],
@@ -335,7 +335,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Tendance à sous-performer dans les matchs décisifs",
     ],
     anecdotes: [
-      { year: "1966", icon: "🏆", title: "Le but fantôme de Wembley", desc: "À domicile, l'Angleterre bat l'Allemagne 4-2 en finale (après prolongation). Le 3e but de Hurst, qui rebondit sur la barre, est toujours débattu. Le seul titre anglais." },
+      { year: "1966", icon: "", title: "Le but fantôme de Wembley", desc: "À domicile, l'Angleterre bat l'Allemagne 4-2 en finale (après prolongation). Le 3e but de Hurst, qui rebondit sur la barre, est toujours débattu. Le seul titre anglais." },
       { year: "1986", icon: "🖐️", title: "Main de Dieu, cœur brisé", desc: "En quart de finale, Maradona élimine l'Angleterre avec la Main de Dieu puis le But du Siècle. Le début d'une rivalité légendaire avec l'Argentine." },
       { year: "1990", icon: "😭", title: "Gazza's Tears", desc: "L'Angleterre de Lineker et Gascoigne atteint les demi-finales. Gazza reçoit un carton jaune qui le priverait de la finale et fond en larmes. Défaite aux tirs au but face à l'Allemagne." },
       { year: "2018", icon: "🦁", title: "It's Coming Home... presque", desc: "L'Angleterre de Southgate atteint les demi-finales pour la 1re fois depuis 1990. Battue par la Croatie en prolongation (1-2), mais un pays retrouve l'espoir." },
@@ -380,7 +380,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Résultats récents en baisse (éliminés en demi à l'Euro 2024 par l'Angleterre)",
     ],
     anecdotes: [
-      { year: "1974", icon: "🎨", title: "Le Football Total de Cruyff", desc: "Les Pays-Bas de Cruyff révolutionnent le football avec le 'Totaalvoetbal'. Ils mènent 1-0 après 80 secondes en finale sans que l'Allemagne touche le ballon, mais perdent 2-1." },
+      { year: "1974", icon: "", title: "Le Football Total de Cruyff", desc: "Les Pays-Bas de Cruyff révolutionnent le football avec le 'Totaalvoetbal'. Ils mènent 1-0 après 80 secondes en finale sans que l'Allemagne touche le ballon, mais perdent 2-1." },
       { year: "1978", icon: "💔", title: "Encore finaliste, encore battu", desc: "Les Oranje atteignent à nouveau la finale mais s'inclinent 3-1 face à l'Argentine (après prolongation). Sans Cruyff, qui a refusé de participer." },
       { year: "1998", icon: "🧊", title: "Bergkamp, le but venu d'ailleurs", desc: "Dennis Bergkamp inscrit contre l'Argentine en quart un but légendaire : contrôle du dos, crochet et frappe. Éliminés en demi par le Brésil aux tirs au but." },
       { year: "2010", icon: "🥊", title: "La finale de la honte", desc: "Les Pays-Bas atteignent leur 3e finale. Un match brutal (14 cartons jaunes, 1 rouge) contre l'Espagne. Robben rate un face-à-face. Défaite 0-1 à la 116e." },
@@ -444,7 +444,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Qualifications sud-américaines souvent compliquées malgré le talent",
     ],
     anecdotes: [
-      { year: "1930", icon: "🏆", title: "Les tout premiers champions du monde", desc: "À Montevideo, l'Uruguay organise et remporte la toute première Coupe du Monde. Victoire 4-2 en finale contre l'Argentine devant 93 000 spectateurs au Centenario." },
+      { year: "1930", icon: "", title: "Les tout premiers champions du monde", desc: "À Montevideo, l'Uruguay organise et remporte la toute première Coupe du Monde. Victoire 4-2 en finale contre l'Argentine devant 93 000 spectateurs au Centenario." },
       { year: "1950", icon: "😱", title: "Le Maracanazo — le plus grand exploit", desc: "L'Uruguay bat le Brésil 2-1 en match décisif devant 200 000 spectateurs au Maracanã. Le 'Maracanazo' reste le plus grand choc de l'histoire du football." },
       { year: "2010", icon: "🖐️", title: "La main de Suárez contre le Ghana", desc: "En quart, Suárez arrête un but certain du Ghana de la main sur la ligne à la dernière minute. Expulsé, mais Gyan rate le penalty. L'Uruguay gagne aux tirs au but." },
       { year: "2010", icon: "🎉", title: "Forlán et le retour au premier plan", desc: "Portés par Forlán (Ballon d'Or du tournoi), les Uruguayens atteignent les demi-finales pour la 1re fois depuis 1970. 4e place finale." },
@@ -575,7 +575,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Instabilité au poste de sélectionneur ces dernières années",
     ],
     anecdotes: [
-      { year: "1978", icon: "🌍", title: "Pionniers africains", desc: "La Tunisie devient le premier pays africain à remporter un match en Coupe du Monde en battant le Mexique 3-1 en 1978. Un moment historique pour tout le continent." },
+      { year: "1978", icon: "", title: "Pionniers africains", desc: "La Tunisie devient le premier pays africain à remporter un match en Coupe du Monde en battant le Mexique 3-1 en 1978. Un moment historique pour tout le continent." },
       { year: "1998", icon: "🦅", title: "Retour après 20 ans", desc: "La Tunisie revient en Coupe du Monde en 1998 après 20 ans d'absence. Malgré des performances honorables, elle est éliminée au premier tour avec un seul point." },
       { year: "2018", icon: "🎯", title: "Victoire au bout du suspense", desc: "En 2018, la Tunisie bat le Panama 2-1 grâce à un but de Khazri dans les arrêts de jeu. Une victoire du cœur mais insuffisante pour se qualifier au second tour." },
       { year: "2022", icon: "🇫🇷", title: "La France à genoux", desc: "Au Qatar, la Tunisie bat la France 1-0 grâce à Khazri. Une victoire historique mais cruelle : l'Australie l'élimine au même moment dans l'autre match du groupe." },
@@ -642,7 +642,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
     anecdotes: [
       { year: "2022", icon: "🏟️", title: "Hôte malheureux", desc: "Le Qatar devient le premier pays hôte à perdre le match d'ouverture de la Coupe du Monde (0-2 contre l'Équateur). Il sera aussi le premier hôte éliminé après deux matchs seulement." },
       { year: "2022", icon: "📊", title: "Zéro pointé historique", desc: "3 matchs, 3 défaites, 1 seul but marqué (contre le Sénégal), 7 encaissés. Le Qatar signe la pire performance d'un pays organisateur dans l'histoire de la Coupe du Monde." },
-      { year: "2019", icon: "🏆", title: "Champions d'Asie surprise", desc: "Avant le Mondial 2022, le Qatar crée la sensation en remportant la Coupe d'Asie 2019 aux Émirats, battant le Japon 3-1 en finale. Almoez Ali inscrit 9 buts dans le tournoi." },
+      { year: "2019", icon: "", title: "Champions d'Asie surprise", desc: "Avant le Mondial 2022, le Qatar crée la sensation en remportant la Coupe d'Asie 2019 aux Émirats, battant le Japon 3-1 en finale. Almoez Ali inscrit 9 buts dans le tournoi." },
     ],
   },
   "iran": {
@@ -731,7 +731,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
     anecdotes: [
       { year: "1930", icon: "🥉", title: "Demi-finalistes du tout premier Mondial", desc: "Les États-Unis atteignent les demi-finales de la première Coupe du Monde en Uruguay. Battus 6-1 par l'Argentine, ils terminent 3es d'un tournoi à 13 équipes." },
       { year: "1950", icon: "🤯", title: "L'exploit légendaire contre l'Angleterre", desc: "À Belo Horizonte, les Américains battent l'Angleterre 1-0. L'un des plus grands upsets de l'histoire du football. Certains journaux anglais pensent à une erreur typographique." },
-      { year: "1994", icon: "🏠", title: "1994 : Le Mondial qui a tout changé", desc: "À domicile, les USA sortent des poules et atteignent les huitièmes (défaite 1-0 contre le Brésil). Record d'affluence absolue avec 3,59 millions de spectateurs sur le tournoi." },
+      { year: "1994", icon: "", title: "1994 : Le Mondial qui a tout changé", desc: "À domicile, les USA sortent des poules et atteignent les huitièmes (défaite 1-0 contre le Brésil). Record d'affluence absolue avec 3,59 millions de spectateurs sur le tournoi." },
       { year: "2002", icon: "🇺🇸", title: "Quarts de finale historiques au Japon", desc: "Victoire 2-0 contre le Mexique en huitièmes, puis défaite 1-0 contre l'Allemagne en quarts. Le meilleur parcours américain en Coupe du Monde moderne." },
       { year: "2022", icon: "🔄", title: "Le retour après l'absence de 2018", desc: "Après avoir raté le Mondial 2018, les USA reviennent au Qatar avec la plus jeune équipe du tournoi. Éliminés en huitièmes par les Pays-Bas (3-1)." },
     ],
@@ -755,7 +755,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       { year: "1986", icon: "🍁", title: "La première (et longtemps unique) qualification", desc: "Le Canada se qualifie pour la première fois au Mexique en 1986. Trois matchs, trois défaites, zéro but marqué. Il faudra attendre 36 ans pour revoir les Canucks en Coupe du Monde." },
       { year: "2022", icon: "⚡", title: "Le retour après 36 ans d'absence", desc: "Après 36 ans, le Canada revient en Coupe du Monde au Qatar. Éliminé en poules mais avec les honneurs face à la Belgique et la Croatie." },
       { year: "2022", icon: "🔥", title: "Davies : premier but canadien en CDM", desc: "À la 2e minute contre la Croatie, Alphonso Davies inscrit de la tête le tout premier but du Canada en Coupe du Monde. Un moment historique malgré la défaite 4-1." },
-      { year: "2024", icon: "🏆", title: "Demi-finale surprise en Copa América", desc: "Invité à la Copa América 2024, le Canada atteint les demi-finales en battant le Venezuela aux tirs au but. Une performance inattendue qui confirme l'essor du football canadien." },
+      { year: "2024", icon: "", title: "Demi-finale surprise en Copa América", desc: "Invité à la Copa América 2024, le Canada atteint les demi-finales en battant le Venezuela aux tirs au but. Une performance inattendue qui confirme l'essor du football canadien." },
     ],
   },
   japon: {
@@ -774,7 +774,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Joueurs en fin de saison européenne intense — forme physique en question",
     ],
     anecdotes: [
-      { year: "2002", icon: "🏠", title: "2002 : Le Japon enflamme ses stades", desc: "Co-organisateur avec la Corée du Sud, le Japon passe les poules pour la première fois et atteint les huitièmes. Défaite 1-0 contre la Turquie devant un public en larmes." },
+      { year: "2002", icon: "", title: "2002 : Le Japon enflamme ses stades", desc: "Co-organisateur avec la Corée du Sud, le Japon passe les poules pour la première fois et atteint les huitièmes. Défaite 1-0 contre la Turquie devant un public en larmes." },
       { year: "2010", icon: "🎯", title: "Le penalty de la douleur", desc: "En huitièmes face au Paraguay, après un 0-0 accroché, le Japon est éliminé aux tirs au but. Komano rate le penalty décisif. La malédiction des 8es se poursuit." },
       { year: "2018", icon: "💔", title: "La remontada belge en 14 minutes", desc: "Menant 2-0 face à la Belgique en huitièmes, le Japon encaisse 3 buts en 14 minutes dont le dernier à la toute dernière seconde sur contre-attaque. La plus cruelle des éliminations." },
       { year: "2022", icon: "🔥", title: "L'Allemagne et l'Espagne à genoux", desc: "Le Japon bat l'Allemagne (2-1) puis l'Espagne (2-1) en poules au Qatar. Deux remontadas spectaculaires qui stupéfient la planète. Éliminé aux tirs au but par la Croatie en huitièmes." },
@@ -845,7 +845,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       { year: "1986", icon: "🦁", title: "Premier africain en tête de groupe", desc: "Le Maroc termine premier de son groupe devant l'Angleterre, le Portugal et la Pologne. Première équipe africaine à atteindre le 2e tour. Éliminée 1-0 par l'Allemagne sur un coup franc de Matthäus." },
       { year: "1998", icon: "🇲🇦", title: "L'injustice contre la Norvège", desc: "Un but marocain est refusé à tort en fin de match contre la Norvège. Défaite 2-1, le Maroc est éliminé en poules dans la controverse et l'amertume." },
       { year: "2022", icon: "🔥", title: "La Belgique et l'Espagne tombent", desc: "Le Maroc bat la Belgique 2-0 en poules puis élimine l'Espagne aux tirs au but en huitièmes. Bounou arrête tout. Le monde arabe et africain explose de joie." },
-      { year: "2022", icon: "🌍", title: "Le Portugal éliminé — l'Afrique en demi-finale", desc: "Youssef En-Nesyri s'envole pour marquer de la tête. Le Maroc bat le Portugal 1-0 et devient la première équipe africaine et arabe en demi-finale de l'histoire." },
+      { year: "2022", icon: "", title: "Le Portugal éliminé — l'Afrique en demi-finale", desc: "Youssef En-Nesyri s'envole pour marquer de la tête. Le Maroc bat le Portugal 1-0 et devient la première équipe africaine et arabe en demi-finale de l'histoire." },
       { year: "2022", icon: "❤️", title: "Les joueurs et leurs mères sur la pelouse", desc: "Après chaque victoire au Qatar, les joueurs marocains célèbrent avec leurs mères sur la pelouse. Des images devenues virales et symboles universels de ce parcours unique." },
     ],
   },
@@ -909,7 +909,7 @@ export const teamContent: Record<string, TeamEditorialContent> = {
       "Défense parfois friable dans les grands rendez-vous internationaux",
     ],
     anecdotes: [
-      { year: "1982", icon: "🌍", title: "Victoire historique contre l'Allemagne de l'Ouest", desc: "Pour sa 1ère Coupe du Monde, l'Algérie bat l'Allemagne de l'Ouest 2-1 à Gijón. Rabah Madjer et Lakhdar Belloumi inscrivent les buts. L'un des plus grands exploits de l'histoire du Mondial." },
+      { year: "1982", icon: "", title: "Victoire historique contre l'Allemagne de l'Ouest", desc: "Pour sa 1ère Coupe du Monde, l'Algérie bat l'Allemagne de l'Ouest 2-1 à Gijón. Rabah Madjer et Lakhdar Belloumi inscrivent les buts. L'un des plus grands exploits de l'histoire du Mondial." },
       { year: "1982", icon: "😤", title: "La disgrâce de Gijón", desc: "L'Allemagne et l'Autriche s'entendent tacitement sur un 1-0 qui élimine l'Algérie. Le scandale mène à l'instauration des derniers matchs de poule joués simultanément." },
       { year: "2010", icon: "🇩🇿", title: "Retour au Mondial après 24 ans", desc: "Après un barrage dramatique contre l'Égypte à Khartoum (1-0), l'Algérie revient en Coupe du Monde. Tout un pays en transe pour cet exploit de la qualification." },
       { year: "2014", icon: "🔥", title: "120 minutes face au futur champion du monde", desc: "En huitièmes au Brésil, l'Algérie pousse l'Allemagne (futur championne) en prolongation. Défaite 2-1 ap, mais Slimani et les Fennecs impressionnent le monde par leur courage." },

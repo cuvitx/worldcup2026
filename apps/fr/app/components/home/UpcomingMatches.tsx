@@ -76,7 +76,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                   {/* Teams */}
                   <div className="flex items-center gap-3 flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <span className="text-2xl shrink-0">{home?.flag ?? "🏳"}</span>
+                      <span className="text-2xl shrink-0">{home?.flag ?? ""}</span>
                       <span className="text-sm font-bold text-gray-900 dark:text-white truncate">
                         {home?.name ?? match.homeTeamId}
                       </span>
@@ -88,7 +88,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                       <span className="text-sm font-bold text-gray-900 dark:text-white truncate text-right">
                         {away?.name ?? match.awayTeamId}
                       </span>
-                      <span className="text-2xl shrink-0">{away?.flag ?? "🏳"}</span>
+                      <span className="text-2xl shrink-0">{away?.flag ?? ""}</span>
                     </div>
                   </div>
 

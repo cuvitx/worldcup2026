@@ -67,7 +67,7 @@ function StatusBadge({ status, elapsed, t }: { status: LiveMatch["status"]; elap
   }
   if (status === "halftime") {
     return (
-      <span className="rounded-full bg-yellow-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
+      <span className="rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-bold text-white">
         {t.halftime}
       </span>
     );

@@ -7,6 +7,9 @@ import { groups } from "@repo/data/groups";
 import { teamsById } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { RelatedLinks } from "../components/RelatedLinks";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Les 12 groupes de la Coupe du Monde 2026 | Classement & Pronostics",
@@ -45,6 +48,7 @@ export default function GroupsPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Groupes","url":"/groupes"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
@@ -101,7 +105,7 @@ export default function GroupsPage() {
                           {idx + 1}
                         </span>
                         <span className="text-xl" role="img" aria-label={team?.name ?? id}>
-                          {team?.flag ?? "🏳"}
+                          {team?.flag ?? ""}
                         </span>
                         <span className={`flex-1 font-medium break-words text-sm ${
                           isQualified 
@@ -137,6 +141,32 @@ export default function GroupsPage() {
           </span>
           <span>% = chances de sortie de groupe</span>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <RelatedLinks
+          variant="compact"
+          links={[
+            {
+              href: "/equipes",
+              title: "Toutes les équipes",
+              description: "Découvrez les 48 équipes qualifiées avec stats et pronostics.",
+              icon: ""
+            },
+            {
+              href: "/match/calendrier",
+              title: "📅 Calendrier des matchs",
+              description: "Tous les matchs de la phase de groupes avec dates et horaires.",
+              icon: "📅"
+            },
+            {
+              href: "/pronostic-vainqueur",
+              title: "Pronostic vainqueur",
+              description: "Nos prédictions et cotes pour le vainqueur de la CDM 2026.",
+              icon: ""
+            }
+          ]}
+        />
       </div>
 
       <FAQSection title="Questions fréquentes sur les groupes" items={faqItems} />

@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+
 interface Channel {
   name: string;
   type: string;
@@ -22,6 +25,17 @@ interface FrancophoneTVSectionProps {
   tvByCountryFrancophone: CountryTV[];
 }
 
+// Mapping des logos des chaînes francophones
+const channelLogos: Record<string, string> = {
+  "RTBF (La Une / La Deux)": "/images/logos/tv/rtbf.svg",
+  "RTBF": "/images/logos/tv/rtbf.svg",
+  "RTS (RTS 1 / RTS 2)": "/images/logos/tv/rts.svg",
+  "RTS": "/images/logos/tv/rts.svg",
+  "TVA Sports": "/images/logos/tv/tva.svg",
+  "TSN / CTV": "/images/logos/tv/tsn.svg",
+  "TSN": "/images/logos/tv/tsn.svg",
+};
+
 export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSectionProps) {
   return (
     <section id="tv-francophone" className="mb-14">
@@ -42,8 +56,25 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3"> Chaînes TV</h4>
                 <div className="space-y-3">
-                  {country.channels.map((ch) => (
+                  {country.channels.map((ch) => {
+                    const logoPath = channelLogos[ch.name];
+                    return (
                     <div key={ch.name} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                      {logoPath ? (
+                        <div className="h-8 max-h-8 w-16 flex items-center justify-center shrink-0">
+                          <Image 
+                            src={logoPath} 
+                            alt={ch.name} 
+                            width={64}
+                            height={32}
+                            className="max-h-8 w-auto object-contain grayscale hover:grayscale-0 transition"
+                          />
+                        </div>
+                      ) : (
+                        <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xs shrink-0">
+                          {ch.name.substring(0, 2).toUpperCase()}
+                        </div>
+                      )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-bold text-gray-900 dark:text-gray-100">{ch.name}</span>
@@ -57,7 +88,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
                         <p className="text-xs font-semibold text-primary dark:text-secondary mt-1">{ch.matches}</p>
                       </div>
                     </div>
-                  ))}
+                  )})}
                 </div>
               </div>
               <div>

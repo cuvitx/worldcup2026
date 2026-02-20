@@ -13,7 +13,7 @@ function InfoBox({
   const styles = {
     info: "border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-900 dark:text-blue-200",
     warning:
-      "border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-900 dark:text-yellow-200",
+      "border-secondary bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary",
     tip: "border-accent bg-accent/10 dark:bg-accent/10 text-accent dark:text-accent",
   };
   const icons = { info: "ℹ️", warning: "⚠️", tip: "💡" };

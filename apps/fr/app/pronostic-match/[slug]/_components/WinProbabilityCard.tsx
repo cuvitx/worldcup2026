@@ -22,7 +22,7 @@ export function WinProbabilityCard({
       </h2>
       <div className="flex items-center justify-around mb-6">
         <div className="text-center">
-          <span className="text-3xl">{home?.flag ?? "🏳"}</span>
+          <span className="text-3xl">{home?.flag ?? ""}</span>
           <p className="text-sm font-bold mt-1">{homeName}</p>
           <p className="text-2xl font-extrabold text-primary mt-1">
             {Math.round(prediction.team1WinProb * 100)}%
@@ -35,7 +35,7 @@ export function WinProbabilityCard({
           </p>
         </div>
         <div className="text-center">
-          <span className="text-3xl">{away?.flag ?? "🏳"}</span>
+          <span className="text-3xl">{away?.flag ?? ""}</span>
           <p className="text-sm font-bold mt-1">{awayName}</p>
           <p className="text-2xl font-extrabold text-accent mt-1">
             {Math.round(prediction.team2WinProb * 100)}%

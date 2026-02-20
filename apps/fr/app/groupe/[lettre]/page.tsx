@@ -354,11 +354,11 @@ export default async function GroupPage({ params }: PageProps) {
                         className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
                         <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳"}</span>
+                          <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? ""}</span>
                           <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
                           <span className="text-xs text-gray-500 shrink-0">vs</span>
                           <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
-                          <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳"}</span>
+                          <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? ""}</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs text-gray-500 sm:ml-auto sm:shrink-0">
                           <span>{match.date.slice(5)}</span>

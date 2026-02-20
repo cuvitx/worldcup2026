@@ -4,6 +4,8 @@ import Link from "next/link";
 import { cities } from "@repo/data/cities";
 import { stadiums } from "@repo/data/stadiums";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Les 16 villes hôtes de la Coupe du Monde 2026 | Guide & Infos",
@@ -31,6 +33,7 @@ export default function CitiesPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Villes","url":"/villes"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

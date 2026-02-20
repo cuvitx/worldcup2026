@@ -1,7 +1,7 @@
 /**
  * MatchCard — Brand Book CDM2026
  * - border-radius 12px (var --radius-lg)
- * - border-left accent : live=#FF6B35, upcoming=#f5a623, finished=#8a8a9a
+ * - border-left accent : live=accent, upcoming=secondary, finished=#8a8a9a
  * - score en JetBrains Mono 700
  * - badge LIVE avec dot pulsant
  */
@@ -79,7 +79,7 @@ function statusClass(status?: MatchStatus): string {
  * 
  * Design follows CDM2026 Brand Book:
  * - border-radius: 12px (--radius-lg)
- * - border-left accent color: live=#FF6B35, upcoming=#f5a623, finished=#8a8a9a
+ * - border-left accent color: live=accent, upcoming=secondary, finished=#8a8a9a
  * - Score displayed in JetBrains Mono 700
  * - LIVE badge with pulsating dot animation
  * 

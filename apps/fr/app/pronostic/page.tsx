@@ -308,7 +308,7 @@ export default function PronosticHubPage() {
                     {group.teams.filter((id) => id.startsWith("barrage")).map((id) => (
                       <div key={id} className="flex items-center gap-2 text-xs text-gray-300 dark:text-gray-600">
                         <span className="w-4 text-center font-bold">?</span>
-                        <span className="text-base shrink-0">🏳</span>
+                        <span className="text-base shrink-0"></span>
                         <span className="flex-1 font-medium truncate">Barrage</span>
                       </div>
                     ))}

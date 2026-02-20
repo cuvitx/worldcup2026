@@ -9,6 +9,9 @@ import { PalmaresTimeline } from "./_components/PalmaresTimeline";
 import { FinalesTable } from "./_components/FinalesTable";
 import { RecordsSection } from "./_components/RecordsSection";
 import { PalmaresSection2026 } from "./_components/PalmaresSection2026";
+import { RelatedLinks } from "../components/RelatedLinks";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
  title: "Palmarès Coupe du Monde FIFA | Historique 1930–2022",
@@ -55,6 +58,7 @@ export default function PalmaresPage() {
 
  return (
  <>
+ <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Palmarès",url:"/palmares"}]} baseUrl={domains.fr} />
  <Breadcrumb
  items={[
  { label: "Accueil", href: "/" },
@@ -71,6 +75,29 @@ export default function PalmaresPage() {
  <RecordsSection records={records} />
  <PalmaresSection2026 />
  </div>
+
+ <RelatedLinks
+ links={[
+ {
+ href: "/histoire",
+ title: "📜 Histoire de la CDM",
+ description: "Timeline complète des 22 éditions depuis 1930 avec faits marquants et anecdotes.",
+ icon: "📜"
+ },
+ {
+ href: "/statistiques",
+ title: "📊 Statistiques détaillées",
+ description: "Records, performances et analyses statistiques de toutes les Coupes du Monde.",
+ icon: "📊"
+ },
+ {
+ href: "/pronostic-vainqueur",
+ title: "Pronostic CDM 2026",
+ description: "Qui va remporter la prochaine Coupe du Monde ? Nos prédictions et cotes.",
+ icon: ""
+ }
+ ]}
+ />
 
  <FAQSection title="Questions sur le palmarès de la CDM" items={faqItems} />
 

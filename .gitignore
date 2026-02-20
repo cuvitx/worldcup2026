@@ -36,3 +36,11 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+*.md
+!README.md
+add-breadcrumbs.mjs
+analyze-links.js
+audit-breadcrumbs.js
+breadcrumb-report.json
+fix-all-breadcrumbs.mjs
+color-audit-report.json

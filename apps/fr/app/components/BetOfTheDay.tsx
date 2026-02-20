@@ -98,8 +98,8 @@ function pickBetOfTheDay(): DailyBet {
 
   return {
     matchLabel: `${homeName} vs ${awayName}`,
-    homeFlag: home?.flag ?? "🏳",
-    awayFlag: away?.flag ?? "🏳",
+    homeFlag: home?.flag ?? "",
+    awayFlag: away?.flag ?? "",
     matchSlug: match.slug,
     betType,
     odds,

@@ -49,7 +49,7 @@ export function StatDuelRow({
           style={{ width: `${homePct}%` }}
         />
         <div
-          className={`h-full rounded-r-full transition-all duration-700 ${awayIsBetter ? "bg-amber-400" : "bg-gray-200 dark:bg-gray-700"}`}
+          className={`h-full rounded-r-full transition-all duration-700 ${awayIsBetter ? "bg-accent" : "bg-gray-200 dark:bg-gray-700"}`}
           style={{ width: `${awayPct}%` }}
         />
       </div>

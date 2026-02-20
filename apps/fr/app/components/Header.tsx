@@ -4,7 +4,6 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { ThemeToggle } from "@repo/ui/theme-toggle";
 import { buildSearchIndex } from "@repo/data/search-index";
 
 const SearchDialog = dynamic(
@@ -17,28 +16,20 @@ const SearchDialog = dynamic(
   }
 );
 
-import { CURRENT_LANG, langOptions, getUrlForLang, type MenuKey } from "./NavLinks";
+import { type MenuKey } from "./NavLinks";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
-  const langRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
   const searchData = useMemo(() => buildSearchIndex("fr"), []);
 
-  const currentOption = langOptions.find((o) => o.lang === CURRENT_LANG)!;
-  const otherOptions = langOptions.filter((o) => o.lang !== CURRENT_LANG);
-
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
-        setLangOpen(false);
-      }
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setActiveMenu(null);
       }
@@ -50,7 +41,6 @@ export function Header() {
   useEffect(() => {
     setOpen(false);
     setActiveMenu(null);
-    setLangOpen(false);
   }, [pathname]);
 
   return (
@@ -77,46 +67,6 @@ export function Header() {
         {/* Right actions */}
         <div className="flex items-center gap-1.5">
           <SearchDialog lang="fr" data={searchData} onNavigate={(href) => router.push(href)} />
-          <ThemeToggle />
-
-          {/* Language switcher */}
-          <div className="relative" ref={langRef}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm text-white/80 hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none"
-              aria-label="Changer de langue"
-              aria-expanded={langOpen}
-            >
-              <span>{currentOption.flag}</span>
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 10 10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                aria-hidden="true"
-                className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
-              >
-                <path d="M2 4l3 3 3-3" />
-              </svg>
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-1 min-w-[150px] rounded-xl bg-white dark:bg-slate-800 text-gray-900 dark:text-white shadow-xl ring-1 ring-black/8 z-50 overflow-hidden animate-scaleIn">
-                {otherOptions.map((opt) => (
-                  <a
-                    key={opt.lang}
-                    href={getUrlForLang(pathname, opt.lang)}
-                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm hover:bg-gray-50 dark:bg-slate-700 transition-colors"
-                    hrefLang={opt.lang}
-                  >
-                    <span>{opt.flag}</span>
-                    <span className="font-medium">{opt.label}</span>
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
 
           {/* Mobile hamburger */}
           <button

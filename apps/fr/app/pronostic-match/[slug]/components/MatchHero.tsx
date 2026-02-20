@@ -47,7 +47,7 @@ export function MatchHero({
                 role="img"
                 aria-label={`Drapeau de ${homeName}`}
               >
-                {home?.flag ?? "🏳"}
+                {home?.flag ?? ""}
               </span>
             </div>
             {home ? (
@@ -88,7 +88,7 @@ export function MatchHero({
                 role="img"
                 aria-label={`Drapeau de ${awayName}`}
               >
-                {away?.flag ?? "🏳"}
+                {away?.flag ?? ""}
               </span>
             </div>
             {away ? (

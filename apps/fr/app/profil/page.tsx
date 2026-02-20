@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { FileText, Vote } from "lucide-react";
 import { useBadges, ALL_BADGES } from "@repo/ui/badge-system";
 import { EVENT_DATES } from "@repo/data/constants";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
 
@@ -107,6 +111,17 @@ export default function ProfilPage() {
   };
 
   return (
+    <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Profil","url":"/profil"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Profil"
+          }
+]} />
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
@@ -232,22 +247,26 @@ export default function ProfilPage() {
 
       {/* Stats cards with icons */}
       <div className="mb-10 grid grid-cols-3 gap-2 sm:gap-4">
-        {[
-          { label: "Pages visitées", value: stats.visitedPages.length, icon: "📄" },
-          { label: "Votes", value: stats.votes, icon: "🗳" },
-          { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "—", icon: "" },
-        ].map((s) => (
-          <div
-            key={s.label}
-            className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]"
-          >
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700 text-2xl">
-              {s.icon}
-            </div>
-            <p className="text-2xl font-bold dark:text-white">{s.value}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">{s.label}</p>
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700">
+            <FileText className="w-6 h-6 text-primary" />
           </div>
-        ))}
+          <p className="text-2xl font-bold dark:text-white">{stats.visitedPages.length}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Pages visitées</p>
+        </div>
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700">
+            <Vote className="w-6 h-6 text-primary" />
+          </div>
+          <p className="text-2xl font-bold dark:text-white">{stats.votes}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Votes</p>
+        </div>
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700">
+          </div>
+          <p className="text-2xl font-bold dark:text-white">{stats.quizScore ? `${stats.quizScore}/20` : "—"}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Score quiz</p>
+        </div>
       </div>
 
       {/* Badges — grid 3x2 with glow/lock */}
@@ -291,5 +310,6 @@ export default function ProfilPage() {
       >
         Partager mes badges </button>
     </div>
+    </>
   );
 }

@@ -4,6 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { mockOdds, allGroups, type MatchOdds } from "./mock-odds";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 function getBestOdds(match: MatchOdds) {
   const best = { home: 0, draw: 0, away: 0 };
@@ -51,6 +54,16 @@ export default function ComparateurCotesPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Comparateur de cotes","url":"/comparateur-cotes"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Comparateur de cotes"
+          }
+]} />
       {/* SEO metadata via head — handled by metadata export in layout or generateMetadata */}
       <script
         type="application/ld+json"

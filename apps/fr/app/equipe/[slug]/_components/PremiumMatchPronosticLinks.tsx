@@ -39,12 +39,12 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
                 {/* Flags row */}
                 <div className="flex items-center justify-center gap-4 mb-3 mt-1">
                   <div className="text-center">
-                    <span className="text-3xl block">{homeTeam?.flag ?? "🏳"}</span>
+                    <span className="text-3xl block">{homeTeam?.flag ?? ""}</span>
                     <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 mt-1 block">{homeTeam?.name ?? match.homeTeamId}</span>
                   </div>
                   <span className="text-xs font-bold text-gray-300 dark:text-gray-600 uppercase">vs</span>
                   <div className="text-center">
-                    <span className="text-3xl block">{awayTeam?.flag ?? "🏳"}</span>
+                    <span className="text-3xl block">{awayTeam?.flag ?? ""}</span>
                     <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 mt-1 block">{awayTeam?.name ?? match.awayTeamId}</span>
                   </div>
                 </div>

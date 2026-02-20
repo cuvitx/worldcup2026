@@ -1,0 +1,436 @@
+{
+  "timestamp": "2026-02-20T18:51:45.890Z",
+  "summary": {
+    "totalPages": 15,
+    "orphanPages": 0,
+    "weakPages": 1,
+    "brokenLinks": 0
+  },
+  "pages": [
+    {
+      "name": "Homepage",
+      "url": "/",
+      "incoming": 42,
+      "outgoing": 0,
+      "score": 42
+    },
+    {
+      "name": "Pronostic Vainqueur",
+      "url": "/pronostic-vainqueur",
+      "incoming": 17,
+      "outgoing": 1,
+      "score": 18
+    },
+    {
+      "name": "Équipes",
+      "url": "/equipes",
+      "incoming": 10,
+      "outgoing": 4,
+      "score": 14
+    },
+    {
+      "name": "Groupes",
+      "url": "/groupes",
+      "incoming": 8,
+      "outgoing": 4,
+      "score": 12
+    },
+    {
+      "name": "Simulateur",
+      "url": "/simulateur",
+      "incoming": 10,
+      "outgoing": 1,
+      "score": 11
+    },
+    {
+      "name": "Comparateur Cotes",
+      "url": "/comparateur-cotes",
+      "incoming": 10,
+      "outgoing": 1,
+      "score": 11
+    },
+    {
+      "name": "Buteurs",
+      "url": "/buteurs",
+      "incoming": 5,
+      "outgoing": 5,
+      "score": 10
+    },
+    {
+      "name": "Où Regarder",
+      "url": "/ou-regarder",
+      "incoming": 4,
+      "outgoing": 6,
+      "score": 10
+    },
+    {
+      "name": "Stades",
+      "url": "/stades",
+      "incoming": 7,
+      "outgoing": 1,
+      "score": 8
+    },
+    {
+      "name": "Quiz",
+      "url": "/quiz",
+      "incoming": 4,
+      "outgoing": 4,
+      "score": 8
+    },
+    {
+      "name": "Palmarès",
+      "url": "/palmares",
+      "incoming": 4,
+      "outgoing": 4,
+      "score": 8
+    },
+    {
+      "name": "Statistiques",
+      "url": "/statistiques",
+      "incoming": 4,
+      "outgoing": 4,
+      "score": 8
+    },
+    {
+      "name": "Billets",
+      "url": "/billets",
+      "incoming": 3,
+      "outgoing": 4,
+      "score": 7
+    },
+    {
+      "name": "Histoire",
+      "url": "/histoire",
+      "incoming": 3,
+      "outgoing": 3,
+      "score": 6
+    },
+    {
+      "name": "Calendrier",
+      "url": "/calendrier",
+      "incoming": 1,
+      "outgoing": 0,
+      "score": 1
+    }
+  ],
+  "orphans": [],
+  "weakPages": [
+    {
+      "name": "Calendrier",
+      "url": "/calendrier",
+      "incoming": 1
+    }
+  ],
+  "brokenLinks": [],
+  "outgoingDetails": {
+    "Homepage": {
+      "url": "/",
+      "count": 0,
+      "links": [],
+      "filePath": "apps/fr/app/page.tsx"
+    },
+    "Équipes": {
+      "url": "/equipes",
+      "count": 4,
+      "links": [
+        "/",
+        "/groupes",
+        "/match/calendrier",
+        "/pronostic-vainqueur"
+      ],
+      "filePath": "apps/fr/app/equipes/page.tsx"
+    },
+    "Groupes": {
+      "url": "/groupes",
+      "count": 4,
+      "links": [
+        "/",
+        "/equipes",
+        "/match/calendrier",
+        "/pronostic-vainqueur"
+      ],
+      "filePath": "apps/fr/app/groupes/page.tsx"
+    },
+    "Pronostic Vainqueur": {
+      "url": "/pronostic-vainqueur",
+      "count": 1,
+      "links": [
+        "/"
+      ],
+      "filePath": "apps/fr/app/pronostic-vainqueur/page.tsx"
+    },
+    "Calendrier": {
+      "url": "/calendrier",
+      "count": 0,
+      "links": [],
+      "filePath": "apps/fr/app/calendrier/page.tsx"
+    },
+    "Billets": {
+      "url": "/billets",
+      "count": 4,
+      "links": [
+        "/",
+        "/stades",
+        "/match/calendrier",
+        "/ou-regarder"
+      ],
+      "filePath": "apps/fr/app/billets/page.tsx"
+    },
+    "Buteurs": {
+      "url": "/buteurs",
+      "count": 5,
+      "links": [
+        "/",
+        "/pronostic-vainqueur",
+        "/groupes",
+        "/simulateur",
+        "/comparateur-cotes"
+      ],
+      "filePath": "apps/fr/app/buteurs/page.tsx"
+    },
+    "Stades": {
+      "url": "/stades",
+      "count": 1,
+      "links": [
+        "/"
+      ],
+      "filePath": "apps/fr/app/stades/page.tsx"
+    },
+    "Quiz": {
+      "url": "/quiz",
+      "count": 4,
+      "links": [
+        "/",
+        "/histoire",
+        "/simulateur",
+        "/equipes"
+      ],
+      "filePath": "apps/fr/app/quiz/page.tsx"
+    },
+    "Simulateur": {
+      "url": "/simulateur",
+      "count": 1,
+      "links": [
+        "/"
+      ],
+      "filePath": "apps/fr/app/simulateur/page.tsx"
+    },
+    "Comparateur Cotes": {
+      "url": "/comparateur-cotes",
+      "count": 1,
+      "links": [
+        "/"
+      ],
+      "filePath": "apps/fr/app/comparateur-cotes/page.tsx"
+    },
+    "Où Regarder": {
+      "url": "/ou-regarder",
+      "count": 6,
+      "links": [
+        "/",
+        "/match/calendrier",
+        "/billets",
+        "/quiz",
+        "/comparateur-cotes",
+        "/carte-stades"
+      ],
+      "filePath": "apps/fr/app/ou-regarder/page.tsx"
+    },
+    "Palmarès": {
+      "url": "/palmares",
+      "count": 4,
+      "links": [
+        "/",
+        "/histoire",
+        "/statistiques",
+        "/pronostic-vainqueur"
+      ],
+      "filePath": "apps/fr/app/palmares/page.tsx"
+    },
+    "Statistiques": {
+      "url": "/statistiques",
+      "count": 4,
+      "links": [
+        "/histoire",
+        "/palmares",
+        "/pronostic-vainqueur",
+        "/equipes"
+      ],
+      "filePath": "apps/fr/app/statistiques/page.tsx"
+    },
+    "Histoire": {
+      "url": "/histoire",
+      "count": 3,
+      "links": [
+        "/palmares",
+        "/statistiques",
+        "/equipes"
+      ],
+      "filePath": "apps/fr/app/histoire/page.tsx"
+    }
+  },
+  "incomingDetails": {
+    "/": [
+      "apps/fr/app/a-propos",
+      "apps/fr/app/actualites/[slug]",
+      "apps/fr/app/billets",
+      "apps/fr/app/buteurs",
+      "apps/fr/app/calendrier/imprimer",
+      "apps/fr/app/carte-stades",
+      "apps/fr/app/comparateur-cotes",
+      "apps/fr/app/comparateur-joueurs",
+      "apps/fr/app/components/BottomNav.tsx",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/Header.tsx",
+      "apps/fr/app/contact",
+      "apps/fr/app/equipes",
+      "apps/fr/app/error.tsx",
+      "apps/fr/app/faq",
+      "apps/fr/app/groupes",
+      "apps/fr/app/guide/glossaire",
+      "apps/fr/app/guide/guide-visa-esta",
+      "apps/fr/app/guide-ville/[slug]",
+      "apps/fr/app/guides",
+      "apps/fr/app/joueurs",
+      "apps/fr/app/live",
+      "apps/fr/app/match/aujourdhui",
+      "apps/fr/app/match/calendrier",
+      "apps/fr/app/mentions-legales",
+      "apps/fr/app/methodologie",
+      "apps/fr/app/newsletter",
+      "apps/fr/app/not-found.tsx",
+      "apps/fr/app/ou-regarder",
+      "apps/fr/app/palmares",
+      "apps/fr/app/paris-sportifs",
+      "apps/fr/app/profil",
+      "apps/fr/app/pronostic-match/[slug]/_components/BreadcrumbNav.tsx",
+      "apps/fr/app/pronostic-vainqueur",
+      "apps/fr/app/pronostics/grille",
+      "apps/fr/app/pronostics/leaderboard/LeaderboardClient.tsx",
+      "apps/fr/app/pronostics/leaderboard",
+      "apps/fr/app/quiz",
+      "apps/fr/app/quiz/supporter",
+      "apps/fr/app/simulateur",
+      "apps/fr/app/stades",
+      "apps/fr/app/villes"
+    ],
+    "/equipes": [
+      "apps/fr/app/classement-fifa",
+      "apps/fr/app/components/BottomNav.tsx",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/groupes",
+      "apps/fr/app/histoire",
+      "apps/fr/app/methodologie",
+      "apps/fr/app/paris-sportifs",
+      "apps/fr/app/quiz",
+      "apps/fr/app/statistiques"
+    ],
+    "/groupes": [
+      "apps/fr/app/buteurs",
+      "apps/fr/app/classement-fifa",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/equipes",
+      "apps/fr/app/match/calendrier",
+      "apps/fr/app/not-found.tsx",
+      "apps/fr/app/reglement"
+    ],
+    "/pronostic-vainqueur": [
+      "apps/fr/app/buteurs",
+      "apps/fr/app/components/BottomNav.tsx",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/components/home/HeroSection.tsx",
+      "apps/fr/app/equipe/[slug]/_components/PremiumFinalCTA.tsx",
+      "apps/fr/app/equipe/[slug]/_components/PremiumHero.tsx",
+      "apps/fr/app/equipes",
+      "apps/fr/app/groupes",
+      "apps/fr/app/histoire/Section2026.tsx",
+      "apps/fr/app/newsletter",
+      "apps/fr/app/palmares/_components/PalmaresSection2026.tsx",
+      "apps/fr/app/palmares",
+      "apps/fr/app/profil",
+      "apps/fr/app/pronostic",
+      "apps/fr/app/pronostic-groupe/[lettre]/_components/GroupSidebar.tsx",
+      "apps/fr/app/statistiques"
+    ],
+    "/calendrier": [
+      "apps/fr/app/not-found.tsx"
+    ],
+    "/billets": [
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/ou-regarder"
+    ],
+    "/buteurs": [
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/guide/[slug]",
+      "apps/fr/app/guides",
+      "apps/fr/app/paris-sportifs"
+    ],
+    "/stades": [
+      "apps/fr/app/billets/_components/BilletsCtaFinal.tsx",
+      "apps/fr/app/billets/_components/BilletsFinalCTA.tsx",
+      "apps/fr/app/billets",
+      "apps/fr/app/carte-stades",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/guide/guide-visa-esta",
+      "apps/fr/app/match/calendrier"
+    ],
+    "/quiz": [
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/ou-regarder",
+      "apps/fr/app/quiz/supporter"
+    ],
+    "/simulateur": [
+      "apps/fr/app/buteurs",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/components/home/HeroSection.tsx",
+      "apps/fr/app/histoire/Section2026.tsx",
+      "apps/fr/app/not-found.tsx",
+      "apps/fr/app/pronostic",
+      "apps/fr/app/pronostic-vainqueur/_components/CtaSection.tsx",
+      "apps/fr/app/pronostic-vainqueur/_components/SimulatorCta.tsx",
+      "apps/fr/app/quiz"
+    ],
+    "/comparateur-cotes": [
+      "apps/fr/app/buteurs",
+      "apps/fr/app/comparateur-joueurs",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/equipe/[slug]/_components/PremiumFinalCTA.tsx",
+      "apps/fr/app/guide/glossaire",
+      "apps/fr/app/ou-regarder",
+      "apps/fr/app/pronostic",
+      "apps/fr/app/pronostic-groupe/[lettre]/_components/GroupSidebar.tsx",
+      "apps/fr/app/pronostic-vainqueur/_components/CtaSection.tsx"
+    ],
+    "/ou-regarder": [
+      "apps/fr/app/billets",
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/match/calendrier"
+    ],
+    "/palmares": [
+      "apps/fr/app/components/Footer.tsx",
+      "apps/fr/app/components/NavLinks.ts",
+      "apps/fr/app/histoire",
+      "apps/fr/app/statistiques"
+    ],
+    "/statistiques": [
+      "apps/fr/app/classement-fifa",
+      "apps/fr/app/histoire/Section2026.tsx",
+      "apps/fr/app/histoire",
+      "apps/fr/app/palmares"
+    ],
+    "/histoire": [
+      "apps/fr/app/palmares",
+      "apps/fr/app/quiz",
+      "apps/fr/app/statistiques"
+    ]
+  }
+}

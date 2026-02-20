@@ -8,6 +8,7 @@ import type { CdmEdition } from "./EditionCard";
 import { Timeline } from "./Timeline";
 import { Section2026 } from "./Section2026";
 import { TableOfContents } from "@repo/ui";
+import { RelatedLinks } from "../components/RelatedLinks";
 
 export const metadata: Metadata = {
   title: "Histoire de la Coupe du Monde - Timeline 1930 à 2026 | CDM 2026",
@@ -172,6 +173,29 @@ export default function HistoirePage() {
           { id: "timeline", label: "Timeline des éditions", level: 2 },
         ]} />
       </div>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "/palmares",
+            title: "Palmarès complet",
+            description: "Tous les vainqueurs, finalistes et meilleurs buteurs de chaque édition depuis 1930.",
+            icon: ""
+          },
+          {
+            href: "/statistiques",
+            title: "📊 Statistiques avancées",
+            description: "Records, performances historiques et analyses statistiques de la Coupe du Monde.",
+            icon: "📊"
+          },
+          {
+            href: "/equipes",
+            title: "Équipes CDM 2026",
+            description: "Découvrez les 48 équipes qualifiées pour la prochaine Coupe du Monde.",
+            icon: ""
+          }
+        ]}
+      />
 
       <FAQSection title="❓ Questions sur l'histoire de la CDM" items={faqItems} />
 

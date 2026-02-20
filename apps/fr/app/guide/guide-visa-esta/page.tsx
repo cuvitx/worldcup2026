@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TableOfContents } from "@repo/ui";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Visa ESTA pour les USA — Tout savoir pour la CDM 2026",
@@ -66,6 +68,7 @@ export default function GuideVisaEsta() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Guide","url":"/guides"},{"name":"Guide Visa ESTA","url":"/guide/guide-visa-esta"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

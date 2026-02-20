@@ -5,6 +5,8 @@ import Link from "next/link";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "210 joueurs cles de la Coupe du Monde 2026 | Effectifs & Stats",
@@ -55,6 +57,7 @@ export default function PlayersPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Joueurs","url":"/joueurs"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

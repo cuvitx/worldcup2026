@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { LeaderboardClient } from "./LeaderboardClient";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Classement Pronostics Coupe du Monde 2026",
@@ -28,6 +30,7 @@ export const metadata: Metadata = {
 export default function LeaderboardPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Pronostics","url":"/pronostic"},{"name":"Classement","url":"/pronostics/leaderboard"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

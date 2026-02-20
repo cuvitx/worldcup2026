@@ -38,11 +38,11 @@ export function SameDayMatches({
                 <span className="text-sm font-bold text-primary tabular-nums shrink-0">
                   {m.time}
                 </span>
-                <span className="text-base shrink-0" role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳"}</span>
+                <span className="text-base shrink-0" role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? ""}</span>
                 <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 truncate flex-1">{mHome?.name ?? "TBD"}</span>
                 <span className="text-[10px] font-bold text-gray-400 shrink-0">vs</span>
                 <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 truncate flex-1 text-right">{mAway?.name ?? "TBD"}</span>
-                <span className="text-base shrink-0" role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? "🏳"}</span>
+                <span className="text-base shrink-0" role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? ""}</span>
               </Link>
             );
           })}
@@ -68,11 +68,11 @@ export function SameDayMatches({
                 <span className="text-sm font-bold text-primary tabular-nums shrink-0">
                   {m.time}
                 </span>
-                <span className="text-lg shrink-0" role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳"}</span>
+                <span className="text-lg shrink-0" role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? ""}</span>
                 <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate flex-1">{mHome?.name ?? "TBD"}</span>
                 <span className="text-xs font-bold text-gray-400 shrink-0">vs</span>
                 <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate flex-1 text-right">{mAway?.name ?? "TBD"}</span>
-                <span className="text-lg shrink-0" role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? "🏳"}</span>
+                <span className="text-lg shrink-0" role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? ""}</span>
               </Link>
             );
           })}

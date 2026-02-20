@@ -10,6 +10,8 @@ import { topScorerCandidates } from "@repo/data/predictions-2026";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
 const historicalScorers = [
@@ -79,6 +81,7 @@ export default function ButeursPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Buteurs","url":"/buteurs"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
@@ -300,7 +303,7 @@ export default function ButeursPage() {
 
           <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
             <p className="text-[11px] text-gray-400 dark:text-gray-400">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-yellow-400" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
               Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
             </p>
           </div>

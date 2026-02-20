@@ -2,10 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { FileText, Share2 } from "lucide-react";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 const STORAGE_KEY = "cdm2026-pronostics";
 
@@ -16,7 +19,7 @@ function teamName(id: string): string {
 }
 
 function teamFlag(id: string): string {
-  return teamsById[id]?.flag ?? "🏳";
+  return teamsById[id]?.flag ?? "";
 }
 
 export default function GrillePronosticsPage() {
@@ -93,6 +96,7 @@ export default function GrillePronosticsPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Pronostics","url":"/pronostic"},{"name":"Grille","url":"/pronostics/grille"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
@@ -118,13 +122,15 @@ export default function GrillePronosticsPage() {
               onClick={() => window.print()}
               className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-2.5 text-sm font-semibold transition-colors backdrop-blur-sm"
             >
-              📄 Imprimer ma grille
+              <FileText className="w-4 h-4" />
+              Imprimer ma grille
             </button>
             <button
               onClick={handleShare}
               className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-2.5 text-sm font-semibold transition-colors backdrop-blur-sm"
             >
-              {copied ? "Copié !" : "📤 Partager"}
+              <Share2 className="w-4 h-4" />
+              {copied ? "Copié !" : "Partager"}
             </button>
           </div>
         </div>

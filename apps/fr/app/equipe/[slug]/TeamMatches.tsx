@@ -38,7 +38,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
               <span className="text-sm text-gray-500 w-20 shrink-0">
                 {match.date.slice(5)}
               </span>
-              <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? "🏳"}</span>
+              <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? ""}</span>
               <div className="flex-1">
                 <p className="font-semibold">
                   {isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}

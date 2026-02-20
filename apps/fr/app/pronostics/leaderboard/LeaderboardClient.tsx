@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { Share2 } from "lucide-react";
 
 // --- Types ---
 interface Player {
@@ -233,9 +234,10 @@ export function LeaderboardClient() {
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <button
           onClick={shareClassement}
-          className="flex-1 rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
+          className="flex-1 rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95 inline-flex items-center justify-center gap-2"
         >
-          {copied ? "Copié !" : "📤 Partager mon classement"}
+          {!copied && <Share2 className="w-4 h-4" />}
+          {copied ? "Copié !" : "Partager mon classement"}
         </button>
         <Link
           href="/profil"

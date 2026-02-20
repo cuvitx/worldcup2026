@@ -51,11 +51,11 @@ export function UpcomingMatches() {
                 </div>
                 <div className="flex items-center justify-center gap-4 text-lg font-bold text-gray-900 dark:text-white">
                   <span className="text-right">
-                    <span role="img" aria-label={`Drapeau de ${home?.name ?? match.homeTeamId}`}>{home?.flag ?? "🏳"}</span> {home?.name ?? match.homeTeamId}
+                    <span role="img" aria-label={`Drapeau de ${home?.name ?? match.homeTeamId}`}>{home?.flag ?? ""}</span> {home?.name ?? match.homeTeamId}
                   </span>
                   <span className="text-sm font-normal text-gray-500">vs</span>
                   <span className="text-left">
-                    <span role="img" aria-label={`Drapeau de ${away?.name ?? match.awayTeamId}`}>{away?.flag ?? "🏳"}</span> {away?.name ?? match.awayTeamId}
+                    <span role="img" aria-label={`Drapeau de ${away?.name ?? match.awayTeamId}`}>{away?.flag ?? ""}</span> {away?.name ?? match.awayTeamId}
                   </span>
                 </div>
                 <div className="mt-3 text-center text-xs text-gray-500 dark:text-gray-300">

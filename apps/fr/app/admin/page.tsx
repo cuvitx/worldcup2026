@@ -2,6 +2,10 @@
 
 import { useSearchParams, useRouter } from "next/navigation"
 import { useEffect, useState, Suspense } from "react"
+import { Flag, MapPin, Users, FileText } from "lucide-react"
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 const SECRET = "cdm2026-admin-secret"
 
@@ -13,20 +17,20 @@ const colors = [
   { name: "Error", hex: "#EF476F", tw: "bg-error" },
 ]
 
-const stats = [
-  { label: "Équipes", value: "48", icon: "🏴" },
-  { label: "Matchs", value: "104", icon: "" },
-  { label: "Stades", value: "16", icon: "" },
-  { label: "Villes", value: "16", icon: "🌆" },
-  { label: "Joueurs", value: "966", icon: "👤" },
-  { label: "Pages", value: "3073+", icon: "📄" },
+const statsData = [
+  { label: "Équipes", value: "48", Icon: Flag },
+  { label: "Matchs", value: "104", Icon: null },
+  { label: "Stades", value: "16", Icon: null },
+  { label: "Villes", value: "16", Icon: MapPin },
+  { label: "Joueurs", value: "966", Icon: Users },
+  { label: "Pages", value: "3073+", Icon: FileText },
 ]
 
 const links = [
-  { name: "GitHub", url: "https://github.com/cuvitx/worldcup2026", icon: "🐙" },
-  { name: "Vercel", url: "https://vercel.com", icon: "▲" },
+  { name: "GitHub", url: "https://github.com/cuvitx/worldcup2026", icon: "" },
+  { name: "Vercel", url: "https://vercel.com", icon: "" },
   { name: "Search Console", url: "https://search.google.com/search-console", icon: "" },
-  { name: "Mission Control", url: "#", icon: "▶" },
+  { name: "Mission Control", url: "#", icon: "" },
 ]
 
 const checklist = [
@@ -56,6 +60,17 @@ function AdminContent() {
   if (!authorized) return null
 
   return (
+    <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Admin","url":"/admin"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Admin"
+          }
+]} />
     <div className="min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Banner */}
@@ -69,7 +84,7 @@ function AdminContent() {
 
         {/* Brand Book */}
         <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🎨 Brand Book</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Brand Book</h2>
           <div className="space-y-4">
             <div>
               <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Palette</h3>
@@ -103,9 +118,11 @@ function AdminContent() {
         <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Stats du projet</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {stats.map((s) => (
+            {statsData.map((s) => (
               <div key={s.label} className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 text-center">
-                <div className="text-2xl mb-1">{s.icon}</div>
+                <div className="flex justify-center mb-1">
+                  {s.Icon ? <s.Icon className="w-6 h-6" /> : <div className="h-6" />}
+                </div>
                 <div className="text-2xl font-bold">{s.value}</div>
                 <div className="text-sm text-gray-500 dark:text-gray-300">{s.label}</div>
               </div>
@@ -125,7 +142,6 @@ function AdminContent() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-gray-50 dark:bg-slate-800 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
-                <span className="text-xl">{l.icon}</span>
                 <span className="font-medium">{l.name}</span>
               </a>
             ))}
@@ -151,6 +167,7 @@ function AdminContent() {
         <p className="text-center text-xs text-gray-500 pb-8">Admin interne — ne pas indexer</p>
       </div>
     </div>
+    </>
   )
 }
 

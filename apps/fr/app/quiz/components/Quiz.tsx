@@ -117,7 +117,7 @@ export default function Quiz() {
           </button>
 
           {(Object.keys(difficultyLabels) as Difficulty[]).map((d) => {
-            const colors = { facile: "border-green-300 hover:bg-green-50 dark:hover:bg-green-900/20", moyen: "border-yellow-300 hover:bg-yellow-50 dark:hover:bg-yellow-900/20", difficile: "border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20" };
+            const colors = { facile: "border-accent/30 hover:bg-accent/10 dark:hover:bg-accent/20", moyen: "border-secondary/30 hover:bg-secondary/10 dark:hover:bg-secondary/20", difficile: "border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20" };
             const count = questions.filter((q) => q.difficulty === d).length;
             return (
               <button

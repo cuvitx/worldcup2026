@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 
 import { faqItems } from "./_components/data";
@@ -12,6 +14,7 @@ import { TicketCategoriesSection } from "./_components/TicketCategoriesSection";
 import { AntiScamSection } from "./_components/AntiScamSection";
 import { BilletsFinalCTA } from "./_components/BilletsFinalCTA";
 import { BilletsToc } from "./_components/BilletsToc";
+import { RelatedLinks } from "../components/RelatedLinks";
 
 export const metadata: Metadata = {
   title: "Billets CDM 2026 — Prix, dates et comment acheter | Coupe du Monde",
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
 export default function BilletsPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Billets CDM 2026",url:"/billets"}]} baseUrl={domains.fr} />
       <BilletsToc />
       <Breadcrumb
         items={[
@@ -60,6 +64,28 @@ export default function BilletsPage() {
       <FAQSection 
         title="❓ Questions fréquentes — Billets CDM 2026"
         items={faqItems} 
+      />
+      <RelatedLinks
+        links={[
+          {
+            href: "/stades",
+            title: "🏟️ Les 16 stades de la CDM 2026",
+            description: "Découvrez les stades qui accueilleront les matchs : capacités, villes hôtes et événements prévus.",
+            icon: "🏟️"
+          },
+          {
+            href: "/match/calendrier",
+            title: "📅 Calendrier complet des matchs",
+            description: "104 matchs du 11 juin au 19 juillet 2026. Consultez les dates, horaires et stades.",
+            icon: "📅"
+          },
+          {
+            href: "/ou-regarder",
+            title: "📺 Où regarder les matchs",
+            description: "Chaînes TV, streaming gratuit et payant pour suivre la Coupe du Monde 2026.",
+            icon: "📺"
+          }
+        ]}
       />
       <BilletsFinalCTA />
     </>

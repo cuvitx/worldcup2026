@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Glossaire Paris Sportifs | Tous les termes expliqués",
@@ -140,6 +143,20 @@ export default function GlossairePage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Guide","url":"/guides"},{"name":"Glossaire","url":"/guide/glossaire"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Guide",
+                    "href": "/guides"
+          },
+          {
+                    "label": "Glossaire"
+          }
+]} />
       <script
         type="application/ld+json"
         suppressHydrationWarning

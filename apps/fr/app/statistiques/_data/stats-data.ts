@@ -89,7 +89,7 @@ export const records = [
     title: "Autriche 7–5 Suisse",
     detail: "Phase de groupes — CDM 1954 (12 buts en un seul match !)",
     badge: "12 buts",
-    badgeColor: "bg-orange-500",
+    badgeColor: "bg-accent",
   },
   {
     icon: "👶",
@@ -152,11 +152,11 @@ export const funFacts = [
     fact: "Le Danemark a gagné toutes ses 3 qualifications pour un Mondial et tous ses matchs du premier tour (1986, 1998, 2002).",
   },
   {
-    emoji: "🎵",
+    emoji: "",
     fact: "La chanson 'Waka Waka' de Shakira pour le Mondial 2010 est la chanson officielle de CDM la plus écoutée de l'histoire : +3 milliards de vues YouTube.",
   },
   {
-    emoji: "🐙",
+    emoji: "",
     fact: "Paul le Poulpe a prédit correctement tous les résultats de l'équipe d'Allemagne (6/6) et la finale du Mondial 2010.",
   },
   {
@@ -164,15 +164,15 @@ export const funFacts = [
     fact: "Just Fontaine (France) a inscrit ses 13 buts en 1958 en seulement 6 matchs — soit plus de 2 buts par match en moyenne.",
   },
   {
-    emoji: "🌍",
+    emoji: "",
     fact: "Le Brésil est le seul pays à avoir participé à TOUTES les éditions de la Coupe du Monde FIFA (22/22).",
   },
   {
-    emoji: "🏠",
+    emoji: "",
     fact: "6 équipes ont remporté la CDM en jouant à domicile (ou quasi-domicile) : Uruguay, Italie, Angleterre, Allemagne, Argentine, France.",
   },
   {
-    emoji: "🔢",
+    emoji: "",
     fact: "En 2026, 48 équipes disputeront 104 matchs sur 3 pays. En 1930, seulement 13 équipes et 18 matchs. Une révolution totale !",
   },
 ];

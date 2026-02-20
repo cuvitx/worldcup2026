@@ -18,6 +18,7 @@ import {
   records,
   funFacts,
 } from "./_data/stats-data";
+import { RelatedLinks } from "../components/RelatedLinks";
 
 export const metadata: Metadata = {
   title: "Statistiques Coupe du Monde - Records et chiffres clés | CDM 2026",
@@ -248,6 +249,29 @@ export default function StatistiquesPage() {
           { id: "fun-facts", label: "Fun facts", level: 2 },
         ]} />
       </div>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "/histoire",
+            title: "📜 Histoire de la CDM",
+            description: "Timeline complète des 22 éditions depuis 1930 avec faits marquants.",
+            icon: "📜"
+          },
+          {
+            href: "/palmares",
+            title: "Palmarès complet",
+            description: "Tous les vainqueurs, finalistes et records par édition.",
+            icon: ""
+          },
+          {
+            href: "/equipes",
+            title: "Équipes CDM 2026",
+            description: "Les 48 équipes qualifiées avec stats et performances.",
+            icon: ""
+          }
+        ]}
+      />
 
       <FAQSection title="❓ Questions sur les statistiques de la CDM" items={faqItems} />
     </>

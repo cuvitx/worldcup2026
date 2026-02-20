@@ -11,6 +11,9 @@ import { TimeZoneSection } from "./TimeZoneSection";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { TableOfContents } from "@repo/ui";
+import { RelatedLinks } from "../components/RelatedLinks";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
@@ -157,6 +160,7 @@ const faqItems = [
 export default function OuRegarderPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Où regarder","url":"/ou-regarder"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
@@ -246,6 +250,29 @@ export default function OuRegarderPage() {
         </section>
 
         <FAQSection items={faqItems} />
+
+        <RelatedLinks
+          links={[
+            {
+              href: "/match/calendrier",
+              title: "📅 Calendrier des matchs",
+              description: "Tous les matchs avec dates, horaires et stades. Filtrez par phase ou équipe.",
+              icon: "📅"
+            },
+            {
+              href: "/billets",
+              title: "🎫 Billets CDM 2026",
+              description: "Prix, dates de vente et conseils pour acheter vos billets sur FIFA.com.",
+              icon: "🎫"
+            },
+            {
+              href: "/quiz",
+              title: "🧠 Quiz CDM 2026",
+              description: "Testez vos connaissances sur la Coupe du Monde et les équipes participantes.",
+              icon: "🧠"
+            }
+          ]}
+        />
 
         {/* CTA */}
         <div className="p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20 text-center">

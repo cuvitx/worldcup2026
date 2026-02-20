@@ -283,7 +283,7 @@ export default async function JourPage({ params }: PageProps) {
                       {/* Home team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
                         <span className="text-4xl sm:text-5xl" role="img" aria-label={homeTeam?.name ?? "Équipe locale"}>
-                          {homeTeam?.flag ?? "🏳"}
+                          {homeTeam?.flag ?? ""}
                         </span>
                         <div>
                           <p className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
@@ -306,7 +306,7 @@ export default async function JourPage({ params }: PageProps) {
                       {/* Away team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
                         <span className="text-4xl sm:text-5xl" role="img" aria-label={awayTeam?.name ?? "Équipe visiteur"}>
-                          {awayTeam?.flag ?? "🏳"}
+                          {awayTeam?.flag ?? ""}
                         </span>
                         <div>
                           <p className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">

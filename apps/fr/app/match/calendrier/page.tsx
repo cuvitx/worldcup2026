@@ -1,17 +1,31 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import CalendarViewWrapper from "./CalendarViewWrapper";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { FileText } from "lucide-react";
+import { RelatedLinks } from "../../components/RelatedLinks";
 
 const CalendarFilters = dynamic(() => import("./CalendarFilters"), {
   loading: () => (
     <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
       <div className="animate-pulse space-y-4">
         <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
+        <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
+      </div>
+    </div>
+  ),
+});
+
+const CalendarGrid = dynamic(() => import("./CalendarGrid"), {
+  loading: () => (
+    <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div className="animate-pulse space-y-4">
         <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
       </div>
     </div>
@@ -87,6 +101,7 @@ export default function CalendrierPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Calendrier","url":"/match/calendrier"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
@@ -116,17 +131,46 @@ export default function CalendrierPage() {
               target="_blank"
               className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/20 transition-colors"
             >
-              📄 PDF
+              <FileText className="w-4 h-4" />
+              PDF
             </a>
           </div>
         </div>
       </section>
 
-      <CalendarFilters
+      <CalendarViewWrapper
         matches={matchData}
         teamsById={teamData}
         stadiumsById={stadiumData}
+        CalendarFilters={CalendarFilters}
+        CalendarGrid={CalendarGrid}
       />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <RelatedLinks
+          variant="compact"
+          links={[
+            {
+              href: "/groupes",
+              title: "📊 Les 12 groupes",
+              description: "Composition et classements de la phase de groupes.",
+              icon: "📊"
+            },
+            {
+              href: "/stades",
+              title: "🏟️ Les 16 stades",
+              description: "Découvrez les stades qui accueilleront les matchs.",
+              icon: "🏟️"
+            },
+            {
+              href: "/ou-regarder",
+              title: "📺 Où regarder",
+              description: "Chaînes TV et streaming pour suivre tous les matchs.",
+              icon: "📺"
+            }
+          ]}
+        />
+      </div>
 
       {/* ===== FAQ ===== */}
       <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">

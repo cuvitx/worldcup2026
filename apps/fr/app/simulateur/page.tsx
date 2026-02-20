@@ -3,6 +3,9 @@ import Link from "next/link";
 import { BracketSimulator } from "./components/BracketSimulator";
 import { SocialProof } from "@repo/ui/social-proof";
 import { FAQSection } from "@repo/ui/faq-section";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
@@ -44,6 +47,16 @@ export default function SimulateurPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Simulateur","url":"/simulateur"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Simulateur"
+          }
+]} />
       {/* Breadcrumb */}
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 py-2.5">

@@ -116,7 +116,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 sm:gap-3">
             <select value={team} onChange={(e) => setTeam(e.target.value)} className={selectClass + " col-span-2 sm:col-span-1"}>
-              <option value="">🏳 Toutes les équipes</option>
+              <option value=""> Toutes les équipes</option>
               {teamOptions.map((t) => (
                 <option key={t.id} value={t.id}>{t.flag} {t.name}</option>
               ))}
@@ -215,9 +215,9 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                             <MatchRow
                               key={match.id}
                               href={`/match/${match.slug}`}
-                              homeFlag={home?.flag ?? "🏳"}
+                              homeFlag={home?.flag ?? ""}
                               homeName={home?.name ?? "TBD"}
-                              awayFlag={away?.flag ?? "🏳"}
+                              awayFlag={away?.flag ?? ""}
                               awayName={away?.name ?? "TBD"}
                               time={match.time}
                               group={match.group}

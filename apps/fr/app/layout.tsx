@@ -59,10 +59,7 @@ export const metadata: Metadata = {
     creator: "@cdm2026",
     images: [`${domains.fr}/og-default.jpg`],
   },
-  // Controlled by IS_LAUNCHED env variable — set to "true" to enable indexing at launch
-  robots: process.env.IS_LAUNCHED === "true"
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
+  robots: { index: true, follow: true },
   icons: {
     icon: [
       { url: "/favicon.ico?v=2", sizes: "48x48" },

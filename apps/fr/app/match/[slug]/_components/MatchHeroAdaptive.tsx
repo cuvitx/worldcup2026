@@ -95,7 +95,7 @@ export function MatchHeroAdaptive({
           {/* Home */}
           <div className="flex flex-col items-center gap-2">
             <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>
-              {home?.flag ?? "🏳"}
+              {home?.flag ?? ""}
             </span>
             {home ? (
               <Link href={`/equipe/${home.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary transition-colors">
@@ -117,7 +117,7 @@ export function MatchHeroAdaptive({
           {/* Away */}
           <div className="flex flex-col items-center gap-2">
             <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>
-              {away?.flag ?? "🏳"}
+              {away?.flag ?? ""}
             </span>
             {away ? (
               <Link href={`/equipe/${away.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary transition-colors">

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Guides paris sportifs CDM 2026 | Strategies & conseils",
@@ -58,6 +60,7 @@ export default function GuidesPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Guides","url":"/guides"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

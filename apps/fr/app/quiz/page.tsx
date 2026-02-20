@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import dynamic from "next/dynamic";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { RelatedLinks } from "../components/RelatedLinks";
 
 const Quiz = dynamic(() => import("./components/Quiz"), {
   loading: () => (
@@ -63,6 +67,16 @@ export default function QuizPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Quiz","url":"/quiz"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Quiz"
+          }
+]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -101,6 +115,29 @@ export default function QuizPage() {
         <Quiz />
 
         <div className="mt-16">
+          <RelatedLinks
+            variant="compact"
+            links={[
+              {
+                href: "/histoire",
+                title: "📜 Histoire de la CDM",
+                description: "Timeline complète depuis 1930 pour réviser avant le quiz.",
+                icon: "📜"
+              },
+              {
+                href: "/simulateur",
+                title: "⚽ Simulateur de tournoi",
+                description: "Simulez votre propre bracket et prédisez le vainqueur.",
+                icon: "⚽"
+              },
+              {
+                href: "/equipes",
+                title: "Les 48 équipes",
+                description: "Explorez toutes les équipes qualifiées avec stats et pronostics.",
+                icon: ""
+              }
+            ]}
+          />
           <FAQSection title="Questions sur le quiz" items={faqItems} />
         </div>
       </main>

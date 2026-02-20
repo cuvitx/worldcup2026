@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
 import StadiumMapLazy from "./StadiumMapLazy";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Carte des Stades CDM 2026 | Les 16 stades de la Coupe du Monde",
@@ -59,6 +62,16 @@ export default function CarteStadesPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Carte des stades","url":"/carte-stades"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Carte des stades"
+          }
+]} />
       <script
         type="application/ld+json"
         suppressHydrationWarning

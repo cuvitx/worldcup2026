@@ -7,6 +7,8 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { TableOfContents } from "@repo/ui";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -59,6 +61,7 @@ export default function ParisSportifsPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Paris sportifs","url":"/paris-sportifs"}]} baseUrl={domains.fr} />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

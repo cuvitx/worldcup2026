@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) => ({ default: mod.PlayerComparator })), {
   loading: () => (
@@ -39,6 +42,16 @@ export default function ComparateurJoueursPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Comparateur de joueurs","url":"/comparateur-joueurs"}]} baseUrl={domains.fr} />
+      <Breadcrumb items={[
+          {
+                    "label": "Accueil",
+                    "href": "/"
+          },
+          {
+                    "label": "Comparateur de joueurs"
+          }
+]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Breadcrumb */}

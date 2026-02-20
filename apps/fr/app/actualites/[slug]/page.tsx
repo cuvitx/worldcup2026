@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { getArticleBySlug, getRelatedArticles, getMdxSlugs } from "../../../lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "../../../lib/mdx-components";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 
 const categoryColors: Record<string, string> = {
   analyse: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
@@ -62,16 +65,6 @@ export default async function ArticlePage({ params }: Props) {
   const { frontmatter: fm, content } = mdx;
   const related = getRelatedArticles(slug, 4);
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://cdm2026.fr" },
-      { "@type": "ListItem", position: 2, name: "Actualités", item: "https://cdm2026.fr/actualites" },
-      { "@type": "ListItem", position: 3, name: fm.title, item: `https://cdm2026.fr/actualites/${slug}` },
-    ],
-  };
-
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -87,21 +80,10 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Actualités",url:"/actualites"},{name:fm.title,url:`/actualites/${slug}`}]} baseUrl={domains.fr} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
-      {/* Breadcrumb */}
-      <nav aria-label="Fil d'Ariane" className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/actualites" className="text-primary dark:text-secondary hover:underline">Actualités</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium truncate max-w-xs">{fm.title}</li>
-          </ol>
-        </div>
-      </nav>
+      <Breadcrumb items={[{label:"Accueil",href:"/"},{label:"Actualités",href:"/actualites"},{label:fm.title}]} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
@@ -173,7 +155,7 @@ export default async function ArticlePage({ params }: Props) {
 
         {/* Newsletter CTA */}
         <div className="mt-10 rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-white">
-          <h3 className="text-xl font-bold mb-2">🏆 Restez informé sur la CDM 2026</h3>
+          <h3 className="text-xl font-bold mb-2">Restez informé sur la CDM 2026</h3>
           <p className="text-sm text-white/80 mb-4">
             Recevez les dernières analyses, pronostics et actualités directement.
           </p>
