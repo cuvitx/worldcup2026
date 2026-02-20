@@ -44,9 +44,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🗽 Statue de la Liberté & Ellis Island", description: "Icône mondiale, réservez vos billets à l'avance — ferry depuis Battery Park" },
-      { title: "🌳 Central Park", description: "800 hectares de verdure en plein cœur de Manhattan — vélo, jogging ou simple flânerie" },
-      { title: "🎭 Broadway", description: "Le spectacle vivant à son apogée — des comédies musicales aux grandes pièces de théâtre" },
+      { title: "Statue de la Liberté & Ellis Island", description: "Icône mondiale, réservez vos billets à l'avance — ferry depuis Battery Park" },
+      { title: "Central Park", description: "800 hectares de verdure en plein cœur de Manhattan — vélo, jogging ou simple flânerie" },
+      { title: "Broadway", description: "Le spectacle vivant à son apogée — des comédies musicales aux grandes pièces de théâtre" },
     ],
   },
   "dallas-fort-worth": {
@@ -69,9 +69,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🤠 Stockyards District (Fort Worth)", description: "Rodéo authentique, honky-tonks et défilé de longhorns quotidien — le vrai Texas" },
-      { title: "🎵 Deep Ellum (Dallas)", description: "Quartier musical underground — bars, live music et street art à chaque coin de rue" },
-      { title: "🏛️ Perot Museum of Nature and Science", description: "Musée de sciences ultra-moderne avec des dizaines d'expositions interactives" },
+      { title: "Stockyards District (Fort Worth)", description: "Rodéo authentique, honky-tonks et défilé de longhorns quotidien — le vrai Texas" },
+      { title: "Deep Ellum (Dallas)", description: "Quartier musical underground — bars, live music et street art à chaque coin de rue" },
+      { title: "Perot Museum of Nature and Science", description: "Musée de sciences ultra-moderne avec des dizaines d'expositions interactives" },
     ],
   },
   "miami": {
@@ -94,9 +94,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🏖️ South Beach", description: "Plages mythiques, Art Deco District et Ocean Drive — la quintessence de Miami" },
-      { title: "🎨 Wynwood Walls", description: "Musée à ciel ouvert avec les plus grandes fresques de street art au monde" },
-      { title: "🥃 Little Havana", description: "Café cubain, cigares roulés à la main et dominos en plein air — un voyage sans quitter les États-Unis" },
+      { title: "South Beach", description: "Plages mythiques, Art Deco District et Ocean Drive — la quintessence de Miami" },
+      { title: "Wynwood Walls", description: "Musée à ciel ouvert avec les plus grandes fresques de street art au monde" },
+      { title: "Little Havana", description: "Café cubain, cigares roulés à la main et dominos en plein air — un voyage sans quitter les États-Unis" },
     ],
   },
   "atlanta": {
@@ -119,9 +119,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "✊ National Center for Civil and Human Rights", description: "Musée émouvant sur les droits civiques — visiter le bureau de MLK est une expérience bouleversante" },
-      { title: "🐬 Georgia Aquarium", description: "Plus grand aquarium du monde occidental — requins baleines et spectacles de dauphins" },
-      { title: "🍑 Ponce City Market", description: "Marché gourmet et centre commercial dans une ancienne usine — roof deck avec vue sur Atlanta" },
+      { title: "National Center for Civil and Human Rights", description: "Musée émouvant sur les droits civiques — visiter le bureau de MLK est une expérience bouleversante" },
+      { title: "Georgia Aquarium", description: "Plus grand aquarium du monde occidental — requins baleines et spectacles de dauphins" },
+      { title: "Ponce City Market", description: "Marché gourmet et centre commercial dans une ancienne usine — roof deck avec vue sur Atlanta" },
     ],
   },
   "seattle": {
@@ -144,9 +144,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🐟 Pike Place Market", description: "Le marché public historique de Seattle — les fameux lanceurs de poissons, producteurs locaux et vue sur le Puget Sound" },
+      { title: "Pike Place Market", description: "Le marché public historique de Seattle — les fameux lanceurs de poissons, producteurs locaux et vue sur le Puget Sound" },
       { title: " Space Needle", description: "Symbole de Seattle depuis 1962 — vue à 360° sur la ville, le Mont Rainier et les Cascades" },
-      { title: "☕ Quartier Capitol Hill", description: "Épicentre de la culture coffee à Seattle — des dizaines de micro-torréfacteurs et une nightlife animée" },
+      { title: "Quartier Capitol Hill", description: "Épicentre de la culture coffee à Seattle — des dizaines de micro-torréfacteurs et une nightlife animée" },
     ],
   },
   "houston": {
@@ -170,8 +170,8 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
     },
     activities: [
       { title: " Space Center Houston", description: "Centre officiel de la NASA — voir de vraies fusées et vivre l'histoire de la conquête spatiale" },
-      { title: "🎨 Museum District", description: "19 musées gratuits ou accessibles — Fine Arts, Natural Science, Holocaust Museum en plein cœur de la ville" },
-      { title: "🍜 Bellaire Chinatown", description: "L'une des plus grandes et authentiques communautés asiatiques des États-Unis — gastronomie exceptionnelle" },
+      { title: "Museum District", description: "19 musées gratuits ou accessibles — Fine Arts, Natural Science, Holocaust Museum en plein cœur de la ville" },
+      { title: "Bellaire Chinatown", description: "L'une des plus grandes et authentiques communautés asiatiques des États-Unis — gastronomie exceptionnelle" },
     ],
   },
   "philadelphia": {
@@ -195,8 +195,8 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
     },
     activities: [
       { title: " Liberty Bell & Independence Hall", description: "Le berceau de la démocratie américaine — où fut signée la Déclaration d'Indépendance en 1776" },
-      { title: "🥩 Reading Terminal Market", description: "Marché couvert historique — cheesesteak, soft pretzels et spécialités amish depuis 1893" },
-      { title: "🏃 Art Museum & Rocky Steps", description: "Courez les marches comme Rocky Balboa et profitez d'une vue imprenable sur le Benjamin Franklin Parkway" },
+      { title: "Reading Terminal Market", description: "Marché couvert historique — cheesesteak, soft pretzels et spécialités amish depuis 1893" },
+      { title: "Art Museum & Rocky Steps", description: "Courez les marches comme Rocky Balboa et profitez d'une vue imprenable sur le Benjamin Franklin Parkway" },
     ],
   },
   "kansas-city": {
@@ -219,9 +219,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🍖 Kansas City BBQ", description: "Le pèlerinage gastronomique ultime — Joe's KC, Q39 et Arthur Bryant's, temples du brisket et des burnt ends" },
-      { title: "🎷 18th & Vine Jazz District", description: "Berceau du jazz Kansas City style — musée du jazz et de la Negro Leagues Baseball au cœur du quartier historique" },
-      { title: "🏛️ Country Club Plaza", description: "Quartier d'inspiration hispanique avec fontaines et architecture mauresque — shopping et gastronomie de qualité" },
+      { title: "Kansas City BBQ", description: "Le pèlerinage gastronomique ultime — Joe's KC, Q39 et Arthur Bryant's, temples du brisket et des burnt ends" },
+      { title: "18th & Vine Jazz District", description: "Berceau du jazz Kansas City style — musée du jazz et de la Negro Leagues Baseball au cœur du quartier historique" },
+      { title: "Country Club Plaza", description: "Quartier d'inspiration hispanique avec fontaines et architecture mauresque — shopping et gastronomie de qualité" },
     ],
   },
   "boston": {
@@ -244,9 +244,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🚶 Freedom Trail", description: "Circuit pédestre de 4 km reliant 16 sites historiques de la Révolution américaine — gratuit et fascinant" },
-      { title: "⚾ Fenway Park", description: "Le plus vieux stade de baseball des États-Unis (1912) — visites guidées disponibles même hors matchs" },
-      { title: "🎓 Harvard & MIT (Cambridge)", description: "Traversez la Charles River pour explorer les campus légendaires de deux des plus grandes universités mondiales" },
+      { title: "Freedom Trail", description: "Circuit pédestre de 4 km reliant 16 sites historiques de la Révolution américaine — gratuit et fascinant" },
+      { title: "Fenway Park", description: "Le plus vieux stade de baseball des États-Unis (1912) — visites guidées disponibles même hors matchs" },
+      { title: "Harvard & MIT (Cambridge)", description: "Traversez la Charles River pour explorer les campus légendaires de deux des plus grandes universités mondiales" },
     ],
   },
   "san-francisco-bay-area": {
@@ -269,9 +269,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🌉 Golden Gate Bridge", description: "Traverser le pont à pied ou en vélo avec vue sur la baie — gratuit et inoubliable" },
-      { title: "🚋 Cable Cars & Fisherman's Wharf", description: "Les tramways historiques sur les collines de SF et le front de mer animé avec la Ghirardelli Square" },
-      { title: "🍷 Napa Valley", description: "À 1h de San Francisco — des centaines de domaines viticoles de classe mondiale dans un cadre magnifique" },
+      { title: "Golden Gate Bridge", description: "Traverser le pont à pied ou en vélo avec vue sur la baie — gratuit et inoubliable" },
+      { title: "Cable Cars & Fisherman's Wharf", description: "Les tramways historiques sur les collines de SF et le front de mer animé avec la Ghirardelli Square" },
+      { title: "Napa Valley", description: "À 1h de San Francisco — des centaines de domaines viticoles de classe mondiale dans un cadre magnifique" },
     ],
   },
   "los-angeles": {
@@ -295,8 +295,8 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
     },
     activities: [
       { title: " Hollywood & Universal Studios", description: "Marchez sur Hollywood Boulevard, photographiez le panneau HOLLYWOOD et explorez les studios Universal" },
-      { title: "🏖️ Venice Beach & Santa Monica", description: "Le boardwalk de Venice avec ses artistes de rue, son skatepark et ses body-builders à Muscle Beach" },
-      { title: "🖼️ Getty Center", description: "Musée d'art de renommée mondiale — collection impressionniste et vue panoramique sur LA — entrée gratuite" },
+      { title: "Venice Beach & Santa Monica", description: "Le boardwalk de Venice avec ses artistes de rue, son skatepark et ses body-builders à Muscle Beach" },
+      { title: "Getty Center", description: "Musée d'art de renommée mondiale — collection impressionniste et vue panoramique sur LA — entrée gratuite" },
     ],
   },
   "mexico-city": {
@@ -319,9 +319,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🏛️ Teotihuacán", description: "À 50 km — montez sur la Pyramide du Soleil pour une vue à couper le souffle sur la Cité des Dieux" },
-      { title: "🎨 Frida Kahlo Museum (La Casa Azul)", description: "Plongée dans l'univers de l'artiste mexicaine dans sa maison d'enfance à Coyoacán — réservez longtemps à l'avance" },
-      { title: "🌮 Mercado de la Merced & street food", description: "Le plus grand marché de CDMX — tacos, tlayudas, tamales et une explosion de saveurs authentiques" },
+      { title: "Teotihuacán", description: "À 50 km — montez sur la Pyramide du Soleil pour une vue à couper le souffle sur la Cité des Dieux" },
+      { title: "Frida Kahlo Museum (La Casa Azul)", description: "Plongée dans l'univers de l'artiste mexicaine dans sa maison d'enfance à Coyoacán — réservez longtemps à l'avance" },
+      { title: "Mercado de la Merced & street food", description: "Le plus grand marché de CDMX — tacos, tlayudas, tamales et une explosion de saveurs authentiques" },
     ],
   },
   "guadalajara": {
@@ -344,9 +344,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "🎺 Tequila & Mariachi", description: "Découvrez la ville natale du tequila et du mariachi — visite de la région de Tequila à 1h en train touristique" },
-      { title: "🏙️ Centro Histórico", description: "Cathédrale baroque, Palais du Gouvernement et ses fresques d'Orozco — le cœur historique de Guadalajara" },
-      { title: "🌊 Lago de Chapala", description: "Le plus grand lac naturel du Mexique à 45 min — villages colorés, pêche traditionnelle et couchers de soleil" },
+      { title: "Tequila & Mariachi", description: "Découvrez la ville natale du tequila et du mariachi — visite de la région de Tequila à 1h en train touristique" },
+      { title: "Centro Histórico", description: "Cathédrale baroque, Palais du Gouvernement et ses fresques d'Orozco — le cœur historique de Guadalajara" },
+      { title: "Lago de Chapala", description: "Le plus grand lac naturel du Mexique à 45 min — villages colorés, pêche traditionnelle et couchers de soleil" },
     ],
   },
   "monterrey": {
@@ -369,9 +369,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "⛰️ Parque Nacional Cumbres de Monterrey", description: "Randonnée dans la Sierra Madre — la Cascada Cola de Caballo et le Cañón de Matacanes sont spectaculaires" },
-      { title: "🏙️ Barrio Antiguo", description: "Quartier historique plein de vie — bars, galeries d'art et culture regio authentique le vendredi soir" },
-      { title: "🔪 Cabrito et gastronomie regio", description: "La cuisine de Monterrey est unique au Mexique — cabrito (chevreau rôti), machacado et pan de campo" },
+      { title: "Parque Nacional Cumbres de Monterrey", description: "Randonnée dans la Sierra Madre — la Cascada Cola de Caballo et le Cañón de Matacanes sont spectaculaires" },
+      { title: "Barrio Antiguo", description: "Quartier historique plein de vie — bars, galeries d'art et culture regio authentique le vendredi soir" },
+      { title: "Cabrito et gastronomie regio", description: "La cuisine de Monterrey est unique au Mexique — cabrito (chevreau rôti), machacado et pan de campo" },
     ],
   },
   "toronto": {
@@ -394,9 +394,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "CAD",
     },
     activities: [
-      { title: "🗼 CN Tower", description: "Promenade sur le toit vitré à 356m d'altitude — vue à 360° sur Toronto, le lac Ontario et les États-Unis" },
-      { title: "🌍 Kensington Market & Chinatown", description: "Deux des quartiers les plus multiculturels au monde — street food, marchés vintage et ambiance unique" },
-      { title: "🏝️ Toronto Islands", description: "Ferry de 15 min depuis le centre — plages, vélos et vue imprenable sur la skyline de Toronto" },
+      { title: "CN Tower", description: "Promenade sur le toit vitré à 356m d'altitude — vue à 360° sur Toronto, le lac Ontario et les États-Unis" },
+      { title: "Kensington Market & Chinatown", description: "Deux des quartiers les plus multiculturels au monde — street food, marchés vintage et ambiance unique" },
+      { title: "Toronto Islands", description: "Ferry de 15 min depuis le centre — plages, vélos et vue imprenable sur la skyline de Toronto" },
     ],
   },
   "vancouver": {
@@ -419,9 +419,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "CAD",
     },
     activities: [
-      { title: "🌲 Stanley Park", description: "400 hectares de forêt tempérée en plein cœur de la ville — promenade en vélo sur le Seawall avec vue sur les montagnes" },
-      { title: "🎿 Whistler (option day trip)", description: "À 2h de Vancouver — activités estivales (VTT, randonnée, luge d'été) dans la station la plus réputée d'Amérique du Nord" },
-      { title: "🍣 Granville Island & gastronomie", description: "Marché public artisanal, microbrasseries et restaurants de fruits de mer — le cœur gastronomique de Vancouver" },
+      { title: "Stanley Park", description: "400 hectares de forêt tempérée en plein cœur de la ville — promenade en vélo sur le Seawall avec vue sur les montagnes" },
+      { title: "Whistler (option day trip)", description: "À 2h de Vancouver — activités estivales (VTT, randonnée, luge d'été) dans la station la plus réputée d'Amérique du Nord" },
+      { title: "Granville Island & gastronomie", description: "Marché public artisanal, microbrasseries et restaurants de fruits de mer — le cœur gastronomique de Vancouver" },
     ],
   },
 };
