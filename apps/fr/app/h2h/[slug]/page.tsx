@@ -18,11 +18,12 @@ interface PageProps {
 
 // Generate all possible team vs team combinations
 export async function generateStaticParams() {
+  const realTeams = teams.filter((t) => !t.slug.startsWith("barrage-") && !t.slug.startsWith("intercontinental-"));
   const params: { slug: string }[] = [];
-  for (let i = 0; i < teams.length; i++) {
-    for (let j = i + 1; j < teams.length; j++) {
-      const t1 = teams[i];
-      const t2 = teams[j];
+  for (let i = 0; i < realTeams.length; i++) {
+    for (let j = i + 1; j < realTeams.length; j++) {
+      const t1 = realTeams[i];
+      const t2 = realTeams[j];
       if (t1 && t2) {
         params.push({ slug: `${t1.slug}-vs-${t2.slug}` });
       }
