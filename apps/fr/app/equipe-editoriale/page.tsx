@@ -3,62 +3,33 @@ import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
-import { Users, BarChart3, Newspaper, TrendingUp } from "lucide-react";
+import { User, BarChart3, TrendingUp, Globe, Target } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Notre équipe éditoriale | CDM 2026",
+  title: "À propos de l'auteur | CDM 2026",
   description:
-    "Découvrez l'équipe d'experts derrière CDM 2026 : analyste données sportives, journaliste sportive et expert paris sportifs.",
+    "Découvrez Xavier C., fondateur et rédacteur de CDM 2026 — analyses, pronostics et guides pour la Coupe du Monde 2026.",
   openGraph: {
-    title: "Équipe éditoriale CDM 2026",
-    description: "Les experts qui rédigent les analyses et pronostics de CDM 2026.",
+    title: "Xavier C. — Auteur CDM 2026",
+    description: "Fondateur et rédacteur de CDM 2026.",
     url: "https://cdm2026.fr/equipe-editoriale",
   },
   alternates: { canonical: "https://cdm2026.fr/equipe-editoriale" },
 };
 
-const equipe = [
-  {
-    nom: "Thomas Durand",
-    initiales: "TD",
-    role: "Analyste données sportives",
-    icon: BarChart3,
-    bio: "Fort de 10 ans d'expérience en modélisation statistique appliquée au football, Thomas développe les algorithmes de pronostics de CDM 2026. Spécialiste des modèles ELO et des expected goals (xG), il a travaillé pour plusieurs médias sportifs avant de se consacrer à l'analyse prédictive. Ses modèles intègrent plus de 50 variables par match pour générer des probabilités fiables.",
-    specialites: ["Modélisation statistique", "Classements ELO", "Expected Goals (xG)", "Data visualisation"],
-    couleur: "bg-blue-600",
-  },
-  {
-    nom: "Sophie Martin",
-    initiales: "SM",
-    role: "Journaliste sportive",
-    icon: Newspaper,
-    bio: "Ancienne journaliste à L'Équipe, Sophie couvre les Coupes du Monde depuis 2010. Présente sur le terrain en Afrique du Sud, au Brésil, en Russie et au Qatar, elle apporte une expertise de terrain inégalée. Ses analyses tactiques et ses portraits d'équipes combinent rigueur journalistique et passion pour le jeu. Elle est responsable du contenu éditorial de CDM 2026.",
-    specialites: ["Couverture terrain", "Analyse tactique", "Portraits d'équipes", "Interviews"],
-    couleur: "bg-purple-600",
-  },
-  {
-    nom: "Lucas Bernard",
-    initiales: "LB",
-    role: "Expert paris sportifs",
-    icon: TrendingUp,
-    bio: "Contributeur RMC Sport et spécialiste reconnu des marchés de paris sportifs, Lucas analyse les cotes et identifie les meilleures valeurs. Avec plus de 8 ans d'expérience dans le secteur, il veille à ce que toutes les informations relatives aux paris sur CDM 2026 soient précises, à jour et conformes à la réglementation ANJ. Il est un fervent défenseur du jeu responsable.",
-    specialites: ["Analyse de cotes", "Value betting", "Marchés sportifs", "Réglementation ANJ"],
-    couleur: "bg-emerald-600",
-  },
-];
-
-function PersonSchema({ person }: { person: typeof equipe[number] }) {
+function PersonSchema() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: person.nom,
-    jobTitle: person.role,
+    name: "Xavier C.",
+    jobTitle: "Fondateur & Rédacteur",
     worksFor: {
       "@type": "Organization",
       name: "CDM 2026",
       url: "https://cdm2026.fr",
     },
-    knowsAbout: person.specialites,
+    description:
+      "Passionné de football et d'analyse data, Xavier est le fondateur de CDM 2026. Il rédige les analyses, pronostics et guides du site.",
   };
   return (
     <script
@@ -68,106 +39,121 @@ function PersonSchema({ person }: { person: typeof equipe[number] }) {
   );
 }
 
+const specialites = [
+  { icon: BarChart3, label: "Analyse statistique", desc: "Modèles ELO, xG, probabilités de qualification" },
+  { icon: TrendingUp, label: "Pronostics & Paris", desc: "Cotes, value bets, stratégies de paris sportifs" },
+  { icon: Globe, label: "Guides voyage", desc: "Villes hôtes, budget, hébergement, sécurité" },
+  { icon: Target, label: "SEO & Contenu", desc: "Rédaction experte, données actualisées, sources FIFA" },
+];
+
 export default function EquipeEditorialePage() {
   return (
     <>
-      {equipe.map((p) => (
-        <PersonSchema key={p.nom} person={p} />
-      ))}
+      <PersonSchema />
       <BreadcrumbSchema
         items={[
-          { name: "Accueil", url: "/" },
-          { name: "À propos", url: "/a-propos" },
-          { name: "Équipe éditoriale", url: "/equipe-editoriale" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "À propos", href: "/a-propos" },
-          { label: "Équipe éditoriale" },
+          { name: "Accueil", url: "https://cdm2026.fr" },
+          { name: "À propos de l'auteur", url: "https://cdm2026.fr/equipe-editoriale" },
         ]}
       />
 
-      <section className="hero-animated text-white py-16 overflow-hidden">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <Users className="h-4 w-4 text-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
-              Notre expertise
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-secondary">Notre équipe</span> éditoriale
+      <section className="hero-animated text-white py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <Breadcrumb
+            items={[
+              { label: "Accueil", href: "/" },
+              { label: "À propos de l'auteur" },
+            ]}
+          />
+          <h1 className="mt-6 text-3xl sm:text-4xl font-bold text-secondary">
+            Xavier C.
           </h1>
-          <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Des experts passionnés au service de l&apos;information sportive.
-            Rigueur, transparence et indépendance.
+          <p className="mt-3 text-lg text-white/80">
+            Fondateur & Rédacteur de CDM 2026
           </p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-4 py-12 space-y-8">
-        {equipe.map((p) => (
-          <article
-            key={p.nom}
-            className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 sm:p-8"
-          >
-            <div className="flex flex-col sm:flex-row gap-6">
-              {/* Avatar initiales */}
-              <div className="shrink-0 flex flex-col items-center gap-2">
-                <div
-                  className={`w-20 h-20 rounded-full ${p.couleur} flex items-center justify-center text-white text-2xl font-bold`}
-                >
-                  {p.initiales}
-                </div>
-                <p.icon className="h-5 w-5 text-gray-400" />
+      <main id="main-content" className="mx-auto max-w-4xl px-4 py-12">
+        {/* Avatar + Bio */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12">
+          <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-primary text-white text-3xl font-bold">
+            XC
+          </div>
+          <div>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Passionné de football depuis toujours, je suis le créateur et unique rédacteur de CDM 2026.
+              Mon objectif : proposer le guide le plus complet sur la Coupe du Monde 2026 — analyses statistiques,
+              pronostics argumentés, guides pratiques pour les supporters et comparatifs de paris sportifs.
+            </p>
+            <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+              Toutes les données du site proviennent de sources officielles (FIFA, confédérations) et sont
+              régulièrement mises à jour. Les pronostics sont basés sur des modèles statistiques (ELO, xG)
+              et non sur de simples intuitions.
+            </p>
+          </div>
+        </div>
+
+        {/* Spécialités */}
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          Domaines d&apos;expertise
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4 mb-12">
+          {specialites.map((s) => (
+            <div
+              key={s.label}
+              className="flex items-start gap-3 rounded-xl border border-gray-200 dark:border-gray-700 p-4"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                <s.icon className="h-5 w-5" />
               </div>
-              {/* Contenu */}
-              <div className="flex-1">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">{p.nom}</h2>
-                <p className="text-secondary font-medium text-sm mb-3">{p.role}</p>
-                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4">
-                  {p.bio}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {p.specialites.map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-600 dark:text-gray-300"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">{s.label}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
               </div>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
 
-        {/* Méthodologie */}
-        <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800/50 p-6">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-            Notre engagement
-          </h2>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-            <li><strong>Sources vérifiées :</strong> Toutes nos données proviennent de sources officielles (FIFA, confédérations) et de bases statistiques reconnues.</li>
-            <li><strong>Transparence :</strong> Notre <Link href="/methodologie" className="text-primary underline hover:text-accent">méthodologie</Link> est publique. Nous expliquons comment nos pronostics sont calculés.</li>
-            <li><strong>Indépendance :</strong> Aucun bookmaker n&apos;influence notre contenu éditorial. Les liens d&apos;affiliation sont clairement identifiés.</li>
-            <li><strong>Jeu responsable :</strong> Nous respectons la réglementation ANJ et promouvons le <Link href="/jeu-responsable" className="text-primary underline hover:text-accent">jeu responsable</Link>.</li>
-          </ul>
-        </section>
+        {/* Engagements */}
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Engagements
+        </h2>
+        <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-12">
+          <li className="flex items-start gap-2">
+            <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+            <span><strong>Sources vérifiées</strong> — Données FIFA, UEFA, CONMEBOL et confédérations officielles</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+            <span><strong>Jeu responsable</strong> — Conformité ANJ, mentions légales sur chaque page de paris</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+            <span><strong>Transparence</strong> — Méthodologie de pronostics détaillée sur la page dédiée</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+            <span><strong>Indépendance</strong> — Les classements de bookmakers reflètent une analyse objective</span>
+          </li>
+        </ul>
 
-        <div className="text-center">
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row gap-3">
           <Link
-            href="/a-propos"
-            className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
+            href="/methodologie"
+            className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3.5 text-center font-bold text-white hover:bg-accent/90 transition-colors"
           >
-            En savoir plus sur CDM 2026
+            Voir la méthodologie
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-xl border border-gray-300 dark:border-gray-600 px-6 py-2.5 text-center font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+          >
+            Me contacter
           </Link>
         </div>
-      </div>
+      </main>
     </>
   );
 }
