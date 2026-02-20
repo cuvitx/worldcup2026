@@ -178,7 +178,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
             <dl className="space-y-3 text-sm">
               <DataRow label="Rating ELO"><span className="font-bold text-primary">{prediction.eloRating}</span></DataRow>
               <DataRow label="Passer les groupes"><span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span></DataRow>
-              <DataRow label="Gagner la CDM"><span className="font-bold text-secondary">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span></DataRow>
+              <DataRow label="Gagner la CDM"><span className="font-bold text-accent">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span></DataRow>
             </dl>
           </div>
         ) : (

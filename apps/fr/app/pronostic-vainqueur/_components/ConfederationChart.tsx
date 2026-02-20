@@ -18,8 +18,8 @@ const CONFEDERATION_COLORS: Record<
   { bg: string; border: string; label: string }
 > = {
   UEFA: {
-    bg: "bg-secondary",
-    border: "border-secondary/60",
+    bg: "bg-accent",
+    border: "border-accent/60",
     label: "UEFA (Europe)",
   },
   CONMEBOL: {
@@ -38,8 +38,8 @@ const CONFEDERATION_COLORS: Record<
     label: "CAF (Afrique)",
   },
   AFC: {
-    bg: "bg-secondary/70",
-    border: "border-secondary/60",
+    bg: "bg-primary/70",
+    border: "border-primary/60",
     label: "AFC (Asie)",
   },
   OFC: {
@@ -103,7 +103,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
                     </span>
                   </div>
                 </div>
-                <span className="shrink-0 w-14 text-right text-sm font-bold text-secondary">
+                <span className="shrink-0 w-14 text-right text-sm font-bold text-accent">
                   {approxOdds}
                 </span>
               </div>

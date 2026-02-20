@@ -13,13 +13,13 @@ export function CtaSection() {
           </Link>
           <Link
             href="/equipe-de-france"
-            className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 dark:border-secondary/40 bg-secondary/5 dark:bg-secondary/10 px-6 py-3 font-semibold text-secondary dark:text-secondary hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-lg border border-primary/30 dark:border-secondary/40 bg-primary/5 dark:bg-secondary/10 px-6 py-3 font-semibold text-primary dark:text-secondary hover:-translate-y-0.5 transition-all"
           >
             🇫🇷 Pronostic France
           </Link>
           <Link
             href="/simulateur"
-            className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 bg-secondary/10 px-6 py-3 font-semibold text-secondary hover:bg-secondary/20 transition-all"
+            className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-6 py-3 font-semibold text-primary hover:bg-primary/20 transition-all"
           >
             Simulateur de bracket
           </Link>

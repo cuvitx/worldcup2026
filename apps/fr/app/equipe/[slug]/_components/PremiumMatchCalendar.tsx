@@ -54,7 +54,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
             return (
               <div
                 key={match.id}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-secondary/30 dark:hover:border-secondary/40"
+                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30 dark:hover:border-secondary/40"
               >
                 <div className="flex items-center gap-4 px-5 py-4">
                   <div className="shrink-0 text-center hidden sm:block w-20">
@@ -81,7 +81,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       {match.group && (
-                        <span className="text-xs bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary px-2 py-0.5 rounded font-medium">
+                        <span className="text-xs bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary px-2 py-0.5 rounded font-medium">
                           Groupe {match.group}
                         </span>
                       )}
@@ -99,7 +99,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                   <div className="shrink-0 text-right">
                     {teamWinOdds && teamWinOdds !== "—" && (
                       <div>
-                        <p className="text-lg font-extrabold text-secondary">{teamWinOdds}</p>
+                        <p className="text-lg font-extrabold text-accent">{teamWinOdds}</p>
                         <p className="text-xs text-gray-500 dark:text-gray-300">victoire</p>
                       </div>
                     )}

@@ -46,7 +46,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
         <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analyse</h2>
-            <span className="rounded-full bg-secondary/10 px-2.5 py-0.5 text-xs font-medium text-secondary">IA</span>
+            <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">IA</span>
           </div>
           <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(enriched?.analysis.content ?? "") }} />
         </section>
@@ -106,21 +106,21 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
         const history = teamWorldCupHistory[team.id]!;
         const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
         return titles.length > 0 ? (
-          <section className="rounded-xl border border-secondary/30 dark:border-secondary/20 bg-secondary/5 dark:bg-slate-800 p-6 shadow-sm">
+          <section className="rounded-xl border border-primary/30 dark:border-secondary/20 bg-primary/5 dark:bg-slate-800 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
               <span></span> Palmarès en Coupe du Monde
             </h2>
             <div className="flex flex-wrap gap-4 mb-4">
               {titles.map((title) => (
-                <div key={title.year} className="flex flex-col items-center rounded-xl bg-secondary/10 dark:bg-secondary/20 border border-secondary/40 dark:border-secondary/30 px-5 py-4 min-w-[110px] text-center">
+                <div key={title.year} className="flex flex-col items-center rounded-xl bg-primary/10 dark:bg-secondary/20 border border-primary/40 dark:border-secondary/30 px-5 py-4 min-w-[110px] text-center">
                   <span className="text-4xl mb-1"></span>
-                  <span className="text-2xl font-extrabold text-secondary dark:text-secondary">{title.year}</span>
+                  <span className="text-2xl font-extrabold text-primary dark:text-secondary">{title.year}</span>
                   {title.detail && <span className="mt-1 text-xs text-gray-600 dark:text-gray-300 leading-snug max-w-[120px]">{title.detail}</span>}
                 </div>
               ))}
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              <span className="font-semibold text-secondary dark:text-secondary">{titles.length} titre{titles.length > 1 ? "s" : ""} mondial{titles.length > 1 ? "aux" : ""}</span>{" "}
+              <span className="font-semibold text-primary dark:text-secondary">{titles.length} titre{titles.length > 1 ? "s" : ""} mondial{titles.length > 1 ? "aux" : ""}</span>{" "}
               remporté{titles.length > 1 ? "s" : ""} en Coupe du Monde.
             </p>
           </section>
@@ -200,9 +200,9 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
               <span className="text-sm text-gray-500">Rating ELO</span>
               <p className="text-2xl font-extrabold text-primary">{prediction.eloRating}</p>
             </div>
-            <div className="rounded-lg bg-secondary/10 px-4 py-2">
+            <div className="rounded-lg bg-accent/10 px-4 py-2">
               <span className="text-sm text-gray-500">Chances de victoire</span>
-              <p className="text-2xl font-extrabold text-secondary">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</p>
+              <p className="text-2xl font-extrabold text-accent">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</p>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">

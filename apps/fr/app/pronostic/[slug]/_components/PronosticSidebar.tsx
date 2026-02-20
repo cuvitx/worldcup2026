@@ -71,7 +71,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Parier sur {team.name}</h3>
         {prediction ? (
           <div className="space-y-3 mb-4">
-            <div className="flex justify-between text-sm"><span className="text-gray-600">Cote vainqueur</span><span className="font-bold text-secondary">{estimatedOutrightOdds(prediction.winnerProb)}</span></div>
+            <div className="flex justify-between text-sm"><span className="text-gray-600">Cote vainqueur</span><span className="font-bold text-accent">{estimatedOutrightOdds(prediction.winnerProb)}</span></div>
             <div className="flex justify-between text-sm"><span className="text-gray-600">Passer les groupes</span><span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span></div>
           </div>
         ) : (

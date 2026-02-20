@@ -81,15 +81,15 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
       {history && (() => {
         const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
         return titles.length > 0 ? (
-          <section className="rounded-xl border border-secondary/30 dark:border-secondary/20 bg-secondary/5 dark:bg-slate-800 p-6 shadow-sm">
+          <section className="rounded-xl border border-primary/30 dark:border-secondary/20 bg-primary/5 dark:bg-slate-800 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
               <span>🏆</span> Palmarès en Coupe du Monde
             </h2>
             <div className="flex flex-wrap gap-4 mb-4">
               {titles.map((title) => (
-                <div key={title.year} className="flex flex-col items-center rounded-xl bg-secondary/10 dark:bg-secondary/20 border border-secondary/40 dark:border-secondary/30 px-5 py-4 min-w-[110px] text-center">
+                <div key={title.year} className="flex flex-col items-center rounded-xl bg-primary/10 dark:bg-secondary/20 border border-primary/40 dark:border-secondary/30 px-5 py-4 min-w-[110px] text-center">
                   <span className="text-4xl mb-1">🏆</span>
-                  <span className="text-2xl font-extrabold text-secondary dark:text-secondary">{title.year}</span>
+                  <span className="text-2xl font-extrabold text-primary dark:text-secondary">{title.year}</span>
                   {title.detail && (
                     <span className="mt-1 text-xs text-gray-600 dark:text-gray-300 leading-snug max-w-[120px]">{title.detail}</span>
                   )}
@@ -97,7 +97,7 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
               ))}
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              <span className="font-semibold text-secondary dark:text-secondary">
+              <span className="font-semibold text-primary dark:text-secondary">
                 {titles.length} titre{titles.length > 1 ? "s" : ""} mondial{titles.length > 1 ? "aux" : ""}
               </span>{" "}
               remporté{titles.length > 1 ? "s" : ""} en Coupe du Monde.

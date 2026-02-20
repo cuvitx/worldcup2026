@@ -55,7 +55,7 @@ export function TeamHeader({ team }: TeamHeaderProps) {
           )}
           <div className="flex flex-wrap items-center gap-3">
             {team.isHost && (
-              <span className="inline-block rounded-full bg-secondary/20 px-3 py-1 text-sm font-medium text-secondary">
+              <span className="inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
                 Pays hôte
               </span>
             )}
