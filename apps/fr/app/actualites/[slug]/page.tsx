@@ -10,7 +10,7 @@ const categoryColors: Record<string, string> = {
   guide: "bg-accent/10 text-accent dark:bg-accent/10 dark:text-accent",
   portrait: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
   actualite: "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary",
-  pronostic: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
+  pronostic: "bg-accent/10 text-accent dark:bg-accent/10 dark:text-accent",
 };
 
 const categoryLabels: Record<string, string> = {

@@ -100,7 +100,7 @@ export default function StadiumsPage() {
                            {city?.name ?? stadium.city}
                         </p>
                         <div className="mt-2 flex items-center justify-between">
-                          <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">
+                          <span className="text-sm font-semibold text-accent">
                              {stadium.capacity.toLocaleString("fr-FR")} places
                           </span>
                           <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700 dark:text-gray-300">

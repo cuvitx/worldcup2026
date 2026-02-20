@@ -16,10 +16,10 @@ interface RecentArticlesProps {
 }
 
 const categoryColors: Record<string, string> = {
-  stades: "bg-amber-400/10 text-amber-600 dark:bg-amber-400/20 dark:text-amber-400",
+  stades: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
   billets: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
   equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-amber-400",
+  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent",
   transferts: "bg-accent/15 text-accent dark:bg-accent/10 dark:text-accent",
 };
 

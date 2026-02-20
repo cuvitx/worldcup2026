@@ -37,7 +37,7 @@ export function StatDuelRow({
           {label}
         </span>
         <span
-          className={`text-sm font-bold ${awayIsBetter ? "text-amber-600 dark:text-amber-400" : "text-gray-700 dark:text-gray-300"}`}
+          className={`text-sm font-bold ${awayIsBetter ? "text-accent" : "text-gray-700 dark:text-gray-300"}`}
         >
           {away}
           {suffix}

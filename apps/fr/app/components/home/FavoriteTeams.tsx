@@ -83,7 +83,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                 )}
 
                 {outrightOdds && (
-                  <div className="mt-1 w-full rounded-xl border border-amber-400/30 bg-amber-400/5 dark:bg-amber-400/10 px-3 py-2">
+                  <div className="mt-1 w-full rounded-xl border border-accent/30 bg-accent/5 dark:bg-accent/10 px-3 py-2">
                     <p className="text-[9px] text-gray-500 dark:text-gray-300 mb-0.5">
                       {favData ? "Cote moy. marché" : "Cote vainqueur"}
                     </p>

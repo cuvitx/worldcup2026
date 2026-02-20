@@ -104,8 +104,8 @@ export default async function ButeurPage({ params }: PageProps) {
                   <p className="text-3xl font-extrabold text-primary">{goalsPerCap}</p>
                   <p className="text-xs text-gray-500 mt-1">Buts/match</p>
                 </div>
-                <div className="rounded-lg bg-amber-400/10 p-4 text-center">
-                  <p className="text-3xl font-extrabold text-amber-600 dark:text-amber-400">{scorer?.expectedGoals ?? "—"}</p>
+                <div className="rounded-lg bg-accent/10 p-4 text-center">
+                  <p className="text-3xl font-extrabold text-accent">{scorer?.expectedGoals ?? "—"}</p>
                   <p className="text-xs text-gray-500 mt-1">Buts attendus CDM</p>
                 </div>
               </div>
@@ -150,10 +150,10 @@ export default async function ButeurPage({ params }: PageProps) {
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 bg-amber-400/5">
+                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 bg-accent/5">
                         <td className="py-3 font-bold">Meilleur buteur CDM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
-                        <td className="py-3 text-right font-extrabold text-amber-600 dark:text-amber-400">{scorer.topScorerOdds}</td>
+                        <td className="py-3 text-right font-extrabold text-accent">{scorer.topScorerOdds}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -244,11 +244,11 @@ export default async function ButeurPage({ params }: PageProps) {
                     <div
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-amber-400 bg-amber-400/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                        isFeatured ? "border-accent bg-accent/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                       }`}
                     >
                       {isFeatured && (
-                        <span className="absolute -top-3 left-4 rounded-full bg-amber-500 dark:bg-amber-400 px-3 py-0.5 text-xs font-bold text-black">
+                        <span className="absolute -top-3 left-4 rounded-full bg-accent dark:bg-accent px-3 py-0.5 text-xs font-bold text-black">
                           Recommandé
                         </span>
                       )}
@@ -316,7 +316,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   <>
                     <div className="border-t border-gray-100 pt-3 flex justify-between">
                       <dt className="text-gray-500">Buts attendus CDM</dt>
-                      <dd className="font-bold text-amber-600 dark:text-amber-400">{scorer.expectedGoals}</dd>
+                      <dd className="font-bold text-accent">{scorer.expectedGoals}</dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-500">Cote buteur</dt>
@@ -324,14 +324,14 @@ export default async function ButeurPage({ params }: PageProps) {
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-500">Cote top buteur</dt>
-                      <dd className="font-bold text-amber-600 dark:text-amber-400">{scorer.topScorerOdds}</dd>
+                      <dd className="font-bold text-accent">{scorer.topScorerOdds}</dd>
                     </div>
                   </>
                 )}
                 {topRank >= 0 && (
                   <div className="flex justify-between">
                     <dt className="text-gray-500">Classement buteur</dt>
-                    <dd className="font-bold text-amber-600 dark:text-amber-400">#{topRank + 1}</dd>
+                    <dd className="font-bold text-accent">#{topRank + 1}</dd>
                   </div>
                 )}
               </dl>
@@ -366,7 +366,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Buts attendus</span>
-                    <span className="font-bold text-amber-600 dark:text-amber-400">{scorer.expectedGoals}</span>
+                    <span className="font-bold text-accent">{scorer.expectedGoals}</span>
                   </div>
                 </div>
               )}
