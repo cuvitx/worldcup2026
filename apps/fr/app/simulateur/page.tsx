@@ -113,20 +113,7 @@ export default function SimulateurPage() {
               </div>
             </div>
 
-            {/* Share CTA */}
-            <div className="shrink-0">
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-                <p className="text-xs text-gray-500 mb-2">
-                  Partagez votre bracket
-                </p>
-                <Link
-                  href="/quiz"
-                  className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 bg-secondary/10 px-4 py-2.5 text-sm font-bold text-secondary hover:bg-secondary/20 transition-all"
-                >
-                  🧩 Aussi : Quiz CDM
-                </Link>
-              </div>
-            </div>
+            {/* Share CTA removed */}
           </div>
         </div>
       </section>
