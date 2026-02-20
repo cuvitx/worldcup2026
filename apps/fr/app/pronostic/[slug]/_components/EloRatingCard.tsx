@@ -17,7 +17,7 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
       </div>
       <div className="relative h-4 rounded-full bg-gray-200 overflow-hidden">
         <div
-          className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-primary via-secondary to-field"
+          className="absolute inset-y-0 left-0 rounded-full bg-primary"
           style={{ width: `${eloPercent}%` }}
         />
       </div>

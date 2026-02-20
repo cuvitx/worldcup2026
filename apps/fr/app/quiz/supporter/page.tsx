@@ -212,7 +212,7 @@ export default function QuizSupporterPage() {
       {/* Progress bar */}
       <div className="mb-8 h-2 w-full rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
+          className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>

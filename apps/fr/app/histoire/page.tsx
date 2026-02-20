@@ -78,7 +78,7 @@ export default function HistoirePage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary via-secondary to-primary text-white py-16 overflow-hidden">
+      <section className="relative bg-primary text-white py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 left-10 text-9xl">⚽</div>
           <div className="absolute bottom-10 right-10 text-9xl">🏆</div>

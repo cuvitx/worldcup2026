@@ -226,7 +226,7 @@ export default function Quiz() {
       </div>
       <div className="w-full h-3 bg-gray-200 dark:bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
-          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500 ease-out relative"
+          className="h-full bg-[#00B865] rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 rounded-full" />

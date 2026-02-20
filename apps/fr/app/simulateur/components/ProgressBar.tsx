@@ -19,7 +19,7 @@ export function ProgressBar({ rounds }: { rounds: Record<RoundName, MatchData[]>
       </span>
       <div className="flex-1 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
+          className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>

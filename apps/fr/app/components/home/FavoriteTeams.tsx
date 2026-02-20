@@ -75,7 +75,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                     </div>
                     <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-1">
                       <div
-                        className="bg-gradient-to-r from-primary to-amber-400 h-1 rounded-full transition-all duration-700"
+                        className="bg-primary h-1 rounded-full transition-all duration-700"
                         style={{ width: `${Math.min(winPct * 4, 100)}%` }}
                       />
                     </div>

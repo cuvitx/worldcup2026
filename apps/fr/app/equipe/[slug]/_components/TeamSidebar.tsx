@@ -187,21 +187,21 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       </div>
 
       {/* Betting CTA */}
-      <div className="rounded-lg bg-gradient-to-br from-primary to-secondary/90 p-6 shadow-md text-white">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Parier sur {team.name} championne</h3>
-        <p className="mb-4 text-sm text-white/80">Comparez les meilleurs sites agrees pour parier sur {team.name} à la Coupe du Monde 2026.</p>
-        <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
-          {featuredBookmaker.name} - {featuredBookmaker.bonus} &rarr; Parier sur {team.name}
+      <div className="rounded-lg bg-primary p-6 shadow-md text-white">
+        <h3 className="text-lg font-semibold text-white mb-3">Parier sur {team.name} championne</h3>
+        <p className="mb-4 text-sm text-white/70">Comparez les meilleurs sites agréés pour parier sur {team.name} à la Coupe du Monde 2026.</p>
+        <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full rounded-lg bg-[#00B865] px-6 py-3 text-sm font-bold text-white text-center hover:bg-[#00A058] transition-colors">
+          {featuredBookmaker.name} - {featuredBookmaker.bonus} → Parier sur {team.name}
         </a>
-        <div className="mt-3 space-y-2">
+        <div className="mt-4 space-y-2">
           {bookmakers.filter((bk) => bk.id !== featuredBookmaker.id).map((bk) => (
-            <a key={bk.id} href={bk.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10 transition-colors text-sm">
-              <span className="flex items-center gap-2 font-semibold">{bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={20} height={20} className="h-5 w-5 rounded object-contain" />}{bk.name} <span className="text-white/70">{bk.bonus}</span></span>
-              <span className="text-primary font-semibold">Parier sur {team.name} &rarr;</span>
+            <a key={bk.id} href={bk.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="flex items-center justify-between rounded-lg bg-white/10 px-4 py-3 hover:bg-white/15 transition-colors text-sm">
+              <span className="flex items-center gap-3 font-semibold">{bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={24} height={24} className="h-6 w-6 rounded object-contain" />}<span>{bk.name}</span> <span className="text-white/60">{bk.bonus}</span></span>
+              <span className="text-[#00B865] font-semibold whitespace-nowrap">Parier sur {team.name} →</span>
             </a>
           ))}
         </div>
-        <p className="mt-3 text-xs text-white/80">18+. Pariez responsablement.</p>
+        <p className="mt-4 text-xs text-white/50">18+. Pariez responsablement.</p>
       </div>
 
       {/* Related Teams */}

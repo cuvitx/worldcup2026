@@ -230,7 +230,7 @@ export default function PronosticHubPage() {
                   </div>
                   <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
+                      className="h-full bg-[#00B865] rounded-full"
                       style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
                     />
                   </div>
@@ -284,7 +284,7 @@ export default function PronosticHubPage() {
                   className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   {/* Header */}
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-primary to-secondary dark:from-slate-900 dark:to-slate-800 text-white">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-primary dark:from-slate-900 dark:to-slate-800 text-white">
                     <span className="text-sm font-extrabold bg-secondary/20 text-secondary px-2 py-0.5 rounded">
                       Groupe {group.letter}
                     </span>

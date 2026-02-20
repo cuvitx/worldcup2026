@@ -57,7 +57,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                   href={`/pronostic-match/${match.slug}`}
                   className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="h-0.5 bg-gradient-to-r from-primary to-amber-400" />
+                  <div className="h-0.5 bg-primary" />
 
                   <div className="flex items-center justify-between px-4 pt-3 pb-2">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
