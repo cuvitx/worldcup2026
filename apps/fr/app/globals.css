@@ -842,15 +842,6 @@ details[open] .faq-icon {
   gap: 10px;
   margin-bottom: 24px;
 }
-.section-header::before {
-  content: "";
-  display: block;
-  width: 4px;
-  height: 20px;
-  background: var(--color-accent);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
 
 /* ============================================================
    ODDS DISPLAY

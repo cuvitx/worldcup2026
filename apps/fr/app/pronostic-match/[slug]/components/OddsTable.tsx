@@ -28,8 +28,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
     <section className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm">
       {/* Header */}
       <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-900/50">
-        <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-          <span className="w-1 h-5 bg-accent rounded-full shrink-0" />
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
           Comparateur de cotes
         </h2>
         <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-300">

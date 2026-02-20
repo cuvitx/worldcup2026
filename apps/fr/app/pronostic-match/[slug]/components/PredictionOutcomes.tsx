@@ -21,11 +21,9 @@ export function PredictionOutcomes({
     <section className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm">
       {/* Header */}
       <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-900/50">
-        <div className="section-header mb-0">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-base">
-            Pronostic 1-N-2
-          </h2>
-        </div>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Pronostic 1-N-2
+        </h2>
         <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">
           {homeName} vs {awayName} · Probabilités estimées
         </p>

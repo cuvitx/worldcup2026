@@ -17,11 +17,9 @@ export function WinProbabilityCard({
 }: WinProbabilityCardProps) {
   return (
     <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-      <div className="section-header mb-4">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-base">
-          Probabilités de victoire
-        </h2>
-      </div>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        Probabilités de victoire
+      </h2>
       <div className="flex items-center justify-around mb-6">
         <div className="text-center">
           <span className="text-3xl">{home?.flag ?? "🏳"}</span>

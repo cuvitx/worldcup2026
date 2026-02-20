@@ -20,11 +20,9 @@ export function ComparedStatsCard({
 }: ComparedStatsCardProps) {
   return (
     <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-      <div className="section-header mb-4">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-base">
-          Statistiques comparées
-        </h2>
-      </div>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        Statistiques comparées
+      </h2>
       <div className="space-y-4">
         <StatDuelRow
           label="ELO Rating"
