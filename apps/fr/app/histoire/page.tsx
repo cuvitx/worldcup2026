@@ -113,7 +113,7 @@ export default function HistoirePage() {
           <div className="absolute top-1/2 left-1/4 text-6xl rotate-12">🌍</div>
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-primary uppercase tracking-widest mb-2">
             Coupe du Monde FIFA
           </p>
           <h1 className="text-2xl font-extrabold sm:text-4xl lg:text-6xl mb-4">

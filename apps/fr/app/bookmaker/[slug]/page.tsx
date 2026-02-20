@@ -82,7 +82,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                 Fonde en {bk.foundedYear} &middot; Licence {bk.license}
               </p>
               <div className="flex items-center gap-2 mt-3">
-                <span className="text-2xl text-secondary">{"★".repeat(Math.round(avgRating))}</span>
+                <span className="text-2xl text-accent">{"★".repeat(Math.round(avgRating))}</span>
                 <span className="text-lg font-bold">{avgRating.toFixed(1)}/5</span>
               </div>
             </div>

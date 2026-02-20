@@ -47,7 +47,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
                 <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                   ch === "TF1" || ch === "M6"
                     ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
-                    : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
+                    : "bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary"
                 }`}>{ch}</span>
               ))}
             </div>
@@ -79,7 +79,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
                 key={m.id}
                 className={`border-t border-gray-100 dark:border-gray-700 ${
                   m.isFrance
-                    ? "bg-secondary/5 dark:bg-secondary/10 hover:bg-secondary/10 dark:hover:bg-secondary/15"
+                    ? "bg-primary/5 dark:bg-secondary/10 hover:bg-primary/10 dark:hover:bg-secondary/15"
                     : "hover:bg-gray-50 dark:hover:bg-gray-700/30"
                 }`}
               >
@@ -96,7 +96,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
                       <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
                         ch === "TF1" || ch === "M6"
                           ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
-                          : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
+                          : "bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary"
                       }`}>{ch}</span>
                     ))}
                   </div>
@@ -109,7 +109,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
 
       <p className="text-xs text-gray-400 dark:text-gray-400 mt-3 italic">
         * Programme indicatif. Horaires en heure française (CEST, UTC+2).
-        Légende : <span className="font-semibold text-field dark:text-field">Vert = Gratuit</span> · <span className="font-semibold text-secondary dark:text-secondary">Bleu = Abonnement</span>
+        Légende : <span className="font-semibold text-field dark:text-field">Vert = Gratuit</span> · <span className="font-semibold text-primary dark:text-secondary">Bleu = Abonnement</span>
       </p>
     </section>
   );

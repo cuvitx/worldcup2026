@@ -49,7 +49,7 @@ export function HistoryTable() {
                   key={edition.year}
                   className={`border-t border-gray-100 dark:border-slate-700/50 ${
                     edition.result.includes("CHAMPION")
-                      ? "bg-secondary/5 dark:bg-secondary/10"
+                      ? "bg-primary/5 dark:bg-secondary/10"
                       : edition.result.includes("Finaliste")
                       ? "bg-gray-50/50 dark:bg-slate-800/50"
                       : i % 2 === 0

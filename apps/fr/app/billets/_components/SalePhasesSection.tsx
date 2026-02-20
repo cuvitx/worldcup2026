@@ -18,7 +18,7 @@ export function SalePhasesSection() {
                 phase.statusColor === "green"
                   ? "bg-success//15 dark:bg-success//10 text-success dark:text-success"
                   : phase.statusColor === "blue"
-                  ? "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
+                  ? "bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary"
                   : "bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-300 line-through"
               }`}>
                 {phase.status}

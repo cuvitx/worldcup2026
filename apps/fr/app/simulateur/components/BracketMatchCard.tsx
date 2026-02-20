@@ -18,7 +18,7 @@ export function BracketMatchCard({
         winner
           ? "border-success//30 dark:border-success//20 shadow-sm"
           : "border-gray-200 dark:border-gray-600"
-      } ${isFinal ? "shadow-lg shadow-secondary/10 border-secondary/30" : ""} bg-white dark:bg-slate-800`}
+      } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-white dark:bg-slate-800`}
     >
       <TeamSlot
         team={team1}
@@ -64,7 +64,7 @@ function TeamSlot({
       onClick={onSelect}
       className={`w-full flex items-center gap-2 px-2.5 py-2 text-left transition-all ${
         isWinner
-          ? "bg-secondary/10 dark:bg-secondary/10 font-bold"
+          ? "bg-accent/10 dark:bg-secondary/10 font-bold"
           : canPick
           ? "hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60 cursor-pointer"
           : "cursor-default opacity-60"
@@ -76,14 +76,14 @@ function TeamSlot({
       <span
         className={`text-xs truncate flex-1 ${
           isWinner
-            ? "text-secondary dark:text-secondary"
+            ? "text-accent dark:text-secondary"
             : "text-gray-800 dark:text-gray-200"
         }`}
       >
         {team.name}
       </span>
       {isWinner && (
-        <span className="shrink-0 text-secondary dark:text-secondary text-xs font-bold">✓</span>
+        <span className="shrink-0 text-accent dark:text-secondary text-xs font-bold">✓</span>
       )}
     </button>
   );

@@ -18,10 +18,10 @@ export function AffiliateSection({ teamName }: AffiliateSectionProps) {
             <div
               key={bk.id}
               className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-4 transition-shadow hover:shadow-md ${
-                isFeatured ? "border-secondary bg-secondary/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                isFeatured ? "border-primary bg-primary/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
               }`}
             >
-              {isFeatured && <span className="absolute -top-3 left-4 rounded-full bg-secondary px-3 py-0.5 text-xs font-bold text-white">Recommande</span>}
+              {isFeatured && <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-white">Recommande</span>}
               <div className="flex-1 text-center sm:text-left">
                 <p className="text-lg font-bold">{bk.name}</p>
                 <p className="text-sm text-gray-500">{"★".repeat(bk.rating)}{"☆".repeat(5 - bk.rating)}</p>
@@ -35,7 +35,7 @@ export function AffiliateSection({ teamName }: AffiliateSectionProps) {
                   href={bk.url}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
-                  className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${isFeatured ? "bg-secondary hover:bg-secondary/90" : "bg-primary hover:bg-primary/90"}`}
+                  className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${isFeatured ? "bg-accent hover:bg-accent/90" : "bg-primary hover:bg-primary/90"}`}
                 >
                   Parier sur {teamName}
                 </a>

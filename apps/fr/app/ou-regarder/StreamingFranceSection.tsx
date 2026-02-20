@@ -44,10 +44,10 @@ export function StreamingFranceSection({ gratuit, payant }: StreamingFranceSecti
         </div>
 
         {/* Payant */}
-        <div className="rounded-2xl border border-secondary/20 dark:border-secondary/30 overflow-hidden">
-          <div className="bg-secondary/5 dark:bg-secondary/10 px-6 py-4 border-b border-secondary/20 dark:border-secondary/30">
+        <div className="rounded-2xl border border-primary/20 dark:border-secondary/30 overflow-hidden">
+          <div className="bg-primary/5 dark:bg-secondary/10 px-6 py-4 border-b border-primary/20 dark:border-secondary/30">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🔒 Streaming payant</h3>
-            <p className="text-sm text-secondary dark:text-secondary">Abonnement requis — 104 matchs</p>
+            <p className="text-sm text-primary dark:text-secondary">Abonnement requis — 104 matchs</p>
           </div>
           <div className="p-6 space-y-3 bg-white dark:bg-slate-800">
             {payant.map((s) => (
@@ -56,11 +56,11 @@ export function StreamingFranceSection({ gratuit, payant }: StreamingFranceSecti
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="block p-4 rounded-xl bg-secondary/5 dark:bg-secondary/10 hover:bg-secondary/10 dark:hover:bg-secondary/20 transition-colors"
+                className="block p-4 rounded-xl bg-primary/5 dark:bg-secondary/10 hover:bg-primary/10 dark:hover:bg-secondary/20 transition-colors"
               >
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <span className="font-bold text-gray-900 dark:text-gray-100">{s.name}</span>
-                  <span className="text-xs font-bold bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary px-2 py-0.5 rounded-full">
                     {s.price}
                   </span>
                 </div>

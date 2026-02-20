@@ -26,7 +26,7 @@ export function HistoriqueTable() {
                   key={edition.year}
                   className={`border-t border-gray-100 dark:border-slate-700/50 ${
                     edition.result.includes("CHAMPION")
-                      ? "bg-secondary/5 dark:bg-secondary/10"
+                      ? "bg-primary/5 dark:bg-secondary/10"
                       : edition.result.includes("Finaliste")
                       ? "bg-gray-50/50 dark:bg-slate-800/50"
                       : i % 2 === 0
@@ -40,7 +40,7 @@ export function HistoriqueTable() {
                   <td className="px-4 py-2.5">
                     <span className={`font-semibold ${
                       edition.result.includes("CHAMPION")
-                        ? "text-secondary text-base"
+                        ? "text-accent text-base"
                         : edition.result.includes("Finaliste")
                         ? "text-gray-600 dark:text-gray-200"
                         : edition.result === "Non participante" || edition.result === "Non qualifiée"

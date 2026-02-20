@@ -91,22 +91,22 @@ export default async function H2HPage({ params }: PageProps) {
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
-              <Link href={`/equipe/${team1.slug}`} className="mt-2 text-2xl font-extrabold hover:text-secondary">
+              <Link href={`/equipe/${team1.slug}`} className="mt-2 text-2xl font-extrabold hover:text-primary">
                 {team1.name}
               </Link>
               <p className="text-sm text-gray-500">#{team1.fifaRanking} FIFA</p>
             </div>
-            <span className="text-3xl font-bold text-secondary">VS</span>
+            <span className="text-3xl font-bold text-primary">VS</span>
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-6xl" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
-              <Link href={`/equipe/${team2.slug}`} className="mt-2 text-2xl font-extrabold hover:text-secondary">
+              <Link href={`/equipe/${team2.slug}`} className="mt-2 text-2xl font-extrabold hover:text-primary">
                 {team2.name}
               </Link>
               <p className="text-sm text-gray-500">#{team2.fifaRanking} FIFA</p>
             </div>
           </div>
           {sameGroup && (
-            <p className="mt-4 text-center text-secondary">
+            <p className="mt-4 text-center text-primary">
               Ces deux équipes sont dans le{" "}
               <Link href={`/groupe/${team1.group.toLowerCase()}`} className="underline">
                 Groupe {team1.group}

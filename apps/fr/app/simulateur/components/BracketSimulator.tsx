@@ -128,7 +128,7 @@ export function BracketSimulator() {
           >
             <span className="text-3xl"></span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
                 Votre champion CDM 2026
               </p>
               <div className="flex items-center justify-center gap-3">

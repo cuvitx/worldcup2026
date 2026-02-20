@@ -4,10 +4,10 @@ import { teamsById } from "@repo/data/teams";
 
 const roundColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
   "round-of-32": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-gray-200 dark:border-slate-700", text: "text-primary dark:text-secondary", badge: "bg-primary" },
-  "round-of-16": { bg: "bg-primary/50 dark:bg-primary/950/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-secondary800 dark:text-secondary300", badge: "bg-primary/600" },
-  "quarter-final": { bg: "bg-primary/50 dark:bg-primary/950/30", border: "border-purple-200 dark:border-purple-800", text: "text-secondary800 dark:text-secondary300", badge: "bg-primary/600" },
-  "semi-final": { bg: "bg-accent//10 dark:bg-accent//10", border: "border-accent//30 dark:border-accent//20", text: "text-accent dark:text-accent", badge: "bg-accent" },
-  final: { bg: "bg-accent//5 dark:bg-accent//10", border: "border-accent//30 dark:border-accent//20", text: "text-accent dark:text-accent", badge: "bg-accent" },
+  "round-of-16": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-primary dark:text-secondary", badge: "bg-primary" },
+  "quarter-final": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-purple-200 dark:border-purple-800", text: "text-primary dark:text-secondary", badge: "bg-primary" },
+  "semi-final": { bg: "bg-accent/10 dark:bg-accent/10", border: "border-accent/30 dark:border-accent/20", text: "text-accent dark:text-accent", badge: "bg-accent" },
+  final: { bg: "bg-accent/5 dark:bg-accent/10", border: "border-accent/30 dark:border-accent/20", text: "text-accent dark:text-accent", badge: "bg-accent" },
 };
 
 export { roundColors };
