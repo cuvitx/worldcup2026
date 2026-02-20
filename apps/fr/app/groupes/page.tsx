@@ -103,7 +103,7 @@ export default function GroupsPage() {
                         key={id}
                         className={`flex items-center gap-3 px-4 py-3 text-sm ${
                           isQualified
-                            ? "bg-green-50/60 dark:bg-green-900/20"
+                            ? "bg-accent/5 dark:bg-accent/10"
                             : ""
                         }`}
                       >
@@ -115,7 +115,7 @@ export default function GroupsPage() {
                         </span>
                         <span className={`flex-1 font-medium break-words text-sm ${
                           isQualified 
-                            ? "text-green-700 dark:text-green-400" 
+                            ? "text-accent dark:text-accent" 
                             : "text-gray-800 dark:text-gray-200"
                         }`}>
                           {team?.name ?? id}
@@ -142,7 +142,7 @@ export default function GroupsPage() {
         {/* Legend */}
         <div className="mt-8 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-300">
           <span className="flex items-center gap-1.5">
-            <span className="inline-block w-3 h-3 rounded bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-700" />
+            <span className="inline-block w-3 h-3 rounded bg-accent/10 dark:bg-accent/20 border border-accent/30 dark:border-accent/30" />
             Qualifié (top 2)
           </span>
           <span>% = chances de sortie de groupe</span>

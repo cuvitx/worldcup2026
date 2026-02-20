@@ -52,7 +52,7 @@ export function Section2026() {
           {[
             { flag: "🇺🇸", country: "États-Unis", cities: "New York, Los Angeles, Dallas, San Francisco, Seattle, Boston, Miami, Atlanta, Houston, Kansas City, Philadelphia", matches: "78 matchs", color: "from-blue-600/30 to-red-500/30" },
             { flag: "🇨🇦", country: "Canada", cities: "Toronto, Vancouver", matches: "13 matchs", color: "from-red-600/30 to-red-700/30" },
-            { flag: "🇲🇽", country: "Mexique", cities: "Mexico City, Guadalajara, Monterrey", matches: "13 matchs", color: "from-green-600/30 to-red-500/30" },
+            { flag: "🇲🇽", country: "Mexique", cities: "Mexico City, Guadalajara, Monterrey", matches: "13 matchs", color: "from-accent/30 to-red-500/30" },
           ].map((p) => (
             <div
               key={p.country}

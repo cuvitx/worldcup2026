@@ -71,7 +71,7 @@ export function HistoryTable() {
                         : "text-gray-700 dark:text-gray-300"
                     }`}>
                       {edition.flag !== "—" && edition.flag !== "" && (
-                        <span className={`inline-block w-2.5 h-2.5 rounded-full mr-1.5 ${edition.flag === "green" ? "bg-green-500" : edition.flag === "yellow" ? "bg-yellow-400" : "bg-red-500"}`} />
+                        <span className={`inline-block w-2.5 h-2.5 rounded-full mr-1.5 ${edition.flag === "green" ? "bg-accent" : edition.flag === "yellow" ? "bg-yellow-400" : "bg-red-500"}`} />
                       )}
                       {edition.flag === "" && <span className="mr-1 text-accent"></span>}
                       {edition.result}

@@ -237,13 +237,6 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Same-day matches full section */}
-      <SameDayMatches
-        sameDayMatches={sameDayMatches}
-        teamsById={teamsById}
-        currentDate={match.date}
-      />
-
       {/* JSON-LD */}
       <script
         type="application/ld+json"
