@@ -9,6 +9,13 @@ import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../lib
 
 type StatKey = "goals" | "assists" | "appearances" | "minutesPlayed" | "passAccuracy" | "dribbleSuccess" | "aerialDuels" | "rating";
 
+const POSITION_FR: Record<string, string> = {
+  FW: "Attaquant",
+  MF: "Milieu",
+  DF: "Défenseur",
+  GK: "Gardien",
+};
+
 const STAT_LABELS: { key: StatKey; label: string; max: number }[] = [
   { key: "goals", label: "Buts", max: 50 },
   { key: "assists", label: "Passes décisives", max: 25 },
@@ -20,8 +27,8 @@ const STAT_LABELS: { key: StatKey; label: string; max: number }[] = [
   { key: "rating", label: "Note globale", max: 10 },
 ];
 
-const COLORS = ["var(--color-gold)", "#06D6A0", "#EF476F"]; // gold, success, error
-const BEST_COLOR = "#06D6A0"; // success
+const COLORS = ["#3B82F6", "#EF4444", "#F59E0B"]; // blue, red, amber — standard sport comparators
+const BEST_COLOR = "#22C55E"; // green for best value
 
 const teamsWithPlayers = teams.filter((t) => playerStatsByTeam[t.id]?.length);
 
@@ -53,7 +60,7 @@ function PlayerSelector({
           <optgroup key={team.id} label={`${team.flag} ${team.name}`}>
             {teamPlayers.map((p) => (
               <option key={p.id} value={p.id}>
-                {p.name} ({p.position})
+                {p.name} ({POSITION_FR[p.position] ?? p.position})
               </option>
             ))}
           </optgroup>
@@ -158,7 +165,7 @@ export function PlayerComparator() {
                 )}
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{p.name}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                  {p.club} · {p.position} · {p.age} ans
+                  {p.club} · {POSITION_FR[p.position] ?? p.position} · {p.age} ans
                 </p>
                 <p className="text-sm text-gray-400 dark:text-gray-400">
                   {teams.find((t) => t.id === p.teamId)?.flag}{" "}

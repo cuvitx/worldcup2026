@@ -76,7 +76,7 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-xs sm:max-w-none mx-auto md:mx-0">
               <a 
                 href="#calendrier" 
-                className="rounded-lg bg-accent text-white px-5 py-2.5 font-bold text-sm text-center hover:bg-accent/80 transition-all hover:-translate-y-0.5"
+                className="rounded-xl bg-accent text-white px-5 py-2.5 font-bold text-sm text-center hover:bg-accent/80 transition-all hover:-translate-y-0.5"
               >
                 Voir les matchs
               </a>

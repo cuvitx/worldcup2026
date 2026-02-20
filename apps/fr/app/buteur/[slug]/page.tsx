@@ -386,7 +386,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 href={featuredBookmaker.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center rounded-lg bg-accent py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
+                className="block w-full text-center rounded-xl bg-accent py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
               >
                 {featuredBookmaker.bonus} sur {featuredBookmaker.name}
               </a>

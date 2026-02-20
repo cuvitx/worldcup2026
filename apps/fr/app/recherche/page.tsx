@@ -68,23 +68,25 @@ export default function RecherchePage() {
 
       <main className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12" id="main-content">
         {/* Stats bar */}
-        <div className="flex flex-wrap gap-4 mb-8 text-center">
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-8">
           {[
-            { emoji: "", count: "48", label: "Équipes" },
-            { emoji: "", count: "966", label: "Joueurs" },
-            { emoji: "", count: "104", label: "Matchs" },
-            { emoji: "", count: "16", label: "Stades" },
-            { emoji: "🌆", count: "16", label: "Villes" },
+            { icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', count: "48", label: "Équipes" },
+            { icon: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>', count: "966", label: "Joueurs" },
+            { icon: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>', count: "104", label: "Matchs" },
+            { icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V2"/><path d="M8 7V2"/><path d="M2 13h20"/>', count: "16", label: "Stades" },
+            { icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>', count: "16", label: "Villes" },
           ].map((s) => (
             <div
               key={s.label}
-              className="flex-1 min-w-[80px] bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3"
+              className="group relative bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 text-center hover:border-accent/40 hover:shadow-md transition-all"
             >
-              <div className="text-xl">{s.emoji}</div>
-              <div className="font-extrabold text-gray-900 dark:text-gray-100 text-lg leading-tight">
+              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-primary/10 dark:bg-secondary/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary dark:text-secondary" dangerouslySetInnerHTML={{ __html: s.icon }} />
+              </div>
+              <div className="font-extrabold text-gray-900 dark:text-gray-100 text-2xl leading-tight">
                 {s.count}
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-300">{s.label}</div>
+              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
             </div>
           ))}
         </div>

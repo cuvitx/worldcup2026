@@ -18,7 +18,7 @@ export function BilletsCtaFinal() {
               href={EXTERNAL_URLS.FIFA_TICKETS}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-accent px-8 py-3 font-bold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-lg"
+              className="rounded-xl bg-accent px-8 py-3.5 font-bold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-lg"
             >
               Acheter sur FIFA.com →
             </a>

@@ -52,9 +52,10 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
             });
 
             return (
-              <div
+              <Link
                 key={match.id}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30 dark:hover:border-secondary/40"
+                href={`/pronostic-match/${match.slug}`}
+                className="block rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30 dark:hover:border-secondary/40"
               >
                 <div className="flex items-center gap-4 px-5 py-4">
                   <div className="shrink-0 text-center hidden sm:block w-20">
@@ -103,15 +104,12 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                         <p className="text-xs text-gray-500 dark:text-gray-300">victoire</p>
                       </div>
                     )}
-                    <Link
-                      href={`/pronostic-match/${match.slug}`}
-                      className="mt-1 inline-flex text-xs text-primary hover:underline font-medium"
-                    >
+                    <span className="mt-1 inline-flex text-xs text-primary font-medium">
                       Pronostic →
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

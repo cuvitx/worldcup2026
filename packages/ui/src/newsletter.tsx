@@ -228,7 +228,7 @@ export function Newsletter({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none disabled:opacity-60"
+            className="rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none disabled:opacity-60"
           >
             {status === "loading" ? "..." : l.button}
           </button>
@@ -264,7 +264,7 @@ export function Newsletter({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/80 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-wait"
+            className="shrink-0 rounded-xl bg-accent px-3 py-2.5 text-sm font-bold text-white hover:bg-accent/80 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-wait"
           >
             {status === "loading" ? "..." : "OK"}
           </button>

@@ -436,7 +436,7 @@ export default async function GroupPage({ params }: PageProps) {
               </p>
               <Link
                 href={`/pronostic-groupe/${lettre}`}
-                className="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/80 transition-colors"
+                className="inline-block rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent/80 transition-colors"
               >
                 Voir le pronostic Groupe {group.letter} &rarr;
               </Link>

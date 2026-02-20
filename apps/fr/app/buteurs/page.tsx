@@ -444,7 +444,7 @@ export default function ButeursPage() {
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
+                className="inline-block rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
               >
                 {bk.bonus} sur {bk.name}
               </a>

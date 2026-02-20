@@ -37,7 +37,7 @@ export function BettingCta({
               Recommandé
             </span>
           </div>
-          <div className="rounded-lg bg-accent text-white text-center py-2.5 font-bold text-sm hover:bg-accent/80 transition-all">
+          <div className="rounded-xl bg-accent text-white text-center py-2.5 font-bold text-sm hover:bg-accent/80 transition-all">
             {featuredBookmaker.bonus} → Parier maintenant
           </div>
         </a>

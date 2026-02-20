@@ -79,7 +79,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
   };
 
   return (
-    <div className="flex items-center justify-center sm:justify-between gap-3 py-3 border-t border-gray-200 dark:border-gray-700 flex-wrap">
+    <div className="flex items-center justify-center sm:justify-between gap-3 py-2 flex-wrap">
       <span className="hidden sm:block text-sm font-medium text-gray-600 dark:text-gray-300">{label}</span>
       <div className="flex items-center gap-2">
         {socialLinks(url, text).map((s) => (

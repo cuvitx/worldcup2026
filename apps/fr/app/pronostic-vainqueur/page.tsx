@@ -95,8 +95,6 @@ export default function PronosticVainqueurPage() {
       {/* Final CTA */}
       <CtaSection />
 
-      <div className="flex items-center justify-center bg-gray-100 dark:bg-slate-800 py-3 px-4">
-      </div>
     </>
   );
 }

@@ -166,7 +166,7 @@ export default async function ArticlePage({ params }: Props) {
                 href={cta?.url ?? "/paris-sportifs"}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className="block w-full rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-90 transition"
+                className="block w-full rounded-xl bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-90 transition"
               >
                 Voir les offres →
               </a>

@@ -61,7 +61,7 @@ export function TeamHeader({ team }: TeamHeaderProps) {
             )}
             <Link
               href={`/pronostic/${team.slug}`}
-              className="inline-block rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/80"
+              className="inline-block rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent/80"
             >
               Voir le pronostic &rarr;
             </Link>

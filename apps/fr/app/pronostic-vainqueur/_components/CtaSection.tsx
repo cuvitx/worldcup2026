@@ -7,7 +7,7 @@ export function CtaSection() {
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
             href="/comparateur-cotes"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-md"
+            className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-semibold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-md"
           >
             Comparer toutes les cotes
           </Link>

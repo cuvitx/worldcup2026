@@ -108,10 +108,10 @@ export default function LivePage() {
       <Countdown />
 
       {/* Pre-tournament notice */}
-      <section className="bg-accent//10 dark:bg-accent//10 border-y border-accent//30 dark:border-accent//20 py-6">
+      <section className="bg-accent/10 dark:bg-accent/10 border-y border-accent/30 dark:border-accent/20 py-6">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-accent//15 dark:bg-accent//15 px-4 py-2 text-accent dark:text-accent font-semibold text-sm mb-3">
-            <span>📡</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-accent/15 dark:bg-accent/15 px-4 py-2 text-accent dark:text-accent font-semibold text-sm mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
             <span>En attente du coup d&apos;envoi</span>
           </div>
           <p className="text-accent dark:text-accent text-lg font-medium">

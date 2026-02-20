@@ -150,7 +150,7 @@ export default function PronosticHubPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 text-sm">
-            <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
+            <a href="#vainqueur" className="rounded-xl bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
               Pronostic vainqueur
             </a>
             <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">

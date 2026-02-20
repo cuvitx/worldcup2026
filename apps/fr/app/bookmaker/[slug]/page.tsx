@@ -183,7 +183,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-lg bg-accent px-8 py-4 text-lg font-bold text-white hover:bg-accent/90 transition-colors"
+                className="inline-block rounded-xl bg-accent px-8 py-3.5 text-lg font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 S&apos;inscrire sur {bk.name}
               </a>
