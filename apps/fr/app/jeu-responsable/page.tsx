@@ -298,7 +298,7 @@ export default function JeuResponsablePage() {
                 </p>
               </div>
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🚫 Auto-exclusion temporaire</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Auto-exclusion temporaire</h3>
                 <p className="mt-1 text-sm">
                   Bloquez votre compte pendant une période choisie (24h, 1
                   semaine, 1 mois…).
