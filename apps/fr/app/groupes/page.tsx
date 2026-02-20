@@ -139,7 +139,7 @@ export default function GroupsPage() {
         </div>
       </div>
 
-      <FAQSection title="❓ Questions fréquentes sur les groupes" items={faqItems} />
+      <FAQSection title="Questions fréquentes sur les groupes" items={faqItems} />
     </>
   );
 }
