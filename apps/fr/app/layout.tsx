@@ -88,6 +88,7 @@ export default function RootLayout({
         {/* Le preload des fonts (.woff2) est injecté automatiquement par next/font */}
         {/* max-image-preview:large → autorise Google Discover à afficher des grandes images */}
         <meta name="robots" content="max-image-preview:large" />
+        <meta name="google-site-verification" content="FuzJBEoixXdM6UjwmDg2-gNx8dQX0Lf9w0mxk9O5GC4" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
         {/* TODO: Activer GA4 — remplacer G-XXXXXXXXXX par l'ID réel puis décommenter les scripts gtag */}
       </head>
