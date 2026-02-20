@@ -33,18 +33,16 @@ export function SameDayMatches({
               <Link
                 key={m.slug}
                 href={`/match/${m.slug}`}
-                className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 text-sm"
+                className="flex items-center gap-2 w-full rounded-xl border border-gray-200 dark:border-gray-700 px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm"
               >
-                <span role="img" aria-label={mHome?.name ?? ""}>
-                  {mHome?.flag ?? "🏳"}
+                <span className="text-sm font-bold text-primary tabular-nums shrink-0">
+                  {m.time}
                 </span>
-                <span className="flex-1 text-sm font-medium break-words">
-                  {mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}
-                </span>
-                <span role="img" aria-label={mAway?.name ?? ""}>
-                  {mAway?.flag ?? "🏳"}
-                </span>
-                <span className="text-xs text-gray-500">{m.time}</span>
+                <span className="text-base shrink-0" role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳"}</span>
+                <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 truncate flex-1">{mHome?.name ?? "TBD"}</span>
+                <span className="text-[10px] font-bold text-gray-400 shrink-0">vs</span>
+                <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 truncate flex-1 text-right">{mAway?.name ?? "TBD"}</span>
+                <span className="text-base shrink-0" role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? "🏳"}</span>
               </Link>
             );
           })}
@@ -65,28 +63,16 @@ export function SameDayMatches({
               <Link
                 key={m.slug}
                 href={`/match/${m.slug}`}
-                className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                className="flex items-center gap-3 w-full rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 transition-all hover:border-primary/30 hover:shadow-md"
               >
-                <span
-                  className="text-xl"
-                  role="img"
-                  aria-label={`Drapeau de ${mHome?.name ?? "Inconnu"}`}
-                >
-                  {mHome?.flag ?? "🏳"}
+                <span className="text-sm font-bold text-primary tabular-nums shrink-0">
+                  {m.time}
                 </span>
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-sm break-words">
-                    {mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}
-                  </p>
-                  <p className="text-xs text-gray-500">{m.time} UTC</p>
-                </div>
-                <span
-                  className="text-xl"
-                  role="img"
-                  aria-label={`Drapeau de ${mAway?.name ?? "Inconnu"}`}
-                >
-                  {mAway?.flag ?? "🏳"}
-                </span>
+                <span className="text-lg shrink-0" role="img" aria-label={mHome?.name ?? ""}>{mHome?.flag ?? "🏳"}</span>
+                <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate flex-1">{mHome?.name ?? "TBD"}</span>
+                <span className="text-xs font-bold text-gray-400 shrink-0">vs</span>
+                <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate flex-1 text-right">{mAway?.name ?? "TBD"}</span>
+                <span className="text-lg shrink-0" role="img" aria-label={mAway?.name ?? ""}>{mAway?.flag ?? "🏳"}</span>
               </Link>
             );
           })}
