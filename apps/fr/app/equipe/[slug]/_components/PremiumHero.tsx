@@ -62,30 +62,30 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+            <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3 justify-center md:justify-start">
               <a 
                 href="#calendrier" 
-                className="rounded-lg bg-accent text-white px-5 py-2.5 font-bold text-sm hover:bg-accent/80 transition-all hover:-translate-y-0.5"
+                className="rounded-lg bg-accent text-white px-3 sm:px-5 py-2.5 font-bold text-xs sm:text-sm text-center hover:bg-accent/80 transition-all hover:-translate-y-0.5"
               >
-                Voir les matchs
+                Matchs
               </a>
               <a 
                 href="#effectif" 
-                className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 font-semibold text-sm hover:bg-white/20 transition-all backdrop-blur-sm"
+                className="rounded-lg border border-white/30 bg-white/10 px-3 sm:px-5 py-2.5 font-semibold text-xs sm:text-sm text-center hover:bg-white/20 transition-all backdrop-blur-sm"
               >
-                Découvrir l&apos;effectif
+                Effectif
               </a>
               <Link
                 href="/pronostic-vainqueur"
-                className="rounded-lg border border-secondary/40 bg-secondary/15 px-5 py-2.5 font-semibold text-secondary text-sm hover:bg-secondary/25 transition-all"
+                className="rounded-lg border border-secondary/40 bg-secondary/15 px-3 sm:px-5 py-2.5 font-semibold text-secondary text-xs sm:text-sm text-center hover:bg-secondary/25 transition-all"
               >
-                Pronostic vainqueur
+                Pronostic
               </Link>
             </div>
           </div>
 
-          {/* Team card */}
-          <div className="shrink-0">
+          {/* Team card — hidden on mobile, info already in hero */}
+          <div className="shrink-0 hidden md:block">
             <div className="rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm shadow-lg p-5 hover:bg-white/15 transition-all text-center min-w-[200px]">
               <div className="text-7xl mb-3">{team.flag}</div>
               <p className="font-extrabold text-xl mb-1 text-white">{team.name}</p>
