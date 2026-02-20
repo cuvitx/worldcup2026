@@ -22,7 +22,6 @@ import {
   H2HTab,
   InfoTab,
   MatchActions,
-  BettingDisclaimer,
 } from "./_components";
 
 export const revalidate = 300;
@@ -131,7 +130,6 @@ export default async function PronosticMatchPage({ params }: PageProps) {
       </MatchTabsClient>
       <MatchStructuredData match={match} home={home} away={away} homeName={homeName} awayName={awayName} stadium={stadium} stage={stage} />
       <RelatedMatchesSection currentMatch={match} allMatches={matches} home={home} away={away} slug={slug} />
-      <BettingDisclaimer />
     </>
   );
 }
