@@ -16,6 +16,7 @@ const nextConfig = {
   async redirects() {
     return [
       { source: "/equipe-de-france", destination: "/equipe/france", permanent: true },
+      { source: "/portrait/:slug", destination: "/joueur/:slug", permanent: true },
     ];
   },
   async headers() {

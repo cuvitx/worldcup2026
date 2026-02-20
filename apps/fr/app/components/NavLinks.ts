@@ -91,7 +91,6 @@ export const megaMenus = {
         links: [
           { href: "/equipes", label: "Toutes les équipes →" },
           { href: "/joueurs", label: "Joueurs clés" },
-          { href: "/portrait/kylian-mbappe", label: "Portraits joueurs" },
           { href: "/buteurs", label: "Cotes buteurs" },
           { href: "/h2h", label: "Confrontations H2H" },
         ],
