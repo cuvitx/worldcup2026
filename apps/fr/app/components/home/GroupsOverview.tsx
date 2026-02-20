@@ -68,11 +68,7 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
                       <span className="text-[11px] font-semibold truncate flex-1">
                         {team.name}
                       </span>
-                      {team.isHost && (
-                        <span className="text-[8px] bg-amber-400/20 text-amber-600 dark:text-amber-400 px-1 py-0.5 rounded font-bold shrink-0">
-                          H
-                        </span>
-                      )}
+{/* host badge removed */}
                     </div>
                   ))}
                 </div>
