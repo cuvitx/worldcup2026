@@ -99,13 +99,14 @@ export default function StadiumMap() {
   };
 
   return (
-    <div className="relative w-full h-[500px] md:h-[700px] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+    <div className="relative w-full h-[400px] sm:h-[500px] md:h-[700px] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
       <MapContainer
-        center={[37, -98]}
-        zoom={4}
+        center={[35, -100]}
+        zoom={3}
         scrollWheelZoom
         className="w-full h-full z-0"
         style={{ width: "100%", height: "100%" }}
+        ref={(mapRef) => { if (mapRef) setTimeout(() => mapRef.invalidateSize(), 300); }}
       >
         <TileLayer
           attribution='&copy; <a href="https://carto.com/">CARTO</a>'
