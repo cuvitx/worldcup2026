@@ -6,7 +6,7 @@ import { useEffect, useState, Suspense } from "react"
 const SECRET = "cdm2026-admin-secret"
 
 const colors = [
-  { name: "Primary", hex: "#0D3B66", tw: "bg-primary" },
+  { name: "Primary", hex: "#022149", tw: "bg-primary" },
   { name: "CTA Primaire", hex: "#00B865", tw: "bg-accent" },
   { name: "Or (Highlight)", hex: "#E8C547", tw: "bg-amber-400" },
   { name: "Success", hex: "#06D6A0", tw: "bg-success" },
