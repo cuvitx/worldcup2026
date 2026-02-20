@@ -45,6 +45,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
                     rel="noopener noreferrer sponsored nofollow"
                     className="flex items-center gap-3 rounded-lg border border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
                   >
+                    {bm.logo && <img src={bm.logo} alt={bm.name} className="w-6 h-6 rounded object-contain shrink-0" loading="lazy" />}
                     <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">
                       {bm.name}
                     </span>

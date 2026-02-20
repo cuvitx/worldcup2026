@@ -134,10 +134,13 @@ export function OddsTable() {
                   : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
               }`}
             >
-              <div>
+              <div className="flex items-center gap-3">
+                {bm.logo && <img src={bm.logo} alt={bm.name} className="w-8 h-8 rounded-md object-contain shrink-0" loading="lazy" />}
+                <div>
                 <p className="font-bold text-gray-900 dark:text-white">{bm.name}</p>
                 <p className="text-sm text-primary font-semibold">{bm.bonus}</p>
                 <p className="text-xs text-gray-600 dark:text-gray-300">{bm.bonusDetail}</p>
+                </div>
               </div>
               <div className="text-right">
                 <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">

@@ -71,10 +71,13 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
           className="grid grid-cols-[minmax(100px,1fr)_repeat(3,70px)_90px] sm:grid-cols-[1fr_repeat(3,80px)_100px] items-center px-4 sm:px-5 py-3 border-b border-gray-50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/30 transition-colors min-w-[420px]"
         >
           <div className="flex items-center gap-2 min-w-0">
-            {/* Bookmaker logo placeholder */}
-            <div className="w-7 h-7 rounded-md bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-primary dark:text-gray-200 shrink-0 uppercase">
-              {bk.name.slice(0, 2)}
-            </div>
+            {bk.logo ? (
+              <img src={bk.logo} alt={bk.name} className="w-7 h-7 rounded-md object-contain shrink-0" loading="lazy" />
+            ) : (
+              <div className="w-7 h-7 rounded-md bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-primary dark:text-gray-200 shrink-0 uppercase">
+                {bk.name.slice(0, 2)}
+              </div>
+            )}
             <div className="min-w-0">
               <a
                 href={bk.url}
