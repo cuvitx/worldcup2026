@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Analyse tactique France CDM 2026 — Système de jeu, forces et faiblesses",
   description:
     "Décryptage complet du système tactique de l'équipe de France pour la Coupe du Monde 2026. Forces, faiblesses, joueurs clés et schémas de jeu de Deschamps.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/analyse-tactique-france",
+  },
   openGraph: {
     title: "Analyse tactique de la France — CDM 2026",
     description: "Système de jeu, forces, faiblesses et joueurs clés des Bleus pour le Mondial 2026.",

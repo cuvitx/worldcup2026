@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Lionel Messi — Dernière danse mondiale ? | CDM 2026",
   description:
     "Portrait de Lionel Messi avant la Coupe du Monde 2026. À 38 ans, le champion du monde 2022 disputera-t-il son dernier Mondial ?",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/portrait-messi",
+  },
   openGraph: {
     title: "Lionel Messi — Dernière danse mondiale ?",
     description: "À 38 ans, Messi s'apprête à vivre son dernier Mondial. Récit d'une légende vivante.",

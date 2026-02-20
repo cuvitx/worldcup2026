@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Analyse tactique Argentine CDM 2026 — Dernière danse de Messi ?",
   description:
     "Décryptage du système tactique de l'Argentine de Scaloni pour la Coupe du Monde 2026. Messi, De Paul, Mac Allister : les clés du champion en titre.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/analyse-tactique-argentine",
+  },
   openGraph: {
     title: "Analyse tactique Argentine — CDM 2026",
     description: "Le système Scaloni décrypté : la dernière CDM de Messi ?",

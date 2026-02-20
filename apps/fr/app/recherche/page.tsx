@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description:
     "Recherchez parmi toutes les entités de la Coupe du Monde 2026 : 48 équipes, 966 joueurs, 16 stades, 104 matchs, 16 villes.",
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: "https://cdm2026.fr/recherche",
+  },
   openGraph: {
     title: "Recherche CDM 2026",
     description: "Trouvez une équipe, un joueur, un stade ou un match de la Coupe du Monde 2026.",

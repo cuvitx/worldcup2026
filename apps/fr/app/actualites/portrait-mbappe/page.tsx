@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Kylian Mbappé — Le destin d'un roi | CDM 2026",
   description:
     "Portrait de Kylian Mbappé avant la Coupe du Monde 2026. De Bondy au Real Madrid, l'histoire d'un joueur qui veut marquer l'histoire du football mondial.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/portrait-mbappe",
+  },
   openGraph: {
     title: "Kylian Mbappé — Le destin d'un roi",
     description: "Portrait exclusif de Mbappé avant le Mondial 2026. De Bondy au sommet du monde.",

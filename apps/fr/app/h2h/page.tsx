@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Confrontations H2H — Comparer deux équipes | CDM 2026",
   description:
     "Comparez deux équipes de la Coupe du Monde 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
+  alternates: {
+    canonical: "https://cdm2026.fr/h2h",
+  },
   openGraph: {
     title: "Confrontations H2H — CDM 2026",
     description:

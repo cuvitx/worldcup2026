@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
   description:
     "Simulateur CDM 2026 : construisez votre bracket, prédisez les 16 matchs et couronnez votre champion. 32 équipes, 100% interactif et gratuit !",
+  alternates: {
+    canonical: "https://cdm2026.fr/simulateur",
+  },
   openGraph: {
     title: "Simulateur CDM 2026 | Construisez votre bracket",
     description:
@@ -39,7 +42,7 @@ export default function SimulateurPage() {
         className="relative overflow-hidden text-white py-12 sm:py-16"
         style={{
           background:
-            "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
+            "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)",
         }}
       >
         {/* Top glow */}

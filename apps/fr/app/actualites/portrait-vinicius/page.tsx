@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Vinicius Jr — L'électron libre brésilien | CDM 2026",
   description:
     "Portrait de Vinicius Jr avant la Coupe du Monde 2026. Ballon d'Or 2025, le Brésilien veut offrir un sixième titre mondial à la Seleção.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/portrait-vinicius",
+  },
   openGraph: {
     title: "Vinicius Jr — L'électron libre brésilien",
     description: "Du Ballon d'Or à la quête du titre mondial : Vinicius Jr, portrait d'un génie.",

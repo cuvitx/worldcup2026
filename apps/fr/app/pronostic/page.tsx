@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Pronostics CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
   description:
     "Hub central de tous les pronostics de la Coupe du Monde 2026 : vainqueur, pronostics par groupe (A à L), analyses match par match, cotes et tendances. Modèle ELO + 100K simulations.",
+  alternates: {
+    canonical: "https://cdm2026.fr/pronostic",
+  },
   openGraph: {
     title: "Pronostics CDM 2026 — Hub Central",
     description:

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
   description:
     "Toutes les actualités de la Coupe du Monde 2026 : stades, qualifications, billets, équipes, paris sportifs. Restez informé sur le Mondial.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites",
+  },
   openGraph: {
     title: "Actualités Coupe du Monde 2026",
     description: "Dernières news et infos sur la CDM 2026.",

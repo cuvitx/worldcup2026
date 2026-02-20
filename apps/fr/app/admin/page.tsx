@@ -7,11 +7,11 @@ const SECRET = "cdm2026-admin-secret"
 
 const colors = [
   { name: "Primary", hex: "#0D3B66", tw: "bg-primary" },
-  { name: "Accent Blue", hex: "#0f3460", tw: "bg-[#0f3460]" },
-  { name: "Accent Red", hex: "#e94560", tw: "bg-[#e94560]" },
-  { name: "Gold", hex: "#f5c518", tw: "bg-[#f5c518]" },
-  { name: "Light BG", hex: "#f4f4f5", tw: "bg-[#f4f4f5]" },
-  { name: "White", hex: "#ffffff", tw: "bg-white border border-gray-200" },
+  { name: "Secondary", hex: "#2EC4B6", tw: "bg-secondary" },
+  { name: "Accent", hex: "#FF6B35", tw: "bg-accent" },
+  { name: "Gold", hex: "#f5a623", tw: "bg-gold" },
+  { name: "Success", hex: "#06D6A0", tw: "bg-success" },
+  { name: "Error", hex: "#EF476F", tw: "bg-error" },
 ]
 
 const stats = [

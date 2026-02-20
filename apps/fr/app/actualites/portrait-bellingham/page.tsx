@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Jude Bellingham — Le prodige anglais | CDM 2026",
   description:
     "Portrait de Jude Bellingham avant la Coupe du Monde 2026. À 22 ans, le milieu du Real Madrid incarne l'espoir de toute une nation.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/portrait-bellingham",
+  },
   openGraph: {
     title: "Jude Bellingham — Le prodige anglais",
     description: "À 22 ans, Bellingham porte les espoirs d'une nation entière. Portrait d'un phénomène.",

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Visa ESTA pour les USA — Tout savoir pour la CDM 2026",
   description:
     "Guide complet sur le Visa ESTA pour assister à la Coupe du Monde 2026 aux États-Unis. Procédure, délais, coût, conseils et FAQ.",
+  alternates: {
+    canonical: "https://cdm2026.fr/guide/guide-visa-esta",
+  },
   openGraph: {
     title: "Visa ESTA pour les USA — Guide CDM 2026",
     description: "Tout savoir sur l'ESTA pour voyager aux USA pendant la Coupe du Monde 2026.",

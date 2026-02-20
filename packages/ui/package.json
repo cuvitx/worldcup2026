@@ -26,10 +26,11 @@
     "./stat-bar": "./src/stat-bar.tsx",
     "./flag": "./src/flag.tsx",
     "./badge-system": "./src/badge-system.tsx",
-    "./button": "./src/button.tsx",
     "./social-proof": "./src/social-proof.tsx",
     "./author-box": "./src/author-box.tsx",
-    "./badges": "./src/badges.ts"
+    "./badges": "./src/badges.ts",
+    "./faq-section": "./src/faq-section.tsx",
+    "./breadcrumb": "./src/breadcrumb.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

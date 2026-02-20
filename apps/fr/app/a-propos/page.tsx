@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "À propos de CDM 2026 | Coupe du Monde 2026",
   description:
     "À propos de CDM 2026 : votre guide complet pour la Coupe du Monde 2026. Pronostics, statistiques et analyses pour les 48 équipes.",
+  alternates: {
+    canonical: "https://cdm2026.fr/a-propos",
+  },
   openGraph: {
     title: "À propos de CDM 2026",
     description: "Votre guide complet pour la Coupe du Monde 2026.",

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Analyse tactique Brésil CDM 2026 — Retour au sommet ?",
   description:
     "Décryptage du système tactique du Brésil pour la Coupe du Monde 2026. Vinicius Jr, Rodrygo, Endrick : la Seleção peut-elle reconquérir le monde ?",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/analyse-tactique-bresil",
+  },
   openGraph: {
     title: "Analyse tactique Brésil — CDM 2026",
     description: "La Seleção de retour au sommet ? Analyse complète du système brésilien.",

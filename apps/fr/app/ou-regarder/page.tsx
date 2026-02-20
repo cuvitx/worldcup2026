@@ -8,7 +8,8 @@ import { FrancophoneTVSection } from "./FrancophoneTVSection";
 import { InternationalBroadcasters } from "./InternationalBroadcasters";
 import { TVScheduleSection } from "./TVScheduleSection";
 import { TimeZoneSection } from "./TimeZoneSection";
-import { FAQSection } from "./FAQSection";
+import { FAQSection } from "@repo/ui/faq-section";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
@@ -139,54 +140,28 @@ const typicalSchedule = [
 ];
 
 const faqItems = [
-  { q: "Peut-on regarder la CDM 2026 gratuitement en France ?", a: "Oui ! TF1 diffusera les matchs de la France, les demi-finales et la finale en clair. M6 proposera 54 matchs en clair. En streaming gratuit : TF1+, M6+ (6play) et Molotov permettent de suivre ces matchs sans abonnement." },
-  { q: "Combien de matchs sont diffusés sur chaque chaîne en France ?", a: "beIN Sports diffuse l'intégralité des 104 matchs (abonnement requis). M6 propose 54 matchs en clair. TF1 couvre les matchs de la France, les demi-finales et la finale. Certains matchs clés sont en co-diffusion TF1/M6." },
-  { q: "Quel est le décalage horaire entre la France et les États-Unis ?", a: "En été (heure CEST, UTC+2), le décalage est de -6h avec la côte Est (New York), -7h avec le centre (Dallas, Chicago), et -9h avec la côte Ouest (Los Angeles). Un match à 19h locale à New York est diffusé à 1h du matin en France." },
-  { q: "Comment regarder tous les matchs de la CDM 2026 ?", a: "Pour voir les 104 matchs, un abonnement beIN Sports (~15 €/mois) est nécessaire. Accessible via beIN Connect, myCANAL ou Amazon Prime Video (pass beIN). Sans abonnement, TF1 et M6 couvrent une large sélection en clair." },
-  { q: "Comment regarder la CDM 2026 depuis l'étranger ?", a: "Si vous êtes à l'étranger, les plateformes françaises (TF1+, M6+) sont géo-bloquées. Un VPN permet de simuler une connexion depuis la France. Choisissez un VPN fiable (NordVPN, ExpressVPN, CyberGhost), connectez-vous à un serveur français, puis accédez normalement aux plateformes de streaming." },
-  { q: "Peut-on regarder la CDM 2026 sur téléphone ?", a: "Oui. TF1+, M6+, beIN Connect, myCANAL et Molotov proposent tous des applications mobiles iOS et Android. Les matchs gratuits sur TF1+ et M6+ ne nécessitent aucun abonnement." },
-  { q: "La CDM 2026 est-elle diffusée gratuitement dans d'autres pays ?", a: "Oui ! Au Royaume-Uni (BBC iPlayer + ITVX), en Allemagne (ARD/ZDF Mediathek), en Espagne (RTVE Play), en Italie (RaiPlay), au Brésil (Globoplay) et au Mexique (Televisa/TV Azteca) — la Coupe du Monde est diffusée gratuitement sur les chaînes publiques." },
-  { q: "Quelles chaînes diffusent la CDM 2026 aux États-Unis ?", a: "Fox Sports (en anglais) et Telemundo (en espagnol) détiennent les droits TV aux États-Unis. Le streaming est disponible sur Peacock (NBC) et Tubi (Fox). Telemundo est accessible gratuitement." },
-  { q: "Existe-t-il des fan zones en France pour la CDM 2026 ?", a: "Les fan zones officielles seront annoncées par les municipalités et la FFF. Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants. Les bars sportifs retransmettront également tous les matchs." },
+  { question: "Peut-on regarder la CDM 2026 gratuitement en France ?", answer: "Oui ! TF1 diffusera les matchs de la France, les demi-finales et la finale en clair. M6 proposera 54 matchs en clair. En streaming gratuit : TF1+, M6+ (6play) et Molotov permettent de suivre ces matchs sans abonnement." },
+  { question: "Combien de matchs sont diffusés sur chaque chaîne en France ?", answer: "beIN Sports diffuse l'intégralité des 104 matchs (abonnement requis). M6 propose 54 matchs en clair. TF1 couvre les matchs de la France, les demi-finales et la finale. Certains matchs clés sont en co-diffusion TF1/M6." },
+  { question: "Quel est le décalage horaire entre la France et les États-Unis ?", answer: "En été (heure CEST, UTC+2), le décalage est de -6h avec la côte Est (New York), -7h avec le centre (Dallas, Chicago), et -9h avec la côte Ouest (Los Angeles). Un match à 19h locale à New York est diffusé à 1h du matin en France." },
+  { question: "Comment regarder tous les matchs de la CDM 2026 ?", answer: "Pour voir les 104 matchs, un abonnement beIN Sports (~15 €/mois) est nécessaire. Accessible via beIN Connect, myCANAL ou Amazon Prime Video (pass beIN). Sans abonnement, TF1 et M6 couvrent une large sélection en clair." },
+  { question: "Comment regarder la CDM 2026 depuis l'étranger ?", answer: "Si vous êtes à l'étranger, les plateformes françaises (TF1+, M6+) sont géo-bloquées. Un VPN permet de simuler une connexion depuis la France. Choisissez un VPN fiable (NordVPN, ExpressVPN, CyberGhost), connectez-vous à un serveur français, puis accédez normalement aux plateformes de streaming." },
+  { question: "Peut-on regarder la CDM 2026 sur téléphone ?", answer: "Oui. TF1+, M6+, beIN Connect, myCANAL et Molotov proposent tous des applications mobiles iOS et Android. Les matchs gratuits sur TF1+ et M6+ ne nécessitent aucun abonnement." },
+  { question: "La CDM 2026 est-elle diffusée gratuitement dans d'autres pays ?", answer: "Oui ! Au Royaume-Uni (BBC iPlayer + ITVX), en Allemagne (ARD/ZDF Mediathek), en Espagne (RTVE Play), en Italie (RaiPlay), au Brésil (Globoplay) et au Mexique (Televisa/TV Azteca) — la Coupe du Monde est diffusée gratuitement sur les chaînes publiques." },
+  { question: "Quelles chaînes diffusent la CDM 2026 aux États-Unis ?", answer: "Fox Sports (en anglais) et Telemundo (en espagnol) détiennent les droits TV aux États-Unis. Le streaming est disponible sur Peacock (NBC) et Tubi (Fox). Telemundo est accessible gratuitement." },
+  { question: "Existe-t-il des fan zones en France pour la CDM 2026 ?", answer: "Les fan zones officielles seront annoncées par les municipalités et la FFF. Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants. Les bars sportifs retransmettront également tous les matchs." },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function OuRegarderPage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr/" },
-      { "@type": "ListItem", position: 2, name: "Où regarder", item: "https://www.cdm2026.fr/ou-regarder" },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
-      {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">Où regarder les matchs</li>
-          </ol>
-        </div>
-      </nav>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Où regarder les matchs" },
+        ]}
+      />
 
       {/* Hero */}
       <section className="bg-primary text-white py-12 sm:py-16">
@@ -265,7 +240,7 @@ export default function OuRegarderPage() {
           </div>
         </section>
 
-        <FAQSection faqItems={faqItems} />
+        <FAQSection items={faqItems} />
 
         {/* CTA */}
         <div className="p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20 text-center">

@@ -1,12 +1,15 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { domains } from "@repo/data/route-mapping";
 
 export const metadata: Metadata = {
   title: "Notre méthodologie | Comment nous calculons nos pronostics CDM 2026",
   description:
     "Découvrez notre méthodologie de pronostics pour la Coupe du Monde 2026 : modèle ELO, pipeline IA triple-tier, facteurs d'analyse et transparence sur nos prédictions.",
+  alternates: {
+    canonical: "https://cdm2026.fr/methodologie",
+  },
   openGraph: {
     title: "Notre méthodologie | Pronostics CDM 2026",
     description:
@@ -17,28 +20,12 @@ export const metadata: Metadata = {
 export default function MethodologiePage() {
   return (
     <>
-      <BreadcrumbSchema
+      <Breadcrumb
         items={[
-          { name: "Accueil", url: "/" },
-          { name: "Méthodologie", url: "/methodologie" },
+          { label: "Accueil", href: "/" },
+          { label: "Méthodologie" },
         ]}
-        baseUrl={domains.fr}
       />
-
-      {/* Breadcrumbs */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">Méthodologie</li>
-          </ol>
-        </div>
-      </nav>
 
       {/* Hero */}
       <section className="bg-primary text-white py-12 sm:py-16">

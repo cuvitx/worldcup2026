@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Lamine Yamal — 18 ans et déjà légende ? | CDM 2026",
   description:
     "Portrait de Lamine Yamal avant la Coupe du Monde 2026. Champion d'Europe à 17 ans, le prodige du Barça veut conquérir le monde.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/portrait-yamal",
+  },
   openGraph: {
     title: "Lamine Yamal — 18 ans et déjà légende ?",
     description: "Champion d'Europe à 17 ans, Yamal arrive au Mondial 2026 avec l'ambition de marquer l'histoire.",

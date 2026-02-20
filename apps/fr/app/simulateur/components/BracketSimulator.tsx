@@ -122,7 +122,7 @@ export function BracketSimulator() {
           <div
             className="relative z-10 flex flex-col items-center gap-3 py-8 px-6 text-center champion-glow rounded-2xl"
             style={{
-              background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)",
+              background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)",
               border: "2px solid rgba(245,166,35,0.6)",
             }}
           >

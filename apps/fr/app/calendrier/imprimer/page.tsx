@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { PrintButton } from "./PrintButton";
 
 export const metadata: Metadata = {
   title: "Calendrier CDM 2026 — Version imprimable",
@@ -52,18 +53,13 @@ export default function CalendrierImprimerPage() {
         }
         @media screen {
           .print-calendar table { width: 100%; border-collapse: collapse; }
-          .print-calendar th, .print-calendar td { border: 1px solid #334155; padding: 4px 8px; text-align: left; }
-          .print-calendar th { background: #1e293b; color: white; }
+          .print-calendar th, .print-calendar td { border: 1px solid var(--color-gray-mid); padding: 4px 8px; text-align: left; }
+          .print-calendar th { background: var(--color-gray-dark); color: white; }
         }
       `}</style>
 
       <div className="no-print mb-6 flex gap-3">
-        <button
-          className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
-          id="print-btn"
-        >
-          🖨️ Imprimer
-        </button>
+        <PrintButton />
         <a
           href="/match/calendrier"
           className="rounded-lg border border-gray-300 dark:border-slate-600 px-5 py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700"
@@ -71,11 +67,6 @@ export default function CalendrierImprimerPage() {
           ← Retour au calendrier
         </a>
       </div>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.getElementById('print-btn')?.addEventListener('click',()=>window.print())`,
-        }}
-      />
 
       <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
         🏆 Calendrier Coupe du Monde 2026

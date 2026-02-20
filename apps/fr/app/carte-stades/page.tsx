@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "carte USA Canada Mexique",
     "localisation stades football",
   ],
+  alternates: {
+    canonical: "https://cdm2026.fr/carte-stades",
+  },
   openGraph: {
     title: "Carte interactive des 16 stades CDM 2026",
     description:

@@ -1,135 +1,343 @@
-# Turborepo starter
+# ⚽ CDM2026.fr — Coupe du Monde 2026
 
-This Turborepo starter is maintained by the Turborepo core team.
+**Plateforme multilingue complète pour la Coupe du Monde de football 2026** (USA / Mexique / Canada).
 
-## Using this example
+Pronostics, statistiques détaillées, comparaison de cotes, simulateur de tournoi, quiz interactifs, guides des villes et stades, et bien plus encore.
 
-Run the following command:
+## 🚀 Stack Technique
 
-```sh
-npx create-turbo@latest
-```
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, React Server Components)
+- **React**: 19.2.0 (dernière stable)
+- **TypeScript**: 5.9.2 (strict mode)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (nouvelle architecture CSS-first)
+- **Fonts**: Inter (UI) + Space Grotesk (titres, identité Continental 2026)
+- **Monorepo**: [Turborepo](https://turbo.build/repo) (build orchestration, cache distribué)
+- **AI**: Orchestrateur multi-providers (OpenAI, Anthropic Claude, Google Gemini)
+- **APIs externes**: 
+  - API-Football (données live & historiques)
+  - Weather APIs (conditions météo par stade)
+  - Odds APIs (cotes bookmakers en temps réel)
+- **Cache**: Upstash Redis (rate limiting & mise en cache API)
+- **Déploiement**: [Vercel](https://vercel.com) (edge functions, ISR, analytics)
 
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## 📂 Structure du Monorepo
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+worldcup2026/
+├── apps/
+│   ├── fr/          # App française (cdm2026.fr) — principale
+│   ├── en/          # App anglaise (worldcup2026.com)
+│   └── es/          # App espagnole (coppamundial2026.com)
+├── packages/
+│   ├── ui/          # Composants React partagés (badge system, cards, tables, etc.)
+│   ├── data/        # Données statiques (équipes, stades, groupes, historiques, h2h)
+│   ├── api/         # Clients API externes (football, weather, odds, cache)
+│   ├── ai/          # Orchestrateur IA (prompts, providers, générateurs de contenu)
+│   ├── eslint-config/     # Configuration ESLint partagée
+│   └── typescript-config/ # tsconfig.json de base
+└── scripts/         # Outils dev (QA visuel, data import, etc.)
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+### Applications (`apps/`)
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+Chaque application Next.js gère une langue et un domaine :
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+- **`fr/`** (port 3000) : Version française complète avec toutes les features
+- **`en/`** (port 3001) : Version anglaise
+- **`es/`** (port 3002) : Version espagnole
 
-### Develop
+**Fonctionnalités principales** :
+- 📅 Calendrier des 104 matchs (phase de groupes + phases finales)
+- 🎯 Simulateur de tournoi interactif
+- 📊 Comparateur de joueurs & statistiques détaillées
+- 🏆 Pronostics IA pour chaque match (proba + analyse)
+- 💰 Comparateur de cotes multi-bookmakers
+- 🗺️ Guide des 16 villes & stades hôtes (avec cartes interactives)
+- 🧠 Quiz interactifs avec système de badges
+- 📰 Actualités & fil live (lors du tournoi)
+- 🔍 Recherche globale (équipes, joueurs, stades, guides)
 
-To develop all apps and packages, run the following command:
+### Packages Partagés
 
-```
-cd my-turborepo
+#### `@repo/ui`
+Bibliothèque de composants React réutilisables :
+- Cards (match, équipe, groupe, stat)
+- Tables responsives
+- Système de badges gamifiés
+- Cookie consent (RGPD)
+- Newsletter popup & inline
+- Share buttons (social media)
+- Flag component (drapeaux SVG optimisés)
+- Search dialog (⌘K)
+- Back to top, breadcrumb, etc.
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+#### `@repo/data`
+Données statiques TypeScript typées :
+- **Équipes** : 48 nations (infos, historique, ratings Elo)
+- **Joueurs** : Stats détaillées (buts, passes, trophées)
+- **Stades** : 16 stades (capacité, coordonnées GPS, infos pratiques)
+- **Villes** : Guides de voyage, météo, attractions
+- **Matchs** : Planning complet (dates, horaires, phases)
+- **Groupes** : Composition des 12 groupes de 4
+- **H2H** : Historique des confrontations entre équipes
+- **Pronostics** : Modèles de prédiction (2026 + historiques)
+- **FAQ, Guides, Reviews bookmakers**
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+#### `@repo/api`
+Clients API externes avec gestion du cache et rate limiting :
+- **Football API** : Données live, classements, compositions
+- **Weather API** : Prévisions météo par stade
+- **Odds API** : Cotes bookmakers en temps réel
+- **Cache Redis** : Stratégies TTL par endpoint
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+#### `@repo/ai`
+Orchestrateur IA multi-providers :
+- **Providers** : OpenAI GPT-4, Claude Sonnet, Gemini Pro
+- **Générateurs** :
+  - Pronostics de matchs (analyse probabiliste)
+  - Résumés d'équipes
+  - Portraits de joueurs
+  - Guides de ville
+  - Articles de blog
+- **Prompts optimisés** : Contexte spécifique foot, ton éditorial
+- **Fallback intelligent** : Rotation en cas de rate limit
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+## 🛠️ Commandes de Développement
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+### Installation
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
+```bash
+npm install
 ```
 
-## Useful Links
+### Développement Local
 
-Learn more about the power of Turborepo:
+```bash
+# Lancer toutes les apps en parallèle
+npm run dev
 
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+# Lancer une seule app (ex: française)
+npx turbo dev --filter=fr
+
+# Avec cache Turborepo désactivé (debug)
+npx turbo dev --filter=fr --force
+```
+
+Les apps tournent sur :
+- 🇫🇷 **FR** : http://localhost:3000
+- 🇬🇧 **EN** : http://localhost:3001
+- 🇪🇸 **ES** : http://localhost:3002
+
+### Build Production
+
+```bash
+# Build toutes les apps
+npm run build
+
+# Build une seule app
+npx turbo build --filter=fr
+
+# Analyser le bundle
+npm run analyze
+```
+
+### Tests & Qualité
+
+```bash
+# Linting (ESLint)
+npm run lint
+
+# Type-checking (TypeScript)
+npm run check-types
+
+# Type-check une seule app
+cd apps/fr && npx tsc --noEmit
+
+# Formatting (Prettier)
+npm run format
+```
+
+### QA Visuel (Avant Push)
+
+**⚠️ Règle stricte : Ne JAMAIS push sans QA visuelle !**
+
+```bash
+# 1. Build l'app
+npx turbo build --filter=fr
+
+# 2. Lancer en mode production local
+cd apps/fr && npx next start -p 3099 &
+
+# 3. Générer les screenshots (4 viewports × 10 pages critiques)
+bash scripts/visual-qa.sh
+
+# 4. Analyser les screenshots (outils visuels ou OpenClaw image tool)
+# Vérifier : overflow, texte coupé, layout cassé, responsive
+
+# 5. Si OK → commit + push
+```
+
+Viewports testés :
+- 📱 **Mobile** : 375px (iPhone SE)
+- 📱 **Tablet** : 768px (iPad)
+- 💻 **Laptop** : 1280px (MacBook)
+- 🖥️ **Desktop** : 1920px (Full HD)
+
+Pages critiques :
+- Home, Simulateur, Groupes, Match, Équipe, Quiz, Calendrier, Comparateur, Stade, Classement
+
+## 📦 Sources de Données
+
+### Données Statiques (Packages)
+- **Équipes & Joueurs** : Compilées manuellement depuis FIFA, Transfermarkt, Wikipédia
+- **Stades & Villes** : Informations officielles FIFA + recherches locales
+- **Historique h2h** : Archives FIFA World Cup 1930–2022
+
+### APIs Externes
+- **API-Football** : Données live, compos, classements (tier gratuit limité)
+- **Open-Meteo** : Prévisions météo (gratuit, pas de clé nécessaire)
+- **The Odds API** : Cotes bookmakers (freemium, 500 req/mois)
+
+### IA & Contenu Généré
+- **Pronostics** : Modèles Elo + IA (Claude Sonnet 4.5)
+- **Guides & Portraits** : Génération semi-automatique (review humaine)
+
+## 🚀 Déploiement
+
+### Vercel (Production)
+
+Chaque app est déployée sur un domaine dédié :
+- 🇫🇷 **cdm2026.fr** → `apps/fr`
+- 🇬🇧 **worldcup2026.com** → `apps/en` (prévu)
+- 🇪🇸 **coppamundial2026.com** → `apps/es` (prévu)
+
+**Déploiement automatique** :
+- Push sur `main` → Deploy auto via webhook Vercel
+- Preview deployments sur chaque PR
+
+**Configuration Vercel** :
+- Framework Preset: **Next.js**
+- Root Directory: `apps/fr` (ou `apps/en`, `apps/es`)
+- Build Command: `npx turbo build --filter=fr`
+- Output Directory: `.next`
+- Node.js Version: **22.x**
+
+### Variables d'Environnement
+
+Définir dans Vercel (Settings → Environment Variables) :
+
+```bash
+# APIs externes
+NEXT_PUBLIC_API_FOOTBALL_KEY=xxx
+NEXT_PUBLIC_ODDS_API_KEY=xxx
+
+# IA
+OPENAI_API_KEY=xxx
+ANTHROPIC_API_KEY=xxx
+GOOGLE_GENAI_API_KEY=xxx
+
+# Cache Redis (Upstash)
+UPSTASH_REDIS_REST_URL=xxx
+UPSTASH_REDIS_REST_TOKEN=xxx
+
+# Analytics
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+### Deploy Manuel (Hook)
+
+Si le webhook GitHub → Vercel est cassé :
+
+```bash
+# Trigger deploy via hook URL (voir TOOLS.md pour l'URL)
+curl -X POST https://api.vercel.com/v1/integrations/deploy/...
+```
+
+## 🔒 Sécurité & Performance
+
+### XSS & Injection
+- ❌ **Pas de `dangerouslySetInnerHTML`** (sauf HTML sanitizé via DOMPurify)
+- ✅ Client components pour les interactions JS (useEffect, onClick)
+- ✅ Validation Zod sur tous les inputs API
+
+### Performance
+- **ISR (Incremental Static Regeneration)** : Revalidate toutes les 3600s (données match)
+- **Static Generation** : Pages équipes, stades, guides (build time)
+- **Image Optimization** : Next.js Image (WebP, lazy loading, responsive)
+- **Bundle Splitting** : Route-based code splitting automatique
+- **Tailwind v4** : CSS minifié, purge des classes inutilisées
+
+### SEO
+- **Metadata dynamique** : OpenGraph, Twitter Cards, JSON-LD
+- **Sitemap XML** : Généré automatiquement (`/sitemap.xml`)
+- **RSS Feed** : Actualités (`/feed.xml`)
+- **Robots.txt** : Indexation contrôlée
+- **Alternates hreflang** : FR ↔ EN ↔ ES
+
+## 🧪 Tests
+
+```bash
+# Tests unitaires (Vitest)
+npx vitest run
+
+# Tests avec coverage
+npx vitest run --coverage
+
+# Watch mode (dev)
+npx vitest
+```
+
+Structure tests :
+```
+apps/fr/__tests__/
+├── components/    # Tests composants
+├── lib/          # Tests utilitaires
+└── api/          # Tests routes API
+```
+
+## 📝 Conventions & Style Guide
+
+### TypeScript
+- **Strict mode** activé
+- Pas de `any` (utiliser `unknown` si besoin)
+- Interfaces pour les props React
+- Types pour les retours de fonction
+
+### Composants React
+- **Server Components par défaut** (sauf interaction)
+- `"use client"` seulement si nécessaire (hooks, event handlers)
+- Props typées avec interfaces
+- Nommage PascalCase (fichiers .tsx)
+
+### CSS / Tailwind
+- Classes utilitaires uniquement (pas de CSS custom sauf globals.css)
+- Mobile-first responsive (`sm:`, `md:`, `lg:`)
+- Dark mode via `dark:` prefix
+- Variables CSS pour couleurs brand (`--color-primary`, etc.)
+
+### Git Workflow
+- **Branches** : `feature/nom-feature`, `fix/bug-description`
+- **Commits** : Conventional Commits (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`)
+- **PR** : Obligatoire avant merge sur `main` (review + CI pass)
+
+## 🤝 Contribution
+
+1. **Fork** le repo
+2. Créer une branche : `git checkout -b feature/ma-fonctionnalite`
+3. Coder + tester (QA visuel obligatoire)
+4. Commit : `git commit -m "feat: ajout du comparateur d'équipes"`
+5. Push : `git push origin feature/ma-fonctionnalite`
+6. Créer une **Pull Request**
+
+## 📄 Licence
+
+Propriétaire. Usage commercial interdit sans autorisation.
+
+## 👤 Auteur
+
+**Xavier** — [WooDash](https://woodash-production.up.railway.app/)
+
+---
+
+**🏆 Coupe du Monde 2026 — Du 11 juin au 19 juillet 2026**  
+*104 matchs · 48 équipes · 16 villes · 3 pays hôtes*

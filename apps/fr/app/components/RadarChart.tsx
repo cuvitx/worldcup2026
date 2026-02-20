@@ -25,12 +25,12 @@ function polarToXY(angle: number, radius: number): [number, number] {
 
 export interface RadarChartProps {
   rating: TeamRating;
-  /** Accent colour (hex). Falls back to #3b82f6 */
+  /** Accent colour (hex). Falls back to secondary brand color */
   color?: string;
   className?: string;
 }
 
-export default function RadarChart({ rating, color = "#3b82f6", className }: RadarChartProps) {
+export default function RadarChart({ rating, color = "#2EC4B6", className }: RadarChartProps) {
   const n = AXES.length;
   const angleStep = (2 * Math.PI) / n;
 

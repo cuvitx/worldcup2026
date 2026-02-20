@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Newsletter } from "@repo/ui/newsletter";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { FAQSection } from "@repo/ui/faq-section";
 import {
   TopFavorites,
   OddsTable,
@@ -11,7 +10,6 @@ import {
   DarkHorses,
   HeroSection,
   ConfederationChart,
-  FaqSection,
   SimulatorCta,
   MethodologySection,
   CtaSection,
@@ -32,6 +30,9 @@ export const metadata: Metadata = {
   title: "Pronostic Vainqueur CDM 2026 — Qui va gagner la Coupe du Monde ?",
   description:
     "Pronostic vainqueur CDM 2026 : Argentine 15%, France 13%, Espagne 12%. Comparez les cotes, découvrez nos favoris et osez parier.",
+  alternates: {
+    canonical: "https://cdm2026.fr/pronostic-vainqueur",
+  },
   openGraph: {
     title: "Pronostic Vainqueur CDM 2026 — Qui va gagner ?",
     description:
@@ -41,66 +42,14 @@ export const metadata: Metadata = {
 };
 
 export default function PronosticVainqueurPage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://cdm2026.fr" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pronostic vainqueur",
-        item: "https://cdm2026.fr/pronostic-vainqueur",
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
-      <BreadcrumbSchema
+      <Breadcrumb
         items={[
-          { name: "Accueil", url: "/" },
-          { name: "Pronostic vainqueur CDM 2026", url: "/pronostic-vainqueur" },
+          { label: "Accueil", href: "/" },
+          { label: "Pronostic vainqueur" },
         ]}
-        baseUrl={domains.fr}
       />
-
-      {/* Breadcrumb nav */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 flex-wrap">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Pronostic vainqueur</li>
-          </ol>
-        </div>
-      </nav>
 
       {/* Hero */}
       <HeroSection />
@@ -135,7 +84,10 @@ export default function PronosticVainqueurPage() {
       <MethodologySection />
 
       {/* FAQ */}
-      <FaqSection faqItems={faqItems} />
+      <FAQSection 
+        title="❓ Questions fréquentes — Pronostic vainqueur CDM 2026"
+        items={faqItems} 
+      />
 
       {/* Newsletter CTA */}
       <Newsletter variant="banner" />

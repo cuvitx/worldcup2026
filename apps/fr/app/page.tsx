@@ -9,6 +9,7 @@ import { Newsletter } from "@repo/ui/newsletter";
 import { SocialProof } from "@repo/ui/social-proof";
 import { StadiumCarousel } from "./components/StadiumCarousel";
 import { SectionHeading } from "@repo/ui/section-heading";
+import { FAQSection } from "@repo/ui/faq-section";
 
 import { HeroSection } from "./components/home/HeroSection";
 import { UpcomingMatches } from "./components/home/UpcomingMatches";
@@ -80,15 +81,6 @@ const homepageJsonLd = [
     location: { "@type": "Place", name: "États-Unis, Canada, Mexique" },
     sport: "Football",
     description: "Première Coupe du Monde FIFA à 48 équipes. 104 matchs dans 16 stades.",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqHomepageItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
   },
 ];
 
@@ -173,33 +165,7 @@ export default function HomePage() {
       <FavoriteTeams topTeams={topTeams} />
 
       {/* FAQ */}
-      <section className="bg-gray-50 dark:bg-slate-900/60 py-12 sm:py-16 border-t border-gray-100 dark:border-gray-800">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            ❓ Questions fréquentes — CDM 2026
-          </h2>
-          <div className="space-y-3">
-            {faqHomepageItems.map((item, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800/60 overflow-hidden"
-              >
-                <details className="group">
-                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-bold text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors list-none">
-                    {item.question}
-                    <span className="ml-4 shrink-0 text-gray-300 dark:text-gray-600 group-open:rotate-180 transition-transform duration-200 text-xs">
-                      ▼
-                    </span>
-                  </summary>
-                  <div className="px-5 pb-5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-50 dark:border-gray-700/40 pt-3">
-                    {item.answer}
-                  </div>
-                </details>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection title="❓ Questions fréquentes — CDM 2026" items={faqHomepageItems} />
 
       {/* SOCIAL PROOF + NEWSLETTER */}
       <SocialProof />

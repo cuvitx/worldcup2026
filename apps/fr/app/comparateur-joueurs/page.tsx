@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Comparateur de joueurs | Stats côte à côte",
   description:
     "Comparez les statistiques des meilleurs joueurs de la Coupe du Monde 2026. Goals, passes décisives, dribbles, notes et plus encore.",
+  alternates: {
+    canonical: "https://cdm2026.fr/comparateur-joueurs",
+  },
   openGraph: {
     title: "Comparateur de joueurs CDM 2026",
     description:

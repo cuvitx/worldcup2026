@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Glossaire Paris Sportifs | Tous les termes expliqués",
   description:
     "Glossaire complet des paris sportifs : plus de 80 termes expliqués avec des exemples concrets liés à la Coupe du Monde 2026. De A à Z, tout le vocabulaire du parieur.",
+  alternates: {
+    canonical: "https://cdm2026.fr/guide/glossaire",
+  },
   openGraph: {
     title: "Glossaire des Paris Sportifs – CDM 2026",
     description: "Plus de 80 termes de paris sportifs expliqués simplement avec des exemples Coupe du Monde 2026.",

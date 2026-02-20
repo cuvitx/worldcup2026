@@ -4,14 +4,14 @@ import { EVENT_DATES } from "@repo/data/constants";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden text-white" style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}>
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden text-white" style={{ background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)" }}>
       {/* Background — stade fantôme */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{ backgroundImage: "url('/images/stadiums/metlife-stadium.jpg')" }}
       />
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0D3B66]/60 via-[#0F1923]/40 to-[#0D3B66]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-deep/40 to-primary" />
 
       {/* Orbs décoratifs */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />

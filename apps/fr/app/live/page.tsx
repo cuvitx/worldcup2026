@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Résultats en direct - Coupe du Monde 2026",
   description:
     "Suivez les résultats en direct de la Coupe du Monde 2026. Scores, buteurs, événements minute par minute. Disponible dès le 11 juin 2026.",
+  alternates: {
+    canonical: "https://cdm2026.fr/live",
+  },
   openGraph: {
     title: "Résultats en direct - Coupe du Monde 2026",
     description:

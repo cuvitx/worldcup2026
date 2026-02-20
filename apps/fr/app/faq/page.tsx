@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { faqItems, faqCategories } from "@repo/data/faq";
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const revalidate = 86400;
 
@@ -56,17 +56,12 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">FAQ</li>
-          </ol>
-        </div>
-      </nav>
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "FAQ" },
+        ]}
+      />
 
       <section className="bg-primary text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

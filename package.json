@@ -7,12 +7,17 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "analyze": "ANALYZE=true turbo run build --filter=fr"
+    "analyze": "ANALYZE=true turbo run build --filter=fr",
+    "test": "npm run test:fr && npm run test:ui && npm run test:data",
+    "test:fr": "cd apps/fr && npx vitest run",
+    "test:ui": "cd packages/ui && npx vitest run",
+    "test:data": "cd packages/data && npx vitest run"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.3.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
+    "@vitejs/plugin-react": "^5.1.4",
     "jsdom": "^28.1.0",
     "prettier": "^3.7.4",
     "turbo": "^2.8.3",

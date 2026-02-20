@@ -1,7 +1,5 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { editions, countryRecords, records } from "./_components/palmares-data";
 import { PalmaresHero } from "./_components/PalmaresHero";
@@ -15,6 +13,9 @@ export const metadata: Metadata = {
   title: "Palmarès Coupe du Monde FIFA | Historique 1930–2022",
   description:
     "Palmarès complet de la Coupe du Monde FIFA de 1930 à 2022. Tous les vainqueurs, finalistes, scores, records et statistiques historiques. Qui a le plus de titres ?",
+  alternates: {
+    canonical: "https://cdm2026.fr/palmares",
+  },
   openGraph: {
     title: "Palmarès CDM FIFA 1930–2022",
     description:
@@ -26,30 +27,12 @@ export const metadata: Metadata = {
 export default function PalmaresPage() {
   return (
     <>
-      <BreadcrumbSchema
+      <Breadcrumb
         items={[
-          { name: "Accueil", url: "/" },
-          { name: "Palmarès CDM", url: "/palmares" },
+          { label: "Accueil", href: "/" },
+          { label: "Palmarès" },
         ]}
-        baseUrl={domains.fr}
       />
-
-      {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="hover:text-primary transition-colors">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">
-              Palmarès
-            </li>
-          </ol>
-        </div>
-      </nav>
 
       <PalmaresHero />
 

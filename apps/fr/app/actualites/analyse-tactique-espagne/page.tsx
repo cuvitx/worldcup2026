@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Analyse tactique Espagne CDM 2026 — Tiki-taka 2.0 et jeune garde",
   description:
     "Décryptage du système tactique de l'Espagne pour la Coupe du Monde 2026. Pedri, Yamal, Gavi : la Roja nouvelle génération de Luis de la Fuente.",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/analyse-tactique-espagne",
+  },
   openGraph: {
     title: "Analyse tactique Espagne — CDM 2026",
     description: "Tiki-taka 2.0 : comment la jeune garde espagnole veut conquérir le monde.",

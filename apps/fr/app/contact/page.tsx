@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { domains, getStaticAlternates } from "@repo/data/route-mapping";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { getStaticAlternates } from "@repo/data/route-mapping";
+import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Contact — Contactez l'équipe CDM 2026",
@@ -40,27 +40,12 @@ const faqs = [
 export default function ContactPage() {
   return (
     <>
-      <BreadcrumbSchema
-        baseUrl={domains.fr}
+      <Breadcrumb
         items={[
-          { name: "Accueil", url: "/" },
-          { name: "Contact", url: "/contact" },
+          { label: "Accueil", href: "/" },
+          { label: "Contact" },
         ]}
       />
-
-      <nav className="border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="text-primary dark:text-secondary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="font-medium text-gray-900 dark:text-white">Contact</li>
-          </ol>
-        </div>
-      </nav>
 
       <section className="bg-primary py-12 text-white">
         <div className="mx-auto max-w-4xl px-4">

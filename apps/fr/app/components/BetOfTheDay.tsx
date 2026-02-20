@@ -110,7 +110,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
   if (compact) {
     return (
-      <div className="rounded-xl border border-secondary/30 p-4 shadow-lg shadow-blue-900/20" style={{ background: "linear-gradient(160deg, #0D3B66 0%, #0F1923 50%, #0D3B66 100%)" }}>
+      <div className="rounded-xl border border-secondary/30 p-4 shadow-lg shadow-blue-900/20" style={{ background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)" }}>
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
@@ -151,7 +151,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
   return (
     <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/30">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-deep to-gray-dark" />
       {/* Déco orb */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />

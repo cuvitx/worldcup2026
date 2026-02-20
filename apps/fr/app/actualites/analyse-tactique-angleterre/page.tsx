@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Analyse tactique Angleterre CDM 2026 — Potentiel vs déception historique",
   description:
     "Décryptage du système tactique de l'Angleterre pour la CDM 2026. Bellingham, Saka, Kane : les Three Lions ont-ils enfin les armes pour gagner ?",
+  alternates: {
+    canonical: "https://cdm2026.fr/actualites/analyse-tactique-angleterre",
+  },
   openGraph: {
     title: "Analyse tactique Angleterre — CDM 2026",
     description: "Les Three Lions peuvent-ils enfin briser la malédiction ?",
