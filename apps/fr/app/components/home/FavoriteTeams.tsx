@@ -20,7 +20,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
     <section className="bg-white dark:bg-gray-950 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-1.5">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
             Cotes Vainqueur
           </p>
           <SectionHeading title="Équipes favorites" subtitle="Top 5 FIFA · Pronostics & chances de titre" linkHref="/pronostic-vainqueur" linkLabel="Tous les pronostics →" />
@@ -87,7 +87,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                     <p className="text-[9px] text-gray-500 dark:text-gray-300 mb-0.5">
                       {favData ? "Cote moy. marché" : "Cote vainqueur"}
                     </p>
-                    <p className="text-lg font-black text-amber-500 dark:text-amber-400">
+                    <p className="text-lg font-black text-accent dark:text-accent">
                       {outrightOdds}
                       {trendIcon && (
                         <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-accent" : "text-red-400"}`}>
