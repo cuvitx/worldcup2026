@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { domains, getHomeAlternates } from "@repo/data/route-mapping";
@@ -22,11 +22,11 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-/* ── Oswald — titres (h1, h2, h3, h4) Bold & Impact ── */
-const oswald = Oswald({
+/* ── Montserrat — titres (h1, h2, h3, h4) Bold & Modern ── */
+const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-oswald",
+  variable: "--font-montserrat",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -81,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${oswald.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

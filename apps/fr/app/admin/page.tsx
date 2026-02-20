@@ -63,7 +63,7 @@ function AdminContent() {
           🔒 Page admin — accès restreint
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-oswald)]">
+        <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-montserrat)]">
           Dashboard cdm2026.fr
         </h1>
 
@@ -87,7 +87,7 @@ function AdminContent() {
               <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Typographie</h3>
               <div className="flex flex-wrap gap-6">
                 <div>
-                  <p className="font-[family-name:var(--font-oswald)] text-2xl font-bold">Oswald</p>
+                  <p className="font-[family-name:var(--font-montserrat)] text-2xl font-bold">Montserrat</p>
                   <p className="text-sm text-gray-500">Titres & headings</p>
                 </div>
                 <div>

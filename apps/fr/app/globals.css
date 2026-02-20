@@ -39,7 +39,7 @@
 
   /* ── Typographie ── */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Oswald", "Inter", ui-sans-serif, sans-serif;
+  --font-display: "Montserrat", "Inter", ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -108,10 +108,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── Oswald pour les titres — Bold & Impact ── */
-/* --font-oswald est injecté par Next.js via la variable CSS */
+/* ── Montserrat pour les titres — Bold & Impact ── */
+/* --font-montserrat est injecté par Next.js via la variable CSS */
 :root {
-  --font-display: var(--font-oswald, "Oswald", "Inter", ui-sans-serif, sans-serif);
+  --font-display: var(--font-montserrat, "Montserrat", "Inter", ui-sans-serif, sans-serif);
 }
 
 h1, h2, h3, h4 {
@@ -783,7 +783,7 @@ details[open] .faq-icon {
    TYPOGRAPHIE — Brand Book CDM2026
    ============================================================ */
 
-/* Headings — Oswald pour titres (Bold & Impact) */
+/* Headings — Montserrat pour titres (Bold & Impact) */
 .heading-hero {
   font-family: var(--font-display);
   font-weight: 800;
