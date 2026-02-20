@@ -75,11 +75,11 @@ export default function GroupsPage() {
                 className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-200"
               >
                 {/* Header */}
-                <div className="bg-primary dark:bg-slate-900 px-4 py-3 flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                <div className="hero-animated px-4 py-3 flex items-center justify-between">
+                  <h2 className="text-xl sm:text-2xl font-bold text-secondary">
                     Groupe {group.letter}
                   </h2>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">
+                  <span className="text-xs text-white/70 group-hover:text-white transition-colors">
                     Voir détails →
                   </span>
                 </div>
