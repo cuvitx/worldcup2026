@@ -9,7 +9,7 @@ export function PremiumFinalCTA({ team }: PremiumFinalCTAProps) {
   return (
     <section 
       className="py-10 border-t border-gray-100 dark:border-slate-700"
-      style={{ background: "linear-gradient(135deg, #002244 0%, #1a237e 50%, #004d40 100%)" }}
+      style={{ background: "linear-gradient(90deg, #022149 0%, #19247C 50%, #022149 100%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 text-center">
         <h2 className="text-2xl font-bold text-white mb-3">
