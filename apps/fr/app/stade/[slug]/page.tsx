@@ -323,6 +323,35 @@ export default async function StadiumPage({ params }: PageProps) {
               );
             })()}
 
+            {/* Useful links */}
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Liens utiles</h3>
+              <ul className="space-y-2 text-sm">
+                {city && (
+                  <li>
+                    <Link href={`/guide-ville/${city.slug}`} className="text-primary dark:text-secondary hover:underline">
+                      📖 Guide de {city.name}
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <Link href="/carte-stades" className="text-primary dark:text-secondary hover:underline">
+                    🗺️ Carte des stades
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/billets" className="text-primary dark:text-secondary hover:underline">
+                    🎟️ Acheter des billets
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ou-regarder" className="text-primary dark:text-secondary hover:underline">
+                    📺 Où regarder les matchs
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
             {/* Other stadiums */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres stades</h3>

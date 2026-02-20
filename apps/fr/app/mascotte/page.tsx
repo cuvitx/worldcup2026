@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
+import { RelatedLinks } from "../components/RelatedLinks";
 import { TableOfContents } from "@repo/ui";
 import { Smile, Heart, Users, Globe } from "lucide-react";
 
@@ -305,6 +306,12 @@ export default function MascottePage() {
         ]} />
       </div>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/histoire", title: "Histoire de la CDM", description: "Retour sur toutes les éditions", icon: "📖" },
+          { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada, Mexique", icon: "🌎" },
+          { href: "/billets", title: "Billets CDM 2026", description: "Comment acheter vos places", icon: "🎟️" },
+          { href: "/quiz", title: "Quiz CDM", description: "Testez vos connaissances", icon: "🧠" },
+        ]} /></div>
       <FAQSection title="Questions sur la mascotte" items={faqItems} />
 
       {/* Schema.org */}

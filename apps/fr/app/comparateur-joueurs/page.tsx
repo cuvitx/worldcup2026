@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RelatedLinks } from "../components/RelatedLinks";
 import dynamic from "next/dynamic";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
@@ -94,6 +95,15 @@ export default function ComparateurJoueursPage() {
           <p className="mt-3 text-xs text-white/80">18+. Pariez responsablement.</p>
         </div>
       </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+        <RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/joueurs", title: "Joueurs clés", description: "Les 210 joueurs stars de la CDM 2026", icon: "⚽" },
+          { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs du tournoi", icon: "🥅" },
+          { href: "/h2h", title: "Face-à-face", description: "Historique des confrontations entre équipes", icon: "⚔️" },
+          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "🏟️" },
+        ]} />
+      </div>
     </>
   );
 }

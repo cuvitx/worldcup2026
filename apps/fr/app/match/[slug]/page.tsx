@@ -204,6 +204,81 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       )}
 
+      {/* Contextual internal links */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">À explorer aussi</h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {home && away && (
+            <Link
+              href={`/h2h/${home.slug}-vs-${away.slug}`}
+              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            >
+              <span className="text-2xl">⚔️</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">Face-à-face {home.name} vs {away.name}</p>
+                <p className="text-xs text-gray-500">Historique des confrontations</p>
+              </div>
+            </Link>
+          )}
+          {home && (
+            <Link
+              href={`/pronostic/${home.slug}`}
+              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            >
+              <span className="text-2xl">🔮</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic {home.name}</p>
+                <p className="text-xs text-gray-500">Analyse et prédictions CDM 2026</p>
+              </div>
+            </Link>
+          )}
+          {away && (
+            <Link
+              href={`/pronostic/${away.slug}`}
+              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            >
+              <span className="text-2xl">🔮</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic {away.name}</p>
+                <p className="text-xs text-gray-500">Analyse et prédictions CDM 2026</p>
+              </div>
+            </Link>
+          )}
+          {match.group && (
+            <Link
+              href={`/pronostic-groupe/${match.group.toLowerCase()}`}
+              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            >
+              <span className="text-2xl">📊</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic Groupe {match.group}</p>
+                <p className="text-xs text-gray-500">Classement prédit et qualifiés</p>
+              </div>
+            </Link>
+          )}
+          <Link
+            href="/classement-fifa"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">🏆</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Classement FIFA</p>
+              <p className="text-xs text-gray-500">Ranking mondial des 48 équipes</p>
+            </div>
+          </Link>
+          <Link
+            href="/comparateur-cotes"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">📈</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Comparateur de cotes</p>
+              <p className="text-xs text-gray-500">Meilleurs bookmakers pour ce match</p>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* JSON-LD */}
       <script
         type="application/ld+json"

@@ -152,6 +152,73 @@ export default async function TeamPage({ params }: PageProps) {
         winnerOdds={winnerOdds}
       />
 
+      {/* Related internal links */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">À explorer aussi</h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Link
+            href={`/groupe/${team.group.toLowerCase()}`}
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">📋</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Groupe {team.group}</p>
+              <p className="text-xs text-gray-500">Classement, matchs et pronostics du groupe</p>
+            </div>
+          </Link>
+          <Link
+            href={`/pronostic/${team.slug}`}
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">🔮</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic {team.name}</p>
+              <p className="text-xs text-gray-500">Analyse détaillée et cotes vainqueur</p>
+            </div>
+          </Link>
+          <Link
+            href={`/pronostic-groupe/${team.group.toLowerCase()}`}
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">📊</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic Groupe {team.group}</p>
+              <p className="text-xs text-gray-500">Qui se qualifie ? Notre prédiction</p>
+            </div>
+          </Link>
+          <Link
+            href="/classement-fifa"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">🏆</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Classement FIFA</p>
+              <p className="text-xs text-gray-500">{team.name} est #{team.fifaRanking} mondial</p>
+            </div>
+          </Link>
+          <Link
+            href="/pronostic-vainqueur"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">🥇</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic vainqueur CDM 2026</p>
+              <p className="text-xs text-gray-500">Favoris et cotes pour le titre</p>
+            </div>
+          </Link>
+          <Link
+            href="/comparateur-joueurs"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+          >
+            <span className="text-2xl">👥</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">Comparateur de joueurs</p>
+              <p className="text-xs text-gray-500">Comparez les stars de la CDM 2026</p>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Newsletter */}
       <Newsletter variant="banner" />
 

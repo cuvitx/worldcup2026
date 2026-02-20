@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
+import { RelatedLinks } from "../components/RelatedLinks";
 import { teams } from "@repo/data/teams";
 import Flag from "@repo/ui/flag";
 import { TableOfContents } from "@repo/ui";
@@ -311,6 +312,16 @@ export default function ClassementFifaPage() {
           { id: "classement-complet", label: "Classement complet", level: 2 },
           { id: "par-confederation", label: "Par confédération", level: 2 },
           { id: "top-10", label: "Top 10 mondial", level: 2 },
+        ]} />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/equipes", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "🏟️" },
+          { href: "/groupes", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "📋" },
+          { href: "/pronostic-vainqueur", title: "Pronostic vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "🥇" },
+          { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "📊" },
+          { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre équipe", icon: "🎮" },
         ]} />
       </div>
 

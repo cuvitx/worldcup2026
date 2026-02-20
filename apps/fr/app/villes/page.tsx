@@ -1,4 +1,5 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { RelatedLinks } from "../components/RelatedLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cities } from "@repo/data/cities";
@@ -104,6 +105,16 @@ export default function CitiesPage() {
             </section>
           );
         })}
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/stades", title: "Les 16 stades", description: "Capacité, photos et matchs de chaque stade", icon: "🏟️" },
+          { href: "/carte-stades", title: "Carte des stades", description: "Carte interactive des 16 stades", icon: "🗺️" },
+          { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada et Mexique : guide complet", icon: "🌎" },
+          { href: "/billets", title: "Billets", description: "Comment acheter vos billets CDM 2026", icon: "🎟️" },
+          { href: "/ou-regarder", title: "Où regarder", description: "Chaînes TV et streaming CDM 2026", icon: "📺" },
+        ]} />
       </div>
     </>
   );

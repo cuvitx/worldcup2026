@@ -258,6 +258,34 @@ export default async function PlayerPage({ params }: PageProps) {
                 </Link>
               </div>
             )}
+
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Explorer</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/joueurs" className="text-primary dark:text-secondary hover:underline">
+                    ⚽ Tous les joueurs clés
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/buteurs" className="text-primary dark:text-secondary hover:underline">
+                    🥅 Meilleurs buteurs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/comparateur-joueurs" className="text-primary dark:text-secondary hover:underline">
+                    👥 Comparateur de joueurs
+                  </Link>
+                </li>
+                {team && (
+                  <li>
+                    <Link href={`/pronostic/${team.slug}`} className="text-primary dark:text-secondary hover:underline">
+                      🔮 Pronostic {team.name}
+                    </Link>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

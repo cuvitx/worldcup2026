@@ -292,6 +292,37 @@ export default async function CityPage({ params }: PageProps) {
                 Trouvez les meilleurs hôtels près des stades pour la Coupe du Monde 2026.
               </p>
             </div>
+
+            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Liens utiles</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href={`/guide-ville/${city.slug}`} className="text-primary dark:text-secondary hover:underline">
+                    📖 Guide complet de {city.name}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/villes" className="text-primary dark:text-secondary hover:underline">
+                    🏙️ Toutes les villes hôtes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pays-hotes" className="text-primary dark:text-secondary hover:underline">
+                    🌎 Les 3 pays hôtes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/billets" className="text-primary dark:text-secondary hover:underline">
+                    🎟️ Acheter des billets
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ou-regarder" className="text-primary dark:text-secondary hover:underline">
+                    📺 Où regarder les matchs
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

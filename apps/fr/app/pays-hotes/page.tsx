@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
+import { RelatedLinks } from "../components/RelatedLinks";
 import { TableOfContents } from "@repo/ui";
 import { MapPin, Plane, Clock, FileText, Globe, DollarSign } from "lucide-react";
 
@@ -439,6 +440,13 @@ export default function PaysHotesPage() {
         ]} />
       </div>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/villes", title: "Villes hôtes", description: "Guide des 16 villes de la CDM 2026", icon: "🏙️" },
+          { href: "/stades", title: "Les 16 stades", description: "Stades, capacités et matchs", icon: "🏟️" },
+          { href: "/format", title: "Format du tournoi", description: "48 équipes, 12 groupes, 104 matchs", icon: "📐" },
+          { href: "/billets", title: "Billets", description: "Acheter ses billets CDM 2026", icon: "🎟️" },
+          { href: "/guide/guide-visa-esta", title: "Guide Visa/ESTA", description: "Formalités pour voyager aux USA", icon: "📄" },
+        ]} /></div>
       <FAQSection title="Questions sur les pays hôtes" items={faqItems} />
 
       {/* Schema.org */}

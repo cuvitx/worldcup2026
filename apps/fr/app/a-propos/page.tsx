@@ -92,11 +92,30 @@ export default function AProposPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Notre équipe d&apos;experts
+            </h2>
+            <p>
+              CDM 2026 est rédigé par une équipe de 3 experts complémentaires :
+              un analyste données sportives, une journaliste sportive expérimentée
+              et un spécialiste des paris sportifs. Chaque article est relu et
+              validé pour garantir la fiabilité de l&apos;information.
+            </p>
+            <p className="mt-2">
+              <Link href="/equipe-editoriale" className="text-primary font-medium hover:underline">
+                Découvrir notre équipe éditoriale →
+              </Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               Notre méthodologie
             </h2>
             <p>
               Nos analyses s&apos;appuient sur des données statistiques issues
-              de sources publiques reconnues. Nos pronostics utilisent un modele
+              de sources officielles reconnues : classements FIFA, données des
+              confédérations (UEFA, CONMEBOL, CAF, AFC, CONCACAF), et bases
+              statistiques spécialisées. Nos pronostics utilisent un modèle
               algorithmique combinant les classements ELO, les statistiques
               avancées (xG, possession, forme récente) et l&apos;historique des
               confrontations directes.
@@ -105,7 +124,11 @@ export default function AProposPage() {
               Nous nous efforçons d&apos;être transparents sur notre
               méthodologie et rappelons que tout pronostic comporte une part
               d&apos;incertitude. Nos prédictions ne constituent en aucun cas
-              des conseils de paris.
+              des conseils de paris. Consultez notre{" "}
+              <Link href="/methodologie" className="text-primary hover:underline">
+                page méthodologie
+              </Link>{" "}
+              pour plus de détails.
             </p>
           </section>
 
@@ -117,8 +140,9 @@ export default function AProposPage() {
               CDM 2026 est un site indépendant, non affilié à la FIFA ni à aucun
               opérateur de paris sportifs. Nos analyses et pronostics sont
               réalisés en toute indépendance. Les liens d&apos;affiliation
-              presents sur le site n&apos;influencent pas notre contenu
-              éditorial.
+              présents sur le site n&apos;influencent pas notre contenu
+              éditorial et sont clairement identifiés conformément à la
+              réglementation ANJ.
             </p>
           </section>
 
@@ -149,6 +173,16 @@ export default function AProposPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Liens utiles</h2>
             <ul className="space-y-2">
+              <li>
+                <Link href="/equipe-editoriale" className="text-primary hover:underline">
+                  Notre équipe éditoriale
+                </Link>
+              </li>
+              <li>
+                <Link href="/methodologie" className="text-primary hover:underline">
+                  Notre méthodologie
+                </Link>
+              </li>
               <li>
                 <Link href="/mentions-legales" className="text-primary hover:underline">
                   Mentions légales

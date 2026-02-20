@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
+import { RelatedLinks } from "../components/RelatedLinks";
 import { TableOfContents } from "@repo/ui";
 import { Trophy, Users, ArrowRight, Target } from "lucide-react";
 
@@ -431,6 +432,13 @@ export default function FormatPage() {
         ]} />
       </div>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/groupes", title: "Les 12 groupes", description: "Composition de chaque groupe", icon: "📋" },
+          { href: "/match/calendrier", title: "Calendrier des matchs", description: "Les 104 matchs de la CDM 2026", icon: "📅" },
+          { href: "/simulateur", title: "Simulateur", description: "Simulez le tableau final", icon: "🎮" },
+          { href: "/tableau", title: "Tableau final", description: "Bracket des phases éliminatoires", icon: "🗓️" },
+          { href: "/reglement", title: "Règlement", description: "Règles officielles de la CDM 2026", icon: "📖" },
+        ]} /></div>
       <FAQSection title="Questions sur le format" items={faqItems} />
 
       {/* Schema.org */}

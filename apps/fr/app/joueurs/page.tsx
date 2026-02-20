@@ -1,5 +1,6 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
+import { RelatedLinks } from "../components/RelatedLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { players } from "@repo/data/players";
@@ -157,6 +158,15 @@ export default function PlayersPage() {
             </section>
           );
         })}
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <RelatedLinks variant="compact" title="Pages liées" links={[
+          { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs de la CDM 2026", icon: "⚽" },
+          { href: "/comparateur-joueurs", title: "Comparateur de joueurs", description: "Comparez les stats de 2 joueurs", icon: "👥" },
+          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "🏟️" },
+          { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des équipes", icon: "🏆" },
+        ]} />
       </div>
 
       <FAQSection title="Questions sur les joueurs de la CDM 2026" items={faqItems} />
