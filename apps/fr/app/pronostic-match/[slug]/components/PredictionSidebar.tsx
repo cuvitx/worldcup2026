@@ -110,7 +110,6 @@ export function PredictionSidebar({
               href={`/h2h/${home.slug}-vs-${away.slug}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
             >
-              <span className="text-xl">&#9878;</span>
               <span className="font-medium">
                 H2H {home.name} vs {away.name}
               </span>
