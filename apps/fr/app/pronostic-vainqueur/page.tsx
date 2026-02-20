@@ -85,7 +85,7 @@ export default function PronosticVainqueurPage() {
 
       {/* FAQ */}
       <FAQSection 
-        title="❓ Questions fréquentes — Pronostic vainqueur CDM 2026"
+        title="Questions fréquentes — Pronostic vainqueur CDM 2026"
         items={faqItems} 
       />
 

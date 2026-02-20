@@ -14,7 +14,7 @@ export function PremiumAnecdotes({ team, content }: PremiumAnecdotesProps) {
     <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          ✨ Les anecdotes marquantes — {team.name}
+          Les anecdotes marquantes — {team.name}
         </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

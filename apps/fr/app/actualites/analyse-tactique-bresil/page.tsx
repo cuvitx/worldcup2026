@@ -114,7 +114,7 @@ export default function AnalyseTactiqueBresil() {
 
           <h3>Endrick — Le prodige</h3>
           <p>
-            À 19 ans, Endrick représente l&apos;avenir du football brésilien. Sa puissance, son instinct de buteur et sa maturité impressionnante pour son âge en font une arme redoutable en sortie de banc. Comme un jeune Ronaldo, il peut changer un match en quelques minutes.
+            À 19 ans, Endrick représente l&apos;avenir du football brésilien. Sa puissance, son instinct de buteur et sa maturité impressionnante pour son ge en font une arme redoutable en sortie de banc. Comme un jeune Ronaldo, il peut changer un match en quelques minutes.
           </p>
 
           <h2>Verdict</h2>

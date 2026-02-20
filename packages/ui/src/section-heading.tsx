@@ -30,7 +30,7 @@ interface SectionHeadingProps {
  *   subtitle="Nos prédictions pour les matchs d'aujourd'hui"
  *   linkHref="/pronostics"
  *   linkLabel="Voir tous les pronostics →"
- *   emoji="⚽"
+ *   emoji=""
  * />
  * ```
  */

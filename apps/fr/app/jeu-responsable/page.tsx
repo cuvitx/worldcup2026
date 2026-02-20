@@ -123,7 +123,7 @@ export default function JeuResponsablePage() {
           {/* Bannière d'alerte */}
           <div className="rounded-xl border-2 border-red-300 bg-red-50 p-6">
             <p className="text-lg font-bold text-red-800">
-              ⚠️ Les jeux d&apos;argent et de hasard peuvent être dangereux :
+              Les jeux d&apos;argent et de hasard peuvent être dangereux :
               pertes d&apos;argent, conflits familiaux, addiction…
             </p>
             <p className="mt-3 text-lg font-semibold text-red-700">
@@ -291,7 +291,7 @@ export default function JeuResponsablePage() {
                 </p>
               </div>
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">⏱️ Limites de temps</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">⏱Limites de temps</h3>
                 <p className="mt-1 text-sm">
                   Définissez un temps maximum de connexion pour éviter les
                   sessions prolongées.

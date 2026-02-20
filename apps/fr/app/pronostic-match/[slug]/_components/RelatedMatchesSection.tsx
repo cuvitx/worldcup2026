@@ -47,7 +47,7 @@ export function RelatedMatchesSection({
         const mAway = teamsById[m.awayTeamId];
         return {
           href: `/pronostic-match/${m.slug}`,
-          emoji: "⚽",
+          emoji: "",
           title: `${mHome?.name ?? "TBD"} - ${mAway?.name ?? "TBD"}`,
           description: `Même jour · ${stageLabels[m.stage] ?? m.stage}`,
         };

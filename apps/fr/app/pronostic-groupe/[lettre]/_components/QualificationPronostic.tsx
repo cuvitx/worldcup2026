@@ -22,7 +22,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
 
   return (
     <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🎯 Pronostic qualification</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Pronostic qualification</h2>
       <p className="text-gray-600 dark:text-gray-300 mb-5 text-sm leading-relaxed">
         Dans le format de la Coupe du Monde 2026 (48 équipes, 12 groupes de 4),{" "}
         <strong>les 2 premiers de chaque groupe</strong> sont directement qualifiés pour les huitièmes de finale.{" "}
@@ -30,7 +30,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
       </p>
 
       <div className="mb-4">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-success dark:text-success mb-2">✅ Qualifiés directs pour les huitièmes</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-success dark:text-success mb-2">Qualifiés directs pour les huitièmes</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {qualified.map(({ team, pred }) => (
             <div key={team!.id} className="flex items-center gap-3 rounded-lg border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10/20 p-3">
@@ -46,7 +46,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
 
       {maybeQualify?.team && (
         <div className="mb-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-secondary dark:text-secondary mb-2">⚠️ Meilleur 3e possible</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-secondary dark:text-secondary mb-2">Meilleur 3e possible</h3>
           <div className="flex items-center gap-3 rounded-lg border border-secondary/20 dark:border-secondary/30 bg-secondary/5 dark:bg-secondary/10 p-3">
             <span className="text-2xl">{maybeQualify.team.flag}</span>
             <div>

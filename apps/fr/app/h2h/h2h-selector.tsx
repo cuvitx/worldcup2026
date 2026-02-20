@@ -31,7 +31,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
           onChange={(e) => setTeam1(e.target.value)}
           className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white sm:flex-1"
         >
-          <option value="">🏳️ Équipe 1</option>
+          <option value="">🏳Équipe 1</option>
           {teams.map((t) => (
             <option key={t.slug} value={t.slug} disabled={t.slug === team2}>
               {t.flag} {t.name}
@@ -46,7 +46,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
           onChange={(e) => setTeam2(e.target.value)}
           className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white sm:flex-1"
         >
-          <option value="">🏳️ Équipe 2</option>
+          <option value="">🏳Équipe 2</option>
           {teams.map((t) => (
             <option key={t.slug} value={t.slug} disabled={t.slug === team1}>
               {t.flag} {t.name}
@@ -59,7 +59,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
           disabled={!team1 || !team2 || team1 === team2}
           className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
         >
-          Comparer ⚔️
+          Comparer ⚔
         </button>
       </div>
     </div>

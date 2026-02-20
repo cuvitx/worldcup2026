@@ -94,8 +94,8 @@ export function LeaderboardClient() {
     const userPlayer = players.find((p) => p.isCurrentUser);
     const rank = userPlayer ? players.indexOf(userPlayer) + 1 : null;
     const text = userPlayer
-      ? `🏆 CDM 2026 — Classement Pronostics\n📊 ${rank}${rank === 1 ? "er" : "e"} avec ${userPlayer.points} pts (${userPlayer.totalPronos} pronos)\n\n👉 https://cdm2026.fr/pronostics/leaderboard`
-      : `🏆 Classement Pronostics CDM 2026\n👉 https://cdm2026.fr/pronostics/leaderboard`;
+      ? `CDM 2026 — Classement Pronostics\n${rank}${rank === 1 ? "er" : "e"} avec ${userPlayer.points} pts (${userPlayer.totalPronos} pronos)\n\n👉 https://cdm2026.fr/pronostics/leaderboard`
+      : `Classement Pronostics CDM 2026\n👉 https://cdm2026.fr/pronostics/leaderboard`;
 
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
@@ -118,7 +118,7 @@ export function LeaderboardClient() {
         <span className="text-gray-800 dark:text-white">Classement</span>
       </nav>
 
-      <h1 className="mb-2 text-3xl font-bold dark:text-white">🏆 Classement Pronostics</h1>
+      <h1 className="mb-2 text-3xl font-bold dark:text-white">Classement Pronostics</h1>
       <p className="mb-6 text-gray-500 dark:text-gray-300">
         3 pts pour un résultat exact · 1 pt pour le bon vainqueur
       </p>
@@ -155,7 +155,7 @@ export function LeaderboardClient() {
           const p = players[idx];
           if (!p) return null;
           const rank = idx + 1;
-          const medals = ["🥇", "🥈", "🥉"];
+          const medals = ["", "🥈", "🥉"];
           const heights = ["h-28 sm:h-36", "h-36 sm:h-44", "h-24 sm:h-28"];
           const bgs = [
             "from-yellow-400 to-amber-500",
@@ -204,7 +204,7 @@ export function LeaderboardClient() {
                   }`}
                 >
                   <td className="px-4 py-3 font-bold text-gray-400 dark:text-gray-400">
-                    {rank <= 3 ? ["🥇", "🥈", "🥉"][rank - 1] : rank}
+                    {rank <= 3 ? ["", "🥈", "🥉"][rank - 1] : rank}
                   </td>
                   <td className={`px-4 py-3 ${p.isCurrentUser ? "text-secondary dark:text-secondary" : "dark:text-white"}`}>
                     {p.pseudo}
@@ -235,13 +235,13 @@ export function LeaderboardClient() {
           onClick={shareClassement}
           className="flex-1 rounded-xl bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
         >
-          {copied ? "✅ Copié !" : "📤 Partager mon classement"}
+          {copied ? "Copié !" : "📤 Partager mon classement"}
         </button>
         <Link
           href="/profil"
           className="flex-1 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 font-bold text-white shadow-lg text-center transition-transform hover:scale-[1.02] active:scale-95"
         >
-          🏅 Mes badges
+          Mes badges
         </Link>
       </div>
 

@@ -88,7 +88,7 @@ export default function Quiz() {
     [selected, currentQuestion, nextQuestion]
   );
 
-  const scoreEmoji = score > 15 ? "🏆" : score > 10 ? "⭐" : score > 5 ? "👍" : "🤔";
+  const scoreEmoji = score > 15 ? "" : score > 10 ? "" : score > 5 ? "👍" : "🤔";
   const scoreMessage =
     score > 15
       ? "Excellent ! Tu es un vrai expert du football !"
@@ -112,7 +112,7 @@ export default function Quiz() {
             onClick={() => startGame("all")}
             className="rounded-xl border-2 border-secondary/50 bg-secondary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
           >
-            <span className="text-3xl">🌍</span>
+            <span className="text-3xl"></span>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">Toutes les catégories</h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">{questions.length} questions</p>
           </button>
@@ -157,7 +157,7 @@ export default function Quiz() {
             onChange={(e) => setTimerEnabled(e.target.checked)}
             className="accent-secondary"
           />
-          ⏱️ Timer (30s par question)
+          ⏱Timer (30s par question)
         </label>
       </div>
     );
@@ -219,7 +219,7 @@ export default function Quiz() {
           </span>
           {timerEnabled && (
             <span className={`font-mono ${timeLeft <= 10 ? "text-red-400" : ""}`}>
-              ⏱️ {timeLeft}s
+              ⏱{timeLeft}s
             </span>
           )}
         </span>
@@ -268,7 +268,7 @@ export default function Quiz() {
               : "bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300"
           }`}
         >
-          {selected === currentQuestion.correctIndex ? "✅ Bonne réponse ! " : "❌ Mauvaise réponse. "}
+          {selected === currentQuestion.correctIndex ? "Bonne réponse ! " : "❌ Mauvaise réponse. "}
           {currentQuestion.explanation}
         </div>
       )}

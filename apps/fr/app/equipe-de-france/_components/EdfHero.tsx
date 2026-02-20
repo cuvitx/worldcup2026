@@ -16,7 +16,7 @@ export function EdfHero({ winnerOdds, winPct }: { winnerOdds: string; winPct: nu
           {/* Left: Info */}
           <div className="flex-1 text-center md:text-left">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
-              <span>⭐⭐ Double championne du monde</span>
+              <span>Double championne du monde</span>
             </div>
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3">
               🇫🇷 Les Bleus à la conquête d&apos;une 3ᵉ étoile
@@ -47,16 +47,16 @@ export function EdfHero({ winnerOdds, winPct }: { winnerOdds: string; winPct: nu
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               <a href="#calendrier" className="rounded-lg bg-white text-primary px-5 py-2.5 font-bold text-sm hover:bg-primary/5 transition-all hover:-translate-y-0.5">
-                📅 Voir les matchs des Bleus
+                Voir les matchs des Bleus
               </a>
               <a href="#effectif" className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 font-semibold text-sm hover:bg-white/20 transition-all">
-                👥 Découvrir l&apos;effectif
+                Découvrir l&apos;effectif
               </a>
               <Link
                 href="/pronostic-vainqueur"
                 className="rounded-lg border border-secondary/40 bg-secondary/15 px-5 py-2.5 font-semibold text-secondary text-sm hover:bg-secondary/25 transition-all"
               >
-                🏆 Pronostic vainqueur
+                Pronostic vainqueur
               </Link>
             </div>
           </div>
@@ -66,7 +66,7 @@ export function EdfHero({ winnerOdds, winPct }: { winnerOdds: string; winPct: nu
             <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm p-6 text-center min-w-[200px]">
               <div className="text-7xl mb-3">🇫🇷</div>
               <p className="font-extrabold text-xl text-white mb-1">France</p>
-              <p className="text-secondary font-semibold text-sm mb-4">⭐⭐ Champion 1998 &amp; 2018</p>
+              <p className="text-secondary font-semibold text-sm mb-4">Champion 1998 &amp; 2018</p>
               <div className="space-y-2 text-sm text-gray-300">
                 <div className="flex justify-between gap-4">
                   <span>Confédération</span>

@@ -99,7 +99,7 @@ export default function H2HIndexPage() {
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Analyse comparative</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            ⚔️ Confrontations H2H
+            ⚔Confrontations H2H
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Comparez n&apos;importe quelles équipes de la Coupe du Monde 2026 :
@@ -119,7 +119,7 @@ export default function H2HIndexPage() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            🔥 Confrontations populaires
+            Confrontations populaires
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {popularData.map(
@@ -154,7 +154,7 @@ export default function H2HIndexPage() {
       <section className="border-t border-gray-200 bg-gray-50 py-10 dark:border-slate-700 dark:bg-slate-800/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            📅 Matchs de la phase de groupes
+            Matchs de la phase de groupes
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {groupMatchups.map(
@@ -189,7 +189,7 @@ export default function H2HIndexPage() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            🌍 Toutes les équipes
+            Toutes les équipes
           </h2>
           <p className="mb-4 text-sm text-gray-500 dark:text-gray-300">
             Cliquez sur une équipe pour voir toutes ses confrontations possibles.

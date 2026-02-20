@@ -157,7 +157,7 @@ export default async function ArticlePage({ params }: Props) {
           <aside className="hidden lg:block">
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                🎯 Pariez sur la CDM 2026
+                Pariez sur la CDM 2026
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 {cta?.name ?? "Bookmaker"} — Profitez des meilleures cotes sur tous les matchs de la Coupe du Monde.

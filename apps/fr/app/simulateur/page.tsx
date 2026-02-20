@@ -85,7 +85,7 @@ export default function SimulateurPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-secondary/15 border border-secondary/30 px-3 py-1 text-xs font-bold text-secondary mb-3">
-                🏆 Outil interactif
+                Outil interactif
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
                 Construisez votre bracket CDM 2026
@@ -98,8 +98,8 @@ export default function SimulateurPage() {
               {/* Quick stats */}
               <div className="flex items-center gap-4 mt-4">
                 {[
-                  { icon: "⚔️", text: "32 équipes" },
-                  { icon: "🎯", text: "16 matchs à prédire" },
+                  { icon: "⚔", text: "32 équipes" },
+                  { icon: "", text: "16 matchs à prédire" },
                   { icon: "💾", text: "Sauvegarde auto" },
                 ].map((item) => (
                   <span
@@ -140,7 +140,7 @@ export default function SimulateurPage() {
 
       <SocialProof />
 
-      <FAQSection title="❓ Questions sur le simulateur" items={faqItems} />
+      <FAQSection title="Questions sur le simulateur" items={faqItems} />
 
       {/* JSON-LD Breadcrumb */}
       <script

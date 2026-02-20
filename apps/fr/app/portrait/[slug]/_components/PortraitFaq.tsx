@@ -3,7 +3,7 @@ export function PortraitFaq({ faq }: { faq: { question: string; answer: string }
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          ❓ Questions fréquentes
+          Questions fréquentes
         </h2>
         <div className="space-y-4">
           {faq.map((f, i) => (

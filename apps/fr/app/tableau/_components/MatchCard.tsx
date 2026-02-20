@@ -17,7 +17,7 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
   if (!team) {
     return (
       <div className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 italic">
-        <span className="text-base">🏳️</span>
+        <span className="text-base">🏳</span>
         <span>{label ?? "À déterminer"}</span>
       </div>
     );

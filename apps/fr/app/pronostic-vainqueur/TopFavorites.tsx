@@ -33,7 +33,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <span>🥇</span> Top 10 des favoris CDM 2026
+            <span></span> Top 10 des favoris CDM 2026
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Classement par probabilité de victoire (modèle ELO + cotes bookmakers)</p>
         </div>
@@ -147,7 +147,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {args && (
                   <div className="grid sm:grid-cols-2 gap-0 border-t border-gray-100 dark:border-slate-700">
                     <div className="p-4 bg-success//10 dark:bg-success//10">
-                      <p className="text-xs font-bold text-success dark:text-success mb-2">✅ Points forts</p>
+                      <p className="text-xs font-bold text-success dark:text-success mb-2">Points forts</p>
                       <ul className="space-y-1">
                         {args.pros.slice(0, 3).map((pro, i) => (
                           <li key={i} className="text-xs text-gray-700 dark:text-gray-300">
@@ -157,7 +157,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                       </ul>
                     </div>
                     <div className="p-4 bg-red-50/50 dark:bg-red-900/10 border-t sm:border-t-0 sm:border-l border-gray-100 dark:border-slate-700">
-                      <p className="text-xs font-bold text-red-600 dark:text-red-400 mb-2">⚠️ Points faibles</p>
+                      <p className="text-xs font-bold text-red-600 dark:text-red-400 mb-2">Points faibles</p>
                       <ul className="space-y-1">
                         {args.cons.slice(0, 3).map((con, i) => (
                           <li key={i} className="text-xs text-gray-700 dark:text-gray-300">

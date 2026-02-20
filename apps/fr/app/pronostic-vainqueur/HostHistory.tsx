@@ -21,7 +21,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
   return (
     <section id="historique" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading emoji="🏠" title="Historique : qui a gagné à domicile ?" subtitle="Le pays hôte peut-il vraiment faire la différence ? Retour sur 22 éditions." />
+        <SectionHeading title="Historique : qui a gagné à domicile ?" subtitle="Le pays hôte peut-il vraiment faire la différence ? Retour sur 22 éditions." />
 
         {/* Stats globales */}
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
@@ -45,7 +45,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
         {/* Pays hôtes vainqueurs */}
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            🏆 Les 6 champions du monde à domicile
+            Les 6 champions du monde à domicile
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {cdmHomeStats.filter((s) => s.hostWon).map((s) => (
@@ -60,7 +60,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-300">{s.note}</p>
                 </div>
-                <span className="ml-auto text-secondary font-extrabold text-lg">🏆</span>
+                <span className="ml-auto text-secondary font-extrabold text-lg"></span>
               </div>
             ))}
           </div>
@@ -80,7 +80,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
                   <th className="text-left px-3 py-2">Hôte</th>
                   <th className="text-left px-3 py-2">Vainqueur</th>
                   <th className="text-left px-3 py-2 hidden sm:table-cell">Anecdote</th>
-                  <th className="text-center px-3 py-2">🏠</th>
+                  <th className="text-center px-3 py-2"></th>
                 </tr>
               </thead>
               <tbody>
@@ -99,7 +99,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
                       {s.host}
                     </td>
                     <td className={`px-3 py-2 font-semibold ${s.hostWon ? "text-secondary" : "text-gray-600 dark:text-gray-300"}`}>
-                      {s.winner} {s.hostWon ? "🏆" : ""}
+                      {s.winner} {s.hostWon ? "" : ""}
                     </td>
                     <td className="px-3 py-2 text-gray-600 dark:text-gray-300 hidden sm:table-cell">{s.note}</td>
                     <td className="px-3 py-2 text-center">

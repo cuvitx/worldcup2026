@@ -17,7 +17,7 @@ export function MethodologySection() {
           <div className="grid sm:grid-cols-3 gap-4 mb-4">
             {[
               {
-                icon: "📊",
+                icon: "",
                 title: "Modèle ELO",
                 desc: "Basé sur les résultats des 10 dernières années, pondérés par l'importance du match",
               },
@@ -27,7 +27,7 @@ export function MethodologySection() {
                 desc: "100 000 simulations du tournoi complet pour des probabilités robustes",
               },
               {
-                icon: "📈",
+                icon: "",
                 title: "Cotes marché",
                 desc: "Signal bookmaker intégré pour calibrer les probabilités aux conditions réelles",
               },

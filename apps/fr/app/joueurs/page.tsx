@@ -24,7 +24,7 @@ export default function PlayersPage() {
     },
     {
       question: "Qui sont les favoris pour le Ballon d'Or de la CDM 2026 ?",
-      answer: "Les principaux candidats au Ballon d'Or de la Coupe du Monde 2026 sont Kylian Mbappé (France, déjà Ballon d'Or 2022), Erling Haaland (Norvège), Vinícius Júnior (Brésil), Jude Bellingham (Angleterre) et Lamine Yamal (Espagne). Mbappé est le grand favori grâce à son statut de meilleur joueur du monde, ses 12 buts en CDM et la force de l'équipe de France. Le Ballon d'Or est attribué au meilleur joueur du tournoi, indépendamment du vainqueur final."
+      answer: "Les principaux candidats au Ballon d'Or de la Coupe du Monde 2026 sont Kylian Mbappé (France, déjà Ballon d'Or 2022), Erling Haaland (Norvège), Vinícius Júnior (Brésil), Jude Bellingham (Angleterre) et Lamine Yamal (Espagne). Mbappé est le grand favori grce à son statut de meilleur joueur du monde, ses 12 buts en CDM et la force de l'équipe de France. Le Ballon d'Or est attribué au meilleur joueur du tournoi, indépendamment du vainqueur final."
     },
     {
       question: "Quel joueur a marqué le plus de buts en sélection ?",
@@ -32,11 +32,11 @@ export default function PlayersPage() {
     },
     {
       question: "Quels sont les joueurs les plus chers de la CDM 2026 ?",
-      answer: "Les joueurs les plus chers en valeur marchande pour la CDM 2026 sont : Kylian Mbappé (France, ~180M€), Erling Haaland (Norvège, ~175M€), Vinícius Júnior (Brésil, ~150M€), Jude Bellingham (Angleterre, ~150M€) et Jamal Musiala (Allemagne, ~130M€). Ces valorisations reflètent l'âge, le talent, les performances récentes et le potentiel commercial. Mbappé reste le joueur le plus bankable du monde."
+      answer: "Les joueurs les plus chers en valeur marchande pour la CDM 2026 sont : Kylian Mbappé (France, ~180M€), Erling Haaland (Norvège, ~175M€), Vinícius Júnior (Brésil, ~150M€), Jude Bellingham (Angleterre, ~150M€) et Jamal Musiala (Allemagne, ~130M€). Ces valorisations reflètent l'ge, le talent, les performances récentes et le potentiel commercial. Mbappé reste le joueur le plus bankable du monde."
     },
     {
-      question: "Quel âge ont les joueurs de la CDM 2026 ?",
-      answer: "L'âge moyen des joueurs en Coupe du Monde tourne généralement autour de 27-28 ans, soit le pic de performance physique et technique. Les plus jeunes ont 18-19 ans (comme Lamine Yamal, Espagne), tandis que les plus expérimentés peuvent aller jusqu'à 37-40 ans (comme Cristiano Ronaldo, s'il se qualifie). La FIFA n'impose aucune limite d'âge pour la CDM senior, contrairement aux JO qui ont une règle des -23 ans."
+      question: "Quel ge ont les joueurs de la CDM 2026 ?",
+      answer: "L'ge moyen des joueurs en Coupe du Monde tourne généralement autour de 27-28 ans, soit le pic de performance physique et technique. Les plus jeunes ont 18-19 ans (comme Lamine Yamal, Espagne), tandis que les plus expérimentés peuvent aller jusqu'à 37-40 ans (comme Cristiano Ronaldo, s'il se qualifie). La FIFA n'impose aucune limite d'ge pour la CDM senior, contrairement aux JO qui ont une règle des -23 ans."
     },
     {
       question: "Combien de remplacements sont autorisés en Coupe du Monde ?",
@@ -159,7 +159,7 @@ export default function PlayersPage() {
         })}
       </div>
 
-      <FAQSection title="❓ Questions sur les joueurs de la CDM 2026" items={faqItems} />
+      <FAQSection title="Questions sur les joueurs de la CDM 2026" items={faqItems} />
     </>
   );
 }

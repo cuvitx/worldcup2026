@@ -70,7 +70,7 @@ export default function AnalyseTactiqueEspagne() {
 
           <h3>La jeunesse et l&apos;insouciance</h3>
           <p>
-            L&apos;âge moyen de cette Espagne est l&apos;un des plus bas du tournoi. Yamal aura 18 ans, Gavi 21 ans, Pedri 23 ans. Cette jeunesse apporte une énergie débordante, une absence de complexes et une faim de victoires. L&apos;Euro 2024 a montré que ces joueurs n&apos;ont peur de personne.
+            L&apos;ge moyen de cette Espagne est l&apos;un des plus bas du tournoi. Yamal aura 18 ans, Gavi 21 ans, Pedri 23 ans. Cette jeunesse apporte une énergie débordante, une absence de complexes et une faim de victoires. L&apos;Euro 2024 a montré que ces joueurs n&apos;ont peur de personne.
           </p>
 
           <h3>La maîtrise technique collective</h3>

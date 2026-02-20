@@ -87,7 +87,7 @@ export default function EquipeDeFrancePage() {
       <AnecdotesSection />
       <MatchPronosticLinks franceMatches={franceMatches} />
       <FAQSection 
-        title="❓ Questions fréquentes — Équipe de France CDM 2026"
+        title="Questions fréquentes — Équipe de France CDM 2026"
         items={faqItems} 
       />
       <Newsletter variant="banner" />

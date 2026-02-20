@@ -54,14 +54,14 @@ const totalGroups = groups.length;
 // Tendances / stats
 const TRENDS = [
   {
-    icon: "🏆",
+    icon: "",
     title: "Argentine favorite",
     desc: "15% de probabilité de titre — championne en titre",
     color: "from-blue-600/20 to-blue-800/10",
     border: "border-primary/20",
   },
   {
-    icon: "⚡",
+    icon: "",
     title: "France — Revanche 2022",
     desc: "Finaliste malheureux, 13% de chance de titre en 2026",
     color: "from-red-600/20 to-blue-800/10",
@@ -126,7 +126,7 @@ export default function PronosticHubPage() {
             CDM 2026 · Hub Pronostics
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-            🎯 Tous les{" "}
+            Tous les{" "}
             <span className="gradient-text">Pronostics CDM 2026</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-300/90 mb-6">
@@ -151,13 +151,13 @@ export default function PronosticHubPage() {
 
           <div className="flex flex-wrap justify-center gap-3 text-sm">
             <a href="#vainqueur" className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
-              🏆 Pronostic vainqueur
+              Pronostic vainqueur
             </a>
             <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">
               🗂️ Pronostics groupes
             </a>
             <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
-              ⚽ Pronostics matchs
+              Pronostics matchs
             </a>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function PronosticHubPage() {
       <section className="bg-white dark:bg-slate-900 py-10 border-b border-gray-100 dark:border-slate-700">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">
-            📈 Tendances & stats CDM 2026
+            Tendances & stats CDM 2026
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {TRENDS.map((trend) => (
@@ -190,7 +190,7 @@ export default function PronosticHubPage() {
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🏆 Pronostic Vainqueur CDM 2026
+                Pronostic Vainqueur CDM 2026
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Top 5 favoris selon notre modèle ELO
@@ -244,7 +244,7 @@ export default function PronosticHubPage() {
               href="/pronostic-vainqueur"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              🎯 Voir le pronostic vainqueur complet (Top 10 + dark horses)
+              Voir le pronostic vainqueur complet (Top 10 + dark horses)
             </Link>
           </div>
         </div>
@@ -336,7 +336,7 @@ export default function PronosticHubPage() {
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                ⚽ Pronostics des matchs clés
+                Pronostics des matchs clés
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Analyses détaillées des affiches les plus attendues
@@ -427,28 +427,28 @@ export default function PronosticHubPage() {
             {[
               {
                 href: "/pronostic-vainqueur",
-                icon: "🏆",
+                icon: "",
                 title: "Pronostic vainqueur",
                 desc: "Top 10 favoris avec cotes et dark horses",
                 gradient: "from-red-600 to-red-800",
               },
               {
                 href: "/comparateur-cotes",
-                icon: "📊",
+                icon: "",
                 title: "Comparateur de cotes",
                 desc: "Comparez Betclic, Winamax, Parions Sport...",
                 gradient: "from-emerald-600 to-emerald-800",
               },
               {
                 href: "/simulateur",
-                icon: "🎮",
+                icon: "",
                 title: "Simulateur bracket",
                 desc: "Construisez votre propre tableau de la CDM",
                 gradient: "from-blue-600 to-blue-800",
               },
               {
                 href: "/methodologie",
-                icon: "📐",
+                icon: "",
                 title: "Notre méthodologie",
                 desc: "ELO, Monte Carlo, calibration des cotes",
                 gradient: "from-purple-600 to-purple-800",

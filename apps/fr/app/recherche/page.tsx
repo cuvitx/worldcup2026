@@ -70,10 +70,10 @@ export default function RecherchePage() {
         {/* Stats bar */}
         <div className="flex flex-wrap gap-4 mb-8 text-center">
           {[
-            { emoji: "🌍", count: "48", label: "Équipes" },
-            { emoji: "⚽", count: "966", label: "Joueurs" },
-            { emoji: "📅", count: "104", label: "Matchs" },
-            { emoji: "🏟️", count: "16", label: "Stades" },
+            { emoji: "", count: "48", label: "Équipes" },
+            { emoji: "", count: "966", label: "Joueurs" },
+            { emoji: "", count: "104", label: "Matchs" },
+            { emoji: "", count: "16", label: "Stades" },
             { emoji: "🌆", count: "16", label: "Villes" },
           ].map((s) => (
             <div

@@ -60,7 +60,7 @@ export default function AnalyseTactiqueArgentine() {
 
           <h2>Le système Scaloni : pragmatisme et intensité</h2>
           <p>
-            Lionel Scaloni a bâti son succès sur un <strong>4-3-3 compact</strong> qui peut se muer en 4-4-2 en phase défensive. Le secret de cette Argentine n&apos;est pas dans un schéma rigide mais dans une mentalité : chaque joueur court pour l&apos;autre, chaque duel est disputé comme si c&apos;était le dernier.
+            Lionel Scaloni a bti son succès sur un <strong>4-3-3 compact</strong> qui peut se muer en 4-4-2 en phase défensive. Le secret de cette Argentine n&apos;est pas dans un schéma rigide mais dans une mentalité : chaque joueur court pour l&apos;autre, chaque duel est disputé comme si c&apos;était le dernier.
           </p>
           <p>
             Le pressing haut coordonné est la marque de fabrique de cette équipe. Dès la perte du ballon, les trois attaquants et le milieu exercent une pression immédiate, forçant l&apos;adversaire à jouer long. Cette agressivité sans ballon a été l&apos;arme principale lors du Mondial 2022 au Qatar.
@@ -85,7 +85,7 @@ export default function AnalyseTactiqueArgentine() {
 
           <h2>Les faiblesses et interrogations</h2>
 
-          <h3>L&apos;âge de Messi</h3>
+          <h3>L&apos;ge de Messi</h3>
           <p>
             C&apos;est la grande question : à 38 ans, après deux saisons en MLS à l&apos;Inter Miami, Messi a-t-il encore le physique pour un Mondial de six semaines ? Son génie est intact, sa vision du jeu n&apos;a pas d&apos;égale, mais le rythme des matchs à élimination directe est impitoyable. Scaloni devra gérer son temps de jeu avec une précision chirurgicale.
           </p>

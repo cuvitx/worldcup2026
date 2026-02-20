@@ -304,7 +304,7 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
                   <span className="text-sm font-medium truncate hidden sm:inline">
                     {homeTeam?.name ?? "TBD"}
                   </span>
-                  <span className="text-lg sm:text-xl">{homeTeam?.flag ?? "🏳️"}</span>
+                  <span className="text-lg sm:text-xl">{homeTeam?.flag ?? "🏳"}</span>
                 </div>
 
                 {/* Score inputs */}
@@ -334,7 +334,7 @@ export function GroupSimulator({ teams, matches: initialMatches, locale = "en" }
 
                 {/* Away team */}
                 <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                  <span className="text-lg sm:text-xl">{awayTeam?.flag ?? "🏳️"}</span>
+                  <span className="text-lg sm:text-xl">{awayTeam?.flag ?? "🏳"}</span>
                   <span className="text-sm font-medium truncate hidden sm:inline">
                     {awayTeam?.name ?? "TBD"}
                   </span>

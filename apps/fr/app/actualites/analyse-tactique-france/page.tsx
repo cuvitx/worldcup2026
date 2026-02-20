@@ -84,7 +84,7 @@ export default function AnalyseTactiqueFrance() {
 
           <h3>Un milieu de terrain complet</h3>
           <p>
-            Aurélien Tchouaméni s&apos;est imposé comme le patron du milieu de terrain. Sa capacité à couvrir le terrain, à récupérer des ballons et à relancer proprement fait de lui l&apos;un des meilleurs milieux défensifs du monde. À ses côtés, Eduardo Camavinga apporte sa puissance et sa verticalité, tandis qu&apos;un joueur comme Warren Zaïre-Emery peut apporter de la créativité.
+            Aurélien Tchouaméni s&apos;est imposé comme le patron du milieu de terrain. Sa capacité à couvrir le terrain, à récupérer des ballons et à relancer proprement fait de lui l&apos;un des meilleurs milieux défensifs du monde. À ses côtés, Eduardo Camavinga apporte sa puissance et sa verticalité, tandis qu&apos;un joueur comme Warren Zare-Emery peut apporter de la créativité.
           </p>
 
           <h3>L&apos;expérience des grands tournois</h3>
@@ -136,7 +136,7 @@ export default function AnalyseTactiqueFrance() {
 
           <h2>Verdict</h2>
           <p>
-            <strong>Note tactique : 8.5/10.</strong> L&apos;équipe de France est l&apos;une des favorites logiques de cette Coupe du Monde 2026. Son effectif est l&apos;un des plus complets au monde, son sélectionneur connaît les tournois comme personne, et son leader (Mbappé) est dans la force de l&apos;âge. Les doutes se concentrent sur la défense centrale et la capacité à surprendre tactiquement des adversaires qui connaissent désormais parfaitement le jeu des Bleus.
+            <strong>Note tactique : 8.5/10.</strong> L&apos;équipe de France est l&apos;une des favorites logiques de cette Coupe du Monde 2026. Son effectif est l&apos;un des plus complets au monde, son sélectionneur connaît les tournois comme personne, et son leader (Mbappé) est dans la force de l&apos;ge. Les doutes se concentrent sur la défense centrale et la capacité à surprendre tactiquement des adversaires qui connaissent désormais parfaitement le jeu des Bleus.
           </p>
         </article>
 

@@ -72,7 +72,7 @@ export default function BracketPage() {
         {/* Champion prediction */}
         {champion && teamsById[champion] && (
           <section className="rounded-xl border-2 border-yellow-400 dark:border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/30 p-6 text-center">
-            <p className="text-sm font-medium text-accent dark:text-accent uppercase tracking-wide mb-2">🏆 Champion prédit</p>
+            <p className="text-sm font-medium text-accent dark:text-accent uppercase tracking-wide mb-2">Champion prédit</p>
             <Link href={`/equipe/${teamsById[champion]!.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
               <span className="text-3xl sm:text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
               <span className="text-3xl font-extrabold text-gray-900 dark:text-white">{teamsById[champion]!.name}</span>
@@ -107,7 +107,7 @@ export default function BracketPage() {
         </section>
       </div>
 
-      <FAQSection title="❓ Questions sur le tableau final" items={faqItems} />
+      <FAQSection title="Questions sur le tableau final" items={faqItems} />
     </>
   );
 }

@@ -18,7 +18,7 @@ export default function Error({
             className="text-7xl select-none"
             style={{ animation: "ball-kick 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           >
-            ⚽
+            
           </span>
           <div
             className="w-12 h-2 rounded-full bg-black/10 dark:bg-black/30 blur-sm mt-1"

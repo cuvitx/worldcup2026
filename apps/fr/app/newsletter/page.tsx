@@ -44,7 +44,7 @@ const testimonials = [
     name: 'Marie L.',
     city: 'Lyon',
     text: 'Parfait pour suivre le programme de la semaine sans passer des heures sur Google.',
-    avatar: '👩‍🎓',
+    avatar: '👩‍',
   },
   {
     name: 'Kevin R.',
@@ -56,13 +56,13 @@ const testimonials = [
 
 const benefits = [
   {
-    icon: '📅',
+    icon: '',
     title: 'Programme de la semaine',
     desc: 'Tous les matchs à venir, horaires, stades, phases — en un seul mail, chaque lundi.',
     badge: null,
   },
   {
-    icon: '🔮',
+    icon: '',
     title: 'Pronostics exclusifs',
     desc: 'Nos analystes décryptent les matchs phares. Qui gagnera ? Quel score ? Quelle cote jouer ?',
     badge: 'Exclusif',
@@ -74,19 +74,19 @@ const benefits = [
     badge: null,
   },
   {
-    icon: '📊',
+    icon: '',
     title: 'Meilleures cotes',
     desc: 'Comparatif des cotes bookmakers sur les matchs de la semaine. Maximisez vos gains.',
     badge: 'Nouveau',
   },
   {
-    icon: '🌍',
+    icon: '',
     title: 'Stats & Analyses',
     desc: 'Données ELO, forme récente, confrontations directes — toute l\'intelligence pour parier.',
     badge: null,
   },
   {
-    icon: '🏆',
+    icon: '',
     title: 'Classements en temps réel',
     desc: 'Groupes, buteurs, meilleures équipes — le point complet sur l\'évolution du tournoi.',
     badge: null,
@@ -223,7 +223,7 @@ export default function NewsletterPage() {
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-gray-500 dark:text-gray-300">OBJET :</span>
                   <span className="text-xs font-semibold text-gray-900 dark:text-white">
-                    🏆 CDM 2026 · Semaine 3 : France-Argentine en 8e de finale !
+                    CDM 2026 · Semaine 3 : France-Argentine en 8e de finale !
                   </span>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function NewsletterPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wide">🔥 Match de la semaine</p>
+                  <p className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wide">Match de la semaine</p>
                   <div className="rounded-lg border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-slate-800 p-3">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
@@ -285,7 +285,7 @@ export default function NewsletterPage() {
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              ❤️ Ils nous font confiance
+              ❤Ils nous font confiance
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-300">Ils ont rejoint la communauté CDM 2026</p>
           </div>

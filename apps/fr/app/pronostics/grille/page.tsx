@@ -15,7 +15,7 @@ function teamName(id: string): string {
 }
 
 function teamFlag(id: string): string {
-  return teamsById[id]?.flag ?? "🏳️";
+  return teamsById[id]?.flag ?? "🏳";
 }
 
 export default function GrillePronosticsPage() {
@@ -56,7 +56,7 @@ export default function GrillePronosticsPage() {
   const filledCount = Object.values(pronostics).filter((p) => p.home !== "" && p.away !== "").length;
 
   const generateText = () => {
-    let text = "🏆 Mes pronostics CDM 2026\n\n";
+    let text = "Mes pronostics CDM 2026\n\n";
     for (const g of groups) {
       const gm = matchesByGroup.get(g.letter);
       if (!gm) continue;
@@ -114,7 +114,7 @@ export default function GrillePronosticsPage() {
 
       <section className="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">📝 Grille de pronostics</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Grille de pronostics</h1>
           <p className="mt-2 text-gray-300">
             Entrez vos scores pour les {groupMatches.length} matchs de groupes · {filledCount} remplis
           </p>
@@ -129,7 +129,7 @@ export default function GrillePronosticsPage() {
               onClick={handleShare}
               className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-5 py-2.5 text-sm font-semibold transition-colors backdrop-blur-sm"
             >
-              {copied ? "✅ Copié !" : "📤 Partager"}
+              {copied ? "Copié !" : "📤 Partager"}
             </button>
           </div>
         </div>

@@ -21,7 +21,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
     <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          🌍 Équipes du Groupe {groupLetter}
+          Équipes du Groupe {groupLetter}
         </h2>
       </div>
       <div className="overflow-x-auto">

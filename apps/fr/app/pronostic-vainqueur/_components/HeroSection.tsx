@@ -9,7 +9,7 @@ export function HeroSection() {
           CDM 2026 · Pronostic vainqueur
         </div>
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-          🏆 Argentine, France, Espagne :{" "}
+          Argentine, France, Espagne :{" "}
           <span className="gradient-text">qui décroche le titre ?</span>
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-gray-200 mb-6">
@@ -21,13 +21,13 @@ export function HeroSection() {
             href="#top10"
             className="rounded-full border border-white/20 bg-white/10 px-4 py-2 font-medium text-white hover:bg-white/20 transition-all"
           >
-            🔥 Top 10 des favoris
+            Top 10 des favoris
           </a>
           <a
             href="#analyse-top5"
             className="rounded-full border border-white/20 bg-white/10 px-4 py-2 font-medium text-white hover:bg-white/20 transition-all"
           >
-            💡 Pourquoi ils peuvent gagner
+            Pourquoi ils peuvent gagner
           </a>
           <a
             href="#cotes"
@@ -39,7 +39,7 @@ export function HeroSection() {
             href="#historique"
             className="rounded-full border border-white/20 bg-white/10 px-4 py-2 font-medium text-white hover:bg-white/20 transition-all"
           >
-            🏟️ Avantage domicile
+            Avantage domicile
           </a>
           <a
             href="#dark-horses"

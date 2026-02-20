@@ -71,7 +71,7 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
         {/* Special mention: hosts */}
         <div className="mt-6 rounded-xl border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10 p-5">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-2">
-            🏠 Les pays organisateurs : avantage terrain
+            Les pays organisateurs : avantage terrain
           </h3>
           <p className="text-sm text-accent dark:text-accent/80 leading-relaxed">
             États-Unis, Canada et Mexique jouent à domicile. Historiquement, le pays hôte

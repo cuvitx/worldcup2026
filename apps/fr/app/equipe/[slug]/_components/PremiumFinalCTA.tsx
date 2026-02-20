@@ -23,19 +23,19 @@ export function PremiumFinalCTA({ team }: PremiumFinalCTAProps) {
             href="/comparateur-cotes" 
             className="rounded-lg bg-white text-primary font-bold px-6 py-3 hover:bg-primary/5 transition-all hover:-translate-y-0.5"
           >
-            📊 Comparer les cotes
+            Comparer les cotes
           </Link>
           <Link 
             href={`/pronostic/${team.slug}`}
             className="rounded-lg border border-accent/40 bg-accent text-white font-bold px-6 py-3 hover:bg-accent/80 transition-all"
           >
-            🎯 Pronostic {team.name}
+            Pronostic {team.name}
           </Link>
           <Link 
             href="/pronostic-vainqueur" 
             className="rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 hover:bg-secondary/25 transition-all"
           >
-            🏆 Pronostic vainqueur
+            Pronostic vainqueur
           </Link>
         </div>
       </div>

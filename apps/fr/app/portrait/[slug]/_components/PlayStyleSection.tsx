@@ -3,7 +3,7 @@ export function PlayStyleSection({ styles }: { styles: string[] }) {
     <section className="py-12 md:py-16 bg-gray-50 dark:bg-deep">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          🎯 Style de jeu
+          Style de jeu
         </h2>
         <div className="space-y-4">
           {styles.map((style, i) => (

@@ -21,7 +21,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
     <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100 dark:border-slate-700">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-          🔮 Pronostic détaillé — Points & Buts attendus
+          Pronostic détaillé — Points & Buts attendus
         </h2>
         <p className="text-xs text-gray-400 dark:text-gray-400 mt-1">
           Classement prédit après 3 matchs de groupe · Modèle ELO + cotes bookmakers · Fév. 2026
@@ -44,7 +44,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
           <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
             {enrichedSorted.map((ep, idx) => {
               const team = teamsById[ep.teamId];
-              const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "4️⃣";
+              const medal = idx === 0 ? "1er" : idx === 1 ? "2e" : idx === 2 ? "3e" : "4e";
               const qualifyBg =
                 idx < 2
                   ? "bg-success//10 dark:bg-success//10/10"
@@ -89,9 +89,9 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                   </td>
                   <td className="px-4 py-3 text-center">
                     {idx < 2 ? (
-                      <span className="inline-block rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">✅ Qualifié</span>
+                      <span className="inline-block rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">Qualifié</span>
                     ) : idx === 2 ? (
-                      <span className="inline-block rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">⚠️ Meilleur 3e</span>
+                      <span className="inline-block rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">Meilleur 3e</span>
                     ) : (
                       <span className="inline-block rounded-full bg-red-100 dark:bg-red-900/20 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">❌ Éliminé</span>
                     )}

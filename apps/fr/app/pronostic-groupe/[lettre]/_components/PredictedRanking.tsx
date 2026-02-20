@@ -12,7 +12,7 @@ interface SortedTeam {
   id: string;
 }
 
-const RANK_LABEL = ["🥇 1er", "🥈 2e", "🥉 3e", "4e"];
+const RANK_LABEL = ["1er", "2e", "3e", "4e"];
 const RANK_COLOR = [
   "border-secondary bg-secondary/5 dark:bg-secondary/10",
   "border-gray-400 bg-gray-50 dark:bg-slate-800/40",
@@ -33,7 +33,7 @@ interface PredictedRankingProps {
 export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
   return (
     <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">🏆 Classement prédit</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Classement prédit</h2>
       <div className="space-y-3">
         {sortedTeams.map(({ team, pred }, idx) => {
           const qual = idx < 2;
@@ -44,10 +44,10 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
                 <span className="text-2xl" aria-label={team!.name}>{team!.flag}</span>
                 <Link href={`/equipe/${team!.slug}`} className="font-bold text-lg hover:text-primary transition-colors">{team!.name}</Link>
                 {qual && (
-                  <span className="ml-auto rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">✅ Qualifié</span>
+                  <span className="ml-auto rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">Qualifié</span>
                 )}
                 {idx === 2 && (
-                  <span className="ml-auto rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">⚠️ Meilleur 3e possible</span>
+                  <span className="ml-auto rounded-full bg-secondary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-secondary dark:text-secondary">Meilleur 3e possible</span>
                 )}
                 {idx === 3 && (
                   <span className="ml-auto rounded-full bg-red-100 dark:bg-red-900/30 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">❌ Éliminé</span>

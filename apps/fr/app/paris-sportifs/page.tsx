@@ -183,7 +183,7 @@ export default function ParisSportifsPage() {
         </section>
       </div>
 
-      <FAQSection title="❓ Questions sur les paris sportifs CDM 2026" items={faqItems} />
+      <FAQSection title="Questions sur les paris sportifs CDM 2026" items={faqItems} />
 </>
   );
 }

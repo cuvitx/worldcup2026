@@ -56,7 +56,7 @@ export default function ButeursPage() {
     },
     {
       question: "Qui va gagner le Soulier d'Or de la CDM 2026 ?",
-      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez les bookmakers (~6.00 sur Winamax) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
+      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez les bookmakers (~6.00 sur Winamax) grce à son jeune ge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
     },
     {
       question: "Quel est le record de buts sur une seule édition de la CDM ?",
@@ -117,7 +117,7 @@ export default function ButeursPage() {
             {historicalScorers.map((scorer, idx) => {
               const maxGoals = 16; // Klose
               const barPct = Math.round((scorer.goals / maxGoals) * 100);
-              const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : null;
+              const medal = idx === 0 ? "" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : null;
               const barColor =
                 idx === 0 ? "bg-gradient-to-r from-accent to-accent//70" :
                 idx === 1 ? "bg-gradient-to-r from-slate-400 to-gray-300" :
@@ -200,7 +200,7 @@ export default function ButeursPage() {
           <div className="divide-y divide-gray-100 dark:divide-slate-700">
             {topScorerCandidates.map((candidate, idx) => {
               const team = teamsById[candidate.teamId];
-              const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `${idx + 1}.`;
+              const medal = idx === 0 ? "" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `${idx + 1}.`;
               const podiumBg =
                 idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent//5 dark:from-secondary/10 dark:to-accent//5" :
                 idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50 dark:from-slate-800/80 dark:to-slate-800/40" :
@@ -457,15 +457,15 @@ export default function ButeursPage() {
 
         <RelatedContent
           items={[
-            { href: '/pronostic-vainqueur', emoji: '🏆', title: 'Pronostic vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
-            { href: '/groupes', emoji: '📊', title: 'Tous les groupes', description: 'Les 12 groupes et classements' },
+            { href: '/pronostic-vainqueur', emoji: '', title: 'Pronostic vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
+            { href: '/groupes', emoji: '', title: 'Tous les groupes', description: 'Les 12 groupes et classements' },
             { href: '/simulateur', emoji: '🎮', title: 'Simulateur de bracket', description: 'Créez votre bracket complet' },
-            { href: '/comparateur-cotes', emoji: '📈', title: 'Comparateur de cotes', description: 'Meilleures cotes bookmakers' },
+            { href: '/comparateur-cotes', emoji: '', title: 'Comparateur de cotes', description: 'Meilleures cotes bookmakers' },
           ]}
         />
       </div>
 
-      <FAQSection title="❓ Questions sur les buteurs de la CDM" items={faqItems} />
+      <FAQSection title="Questions sur les buteurs de la CDM" items={faqItems} />
 </>
   );
 }

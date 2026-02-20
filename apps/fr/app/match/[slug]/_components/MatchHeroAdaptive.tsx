@@ -136,9 +136,9 @@ export function MatchHeroAdaptive({
 
         {/* Match info */}
         <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300">
-          <span>📅 {dateFormatted}</span>
-          {stadium && <span>📍 {stadium.name}{stadium.city ? `, ${stadium.city}` : ""}</span>}
-          {stadium?.capacity && <span>🏟️ {stadium.capacity.toLocaleString("fr-FR")} places</span>}
+          <span>{dateFormatted}</span>
+          {stadium && <span>{stadium.name}{stadium.city ? `, ${stadium.city}` : ""}</span>}
+          {stadium?.capacity && <span>{stadium.capacity.toLocaleString("fr-FR")} places</span>}
         </div>
       </div>
     </section>

@@ -16,8 +16,8 @@ interface Counter {
 }
 
 const COUNTERS: Counter[] = [
-  { value: 48, label: 'équipes qualifiées', emoji: '🏆' },
-  { value: 104, label: 'matchs à pronostiquer', emoji: '🎯' },
+  { value: 48, label: 'équipes qualifiées', emoji: '' },
+  { value: 104, label: 'matchs à pronostiquer', emoji: '' },
   { value: 202, label: 'questions au quiz', emoji: '🧩' },
 ];
 

@@ -90,10 +90,10 @@ const SUGGESTIONS = [
   { label: "🇫🇷 France", query: "France" },
   { label: "🇧🇷 Brésil", query: "Brésil" },
   { label: "🇦🇷 Argentine", query: "Argentine" },
-  { label: "🏟️ MetLife", query: "MetLife" },
+  { label: "MetLife", query: "MetLife" },
   { label: "🌆 New York", query: "New York" },
-  { label: "⚽ Mbappe", query: "Mbappe" },
-  { label: "📅 Finale", query: "Finale" },
+  { label: "Mbappe", query: "Mbappe" },
+  { label: "Finale", query: "Finale" },
 ];
 
 // ─── Main component ───────────────────────────────────────────────────────────

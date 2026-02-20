@@ -17,7 +17,7 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
     <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          🔮 Pronostics des matchs — {team.name}
+          Pronostics des matchs — {team.name}
         </h2>
 
         <div className="grid sm:grid-cols-3 gap-4">
@@ -40,7 +40,7 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
                   {homeTeam?.name ?? match.homeTeamId} vs {awayTeam?.name ?? match.awayTeamId}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-300 text-center mt-1">
-                  📅 {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
+                  {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
                 </p>
                 <p className="text-xs text-primary text-center mt-2 font-medium group-hover:underline">
                   Voir le pronostic →

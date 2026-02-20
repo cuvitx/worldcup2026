@@ -71,7 +71,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   if (status === 'success') {
     return (
       <div className={`flex items-center gap-3 rounded-xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 ${compact ? 'p-3' : 'p-5'}`}>
-        <span className="text-2xl">✅</span>
+        <span className="text-2xl"></span>
         <div>
           <p className={`font-bold text-success dark:text-success ${compact ? 'text-sm' : 'text-base'}`}>
             Inscription confirmée !
@@ -116,7 +116,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
       {status === 'error' && (
         <p className="mt-2 text-xs text-red-600 dark:text-red-400">
-          ⚠️ {errorMsg || 'Veuillez entrer une adresse email valide.'}
+          {errorMsg || 'Veuillez entrer une adresse email valide.'}
         </p>
       )}
       {status === 'duplicate' && (

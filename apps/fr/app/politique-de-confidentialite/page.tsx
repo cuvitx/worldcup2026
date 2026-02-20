@@ -323,7 +323,7 @@ export default function PolitiqueConfidentialitePage() {
               .
             </p>
             <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm">
-              <strong>⚠️ Rappel :</strong> Les jeux d&apos;argent sont interdits aux personnes
+              <strong>Rappel :</strong> Les jeux d&apos;argent sont interdits aux personnes
               mineures. Appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
             </div>
           </section>

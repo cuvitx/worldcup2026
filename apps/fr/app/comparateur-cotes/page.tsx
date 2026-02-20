@@ -202,12 +202,12 @@ export default function ComparateurCotesPage() {
         </div>
 
         <div className="mt-16">
-          <FAQSection title="❓ Questions sur le comparateur de cotes" items={faqItems} />
+          <FAQSection title="Questions sur le comparateur de cotes" items={faqItems} />
         </div>
 
         {/* Disclaimer */}
         <div className="mt-8 p-4 bg-accent//10 dark:bg-accent//10 border border-accent//30 dark:border-accent//20 rounded-lg text-sm text-accent dark:text-accent">
-          <p className="font-semibold mb-1">⚠️ Avertissement</p>
+          <p className="font-semibold mb-1">Avertissement</p>
           <p>
             Cotes indicatives, susceptibles de varier. Les cotes affichées sont fournies à titre informatif et peuvent
             évoluer à tout moment. Consultez directement le site du bookmaker pour les cotes en temps réel.

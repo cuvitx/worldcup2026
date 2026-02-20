@@ -45,7 +45,7 @@ export default function MethodologiePage() {
         {/* ELO Rating System */}
         <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            📊 Le modèle ELO
+            Le modèle ELO
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Le système de classement ELO, initialement conçu pour les échecs par
@@ -181,27 +181,27 @@ export default function MethodologiePage() {
           <div className="grid gap-3 sm:grid-cols-2">
             {[
               {
-                icon: "📈",
+                icon: "",
                 title: "Rating ELO",
                 desc: "Force relative de chaque équipe basée sur l'historique des résultats",
               },
               {
-                icon: "⚔️",
+                icon: "⚔",
                 title: "Confrontations directes (H2H)",
                 desc: "Historique des résultats entre les deux équipes",
               },
               {
-                icon: "🏔️",
+                icon: "🏔",
                 title: "Altitude",
                 desc: "Impact de l'altitude du stade sur la performance (ex: Mexico à 2 240m)",
               },
               {
-                icon: "🌦️",
+                icon: "🌦",
                 title: "Météo",
                 desc: "Température, humidité et conditions météo le jour du match",
               },
               {
-                icon: "✈️",
+                icon: "✈",
                 title: "Fatigue voyage",
                 desc: "Distance parcourue, décalage horaire et temps de récupération",
               },
@@ -211,12 +211,12 @@ export default function MethodologiePage() {
                 desc: "Joueurs clés absents et impact sur la composition",
               },
               {
-                icon: "🔥",
+                icon: "",
                 title: "Forme récente",
                 desc: "Résultats des 5 derniers matchs et dynamique de l'équipe",
               },
               {
-                icon: "🏟️",
+                icon: "",
                 title: "Avantage domicile",
                 desc: "Bonus pour les pays hôtes (USA, Canada, Mexique)",
               },
@@ -238,7 +238,7 @@ export default function MethodologiePage() {
         {/* How predictions work */}
         <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            🎯 Comment sont calculées les probabilités
+            Comment sont calculées les probabilités
           </h2>
           <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
@@ -272,7 +272,7 @@ export default function MethodologiePage() {
         {/* Transparency */}
         <section className="rounded-lg border-2 border-secondary/30 bg-secondary/5 p-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            ⚠️ Transparence & limites
+            Transparence & limites
           </h2>
           <div className="space-y-3 text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>

@@ -118,7 +118,7 @@ function BouncingBall() {
         aria-label="Chargement"
         role="status"
       >
-        ⚽
+        
       </span>
       <div
         className="w-8 h-1.5 rounded-full bg-gray-300 dark:bg-slate-600"

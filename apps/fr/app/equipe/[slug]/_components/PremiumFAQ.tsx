@@ -68,7 +68,7 @@ export function PremiumFAQ({ team, prediction, winnerOdds }: PremiumFAQProps) {
     <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-4xl px-4">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          ❓ Questions fréquentes — {team.name} CDM 2026
+          Questions fréquentes — {team.name} CDM 2026
         </h2>
         <div className="space-y-3">
           {faqItems.map((item, i) => (

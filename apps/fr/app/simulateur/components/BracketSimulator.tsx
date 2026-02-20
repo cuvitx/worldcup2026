@@ -126,7 +126,7 @@ export function BracketSimulator() {
               border: "2px solid rgba(245,166,35,0.6)",
             }}
           >
-            <span className="text-3xl">🏆</span>
+            <span className="text-3xl"></span>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">
                 Votre champion CDM 2026
@@ -141,14 +141,14 @@ export function BracketSimulator() {
             </div>
             <ShareButtons
               url="https://www.cdm2026.fr/simulateur"
-              text={`Mon pronostic CDM 2026 : ${champion.flag} ${champion.name} champion du monde ! 🏆 #CDM2026 #WorldCup2026`}
+              text={`Mon pronostic CDM 2026 : ${champion.flag} ${champion.name} champion du monde ! #CDM2026 #WorldCup2026`}
               label="Partager mon bracket"
             />
           </div>
         </div>
       ) : (
         <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800 p-5 text-center">
-          <p className="text-2xl mb-2">🏆</p>
+          <p className="text-2xl mb-2"></p>
           <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">
             Sélectionnez les vainqueurs pour simuler le tournoi
           </p>

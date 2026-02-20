@@ -95,10 +95,10 @@ export default function ProfilPage() {
 
   const shareText = () => {
     const earned = ALL_BADGES.filter((b) => unlockedBadges.includes(b.id));
-    const teamPart = myTeam ? `\n⚽ Mon équipe : ${myTeam.flag} ${myTeam.name}` : "";
+    const teamPart = myTeam ? `\nMon équipe : ${myTeam.flag} ${myTeam.name}` : "";
     const text = earned.length
-      ? `🏅 Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\n🔥 Streak : ${stats.streak} jour(s)${teamPart}\n\nhttps://cdm2026.fr/profil`
-      : `Je n'ai pas encore de badges CDM 2026 ! 🏟️${teamPart}\nhttps://cdm2026.fr/profil`;
+      ? `Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\nStreak : ${stats.streak} jour(s)${teamPart}\n\nhttps://cdm2026.fr/profil`
+      : `Je n'ai pas encore de badges CDM 2026 ! ${teamPart}\nhttps://cdm2026.fr/profil`;
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
     } else {
@@ -117,13 +117,13 @@ export default function ProfilPage() {
         </ol>
       </nav>
 
-      <h1 className="mb-2 text-3xl font-bold dark:text-white">Mon CDM 2026 🏆</h1>
+      <h1 className="mb-2 text-3xl font-bold dark:text-white">Mon CDM 2026 </h1>
       <p className="mb-8 text-gray-500 dark:text-gray-300">Ton espace perso — sans compte, tout est local.</p>
 
       {/* ─── Onboarding / Team selector ─── */}
       {showOnboarding ? (
         <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">⚽ Quelle est ton équipe ?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Quelle est ton équipe ?</h2>
           <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">
             Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
           </p>
@@ -170,7 +170,7 @@ export default function ProfilPage() {
 
           {/* Upcoming matches */}
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">📅 Prochains matchs</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Prochains matchs</h3>
             <div className="space-y-2">
               {upcomingMatches.map((m, i) => (
                 <div
@@ -200,14 +200,14 @@ export default function ProfilPage() {
               href="/pronostic-vainqueur"
               className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
             >
-              <span className="text-2xl block mb-1">🔮</span>
+              <span className="text-2xl block mb-1"></span>
               <span className="text-sm font-medium dark:text-white">Mes pronostics</span>
             </Link>
             <Link
               href="/quiz/supporter"
               className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
             >
-              <span className="text-2xl block mb-1">🎯</span>
+              <span className="text-2xl block mb-1"></span>
               <span className="text-sm font-medium dark:text-white">Quiz supporter</span>
             </Link>
           </div>
@@ -223,7 +223,7 @@ export default function ProfilPage() {
 
       {/* Streak — big animated flame */}
       <div className="mb-8 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-6 py-5 text-white shadow-lg">
-        <span className="text-3xl animate-pulse drop-shadow-lg sm:text-5xl">🔥</span>
+        <span className="text-3xl animate-pulse drop-shadow-lg sm:text-5xl"></span>
         <div>
           <p className="text-sm font-medium text-white/95">Streak actuel</p>
           <p className="text-2xl font-extrabold tracking-tight sm:text-4xl">{stats.streak} jour{stats.streak !== 1 ? "s" : ""}</p>
@@ -234,7 +234,7 @@ export default function ProfilPage() {
       <div className="mb-10 grid grid-cols-3 gap-2 sm:gap-4">
         {[
           { label: "Pages visitées", value: stats.visitedPages.length, icon: "📄" },
-          { label: "Votes", value: stats.votes, icon: "🗳️" },
+          { label: "Votes", value: stats.votes, icon: "🗳" },
           { label: "Score quiz", value: stats.quizScore ? `${stats.quizScore}/20` : "—", icon: "🧠" },
         ].map((s) => (
           <div
@@ -276,7 +276,7 @@ export default function ProfilPage() {
               <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">{badge.description}</p>
               {unlocked && (
                 <span className="mt-2 inline-block rounded-full bg-field/10 px-2 py-0.5 text-xs text-field font-semibold dark:bg-field/20 dark:text-field">
-                  ✅ Débloqué
+                  Débloqué
                 </span>
               )}
             </div>

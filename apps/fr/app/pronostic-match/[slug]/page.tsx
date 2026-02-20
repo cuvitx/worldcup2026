@@ -121,7 +121,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
       <BreadcrumbNav homeName={homeName} awayName={awayName} />
       <MatchHero home={home} away={away} match={match} stadium={stadium} city={city} stage={stage} homeName={homeName} awayName={awayName} dateFormatted={dateFormatted} />
-      <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! 🏆 #CDM2026 #WorldCup2026`} />
+      <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
       <MatchTabsClient>
         <PredictionTab prediction={prediction} outcomes={outcomes} maxProb={maxProb} home={home} away={away} homeName={homeName} awayName={awayName} match={match} predHome={predHome} predAway={predAway} h2h={h2h} stage={stage} dateFormatted={dateFormatted} stadium={stadium} city={city} enriched={enriched} odds={odds} featuredBookmaker={featuredBookmaker} relatedMatches={relatedMatches} />
         <OddsTab odds={odds} homeName={homeName} awayName={awayName} bookmakers={bookmakers} featuredBookmaker={featuredBookmaker} matchSlug={match.slug} homeRanking={home?.fifaRanking ?? 50} awayRanking={away?.fifaRanking ?? 50} />

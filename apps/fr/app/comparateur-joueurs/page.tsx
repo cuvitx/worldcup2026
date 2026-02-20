@@ -58,7 +58,7 @@ export default function ComparateurJoueursPage() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Statistiques</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">⚽ Comparateur de Joueurs</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Comparateur de Joueurs</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Sélectionnez 2 ou 3 joueurs pour comparer leurs statistiques côte à côte.
           </p>

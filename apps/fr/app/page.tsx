@@ -124,9 +124,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-white/5">
             {[
-              { value: "48", label: "Équipes", icon: "🌍" },
-              { value: "104", label: "Matchs", icon: "⚽" },
-              { value: "16", label: "Stades", icon: "🏟️" },
+              { value: "48", label: "Équipes", icon: "" },
+              { value: "104", label: "Matchs", icon: "" },
+              { value: "16", label: "Stades", icon: "" },
               { value: "3", label: "Pays hôtes", icon: "🌎" },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col items-center py-5 px-2 text-center gap-0.5">
@@ -166,7 +166,7 @@ export default function HomePage() {
       <FavoriteTeams topTeams={topTeams} />
 
       {/* FAQ */}
-      <FAQSection title="❓ Questions fréquentes — CDM 2026" items={faqHomepageItems} />
+      <FAQSection title="Questions fréquentes — CDM 2026" items={faqHomepageItems} />
 
       {/* SOCIAL PROOF + NEWSLETTER */}
       <SocialProof />

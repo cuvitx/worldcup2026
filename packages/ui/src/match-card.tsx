@@ -28,8 +28,8 @@ type MatchStatus = "live" | "upcoming" | "finished";
  * @param scoreAway - Away team score (shown if live or finished)
  * @param minute - Current minute (shown if status is "live")
  * @param status - Match status: "live" | "upcoming" | "finished"
- * @param isHot - Display a 🔥 Hot badge
- * @param isTop - Display a ⭐ Top badge
+ * @param isHot - Display a Hot badge
+ * @param isTop - Display a Top badge
  * @param compact - Reduce padding for compact layouts
  */
 interface MatchCardProps {
@@ -160,8 +160,8 @@ export function MatchCard({
           )}
 
           {/* Badges hot / top */}
-          {!isLive && isHot && <span className="badge-hot">🔥 Hot</span>}
-          {!isLive && isTop && <span className="badge-top">⭐ Top</span>}
+          {!isLive && isHot && <span className="badge-hot">Hot</span>}
+          {!isLive && isTop && <span className="badge-top">Top</span>}
 
           {/* Date/heure */}
           {!isLive && (

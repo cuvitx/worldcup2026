@@ -19,14 +19,14 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
     <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          🏆 Pronostic {team.name} — Cotes &amp; Analyse
+          Pronostic {team.name} — Cotes &amp; Analyse
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Bookmaker odds */}
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              📊 Cotes vainqueur CDM 2026 — {team.name}
+              Cotes vainqueur CDM 2026 — {team.name}
             </h3>
             <div className="space-y-2">
               {bookmakers.map((bm) => {
@@ -64,7 +64,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
             {strengths.length > 0 && (
               <div className="rounded-xl border border-success/30 bg-success/10 p-5">
                 <h3 className="text-lg font-semibold text-success mb-3">
-                  ✅ Forces
+                  Forces
                 </h3>
                 <ul className="space-y-1.5">
                   {strengths.map((point, i) => (
@@ -80,7 +80,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
             {weaknesses.length > 0 && (
               <div className="rounded-xl border border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/15 p-5">
                 <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3">
-                  ⚠️ Points de vigilance
+                  Points de vigilance
                 </h3>
                 <ul className="space-y-1.5">
                   {weaknesses.map((point, i) => (

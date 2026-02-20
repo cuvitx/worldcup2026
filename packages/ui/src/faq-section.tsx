@@ -12,7 +12,7 @@ interface FAQItem {
 /**
  * Props for the FAQSection component.
  * 
- * @param title - Optional custom title (default: "❓ Questions fréquentes")
+ * @param title - Optional custom title (default: "Questions fréquentes")
  * @param items - Array of FAQ items with question/answer pairs
  */
 interface FAQSectionProps {
@@ -44,7 +44,7 @@ interface FAQSectionProps {
  * ```
  */
 export function FAQSection({ title, items }: FAQSectionProps) {
-  const defaultTitle = "❓ Questions fréquentes";
+  const defaultTitle = "Questions fréquentes";
 
   // JSON-LD Schema
   const faqSchema = {

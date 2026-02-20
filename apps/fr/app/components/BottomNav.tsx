@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Accueil", emoji: "🏠" },
-  { href: "/match/calendrier", label: "Matchs", emoji: "⚽" },
-  { href: "/pronostic-vainqueur", label: "Pronostics", emoji: "📊" },
-  { href: "/equipes", label: "Équipes", emoji: "🏆" },
-  { href: "/recherche", label: "Recherche", emoji: "🔍" },
+  { href: "/", label: "Accueil", emoji: "" },
+  { href: "/match/calendrier", label: "Matchs", emoji: "" },
+  { href: "/pronostic-vainqueur", label: "Pronostics", emoji: "" },
+  { href: "/equipes", label: "Équipes", emoji: "" },
+  { href: "/recherche", label: "Recherche", emoji: "" },
 ] as const;
 
 export function BottomNav() {

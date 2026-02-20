@@ -75,7 +75,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               {/* Country flag badge */}
               <span className="absolute top-2 right-2 text-xl z-10 drop-shadow-md">
-                {COUNTRY_FLAG[stadium.country] ?? "🏟️"}
+                {COUNTRY_FLAG[stadium.country] ?? ""}
               </span>
               {/* Capacity badge */}
               <span className="absolute bottom-2 left-2 text-[10px] font-bold bg-black/50 text-white px-2 py-0.5 rounded-full backdrop-blur-sm z-10">
@@ -89,7 +89,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
                 {stadium.name}
               </h3>
               <p className="text-[10px] text-gray-500 dark:text-gray-300 truncate">
-                📍 {stadium.city}
+                {stadium.city}
               </p>
             </div>
           </Link>

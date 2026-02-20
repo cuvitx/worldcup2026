@@ -33,7 +33,7 @@ const colorMap = {
  * <StatCard
  *   value={42}
  *   label="Buts marqués"
- *   icon="⚽"
+ *   icon=""
  *   color="accent"
  * />
  * ```
@@ -43,7 +43,7 @@ const colorMap = {
  * <StatCard
  *   value="75%"
  *   label="Taux de victoire"
- *   icon="🏆"
+ *   icon=""
  *   color="primary"
  * />
  * ```

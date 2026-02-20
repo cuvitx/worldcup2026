@@ -88,7 +88,7 @@ export default function QuizPage() {
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Testez vos connaissances</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            ⚽ Êtes-vous vraiment incollable sur la CDM 2026 ?
+            Êtes-vous vraiment incollable sur la CDM 2026 ?
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             200+ questions sur l&apos;histoire (1930-2022), les joueurs légendaires, les stades, les règles et les villes hôtes 2026.
@@ -101,7 +101,7 @@ export default function QuizPage() {
         <Quiz />
 
         <div className="mt-16">
-          <FAQSection title="❓ Questions sur le quiz" items={faqItems} />
+          <FAQSection title="Questions sur le quiz" items={faqItems} />
         </div>
       </main>
     </>

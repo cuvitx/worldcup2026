@@ -33,7 +33,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
             const winPct = pred ? Math.round(pred.winnerProb * 100) : null;
             const outrightOdds = favData ? favData.avgOdds.toFixed(2) : pred ? estimatedOutrightOdds(pred.winnerProb) : null;
             const trendIcon = favData?.trend === "up" ? " ↑" : favData?.trend === "down" ? " ↓" : null;
-            const medals = ["🥇", "🥈", "🥉"];
+            const medals = ["1er", "2e", "3e"];
 
             return (
               <Link

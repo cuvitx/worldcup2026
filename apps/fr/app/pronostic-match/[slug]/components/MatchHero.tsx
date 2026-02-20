@@ -31,7 +31,7 @@ export function MatchHero({
         {/* Stage badge */}
         <div className="flex justify-center mb-6 px-2">
           <span className="inline-flex flex-wrap items-center justify-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-widest text-secondary backdrop-blur-sm text-center max-w-full">
-            ⚽ {stage}
+            {stage}
             {match.group ? ` — Groupe ${match.group}` : ""}
             {match.matchday ? ` · Journée ${match.matchday}` : ""}
           </span>
@@ -115,12 +115,12 @@ export function MatchHero({
         {/* Match info bar */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-sm text-gray-400">
           <span className="flex items-center gap-1.5">
-            <span className="text-xs">📅</span>
+            <span className="text-xs"></span>
             {dateFormatted}
           </span>
           {stadium && (
             <span className="flex items-center gap-1.5">
-              <span className="text-xs">🏟️</span>
+              <span className="text-xs"></span>
               <Link
                 href={`/stade/${stadium.slug}`}
                 className="hover:text-white transition-colors"
@@ -139,7 +139,7 @@ export function MatchHero({
           )}
           {stadium && (
             <span className="flex items-center gap-1.5">
-              <span className="text-xs">👥</span>
+              <span className="text-xs"></span>
               {stadium.capacity.toLocaleString("fr-FR")} places
             </span>
           )}

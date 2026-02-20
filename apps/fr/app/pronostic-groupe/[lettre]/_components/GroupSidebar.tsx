@@ -16,7 +16,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">🔗 Liens utiles</h3>
         <div className="space-y-2">
           <Link href={`/groupe/${lettre}`} className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm font-medium transition-all hover:border-primary/30 hover:text-primary hover:bg-primary/5">
-            📊 Groupe {groupLetter} — statistiques
+            Groupe {groupLetter} — statistiques
           </Link>
           {sortedTeams.slice(0, 4).map(({ team }) => (
             team && (
@@ -49,7 +49,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
 
       {/* Pronostic vainqueur */}
       <div className="rounded-xl bg-primary/10 dark:bg-primary/20 border border-primary/20 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">🏆 Pronostic vainqueur CDM 2026</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Pronostic vainqueur CDM 2026</h3>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">Qui soulèvera le trophée ? Découvrez notre analyse complète.</p>
         <Link href="/pronostic-vainqueur" className="text-sm font-semibold text-primary hover:underline">Voir le pronostic vainqueur →</Link>
       </div>

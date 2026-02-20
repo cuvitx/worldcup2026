@@ -12,7 +12,7 @@ export function OddsTable() {
     <section id="cotes" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          📊 Cotes vainqueur CDM 2026 — Multi-bookmakers
+          Cotes vainqueur CDM 2026 — Multi-bookmakers
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">
           Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700 dark:text-gray-200">février 2026</span>.
@@ -143,7 +143,7 @@ export function OddsTable() {
                 <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
                   Voir →
                 </span>
-                <p className="text-[10px] text-gray-500 mt-1">{"⭐".repeat(bm.rating)}</p>
+                <p className="text-[10px] text-gray-500 mt-1">{"".repeat(bm.rating)}</p>
               </div>
             </a>
           ))}

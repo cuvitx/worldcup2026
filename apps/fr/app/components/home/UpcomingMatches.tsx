@@ -99,7 +99,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                   {stadium && (
                     <div className="px-4 pb-4 mt-auto">
                       <div className="flex items-center gap-1.5 rounded-xl bg-gray-50 dark:bg-slate-800/60 px-3 py-2">
-                        <span className="text-sm">🏟️</span>
+                        <span className="text-sm"></span>
                         <div className="min-w-0">
                           <p className="text-[10px] font-bold text-gray-700 dark:text-gray-300 truncate">
                             {stadium.name}

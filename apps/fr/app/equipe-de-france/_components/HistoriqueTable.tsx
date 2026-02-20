@@ -47,10 +47,10 @@ export function HistoriqueTable() {
                         ? "text-gray-400 dark:text-gray-400"
                         : "text-gray-700 dark:text-gray-300"
                     }`}>
-                      {edition.flag !== "—" && edition.flag !== "⭐⭐" && (
+                      {edition.flag !== "—" && edition.flag !== "" && (
                         <span className="mr-1">{edition.flag}</span>
                       )}
-                      {edition.flag === "⭐⭐" && <span className="mr-1 text-secondary">⭐⭐</span>}
+                      {edition.flag === "" && <span className="mr-1 text-secondary"></span>}
                       {edition.result}
                     </span>
                   </td>

@@ -88,7 +88,7 @@ export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavPro
           pathname.startsWith("/match") ? "text-accent" : "text-white/80"
         }`}
       >
-        📅 Calendrier
+        Calendrier
       </Link>
       <Link
         href="/live"

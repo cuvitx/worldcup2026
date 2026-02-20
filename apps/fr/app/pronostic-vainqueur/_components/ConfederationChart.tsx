@@ -57,7 +57,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          emoji="📊"
+         
           title="Chances de titre par confédération"
           subtitle="Barres proportionnelles aux probabilités — colorées par confédération"
         />

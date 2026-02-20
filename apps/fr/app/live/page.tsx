@@ -213,12 +213,12 @@ export default function LivePage() {
                 <div className="absolute left-[2.35rem] top-2 bottom-2 w-0.5 bg-gray-200 dark:bg-gray-600" />
                 <div className="space-y-0">
                 {[
-                  { minute: "12'", icon: "⚽", text: "H. Lozano (Mexique)", side: "home" },
+                  { minute: "12'", icon: "", text: "H. Lozano (Mexique)", side: "home" },
                   { minute: "34'", icon: "🟨", text: "S. Xulu (Afrique du Sud)", side: "away" },
-                  { minute: "41'", icon: "⚽", text: "P. Tau (Afrique du Sud)", side: "away" },
-                  { minute: "45'", icon: "⏱️", text: "Mi-temps : 1 - 1", side: "center" },
+                  { minute: "41'", icon: "", text: "P. Tau (Afrique du Sud)", side: "away" },
+                  { minute: "45'", icon: "⏱", text: "Mi-temps : 1 - 1", side: "center" },
                   { minute: "58'", icon: "🔄", text: "E. Álvarez ↔ C. Rodríguez (Mexique)", side: "home" },
-                  { minute: "63'", icon: "⚽", text: "R. Jiménez (Mexique)", side: "home" },
+                  { minute: "63'", icon: "", text: "R. Jiménez (Mexique)", side: "home" },
                 ].map((evt, i) => (
                   <div
                     key={i}
@@ -242,7 +242,7 @@ export default function LivePage() {
             {/* Demo badge */}
             <div className="border-t border-dashed border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 px-6 py-3 text-center">
               <span className="text-xs text-gray-500 font-medium">
-                ⚠️ Exemple fictif — Les vrais scores seront disponibles le 11 juin 2026
+                Exemple fictif — Les vrais scores seront disponibles le 11 juin 2026
               </span>
             </div>
           </div>

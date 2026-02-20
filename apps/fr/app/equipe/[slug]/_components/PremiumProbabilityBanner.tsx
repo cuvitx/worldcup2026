@@ -22,7 +22,7 @@ export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbab
             { label: "Quarts", value: prediction.quarterFinalProb },
             { label: "Demi-finales", value: prediction.semiFinalProb },
             { label: "Finale", value: prediction.finalProb },
-            { label: "Vainqueur 🏆", value: prediction.winnerProb },
+            { label: "Vainqueur ", value: prediction.winnerProb },
           ].map((item) => (
             <span
               key={item.label}

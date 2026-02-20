@@ -20,7 +20,7 @@ export function RelatedContent({ items, title = 'Vous pourriez aussi aimer' }: R
   return (
     <section className="mt-12 border-t border-gray-200 dark:border-gray-700/60 pt-10">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-        💡 {title}
+        {title}
       </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {items.slice(0, 4).map((item) => (

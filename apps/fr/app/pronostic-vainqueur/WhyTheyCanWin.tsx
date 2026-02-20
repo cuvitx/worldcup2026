@@ -28,7 +28,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
   return (
     <section id="analyse-top5" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading emoji="🔍" title="Pourquoi ils peuvent gagner — Analyse top 5" subtitle="Décryptage en profondeur des 5 équipes les plus probables de soulever le trophée" />
+        <SectionHeading title="Pourquoi ils peuvent gagner — Analyse top 5" subtitle="Décryptage en profondeur des 5 équipes les plus probables de soulever le trophée" />
 
         <div className="space-y-6">
           {top10.slice(0, 5).map(({ team, pred }, index) => {
@@ -70,7 +70,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                   {/* Narrative */}
                   <div className="md:col-span-2">
                     <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wide">
-                      📝 Notre analyse
+                      Notre analyse
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                       {analysis.narrative}
@@ -81,7 +81,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                   <div className="space-y-3">
                     <div className="rounded-xl bg-secondary/5 dark:bg-secondary/10 border border-secondary/10 dark:border-secondary/20 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-wide text-secondary dark:text-secondary mb-1">
-                        ⭐ Joueur clé
+                        Joueur clé
                       </p>
                       <p className="text-sm font-bold text-gray-900 dark:text-white">{analysis.keyPlayer}</p>
                       <p className="text-xs text-gray-600 dark:text-gray-300 mt-0.5">{analysis.keyPlayerDesc}</p>
@@ -94,7 +94,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                     </div>
                     <div className="rounded-xl bg-secondary/5 border border-secondary/20 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-wide text-secondary mb-1">
-                        ✨ Facteur X
+                        Facteur X
                       </p>
                       <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.xFactor}</p>
                     </div>

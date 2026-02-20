@@ -14,7 +14,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
 
   return (
     <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">📅 Calendrier du Groupe {groupLetter}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Calendrier du Groupe {groupLetter}</h2>
       <div className="space-y-2">
         {groupMatches.map((match) => {
           const home = teamsById[match.homeTeamId];

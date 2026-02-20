@@ -76,7 +76,7 @@ export default function PortraitVinicius() {
 
           <h2>Madrid : la métamorphose</h2>
           <p>
-            Les premières saisons au Real sont difficiles. On le critique pour son manque d&apos;efficacité, sa prise de décision, ses dribbles en trop. Les sifflets du Bernabéu sont impitoyables. Mais Vinicius ne lâche rien. Match après match, saison après saison, il transforme ses faiblesses en forces.
+            Les premières saisons au Real sont difficiles. On le critique pour son manque d&apos;efficacité, sa prise de décision, ses dribbles en trop. Les sifflets du Bernabéu sont impitoyables. Mais Vinicius ne lche rien. Match après match, saison après saison, il transforme ses faiblesses en forces.
           </p>
           <p>
             La finale de la Ligue des Champions 2022 contre Liverpool est son moment de bascule. Un but, le seul du match, qui offre la coupe au Real Madrid. Ce soir-là, le gamin de São Gonçalo devient un homme. Et un joueur de classe mondiale.
@@ -92,7 +92,7 @@ export default function PortraitVinicius() {
 
           <h2>Le Ballon d&apos;Or : la reconnaissance ultime</h2>
           <p>
-            En 2025, après une saison hallucinante couronnée par un deuxième titre en Ligue des Champions et 30 buts toutes compétitions, Vinicius remporte le Ballon d&apos;Or. L&apos;émotion est immense. Sur la scène du Théâtre du Châtelet à Paris, les larmes coulent. Le gamin qui jouait pieds nus dans les rues de São Gonçalo tient dans ses mains le trophée le plus prestigieux du football.
+            En 2025, après une saison hallucinante couronnée par un deuxième titre en Ligue des Champions et 30 buts toutes compétitions, Vinicius remporte le Ballon d&apos;Or. L&apos;émotion est immense. Sur la scène du Thétre du Chtelet à Paris, les larmes coulent. Le gamin qui jouait pieds nus dans les rues de São Gonçalo tient dans ses mains le trophée le plus prestigieux du football.
           </p>
 
           <h2>CDM 2026 : la quête du Graal</h2>

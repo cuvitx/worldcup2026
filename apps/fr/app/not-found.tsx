@@ -11,7 +11,7 @@ export default function NotFound() {
             className="text-7xl select-none"
             style={{ animation: "ball-kick 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           >
-            ⚽
+            
           </span>
           {/* Ombre portée qui pulse */}
           <div
@@ -66,14 +66,14 @@ export default function NotFound() {
           href="/"
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
-          <span className="text-2xl">🏠</span>
+          <span className="text-2xl"></span>
           Accueil
         </Link>
         <Link
           href="/groupes"
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
-          <span className="text-2xl">🏆</span>
+          <span className="text-2xl"></span>
           Groupes
         </Link>
         <Link
@@ -87,7 +87,7 @@ export default function NotFound() {
           href="/calendrier"
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
-          <span className="text-2xl">📅</span>
+          <span className="text-2xl"></span>
           Calendrier
         </Link>
       </div>

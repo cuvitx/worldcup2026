@@ -16,7 +16,7 @@ export function MatchCalendar({ franceMatches }: MatchCalendarProps) {
     <section id="calendrier" className="bg-gray-50 dark:bg-slate-900/50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          📅 Calendrier des matchs de la France
+          Calendrier des matchs de la France
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
           Groupe I · CDM 2026 · Heure UTC
@@ -85,7 +85,7 @@ export function MatchCalendar({ franceMatches }: MatchCalendarProps) {
                       )}
                       {stadium && (
                         <span className="text-xs text-gray-500 dark:text-gray-300">
-                          🏟️ {stadium.name}
+                          {stadium.name}
                         </span>
                       )}
                       <span className="text-xs text-gray-400 dark:text-gray-400 sm:hidden">

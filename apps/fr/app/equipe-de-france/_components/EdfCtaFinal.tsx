@@ -15,13 +15,13 @@ export function EdfCtaFinal() {
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link href="/comparateur-cotes" className="rounded-lg bg-white text-primary font-bold px-6 py-3 hover:bg-primary/5 transition-all hover:-translate-y-0.5">
-            📊 Comparer les cotes
+            Comparer les cotes
           </Link>
           <Link href="/pronostic-vainqueur" className="rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 hover:bg-secondary/25 transition-all">
-            🏆 Pronostic vainqueur
+            Pronostic vainqueur
           </Link>
           <Link href="/billets" className="rounded-lg border border-white/20 bg-white/10 text-white font-semibold px-6 py-3 hover:bg-white/20 transition-all">
-            🎟️ Billets CDM 2026
+            Billets CDM 2026
           </Link>
         </div>
       </div>

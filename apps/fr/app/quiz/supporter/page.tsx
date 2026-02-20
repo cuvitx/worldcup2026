@@ -26,7 +26,7 @@ const TEAM_INFO: Record<string, { flag: string; name: string; desc: string }> = 
   espagne: { flag: "🇪🇸", name: "Espagne", desc: "La Roja, le tiki-taka ! Possession, technique, élégance. Tu apprécies le football comme un art collectif." },
   angleterre: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", name: "Angleterre", desc: "Les Three Lions, la patrie du football ! Intensité, passion et Premier League DNA. Tu aimes le football à 100 à l'heure." },
   portugal: { flag: "🇵🇹", name: "Portugal", desc: "A Seleção, le talent pur ! Ronaldo, flair et technique individuelle. Tu crois aux exploits personnels qui changent un match." },
-  japon: { flag: "🇯🇵", name: "Japon", desc: "Les Samouraïs Bleus, la surprise asiatique ! Discipline, vitesse et esprit collectif. Tu supportes l'outsider qui fait tomber les géants." },
+  japon: { flag: "🇯🇵", name: "Japon", desc: "Les Samouras Bleus, la surprise asiatique ! Discipline, vitesse et esprit collectif. Tu supportes l'outsider qui fait tomber les géants." },
   maroc: { flag: "🇲🇦", name: "Maroc", desc: "Les Lions de l'Atlas, héros de 2022 ! Défense de fer, fierté et histoire en marche. Tu aimes les épopées et les destins de conte de fées." },
   "etats-unis": { flag: "🇺🇸", name: "États-Unis", desc: "Team USA, co-hôte de 2026 ! Énergie, athlétisme et une nouvelle génération dorée. Tu crois au rêve américain version football." },
   mexique: { flag: "🇲🇽", name: "Mexique", desc: "El Tri, co-hôte passionné ! Ambiance de folie, technique et fierté latino. Tu veux vivre la CDM depuis les tribunes du stade Azteca." },
@@ -38,7 +38,7 @@ const TEAM_INFO: Record<string, { flag: string; name: string; desc: string }> = 
 const questions: QuizQuestion[] = [
   {
     question: "Tu préfères le jeu offensif ou défensif ?",
-    emoji: "⚽",
+    emoji: "",
     options: [
       { label: "Offensif à fond !", points: { bresil: 3, france: 2, espagne: 2, angleterre: 1 } },
       { label: "Défense solide d'abord", points: { maroc: 3, allemagne: 2, portugal: 1 } },
@@ -58,7 +58,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Quel continent t'attire le plus ?",
-    emoji: "🌍",
+    emoji: "",
     options: [
       { label: "Europe", points: { france: 2, espagne: 2, allemagne: 2, angleterre: 2, portugal: 2 } },
       { label: "Amérique du Sud", points: { bresil: 3, argentine: 3 } },
@@ -68,7 +68,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Tu supportes plutôt le favori ou l'outsider ?",
-    emoji: "🎯",
+    emoji: "",
     options: [
       { label: "Le favori, je veux gagner !", points: { france: 2, bresil: 2, argentine: 2, angleterre: 1 } },
       { label: "L'outsider, j'aime les surprises", points: { japon: 3, maroc: 3, senegal: 2, mexique: 2 } },
@@ -87,7 +87,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Un match parfait pour toi, c'est...",
-    emoji: "🏟️",
+    emoji: "",
     options: [
       { label: "Un 4-3 de folie", points: { bresil: 3, angleterre: 2, france: 2 } },
       { label: "Un 1-0 de guerrier", points: { maroc: 3, portugal: 2, allemagne: 1 } },
@@ -97,7 +97,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "La CDM 2026 se joue aux USA/Canada/Mexique. Ça te donne envie de...",
-    emoji: "✈️",
+    emoji: "✈",
     options: [
       { label: "Voir les matchs à New York !", points: { "etats-unis": 3, angleterre: 1 } },
       { label: "Vivre l'ambiance à Mexico", points: { mexique: 3, argentine: 1 } },
@@ -107,7 +107,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Ce qui compte le plus dans une équipe...",
-    emoji: "💪",
+    emoji: "",
     options: [
       { label: "Les stars individuelles", points: { portugal: 3, bresil: 2, france: 2 } },
       { label: "L'esprit collectif", points: { japon: 3, maroc: 2, allemagne: 2 } },
@@ -119,7 +119,7 @@ const questions: QuizQuestion[] = [
     question: "Si tu pouvais revivre un moment de CDM, ce serait...",
     emoji: "⏪",
     options: [
-      { label: "France 2018, la deuxième étoile ⭐⭐", points: { france: 4 } },
+      { label: "France 2018, la deuxième étoile ", points: { france: 4 } },
       { label: "Maroc 2022, le rêve africain", points: { maroc: 4, senegal: 1 } },
       { label: "Argentine 2022, la finale du siècle", points: { argentine: 4 } },
       { label: "Japon 2022, battre l'Allemagne et l'Espagne", points: { japon: 4, "etats-unis": 1 } },
@@ -127,11 +127,11 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Dernière question : choisis un emoji !",
-    emoji: "🎉",
+    emoji: "",
     options: [
       { label: "🐓 Le coq", points: { france: 3 } },
       { label: "🦁 Le lion", points: { maroc: 2, senegal: 2, angleterre: 2 } },
-      { label: "⭐ L'étoile", points: { bresil: 2, argentine: 2, allemagne: 1 } },
+      { label: "L'étoile", points: { bresil: 2, argentine: 2, allemagne: 1 } },
       { label: "🌸 La fleur de cerisier", points: { japon: 3, portugal: 1 } },
     ],
   },
@@ -203,7 +203,7 @@ export default function QuizSupporterPage() {
       </nav>
 
       <h1 className="mb-2 text-3xl font-extrabold dark:text-white">
-        🏆 Quel pays vas-tu supporter ?
+        Quel pays vas-tu supporter ?
       </h1>
       <p className="mb-8 text-gray-500 dark:text-gray-300">
         Réponds à {questions.length} questions et découvre ton équipe idéale pour la CDM 2026 !
@@ -288,7 +288,7 @@ export default function QuizSupporterPage() {
                   return (
                     <div key={slug} className="text-center">
                       <div className={`text-3xl ${i === 0 ? "text-4xl" : ""}`}>
-                        {i === 0 ? "🥇" : i === 1 ? "🥈" : "🥉"}
+                        {i === 0 ? "" : i === 1 ? "🥈" : "🥉"}
                       </div>
                       <div className="text-2xl">{t.flag}</div>
                       <div className="text-xs font-medium text-gray-500 dark:text-gray-300">{t.name}</div>

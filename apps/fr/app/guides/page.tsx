@@ -33,10 +33,10 @@ const guidesJsonLd = {
 };
 
 const categoryEmojis: Record<string, string> = {
-  cdm2026: "🏆",
+  cdm2026: "",
   stratégie: "🧠",
   bookmaker: "📚",
-  debutant: "🎓",
+  debutant: "",
 };
 
 export default function GuidesPage() {
@@ -115,7 +115,7 @@ export default function GuidesPage() {
         {/* Bookmaker reviews */}
         <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-            <span className="text-2xl">⭐</span> Avis bookmakers
+            <span className="text-2xl"></span> Avis bookmakers
           </h2>
           <p className="mb-4 text-sm text-gray-500 dark:text-gray-300">
             Tests et avis détaillés des meilleurs bookmakers agréés en France.

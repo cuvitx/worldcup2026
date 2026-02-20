@@ -9,7 +9,7 @@ export function CtaSection() {
             href="/comparateur-cotes"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-md"
           >
-            📊 Comparer toutes les cotes
+            Comparer toutes les cotes
           </Link>
           <Link
             href="/equipe-de-france"
@@ -21,7 +21,7 @@ export function CtaSection() {
             href="/simulateur"
             className="inline-flex items-center gap-2 rounded-lg border border-secondary/30 bg-secondary/10 px-6 py-3 font-semibold text-secondary hover:bg-secondary/20 transition-all"
           >
-            🏆 Simulateur de bracket
+            Simulateur de bracket
           </Link>
         </div>
       </div>

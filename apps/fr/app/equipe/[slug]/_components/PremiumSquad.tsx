@@ -28,7 +28,7 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
     <section id="effectif" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          👥 Effectif probable — {players.length} joueurs
+          Effectif probable — {players.length} joueurs
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
           Sélection probable pour {teamName} à la CDM 2026. Mis à jour en février 2026.

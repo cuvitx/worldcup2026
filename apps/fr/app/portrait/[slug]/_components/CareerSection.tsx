@@ -5,7 +5,7 @@ export function CareerSection({ career }: { career: PlayerData["career"] }) {
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          ⚽ Parcours en club
+          Parcours en club
         </h2>
         <div className="space-y-4">
           {career.map((c, i) => (

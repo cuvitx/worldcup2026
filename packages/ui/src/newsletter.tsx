@@ -73,9 +73,9 @@ const t = {
     placeholder: "tu@email.com",
     button: "Suscribirse",
     bannerButton: "Suscribirse →",
-    success: "¡Inscripción exitosa!",
+    success: "Inscripción exitosa!",
     successDetail: "Recibirás nuestros pronósticos cada semana.",
-    duplicate: "¡Ya estás inscrito!",
+    duplicate: "Ya estás inscrito!",
     error: "Email inválido.",
     apiError: "Ocurrió un error. Inténtalo más tarde.",
     free: "Gratis",
@@ -202,7 +202,7 @@ export function Newsletter({
     }
     return (
       <div className={`rounded-2xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 p-5 flex items-center gap-4 ${className}`}>
-        <span className="text-3xl shrink-0">✅</span>
+        <span className="text-3xl shrink-0"></span>
         <div>
           <p className="font-bold text-success dark:text-success">{l.success}</p>
           <p className="text-sm text-success dark:text-success//80 mt-0.5">{l.successDetail}</p>
@@ -293,7 +293,7 @@ export function Newsletter({
             <h2 className="text-xl font-bold text-white mb-2">{l.bannerTitle}</h2>
             <p className="text-sm text-gray-300 leading-relaxed">{l.bannerSubtitle}</p>
             <div className="mt-3 flex flex-wrap gap-3 justify-center md:justify-start">
-              {[`✅ ${l.free}`, `🚫 ${l.noSpam}`, `📅 ${l.weekly}`].map((tag) => (
+              {[`${l.free}`, `🚫 ${l.noSpam}`, `${l.weekly}`].map((tag) => (
                 <span key={tag} className="text-xs text-gray-400 bg-white/5 border border-white/10 rounded-full px-3 py-1">
                   {tag}
                 </span>
@@ -326,7 +326,7 @@ export function Newsletter({
               </button>
             </form>
             {status === "error" && (
-              <p className="mt-2 text-xs text-red-400">⚠️ {errorMsg === "api" ? l.apiError : l.error}</p>
+              <p className="mt-2 text-xs text-red-400">{errorMsg === "api" ? l.apiError : l.error}</p>
             )}
             {status === "duplicate" && (
               <p className="mt-2 text-xs text-accent">📬 {l.duplicate}</p>

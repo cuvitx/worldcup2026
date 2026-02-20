@@ -117,7 +117,7 @@ export default function CalendrierPage() {
               download="cdm2026.ics"
               className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/20 transition-colors"
             >
-              📅 Calendrier
+              Calendrier
             </a>
             <a
               href="/calendrier/imprimer"
@@ -140,7 +140,7 @@ export default function CalendrierPage() {
       <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            ❓ Questions fréquentes — Calendrier CDM 2026
+            Questions fréquentes — Calendrier CDM 2026
           </h2>
           <div className="space-y-3">
             {faqCalendrierItems.map((item, i) => (

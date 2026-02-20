@@ -168,7 +168,7 @@ export default function ActualitesPage() {
       </div>
       </div>
 
-      <FAQSection title="❓ Questions fréquentes sur la CDM 2026" items={faqItems} />
+      <FAQSection title="Questions fréquentes sur la CDM 2026" items={faqItems} />
 </div>
   );
 }

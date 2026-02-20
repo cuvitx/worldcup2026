@@ -68,7 +68,7 @@ export default function PortraitBellingham() {
 
           <h2>Stourbridge : les racines d&apos;un champion</h2>
           <p>
-            Jude Victor William Bellingham naît le 29 juin 2003 à Stourbridge, dans les West Midlands anglais. Fils d&apos;un ancien joueur semi-professionnel, il grandit avec un ballon aux pieds et une détermination qui dépasse son âge. À 16 ans, il débute en Championship avec Birmingham City. À 16 ans et 38 jours, il devient le plus jeune joueur à marquer pour le club. Le phénomène est lancé.
+            Jude Victor William Bellingham naît le 29 juin 2003 à Stourbridge, dans les West Midlands anglais. Fils d&apos;un ancien joueur semi-professionnel, il grandit avec un ballon aux pieds et une détermination qui dépasse son ge. À 16 ans, il débute en Championship avec Birmingham City. À 16 ans et 38 jours, il devient le plus jeune joueur à marquer pour le club. Le phénomène est lancé.
           </p>
 
           <h2>Dortmund : l&apos;apprentissage allemand</h2>

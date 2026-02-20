@@ -75,7 +75,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
               </p>
               {team.isHost && (
                 <span className="inline-block mt-1 text-[10px] font-bold text-secondary bg-secondary/10 px-1.5 py-0.5 rounded">
-                  🏟️ Pays hôte
+                  Pays hôte
                 </span>
               )}
             </div>

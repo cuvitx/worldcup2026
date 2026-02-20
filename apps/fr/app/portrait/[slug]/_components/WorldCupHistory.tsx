@@ -5,7 +5,7 @@ export function WorldCupHistory({ history }: { history: PlayerData["worldCupHist
     <section className="py-12 md:py-16 bg-gray-50 dark:bg-deep">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          🏆 Historique en Coupe du Monde
+          Historique en Coupe du Monde
         </h2>
         {history.length > 0 ? (
           <div className="grid gap-4 md:grid-cols-2">

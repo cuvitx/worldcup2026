@@ -161,7 +161,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
           <div className="flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 border border-secondary/40">
-              🎯
+              
             </span>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-secondary">
@@ -212,7 +212,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
         {/* Rationale */}
         <p className="text-sm text-gray-300/80 leading-relaxed mb-5 italic">
-          💡 {display.rationale}
+          {display.rationale}
         </p>
 
         {/* CTAs */}

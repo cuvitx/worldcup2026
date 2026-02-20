@@ -27,7 +27,7 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
             {/* Badge pill */}
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md text-xs font-semibold uppercase tracking-widest">
               <span>{team.confederation}</span>
-              {team.isHost && <span>🏠 Pays hôte</span>}
+              {team.isHost && <span>Pays hôte</span>}
             </div>
             
             {/* Title with flag */}
@@ -67,19 +67,19 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
                 href="#calendrier" 
                 className="rounded-lg bg-accent text-white px-5 py-2.5 font-bold text-sm hover:bg-accent/80 transition-all hover:-translate-y-0.5"
               >
-                📅 Voir les matchs
+                Voir les matchs
               </a>
               <a 
                 href="#effectif" 
                 className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 font-semibold text-sm hover:bg-white/20 transition-all backdrop-blur-sm"
               >
-                👥 Découvrir l&apos;effectif
+                Découvrir l&apos;effectif
               </a>
               <Link
                 href="/pronostic-vainqueur"
                 className="rounded-lg border border-secondary/40 bg-secondary/15 px-5 py-2.5 font-semibold text-secondary text-sm hover:bg-secondary/25 transition-all"
               >
-                🏆 Pronostic vainqueur
+                Pronostic vainqueur
               </Link>
             </div>
           </div>

@@ -15,8 +15,8 @@ const colors = [
 
 const stats = [
   { label: "Équipes", value: "48", icon: "🏴" },
-  { label: "Matchs", value: "104", icon: "⚽" },
-  { label: "Stades", value: "16", icon: "🏟️" },
+  { label: "Matchs", value: "104", icon: "" },
+  { label: "Stades", value: "16", icon: "" },
   { label: "Villes", value: "16", icon: "🌆" },
   { label: "Joueurs", value: "966", icon: "👤" },
   { label: "Pages", value: "3073+", icon: "📄" },
@@ -101,7 +101,7 @@ function AdminContent() {
 
         {/* Stats */}
         <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">📊 Stats du projet</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Stats du projet</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {stats.map((s) => (
               <div key={s.label} className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 text-center">
@@ -134,7 +134,7 @@ function AdminContent() {
 
         {/* Checklist */}
         <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">✅ Checklist pré-lancement</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Checklist pré-lancement</h2>
           <ul className="space-y-2">
             {checklist.map((item) => (
               <li key={item.task} className="flex items-center gap-3">

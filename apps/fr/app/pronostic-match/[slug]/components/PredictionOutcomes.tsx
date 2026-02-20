@@ -48,7 +48,7 @@ export function PredictionOutcomes({
               >
                 {isHighlighted && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-white shadow-sm whitespace-nowrap">
-                    ⭐ Favori
+                    Favori
                   </span>
                 )}
 

@@ -12,13 +12,13 @@ export function PronosticSection({ prediction }: PronosticSectionProps) {
     <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          🏆 Pronostic France — Cotes & Analyse
+          Pronostic France — Cotes & Analyse
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              📊 Cotes vainqueur CDM 2026 — France
+              Cotes vainqueur CDM 2026 — France
             </h3>
             <div className="space-y-2">
               {bookmakers.map((bm) => {
@@ -52,7 +52,7 @@ export function PronosticSection({ prediction }: PronosticSectionProps) {
           <div className="space-y-4">
             <div className="rounded-xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 p-5">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-success dark:text-success mb-3">
-                ✅ Forces des Bleus
+                Forces des Bleus
               </h3>
               <ul className="space-y-1.5">
                 {[
@@ -73,7 +73,7 @@ export function PronosticSection({ prediction }: PronosticSectionProps) {
 
             <div className="rounded-xl border border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/15 p-5">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-red-700 dark:text-red-400 mb-3">
-                ⚠️ Points de vigilance
+                Points de vigilance
               </h3>
               <ul className="space-y-1.5">
                 {[

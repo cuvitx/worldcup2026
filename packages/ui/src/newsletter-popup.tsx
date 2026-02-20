@@ -135,7 +135,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
 
         {status === "success" ? (
           <div className="text-center py-4">
-            <span className="text-5xl block mb-3">✅</span>
+            <span className="text-5xl block mb-3"></span>
             <p className="text-lg font-bold text-gray-900 dark:text-white">Inscription confirmée !</p>
             <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
               À très bientôt dans votre boîte mail.
@@ -144,7 +144,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
         ) : (
           <>
             <div className="text-center mb-5">
-              <span className="text-4xl block mb-2">⚽📬</span>
+              <span className="text-4xl block mb-2">📬</span>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-black">
                 Ne manquez rien de la CDM 2026
               </h3>
@@ -175,7 +175,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
 
             {status === "error" && (
               <p className="mt-2 text-center text-xs text-red-500">
-                ⚠️ Veuillez entrer un email valide ou réessayer.
+                Veuillez entrer un email valide ou réessayer.
               </p>
             )}
 

@@ -28,15 +28,15 @@ interface WeatherWidgetProps {
  * Weather condition to emoji mapping.
  */
 const conditionIcons: Record<string, string> = {
-  Clear: "☀️",
-  Clouds: "☁️",
-  Rain: "🌧️",
-  Drizzle: "🌦️",
-  Thunderstorm: "⛈️",
-  Snow: "❄️",
-  Mist: "🌫️",
-  Fog: "🌫️",
-  Haze: "🌫️",
+  Clear: "☀",
+  Clouds: "☁",
+  Rain: "🌧",
+  Drizzle: "🌦",
+  Thunderstorm: "⛈",
+  Snow: "❄",
+  Mist: "🌫",
+  Fog: "🌫",
+  Haze: "🌫",
 };
 
 /**
@@ -57,7 +57,7 @@ const conditionIcons: Record<string, string> = {
  */
 export function WeatherWidget({ temperature, condition, humidity, windSpeed, locale }: WeatherWidgetProps) {
   const t = translations[locale ?? "fr"];
-  const icon = conditionIcons[condition] ?? "🌤️";
+  const icon = conditionIcons[condition] ?? "🌤";
 
   return (
     <div className="rounded-lg bg-gradient-to-br from-blue-50 to-sky-50 dark:from-slate-800 dark:to-slate-700 p-4">

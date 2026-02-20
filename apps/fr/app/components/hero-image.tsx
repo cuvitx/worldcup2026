@@ -10,7 +10,7 @@ interface HeroImageProps {
   fallbackEmoji?: string;
 }
 
-export function HeroImage({ src, alt, overlayContent, fallbackEmoji = "🏙️" }: HeroImageProps) {
+export function HeroImage({ src, alt, overlayContent, fallbackEmoji = "" }: HeroImageProps) {
   const [hasError, setHasError] = useState(false);
 
   if (hasError) {

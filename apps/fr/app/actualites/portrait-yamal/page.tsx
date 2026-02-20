@@ -92,7 +92,7 @@ export default function PortraitYamal() {
 
           <h2>Barcelone : le nouveau roi du Camp Nou</h2>
           <p>
-            Au Barça, Yamal est devenu le joueur le plus important de l&apos;équipe. Ses statistiques défient l&apos;entendement pour un joueur de son âge : plus de 15 buts et 20 passes décisives en Liga à seulement 18 ans. Son entente avec Pedri et Raphinha forme l&apos;un des trios offensifs les plus excitants d&apos;Europe.
+            Au Barça, Yamal est devenu le joueur le plus important de l&apos;équipe. Ses statistiques défient l&apos;entendement pour un joueur de son ge : plus de 15 buts et 20 passes décisives en Liga à seulement 18 ans. Son entente avec Pedri et Raphinha forme l&apos;un des trios offensifs les plus excitants d&apos;Europe.
           </p>
           <p>
             Les supporters du Camp Nou l&apos;ont adopté comme le successeur naturel de Messi. Même pied gauche, même numéro 10 (qu&apos;il portera bientôt ?), même capacité à faire lever 90 000 personnes de leur siège.

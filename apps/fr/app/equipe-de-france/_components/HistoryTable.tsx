@@ -4,23 +4,23 @@ const wcHistory = [
   { year: 1938, result: "Quart de finale", flag: "🟢", note: "Battue par l'Italie (future championne)" },
   { year: 1950, result: "Phase de groupes", flag: "🔴", note: "Retrait lors du tournoi" },
   { year: 1954, result: "Quart de finale", flag: "🟢", note: "Battue par l'Allemagne" },
-  { year: 1958, result: "3e place 🥉", flag: "🏅", note: "Just Fontaine : record 13 buts en 1 CDM" },
+  { year: 1958, result: "3e place", flag: "🟢", note: "Just Fontaine : record 13 buts en 1 CDM" },
   { year: 1962, result: "Phase de groupes", flag: "🔴", note: "" },
   { year: 1966, result: "Phase de groupes", flag: "🔴", note: "" },
   { year: 1970, result: "Non qualifiée", flag: "—", note: "" },
   { year: 1974, result: "Phase de groupes", flag: "🔴", note: "" },
   { year: 1978, result: "Phase de groupes", flag: "🔴", note: "" },
   { year: 1982, result: "4e place", flag: "🟡", note: "Tragédie de Séville — Schumacher/Battiston" },
-  { year: 1986, result: "3e place 🥉", flag: "🏅", note: "Platini au sommet, battue par l'Allemagne" },
+  { year: 1986, result: "3e place", flag: "🟢", note: "Platini au sommet, battue par l'Allemagne" },
   { year: 1990, result: "Non qualifiée", flag: "—", note: "" },
   { year: 1994, result: "Non qualifiée", flag: "—", note: "Défaite contre la Bulgarie (Kostadinov)" },
-  { year: 1998, result: "🏆 CHAMPIONNE", flag: "⭐⭐", note: "Zidane ×2, 3-0 vs Brésil en finale. À domicile !" },
+  { year: 1998, result: "CHAMPIONNE", flag: "", note: "Zidane ×2, 3-0 vs Brésil en finale. À domicile !" },
   { year: 2002, result: "Phase de groupes", flag: "🔴", note: "Tenant sortant éliminé sans marquer" },
-  { year: 2006, result: "Finaliste 🥈", flag: "🥈", note: "Zidane coup de tête sur Materazzi, bat. aux tirs au but" },
+  { year: 2006, result: "Finaliste", flag: "🟡", note: "Zidane coup de tête sur Materazzi, bat. aux tirs au but" },
   { year: 2010, result: "Phase de groupes", flag: "🔴", note: "Grève historique des joueurs" },
   { year: 2014, result: "Quart de finale", flag: "🟢", note: "Battue par l'Allemagne (1-0)" },
-  { year: 2018, result: "🏆 CHAMPIONNE", flag: "⭐⭐", note: "4-2 vs Croatie en finale. 2e étoile !" },
-  { year: 2022, result: "Finaliste 🥈", flag: "🥈", note: "Mbappé ×3 en finale, but bat. aux t.a.b. vs Argentine" },
+  { year: 2018, result: "CHAMPIONNE", flag: "", note: "4-2 vs Croatie en finale. 2e étoile !" },
+  { year: 2022, result: "Finaliste", flag: "🟡", note: "Mbappé ×3 en finale, but bat. aux t.a.b. vs Argentine" },
 ];
 
 export function HistoryTable() {
@@ -70,10 +70,10 @@ export function HistoryTable() {
                         ? "text-gray-400 dark:text-gray-400"
                         : "text-gray-700 dark:text-gray-300"
                     }`}>
-                      {edition.flag !== "—" && edition.flag !== "⭐⭐" && (
+                      {edition.flag !== "—" && edition.flag !== "" && (
                         <span className="mr-1">{edition.flag}</span>
                       )}
-                      {edition.flag === "⭐⭐" && <span className="mr-1 text-secondary">⭐⭐</span>}
+                      {edition.flag === "" && <span className="mr-1 text-secondary"></span>}
                       {edition.result}
                     </span>
                   </td>
