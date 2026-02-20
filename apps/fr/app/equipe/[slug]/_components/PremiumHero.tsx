@@ -25,7 +25,7 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
         <div className="absolute inset-0" style={{ background: flagGradient }} />
       )}
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-[#0D3B66]/80" />
+      <div className="absolute inset-0 bg-[#0D3B66]/60" />
       
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8">
