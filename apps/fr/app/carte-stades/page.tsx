@@ -92,28 +92,17 @@ export default function CarteStadesPage() {
       </nav>
 
       {/* Hero */}
-      <section className="hero-animated text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-3xl mb-1">
+      <section className="hero-animated text-white py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Infrastructures</span>
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
             🗺️ Carte des Stades — CDM 2026
           </h1>
-          <p className="text-gray-300 text-sm sm:text-base">
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Les 16 stades de la Coupe du Monde 2026 aux États-Unis, au Canada et au Mexique.
           </p>
-          <div className="flex gap-4 mt-4 text-sm">
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-secondary border-2 border-secondary" />
-              11 aux États-Unis
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-field border-2 border-field" />
-              3 au Mexique
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-primary border-2 border-primary/20" />
-              2 au Canada
-            </span>
-          </div>
         </div>
       </section>
 

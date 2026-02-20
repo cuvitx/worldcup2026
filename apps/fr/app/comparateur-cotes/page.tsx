@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { FAQSection } from "@repo/ui/faq-section";
 import { mockOdds, allGroups, type MatchOdds } from "./mock-odds";
 
 function getBestOdds(match: MatchOdds) {
@@ -20,6 +21,33 @@ export default function ComparateurCotesPage() {
   const filtered = selectedGroup === "all"
     ? mockOdds
     : mockOdds.filter((m) => m.group === selectedGroup);
+
+  const faqItems = [
+    {
+      question: "Comment lire les cotes d'un bookmaker ?",
+      answer: "Les cotes représentent la probabilité d'un événement et le gain potentiel. Par exemple, une cote à 2.00 signifie que si vous pariez 10€ et gagnez, vous récupérez 20€ (10€ de mise + 10€ de gain). Plus la cote est élevée, moins l'événement est probable mais plus le gain est important. Une cote à 1.50 indique un favori (66% de chances implicites), tandis qu'une cote à 5.00 indique un outsider (20% de chances implicites)."
+    },
+    {
+      question: "Quel bookmaker propose les meilleures cotes pour la CDM 2026 ?",
+      answer: "Les bookmakers avec les meilleures cotes pour la Coupe du Monde 2026 varient selon les matchs et les marchés. En général, Winamax et Betclic proposent des cotes très compétitives sur les grands matchs. ParionsSport (FDJ) a également amélioré ses cotes ces dernières années. Notre comparateur met en surbrillance en vert la meilleure cote pour chaque issue (victoire domicile, match nul, victoire extérieur), ce qui vous permet de maximiser vos gains potentiels."
+    },
+    {
+      question: "Les cotes affichées sont-elles en temps réel ?",
+      answer: "Les cotes affichées sur notre comparateur sont mises à jour régulièrement mais ne sont pas en temps réel absolu. Elles sont indicatives et peuvent varier légèrement au moment où vous placez votre pari. Pour obtenir les cotes exactes et actualisées, cliquez sur le bouton 'Parier' qui vous redirige directement vers le site du bookmaker concerné. Les cotes évoluent en fonction des volumes de paris, des blessures et des nouvelles sportives."
+    },
+    {
+      question: "Qu'est-ce qu'un pari 1N2 ?",
+      answer: "Le pari 1N2 est le type de pari le plus simple et le plus populaire en football. '1' représente la victoire de l'équipe à domicile, 'N' (Nul) représente le match nul après 90 minutes de jeu, et '2' représente la victoire de l'équipe à l'extérieur. Par exemple, pour France vs Brésil : 1 = victoire de la France, N = match nul, 2 = victoire du Brésil. En phase à élimination directe de la CDM, il n'y a pas de match nul définitif (prolongations et tirs au but si besoin)."
+    },
+    {
+      question: "Comment maximiser mes gains avec le comparateur de cotes ?",
+      answer: "Pour maximiser vos gains : 1) Comparez systématiquement les cotes de tous les bookmakers avant de parier, 2) Ciblez les cotes surlignées en vert (meilleures du marché), 3) Ouvrez des comptes sur plusieurs bookmakers pour pouvoir choisir la meilleure cote à chaque fois, 4) Profitez des bonus de bienvenue pour augmenter votre capital de départ, 5) Ne pariez jamais plus que ce que vous pouvez perdre et fixez-vous des limites de dépôt. 18+."
+    },
+    {
+      question: "Peut-on parier sur tous les matchs de la phase de groupes ?",
+      answer: "Oui, tous les bookmakers français proposent des paris sur l'intégralité des 72 matchs de la phase de groupes de la CDM 2026. Notre comparateur couvre tous les matchs groupe par groupe (A à L). Vous pouvez filtrer par groupe pour trouver rapidement les matchs qui vous intéressent. En plus du pari 1N2, des dizaines d'autres marchés sont disponibles : score exact, buteur, nombre de buts, handicap, mi-temps/fin, corners, cartons, etc."
+    }
+  ];
 
   return (
     <>
@@ -50,14 +78,22 @@ export default function ComparateurCotesPage() {
         </div>
       </nav>
 
+      <section className="hero-animated text-white py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Paris sportifs</span>
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
+            Comparateur de cotes – Coupe du Monde 2026
+          </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de groupes du Mondial 2026.
+            Trouvez la meilleure cote pour chaque rencontre.
+          </p>
+        </div>
+      </section>
+
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
-          Comparateur de cotes – Coupe du Monde 2026
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-3xl">
-          Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de groupes du Mondial 2026.
-          Trouvez la meilleure cote pour chaque rencontre.
-        </p>
 
         {/* Group filter */}
         <div className="flex flex-wrap gap-2 mb-8">
@@ -163,6 +199,10 @@ export default function ComparateurCotesPage() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-16">
+          <FAQSection title="❓ Questions sur le comparateur de cotes" items={faqItems} />
         </div>
 
         {/* Disclaimer */}

@@ -7,7 +7,10 @@ import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
+import { playersByTeamId } from "@repo/data/players";
+import { predictionsByTeamId } from "@repo/data/predictions";
 import { ANJBanner } from "@repo/ui/anj-banner";
+import type { Player } from "@repo/data/types";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -46,6 +49,39 @@ export default async function GroupPage({ params }: PageProps) {
 
   const groupTeams = group.teams.map((id) => teamsById[id]).filter((t): t is NonNullable<typeof t> => t != null);
   const groupMatches = matchesByGroup[group.letter] ?? [];
+
+  // Récupérer les joueurs vedettes du groupe (top 3-5 joueurs)
+  const allGroupPlayers: Player[] = [];
+  for (const team of groupTeams) {
+    const teamPlayers = playersByTeamId[team.id] ?? [];
+    allGroupPlayers.push(...teamPlayers);
+  }
+
+  // Trier les joueurs par popularité/impact (goals + caps comme heuristique)
+  const topPlayers = allGroupPlayers
+    .filter((p) => p.position !== "GK") // Exclure les gardiens pour plus de spectacle
+    .sort((a, b) => {
+      const scoreA = a.goals * 2 + a.caps / 10;
+      const scoreB = b.goals * 2 + b.caps / 10;
+      return scoreB - scoreA;
+    })
+    .slice(0, 5);
+
+  // Récupérer les prédictions pour les équipes du groupe
+  const teamPredictionsData = groupTeams.map((team) => ({
+    team,
+    prediction: predictionsByTeamId[team.id],
+  })).filter((item) => item.prediction != null);
+
+  // Trier les équipes par probabilité de qualification
+  const sortedByQualification = [...teamPredictionsData].sort(
+    (a, b) => (b.prediction?.groupStageProb ?? 0) - (a.prediction?.groupStageProb ?? 0)
+  );
+
+  // Générer un texte d'analyse enrichi basé sur les équipes du groupe
+  const rankedTeams = [...groupTeams].sort((a, b) => a.fifaRanking - b.fifaRanking);
+  const favorite = rankedTeams[0];
+  const outsider = rankedTeams[rankedTeams.length - 1];
 
   return (
     <>
@@ -119,10 +155,10 @@ export default async function GroupPage({ params }: PageProps) {
               </div>
             </section>
 
-            {/* Group Analysis */}
+            {/* Group Analysis - Enriched */}
             <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Analyse du Groupe {group.letter}</h2>
-              <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300">
+              <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300 space-y-4">
                 <p>
                   Le Groupe {group.letter} de la Coupe du Monde 2026 reunit{" "}
                   {groupTeams.map((t, i) => (
@@ -131,22 +167,197 @@ export default async function GroupPage({ params }: PageProps) {
                       <Link href={`/equipe/${t.slug}`} className="text-primary hover:underline font-medium">
                         {t.name}
                       </Link>
-                      {" "}({t.confederation}, #{t.fifaRanking})
+                      {" "}({t.confederation}, #{t.fifaRanking} FIFA)
                     </span>
                   ))}.
                 </p>
+
+                {/* Forces en présence */}
+                <div className="mt-4 p-4 bg-gray-50 dark:bg-slate-900/50 rounded-lg border border-gray-200 dark:border-slate-700">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">⚡ Forces en présence</h3>
+                  <p>
+                    <strong className="text-secondary">{favorite?.name}</strong> (#{favorite?.fifaRanking} FIFA) part grand favori de ce groupe avec {favorite?.wcAppearances} participations en Coupe du monde. 
+                    {rankedTeams[1] && (
+                      <> <strong>{rankedTeams[1].name}</strong> (#{rankedTeams[1].fifaRanking}) devrait être le principal concurrent pour la première place.</>
+                    )}
+                    {" "}Le combat pour la qualification s'annonce intense entre toutes les équipes présentes.
+                  </p>
+                </div>
+
+                {/* Outsiders */}
+                {outsider && outsider.fifaRanking > 50 && (
+                  <div className="mt-4 p-4 bg-primary/5 dark:bg-primary/10 rounded-lg border border-primary/20">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎯 L'outsider à surveiller</h3>
+                    <p>
+                      <strong className="text-primary">{outsider.name}</strong> (#{outsider.fifaRanking} FIFA) arrive en tant qu'outsider, mais ne sous-estimez pas cette équipe qui a su se qualifier pour la phase finale. 
+                      Avec {outsider.wcAppearances} participation{outsider.wcAppearances > 1 ? "s" : ""} en Coupe du monde, {outsider.name} pourrait créer la surprise.
+                    </p>
+                  </div>
+                )}
+
                 <p className="mt-4">
-                  Les deux premiers du groupe se qualifiént directement pour les
+                  Les deux premiers du groupe se qualifient directement pour les
                   huitièmes de finale, tandis que les meilleurs troisièmes peuvent
-                  également se qualifier.
+                  également se qualifier. Chaque match sera crucial dans cette phase de groupes
+                  où la moindre erreur peut être fatale.
                 </p>
               </div>
             </section>
 
+            {/* Joueurs à suivre */}
+            {topPlayers.length > 0 && (
+              <section className="py-8 px-6 bg-gray-50 dark:bg-slate-900/50 rounded-lg">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">⭐ Joueurs à suivre — Groupe {group.letter}</h2>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+                  Les stars qui feront vibrer ce groupe lors de la Coupe du Monde 2026
+                </p>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {topPlayers.map((player) => {
+                    const playerTeam = teamsById[player.teamId];
+                    if (!playerTeam) return null;
+                    
+                    const positionLabel = {
+                      FW: "Attaquant",
+                      MF: "Milieu",
+                      DF: "Défenseur",
+                      GK: "Gardien",
+                    }[player.position] ?? player.position;
+
+                    return (
+                      <div
+                        key={player.id}
+                        className="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-sm border border-gray-200 dark:border-slate-700 hover:shadow-md hover:border-primary/30 transition-all"
+                      >
+                        <div className="flex items-start gap-3 mb-2">
+                          <span className="text-2xl" role="img" aria-label={`Drapeau de ${playerTeam.name}`}>
+                            {playerTeam.flag}
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-bold text-gray-900 dark:text-white text-sm leading-tight">
+                              {player.name}
+                            </h3>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              {playerTeam.name}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="inline-block rounded-full bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                            {positionLabel}
+                          </span>
+                          {player.number && (
+                            <span className="text-xs text-gray-500">N°{player.number}</span>
+                          )}
+                        </div>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                          {player.club}
+                        </p>
+                        <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+                          <span className="flex items-center gap-1">
+                            <span className="font-semibold text-secondary">{player.goals}</span> buts
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <span className="font-semibold text-primary">{player.caps}</span> sél.
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {/* Pronostic du groupe */}
+            {sortedByQualification.length > 0 && (
+              <section className="relative overflow-hidden rounded-lg bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-lg border border-slate-700">
+                {/* Glassmorphism overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm"></div>
+                
+                <div className="relative z-10">
+                  <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                    🔮 Notre pronostic pour le Groupe {group.letter}
+                  </h2>
+                  <p className="text-gray-300 text-sm mb-6">
+                    Basé sur les côtes, le classement FIFA et l'historique des équipes
+                  </p>
+
+                  <div className="space-y-4">
+                    {sortedByQualification.slice(0, 2).map((item, index) => {
+                      const qualifProb = Math.round((item.prediction?.groupStageProb ?? 0) * 100);
+                      return (
+                        <div
+                          key={item.team.id}
+                          className="rounded-lg bg-white/10 backdrop-blur-sm p-4 border border-white/20"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-3">
+                              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 text-secondary font-bold text-sm">
+                                {index + 1}
+                              </span>
+                              <span className="text-xl" role="img" aria-label={`Drapeau de ${item.team.name}`}>
+                                {item.team.flag}
+                              </span>
+                              <Link
+                                href={`/equipe/${item.team.slug}`}
+                                className="font-bold text-white hover:text-secondary transition-colors"
+                              >
+                                {item.team.name}
+                              </Link>
+                            </div>
+                            <div className="text-right">
+                              <div className="text-2xl font-bold text-secondary">
+                                {qualifProb}%
+                              </div>
+                              <div className="text-xs text-gray-400">
+                                de qualification
+                              </div>
+                            </div>
+                          </div>
+                          <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div
+                              className="h-full bg-gradient-to-r from-secondary to-accent transition-all duration-500"
+                              style={{ width: `${qualifProb}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {sortedByQualification.length > 2 && (
+                      <div className="pt-2 border-t border-white/10">
+                        <p className="text-sm text-gray-300 mb-2">🤔 Équipes en lice pour la 3e place :</p>
+                        <div className="flex flex-wrap gap-2">
+                          {sortedByQualification.slice(2).map((item) => {
+                            const qualifProb = Math.round((item.prediction?.groupStageProb ?? 0) * 100);
+                            return (
+                              <div
+                                key={item.team.id}
+                                className="rounded-full bg-white/10 px-3 py-1.5 text-sm border border-white/20 flex items-center gap-2"
+                              >
+                                <span role="img" aria-label={`Drapeau de ${item.team.name}`}>
+                                  {item.team.flag}
+                                </span>
+                                <span className="text-white font-medium">{item.team.name}</span>
+                                <span className="text-gray-400 text-xs">({qualifProb}%)</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <p className="mt-4 text-xs text-gray-400 italic">
+                    💡 Les meilleurs troisièmes peuvent également se qualifier pour les huitièmes de finale
+                  </p>
+                </div>
+              </section>
+            )}
+
             {/* Group Matches */}
             {groupMatches.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Calendrier du Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">📅 Calendrier du Groupe {group.letter}</h2>
                 <div className="space-y-3">
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
@@ -252,6 +463,6 @@ export default async function GroupPage({ params }: PageProps) {
         }}
       />
       <ANJBanner />
-</>
+    </>
   );
 }

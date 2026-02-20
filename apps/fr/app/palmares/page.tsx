@@ -1,4 +1,5 @@
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 
 import { editions, countryRecords, records } from "./_components/palmares-data";
@@ -25,6 +26,33 @@ export const metadata: Metadata = {
 };
 
 export default function PalmaresPage() {
+  const faqItems = [
+    {
+      question: "Qui a gagné le plus de Coupes du Monde ?",
+      answer: "Le Brésil est le pays le plus titré de l'histoire de la Coupe du Monde avec 5 victoires (1958, 1962, 1970, 1994, 2002). La Seleção est également la seule équipe à avoir participé à toutes les éditions depuis 1930 sans exception. L'Allemagne et l'Italie suivent avec 4 titres chacune, puis l'Argentine avec 3 titres (1978, 1986, 2022), et enfin la France et l'Uruguay avec 2 titres chacun."
+    },
+    {
+      question: "Quel pays a accueilli le plus de Coupes du Monde ?",
+      answer: "5 pays ont accueilli la Coupe du Monde 2 fois : le Mexique (1970, 1986), l'Italie (1934, 1990), la France (1938, 1998), l'Allemagne (1974, 2006) et le Brésil (1950, 2014). En 2026, le Mexique deviendra le premier pays à accueillir 3 Coupes du Monde, en co-organisation avec les États-Unis et le Canada. Cette édition 2026 sera également la première organisée par 3 pays simultanément."
+    },
+    {
+      question: "Quelle est la finale la plus disputée de l'histoire ?",
+      answer: "La finale Argentine-France 2022 (3-3 a.p., 4-2 tab) est considérée comme la plus spectaculaire et équilibrée de l'histoire. Kylian Mbappé inscrit un triplé historique (le premier en finale depuis 1966), mais Lionel Messi et l'Argentine remportent le titre aux tirs au but. D'autres finales légendaires incluent Brésil-Italie 1970 (4-1), Allemagne-Hongrie 1954 (3-2, 'Miracle de Berne') et Uruguay-Brésil 1950 (2-1, 'Maracanazo')."
+    },
+    {
+      question: "Combien de pays ont atteint la finale sans jamais gagner ?",
+      answer: "4 pays ont atteint la finale de la Coupe du Monde sans jamais la remporter : les Pays-Bas (finaliste en 1974, 1978 et 2010, record de 3 finales perdues), la Hongrie (finaliste en 1938 et 1954), la Tchécoslovaquie (finaliste en 1934 et 1962) et la Croatie (finaliste en 2018). Les Pays-Bas détiennent le triste record du pays le plus malchanceux, perdant toutes ses finales malgré un football de grande qualité."
+    },
+    {
+      question: "Quel est le score le plus lourd en finale de Coupe du Monde ?",
+      answer: "Le score le plus lourd en finale de Coupe du Monde est Brésil 5-2 Suède lors de l'édition 1958 en Suède. Cette victoire marque le premier titre du Brésil et l'émergence de Pelé, alors âgé de seulement 17 ans. D'autres finales avec de larges écarts incluent Italie 4-1 Hongrie (1938), Brésil 4-1 Italie (1970) et Allemagne 3-0 République Tchèque (1954 a.p.)."
+    },
+    {
+      question: "Un pays hôte a-t-il déjà remporté la Coupe du Monde ?",
+      answer: "Oui, 6 pays hôtes ont remporté leur propre Coupe du Monde : Uruguay (1930), Italie (1934), Angleterre (1966), Allemagne (1974), Argentine (1978) et France (1998). C'est un avantage considérable grâce au soutien du public, l'absence de déplacement et la familiarité avec les conditions locales. Cependant, le Brésil (1950) et la Suède (1958) ont échoué en finale à domicile, subissant deux traumatismes nationaux."
+    }
+  ];
+
   return (
     <>
       <Breadcrumb
@@ -43,6 +71,8 @@ export default function PalmaresPage() {
         <RecordsSection records={records} />
         <PalmaresSection2026 />
       </div>
+
+      <FAQSection title="❓ Questions sur le palmarès de la CDM" items={faqItems} />
 
       {/* Schema.org */}
       <script

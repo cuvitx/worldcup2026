@@ -1,4 +1,5 @@
 import { HeroSection } from "@repo/ui/hero-section";
+import { FAQSection } from "@repo/ui/faq-section";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -18,6 +19,29 @@ export const metadata: Metadata = {
 };
 
 export default function GroupsPage() {
+  const faqItems = [
+    {
+      question: "Combien de groupes y a-t-il dans la Coupe du Monde 2026 ?",
+      answer: "La Coupe du Monde 2026 compte 12 groupes (de A à L). Chaque groupe est composé de 4 équipes, soit un total de 48 équipes participantes. C'est la première fois que le format passe de 32 à 48 équipes."
+    },
+    {
+      question: "Combien d'équipes se qualifient par groupe ?",
+      answer: "Les 2 premières équipes de chaque groupe se qualifient automatiquement pour les huitièmes de finale, soit 24 équipes. En plus de ces 24 équipes, les 8 meilleurs troisièmes parmi l'ensemble des 12 groupes se qualifient également, portant le total à 32 équipes qualifiées pour la phase à élimination directe."
+    },
+    {
+      question: "Comment sont déterminés les meilleurs troisièmes ?",
+      answer: "Les 8 meilleurs troisièmes sont classés selon les critères FIFA : nombre de points, puis différence de buts, puis nombre de buts marqués, puis fair-play, puis tirage au sort en dernier recours. Seuls les 8 meilleurs troisièmes sur les 12 groupes se qualifient."
+    },
+    {
+      question: "Quels sont les groupes les plus relevés de la CDM 2026 ?",
+      answer: "Les groupes les plus difficiles sont généralement ceux qui comportent plusieurs équipes du top 15 mondial. Le Groupe G (Espagne, Pays-Bas) et le Groupe H (Portugal, Danemark) sont considérés comme des « groupes de la mort » avec plusieurs favoris. La composition des groupes dépend du tirage au sort effectué fin 2025."
+    },
+    {
+      question: "Quand se joue la phase de groupes de la CDM 2026 ?",
+      answer: "La phase de groupes se déroule du 11 juin au 27 juin 2026. Chaque équipe joue 3 matchs de poule (un contre chaque adversaire de son groupe). Les matchs sont répartis sur les 16 stades des trois pays hôtes : États-Unis, Canada et Mexique."
+    }
+  ];
+
   return (
     <>
       <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
@@ -31,9 +55,9 @@ export default function GroupsPage() {
       </nav>
 
       <HeroSection
+        badge="Phase de groupes"
         title="Les 12 groupes de la CDM 2026"
         subtitle="48 équipes réparties en 12 groupes de 4. Les 2 premiers de chaque groupe et les 8 meilleurs 3e sont qualifiés."
-        className="bg-primary"
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
@@ -117,6 +141,8 @@ export default function GroupsPage() {
           <span>% = chances de sortie de groupe</span>
         </div>
       </div>
+
+      <FAQSection title="❓ Questions fréquentes sur les groupes" items={faqItems} />
     </>
   );
 }

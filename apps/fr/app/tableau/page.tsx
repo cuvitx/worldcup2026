@@ -1,4 +1,5 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { teamsById } from "@repo/data/teams";
@@ -20,6 +21,29 @@ export const metadata: Metadata = {
 };
 
 export default function BracketPage() {
+  const faqItems = [
+    {
+      question: "Comment fonctionne le tableau final de la Coupe du Monde 2026 ?",
+      answer: "Le tableau final (bracket) de la CDM 2026 commence après la phase de groupes avec 32 équipes qualifiées (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes). La phase à élimination directe comprend : 32e de finale (16 matchs), 16e de finale (8 matchs), quarts de finale (4 matchs), demi-finales (2 matchs), petite finale (match pour la 3e place) et grande finale. Chaque match à élimination directe se joue en un seul match ; en cas d'égalité après 90 minutes, il y a prolongation (2×15 min) puis tirs au but si nécessaire."
+    },
+    {
+      question: "Quand commencent les huitièmes de finale de la CDM 2026 ?",
+      answer: "Les 32e de finale (équivalent des huitièmes de finale dans l'ancien format à 32 équipes) débutent le 28 juin 2026, soit le lendemain de la fin de la phase de groupes. Les 16 matchs des 32e se déroulent du 28 juin au 2 juillet. Les 16e de finale ont lieu du 4 au 7 juillet, les quarts du 9 au 11 juillet, les demi-finales les 14-15 juillet, la petite finale le 18 juillet et la grande finale le 19 juillet 2026 au MetLife Stadium de New York."
+    },
+    {
+      question: "Quel est le favori pour remporter la CDM 2026 selon le bracket ?",
+      answer: "Selon le bracket basé sur les classements ELO et les probabilités statistiques, la France est le grand favori pour remporter la Coupe du Monde 2026. Avec un effectif exceptionnel mené par Kylian Mbappé, une solidité défensive et une expérience des grandes compétitions (champion 2018, vice-champion 2022), les Bleus ont les meilleures chances. Le Brésil, l'Angleterre, l'Argentine et l'Espagne sont également des prétendants sérieux au titre."
+    },
+    {
+      question: "Comment sont déterminés les appariements du tableau final ?",
+      answer: "Les appariements du tableau final sont déterminés par le classement de la phase de groupes. Les premiers de groupe affrontent les deuxièmes ou troisièmes d'autres groupes selon un schéma prédéfini par la FIFA. Ce schéma est conçu pour éviter que deux équipes du même groupe se retrouvent avant les quarts de finale. Les matchs sont également répartis géographiquement entre les 16 stades pour limiter les déplacements et favoriser l'équité sportive."
+    },
+    {
+      question: "Peut-on parier sur le tableau final de la CDM 2026 ?",
+      answer: "Oui, tous les bookmakers français (Winamax, Betclic, ParionsSport) proposent des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une équipe en quarts/demi/finale, et bien sûr le vainqueur final du tournoi. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
+    }
+  ];
+
   return (
     <>
       {/* Breadcrumbs */}
@@ -82,6 +106,8 @@ export default function BracketPage() {
           </p>
         </section>
       </div>
+
+      <FAQSection title="❓ Questions sur le tableau final" items={faqItems} />
     </>
   );
 }

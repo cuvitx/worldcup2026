@@ -1,4 +1,5 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers";
@@ -48,6 +49,33 @@ export const metadata: Metadata = {
 
 export default function ButeursPage() {
   const top30 = topScorerRanking.slice(0, 30);
+
+  const faqItems = [
+    {
+      question: "Qui est le meilleur buteur de l'histoire de la Coupe du Monde ?",
+      answer: "Miroslav Klose (Allemagne) détient le record avec 16 buts marqués en Coupe du Monde, répartis sur 4 éditions (2002, 2006, 2010, 2014). Il devance Ronaldo Nazário (Brésil, 15 buts) et Gerd Müller (Allemagne, 14 buts). Klose a été champion du monde en 2014 et a toujours été d'une constance remarquable dans les grands tournois."
+    },
+    {
+      question: "Qui va gagner le Soulier d'Or de la CDM 2026 ?",
+      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez les bookmakers (~6.00 sur Winamax) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
+    },
+    {
+      question: "Quel est le record de buts sur une seule édition de la CDM ?",
+      answer: "Just Fontaine (France) détient le record absolu avec 13 buts marqués lors de la Coupe du Monde 1958 en Suède, en seulement 6 matchs. Ce record est toujours imbattu 66 ans plus tard. Fontaine avait profité d'une blessure de René Bliard pour devenir titulaire et n'a plus jamais quitté le onze. Un exploit probablement impossible à reproduire avec le football moderne plus défensif."
+    },
+    {
+      question: "Comment sont calculés les buts attendus pour la CDM 2026 ?",
+      answer: "Les buts attendus (expected goals) sont calculés via un modèle statistique qui combine le classement ELO de l'équipe, le ratio buts/sélection du joueur, le nombre de matchs attendus en fonction des probabilités de qualification, et la forme récente. Par exemple, un attaquant d'une équipe favorite avec un bon ratio en sélection aura un nombre de buts attendus plus élevé car son équipe ira probablement loin dans le tournoi."
+    },
+    {
+      question: "Mbappé peut-il battre le record de Klose ?",
+      answer: "Oui, c'est mathématiquement possible. Kylian Mbappé a déjà marqué 12 buts en Coupe du Monde à 25 ans (8 en 2022, 4 en 2018). S'il marque 5 buts ou plus en 2026, il égalera ou dépassera Klose. Avec une espérance de vie sportive jusqu'en 2030 (CDM suivante), il pourrait même viser les 20+ buts en carrière s'il reste au sommet. Sa vitesse, son efficacité et la qualité de l'équipe de France en font un candidat crédible."
+    },
+    {
+      question: "Où parier sur les buteurs de la CDM 2026 ?",
+      answer: "Les meilleurs bookmakers français pour parier sur les buteurs sont Winamax (cotes compétitives, interface fluide), Betclic (large choix de marchés buteurs) et ParionsSport (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un joueur. Comparez toujours les cotes avant de parier. 18+, jouez responsablement."
+    }
+  ];
 
   return (
     <>
@@ -437,6 +465,8 @@ export default function ButeursPage() {
           ]}
         />
       </div>
+
+      <FAQSection title="❓ Questions sur les buteurs de la CDM" items={faqItems} />
       <ANJBanner />
 </>
   );

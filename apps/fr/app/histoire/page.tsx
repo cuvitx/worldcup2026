@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 
 import type { CdmEdition } from "./EditionCard";
@@ -52,6 +53,33 @@ const editions: CdmEdition[] = [
 // ── Page principale ────────────────────────────────────────────────────────
 
 export default function HistoirePage() {
+  const faqItems = [
+    {
+      question: "Quand a eu lieu la première Coupe du Monde ?",
+      answer: "La première Coupe du Monde de football a eu lieu en 1930 en Uruguay. Organisée par la FIFA sous l'impulsion de Jules Rimet, elle réunit 13 équipes (dont seulement 4 européennes à cause de la distance). L'Uruguay bat l'Argentine 4-2 en finale au stade Centenario de Montevideo devant 93 000 spectateurs. Cette édition inaugure le tournoi le plus regardé au monde."
+    },
+    {
+      question: "Quel pays a gagné le plus de Coupes du Monde ?",
+      answer: "Le Brésil est le pays le plus titré avec 5 Coupes du Monde remportées (1958, 1962, 1970, 1994, 2002). La Seleção est aussi la seule équipe à avoir participé à toutes les éditions sans exception depuis 1930. L'Allemagne et l'Italie suivent avec 4 titres chacune, puis l'Argentine avec 3 (dont le dernier en 2022 avec Messi)."
+    },
+    {
+      question: "Quelle est la finale la plus mythique de l'histoire de la CDM ?",
+      answer: "Plusieurs finales sont légendaires : Argentine-France 2022 (3-3 a.p., 4-2 tab) reste la plus spectaculaire avec le triplé de Mbappé et le sacre de Messi. Brésil-Italie 1970 (4-1) consacre la plus belle équipe de l'histoire. Allemagne-Hongrie 1954 (3-2, 'Miracle de Berne') voit la Hongrie invincible perdre contre toute attente. Enfin, Uruguay-Brésil 1950 (2-1, 'Maracanazo') traumatise le Brésil devant 200 000 personnes."
+    },
+    {
+      question: "Qui sont les plus grands joueurs de l'histoire de la CDM ?",
+      answer: "Les légendes absolues sont Pelé (3 titres, seul joueur à avoir gagné 3 fois), Diego Maradona (1986, performances individuelles inégalées), Zinédine Zidane (1998, 2006), Ronaldo Nazário (2 titres, 15 buts), Miroslav Klose (16 buts, record absolu) et Lionel Messi (champion 2022 après 5 tentatives). Chacun a marqué l'histoire par son talent, ses records et ses moments inoubliables."
+    },
+    {
+      question: "Quelle édition de la CDM a vu le plus de buts ?",
+      answer: "L'édition 1954 en Suisse détient le record avec 140 buts en 26 matchs, soit 5,38 buts par match. Cette moyenne exceptionnelle s'explique par un football encore très offensif, des défenses moins organisées et l'absence de tactiques défensives modernes. La finale Allemagne-Hongrie (3-2) et le quart de finale Autriche-Suisse (7-5) illustrent parfaitement cette époque de football spectaculaire."
+    },
+    {
+      question: "Combien de fois la Coupe du Monde a-t-elle été annulée ?",
+      answer: "La Coupe du Monde a été annulée 2 fois dans son histoire : en 1942 et 1946 à cause de la Seconde Guerre mondiale. Aucune édition n'a eu lieu entre 1938 (France) et 1950 (Brésil). Depuis 1950, le tournoi a eu lieu tous les 4 ans sans interruption. La COVID-19 n'a pas annulé la CDM 2022, qui s'est simplement déroulée en hiver au lieu de l'été."
+    }
+  ];
+
   return (
     <>
       <BreadcrumbSchema
@@ -152,6 +180,8 @@ export default function HistoirePage() {
           ))}
         </div>
       </div>
+
+      <FAQSection title="❓ Questions sur l'histoire de la CDM" items={faqItems} />
 
       {/* Schema.org */}
       <script

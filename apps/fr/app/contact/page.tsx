@@ -47,10 +47,13 @@ export default function ContactPage() {
         ]}
       />
 
-      <section className="hero-animated py-12 text-white">
-        <div className="mx-auto max-w-4xl px-4">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Contact</h1>
-          <p className="mt-4 text-lg text-gray-300">
+      <section className="hero-animated text-white py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Nous contacter</span>
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Contact</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Une question, une suggestion ou une demande de partenariat ?
             N&apos;hésitez pas à nous contacter.
           </p>

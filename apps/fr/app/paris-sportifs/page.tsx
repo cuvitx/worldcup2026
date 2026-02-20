@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
@@ -19,6 +20,33 @@ export const metadata: Metadata = {
 };
 
 export default function ParisSportifsPage() {
+  const faqItems = [
+    {
+      question: "Quel est le meilleur site de paris sportifs pour la CDM 2026 ?",
+      answer: "Les meilleurs bookmakers pour la Coupe du Monde 2026 sont Winamax (interface fluide, cotes compétitives, bonus généreux), Betclic (large choix de marchés, streaming live gratuit) et ParionsSport (opérateur français de confiance, points de vente physiques). Tous sont agréés ANJ (Autorité Nationale des Jeux) et offrent des bonus de bienvenue attractifs pour les nouveaux inscrits. Comparez toujours les cotes avant de parier."
+    },
+    {
+      question: "Comment parier sur la Coupe du Monde 2026 ?",
+      answer: "Pour parier sur la CDM 2026 : 1) Inscrivez-vous sur un site agréé ANJ (Winamax, Betclic, ParionsSport...), 2) Validez votre compte avec une pièce d'identité, 3) Déposez de l'argent via carte bancaire ou virement, 4) Choisissez un match et un marché (vainqueur, score exact, buteur...), 5) Placez votre mise et validez. Jouez responsablement, fixez-vous des limites de dépôt et ne misez jamais plus que ce que vous pouvez perdre. 18+."
+    },
+    {
+      question: "Quels types de paris sont disponibles pour la CDM 2026 ?",
+      answer: "Les principaux marchés de paris sont : vainqueur final du tournoi, vainqueur d'un match (1N2), handicap asiatique, score exact, nombre de buts (plus/moins), mi-temps/fin de match, buteur (premier, dernier, anytime), corners, cartons, qualification d'une équipe, meilleur buteur du tournoi, et combinés (paris multiples). Les bookmakers proposent également des paris en direct pendant les matchs avec des cotes en temps réel."
+    },
+    {
+      question: "Peut-on parier en direct pendant les matchs de la CDM 2026 ?",
+      answer: "Oui, tous les bookmakers français proposent des paris en direct (live betting) sur les matchs de la Coupe du Monde. Les cotes évoluent en temps réel selon les événements du match (buts, cartons, occasions...). Winamax et Betclic offrent également le streaming vidéo gratuit des matchs pour les clients ayant un solde positif ou ayant parié sur le match. Le cash-out est aussi disponible pour clôturer un pari avant la fin du match."
+    },
+    {
+      question: "Quels sont les favoris pour remporter la CDM 2026 selon les bookmakers ?",
+      answer: "Selon les cotes des bookmakers (février 2026), les favoris pour remporter la Coupe du Monde 2026 sont : France (~5.50), Brésil (~6.00), Angleterre (~7.00), Argentine (~8.00) et Espagne (~9.00). La France est favorite en raison de son effectif exceptionnel (Mbappé, Griezmann, Tchouaméni) et de sa régularité en grandes compétitions. Les cotes évoluent constamment en fonction de la forme des équipes, des blessures et des résultats de préparation."
+    },
+    {
+      question: "Les paris sportifs sur la CDM 2026 sont-ils légaux en France ?",
+      answer: "Oui, les paris sportifs sont totalement légaux en France depuis 2010, à condition de parier sur un site agréé par l'ANJ (Autorité Nationale des Jeux). Seuls les opérateurs détenant une licence française peuvent proposer des paris en ligne. Winamax, Betclic, ParionsSport, Unibet et ZEbet font partie des bookmakers agréés. Parier sur des sites non agréés est illégal et vous expose à des risques (pas de protection légale, arnaques possibles)."
+    }
+  ];
+
   const categoryLabels: Record<string, string> = {
     cdm2026: "Coupe du Monde 2026",
     stratégie: "Strategies de paris",
@@ -155,6 +183,8 @@ export default function ParisSportifsPage() {
           </div>
         </section>
       </div>
+
+      <FAQSection title="❓ Questions sur les paris sportifs CDM 2026" items={faqItems} />
       <ANJBanner />
 </>
   );
