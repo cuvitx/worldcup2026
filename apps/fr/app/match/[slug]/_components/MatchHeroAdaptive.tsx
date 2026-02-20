@@ -82,9 +82,9 @@ export function MatchHeroAdaptive({
     <section className="hero-animated text-white py-14 sm:py-20">
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         {/* Badge pill */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-          <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-          <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 sm:px-5 py-2 backdrop-blur-md max-w-full">
+          <span className="shrink-0 h-1.5 w-1.5 rounded-full bg-secondary" />
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-secondary truncate">
             {stage}
             {match.group ? ` — Groupe ${match.group}` : ""}
           </span>
