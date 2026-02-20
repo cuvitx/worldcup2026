@@ -479,7 +479,7 @@ export default function PronosticHubPage() {
       <section className="bg-gray-50 dark:bg-slate-900/50 py-6 border-t border-gray-100 dark:border-slate-700">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-gray-400 dark:text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
-            📌 Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
+            Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
             Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}
             <Link href="/jeu-responsable" className="underline hover:text-primary">Jeu responsable — 18+</Link>
           </p>

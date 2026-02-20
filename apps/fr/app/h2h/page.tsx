@@ -99,7 +99,7 @@ export default function H2HIndexPage() {
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Analyse comparative</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            ⚔Confrontations H2H
+            Confrontations H2H
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Comparez n&apos;importe quelles équipes de la Coupe du Monde 2026 :

@@ -186,7 +186,7 @@ export default function MethodologiePage() {
                 desc: "Force relative de chaque équipe basée sur l'historique des résultats",
               },
               {
-                icon: "⚔",
+                icon: "",
                 title: "Confrontations directes (H2H)",
                 desc: "Historique des résultats entre les deux équipes",
               },

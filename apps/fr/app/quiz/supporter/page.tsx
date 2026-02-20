@@ -77,7 +77,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Quel style de supporterisme te correspond ?",
-    emoji: "📣",
+    emoji: "",
     options: [
       { label: "Chants à l'unisson, ambiance de dingue", points: { angleterre: 3, argentine: 3, mexique: 2 } },
       { label: "Fierté nationale et émotion", points: { maroc: 3, senegal: 2, france: 2 } },

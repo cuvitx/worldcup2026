@@ -59,7 +59,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
           disabled={!team1 || !team2 || team1 === team2}
           className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
         >
-          Comparer ⚔
+          Comparer
         </button>
       </div>
     </div>

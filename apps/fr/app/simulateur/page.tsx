@@ -98,7 +98,7 @@ export default function SimulateurPage() {
               {/* Quick stats */}
               <div className="flex items-center gap-4 mt-4">
                 {[
-                  { icon: "⚔", text: "32 équipes" },
+                  { icon: "", text: "32 équipes" },
                   { icon: "", text: "16 matchs à prédire" },
                   { icon: "💾", text: "Sauvegarde auto" },
                 ].map((item) => (
