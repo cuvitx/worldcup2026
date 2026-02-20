@@ -47,7 +47,7 @@ export function MatchHero({
                 role="img"
                 aria-label={`Drapeau de ${homeName}`}
               >
-                {home?.flag ?? "🏳️"}
+                {home?.flag ?? "🏳"}
               </span>
               {/* Glow effect behind flag */}
               <div className="absolute inset-0 blur-2xl opacity-20 -z-10 bg-white dark:bg-slate-800 rounded-full" />
@@ -90,7 +90,7 @@ export function MatchHero({
                 role="img"
                 aria-label={`Drapeau de ${awayName}`}
               >
-                {away?.flag ?? "🏳️"}
+                {away?.flag ?? "🏳"}
               </span>
               <div className="absolute inset-0 blur-2xl opacity-20 -z-10 bg-white dark:bg-slate-800 rounded-full" />
             </div>

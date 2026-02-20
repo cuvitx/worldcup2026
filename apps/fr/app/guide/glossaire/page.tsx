@@ -207,7 +207,7 @@ export default function GlossairePage() {
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{term.name}</h3>
                       <p className="text-gray-700 dark:text-gray-300 mt-1">{term.definition}</p>
                       <p className="text-sm text-gray-500 dark:text-gray-300 mt-2 italic bg-gray-50 dark:bg-gray-700/50 rounded-lg px-3 py-2">
-                        💡 {term.example}
+                         {term.example}
                       </p>
                     </div>
                   ))}

@@ -115,13 +115,13 @@ const internationalBroadcasters = [
 ];
 
 const featuredMatches = [
-  { id: "m01", date: "Jeu 11 juin 2026", timeFR: "21h00", match: "Mexique 🇲🇽 vs 🇿🇦 Afrique du Sud", stage: "Phase de groupes — Gr. A", stadium: "Estadio Azteca, Mexico", tvFR: ["TF1", "M6", "beIN Sports 1"], isFrance: false, note: "🎉 Match d'ouverture", free: true },
+  { id: "m01", date: "Jeu 11 juin 2026", timeFR: "21h00", match: "Mexique 🇲🇽 vs 🇿🇦 Afrique du Sud", stage: "Phase de groupes — Gr. A", stadium: "Estadio Azteca, Mexico", tvFR: ["TF1", "M6", "beIN Sports 1"], isFrance: false, note: " Match d'ouverture", free: true },
   { id: "m17", date: "Mar 16 juin 2026", timeFR: "21h00", match: "France 🇫🇷 vs 🇸🇳 Sénégal", stage: "Phase de groupes — Gr. I", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Premier match des Bleus", free: true },
   { id: "m43", date: "Lun 22 juin 2026", timeFR: "21h00", match: "France 🇫🇷 vs Barrage Interconf. 2", stage: "Phase de groupes — Gr. I", stadium: "Lincoln Financial Field, Philadelphia", tvFR: ["TF1", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Bleus J2", free: true },
   { id: "m66", date: "Ven 26 juin 2026", timeFR: "21h00", match: "Norvège 🇳🇴 vs 🇫🇷 France", stage: "Phase de groupes — Gr. I", stadium: "Gillette Stadium, Boston", tvFR: ["TF1", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Bleus J3 (décisif !)", free: true },
-  { id: "sf1", date: "Mar 15 juil. 2026", timeFR: "21h00", match: "Demi-finale 1", stage: "Demi-finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: "🔥 Demi-finale", free: true },
-  { id: "sf2", date: "Mer 16 juil. 2026", timeFR: "21h00", match: "Demi-finale 2", stage: "Demi-finale", stadium: "AT&T Stadium, Dallas", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: "🔥 Demi-finale", free: true },
-  { id: "final", date: "Dim 19 juil. 2026", timeFR: "21h00", match: "Finale — Coupe du Monde 2026", stage: "Finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: "🏆 Grand final du Mondial", free: true },
+  { id: "sf1", date: "Mar 15 juil. 2026", timeFR: "21h00", match: "Demi-finale 1", stage: "Demi-finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: " Demi-finale", free: true },
+  { id: "sf2", date: "Mer 16 juil. 2026", timeFR: "21h00", match: "Demi-finale 2", stage: "Demi-finale", stadium: "AT&T Stadium, Dallas", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: " Demi-finale", free: true },
+  { id: "final", date: "Dim 19 juil. 2026", timeFR: "21h00", match: "Finale — Coupe du Monde 2026", stage: "Finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: " Grand final du Mondial", free: true },
 ];
 
 const timeZones = [
@@ -133,10 +133,10 @@ const timeZones = [
 ];
 
 const typicalSchedule = [
-  { local: "13h00 (EDT)", france: "19h00 (CEST)", note: "1er créneau — soirée accessible 🌟", hot: true },
+  { local: "13h00 (EDT)", france: "19h00 (CEST)", note: "1er créneau — soirée accessible ", hot: true },
   { local: "16h00 (EDT)", france: "22h00 (CEST)", note: "2e créneau — début de soirée" },
   { local: "19h00 (EDT)", france: "01h00 (CEST+1)", note: "3e créneau — tard dans la nuit 🌙" },
-  { local: "21h00 (EDT)", france: "03h00 (CEST+1)", note: "4e créneau — milieu de nuit ⚠️" },
+  { local: "21h00 (EDT)", france: "03h00 (CEST+1)", note: "4e créneau — milieu de nuit ⚠" },
 ];
 
 const faqItems = [
@@ -167,9 +167,9 @@ export default function OuRegarderPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Diffusion & Streaming</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Diffusion & Streaming</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">📺 Où regarder la Coupe du Monde 2026</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4"> Où regarder la Coupe du Monde 2026</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Guide complet des droits TV et du streaming légal pour suivre les 104 matchs du Mondial 2026.
             France en détail, pays francophones et diffuseurs internationaux.
@@ -210,7 +210,7 @@ export default function OuRegarderPage() {
               ))}
             </div>
             <div className="p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
-              <p className="font-semibold">⚠️ Légalité du VPN</p>
+              <p className="font-semibold">⚠ Légalité du VPN</p>
               <p className="mt-1">
                 L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage
                 peut enfreindre les conditions d&apos;utilisation de certaines plateformes. Nous recommandons de vérifier les conditions
@@ -225,10 +225,10 @@ export default function OuRegarderPage() {
 
         {/* Fan Zones */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🎉 Bars & Fan Zones</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4"> Bars & Fan Zones</h2>
           <div className="bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">🏟️</div>
+              <div className="text-4xl"></div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Fan zones officielles</h3>
                 <p className="text-gray-600 dark:text-gray-300 mt-1 text-sm">
@@ -264,7 +264,7 @@ export default function OuRegarderPage() {
               href="/carte-stades"
               className="inline-block bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
             >
-              🗺️ Carte des stades
+               Carte des stades
             </Link>
           </div>
         </div>

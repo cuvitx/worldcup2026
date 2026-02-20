@@ -5,7 +5,7 @@ export function PalmaresTimeline({ editions }: { editions: WorldCupEdition[] }) 
   return (
     <section>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-        📅 Timeline — tous les vainqueurs
+         Timeline — tous les vainqueurs
       </h2>
       <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
         Cliquez sur une édition pour voir les détails.
@@ -35,8 +35,8 @@ export function PalmaresTimeline({ editions }: { editions: WorldCupEdition[] }) 
                   <span className="text-3xl">{ed.winnerFlag}</span>
                   <div>
                     <div className="font-bold text-sm">{ed.winner}</div>
-                    <div className="text-xs text-success dark:text-success">
-                      🏆 Champion
+                    <div className="text-xs text-accent dark:text-accent">
+                       Champion
                     </div>
                   </div>
                 </div>
@@ -50,7 +50,7 @@ export function PalmaresTimeline({ editions }: { editions: WorldCupEdition[] }) 
                     <div className="font-semibold text-sm text-gray-600 dark:text-gray-300">
                       {ed.runnerUp}
                     </div>
-                    <div className="text-xs text-gray-500">🥈 Finaliste</div>
+                    <div className="text-xs text-gray-500"> Finaliste</div>
                   </div>
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-300 hidden sm:block">
@@ -60,7 +60,7 @@ export function PalmaresTimeline({ editions }: { editions: WorldCupEdition[] }) 
                     <span className="text-gray-500 dark:text-gray-600">(3e)</span>
                   </div>
                   <div className="mt-1">
-                    ⚽ {ed.topScorer} ({ed.topScorerGoals} buts)
+                     {ed.topScorer} ({ed.topScorerGoals} buts)
                   </div>
                 </div>
               </div>

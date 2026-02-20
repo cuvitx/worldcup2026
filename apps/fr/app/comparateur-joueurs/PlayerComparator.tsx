@@ -242,7 +242,7 @@ export function PlayerComparator() {
                             style={{ color: isBest ? BEST_COLOR : undefined }}
                           >
                             {key === "rating" ? val.toFixed(1) : val.toLocaleString("fr-FR")}
-                            {isBest && " ✓"}
+                            {isBest && <> <svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg></>}
                           </td>
                         );
                       })}

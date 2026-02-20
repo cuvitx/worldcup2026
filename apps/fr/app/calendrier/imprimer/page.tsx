@@ -69,7 +69,7 @@ export default function CalendrierImprimerPage() {
       </div>
 
       <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-        🏆 Calendrier Coupe du Monde 2026
+         Calendrier Coupe du Monde 2026
       </h1>
       <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
         104 matchs · 11 juin – 19 juillet 2026 · USA / Mexique / Canada

@@ -34,7 +34,7 @@ export default function GroupsPage() {
     },
     {
       question: "Quels sont les groupes les plus relevés de la CDM 2026 ?",
-      answer: "Les groupes les plus difficiles sont généralement ceux qui comportent plusieurs équipes du top 15 mondial. Le Groupe G (Espagne, Pays-Bas) et le Groupe H (Portugal, Danemark) sont considérés comme des « groupes de la mort » avec plusieurs favoris. La composition des groupes dépend du tirage au sort effectué fin 2025."
+      answer: "Les groupes les plus difficiles sont généralement ceux qui comportent plusieurs équipes du top 15 mondial. Le Groupe G (Espagne, Pays-Bas) et le Groupe H (Portugal, Danemark) sont considérés comme des « groupes de la mort  avec plusieurs favoris. La composition des groupes dépend du tirage au sort effectué fin 2025."
     },
     {
       question: "Quand se joue la phase de groupes de la CDM 2026 ?",
@@ -104,7 +104,7 @@ export default function GroupsPage() {
                           {idx + 1}
                         </span>
                         <span className="text-xl" role="img" aria-label={team?.name ?? id}>
-                          {team?.flag ?? "🏳️"}
+                          {team?.flag ?? "🏳"}
                         </span>
                         <span className={`flex-1 font-medium break-words text-sm ${
                           isQualified 

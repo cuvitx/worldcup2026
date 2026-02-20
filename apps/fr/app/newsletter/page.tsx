@@ -68,7 +68,7 @@ const benefits = [
     badge: 'Exclusif',
   },
   {
-    icon: '⚡',
+    icon: <svg className="w-8 h-8 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>,
     title: 'Alertes matchs',
     desc: 'Rappels 2h avant chaque match important. Ne ratez plus jamais une rencontre cruciale.',
     badge: null,
@@ -122,7 +122,6 @@ export default function NewsletterPage() {
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
-            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-secondary" />
             CDM 2026 · Newsletter officielle
           </div>
 
@@ -192,7 +191,7 @@ export default function NewsletterPage() {
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              📬 À quoi ressemble notre newsletter ?
+              <svg className="w-5 h-5 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/><path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/></svg> À quoi ressemble notre newsletter ?
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-300">
               Un aperçu d&apos;un email type que vous recevrez chaque semaine
@@ -323,7 +322,7 @@ export default function NewsletterPage() {
         style={{ background: 'linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)' }}
       >
         <div className="mx-auto max-w-2xl px-4 text-center">
-          <div className="text-4xl mb-4">📧</div>
+          <div className="text-4xl mb-4"><svg className="w-10 h-10 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Rejoignez <span className="text-secondary">nos abonnés</span> fans du Mondial
           </h2>

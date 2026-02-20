@@ -56,7 +56,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
       {/* Horaires types */}
       <section className="mb-14">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          ⏰ Horaires types des matchs (EDT → France CEST)
+          <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Horaires types des matchs (EDT → France CEST)
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
           La majorité des matchs de groupes se joue sur la côte Est américaine (EDT = UTC-4).
@@ -80,7 +80,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
         </div>
 
         <div className="mt-4 p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
-          <p className="font-semibold">💡 Bon à savoir</p>
+          <p className="font-semibold"> Bon à savoir</p>
           <p className="mt-1">
             Les matchs de la France seront programmés en priorité sur des créneaux accessibles pour le public européen.
             TF1 diffusera tous les matchs des Bleus en clair, y compris ceux à l&apos;heure tardive.

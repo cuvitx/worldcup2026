@@ -38,7 +38,7 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
               <Link
                 key={group.slug}
                 href={`/groupe/${group.slug}`}
-                className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+                className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-primary to-deep">
                   <span className="text-xs font-black text-amber-400">

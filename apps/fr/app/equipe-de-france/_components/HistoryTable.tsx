@@ -28,7 +28,7 @@ export function HistoryTable() {
     <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          📜 Historique en Coupe du Monde (1930–2022)
+          <svg className="w-5 h-5 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> Historique en Coupe du Monde (1930–2022)
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
           16 participations, 2 titres, 2 finales perdues, 2 troisièmes places.

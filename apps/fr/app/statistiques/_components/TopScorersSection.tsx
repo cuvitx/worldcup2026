@@ -17,7 +17,7 @@ export function TopScorersSection({ topScorers }: TopScorersSectionProps) {
   return (
     <section>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-        ⚽ Top buteurs all-time
+         Top buteurs all-time
       </h2>
       <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
         Meilleurs réalisateurs de l'histoire de la Coupe du Monde FIFA.

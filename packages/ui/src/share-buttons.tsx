@@ -96,7 +96,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
         ))}
         <button
           onClick={handleShare}
-          className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-accent/20 transition-all hover:bg-accent/80 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 min-h-[44px]"
+          className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-accent/80 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 min-h-[44px]"
           aria-label="Partager"
         >
           {copied ? (

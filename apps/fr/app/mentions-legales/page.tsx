@@ -27,7 +27,7 @@ export default function MentionsLegalesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Informations légales</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Informations légales</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Mentions légales</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ export default function MentionsLegalesPage() {
             </h2>
             <p>
               Le site <strong>cdm2026.fr</strong> (ci-après « le
-              Site ») est édité à titre personnel dans le cadre d&apos;un projet
+              Site ) est édité à titre personnel dans le cadre d&apos;un projet
               d&apos;information sportive.
             </p>
             <ul className="mt-3 space-y-1 text-sm">
@@ -111,7 +111,7 @@ export default function MentionsLegalesPage() {
             </h2>
             <p>
               Conformément au Règlement Général sur la Protection des Données
-              (RGPD) et à la loi « Informatique et Libertés » du 6 janvier
+              (RGPD) et à la loi « Informatique et Libertés  du 6 janvier
               1978, vous disposez d&apos;un droit d&apos;accès, de
               rectification, de suppression et d&apos;opposition concernant vos
               données personnelles.

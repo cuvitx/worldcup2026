@@ -18,7 +18,7 @@ export type ButtonSize = "sm" | "md" | "lg";
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-white hover:bg-[#e05a28] hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(255,107,53,0.3)]",
+    "bg-accent text-white hover:bg-[#e05a28] hover:-translate-y-px",
   secondary:
     "bg-transparent text-secondary border border-secondary hover:bg-[rgba(46,196,182,0.08)] hover:-translate-y-px",
   outline:
@@ -26,7 +26,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   ghost:
     "bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/[0.18] hover:-translate-y-px",
   cta:
-    "bg-accent text-white font-bold hover:bg-[#e05a28] hover:-translate-y-px shadow-lg shadow-primary/30 hover:shadow-[0_6px_20px_rgba(255,107,53,0.4)]",
+    "bg-accent text-white font-bold hover:bg-[#e05a28] hover:-translate-y-px",
 };
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {

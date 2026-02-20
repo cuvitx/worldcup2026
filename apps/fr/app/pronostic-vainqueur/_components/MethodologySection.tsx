@@ -22,7 +22,7 @@ export function MethodologySection() {
                 desc: "Basé sur les résultats des 10 dernières années, pondérés par l'importance du match",
               },
               {
-                icon: "🎲",
+                icon: "",
                 title: "Monte Carlo",
                 desc: "100 000 simulations du tournoi complet pour des probabilités robustes",
               },

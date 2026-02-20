@@ -48,7 +48,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Ton joueur préféré parmi ces 4 ?",
-    emoji: "🌟",
+    emoji: "",
     options: [
       { label: "Mbappé", points: { france: 4, espagne: 1 } },
       { label: "Messi", points: { argentine: 4, bresil: 1 } },
@@ -169,7 +169,7 @@ export default function QuizSupporterPage() {
   }, [showResult, scores]);
 
   const shareText = resultTeam
-    ? `Mon équipe CDM 2026 : ${resultTeam.flag} ${resultTeam.name} ! Et toi ? 👉 cdm2026.fr/quiz/supporter`
+    ? `Mon équipe CDM 2026 : ${resultTeam.flag} ${resultTeam.name} ! Et toi ?  cdm2026.fr/quiz/supporter`
     : "";
 
   const handleShare = () => {
@@ -288,7 +288,7 @@ export default function QuizSupporterPage() {
                   return (
                     <div key={slug} className="text-center">
                       <div className={`text-3xl ${i === 0 ? "text-4xl" : ""}`}>
-                        {i === 0 ? "" : i === 1 ? "🥈" : "🥉"}
+                        {i === 0 ? "" : i === 1 ? "" : ""}
                       </div>
                       <div className="text-2xl">{t.flag}</div>
                       <div className="text-xs font-medium text-gray-500 dark:text-gray-300">{t.name}</div>

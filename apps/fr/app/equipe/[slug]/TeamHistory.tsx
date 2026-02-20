@@ -83,12 +83,12 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
         return titles.length > 0 ? (
           <section className="rounded-xl border border-primary/30 dark:border-secondary/20 bg-primary/5 dark:bg-slate-800 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
-              <span>🏆</span> Palmarès en Coupe du Monde
+              <span></span> Palmarès en Coupe du Monde
             </h2>
             <div className="flex flex-wrap gap-4 mb-4">
               {titles.map((title) => (
                 <div key={title.year} className="flex flex-col items-center rounded-xl bg-primary/10 dark:bg-secondary/20 border border-primary/40 dark:border-secondary/30 px-5 py-4 min-w-[110px] text-center">
-                  <span className="text-4xl mb-1">🏆</span>
+                  <span className="text-4xl mb-1"></span>
                   <span className="text-2xl font-extrabold text-primary dark:text-secondary">{title.year}</span>
                   {title.detail && (
                     <span className="mt-1 text-xs text-gray-600 dark:text-gray-300 leading-snug max-w-[120px]">{title.detail}</span>

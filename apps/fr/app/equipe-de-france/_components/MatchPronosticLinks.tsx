@@ -28,9 +28,9 @@ export function MatchPronosticLinks({ franceMatches }: MatchPronosticLinksProps)
                 className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-lg">{homeTeam?.flag ?? "🏳️"}</span>
+                  <span className="text-lg">{homeTeam?.flag ?? "🏳"}</span>
                   <span className="text-xs font-bold text-gray-400 dark:text-gray-400">VS</span>
-                  <span className="text-lg">{awayTeam?.flag ?? "🏳️"}</span>
+                  <span className="text-lg">{awayTeam?.flag ?? "🏳"}</span>
                 </div>
                 <p className="text-sm font-bold text-gray-900 dark:text-white text-center group-hover:text-primary transition-colors">
                   {homeTeam?.name ?? match.homeTeamId} vs {awayTeam?.name ?? match.awayTeamId}

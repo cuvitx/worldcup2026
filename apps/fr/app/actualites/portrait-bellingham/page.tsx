@@ -92,7 +92,7 @@ export default function PortraitBellingham() {
             Pour les supporters anglais, Bellingham est celui que l&apos;Angleterre attend depuis Bobby Moore et Bobby Charlton. Un joueur capable de porter une nation sur ses épaules, de décider des matchs par sa seule présence. Son but égalisateur en quart de finale de l&apos;Euro 2024 — une bicyclette à la dernière seconde — restera gravé dans les mémoires.
           </p>
           <p>
-            Mais Bellingham veut plus qu&apos;être un héros d&apos;un instant. Il veut être le joueur qui ramène un trophée majeur en Angleterre, 60 ans après la Coupe du Monde 1966. « Ce pays mérite de gagner quelque chose. Et je ferai tout pour que ça arrive », dit-il avec cette assurance qui le caractérise.
+            Mais Bellingham veut plus qu&apos;être un héros d&apos;un instant. Il veut être le joueur qui ramène un trophée majeur en Angleterre, 60 ans après la Coupe du Monde 1966. « Ce pays mérite de gagner quelque chose. Et je ferai tout pour que ça arrive , dit-il avec cette assurance qui le caractérise.
           </p>
 
           <h2>CDM 2026 : l&apos;heure de la couronne</h2>

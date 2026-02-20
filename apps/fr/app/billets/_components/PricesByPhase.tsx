@@ -5,7 +5,7 @@ export function PricesByPhase() {
     <section id="prix" className="bg-gray-50 dark:bg-slate-900/50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          💰 Prix des billets par phase
+           Prix des billets par phase
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
           Tarifs officiels FIFA en USD (convertibles en EUR selon taux de change). Phase de groupes à la finale.
@@ -31,7 +31,7 @@ export function PricesByPhase() {
                 <span className="text-2xl">{phase.icon}</span>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{phase.phase}</h3>
-                  <p className="text-sm opacity-80">📅 {phase.dates}</p>
+                  <p className="text-sm opacity-80"> {phase.dates}</p>
                 </div>
               </div>
 
@@ -45,7 +45,7 @@ export function PricesByPhase() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-300 italic">ℹ️ {phase.note}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-300 italic">ℹ {phase.note}</p>
               </div>
             </div>
           ))}

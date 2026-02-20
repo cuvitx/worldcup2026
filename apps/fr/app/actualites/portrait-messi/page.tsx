@@ -92,7 +92,7 @@ export default function PortraitMessi() {
 
           <h2>CDM 2026 : pourquoi il y va</h2>
           <p>
-            « Je veux donner un dernier Mondial à mon pays. » La phrase est simple, mais elle dit tout. Messi sait que son corps ne suivra plus longtemps. Il sait que les défenseurs sont plus jeunes, plus rapides, plus agressifs. Mais il sait aussi qu&apos;il possède quelque chose qu&apos;aucun d&apos;entre eux n&apos;aura jamais : la capacité de voir le football avant tout le monde.
+            « Je veux donner un dernier Mondial à mon pays.  La phrase est simple, mais elle dit tout. Messi sait que son corps ne suivra plus longtemps. Il sait que les défenseurs sont plus jeunes, plus rapides, plus agressifs. Mais il sait aussi qu&apos;il possède quelque chose qu&apos;aucun d&apos;entre eux n&apos;aura jamais : la capacité de voir le football avant tout le monde.
           </p>
           <p>
             Son rôle a évolué. Il ne sera plus le joueur qui court 12 kilomètres par match. Il sera le maestro, celui qui orchestre depuis la zone de vérité, qui délivre la passe décisive au moment parfait, qui trouve la faille quand tout semble fermé. Scaloni le sait : même à 38 ans, Messi avec le ballon dans les pieds reste le joueur le plus dangereux de la planète.

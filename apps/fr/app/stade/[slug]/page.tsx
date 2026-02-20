@@ -75,7 +75,7 @@ export default async function StadiumPage({ params }: PageProps) {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-4xl sm:text-7xl">🏟️</span>
+            <span className="text-4xl sm:text-7xl"></span>
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">{stadium.name}</h1>
               <p className="mt-2 text-gray-300">
@@ -95,7 +95,7 @@ export default async function StadiumPage({ params }: PageProps) {
         <HeroImage
           src={`/images/stadiums/${stadium.slug}.jpg`}
           alt={`${stadium.name}, ${stadium.city}`}
-          fallbackEmoji="🏟️"
+          fallbackEmoji=""
           overlayContent={
             <>
               <p className="text-sm font-medium drop-shadow">{stadium.city}, {stadium.country}</p>
@@ -165,11 +165,11 @@ export default async function StadiumPage({ params }: PageProps) {
                   </div>
                 )}
                 <div className="flex items-start gap-3">
-                  <span className="text-xl mt-0.5">📍</span>
+                  <span className="text-xl mt-0.5"></span>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Coordonnées GPS</p>
                     <p className="text-sm font-mono text-gray-900 dark:text-white">
-                      {stadium.latitude.toFixed(4)}° N, {Math.abs(stadium.longitude).toFixed(4)}° O
+                      {stadium.latitude.toFixed(4)} N, {Math.abs(stadium.longitude).toFixed(4)} O
                     </p>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default async function StadiumPage({ params }: PageProps) {
                 <div className="mt-4 rounded-lg bg-primary/5 dark:bg-primary/20 border border-gray-200 dark:border-slate-700 p-4">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-2xl shrink-0">🗺️</span>
+                      <span className="text-2xl shrink-0"></span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-primary dark:text-gray-200">Voir sur la carte des stades</p>
                         <p className="text-xs text-primary dark:text-secondary">Positionnement de tous les stades CDM 2026</p>
@@ -232,11 +232,11 @@ export default async function StadiumPage({ params }: PageProps) {
                         className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳"}</span>
                         <span className="font-medium flex-1 min-w-0 break-words text-sm">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500 shrink-0">vs</span>
                         <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳"}</span>
                         <span className="hidden sm:inline rounded-full px-2 py-1 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>

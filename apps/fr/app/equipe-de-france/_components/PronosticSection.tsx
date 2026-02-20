@@ -38,7 +38,7 @@ export function PronosticSection({ prediction }: PronosticSectionProps) {
                     <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">
                       {bm.name}
                     </span>
-                    <span className="text-xs text-success dark:text-success font-semibold">{bm.bonus}</span>
+                    <span className="text-xs text-accent dark:text-accent font-semibold">{bm.bonus}</span>
                     <span className="odds-badge text-base font-extrabold">{displayOdds}</span>
                   </a>
                 );
@@ -50,8 +50,8 @@ export function PronosticSection({ prediction }: PronosticSectionProps) {
           </div>
 
           <div className="space-y-4">
-            <div className="rounded-xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 p-5">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-success dark:text-success mb-3">
+            <div className="rounded-xl border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10 p-5">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-3">
                 Forces des Bleus
               </h3>
               <ul className="space-y-1.5">
@@ -63,8 +63,8 @@ export function PronosticSection({ prediction }: PronosticSectionProps) {
                   "Saliba / Upamecano : défense jeune et solide",
                   "Faim de revanche après la défaite 2022 face à l'Argentine",
                 ].map((point, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-success dark:text-success">
-                    <span className="shrink-0 text-success mt-0.5">✓</span>
+                  <li key={i} className="flex items-start gap-2 text-sm text-accent dark:text-accent">
+                    <svg className="w-4 h-4 shrink-0 text-accent mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     {point}
                   </li>
                 ))}

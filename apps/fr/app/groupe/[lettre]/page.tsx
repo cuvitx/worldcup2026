@@ -173,7 +173,7 @@ export default async function GroupPage({ params }: PageProps) {
 
                 {/* Forces en présence */}
                 <div className="mt-4 p-4 bg-gray-50 dark:bg-slate-900/50 rounded-lg border border-gray-200 dark:border-slate-700">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">⚡ Forces en présence</h3>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2"> Forces en présence</h3>
                   <p>
                     <strong className="text-primary">{favorite?.name}</strong> (#{favorite?.fifaRanking} FIFA) part grand favori de ce groupe avec {favorite?.wcAppearances} participations en Coupe du monde. 
                     {rankedTeams[1] && (
@@ -186,7 +186,7 @@ export default async function GroupPage({ params }: PageProps) {
                 {/* Outsiders */}
                 {outsider && outsider.fifaRanking > 50 && (
                   <div className="mt-4 p-4 bg-primary/5 dark:bg-primary/10 rounded-lg border border-primary/20">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎯 L'outsider à surveiller</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2"> L'outsider à surveiller</h3>
                     <p>
                       <strong className="text-primary">{outsider.name}</strong> (#{outsider.fifaRanking} FIFA) arrive en tant qu'outsider, mais ne sous-estimez pas cette équipe qui a su se qualifier pour la phase finale. 
                       Avec {outsider.wcAppearances} participation{outsider.wcAppearances > 1 ? "s" : ""} en Coupe du monde, {outsider.name} pourrait créer la surprise.
@@ -206,7 +206,7 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Joueurs à suivre */}
             {topPlayers.length > 0 && (
               <section className="py-8 px-6 bg-gray-50 dark:bg-slate-900/50 rounded-lg">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">⭐ Joueurs à suivre — Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2"> Joueurs à suivre — Groupe {group.letter}</h2>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
                   Les stars qui feront vibrer ce groupe lors de la Coupe du Monde 2026
                 </p>
@@ -245,7 +245,7 @@ export default async function GroupPage({ params }: PageProps) {
                             {positionLabel}
                           </span>
                           {player.number && (
-                            <span className="text-xs text-gray-500">N°{player.number}</span>
+                            <span className="text-xs text-gray-500">N{player.number}</span>
                           )}
                         </div>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
@@ -324,7 +324,7 @@ export default async function GroupPage({ params }: PageProps) {
 
                     {sortedByQualification.length > 2 && (
                       <div className="pt-2 border-t border-white/10">
-                        <p className="text-sm text-gray-300 mb-2">🤔 Équipes en lice pour la 3e place :</p>
+                        <p className="text-sm text-gray-300 mb-2"> Équipes en lice pour la 3e place :</p>
                         <div className="flex flex-wrap gap-2">
                           {sortedByQualification.slice(2).map((item) => {
                             const qualifProb = Math.round((item.prediction?.groupStageProb ?? 0) * 100);
@@ -347,7 +347,7 @@ export default async function GroupPage({ params }: PageProps) {
                   </div>
 
                   <p className="mt-4 text-xs text-gray-400 italic">
-                    💡 Les meilleurs troisièmes peuvent également se qualifier pour les huitièmes de finale
+                     Les meilleurs troisièmes peuvent également se qualifier pour les huitièmes de finale
                   </p>
                 </div>
               </section>
@@ -356,7 +356,7 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Group Matches */}
             {groupMatches.length > 0 && (
               <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">📅 Calendrier du Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4"> Calendrier du Groupe {group.letter}</h2>
                 <div className="space-y-3">
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
@@ -368,11 +368,11 @@ export default async function GroupPage({ params }: PageProps) {
                         className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳️"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "🏳"}</span>
                         <span className="font-medium flex-1 min-w-0 break-words text-sm">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500 shrink-0">vs</span>
                         <span className="font-medium flex-1 min-w-0 break-words text-right text-sm">{away?.name ?? "TBD"}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳️"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "🏳"}</span>
                         <span className="text-xs text-gray-500 w-10 text-right shrink-0">{match.time}</span>
                       </Link>
                     );

@@ -201,11 +201,11 @@ export function Newsletter({
       );
     }
     return (
-      <div className={`rounded-2xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 p-5 flex items-center gap-4 ${className}`}>
+      <div className={`rounded-2xl border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10 p-5 flex items-center gap-4 ${className}`}>
         <span className="text-3xl shrink-0"></span>
         <div>
-          <p className="font-bold text-success dark:text-success">{l.success}</p>
-          <p className="text-sm text-success dark:text-success//80 mt-0.5">{l.successDetail}</p>
+          <p className="font-bold text-accent dark:text-accent">{l.success}</p>
+          <p className="text-sm text-accent dark:text-accent/80 mt-0.5">{l.successDetail}</p>
         </div>
       </div>
     );
@@ -230,7 +230,7 @@ export function Newsletter({
             disabled={status === "loading"}
             className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none disabled:opacity-60"
           >
-            {status === "loading" ? "⏳" : l.button}
+            {status === "loading" ? "..." : l.button}
           </button>
         </form>
         {status === "error" && <p className="mt-1 text-xs text-red-400">{l.error}</p>}
@@ -244,7 +244,7 @@ export function Newsletter({
     return (
       <div className={`rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm p-5 ${className}`}>
         <div className="flex items-start gap-3 mb-3">
-          <span className="text-2xl shrink-0">📧</span>
+          <span className="inline-flex items-center rounded-full border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-700 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary dark:text-secondary shrink-0">{l.title}</span>
           <div>
             <p className="font-bold text-gray-900 dark:text-white text-sm leading-snug">{l.bannerTitle}</p>
             <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">{l.bannerSubtitle}</p>
@@ -264,9 +264,9 @@ export function Newsletter({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/80 transition-all hover:-translate-y-0.5 shadow-md shadow-accent/20 disabled:opacity-60 disabled:cursor-wait"
+            className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent/80 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-wait"
           >
-            {status === "loading" ? "⏳" : "OK"}
+            {status === "loading" ? "..." : "OK"}
           </button>
         </form>
         {status === "error" && <p className="mt-1.5 text-xs text-red-500 dark:text-red-400">{errorMsg === "api" ? l.apiError : l.error}</p>}
@@ -284,16 +284,15 @@ export function Newsletter({
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="flex-shrink-0 text-center md:text-left md:max-w-xs lg:max-w-sm">
-            <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
-              <span className="text-2xl">📧</span>
-              <span className="text-xs font-bold uppercase tracking-widest text-secondary">
+            <div className="flex items-center justify-center md:justify-start mb-2">
+              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
                 {l.title}
               </span>
             </div>
             <h2 className="text-xl font-bold text-white mb-2">{l.bannerTitle}</h2>
             <p className="text-sm text-gray-300 leading-relaxed">{l.bannerSubtitle}</p>
             <div className="mt-3 flex flex-wrap gap-3 justify-center md:justify-start">
-              {[`${l.free}`, `🚫 ${l.noSpam}`, `${l.weekly}`].map((tag) => (
+              {[l.free, l.noSpam, l.weekly].map((tag) => (
                 <span key={tag} className="text-xs text-gray-400 bg-white/5 border border-white/10 rounded-full px-3 py-1">
                   {tag}
                 </span>
@@ -320,16 +319,16 @@ export function Newsletter({
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-lg shadow-accent/30 hover:bg-accent/80 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
+                className="shrink-0 rounded-xl bg-accent px-5 py-3 font-bold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
               >
-                {status === "loading" ? "⏳" : l.bannerButton}
+                {status === "loading" ? "..." : l.bannerButton}
               </button>
             </form>
             {status === "error" && (
               <p className="mt-2 text-xs text-red-400">{errorMsg === "api" ? l.apiError : l.error}</p>
             )}
             {status === "duplicate" && (
-              <p className="mt-2 text-xs text-accent">📬 {l.duplicate}</p>
+              <p className="mt-2 text-xs text-accent">{l.duplicate}</p>
             )}
           </div>
         </div>

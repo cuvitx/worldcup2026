@@ -31,7 +31,7 @@ export default function MethodologiePage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Transparence</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Transparence</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Notre méthodologie</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -171,7 +171,7 @@ export default function MethodologiePage() {
         {/* Factors */}
         <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            🔍 Facteurs d&apos;analyse
+             Facteurs d&apos;analyse
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Nos pronostics intègrent de multiples facteurs pour maximiser la
@@ -206,7 +206,7 @@ export default function MethodologiePage() {
                 desc: "Distance parcourue, décalage horaire et temps de récupération",
               },
               {
-                icon: "🏥",
+                icon: "",
                 title: "Blessures & suspensions",
                 desc: "Joueurs clés absents et impact sur la composition",
               },

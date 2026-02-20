@@ -117,7 +117,7 @@ export default function CommunityVote({
             <div key={opt.key} className="relative">
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <span className={`text-sm font-medium min-w-0 truncate ${voted === opt.key ? opt.text + " font-bold" : "text-gray-700 dark:text-gray-300"}`}>
-                  {voted === opt.key && "✓ "}{opt.label}
+                  {voted === opt.key && <><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>{" "}</>}{opt.label}
                 </span>
                 <span className={`text-sm font-bold tabular-nums shrink-0 ${voted === opt.key ? opt.text : "text-gray-600 dark:text-gray-300"}`}>
                   {opt.pct}%

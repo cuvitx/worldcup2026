@@ -20,10 +20,10 @@ export function generateMetadata(): Metadata {
 }
 
 const categoryEmojis: Record<string, string> = {
-  tournament: "🏆",
-  betting: "🎯",
-  predictions: "📊",
-  teams: "⚽",
+  tournament: "",
+  betting: "",
+  predictions: "",
+  teams: "",
 };
 
 export default function FaqPage() {
@@ -32,7 +32,7 @@ export default function FaqPage() {
   const itemsByCategory = categories.map((cat) => ({
     key: cat,
     label: faqCategories[cat].fr,
-    emoji: categoryEmojis[cat] || "📌",
+    emoji: categoryEmojis[cat] || "",
     items: faqItems.filter((item) => item.category === cat),
   }));
 

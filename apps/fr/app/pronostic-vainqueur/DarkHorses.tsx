@@ -75,7 +75,7 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
           </h3>
           <p className="text-sm text-accent dark:text-accent/80 leading-relaxed">
             États-Unis, Canada et Mexique jouent à domicile. Historiquement, le pays hôte
-            bénéficie d&apos;un bonus de 6 à 8 points ELO grâce au soutien du public et à la
+            bénéficie d&apos;un bonus de 6 à 8 points ELO grce au soutien du public et à la
             connaissance des terrains. Le Canada (Alphonso Davies) et le Mexique (Azteca) sont
             particulièrement à surveiller.
           </p>

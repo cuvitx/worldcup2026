@@ -11,7 +11,7 @@ export function FunFactsSection({ funFacts }: FunFactsSectionProps) {
   return (
     <section>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-        💡 Saviez-vous que…
+         Saviez-vous que…
       </h2>
       <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
         Les anecdotes et curiosités méconnues de la Coupe du Monde.

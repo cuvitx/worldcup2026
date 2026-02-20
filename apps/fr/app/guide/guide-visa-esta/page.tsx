@@ -122,9 +122,9 @@ export default function GuideVisaEsta() {
           </p>
 
           <div className="not-prose my-8 rounded-xl bg-accent//10 border border-accent//30 p-6 dark:bg-accent//10 dark:border-accent//20">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-2">⚠️ Attention aux arnaques</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-2">⚠ Attention aux arnaques</h3>
             <p className="text-sm text-accent dark:text-accent">
-              De nombreux sites frauduleux proposent des « ESTA express » à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
+              De nombreux sites frauduleux proposent des « ESTA express  à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
             </p>
           </div>
 
@@ -174,11 +174,11 @@ export default function GuideVisaEsta() {
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Transport inter-villes et logistique</p>
             </Link>
             <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">💰 Budget CDM 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white"> Budget CDM 2026</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Combien ça coûte ? Estimation complète</p>
             </Link>
             <Link href="/stades" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🏟️ Les stades de la CDM 2026</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white"> Les stades de la CDM 2026</h3>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Tous les stades du Mondial</p>
             </Link>
           </div>

@@ -5,7 +5,7 @@ export function FoodSection({ food }: { food: CityGuide["food"] }) {
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          🍽️ Où manger
+          🍽 Où manger
         </h2>
         <div className="space-y-4">
           {food.map((f, i) => (

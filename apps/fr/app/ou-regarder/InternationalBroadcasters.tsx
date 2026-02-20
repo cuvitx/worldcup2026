@@ -14,7 +14,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
   return (
     <section className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-        🌍 Diffuseurs internationaux
+         Diffuseurs internationaux
       </h2>
 
       {/* Mobile: cards */}

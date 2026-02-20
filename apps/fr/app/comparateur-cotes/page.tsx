@@ -81,7 +81,7 @@ export default function ComparateurCotesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Paris sportifs</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Paris sportifs</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
             Comparateur de cotes – Coupe du Monde 2026
@@ -167,17 +167,17 @@ export default function ComparateurCotesPage() {
                             </div>
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.home === best.home ? "text-success dark:text-success bg-success//10 dark:bg-success//10" : "text-gray-700 dark:text-gray-300"
+                            o.home === best.home ? "text-accent dark:text-accent bg-accent/10 dark:bg-accent/10" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.home.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.draw === best.draw ? "text-success dark:text-success bg-success//10 dark:bg-success//10" : "text-gray-700 dark:text-gray-300"
+                            o.draw === best.draw ? "text-accent dark:text-accent bg-accent/10 dark:bg-accent/10" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.draw.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.away === best.away ? "text-success dark:text-success bg-success//10 dark:bg-success//10" : "text-gray-700 dark:text-gray-300"
+                            o.away === best.away ? "text-accent dark:text-accent bg-accent/10 dark:bg-accent/10" : "text-gray-700 dark:text-gray-300"
                           }`}>
                             {o.away.toFixed(2)}
                           </td>

@@ -30,10 +30,10 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
       </p>
 
       <div className="mb-4">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-success dark:text-success mb-2">Qualifiés directs pour les huitièmes</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-accent dark:text-accent mb-2">Qualifiés directs pour les huitièmes</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {qualified.map(({ team, pred }) => (
-            <div key={team!.id} className="flex items-center gap-3 rounded-lg border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10/20 p-3">
+            <div key={team!.id} className="flex items-center gap-3 rounded-lg border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10/20 p-3">
               <span className="text-2xl">{team!.flag}</span>
               <div>
                 <Link href={`/pronostic/${team!.slug}`} className="font-bold hover:text-primary transition-colors">{team!.name}</Link>

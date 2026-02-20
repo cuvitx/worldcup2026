@@ -2,7 +2,7 @@ export function RecordsSection({ records }: { records: { icon: string; label: st
   return (
     <section>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-        🏅 Records &amp; stats marquantes
+         Records &amp; stats marquantes
       </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {records.map((rec) => (

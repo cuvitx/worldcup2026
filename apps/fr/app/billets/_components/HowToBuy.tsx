@@ -8,17 +8,17 @@ export function HowToBuy() {
       tip: "Conseil : créez votre compte longtemps à l'avance pour bénéficier des accès prioritaires.",
     },
     {
-      step: 2, icon: "🔔", title: "S'inscrire aux alertes",
+      step: 2, icon: "", title: "S'inscrire aux alertes",
       desc: "Activez les notifications e-mail et SMS pour être averti dès l'ouverture des nouvelles phases de vente. Les meilleures places partent en quelques minutes.",
       tip: "Alerte clé : phase 3 de vente générale prévue printemps 2026.",
     },
     {
-      step: 3, icon: "🎯", title: "Choisir ses matchs",
+      step: 3, icon: "", title: "Choisir ses matchs",
       desc: "Parcourez le calendrier sur fifa.com/tickets. Sélectionnez votre groupe de matchs (ticket package) ou des matchs individuels selon disponibilité.",
       tip: "Packages multi-matchs souvent disponibles à prix réduit.",
     },
     {
-      step: 4, icon: "🎲", title: "Participer au tirage (si applicable)",
+      step: 4, icon: "", title: "Participer au tirage (si applicable)",
       desc: "Pour les matchs à forte demande, soumettez une demande dans la fenêtre de tirage. La FIFA sélectionne aléatoirement les acheteurs. Aucun avantage à soumettre tôt.",
       tip: "Le tirage est équitable — pas besoin de se ruer dès l'ouverture.",
     },
@@ -28,7 +28,7 @@ export function HowToBuy() {
       tip: "Prévoyez une carte sans frais de change (USD).",
     },
     {
-      step: 6, icon: "📱", title: "Accéder au stade",
+      step: 6, icon: "", title: "Accéder au stade",
       desc: "Vos billets sont dans l'application FIFA+. QR code à présenter à l'entrée avec une pièce d'identité valide correspondant au compte. Les billets papier ne sont pas disponibles.",
       tip: "Téléchargez l'app FIFA+ avant le jour du match.",
     },
@@ -56,7 +56,7 @@ export function HowToBuy() {
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">{step.desc}</p>
               <div className="rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/20 p-2.5">
-                <p className="text-xs text-primary font-medium">💡 {step.tip}</p>
+                <p className="text-xs text-primary font-medium"> {step.tip}</p>
               </div>
             </div>
           ))}
@@ -67,9 +67,9 @@ export function HowToBuy() {
             href={EXTERNAL_URLS.FIFA_TICKETS}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-bold text-white text-lg shadow-lg shadow-accent/30 hover:bg-accent/80 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-bold text-white text-lg hover:bg-accent/80 hover:-translate-y-0.5 transition-all"
           >
-            🎟️ Aller sur fifa.com/tickets →
+            🎟 Aller sur fifa.com/tickets →
           </a>
           <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">Lien officiel FIFA — Seul canal d&apos;achat garanti</p>
         </div>

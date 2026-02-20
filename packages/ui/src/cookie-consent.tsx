@@ -101,7 +101,7 @@ export function CookieConsent({ lang }: CookieConsentProps) {
           </button>
           <button
             onClick={handleAccept}
-            className="flex-1 cursor-pointer rounded-xl bg-accent px-5 py-3 text-sm font-bold text-white shadow-md shadow-accent/20 transition-all hover:bg-accent/80 hover:-translate-y-0.5"
+            className="flex-1 cursor-pointer rounded-xl bg-accent px-5 py-3 text-sm font-bold text-white transition-all hover:bg-accent/80 hover:-translate-y-0.5"
           >
             {t.accept}
           </button>

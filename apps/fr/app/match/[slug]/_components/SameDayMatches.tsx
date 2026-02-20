@@ -36,13 +36,13 @@ export function SameDayMatches({
                 className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 text-sm"
               >
                 <span role="img" aria-label={mHome?.name ?? ""}>
-                  {mHome?.flag ?? "🏳️"}
+                  {mHome?.flag ?? "🏳"}
                 </span>
                 <span className="flex-1 text-sm font-medium break-words">
                   {mHome?.name ?? "TBD"} vs {mAway?.name ?? "TBD"}
                 </span>
                 <span role="img" aria-label={mAway?.name ?? ""}>
-                  {mAway?.flag ?? "🏳️"}
+                  {mAway?.flag ?? "🏳"}
                 </span>
                 <span className="text-xs text-gray-500">{m.time}</span>
               </Link>
@@ -72,7 +72,7 @@ export function SameDayMatches({
                   role="img"
                   aria-label={`Drapeau de ${mHome?.name ?? "Inconnu"}`}
                 >
-                  {mHome?.flag ?? "🏳️"}
+                  {mHome?.flag ?? "🏳"}
                 </span>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-sm break-words">
@@ -85,7 +85,7 @@ export function SameDayMatches({
                   role="img"
                   aria-label={`Drapeau de ${mAway?.name ?? "Inconnu"}`}
                 >
-                  {mAway?.flag ?? "🏳️"}
+                  {mAway?.flag ?? "🏳"}
                 </span>
               </Link>
             );

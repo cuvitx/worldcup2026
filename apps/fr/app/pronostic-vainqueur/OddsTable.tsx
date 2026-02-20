@@ -41,7 +41,7 @@ export function OddsTable() {
                 const trendIcon = fav.trend === "up" ? "↑" : fav.trend === "down" ? "↓" : "→";
                 const trendColor =
                   fav.trend === "up"
-                    ? "text-success dark:text-success"
+                    ? "text-accent dark:text-accent"
                     : fav.trend === "down"
                     ? "text-red-500 dark:text-red-400"
                     : "text-gray-600 dark:text-gray-400";
@@ -110,8 +110,8 @@ export function OddsTable() {
         {/* Légende + note */}
         <div className="mt-4 flex flex-wrap gap-4 items-start justify-between">
           <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-300">
-            <span>🟡 = Meilleure cote du moment</span>
-            <span className="text-success dark:text-success font-semibold">↑ Tendance haussière</span>
+            <span><span className="inline-block w-2.5 h-2.5 rounded-full bg-yellow-400" /> = Meilleure cote du moment</span>
+            <span className="text-accent dark:text-accent font-semibold">↑ Tendance haussière</span>
             <span className="text-red-500 dark:text-red-400 font-semibold">↓ Tendance baissière</span>
             <span>→ Stable</span>
           </div>

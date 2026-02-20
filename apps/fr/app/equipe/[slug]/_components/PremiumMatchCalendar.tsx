@@ -69,7 +69,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
 
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="text-xl">{homeTeam?.flag ?? "🏳️"}</span>
+                      <span className="text-xl">{homeTeam?.flag ?? "🏳"}</span>
                       <span className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
                         {homeTeam?.name ?? match.homeTeamId}
                       </span>
@@ -77,7 +77,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                       <span className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
                         {awayTeam?.name ?? match.awayTeamId}
                       </span>
-                      <span className="text-xl">{awayTeam?.flag ?? "🏳️"}</span>
+                      <span className="text-xl">{awayTeam?.flag ?? "🏳"}</span>
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       {match.group && (

@@ -72,7 +72,7 @@ export default async function CityPage({ params }: PageProps) {
         <HeroImage
           src={`/images/cities/${slug}.jpg`}
           alt={city.name}
-          fallbackEmoji="🏙️"
+          fallbackEmoji="🏙"
           overlayContent={
             <>
               <h1 className="text-2xl font-extrabold sm:text-4xl drop-shadow">{city.name}</h1>
@@ -133,11 +133,11 @@ export default async function CityPage({ params }: PageProps) {
                         className="flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳️"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={home?.name ?? "Inconnu"}>{home?.flag ?? "🏳"}</span>
                         <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
                         <span className="text-xs text-gray-500 shrink-0">vs</span>
                         <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
-                        <span className="text-base shrink-0" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳️"}</span>
+                        <span className="text-base shrink-0" role="img" aria-label={away?.name ?? "Inconnu"}>{away?.flag ?? "🏳"}</span>
                         <span className="hidden sm:inline rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary shrink-0">
                           {stageLabels[match.stage] ?? match.stage}
                         </span>
@@ -154,19 +154,19 @@ export default async function CityPage({ params }: PageProps) {
                 {/* Météo */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                    🌤️ Météo en juin-juillet
+                    🌤 Météo en juin-juillet
                   </h2>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className="rounded-lg bg-primary/5 dark:bg-primary/20 p-4 text-center">
                       <p className="text-xs text-gray-500 dark:text-gray-300 mb-1">Juin</p>
                       <p className="text-2xl font-bold text-accent dark:text-secondary">
-                        {enrichment.weather.juinMin}° – {enrichment.weather.juinMax}°C
+                        {enrichment.weather.juinMin} – {enrichment.weather.juinMax}C
                       </p>
                     </div>
                     <div className="rounded-lg bg-orange-50 dark:bg-orange-900/20 p-4 text-center">
                       <p className="text-xs text-gray-500 dark:text-gray-300 mb-1">Juillet</p>
                       <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
-                        {enrichment.weather.juilletMin}° – {enrichment.weather.juilletMax}°C
+                        {enrichment.weather.juilletMin} – {enrichment.weather.juilletMax}C
                       </p>
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export default async function CityPage({ params }: PageProps) {
                     🚗 Comment s'y rendre
                   </h2>
                   <div className="mb-3">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-1">✈️ Aéroport principal</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-1">✈ Aéroport principal</p>
                     <p className="text-sm text-gray-700 dark:text-gray-300">{enrichment.transport.aeroport}</p>
                   </div>
                   <div>
@@ -187,7 +187,7 @@ export default async function CityPage({ params }: PageProps) {
                     <ul className="space-y-1">
                       {enrichment.transport.transports.map((t, i) => (
                         <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                          <span className="text-success mt-0.5">✓</span>
+                          <span className="text-accent mt-0.5">✓</span>
                           <span>{t}</span>
                         </li>
                       ))}
@@ -198,7 +198,7 @@ export default async function CityPage({ params }: PageProps) {
                 {/* Budget */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                    💰 Budget moyen
+                     Budget moyen
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                     <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 sm:p-4 text-center">
@@ -228,7 +228,7 @@ export default async function CityPage({ params }: PageProps) {
                 {/* Activités */}
                 <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                    🎯 Que faire en dehors des matchs
+                     Que faire en dehors des matchs
                   </h2>
                   <div className="space-y-4">
                     {enrichment.activities.map((activity, i) => (

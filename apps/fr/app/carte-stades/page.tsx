@@ -95,10 +95,10 @@ export default function CarteStadesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Infrastructures</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Infrastructures</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            🗺️ Carte des Stades — CDM 2026
+             Carte des Stades — CDM 2026
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Les 16 stades de la Coupe du Monde 2026 aux États-Unis, au Canada et au Mexique.
@@ -121,7 +121,7 @@ export default function CarteStadesPage() {
             id="liste-stades"
             className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6"
           >
-            📋 Liste des 16 stades
+             Liste des 16 stades
           </h2>
 
           <div className="space-y-10">
@@ -168,7 +168,7 @@ export default function CarteStadesPage() {
                         </div>
                         <p className="text-xs opacity-75 mb-1">{stadium.city}</p>
                         <p className="text-xs font-semibold">
-                          🏟️ {stadium.capacity.toLocaleString("fr-FR")} places
+                           {stadium.capacity.toLocaleString("fr-FR")} places
                         </p>
                       </Link>
                     ))}
@@ -182,7 +182,7 @@ export default function CarteStadesPage() {
         {/* Stats summary */}
         <section className="mt-12 bg-gray-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            📊 Chiffres clés
+             Chiffres clés
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div>
@@ -216,13 +216,13 @@ export default function CarteStadesPage() {
             href="/stades"
             className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
           >
-            🏟️ Voir tous les stades
+             Voir tous les stades
           </Link>
           <Link
             href="/match/calendrier"
             className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
-            📅 Calendrier des matchs
+             Calendrier des matchs
           </Link>
         </div>
       </main>

@@ -103,7 +103,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
                     </td>
                     <td className="px-3 py-2 text-gray-600 dark:text-gray-300 hidden sm:table-cell">{s.note}</td>
                     <td className="px-3 py-2 text-center">
-                      {s.hostWon ? <span className="text-success font-bold">✓</span> : <span className="text-red-400">✗</span>}
+                      {s.hostWon ? <svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> : <svg className="w-4 h-4 inline-block text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>}
                     </td>
                   </tr>
                 ))}
@@ -118,7 +118,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
             🔭 Implications pour 2026 : États-Unis, Canada, Mexique
           </h3>
           <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
-            Pour la première fois de l&apos;histoire, <strong>3 pays partagent l&apos;organisation</strong>. L&apos;avantage terrain est donc dilué mais présent. Historiquement, le pays hôte bénéficie de <strong>+6 à +8 pts ELO</strong> grâce au soutien du public et à la connaissance des conditions locales.
+            Pour la première fois de l&apos;histoire, <strong>3 pays partagent l&apos;organisation</strong>. L&apos;avantage terrain est donc dilué mais présent. Historiquement, le pays hôte bénéficie de <strong>+6 à +8 pts ELO</strong> grce au soutien du public et à la connaissance des conditions locales.
           </p>
           <div className="grid sm:grid-cols-3 gap-3">
             {[

@@ -43,8 +43,8 @@ const CONFEDERATION_COLORS: Record<
     label: "AFC (Asie)",
   },
   OFC: {
-    bg: "bg-success",
-    border: "border-success/60",
+    bg: "bg-accent",
+    border: "border-accent/60",
     label: "OFC (Océanie)",
   },
 };

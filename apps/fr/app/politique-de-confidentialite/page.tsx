@@ -48,7 +48,7 @@ export default function PolitiqueConfidentialitePage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Conformité RGPD</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Conformité RGPD</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
             Politique de confidentialité
@@ -68,10 +68,10 @@ export default function PolitiqueConfidentialitePage() {
           {/* Intro */}
           <section>
             <p>
-              Le site <strong>cdm2026.fr</strong> (ci-après « le Site ») s&apos;engage à
+              Le site <strong>cdm2026.fr</strong> (ci-après « le Site ) s&apos;engage à
               protéger la vie privée de ses utilisateurs et à traiter leurs données
               personnelles conformément au Règlement Général sur la Protection des Données
-              (RGPD — Règlement UE 2016/679) et à la loi française « Informatique et Libertés »
+              (RGPD — Règlement UE 2016/679) et à la loi française « Informatique et Libertés 
               du 6 janvier 1978 modifiée.
             </p>
             <p className="mt-3">
@@ -248,7 +248,7 @@ export default function PolitiqueConfidentialitePage() {
                 inexactes.
               </li>
               <li>
-                <strong>Droit à l&apos;effacement</strong> («droit à l&apos;oubli») — Demander
+                <strong>Droit à l&apos;effacement</strong> («droit à l&apos;oubli) — Demander
                 la suppression de vos données dans les cas prévus par le RGPD.
               </li>
               <li>

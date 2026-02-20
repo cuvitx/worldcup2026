@@ -90,7 +90,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                     <p className="text-lg font-black text-amber-500 dark:text-amber-400">
                       {outrightOdds}
                       {trendIcon && (
-                        <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-success" : "text-red-400"}`}>
+                        <span className={`text-xs ml-0.5 font-bold ${favData?.trend === "up" ? "text-accent" : "text-red-400"}`}>
                           {trendIcon}
                         </span>
                       )}

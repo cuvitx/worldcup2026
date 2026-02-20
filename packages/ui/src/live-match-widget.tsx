@@ -79,7 +79,7 @@ function EventIcon({ type }: { type: MatchEvent["type"] }) {
 /**
  * LiveMatchWidget component — Real-time score and events widget for match pages.
  * 
- * Polls API every 30s when match is live (±30min to +4h window).
+ * Polls API every 30s when match is live (30min to +4h window).
  * Shows score, minute, status, and key events.
  * 
  * @example

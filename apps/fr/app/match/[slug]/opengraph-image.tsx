@@ -22,12 +22,12 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", background: "linear-gradient(135deg, #1e3a5f 0%, #0a1628 100%)", color: "white", fontFamily: "sans-serif" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "40px", marginBottom: "20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span style={{ fontSize: "64px" }}>{home?.flag ?? "🏳️"}</span>
+            <span style={{ fontSize: "64px" }}>{home?.flag ?? "🏳"}</span>
             <span style={{ fontSize: "32px", fontWeight: "bold", marginTop: "8px" }}>{home?.name ?? "TBD"}</span>
           </div>
           <span style={{ fontSize: "48px", color: "#d4af37", fontWeight: "bold" }}>VS</span>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span style={{ fontSize: "64px" }}>{away?.flag ?? "🏳️"}</span>
+            <span style={{ fontSize: "64px" }}>{away?.flag ?? "🏳"}</span>
             <span style={{ fontSize: "32px", fontWeight: "bold", marginTop: "8px" }}>{away?.name ?? "TBD"}</span>
           </div>
         </div>

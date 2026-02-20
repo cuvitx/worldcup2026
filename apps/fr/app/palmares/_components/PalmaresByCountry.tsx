@@ -4,7 +4,7 @@ export function PalmaresByCountry({ countryRecords }: { countryRecords: CountryR
   return (
     <section>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-        🌍 Palmarès par pays
+         Palmarès par pays
       </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {countryRecords.map((cr, idx) => (

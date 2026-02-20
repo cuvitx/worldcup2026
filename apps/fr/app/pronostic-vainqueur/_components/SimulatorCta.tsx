@@ -26,15 +26,15 @@ export function SimulatorCta() {
         <div className="flex flex-wrap justify-center gap-3">
           <Link
             href="/simulateur"
-            className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3.5 font-bold text-white shadow-lg shadow-accent/30 hover:shadow-xl hover:-translate-y-1 transition-all text-base"
+            className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3.5 font-bold text-white hover:-translate-y-1 transition-all text-base"
           >
-            🎮 Lancer le simulateur bracket
+             Lancer le simulateur bracket
           </Link>
           <Link
             href="/tableau"
             className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-8 py-3.5 font-semibold text-white hover:bg-white/20 hover:-translate-y-0.5 transition-all text-base"
           >
-            📋 Voir le tableau officiel
+             Voir le tableau officiel
           </Link>
         </div>
         <p className="mt-4 text-[11px] text-gray-500">

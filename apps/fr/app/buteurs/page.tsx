@@ -117,7 +117,7 @@ export default function ButeursPage() {
             {historicalScorers.map((scorer, idx) => {
               const maxGoals = 16; // Klose
               const barPct = Math.round((scorer.goals / maxGoals) * 100);
-              const medal = idx === 0 ? "" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : null;
+              const medal = idx === 0 ? "" : idx === 1 ? "" : idx === 2 ? "" : null;
               const barColor =
                 idx === 0 ? "bg-gradient-to-r from-accent to-accent//70" :
                 idx === 1 ? "bg-gradient-to-r from-slate-400 to-gray-300" :
@@ -187,7 +187,7 @@ export default function ButeursPage() {
         <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
           <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">🌟</span>
+              <span className="text-2xl"></span>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Top 5 candidats au Soulier d&apos;Or
               </h2>
@@ -200,7 +200,7 @@ export default function ButeursPage() {
           <div className="divide-y divide-gray-100 dark:divide-slate-700">
             {topScorerCandidates.map((candidate, idx) => {
               const team = teamsById[candidate.teamId];
-              const medal = idx === 0 ? "" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `${idx + 1}.`;
+              const medal = idx === 0 ? "" : idx === 1 ? "" : idx === 2 ? "" : `${idx + 1}.`;
               const podiumBg =
                 idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent//5 dark:from-secondary/10 dark:to-accent//5" :
                 idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50 dark:from-slate-800/80 dark:to-slate-800/40" :
@@ -260,7 +260,7 @@ export default function ButeursPage() {
                       <ul className="space-y-0.5">
                         {candidate.strengths.map((s, si) => (
                           <li key={si} className="flex items-start gap-1.5 text-xs text-gray-600 dark:text-gray-300">
-                            <span className="shrink-0 mt-0.5 text-success">✓</span>
+                            <svg className="w-4 h-4 shrink-0 mt-0.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                             {s}
                           </li>
                         ))}
@@ -303,7 +303,7 @@ export default function ButeursPage() {
 
           <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
             <p className="text-[11px] text-gray-400 dark:text-gray-400">
-              🟡 = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-yellow-400" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
               Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
             </p>
           </div>
@@ -459,7 +459,7 @@ export default function ButeursPage() {
           items={[
             { href: '/pronostic-vainqueur', emoji: '', title: 'Pronostic vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
             { href: '/groupes', emoji: '', title: 'Tous les groupes', description: 'Les 12 groupes et classements' },
-            { href: '/simulateur', emoji: '🎮', title: 'Simulateur de bracket', description: 'Créez votre bracket complet' },
+            { href: '/simulateur', emoji: '', title: 'Simulateur de bracket', description: 'Créez votre bracket complet' },
             { href: '/comparateur-cotes', emoji: '', title: 'Comparateur de cotes', description: 'Meilleures cotes bookmakers' },
           ]}
         />

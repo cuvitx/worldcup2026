@@ -9,7 +9,6 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto max-w-5xl px-4 text-center pt-16 sm:pt-20">
         {/* Badge event */}
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
             Coupe du Monde 2026 · {EVENT_DATES.RANGE_FR.replace(" 2026", "")}
           </span>
@@ -47,7 +46,7 @@ export function HeroSection() {
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           <Link
             href="/pronostic-vainqueur"
-            className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white shadow-lg shadow-accent/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/80 w-full sm:w-auto"
+            className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/80 w-full sm:w-auto"
           >
             <span className="text-base"></span>
             Mes pronostics

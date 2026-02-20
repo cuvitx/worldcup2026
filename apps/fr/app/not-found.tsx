@@ -80,7 +80,7 @@ export default function NotFound() {
           href="/simulateur"
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
-          <span className="text-2xl">🎮</span>
+          <span className="text-2xl"></span>
           Simulateur
         </Link>
         <Link
@@ -95,7 +95,7 @@ export default function NotFound() {
       {/* CTA principal */}
       <Link
         href="/"
-        className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/50 transition-all hover:-translate-y-0.5 text-sm"
+        className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white hover:bg-primary/90 transition-all hover:-translate-y-0.5 text-sm"
       >
         ← Retour à l&apos;accueil
       </Link>

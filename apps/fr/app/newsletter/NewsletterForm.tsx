@@ -70,14 +70,14 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className={`flex items-center gap-3 rounded-xl border border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10 ${compact ? 'p-3' : 'p-5'}`}>
+      <div className={`flex items-center gap-3 rounded-xl border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10 ${compact ? 'p-3' : 'p-5'}`}>
         <span className="text-2xl"></span>
         <div>
-          <p className={`font-bold text-success dark:text-success ${compact ? 'text-sm' : 'text-base'}`}>
+          <p className={`font-bold text-accent dark:text-accent ${compact ? 'text-sm' : 'text-base'}`}>
             Inscription confirmée !
           </p>
           {!compact && (
-            <p className="text-sm text-success dark:text-success//80 mt-0.5">
+            <p className="text-sm text-accent dark:text-accent/80 mt-0.5">
               Vous recevrez notre newsletter chaque semaine dès le coup d&apos;envoi de la CDM 2026.
             </p>
           )}
@@ -106,11 +106,11 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className={`shrink-0 rounded-lg bg-accent font-bold text-white shadow-md shadow-accent/30 transition-all hover:bg-accent/80 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-wait ${
+          className={`shrink-0 rounded-lg bg-accent font-bold text-white transition-all hover:bg-accent/80 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-wait ${
             compact ? 'px-4 py-2 text-sm' : 'px-6 py-3 text-base'
           }`}
         >
-          {status === 'loading' ? '⏳' : compact ? "S'abonner" : '📧 Recevoir la newsletter'}
+          {status === 'loading' ? '' : compact ? "S'abonner" : ' Recevoir la newsletter'}
         </button>
       </div>
 
@@ -121,7 +121,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       )}
       {status === 'duplicate' && (
         <p className="mt-2 text-xs text-accent dark:text-accent">
-          📬 Cette adresse est déjà inscrite. À très bientôt !
+           Cette adresse est déjà inscrite. À très bientôt !
         </p>
       )}
       {!compact && (status === 'idle' || status === 'loading') && (

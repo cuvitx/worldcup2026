@@ -21,7 +21,7 @@ export function PrintButton() {
       onClick={handlePrint}
       className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
     >
-      🖨️ Imprimer
+      🖨 Imprimer
     </button>
   );
 }

@@ -7,7 +7,7 @@ export function BilletsFinalCTA() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            🎟️ Prêt à vivre la CDM 2026 en direct ?
+            🎟 Prêt à vivre la CDM 2026 en direct ?
           </h2>
           <p className="text-gray-300 mb-6 max-w-lg mx-auto text-sm">
             Ne manquez pas l&apos;événement sportif du siècle. Inscrivez-vous sur FIFA.com
@@ -26,13 +26,13 @@ export function BilletsFinalCTA() {
               href="/stades"
               className="rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-all"
             >
-              🏟️ Découvrir les stades
+               Découvrir les stades
             </Link>
             <Link
               href="/match/calendrier"
               className="rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-all"
             >
-              📅 Calendrier des matchs
+               Calendrier des matchs
             </Link>
           </div>
         </div>

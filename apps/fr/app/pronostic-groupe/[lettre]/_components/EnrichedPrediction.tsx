@@ -47,13 +47,13 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
               const medal = idx === 0 ? "1er" : idx === 1 ? "2e" : idx === 2 ? "3e" : "4e";
               const qualifyBg =
                 idx < 2
-                  ? "bg-success//10 dark:bg-success//10/10"
+                  ? "bg-accent/10 dark:bg-accent/10/10"
                   : idx === 2
                   ? "bg-primary/5 dark:bg-secondary/10"
                   : "bg-red-50/50 dark:bg-red-900/5";
               const goalDiffStr = ep.predictedGoalDiff > 0 ? `+${ep.predictedGoalDiff}` : `${ep.predictedGoalDiff}`;
               const goalDiffColor =
-                ep.predictedGoalDiff > 0 ? "text-success dark:text-success" : ep.predictedGoalDiff < 0 ? "text-red-500 dark:text-red-400" : "text-gray-500";
+                ep.predictedGoalDiff > 0 ? "text-accent dark:text-accent" : ep.predictedGoalDiff < 0 ? "text-red-500 dark:text-red-400" : "text-gray-500";
               return (
                 <tr key={ep.teamId} className={`transition-colors hover:brightness-95 dark:hover:brightness-110 ${qualifyBg}`}>
                   <td className="px-4 py-3 text-center text-xl">{medal}</td>
@@ -81,15 +81,15 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                   </td>
                   <td className="px-4 py-3 text-center">
                     <div className="flex flex-col items-center gap-1">
-                      <span className={`text-xs font-bold ${idx < 2 ? "text-success dark:text-success" : "text-gray-500"}`}>{Math.round(ep.qualifyProb * 100)}%</span>
+                      <span className={`text-xs font-bold ${idx < 2 ? "text-accent dark:text-accent" : "text-gray-500"}`}>{Math.round(ep.qualifyProb * 100)}%</span>
                       <div className="w-12 h-1.5 bg-gray-200 dark:bg-slate-600 rounded-full overflow-hidden">
-                        <div className={`h-full rounded-full ${idx < 2 ? "bg-success" : idx === 2 ? "bg-secondary" : "bg-red-400"}`} style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }} />
+                        <div className={`h-full rounded-full ${idx < 2 ? "bg-accent" : idx === 2 ? "bg-secondary" : "bg-red-400"}`} style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }} />
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center">
                     {idx < 2 ? (
-                      <span className="inline-block rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">Qualifié</span>
+                      <span className="inline-block rounded-full bg-accent/15 dark:bg-accent/10/30 px-2 py-0.5 text-xs font-semibold text-accent dark:text-accent">Qualifié</span>
                     ) : idx === 2 ? (
                       <span className="inline-block rounded-full bg-primary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-primary dark:text-secondary">Meilleur 3e</span>
                     ) : (

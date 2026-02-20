@@ -27,13 +27,13 @@ const anecdotes = [
     year: "2018",
     icon: "",
     title: "2018 : La génération Mbappé",
-    desc: "En Russie, les Bleus de Deschamps battent la Croatie 4-2. Mbappé (19 ans) marque et devient le 2e joueur après Pelé à inscrire un but en finale à son âge. La 2e étoile.",
+    desc: "En Russie, les Bleus de Deschamps battent la Croatie 4-2. Mbappé (19 ans) marque et devient le 2e joueur après Pelé à inscrire un but en finale à son ge. La 2e étoile.",
   },
   {
     year: "2022",
     icon: "",
     title: "2022 : La finale épique de tous les temps",
-    desc: "Contre l'Argentine (2-0 à la 80e), la France remonte à 2-2 grâce à Mbappé (doublé) et force les prolongations. Mbappé égalise encore à 3-3 ! Finalement, l'Argentine gagne aux tirs au but. Mbappé : 8 buts en 1 CDM.",
+    desc: "Contre l'Argentine (2-0 à la 80e), la France remonte à 2-2 grce à Mbappé (doublé) et force les prolongations. Mbappé égalise encore à 3-3 ! Finalement, l'Argentine gagne aux tirs au but. Mbappé : 8 buts en 1 CDM.",
   },
 ];
 

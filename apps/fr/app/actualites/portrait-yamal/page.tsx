@@ -47,7 +47,7 @@ export default function PortraitYamal() {
 
         <div className="relative mb-8 aspect-[16/9] w-full rounded-2xl bg-gradient-to-br from-red-600 via-yellow-400 to-red-600 overflow-hidden flex items-center justify-center">
           <div className="text-center text-white">
-            <span className="text-8xl">🌟</span>
+            <span className="text-8xl"></span>
             <p className="mt-4 text-sm opacity-70">Image : Lamine Yamal — 1200×675px recommandé</p>
           </div>
         </div>

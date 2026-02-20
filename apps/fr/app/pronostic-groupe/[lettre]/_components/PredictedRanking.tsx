@@ -44,7 +44,7 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
                 <span className="text-2xl" aria-label={team!.name}>{team!.flag}</span>
                 <Link href={`/equipe/${team!.slug}`} className="font-bold text-lg hover:text-primary transition-colors">{team!.name}</Link>
                 {qual && (
-                  <span className="ml-auto rounded-full bg-success//15 dark:bg-success//10/30 px-2 py-0.5 text-xs font-semibold text-success dark:text-success">Qualifié</span>
+                  <span className="ml-auto rounded-full bg-accent/15 dark:bg-accent/10/30 px-2 py-0.5 text-xs font-semibold text-accent dark:text-accent">Qualifié</span>
                 )}
                 {idx === 2 && (
                   <span className="ml-auto rounded-full bg-primary/10 dark:bg-secondary/20 px-2 py-0.5 text-xs font-semibold text-primary dark:text-secondary">Meilleur 3e possible</span>

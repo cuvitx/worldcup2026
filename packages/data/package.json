@@ -9,6 +9,7 @@
     "./teams": "./src/teams.ts",
     "./team-colors": "./src/team-colors.ts",
     "./team-content": "./src/team-content.ts",
+    "./team-wc-history": "./src/team-wc-history.ts",
     "./groups": "./src/groups.ts",
     "./matches": "./src/matches.ts",
     "./stadiums": "./src/stadiums.ts",

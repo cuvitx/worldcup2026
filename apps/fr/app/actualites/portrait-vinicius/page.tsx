@@ -47,7 +47,7 @@ export default function PortraitVinicius() {
 
         <div className="relative mb-8 aspect-[16/9] w-full rounded-2xl bg-gradient-to-br from-green-500 via-yellow-400 to-blue-500 overflow-hidden flex items-center justify-center">
           <div className="text-center text-white">
-            <span className="text-8xl">⚡</span>
+            <span className="text-8xl"></span>
             <p className="mt-4 text-sm opacity-70">Image : Vinicius Jr — 1200×675px recommandé</p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function PortraitVinicius() {
             Vinicius grandit à São Gonçalo, une banlieue défavorisée de Rio de Janeiro. Le football est son échappatoire, son espoir, sa survie. Sur les terrains de futsal, il développe cette technique de dribble qui fera sa renommée mondiale. Le Flamengo le repère à 10 ans. À 16 ans, il signe le plus gros contrat de l&apos;histoire pour un mineur : 45 millions d&apos;euros au Real Madrid.
           </p>
           <p>
-            « Je n&apos;oublie jamais d&apos;où je viens, dit-il. Chaque fois que je touche le ballon, je pense aux gamins de São Gonçalo qui regardent le match en rêvant. Je joue pour eux. »
+            « Je n&apos;oublie jamais d&apos;où je viens, dit-il. Chaque fois que je touche le ballon, je pense aux gamins de São Gonçalo qui regardent le match en rêvant. Je joue pour eux. 
           </p>
 
           <h2>Madrid : la métamorphose</h2>
@@ -87,7 +87,7 @@ export default function PortraitVinicius() {
             Le parcours de Vinicius est aussi marqué par un combat qui dépasse le football. Victime d&apos;insultes racistes dans les stades espagnols, il refuse de se taire. Il dénonce, il parle, il agit. Sa prise de position publique a forcé la Liga et les autorités espagnoles à renforcer les sanctions.
           </p>
           <p>
-            « Le racisme dans le football est inacceptable. Je ne baisserai jamais la tête. Si ma voix peut changer les choses, je continuerai à parler. » Ce courage hors du terrain fait de lui un personnage bien plus grand qu&apos;un simple footballeur.
+            « Le racisme dans le football est inacceptable. Je ne baisserai jamais la tête. Si ma voix peut changer les choses, je continuerai à parler.  Ce courage hors du terrain fait de lui un personnage bien plus grand qu&apos;un simple footballeur.
           </p>
 
           <h2>Le Ballon d&apos;Or : la reconnaissance ultime</h2>

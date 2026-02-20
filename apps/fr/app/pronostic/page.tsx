@@ -154,7 +154,7 @@ export default function PronosticHubPage() {
               Pronostic vainqueur
             </a>
             <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">
-              🗂️ Pronostics groupes
+              🗂 Pronostics groupes
             </a>
             <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
               Pronostics matchs
@@ -242,7 +242,7 @@ export default function PronosticHubPage() {
           <div className="text-center">
             <Link
               href="/pronostic-vainqueur"
-              className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white hover:-translate-y-0.5 transition-all"
             >
               Voir le pronostic vainqueur complet (Top 10 + dark horses)
             </Link>
@@ -256,7 +256,7 @@ export default function PronosticHubPage() {
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🗂️ Pronostics par groupe (A → L)
+                🗂 Pronostics par groupe (A → L)
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                 Qualifiés et outsiders de chaque groupe de la CDM 2026
@@ -318,7 +318,7 @@ export default function PronosticHubPage() {
                     {group.teams.filter((id) => id.startsWith("barrage")).map((id) => (
                       <div key={id} className="flex items-center gap-2 text-xs text-gray-300 dark:text-gray-600">
                         <span className="w-4 text-center font-bold">?</span>
-                        <span className="text-base shrink-0">🏳️</span>
+                        <span className="text-base shrink-0">🏳</span>
                         <span className="flex-1 font-medium truncate">Barrage</span>
                       </div>
                     ))}
@@ -457,7 +457,7 @@ export default function PronosticHubPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative rounded-xl overflow-hidden border border-transparent shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="group relative rounded-xl overflow-hidden border border-transparent shadow-sm hover:-translate-y-1 transition-all duration-300"
               >
                 <div className={`bg-gradient-to-br ${item.gradient} p-5 text-white h-full`}>
                   <span className="text-3xl mb-3 block transition-transform group-hover:scale-110 duration-200">

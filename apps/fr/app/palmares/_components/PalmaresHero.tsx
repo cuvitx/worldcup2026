@@ -6,7 +6,7 @@ export function PalmaresHero() {
           <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Coupe du Monde FIFA</span>
         </div>
         <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-          🏆 Palmarès Historique
+           Palmarès Historique
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
           92 ans de football mondial · 22 éditions · 1930 → 2022

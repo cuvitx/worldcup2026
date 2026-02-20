@@ -88,7 +88,7 @@ export default function StadiumMap() {
                   <br />
                   {s.city} · {s.country}
                   <br />
-                  🏟️ {s.capacity.toLocaleString("fr-FR")} places
+                   {s.capacity.toLocaleString("fr-FR")} places
                   <br />
                   <Link href={`/stade/${s.slug}`} className="text-primary underline text-xs">
                     Voir la fiche →

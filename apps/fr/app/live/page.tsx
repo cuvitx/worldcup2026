@@ -94,7 +94,8 @@ export default function LivePage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">En direct</span>
+            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-secondary" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">En direct</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Résultats en direct</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -217,7 +218,7 @@ export default function LivePage() {
                   { minute: "34'", icon: "🟨", text: "S. Xulu (Afrique du Sud)", side: "away" },
                   { minute: "41'", icon: "", text: "P. Tau (Afrique du Sud)", side: "away" },
                   { minute: "45'", icon: "⏱", text: "Mi-temps : 1 - 1", side: "center" },
-                  { minute: "58'", icon: "🔄", text: "E. Álvarez ↔ C. Rodríguez (Mexique)", side: "home" },
+                  { minute: "58'", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>, text: "E. Álvarez ↔ C. Rodríguez (Mexique)", side: "home" },
                   { minute: "63'", icon: "", text: "R. Jiménez (Mexique)", side: "home" },
                 ].map((evt, i) => (
                   <div

@@ -38,7 +38,7 @@ export default function BilletsPage() {
 
       <div className="bg-accent//10 dark:bg-accent//10 border-b border-accent//30 dark:border-accent//20">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-start gap-3">
-          <span className="text-accent shrink-0 mt-0.5">⚠️</span>
+          <span className="text-accent shrink-0 mt-0.5">⚠</span>
           <p className="text-sm text-accent dark:text-accent">
             <strong>Important :</strong> Achetez uniquement sur{" "}
             <a href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets" target="_blank" rel="noopener noreferrer" className="underline font-semibold">

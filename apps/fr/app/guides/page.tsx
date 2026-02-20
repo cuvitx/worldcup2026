@@ -35,7 +35,7 @@ const guidesJsonLd = {
 const categoryEmojis: Record<string, string> = {
   cdm2026: "",
   stratégie: "🧠",
-  bookmaker: "📚",
+  bookmaker: "",
   debutant: "",
 };
 
@@ -74,7 +74,7 @@ export default function GuidesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Paris sportifs</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Paris sportifs</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Guides paris sportifs CDM 2026</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -87,7 +87,7 @@ export default function GuidesPage() {
         {categories.map((cat) => {
           const catGuides = guidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;
-          const emoji = categoryEmojis[cat] || "📌";
+          const emoji = categoryEmojis[cat] || "";
           return (
             <section key={cat} className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">

@@ -155,7 +155,7 @@ export default function ProfilPage() {
               {daysToNext !== null && nextMatch && (
                 <p className="mt-0.5 text-xs opacity-90">
                   {daysToNext === 0
-                    ? "🔴 Match aujourd'hui !"
+                    ? <><span className="inline-block w-2.5 h-2.5 rounded-full bg-red-500" /> Match aujourd&apos;hui !</>
                     : `Prochain match dans ${daysToNext}j · ${nextMatch.date.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}`}
                 </p>
               )}

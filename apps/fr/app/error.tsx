@@ -67,9 +67,9 @@ export default function Error({
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <button
           onClick={() => reset()}
-          className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white shadow-lg shadow-primary//30 hover:bg-primary//90 hover:shadow-primary//50 transition-all hover:-translate-y-0.5 text-sm cursor-pointer"
+          className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white/30 hover:bg-primary//90/50 transition-all hover:-translate-y-0.5 text-sm cursor-pointer"
         >
-          🔄 Réessayer
+          <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Réessayer
         </button>
         <Link
           href="/"

@@ -88,7 +88,7 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                     </div>
                     <div className="rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10 dark:border-primary/20 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-wide text-primary dark:text-white mb-1">
-                        ⚙️ Avantage tactique
+                        ⚙ Avantage tactique
                       </p>
                       <p className="text-xs text-gray-600 dark:text-gray-300">{analysis.tacticalEdge}</p>
                     </div>

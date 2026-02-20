@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const sectionIcons = ["🎯", "📊", "💡", "⚡", "🔑", "📋", "🏆", "🎲", "📈", "🛡️"];
+const sectionIcons = ["", "", "", "", "", "", "", "", "", ""];
 
 export default async function GuidePage({ params }: PageProps) {
   const { slug } = await params;
@@ -107,7 +107,7 @@ export default async function GuidePage({ params }: PageProps) {
                 {(i + 1) % ctaInterval === 0 && i < guide.sections.length - 1 && (
                   <div className="my-6 rounded-xl bg-gradient-to-r from-primary/5 to-primary/5 dark:from-primary/10 dark:to-primary/10 border border-primary/20 p-5 flex flex-col sm:flex-row items-center gap-4">
                     <div className="flex-1">
-                      <p className="font-bold text-gray-900 dark:text-gray-100">🎯 Prêt à parier ?</p>
+                      <p className="font-bold text-gray-900 dark:text-gray-100"> Prêt à parier ?</p>
                       <p className="text-sm text-gray-600 dark:text-gray-300">{featuredBookmaker.bonus} chez {featuredBookmaker.name}</p>
                     </div>
                     <a

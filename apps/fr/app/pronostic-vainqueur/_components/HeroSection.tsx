@@ -33,7 +33,7 @@ export function HeroSection() {
             href="#cotes"
             className="rounded-full border border-white/20 bg-white/10 px-4 py-2 font-medium text-white hover:bg-white/20 transition-all"
           >
-            💰 Meilleures cotes
+            Meilleures cotes
           </a>
           <a
             href="#historique"
@@ -45,7 +45,7 @@ export function HeroSection() {
             href="#dark-horses"
             className="rounded-full border border-white/20 bg-white/10 px-4 py-2 font-medium text-white hover:bg-white/20 transition-all"
           >
-            🐴 Les surprises possibles
+            Les surprises possibles
           </a>
         </div>
       </div>

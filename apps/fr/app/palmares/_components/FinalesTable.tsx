@@ -4,7 +4,7 @@ export function FinalesTable({ editions }: { editions: WorldCupEdition[] }) {
   return (
     <section>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-        📊 Tableau complet des finales
+         Tableau complet des finales
       </h2>
       <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
         <div className="overflow-x-auto">

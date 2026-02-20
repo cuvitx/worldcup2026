@@ -24,13 +24,13 @@ export function AntiScamSection() {
               key={tip.title}
               className={`rounded-xl border p-4 ${
                 tip.icon === "✅"
-                  ? "border-success//30 dark:border-success//20 bg-success//10 dark:bg-success//10"
+                  ? "border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10"
                   : "border-red-200 dark:border-red-800/50 bg-red-50/50 dark:bg-red-900/10"
               }`}
             >
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-lg">{tip.icon}</span>
-                <h3 className={`text-sm font-semibold ${tip.icon === "✅" ? "text-success dark:text-success" : "text-red-800 dark:text-red-400"}`}>
+                <h3 className={`text-sm font-semibold ${tip.icon === "✅" ? "text-accent dark:text-accent" : "text-red-800 dark:text-red-400"}`}>
                   {tip.title}
                 </h3>
               </div>
@@ -41,7 +41,7 @@ export function AntiScamSection() {
 
         <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-red-800 dark:text-red-400 mb-2">
-            🛡️ Que faire si vous avez été arnaqué ?
+             Que faire si vous avez été arnaqué ?
           </h3>
           <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
             <li>• Signalez immédiatement à votre banque pour bloquer le paiement (chargeback)</li>

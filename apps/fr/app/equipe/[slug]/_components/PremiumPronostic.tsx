@@ -48,7 +48,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
                     <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">
                       {bm.name}
                     </span>
-                    <span className="text-xs text-success font-semibold">{bm.bonus}</span>
+                    <span className="text-xs text-accent font-semibold">{bm.bonus}</span>
                     <span className="odds-badge text-base font-extrabold">{displayOdds}</span>
                   </a>
                 );
@@ -62,13 +62,13 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
           {/* Strengths & Weaknesses */}
           <div className="space-y-4">
             {strengths.length > 0 && (
-              <div className="rounded-xl border border-success/30 bg-success/10 p-5">
-                <h3 className="text-lg font-semibold text-success mb-3">
+              <div className="rounded-xl border border-accent/30 bg-accent/10 p-5">
+                <h3 className="text-lg font-semibold text-accent mb-3">
                   Forces
                 </h3>
                 <ul className="space-y-1.5">
                   {strengths.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-success">
+                    <li key={i} className="flex items-start gap-2 text-sm text-accent">
                       <span className="shrink-0 mt-0.5">✓</span>
                       {point}
                     </li>

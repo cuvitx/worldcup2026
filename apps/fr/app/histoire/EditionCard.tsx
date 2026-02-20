@@ -63,8 +63,8 @@ export function EditionCard({ edition, side }: EditionCardProps) {
               <div className="font-bold text-gray-900 dark:text-white">
                 {edition.winner}
               </div>
-              <div className="text-xs text-success dark:text-success font-medium">
-                🏆 Champion · {edition.score} vs {edition.runnerUpFlag} {edition.runnerUp}
+              <div className="text-xs text-accent dark:text-accent font-medium">
+                 Champion · {edition.score} vs {edition.runnerUpFlag} {edition.runnerUp}
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
               isLeft ? "md:justify-end" : ""
             }`}
           >
-            <span>⚽</span>
+            <span></span>
             <span>
               <strong>{edition.topScorer}</strong> — {edition.topScorerGoals} but
               {edition.topScorerGoals > 1 ? "s" : ""}
@@ -103,7 +103,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
               <span>👥</span> {edition.teams} équipes
             </span>
             <span className="flex items-center gap-1">
-              <span>⚽</span> {edition.totalGoals} buts
+              <span></span> {edition.totalGoals} buts
             </span>
           </div>
         </div>

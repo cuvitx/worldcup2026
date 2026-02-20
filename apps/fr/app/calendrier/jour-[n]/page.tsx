@@ -238,7 +238,7 @@ export default async function JourPage({ params }: PageProps) {
         {/* Matches list */}
         {dayMatches.length === 0 ? (
           <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-            <p className="text-4xl mb-4">⚽</p>
+            <p className="text-4xl mb-4"></p>
             <p className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-2">
               Journée sans match
             </p>
@@ -305,7 +305,7 @@ export default async function JourPage({ params }: PageProps) {
                       {/* Home team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
                         <span className="text-4xl sm:text-5xl" role="img" aria-label={homeTeam?.name ?? "Équipe locale"}>
-                          {homeTeam?.flag ?? "🏳️"}
+                          {homeTeam?.flag ?? "🏳"}
                         </span>
                         <div>
                           <p className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
@@ -321,14 +321,14 @@ export default async function JourPage({ params }: PageProps) {
                       <div className="flex flex-col items-center gap-1 shrink-0">
                         <span className="text-xl font-extrabold text-gray-400 dark:text-gray-400">VS</span>
                         {isFinal && (
-                          <span className="text-xs font-bold text-accent">🏆 FINALE</span>
+                          <span className="text-xs font-bold text-accent"> FINALE</span>
                         )}
                       </div>
 
                       {/* Away team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
                         <span className="text-4xl sm:text-5xl" role="img" aria-label={awayTeam?.name ?? "Équipe visiteur"}>
-                          {awayTeam?.flag ?? "🏳️"}
+                          {awayTeam?.flag ?? "🏳"}
                         </span>
                         <div>
                           <p className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
@@ -345,11 +345,11 @@ export default async function JourPage({ params }: PageProps) {
                     {stadium && (
                       <div className="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-300">
                         <span className="flex items-center gap-1">
-                          <span>🏟️</span>
+                          <span></span>
                           <span>{stadium.name}</span>
                         </span>
                         <span className="flex items-center gap-1">
-                          <span>📍</span>
+                          <span></span>
                           <span>{stadium.city}, {stadium.country}</span>
                         </span>
                         {stadium.capacity && (

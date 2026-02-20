@@ -24,7 +24,7 @@ export function CategoriesSection() {
                   <span className="text-gray-700 dark:text-gray-300"><strong>Public :</strong> {cat.target}</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gray-400 shrink-0">📍</span>
+                  <span className="text-gray-400 shrink-0"></span>
                   <span className="text-gray-700 dark:text-gray-300"><strong>Accès :</strong> {cat.access}</span>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">{cat.desc}</p>

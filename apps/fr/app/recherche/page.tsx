@@ -58,7 +58,7 @@ export default function RecherchePage() {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-3xl mb-1">
-            🔍 Recherche CDM 2026
+             Recherche CDM 2026
           </h1>
           <p className="text-gray-200 text-sm sm:text-base">
             Accédez à toutes les infos : équipes, joueurs, stades, matchs et villes.

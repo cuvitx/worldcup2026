@@ -94,8 +94,8 @@ export function LeaderboardClient() {
     const userPlayer = players.find((p) => p.isCurrentUser);
     const rank = userPlayer ? players.indexOf(userPlayer) + 1 : null;
     const text = userPlayer
-      ? `CDM 2026 — Classement Pronostics\n${rank}${rank === 1 ? "er" : "e"} avec ${userPlayer.points} pts (${userPlayer.totalPronos} pronos)\n\n👉 https://cdm2026.fr/pronostics/leaderboard`
-      : `Classement Pronostics CDM 2026\n👉 https://cdm2026.fr/pronostics/leaderboard`;
+      ? `CDM 2026 — Classement Pronostics\n${rank}${rank === 1 ? "er" : "e"} avec ${userPlayer.points} pts (${userPlayer.totalPronos} pronos)\n\n https://cdm2026.fr/pronostics/leaderboard`
+      : `Classement Pronostics CDM 2026\n https://cdm2026.fr/pronostics/leaderboard`;
 
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
@@ -155,7 +155,7 @@ export function LeaderboardClient() {
           const p = players[idx];
           if (!p) return null;
           const rank = idx + 1;
-          const medals = ["", "🥈", "🥉"];
+          const medals = ["", "", ""];
           const heights = ["h-28 sm:h-36", "h-36 sm:h-44", "h-24 sm:h-28"];
           const bgs = [
             "from-yellow-400 to-amber-500",
@@ -204,7 +204,7 @@ export function LeaderboardClient() {
                   }`}
                 >
                   <td className="px-4 py-3 font-bold text-gray-400 dark:text-gray-400">
-                    {rank <= 3 ? ["", "🥈", "🥉"][rank - 1] : rank}
+                    {rank <= 3 ? ["", "", ""][rank - 1] : rank}
                   </td>
                   <td className={`px-4 py-3 ${p.isCurrentUser ? "text-accent dark:text-secondary" : "dark:text-white"}`}>
                     {p.pseudo}
@@ -216,7 +216,7 @@ export function LeaderboardClient() {
                   <td className="hidden px-4 py-3 text-right md:table-cell">
                     <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
                       successRate >= 50
-                        ? "bg-success//15 text-success dark:bg-success//10 dark:text-success"
+                        ? "bg-accent/15 text-accent dark:bg-accent/10 dark:text-accent"
                         : "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300"
                     }`}>
                       {successRate}%
@@ -250,7 +250,7 @@ export function LeaderboardClient() {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">Comment ça marche ?</h2>
         <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
           <li className="flex items-start gap-2">
-            <span className="mt-0.5 text-success">●</span>
+            <span className="mt-0.5 text-accent">●</span>
             <span><strong>3 points</strong> — Résultat exact (bon score)</span>
           </li>
           <li className="flex items-start gap-2">

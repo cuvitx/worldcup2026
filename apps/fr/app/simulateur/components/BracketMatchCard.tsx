@@ -16,7 +16,7 @@ export function BracketMatchCard({
     <div
       className={`rounded-xl overflow-hidden border transition-all ${
         winner
-          ? "border-success//30 dark:border-success//20 shadow-sm"
+          ? "border-accent/30 dark:border-accent/20 shadow-sm"
           : "border-gray-200 dark:border-gray-600"
       } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-white dark:bg-slate-800`}
     >

@@ -10,10 +10,10 @@ interface Tab {
 
 const TABS: Tab[] = [
   { id: "pronostic", label: "Pronostic", icon: "" },
-  { id: "cotes", label: "Cotes", icon: "💰" },
+  { id: "cotes", label: "Cotes", icon: "" },
   { id: "stats", label: "Stats", icon: "" },
-  { id: "h2h", label: "H2H", icon: "⚔️" },
-  { id: "infos", label: "Infos", icon: "📋" },
+  { id: "h2h", label: "H2H", icon: "⚔" },
+  { id: "infos", label: "Infos", icon: "" },
 ];
 
 interface MatchTabsClientProps {

@@ -17,7 +17,7 @@ const signesProblematiques = [
   "Vous pariez pour échapper à des problèmes personnels, au stress ou à l'ennui",
   "Vous devenez anxieux, irritable ou agité quand vous ne pouvez pas parier",
   "Vous négligez votre travail, vos études ou vos relations à cause des paris",
-  "Vous tentez de « vous refaire » en augmentant les mises après une perte",
+  "Vous tentez de « vous refaire  en augmentant les mises après une perte",
   "Vous ressentez un besoin croissant de parier des sommes plus importantes",
   "Vous avez déjà tenté d'arrêter ou de réduire sans y parvenir",
 ];
@@ -108,7 +108,7 @@ export default function JeuResponsablePage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Prévention & aide</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Prévention & aide</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Jeu responsable</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -212,7 +212,7 @@ export default function JeuResponsablePage() {
               🧪 Auto-évaluation rapide
             </h2>
             <p className="mb-3">
-              Si vous répondez « oui » à <strong>2 questions ou plus</strong>{" "}
+              Si vous répondez « oui  à <strong>2 questions ou plus</strong>{" "}
               ci-dessous, il est conseillé de consulter un professionnel :
             </p>
             <ol className="list-decimal space-y-2 pl-6 text-sm">
@@ -256,7 +256,7 @@ export default function JeuResponsablePage() {
                         href={`tel:${r.phone.replace(/\s/g, "")}`}
                         className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"
                       >
-                        📞 {r.phone}
+                        <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> {r.phone}
                       </a>
                     )}
                     <a
@@ -284,7 +284,7 @@ export default function JeuResponsablePage() {
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">💰 Limites de dépôts</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white"> Limites de dépôts</h3>
                 <p className="mt-1 text-sm">
                   Fixez un plafond journalier, hebdomadaire ou mensuel de
                   dépôts sur votre compte.
@@ -305,7 +305,7 @@ export default function JeuResponsablePage() {
                 </p>
               </div>
               <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🔒 Interdiction volontaire de jeu</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Interdiction volontaire de jeu</h3>
                 <p className="mt-1 text-sm">
                   Inscrivez-vous au fichier national des interdits de jeux pour
                   une durée de 3 ans (renouvelable). Demande sur{" "}
@@ -357,7 +357,7 @@ export default function JeuResponsablePage() {
             </p>
             <p className="mt-3 text-xl font-bold text-primary">
               <a href="tel:0974751313" className="hover:underline">
-                📞 09 74 75 13 13
+                <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> 09 74 75 13 13
               </a>
             </p>
             <p className="mt-1 text-sm text-gray-500">

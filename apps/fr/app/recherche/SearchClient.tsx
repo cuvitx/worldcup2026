@@ -202,7 +202,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {/* Empty state / suggestions */}
       {!query && (
         <div className="text-center py-8">
-          <div className="text-5xl mb-4">🔍</div>
+          <div className="text-5xl mb-4"></div>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Recherchez parmi{" "}
             <strong className="text-gray-700 dark:text-gray-200">48 équipes</strong>,{" "}
@@ -231,7 +231,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
           <div className="text-5xl mb-3">😕</div>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
             Aucun résultat pour{" "}
-            <strong className="text-gray-900 dark:text-gray-100">« {query} »</strong>
+            <strong className="text-gray-900 dark:text-gray-100">« {query} </strong>
           </p>
           <p className="text-gray-400 dark:text-gray-400 mt-2 text-sm">
             Essayez un autre terme ou vérifiez l&apos;orthographe
@@ -245,7 +245,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
             <p className="text-sm text-gray-500 dark:text-gray-300">
               <strong className="text-gray-900 dark:text-gray-100">{totalCount}</strong> résultat{totalCount > 1 ? "s" : ""} pour{" "}
-              <strong className="text-gray-900 dark:text-gray-100">« {query} »</strong>
+              <strong className="text-gray-900 dark:text-gray-100">« {query} </strong>
             </p>
           </div>
 

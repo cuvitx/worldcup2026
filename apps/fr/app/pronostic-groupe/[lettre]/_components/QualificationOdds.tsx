@@ -18,7 +18,7 @@ interface QualificationOddsProps {
 export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
   return (
     <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">💰 Cotes de qualification (estimées)</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4"> Cotes de qualification (estimées)</h2>
       <p className="text-xs text-gray-400 dark:text-gray-400 mb-4">
         Cotes calculées à partir des probabilités ELO avec marge bookmaker (8%). À titre indicatif.
       </p>
@@ -42,7 +42,7 @@ export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
                     <span className="font-medium">{team!.name}</span>
                   </div>
                 </td>
-                <td className="px-4 py-3 text-center font-mono font-bold text-success dark:text-success">{pred ? probToOdds(pred.groupStageProb / 1.08) : "—"}</td>
+                <td className="px-4 py-3 text-center font-mono font-bold text-accent dark:text-accent">{pred ? probToOdds(pred.groupStageProb / 1.08) : "—"}</td>
                 <td className="px-4 py-3 text-center font-mono">{pred ? probToOdds(pred.roundOf16Prob / 1.08) : "—"}</td>
                 <td className="px-4 py-3 text-center font-mono text-gray-500 dark:text-gray-300">{pred ? probToOdds(pred.quarterFinalProb / 1.08) : "—"}</td>
                 <td className="px-4 py-3 text-center font-mono text-gray-400 dark:text-gray-400">{pred ? probToOdds(pred.winnerProb / 1.08) : "—"}</td>

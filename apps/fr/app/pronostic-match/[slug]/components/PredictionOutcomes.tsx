@@ -42,7 +42,7 @@ export function PredictionOutcomes({
                 key={outcome.key}
                 className={`relative rounded-xl p-4 text-center transition-all ${
                   isHighlighted
-                    ? "bg-primary/8 border-2 border-primary/20 shadow-md shadow-primary/10"
+                    ? "bg-primary/8 border-2 border-primary/20"
                     : "bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600"
                 }`}
               >

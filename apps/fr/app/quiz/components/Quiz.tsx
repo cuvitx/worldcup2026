@@ -88,7 +88,7 @@ export default function Quiz() {
     [selected, currentQuestion, nextQuestion]
   );
 
-  const scoreEmoji = score > 15 ? "" : score > 10 ? "" : score > 5 ? "👍" : "🤔";
+  const scoreEmoji = score > 15 ? "" : score > 10 ? "" : score > 5 ? "" : "";
   const scoreMessage =
     score > 15
       ? "Excellent ! Tu es un vrai expert du football !"
@@ -241,9 +241,9 @@ export default function Quiz() {
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-primary/40 hover:bg-primary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-primary/40 hover:bg-primary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
-            classes += "border-success bg-success//10 dark:bg-success//15 text-success dark:text-success shadow-lg shadow-success//20 scale-[1.01]";
+            classes += "border-accent bg-accent/10 dark:bg-accent/15 text-accent dark:text-accent scale-[1.01]";
           } else if (idx === selected) {
             classes += "border-red-500 bg-red-50 dark:bg-red-500/20 text-red-700 dark:text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
@@ -264,7 +264,7 @@ export default function Quiz() {
         <div
           className={`mt-4 p-4 rounded-xl text-sm animate-[fadeSlideIn_0.3s_ease-out] ${
             selected === currentQuestion.correctIndex
-              ? "bg-success//10 dark:bg-success//10 border border-success//30 dark:border-success//20 text-success dark:text-success"
+              ? "bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 text-accent dark:text-accent"
               : "bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300"
           }`}
         >

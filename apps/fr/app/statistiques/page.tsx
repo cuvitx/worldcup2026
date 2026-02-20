@@ -132,10 +132,10 @@ export default function StatistiquesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Coupe du Monde FIFA · 1930–2026</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">Coupe du Monde FIFA · 1930–2026</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            📊 Statistiques &amp; Records
+             Statistiques &amp; Records
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto mb-6">
             92 ans de football mondial condensés en chiffres, graphiques et records inédits.
@@ -166,7 +166,7 @@ export default function StatistiquesPage() {
         {/* Buts par édition */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-            📈 Buts marqués par édition (1930–2022)
+             Buts marqués par édition (1930–2022)
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Survolez les barres pour voir le détail. Édition 1954 : 5,38 buts/match — record
@@ -227,7 +227,7 @@ export default function StatistiquesPage() {
         {/* CTA */}
         <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            🌟 Explorez toute l'histoire
+             Explorez toute l'histoire
           </h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">
             Des statistiques aux pronostics, découvrez tout ce que vous devez savoir sur le
@@ -238,19 +238,19 @@ export default function StatistiquesPage() {
               href="/histoire"
               className="inline-flex items-center gap-2 rounded-full bg-white text-primary font-bold px-6 py-3 hover:bg-gray-100 transition-colors"
             >
-              📅 Timeline historique
+               Timeline historique
             </Link>
             <Link
               href="/palmares"
               className="inline-flex items-center gap-2 rounded-full bg-white/20 border border-white/30 text-white font-bold px-6 py-3 hover:bg-white/30 transition-colors"
             >
-              🏆 Palmarès complet
+               Palmarès complet
             </Link>
             <Link
               href="/pronostic-vainqueur"
               className="inline-flex items-center gap-2 rounded-full bg-white/20 border border-white/30 text-white font-bold px-6 py-3 hover:bg-white/30 transition-colors"
             >
-              🎯 Pronostic 2026
+               Pronostic 2026
             </Link>
           </div>
         </section>

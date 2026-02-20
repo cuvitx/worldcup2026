@@ -56,7 +56,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs hidden sm:table-cell">{team!.bestResult}</td>
                 <td className="px-4 py-3 text-center">
                   {pred ? (
-                    <span className={`font-bold text-sm ${idx < 2 ? "text-success dark:text-success" : "text-gray-500 dark:text-gray-300"}`}>
+                    <span className={`font-bold text-sm ${idx < 2 ? "text-accent dark:text-accent" : "text-gray-500 dark:text-gray-300"}`}>
                       {Math.round(pred.groupStageProb * 100)}%
                     </span>
                   ) : (

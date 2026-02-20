@@ -31,7 +31,7 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
     >
       <span className="text-base" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
       <span className="truncate">{team.name}</span>
-      {isWinner && <span className="ml-auto text-xs text-success font-semibold">&#10003;</span>}
+      {isWinner && <span className="ml-auto text-xs text-accent font-semibold">&#10003;</span>}
     </Link>
   );
 }

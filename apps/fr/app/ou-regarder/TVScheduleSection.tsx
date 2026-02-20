@@ -19,7 +19,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
   return (
     <section className="mb-14">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-        📅 Programme TV — Matchs clés en France
+         Programme TV — Matchs clés en France
       </h2>
       <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
         Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la 🇫🇷 France sont sur TF1 (gratuit).

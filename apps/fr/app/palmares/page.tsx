@@ -45,11 +45,11 @@ export default function PalmaresPage() {
     },
     {
       question: "Quel est le score le plus lourd en finale de Coupe du Monde ?",
-      answer: "Le score le plus lourd en finale de Coupe du Monde est Brésil 5-2 Suède lors de l'édition 1958 en Suède. Cette victoire marque le premier titre du Brésil et l'émergence de Pelé, alors âgé de seulement 17 ans. D'autres finales avec de larges écarts incluent Italie 4-1 Hongrie (1938), Brésil 4-1 Italie (1970) et Allemagne 3-0 République Tchèque (1954 a.p.)."
+      answer: "Le score le plus lourd en finale de Coupe du Monde est Brésil 5-2 Suède lors de l'édition 1958 en Suède. Cette victoire marque le premier titre du Brésil et l'émergence de Pelé, alors gé de seulement 17 ans. D'autres finales avec de larges écarts incluent Italie 4-1 Hongrie (1938), Brésil 4-1 Italie (1970) et Allemagne 3-0 République Tchèque (1954 a.p.)."
     },
     {
       question: "Un pays hôte a-t-il déjà remporté la Coupe du Monde ?",
-      answer: "Oui, 6 pays hôtes ont remporté leur propre Coupe du Monde : Uruguay (1930), Italie (1934), Angleterre (1966), Allemagne (1974), Argentine (1978) et France (1998). C'est un avantage considérable grâce au soutien du public, l'absence de déplacement et la familiarité avec les conditions locales. Cependant, le Brésil (1950) et la Suède (1958) ont échoué en finale à domicile, subissant deux traumatismes nationaux."
+      answer: "Oui, 6 pays hôtes ont remporté leur propre Coupe du Monde : Uruguay (1930), Italie (1934), Angleterre (1966), Allemagne (1974), Argentine (1978) et France (1998). C'est un avantage considérable grce au soutien du public, l'absence de déplacement et la familiarité avec les conditions locales. Cependant, le Brésil (1950) et la Suède (1958) ont échoué en finale à domicile, subissant deux traumatismes nationaux."
     }
   ];
 

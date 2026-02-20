@@ -11,15 +11,15 @@ export function CityHero({ city }: { city: CityGuide }) {
           {city.name}
         </h1>
         <p className="text-xl text-white/70 mb-6">
-          🏟️ {city.stadium} — {city.stadiumCapacity}
+           {city.stadium} — {city.stadiumCapacity}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-xs text-white/50 uppercase tracking-wide mb-1">☀️ Climat</p>
+            <p className="text-xs text-white/50 uppercase tracking-wide mb-1">☀ Climat</p>
             <p className="text-sm text-white/80">{city.climate}</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-xs text-white/50 uppercase tracking-wide mb-1">✈️ Aéroport</p>
+            <p className="text-xs text-white/50 uppercase tracking-wide mb-1">✈ Aéroport</p>
             <p className="text-sm text-white/80">{city.airport}</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">

@@ -67,7 +67,7 @@ export function WeatherWidget({ temperature, condition, humidity, windSpeed, loc
       <div className="flex items-center gap-4">
         <span className="text-4xl">{icon}</span>
         <div>
-          <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{Math.round(temperature)}°C</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{Math.round(temperature)}C</p>
           <p className="text-sm text-gray-500 dark:text-gray-400">{condition}</p>
         </div>
       </div>

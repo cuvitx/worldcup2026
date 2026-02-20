@@ -45,7 +45,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
             const fav = favoritesByTeamId[team.id];
             const approxOdds = fav ? fav.avgOdds.toFixed(2) : estimatedOutrightOdds(pred.winnerProb);
             const trendIcon = fav ? (fav.trend === "up" ? " ↑" : fav.trend === "down" ? " ↓" : "") : "";
-            const trendColor = fav?.trend === "up" ? "text-success" : fav?.trend === "down" ? "text-red-400" : "";
+            const trendColor = fav?.trend === "up" ? "text-accent" : fav?.trend === "down" ? "text-red-400" : "";
             const args = teamArguments[team.id];
 
             return (
@@ -116,7 +116,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                     <span className="rounded bg-accent/10 border border-accent/30 px-2 py-1 text-xs font-bold text-accent text-center">
                       Bet365 {fav.bet365.toFixed(2)}
                     </span>
-                    <span className="rounded bg-success//10 border border-success//30 px-2 py-1 text-xs font-bold text-success text-center">
+                    <span className="rounded bg-accent/10 border border-accent/30 px-2 py-1 text-xs font-bold text-accent text-center">
                       DraftKings {fav.draftkings.toFixed(2)}
                     </span>
                   </div>
@@ -146,8 +146,8 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {/* Pro/Con */}
                 {args && (
                   <div className="grid sm:grid-cols-2 gap-0 border-t border-gray-100 dark:border-slate-700">
-                    <div className="p-4 bg-success//10 dark:bg-success//10">
-                      <p className="text-xs font-bold text-success dark:text-success mb-2">Points forts</p>
+                    <div className="p-4 bg-accent/10 dark:bg-accent/10">
+                      <p className="text-xs font-bold text-accent dark:text-accent mb-2">Points forts</p>
                       <ul className="space-y-1">
                         {args.pros.slice(0, 3).map((pro, i) => (
                           <li key={i} className="text-xs text-gray-700 dark:text-gray-300">

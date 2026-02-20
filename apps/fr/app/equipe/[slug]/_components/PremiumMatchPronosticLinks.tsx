@@ -29,22 +29,32 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="group relative rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:border-accent/40 hover:shadow-lg hover:-translate-y-1 transition-all"
               >
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-lg">{homeTeam?.flag ?? "🏳️"}</span>
-                  <span className="text-xs font-bold text-gray-400">VS</span>
-                  <span className="text-lg">{awayTeam?.flag ?? "🏳️"}</span>
+                {/* Date badge */}
+                <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                  {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
+                </span>
+
+                {/* Flags row */}
+                <div className="flex items-center justify-center gap-4 mb-3 mt-1">
+                  <div className="text-center">
+                    <span className="text-3xl block">{homeTeam?.flag ?? "🏳"}</span>
+                    <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 mt-1 block">{homeTeam?.name ?? match.homeTeamId}</span>
+                  </div>
+                  <span className="text-xs font-bold text-gray-300 dark:text-gray-600 uppercase">vs</span>
+                  <div className="text-center">
+                    <span className="text-3xl block">{awayTeam?.flag ?? "🏳"}</span>
+                    <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 mt-1 block">{awayTeam?.name ?? match.awayTeamId}</span>
+                  </div>
                 </div>
-                <p className="text-sm font-bold text-gray-900 dark:text-white text-center group-hover:text-primary transition-colors">
-                  {homeTeam?.name ?? match.homeTeamId} vs {awayTeam?.name ?? match.awayTeamId}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-300 text-center mt-1">
-                  {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
-                </p>
-                <p className="text-xs text-primary text-center mt-2 font-medium group-hover:underline">
-                  Voir le pronostic →
-                </p>
+
+                {/* CTA */}
+                <div className="text-center pt-3 border-t border-gray-100 dark:border-slate-700">
+                  <span className="text-xs font-semibold text-accent group-hover:underline">
+                    Voir le pronostic →
+                  </span>
+                </div>
               </Link>
             );
           })}

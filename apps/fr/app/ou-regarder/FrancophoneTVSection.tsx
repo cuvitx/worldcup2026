@@ -40,7 +40,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
             </div>
             <div className="p-6 grid gap-6 lg:grid-cols-2">
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3">📺 Chaînes TV</h4>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3"> Chaînes TV</h4>
                 <div className="space-y-3">
                   {country.channels.map((ch) => (
                     <div key={ch.name} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
@@ -61,7 +61,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
                 </div>
               </div>
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3">💻 Streaming légal</h4>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-300 mb-3"> Streaming légal</h4>
                 <div className="space-y-3">
                   {country.streaming.map((s) => (
                     <a

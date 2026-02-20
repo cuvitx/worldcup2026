@@ -9,7 +9,7 @@ const colors = [
   { name: "Primary", hex: "#022149", tw: "bg-primary" },
   { name: "CTA Primaire", hex: "#00B865", tw: "bg-accent" },
   { name: "Or (Highlight)", hex: "#E8C547", tw: "bg-amber-400" },
-  { name: "Success", hex: "#06D6A0", tw: "bg-success" },
+  { name: "Success", hex: "#06D6A0", tw: "bg-accent" },
   { name: "Error", hex: "#EF476F", tw: "bg-error" },
 ]
 
@@ -25,7 +25,7 @@ const stats = [
 const links = [
   { name: "GitHub", url: "https://github.com/cuvitx/worldcup2026", icon: "🐙" },
   { name: "Vercel", url: "https://vercel.com", icon: "▲" },
-  { name: "Search Console", url: "https://search.google.com/search-console", icon: "🔍" },
+  { name: "Search Console", url: "https://search.google.com/search-console", icon: "" },
   { name: "Mission Control", url: "#", icon: "🚀" },
 ]
 
@@ -138,7 +138,7 @@ function AdminContent() {
           <ul className="space-y-2">
             {checklist.map((item) => (
               <li key={item.task} className="flex items-center gap-3">
-                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-success/15 dark:bg-success/10 text-success dark:text-success" : "bg-gray-100 dark:bg-slate-800 text-gray-400"}`}>
+                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15 dark:bg-accent/10 text-accent dark:text-accent" : "bg-gray-100 dark:bg-slate-800 text-gray-400"}`}>
                   {item.done ? "✓" : "○"}
                 </span>
                 <span className={item.done ? "line-through text-gray-400" : ""}>{item.task}</span>
