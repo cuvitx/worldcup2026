@@ -56,7 +56,7 @@ export interface MegaMenuDef {
 export const megaMenus = {
   equipes: {
     label: "Équipes & Groupes",
-    icon: "🌍",
+    icon: "",
     sections: [
       {
         title: "Favoris",
@@ -64,7 +64,7 @@ export const megaMenus = {
           { href: "/equipe/france", label: "🇫🇷 France", sub: "#2 FIFA" },
           { href: "/equipe/argentine", label: "🇦🇷 Argentine", sub: "#1 FIFA" },
           { href: "/equipe/espagne", label: "🇪🇸 Espagne", sub: "#3 FIFA" },
-          { href: "/equipe/angleterre", label: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", sub: "#4 FIFA" },
+          { href: "/equipe/angleterre", label: "󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", sub: "#4 FIFA" },
           { href: "/equipe/bresil", label: "🇧🇷 Brésil", sub: "#5 FIFA" },
         ],
       },
@@ -107,7 +107,7 @@ export const megaMenus = {
         links: [
           { href: "/pronostic-vainqueur", label: "Pronostic vainqueur" },
           { href: "/equipe-de-france", label: "🇫🇷 Équipe de France" },
-          { href: "/pronostic/france", label: "🔮 Pronostic France" },
+          { href: "/pronostic/france", label: "Pronostic France" },
           { href: "/pronostic/argentine", label: "🇦🇷 Argentine" },
           { href: "/pronostic/espagne", label: "🇪🇸 Espagne" },
           { href: "/palmares", label: "Palmarès CDM" },
@@ -120,32 +120,32 @@ export const megaMenus = {
           { href: "/comparateur-cotes", label: "Comparateur cotes" },
           { href: "/bookmaker/betclic", label: "Betclic" },
           { href: "/bookmaker/winamax", label: "Winamax" },
-          { href: "/billets", label: "🎟️ Billets CDM 2026" },
+          { href: "/billets", label: "Billets CDM 2026" },
         ],
       },
     ],
   },
   interactif: {
     label: "Interactif",
-    icon: "⚡",
+    icon: "",
     sections: [
       {
         title: "Outils",
         links: [
           { href: "/simulateur", label: "Simulateur bracket" },
-          { href: "/quiz", label: "🧩 Quiz CDM 2026" },
-          { href: "/comparateur-joueurs", label: "⚖️ Comparateur joueurs" },
-          { href: "/live", label: "⚡ Scores en direct" },
+          { href: "/quiz", label: "Quiz CDM 2026" },
+          { href: "/comparateur-joueurs", label: "Comparateur joueurs" },
+          { href: "/live", label: "Scores en direct" },
         ],
       },
       {
         title: "Contenu",
         links: [
-          { href: "/actualites", label: "📰 Actualités" },
-          { href: "/guides", label: "📖 Guides" },
-          { href: "/guide-ville/new-york", label: "🏙️ Guides villes" },
-          { href: "/ou-regarder", label: "📺 Où regarder" },
-          { href: "/carte-stades", label: "🗺️ Carte des stades" },
+          { href: "/actualites", label: "Actualités" },
+          { href: "/guides", label: "Guides" },
+          { href: "/guide-ville/new-york", label: "Guides villes" },
+          { href: "/ou-regarder", label: "Où regarder" },
+          { href: "/carte-stades", label: "Carte des stades" },
           { href: "/recherche", label: "Recherche" },
           { href: "/profil", label: "Mon profil" },
         ],
