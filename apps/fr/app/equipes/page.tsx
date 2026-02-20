@@ -47,9 +47,9 @@ export default function TeamsPage() {
                 <tr className="border-b border-gray-200 dark:border-gray-600 text-left">
                   <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">#</th>
                   <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Équipe</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Conf.</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Groupe</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right">Chances CDM</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 hidden sm:table-cell">Conf.</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Gr.</th>
+                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right hidden sm:table-cell">Chances</th>
                   <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right">Pronostic</th>
                 </tr>
               </thead>
@@ -60,17 +60,17 @@ export default function TeamsPage() {
                     <tr key={team.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 border-b border-gray-100 dark:border-gray-700/40 transition-colors">
                       <td className="py-3 font-medium text-gray-900 dark:text-white">{team.fifaRanking}</td>
                       <td className="py-3">
-                        <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary">
-                          <span className="text-lg" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
-                          <span className="font-medium text-gray-900 dark:text-white">{team.name}</span>
+                        <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary min-w-0">
+                          <span className="text-lg shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+                          <span className="font-medium text-gray-900 dark:text-white truncate">{team.name}</span>
                           {team.isHost && <span className="text-xs text-amber-500 dark:text-amber-400 font-semibold">(Hôte)</span>}
                         </Link>
                       </td>
-                      <td className="py-3 text-gray-500 dark:text-gray-300">{team.confederation}</td>
+                      <td className="py-3 text-gray-500 dark:text-gray-300 hidden sm:table-cell">{team.confederation}</td>
                       <td className="py-3">
                         <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary text-gray-700 dark:text-gray-300">{team.group}</Link>
                       </td>
-                      <td className="py-3 text-right">
+                      <td className="py-3 text-right hidden sm:table-cell">
                         {pred ? (
                           <span className="font-bold text-amber-500 dark:text-amber-400">
                             {pred.winnerProb >= 0.01
