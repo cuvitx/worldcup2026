@@ -4,6 +4,15 @@
 
 /* Button vertical centering is now handled inline via Tailwind classes (inline-flex items-center justify-center) */
 
+/* Pills: ensure vertical text centering for filter/tab pills */
+button[class*="rounded-full"][class*="px-"],
+a[class*="rounded-full"][class*="px-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 /* ============================================================
    BRAND BOOK CDM2026 — Design Tokens (Tailwind v4 @theme)
    Source : BRAND-BOOK-CDM2026.md v1.0 — Février 2026
