@@ -75,10 +75,7 @@ export function Footer() {
           {/* Logo + description */}
           <div className="max-w-xs">
             <Link href="/" className="inline-block mb-3">
-              <span className="text-xl font-extrabold">
-                <span className="text-secondary">⚽ CDM</span>{" "}
-                <span className="text-white">2026</span>
-              </span>
+              <img src="/images/logo-navbar.png" alt="CDM 2026" width={65} height={40} className="h-10 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed mb-4">
               Guide complet de la Coupe du Monde 2026. Pronostics, cotes,

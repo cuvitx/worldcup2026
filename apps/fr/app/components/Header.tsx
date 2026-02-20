@@ -66,10 +66,9 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-extrabold tracking-tight hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none rounded"
+          className="hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:outline-none rounded"
         >
-          <span className="text-accent">⚽ CDM</span>{" "}
-          <span className="text-white">2026</span>
+          <img src="/images/logo-navbar.png" alt="CDM 2026" width={65} height={40} className="h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}
