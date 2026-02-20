@@ -18,22 +18,22 @@ export function PremiumFinalCTA({ team }: PremiumFinalCTAProps) {
           Tous les matchs, cotes et pronostics pour {team.name}. Comparez les bookmakers
           et faites vos paris sur CDM2026.fr
         </p>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md sm:max-w-none mx-auto">
           <Link 
             href="/comparateur-cotes" 
-            className="rounded-lg bg-white text-primary font-bold px-6 py-3 hover:bg-primary/5 transition-all hover:-translate-y-0.5"
+            className="w-full sm:w-auto rounded-lg bg-white text-primary font-bold px-6 py-3 text-center hover:bg-primary/5 transition-all hover:-translate-y-0.5"
           >
             Comparer les cotes
           </Link>
           <Link 
             href={`/pronostic/${team.slug}`}
-            className="rounded-lg border border-accent/40 bg-accent text-white font-bold px-6 py-3 hover:bg-accent/80 transition-all"
+            className="w-full sm:w-auto rounded-lg border border-accent/40 bg-accent text-white font-bold px-6 py-3 text-center hover:bg-accent/80 transition-all"
           >
             Pronostic {team.name}
           </Link>
           <Link 
             href="/pronostic-vainqueur" 
-            className="rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 hover:bg-secondary/25 transition-all"
+            className="w-full sm:w-auto rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 text-center hover:bg-secondary/25 transition-all"
           >
             Pronostic vainqueur
           </Link>
