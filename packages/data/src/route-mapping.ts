@@ -7,8 +7,8 @@ export type Lang = "fr" | "en" | "es";
 
 export const domains: Record<Lang, string> = {
   fr: "https://www.cdm2026.fr",
-  en: "https://worldcup2026guide.com",
-  es: "https://mundial2026.es",
+  en: "https://www.cdm2026.fr",
+  es: "https://www.cdm2026.fr",
 };
 
 // Route type -> localized path prefix (without leading or trailing slash)
