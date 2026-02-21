@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, BarChart3, User, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Cartons CDM 2026 — Jaunes, Rouges & Paris Cartons",
   description:
@@ -146,7 +145,6 @@ export default function PronosticCartonsPage() {
 
       <FAQSection title="Questions fréquentes — Cartons CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

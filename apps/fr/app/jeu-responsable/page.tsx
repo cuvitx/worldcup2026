@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import { Globe, Timer } from "lucide-react"
 export const metadata: Metadata = {
   title: "Jeu responsable — Paris sportifs et prévention",
@@ -99,7 +98,6 @@ export default function JeuResponsablePage() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-12 text-gray-700 leading-relaxed">
           {/* Bannière d'alerte */}
-          <ANJBanner />
 
           {/* Nos engagements */}
           <section>

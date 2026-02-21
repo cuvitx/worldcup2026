@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import { CreditCard, Smartphone, Banknote, ArrowRight, CheckCircle, X, Clock, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -146,7 +145,6 @@ export default function MethodesPaiementPage() {
         </div>
       </section>
 
-      <ANJBanner />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Intro */}
@@ -298,7 +296,6 @@ export default function MethodesPaiementPage() {
             </Link>
           </div>
         </section>
-        <ANJBanner />
       </div>
 
       <FAQSection

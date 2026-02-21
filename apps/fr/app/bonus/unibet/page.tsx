@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import { Gift, CheckCircle, ArrowRight, Star, Globe, BarChart3, Settings, UserPlus } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -76,7 +75,6 @@ export default function BonusUnibetPage() {
         </div>
       </section>
 
-      <ANJBanner />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <section className="rounded-2xl border-2 border-accent bg-accent/5 p-6 sm:p-8 mb-10">
@@ -182,7 +180,6 @@ export default function BonusUnibetPage() {
             <Link href="/meilleurs-bookmakers" className="text-primary hover:underline">Comparatif bookmakers</Link>
           </p>
         </div>
-        <ANJBanner />
       </div>
 
       <FAQSection

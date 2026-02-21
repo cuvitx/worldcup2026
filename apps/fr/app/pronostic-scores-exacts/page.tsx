@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Hash, BarChart3, Lightbulb, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Score Exact CDM 2026 — Guide & Scores Probables",
   description:
@@ -147,7 +146,6 @@ export default function PronosticScoresExactsPage() {
 
       <FAQSection title="Questions fréquentes — Score exact CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

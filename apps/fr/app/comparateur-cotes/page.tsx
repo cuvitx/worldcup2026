@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { mockOdds, allGroups, type MatchOdds } from "./mock-odds";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 function getBestOdds(match: MatchOdds) {
   const best = { home: 0, draw: 0, away: 0 };
   for (const o of match.odds) {
@@ -214,7 +213,6 @@ export default function ComparateurCotesPage() {
             
           </p>
         </div>
-        <ANJBanner />
       </main>
     </>
   );

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { domains } from "@repo/data/route-mapping";
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Politique de confidentialité | CDM 2026",
   description:
@@ -297,7 +296,6 @@ export default function PolitiqueConfidentialitePage() {
               </a>
               .
             </p>
-            <ANJBanner />
           </section>
 
           {/* 9. Liens externes */}

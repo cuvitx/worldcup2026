@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Map, TrendingUp, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Finalistes CDM 2026 — Qui sera en finale ?",
   description:
@@ -129,7 +128,6 @@ export default function PronosticFinalistesPage() {
 
       <FAQSection title="Questions fréquentes — Finalistes CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

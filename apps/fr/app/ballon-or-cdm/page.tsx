@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Award, Trophy, Star, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Ballon d'Or CDM 2026 — Meilleur Joueur du Tournoi",
   description:
@@ -139,7 +138,6 @@ export default function BallonOrCdmPage() {
 
       <FAQSection title="Questions fréquentes — Ballon d'Or CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

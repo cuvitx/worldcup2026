@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Target, TrendingUp, Star, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Meilleur Buteur CDM 2026 — Top 15 Favoris & Cotes",
   description:
@@ -185,7 +184,6 @@ export default function PronosticButeursPage() {
       <FAQSection title="Questions fréquentes — Meilleur buteur CDM 2026" items={faqItems} />
 
       {/* ANJ */}
-      <ANJBanner />
     </>
   );
 }

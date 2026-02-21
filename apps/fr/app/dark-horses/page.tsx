@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Flame, TrendingUp, Star, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Dark Horses CDM 2026 — Équipes Surprises & Outsiders",
   description:
@@ -132,7 +131,6 @@ export default function DarkHorsesPage() {
 
       <FAQSection title="Questions fréquentes — Dark horses CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

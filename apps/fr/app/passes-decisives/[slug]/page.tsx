@@ -7,7 +7,6 @@ import { Zap, TrendingUp, ArrowRight, ExternalLink, Users } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -186,7 +185,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
-        <ANJBanner />
       </section>
 
       {/* Related */}

@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Zap, Smartphone, TrendingUp, Shield, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Paris Live CDM 2026 — Guide du Live Betting en Direct",
   description:
@@ -140,7 +139,6 @@ export default function ParisLivePage() {
 
       <FAQSection title="Questions fréquentes — Paris live CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

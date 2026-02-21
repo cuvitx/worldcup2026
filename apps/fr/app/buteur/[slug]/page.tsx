@@ -7,7 +7,6 @@ import { teamsById } from "@repo/data/teams";
 import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -274,7 +273,6 @@ export default async function ButeurPage({ params }: PageProps) {
                   );
                 })}
               </div>
-              <ANJBanner />
             </section>
           </div>
 

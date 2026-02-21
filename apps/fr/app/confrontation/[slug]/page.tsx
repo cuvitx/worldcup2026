@@ -9,7 +9,6 @@ import { h2hByPair } from "@repo/data/h2h";
 import { bookmakers } from "@repo/data/affiliates";
 import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link2, Swords, Trophy } from "lucide-react";
 import type { Team } from "@repo/data/types";
-import { ANJBanner } from "@repo/ui/anj-banner";
 
 /* ─── Top 30 confrontations marquantes ─────────────────────────────────────── */
 
@@ -358,7 +357,6 @@ export default async function ConfrontationPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <ANJBanner />
           </aside>
         </div>
       </div>

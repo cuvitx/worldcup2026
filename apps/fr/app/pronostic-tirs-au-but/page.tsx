@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Clock, Target, TrendingUp, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Tirs au But CDM 2026 — Prolongation & Penalties",
   description:
@@ -149,7 +148,6 @@ export default function PronosticTirsAuButPage() {
 
       <FAQSection title="Questions fréquentes — Tirs au but CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

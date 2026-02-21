@@ -7,7 +7,6 @@ import { Flag, TrendingUp, ArrowRight, ExternalLink, Eye, Cpu } from "lucide-rea
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 function getOffsideStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 4 + awayId.charCodeAt(0) * 2 + homeId.length;
   const homeOffsides = +(1.5 + (seed % 20) / 10).toFixed(1);
@@ -189,7 +188,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
-        <ANJBanner />
       </section>
 
       {/* Related */}

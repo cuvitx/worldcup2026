@@ -3,7 +3,6 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-reviews";
 import { guides, guidesById } from "@repo/data/guides";
 
@@ -174,7 +173,6 @@ export default async function BookmakerPage({ params }: PageProps) {
               >
                 S&apos;inscrire sur {bk.name}
               </a>
-              <ANJBanner />
             </section>
           </div>
 

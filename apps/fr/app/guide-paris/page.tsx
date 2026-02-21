@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import { BookOpen, Target, AlertCircle, Wallet, Brain, CheckCircle, ArrowRight, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -93,7 +92,6 @@ export default function GuideParisPage() {
         </div>
       </section>
 
-      <ANJBanner />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Intro */}
@@ -243,7 +241,6 @@ export default function GuideParisPage() {
             </Link>
           </div>
         </section>
-        <ANJBanner />
       </div>
 
       <FAQSection

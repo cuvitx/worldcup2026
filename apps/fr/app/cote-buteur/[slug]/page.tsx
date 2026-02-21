@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-import { ANJBanner } from "@repo/ui/anj-banner";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -177,7 +176,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
       {/* Analyse */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4">Analyse : style de jeu et potentiel buteur</h2>
-        <ANJBanner />
       </section>
 
       {/* Maillage */}

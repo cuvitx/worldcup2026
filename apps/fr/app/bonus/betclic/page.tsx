@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { ANJBanner } from "@repo/ui/anj-banner";
 import { Gift, CheckCircle, ArrowRight, Star, Tv, Trophy, Layers, UserPlus } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -76,7 +75,6 @@ export default function BonusBetclicPage() {
         </div>
       </section>
 
-      <ANJBanner />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Résumé */}
@@ -187,7 +185,6 @@ export default function BonusBetclicPage() {
             <Link href="/meilleurs-bookmakers" className="text-primary hover:underline">Comparatif bookmakers</Link>
           </p>
         </div>
-        <ANJBanner />
       </div>
 
       <FAQSection

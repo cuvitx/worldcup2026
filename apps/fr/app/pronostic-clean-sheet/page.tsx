@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Shield, BarChart3, Trophy, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Clean Sheet CDM 2026 — Meilleures Défenses & Cotes",
   description:
@@ -145,7 +144,6 @@ export default function PronosticCleanSheetPage() {
 
       <FAQSection title="Questions fréquentes — Clean Sheet CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

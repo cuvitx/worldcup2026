@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Mentions légales | CDM 2026",
   description:
@@ -179,7 +178,6 @@ export default function MentionsLegalesPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
               7. Clause de non-responsabilité — Paris sportifs
             </h2>
-            <ANJBanner />
           </section>
 
           <section>

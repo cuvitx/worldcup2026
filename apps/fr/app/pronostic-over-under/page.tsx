@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { TrendingUp, BarChart3, Zap, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Over/Under Buts CDM 2026 — Guide +2.5 / -2.5",
   description:
@@ -173,7 +172,6 @@ export default function PronosticOverUnderPage() {
 
       <FAQSection title="Questions fréquentes — Over/Under CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

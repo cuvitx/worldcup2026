@@ -4,7 +4,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Users, BarChart3, Target, ArrowRight } from "lucide-react";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic BTTS CDM 2026 — Les Deux Équipes Marquent",
   description:
@@ -143,7 +142,6 @@ export default function PronosticBttsPage() {
 
       <FAQSection title="Questions fréquentes — BTTS CDM 2026" items={faqItems} />
 
-      <ANJBanner />
     </>
   );
 }

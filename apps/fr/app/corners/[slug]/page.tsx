@@ -8,7 +8,6 @@ import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 function getCornerStats(homeId: string, awayId: string) {
   const seed = (homeId + awayId).length * 7 + homeId.charCodeAt(0);
   const homeCorners = +(4.5 + (seed % 30) / 10).toFixed(1);
@@ -186,7 +185,6 @@ export default async function CornersPage({ params }: PageProps) {
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
-        <ANJBanner />
       </section>
 
       {/* Related */}

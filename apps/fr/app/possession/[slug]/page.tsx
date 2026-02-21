@@ -7,7 +7,6 @@ import { PieChart, TrendingUp, ArrowRight, ExternalLink, Swords } from "lucide-r
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 
-import { ANJBanner } from "@repo/ui/anj-banner";
 function getPossessionStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 5 + awayId.charCodeAt(0) * 3;
   const homePoss = +(48 + (seed % 12)).toFixed(0);
@@ -182,7 +181,6 @@ export default async function PossessionPage({ params }: PageProps) {
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
-        <ANJBanner />
       </section>
 
       {/* Related */}
