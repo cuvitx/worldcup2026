@@ -256,27 +256,45 @@ export function AutoBreadcrumb() {
     }
   }
 
+  /* ── BreadcrumbList JSON-LD (Schema.org) ── */
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      ...(item.href ? { item: `https://www.cdm2026.fr${item.href}` } : {}),
+    })),
+  };
+
   return (
-    <nav className="bg-white border-b border-gray-200" aria-label="Fil d'Ariane">
-      <div className="mx-auto max-w-7xl px-4 py-3">
-        <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-          {items.map((item, index) => {
-            const isLast = index === items.length - 1;
-            return (
-              <li key={index} className="flex items-center gap-2">
-                {item.href && !isLast ? (
-                  <Link href={item.href} className="hover:text-primary transition-colors">
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span className={isLast ? "text-gray-900 font-medium" : ""}>{item.label}</span>
-                )}
-                {!isLast && <span>/</span>}
-              </li>
-            );
-          })}
-        </ol>
-      </div>
-    </nav>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <nav className="bg-white border-b border-gray-200" aria-label="Fil d'Ariane">
+        <div className="mx-auto max-w-7xl px-4 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
+            {items.map((item, index) => {
+              const isLast = index === items.length - 1;
+              return (
+                <li key={index} className="flex items-center gap-2">
+                  {item.href && !isLast ? (
+                    <Link href={item.href} className="hover:text-primary transition-colors">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span className={isLast ? "text-gray-900 font-medium" : ""}>{item.label}</span>
+                  )}
+                  {!isLast && <span>/</span>}
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      </nav>
+    </>
   );
 }
