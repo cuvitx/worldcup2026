@@ -219,6 +219,38 @@ function slugToLabel(slug: string): string {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/* ── Routes where the slug IS the entity and the prefix is an "aspect" ──
+   For /effectif/france → Accueil / France / Effectif (not Accueil / Équipes / Effectif / France)
+   The slug links to the entity page (/equipe/slug), the prefix becomes the current label */
+const ENTITY_ASPECT_ROUTES: Record<string, { entityPrefix: string; entityHub: string; aspectLabel: string }> = {
+  effectif: { entityPrefix: "equipe", entityHub: "/equipe", aspectLabel: "Effectif" },
+  parier: { entityPrefix: "equipe", entityHub: "/equipe", aspectLabel: "Parier" },
+  "cote-champion": { entityPrefix: "equipe", entityHub: "/equipe", aspectLabel: "Cote champion" },
+  "pronostic-match": { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Pronostic" },
+  "score-exact": { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Score exact" },
+  "compos-officielles": { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Compos officielles" },
+  "sur-quelle-chaine": { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "TV / Chaîne" },
+  arbitre: { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Arbitre" },
+  corners: { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Corners" },
+  possession: { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Possession" },
+  "hors-jeu": { entityPrefix: "match", entityHub: "/match/calendrier", aspectLabel: "Hors-jeu" },
+  "tirs-cadres": { entityPrefix: "joueur", entityHub: "/joueurs", aspectLabel: "Tirs cadrés" },
+  "passes-decisives": { entityPrefix: "joueur", entityHub: "/joueurs", aspectLabel: "Passes décisives" },
+  tacles: { entityPrefix: "joueur", entityHub: "/joueurs", aspectLabel: "Tacles" },
+  "cote-carton-jaune": { entityPrefix: "joueur", entityHub: "/joueurs", aspectLabel: "Cote carton" },
+  "cote-buteur": { entityPrefix: "joueur", entityHub: "/joueurs", aspectLabel: "Cote buteur" },
+  buteur: { entityPrefix: "joueur", entityHub: "/joueurs", aspectLabel: "Buteur" },
+  "pronostic-groupe": { entityPrefix: "groupe", entityHub: "/groupes", aspectLabel: "Pronostic" },
+  "scenarios-qualification": { entityPrefix: "groupe", entityHub: "/groupes", aspectLabel: "Scénarios" },
+  "fan-zone": { entityPrefix: "ville", entityHub: "/villes", aspectLabel: "Fan zone" },
+  "guide-supporter": { entityPrefix: "ville", entityHub: "/villes", aspectLabel: "Guide supporter" },
+  transport: { entityPrefix: "ville", entityHub: "/villes", aspectLabel: "Transport" },
+  meteo: { entityPrefix: "ville", entityHub: "/villes", aspectLabel: "Météo" },
+  "ecrans-geants": { entityPrefix: "ville", entityHub: "/villes", aspectLabel: "Écrans géants" },
+  "statistiques-arbitre": { entityPrefix: "arbitre", entityHub: "/arbitres", aspectLabel: "Statistiques" },
+  "matchs-au-stade": { entityPrefix: "stade", entityHub: "/stades", aspectLabel: "Matchs" },
+};
+
 export function AutoBreadcrumb() {
   const pathname = usePathname();
 
@@ -232,26 +264,39 @@ export function AutoBreadcrumb() {
     { label: "Accueil", href: "/" },
   ];
 
-  // Check if first segment has a parent hub (for dynamic routes like /equipe/france)
   const firstSeg = segments[0]!;
-  if (segments.length >= 2 && PARENT_HUBS[firstSeg]) {
+  const slug = segments[1];
+
+  // Pattern 1: Entity-aspect routes (/effectif/france → Accueil / France / Effectif)
+  if (segments.length === 2 && slug && ENTITY_ASPECT_ROUTES[firstSeg]) {
+    const aspect = ENTITY_ASPECT_ROUTES[firstSeg];
+    items.push({ label: slugToLabel(slug), href: `/${aspect.entityPrefix}/${slug}` });
+    items.push({ label: aspect.aspectLabel });
+  }
+  // Pattern 2: Nested silo routes (/paris-sportifs/corners → Accueil / Paris sportifs / Corners)
+  // Pattern 3: Simple dynamic routes (/equipe/france → Accueil / Équipes / France)
+  else if (segments.length >= 2 && PARENT_HUBS[firstSeg]) {
     const hub = PARENT_HUBS[firstSeg];
     items.push({ label: hub.label, href: hub.href });
+    for (let i = 1; i < segments.length; i++) {
+      const seg = segments[i]!;
+      const isLast = i === segments.length - 1;
+      if (isLast) {
+        items.push({ label: slugToLabel(seg) });
+      } else {
+        items.push({ label: slugToLabel(seg), href: "/" + segments.slice(0, i + 1).join("/") });
+      }
+    }
   }
-
-  // Add intermediate segments as links (but not the last one)
-  for (let i = 0; i < segments.length; i++) {
-    const seg = segments[i]!;
-    const href = "/" + segments.slice(0, i + 1).join("/");
-    const isLast = i === segments.length - 1;
-
-    if (isLast) {
-      items.push({ label: slugToLabel(seg) });
-    } else {
-      // Only add if different from already added parent hub
-      const alreadyAdded = items.some((item) => item.href === href);
-      if (!alreadyAdded) {
-        items.push({ label: slugToLabel(seg), href });
+  // Pattern 4: Everything else — simple path segments
+  else {
+    for (let i = 0; i < segments.length; i++) {
+      const seg = segments[i]!;
+      const isLast = i === segments.length - 1;
+      if (isLast) {
+        items.push({ label: slugToLabel(seg) });
+      } else {
+        items.push({ label: slugToLabel(seg), href: "/" + segments.slice(0, i + 1).join("/") });
       }
     }
   }
