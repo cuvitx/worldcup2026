@@ -66,13 +66,13 @@ export default function DecalageHorairePage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <Clock className="h-4 w-4 text-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+            <Clock className="h-4 w-4 text-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
               Guide pratique
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-secondary">Décalage horaire</span> CDM 2026
+            <span className="text-accent">Décalage horaire</span> CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Tous les fuseaux horaires des 16 villes hôtes et les horaires des matchs
@@ -137,7 +137,7 @@ export default function DecalageHorairePage() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="flex items-center gap-2 mb-2">
-                <Moon className="h-5 w-5 text-secondary" />
+                <Moon className="h-5 w-5 text-accent" />
                 <h3 className="font-semibold text-gray-900">Matchs de nuit (23h-02h)</h3>
               </div>
               <p className="text-sm text-gray-600">
@@ -149,7 +149,7 @@ export default function DecalageHorairePage() {
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="flex items-center gap-2 mb-2">
-                <Sun className="h-5 w-5 text-secondary" />
+                <Sun className="h-5 w-5 text-accent" />
                 <h3 className="font-semibold text-gray-900">Matchs accessibles (19h-22h)</h3>
               </div>
               <p className="text-sm text-gray-600">

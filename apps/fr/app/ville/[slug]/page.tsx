@@ -148,9 +148,9 @@ export default async function CityPage({ params }: PageProps) {
                         {enrichment.weather.juinMin} – {enrichment.weather.juinMax}C
                       </p>
                     </div>
-                    <div className="rounded-lg bg-secondary/10 p-4 text-center">
+                    <div className="rounded-lg bg-accent/10 p-4 text-center">
                       <p className="text-xs text-gray-500 mb-1">Juillet</p>
-                      <p className="text-2xl font-bold text-secondary">
+                      <p className="text-2xl font-bold text-accent">
                         {enrichment.weather.juilletMin} – {enrichment.weather.juilletMax}C
                       </p>
                     </div>

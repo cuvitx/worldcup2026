@@ -77,7 +77,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
             Scénarios de qualification :{" "}
-            <span className="text-secondary">Groupe {group.letter}</span>
+            <span className="text-accent">Groupe {group.letter}</span>
           </h1>
           <p className="text-lg text-white/80">
             {groupTeams.map((t) => t.name).join(" · ")}

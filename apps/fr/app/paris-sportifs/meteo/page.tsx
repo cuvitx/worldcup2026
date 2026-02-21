@@ -99,7 +99,7 @@ export default function ImpactMeteoParisPage() {
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Paris sportifs
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -123,7 +123,7 @@ export default function ImpactMeteoParisPage() {
               <p className="text-gray-700 leading-relaxed">{f.description}</p>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-secondary" /> Stats historiques
+                  <BarChart3 className="h-5 w-5 text-accent" /> Stats historiques
                 </h3>
                 <ul className="space-y-1">
                   {f.stats.map((s, i) => (

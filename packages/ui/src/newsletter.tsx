@@ -285,7 +285,7 @@ export function Newsletter({
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="flex-shrink-0 text-center md:text-left md:max-w-xs lg:max-w-sm">
             <div className="flex items-center justify-center md:justify-start mb-2">
-              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
+              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur-sm">
                 {l.title}
               </span>
             </div>

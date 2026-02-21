@@ -93,7 +93,7 @@ export default function CalculateurBudgetPage() {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
               <DollarSign className="h-5 w-5 inline-block" /> Outil interactif
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
@@ -126,7 +126,7 @@ export default function CalculateurBudgetPage() {
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-secondary pointer-events-none" />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-accent pointer-events-none" />
               </div>
             </div>
 
@@ -143,7 +143,7 @@ export default function CalculateurBudgetPage() {
                 onChange={(e) => setDays(Number(e.target.value))}
                 className="w-full accent-accent"
               />
-              <div className="flex justify-between text-xs text-secondary mt-1">
+              <div className="flex justify-between text-xs text-accent mt-1">
                 <span>3 jours</span>
                 <span>21 jours</span>
               </div>
@@ -182,7 +182,7 @@ export default function CalculateurBudgetPage() {
                 onChange={(e) => setMatchCount(Number(e.target.value))}
                 className="w-full accent-accent"
               />
-              <div className="flex justify-between text-xs text-secondary mt-1">
+              <div className="flex justify-between text-xs text-accent mt-1">
                 <span>1 match</span>
                 <span>7 matchs</span>
               </div>
@@ -193,9 +193,9 @@ export default function CalculateurBudgetPage() {
           <div className="lg:col-span-3 space-y-4">
             {/* Total */}
             <div className="rounded-2xl border-2 border-accent bg-accent/5 p-6 text-center">
-              <p className="text-sm text-secondary font-medium mb-1">Budget total estimé</p>
+              <p className="text-sm text-accent font-medium mb-1">Budget total estimé</p>
               <p className="text-4xl sm:text-5xl font-extrabold text-accent">{fmt(total)} €</p>
-              <p className="text-xs text-secondary mt-2">
+              <p className="text-xs text-accent mt-2">
                 {city.country} {city.name} · {days} jours · {standingLabels[standing]} · {matchCount} match{matchCount > 1 ? "s" : ""}
               </p>
             </div>
@@ -208,7 +208,7 @@ export default function CalculateurBudgetPage() {
                   <div key={p.label} className="rounded-xl border p-4">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Icon className="h-5 w-5 text-secondary" />
+                        <Icon className="h-5 w-5 text-accent" />
                         <span className="text-sm font-medium">{p.label}</span>
                       </div>
                       <span className="font-bold">{fmt(p.value)} €</span>
@@ -258,7 +258,7 @@ export default function CalculateurBudgetPage() {
         </div>
 
         {/* Disclaimer */}
-        <p className="text-xs text-secondary text-center mt-10 max-w-2xl mx-auto">
+        <p className="text-xs text-accent text-center mt-10 max-w-2xl mx-auto">
           <Lightbulb className="h-5 w-5 inline-block" /> Ces estimations sont indicatives et basées sur les prix moyens constatés début 2025.
           Les tarifs réels peuvent varier selon la période, la disponibilité et les promotions.
           Les prix des billets correspondent aux catégories FIFA officielles (phase de groupes).

@@ -62,7 +62,7 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
                   className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                     ch.free
                       ? "bg-field/10 text-field"
-                      : "bg-secondary/10 text-secondary"
+                      : "bg-accent/10 text-accent"
                   }`}
                 >
                   {ch.type}

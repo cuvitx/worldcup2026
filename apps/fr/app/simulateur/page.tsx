@@ -78,7 +78,7 @@ export default function SimulateurPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-secondary/15 border border-secondary/30 px-3 py-1 text-xs font-bold text-secondary mb-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-accent/15 border border-accent/30 px-3 py-1 text-xs font-bold text-accent mb-3">
                 Outil interactif
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">

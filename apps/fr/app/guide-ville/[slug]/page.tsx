@@ -74,10 +74,10 @@ export default async function GuideVillePage({ params }: PageProps) {
         {/* ─── Back navigation ─── */}
         <section className="py-8 border-t border-gray-100">
           <div className="mx-auto max-w-5xl px-4 flex flex-wrap gap-4">
-            <Link href="/" className="text-sm text-accent hover:underline">
+            <Link href="/" className="text-sm text-primary hover:underline">
               ← Accueil
             </Link>
-            <Link href="/guides" className="text-sm text-accent hover:underline">
+            <Link href="/guides" className="text-sm text-primary hover:underline">
               ← Tous les guides
             </Link>
           </div>

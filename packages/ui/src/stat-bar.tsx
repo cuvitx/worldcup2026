@@ -6,12 +6,12 @@ import { useEffect, useRef, useState } from "react";
 
 const colorMap: Record<string, string> = {
   accent: "bg-primary",
-  gold: "bg-secondary",
+  gold: "bg-accent",
   green: "bg-field",
-  blue: "bg-secondary",
-  purple: "bg-secondary",
+  blue: "bg-accent",
+  purple: "bg-accent",
   orange: "bg-primary",
-  teal: "bg-secondary",
+  teal: "bg-accent",
 };
 
 // ── StatBar simple (barre horizontale animée au scroll) ────────────────────
@@ -220,7 +220,7 @@ export function DuelStatBar({
           style={{ width: visible ? `${homePct}%` : "0%" }}
         />
         <div
-          className={`h-full rounded-r-full transition-all ease-out duration-700 ${awayWins ? "bg-secondary" : "bg-gray-300"}`}
+          className={`h-full rounded-r-full transition-all ease-out duration-700 ${awayWins ? "bg-accent" : "bg-gray-300"}`}
           style={{ width: visible ? `${awayPct}%` : "0%" }}
         />
       </div>

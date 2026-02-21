@@ -277,7 +277,7 @@ export default async function FanZonePage({ params }: PageProps) {
             <PartyPopper className="inline w-8 h-8 mr-2" />
             Fan Zone à {city.name} — Coupe du Monde 2026
           </h1>
-          <p className="text-secondary mt-3 text-lg">{city.country} • {fanZone.location}</p>
+          <p className="text-accent mt-3 text-lg">{city.country} • {fanZone.location}</p>
         </div>
       </section>
 
@@ -288,22 +288,22 @@ export default async function FanZonePage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <MapPin className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-sm font-semibold text-primary">Lieu</div>
-            <div className="text-xs text-secondary mt-1">{fanZone.location}</div>
+            <div className="text-xs text-accent mt-1">{fanZone.location}</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Users className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-sm font-semibold text-primary">Capacité</div>
-            <div className="text-xs text-secondary mt-1">{fanZone.capacity}</div>
+            <div className="text-xs text-accent mt-1">{fanZone.capacity}</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Clock className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-sm font-semibold text-primary">Horaires</div>
-            <div className="text-xs text-secondary mt-1">{fanZone.openingHours}</div>
+            <div className="text-xs text-accent mt-1">{fanZone.openingHours}</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Tv className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-sm font-semibold text-primary">Écrans</div>
-            <div className="text-xs text-secondary mt-1">{fanZone.screens}</div>
+            <div className="text-xs text-accent mt-1">{fanZone.screens}</div>
           </div>
         </div>
       </section>
@@ -314,8 +314,8 @@ export default async function FanZonePage({ params }: PageProps) {
           <MapPin className="w-6 h-6 text-accent" /> Adresse et accès
         </h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3">
-          <p className="text-secondary"><strong className="text-primary">Adresse :</strong> {fanZone.address}</p>
-          <p className="text-secondary"><strong className="text-primary">Accès :</strong> {fanZone.access}</p>
+          <p className="text-accent"><strong className="text-primary">Adresse :</strong> {fanZone.address}</p>
+          <p className="text-accent"><strong className="text-primary">Accès :</strong> {fanZone.access}</p>
           <p className="text-accent font-semibold text-sm"><Check className="h-5 w-5 inline-block" /> Entrée gratuite</p>
         </div>
       </section>
@@ -329,7 +329,7 @@ export default async function FanZonePage({ params }: PageProps) {
           {fanZone.activities.map((activity, i) => (
             <div key={i} className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 p-4">
               <span className="text-accent text-lg"><PartyPopper className="h-5 w-5 inline-block" /></span>
-              <span className="text-secondary">{activity}</span>
+              <span className="text-accent">{activity}</span>
             </div>
           ))}
         </div>
@@ -338,7 +338,7 @@ export default async function FanZonePage({ params }: PageProps) {
       {/* Restauration */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><UtensilsCrossed className="h-5 w-5 inline-block" /> Restauration</h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 text-accent">
           <p>{fanZone.food}</p>
         </div>
       </section>
@@ -349,7 +349,7 @@ export default async function FanZonePage({ params }: PageProps) {
         <div className="bg-white rounded-xl border border-gray-200 p-6">
           <ul className="space-y-2">
             {fanZone.tips.map((tip, i) => (
-              <li key={i} className="flex items-start gap-2 text-secondary">
+              <li key={i} className="flex items-start gap-2 text-accent">
                 <span className="text-accent mt-0.5">•</span> {tip}
               </li>
             ))}
@@ -362,7 +362,7 @@ export default async function FanZonePage({ params }: PageProps) {
         <div className="bg-accent/10 rounded-2xl p-8 text-center">
           <CalendarDays className="w-10 h-10 text-accent mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-primary mb-3">Préparez votre visite !</h2>
-          <p className="text-secondary max-w-xl mx-auto mb-6">
+          <p className="text-accent max-w-xl mx-auto mb-6">
             La fan zone de {city.name} sera l&apos;un des lieux incontournables de la CDM 2026. Consultez nos autres guides pour organiser votre séjour complet.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

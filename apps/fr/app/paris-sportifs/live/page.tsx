@@ -51,7 +51,7 @@ export default function ParisLivePage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Paris live" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Paris Live — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Live — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Guide complet pour parier en direct pendant les matchs de la Coupe du Monde 2026. Stratégies, apps et cashout.
         </p>
@@ -98,7 +98,7 @@ export default function ParisLivePage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <TrendingUp className="w-7 h-7 text-secondary" />
+          <TrendingUp className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">5 stratégies live pour la CDM 2026</h2>
         </div>
         <div className="space-y-4">
@@ -116,14 +116,14 @@ export default function ParisLivePage() {
           <Shield className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Cashout — Sécurisez vos gains</h2>
         </div>
-        <div className="bg-secondary/5 rounded-xl p-6">
+        <div className="bg-accent/5 rounded-xl p-6">
           <p className="text-gray-700 mb-4">
             Le cashout est votre meilleur allié en live betting. Il permet de transformer un pari en cours en gain assuré (ou de limiter les pertes). Voici les règles d&apos;or :
           </p>
           <ul className="space-y-3">
             {cashoutTips.map((tip, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
+                <span className="bg-accent text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
                 <span className="text-sm text-gray-700">{tip}</span>
               </li>
             ))}

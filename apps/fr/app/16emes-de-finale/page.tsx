@@ -56,13 +56,13 @@ export default function SeiziemesDeFinale() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <Swords className="h-4 w-4 text-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+            <Swords className="h-4 w-4 text-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
               Phases éliminatoires
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-secondary">16èmes de finale</span> CDM 2026
+            <span className="text-accent">16èmes de finale</span> CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
             Round of 32 — Un tour inédit pour la première Coupe du Monde à 48 équipes.
@@ -75,7 +75,7 @@ export default function SeiziemesDeFinale() {
               { val: "5", label: "Jours" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-3xl font-black text-secondary">{s.val}</p>
+                <p className="text-3xl font-black text-accent">{s.val}</p>
                 <p className="text-xs text-gray-300 uppercase tracking-wide">{s.label}</p>
               </div>
             ))}
@@ -156,8 +156,8 @@ export default function SeiziemesDeFinale() {
               Tableau des matchs
             </h2>
           </div>
-          <div className="rounded-xl border-2 border-dashed border-secondary/40 bg-secondary/5 p-8 text-center">
-            <Swords className="h-12 w-12 text-secondary mx-auto mb-4 opacity-60" />
+          <div className="rounded-xl border-2 border-dashed border-accent/40 bg-accent/5 p-8 text-center">
+            <Swords className="h-12 w-12 text-accent mx-auto mb-4 opacity-60" />
             <p className="text-lg font-semibold text-gray-900 mb-2">
               Tableau à venir
             </p>

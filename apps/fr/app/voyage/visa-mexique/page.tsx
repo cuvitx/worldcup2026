@@ -53,7 +53,7 @@ export default function VisaMexiquePage() {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
               🇲🇽 Formalités Mexique
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
@@ -80,12 +80,12 @@ export default function VisaMexiquePage() {
             <CheckCircle className="h-7 w-7 text-green-500" />
             Pas de visa pour les Français
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Les ressortissants français bénéficient d&apos;une <strong>exemption de visa</strong> pour les
             séjours touristiques au Mexique d&apos;une durée inférieure à <strong>180 jours</strong>. Puisque
             la Coupe du Monde 2026 se déroule du 11 juin au 19 juillet, vous êtes largement dans les limites.
           </p>
-          <p className="text-secondary leading-relaxed">
+          <p className="text-accent leading-relaxed">
             Le Mexique accueille 3 villes hôtes de la CDM 2026 : <strong>Mexico</strong> (Estadio Azteca),
             <strong> Guadalajara</strong> (Estadio Akron) et <strong>Monterrey</strong> (Estadio BBVA).
             L&apos;Estadio Azteca accueillera notamment le match d&apos;ouverture.
@@ -98,21 +98,21 @@ export default function VisaMexiquePage() {
             <FileText className="h-7 w-7 text-accent" />
             La FMM : formulaire migratoire obligatoire
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             La <strong>FMM</strong> (Forma Migratoria Múltiple) est le document d&apos;immigration que tout
             visiteur étranger doit remplir pour entrer au Mexique. C&apos;est l&apos;équivalent mexicain
             d&apos;une carte d&apos;embarquement migratoire.
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5 space-y-3">
             <h3 className="font-bold text-lg"><ClipboardList className="h-5 w-5 inline-block" /> Comment obtenir la FMM</h3>
-            <ol className="space-y-2 text-sm text-secondary list-decimal list-inside">
+            <ol className="space-y-2 text-sm text-accent list-decimal list-inside">
               <li><strong>En ligne (recommandé)</strong> : sur le site de l&apos;INM (<a href="https://www.inm.gob.mx/" target="_blank" rel="noopener noreferrer" className="text-accent underline">inm.gob.mx</a>) avant votre départ. Imprimez le formulaire.</li>
               <li><strong>Dans l&apos;avion</strong> : les compagnies aériennes distribuent le formulaire papier pendant le vol.</li>
               <li><strong>À l&apos;arrivée</strong> : des formulaires sont disponibles aux guichets d&apos;immigration de l&apos;aéroport.</li>
             </ol>
             <div className="flex items-start gap-2 mt-3 p-3 rounded-lg bg-yellow-50 border border-yellow-200">
               <AlertTriangle className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
-              <p className="text-sm text-secondary">
+              <p className="text-sm text-accent">
                 <strong>Important :</strong> Conservez votre FMM pendant tout votre séjour. Elle vous sera
                 demandée à la sortie du territoire. La perte de ce document peut entraîner une amende.
               </p>
@@ -135,7 +135,7 @@ export default function VisaMexiquePage() {
             ].map((doc) => (
               <div key={doc.title} className="rounded-xl border p-4">
                 <p className="font-bold">{doc.icon} {doc.title}</p>
-                <p className="text-sm text-secondary mt-1">{doc.desc}</p>
+                <p className="text-sm text-accent mt-1">{doc.desc}</p>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function VisaMexiquePage() {
             <Plane className="h-7 w-7 text-accent" />
             Vols directs depuis la France
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Plusieurs compagnies proposent des vols directs entre Paris et le Mexique :
           </p>
           <div className="space-y-3">
@@ -160,13 +160,13 @@ export default function VisaMexiquePage() {
               <div key={vol.route} className="flex flex-col sm:flex-row sm:items-center justify-between rounded-lg border p-4 gap-2">
                 <div>
                   <p className="font-bold text-sm">{vol.route}</p>
-                  <p className="text-xs text-secondary">{vol.airline} — {vol.duration}</p>
+                  <p className="text-xs text-accent">{vol.airline} — {vol.duration}</p>
                 </div>
                 <span className="text-accent font-bold text-sm">{vol.price}</span>
               </div>
             ))}
           </div>
-          <p className="text-xs text-secondary mt-3">
+          <p className="text-xs text-accent mt-3">
             <Lightbulb className="h-5 w-5 inline-block" /> Astuce : si vous voyagez aussi aux USA pour d&apos;autres matchs, attention — un transit
             par les États-Unis nécessite un{" "}
             <Link href="/voyage/esta-visa-usa" className="text-accent underline">ESTA valide</Link>.
@@ -179,11 +179,11 @@ export default function VisaMexiquePage() {
             <Heart className="h-7 w-7 text-red-500" />
             Précautions sanitaires
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Le Mexique ne requiert aucun vaccin obligatoire pour les voyageurs venant de France,
             mais plusieurs précautions sont recommandées :
           </p>
-          <ul className="space-y-2 text-secondary text-sm">
+          <ul className="space-y-2 text-accent text-sm">
             <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span><strong>Vaccins recommandés :</strong> Hépatite A, Typhoïde, mise à jour DTP</span></li>
             <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span><strong>Eau :</strong> Ne buvez que de l&apos;eau en bouteille (même pour se brosser les dents)</span></li>
             <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span><strong>Alimentation :</strong> Évitez les crudités et glaçons dans les stands de rue les premiers jours</span></li>
@@ -233,7 +233,7 @@ export default function VisaMexiquePage() {
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl border p-4 hover:border-accent/50 transition-colors block">
                 <p className="font-bold">{link.icon} {link.title}</p>
-                <p className="text-sm text-secondary mt-1">{link.desc}</p>
+                <p className="text-sm text-accent mt-1">{link.desc}</p>
               </Link>
             ))}
           </div>

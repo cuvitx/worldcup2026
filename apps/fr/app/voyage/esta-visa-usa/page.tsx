@@ -64,7 +64,7 @@ export default function EstaUsaPage() {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
               🇺🇸 Formalités USA
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
@@ -104,12 +104,12 @@ export default function EstaUsaPage() {
             <FileText className="h-7 w-7 text-accent" />
             Qu&apos;est-ce que l&apos;ESTA ?
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             L&apos;ESTA (<strong>Electronic System for Travel Authorization</strong>) est une autorisation de voyage
             électronique obligatoire pour entrer aux États-Unis sans visa, dans le cadre du programme d&apos;exemption
             de visa (<em>Visa Waiver Program</em>). Ce programme concerne 41 pays, dont la France.
           </p>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Concrètement, l&apos;ESTA est un formulaire en ligne que vous remplissez avant votre départ. Il ne
             s&apos;agit pas d&apos;un visa, mais d&apos;une pré-autorisation d&apos;embarquement. L&apos;agent des
             douanes américain garde le pouvoir de vous refuser l&apos;entrée à l&apos;arrivée, même avec un ESTA
@@ -117,7 +117,7 @@ export default function EstaUsaPage() {
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
             <h3 className="font-bold text-lg mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Résumé ESTA en un coup d&apos;œil</h3>
-            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-secondary">
+            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-accent">
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Prix : <strong>21 $ USD</strong> (≈ 19 €)</span></li>
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Validité : <strong>2 ans</strong> ou jusqu&apos;à expiration du passeport</span></li>
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Séjour max : <strong>90 jours</strong> consécutifs</span></li>
@@ -134,13 +134,13 @@ export default function EstaUsaPage() {
             <Globe className="h-7 w-7 text-accent" />
             En tant que Français, ai-je besoin d&apos;un ESTA ?
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             <strong>Oui, absolument.</strong> La France fait partie des 41 pays éligibles au Visa Waiver Program.
             Si vous êtes titulaire d&apos;un passeport biométrique ou électronique français, vous devez obtenir
             un ESTA pour voyager aux États-Unis par avion ou par mer — que ce soit pour un match de poule à
             New York ou la finale à East Rutherford.
           </p>
-          <p className="text-secondary leading-relaxed">
+          <p className="text-accent leading-relaxed">
             Sans ESTA valide, votre compagnie aérienne refusera purement et simplement votre embarquement.
             Ne prenez pas ce risque : faites votre demande au minimum 72 heures avant le départ, idéalement
             plusieurs semaines à l&apos;avance.
@@ -153,7 +153,7 @@ export default function EstaUsaPage() {
             <Shield className="h-7 w-7 text-accent" />
             Procédure ESTA pas à pas
           </h2>
-          <p className="text-secondary leading-relaxed mb-6">
+          <p className="text-accent leading-relaxed mb-6">
             La demande prend environ 15 minutes. Munissez-vous de votre passeport et d&apos;une carte bancaire.
           </p>
           <ol className="space-y-4">
@@ -203,7 +203,7 @@ export default function EstaUsaPage() {
                 </span>
                 <div>
                   <h3 className="font-bold text-lg">{item.title}</h3>
-                  <p className="text-secondary text-sm leading-relaxed mt-1">{item.desc}</p>
+                  <p className="text-accent text-sm leading-relaxed mt-1">{item.desc}</p>
                 </div>
               </li>
             ))}
@@ -216,7 +216,7 @@ export default function EstaUsaPage() {
             <AlertTriangle className="h-7 w-7 text-red-500" />
             Pièges à éviter : sites frauduleux et faux ESTA
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Chaque année, des milliers de voyageurs se font arnaquer par des sites qui imitent le site officiel
             de l&apos;ESTA. Ces sites facturent entre 50 € et 80 € pour un simple transfert de données — quand
             ils ne volent pas purement et simplement vos informations personnelles.
@@ -226,7 +226,7 @@ export default function EstaUsaPage() {
               <XCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-red-700"><Ban className="h-5 w-5 inline-block" /> Sites à éviter</p>
-                <p className="text-sm text-secondary mt-1">
+                <p className="text-sm text-accent mt-1">
                   Tout site dont l&apos;URL n&apos;est PAS <code className="bg-gray-100 px-1 rounded">esta.cbp.dhs.gov</code>.
                   Les faux sites utilisent des noms comme &quot;esta-france.com&quot;, &quot;esta-formulaire.fr&quot; ou &quot;us-esta.org&quot;.
                   Ils apparaissent souvent en publicité Google.
@@ -237,7 +237,7 @@ export default function EstaUsaPage() {
               <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-green-700"><Check className="h-5 w-5 inline-block" /> Le seul site officiel</p>
-                <p className="text-sm text-secondary mt-1">
+                <p className="text-sm text-accent mt-1">
                   <a href="https://esta.cbp.dhs.gov/" target="_blank" rel="noopener noreferrer" className="text-accent underline font-semibold">
                     https://esta.cbp.dhs.gov/
                   </a>{" "}
@@ -254,7 +254,7 @@ export default function EstaUsaPage() {
             <Clock className="h-7 w-7 text-accent" />
             Durée de validité et conditions
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Une fois approuvé, votre ESTA est valable <strong>2 ans</strong> à compter de la date d&apos;approbation,
             ou jusqu&apos;à la date d&apos;expiration de votre passeport (si celle-ci intervient avant les 2 ans).
             Pendant cette période, vous pouvez effectuer plusieurs voyages aux États-Unis sans refaire de demande.
@@ -262,7 +262,7 @@ export default function EstaUsaPage() {
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-xl border p-5">
               <h3 className="font-bold mb-2"><Check className="h-5 w-5 inline-block" /> Ce que permet l&apos;ESTA</h3>
-              <ul className="space-y-2 text-sm text-secondary">
+              <ul className="space-y-2 text-sm text-accent">
                 <li>• Séjour touristique ou affaires jusqu&apos;à 90 jours</li>
                 <li>• Entrées multiples pendant 2 ans</li>
                 <li>• Transit par les États-Unis</li>
@@ -271,7 +271,7 @@ export default function EstaUsaPage() {
             </div>
             <div className="rounded-xl border p-5">
               <h3 className="font-bold mb-2"><X className="h-5 w-5 inline-block" /> Ce que NE permet PAS l&apos;ESTA</h3>
-              <ul className="space-y-2 text-sm text-secondary">
+              <ul className="space-y-2 text-sm text-accent">
                 <li>• Travailler aux États-Unis</li>
                 <li>• Étudier (cursus long)</li>
                 <li>• Rester plus de 90 jours</li>
@@ -290,7 +290,7 @@ export default function EstaUsaPage() {
           <div className="space-y-4">
             <div className="rounded-xl border p-5">
               <h3 className="font-bold mb-2"><ShieldCheck className="h-5 w-5 inline-block" /> Double nationalité</h3>
-              <p className="text-secondary text-sm leading-relaxed">
+              <p className="text-accent text-sm leading-relaxed">
                 Si vous avez la double nationalité (ex. franco-américaine), vous devez entrer aux USA avec votre
                 passeport américain — l&apos;ESTA ne sera pas nécessaire. Si votre seconde nationalité est celle
                 d&apos;un pays non éligible au VWP (ex. Iran, Irak, Syrie, Soudan, Libye, Yémen, Somalie, Corée
@@ -300,7 +300,7 @@ export default function EstaUsaPage() {
             </div>
             <div className="rounded-xl border p-5">
               <h3 className="font-bold mb-2"><X className="h-5 w-5 inline-block" /> Refus ESTA : que faire ?</h3>
-              <p className="text-secondary text-sm leading-relaxed">
+              <p className="text-accent text-sm leading-relaxed">
                 Un refus ESTA (&quot;Travel Not Authorized&quot;) signifie que vous devez solliciter un visa classique
                 auprès de l&apos;ambassade des États-Unis à Paris. Les motifs fréquents : voyage récent en Iran, Irak,
                 Syrie, Libye, Somalie, Yémen ou Corée du Nord ; antécédents judiciaires ; séjour précédent prolongé
@@ -309,7 +309,7 @@ export default function EstaUsaPage() {
             </div>
             <div className="rounded-xl border p-5">
               <h3 className="font-bold mb-2"><Baby className="h-5 w-5 inline-block" /> Mineurs</h3>
-              <p className="text-secondary text-sm leading-relaxed">
+              <p className="text-accent text-sm leading-relaxed">
                 Chaque voyageur, y compris les enfants et bébés, doit avoir son propre ESTA et son propre passeport
                 biométrique. Un parent peut remplir le formulaire pour un mineur.
               </p>
@@ -323,14 +323,14 @@ export default function EstaUsaPage() {
             <Plane className="h-7 w-7 text-accent" />
             ESTA et CDM 2026 : ce qu&apos;il faut savoir
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             La Coupe du Monde 2026 se déroule du <strong>11 juin au 19 juillet 2026</strong> dans 11 villes
             américaines (ainsi qu&apos;au Canada et au Mexique). Si vous prévoyez de voir des matchs
             uniquement aux États-Unis, un seul ESTA suffit pour tout votre séjour.
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
             <h3 className="font-bold text-lg mb-3"><Lightbulb className="h-5 w-5 inline-block" /> Conseils CDM 2026</h3>
-            <ul className="space-y-2 text-sm text-secondary">
+            <ul className="space-y-2 text-sm text-accent">
               <li>• <strong>Faites votre ESTA dès maintenant</strong> — valable 2 ans, il couvrira la CDM 2026</li>
               <li>• Si vous voyagez aussi au <Link href="/voyage/formalites-canada" className="text-accent underline">Canada</Link> ou au <Link href="/voyage/visa-mexique" className="text-accent underline">Mexique</Link>, vous aurez besoin de formalités supplémentaires (AVE, FMM)</li>
               <li>• Vérifiez que votre passeport est valide au-delà du 19 juillet 2026</li>
@@ -383,7 +383,7 @@ export default function EstaUsaPage() {
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl border p-4 hover:border-accent/50 transition-colors block">
                 <p className="font-bold">{link.icon} {link.title}</p>
-                <p className="text-sm text-secondary mt-1">{link.desc}</p>
+                <p className="text-sm text-accent mt-1">{link.desc}</p>
               </Link>
             ))}
           </div>

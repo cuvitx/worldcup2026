@@ -122,19 +122,19 @@ export default function NewsletterPage() {
         {/* Decorative circles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
+          <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-field/20 blur-3xl" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur-sm">
             CDM 2026 · Newsletter officielle
           </div>
 
           <h1 className="mb-6 text-3xl font-extrabold tracking-tight sm:text-5xl md:text-6xl drop-shadow-lg leading-tight">
             Recevez le{' '}
-            <span className="text-secondary">programme CDM 2026</span>
+            <span className="text-accent">programme CDM 2026</span>
             <br />
             <span className="text-primary">chaque semaine</span>
           </h1>
@@ -153,7 +153,7 @@ export default function NewsletterPage() {
           <div className="mt-6 flex flex-wrap justify-center gap-6">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-2xl font-extrabold text-secondary">{s.value}</p>
+                <p className="text-2xl font-extrabold text-accent">{s.value}</p>
                 <p className="text-xs text-gray-500">{s.label}</p>
               </div>
             ))}
@@ -211,7 +211,7 @@ export default function NewsletterPage() {
             <div className="flex items-center gap-2 bg-gray-100 px-4 py-3 border-b border-gray-200">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-primary" />
-                <div className="w-3 h-3 rounded-full bg-secondary" />
+                <div className="w-3 h-3 rounded-full bg-accent" />
                 <div className="w-3 h-3 rounded-full bg-field" />
               </div>
               <div className="flex-1 ml-4 rounded-md bg-whitegray-700 px-3 py-1 text-xs text-gray-500">
@@ -240,7 +240,7 @@ export default function NewsletterPage() {
                   className="rounded-xl p-4 text-white text-center"
                   style={{ background: 'linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)' }}
                 >
-                  <p className="text-xs uppercase tracking-widest text-secondary mb-1">CDM 2026 · Semaine 3</p>
+                  <p className="text-xs uppercase tracking-widest text-accent mb-1">CDM 2026 · Semaine 3</p>
                   <p className="font-extrabold text-lg">Programme du 28 juin – 4 juillet</p>
                 </div>
 
@@ -268,7 +268,7 @@ export default function NewsletterPage() {
                   {[
                     { label: 'Victoire France', value: '45%', color: 'text-primary' },
                     { label: 'Nul (ap)', value: '25%', color: 'text-gray-500' },
-                    { label: 'Victoire Argentine', value: '30%', color: 'text-secondary' },
+                    { label: 'Victoire Argentine', value: '30%', color: 'text-accent' },
                   ].map((p) => (
                     <div key={p.label} className="rounded-lg bg-gray-50 p-2">
                       <p className={`text-lg font-extrabold ${p.color}`}>{p.value}</p>
@@ -314,7 +314,7 @@ export default function NewsletterPage() {
                 </p>
                 <div className="mt-3 flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-secondary text-sm">★</span>
+                    <span key={i} className="text-accent text-sm">★</span>
                   ))}
                 </div>
               </div>
@@ -331,7 +331,7 @@ export default function NewsletterPage() {
         <div className="mx-auto max-w-2xl px-4 text-center">
           <div className="text-4xl mb-4"><svg className="w-10 h-10 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            Rejoignez <span className="text-secondary">nos abonnés</span> fans du Mondial
+            Rejoignez <span className="text-accent">nos abonnés</span> fans du Mondial
           </h2>
           <p className="text-gray-300/90 text-sm mb-8 leading-relaxed">
             Pronostics exclusifs · Programme hebdo · Alertes matchs · Meilleures cotes.

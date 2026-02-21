@@ -75,13 +75,13 @@ export default function FinalePage() {
       <section className="hero-animated text-white py-16 sm:py-20 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <Trophy className="h-4 w-4 text-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+            <Trophy className="h-4 w-4 text-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
               Le match ultime
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl lg:text-6xl mb-4">
-            <span className="text-secondary">La Finale</span> de la Coupe du Monde 2026
+            <span className="text-accent">La Finale</span> de la Coupe du Monde 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
             MetLife Stadium, New York — 19 juillet 2026.
@@ -94,7 +94,7 @@ export default function FinalePage() {
               { val: "22h00", label: "Heure de Paris" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-2xl sm:text-3xl font-black text-secondary">{s.val}</p>
+                <p className="text-2xl sm:text-3xl font-black text-accent">{s.val}</p>
                 <p className="text-xs text-gray-300 uppercase tracking-wide">{s.label}</p>
               </div>
             ))}
@@ -254,7 +254,7 @@ export default function FinalePage() {
                   ].map((e) => (
                     <tr key={e.equipe} className="hover:bg-gray-50">
                       <td className="px-4 py-2 font-medium text-gray-900">{e.equipe}</td>
-                      <td className="px-4 py-2 text-secondary font-bold">{e.cote}</td>
+                      <td className="px-4 py-2 text-accent font-bold">{e.cote}</td>
                       <td className="px-4 py-2 text-gray-600">{e.prob}</td>
                     </tr>
                   ))}

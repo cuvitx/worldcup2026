@@ -72,7 +72,7 @@ export default function TropheePage() {
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Le Graal du football
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -84,7 +84,7 @@ export default function TropheePage() {
           <div className="flex flex-wrap justify-center gap-6">
             {specs.map((s) => (
               <div key={s.label} className="text-center">
-                <s.icon className="h-6 w-6 text-secondary mx-auto mb-1" />
+                <s.icon className="h-6 w-6 text-accent mx-auto mb-1" />
                 <span className="block text-2xl font-black text-white">{s.value}</span>
                 <span className="text-xs uppercase tracking-wider text-gray-300">{s.label}</span>
               </div>
@@ -132,7 +132,7 @@ export default function TropheePage() {
                 className="flex gap-4 rounded-xl border border-gray-200 p-5"
               >
                 <div className="shrink-0">
-                  <span className="inline-block bg-secondary/20 text-secondary font-bold text-sm px-3 py-1 rounded-full">
+                  <span className="inline-block bg-accent/20 text-accent font-bold text-sm px-3 py-1 rounded-full">
                     {event.year}
                   </span>
                 </div>

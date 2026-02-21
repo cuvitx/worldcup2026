@@ -62,7 +62,7 @@ export default function CashoutGuidePage() {
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Guide paris sportifs
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">

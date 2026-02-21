@@ -62,7 +62,7 @@ export default function PronosticOverUnderPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Over/Under" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Over/Under Buts — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Over/Under Buts — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Combien de buts par match ? Analysez les tendances historiques et identifiez les matchs Over 2.5 et Under 2.5 de la Coupe du Monde 2026.
         </p>
@@ -99,7 +99,7 @@ export default function PronosticOverUnderPage() {
       {/* Impact 48 teams */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <Zap className="w-7 h-7 text-secondary" />
+          <Zap className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Impact du format 48 équipes sur les buts</h2>
         </div>
         <div className="bg-primary/5 rounded-xl p-6">
@@ -133,7 +133,7 @@ export default function PronosticOverUnderPage() {
               <p className="text-sm text-gray-700 mb-2">{g.reason}</p>
               <div className="flex justify-between text-sm">
                 <span>Moy. estimée : <strong>{g.avgGoals}</strong></span>
-                <span className="text-secondary font-semibold">{g.recommendation}</span>
+                <span className="text-accent font-semibold">{g.recommendation}</span>
               </div>
             </div>
           ))}

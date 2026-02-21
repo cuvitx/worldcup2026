@@ -16,7 +16,7 @@ export function TicketCategoriesSection() {
               className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span className={`inline-block w-4 h-4 rounded-full shrink-0 ${cat.emoji === "green" ? "bg-accent" : cat.emoji === "yellow" ? "bg-secondary" : cat.emoji === "red" ? "bg-red-500" : "bg-blue-500"}`} />
+                <span className={`inline-block w-4 h-4 rounded-full shrink-0 ${cat.emoji === "green" ? "bg-accent" : cat.emoji === "yellow" ? "bg-accent" : cat.emoji === "red" ? "bg-red-500" : "bg-blue-500"}`} />
                 <h3 className="text-lg font-semibold text-gray-900">{cat.cat}</h3>
               </div>
               <div className="space-y-2 text-sm">

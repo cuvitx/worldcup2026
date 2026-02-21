@@ -3,7 +3,7 @@ import Link from "next/link";
 export function PalmaresSection2026() {
  return (
  <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
- <h2 className="text-2xl font-bold text-secondary mb-3">
+ <h2 className="text-2xl font-bold text-accent mb-3">
  Et en 2026 ?
  </h2>
  <p className="text-lg text-white/80 max-w-2xl mx-auto mb-6">

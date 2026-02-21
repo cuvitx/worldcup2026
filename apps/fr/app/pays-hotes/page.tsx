@@ -53,7 +53,7 @@ export default function PaysHotesPage() {
 {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Coupe du Monde 2026
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -239,11 +239,11 @@ export default function PaysHotesPage() {
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span><strong>USA :</strong> ESTA obligatoire ($21, valable 2 ans) — demande en ligne sur <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener" className="text-accent hover:underline">esta.cbp.dhs.gov</a></span>
+                    <span><strong>USA :</strong> ESTA obligatoire ($21, valable 2 ans) — demande en ligne sur <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener" className="text-primary hover:underline">esta.cbp.dhs.gov</a></span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span><strong>Canada :</strong> AVE obligatoire ($7 CAD, valable 5 ans) — demande sur <a href="https://www.canada.ca/ave" target="_blank" rel="noopener" className="text-accent hover:underline">canada.ca/ave</a></span>
+                    <span><strong>Canada :</strong> AVE obligatoire ($7 CAD, valable 5 ans) — demande sur <a href="https://www.canada.ca/ave" target="_blank" rel="noopener" className="text-primary hover:underline">canada.ca/ave</a></span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>

@@ -104,7 +104,7 @@ export default async function TransportPage({ params }: PageProps) {
             <Bus className="inline w-8 h-8 mr-2" />
             Se déplacer à {city.name} — Transports CDM 2026
           </h1>
-          <p className="text-secondary mt-3 text-lg">{city.country} • Guide complet des transports</p>
+          <p className="text-accent mt-3 text-lg">{city.country} • Guide complet des transports</p>
         </div>
       </section>
 
@@ -117,28 +117,28 @@ export default async function TransportPage({ params }: PageProps) {
               <Train className="w-6 h-6 text-accent" />
               <h3 className="font-bold text-primary text-lg">Métro / Train</h3>
             </div>
-            <p className="text-secondary text-sm">{transport.metro}</p>
+            <p className="text-accent text-sm">{transport.metro}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-2 mb-3">
               <Bus className="w-6 h-6 text-accent" />
               <h3 className="font-bold text-primary text-lg">Bus</h3>
             </div>
-            <p className="text-secondary text-sm">{transport.bus}</p>
+            <p className="text-accent text-sm">{transport.bus}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-2 mb-3">
               <Car className="w-6 h-6 text-accent" />
               <h3 className="font-bold text-primary text-lg">Taxi</h3>
             </div>
-            <p className="text-secondary text-sm">{transport.taxi}</p>
+            <p className="text-accent text-sm">{transport.taxi}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-2 mb-3">
               <Car className="w-6 h-6 text-accent" />
               <h3 className="font-bold text-primary text-lg">Uber / Lyft</h3>
             </div>
-            <p className="text-secondary text-sm">{transport.rideshare}</p>
+            <p className="text-accent text-sm">{transport.rideshare}</p>
           </div>
         </div>
       </section>
@@ -152,17 +152,17 @@ export default async function TransportPage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Train className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-xl font-extrabold text-primary">{transport.dailyPassCost}</div>
-            <div className="text-sm text-secondary">Transport en commun</div>
+            <div className="text-sm text-accent">Transport en commun</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Car className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-xl font-extrabold text-primary">{transport.taxiAvgCost}</div>
-            <div className="text-sm text-secondary">Taxi (course moyenne)</div>
+            <div className="text-sm text-accent">Taxi (course moyenne)</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Plane className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-xl font-extrabold text-primary">{transport.airportCost}</div>
-            <div className="text-sm text-secondary">Transfert aéroport</div>
+            <div className="text-sm text-accent">Transfert aéroport</div>
           </div>
         </div>
       </section>
@@ -172,7 +172,7 @@ export default async function TransportPage({ params }: PageProps) {
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <Plane className="w-6 h-6 text-accent" /> Depuis l&apos;aéroport
         </h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-secondary">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-accent">
           <p><strong className="text-primary">Aéroport :</strong> {transport.airportName}</p>
           <p><strong className="text-primary">Options :</strong> {transport.airportTransfer}</p>
           <p><strong className="text-primary">Budget :</strong> {transport.airportCost}</p>
@@ -182,7 +182,7 @@ export default async function TransportPage({ params }: PageProps) {
       {/* Navettes CDM */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><Bus className="h-5 w-5 inline-block" /> Navettes spéciales CDM 2026</h2>
-        <div className="bg-accent/10 rounded-xl p-6 text-secondary">
+        <div className="bg-accent/10 rounded-xl p-6 text-accent">
           <p>{transport.shuttleInfo}</p>
           <p className="mt-2 text-sm">Les horaires et itinéraires détaillés seront annoncés par la FIFA et les autorités locales avant le tournoi.</p>
         </div>
@@ -191,7 +191,7 @@ export default async function TransportPage({ params }: PageProps) {
       {/* Location de voiture */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><Car className="h-5 w-5 inline-block" /> Location de voiture</h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 text-accent">
           <p>{transport.carRental}</p>
         </div>
       </section>

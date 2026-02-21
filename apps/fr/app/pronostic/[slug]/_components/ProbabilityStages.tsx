@@ -36,7 +36,7 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
             </div>
             <div className="relative h-3 rounded-full bg-gray-200 overflow-hidden">
               <div
-                className={`absolute inset-y-0 left-0 rounded-full ${stage.key === "winnerProb" ? "bg-secondary" : "bg-primary"}`}
+                className={`absolute inset-y-0 left-0 rounded-full ${stage.key === "winnerProb" ? "bg-accent" : "bg-primary"}`}
                 style={{ width: `${Math.max(1, stage.value * 100)}%` }}
               />
             </div>
@@ -46,7 +46,7 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
       <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
         <span className="inline-block h-3 w-3 rounded-full bg-primary" />
         <span>Tour intermediaire</span>
-        <span className="ml-2 inline-block h-3 w-3 rounded-full bg-secondary" />
+        <span className="ml-2 inline-block h-3 w-3 rounded-full bg-accent" />
         <span>Victoire finale</span>
       </div>
     </section>

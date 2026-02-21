@@ -62,7 +62,7 @@ export default function PronosticButeursPage() {
 
       {/* Hero */}
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">
           Pronostic Meilleur Buteur CDM 2026
         </h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
@@ -126,7 +126,7 @@ export default function PronosticButeursPage() {
       {/* Dark Horses */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <Star className="w-7 h-7 text-secondary" />
+          <Star className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Dark Horses Buteurs</h2>
         </div>
         <p className="text-gray-700 mb-6">
@@ -140,7 +140,7 @@ export default function PronosticButeursPage() {
                   <h3 className="font-bold text-primary">{p.name}</h3>
                   <span className="text-sm text-gray-600">{p.team}</span>
                 </div>
-                <span className="bg-secondary/10 text-secondary font-bold px-3 py-1 rounded-lg text-sm">
+                <span className="bg-accent/10 text-accent font-bold px-3 py-1 rounded-lg text-sm">
                   {p.cote.toFixed(1)}
                 </span>
               </div>
@@ -162,7 +162,7 @@ export default function PronosticButeursPage() {
               <h3 className="font-bold text-primary">{p.name}</h3>
               <p className="text-sm text-gray-600">{p.team}</p>
               <p className="text-xs text-gray-500 mt-1">{p.age} ans en 2026</p>
-              <p className="text-secondary font-bold mt-2">Cote : {p.cote.toFixed(1)}</p>
+              <p className="text-accent font-bold mt-2">Cote : {p.cote.toFixed(1)}</p>
             </div>
           ))}
         </div>

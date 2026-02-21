@@ -90,7 +90,7 @@ export default function BonusHubPage() {
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">
             Bonus & Codes Promo CDM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
@@ -130,11 +130,11 @@ export default function BonusHubPage() {
                 </span>
               )}
               <div className="flex items-center gap-3 mb-4">
-                <Gift className="w-8 h-8 text-secondary" />
+                <Gift className="w-8 h-8 text-accent" />
                 <div>
                   <h2 className="text-xl font-bold text-gray-900 ">{offer.name}</h2>
                   <div className="flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 fill-secondary text-secondary" />
+                    <Star className="w-3.5 h-3.5 fill-secondary text-accent" />
                     <span className="text-xs text-gray-500">{offer.note}/10</span>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function BonusHubPage() {
                   <span>Code promo : <strong>{offer.codePromo}</strong></span>
                 </div>
                 <div className="flex items-start gap-2 text-gray-600 ">
-                  <AlertTriangle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                  <AlertTriangle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                   <span>Conditions : {offer.conditions}</span>
                 </div>
               </div>

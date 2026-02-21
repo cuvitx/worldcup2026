@@ -86,7 +86,7 @@ export default function TableauFinalVirtuelPage() {
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
             Tableau final virtuel :{" "}
-            <span className="text-secondary">des 16èmes à la finale</span>
+            <span className="text-accent">des 16èmes à la finale</span>
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Visualisez le bracket complet de la phase éliminatoire de la CDM 2026.

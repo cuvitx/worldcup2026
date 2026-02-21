@@ -95,7 +95,7 @@ export default async function HebergementPage({ params }: PageProps) {
             <Hotel className="inline w-8 h-8 mr-2" />
             Hébergement à {city.name} — CDM 2026 : Hôtels et Airbnb
           </h1>
-          <p className="text-secondary mt-3 text-lg max-w-2xl">
+          <p className="text-accent mt-3 text-lg max-w-2xl">
             {city.country} • Trouvez le logement idéal pour la Coupe du Monde 2026
           </p>
         </div>
@@ -110,20 +110,20 @@ export default async function HebergementPage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
             <div className="text-sm font-semibold text-accent uppercase mb-2">Budget</div>
             <div className="text-3xl font-extrabold text-primary">80-120€</div>
-            <div className="text-sm text-secondary mt-1">/ nuit</div>
-            <p className="text-xs text-secondary mt-3">Auberges, hôtels 2★, Airbnb partagé</p>
+            <div className="text-sm text-accent mt-1">/ nuit</div>
+            <p className="text-xs text-accent mt-3">Auberges, hôtels 2★, Airbnb partagé</p>
           </div>
           <div className="bg-white rounded-xl border-2 border-accent p-6 text-center">
             <div className="text-sm font-semibold text-accent uppercase mb-2">Moyen</div>
             <div className="text-3xl font-extrabold text-primary">150-250€</div>
-            <div className="text-sm text-secondary mt-1">/ nuit</div>
-            <p className="text-xs text-secondary mt-3">Hôtels 3-4★, Airbnb entier</p>
+            <div className="text-sm text-accent mt-1">/ nuit</div>
+            <p className="text-xs text-accent mt-3">Hôtels 3-4★, Airbnb entier</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
             <div className="text-sm font-semibold text-accent uppercase mb-2">Premium</div>
             <div className="text-3xl font-extrabold text-primary">300-500€</div>
-            <div className="text-sm text-secondary mt-1">/ nuit</div>
-            <p className="text-xs text-secondary mt-3">Hôtels 5★, suites, villas</p>
+            <div className="text-sm text-accent mt-1">/ nuit</div>
+            <p className="text-xs text-accent mt-3">Hôtels 5★, suites, villas</p>
           </div>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default async function HebergementPage({ params }: PageProps) {
           {quartiers.map((q) => (
             <div key={q.name} className="bg-white rounded-xl border border-gray-200 p-6">
               <h3 className="font-bold text-primary text-lg">{q.name}</h3>
-              <p className="text-secondary text-sm mt-1">{q.description}</p>
+              <p className="text-accent text-sm mt-1">{q.description}</p>
               <p className="text-accent font-semibold text-sm mt-2">{q.priceRange}</p>
             </div>
           ))}
@@ -150,7 +150,7 @@ export default async function HebergementPage({ params }: PageProps) {
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h3 className="font-bold text-primary text-lg mb-3"><Hotel className="h-5 w-5 inline-block" /> Hôtel</h3>
-            <ul className="space-y-2 text-secondary text-sm">
+            <ul className="space-y-2 text-accent text-sm">
               <li><Check className="h-5 w-5 inline-block" /> Room service et conciergerie</li>
               <li><Check className="h-5 w-5 inline-block" /> Annulation flexible</li>
               <li><Check className="h-5 w-5 inline-block" /> Sécurité et réception 24h/24</li>
@@ -160,7 +160,7 @@ export default async function HebergementPage({ params }: PageProps) {
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h3 className="font-bold text-primary text-lg mb-3"><Home className="h-5 w-5 inline-block" /> Airbnb</h3>
-            <ul className="space-y-2 text-secondary text-sm">
+            <ul className="space-y-2 text-accent text-sm">
               <li><Check className="h-5 w-5 inline-block" /> Plus d&apos;espace, cuisine équipée</li>
               <li><Check className="h-5 w-5 inline-block" /> Idéal pour les groupes</li>
               <li><Check className="h-5 w-5 inline-block" /> Ambiance locale authentique</li>
@@ -176,7 +176,7 @@ export default async function HebergementPage({ params }: PageProps) {
         <div className="bg-accent/10 rounded-2xl p-8 text-center">
           <CalendarCheck className="w-10 h-10 text-accent mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-primary mb-3">Réservez maintenant !</h2>
-          <p className="text-secondary max-w-xl mx-auto mb-6">
+          <p className="text-accent max-w-xl mx-auto mb-6">
             Les hébergements à {city.name} pour la CDM 2026 partent très vite. Réservez dès maintenant avec annulation gratuite
             pour sécuriser les meilleurs tarifs et emplacements.
           </p>

@@ -176,7 +176,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             Sur quelle chaîne regarder<br />
             <span className="text-accent">{homeFlag} {homeName} vs {awayName} {awayFlag}</span> ?
           </h1>
-          <p className="mt-4 text-secondary text-lg">
+          <p className="mt-4 text-accent text-lg">
             Programme TV &amp; streaming — {dateStr} à {heureParisStr}
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm text-gray-300">
@@ -267,7 +267,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                   <div key={s.name} className="rounded-lg border border-gray-200 p-4 text-center">
                     <Monitor className="mx-auto h-8 w-8 text-accent mb-2" />
                     <h3 className="font-bold text-gray-900">{s.name}</h3>
-                    <p className="text-xs text-secondary mt-1">{s.desc}</p>
+                    <p className="text-xs text-accent mt-1">{s.desc}</p>
                     <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${s.free ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800"}`}>
                       {s.price}
                     </span>
@@ -284,7 +284,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {timeZones.map((tz) => (
                   <div key={tz.label} className="text-center rounded-lg bg-gray-50 p-4">
-                    <p className="text-sm text-secondary">{tz.label}</p>
+                    <p className="text-sm text-accent">{tz.label}</p>
                     <p className="text-2xl font-bold text-gray-900 mt-1">{tz.time}</p>
                   </div>
                 ))}
@@ -328,30 +328,30 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
               <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Infos match</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Date</dt>
+                  <dt className="text-accent">Date</dt>
                   <dd className="font-medium text-gray-900">{dateStr}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Heure (Paris)</dt>
+                  <dt className="text-accent">Heure (Paris)</dt>
                   <dd className="font-medium text-gray-900">{heureParisStr}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Stade</dt>
+                  <dt className="text-accent">Stade</dt>
                   <dd className="font-medium text-gray-900">{stadium?.name ?? "TBC"}</dd>
                 </div>
                 {city && (
                   <div className="flex justify-between">
-                    <dt className="text-secondary">Ville</dt>
+                    <dt className="text-accent">Ville</dt>
                     <dd className="font-medium text-gray-900">{city.name}</dd>
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Phase</dt>
+                  <dt className="text-accent">Phase</dt>
                   <dd className="font-medium text-gray-900">{stage}</dd>
                 </div>
                 {match.group && (
                   <div className="flex justify-between">
-                    <dt className="text-secondary">Groupe</dt>
+                    <dt className="text-accent">Groupe</dt>
                     <dd className="font-medium text-gray-900">Groupe {match.group}</dd>
                   </div>
                 )}

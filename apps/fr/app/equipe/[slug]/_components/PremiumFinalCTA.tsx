@@ -33,7 +33,7 @@ export function PremiumFinalCTA({ team }: PremiumFinalCTAProps) {
           </Link>
           <Link 
             href="/pronostic/vainqueur" 
-            className="w-full sm:w-auto rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 text-center hover:bg-secondary/25 transition-all"
+            className="w-full sm:w-auto rounded-lg border border-accent/40 bg-accent/15 text-accent font-bold px-6 py-3 text-center hover:bg-accent/25 transition-all"
           >
             Pronostic vainqueur
           </Link>

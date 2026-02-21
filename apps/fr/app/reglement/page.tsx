@@ -52,7 +52,7 @@ export default function ReglementPage() {
 {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Lois du jeu FIFA
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -142,11 +142,11 @@ export default function ReglementPage() {
                   <span><strong>Demi-finales :</strong> 8 équipes → 4 équipes</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Trophy className="w-5 h-5 text-secondary flex-shrink-0" />
+                  <Trophy className="w-5 h-5 text-accent flex-shrink-0" />
                   <span><strong>Petite finale :</strong> Match pour la 3e place</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Trophy className="w-5 h-5 text-secondary flex-shrink-0" />
+                  <Trophy className="w-5 h-5 text-accent flex-shrink-0" />
                   <span><strong>Finale :</strong> Sacre du champion du monde</span>
                 </div>
               </div>

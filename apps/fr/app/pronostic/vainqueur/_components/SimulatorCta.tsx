@@ -11,8 +11,8 @@ export function SimulatorCta() {
       }}
     >
       <div className="mx-auto max-w-4xl px-4 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary mb-4">
-          <span className="text-secondary"></span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent mb-4">
+          <span className="text-accent"></span>
           Simulateur interactif
         </div>
         <h2 className="text-2xl font-bold text-white mb-3">

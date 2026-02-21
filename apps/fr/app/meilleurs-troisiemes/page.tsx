@@ -85,7 +85,7 @@ export default function MeilleursTroisiemesPage() {
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Classement des meilleurs 3<sup>èmes</sup> :{" "}
-            <span className="text-secondary">Qui se qualifie en 16èmes ?</span>
+            <span className="text-accent">Qui se qualifie en 16èmes ?</span>
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
             Pour la première fois en Coupe du Monde, les 8 meilleurs troisièmes sur 12 groupes

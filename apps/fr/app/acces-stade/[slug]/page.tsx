@@ -70,7 +70,7 @@ export default async function AccesStadePage({ params }: PageProps) {
             <MapPin className="inline w-8 h-8 mr-2" />
             Comment aller au {stadium.name} — Accès CDM 2026
           </h1>
-          <p className="text-secondary mt-3 text-lg max-w-2xl">
+          <p className="text-accent mt-3 text-lg max-w-2xl">
             {stadium.city}, {stadium.country} • Capacité : {stadium.capacity.toLocaleString("fr-FR")} places
           </p>
         </div>
@@ -83,9 +83,9 @@ export default async function AccesStadePage({ params }: PageProps) {
         </h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6">
           <p className="text-primary font-semibold text-lg">{stadium.name}</p>
-          <p className="text-secondary">{stadium.city}, {stadium.country}</p>
-          <p className="text-secondary text-sm mt-1">Coordonnées GPS : {stadium.latitude.toFixed(4)}, {stadium.longitude.toFixed(4)}</p>
-          <p className="text-secondary text-sm">À {stadium.distanceFromCenter ?? 10} km du centre-ville</p>
+          <p className="text-accent">{stadium.city}, {stadium.country}</p>
+          <p className="text-accent text-sm mt-1">Coordonnées GPS : {stadium.latitude.toFixed(4)}, {stadium.longitude.toFixed(4)}</p>
+          <p className="text-accent text-sm">À {stadium.distanceFromCenter ?? 10} km du centre-ville</p>
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default async function AccesStadePage({ params }: PageProps) {
             <div key={i} className="bg-white rounded-xl border border-gray-200 p-5">
               <Bus className="w-5 h-5 text-accent mb-2" />
               <p className="font-semibold text-primary">{line}</p>
-              <p className="text-sm text-secondary">Fréquence renforcée les jours de match</p>
+              <p className="text-sm text-accent">Fréquence renforcée les jours de match</p>
             </div>
           ))}
         </div>
@@ -108,17 +108,17 @@ export default async function AccesStadePage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Clock className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{transport.centerTime} min</div>
-            <div className="text-sm text-secondary">Depuis le centre-ville</div>
+            <div className="text-sm text-accent">Depuis le centre-ville</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Plane className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{transport.airportTime} min</div>
-            <div className="text-sm text-secondary">Depuis l&apos;aéroport</div>
+            <div className="text-sm text-accent">Depuis l&apos;aéroport</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Car className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{transport.parkingSpots.toLocaleString("fr-FR")}</div>
-            <div className="text-sm text-secondary">Places de parking</div>
+            <div className="text-sm text-accent">Places de parking</div>
           </div>
         </div>
       </section>
@@ -128,7 +128,7 @@ export default async function AccesStadePage({ params }: PageProps) {
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <Plane className="w-6 h-6 text-accent" /> Depuis l&apos;aéroport
         </h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-secondary">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-accent">
           <p><strong className="text-primary">Navette / train :</strong> Comptez environ {transport.airportTime} minutes. Des navettes spéciales CDM 2026 seront mises en place les jours de match.</p>
           <p><strong className="text-primary">Taxi / Uber :</strong> Environ {transport.airportTime - 5}-{transport.airportTime + 10} minutes selon le trafic. Budget : {stadium.country === "Mexico" ? "300-600 MXN" : "40-80 $"}.</p>
           <p><strong className="text-primary">Location de voiture :</strong> Agences disponibles à l&apos;aéroport. Parking au stade disponible mais limité les jours de match.</p>
@@ -140,7 +140,7 @@ export default async function AccesStadePage({ params }: PageProps) {
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <ShieldCheck className="w-6 h-6 text-accent" /> Conseils pratiques
         </h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-secondary">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-accent">
           <p><AlarmClock className="h-5 w-5 inline-block" /> <strong className="text-primary">Arrivez 2h30 avant</strong> le coup d&apos;envoi pour passer les contrôles de sécurité FIFA sans stress.</p>
           <p><Lock className="h-5 w-5 inline-block" /> <strong className="text-primary">Sécurité à l&apos;entrée :</strong> Pas de sacs à dos volumineux, pas de bouteilles en verre, pas de parapluies. Seuls les petits sacs transparents sont autorisés.</p>
           <p><Smartphone className="h-5 w-5 inline-block" /> <strong className="text-primary">Billets numériques :</strong> Chargez votre billet FIFA sur votre téléphone avant de partir. Prévoyez une batterie externe.</p>
@@ -151,7 +151,7 @@ export default async function AccesStadePage({ params }: PageProps) {
       {/* Plan des alentours */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4">Plan des alentours</h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary leading-relaxed">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 text-accent leading-relaxed">
           <p>
             Le {stadium.name} est situé à {stadium.distanceFromCenter ?? 10} km du centre de {stadium.city}.
             Les abords du stade comprennent des zones de restauration, des fan zones officielles FIFA, et des espaces de rassemblement pour les supporters.

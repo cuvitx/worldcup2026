@@ -61,7 +61,7 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
             <Calendar className="inline w-8 h-8 mr-2" />
             Tous les matchs au {stadium.name} — CDM 2026
           </h1>
-          <p className="text-secondary mt-3 text-lg">
+          <p className="text-accent mt-3 text-lg">
             {stadium.city}, {stadium.country} • {stadiumMatches.length} matchs programmés
           </p>
         </div>
@@ -73,17 +73,17 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Building2 className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{stadium.capacity.toLocaleString("fr-FR")}</div>
-            <div className="text-sm text-secondary">Capacité</div>
+            <div className="text-sm text-accent">Capacité</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Calendar className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{stadium.yearBuilt}</div>
-            <div className="text-sm text-secondary">Année de construction</div>
+            <div className="text-sm text-accent">Année de construction</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Ticket className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{stadiumMatches.length}</div>
-            <div className="text-sm text-secondary">Matchs CDM 2026</div>
+            <div className="text-sm text-accent">Matchs CDM 2026</div>
           </div>
         </div>
 
@@ -117,7 +117,7 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
                       </span>
                     </td>
                     <td className="text-center p-3">
-                      <Link href={`/match/${match.slug}`} className="text-accent hover:underline font-medium">
+                      <Link href={`/match/${match.slug}`} className="text-primary hover:underline font-medium">
                         Voir →
                       </Link>
                     </td>
@@ -128,7 +128,7 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
           </table>
         </div>
         {stadiumMatches.length === 0 && (
-          <p className="text-secondary text-center py-8">Le programme des matchs pour ce stade sera annoncé prochainement.</p>
+          <p className="text-accent text-center py-8">Le programme des matchs pour ce stade sera annoncé prochainement.</p>
         )}
       </section>
 

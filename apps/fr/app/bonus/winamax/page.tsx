@@ -57,7 +57,7 @@ export default function BonusWinamaxPage() {
 
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">
             Bonus Winamax CDM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
@@ -83,12 +83,12 @@ export default function BonusWinamaxPage() {
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <h2 className="text-2xl font-bold text-gray-900 ">Winamax</h2>
-                <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full font-semibold">N°1 France</span>
+                <span className="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded-full font-semibold">N°1 France</span>
               </div>
               <p className="text-4xl font-extrabold text-accent mb-2">Jusqu&apos;à 100€</p>
               <p className="text-gray-600 ">1er pari remboursé en freebets si perdu</p>
               <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
-                <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" /> 9.2/10</span>
+                <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-accent" /> 9.2/10</span>
                 <span>Code promo : <strong>Aucun nécessaire</strong></span>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function BonusWinamaxPage() {
         {/* Étapes inscription */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <UserPlus className="w-6 h-6 text-secondary" />
+            <UserPlus className="w-6 h-6 text-accent" />
             Comment s&apos;inscrire étape par étape
           </h2>
           <div className="space-y-4">

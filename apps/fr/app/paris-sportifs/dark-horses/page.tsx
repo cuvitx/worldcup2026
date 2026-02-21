@@ -74,7 +74,7 @@ export default function DarkHorsesPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Dark horses" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Dark Horses — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Dark Horses — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Quelles équipes peuvent bousculer la hiérarchie ? Analyse des 7 outsiders les plus dangereux de la Coupe du Monde 2026.
         </p>
@@ -97,7 +97,7 @@ export default function DarkHorsesPage() {
                   <h3 className="text-xl font-bold text-primary">{o.team}</h3>
                   <span className="text-sm text-gray-500">Classement FIFA : {o.ranking}ème</span>
                 </div>
-                <span className="bg-secondary/10 text-secondary font-bold px-4 py-2 rounded-lg">
+                <span className="bg-accent/10 text-accent font-bold px-4 py-2 rounded-lg">
                   Cote titre : {o.cote.toFixed(1)}
                 </span>
               </div>
@@ -106,7 +106,7 @@ export default function DarkHorsesPage() {
                 <ul className="space-y-1 mb-4">
                   {o.strengths.map((s, i) => (
                     <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
-                      <Star className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                      <Star className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                       {s}
                     </li>
                   ))}

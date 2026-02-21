@@ -42,7 +42,7 @@ export function Countdown() {
           {units.map((u, i) => (
             <div key={u.key} className="flex items-center gap-3 sm:gap-4">
               <div className="flex flex-col items-center rounded-xl bg-white/70 backdrop-blur-sm border border-white/50 shadow-sm px-3 py-2.5 sm:px-5 sm:py-3 min-w-[56px] sm:min-w-[72px]">
-                <span className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${u.key === "seconds" ? "text-secondary" : "text-gray-900"}`}>
+                <span className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${u.key === "seconds" ? "text-accent" : "text-gray-900"}`}>
                   {val(time[u.key])}
                 </span>
                 <span className="text-[10px] sm:text-xs text-gray-500 font-medium uppercase tracking-wide">

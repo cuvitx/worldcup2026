@@ -290,7 +290,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
           <h1 className="mt-4 text-2xl font-extrabold sm:text-4xl lg:text-5xl">
             Guide du supporter à <span className="text-accent">{city.name}</span>
           </h1>
-          <p className="mt-3 text-secondary text-lg">
+          <p className="mt-3 text-accent text-lg">
             Tout pour vivre la CDM 2026 — {city.state}, {city.country}
           </p>
           <div className="mt-4 flex flex-wrap gap-3 text-sm text-gray-300">
@@ -374,7 +374,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                   <UtensilsCrossed className="h-6 w-6 text-primary" /> Où manger
                 </h2>
                 <p className="text-gray-700">{guide.manger.cuisine}</p>
-                <p className="mt-2 text-sm text-secondary">
+                <p className="mt-2 text-sm text-accent">
                   <DollarSign className="inline h-4 w-4" /> Budget moyen : <strong>{guide.manger.budgetRepas}</strong>
                 </p>
               </section>
@@ -390,7 +390,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                   {guide.activites.map((a) => (
                     <div key={a.nom} className="rounded-lg border border-gray-200 p-4">
                       <h3 className="font-bold text-gray-900">{a.nom}</h3>
-                      <p className="mt-1 text-sm text-secondary">{a.desc}</p>
+                      <p className="mt-1 text-sm text-accent">{a.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -442,7 +442,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 <CalendarDays className="h-6 w-6 text-primary" /> Matchs à {city.name}
               </h2>
               {cityMatches.length === 0 ? (
-                <p className="text-secondary">Programme des matchs à confirmer.</p>
+                <p className="text-accent">Programme des matchs à confirmer.</p>
               ) : (
                 <div className="space-y-3">
                   {cityMatches.map((m) => {
@@ -467,13 +467,13 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                         className="flex items-center justify-between rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <span className="text-xs text-secondary whitespace-nowrap">{dateStr}</span>
+                          <span className="text-xs text-accent whitespace-nowrap">{dateStr}</span>
                           <span className="font-semibold text-gray-900 text-sm truncate">
                             {home?.flag ?? "🏳️"} {home?.name ?? "TBD"} vs {away?.name ?? "TBD"} {away?.flag ?? "🏳️"}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 shrink-0">
-                          <span className="text-xs text-secondary">{timeStr}</span>
+                          <span className="text-xs text-accent">{timeStr}</span>
                           <span className="rounded-full bg-primary/10 text-primary px-2 py-0.5 text-xs font-medium">{stage}</span>
                         </div>
                       </Link>
@@ -538,23 +538,23 @@ export default async function GuideSupporterPage({ params }: PageProps) {
               <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> En bref</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Population</dt>
+                  <dt className="text-accent">Population</dt>
                   <dd className="font-medium text-gray-900">{city.population.toLocaleString("fr-FR")}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Pays</dt>
+                  <dt className="text-accent">Pays</dt>
                   <dd className="font-medium text-gray-900">{city.country}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Fuseau</dt>
+                  <dt className="text-accent">Fuseau</dt>
                   <dd className="font-medium text-gray-900">{city.timezone.replace("America/", "")}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Stade(s)</dt>
+                  <dt className="text-accent">Stade(s)</dt>
                   <dd className="font-medium text-gray-900">{cityStadiums.length}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-secondary">Matchs</dt>
+                  <dt className="text-accent">Matchs</dt>
                   <dd className="font-medium text-gray-900">{cityMatches.length}</dd>
                 </div>
               </dl>

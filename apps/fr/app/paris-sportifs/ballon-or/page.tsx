@@ -51,7 +51,7 @@ export default function BallonOrCdmPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Ballon d'Or CDM" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Ballon d&apos;Or CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Ballon d&apos;Or CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Qui sera sacré meilleur joueur de la Coupe du Monde 2026 ? Découvrez les 10 favoris, leurs cotes et l&apos;historique complet du Ballon d&apos;Or FIFA.
         </p>
@@ -59,7 +59,7 @@ export default function BallonOrCdmPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <Award className="w-7 h-7 text-secondary" />
+          <Award className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Top 10 favoris — Cotes Ballon d&apos;Or</h2>
         </div>
         <p className="text-gray-700 mb-6">
@@ -75,7 +75,7 @@ export default function BallonOrCdmPage() {
                 <h3 className="font-bold text-primary">{f.name} <span className="text-sm font-normal text-gray-500">{f.team}</span></h3>
                 <p className="text-sm text-gray-700 mt-1">{f.reason}</p>
               </div>
-              <span className="bg-secondary/10 text-secondary font-bold px-4 py-2 rounded-lg whitespace-nowrap">
+              <span className="bg-accent/10 text-accent font-bold px-4 py-2 rounded-lg whitespace-nowrap">
                 {f.cote.toFixed(1)}
               </span>
             </div>
@@ -102,7 +102,7 @@ export default function BallonOrCdmPage() {
             <tbody>
               {pastWinners.map((w, i) => (
                 <tr key={w.year} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                  <td className="p-3 font-bold text-secondary">{w.year}</td>
+                  <td className="p-3 font-bold text-accent">{w.year}</td>
                   <td className="p-3 font-semibold">{w.player}</td>
                   <td className="p-3">{w.team}</td>
                   <td className="p-3 text-sm text-gray-600">{w.note}</td>
@@ -115,7 +115,7 @@ export default function BallonOrCdmPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <Star className="w-7 h-7 text-secondary" />
+          <Star className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Analyse — Qui peut surprendre ?</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">

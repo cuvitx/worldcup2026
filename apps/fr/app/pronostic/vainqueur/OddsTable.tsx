@@ -110,7 +110,7 @@ export function OddsTable() {
         {/* Légende + note */}
         <div className="mt-4 flex flex-wrap gap-4 items-start justify-between">
           <div className="flex flex-wrap gap-3 text-xs text-gray-600">
-            <span><span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary" /> = Meilleure cote du moment</span>
+            <span><span className="inline-block w-2.5 h-2.5 rounded-full bg-accent" /> = Meilleure cote du moment</span>
             <span className="text-accent font-semibold">↑ Tendance haussière</span>
             <span className="text-red-500 font-semibold">↓ Tendance baissière</span>
             <span>→ Stable</span>

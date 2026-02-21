@@ -75,7 +75,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                     <div className="flex flex-col items-center gap-1">
                       <span className="text-xs font-bold text-gray-700">{Math.round(ep.firstProb * 100)}%</span>
                       <div className="w-12 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                        <div className="h-full bg-secondary rounded-full" style={{ width: `${Math.round(ep.firstProb * 100)}%` }} />
+                        <div className="h-full bg-accent rounded-full" style={{ width: `${Math.round(ep.firstProb * 100)}%` }} />
                       </div>
                     </div>
                   </td>
@@ -83,7 +83,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                     <div className="flex flex-col items-center gap-1">
                       <span className={`text-xs font-bold ${idx < 2 ? "text-accent" : "text-gray-500"}`}>{Math.round(ep.qualifyProb * 100)}%</span>
                       <div className="w-12 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                        <div className={`h-full rounded-full ${idx < 2 ? "bg-accent" : idx === 2 ? "bg-secondary" : "bg-red-400"}`} style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }} />
+                        <div className={`h-full rounded-full ${idx < 2 ? "bg-accent" : idx === 2 ? "bg-accent" : "bg-red-400"}`} style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }} />
                       </div>
                     </div>
                   </td>

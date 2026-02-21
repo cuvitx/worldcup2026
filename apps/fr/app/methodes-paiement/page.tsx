@@ -136,7 +136,7 @@ export default function MethodesPaiementPage() {
 
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">
             Méthodes de Paiement
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
@@ -157,7 +157,7 @@ export default function MethodesPaiementPage() {
         {/* Tableau par bookmaker */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <Shield className="w-6 h-6 text-secondary" />
+            <Shield className="w-6 h-6 text-accent" />
             Disponibilité par bookmaker
           </h2>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 ">
@@ -193,7 +193,7 @@ export default function MethodesPaiementPage() {
         {/* Détail des méthodes */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <CreditCard className="w-6 h-6 text-secondary" />
+            <CreditCard className="w-6 h-6 text-accent" />
             Détail des méthodes de paiement
           </h2>
           <div className="space-y-4">

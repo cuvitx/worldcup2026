@@ -135,7 +135,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
             {/* Cote victoire finale */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <Trophy className="h-6 w-6 text-secondary" />
+                <Trophy className="h-6 w-6 text-accent" />
                 Cote victoire finale {team.name}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -153,7 +153,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 </div>
               </div>
               {prediction && (
-                <p className="mt-4 text-sm text-secondary">
+                <p className="mt-4 text-sm text-accent">
                   Probabilité implicite : {Math.round((1 / parseFloat(odds.betclic)) * 100)}% · Notre estimation : {Math.round(prediction.winnerProb * 100)}%
                 </p>
               )}
@@ -165,7 +165,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
             {/* Calendrier des matchs */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <Calendar className="h-6 w-6 text-secondary" />
+                <Calendar className="h-6 w-6 text-accent" />
                 Calendrier des matchs — Groupe {team.group}
               </h2>
               {groupMatches.length > 0 ? (
@@ -196,7 +196,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 <p className="text-gray-500">Calendrier à venir.</p>
               )}
               <p className="mt-4 text-sm text-gray-500">
-                <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-accent hover:underline">
+                <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary hover:underline">
                   Voir tout le Groupe {team.group} →
                 </Link>
               </p>
@@ -205,7 +205,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
             {/* Meilleures cotes */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <TrendingUp className="h-6 w-6 text-secondary" />
+                <TrendingUp className="h-6 w-6 text-accent" />
                 Meilleures cotes {team.name} CDM 2026
               </h2>
               <div className="overflow-x-auto">
@@ -247,7 +247,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
             {keyPlayers.length > 0 && (
               <section className="rounded-xl bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                  <Star className="h-6 w-6 text-secondary" />
+                  <Star className="h-6 w-6 text-accent" />
                   Joueurs clés à suivre
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-3">
@@ -271,7 +271,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
             {/* Paris recommandés */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <ShieldCheck className="h-6 w-6 text-secondary" />
+                <ShieldCheck className="h-6 w-6 text-accent" />
                 Paris recommandés sur {team.name}
               </h2>
               <div className="space-y-4">
@@ -333,32 +333,32 @@ export default async function ParierEquipePage({ params }: PageProps) {
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href={`/equipe/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/equipe/${team.slug}`} className="text-primary hover:underline">
                     Fiche complète {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/pronostic/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/pronostic/${team.slug}`} className="text-primary hover:underline">
                     Pronostic {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/cote-champion/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/cote-champion/${team.slug}`} className="text-primary hover:underline">
                     Cote {team.name} championne du monde
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/effectif/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/effectif/${team.slug}`} className="text-primary hover:underline">
                     Effectif {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/scenarios-qualification-equipe/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/scenarios-qualification-equipe/${team.slug}`} className="text-primary hover:underline">
                     Scénarios de qualification
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-accent hover:underline">
+                  <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary hover:underline">
                     Groupe {team.group}
                   </Link>
                 </li>

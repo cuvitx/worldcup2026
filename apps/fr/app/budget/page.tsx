@@ -53,7 +53,7 @@ const postes = [
 
 const totaux = [
   { profil: "Budget", duree: "10 jours, 2 matchs", total: "1 800 - 2 500 €", couleur: "text-accent" },
-  { profil: "Moyen", duree: "14 jours, 3 matchs", total: "3 500 - 5 500 €", couleur: "text-secondary" },
+  { profil: "Moyen", duree: "14 jours, 3 matchs", total: "3 500 - 5 500 €", couleur: "text-accent" },
   { profil: "Premium", duree: "21 jours, 5+ matchs", total: "8 000 - 15 000 €+", couleur: "text-red-500" },
 ];
 
@@ -89,13 +89,13 @@ export default function BudgetPage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <Wallet className="h-4 w-4 text-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+            <Wallet className="h-4 w-4 text-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
               Guide pratique
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-secondary">Budget</span> Coupe du Monde 2026
+            <span className="text-accent">Budget</span> Coupe du Monde 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Combien coûte un voyage pour la CDM 2026 ? Estimations détaillées par poste
@@ -127,7 +127,7 @@ export default function BudgetPage() {
                   </div>
                   <div className="rounded-lg bg-yellow-50 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Moyen</p>
-                    <p className="font-bold text-secondary">{p.moyen}</p>
+                    <p className="font-bold text-accent">{p.moyen}</p>
                   </div>
                   <div className="rounded-lg bg-red-50 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Premium</p>

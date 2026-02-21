@@ -57,7 +57,7 @@ const rubriques = [
 
 const budgetTypes = [
   { profil: "Backpacker", duree: "10 jours / 2 matchs", montant: "1 800 – 2 500 €", couleur: "text-accent" },
-  { profil: "Confort", duree: "14 jours / 3 matchs", montant: "3 500 – 5 500 €", couleur: "text-secondary" },
+  { profil: "Confort", duree: "14 jours / 3 matchs", montant: "3 500 – 5 500 €", couleur: "text-accent" },
   { profil: "Premium", duree: "21 jours / 5+ matchs", montant: "8 000 – 15 000 €+", couleur: "text-red-500" },
 ];
 
@@ -98,7 +98,7 @@ export default function SupporterFrancaisUsaPage() {
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Guide pratique
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">

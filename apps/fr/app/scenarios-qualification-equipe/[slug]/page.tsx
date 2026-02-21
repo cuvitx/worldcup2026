@@ -123,7 +123,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
           <p className="text-sm text-white/60 mb-2">Groupe {team.group} — CDM 2026</p>
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
             {team.flag}{" "}
-            <span className="text-secondary">{team.name}</span> qualifiée si…
+            <span className="text-accent">{team.name}</span> qualifiée si…
           </h1>
           <p className="text-white/80 max-w-2xl mx-auto">
             Tous les scénarios de qualification de {team.name} pour les phases finales.

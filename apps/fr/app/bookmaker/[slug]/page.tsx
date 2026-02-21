@@ -73,13 +73,13 @@ export default async function BookmakerPage({ params }: PageProps) {
               </div>
             </div>
             <div className="rounded-lg bg-white/10 p-6 text-center">
-              <p className="text-3xl font-extrabold text-secondary">{bk.bonus}</p>
+              <p className="text-3xl font-extrabold text-accent">{bk.bonus}</p>
               <p className="text-sm text-gray-300">{bk.bonusDetail}</p>
               <a
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="mt-3 inline-block rounded-lg bg-secondary px-6 py-3 text-sm font-bold text-white hover:bg-secondary/90 transition-colors"
+                className="mt-3 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 Ouvrir un compte
               </a>

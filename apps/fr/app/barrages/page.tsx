@@ -102,7 +102,7 @@ export default function BarragesPage() {
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Qualifications CDM 2026
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -119,7 +119,7 @@ export default function BarragesPage() {
               { val: "Mars", label: "2026" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <span className="block text-4xl font-black text-secondary">{s.val}</span>
+                <span className="block text-4xl font-black text-accent">{s.val}</span>
                 <span className="text-xs uppercase tracking-wider text-gray-300">{s.label}</span>
               </div>
             ))}
@@ -181,7 +181,7 @@ export default function BarragesPage() {
                   <span className="text-xs font-semibold uppercase tracking-wider text-accent">
                     Barrage {m.id}
                   </span>
-                  <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full font-medium">
+                  <span className="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded-full font-medium">
                     {m.place}
                   </span>
                 </div>

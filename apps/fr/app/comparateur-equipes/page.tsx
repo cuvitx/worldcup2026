@@ -51,7 +51,7 @@ function StatBar({ val1, val2, label }: { val1: number; val2: number; label: str
             <div className="bg-accent rounded-l-md h-full transition-all duration-500" style={{ width: `${(val1 / max) * 100}%` }} />
           </div>
           <div className="flex-1">
-            <div className="bg-secondary rounded-r-md h-full transition-all duration-500" style={{ width: `${(val2 / max) * 100}%` }} />
+            <div className="bg-accent rounded-r-md h-full transition-all duration-500" style={{ width: `${(val2 / max) * 100}%` }} />
           </div>
         </div>
         <span className="w-10 text-sm font-bold text-primary">{val2}</span>
@@ -72,7 +72,7 @@ export default function ComparateurEquipesPage() {
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Outil interactif
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -96,7 +96,7 @@ export default function ComparateurEquipesPage() {
               <option key={t.name} value={t.name}>{t.name}</option>
             ))}
           </select>
-          <span className="text-xl font-black text-secondary">VS</span>
+          <span className="text-xl font-black text-accent">VS</span>
           <select
             value={team2}
             onChange={(e) => setTeam2(e.target.value)}

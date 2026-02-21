@@ -53,7 +53,7 @@ export default function FormalitesCanadaPage() {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
               🇨🇦 Formalités Canada
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
@@ -91,20 +91,20 @@ export default function FormalitesCanadaPage() {
             <Globe className="h-7 w-7 text-accent" />
             Qu&apos;est-ce que l&apos;AVE ?
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             L&apos;<strong>AVE</strong> (Autorisation de Voyage Électronique), ou <em>eTA</em> (Electronic Travel
             Authorization) en anglais, est une exigence d&apos;entrée pour les ressortissants de pays dispensés
             de visa qui voyagent au Canada par <strong>voie aérienne</strong>. Elle est liée électroniquement
             à votre passeport.
           </p>
-          <p className="text-secondary leading-relaxed">
+          <p className="text-accent leading-relaxed">
             La France fait partie des pays éligibles. Les Français n&apos;ont pas besoin de visa pour un séjour
             touristique de moins de 6 mois, mais l&apos;AVE est <strong>obligatoire</strong> pour tout vol
             à destination du Canada (y compris les transits).
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5 mt-4">
             <h3 className="font-bold text-lg mb-3"><ClipboardList className="h-5 w-5 inline-block" /> AVE en un coup d&apos;œil</h3>
-            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-secondary">
+            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-accent">
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Prix : <strong>7 CAD</strong> (≈ 5 €)</span></li>
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Validité : <strong>5 ans</strong> ou expiration du passeport</span></li>
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Séjour max : <strong>6 mois</strong></span></li>
@@ -162,7 +162,7 @@ export default function FormalitesCanadaPage() {
                 </span>
                 <div>
                   <h3 className="font-bold text-lg">{item.title}</h3>
-                  <p className="text-secondary text-sm leading-relaxed mt-1">{item.desc}</p>
+                  <p className="text-accent text-sm leading-relaxed mt-1">{item.desc}</p>
                 </div>
               </li>
             ))}
@@ -175,7 +175,7 @@ export default function FormalitesCanadaPage() {
             <FileText className="h-7 w-7 text-accent" />
             AVE vs ESTA : les différences
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Si vous prévoyez de voir des matchs aux États-Unis ET au Canada pendant la CDM 2026,
             vous aurez besoin des <strong>deux autorisations</strong>. Voici les différences :
           </p>
@@ -188,7 +188,7 @@ export default function FormalitesCanadaPage() {
                   <th className="text-left py-3 px-4 font-bold">🇺🇸 ESTA USA</th>
                 </tr>
               </thead>
-              <tbody className="text-secondary">
+              <tbody className="text-accent">
                 <tr className="border-b">
                   <td className="py-3 px-4 font-medium">Prix</td>
                   <td className="py-3 px-4">7 CAD (≈ 5 €)</td>
@@ -234,7 +234,7 @@ export default function FormalitesCanadaPage() {
             ].map((doc) => (
               <div key={doc.title} className="rounded-xl border p-4">
                 <p className="font-bold">{doc.icon} {doc.title}</p>
-                <p className="text-sm text-secondary mt-1">{doc.desc}</p>
+                <p className="text-sm text-accent mt-1">{doc.desc}</p>
               </div>
             ))}
           </div>
@@ -246,20 +246,20 @@ export default function FormalitesCanadaPage() {
             <Plane className="h-7 w-7 text-accent" />
             CDM 2026 au Canada : Vancouver et Toronto
           </h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <p className="text-accent leading-relaxed mb-4">
             Le Canada accueille des matchs dans <strong>2 villes</strong> :
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-xl border p-5">
               <h3 className="font-bold text-lg mb-2"><Landmark className="h-5 w-5 inline-block" /> Vancouver</h3>
-              <p className="text-secondary text-sm">
+              <p className="text-accent text-sm">
                 <strong>BC Place</strong> (54 500 places). Matchs de phase de groupes et huitièmes de finale.
                 Vol Paris → Vancouver : environ 10h direct (Air Canada, Air France).
               </p>
             </div>
             <div className="rounded-xl border p-5">
               <h3 className="font-bold text-lg mb-2"><Landmark className="h-5 w-5 inline-block" /> Toronto</h3>
-              <p className="text-secondary text-sm">
+              <p className="text-accent text-sm">
                 <strong>BMO Field</strong> (45 000 places étendues pour la CDM). Phase de groupes.
                 Vol Paris → Toronto : environ 8h direct (Air Canada, Air France, Air Transat).
               </p>
@@ -267,7 +267,7 @@ export default function FormalitesCanadaPage() {
           </div>
           <div className="flex items-start gap-2 mt-4 p-3 rounded-lg bg-yellow-50 border border-yellow-200">
             <AlertTriangle className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
-            <p className="text-sm text-secondary">
+            <p className="text-sm text-accent">
               <strong>Attention :</strong> Si vous traversez la frontière terrestre USA-Canada (ex. road trip
               Seattle → Vancouver), l&apos;AVE n&apos;est pas nécessaire pour l&apos;entrée terrestre —
               mais vous devrez présenter votre passeport aux douanes canadiennes.
@@ -318,7 +318,7 @@ export default function FormalitesCanadaPage() {
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl border p-4 hover:border-accent/50 transition-colors block">
                 <p className="font-bold">{link.icon} {link.title}</p>
-                <p className="text-sm text-secondary mt-1">{link.desc}</p>
+                <p className="text-sm text-accent mt-1">{link.desc}</p>
               </Link>
             ))}
           </div>

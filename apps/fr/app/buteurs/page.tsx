@@ -299,7 +299,7 @@ export default function ButeursPage() {
 
           <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-accent" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
               Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
             </p>
           </div>

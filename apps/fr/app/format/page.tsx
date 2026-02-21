@@ -53,7 +53,7 @@ export default function FormatPage() {
 {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Nouveau format FIFA
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -164,7 +164,7 @@ export default function FormatPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="text-2xl font-extrabold text-secondary">8</p>
+                        <p className="text-2xl font-extrabold text-accent">8</p>
                         <p className="text-xs text-gray-600 mt-1">
                           Meilleurs 3e (sur 12)
                         </p>
@@ -184,7 +184,7 @@ export default function FormatPage() {
                 {/* Étape 3 : Phase à élimination directe */}
                 <div className="w-full">
                   <div className="flex items-center justify-center gap-3 mb-4">
-                    <Trophy className="w-6 h-6 text-secondary" />
+                    <Trophy className="w-6 h-6 text-accent" />
                     <h3 className="text-xl font-bold text-gray-900">
                       3. Phase à élimination directe
                     </h3>
@@ -212,7 +212,7 @@ export default function FormatPage() {
                       </div>
                       <ArrowRight className="w-4 h-4 text-gray-400" />
                       <div className="flex-1">
-                        <p className="text-xl font-bold text-secondary">1</p>
+                        <p className="text-xl font-bold text-accent">1</p>
                         <p className="text-xs text-gray-600 mt-1">Champion</p>
                       </div>
                     </div>

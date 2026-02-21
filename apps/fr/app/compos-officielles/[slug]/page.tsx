@@ -144,7 +144,7 @@ export default async function ComposOfficiellesPage({ params }: PageProps) {
           <p className="text-sm text-white/60 mb-2">{stage} — {dateStr}</p>
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
             Compo officielle :{" "}
-            <span className="text-secondary">
+            <span className="text-accent">
               {homeName} vs {awayName}
             </span>
           </h1>

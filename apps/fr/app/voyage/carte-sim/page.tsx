@@ -116,7 +116,7 @@ export default function CarteSimUsaPage() {
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-2">Lifestyle Supporter</p>
+          <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">Lifestyle Supporter</p>
           <h1 className="text-2xl font-extrabold sm:text-4xl">
             Quel forfait téléphone pour la CDM 2026 aux USA ?
           </h1>

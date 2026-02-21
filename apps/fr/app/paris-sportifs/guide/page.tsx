@@ -83,7 +83,7 @@ export default function GuideParisPage() {
 
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">
             Comment Parier sur la CDM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
@@ -104,7 +104,7 @@ export default function GuideParisPage() {
         {/* Types de paris */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <Target className="w-6 h-6 text-secondary" />
+            <Target className="w-6 h-6 text-accent" />
             Les types de paris
           </h2>
           <div className="space-y-4">
@@ -123,7 +123,7 @@ export default function GuideParisPage() {
         {/* Lexique */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-secondary" />
+            <BookOpen className="w-6 h-6 text-accent" />
             Lexique du parieur
           </h2>
           <div className="rounded-2xl border border-gray-200  overflow-hidden">
@@ -169,7 +169,7 @@ export default function GuideParisPage() {
         {/* Bankroll management */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <Wallet className="w-6 h-6 text-secondary" />
+            <Wallet className="w-6 h-6 text-accent" />
             Gestion de bankroll
           </h2>
           <div className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8">
@@ -200,7 +200,7 @@ export default function GuideParisPage() {
         {/* Stratégie */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <Brain className="w-6 h-6 text-secondary" />
+            <Brain className="w-6 h-6 text-accent" />
             Conseils stratégie CDM 2026
           </h2>
           <div className="space-y-4">

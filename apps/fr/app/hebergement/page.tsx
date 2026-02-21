@@ -95,13 +95,13 @@ export default function HebergementPage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <Hotel className="h-4 w-4 text-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+            <Hotel className="h-4 w-4 text-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
               Guide pratique
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-secondary">Hébergement</span> CDM 2026
+            <span className="text-accent">Hébergement</span> CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Hôtels, Airbnb, quartiers recommandés : tout pour trouver le meilleur

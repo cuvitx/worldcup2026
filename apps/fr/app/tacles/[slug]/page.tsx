@@ -84,7 +84,7 @@ export default async function TaclesPage({ params }: PageProps) {
     <>
 <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb transparent items={breadcrumbItems} />
-        <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mt-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Statistiques tacles {player.name}
         </h1>
         <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
@@ -112,7 +112,7 @@ export default async function TaclesPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">Taux réussite tacles</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
-            <p className="text-3xl font-extrabold text-secondary">{stats.duelsWonPct}%</p>
+            <p className="text-3xl font-extrabold text-accent">{stats.duelsWonPct}%</p>
             <p className="text-sm text-gray-500 mt-1">Duels gagnés</p>
           </div>
         </div>

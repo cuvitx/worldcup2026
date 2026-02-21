@@ -44,7 +44,7 @@ function getPhaseColor(stage: string): string {
   if (stage === "round-of-32" || stage === "round-of-16" || stage === "quarter-final") {
     return "bg-primary/10 text-primary";
   }
-  return "bg-secondary/10 text-secondary";
+  return "bg-accent/10 text-accent";
 }
 
 function formatDateFr(dateStr: string): string {

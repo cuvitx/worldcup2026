@@ -133,9 +133,9 @@ function StarRating({ note }: { note: number }) {
   return (
     <div className="flex items-center gap-1">
       {Array.from({ length: full }).map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />
+        <Star key={i} className="w-4 h-4 fill-secondary text-accent" />
       ))}
-      {half && <Star className="w-4 h-4 fill-secondary/50 text-secondary" />}
+      {half && <Star className="w-4 h-4 fill-secondary/50 text-accent" />}
       <span className="ml-1 text-sm font-bold text-gray-900 ">{note}/10</span>
     </div>
   );
@@ -187,7 +187,7 @@ export default function MeilleursBookmakersPage() {
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">
             Meilleurs Bookmakers CDM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
@@ -208,7 +208,7 @@ export default function MeilleursBookmakersPage() {
         {/* Tableau comparatif */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
-            <Trophy className="w-6 h-6 text-secondary" />
+            <Trophy className="w-6 h-6 text-accent" />
             Tableau comparatif des bookmakers
           </h2>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 ">
@@ -274,7 +274,7 @@ export default function MeilleursBookmakersPage() {
         {/* Détails par bookmaker */}
         <section className="space-y-8 mb-14">
           <h2 className="text-2xl font-bold text-gray-900  flex items-center gap-2">
-            <TrendingUp className="w-6 h-6 text-secondary" />
+            <TrendingUp className="w-6 h-6 text-accent" />
             Avis détaillé par bookmaker
           </h2>
           {bookmakers.map((bk, i) => (
@@ -287,7 +287,7 @@ export default function MeilleursBookmakersPage() {
                   <h3 className="text-xl font-bold text-gray-900  flex items-center gap-2">
                     {i + 1}. {bk.name}
                     {i === 0 && (
-                      <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full font-semibold">
+                      <span className="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded-full font-semibold">
                         Choix de la rédaction
                       </span>
                     )}

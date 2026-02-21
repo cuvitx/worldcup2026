@@ -189,7 +189,7 @@ export default function SimulateurBracketPage() {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
             Simulateur Bracket CDM 2026
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto text-secondary">
+          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto text-accent">
             Construisez votre bracket complet des phases finales. Cliquez sur chaque equipe
             pour la faire avancer, du 16eme de finale jusqu&apos;a la grande finale.
           </p>
@@ -199,7 +199,7 @@ export default function SimulateurBracketPage() {
       {/* Toolbar */}
       <div className="sticky top-0 z-30 bg-white border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
-          <div className="flex items-center gap-2 text-sm text-secondary">
+          <div className="flex items-center gap-2 text-sm text-accent">
             <Trophy className="h-4 w-4" />
             {champion ? (
               <span className="font-semibold text-accent">
@@ -268,7 +268,7 @@ export default function SimulateurBracketPage() {
       {/* Champion banner */}
       {champion && (
         <div className="bg-accent/5 border-t-2 border-accent py-12 text-center">
-          <p className="text-sm uppercase tracking-wider text-secondary mb-2">Votre champion</p>
+          <p className="text-sm uppercase tracking-wider text-accent mb-2">Votre champion</p>
           <div className="flex items-center justify-center gap-3">
             {getTeamLabel(champion) && (
               <Flag
@@ -346,7 +346,7 @@ function RoundColumn({
 
   return (
     <div className="flex flex-col items-center min-w-[200px] flex-shrink-0">
-      <div className="text-xs font-semibold uppercase tracking-wider text-secondary mb-4">
+      <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-4">
         {label}
       </div>
       <div className={`flex flex-col justify-center ${gap} flex-1`}>

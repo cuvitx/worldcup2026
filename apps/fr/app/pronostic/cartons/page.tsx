@@ -56,7 +56,7 @@ export default function PronosticCartonsPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Cartons" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Paris Cartons — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Cartons — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Cartons jaunes, cartons rouges : tout savoir pour parier sur les sanctions de la Coupe du Monde 2026. Stats, arbitres et joueurs à surveiller.
         </p>
@@ -64,7 +64,7 @@ export default function PronosticCartonsPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <AlertTriangle className="w-7 h-7 text-secondary" />
+          <AlertTriangle className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Stats cartons par équipe</h2>
         </div>
         <p className="text-gray-700 mb-6">
@@ -85,7 +85,7 @@ export default function PronosticCartonsPage() {
               {teamCards.map((t, i) => (
                 <tr key={t.team} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
                   <td className="p-3 font-semibold">{t.team}</td>
-                  <td className="text-center p-3 font-bold text-secondary">{t.yellowAvg}</td>
+                  <td className="text-center p-3 font-bold text-accent">{t.yellowAvg}</td>
                   <td className="text-center p-3">{t.redRate}</td>
                   <td className="text-center p-3">{t.total2022}</td>
                   <td className="p-3 text-sm">{t.style}</td>
@@ -118,7 +118,7 @@ export default function PronosticCartonsPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <User className="w-7 h-7 text-secondary" />
+          <User className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Joueurs les plus avertis</h2>
         </div>
         <div className="space-y-3">

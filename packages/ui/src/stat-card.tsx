@@ -19,7 +19,7 @@ interface StatCardProps {
 
 const colorMap = {
   primary: "text-primary",
-  secondary: "text-secondary",
+  secondary: "text-accent",
   accent: "text-accent",
 } as const;
 

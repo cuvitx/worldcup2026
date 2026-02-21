@@ -67,7 +67,7 @@ function StatusBadge({ status, elapsed, t }: { status: LiveMatch["status"]; elap
   }
   if (status === "halftime") {
     return (
-      <span className="rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-bold text-white">
+      <span className="rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
         {t.halftime}
       </span>
     );
@@ -181,7 +181,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   if (matches.length === 0) return null;
 
   return (
-    <div className="bg-secondary border-b border-white/10">
+    <div className="bg-accent border-b border-white/10">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center gap-3 overflow-x-auto py-2 scrollbar-hide">
           <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-white/50">

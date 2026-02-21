@@ -162,7 +162,7 @@ export default async function StatistiquesArbitrePage({ params }: PageProps) {
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-sm text-white/60 mb-2">{ref.confederation} — {ref.nationality}</p>
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
-            <span className="text-secondary">{ref.name}</span>
+            <span className="text-accent">{ref.name}</span>
           </h1>
           <p className="text-white/80">
             Arbitre international — {age} ans — {ref.matchesReffed} matchs internationaux dirigés

@@ -77,7 +77,7 @@ export default async function CornersPage({ params }: PageProps) {
     <>
 <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb transparent items={breadcrumbItems} />
-        <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mt-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Pronostic nombre de corners {homeName} - {awayName}
         </h1>
         <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">

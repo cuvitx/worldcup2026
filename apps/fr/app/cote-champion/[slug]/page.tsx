@@ -143,7 +143,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             {/* Cotes actuelles */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <Trophy className="h-6 w-6 text-secondary" />
+                <Trophy className="h-6 w-6 text-accent" />
                 Cote actuelle — {team.name} vainqueur CDM 2026
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -171,7 +171,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             {/* Évolution de la cote */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <TrendingUp className="h-6 w-6 text-secondary" />
+                <TrendingUp className="h-6 w-6 text-accent" />
                 Évolution de la cote
               </h2>
               <div className="flex items-center gap-6 flex-wrap">
@@ -196,7 +196,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             {/* Analyse forces/faiblesses */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <BarChart3 className="h-6 w-6 text-secondary" />
+                <BarChart3 className="h-6 w-6 text-accent" />
                 Analyse : Forces et faiblesses
               </h2>
               <div className="grid gap-4 sm:grid-cols-2">
@@ -277,7 +277,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             {/* Comparaison favoris */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                <Target className="h-6 w-6 text-secondary" />
+                <Target className="h-6 w-6 text-accent" />
                 Comparaison avec les favoris
               </h2>
               <div className="overflow-x-auto">
@@ -304,7 +304,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                       return (
                         <tr key={t.id} className="border-b border-gray-100">
                           <td className="py-3 pr-4">
-                            <Link href={`/cote-champion/${t.slug}`} className="text-accent hover:underline">
+                            <Link href={`/cote-champion/${t.slug}`} className="text-primary hover:underline">
                               {t.flag} {t.name}
                             </Link>
                           </td>
@@ -386,27 +386,27 @@ export default async function CoteChampionPage({ params }: PageProps) {
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href={`/equipe/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/equipe/${team.slug}`} className="text-primary hover:underline">
                     Fiche {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/parier/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/parier/${team.slug}`} className="text-primary hover:underline">
                     Parier sur {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/pronostic/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/pronostic/${team.slug}`} className="text-primary hover:underline">
                     Pronostic {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/effectif/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/effectif/${team.slug}`} className="text-primary hover:underline">
                     Effectif {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-accent hover:underline">
+                  <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary hover:underline">
                     Groupe {team.group}
                   </Link>
                 </li>

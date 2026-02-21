@@ -76,7 +76,7 @@ export default function GroupsPage() {
               >
                 {/* Header */}
                 <div className="hero-animated px-4 py-3 flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-bold text-secondary">
+                  <h2 className="text-xl sm:text-2xl font-bold text-accent">
                     Groupe {group.letter}
                   </h2>
                   <span className="text-xs text-white/70 group-hover:text-white transition-colors">

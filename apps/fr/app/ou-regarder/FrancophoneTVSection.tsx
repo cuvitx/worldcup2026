@@ -81,7 +81,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
                           <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                             ch.type.toLowerCase().includes("gratuit")
                               ? "bg-field/10 text-field"
-                              : "bg-secondary/10 text-secondary"
+                              : "bg-accent/10 text-accent"
                           }`}>{ch.type}</span>
                         </div>
                         <p className="text-xs text-gray-500 mt-0.5">{ch.details}</p>

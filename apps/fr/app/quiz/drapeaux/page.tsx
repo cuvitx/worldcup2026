@@ -87,7 +87,7 @@ export default function QuizDrapeauxPage() {
     return (
       <div className="min-h-[80vh] flex items-center justify-center px-4">
         <div className="max-w-md w-full text-center space-y-6">
-          <Trophy className="h-16 w-16 text-secondary mx-auto" />
+          <Trophy className="h-16 w-16 text-accent mx-auto" />
           <h1 className="text-3xl font-extrabold text-primary">
             Quiz terminé !
           </h1>
@@ -128,7 +128,7 @@ export default function QuizDrapeauxPage() {
       <div className="bg-primary text-white py-4 px-4">
         <div className="mx-auto max-w-2xl flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Flag className="h-5 w-5 text-secondary" />
+            <Flag className="h-5 w-5 text-accent" />
             <span className="font-bold">Quiz Drapeaux CDM 2026</span>
           </div>
           <div className="flex items-center gap-4 text-sm">

@@ -128,7 +128,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
               <p className="text-sm text-gray-500 mb-1">5 derniers matchs</p>
               <div className="flex gap-1">
                 {enriched?.form.split("").map((r, i) => (
-                  <span key={i} className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${r === "W" ? "bg-accent" : r === "D" ? "bg-secondary" : r === "L" ? "bg-red-500" : "bg-gray-300"}`}>
+                  <span key={i} className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${r === "W" ? "bg-accent" : r === "D" ? "bg-accent" : r === "L" ? "bg-red-500" : "bg-gray-300"}`}>
                     {r === "W" ? "V" : r === "D" ? "N" : r === "L" ? "D" : r}
                   </span>
                 ))}

@@ -190,15 +190,15 @@ export default async function ConfrontationPage({ params }: PageProps) {
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{t1Wins}</p>
-                  <p className="text-xs text-secondary mt-1">Victoires {team1.name}</p>
+                  <p className="text-xs text-accent mt-1">Victoires {team1.name}</p>
                 </div>
                 <div className="rounded-lg bg-gray-50  p-4 text-center">
                   <p className="text-3xl font-extrabold text-gray-600">{draws}</p>
-                  <p className="text-xs text-secondary mt-1">Nuls</p>
+                  <p className="text-xs text-accent mt-1">Nuls</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{t2Wins}</p>
-                  <p className="text-xs text-secondary mt-1">Victoires {team2.name}</p>
+                  <p className="text-xs text-accent mt-1">Victoires {team2.name}</p>
                 </div>
               </div>
 
@@ -218,11 +218,11 @@ export default async function ConfrontationPage({ params }: PageProps) {
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg bg-gray-50  p-3 text-center">
                   <p className="text-xl font-bold text-primary">{totalMatches}</p>
-                  <p className="text-xs text-secondary">Matchs joués</p>
+                  <p className="text-xs text-accent">Matchs joués</p>
                 </div>
                 <div className="rounded-lg bg-gray-50  p-3 text-center">
                   <p className="text-xl font-bold text-primary">{t1Goals} - {t2Goals}</p>
-                  <p className="text-xs text-secondary">Buts marqués</p>
+                  <p className="text-xs text-accent">Buts marqués</p>
                 </div>
               </div>
             </section>
@@ -237,7 +237,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
                   <div key={i} className="flex items-center justify-between rounded-lg border border-gray-100  p-4">
                     <div>
                       <p className="font-semibold text-gray-900 ">{m.score}</p>
-                      <p className="text-xs text-secondary">{m.competition} · {m.year}</p>
+                      <p className="text-xs text-accent">{m.competition} · {m.year}</p>
                     </div>
                     <span className={`rounded-full px-3 py-1 text-xs font-medium ${
                       m.winner === team1.name
@@ -263,7 +263,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
                   <thead>
                     <tr className="border-b border-gray-200 ">
                       <th className="text-left py-3 px-4 font-semibold">{team1.flag} {team1.name}</th>
-                      <th className="text-center py-3 px-4 font-semibold text-secondary">Stat</th>
+                      <th className="text-center py-3 px-4 font-semibold text-accent">Stat</th>
                       <th className="text-right py-3 px-4 font-semibold">{team2.flag} {team2.name}</th>
                     </tr>
                   </thead>
@@ -277,7 +277,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
                     ].map((row) => (
                       <tr key={row.label}>
                         <td className="py-3 px-4 font-medium text-gray-900 ">{row.v1}</td>
-                        <td className="py-3 px-4 text-center text-xs text-secondary">{row.label}</td>
+                        <td className="py-3 px-4 text-center text-xs text-accent">{row.label}</td>
                         <td className="py-3 px-4 text-right font-medium text-gray-900 ">{row.v2}</td>
                       </tr>
                     ))}
@@ -289,7 +289,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
             {/* Analyse */}
             <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900  mb-4">Analyse de la confrontation</h2>
-              <div className="text-secondary leading-relaxed space-y-4">
+              <div className="text-accent leading-relaxed space-y-4">
                 <p>
                   L&apos;affrontement entre {team1.name} et {team2.name} est l&apos;un des classiques du football mondial.
                   En {totalMatches} rencontres, {t1Wins > t2Wins ? team1.name : t2Wins > t1Wins ? team2.name : "aucune des deux équipes"} domine

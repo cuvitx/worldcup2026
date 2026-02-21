@@ -32,7 +32,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
             key={m.id}
             className={`rounded-xl border p-4 ${
               m.isFrance
-                ? "bg-secondary/5 border-secondary/30"
+                ? "bg-accent/5 border-accent/30"
                 : "bg-white border-gray-200"
             }`}
           >

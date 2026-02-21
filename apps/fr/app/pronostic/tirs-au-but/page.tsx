@@ -48,7 +48,7 @@ export default function PronosticTirsAuButPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Tirs au but" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Prolongation & Tirs au But — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Prolongation & Tirs au But — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Les tirs au but, moment de tension ultime. Analysez les bilans historiques et identifiez les équipes les mieux (et les moins bien) préparées.
         </p>
@@ -88,7 +88,7 @@ export default function PronosticTirsAuButPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <Target className="w-7 h-7 text-secondary" />
+          <Target className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Bilan par équipe aux tirs au but</h2>
         </div>
         <div className="overflow-x-auto">

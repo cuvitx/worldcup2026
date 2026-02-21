@@ -99,7 +99,7 @@ export default async function MeteoPage({ params }: PageProps) {
             <CloudSun className="inline w-8 h-8 mr-2" />
             Météo à {city.name} en juin-juillet 2026
           </h1>
-          <p className="text-secondary mt-3 text-lg">{city.country} • Prévisions pour la Coupe du Monde</p>
+          <p className="text-accent mt-3 text-lg">{city.country} • Prévisions pour la Coupe du Monde</p>
         </div>
       </section>
 
@@ -112,30 +112,30 @@ export default async function MeteoPage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h3 className="font-bold text-primary mb-3"><Sun className="h-5 w-5 inline-block" /> Juin 2026</h3>
             <div className="flex justify-between items-center">
-              <span className="text-secondary">Min</span>
+              <span className="text-accent">Min</span>
               <span className="text-2xl font-extrabold text-primary">{weather.tempJuneMin}°C</span>
             </div>
             <div className="flex justify-between items-center mt-2">
-              <span className="text-secondary">Max</span>
+              <span className="text-accent">Max</span>
               <span className="text-2xl font-extrabold text-accent">{weather.tempJuneMax}°C</span>
             </div>
             <div className="flex justify-between items-center mt-2">
-              <span className="text-secondary">Précipitations</span>
+              <span className="text-accent">Précipitations</span>
               <span className="font-semibold text-primary">{weather.rainJune} mm</span>
             </div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h3 className="font-bold text-primary mb-3"><Sun className="h-5 w-5 inline-block" /> Juillet 2026</h3>
             <div className="flex justify-between items-center">
-              <span className="text-secondary">Min</span>
+              <span className="text-accent">Min</span>
               <span className="text-2xl font-extrabold text-primary">{weather.tempJulyMin}°C</span>
             </div>
             <div className="flex justify-between items-center mt-2">
-              <span className="text-secondary">Max</span>
+              <span className="text-accent">Max</span>
               <span className="text-2xl font-extrabold text-accent">{weather.tempJulyMax}°C</span>
             </div>
             <div className="flex justify-between items-center mt-2">
-              <span className="text-secondary">Précipitations</span>
+              <span className="text-accent">Précipitations</span>
               <span className="font-semibold text-primary">{weather.rainJuly} mm</span>
             </div>
           </div>
@@ -145,17 +145,17 @@ export default async function MeteoPage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Droplets className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{weather.humidity}%</div>
-            <div className="text-sm text-secondary">Humidité moyenne</div>
+            <div className="text-sm text-accent">Humidité moyenne</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Wind className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{weather.altitude}m</div>
-            <div className="text-sm text-secondary">Altitude</div>
+            <div className="text-sm text-accent">Altitude</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <CloudSun className="w-6 h-6 text-accent mx-auto mb-2" />
             <div className="text-2xl font-extrabold text-primary">{weather.sunHours}h</div>
-            <div className="text-sm text-secondary">Ensoleillement / jour</div>
+            <div className="text-sm text-accent">Ensoleillement / jour</div>
           </div>
         </div>
       </section>
@@ -166,7 +166,7 @@ export default async function MeteoPage({ params }: PageProps) {
         <div className="bg-white rounded-xl border border-gray-200 p-6">
           <ul className="space-y-2">
             {weather.highlights.map((h, i) => (
-              <li key={i} className="text-secondary flex items-start gap-2">
+              <li key={i} className="text-accent flex items-start gap-2">
                 <span className="text-accent mt-0.5">•</span> {h}
               </li>
             ))}
@@ -182,7 +182,7 @@ export default async function MeteoPage({ params }: PageProps) {
         <div className="bg-white rounded-xl border border-gray-200 p-6">
           <div className="grid sm:grid-cols-2 gap-2">
             {weather.packingTips.map((tip, i) => (
-              <div key={i} className="flex items-center gap-2 text-secondary">
+              <div key={i} className="flex items-center gap-2 text-accent">
                 <span className="text-accent">✓</span> {tip}
               </div>
             ))}
@@ -193,7 +193,7 @@ export default async function MeteoPage({ params }: PageProps) {
       {/* Impact sur les paris */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><Dice5 className="h-5 w-5 inline-block" /> Impact sur les paris</h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary leading-relaxed">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 text-accent leading-relaxed">
           <p>{weather.bettingImpact}</p>
         </div>
       </section>

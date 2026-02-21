@@ -57,7 +57,7 @@ export default function PronosticBttsPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "BTTS" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Les Deux Équipes Marquent — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Les Deux Équipes Marquent — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Analyse complète du marché BTTS pour la Coupe du Monde 2026. Identifiez les matchs où les deux équipes vont marquer.
         </p>
@@ -117,7 +117,7 @@ export default function PronosticBttsPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <BarChart3 className="w-7 h-7 text-secondary" />
+          <BarChart3 className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Analyse BTTS par groupe</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
@@ -125,7 +125,7 @@ export default function PronosticBttsPage() {
             <div key={g.group} className="border border-gray-200 rounded-xl p-5">
               <div className="flex justify-between items-center mb-2">
                 <h3 className="font-bold text-primary">{g.group}</h3>
-                <span className="text-sm font-semibold text-secondary">{g.bttsRate} BTTS</span>
+                <span className="text-sm font-semibold text-accent">{g.bttsRate} BTTS</span>
               </div>
               <p className="text-sm text-gray-700 mb-1">{g.reason}</p>
               <p className="text-xs font-bold text-accent">{g.tendency}</p>

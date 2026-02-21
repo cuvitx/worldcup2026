@@ -47,7 +47,7 @@ export default function SelectionsListesPage() {
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
             Sélections officielles
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
@@ -61,8 +61,8 @@ export default function SelectionsListesPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Banner à venir */}
-        <div className="flex items-center gap-4 rounded-xl bg-secondary/10 border border-secondary/30 p-6">
-          <Clock className="h-8 w-8 text-secondary shrink-0" />
+        <div className="flex items-center gap-4 rounded-xl bg-accent/10 border border-accent/30 p-6">
+          <Clock className="h-8 w-8 text-accent shrink-0" />
           <div>
             <h2 className="text-lg font-bold text-primary">
               Annonces prévues en mai 2026

@@ -56,7 +56,7 @@ export default function EquipeEditorialePage() {
               { label: "À propos de l'auteur" },
             ]}
           />
-          <h1 className="mt-6 text-3xl sm:text-4xl font-bold text-secondary">
+          <h1 className="mt-6 text-3xl sm:text-4xl font-bold text-accent">
             Xavier C.
           </h1>
           <p className="mt-3 text-lg text-white/80">

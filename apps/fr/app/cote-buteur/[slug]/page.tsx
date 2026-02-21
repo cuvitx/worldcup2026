@@ -85,7 +85,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
             <Trophy className="inline w-8 h-8 mr-2" />
             Cote {player.name} Buteur CDM 2026 — Pronostic et Analyse
           </h1>
-          <p className="text-secondary mt-3 text-lg max-w-2xl">
+          <p className="text-accent mt-3 text-lg max-w-2xl">
             {player.name} ({team?.name}) • {player.position} • {player.club}
           </p>
         </div>
@@ -99,19 +99,19 @@ export default async function CoteButeurPage({ params }: PageProps) {
         <div className="grid sm:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{odds.goalsInternational}</div>
-            <div className="text-sm text-secondary mt-1">Buts en sélection</div>
+            <div className="text-sm text-accent mt-1">Buts en sélection</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{odds.goalsPerMatch}</div>
-            <div className="text-sm text-secondary mt-1">Buts / match</div>
+            <div className="text-sm text-accent mt-1">Buts / match</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{odds.wcPreviousGoals}</div>
-            <div className="text-sm text-secondary mt-1">Buts en CDM précédentes</div>
+            <div className="text-sm text-accent mt-1">Buts en CDM précédentes</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{player.caps}</div>
-            <div className="text-sm text-secondary mt-1">Sélections</div>
+            <div className="text-sm text-accent mt-1">Sélections</div>
           </div>
         </div>
 

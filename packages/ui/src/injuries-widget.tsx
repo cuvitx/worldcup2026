@@ -42,8 +42,8 @@ interface InjuriesWidgetProps {
  */
 const typeColors: Record<string, string> = {
   "Missing Fixture": "bg-red-100 text-red-700",
-  "Questionable": "bg-secondary/10 text-secondary",
-  "Doubtful": "bg-secondary/10 text-secondary",
+  "Questionable": "bg-accent/10 text-accent",
+  "Doubtful": "bg-accent/10 text-accent",
 };
 
 function InjuryList({ team, injuries, t }: { team: string; injuries: Injury[]; t: { noInjuries: string; absent: string } }) {

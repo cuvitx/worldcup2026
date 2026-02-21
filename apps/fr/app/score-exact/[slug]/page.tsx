@@ -333,7 +333,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
             <span className="text-foreground font-medium">{home.name} vs {away.name}</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent leading-tight mb-4">
             Pronostic Score Exact {home.flag} {home.name} vs {away.name} {away.flag} : Nos 3 scénarios probables
           </h1>
 
@@ -395,7 +395,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
                         href={winamax.url}
                         target="_blank"
                         rel="noopener noreferrer sponsored nofollow"
-                        className="text-accent hover:underline font-medium"
+                        className="text-primary hover:underline font-medium"
                       >
                         {line.coteWinamax}
                       </a>
@@ -405,7 +405,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
                         href={betclic.url}
                         target="_blank"
                         rel="noopener noreferrer sponsored nofollow"
-                        className="text-accent hover:underline font-medium"
+                        className="text-primary hover:underline font-medium"
                       >
                         {line.coteBetclic}
                       </a>
@@ -415,7 +415,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
                         href={unibet.url}
                         target="_blank"
                         rel="noopener noreferrer sponsored nofollow"
-                        className="text-accent hover:underline font-medium"
+                        className="text-primary hover:underline font-medium"
                       >
                         {line.coteUnibet}
                       </a>

@@ -101,8 +101,8 @@ export default function PronosticHubPage() {
 {/* ===== HERO ===== */}
       <section className="hero-animated py-14 md:py-20 text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary backdrop-blur-sm">
-            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-secondary" />
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur-sm">
+            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-accent" />
             CDM 2026 · Hub Pronostics
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
@@ -123,7 +123,7 @@ export default function PronosticHubPage() {
               { value: "100K", label: "simulations" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-2xl font-extrabold text-secondary">{s.value}</p>
+                <p className="text-2xl font-extrabold text-accent">{s.value}</p>
                 <p className="text-xs text-gray-500">{s.label}</p>
               </div>
             ))}
@@ -133,7 +133,7 @@ export default function PronosticHubPage() {
             <a href="#vainqueur" className="rounded-xl bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
               Pronostic vainqueur
             </a>
-            <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">
+            <a href="#groupes" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
               <FolderOpen className="h-5 w-5 inline-block" /> Pronostics groupes
             </a>
             <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">

@@ -141,7 +141,7 @@ export default function ValueBetsPage() {
 
       {/* Hero */}
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">
           Value Bets — CDM 2026
         </h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
@@ -204,8 +204,8 @@ export default function ValueBetsPage() {
             </li>
           </ul>
         </div>
-        <div className="bg-secondary/5 rounded-xl p-6">
-          <h3 className="font-bold text-secondary mb-3">Exemple concret</h3>
+        <div className="bg-accent/5 rounded-xl p-6">
+          <h3 className="font-bold text-accent mb-3">Exemple concret</h3>
           <p className="text-gray-700 mb-2">
             Le Maroc est coté à <strong>30.0</strong> pour remporter la CDM 2026. La
             probabilité implicite de cette cote est 1/30 = 3,3 %.
@@ -286,7 +286,7 @@ export default function ValueBetsPage() {
                 <div className="bg-primary/5 p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                   <h3 className="text-lg font-bold text-primary">{vb.label}</h3>
                   <div className="flex items-center gap-4">
-                    <span className="bg-secondary/10 text-secondary font-bold px-3 py-1.5 rounded-lg text-sm">
+                    <span className="bg-accent/10 text-accent font-bold px-3 py-1.5 rounded-lg text-sm">
                       Cote : {vb.cote.toFixed(2)}
                     </span>
                     <span className="bg-green-100 text-green-800 font-bold px-3 py-1.5 rounded-lg text-sm">

@@ -47,7 +47,7 @@ export default function PronosticCleanSheetPage() {
 <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Clean Sheet" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Clean Sheet — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Clean Sheet — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Quelles défenses seront les plus imperméables ? Analysez les meilleures défenses et pariez sur les clean sheets de la Coupe du Monde 2026.
         </p>
@@ -81,7 +81,7 @@ export default function PronosticCleanSheetPage() {
                   <td className="text-center p-3 font-bold">{t.csRate}</td>
                   <td className="text-center p-3">{t.goalsAgainst}</td>
                   <td className="p-3">{t.keeper}</td>
-                  <td className="text-center p-3 text-secondary font-bold">{t.coteCs}</td>
+                  <td className="text-center p-3 text-accent font-bold">{t.coteCs}</td>
                 </tr>
               ))}
             </tbody>
@@ -92,7 +92,7 @@ export default function PronosticCleanSheetPage() {
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <BarChart3 className="w-7 h-7 text-secondary" />
+          <BarChart3 className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">Historique clean sheet en Coupe du Monde</h2>
         </div>
         <div className="overflow-x-auto">
