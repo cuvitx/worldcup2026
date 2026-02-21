@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Parier sur les tirs cadrés de ${player.name} — CDM 2026`,
     description: `Stats tirs cadrés de ${player.name} en sélection, cotes over/under Winamax, Betclic, Unibet pour la Coupe du Monde 2026.`,
-    alternates: { canonical: `https://cdm2026.fr/tirs-cadres/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/tirs-cadres/${slug}` },
   };
 }
 

@@ -33,7 +33,7 @@ export function EstimatedOdds({ teamName, prediction }: EstimatedOddsProps) {
           { label: "Atteindre les 8e", odds: probToOdds(prediction.roundOf16Prob) },
           { label: "Atteindre la finale", odds: probToOdds(prediction.finalProb) },
         ].map((item) => (
-          <div key={item.label} className="rounded-lg bg-gray-50-700 p-3 text-center">
+          <div key={item.label} className="rounded-lg bg-gray-50 p-3 text-center">
             <p className="text-lg font-bold text-primary">{item.odds}</p>
             <p className="text-xs text-gray-500">{item.label}</p>
           </div>

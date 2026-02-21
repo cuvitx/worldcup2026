@@ -20,7 +20,7 @@ export function PremiumAnecdotes({ team, content }: PremiumAnecdotesProps) {
         {/* Vertical timeline */}
         <div className="relative pl-8 md:pl-0 md:max-w-3xl md:mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-3 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-200-700" />
+          <div className="absolute left-3 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-300" />
 
           {anecdotes.map((anecdote, i) => {
             const isLeft = i % 2 === 0;

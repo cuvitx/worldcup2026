@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Profil et stats de l'arbitre désigné pour ${homeName} - ${awayName}.`,
     },
     alternates: {
-      canonical: `https://cdm2026.fr/arbitre/${slug}`,
+      canonical: `https://www.cdm2026.fr/arbitre/${slug}`,
     },
   };
 }

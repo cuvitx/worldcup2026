@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Formalités Mexique — CDM 2026",
     description: "Pas de visa mais une FMM obligatoire. Guide complet pour les supporters français au Mexique.",
-    url: "https://cdm2026.fr/visa-mexique",
+    url: "https://www.cdm2026.fr/visa-mexique",
   },
-  alternates: { canonical: "https://cdm2026.fr/visa-mexique" },
+  alternates: { canonical: "https://www.cdm2026.fr/visa-mexique" },
 };
 
 const faqItems = [
@@ -110,7 +110,7 @@ export default function VisaMexiquePage() {
               <li><strong>Dans l&apos;avion</strong> : les compagnies aériennes distribuent le formulaire papier pendant le vol.</li>
               <li><strong>À l&apos;arrivée</strong> : des formulaires sont disponibles aux guichets d&apos;immigration de l&apos;aéroport.</li>
             </ol>
-            <div className="flex items-start gap-2 mt-3 p-3 rounded-lg bg-yellow-50yellow-950/30 border border-yellow-200">
+            <div className="flex items-start gap-2 mt-3 p-3 rounded-lg bg-yellow-50 border border-yellow-200">
               <AlertTriangle className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
               <p className="text-sm text-secondary">
                 <strong>Important :</strong> Conservez votre FMM pendant tout votre séjour. Elle vous sera

@@ -98,7 +98,7 @@ export default function CommunityVote({
                 opt.key === "1"
                   ? "hover:border-primary hover:bg-primary/10"
                   : opt.key === "N"
-                    ? "hover:border-gray-400 hover:bg-gray-50-700"
+                    ? "hover:border-gray-400 hover:bg-gray-50"
                     : "hover:border-accent hover:bg-accent/5"
               }`}
             >

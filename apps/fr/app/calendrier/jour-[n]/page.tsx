@@ -56,8 +56,8 @@ function stageBadgeClass(stage: string): string {
   if (stage === "final") return "bg-accent/20 text-accent font-bold";
   if (stage === "semi-final") return "bg-primary/20 text-primary font-semibold";
   if (stage === "quarter-final") return "bg-primary/20 text-primary";
-  if (stage === "round-of-16" || stage === "round-of-32") return "bg-primary/10 text-primarysecondary/20";
-  return "bg-gray-100 text-gray-600slate-700";
+  if (stage === "round-of-16" || stage === "round-of-32") return "bg-primary/10 text-primary";
+  return "bg-gray-100 text-gray-600";
 }
 
 // ============================================================
@@ -350,7 +350,7 @@ export default async function JourPage({ params }: PageProps) {
           )}
           <Link
             href="/match/calendrier"
-            className="rounded-lg bg-gray-100-700 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors"
+            className="rounded-lg bg-gray-100 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors"
           >
             Calendrier complet
           </Link>
@@ -385,8 +385,8 @@ export default async function JourPage({ params }: PageProps) {
                     isActive
                       ? "bg-primary text-white"
                       : cnt > 0
-                      ? "bg-gray-100-700 hover:bg-primary/20 text-gray-700"
-                      : "bg-gray-50-700/50 text-gray-400 cursor-default"
+                      ? "bg-gray-100 hover:bg-primary/20 text-gray-700"
+                      : "bg-gray-50 text-gray-400 cursor-default"
                   }`}
                 >
                   {d}

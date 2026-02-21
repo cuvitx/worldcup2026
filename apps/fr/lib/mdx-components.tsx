@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { autoLinkSegments, type TextSegment } from "./auto-linker";
 
 /* ── Custom MDX components ── */
 
@@ -136,6 +137,27 @@ export const mdxComponents = {
   MatchCard,
   StadiumCard,
   BettingCta,
+  // Auto-linked paragraphs — converts entity mentions to internal links
+  p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => {
+    // Only auto-link pure text nodes; skip if children contain JSX
+    if (typeof children === "string") {
+      const segments = autoLinkSegments(children);
+      return (
+        <p {...props}>
+          {segments.map((seg: TextSegment, i: number) =>
+            seg.type === "link" ? (
+              <Link key={i} href={seg.href!} className="text-primary hover:underline">
+                {seg.text}
+              </Link>
+            ) : (
+              <span key={i}>{seg.text}</span>
+            )
+          )}
+        </p>
+      );
+    }
+    return <p {...props}>{children}</p>;
+  },
   // Standard HTML — handled by prose classes, but we add link styling
   a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
     const isExternal = href?.startsWith("http");

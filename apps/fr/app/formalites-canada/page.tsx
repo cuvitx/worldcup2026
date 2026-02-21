@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AVE Canada — CDM 2026 : Guide pour les Français",
     description: "Autorisation de Voyage Électronique (AVE) : 7 CAD, quelques minutes. Le guide pour voir la CDM 2026 au Canada.",
-    url: "https://cdm2026.fr/formalites-canada",
+    url: "https://www.cdm2026.fr/formalites-canada",
   },
-  alternates: { canonical: "https://cdm2026.fr/formalites-canada" },
+  alternates: { canonical: "https://www.cdm2026.fr/formalites-canada" },
 };
 
 const faqItems = [
@@ -265,7 +265,7 @@ export default function FormalitesCanadaPage() {
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-2 mt-4 p-3 rounded-lg bg-yellow-50yellow-950/30 border border-yellow-200">
+          <div className="flex items-start gap-2 mt-4 p-3 rounded-lg bg-yellow-50 border border-yellow-200">
             <AlertTriangle className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
             <p className="text-sm text-secondary">
               <strong>Attention :</strong> Si vous traversez la frontière terrestre USA-Canada (ex. road trip

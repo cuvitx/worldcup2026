@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Top 20 confrontations mythiques en Coupe du Monde",
     description: "De Maradona 86 à la finale 2022 : les matchs qui ont marqué l'histoire du football.",
-    url: "https://cdm2026.fr/confrontations-historiques",
+    url: "https://www.cdm2026.fr/confrontations-historiques",
   },
-  alternates: { canonical: "https://cdm2026.fr/confrontations-historiques" },
+  alternates: { canonical: "https://www.cdm2026.fr/confrontations-historiques" },
 };
 
 const confrontations = [
@@ -218,7 +218,7 @@ export default function ConfrontationsHistoriquesPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-lg font-bold text-gray-900">{c.match}</h3>
-                      <span className="text-xs bg-gray-100-700 text-gray-600 px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
                         {c.tour}
                       </span>
                     </div>

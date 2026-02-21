@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Stratégie paris phase de groupes CDM 2026 — 48 équipes, 12 groupes",
   description:
     "Comment parier sur la phase de groupes de la CDM 2026 à 48 équipes : 12 groupes, meilleurs 3e, matchs du 3e jour, nouvelles dynamiques et stratégies.",
-  alternates: { canonical: "https://cdm2026.fr/strategie-paris-groupes" },
+  alternates: { canonical: "https://www.cdm2026.fr/strategie-paris-groupes" },
   openGraph: {
     title: "Stratégie paris — Phase de groupes CDM 2026",
     description: "Exploitez le nouveau format 48 équipes pour vos paris : 12 groupes, meilleurs 3e, matchs inutiles.",
-    url: "https://cdm2026.fr/strategie-paris-groupes",
+    url: "https://www.cdm2026.fr/strategie-paris-groupes",
   },
 };
 

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `${stadium.city}, ${stadium.country} · ${stadium.capacity.toLocaleString("fr-FR")} places`,
       images: [
         {
-          url: `https://cdm2026.fr/images/stadiums/${stadium.slug}.jpg`,
+          url: `https://www.cdm2026.fr/images/stadiums/${stadium.slug}.jpg`,
           width: 1280,
           height: 720,
           alt: `${stadium.name}, ${stadium.city}`,
@@ -101,13 +101,13 @@ export default async function StadiumPage({ params }: PageProps) {
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {stadium.capacity.toLocaleString("fr-FR")}
                   </p>
                   <p className="text-sm text-gray-500">Capacité</p>
                 </div>
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary capitalize">
                     {stadium.roofType === "retractable"
                       ? "Rétractable"
@@ -118,18 +118,18 @@ export default async function StadiumPage({ params }: PageProps) {
                   <p className="text-sm text-gray-500">Toit</p>
                 </div>
                 {stadium.yearBuilt && (
-                  <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                  <div className="rounded-lg bg-gray-50 p-4 text-center">
                     <p className="text-2xl font-bold text-primary">{stadium.yearBuilt}</p>
                     <p className="text-sm text-gray-500">Année de construction</p>
                   </div>
                 )}
                 {stadium.distanceFromCenter && (
-                  <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                  <div className="rounded-lg bg-gray-50 p-4 text-center">
                     <p className="text-2xl font-bold text-primary">{stadium.distanceFromCenter} km</p>
                     <p className="text-sm text-gray-500">Du centre-ville</p>
                   </div>
                 )}
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{stadium.country}</p>
                   <p className="text-sm text-gray-500">Pays</p>
                 </div>
@@ -168,7 +168,7 @@ export default async function StadiumPage({ params }: PageProps) {
                   </div>
                 )}
                 {/* Mini map link */}
-                <div className="mt-4 rounded-lg bg-primary/5primary/20 border border-gray-200 p-4">
+                <div className="mt-4 rounded-lg bg-primary/5 border border-gray-200 p-4">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                     <div className="flex items-center gap-3 min-w-0">
                       <span className="text-2xl shrink-0"></span>

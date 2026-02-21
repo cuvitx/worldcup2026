@@ -78,13 +78,13 @@ export default function CitiesPage() {
                         </div>
                       </div>
                       <div className="mt-4 grid grid-cols-2 gap-3">
-                        <div className="rounded-lg bg-gray-50gray-700/50 p-2.5 text-center">
+                        <div className="rounded-lg bg-gray-50 p-2.5 text-center">
                           <p className="text-xs text-gray-500">Population</p>
                           <p className="text-sm font-bold text-gray-900">
                             {(city.population / 1_000_000).toFixed(1)}M
                           </p>
                         </div>
-                        <div className="rounded-lg bg-gray-50gray-700/50 p-2.5 text-center">
+                        <div className="rounded-lg bg-gray-50 p-2.5 text-center">
                           <p className="text-xs text-gray-500">Stades</p>
                           <p className="text-sm font-bold text-gray-900">
                             {cityStadiums.length}

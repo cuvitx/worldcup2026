@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Guide complet sur le Visa ESTA pour assister à la Coupe du Monde 2026 aux États-Unis. Procédure, délais, coût, conseils et FAQ.",
   alternates: {
-    canonical: "https://cdm2026.fr/guide/guide-visa-esta",
+    canonical: "https://www.cdm2026.fr/guide/guide-visa-esta",
   },
   openGraph: {
     title: "Visa ESTA pour les USA — Guide CDM 2026",
@@ -27,9 +27,9 @@ export default function GuideVisaEsta() {
     datePublished: "2026-02-19",
     dateModified: "2026-02-19",
     author: { "@type": "Organization", name: "CDM 2026" },
-    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
-    mainEntityOfPage: "https://cdm2026.fr/guide/guide-visa-esta",
-    image: "https://cdm2026.fr/og-default.jpg",
+    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
+    mainEntityOfPage: "https://www.cdm2026.fr/guide/guide-visa-esta",
+    image: "https://www.cdm2026.fr/og-default.jpg",
   };
 
   const faqSchema = {
@@ -90,7 +90,7 @@ export default function GuideVisaEsta() {
 
         <article className="prose prose-lg max-w-none">
           <div className="mb-4 flex items-center gap-3">
-            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primarysecondary/20">Guide pratique</span>
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Guide pratique</span>
             <time className="text-sm text-gray-500" dateTime="2026-02-19">19 février 2026</time>
           </div>
 
@@ -131,7 +131,7 @@ export default function GuideVisaEsta() {
             En période de Coupe du Monde, le volume de demandes ESTA va exploser. Nous recommandons de faire votre demande <strong>au minimum 3 mois avant votre départ</strong>. Si vous avez déjà un ESTA valide, vérifiez sa date d&apos;expiration dès maintenant.
           </p>
 
-          <div className="not-prose my-8 rounded-xl bg-accent//10 border border-accent//30 p-6accent//10">
+          <div className="not-prose my-8 rounded-xl bg-accent/10 border border-accent/30 p-6">
             <h3 className="text-lg font-semibold text-gray-900 text-accent mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Attention aux arnaques</h3>
             <p className="text-sm text-accent">
               De nombreux sites frauduleux proposent des « ESTA express  à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.

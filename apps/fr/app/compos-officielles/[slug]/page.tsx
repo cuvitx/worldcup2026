@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Les 11 titulaires, remplaçants et absents pour ${homeName} - ${awayName}.`,
     },
     alternates: {
-      canonical: `https://cdm2026.fr/compos-officielles/${slug}`,
+      canonical: `https://www.cdm2026.fr/compos-officielles/${slug}`,
     },
   };
 }

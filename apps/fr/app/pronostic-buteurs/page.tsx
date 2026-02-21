@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Meilleur Buteur CDM 2026 — Top 15 Favoris & Cotes",
   description:
     "Qui sera le meilleur buteur de la Coupe du Monde 2026 ? Mbappé, Haaland, Vinicius Jr : comparatif cotes Winamax, Betclic, Unibet + stats et dark horses.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-buteurs" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-buteurs" },
   openGraph: {
     title: "Pronostic Meilleur Buteur CDM 2026",
     description: "Top 15 favoris, cotes comparées et dark horses pour le Soulier d'Or 2026.",
-    url: "https://cdm2026.fr/pronostic-buteurs",
+    url: "https://www.cdm2026.fr/pronostic-buteurs",
   },
 };
 

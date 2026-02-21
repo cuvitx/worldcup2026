@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Handicap asiatique CDM 2026 — Guide complet avec exemples",
   description:
     "Guide complet du handicap asiatique pour la Coupe du Monde 2026. Explication +0.5, -1.5, quand l'utiliser, exemples concrets avec calculs.",
-  alternates: { canonical: "https://cdm2026.fr/paris-handicap" },
+  alternates: { canonical: "https://www.cdm2026.fr/paris-handicap" },
   openGraph: {
     title: "Handicap asiatique CDM 2026 — Guide complet",
     description: "Maîtrisez le handicap asiatique pour vos paris CDM 2026. Exemples concrets.",
-    url: "https://cdm2026.fr/paris-handicap",
+    url: "https://www.cdm2026.fr/paris-handicap",
   },
 };
 
@@ -131,7 +131,7 @@ export default function ParisHandicapPage() {
               </thead>
               <tbody>
                 {handicapTypes.map((h, i) => (
-                  <tr key={h.value} className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}>
+                  <tr key={h.value} className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}>
                     <td className="py-3 px-4 font-mono font-bold text-accent">{h.value}</td>
                     <td className="py-3 px-4">{h.desc}</td>
                   </tr>
@@ -159,7 +159,7 @@ export default function ParisHandicapPage() {
                     <Icon className={`h-5 w-5 ${color}`} />
                   </div>
                   <div className="flex flex-wrap gap-3 text-xs mb-2">
-                    <span className="bg-primary/10white/10 px-2 py-1 rounded font-mono">{ex.handicap}</span>
+                    <span className="bg-primary/10 px-2 py-1 rounded font-mono">{ex.handicap}</span>
                     <span className="bg-accent/10 text-accent px-2 py-1 rounded">{ex.bet}</span>
                     <span className="bg-gray-100 px-2 py-1 rounded">Résultat : {ex.result}</span>
                     <span className={`font-bold ${color} uppercase`}>

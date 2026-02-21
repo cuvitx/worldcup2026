@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Cartons CDM 2026 — Jaunes, Rouges & Paris Cartons",
   description:
     "Guide des paris cartons pour la CDM 2026. Stats par équipe, arbitres FIFA désignés, joueurs les plus avertis et meilleures cotes.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-cartons" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-cartons" },
   openGraph: {
     title: "Paris Cartons CDM 2026",
     description: "Stats cartons par équipe, arbitres FIFA et joueurs les plus avertis pour la CDM 2026.",
-    url: "https://cdm2026.fr/pronostic-cartons",
+    url: "https://www.cdm2026.fr/pronostic-cartons",
   },
 };
 

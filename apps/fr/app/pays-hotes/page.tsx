@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: "Pays Hôtes CDM 2026 : USA, Canada, Mexique",
     description:
       "Guide complet des pays hôtes : visas, transport, décalage horaire et toutes les infos pratiques pour suivre la CDM 2026.",
-    url: "https://cdm2026.fr/pays-hotes",
+    url: "https://www.cdm2026.fr/pays-hotes",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/pays-hotes",
+    canonical: "https://www.cdm2026.fr/pays-hotes",
   },
 };
 
@@ -345,7 +345,7 @@ export default function PaysHotesPage() {
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50-900">
+                  <thead className="bg-gray-50">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Ville
@@ -448,7 +448,7 @@ export default function PaysHotesPage() {
             "@type": "WebPage",
             name: "Pays Hôtes CDM 2026 : USA, Canada, Mexique",
             description: "Guide complet des 3 pays hôtes de la Coupe du Monde 2026 : infos pratiques, visas, transport et villes organisatrices.",
-            url: "https://cdm2026.fr/pays-hotes",
+            url: "https://www.cdm2026.fr/pays-hotes",
           }),
         }}
       />

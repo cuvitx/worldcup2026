@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Value Bets CDM 2026 — Cotes Sous-Estimées & Paris à Valeur",
   description:
     "Guide complet des value bets pour la Coupe du Monde 2026. Méthodologie, calcul, et 10 exemples concrets de paris à valeur sur la CDM 2026.",
-  alternates: { canonical: "https://cdm2026.fr/value-bets" },
+  alternates: { canonical: "https://www.cdm2026.fr/value-bets" },
   openGraph: {
     title: "Value Bets CDM 2026 — Guide & Exemples",
     description:
       "Identifiez les cotes sous-estimées de la CDM 2026. Formule de calcul, méthodologie et 10 value bets concrets.",
-    url: "https://cdm2026.fr/value-bets",
+    url: "https://www.cdm2026.fr/value-bets",
   },
 };
 

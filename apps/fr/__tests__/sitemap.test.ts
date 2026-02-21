@@ -23,13 +23,13 @@ describe("Sitemap Generation", () => {
     // Check for key static pages
     const urls = staticSegment.map((entry) => entry.url);
 
-    expect(urls).toContain("https://cdm2026.fr");
-    expect(urls).toContain("https://cdm2026.fr/match/calendrier");
-    expect(urls).toContain("https://cdm2026.fr/tableau");
-    expect(urls).toContain("https://cdm2026.fr/equipes");
-    expect(urls).toContain("https://cdm2026.fr/groupes");
-    expect(urls).toContain("https://cdm2026.fr/stades");
-    expect(urls).toContain("https://cdm2026.fr/faq");
+    expect(urls).toContain("https://www.cdm2026.fr");
+    expect(urls).toContain("https://www.cdm2026.fr/match/calendrier");
+    expect(urls).toContain("https://www.cdm2026.fr/tableau");
+    expect(urls).toContain("https://www.cdm2026.fr/equipes");
+    expect(urls).toContain("https://www.cdm2026.fr/groupes");
+    expect(urls).toContain("https://www.cdm2026.fr/stades");
+    expect(urls).toContain("https://www.cdm2026.fr/faq");
   });
 
   it("should have valid URL format for all entries", () => {
@@ -183,7 +183,7 @@ describe("Sitemap Generation", () => {
 
   it("should have homepage with highest priority", () => {
     const staticSegment = sitemap({ id: 0 });
-    const homepage = staticSegment.find((entry) => entry.url === "https://cdm2026.fr");
+    const homepage = staticSegment.find((entry) => entry.url === "https://www.cdm2026.fr");
 
     expect(homepage).toBeDefined();
     expect(homepage?.priority).toBe(1.0);

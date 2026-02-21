@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Cote carton jaune ${player.name} — CDM 2026 | Winamax, Betclic, Unibet`,
     description: `Statistiques disciplinaires de ${player.name}, cotes carton jaune Winamax, Betclic et Unibet pour la Coupe du Monde 2026. Profil, historique et analyse.`,
-    alternates: { canonical: `https://cdm2026.fr/cote-carton-jaune/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/cote-carton-jaune/${slug}` },
   };
 }
 

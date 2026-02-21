@@ -102,7 +102,7 @@ export default function StadiumsPage() {
                           <span className="text-sm font-semibold text-accent">
                              {stadium.capacity.toLocaleString("fr-FR")} places
                           </span>
-                          <span className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700">
+                          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
                             {stadium.roofType === "retractable" ? "Toit rétractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
                           </span>
                         </div>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Comparateur de cotes – Coupe du Monde 2026",
     description: "Les meilleures cotes des bookmakers français pour le Mondial 2026.",
   },
-  alternates: { canonical: "https://cdm2026.fr/comparateur-cotes" },
+  alternates: { canonical: "https://www.cdm2026.fr/comparateur-cotes" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

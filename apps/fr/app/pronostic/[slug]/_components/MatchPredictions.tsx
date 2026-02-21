@@ -56,7 +56,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                       ? item.prob > matchPred.team1WinProb && item.prob > matchPred.team2WinProb
                       : item.prob > matchPred.team1WinProb && item.prob > matchPred.drawProb;
                     return (
-                      <div key={i} className={`rounded p-2 text-center ${isHighest ? "bg-field/10 border border-field/30" : "bg-gray-50-700"}`}>
+                      <div key={i} className={`rounded p-2 text-center ${isHighest ? "bg-field/10 border border-field/30" : "bg-gray-50"}`}>
                         <p className="text-sm font-bold">{Math.round(item.prob * 100)}%</p>
                         <p className="text-xs text-gray-500">{item.label}</p>
                       </div>

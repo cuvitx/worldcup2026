@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Demi-finales CDM 2026",
     description: "Les demi-finales de la Coupe du Monde 2026 : dates, stades et analyse.",
-    url: "https://cdm2026.fr/demi-finales",
+    url: "https://www.cdm2026.fr/demi-finales",
   },
-  alternates: { canonical: "https://cdm2026.fr/demi-finales" },
+  alternates: { canonical: "https://www.cdm2026.fr/demi-finales" },
 };
 
 const faqItems = [

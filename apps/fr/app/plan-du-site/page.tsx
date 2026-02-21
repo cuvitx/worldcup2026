@@ -13,9 +13,9 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "Plan du site - Coupe du Monde 2026",
       description: "Naviguer sur cdm2026.fr : toutes les pages du site en un clin d'oeil.",
-      url: "https://cdm2026.fr/plan-du-site",
+      url: "https://www.cdm2026.fr/plan-du-site",
     },
-    alternates: { canonical: "https://cdm2026.fr/plan-du-site" },
+    alternates: { canonical: "https://www.cdm2026.fr/plan-du-site" },
   };
 }
 

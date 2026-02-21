@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bonus Unibet CDM 2026 | Jusqu'à 100€ Remboursés",
     description: "Profitez de l'offre Unibet : 100€ remboursés en freebets pour la CDM 2026.",
-    url: "https://cdm2026.fr/bonus/unibet",
+    url: "https://www.cdm2026.fr/bonus/unibet",
   },
-  alternates: { canonical: "https://cdm2026.fr/bonus/unibet" },
+  alternates: { canonical: "https://www.cdm2026.fr/bonus/unibet" },
 };
 
 function ReviewSchema() {
@@ -23,8 +23,8 @@ function ReviewSchema() {
     "@type": "Review",
     itemReviewed: { "@type": "Organization", name: "Unibet", url: "https://www.unibet.fr" },
     reviewRating: { "@type": "Rating", ratingValue: 8.7, bestRating: 10, worstRating: 0 },
-    author: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
-    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
+    author: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
+    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }

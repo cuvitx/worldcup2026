@@ -35,13 +35,13 @@ export function Countdown() {
   ];
 
   return (
-    <section className="bg-gray-50slate-800/50 py-8">
+    <section className="bg-gray-50 py-8">
       <div className="mx-auto max-w-4xl px-4">
         {/* Countdown cards */}
         <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6" suppressHydrationWarning>
           {units.map((u, i) => (
             <div key={u.key} className="flex items-center gap-3 sm:gap-4">
-              <div className="flex flex-col items-center rounded-xl bg-white/70white/10 backdrop-blur-sm border border-white/50 shadow-sm px-3 py-2.5 sm:px-5 sm:py-3 min-w-[56px] sm:min-w-[72px]">
+              <div className="flex flex-col items-center rounded-xl bg-white/70 backdrop-blur-sm border border-white/50 shadow-sm px-3 py-2.5 sm:px-5 sm:py-3 min-w-[56px] sm:min-w-[72px]">
                 <span className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${u.key === "seconds" ? "text-secondary" : "text-gray-900"}`}>
                   {val(time[u.key])}
                 </span>

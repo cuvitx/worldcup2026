@@ -124,10 +124,10 @@ export default async function H2HPage({ params }: PageProps) {
                       <div className="flex items-center gap-3">
                         <span className="w-16 text-right text-sm font-bold text-primary">{row.v1}</span>
                         <div className="flex-1 flex gap-1">
-                          <div className="flex-1 h-5 rounded-l-full bg-gray-100-700 overflow-hidden flex justify-end">
+                          <div className="flex-1 h-5 rounded-l-full bg-gray-100 overflow-hidden flex justify-end">
                             <div className="h-full rounded-l-full bg-primary transition-all duration-700" style={{ width: `${pct1}%` }} />
                           </div>
-                          <div className="flex-1 h-5 rounded-r-full bg-gray-100-700 overflow-hidden">
+                          <div className="flex-1 h-5 rounded-r-full bg-gray-100 overflow-hidden">
                             <div className="h-full rounded-r-full bg-primary transition-all duration-700" style={{ width: `${pct2}%` }} />
                           </div>
                         </div>
@@ -163,7 +163,7 @@ export default async function H2HPage({ params }: PageProps) {
                       <p className="text-xl font-bold text-primary sm:text-3xl">{h2h.team1Wins}</p>
                       <p className="text-xs text-gray-500">Victoires {team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50-700 p-2 text-center sm:p-4">
+                    <div className="rounded-lg bg-gray-50 p-2 text-center sm:p-4">
                       <p className="text-xl font-bold text-gray-600 sm:text-3xl">{h2h.draws}</p>
                       <p className="text-xs text-gray-500">Nuls</p>
                     </div>
@@ -173,11 +173,11 @@ export default async function H2HPage({ params }: PageProps) {
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 text-center">
                       <p className="text-xl font-bold text-primary">{h2h.totalMatches}</p>
                       <p className="text-xs text-gray-500">Matchs joues</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 text-center">
                       <p className="text-xl font-bold text-primary">{h2h.team1Goals} - {h2h.team2Goals}</p>
                       <p className="text-xs text-gray-500">Buts marques</p>
                     </div>
@@ -206,7 +206,7 @@ export default async function H2HPage({ params }: PageProps) {
                       <p className="text-lg font-bold text-field sm:text-2xl">{Math.round(matchPred.team1WinProb * 100)}%</p>
                       <p className="text-xs text-gray-500 truncate">{team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50-700 p-2 text-center sm:p-4">
+                    <div className="rounded-lg bg-gray-50 p-2 text-center sm:p-4">
                       <p className="text-lg font-bold text-gray-600 sm:text-2xl">{Math.round(matchPred.drawProb * 100)}%</p>
                       <p className="text-xs text-gray-500">Nul</p>
                     </div>
@@ -227,11 +227,11 @@ export default async function H2HPage({ params }: PageProps) {
                     avec un rating de {Math.max(pred1.eloRating, pred2.eloRating)} contre {Math.min(pred1.eloRating, pred2.eloRating)}.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 text-center">
                       <p className="text-lg font-bold text-primary">{pred1.eloRating}</p>
                       <p className="text-xs text-gray-500">ELO {team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 text-center">
                       <p className="text-lg font-bold text-primary">{pred2.eloRating}</p>
                       <p className="text-xs text-gray-500">ELO {team2.name}</p>
                     </div>

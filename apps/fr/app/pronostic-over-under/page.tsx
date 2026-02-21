@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Over/Under Buts CDM 2026 — Guide +2.5 / -2.5",
   description:
     "Guide Over/Under buts pour la CDM 2026. Stats historiques par édition, analyse par groupe, impact du format 48 équipes et top matchs +2.5/-2.5.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-over-under" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-over-under" },
   openGraph: {
     title: "Over/Under Buts CDM 2026 — Guide Complet",
     description: "Moyenne buts/match par CDM, groupes offensifs vs défensifs, top matchs +2.5 et -2.5.",
-    url: "https://cdm2026.fr/pronostic-over-under",
+    url: "https://www.cdm2026.fr/pronostic-over-under",
   },
 };
 

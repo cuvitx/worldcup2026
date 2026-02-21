@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Guide du supporter français aux USA — CDM 2026",
     description: "ESTA, culture US, budget, pourboires : le guide complet pour les Français à la CDM 2026.",
-    url: "https://cdm2026.fr/supporter-francais-usa",
+    url: "https://www.cdm2026.fr/supporter-francais-usa",
   },
-  alternates: { canonical: "https://cdm2026.fr/supporter-francais-usa" },
+  alternates: { canonical: "https://www.cdm2026.fr/supporter-francais-usa" },
 };
 
 const rubriques = [

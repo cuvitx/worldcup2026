@@ -31,7 +31,7 @@ function formatMatchDate(date: string) {
 
 export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: UpcomingMatchesProps) {
   return (
-    <section className="bg-whitegray-950 py-12 sm:py-16">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">

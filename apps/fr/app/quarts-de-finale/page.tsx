@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Quarts de finale CDM 2026",
     description: "Tout sur les quarts de finale de la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/quarts-de-finale",
+    url: "https://www.cdm2026.fr/quarts-de-finale",
   },
-  alternates: { canonical: "https://cdm2026.fr/quarts-de-finale" },
+  alternates: { canonical: "https://www.cdm2026.fr/quarts-de-finale" },
 };
 
 const faqItems = [

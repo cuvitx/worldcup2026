@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Suivez les résultats en direct de la Coupe du Monde 2026. Scores, buteurs, événements minute par minute. Disponible dès le 11 juin 2026.",
   alternates: {
-    canonical: "https://cdm2026.fr/live",
+    canonical: "https://www.cdm2026.fr/live",
   },
   openGraph: {
     title: "Résultats en direct - Coupe du Monde 2026",
@@ -84,21 +84,6 @@ export default function LivePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="text-primary hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 font-medium">Résultats en direct</li>
-          </ol>
-        </div>
-      </nav>
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">
@@ -260,7 +245,7 @@ export default function LivePage() {
             </div>
 
             {/* Demo badge */}
-            <div className="border-t border-dashed border-gray-200 bg-gray-50gray-700 px-6 py-3 text-center">
+            <div className="border-t border-dashed border-gray-200 bg-gray-50 px-6 py-3 text-center">
               <span className="text-xs text-gray-500 font-medium">
                 Exemple fictif — Les vrais scores seront disponibles le 11 juin 2026
               </span>

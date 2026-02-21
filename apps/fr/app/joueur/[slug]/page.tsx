@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const hasPhoto = PLAYER_PHOTO_SLUGS.has(slug);
   const ogImages = hasPhoto
-    ? [{ url: `https://cdm2026.fr/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — CDM 2026` }]
-    : [{ url: "https://cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
+    ? [{ url: `https://www.cdm2026.fr/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — CDM 2026` }]
+    : [{ url: "https://www.cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
     title: `${player.name} - ${teamName} | Fiche joueur CDM 2026`,
@@ -132,25 +132,25 @@ export default async function PlayerPage({ params }: PageProps) {
                 Statistiques internationales
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.caps}
                   </p>
                   <p className="text-sm text-gray-500">Selections</p>
                 </div>
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.goals}
                   </p>
                   <p className="text-sm text-gray-500">Buts</p>
                 </div>
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.age}
                   </p>
                   <p className="text-sm text-gray-500">Age</p>
                 </div>
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">
                     {positionLabels[player.position]}
                   </p>

@@ -83,7 +83,7 @@ export function ResponsiveTable({ columns, rows, className = "" }: ResponsiveTab
       {/* Mobile card view */}
       <div className="space-y-3 md:hidden">
         {rows.map((row, i) => (
-          <div key={i} className="rounded-lg border border-gray-100 bg-whiteslate-800 p-3 shadow-sm">
+          <div key={i} className="rounded-lg border border-gray-100 bg-white p-3 shadow-sm">
             {columns.map((col) => (
               <div key={col.key} className="flex items-center justify-between py-1">
                 <span className="text-xs font-medium text-gray-500">{col.label}</span>

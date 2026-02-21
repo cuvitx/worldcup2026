@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     title: "Finale CDM 2026 - MetLife Stadium, New York",
     description:
       "Tout sur la finale de la Coupe du Monde 2026 : date, stade, historique, pronostics et cotes.",
-    url: "https://cdm2026.fr/finale",
+    url: "https://www.cdm2026.fr/finale",
   },
-  alternates: { canonical: "https://cdm2026.fr/finale" },
+  alternates: { canonical: "https://www.cdm2026.fr/finale" },
 };
 
 const finalesHistorique = [
@@ -135,7 +135,7 @@ export default function FinalePage() {
                 { val: "1,7 Md$", label: "Coût construction" },
                 { val: "Ouvert", label: "Toit" },
               ].map((s) => (
-                <div key={s.label} className="rounded-lg bg-gray-50-700 p-3 text-center">
+                <div key={s.label} className="rounded-lg bg-gray-50 p-3 text-center">
                   <p className="text-lg font-bold text-primary">{s.val}</p>
                   <p className="text-xs text-gray-500">{s.label}</p>
                 </div>
@@ -236,7 +236,7 @@ export default function FinalePage() {
 
             <div className="overflow-x-auto rounded-lg border border-gray-200 mt-4">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50-700">
+                <thead className="bg-gray-50">
                   <tr>
                     <th className="px-4 py-2 text-left text-gray-600">Équipe</th>
                     <th className="px-4 py-2 text-left text-gray-600">Cote indicative</th>

@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/statistiques-arbitre/${ref.slug}`,
     },
     alternates: {
-      canonical: `https://cdm2026.fr/statistiques-arbitre/${ref.slug}`,
+      canonical: `https://www.cdm2026.fr/statistiques-arbitre/${ref.slug}`,
     },
   };
 }

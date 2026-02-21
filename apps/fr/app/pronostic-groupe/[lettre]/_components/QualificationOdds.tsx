@@ -24,7 +24,7 @@ export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-2 text-left">Équipe</th>
               <th className="px-4 py-2 text-center">Qual. groupes</th>

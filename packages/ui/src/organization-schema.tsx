@@ -6,7 +6,7 @@
  * 
  * @example
  * ```tsx
- * <OrganizationSchema url="https://cdm2026.fr" name="CDM2026" />
+ * <OrganizationSchema url="https://www.cdm2026.fr" name="CDM2026" />
  * ```
  */
 export function OrganizationSchema({
@@ -22,7 +22,7 @@ export function OrganizationSchema({
     name,
     url,
     sameAs: [
-      "https://cdm2026.fr",
+      "https://www.cdm2026.fr",
       "https://worldcup2026guide.com",
       "https://mundial2026.es",
     ],

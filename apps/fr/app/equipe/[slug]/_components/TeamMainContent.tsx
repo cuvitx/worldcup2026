@@ -67,7 +67,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Années de participation</h3>
                 <div className="flex flex-wrap gap-2">
                   {history.yearsParticipated.map((year) => (
-                    <span key={year} className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primaryprimary/20">{year}</span>
+                    <span key={year} className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">{year}</span>
                   ))}
                 </div>
               </div>
@@ -78,7 +78,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500text-left">
+                      <tr className="bg-gray-50 text-xs uppercase text-gray-500text-left">
                         <th className="px-3 py-2 font-semibold text-gray-600">Année</th>
                         <th className="px-3 py-2 font-semibold text-gray-600">Stade</th>
                         <th className="px-3 py-2 font-semibold text-gray-600 hidden sm:table-cell">Détail</th>
@@ -86,7 +86,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                     </thead>
                     <tbody>
                       {history.notableResults.map((result, idx) => (
-                        <tr key={result.year} className={`border-b border-gray-100 ${idx % 2 === 0 ? "" : "bg-gray-50/50slate-700/30"}`}>
+                        <tr key={result.year} className={`border-b border-gray-100 ${idx % 2 === 0 ? "" : "bg-gray-50/50"}`}>
                           <td className="px-3 py-2 font-bold text-primary">{result.year}</td>
                           <td className="px-3 py-2 text-gray-800">{result.stage}</td>
                           <td className="px-3 py-2 text-gray-500 hidden sm:table-cell">{result.detail ?? "—"}</td>
@@ -106,13 +106,13 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
         const history = teamWorldCupHistory[team.id]!;
         const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
         return titles.length > 0 ? (
-          <section className="rounded-xl border border-primary/30 bg-primary/5slate-800 p-6 shadow-sm">
+          <section className="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
               <span></span> Palmarès en Coupe du Monde
             </h2>
             <div className="flex flex-wrap gap-4 mb-4">
               {titles.map((title) => (
-                <div key={title.year} className="flex flex-col items-center rounded-xl bg-primary/10secondary/20 border border-primary/40 px-5 py-4 min-w-[110px] text-center">
+                <div key={title.year} className="flex flex-col items-center rounded-xl bg-primary/10 border border-primary/40 px-5 py-4 min-w-[110px] text-center">
                   <span className="text-4xl mb-1"></span>
                   <span className="text-2xl font-extrabold text-primary">{title.year}</span>
                   {title.detail && <span className="mt-1 text-xs text-gray-600 leading-snug max-w-[120px]">{title.detail}</span>}
@@ -136,7 +136,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-accent uppercase tracking-wide">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent/10accent/20 text-accent text-xs">✓</span>
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent text-xs">✓</span>
                   Forces
                 </h3>
                 <ul className="space-y-2">
@@ -149,7 +149,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
               </div>
               <div>
                 <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-red-600 uppercase tracking-wide">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100red-900 text-red-600 text-xs">✗</span>
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-red-600 text-xs">✗</span>
                   Faiblesses
                 </h3>
                 <ul className="space-y-2">
@@ -181,7 +181,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
             <h2 className="text-2xl font-bold text-gray-900 mb-5">Anecdotes &amp; Moments inoubliables</h2>
             <div className="space-y-4">
               {history.anecdotes.map((anecdote, idx) => (
-                <div key={idx} className="flex gap-4 rounded-lg bg-gray-50-700 p-4">
+                <div key={idx} className="flex gap-4 rounded-lg bg-gray-50 p-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">{idx + 1}</span>
                   <p className="text-sm text-gray-700 leading-relaxed">{anecdote}</p>
                 </div>
@@ -214,7 +214,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
               { label: "Demi-finale", value: prediction.semiFinalProb },
               { label: "Finale", value: prediction.finalProb },
             ].map((stage) => (
-              <div key={stage.label} className="rounded bg-gray-50-700 p-2 text-center">
+              <div key={stage.label} className="rounded bg-gray-50 p-2 text-center">
                 <p className="text-lg font-bold text-primary">{Math.round(stage.value * 100)}%</p>
                 <p className="text-xs text-gray-500">{stage.label}</p>
               </div>

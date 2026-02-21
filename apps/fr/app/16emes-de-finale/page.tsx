@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     title: "16èmes de finale CDM 2026 - Tableau complet",
     description:
       "Découvrez le format des 16èmes de finale de la Coupe du Monde 2026. Dates, matchs possibles et bracket.",
-    url: "https://cdm2026.fr/16emes-de-finale",
+    url: "https://www.cdm2026.fr/16emes-de-finale",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/16emes-de-finale",
+    canonical: "https://www.cdm2026.fr/16emes-de-finale",
   },
 };
 

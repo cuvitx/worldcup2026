@@ -1,45 +1,23 @@
-import { routePrefixes, domains, type Lang } from "@repo/data/route-mapping";
+import type { LucideIcon } from "lucide-react";
+import {
+  Users, UserCheck, Target, Swords, Trophy, LayoutGrid,
+  BarChart3, TrendingUp, ArrowLeftRight, ArrowUpDown, ShieldAlert, Square,
+  Gamepad2, Scale, Grid3X3, Medal, GitCompare,
+  GitBranch, CircleDot, Crown,
+  CircleDollarSign, BookOpen, Wallet, Book, Undo2,
+  Star, CornerDownRight, Zap, Clock, Layers, CloudRain,
+  Plane, FileCheck, PlaneTakeoff, ShieldCheck, Smartphone,
+  Building, MapPin, Building2, Hotel, Bus, CloudSun,
+  Ticket, PartyPopper, Tv, Shield, Wifi, Wine,
+} from "lucide-react";
 
-export const CURRENT_LANG = "fr" as const;
-
-export const langOptions: Array<{ lang: Lang; flag: string; label: string }> = [
-  { lang: "fr", flag: "🇫🇷", label: "Français" },
-  { lang: "en", flag: "🇬🇧", label: "English" },
-  { lang: "es", flag: "🇪🇸", label: "Español" },
-];
-
-function convertPath(pathname: string, fromLang: Lang, toLang: Lang): string {
-  if (pathname === "/") return "/";
-  const segments = pathname.replace(/^\//, "").split("/");
-  const fromPrefixes = routePrefixes[fromLang] as Record<string, string>;
-  const toPrefixes = routePrefixes[toLang] as Record<string, string>;
-  const sortedKeys = Object.keys(fromPrefixes).sort(
-    (a, b) => (fromPrefixes[b] ?? "").split("/").length - (fromPrefixes[a] ?? "").split("/").length
-  );
-  for (const key of sortedKeys) {
-    const fromPrefix = fromPrefixes[key];
-    if (!fromPrefix) continue;
-    const fromParts = fromPrefix.split("/");
-    const pathStart = segments.slice(0, fromParts.length).join("/");
-    if (pathStart === fromPrefix) {
-      const slug = segments.slice(fromParts.length).join("/");
-      const toPrefix = toPrefixes[key];
-      return slug ? `/${toPrefix}/${slug}` : `/${toPrefix}`;
-    }
-  }
-  return "/";
-}
-
-export function getUrlForLang(pathname: string, targetLang: Lang): string {
-  const convertedPath = convertPath(pathname, CURRENT_LANG, targetLang);
-  return `${domains[targetLang]}${convertedPath}`;
-}
-
-// Mega menu definitions
-interface MenuLink {
+// Menu types
+export interface MenuLink {
   href: string;
   label: string;
   sub?: string;
+  icon?: LucideIcon;
+  flagEmoji?: string;
 }
 
 interface MenuSection {
@@ -49,23 +27,23 @@ interface MenuSection {
 
 export interface MegaMenuDef {
   label: string;
-  icon: string;
+  icon: LucideIcon;
   sections: MenuSection[];
 }
 
-export const megaMenus = {
+export const megaMenus: Record<string, MegaMenuDef> = {
   equipes: {
     label: "Équipes & Groupes",
-    icon: "",
+    icon: Users,
     sections: [
       {
         title: "Favoris",
         links: [
-          { href: "/equipe/france", label: "🇫🇷 France", sub: "#2 FIFA" },
-          { href: "/equipe/argentine", label: "🇦🇷 Argentine", sub: "#1 FIFA" },
-          { href: "/equipe/espagne", label: "🇪🇸 Espagne", sub: "#3 FIFA" },
-          { href: "/equipe/angleterre", label: "󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", sub: "#4 FIFA" },
-          { href: "/equipe/bresil", label: "🇧🇷 Brésil", sub: "#5 FIFA" },
+          { href: "/equipe/france", label: "France", sub: "#2 FIFA", flagEmoji: "🇫🇷" },
+          { href: "/equipe/argentine", label: "Argentine", sub: "#1 FIFA", flagEmoji: "🇦🇷" },
+          { href: "/equipe/espagne", label: "Espagne", sub: "#3 FIFA", flagEmoji: "🇪🇸" },
+          { href: "/equipe/angleterre", label: "Angleterre", sub: "#4 FIFA", flagEmoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+          { href: "/equipe/bresil", label: "Brésil", sub: "#5 FIFA", flagEmoji: "🇧🇷" },
         ],
       },
       {
@@ -89,65 +67,131 @@ export const megaMenus = {
       {
         title: "Explorer",
         links: [
-          { href: "/equipes", label: "Toutes les équipes →" },
-          { href: "/joueurs", label: "Joueurs clés" },
-          { href: "/buteurs", label: "Cotes buteurs" },
-          { href: "/h2h", label: "Confrontations H2H" },
+          { href: "/equipes", label: "Toutes les équipes", icon: Users },
+          { href: "/joueurs", label: "Joueurs clés", icon: UserCheck },
+          { href: "/buteurs", label: "Meilleurs buteurs", icon: Target },
+          { href: "/h2h", label: "Confrontations H2H", icon: Swords },
+          { href: "/classement-fifa", label: "Classement FIFA", icon: Trophy },
         ],
       },
     ],
   },
   pronostics: {
-    label: "Pronostics & Paris",
-    icon: "",
+    label: "Matchs & Pronostics",
+    icon: BarChart3,
     sections: [
       {
         title: "Pronostics",
         links: [
-          { href: "/pronostic-vainqueur", label: "Pronostic vainqueur" },
-          { href: "/pronostic/france", label: "Pronostic France" },
-          { href: "/palmares", label: "Palmarès CDM" },
+          { href: "/pronostic-vainqueur", label: "Pronostic vainqueur", icon: TrendingUp },
+          { href: "/pronostic/btts", label: "BTTS", icon: ArrowLeftRight },
+          { href: "/pronostic/over-under", label: "Over/Under", icon: ArrowUpDown },
+          { href: "/pronostic/buteurs", label: "Buteurs", icon: ShieldAlert },
+          { href: "/pronostic/scores-exacts", label: "Scores exacts", icon: Target },
+          { href: "/pronostic/cartons", label: "Cartons & Clean sheet", icon: Square },
         ],
       },
-      {
-        title: "Paris sportifs",
-        links: [
-          { href: "/paris-sportifs", label: "Guide paris CDM" },
-          { href: "/comparateur-cotes", label: "Comparateur cotes" },
-          { href: "/bookmaker/betclic", label: "Betclic" },
-          { href: "/bookmaker/winamax", label: "Winamax" },
-          { href: "/billets", label: "Billets CDM 2026" },
-        ],
-      },
-    ],
-  },
-  interactif: {
-    label: "Interactif",
-    icon: "",
-    sections: [
       {
         title: "Outils",
         links: [
-          { href: "/simulateur", label: "Simulateur bracket" },
-          { href: "/quiz", label: "Quiz CDM 2026" },
-          { href: "/comparateur-joueurs", label: "Comparateur joueurs" },
-          { href: "/live", label: "Scores en direct" },
+          { href: "/simulateur", label: "Simulateur bracket", icon: Gamepad2 },
+          { href: "/comparateur-cotes", label: "Comparateur cotes", icon: Scale },
+          { href: "/grille-pronostics", label: "Grille de pronostics", icon: Grid3X3 },
+          { href: "/leaderboard", label: "Leaderboard", icon: Medal },
+          { href: "/comparateur-joueurs", label: "Comparateur joueurs", icon: Users },
+          { href: "/comparateur-equipes", label: "Comparateur équipes", icon: GitCompare },
         ],
       },
       {
-        title: "Contenu",
+        title: "Tournoi",
         links: [
-          { href: "/actualites", label: "Actualités" },
-          { href: "/guides", label: "Guides" },
-          { href: "/villes", label: "Guides villes" },
-          { href: "/ou-regarder", label: "Où regarder" },
-          { href: "/carte-stades", label: "Carte des stades" },
-          { href: "/recherche", label: "Recherche" },
-          { href: "/profil", label: "Mon profil" },
+          { href: "/tableau-final", label: "Tableau final", icon: GitBranch },
+          { href: "/phase/32e", label: "32e de finale", icon: CircleDot },
+          { href: "/phase/16e", label: "16e de finale", icon: CircleDot },
+          { href: "/phase/quarts", label: "Quarts de finale", icon: CircleDot },
+          { href: "/phase/demis", label: "Demi-finales", icon: CircleDot },
+          { href: "/phase/finale", label: "Finale", icon: Crown },
         ],
       },
     ],
   },
-} as const;
+  paris: {
+    label: "Paris sportifs",
+    icon: CircleDollarSign,
+    sections: [
+      {
+        title: "Guides",
+        links: [
+          { href: "/paris-sportifs", label: "Guide paris CDM", icon: BookOpen },
+          { href: "/paris-sportifs/strategie-groupes", label: "Stratégie groupes", icon: Target },
+          { href: "/paris-sportifs/bankroll", label: "Bankroll", icon: Wallet },
+          { href: "/paris-sportifs/value-bets", label: "Value bets", icon: TrendingUp },
+          { href: "/paris-sportifs/lexique", label: "Lexique paris", icon: Book },
+          { href: "/paris-sportifs/cashout", label: "Cashout guide", icon: Undo2 },
+        ],
+      },
+      {
+        title: "Bookmakers",
+        links: [
+          { href: "/bookmaker/betclic", label: "Betclic + bonus", icon: Star },
+          { href: "/bookmaker/winamax", label: "Winamax + bonus", icon: Star },
+          { href: "/bookmaker/unibet", label: "Unibet + bonus", icon: Star },
+          { href: "/bookmaker/parionssport", label: "ParionsSport + bonus", icon: Star },
+          { href: "/comparateur-cotes", label: "Comparateur cotes", icon: Scale },
+        ],
+      },
+      {
+        title: "Types de paris",
+        links: [
+          { href: "/paris-sportifs/corners", label: "Corners", icon: CornerDownRight },
+          { href: "/paris-sportifs/handicap", label: "Handicap", icon: ArrowLeftRight },
+          { href: "/paris-sportifs/live", label: "Live", icon: Zap },
+          { href: "/paris-sportifs/mi-temps", label: "Mi-temps", icon: Clock },
+          { href: "/paris-sportifs/combines", label: "Combinés", icon: Layers },
+          { href: "/paris-sportifs/meteo", label: "Impact météo", icon: CloudRain },
+        ],
+      },
+    ],
+  },
+  voyage: {
+    label: "Guide voyage",
+    icon: Plane,
+    sections: [
+      {
+        title: "Préparer",
+        links: [
+          { href: "/voyage/esta-visa-usa", label: "ESTA / Visa USA", icon: FileCheck },
+          { href: "/voyage/visa-mexique", label: "Visa Mexique", icon: FileCheck },
+          { href: "/voyage/formalites-canada", label: "Formalités Canada", icon: FileCheck },
+          { href: "/voyage/vols-budget", label: "Vols & budget", icon: PlaneTakeoff },
+          { href: "/voyage/assurance", label: "Assurance voyage", icon: ShieldCheck },
+          { href: "/voyage/carte-sim", label: "Carte SIM & Valise", icon: Smartphone },
+        ],
+      },
+      {
+        title: "Stades & Villes",
+        links: [
+          { href: "/stades", label: "Tous les stades", icon: Building },
+          { href: "/carte-stades", label: "Carte des stades", icon: MapPin },
+          { href: "/villes", label: "Toutes les villes", icon: Building2 },
+          { href: "/voyage/hebergement", label: "Hébergement", icon: Hotel },
+          { href: "/voyage/transport", label: "Transport", icon: Bus },
+          { href: "/voyage/meteo", label: "Météo", icon: CloudSun },
+        ],
+      },
+      {
+        title: "Sur place",
+        links: [
+          { href: "/billets", label: "Billets", icon: Ticket },
+          { href: "/fan-zones", label: "Fan zones", icon: PartyPopper },
+          { href: "/ou-regarder", label: "Où regarder", icon: Tv },
+          { href: "/voyage/securite", label: "Sécurité", icon: Shield },
+          { href: "/voyage/wifi-stades", label: "WiFi stades", icon: Wifi },
+          { href: "/voyage/alcool-stades", label: "Alcool stades", icon: Wine },
+        ],
+      },
+    ],
+  },
+};
 
 export type MenuKey = keyof typeof megaMenus;

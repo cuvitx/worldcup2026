@@ -33,7 +33,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
         <h3 className="text-sm font-semibold uppercase tracking-wide text-accent mb-2">Qualifiés directs pour les huitièmes</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {qualified.map(({ team, pred }) => (
-            <div key={team!.id} className="flex items-center gap-3 rounded-lg border border-accent/30 bg-accent/10accent/10/20 p-3">
+            <div key={team!.id} className="flex items-center gap-3 rounded-lg border border-accent/30 bg-accent/10 p-3">
               <span className="text-2xl">{team!.flag}</span>
               <div>
                 <Link href={`/pronostic/${team!.slug}`} className="font-bold hover:text-primary transition-colors">{team!.name}</Link>
@@ -47,7 +47,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
       {maybeQualify?.team && (
         <div className="mb-4">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Meilleur 3e possible</h3>
-          <div className="flex items-center gap-3 rounded-lg border border-primary/20 bg-primary/5secondary/10 p-3">
+          <div className="flex items-center gap-3 rounded-lg border border-primary/20 bg-primary/5 p-3">
             <span className="text-2xl">{maybeQualify.team.flag}</span>
             <div>
               <Link href={`/pronostic/${maybeQualify.team.slug}`} className="font-bold hover:text-primary transition-colors">{maybeQualify.team.name}</Link>
@@ -60,7 +60,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
       {eliminated?.team && (
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500 mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé en phase de groupes</h3>
-          <div className="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50red-900/10 p-3">
+          <div className="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 p-3">
             <span className="text-2xl">{eliminated.team.flag}</span>
             <div>
               <span className="font-bold">{eliminated.team.name}</span>

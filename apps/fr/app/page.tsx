@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
     description:
       "Pronostics, cotes, analyses des 48 équipes et calendrier des 104 matchs de la CDM 2026.",
-    url: "https://cdm2026.fr",
+    url: "https://www.cdm2026.fr",
   },
 };
 
@@ -63,14 +63,14 @@ const homepageJsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "CDM 2026 - Coupe du Monde",
-    url: "https://cdm2026.fr",
+    url: "https://www.cdm2026.fr",
     description: "Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 équipes.",
     inLanguage: "fr",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://cdm2026.fr/recherche?q={search_term_string}",
+        urlTemplate: "https://www.cdm2026.fr/recherche?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -156,7 +156,7 @@ export default function HomePage() {
       <RecentArticles recentArticles={recentArticles} />
 
       {/* 5. STADES CDM 2026 */}
-      <section className="bg-gray-50-900/60 py-16">
+      <section className="bg-gray-50/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">

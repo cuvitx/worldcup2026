@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fan Zones CDM 2026 - Guide complet",
     description: "Toutes les fan zones et fan fests de la Coupe du Monde 2026 par ville hôte.",
-    url: "https://cdm2026.fr/fan-zones",
+    url: "https://www.cdm2026.fr/fan-zones",
   },
-  alternates: { canonical: "https://cdm2026.fr/fan-zones" },
+  alternates: { canonical: "https://www.cdm2026.fr/fan-zones" },
 };
 
 const fanZones = [
@@ -104,7 +104,7 @@ export default function FanZonesPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-12">
-        <div className="rounded-xl border border-amber-200 bg-amber-50amber-900/20 p-5 flex gap-3">
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 flex gap-3">
           <Monitor className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
           <p className="text-sm text-amber-800">
             Les emplacements ci-dessous sont basés sur les annonces préliminaires et les éditions précédentes.

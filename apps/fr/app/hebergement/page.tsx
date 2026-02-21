@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hébergement CDM 2026 - Guide complet",
     description: "Où dormir pendant la Coupe du Monde 2026 ? Comparatif hôtels vs Airbnb par ville.",
-    url: "https://cdm2026.fr/hebergement",
+    url: "https://www.cdm2026.fr/hebergement",
   },
-  alternates: { canonical: "https://cdm2026.fr/hebergement" },
+  alternates: { canonical: "https://www.cdm2026.fr/hebergement" },
 };
 
 const villes = [
@@ -129,11 +129,11 @@ export default function HebergementPage() {
                   </h3>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-3 mb-3">
-                  <div className="rounded-lg bg-gray-50-700 p-3">
+                  <div className="rounded-lg bg-gray-50 p-3">
                     <p className="text-xs text-gray-500 uppercase mb-1">Hôtel</p>
                     <p className="font-bold text-primary">{v.hotel}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50-700 p-3">
+                  <div className="rounded-lg bg-gray-50 p-3">
                     <p className="text-xs text-gray-500 uppercase mb-1">Airbnb</p>
                     <p className="font-bold text-accent">{v.airbnb}</p>
                   </div>

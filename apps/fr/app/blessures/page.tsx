@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Blessures CDM 2026 — Joueurs blessés, incertains et forfaits",
   description:
     "Suivi des blessures avant la Coupe du Monde 2026 : joueurs aptes, incertains ou forfaits par équipe. Tableau mis à jour régulièrement.",
-  alternates: { canonical: "https://cdm2026.fr/blessures" },
+  alternates: { canonical: "https://www.cdm2026.fr/blessures" },
   openGraph: {
     title: "Blessures CDM 2026 — Suivi des joueurs",
     description: "Qui sera apte pour la CDM 2026 ? Suivi des blessures par équipe.",
-    url: "https://cdm2026.fr/blessures",
+    url: "https://www.cdm2026.fr/blessures",
   },
 };
 
@@ -41,9 +41,9 @@ const injuries: PlayerInjury[] = [
 ];
 
 const statusConfig: Record<Status, { bg: string; text: string; icon: typeof ShieldCheck }> = {
-  Apte: { bg: "bg-green-100green-900/30", text: "text-green-700", icon: ShieldCheck },
-  Incertain: { bg: "bg-yellow-100yellow-900/30", text: "text-yellow-700", icon: Clock },
-  Forfait: { bg: "bg-red-100red-900/30", text: "text-red-700", icon: AlertTriangle },
+  Apte: { bg: "bg-green-100", text: "text-green-700", icon: ShieldCheck },
+  Incertain: { bg: "bg-yellow-100", text: "text-yellow-700", icon: Clock },
+  Forfait: { bg: "bg-red-100", text: "text-red-700", icon: AlertTriangle },
 };
 
 export default function BlessuresPage() {
@@ -126,7 +126,7 @@ export default function BlessuresPage() {
                   return (
                     <tr
                       key={p.player}
-                      className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
+                      className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}
                     >
                       <td className="py-3 px-4 font-medium">{p.player}</td>
                       <td className="py-3 px-4">{p.team}</td>
@@ -144,7 +144,7 @@ export default function BlessuresPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-6 flex items-start gap-3 rounded-xl bg-blue-50blue-900/20 border border-blue-200 p-4">
+          <div className="mt-6 flex items-start gap-3 rounded-xl bg-blue-50 border border-blue-200 p-4">
             <Clock className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
             <p className="text-sm text-blue-800">
               Dernière mise à jour : février 2026. Les statuts seront actualisés à l&apos;approche de la CDM.

@@ -95,7 +95,7 @@ export default function PlayersPage() {
                   .map((player) => {
                     const team = teamsById[player.teamId];
                     return (
-                      <tr key={player.id} className="hover:bg-gray-50-700">
+                      <tr key={player.id} className="hover:bg-gray-50">
                         <td className="py-3">
                           <Link href={`/joueur/${player.slug}`} className="font-medium hover:text-primary">
                             {player.name}

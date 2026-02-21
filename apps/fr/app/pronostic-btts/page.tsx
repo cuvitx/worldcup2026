@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic BTTS CDM 2026 — Les Deux Équipes Marquent",
   description:
     "Guide BTTS (Both Teams To Score) pour la CDM 2026. Stats par équipe, top matchs où les deux marquent, analyse par groupe.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-btts" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-btts" },
   openGraph: {
     title: "BTTS CDM 2026 — Les Deux Équipes Marquent",
     description: "Stats BTTS par équipe, top matchs et analyse groupes pour vos paris CDM 2026.",
-    url: "https://cdm2026.fr/pronostic-btts",
+    url: "https://www.cdm2026.fr/pronostic-btts",
   },
 };
 

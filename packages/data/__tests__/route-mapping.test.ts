@@ -10,7 +10,7 @@ import {
 describe('route-mapping', () => {
   describe('domains', () => {
     it('has correct domain URLs', () => {
-      expect(domains.fr).toBe('https://cdm2026.fr')
+      expect(domains.fr).toBe('https://www.cdm2026.fr')
       expect(domains.en).toBe('https://worldcup2026guide.com')
       expect(domains.es).toBe('https://mundial2026.es')
     })
@@ -41,7 +41,7 @@ describe('route-mapping', () => {
       const result = getAlternates('team', 'france', 'fr')
       
       expect(result.canonical).toBe('/equipe/france')
-      expect(result.languages.fr).toBe('https://cdm2026.fr/equipe/france')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr/equipe/france')
       expect(result.languages.en).toBe('https://worldcup2026guide.com/team/france')
       expect(result.languages.es).toBe('https://mundial2026.es/equipo/france')
       expect(result.languages['x-default']).toBe('https://worldcup2026guide.com/team/france')
@@ -51,7 +51,7 @@ describe('route-mapping', () => {
       const result = getAlternates('match', 'france-allemagne', 'en')
       
       expect(result.canonical).toBe('/match/france-allemagne')
-      expect(result.languages.fr).toBe('https://cdm2026.fr/match/france-allemagne')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr/match/france-allemagne')
       expect(result.languages.en).toBe('https://worldcup2026guide.com/match/france-allemagne')
       expect(result.languages.es).toBe('https://mundial2026.es/match/france-allemagne')
     })
@@ -60,7 +60,7 @@ describe('route-mapping', () => {
       const result = getAlternates('player', 'kylian-mbappe', 'es')
       
       expect(result.canonical).toBe('/jugador/kylian-mbappe')
-      expect(result.languages.fr).toBe('https://cdm2026.fr/joueur/kylian-mbappe')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr/joueur/kylian-mbappe')
       expect(result.languages.en).toBe('https://worldcup2026guide.com/player/kylian-mbappe')
       expect(result.languages.es).toBe('https://mundial2026.es/jugador/kylian-mbappe')
     })
@@ -82,7 +82,7 @@ describe('route-mapping', () => {
       const result = getStaticAlternates('teams', 'fr')
       
       expect(result.canonical).toBe('/equipes')
-      expect(result.languages.fr).toBe('https://cdm2026.fr/equipes')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr/equipes')
       expect(result.languages.en).toBe('https://worldcup2026guide.com/teams')
       expect(result.languages.es).toBe('https://mundial2026.es/equipos')
       expect(result.languages['x-default']).toBe('https://worldcup2026guide.com/teams')
@@ -92,7 +92,7 @@ describe('route-mapping', () => {
       const result = getStaticAlternates('players', 'en')
       
       expect(result.canonical).toBe('/players')
-      expect(result.languages.fr).toBe('https://cdm2026.fr/joueurs')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr/joueurs')
       expect(result.languages.en).toBe('https://worldcup2026guide.com/players')
       expect(result.languages.es).toBe('https://mundial2026.es/jugadores')
     })
@@ -101,7 +101,7 @@ describe('route-mapping', () => {
       const result = getStaticAlternates('stadiums', 'es')
       
       expect(result.canonical).toBe('/estadios')
-      expect(result.languages.fr).toBe('https://cdm2026.fr/stades')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr/stades')
       expect(result.languages.en).toBe('https://worldcup2026guide.com/stadiums')
       expect(result.languages.es).toBe('https://mundial2026.es/estadios')
     })
@@ -123,7 +123,7 @@ describe('route-mapping', () => {
       const result = getHomeAlternates()
       
       expect(result.canonical).toBe('/')
-      expect(result.languages.fr).toBe('https://cdm2026.fr')
+      expect(result.languages.fr).toBe('https://www.cdm2026.fr')
       expect(result.languages.en).toBe('https://worldcup2026guide.com')
       expect(result.languages.es).toBe('https://mundial2026.es')
       expect(result.languages['x-default']).toBe('https://worldcup2026guide.com')

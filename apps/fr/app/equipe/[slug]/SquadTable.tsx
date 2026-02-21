@@ -23,10 +23,10 @@ const POSITION_LABELS: Record<string, string> = {
   FW: "Attaquant",
 };
 const POSITION_COLORS: Record<string, string> = {
-  GK: "bg-primary/10 text-primarysecondary/20",
-  DF: "bg-primary/10 text-primarysecondary/20",
-  MF: "bg-field/10 text-fieldfield/20",
-  FW: "bg-primary/10 text-primaryprimary/20",
+  GK: "bg-primary/10 text-primary",
+  DF: "bg-primary/10 text-primary",
+  MF: "bg-field/10 text-field",
+  FW: "bg-primary/10 text-primary",
 };
 
 type SortKey = "position" | "name" | "age" | "club" | "caps" | "goals";
@@ -75,7 +75,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
     <div className="overflow-x-auto -mx-6 px-6">
       <table className="w-full text-sm min-w-[540px]">
         <thead>
-          <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500border-b border-gray-200">
+          <tr className="bg-gray-50 text-xs uppercase text-gray-500border-b border-gray-200">
             <th className={thClass} onClick={() => handleSort("position")}>
               Poste <SortIcon col="position" />
             </th>
@@ -101,7 +101,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
             <tr
               key={player.id}
               className={`border-b border-gray-100 transition-colors hover:bg-primary/5 ${
-                idx % 2 === 0 ? "" : "bg-gray-50/50slate-700/20"
+                idx % 2 === 0 ? "" : "bg-gray-50/50"
               }`}
             >
               <td className="px-3 py-2.5">

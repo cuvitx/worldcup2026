@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Xavier C. — Auteur CDM 2026",
     description: "Fondateur et rédacteur de CDM 2026.",
-    url: "https://cdm2026.fr/equipe-editoriale",
+    url: "https://www.cdm2026.fr/equipe-editoriale",
   },
-  alternates: { canonical: "https://cdm2026.fr/equipe-editoriale" },
+  alternates: { canonical: "https://www.cdm2026.fr/equipe-editoriale" },
 };
 
 function PersonSchema() {
@@ -24,7 +24,7 @@ function PersonSchema() {
     worksFor: {
       "@type": "Organization",
       name: "CDM 2026",
-      url: "https://cdm2026.fr",
+      url: "https://www.cdm2026.fr",
     },
     description:
       "Passionné de football et d'analyse data, Xavier est le fondateur de CDM 2026. Il rédige les analyses, pronostics et guides du site.",

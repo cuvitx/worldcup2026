@@ -82,7 +82,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
   const paragraphs = splitIntoParagraphs(preview);
 
   return (
-    <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+    <div className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
       {/* Header */}
       <div className="mb-5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
           <h2 className="text-lg font-bold text-gray-900">{t.title}</h2>
         </div>
         {grounded && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-accent/5accent/10 px-2.5 py-1 text-xs font-medium text-accent border border-accent/20">
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent/5 px-2.5 py-1 text-xs font-medium text-accent border border-accent/20">
             <CheckIcon />
             {t.verified}
           </span>
@@ -117,7 +117,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
           </h3>
           <div className="grid gap-2 sm:grid-cols-2">
             {keyFactors.map((factor, i) => (
-              <div key={i} className="flex items-start gap-3 rounded-lg bg-gray-50slate-700 p-3 border border-gray-100">
+              <div key={i} className="flex items-start gap-3 rounded-lg bg-gray-50 p-3 border border-gray-100">
                 <FactorIcon index={i} />
                 <p className="text-sm text-gray-700 leading-snug">{factor}</p>
               </div>

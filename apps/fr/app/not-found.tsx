@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50-900">
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50">
       {/* Ballon animé + carton rouge */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
         {/* Ballon avec animation CSS custom : rebond + rotation */}
@@ -15,7 +15,7 @@ export default function NotFound() {
           </span>
           {/* Ombre portée qui pulse */}
           <div
-            className="w-12 h-2 rounded-full bg-black/10black/30 blur-sm mt-1"
+            className="w-12 h-2 rounded-full bg-black/10 blur-sm mt-1"
             style={{ animation: "ball-shadow 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           />
         </div>

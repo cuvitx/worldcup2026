@@ -14,10 +14,10 @@ interface SortedTeam {
 
 const RANK_LABEL = ["1er", "2e", "3e", "4e"];
 const RANK_COLOR = [
-  "border-primary bg-primary/5secondary/10",
+  "border-primary bg-primary/5",
   "border-gray-400 bg-gray-50/40",
-  "border-primary/20 bg-primary/5primary/10",
-  "border-red-300 bg-red-50red-900/10",
+  "border-primary/20 bg-primary/5",
+  "border-red-300 bg-red-50",
 ];
 const RANK_BADGE = [
   "bg-primary text-white",
@@ -44,13 +44,13 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
                 <span className="text-2xl" aria-label={team!.name}>{team!.flag}</span>
                 <Link href={`/equipe/${team!.slug}`} className="font-bold text-lg hover:text-primary transition-colors">{team!.name}</Link>
                 {qual && (
-                  <span className="ml-auto rounded-full bg-accent/15accent/10/30 px-2 py-0.5 text-xs font-semibold text-accent">Qualifié</span>
+                  <span className="ml-auto rounded-full bg-accent/15 px-2 py-0.5 text-xs font-semibold text-accent">Qualifié</span>
                 )}
                 {idx === 2 && (
-                  <span className="ml-auto rounded-full bg-primary/10secondary/20 px-2 py-0.5 text-xs font-semibold text-primary">Meilleur 3e possible</span>
+                  <span className="ml-auto rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">Meilleur 3e possible</span>
                 )}
                 {idx === 3 && (
-                  <span className="ml-auto rounded-full bg-red-100red-900/30 px-2 py-0.5 text-xs font-semibold text-red-600"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé</span>
+                  <span className="ml-auto rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé</span>
                 )}
               </div>
               <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-gray-600">

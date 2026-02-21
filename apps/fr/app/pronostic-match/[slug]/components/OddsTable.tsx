@@ -46,7 +46,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       </div>
 
       {/* Estimation row */}
-      <div className="grid grid-cols-[1fr_repeat(3,52px)] sm:grid-cols-[1fr_repeat(3,80px)_110px] items-center px-4 sm:px-5 py-3 bg-primary/5primary/20 border-b border-gray-100">
+      <div className="grid grid-cols-[1fr_repeat(3,52px)] sm:grid-cols-[1fr_repeat(3,80px)_110px] items-center px-4 sm:px-5 py-3 bg-primary/5 border-b border-gray-100">
         <div className="flex items-center gap-2 min-w-0">
           <span className="w-6 h-6 rounded-full bg-primary text-white text-[9px] font-bold flex items-center justify-center shrink-0">AI</span>
           <span className="text-xs sm:text-sm font-bold text-primary truncate">Estimation</span>
@@ -114,7 +114,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       ))}
 
       {/* Footer */}
-      <div className="px-4 sm:px-5 py-2.5 bg-gray-50-900/30 text-[11px] text-gray-400">
+      <div className="px-4 sm:px-5 py-2.5 bg-gray-50/30 text-[11px] text-gray-400">
         * Cotes estimées. Les cotes réelles peuvent varier.{" "}
         <span className="text-accent font-semibold">Surligné = meilleure valeur</span>
       </div>

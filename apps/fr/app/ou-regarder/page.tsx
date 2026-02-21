@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     title: "Où regarder la CDM 2026 — TV & Streaming par pays",
     description:
       "TF1, M6, beIN Sports, BBC, Fox Sports… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
-    url: "https://cdm2026.fr/ou-regarder",
+    url: "https://www.cdm2026.fr/ou-regarder",
   },
-  alternates: { canonical: "https://cdm2026.fr/ou-regarder" },
+  alternates: { canonical: "https://www.cdm2026.fr/ou-regarder" },
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -204,7 +204,7 @@ export default function OuRegarderPage() {
                 { step: "2", title: "Se connecter à un serveur 🇫🇷", desc: "Lancez le VPN et sélectionnez un serveur situé en France (Paris, Lyon…)." },
                 { step: "3", title: "Regarder les matchs", desc: "Accédez à TF1+, M6+ ou beIN Connect normalement. Le streaming fonctionne comme si vous étiez en France." },
               ].map((s) => (
-                <div key={s.step} className="rounded-xl bg-gray-50gray-700/50 p-5">
+                <div key={s.step} className="rounded-xl bg-gray-50 p-5">
                   <div className="w-10 h-10 rounded-full bg-primaryprimary text-white flex items-center justify-center font-extrabold text-lg mb-3">
                     {s.step}
                   </div>
@@ -213,7 +213,7 @@ export default function OuRegarderPage() {
                 </div>
               ))}
             </div>
-            <div className="p-4 bg-accent/10accent/10 border border-accent/30 rounded-xl text-sm text-accent">
+            <div className="p-4 bg-accent/10 border border-accent/30 rounded-xl text-sm text-accent">
               <p className="font-semibold">Légalité du VPN</p>
               <p className="mt-1">
                 L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage
@@ -273,7 +273,7 @@ export default function OuRegarderPage() {
         />
 
         {/* CTA */}
-        <div className="p-6 bg-primary/5primary/10 rounded-2xl border border-primary/20 text-center">
+        <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20 text-center">
           <p className="text-lg font-semibold text-gray-900 mb-2">
             Envie de parier sur les matchs ?
           </p>

@@ -14,9 +14,9 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "Plan du site - Tous les matchs CDM 2026",
       description: "Les 104 matchs du Mondial 2026 : phase de groupes, eliminatoires et finale.",
-      url: "https://cdm2026.fr/plan-du-site/matchs",
+      url: "https://www.cdm2026.fr/plan-du-site/matchs",
     },
-    alternates: { canonical: "https://cdm2026.fr/plan-du-site/matchs" },
+    alternates: { canonical: "https://www.cdm2026.fr/plan-du-site/matchs" },
   };
 }
 

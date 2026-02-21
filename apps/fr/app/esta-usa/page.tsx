@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     title: "ESTA USA — CDM 2026 : Guide complet pour les Français",
     description:
       "Procédure ESTA pas à pas, prix officiel 21$, pièges des sites frauduleux, cas particuliers. Le guide indispensable pour voir la CDM 2026 aux USA.",
-    url: "https://cdm2026.fr/esta-usa",
+    url: "https://www.cdm2026.fr/esta-usa",
   },
-  alternates: { canonical: "https://cdm2026.fr/esta-usa" },
+  alternates: { canonical: "https://www.cdm2026.fr/esta-usa" },
 };
 
 const faqItems = [
@@ -222,18 +222,18 @@ export default function EstaUsaPage() {
             ils ne volent pas purement et simplement vos informations personnelles.
           </p>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50red-950/30 p-4">
+            <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
               <XCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-red-700"><Ban className="h-5 w-5 inline-block" /> Sites à éviter</p>
                 <p className="text-sm text-secondary mt-1">
-                  Tout site dont l&apos;URL n&apos;est PAS <code className="bg-gray-100gray-800 px-1 rounded">esta.cbp.dhs.gov</code>.
+                  Tout site dont l&apos;URL n&apos;est PAS <code className="bg-gray-100 px-1 rounded">esta.cbp.dhs.gov</code>.
                   Les faux sites utilisent des noms comme &quot;esta-france.com&quot;, &quot;esta-formulaire.fr&quot; ou &quot;us-esta.org&quot;.
                   Ils apparaissent souvent en publicité Google.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-green-200 bg-green-50green-950/30 p-4">
+            <div className="flex items-start gap-3 rounded-lg border border-green-200 bg-green-50 p-4">
               <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-green-700"><Check className="h-5 w-5 inline-block" /> Le seul site officiel</p>

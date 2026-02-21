@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description:
     "Tous les pronostics Coupe du Monde 2026 : vainqueur, groupes A à L, analyses match par match et cotes. Modèle ELO + 100K simulations.",
   alternates: {
-    canonical: "https://cdm2026.fr/pronostic",
+    canonical: "https://www.cdm2026.fr/pronostic",
   },
   openGraph: {
     title: "Pronostics CDM 2026 — Hub Central",
     description:
       "Pronostic vainqueur, groupes A-L, matchs clés, cotes et tendances. Tout pour préparer vos paris CDM 2026.",
-    url: "https://cdm2026.fr/pronostic",
+    url: "https://www.cdm2026.fr/pronostic",
   },
 };
 
@@ -86,8 +86,8 @@ export default function PronosticHubPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://cdm2026.fr" },
-      { "@type": "ListItem", position: 2, name: "Pronostics", item: "https://cdm2026.fr/pronostic" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr" },
+      { "@type": "ListItem", position: 2, name: "Pronostics", item: "https://www.cdm2026.fr/pronostic" },
     ],
   };
 
@@ -208,7 +208,7 @@ export default function PronosticHubPage() {
                     <span className="text-primary font-bold">{winPct}%</span>
                     <span className="text-accent font-bold">{odds}</span>
                   </div>
-                  <div className="mt-1 h-1.5 bg-gray-100-700 rounded-full overflow-hidden">
+                  <div className="mt-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-accent rounded-full"
                       style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
@@ -341,7 +341,7 @@ export default function PronosticHubPage() {
                 >
                   <div className="flex items-center gap-2 mb-2">
                     {match.group && (
-                      <span className="text-[10px] bg-gray-100-700 text-gray-600 px-2 py-0.5 rounded font-medium">
+                      <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-medium">
                         Groupe {match.group}
                       </span>
                     )}
@@ -448,6 +448,41 @@ export default function PronosticHubPage() {
                   <p className="mt-3 text-xs font-bold text-white/80 group-hover:gap-2 transition-all">
                     Accéder →
                   </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TOUS NOS PRONOSTICS ===== */}
+      <section className="py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Tous nos pronostics</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { href: "/pronostic-vainqueur", icon: "🏆", title: "Pronostic vainqueur CDM 2026", description: "Qui va gagner la Coupe du Monde 2026 ?" },
+              { href: "/pronostic-btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Pronostics sur les deux équipes qui marquent" },
+              { href: "/pronostic-over-under", icon: "📊", title: "Over/Under", description: "Pronostics sur le nombre de buts" },
+              { href: "/pronostic-cartons", icon: "🟨", title: "Pronostic cartons", description: "Prévisions sur les cartons jaunes et rouges" },
+              { href: "/pronostic-clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles équipes garderont leur cage inviolée" },
+              { href: "/pronostic-finalistes", icon: "🥇", title: "Pronostic finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
+              { href: "/pronostic-buteurs", icon: "👟", title: "Meilleurs buteurs", description: "Qui sera le meilleur buteur du tournoi ?" },
+              { href: "/pronostic-scores-exacts", icon: "🎯", title: "Scores exacts", description: "Pronostics de scores exacts match par match" },
+              { href: "/pronostic-tirs-au-but", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
+              { href: "/paris-corners", icon: "🚩", title: "Pronostic corners", description: "Pronostics sur le nombre de corners" },
+              { href: "/pronostics/grille", icon: "📋", title: "Grille de pronostics", description: "Remplissez votre grille de pronostics CDM" },
+              { href: "/pronostics/leaderboard", icon: "🏅", title: "Classement pronostiqueurs", description: "Le classement des meilleurs pronostiqueurs" },
+              { href: "/simulateur", icon: "🎮", title: "Simulateur de tournoi", description: "Simulez le tableau final de la CDM 2026" },
+              { href: "/comparateur-cotes", icon: "📈", title: "Comparateur de cotes", description: "Comparez les cotes des bookmakers" },
+            ].map(item => (
+              <Link key={item.href} href={item.href} className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+                  </div>
                 </div>
               </Link>
             ))}

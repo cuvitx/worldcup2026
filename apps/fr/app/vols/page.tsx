@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Guide des vols CDM 2026 — Prix, compagnies, aéroports",
     description: "Trouvez les meilleurs vols pour la Coupe du Monde 2026 aux USA, Canada et Mexique.",
-    url: "https://cdm2026.fr/vols",
+    url: "https://www.cdm2026.fr/vols",
   },
-  alternates: { canonical: "https://cdm2026.fr/vols" },
+  alternates: { canonical: "https://www.cdm2026.fr/vols" },
 };
 
 const destinations = [

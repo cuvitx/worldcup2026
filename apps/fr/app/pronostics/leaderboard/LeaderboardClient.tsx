@@ -95,8 +95,8 @@ export function LeaderboardClient() {
     const userPlayer = players.find((p) => p.isCurrentUser);
     const rank = userPlayer ? players.indexOf(userPlayer) + 1 : null;
     const text = userPlayer
-      ? `CDM 2026 — Classement Pronostics\n${rank}${rank === 1 ? "er" : "e"} avec ${userPlayer.points} pts (${userPlayer.totalPronos} pronos)\n\n https://cdm2026.fr/pronostics/leaderboard`
-      : `Classement Pronostics CDM 2026\n https://cdm2026.fr/pronostics/leaderboard`;
+      ? `CDM 2026 — Classement Pronostics\n${rank}${rank === 1 ? "er" : "e"} avec ${userPlayer.points} pts (${userPlayer.totalPronos} pronos)\n\n https://www.cdm2026.fr/pronostics/leaderboard`
+      : `Classement Pronostics CDM 2026\n https://www.cdm2026.fr/pronostics/leaderboard`;
 
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
@@ -180,7 +180,7 @@ export function LeaderboardClient() {
       <div className="overflow-x-auto rounded-xl border border-gray-200">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500text-left text-xs font-semibold uppercase text-gray-500gray-50-700/50 text-xs uppercase text-gray-500">
+            <tr className="bg-gray-50 text-left text-xs font-semibold uppercase text-gray-500">
               <th className="px-4 py-3 w-12">#</th>
               <th className="px-4 py-3">Pseudo</th>
               <th className="px-4 py-3 text-right">Points</th>
@@ -217,8 +217,8 @@ export function LeaderboardClient() {
                   <td className="hidden px-4 py-3 text-right md:table-cell">
                     <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
                       successRate >= 50
-                        ? "bg-accent/15 text-accentaccent/10"
-                        : "bg-gray-100 text-gray-600slate-700"
+                        ? "bg-accent/15 text-accent"
+                        : "bg-gray-100 text-gray-600"
                     }`}>
                       {successRate}%
                     </span>
@@ -248,7 +248,7 @@ export function LeaderboardClient() {
       </div>
 
       {/* Scoring explanation */}
-      <div className="mt-8 rounded-xl bg-gray-50 p-6slate-800/50">
+      <div className="mt-8 rounded-xl bg-gray-50 p-6">
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Comment ça marche ?</h2>
         <ul className="space-y-2 text-sm text-gray-600">
           <li className="flex items-start gap-2">

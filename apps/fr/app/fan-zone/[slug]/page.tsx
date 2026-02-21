@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Fan Zone à ${city.name} — CDM 2026 : Localisation, Horaires, Programme`,
     description: `Découvrez la fan zone officielle de ${city.name} pour la Coupe du Monde 2026 : emplacement, horaires, écrans géants, activités et conseils pratiques.`,
-    alternates: { canonical: `https://cdm2026.fr/fan-zone/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/fan-zone/${slug}` },
   };
 }
 

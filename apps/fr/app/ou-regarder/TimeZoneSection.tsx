@@ -32,7 +32,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
 
         <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
           <table className="w-full text-sm bg-white">
-            <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-500">
               <tr>
                 <th className="px-4 py-3 text-left font-semibold text-gray-700">Villes hôtes</th>
                 <th className="px-4 py-3 text-left font-semibold text-gray-700">Fuseau local</th>
@@ -69,7 +69,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
               key={s.local}
               className={`rounded-xl p-4 border ${
                 s.hot
-                  ? "bg-field/5field/10 border-field/20"
+                  ? "bg-field/5 border-field/20"
                   : "bg-white border-gray-200"
               }`}
             >
@@ -80,7 +80,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
           ))}
         </div>
 
-        <div className="mt-4 p-4 bg-accent/10accent/10 border border-accent/30 rounded-xl text-sm text-accent">
+        <div className="mt-4 p-4 bg-accent/10 border border-accent/30 rounded-xl text-sm text-accent">
           <p className="font-semibold"> Bon à savoir</p>
           <p className="mt-1">
             Les matchs de la France seront programmés en priorité sur des créneaux accessibles pour le public européen.

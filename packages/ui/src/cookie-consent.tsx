@@ -70,7 +70,7 @@ export function CookieConsent({ lang }: CookieConsentProps) {
       aria-modal="true"
       aria-label="Consentement cookies"
     >
-      <div className="w-full max-w-lg rounded-2xl bg-whiteslate-800 shadow-2xl p-6 md:p-8">
+      <div className="w-full max-w-lg rounded-2xl bg-white shadow-2xl p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
             <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

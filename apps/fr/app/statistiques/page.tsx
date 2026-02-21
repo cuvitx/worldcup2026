@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     title: "Statistiques Coupe du Monde - Records et chiffres clés",
     description:
       "Top buteurs, pays titrés, buts par édition et records historiques de la Coupe du Monde FIFA depuis 1930.",
-    url: "https://cdm2026.fr/statistiques",
+    url: "https://www.cdm2026.fr/statistiques",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/statistiques",
+    canonical: "https://www.cdm2026.fr/statistiques",
   },
 };
 
@@ -69,7 +69,7 @@ export default function StatistiquesPage() {
     name: "Statistiques Coupe du Monde - Records et chiffres clés",
     description:
       "Toutes les statistiques historiques de la Coupe du Monde FIFA depuis 1930 : buteurs, pays, buts par édition et records.",
-    url: "https://cdm2026.fr/statistiques",
+    url: "https://www.cdm2026.fr/statistiques",
     mainEntity: {
       "@type": "Dataset",
       name: "Statistiques Coupe du Monde FIFA 1930–2022",
@@ -81,12 +81,12 @@ export default function StatistiquesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://cdm2026.fr" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr" },
       {
         "@type": "ListItem",
         position: 2,
         name: "Statistiques CDM",
-        item: "https://cdm2026.fr/statistiques",
+        item: "https://www.cdm2026.fr/statistiques",
       },
     ],
   };
@@ -166,7 +166,7 @@ export default function StatistiquesPage() {
                     <tr
                       key={ed.year}
                       className={`hover:bg-gray-50 transition-colors ${
-                        ed.goals === maxGoals ? "bg-primary/5primary/10" : ""
+                        ed.goals === maxGoals ? "bg-primary/5" : ""
                       }`}
                     >
                       <td className="py-1.5 px-2 font-bold text-primary text-left">

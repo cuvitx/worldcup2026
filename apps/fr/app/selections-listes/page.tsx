@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Listes des 26 joueurs CDM 2026 — Sélections par équipe",
   description:
     "Les listes officielles des 26 joueurs sélectionnés par chaque équipe pour la Coupe du Monde 2026. Annonces prévues en mai 2026.",
-  alternates: { canonical: "https://cdm2026.fr/selections-listes" },
+  alternates: { canonical: "https://www.cdm2026.fr/selections-listes" },
   openGraph: {
     title: "Listes des 26 — Sélections CDM 2026",
     description: "Les 26 joueurs de chaque équipe pour la CDM 2026. Annonces en mai 2026.",
-    url: "https://cdm2026.fr/selections-listes",
+    url: "https://www.cdm2026.fr/selections-listes",
   },
 };
 

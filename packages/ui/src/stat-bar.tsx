@@ -110,7 +110,7 @@ export function StatBar({
         <span className={`${textClass} text-gray-600 font-medium block mb-1`}>{label}</span>
       )}
       <div
-        className={`w-full rounded-full overflow-hidden bg-gray-200gray-700 ${heightClass}`}
+        className={`w-full rounded-full overflow-hidden bg-gray-200 ${heightClass}`}
         role="progressbar"
         aria-valuenow={value}
         aria-valuemax={maxValue}
@@ -214,13 +214,13 @@ export function DuelStatBar({
           {away}{suffix}
         </span>
       </div>
-      <div className="w-full h-2 rounded-full flex overflow-hidden gap-0.5 bg-gray-100gray-700">
+      <div className="w-full h-2 rounded-full flex overflow-hidden gap-0.5 bg-gray-100">
         <div
-          className={`h-full rounded-l-full transition-all ease-out duration-700 ${homeWins ? "bg-primary" : "bg-gray-400gray-500"}`}
+          className={`h-full rounded-l-full transition-all ease-out duration-700 ${homeWins ? "bg-primary" : "bg-gray-400"}`}
           style={{ width: visible ? `${homePct}%` : "0%" }}
         />
         <div
-          className={`h-full rounded-r-full transition-all ease-out duration-700 ${awayWins ? "bg-secondary" : "bg-gray-300gray-600"}`}
+          className={`h-full rounded-r-full transition-all ease-out duration-700 ${awayWins ? "bg-secondary" : "bg-gray-300"}`}
           style={{ width: visible ? `${awayPct}%` : "0%" }}
         />
       </div>

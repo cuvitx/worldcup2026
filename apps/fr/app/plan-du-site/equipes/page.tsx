@@ -14,9 +14,9 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "Plan du site - Toutes les equipes CDM 2026",
       description: "48 equipes, 12 groupes : pronostics, scenarios et fiches equipe.",
-      url: "https://cdm2026.fr/plan-du-site/equipes",
+      url: "https://www.cdm2026.fr/plan-du-site/equipes",
     },
-    alternates: { canonical: "https://cdm2026.fr/plan-du-site/equipes" },
+    alternates: { canonical: "https://www.cdm2026.fr/plan-du-site/equipes" },
   };
 }
 

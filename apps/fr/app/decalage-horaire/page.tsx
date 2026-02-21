@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Décalage horaire CDM 2026 - Heures des matchs en France",
     description: "Convertissez les horaires des matchs CDM 2026 en heure française.",
-    url: "https://cdm2026.fr/decalage-horaire",
+    url: "https://www.cdm2026.fr/decalage-horaire",
   },
-  alternates: { canonical: "https://cdm2026.fr/decalage-horaire" },
+  alternates: { canonical: "https://www.cdm2026.fr/decalage-horaire" },
 };
 
 const villes = [
@@ -83,7 +83,7 @@ export default function DecalageHorairePage() {
 
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-12">
         {/* Info */}
-        <div className="rounded-xl border border-blue-200 bg-blue-50blue-900/20 p-5 flex gap-3">
+        <div className="rounded-xl border border-blue-200 bg-blue-50 p-5 flex gap-3">
           <Globe className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
           <p className="text-sm text-blue-800">
             Pendant la CDM 2026 (11 juin - 19 juillet), l&apos;Amérique du Nord est en heure d&apos;été.

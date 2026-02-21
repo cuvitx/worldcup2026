@@ -40,7 +40,7 @@ export function FinalesTable({ editions }: { editions: WorldCupEdition[] }) {
  </span>
  </td>
  <td className="px-4 py-3 text-center">
- <span className="font-mono font-bold bg-gray-100-700 px-2 py-0.5 rounded text-xs">
+ <span className="font-mono font-bold bg-gray-100 px-2 py-0.5 rounded text-xs">
  {ed.score}
  </span>
  </td>

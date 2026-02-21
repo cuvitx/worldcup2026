@@ -15,13 +15,13 @@ export const metadata: Metadata = {
  description:
  "Palmarès complet de la Coupe du Monde FIFA de 1930 à 2022 : vainqueurs, finalistes, scores et records. Qui a le plus de titres ?",
  alternates: {
- canonical: "https://cdm2026.fr/palmares",
+ canonical: "https://www.cdm2026.fr/palmares",
  },
  openGraph: {
  title: "Palmarès CDM FIFA 1930–2022",
  description:
  "Tous les champions du Monde depuis 1930 : Brésil 5 titres, Allemagne 4, Italie 4, Argentine 3…",
- url: "https://cdm2026.fr/palmares",
+ url: "https://www.cdm2026.fr/palmares",
  },
 };
 

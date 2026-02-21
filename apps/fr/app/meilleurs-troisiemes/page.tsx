@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: "Meilleurs 3èmes - CDM 2026 : Qui passe en 16èmes ?",
     description:
       "8 des 12 troisièmes de groupe se qualifient. Critères de classement, scénarios probables et tableau simulé.",
-    url: "https://cdm2026.fr/meilleurs-troisiemes",
+    url: "https://www.cdm2026.fr/meilleurs-troisiemes",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/meilleurs-troisiemes",
+    canonical: "https://www.cdm2026.fr/meilleurs-troisiemes",
   },
 };
 

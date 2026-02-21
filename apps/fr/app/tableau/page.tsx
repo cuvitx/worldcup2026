@@ -74,26 +74,7 @@ export default function BracketPage() {
         <MobileBracket />
         <ProbabilitiesTable />
 
-        {/* SEO text */}
-        <section className="prose max-w-none">
-          <h2>Comment fonctionne le tableau final de la Coupe du Monde 2026 ?</h2>
-          <p>
-            La Coupe du Monde 2026 accueille 48 équipes reparties en 12 groupes de 4. A l&#39;issue de la phase de
-            groupes, les deux premiers de chaque groupe (24 équipes) et les 8 meilleurs troisièmes se qualifient
-            pour la phase a elimination directe, soit 32 équipes au total.
-          </p>
-          <p>
-            Le tableau final commence par les 32e de finale (16 matchs), suivis des 16e de finale (8 matchs),
-            des quarts de finale (4 matchs), des demi-finales (2 matchs), et enfin la grande finale au
-            MetLife Stadium de New York le 19 juillet 2026.
-          </p>
-          <h3>Pronostics du bracket</h3>
-          <p>
-            Les pronostics affiches sur cette page sont bases sur les classements ELO des équipes. L&#39;équipe
-            avec le meilleur classement ELO est predite comme vainqueur de chaque confrontation. Ces pronostics
-            seront mis à jour au fur et a mesure de l&#39;avancée du tournoi avec les résultats réels.
-          </p>
-        </section>
+        {/* SEO text removed — covered by FAQ section below */}
       </div>
 
       <FAQSection title="Questions sur le tableau final" items={faqItems} />

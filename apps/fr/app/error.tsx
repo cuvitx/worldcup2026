@@ -10,7 +10,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50-900">
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50">
       {/* Carton jaune animé */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
         <div className="flex flex-col items-center" aria-hidden="true">
@@ -21,7 +21,7 @@ export default function Error({
             
           </span>
           <div
-            className="w-12 h-2 rounded-full bg-black/10black/30 blur-sm mt-1"
+            className="w-12 h-2 rounded-full bg-black/10 blur-sm mt-1"
             style={{ animation: "ball-shadow 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           />
         </div>
@@ -40,7 +40,7 @@ export default function Error({
       </div>
 
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent//10 border border-accent//20 text-accent text-sm font-semibold mb-6">
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-semibold mb-6">
          Carton Jaune — Faute technique
       </div>
 
@@ -61,19 +61,19 @@ export default function Error({
       )}
 
       {/* Séparateur terrain */}
-      <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-secondary//40 to-transparent mb-10" />
+      <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-secondary/40 to-transparent mb-10" />
 
       {/* Actions */}
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <button
           onClick={() => reset()}
-          className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white/30 hover:bg-primary//90/50 transition-all hover:-translate-y-0.5 text-sm cursor-pointer"
+          className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white hover:bg-primary/90 transition-all hover:-translate-y-0.5 text-sm cursor-pointer"
         >
           <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Réessayer
         </button>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-8 py-3.5 font-bold text-gray-700 shadow-sm hover:border-primary//30 hover:text-primary transition-all hover:-translate-y-0.5 text-sm"
+          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-8 py-3.5 font-bold text-gray-700 shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:-translate-y-0.5 text-sm"
         >
           ← Retour à l&apos;accueil
         </Link>

@@ -46,7 +46,7 @@ export function PricesByPhase() {
               <div className="p-5">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
                   {phase.catPrices.map((cat) => (
-                    <div key={cat.cat} className="rounded-lg bg-gray-50-700 p-3 text-center">
+                    <div key={cat.cat} className="rounded-lg bg-gray-50 p-3 text-center">
                       <p className="text-sm font-bold text-gray-700 mb-1">{cat.cat}</p>
                       <p className="text-base font-extrabold text-gray-900">{cat.price}</p>
                       <p className="text-xs text-gray-600 mt-1">{cat.desc}</p>

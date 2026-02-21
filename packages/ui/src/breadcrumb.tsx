@@ -52,7 +52,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
       <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       {/* Breadcrumb UI */}
-      <nav className="bg-whiteslate-800 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             {items.map((item, index) => {

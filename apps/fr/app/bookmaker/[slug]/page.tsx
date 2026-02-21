@@ -140,7 +140,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-lg bg-red-50red-900/20 border border-red-200 p-4">
+                <div className="rounded-lg bg-red-50 border border-red-200 p-4">
                   <h3 className="text-lg font-semibold text-gray-900 text-red-600 mb-3">Inconvenients</h3>
                   <ul className="space-y-2">
                     {bk.cons.map((con, i) => (
@@ -220,7 +220,7 @@ export default async function BookmakerPage({ params }: PageProps) {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Moyens de paiement</h3>
               <div className="flex flex-wrap gap-2">
                 {bk.paymentMethods.map((method) => (
-                  <span key={method} className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700">
+                  <span key={method} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
                     {method}
                   </span>
                 ))}

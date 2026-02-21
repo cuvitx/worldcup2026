@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bonus Winamax CDM 2026 | Jusqu'à 100€ Offerts",
     description: "Profitez de l'offre Winamax : 100€ remboursés en freebets pour la CDM 2026.",
-    url: "https://cdm2026.fr/bonus/winamax",
+    url: "https://www.cdm2026.fr/bonus/winamax",
   },
-  alternates: { canonical: "https://cdm2026.fr/bonus/winamax" },
+  alternates: { canonical: "https://www.cdm2026.fr/bonus/winamax" },
 };
 
 function ReviewSchema() {
@@ -23,8 +23,8 @@ function ReviewSchema() {
     "@type": "Review",
     itemReviewed: { "@type": "Organization", name: "Winamax", url: "https://www.winamax.fr" },
     reviewRating: { "@type": "Rating", ratingValue: 9.2, bestRating: 10, worstRating: 0 },
-    author: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
-    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
+    author: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
+    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }

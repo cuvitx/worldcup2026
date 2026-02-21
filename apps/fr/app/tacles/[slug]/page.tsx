@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Statistiques tacles ${player.name} — Paris spécifiques CDM 2026`,
     description: `Stats défensives de ${player.name} : tacles, interceptions, duels. Cotes paris spécifiques Winamax, Betclic, Unibet pour la CDM 2026.`,
-    alternates: { canonical: `https://cdm2026.fr/tacles/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/tacles/${slug}` },
   };
 }
 

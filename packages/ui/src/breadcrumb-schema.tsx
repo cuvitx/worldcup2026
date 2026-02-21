@@ -19,7 +19,7 @@ interface BreadcrumbItem {
  * Items without a url/href are skipped (last breadcrumb = current page with no link).
  *
  * @param items - Array of breadcrumb items
- * @param baseUrl - Base URL for resolving relative paths (e.g., "https://cdm2026.fr")
+ * @param baseUrl - Base URL for resolving relative paths (e.g., "https://www.cdm2026.fr")
  * @param currentPath - Optional: URL of the current page (used for last item if it has no url/href)
  */
 export function BreadcrumbSchema({

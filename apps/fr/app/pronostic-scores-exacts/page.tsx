@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Score Exact CDM 2026 — Guide & Scores Probables",
   description:
     "Guide complet des paris score exact pour la Coupe du Monde 2026. Scores les plus fréquents en CDM, scores probables des gros matchs, stratégies et tips.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-scores-exacts" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-scores-exacts" },
   openGraph: {
     title: "Pronostic Score Exact CDM 2026",
     description: "Scores historiques, scores probables et tips pour parier score exact à la CDM 2026.",
-    url: "https://cdm2026.fr/pronostic-scores-exacts",
+    url: "https://www.cdm2026.fr/pronostic-scores-exacts",
   },
 };
 

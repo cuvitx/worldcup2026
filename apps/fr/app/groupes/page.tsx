@@ -93,7 +93,7 @@ export default function GroupsPage() {
                         key={id}
                         className={`flex items-center gap-3 px-4 py-3 text-sm ${
                           isQualified
-                            ? "bg-accent/5accent/10"
+                            ? "bg-accent/5"
                             : ""
                         }`}
                       >
@@ -132,7 +132,7 @@ export default function GroupsPage() {
         {/* Legend */}
         <div className="mt-8 flex items-center gap-4 text-xs text-gray-500">
           <span className="flex items-center gap-1.5">
-            <span className="inline-block w-3 h-3 rounded bg-accent/10accent/20 border border-accent/30" />
+            <span className="inline-block w-3 h-3 rounded bg-accent/10 border border-accent/30" />
             Qualifié (top 2)
           </span>
           <span>% = chances de sortie de groupe</span>

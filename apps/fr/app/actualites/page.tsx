@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Toutes les actualités de la Coupe du Monde 2026 : stades, qualifications, billets, équipes, paris sportifs. Restez informé sur le Mondial.",
   alternates: {
-    canonical: "https://cdm2026.fr/actualites",
+    canonical: "https://www.cdm2026.fr/actualites",
   },
   openGraph: {
     title: "Actualités Coupe du Monde 2026",
@@ -19,11 +19,11 @@ export const metadata: Metadata = {
 };
 
 const categoryColors: Record<NewsCategory, string> = {
-  transferts: "bg-primary/10 text-primarysecondary/20",
-  stades: "bg-primary/10 text-primarysecondary/20",
-  billets: "bg-primary/10 text-primarysecondary/20",
-  equipes: "bg-primary/10 text-primaryprimary/20",
-  paris: "bg-primary/10 text-primaryprimary/20",
+  transferts: "bg-primary/10 text-primary",
+  stades: "bg-primary/10 text-primary",
+  billets: "bg-primary/10 text-primary",
+  equipes: "bg-primary/10 text-primary",
+  paris: "bg-primary/10 text-primary",
 };
 
 function formatDate(dateStr: string) {
@@ -38,7 +38,7 @@ const newsJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Actualités Coupe du Monde 2026",
-  url: "https://cdm2026.fr/actualites",
+  url: "https://www.cdm2026.fr/actualites",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: newsArticles.map((article, i) => ({
@@ -48,7 +48,7 @@ const newsJsonLd = {
         "@type": "NewsArticle",
         headline: article.title,
         datePublished: article.date,
-        url: `https://cdm2026.fr/actualites#${article.id}`,
+        url: `https://www.cdm2026.fr/actualites#${article.id}`,
         publisher: { "@type": "Organization", name: "CDM 2026" },
       },
     })),
@@ -174,7 +174,7 @@ export default function ActualitesPage() {
                 >
                   {article.imageEmoji && <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>}
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primaryprimary/20">
+                    <span className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primary">
                       {article.category}
                     </span>
                     <time className="text-xs text-gray-500" dateTime={article.date}>

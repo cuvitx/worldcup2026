@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     title: "Paris Corners CDM 2026 — Guide & Stratégies",
     description:
       "Over/under corners, stats historiques CDM, top 5 équipes les plus cornereuses et meilleures cotes bookmakers.",
-    url: "https://cdm2026.fr/paris-corners",
+    url: "https://www.cdm2026.fr/paris-corners",
   },
-  alternates: { canonical: "https://cdm2026.fr/paris-corners" },
+  alternates: { canonical: "https://www.cdm2026.fr/paris-corners" },
 };
 
 /* ---------- data ---------- */

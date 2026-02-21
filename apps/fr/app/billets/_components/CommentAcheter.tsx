@@ -56,7 +56,7 @@ export function CommentAcheter() {
                 <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed mb-3">{step.desc}</p>
-              <div className="rounded-lg bg-primary/5primary/10 border border-primary/20 p-2.5">
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-2.5">
                 <p className="text-xs text-primary font-medium"> {step.tip}</p>
               </div>
             </div>

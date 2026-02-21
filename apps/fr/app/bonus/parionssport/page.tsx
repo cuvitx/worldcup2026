@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bonus ParionsSport CDM 2026 | Jusqu'à 90€ Offerts",
     description: "Profitez de l'offre ParionsSport : 90€ en freebets pour la CDM 2026.",
-    url: "https://cdm2026.fr/bonus/parionssport",
+    url: "https://www.cdm2026.fr/bonus/parionssport",
   },
-  alternates: { canonical: "https://cdm2026.fr/bonus/parionssport" },
+  alternates: { canonical: "https://www.cdm2026.fr/bonus/parionssport" },
 };
 
 function ReviewSchema() {
@@ -23,8 +23,8 @@ function ReviewSchema() {
     "@type": "Review",
     itemReviewed: { "@type": "Organization", name: "ParionsSport", url: "https://www.enligne.parionssport.fdj.fr" },
     reviewRating: { "@type": "Rating", ratingValue: 8.5, bestRating: 10, worstRating: 0 },
-    author: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
-    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
+    author: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
+    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }

@@ -26,7 +26,7 @@ export function MatchRow({
   return (
     <Link
       href={href}
-      className={`block w-full rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 transition-all hover:border-primary/30 hover:shadow-md ${className}`}
+      className={`block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 transition-all hover:border-primary/30 hover:shadow-md ${className}`}
     >
       {/* Main row: time | home vs away | group */}
       <div className="flex items-center gap-3">
@@ -49,7 +49,7 @@ export function MatchRow({
         </div>
 
         {group && (
-          <span className="text-xs bg-primary/10secondary/20 text-primary px-2 py-0.5 rounded font-medium shrink-0">
+          <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded font-medium shrink-0">
             {group}
           </span>
         )}

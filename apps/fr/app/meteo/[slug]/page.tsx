@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Météo à ${city.name} en juin-juillet 2026 — CDM 2026`,
     description: `Prévisions météo à ${city.name} pour la Coupe du Monde 2026 : températures, pluie, humidité et impact sur les matchs.`,
-    alternates: { canonical: `https://cdm2026.fr/meteo/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/meteo/${slug}` },
   };
 }
 
@@ -81,7 +81,7 @@ export default async function MeteoPage({ params }: PageProps) {
     "@type": "FAQPage",
     name: `Météo à ${city.name} en juin-juillet 2026`,
     description: `Prévisions météo à ${city.name} pour la Coupe du Monde 2026.`,
-    url: `https://cdm2026.fr/meteo/${slug}`,
+    url: `https://www.cdm2026.fr/meteo/${slug}`,
     mainEntity: faqItems.map((f) => ({
       "@type": "Question",
       name: f.question,

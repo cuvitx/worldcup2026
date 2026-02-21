@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   description:
     "Glossaire des paris sportifs : 80+ termes expliqués avec exemples Coupe du Monde 2026. De A à Z, tout le vocabulaire du parieur.",
   alternates: {
-    canonical: "https://cdm2026.fr/guide/glossaire",
+    canonical: "https://www.cdm2026.fr/guide/glossaire",
   },
   openGraph: {
     title: "Glossaire des Paris Sportifs – CDM 2026",
     description: "Plus de 80 termes de paris sportifs expliqués simplement avec des exemples Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/guide/glossaire",
+    url: "https://www.cdm2026.fr/guide/glossaire",
   },
 };
 
@@ -160,19 +160,6 @@ export default function GlossairePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li><Link href="/paris-sportifs" className="text-primary hover:underline">Paris sportifs</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 font-medium">Glossaire</li>
-          </ol>
-        </div>
-      </nav>
-
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-2">
           Glossaire des Paris Sportifs
@@ -208,7 +195,7 @@ export default function GlossairePage() {
             return (
               <section key={letter} id={letter}>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-primary/20 pb-2 flex items-center gap-2">
-                  <span className="w-10 h-10 rounded-xl bg-primary/10primary/20 flex items-center justify-center text-primary font-extrabold">
+                  <span className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-extrabold">
                     {letter}
                   </span>
                 </h2>
@@ -220,7 +207,7 @@ export default function GlossairePage() {
                     >
                       <h3 className="text-lg font-semibold text-gray-900">{term.name}</h3>
                       <p className="text-gray-700 mt-1">{term.definition}</p>
-                      <p className="text-sm text-gray-500 mt-2 italic bg-gray-50gray-700/50 rounded-lg px-3 py-2">
+                      <p className="text-sm text-gray-500 mt-2 italic bg-gray-50 rounded-lg px-3 py-2">
                          {term.example}
                       </p>
                     </div>

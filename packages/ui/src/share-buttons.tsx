@@ -89,7 +89,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
             target="_blank"
             rel="noopener noreferrer"
             style={{ width: 36, height: 36, minWidth: 36, minHeight: 36 }}
-            className="inline-flex items-center justify-center shrink-0 rounded-full bg-gray-100white/10 text-gray-600 hover:bg-gray-200 transition-colors"
+            className="inline-flex items-center justify-center shrink-0 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
             aria-label={`Partager sur ${s.name}`}
           >
             {s.icon}

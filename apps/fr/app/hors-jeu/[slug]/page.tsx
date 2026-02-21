@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Parier sur les hors-jeu ${home} - ${away} — CDM 2026`,
     description: `Stats hors-jeu ${home} vs ${away} à la Coupe du Monde 2026 : cotes over/under 3.5, impact VAR, hors-jeu semi-automatique et pronostics.`,
-    alternates: { canonical: `https://cdm2026.fr/hors-jeu/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/hors-jeu/${slug}` },
   };
 }
 

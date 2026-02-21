@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Paris Live CDM 2026 — Guide du Live Betting en Direct",
   description:
     "Guide complet du live betting pour la CDM 2026. Comment parier en direct, meilleures apps, stratégies live et cashout.",
-  alternates: { canonical: "https://cdm2026.fr/paris-live" },
+  alternates: { canonical: "https://www.cdm2026.fr/paris-live" },
   openGraph: {
     title: "Paris Live CDM 2026 — Guide Complet",
     description: "Stratégies live betting, meilleures apps et cashout pour la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/paris-live",
+    url: "https://www.cdm2026.fr/paris-live",
   },
 };
 

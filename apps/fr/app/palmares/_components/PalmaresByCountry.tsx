@@ -12,7 +12,7 @@ export function PalmaresByCountry({ countryRecords }: { countryRecords: CountryR
  key={cr.country}
  className={`rounded-xl border-2 p-5 shadow-sm transition-transform hover:-translate-y-1 ${
  idx === 0
- ? "border-primary bg-primary/5secondary/10"
+ ? "border-primary bg-primary/5"
  : idx <= 2
  ? "border-gray-300 bg-gray-50/40"
  : "border-gray-200 bg-white"
@@ -45,7 +45,7 @@ export function PalmaresByCountry({ countryRecords }: { countryRecords: CountryR
  {cr.years.map((y) => (
  <span
  key={y}
- className="rounded bg-primary/10primary/20 px-2 py-0.5 text-xs font-semibold text-primary"
+ className="rounded bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary"
  >
  {y}
  </span>

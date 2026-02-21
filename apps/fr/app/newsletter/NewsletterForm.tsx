@@ -70,7 +70,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className={`flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/10accent/10 ${compact ? 'p-3' : 'p-5'}`}>
+      <div className={`flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/10 ${compact ? 'p-3' : 'p-5'}`}>
         <span className="text-2xl"></span>
         <div>
           <p className={`font-bold text-accent ${compact ? 'text-sm' : 'text-base'}`}>

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Liste des 26 joueurs de ${team.name} pour la Coupe du Monde 2026.`,
       url: `${domains.fr}/effectif/${team.slug}`,
       },
-    alternates: { canonical: `https://cdm2026.fr/effectif/${team.slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/effectif/${team.slug}` },
   };
 }
 
@@ -223,7 +223,7 @@ export default async function EffectifPage({ params }: PageProps) {
               <p className="text-sm text-gray-500 italic">
                 Cette section sera mise à jour à l&apos;approche du tournoi, lorsque les listes définitives seront connues et que les blessures pré-tournoi seront confirmées.
               </p>
-              <div className="mt-4 rounded-lg bg-gray-50-700/30 p-4">
+              <div className="mt-4 rounded-lg bg-gray-50/30 p-4">
                 <p className="text-sm text-gray-400">Aucun absent notable confirmé pour le moment.</p>
               </div>
             </section>

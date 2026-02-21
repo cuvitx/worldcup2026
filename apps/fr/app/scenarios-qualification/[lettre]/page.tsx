@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Analyse des scénarios de qualification du Groupe ${group.letter} : ${teamNames}.`,
     },
     alternates: {
-      canonical: `https://cdm2026.fr/scenarios-qualification/${lettre}`,
+      canonical: `https://www.cdm2026.fr/scenarios-qualification/${lettre}`,
     },
   };
 }

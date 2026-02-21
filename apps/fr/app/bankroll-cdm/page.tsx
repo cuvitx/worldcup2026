@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Gestion de bankroll CDM 2026 — Budget, staking plan et Kelly criterion",
   description:
     "Comment gérer votre bankroll pendant la Coupe du Monde 2026 : budget recommandé, staking plan, Kelly criterion simplifié, erreurs à éviter.",
-  alternates: { canonical: "https://cdm2026.fr/bankroll-cdm" },
+  alternates: { canonical: "https://www.cdm2026.fr/bankroll-cdm" },
   openGraph: {
     title: "Gestion de bankroll — CDM 2026",
     description: "Budget, staking plan et Kelly criterion pour vos paris CDM 2026.",
-    url: "https://cdm2026.fr/bankroll-cdm",
+    url: "https://www.cdm2026.fr/bankroll-cdm",
   },
 };
 
@@ -124,7 +124,7 @@ export default function BankrollCdmPage() {
                   <span className={`text-xs font-semibold ${sp.riskColor}`}>Risque : {sp.risk}</span>
                 </div>
                 <p className="text-sm text-gray-600 mb-2">{sp.desc}</p>
-                <div className="bg-gray-50gray-800 rounded-lg px-3 py-2 text-sm text-gray-500">
+                <div className="bg-gray-50 rounded-lg px-3 py-2 text-sm text-gray-500">
                   <strong>Exemple :</strong> {sp.example}
                 </div>
               </div>

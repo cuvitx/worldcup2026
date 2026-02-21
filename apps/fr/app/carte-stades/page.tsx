@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     "localisation stades football",
   ],
   alternates: {
-    canonical: "https://cdm2026.fr/carte-stades",
+    canonical: "https://www.cdm2026.fr/carte-stades",
   },
   openGraph: {
     title: "Carte interactive des 16 stades CDM 2026",
     description:
       "Localisez les 16 stades de la Coupe du Monde 2026 sur une carte interactive de l'Amérique du Nord.",
-    url: "https://cdm2026.fr/carte-stades",
+    url: "https://www.cdm2026.fr/carte-stades",
   },
 };
 
@@ -79,27 +79,6 @@ export default function CarteStadesPage() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(mapSchema) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="hover:text-primary transition-colors">
-                Accueil
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link href="/stades" className="hover:text-primary transition-colors">
-                Stades
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-900 font-medium">Carte interactive</li>
-          </ol>
-        </div>
-      </nav>
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   description:
     "Pronostic vainqueur CDM 2026 : Argentine 15%, France 13%, Espagne 12%. Comparez les cotes, découvrez nos favoris et osez parier.",
   alternates: {
-    canonical: "https://cdm2026.fr/pronostic-vainqueur",
+    canonical: "https://www.cdm2026.fr/pronostic-vainqueur",
   },
   openGraph: {
     title: "Pronostic Vainqueur CDM 2026 — Qui va gagner ?",
     description:
       "Top 10 des favoris CDM 2026, cotes comparées Betclic/Winamax, analyse complète. Découvrez notre pronostic vainqueur.",
-    url: "https://cdm2026.fr/pronostic-vainqueur",
+    url: "https://www.cdm2026.fr/pronostic-vainqueur",
   },
 };
 

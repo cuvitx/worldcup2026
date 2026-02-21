@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     title: "Histoire de la Coupe du Monde - Timeline 1930 à 2026",
     description:
       "Revivez toutes les Coupes du Monde depuis 1930 : pays hôtes, champions, records et anecdotes historiques.",
-    url: "https://cdm2026.fr/histoire",
+    url: "https://www.cdm2026.fr/histoire",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/histoire",
+    canonical: "https://www.cdm2026.fr/histoire",
   },
 };
 
@@ -197,7 +197,7 @@ export default function HistoirePage() {
             "@type": "WebPage",
             name: "Histoire de la Coupe du Monde - Timeline 1930 à 2026",
             description: "Timeline complète de l'histoire de la Coupe du Monde FIFA, de 1930 à 2026, avec faits marquants et records.",
-            url: "https://cdm2026.fr/histoire",
+            url: "https://www.cdm2026.fr/histoire",
             mainEntity: {
               "@type": "ItemList",
               name: "Éditions de la Coupe du Monde FIFA",

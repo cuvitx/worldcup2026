@@ -24,7 +24,7 @@ export function OddsTable() {
         <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500text-gray-700">
+              <tr className="bg-gray-50 text-xs uppercase text-gray-500text-gray-700">
                 <th className="text-left px-3 sm:px-4 py-3 font-bold">Équipe</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#FF6600] hidden sm:table-cell">Winamax</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#00A0A0] hidden lg:table-cell">Bet365</th>
@@ -52,7 +52,7 @@ export function OddsTable() {
                   <tr
                     key={fav.teamId}
                     className={`border-t border-gray-100 ${
-                      i % 2 === 0 ? "bg-white/50" : "bg-gray-50/50slate-800"
+                      i % 2 === 0 ? "bg-white/50" : "bg-gray-50/50"
                     } hover:bg-primary/5 transition-colors`}
                   >
                     {/* Team */}
@@ -60,9 +60,9 @@ export function OddsTable() {
                       <div className="flex items-center gap-2">
                         <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
                           i === 0 ? "bg-accent/20 text-accent" :
-                          i === 1 ? "bg-gray-200-600 text-gray-700" :
-                          i === 2 ? "bg-primary/10primary/20 text-primary" :
-                          "bg-gray-100-700 text-gray-500"
+                          i === 1 ? "bg-gray-200 text-gray-700" :
+                          i === 2 ? "bg-primary/10 text-primary" :
+                          "bg-gray-100 text-gray-500"
                         }`}>{i + 1}</span>
                         <span className="text-xl">{team.flag}</span>
                         <Link href={`/equipe/${team.slug}`} className="font-medium text-gray-900 hover:text-primary transition-colors">
@@ -130,7 +130,7 @@ export function OddsTable() {
               rel="noopener noreferrer sponsored nofollow"
               className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-md ${
                 bm.highlight
-                  ? "border-primary/20 bg-primary/5primary/10"
+                  ? "border-primary/20 bg-primary/5"
                   : "border-gray-200 bg-white"
               }`}
             >

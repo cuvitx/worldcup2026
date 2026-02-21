@@ -239,7 +239,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Score sécurité ${data.score}/10 · Quartiers sûrs et à éviter · Numéros d'urgence · Transport de nuit`,
       url: `${domains.fr}/securite/${slug}`,
       },
-    alternates: { canonical: `https://cdm2026.fr/securite/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/securite/${slug}` },
   };
 }
 
@@ -310,7 +310,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
       {/* Safe & Avoid areas */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-green-200 bg-green-50green-900/20 p-6">
+          <div className="rounded-2xl border border-green-200 bg-green-50 p-6">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-600" />
               Quartiers sûrs
@@ -324,7 +324,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-red-200 bg-red-50red-900/20 p-6">
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-red-600" />
               Quartiers à éviter

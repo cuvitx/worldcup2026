@@ -66,7 +66,7 @@ export default function ContactPage() {
             <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Nous écrire
             </h2>
-            <div className="rounded-xl border border-gray-200 bg-gray-50-700 p-6">
+            <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
               <p className="mb-4">
                 Pour toute question relative au site, à nos contenus, à nos
                 analyses ou à une demande de partenariat, envoyez-nous un email :

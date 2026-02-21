@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     title: "Classement FIFA 2026 - Ranking des 48 équipes",
     description:
       "Classement FIFA officiel des 48 sélections qualifiées pour la CDM 2026, avec historique et analyse.",
-    url: "https://cdm2026.fr/classement-fifa",
+    url: "https://www.cdm2026.fr/classement-fifa",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/classement-fifa",
+    canonical: "https://www.cdm2026.fr/classement-fifa",
   },
 };
 
@@ -115,7 +115,7 @@ export default function ClassementFifaPage() {
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50-900">
+                  <thead className="bg-gray-50">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Rang FIFA
@@ -188,7 +188,7 @@ export default function ClassementFifaPage() {
             </div>
 
             {playoffTeams.length > 0 && (
-              <div className="mt-6 bg-gray-50-900 rounded-xl p-5 border border-gray-200">
+              <div className="mt-6 bg-gray-50 rounded-xl p-5 border border-gray-200">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">
                   Places de barrages en attente
                 </h3>
@@ -326,7 +326,7 @@ export default function ClassementFifaPage() {
             "@type": "WebPage",
             name: "Classement FIFA 2026 - Ranking des 48 équipes qualifiées",
             description: "Classement FIFA complet des 48 équipes qualifiées pour la Coupe du Monde 2026.",
-            url: "https://cdm2026.fr/classement-fifa",
+            url: "https://www.cdm2026.fr/classement-fifa",
             mainEntity: {
               "@type": "ItemList",
               name: "Classement FIFA des équipes qualifiées CDM 2026",

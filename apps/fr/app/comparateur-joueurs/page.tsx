@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Comparez les statistiques des meilleurs joueurs de la Coupe du Monde 2026. Goals, passes décisives, dribbles, notes et plus encore.",
   alternates: {
-    canonical: "https://cdm2026.fr/comparateur-joueurs",
+    canonical: "https://www.cdm2026.fr/comparateur-joueurs",
   },
   openGraph: {
     title: "Comparateur de joueurs CDM 2026",
@@ -34,8 +34,8 @@ export default function ComparateurJoueursPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://cdm2026.fr" },
-      { "@type": "ListItem", position: 2, name: "Comparateur joueurs", item: "https://cdm2026.fr/comparateur-joueurs" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr" },
+      { "@type": "ListItem", position: 2, name: "Comparateur joueurs", item: "https://www.cdm2026.fr/comparateur-joueurs" },
     ],
   };
 
@@ -51,17 +51,6 @@ export default function ComparateurJoueursPage() {
           }
 ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-
-      {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 font-medium">Comparateur de joueurs</li>
-          </ol>
-        </div>
-      </nav>
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

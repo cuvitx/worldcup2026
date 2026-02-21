@@ -62,11 +62,11 @@ const TYPE_LABELS: Record<SearchItem["type"], string> = {
 };
 
 const TYPE_COLORS: Record<SearchItem["type"], string> = {
-  team: "text-primary bg-primary/10primary/20",
-  player: "text-field bg-field/10field/20",
-  match: "text-accent bg-accent/10secondary/20",
-  stadium: "text-accent bg-accent//10accent//10",
-  city: "text-rose-600 bg-rose-50rose-900/30",
+  team: "text-primary bg-primary/10",
+  player: "text-field bg-field/10",
+  match: "text-accent bg-accent/10",
+  stadium: "text-accent bg-accent/10",
+  city: "text-rose-600 bg-rose-50",
 };
 
 // ─── Normalize + filter ───────────────────────────────────────────────────────

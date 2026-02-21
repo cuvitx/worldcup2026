@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Classement des pronostiqueurs Coupe du Monde 2026 : 3 points par score exact, 1 point par bon vainqueur. Qui sera le meilleur oracle ?",
   alternates: {
-    canonical: "https://cdm2026.fr/pronostics/leaderboard",
+    canonical: "https://www.cdm2026.fr/pronostics/leaderboard",
   },
   openGraph: {
     title: "Classement Pronostics CDM 2026",
     description:
       "Le classement des meilleurs pronostiqueurs de la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/pronostics/leaderboard",
+    url: "https://www.cdm2026.fr/pronostics/leaderboard",
     siteName: "CDM 2026",
     locale: "fr_FR",
     type: "website",

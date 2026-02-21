@@ -17,7 +17,7 @@ interface FavoriteTeamsProps {
 
 export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
   return (
-    <section className="bg-whitegray-950 py-16">
+    <section className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
@@ -83,7 +83,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                 )}
 
                 {outrightOdds && (
-                  <div className="mt-1 w-full rounded-xl border border-accent/30 bg-accent/5accent/10 px-3 py-2">
+                  <div className="mt-1 w-full rounded-xl border border-accent/30 bg-accent/5 px-3 py-2">
                     <p className="text-[9px] text-gray-500 mb-0.5">
                       {favData ? "Cote moy. marché" : "Cote vainqueur"}
                     </p>

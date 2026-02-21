@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Maillots CDM 2026 — Les 48 maillots domicile et extérieur",
   description:
     "Galerie des maillots des 48 équipes de la Coupe du Monde 2026. Domicile et extérieur, équipementier, couleurs et liens vers les fiches équipes.",
-  alternates: { canonical: "https://cdm2026.fr/maillots" },
+  alternates: { canonical: "https://www.cdm2026.fr/maillots" },
   openGraph: {
     title: "Maillots CDM 2026 — Galerie 48 équipes",
     description: "Tous les maillots domicile et extérieur de la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/maillots",
+    url: "https://www.cdm2026.fr/maillots",
   },
 };
 

@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: 'Newsletter CDM 2026 — Recevez le programme chaque semaine',
     description:
       'Pronostics exclusifs, programme de la semaine et alertes matchs directement dans votre boîte mail. Gratuit.',
-    url: 'https://cdm2026.fr/newsletter',
+    url: 'https://www.cdm2026.fr/newsletter',
   },
   alternates: {
-    canonical: 'https://cdm2026.fr/newsletter',
+    canonical: 'https://www.cdm2026.fr/newsletter',
   },
 };
 
@@ -24,7 +24,7 @@ const newsletterJsonLd = {
   name: 'Newsletter CDM 2026',
   description:
     'Recevez chaque semaine le programme de la Coupe du Monde 2026, nos pronostics exclusifs et les alertes matchs.',
-  url: 'https://cdm2026.fr/newsletter',
+  url: 'https://www.cdm2026.fr/newsletter',
   inLanguage: 'fr',
   offers: {
     '@type': 'Offer',
@@ -180,7 +180,7 @@ export default function NewsletterPage() {
                 className="relative rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
               >
                 {b.badge && (
-                  <span className="absolute top-3 right-3 rounded-full bg-primary/10primary/20 px-2.5 py-0.5 text-xs font-bold text-primary">
+                  <span className="absolute top-3 right-3 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-bold text-primary">
                     {b.badge}
                   </span>
                 )}

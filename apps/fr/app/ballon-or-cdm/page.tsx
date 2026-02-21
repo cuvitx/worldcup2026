@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Ballon d'Or CDM 2026 — Meilleur Joueur du Tournoi",
   description:
     "Qui sera élu meilleur joueur de la Coupe du Monde 2026 ? Top 10 favoris avec cotes, historique des gagnants du Ballon d'Or FIFA.",
-  alternates: { canonical: "https://cdm2026.fr/ballon-or-cdm" },
+  alternates: { canonical: "https://www.cdm2026.fr/ballon-or-cdm" },
   openGraph: {
     title: "Ballon d'Or CDM 2026 — Meilleur Joueur",
     description: "Top 10 favoris pour le Ballon d'Or du tournoi, cotes et historique complet.",
-    url: "https://cdm2026.fr/ballon-or-cdm",
+    url: "https://www.cdm2026.fr/ballon-or-cdm",
   },
 };
 

@@ -170,7 +170,7 @@ export default async function GroupPage({ params }: PageProps) {
 
                 {/* Outsiders */}
                 {outsider && outsider.fifaRanking > 50 && (
-                  <div className="mt-4 p-4 bg-primary/5primary/10 rounded-lg border border-primary/20">
+                  <div className="mt-4 p-4 bg-primary/5 rounded-lg border border-primary/20">
                     <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-1.5"><svg className="h-4 w-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.64 0 8.577 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.64 0-8.577-3.007-9.963-7.178Z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg> L&apos;outsider à surveiller</h3>
                     <p>
                       <strong className="text-primary">{outsider.name}</strong> (#{outsider.fifaRanking} FIFA) arrive en tant qu'outsider, mais ne sous-estimez pas cette équipe qui a su se qualifier pour la phase finale. 
@@ -255,11 +255,11 @@ export default async function GroupPage({ params }: PageProps) {
             {sortedByQualification.length > 0 && (
               <section className="hero-animated rounded-lg p-6 shadow-lg">
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                  <h2 className="text-3xl font-black text-white mb-2 flex items-center gap-2">
                     <svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" /></svg>
                     Notre pronostic pour le Groupe {group.letter}
                   </h2>
-                  <p className="text-gray-300 text-sm mb-6">
+                  <p className="text-gray-200 text-sm mb-6">
                     Basé sur les côtes, le classement FIFA et l'historique des équipes
                   </p>
 
@@ -281,21 +281,21 @@ export default async function GroupPage({ params }: PageProps) {
                               </span>
                               <Link
                                 href={`/equipe/${item.team.slug}`}
-                                className="font-bold text-white hover:text-accent transition-colors"
+                                className="font-bold text-white text-lg hover:text-accent transition-colors"
                               >
                                 {item.team.name}
                               </Link>
                             </div>
                             <div className="text-right">
-                              <div className="text-2xl font-bold text-white">
+                              <div className="text-3xl font-black text-white">
                                 {qualifProb}%
                               </div>
-                              <div className="text-xs text-gray-400">
+                              <div className="text-xs text-gray-300">
                                 de qualification
                               </div>
                             </div>
                           </div>
-                          <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                          <div className="h-3 rounded-full bg-white/10 overflow-hidden">
                             <div
                               className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
                               style={{ width: `${qualifProb}%` }}
@@ -320,7 +320,7 @@ export default async function GroupPage({ params }: PageProps) {
                                   {item.team.flag}
                                 </span>
                                 <span className="text-white font-medium">{item.team.name}</span>
-                                <span className="text-gray-400 text-xs">({qualifProb}%)</span>
+                                <span className="text-gray-300 text-xs">({qualifProb}%)</span>
                               </div>
                             );
                           })}
@@ -352,9 +352,9 @@ export default async function GroupPage({ params }: PageProps) {
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? ""}</span>
-                          <span className="font-medium flex-1 min-w-0 truncate text-sm">{home?.name ?? "TBD"}</span>
+                          <span className="font-medium shrink-0 text-sm">{home?.name ?? "TBD"}</span>
                           <span className="text-xs text-gray-500 shrink-0">vs</span>
-                          <span className="font-medium flex-1 min-w-0 truncate text-right text-sm">{away?.name ?? "TBD"}</span>
+                          <span className="font-medium shrink-0 text-right text-sm">{away?.name ?? "TBD"}</span>
                           <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? ""}</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs text-gray-500 sm:ml-auto sm:shrink-0">
@@ -381,9 +381,9 @@ export default async function GroupPage({ params }: PageProps) {
                       className="flex items-center justify-center gap-2 sm:gap-3 rounded-lg border border-gray-200 p-3 sm:p-4 text-center transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                     >
                       <span className="text-lg sm:text-xl shrink-0" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
-                      <span className="font-semibold text-sm sm:text-base truncate">{team1.name}</span>
+                      <span className="font-semibold text-sm sm:text-base">{team1.name}</span>
                       <span className="text-gray-500 text-sm shrink-0">vs</span>
-                      <span className="font-semibold text-sm sm:text-base truncate">{team2.name}</span>
+                      <span className="font-semibold text-sm sm:text-base">{team2.name}</span>
                       <span className="text-lg sm:text-xl shrink-0" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
                     </Link>
                   ))

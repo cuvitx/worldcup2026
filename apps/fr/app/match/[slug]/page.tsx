@@ -19,7 +19,6 @@ import {
   MatchSidebar,
   SameDayMatches,
 } from "./_components";
-import { ContextualSidebar } from "../../components/ContextualSidebar";
 import { MatchContextBar } from "../../components/MatchContextBar";
 import { BarChart3, Sparkles, Swords, TrendingUp, Trophy } from "lucide-react"
 
@@ -305,7 +304,7 @@ export default async function MatchPage({ params }: PageProps) {
             },
             offers: {
               "@type": "Offer",
-              url: `https://cdm2026.fr/billets`,
+              url: `https://www.cdm2026.fr/billets`,
               availability: "https://schema.org/InStock",
               priceCurrency: "USD",
               price: "0",
@@ -318,7 +317,7 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Contextual navigation */}
       <MatchContextBar matchSlug={match.slug} />
-      <ContextualSidebar />
+      
     </>
   );
 }

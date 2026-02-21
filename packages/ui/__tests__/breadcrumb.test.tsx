@@ -14,7 +14,7 @@ vi.mock('../src/breadcrumb-schema', () => ({
 
 // Mock route-mapping data
 vi.mock('@repo/data/route-mapping', () => ({
-  domains: { fr: 'https://cdm2026.fr' },
+  domains: { fr: 'https://www.cdm2026.fr' },
 }))
 
 describe('Breadcrumb', () => {

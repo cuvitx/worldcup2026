@@ -9,7 +9,7 @@ export function AntiArnaques() {
   ];
 
   return (
-    <section className="bg-red-50red-900/10 py-12 border-t border-red-100">
+    <section className="bg-red-50 py-12 border-t border-red-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 text-red-800 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Conseils pratiques — Éviter les arnaques
@@ -24,8 +24,8 @@ export function AntiArnaques() {
               key={tip.title}
               className={`rounded-xl border p-4 ${
                 tip.type === "safe"
-                  ? "border-accent/30 bg-accent/10accent/10"
-                  : "border-red-200 bg-red-50/50red-900/10"
+                  ? "border-accent/30 bg-accent/10"
+                  : "border-red-200 bg-red-50/50"
               }`}
             >
               <div className="flex items-center gap-2 mb-2">

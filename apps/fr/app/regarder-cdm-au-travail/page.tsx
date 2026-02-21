@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Code du travail, tolérance des employeurs, solutions RTT et télétravail. Le guide complet.",
       url: `${domains.fr}/regarder-cdm-au-travail`,
     },
-    alternates: { canonical: "https://cdm2026.fr/regarder-cdm-au-travail" },
+    alternates: { canonical: "https://www.cdm2026.fr/regarder-cdm-au-travail" },
   };
 }
 
@@ -136,9 +136,9 @@ export default function RegarderCdmAuTravailPage() {
         <div className="space-y-4">
           <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-green-100green-900 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">1</span>
+              <span className="bg-green-100 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">1</span>
               <h3 className="font-bold">Poser un RTT ou une demi-journée</h3>
-              <span className="ml-auto text-xs bg-green-100green-900 text-green-700 px-2 py-0.5 rounded-full">100 % légal</span>
+              <span className="ml-auto text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">100 % légal</span>
             </div>
             <p className="text-sm text-gray-600">
               La solution la plus propre. Anticipez et posez votre journée dès que le calendrier des matchs est connu.
@@ -148,9 +148,9 @@ export default function RegarderCdmAuTravailPage() {
 
           <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-green-100green-900 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">2</span>
+              <span className="bg-green-100 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">2</span>
               <h3 className="font-bold">Négocier le télétravail</h3>
-              <span className="ml-auto text-xs bg-green-100green-900 text-green-700 px-2 py-0.5 rounded-full">Légal</span>
+              <span className="ml-auto text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Légal</span>
             </div>
             <p className="text-sm text-gray-600">
               Depuis le Covid, le télétravail est entré dans les m&oelig;urs. Proposez de travailler de chez vous les
@@ -161,9 +161,9 @@ export default function RegarderCdmAuTravailPage() {
 
           <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-yellow-100yellow-900 text-yellow-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">3</span>
+              <span className="bg-yellow-100 text-yellow-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">3</span>
               <h3 className="font-bold">La pause déjeuner prolongée</h3>
-              <span className="ml-auto text-xs bg-yellow-100yellow-900 text-yellow-700 px-2 py-0.5 rounded-full">Toléré</span>
+              <span className="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">Toléré</span>
             </div>
             <p className="text-sm text-gray-600">
               Pour les matchs de 14h, une pause déjeuner &laquo; étendue &raquo; peut faire l&apos;affaire. Certaines
@@ -174,9 +174,9 @@ export default function RegarderCdmAuTravailPage() {
 
           <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-orange-100orange-900 text-orange-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">4</span>
+              <span className="bg-orange-100 text-orange-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">4</span>
               <h3 className="font-bold">L&apos;écran collectif en salle de pause</h3>
-              <span className="ml-auto text-xs bg-orange-100orange-900 text-orange-700 px-2 py-0.5 rounded-full">Sur accord</span>
+              <span className="ml-auto text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">Sur accord</span>
             </div>
             <p className="text-sm text-gray-600">
               Proposez à votre direction d&apos;installer un écran dans un espace commun. C&apos;est bon pour la
@@ -187,9 +187,9 @@ export default function RegarderCdmAuTravailPage() {
 
           <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-red-100red-900 text-red-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">5</span>
+              <span className="bg-red-100 text-red-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">5</span>
               <h3 className="font-bold">Le live-tweet / notifications</h3>
-              <span className="ml-auto text-xs bg-red-100red-900 text-red-700 px-2 py-0.5 rounded-full">Risqué</span>
+              <span className="ml-auto text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full">Risqué</span>
             </div>
             <p className="text-sm text-gray-600">
               Quand vous ne pouvez vraiment pas regarder le match : activez les notifications de L&apos;Équipe ou

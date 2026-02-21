@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Paris combinés CDM 2026 — Le guide complet",
     description: "Combinés, system, Trixie : boostez vos gains CDM 2026 avec nos exemples et stratégies.",
-    url: "https://cdm2026.fr/paris-combines",
+    url: "https://www.cdm2026.fr/paris-combines",
   },
-  alternates: { canonical: "https://cdm2026.fr/paris-combines" },
+  alternates: { canonical: "https://www.cdm2026.fr/paris-combines" },
 };
 
 const types = [
@@ -205,7 +205,7 @@ export default function ParisCombinaPage() {
             <h2 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
               <CheckCircle className="h-6 w-6 text-green-500" /> Avantages
             </h2>
-            <div className="rounded-xl border border-green-200 bg-green-50green-900/10 p-5">
+            <div className="rounded-xl border border-green-200 bg-green-50 p-5">
               <ul className="space-y-2">
                 {avantages.map((a, i) => (
                   <li key={i} className="text-sm text-gray-700 flex gap-2">
@@ -219,7 +219,7 @@ export default function ParisCombinaPage() {
             <h2 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
               <XCircle className="h-6 w-6 text-red-500" /> Risques
             </h2>
-            <div className="rounded-xl border border-red-200 bg-red-50red-900/10 p-5">
+            <div className="rounded-xl border border-red-200 bg-red-50 p-5">
               <ul className="space-y-2">
                 {risques.map((r, i) => (
                   <li key={i} className="text-sm text-gray-700 flex gap-2">

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Paris mi-temps / fin de match CDM 2026",
     description: "Maîtrisez le marché HT/FT : stats CDM, cotes et stratégies.",
-    url: "https://cdm2026.fr/paris-mi-temps",
+    url: "https://www.cdm2026.fr/paris-mi-temps",
   },
-  alternates: { canonical: "https://cdm2026.fr/paris-mi-temps" },
+  alternates: { canonical: "https://www.cdm2026.fr/paris-mi-temps" },
 };
 
 const resultatsHtFt = [

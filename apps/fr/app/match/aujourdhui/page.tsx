@@ -100,7 +100,7 @@ export default function AujourdhuiPage() {
                   <p className="text-sm text-gray-500 mb-3">Prochain match :</p>
                   <Link
                     href={`/match/${nextMatch.slug}`}
-                    className="inline-block rounded-lg border border-gray-200 bg-gray-50-700 px-6 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                    className="inline-block rounded-lg border border-gray-200 bg-gray-50 px-6 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <p className="text-sm text-gray-500 mb-1">
                       {matchDate} a {nextMatch.time} UTC

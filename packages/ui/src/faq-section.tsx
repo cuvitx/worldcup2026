@@ -75,7 +75,7 @@ export function FAQSection({ title, items }: FAQSectionProps) {
             {items.map((item, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-gray-200 bg-whiteslate-800/60 overflow-hidden"
+                className="rounded-2xl border border-gray-200 bg-white overflow-hidden"
               >
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-bold text-gray-900 hover:text-primary transition-colors list-none">

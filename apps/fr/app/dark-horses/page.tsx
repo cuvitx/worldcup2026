@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Dark Horses CDM 2026 — Équipes Surprises & Outsiders",
   description:
     "Quelles équipes peuvent créer la surprise à la CDM 2026 ? Analyse du Maroc, Japon, USA, Colombie, Nigeria et Suisse. Cotes value et arguments.",
-  alternates: { canonical: "https://cdm2026.fr/dark-horses" },
+  alternates: { canonical: "https://www.cdm2026.fr/dark-horses" },
   openGraph: {
     title: "Dark Horses CDM 2026 — Équipes Surprises",
     description: "Maroc, Japon, USA, Colombie, Nigeria, Suisse : les outsiders de la CDM 2026.",
-    url: "https://cdm2026.fr/dark-horses",
+    url: "https://www.cdm2026.fr/dark-horses",
   },
 };
 

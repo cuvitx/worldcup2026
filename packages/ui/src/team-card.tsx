@@ -35,7 +35,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
     return (
       <Link
         href={`/equipe/${team.slug}`}
-        className="flex items-center gap-2.5 rounded-lg border border-gray-200 bg-whiteslate-800/60 px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm hover:bg-gray-50slate-700"
+        className="flex items-center gap-2.5 rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm hover:bg-gray-50"
       >
         <span className="text-2xl shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
         <div className="min-w-0 flex-1">
@@ -56,7 +56,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
   return (
     <Link
       href={`/equipe/${team.slug}`}
-      className="group relative flex items-center gap-4 rounded-xl border border-gray-200 bg-whiteslate-800 p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
+      className="group relative flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
     >
       {/* Ranking badge */}
       {team.fifaRanking > 0 && team.fifaRanking <= 10 && (

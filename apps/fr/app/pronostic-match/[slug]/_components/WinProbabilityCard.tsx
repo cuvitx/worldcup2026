@@ -50,7 +50,7 @@ export function WinProbabilityCard({
           title={`${homeName}: ${Math.round(prediction.team1WinProb * 100)}%`}
         />
         <div
-          className="h-full bg-gray-400gray-500 transition-all duration-700"
+          className="h-full bg-gray-400 transition-all duration-700"
           style={{ width: `${Math.round(prediction.drawProb * 100)}%` }}
           title={`Nul: ${Math.round(prediction.drawProb * 100)}%`}
         />

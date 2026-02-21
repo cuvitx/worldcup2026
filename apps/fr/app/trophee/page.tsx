@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Le Trophée de la Coupe du Monde FIFA — Histoire, poids, design",
   description:
     "Tout sur le trophée de la Coupe du Monde FIFA : 6.175 kg d'or 18 carats, histoire du trophée Jules Rimet, design de Silvio Gazzaniga, anecdotes.",
-  alternates: { canonical: "https://cdm2026.fr/trophee" },
+  alternates: { canonical: "https://www.cdm2026.fr/trophee" },
   openGraph: {
     title: "Le Trophée de la Coupe du Monde FIFA",
     description: "6.175 kg d'or 18 carats, 36.8 cm de haut. L'objet le plus convoité du sport mondial.",
-    url: "https://cdm2026.fr/trophee",
+    url: "https://www.cdm2026.fr/trophee",
   },
 };
 

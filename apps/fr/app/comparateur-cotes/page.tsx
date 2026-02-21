@@ -78,17 +78,6 @@ export default function ComparateurCotesPage() {
         }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
-            <li>/</li>
-            <li className="text-gray-900 font-medium">Comparateur de cotes</li>
-          </ol>
-        </div>
-      </nav>
-
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
@@ -140,7 +129,7 @@ export default function ComparateurCotesPage() {
             return (
               <div key={match.matchId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 {/* Match header */}
-                <div className="bg-gray-50gray-700 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200">
+                <div className="bg-gray-50 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200">
                   <div className="flex items-center gap-2 flex-wrap min-w-0">
                     <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded shrink-0">
                       Groupe {match.group}
@@ -167,7 +156,7 @@ export default function ComparateurCotesPage() {
                     <tbody>
                       {match.odds.map((o, idx) => (
                         <tr key={o.bookmaker} className={`border-t border-gray-100 hover:bg-gray-100 transition-colors ${
-                          idx % 2 === 0 ? "bg-gray-50/50slate-700/50" : "bg-white"
+                          idx % 2 === 0 ? "bg-gray-50/50" : "bg-white"
                         }`}>
                           <td className="px-4 py-2.5 font-medium text-gray-900">
                             <div className="flex items-center gap-2">
@@ -178,17 +167,17 @@ export default function ComparateurCotesPage() {
                             </div>
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.home === best.home ? "text-accent bg-accent/10accent/10" : "text-gray-700"
+                            o.home === best.home ? "text-accent bg-accent/10" : "text-gray-700"
                           }`}>
                             {o.home.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.draw === best.draw ? "text-accent bg-accent/10accent/10" : "text-gray-700"
+                            o.draw === best.draw ? "text-accent bg-accent/10" : "text-gray-700"
                           }`}>
                             {o.draw.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.away === best.away ? "text-accent bg-accent/10accent/10" : "text-gray-700"
+                            o.away === best.away ? "text-accent bg-accent/10" : "text-gray-700"
                           }`}>
                             {o.away.toFixed(2)}
                           </td>
@@ -217,7 +206,7 @@ export default function ComparateurCotesPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 p-4 bg-accent//10accent//10 border border-accent//30 rounded-lg text-sm text-accent">
+        <div className="mt-8 p-4 bg-accent/10 border border-accent/30 rounded-lg text-sm text-accent">
           <p className="font-semibold mb-1">Avertissement</p>
           <p>
             Cotes indicatives, susceptibles de varier. Les cotes affichées sont fournies à titre informatif et peuvent

@@ -73,7 +73,7 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
         <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
           <table className="w-full text-sm min-w-[480px]">
             <thead>
-              <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-700">
+              <tr className="bg-gray-50 text-xs uppercase text-gray-700">
                 <th className="text-left px-4 py-3 font-bold">Année</th>
                 <th className="text-left px-4 py-3 font-bold">Résultat</th>
                 <th className="text-left px-4 py-3 font-bold hidden sm:table-cell">Note</th>
@@ -85,12 +85,12 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
                   key={edition.year}
                   className={`border-t border-gray-100 ${
                     edition.result.includes("CHAMPION")
-                      ? "bg-primary/5secondary/10"
+                      ? "bg-primary/5"
                       : edition.result.includes("Finaliste")
-                      ? "bg-gray-50/50slate-800/50"
+                      ? "bg-gray-50/50"
                       : i % 2 === 0
                       ? "bg-white/30"
-                      : "bg-gray-50/30slate-800/60"
+                      : "bg-gray-50/30"
                   }`}
                 >
                   <td className="px-4 py-2.5 font-bold text-gray-900 whitespace-nowrap">

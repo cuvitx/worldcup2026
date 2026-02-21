@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Valise CDM 2026 — La checklist ultime du supporter",
     description: "Ne rien oublier pour la CDM 2026 : notre checklist par catégorie.",
-    url: "https://cdm2026.fr/valise-cdm",
+    url: "https://www.cdm2026.fr/valise-cdm",
   },
-  alternates: { canonical: "https://cdm2026.fr/valise-cdm" },
+  alternates: { canonical: "https://www.cdm2026.fr/valise-cdm" },
 };
 
 const categories = [
@@ -178,7 +178,7 @@ export default function ValisePageCDM() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <AlertTriangle className="h-7 w-7 text-red-500" /> Objets interdits dans les stades
           </h2>
-          <div className="rounded-xl border border-red-200 bg-red-50red-900/10 p-6">
+          <div className="rounded-xl border border-red-200 bg-red-50 p-6">
             <ul className="space-y-2">
               {interditsStade.map((item, i) => (
                 <li key={i} className="flex gap-3 text-sm text-gray-700">

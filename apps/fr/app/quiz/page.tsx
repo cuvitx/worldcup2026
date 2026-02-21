@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Quiz Coupe du Monde 2026 : 200+ questions sur l'histoire, les joueurs, les stades et les records. Testez-vous gratuitement !",
   alternates: {
-    canonical: "https://cdm2026.fr/quiz",
+    canonical: "https://www.cdm2026.fr/quiz",
   },
   openGraph: {
     title: "Quiz CDM 2026 | Êtes-vous vraiment incollable ?",
@@ -79,7 +79,7 @@ export default function QuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <nav className="bg-whitewhite/5 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>

@@ -64,9 +64,9 @@ function TeamSlot({
       onClick={onSelect}
       className={`w-full flex items-center gap-2 px-2.5 py-2 text-left transition-all ${
         isWinner
-          ? "bg-accent/10secondary/10 font-bold"
+          ? "bg-accent/10 font-bold"
           : canPick
-          ? "hover:bg-gray-50-700 cursor-pointer"
+          ? "hover:bg-gray-50 cursor-pointer"
           : "cursor-default opacity-60"
       }`}
     >

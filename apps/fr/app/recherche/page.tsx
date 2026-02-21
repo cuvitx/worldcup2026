@@ -9,12 +9,12 @@ export const metadata: Metadata = {
     "Recherchez parmi toutes les entités de la Coupe du Monde 2026 : 48 équipes, 966 joueurs, 16 stades, 104 matchs, 16 villes.",
   robots: { index: true, follow: true },
   alternates: {
-    canonical: "https://cdm2026.fr/recherche",
+    canonical: "https://www.cdm2026.fr/recherche",
   },
   openGraph: {
     title: "Recherche CDM 2026",
     description: "Trouvez une équipe, un joueur, un stade ou un match de la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/recherche",
+    url: "https://www.cdm2026.fr/recherche",
   },
 };
 
@@ -56,7 +56,7 @@ export default function RecherchePage() {
               key={s.label}
               className="group relative bg-white rounded-2xl border border-gray-200 p-4 sm:p-5 text-center hover:border-accent/40 hover:shadow-md transition-all"
             >
-              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-primary/10secondary/10 flex items-center justify-center">
+              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary" dangerouslySetInnerHTML={{ __html: s.icon }} />
               </div>
               <div className="font-extrabold text-gray-900 text-2xl leading-tight">

@@ -115,15 +115,15 @@ export default function ButeursPage() {
               const barPct = Math.round((scorer.goals / maxGoals) * 100);
               const medal = idx === 0 ? "" : idx === 1 ? "" : idx === 2 ? "" : null;
               const barColor =
-                idx === 0 ? "bg-gradient-to-r from-accent to-accent//70" :
+                idx === 0 ? "bg-gradient-to-r from-accent to-accent/70" :
                 idx === 1 ? "bg-gradient-to-r from-slate-400 to-gray-300" :
-                idx === 2 ? "bg-gradient-to-r from-accent//80 to-accent//60" :
+                idx === 2 ? "bg-gradient-to-r from-accent/80 to-accent/60" :
                 "bg-gradient-to-r from-blue-500 to-blue-400";
 
               return (
                 <div
                   key={`${scorer.name}-${idx}`}
-                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-accent//5accent//5" : ""}`}
+                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-accent/5" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     {/* Rang */}
@@ -150,7 +150,7 @@ export default function ButeursPage() {
                       </div>
                       {/* Barre visuelle */}
                       <div className="mt-1.5 flex items-center gap-2">
-                        <div className="flex-1 h-2 bg-gray-100-700 rounded-full overflow-hidden">
+                        <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${barColor}`}
                             style={{ width: `${barPct}%` }}
@@ -198,9 +198,9 @@ export default function ButeursPage() {
               const team = teamsById[candidate.teamId];
               const medal = idx === 0 ? "" : idx === 1 ? "" : idx === 2 ? "" : `${idx + 1}.`;
               const podiumBg =
-                idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent//5" :
+                idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent/5" :
                 idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50" :
-                idx === 2 ? "bg-gradient-to-r from-accent//5 to-accent//5" :
+                idx === 2 ? "bg-gradient-to-r from-accent/5 to-accent/5" :
                 "bg-white";
               const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
               const bestBookmakerOdds = Math.max(candidate.winamax, candidate.betclic, candidate.draftkings);
@@ -242,7 +242,7 @@ export default function ButeursPage() {
                         </div>
                         {/* Bar */}
                         <div className="flex-1 flex flex-col justify-center min-w-[100px]">
-                          <div className="h-2 bg-gray-100-700 rounded-full overflow-hidden">
+                          <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-accent rounded-full"
                               style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
@@ -268,19 +268,19 @@ export default function ButeursPage() {
                       <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5primary/10 border-primary/20"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5 border-primary/20"}`}>
                         <span className="text-xs font-semibold text-primary">Winamax</span>
                         <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-accent" : "text-primary"}`}>
                           {candidate.winamax.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10secondary/10 border-primary/30"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10 border-primary/30"}`}>
                         <span className="text-xs font-semibold text-accent">Betclic</span>
                         <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-accent" : "text-accent"}`}>
                           {candidate.betclic.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5field/10 border-field/10"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5 border-field/10"}`}>
                         <span className="text-xs font-semibold text-field">DraftKings</span>
                         <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-accent" : "text-field"}`}>
                           {candidate.draftkings.toFixed(2)}

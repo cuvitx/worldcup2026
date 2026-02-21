@@ -123,7 +123,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
       aria-modal="true"
       aria-label="Newsletter"
     >
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow relative w-full max-w-md">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow relative w-full max-w-md">
         <button
           onClick={dismiss}
           className="absolute top-3 right-3 rounded-full p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
@@ -163,7 +163,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
                 aria-label="Votre adresse email"
                 required
                 disabled={status === "loading"}
-                className="w-full rounded-lg border border-gray-300 bg-whitegray-700 px-4 py-3 text-gray-900 placeholder-gray-400 outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-60"
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-60"
               />
               <button
                 type="submit"

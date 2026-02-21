@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: "Format CDM 2026 - Nouveau système à 48 équipes",
     description:
       "Découvrez le nouveau format de la Coupe du Monde 2026 : 48 équipes, 12 groupes, 104 matchs. Phases, qualifications et bracket.",
-    url: "https://cdm2026.fr/format",
+    url: "https://www.cdm2026.fr/format",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/format",
+    canonical: "https://www.cdm2026.fr/format",
   },
 };
 
@@ -128,7 +128,7 @@ export default function FormatPage() {
                     </div>
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((g) => (
-                        <div key={g} className="bg-gray-50-900 rounded px-2 py-1.5 text-center font-semibold text-gray-900">
+                        <div key={g} className="bg-gray-50 rounded px-2 py-1.5 text-center font-semibold text-gray-900">
                           Groupe {g}
                         </div>
                       ))}
@@ -234,7 +234,7 @@ export default function FormatPage() {
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50-900">
+                  <thead className="bg-gray-50">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Critère
@@ -307,7 +307,7 @@ export default function FormatPage() {
                   </li>
                 ))}
               </ol>
-              <div className="mt-5 p-4 bg-blue-50blue-900/20 rounded-lg border border-blue-100">
+              <div className="mt-5 p-4 bg-blue-50 rounded-lg border border-blue-100">
                 <p className="text-sm text-gray-700">
                   <strong className="text-accent">Important :</strong> Seuls les 8 meilleurs troisièmes sur 12 se qualifient.
                   Finir 3e de son groupe ne garantit donc PAS automatiquement la qualification, contrairement au format Euro
@@ -440,7 +440,7 @@ export default function FormatPage() {
             "@type": "WebPage",
             name: "Format Coupe du Monde 2026 - 48 équipes, 12 groupes",
             description: "Format révolutionnaire de la CDM 2026 : 48 équipes, 12 groupes de 4, phases éliminatoires et bracket complet.",
-            url: "https://cdm2026.fr/format",
+            url: "https://www.cdm2026.fr/format",
           }),
         }}
       />

@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Arbitres CDM 2026 — Liste FIFA, nationalités et statistiques",
   description:
     "Liste des arbitres désignés par la FIFA pour la Coupe du Monde 2026. Nationalité, expérience, statistiques de cartons par match.",
-  alternates: { canonical: "https://cdm2026.fr/arbitres" },
+  alternates: { canonical: "https://www.cdm2026.fr/arbitres" },
   openGraph: {
     title: "Arbitres CDM 2026 — Liste officielle FIFA",
     description: "Qui arbitrera la Coupe du Monde 2026 ? Liste, stats et profils des arbitres FIFA.",
-    url: "https://cdm2026.fr/arbitres",
+    url: "https://www.cdm2026.fr/arbitres",
   },
 };
 
@@ -100,7 +100,7 @@ export default function ArbitresPage() {
                 {referees.map((r, i) => (
                   <tr
                     key={r.name}
-                    className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
+                    className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}
                   >
                     <td className="py-3 px-4 font-medium">{r.name}</td>
                     <td className="py-3 px-4 flex items-center gap-2">

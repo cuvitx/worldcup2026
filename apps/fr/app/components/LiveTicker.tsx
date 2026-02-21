@@ -114,7 +114,7 @@ export function LiveTicker() {
     : "";
 
   return (
-    <div className="sticky top-[64px] z-40 w-full backdrop-blur-md bg-white/80slate-900/80 border-b border-gray-200/50">
+    <div className="sticky top-[64px] z-40 w-full backdrop-blur-md bg-white/80 border-b border-gray-200/50">
       <div className="mx-auto max-w-7xl flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm">
         <Link
           href={`/match/${nextMatch.slug}`}

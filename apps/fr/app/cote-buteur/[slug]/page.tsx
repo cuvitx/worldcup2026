@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Cote ${player.name} Buteur CDM 2026 — Pronostic et Analyse`,
     description: `Cotes buteur de ${player.name} pour la Coupe du Monde 2026 : marquer un but, meilleur buteur. Comparatif Winamax, Betclic, Unibet.`,
-    alternates: { canonical: `https://cdm2026.fr/cote-buteur/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/cote-buteur/${slug}` },
   };
 }
 

@@ -13,7 +13,7 @@ export function CtaSection() {
           </Link>
           <Link
             href="/equipe/france"
-            className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5secondary/10 px-6 py-3 font-semibold text-primary hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-6 py-3 font-semibold text-primary hover:-translate-y-0.5 transition-all"
           >
             🇫🇷 Pronostic France
           </Link>

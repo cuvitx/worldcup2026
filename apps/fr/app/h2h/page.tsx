@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Comparez deux équipes de la Coupe du Monde 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
   alternates: {
-    canonical: "https://cdm2026.fr/h2h",
+    canonical: "https://www.cdm2026.fr/h2h",
   },
   openGraph: {
     title: "Confrontations H2H — CDM 2026",
@@ -84,7 +84,7 @@ export default function H2HIndexPage() {
       </section>
 
       {/* Team Selector */}
-      <section className="bg-gray-50 py-10 sm:py-12slate-800/50">
+      <section className="bg-gray-50 py-10 sm:py-12">
         <div className="mx-auto max-w-3xl px-4">
           <H2HSelector teams={teamList} />
         </div>

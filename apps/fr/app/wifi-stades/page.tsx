@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Connectivité stades CDM 2026 — WiFi, 5G et apps",
     description: "Restez connecté pendant les matchs : WiFi FIFA, 5G, apps utiles.",
-    url: "https://cdm2026.fr/wifi-stades",
+    url: "https://www.cdm2026.fr/wifi-stades",
   },
-  alternates: { canonical: "https://cdm2026.fr/wifi-stades" },
+  alternates: { canonical: "https://www.cdm2026.fr/wifi-stades" },
 };
 
 const stades5g = [

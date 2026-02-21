@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Budget CDM 2026 - Guide complet des coûts",
     description: "Combien coûte un voyage pour la Coupe du Monde 2026 ? Estimations détaillées.",
-    url: "https://cdm2026.fr/budget",
+    url: "https://www.cdm2026.fr/budget",
   },
-  alternates: { canonical: "https://cdm2026.fr/budget" },
+  alternates: { canonical: "https://www.cdm2026.fr/budget" },
 };
 
 const postes = [
@@ -121,15 +121,15 @@ export default function BudgetPage() {
                   <h3 className="text-lg font-semibold text-gray-900">{p.titre}</h3>
                 </div>
                 <div className="grid grid-cols-3 gap-3 mb-3">
-                  <div className="rounded-lg bg-green-50green-900/20 p-3 text-center">
+                  <div className="rounded-lg bg-green-50 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Budget</p>
                     <p className="font-bold text-accent">{p.budget}</p>
                   </div>
-                  <div className="rounded-lg bg-yellow-50yellow-900/20 p-3 text-center">
+                  <div className="rounded-lg bg-yellow-50 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Moyen</p>
                     <p className="font-bold text-secondary">{p.moyen}</p>
                   </div>
-                  <div className="rounded-lg bg-red-50red-900/20 p-3 text-center">
+                  <div className="rounded-lg bg-red-50 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Premium</p>
                     <p className="font-bold text-red-500">{p.premium}</p>
                   </div>

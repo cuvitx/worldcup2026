@@ -163,11 +163,11 @@ export function Page() {
           { name: "Accueil", url: "/" },
           { name: "Équipes", url: "/equipes" }
         ]}
-        baseUrl="https://cdm2026.fr"
+        baseUrl="https://www.cdm2026.fr"
       />
       
       <OrganizationSchema
-        url="https://cdm2026.fr"
+        url="https://www.cdm2026.fr"
         name="CDM2026"
       />
       

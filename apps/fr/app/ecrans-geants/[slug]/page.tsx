@@ -243,7 +243,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Fan zones, bars et places publiques pour voir les matchs de la CDM 2026 à ${data.name}.`,
       url: `${domains.fr}/ecrans-geants/${slug}`,
       },
-    alternates: { canonical: `https://cdm2026.fr/ecrans-geants/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/ecrans-geants/${slug}` },
   };
 }
 
@@ -369,7 +369,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
               <a
                 key={s}
                 href={`/ecrans-geants/${s}`}
-                className="text-sm bg-gray-100-700 px-3 py-1.5 rounded-full hover:bg-[#00B865] hover:text-white transition-colors"
+                className="text-sm bg-gray-100 px-3 py-1.5 rounded-full hover:bg-[#00B865] hover:text-white transition-colors"
               >
                 {cityData[s]?.name ?? s}
               </a>

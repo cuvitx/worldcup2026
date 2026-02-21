@@ -85,7 +85,7 @@ export default function PolitiqueConfidentialitePage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse border border-gray-200">
                 <thead>
-                  <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
+                  <tr className="bg-gray-50 text-xs uppercase text-gray-500">
                     <th className="border border-gray-200 px-4 py-2 text-left font-semibold">Données</th>
                     <th className="border border-gray-200 px-4 py-2 text-left font-semibold">Finalité</th>
                     <th className="border border-gray-200 px-4 py-2 text-left font-semibold">Base légale</th>
@@ -97,7 +97,7 @@ export default function PolitiqueConfidentialitePage() {
                     <td className="border border-gray-200 px-4 py-2">Analyse d&apos;audience, sécurité</td>
                     <td className="border border-gray-200 px-4 py-2">Intérêt légitime</td>
                   </tr>
-                  <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
+                  <tr className="bg-gray-50 text-xs uppercase text-gray-500">
                     <td className="border border-gray-200 px-4 py-2">Données de navigation (pages vues, durée)</td>
                     <td className="border border-gray-200 px-4 py-2">Amélioration du service</td>
                     <td className="border border-gray-200 px-4 py-2">Consentement</td>
@@ -107,7 +107,7 @@ export default function PolitiqueConfidentialitePage() {
                     <td className="border border-gray-200 px-4 py-2">Personnalisation</td>
                     <td className="border border-gray-200 px-4 py-2">Intérêt légitime</td>
                   </tr>
-                  <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
+                  <tr className="bg-gray-50 text-xs uppercase text-gray-500">
                     <td className="border border-gray-200 px-4 py-2">Adresse email (newsletter)</td>
                     <td className="border border-gray-200 px-4 py-2">Envoi de la newsletter</td>
                     <td className="border border-gray-200 px-4 py-2">Consentement</td>

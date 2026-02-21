@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Découvrez notre méthodologie de pronostics pour la Coupe du Monde 2026 : modèle ELO, pipeline IA triple-tier, facteurs d'analyse et transparence sur nos prédictions.",
   alternates: {
-    canonical: "https://cdm2026.fr/methodologie",
+    canonical: "https://www.cdm2026.fr/methodologie",
   },
   openGraph: {
     title: "Notre méthodologie | Pronostics CDM 2026",
@@ -55,7 +55,7 @@ export default function MethodologiePage() {
             fonction du résultat et de la force de l&apos;adversaire.
           </p>
 
-          <div className="rounded-lg bg-gray-50gray-700 p-5 mb-4">
+          <div className="rounded-lg bg-gray-50 p-5 mb-4">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Formule simplifiée</h3>
             <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200">
               <p>
@@ -80,7 +80,7 @@ export default function MethodologiePage() {
             </ul>
           </div>
 
-          <div className="rounded-lg bg-gray-50gray-700 p-5">
+          <div className="rounded-lg bg-gray-50 p-5">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Score attendu (Expected Score)</h3>
             <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200">
               <p>
@@ -160,7 +160,7 @@ export default function MethodologiePage() {
             </div>
           </div>
 
-          <div className="mt-6 rounded-lg bg-gray-50gray-700 p-4">
+          <div className="mt-6 rounded-lg bg-gray-50 p-4">
             <p className="text-sm text-gray-600 text-center">
               <strong>Flux :</strong> Données brutes → Gemini (fact-check) →
               Claude (analyse experte) → GPT (structuration) → Pronostic final
@@ -258,7 +258,7 @@ export default function MethodologiePage() {
             <p>
               Les cotes estimées sont dérivées des probabilités selon la formule :
             </p>
-            <div className="rounded-lg bg-gray-50gray-700 p-4">
+            <div className="rounded-lg bg-gray-50 p-4">
               <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200 text-center">
                 Cote = 1 / Probabilité
               </div>

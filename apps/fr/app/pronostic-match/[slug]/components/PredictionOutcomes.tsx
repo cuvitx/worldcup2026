@@ -41,7 +41,7 @@ export function PredictionOutcomes({
                 className={`relative rounded-xl p-4 text-center transition-all ${
                   isHighlighted
                     ? "bg-primary/8 border-2 border-primary/20"
-                    : "bg-gray-50gray-700/50 border border-gray-200"
+                    : "bg-gray-50 border border-gray-200"
                 }`}
               >
                 {isHighlighted && (
@@ -80,7 +80,7 @@ export function PredictionOutcomes({
                 <div className="mt-3 h-1.5 w-full rounded-full bg-gray-200 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${
-                      isHighlighted ? "bg-primary" : "bg-gray-400gray-500"
+                      isHighlighted ? "bg-primary" : "bg-gray-400"
                     }`}
                     style={{ width: `${pct}%` }}
                   />
@@ -103,7 +103,7 @@ export function PredictionOutcomes({
                 <div className="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${
-                      isHighlighted ? "bg-primary" : "bg-gray-400gray-500"
+                      isHighlighted ? "bg-primary" : "bg-gray-400"
                     }`}
                     style={{ width: `${pct}%` }}
                   />

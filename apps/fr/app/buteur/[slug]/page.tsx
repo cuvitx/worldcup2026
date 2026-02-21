@@ -133,22 +133,22 @@ export default async function ButeurPage({ params }: PageProps) {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">Buteur a tout moment (1+ but)</td>
                         <td className="py-3 text-right">{(scorer.anytimeScorerProb * 100).toFixed(1)}%</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over05GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">2+ buts dans le tournoi</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over15GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">3+ buts dans le tournoi</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500 bg-accent/5">
+                      <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500 bg-accent/5">
                         <td className="py-3 font-bold">Meilleur buteur CDM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
                         <td className="py-3 text-right font-extrabold text-accent">{scorer.topScorerOdds}</td>
@@ -413,7 +413,7 @@ export default async function ButeurPage({ params }: PageProps) {
               name: team?.name ?? "",
             },
             description: `Cote buteur ${player.name} pour la CDM 2026. ${player.goals} buts en ${player.caps} selections.`,
-            url: `https://cdm2026.fr/buteur/${player.slug}`,
+            url: `https://www.cdm2026.fr/buteur/${player.slug}`,
           }),
         }}
       />

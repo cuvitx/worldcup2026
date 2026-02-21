@@ -13,9 +13,9 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "Plan du site - Paris sportifs CDM 2026",
       description: "Bookmakers, bonus, guides de paris et player props pour le Mondial 2026.",
-      url: "https://cdm2026.fr/plan-du-site/paris",
+      url: "https://www.cdm2026.fr/plan-du-site/paris",
     },
-    alternates: { canonical: "https://cdm2026.fr/plan-du-site/paris" },
+    alternates: { canonical: "https://www.cdm2026.fr/plan-du-site/paris" },
   };
 }
 

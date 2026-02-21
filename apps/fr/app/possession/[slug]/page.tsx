@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Qui aura la possession ? ${home} vs ${away} — CDM 2026`,
     description: `Analyse possession ${home} vs ${away} à la Coupe du Monde 2026 : stats historiques, cotes possession >55%, tactiques et pronostics paris.`,
-    alternates: { canonical: `https://cdm2026.fr/possession/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/possession/${slug}` },
   };
 }
 

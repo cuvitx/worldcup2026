@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tableau final virtuel - CDM 2026",
     description: "Bracket interactif des phases éliminatoires de la CDM 2026.",
-    url: "https://cdm2026.fr/tableau-final-virtuel",
+    url: "https://www.cdm2026.fr/tableau-final-virtuel",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/tableau-final-virtuel",
+    canonical: "https://www.cdm2026.fr/tableau-final-virtuel",
   },
 };
 

@@ -22,7 +22,6 @@ import { PremiumPronostic } from "./_components/PremiumPronostic";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
 import { PremiumFinalCTA } from "./_components/PremiumFinalCTA";
-import { ContextualSidebar } from "../../components/ContextualSidebar";
 import { TeamQuickNav } from "../../components/TeamQuickNav";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
 
@@ -45,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const iso = getISOCode(slug);
   const ogImages = iso
     ? [{ url: `https://flagcdn.com/w320/${iso}.png`, width: 320, height: 213, alt: `Drapeau de ${team.name}` }]
-    : [{ url: "https://cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
+    : [{ url: "https://www.cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
     title: `${team.name} CDM 2026 — Effectif, Calendrier & Pronostics`,
@@ -216,7 +215,7 @@ export default async function TeamPage({ params }: PageProps) {
 
       {/* Quick Nav & Sidebar */}
       <TeamQuickNav teamSlug={team.slug} />
-      <ContextualSidebar />
+      
 
       {/* Final CTA */}
       <PremiumFinalCTA team={team} />

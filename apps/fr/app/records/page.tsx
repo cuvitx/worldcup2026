@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Records Coupe du Monde FIFA — Buteurs, sélections, statistiques historiques",
   description:
     "Tous les records de la Coupe du Monde FIFA : meilleurs buteurs (Klose 16), plus jeune buteur, gardien le plus efficace, score le plus large, et bien plus.",
-  alternates: { canonical: "https://cdm2026.fr/records" },
+  alternates: { canonical: "https://www.cdm2026.fr/records" },
   openGraph: {
     title: "Records de la Coupe du Monde FIFA",
     description: "Klose 16 buts, Pelé 17 ans, Hongrie-Salvador 10-1... Tous les records historiques.",
-    url: "https://cdm2026.fr/records",
+    url: "https://www.cdm2026.fr/records",
   },
 };
 
@@ -137,7 +137,7 @@ export default function RecordsPage() {
                   {cat.records.map((r, i) => (
                     <tr
                       key={r.label}
-                      className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
+                      className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}
                     >
                       <td className="py-3 px-4 font-medium">{r.label}</td>
                       <td className="py-3 px-4 font-bold text-accent">{r.value}</td>

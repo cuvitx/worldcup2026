@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Huitièmes de finale CDM 2026",
     description: "Tout sur les huitièmes de finale de la Coupe du Monde 2026 : dates, format et analyse.",
-    url: "https://cdm2026.fr/8emes-de-finale",
+    url: "https://www.cdm2026.fr/8emes-de-finale",
   },
-  alternates: { canonical: "https://cdm2026.fr/8emes-de-finale" },
+  alternates: { canonical: "https://www.cdm2026.fr/8emes-de-finale" },
 };
 
 const faqItems = [

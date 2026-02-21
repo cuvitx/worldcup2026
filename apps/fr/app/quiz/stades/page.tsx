@@ -130,7 +130,7 @@ export default function QuizStadesPage() {
         <div className="max-w-lg w-full text-center space-y-8">
           <div>
             <p className="text-sm text-gray-500 mb-2">Quel est ce stade ?</p>
-            <div className="rounded-xl bg-gray-50gray-800 border border-gray-200 p-6 text-left space-y-3">
+            <div className="rounded-xl bg-gray-50 border border-gray-200 p-6 text-left space-y-3">
               <p className="text-sm text-gray-700 leading-relaxed">{stadium.hint}</p>
               <div className="flex items-center gap-4 text-xs text-gray-500">
                 <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {stadium.city}</span>
@@ -143,8 +143,8 @@ export default function QuizStadesPage() {
             {choices.map((choice) => {
               let cls = "border border-gray-200 hover:border-accent";
               if (selected) {
-                if (choice === stadium.name) cls = "border-2 border-green-500 bg-green-50green-900/20";
-                else if (choice === selected) cls = "border-2 border-red-500 bg-red-50red-900/20";
+                if (choice === stadium.name) cls = "border-2 border-green-500 bg-green-50";
+                else if (choice === selected) cls = "border-2 border-red-500 bg-red-50";
                 else cls = "border border-gray-200 opacity-50";
               }
               return (

@@ -101,7 +101,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             sport: "Football",
             memberOf: { "@type": "SportsOrganization", name: "FIFA World Cup 2026" },
             description: `Pronostic et cotes pour ${team.name}à la Coupe du Monde 2026. Rating ELO : ${prediction?.eloRating ?? "N/A"}.`,
-            url: `https://cdm2026.fr/pronostic/${team.slug}`,
+            url: `https://www.cdm2026.fr/pronostic/${team.slug}`,
           }),
         }}
       />

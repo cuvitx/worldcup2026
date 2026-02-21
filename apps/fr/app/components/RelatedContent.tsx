@@ -14,16 +14,16 @@ interface RelatedContentProps {
   title?: string;
 }
 
-export function RelatedContent({ items, title = 'Vous pourriez aussi aimer' }: RelatedContentProps) {
+export function RelatedContent({ items, title = 'À explorer aussi' }: RelatedContentProps) {
   if (!items.length) return null;
 
   return (
-    <section className="mt-10 border-t border-gray-200 pt-8">
-      <h2 className="text-lg font-bold text-gray-900 mb-4">
+    <section className="mt-10 border-t border-gray-200 dark:border-gray-700 pt-8">
+      <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
         {title}
       </h2>
       <div className="grid gap-3 sm:grid-cols-2">
-        {items.slice(0, 4).map((item) => (
+        {items.slice(0, 6).map((item) => (
           <Link
             key={item.href}
             href={item.href}

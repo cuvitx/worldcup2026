@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Mon profil CDM 2026",
     description:
       "Vos stats, badges et streak CDM 2026 — sans compte, tout est stocké en local.",
-    url: "https://cdm2026.fr/profil",
+    url: "https://www.cdm2026.fr/profil",
     siteName: "CDM 2026",
     locale: "fr_FR",
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     index: false, // page personnalisée → pas utile en SEO
     follow: false,
   },
-  alternates: { canonical: "https://cdm2026.fr/profil" },
+  alternates: { canonical: "https://www.cdm2026.fr/profil" },
 };
 
 export default function ProfilLayout({

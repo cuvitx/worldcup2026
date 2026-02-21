@@ -28,7 +28,7 @@ export function ProbabilitiesTable() {
                 const team = teamsById[pred.teamId];
                 if (!team) return null;
                 return (
-                  <tr key={pred.teamId} className="hover:bg-gray-50-700 transition-colors">
+                  <tr key={pred.teamId} className="hover:bg-gray-50 transition-colors">
                     <td className="py-2.5">
                       <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary text-gray-900">
                         <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>

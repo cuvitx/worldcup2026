@@ -30,7 +30,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
         type="button"
         onClick={() => scroll("left")}
         aria-label="Défiler à gauche"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90slate-800/90 border border-gray-200 shadow-xl text-gray-700 hover:bg-white backdrop-blur-sm text-xl font-bold"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-gray-200 shadow-xl text-gray-700 hover:bg-white backdrop-blur-sm text-xl font-bold"
       >
         ‹
       </button>
@@ -38,7 +38,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
         type="button"
         onClick={() => scroll("right")}
         aria-label="Défiler à droite"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90slate-800/90 border border-gray-200 shadow-xl text-gray-700 hover:bg-white backdrop-blur-sm text-xl font-bold"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-gray-200 shadow-xl text-gray-700 hover:bg-white backdrop-blur-sm text-xl font-bold"
       >
         ›
       </button>

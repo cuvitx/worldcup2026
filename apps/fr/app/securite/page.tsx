@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sécurité CDM 2026 - Guide par ville",
     description: "Conseils sécurité pour voyager pendant la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/securite",
+    url: "https://www.cdm2026.fr/securite",
   },
-  alternates: { canonical: "https://cdm2026.fr/securite" },
+  alternates: { canonical: "https://www.cdm2026.fr/securite" },
 };
 
 const urgences = [
@@ -94,7 +94,7 @@ export default function SecuritePage() {
             <AlertTriangle className="h-6 w-6 text-amber-500" />
             <h2 className="text-2xl font-bold text-gray-900">Focus Mexique</h2>
           </div>
-          <div className="rounded-xl border border-amber-200 bg-amber-50amber-900/20 p-6 space-y-3 text-sm">
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 space-y-3 text-sm">
             <p className="text-amber-900">
               Les 3 villes hôtes mexicaines (Mexico, Guadalajara, Monterrey) sont des métropoles
               modernes avec des infrastructures touristiques développées. Cependant, certaines

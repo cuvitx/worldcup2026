@@ -46,9 +46,9 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
                 <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
                   <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                     index === 0 ? "bg-accent/20 text-accent border-2 border-accent/50" :
-                    index === 1 ? "bg-gray-200-600 text-gray-700" :
-                    index === 2 ? "bg-primary/10primary/20 text-primary" :
-                    "bg-gray-100-700 text-gray-600"
+                    index === 1 ? "bg-gray-200 text-gray-700" :
+                    index === 2 ? "bg-primary/10 text-primary" :
+                    "bg-gray-100 text-gray-600"
                   }`}>
                     {index + 1}
                   </div>
@@ -79,14 +79,14 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
 
                   {/* Key info */}
                   <div className="space-y-3">
-                    <div className="rounded-xl bg-accent/5secondary/10 border border-accent/10 p-3">
+                    <div className="rounded-xl bg-accent/5 border border-accent/10 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-wide text-accent mb-1">
                         Joueur clé
                       </p>
                       <p className="text-sm font-bold text-gray-900">{analysis.keyPlayer}</p>
                       <p className="text-xs text-gray-600 mt-0.5">{analysis.keyPlayerDesc}</p>
                     </div>
-                    <div className="rounded-xl bg-primary/5primary/10 border border-primary/10 p-3">
+                    <div className="rounded-xl bg-primary/5 border border-primary/10 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-wide text-primary mb-1">
                         Avantage tactique
                       </p>

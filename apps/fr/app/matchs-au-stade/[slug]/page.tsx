@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Tous les matchs au ${stadium.name} — CDM 2026`,
     description: `${matchCount} matchs programmés au ${stadium.name} (${stadium.city}) pour la Coupe du Monde 2026. Calendrier complet, horaires et équipes.`,
-    alternates: { canonical: `https://cdm2026.fr/matchs-au-stade/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/matchs-au-stade/${slug}` },
   };
 }
 

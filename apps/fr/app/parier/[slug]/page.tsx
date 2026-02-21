@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Cotes, pronostics et bonus pour parier sur ${team.name} à la Coupe du Monde 2026.`,
       url: `${domains.fr}/parier/${team.slug}`,
       },
-    alternates: { canonical: `https://cdm2026.fr/parier/${team.slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/parier/${team.slug}` },
   };
 }
 

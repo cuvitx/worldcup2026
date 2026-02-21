@@ -15,7 +15,7 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
         <p className="text-3xl font-extrabold text-primary sm:text-5xl">{eloRating}</p>
         <p className="text-sm text-gray-500 pb-1">points ELO</p>
       </div>
-      <div className="relative h-4 rounded-full bg-gray-200-700 overflow-hidden">
+      <div className="relative h-4 rounded-full bg-gray-200 overflow-hidden">
         <div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{

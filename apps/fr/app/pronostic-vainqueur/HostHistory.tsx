@@ -36,7 +36,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
             <p className="text-sm text-gray-600 font-medium">taux de victoire à domicile</p>
             <p className="text-xs text-gray-500 mt-1">Avantage terrain non négligeable</p>
           </Card>
-          <div className="rounded-xl border border-accent/30 bg-accent/10accent/10 p-5 text-center">
+          <div className="rounded-xl border border-accent/30 bg-accent/10 p-5 text-center">
             <p className="text-4xl font-extrabold text-accent mb-1">3</p>
             <p className="text-sm text-accent font-medium">pays hôtes en 2026</p>
             <p className="text-xs text-accent/70 mt-1">USA, Canada, Mexique — triple avantage terrain</p>
@@ -52,7 +52,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
             {cdmHomeStats.filter((s) => s.hostWon).map((s) => (
               <div
                 key={s.year}
-                className="flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/5secondary/10 p-4"
+                className="flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/5 p-4"
               >
                 <span className="text-3xl">{s.hostFlag}</span>
                 <div>
@@ -76,7 +76,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-xs">
               <thead>
-                <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500text-gray-700">
+                <tr className="bg-gray-50 text-xs uppercase text-gray-500text-gray-700">
                   <th className="text-left px-3 py-2">Année</th>
                   <th className="text-left px-3 py-2">Hôte</th>
                   <th className="text-left px-3 py-2">Vainqueur</th>
@@ -90,8 +90,8 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
                     key={s.year}
                     className={`border-t border-gray-100 ${
                       s.hostWon
-                        ? "bg-primary/5secondary/10"
-                        : i % 2 === 0 ? "bg-white/50" : "bg-gray-50/50slate-800"
+                        ? "bg-primary/5"
+                        : i % 2 === 0 ? "bg-white/50" : "bg-gray-50/50"
                     }`}
                   >
                     <td className="px-3 py-2 font-bold text-gray-900">{s.year}</td>
@@ -114,7 +114,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
         </details>
 
         {/* Impact pour 2026 */}
-        <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5secondary/10 p-5">
+        <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5">
           <h3 className="text-lg font-semibold text-gray-900 text-primary mb-2">
             <Telescope className="h-5 w-5 inline-block" /> Implications pour 2026 : États-Unis, Canada, Mexique
           </h3>

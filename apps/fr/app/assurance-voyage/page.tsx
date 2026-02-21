@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Chapka, ACS, Allianz, Mondial Assistance : quelle assurance choisir pour la CDM 2026 ?",
       url: `${domains.fr}/assurance-voyage`,
     },
-    alternates: { canonical: "https://cdm2026.fr/assurance-voyage" },
+    alternates: { canonical: "https://www.cdm2026.fr/assurance-voyage" },
   };
 }
 
@@ -145,17 +145,17 @@ export default function AssuranceVoyagePage() {
           Pourquoi c&apos;est indispensable
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-red-200 bg-red-50red-900/20 p-5 text-center">
+          <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-center">
             <DollarSign className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-2xl font-extrabold text-red-600">3 000 - 5 000 $</p>
             <p className="text-sm text-gray-600 mt-1">Consultation urgences USA</p>
           </div>
-          <div className="rounded-xl border border-red-200 bg-red-50red-900/20 p-5 text-center">
+          <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-center">
             <HeartPulse className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-2xl font-extrabold text-red-600">20 000 - 50 000 $</p>
             <p className="text-sm text-gray-600 mt-1">Fracture + hospitalisation</p>
           </div>
-          <div className="rounded-xl border border-red-200 bg-red-50red-900/20 p-5 text-center">
+          <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-center">
             <Plane className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-2xl font-extrabold text-red-600">15 000 - 30 000 $</p>
             <p className="text-sm text-gray-600 mt-1">Rapatriement sanitaire</p>

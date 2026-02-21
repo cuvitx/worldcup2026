@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: `${domains.fr}/sur-quelle-chaine/${slug}`,
       },
-    alternates: { canonical: `https://cdm2026.fr/sur-quelle-chaine/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/sur-quelle-chaine/${slug}` },
   };
 }
 
@@ -205,11 +205,11 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-100 bg-green-50/50green-900/10">
+                    <tr className="border-b border-gray-100 bg-green-50/50">
                       <td className="py-3 px-4 font-semibold text-gray-900">{frenchChannel.name}</td>
                       <td className="py-3 px-4 text-gray-600">{frenchChannel.type}</td>
                       <td className="py-3 px-4">
-                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${frenchChannel.free ? "bg-green-100 text-green-800green-900/30" : "bg-amber-100 text-amber-800amber-900/30"}`}>
+                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${frenchChannel.free ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800"}`}>
                           {frenchChannel.free ? " Gratuit" : " Payant"}
                         </span>
                       </td>
@@ -218,7 +218,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                       <td className="py-3 px-4 font-semibold text-gray-900">beIN Sports</td>
                       <td className="py-3 px-4 text-gray-600">Abonnement (~15 €/mois)</td>
                       <td className="py-3 px-4">
-                        <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800blue-900/30">
+                        <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800">
                           <Tv className="h-5 w-5 inline-block" /> 104 matchs
                         </span>
                       </td>
@@ -268,7 +268,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                     <Monitor className="mx-auto h-8 w-8 text-accent mb-2" />
                     <h3 className="font-bold text-gray-900">{s.name}</h3>
                     <p className="text-xs text-secondary mt-1">{s.desc}</p>
-                    <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${s.free ? "bg-green-100 text-green-800green-900/30" : "bg-amber-100 text-amber-800amber-900/30"}`}>
+                    <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${s.free ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800"}`}>
                       {s.price}
                     </span>
                   </div>
@@ -283,7 +283,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {timeZones.map((tz) => (
-                  <div key={tz.label} className="text-center rounded-lg bg-gray-50-700/50 p-4">
+                  <div key={tz.label} className="text-center rounded-lg bg-gray-50 p-4">
                     <p className="text-sm text-secondary">{tz.label}</p>
                     <p className="text-2xl font-bold text-gray-900 mt-1">{tz.time}</p>
                   </div>

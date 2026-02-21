@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Pronostic corners ${home} - ${away} — CDM 2026`,
     description: `Combien de corners pour ${home} vs ${away} ? Stats historiques, cotes over/under 9.5 corners et analyse tactique CDM 2026.`,
-    alternates: { canonical: `https://cdm2026.fr/corners/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/corners/${slug}` },
   };
 }
 

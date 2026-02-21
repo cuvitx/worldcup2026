@@ -32,7 +32,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
             key={m.id}
             className={`rounded-xl border p-4 ${
               m.isFrance
-                ? "bg-secondary/5secondary/10 border-secondary/30"
+                ? "bg-secondary/5 border-secondary/30"
                 : "bg-white border-gray-200"
             }`}
           >
@@ -46,15 +46,15 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
               {m.tvFR.map((ch) => (
                 <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                   ch === "TF1" || ch === "M6"
-                    ? "bg-field/10field/20 text-field"
-                    : "bg-primary/10secondary/20 text-primary"
+                    ? "bg-field/10 text-field"
+                    : "bg-primary/10 text-primary"
                 }`}>{ch}</span>
               ))}
             </div>
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500 italic">{m.note}</span>
               {m.free && (
-                <span className="text-[10px] font-bold bg-field/10field/20 text-field px-1.5 py-0.5 rounded-full">GRATUIT</span>
+                <span className="text-[10px] font-bold bg-field/10 text-field px-1.5 py-0.5 rounded-full">GRATUIT</span>
               )}
             </div>
           </div>
@@ -64,7 +64,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
       {/* Desktop: table */}
       <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
         <table className="w-full text-sm bg-white">
-          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-500">
             <tr>
               <th className="px-4 py-3 text-left font-semibold text-gray-700 whitespace-nowrap">Date</th>
               <th className="px-4 py-3 text-left font-semibold text-gray-700">Heure 🇫🇷</th>
@@ -79,7 +79,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
                 key={m.id}
                 className={`border-t border-gray-100 ${
                   m.isFrance
-                    ? "bg-primary/5secondary/10 hover:bg-primary/10"
+                    ? "bg-primary/5 hover:bg-primary/10"
                     : "hover:bg-gray-50"
                 }`}
               >
@@ -95,8 +95,8 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
                     {m.tvFR.map((ch) => (
                       <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
                         ch === "TF1" || ch === "M6"
-                          ? "bg-field/10field/20 text-field"
-                          : "bg-primary/10secondary/20 text-primary"
+                          ? "bg-field/10 text-field"
+                          : "bg-primary/10 text-primary"
                       }`}>{ch}</span>
                     ))}
                   </div>

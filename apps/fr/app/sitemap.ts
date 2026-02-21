@@ -10,9 +10,24 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides } from "@repo/data/guides";
 import { newsArticles } from "@repo/data/news";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://cdm2026.fr";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.cdm2026.fr";
 const TODAY = new Date();
 const STATIC_LAST_MODIFIED = new Date("2026-02-19");
+
+/* ── Debug: log data availability at import time ── */
+const DATA_COUNTS = {
+  teams: teams?.length ?? 0,
+  groups: groups?.length ?? 0,
+  stadiums: stadiums?.length ?? 0,
+  cities: cities?.length ?? 0,
+  players: players?.length ?? 0,
+  matches: matches?.length ?? 0,
+  scorerPlayers: scorerPlayers?.length ?? 0,
+  bookmakerReviews: bookmakerReviews?.length ?? 0,
+  guides: guides?.length ?? 0,
+  newsArticles: newsArticles?.length ?? 0,
+};
+console.log("[sitemap] Data counts:", JSON.stringify(DATA_COUNTS));
 
 function matchLastModified(matchDate: string): Date {
   const d = new Date(matchDate);
@@ -126,6 +141,17 @@ function playerSubPages(prefix: string, priority = 0.7): MetadataRoute.Sitemap {
 }
 
 export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
+  try {
+    const result = sitemapInner(id);
+    console.log(`[sitemap] segment ${id} → ${result.length} URLs`);
+    return result;
+  } catch (err) {
+    console.error(`[sitemap] ERROR on segment ${id}:`, err);
+    return [];
+  }
+}
+
+function sitemapInner(id: number): MetadataRoute.Sitemap {
   switch (id) {
     /* ══════ STATIC PAGES ══════ */
     case SEGMENT_STATIC:

@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Barrages Coupe du Monde 2026 — Matchs intercontinentaux, dates, équipes",
   description:
     "Tout sur les barrages de la CDM 2026 : format intercontinental, 6 places restantes, équipes en lice, dates (mars 2026), enjeux et pronostics.",
-  alternates: { canonical: "https://cdm2026.fr/barrages" },
+  alternates: { canonical: "https://www.cdm2026.fr/barrages" },
   openGraph: {
     title: "Barrages CDM 2026 — Les 6 dernières places",
     description:
       "Format intercontinental, calendrier et enjeux des matchs de barrage pour la Coupe du Monde 2026.",
-    url: "https://cdm2026.fr/barrages",
+    url: "https://www.cdm2026.fr/barrages",
   },
 };
 
@@ -150,7 +150,7 @@ export default function BarragesPage() {
                 {placesParConfederation.map((c, i) => (
                   <tr
                     key={c.conf}
-                    className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
+                    className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}
                   >
                     <td className="py-3 px-4 font-medium">{c.conf}</td>
                     <td className="py-3 px-4 text-center">{c.directes}</td>
@@ -201,7 +201,7 @@ export default function BarragesPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex items-start gap-3 rounded-xl bg-yellow-50yellow-900/20 border border-yellow-200 p-4">
+          <div className="mt-6 flex items-start gap-3 rounded-xl bg-yellow-50 border border-yellow-200 p-4">
             <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 shrink-0" />
             <p className="text-sm text-yellow-800">
               Les équipes et lieux exacts seront confirmés à l&apos;issue des qualifications de chaque

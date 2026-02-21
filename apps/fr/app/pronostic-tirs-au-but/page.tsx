@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Tirs au But CDM 2026 — Prolongation & Penalties",
   description:
     "Guide paris prolongation et tirs au but CDM 2026. Stats historiques, bilans par équipe et stratégies pour parier sur les penalties.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-tirs-au-but" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-tirs-au-but" },
   openGraph: {
     title: "Tirs au But CDM 2026 — Stats & Paris",
     description: "Bilans historiques, équipes spécialistes et stratégies pour les paris penalties CDM 2026.",
-    url: "https://cdm2026.fr/pronostic-tirs-au-but",
+    url: "https://www.cdm2026.fr/pronostic-tirs-au-but",
   },
 };
 

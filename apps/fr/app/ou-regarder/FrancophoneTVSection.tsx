@@ -49,7 +49,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
             key={country.country}
             className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm"
           >
-            <div className="bg-gray-50gray-700/50 px-6 py-4 border-b border-gray-200">
+            <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900">{country.country}</h3>
             </div>
             <div className="p-6 grid gap-6 lg:grid-cols-2">
@@ -59,7 +59,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
                   {country.channels.map((ch) => {
                     const logoPath = channelLogos[ch.name];
                     return (
-                    <div key={ch.name} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50gray-700/50">
+                    <div key={ch.name} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50">
                       {logoPath ? (
                         <div className="h-8 max-h-8 w-16 flex items-center justify-center shrink-0">
                           <Image 
@@ -80,8 +80,8 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
                           <span className="font-bold text-gray-900">{ch.name}</span>
                           <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                             ch.type.toLowerCase().includes("gratuit")
-                              ? "bg-field/10field/20 text-field"
-                              : "bg-secondary/10secondary/20 text-secondary"
+                              ? "bg-field/10 text-field"
+                              : "bg-secondary/10 text-secondary"
                           }`}>{ch.type}</span>
                         </div>
                         <p className="text-xs text-gray-500 mt-0.5">{ch.details}</p>
@@ -100,13 +100,13 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="flex items-start gap-3 p-3 rounded-xl bg-gray-50gray-700/50 hover:bg-gray-100 transition-colors group"
+                      className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors group"
                     >
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-gray-900 group-hover:text-primary transition-colors">{s.name}</span>
                           {s.free && (
-                            <span className="text-xs font-bold bg-field/10field/20 text-field px-2 py-0.5 rounded-full">Gratuit</span>
+                            <span className="text-xs font-bold bg-field/10 text-field px-2 py-0.5 rounded-full">Gratuit</span>
                           )}
                         </div>
                         <p className="text-xs text-gray-500 mt-0.5">{s.desc}</p>

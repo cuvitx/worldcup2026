@@ -142,13 +142,13 @@ export default async function CityPage({ params }: PageProps) {
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg> Météo en juin-juillet
                   </h2>
                   <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="rounded-lg bg-primary/5primary/20 p-4 text-center">
+                    <div className="rounded-lg bg-primary/5 p-4 text-center">
                       <p className="text-xs text-gray-500 mb-1">Juin</p>
                       <p className="text-2xl font-bold text-accent">
                         {enrichment.weather.juinMin} – {enrichment.weather.juinMax}C
                       </p>
                     </div>
-                    <div className="rounded-lg bg-secondary/10secondary/20 p-4 text-center">
+                    <div className="rounded-lg bg-secondary/10 p-4 text-center">
                       <p className="text-xs text-gray-500 mb-1">Juillet</p>
                       <p className="text-2xl font-bold text-secondary">
                         {enrichment.weather.juilletMin} – {enrichment.weather.juilletMax}C
@@ -187,21 +187,21 @@ export default async function CityPage({ params }: PageProps) {
                      Budget moyen
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                    <div className="rounded-lg bg-gray-50-700 p-3 sm:p-4 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 sm:p-4 text-center">
                       <p className="text-lg font-bold text-primary">
                         {enrichment.budget.hotelMin}–{enrichment.budget.hotelMax}
                         <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
                       <p className="text-xs text-gray-500 mt-1">Hôtel / nuit</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50-700 p-3 sm:p-4 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 sm:p-4 text-center">
                       <p className="text-lg font-bold text-primary">
                         ~{enrichment.budget.repas}
                         <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
                       <p className="text-xs text-gray-500 mt-1">Repas moyen</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50-700 p-3 sm:p-4 text-center">
+                    <div className="rounded-lg bg-gray-50 p-3 sm:p-4 text-center">
                       <p className="text-lg font-bold text-primary">
                         ~{enrichment.budget.biere}
                         <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
@@ -218,7 +218,7 @@ export default async function CityPage({ params }: PageProps) {
                   </h2>
                   <div className="space-y-4">
                     {enrichment.activities.map((activity, i) => (
-                      <div key={i} className="rounded-lg border border-gray-100 bg-gray-50-700/50 p-4">
+                      <div key={i} className="rounded-lg border border-gray-100 bg-gray-50 p-4">
                         <p className="font-semibold text-gray-900 mb-1">{activity.title}</p>
                         <p className="text-sm text-gray-600">{activity.description}</p>
                       </div>
@@ -231,13 +231,13 @@ export default async function CityPage({ params }: PageProps) {
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Informations pratiques</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {(city.population / 1000000).toFixed(1)}M
                   </p>
                   <p className="text-sm text-gray-500">Population metro</p>
                 </div>
-                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{city.timezone.split("/").pop()?.replace(/_/g, " ")}</p>
                   <p className="text-sm text-gray-500">Fuseau horaire</p>
                 </div>

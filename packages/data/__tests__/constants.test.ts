@@ -27,7 +27,7 @@ describe('constants', () => {
 
   describe('EXTERNAL_URLS', () => {
     it('has correct site URLs', () => {
-      expect(EXTERNAL_URLS.SITE).toBe('https://cdm2026.fr')
+      expect(EXTERNAL_URLS.SITE).toBe('https://www.cdm2026.fr')
       expect(EXTERNAL_URLS.SITE_WWW).toBe('https://www.cdm2026.fr')
     })
 

@@ -58,7 +58,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
             )}
             <p className="text-sm font-semibold text-primary mb-1">{b.channels}</p>
             <p className="text-xs text-gray-600 mb-2">{b.details}</p>
-            <span className="text-xs font-semibold bg-field/10field/20 text-field px-2 py-0.5 rounded-full">
+            <span className="text-xs font-semibold bg-field/10 text-field px-2 py-0.5 rounded-full">
               Gratuit : {b.free}
             </span>
           </div>
@@ -68,7 +68,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
       {/* Desktop: table */}
       <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
         <table className="w-full text-sm bg-white">
-          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-500">
             <tr>
               <th className="px-4 py-3 text-left font-semibold text-gray-700">Logo</th>
               <th className="px-4 py-3 text-left font-semibold text-gray-700">Pays</th>
@@ -109,7 +109,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
                 <td className="px-4 py-3 font-semibold text-primary">{b.channels}</td>
                 <td className="px-4 py-3 text-gray-600 text-xs">{b.details}</td>
                 <td className="px-4 py-3">
-                  <span className="text-xs font-semibold bg-field/10field/20 text-field px-2 py-1 rounded-full">
+                  <span className="text-xs font-semibold bg-field/10 text-field px-2 py-1 rounded-full">
                     {b.free}
                   </span>
                 </td>

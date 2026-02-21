@@ -106,6 +106,7 @@ html, body {
   overflow-x: clip;
   width: 100%;
   max-width: 100%;
+  font-variant-numeric: lining-nums;
 }
 
 /* Ensure all direct children of body respect viewport */

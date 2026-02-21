@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Comment aller au ${stadium.name} — Accès CDM 2026`,
     description: `Accès au ${stadium.name} à ${stadium.city} : transports en commun, parking, taxi. Conseils pratiques pour la Coupe du Monde 2026.`,
-    alternates: { canonical: `https://cdm2026.fr/acces-stade/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/acces-stade/${slug}` },
   };
 }
 

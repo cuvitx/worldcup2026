@@ -32,7 +32,7 @@ export function H2HSection({
                 Victoires {homeName}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50-700 p-4 text-center">
+            <div className="rounded-lg bg-gray-50 p-4 text-center">
               <p className="text-3xl font-bold text-gray-600">
                 {h2h.draws}
               </p>
@@ -48,13 +48,13 @@ export function H2HSection({
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="rounded-lg bg-gray-50-700 p-3 text-center">
+            <div className="rounded-lg bg-gray-50 p-3 text-center">
               <p className="text-xl font-bold text-primary">
                 {h2h.totalMatches}
               </p>
               <p className="text-xs text-gray-500">Matchs joues</p>
             </div>
-            <div className="rounded-lg bg-gray-50-700 p-3 text-center">
+            <div className="rounded-lg bg-gray-50 p-3 text-center">
               <p className="text-xl font-bold text-primary">
                 {h2h.team1Goals} - {h2h.team2Goals}
               </p>

@@ -57,7 +57,7 @@ export function OddsCompare({ odds, homeTeam, awayTeam, locale }: OddsComparePro
   const bestAway = Math.max(...odds.map(o => o.away));
 
   return (
-    <div className="rounded-lg bg-whiteslate-800 p-4 shadow-sm">
+    <div className="rounded-lg bg-white p-4 shadow-sm">
       <h4 className="mb-3 text-sm font-semibold text-gray-700 uppercase tracking-wide">
         {t.title}
       </h4>
@@ -94,7 +94,7 @@ export function OddsCompare({ odds, homeTeam, awayTeam, locale }: OddsComparePro
       {/* Mobile card view */}
       <div className="space-y-2 md:hidden">
         {odds.slice(0, 5).map((o) => (
-          <div key={o.bookmaker} className="rounded-lg border border-gray-100 bg-gray-50slate-700 p-3">
+          <div key={o.bookmaker} className="rounded-lg border border-gray-100 bg-gray-50 p-3">
             <div className="mb-2 text-xs font-semibold text-gray-700">{o.bookmaker}</div>
             <div className="grid grid-cols-3 gap-2 text-center">
               <div>

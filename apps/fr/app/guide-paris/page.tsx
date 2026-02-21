@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Guide Paris Sportifs CDM 2026 | Comment Parier",
     description: "Apprenez à parier sur la CDM 2026 : types de paris, stratégies, lexique et conseils pour débutants.",
-    url: "https://cdm2026.fr/guide-paris",
+    url: "https://www.cdm2026.fr/guide-paris",
   },
-  alternates: { canonical: "https://cdm2026.fr/guide-paris" },
+  alternates: { canonical: "https://www.cdm2026.fr/guide-paris" },
 };
 
 const typesDeParis = [

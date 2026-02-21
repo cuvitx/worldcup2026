@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/scenarios-qualification-equipe/${team.slug}`,
     },
     alternates: {
-      canonical: `https://cdm2026.fr/scenarios-qualification-equipe/${team.slug}`,
+      canonical: `https://www.cdm2026.fr/scenarios-qualification-equipe/${team.slug}`,
     },
   };
 }

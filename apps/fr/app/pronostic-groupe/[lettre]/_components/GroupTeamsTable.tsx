@@ -26,7 +26,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-3 text-left">Équipe</th>
               <th className="px-4 py-3 text-center">FIFA</th>
@@ -44,13 +44,13 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
                     <span className="text-xl" aria-label={team!.name}>{team!.flag}</span>
                     <span>{team!.name}</span>
                     {team!.isHost && (
-                      <span className="rounded bg-primary/10secondary/20 px-1.5 py-0.5 text-xs text-primary">Hôte</span>
+                      <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs text-primary">Hôte</span>
                     )}
                   </Link>
                 </td>
                 <td className="px-4 py-3 text-center text-gray-600">{team!.fifaRanking > 0 ? `#${team!.fifaRanking}` : "—"}</td>
                 <td className="px-4 py-3 text-center">
-                  <span className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700">{team!.confederation}</span>
+                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">{team!.confederation}</span>
                 </td>
                 <td className="px-4 py-3 text-center text-gray-600">{team!.wcAppearances}</td>
                 <td className="px-4 py-3 text-gray-600 text-xs hidden sm:table-cell">{team!.bestResult}</td>

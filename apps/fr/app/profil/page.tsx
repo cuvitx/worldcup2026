@@ -99,8 +99,8 @@ export default function ProfilPage() {
     const earned = ALL_BADGES.filter((b) => unlockedBadges.includes(b.id));
     const teamPart = myTeam ? `\nMon équipe : ${myTeam.flag} ${myTeam.name}` : "";
     const text = earned.length
-      ? `Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\nStreak : ${stats.streak} jour(s)${teamPart}\n\nhttps://cdm2026.fr/profil`
-      : `Je n'ai pas encore de badges CDM 2026 ! ${teamPart}\nhttps://cdm2026.fr/profil`;
+      ? `Mes badges CDM 2026 :\n${earned.map((b) => `${b.emoji} ${b.name}`).join("\n")}\nStreak : ${stats.streak} jour(s)${teamPart}\n\nhttps://www.cdm2026.fr/profil`
+      : `Je n'ai pas encore de badges CDM 2026 ! ${teamPart}\nhttps://www.cdm2026.fr/profil`;
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
     } else {
@@ -187,7 +187,7 @@ export default function ProfilPage() {
               {upcomingMatches.map((m, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3slate-700/50"
+                  className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3"
                 >
                   <div>
                     <p className="text-sm font-medium">{m.opponent}</p>
@@ -245,21 +245,21 @@ export default function ProfilPage() {
       {/* Stats cards with icons */}
       <div className="mb-10 grid grid-cols-3 gap-2 sm:gap-4">
         <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 transition-transform hover:scale-[1.03]">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
             <FileText className="w-6 h-6 text-primary" />
           </div>
           <p className="text-2xl font-bold">{stats.visitedPages.length}</p>
           <p className="text-xs text-gray-500 mt-1">Pages visitées</p>
         </div>
         <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 transition-transform hover:scale-[1.03]">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
             <Vote className="w-6 h-6 text-primary" />
           </div>
           <p className="text-2xl font-bold">{stats.votes}</p>
           <p className="text-xs text-gray-500 mt-1">Votes</p>
         </div>
         <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 transition-transform hover:scale-[1.03]">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
           </div>
           <p className="text-2xl font-bold">{stats.quizScore ? `${stats.quizScore}/20` : "—"}</p>
           <p className="text-xs text-gray-500 mt-1">Score quiz</p>
@@ -276,7 +276,7 @@ export default function ProfilPage() {
               key={badge.id}
               className={`relative rounded-xl p-5 text-center transition-all duration-300 ${
                 unlocked
-                  ? "bg-white shadow-lg shadow-yellow-200/50 ring-2 ring-yellow-400slate-800"
+                  ? "bg-white shadow-lg shadow-yellow-200/50 ring-2 ring-yellow-400"
                   : "bg-white/50 border border-gray-200 opacity-60"
               }`}
             >

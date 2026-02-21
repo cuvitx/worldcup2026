@@ -31,7 +31,7 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
         {comparisonRows.map((row) => (
           <div
             key={row.label}
-            className="rounded-lg bg-gray-50-700/50 p-3"
+            className="rounded-lg bg-gray-50 p-3"
           >
             <p className="text-xs text-gray-500 text-center mb-2 font-medium">
               {row.label}

@@ -243,7 +243,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     openGraph: { title, description, url: `${domains.fr}/guide-supporter/${slug}` },
-    alternates: { canonical: `https://cdm2026.fr/guide-supporter/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/guide-supporter/${slug}` },
   };
 }
 
@@ -276,7 +276,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
     "@type": "TravelAction",
     name: `Guide supporter ${city.name} — CDM 2026`,
     description: `Guide complet pour les supporters à ${city.name} pendant la Coupe du Monde 2026.`,
-    url: `https://cdm2026.fr/guide-supporter/${slug}`,
+    url: `https://www.cdm2026.fr/guide-supporter/${slug}`,
     location: { "@type": "Place", name: city.name, address: { "@type": "PostalAddress", addressCountry: city.country } },
   };
 
@@ -349,7 +349,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guide.dormir.quartiers.map((q) => (
-                    <div key={q} className="rounded-lg bg-gray-50-700/50 p-3 text-center">
+                    <div key={q} className="rounded-lg bg-gray-50 p-3 text-center">
                       <p className="font-semibold text-gray-900 text-sm">{q}</p>
                     </div>
                   ))}

@@ -40,7 +40,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
         <ul className="space-y-2">
           {groupTeams.map((t) => (
             <li key={t.id}>
-              <Link href={`/equipe/${t.slug}`} className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50-700 transition-colors">
+              <Link href={`/equipe/${t.slug}`} className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50 transition-colors">
                 <div className="flex items-center gap-2"><span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span><span className="font-medium">{t.name}</span></div>
                 <span className="text-xs text-gray-500">#{t.fifaRanking}</span>
               </Link>

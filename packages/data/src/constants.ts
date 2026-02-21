@@ -17,7 +17,7 @@ export const EVENT_DATES = {
 /* ─── External URLs ─── */
 export const EXTERNAL_URLS = {
   /** Main site URL */
-  SITE: "https://cdm2026.fr",
+  SITE: "https://www.cdm2026.fr",
   /** With www prefix (used in some structured data) */
   SITE_WWW: "https://www.cdm2026.fr",
   /** Contact email */

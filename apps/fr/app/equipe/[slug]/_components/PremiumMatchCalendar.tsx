@@ -82,7 +82,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       {match.group && (
-                        <span className="text-xs bg-primary/10secondary/20 text-primary px-2 py-0.5 rounded font-medium">
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">
                           Groupe {match.group}
                         </span>
                       )}

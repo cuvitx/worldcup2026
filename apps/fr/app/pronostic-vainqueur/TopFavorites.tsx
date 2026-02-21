@@ -58,9 +58,9 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                   {/* Rank */}
                   <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                     index === 0 ? "bg-accent/20 text-accent border-2 border-accent/50" :
-                    index === 1 ? "bg-gray-200-600 text-gray-700" :
-                    index === 2 ? "bg-primary/10primary/20 text-primary" :
-                    "bg-gray-100-700 text-gray-600"
+                    index === 1 ? "bg-gray-200 text-gray-700" :
+                    index === 2 ? "bg-primary/10 text-primary" :
+                    "bg-gray-100 text-gray-600"
                   }`}>
                     {index + 1}
                   </div>
@@ -81,7 +81,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                       <span className="text-xs text-gray-600">
                         ELO {pred.eloRating}
                       </span>
-                      <span className="text-xs bg-gray-100-700 text-gray-600 px-2 py-0.5 rounded">
+                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
                         {team.bestResult}
                       </span>
                     </div>
@@ -110,7 +110,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {/* Real bookmaker odds strip (if in top10Favorites) */}
                 {fav && (
                   <div className="flex gap-1.5 px-5 pb-2 overflow-x-auto">
-                    <span className="shrink-0 rounded bg-primary/10primary/20 border border-primary/20 px-2 py-1 text-[11px] font-bold text-primary text-center whitespace-nowrap">
+                    <span className="shrink-0 rounded bg-primary/10 border border-primary/20 px-2 py-1 text-[11px] font-bold text-primary text-center whitespace-nowrap">
                       Winamax {fav.winamax.toFixed(2)}
                     </span>
                     <span className="shrink-0 rounded bg-accent/10 border border-accent/30 px-2 py-1 text-[11px] font-bold text-accent text-center whitespace-nowrap">
@@ -131,7 +131,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {/* Probability bar */}
                 <div className="px-5 pb-3">
                   <div className="flex items-center gap-3">
-                    <div className="flex-1 h-2 bg-gray-100-700 rounded-full overflow-hidden">
+                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-accent rounded-full transition-all"
                         style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
@@ -146,7 +146,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {/* Pro/Con */}
                 {args && (
                   <div className="grid sm:grid-cols-2 gap-0 border-t border-gray-100">
-                    <div className="p-4 bg-accent/10accent/10">
+                    <div className="p-4 bg-accent/10">
                       <p className="text-xs font-bold text-accent mb-2">Points forts</p>
                       <ul className="space-y-1">
                         {args.pros.slice(0, 3).map((pro, i) => (
@@ -156,7 +156,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                         ))}
                       </ul>
                     </div>
-                    <div className="p-4 bg-red-50/50red-900/10 border-t sm:border-t-0 sm:border-l border-gray-100">
+                    <div className="p-4 bg-red-50/50 border-t sm:border-t-0 sm:border-l border-gray-100">
                       <p className="text-xs font-bold text-red-600 mb-2">Points faibles</p>
                       <ul className="space-y-1">
                         {args.cons.slice(0, 3).map((con, i) => (

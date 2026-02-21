@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
         "Tout savoir sur les pourboires américains : restaurants, bars, taxis, hôtels. Évitez les faux pas pendant la Coupe du Monde 2026.",
       url: `${domains.fr}/pourboires-usa`,
     },
-    alternates: { canonical: "https://cdm2026.fr/pourboires-usa" },
+    alternates: { canonical: "https://www.cdm2026.fr/pourboires-usa" },
   };
 }
 

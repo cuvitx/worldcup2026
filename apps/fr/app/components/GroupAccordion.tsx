@@ -38,7 +38,7 @@ export function GroupAccordion({ groups }: GroupAccordionProps) {
         {isExpanded && (
           <button
             onClick={() => setIsExpanded(false)}
-            className="mt-4 w-full rounded-lg border border-gray-200 bg-white py-3 text-center font-semibold text-gray-500 transition-colors hover:bg-gray-50-700 min-h-[44px]"
+            className="mt-4 w-full rounded-lg border border-gray-200 bg-white py-3 text-center font-semibold text-gray-500 transition-colors hover:bg-gray-50 min-h-[44px]"
           >
             Réduire ↑
           </button>

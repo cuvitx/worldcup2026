@@ -68,10 +68,10 @@ function AdminContent() {
                     "label": "Admin"
           }
 ]} />
-    <div className="min-h-screen bg-gray-100gray-950 text-gray-900 p-4 md:p-8">
+    <div className="min-h-screen bg-gray-100 text-gray-900 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Banner */}
-        <div className="bg-accent/10accent/10 border border-accent/30 rounded-xl px-6 py-4 text-center font-semibold text-accent">
+        <div className="bg-accent/10 border border-accent/30 rounded-xl px-6 py-4 text-center font-semibold text-accent">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Page admin — accès restreint
         </div>
 
@@ -151,7 +151,7 @@ function AdminContent() {
           <ul className="space-y-2">
             {checklist.map((item) => (
               <li key={item.task} className="flex items-center gap-3">
-                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15accent/10 text-accent" : "bg-gray-100 text-gray-400"}`}>
+                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15 text-accent" : "bg-gray-100 text-gray-400"}`}>
                   {item.done ? "✓" : "○"}
                 </span>
                 <span className={item.done ? "line-through text-gray-400" : ""}>{item.task}</span>

@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Guide du Cashout paris sportifs CDM 2026 — Quand et comment l'utiliser",
   description:
     "Guide complet du cashout en paris sportifs pour la CDM 2026. Comment ça marche, quand l'utiliser, pièges à éviter, comparatif par bookmaker.",
-  alternates: { canonical: "https://cdm2026.fr/cashout-guide" },
+  alternates: { canonical: "https://www.cdm2026.fr/cashout-guide" },
   openGraph: {
     title: "Guide du Cashout — Paris sportifs CDM 2026",
     description: "Maîtrisez le cashout pour sécuriser vos gains pendant la CDM 2026.",
-    url: "https://cdm2026.fr/cashout-guide",
+    url: "https://www.cdm2026.fr/cashout-guide",
   },
 };
 
@@ -143,7 +143,7 @@ export default function CashoutGuidePage() {
               </thead>
               <tbody>
                 {comparatif.map((b, i) => (
-                  <tr key={b.bookmaker} className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}>
+                  <tr key={b.bookmaker} className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}>
                     <td className="py-3 px-4 font-medium">{b.bookmaker}</td>
                     <td className="py-3 px-4">{b.cashout}</td>
                     <td className="py-3 px-4 text-center">{b.live ? <CheckCircle className="h-4 w-4 text-green-500 mx-auto" /> : <XCircle className="h-4 w-4 text-red-400 mx-auto" />}</td>

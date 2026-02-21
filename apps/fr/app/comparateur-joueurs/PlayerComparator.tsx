@@ -197,7 +197,7 @@ export function PlayerComparator() {
                           <span className="w-24 sm:w-28 text-xs truncate text-right text-gray-600 font-medium">
                             {p.name.split(" ").pop()}
                           </span>
-                          <div className="flex-1 h-7 rounded-full bg-gray-100-700 overflow-hidden">
+                          <div className="flex-1 h-7 rounded-full bg-gray-100 overflow-hidden">
                             <AnimatedBar
                               pct={pct}
                               color={isBest ? BEST_COLOR : COLORS[i]!}

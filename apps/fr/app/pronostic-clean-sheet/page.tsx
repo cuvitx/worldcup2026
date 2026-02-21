@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Clean Sheet CDM 2026 — Meilleures Défenses & Cotes",
   description:
     "Quelles équipes garderont leur cage inviolée ? Top défenses, stats d'encaissement et cotes clean sheet pour la Coupe du Monde 2026.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-clean-sheet" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-clean-sheet" },
   openGraph: {
     title: "Clean Sheet CDM 2026 — Meilleures Défenses",
     description: "Top défenses, cotes clean sheet et stats encaissement pour la CDM 2026.",
-    url: "https://cdm2026.fr/pronostic-clean-sheet",
+    url: "https://www.cdm2026.fr/pronostic-clean-sheet",
   },
 };
 

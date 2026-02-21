@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Météo & paris CDM 2026 — Analyse des conditions",
     description: "Chaleur, altitude, pluie : comment la météo influence les matchs et les paris sportifs.",
-    url: "https://cdm2026.fr/impact-meteo-paris",
+    url: "https://www.cdm2026.fr/impact-meteo-paris",
   },
-  alternates: { canonical: "https://cdm2026.fr/impact-meteo-paris" },
+  alternates: { canonical: "https://www.cdm2026.fr/impact-meteo-paris" },
 };
 
 const facteurs = [

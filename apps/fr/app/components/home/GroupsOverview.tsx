@@ -14,7 +14,7 @@ interface GroupsOverviewProps {
 
 export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
   return (
-    <section className="bg-gray-50-900/60 py-16">
+    <section className="bg-gray-50/60 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">

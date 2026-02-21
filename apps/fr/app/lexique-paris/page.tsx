@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Lexique Paris Sportifs — 45+ termes expliqués pour la CDM 2026",
   description:
     "Glossaire complet des paris sportifs : Accumulator, Asian Handicap, Bankroll, BTTS, Cashout, Cote, Value bet… 45+ définitions avec exemples Coupe du Monde 2026.",
-  alternates: { canonical: "https://cdm2026.fr/lexique-paris" },
+  alternates: { canonical: "https://www.cdm2026.fr/lexique-paris" },
   openGraph: {
     title: "Lexique Paris Sportifs — CDM 2026",
     description:
       "Glossaire complet : 45+ termes de paris sportifs expliqués avec exemples CDM 2026.",
-    url: "https://cdm2026.fr/lexique-paris",
+    url: "https://www.cdm2026.fr/lexique-paris",
   },
 };
 

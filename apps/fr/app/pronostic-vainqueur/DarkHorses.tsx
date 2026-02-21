@@ -51,11 +51,11 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 mt-3">
-                  <div className="rounded-lg bg-gray-50-700 p-2.5 text-center">
+                  <div className="rounded-lg bg-gray-50 p-2.5 text-center">
                     <p className="text-lg font-bold text-primary">{winPct}%</p>
                     <p className="text-[10px] text-gray-600">chance titre</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50-700 p-2.5 text-center">
+                  <div className="rounded-lg bg-gray-50 p-2.5 text-center">
                     <p className="text-lg font-bold text-accent">{qfPct}%</p>
                     <p className="text-[10px] text-gray-600">quart de finale</p>
                   </div>
@@ -69,7 +69,7 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
         </div>
 
         {/* Special mention: hosts */}
-        <div className="mt-6 rounded-xl border border-accent/30 bg-accent/10accent/10 p-5">
+        <div className="mt-6 rounded-xl border border-accent/30 bg-accent/10 p-5">
           <h3 className="text-lg font-semibold text-gray-900 text-accent mb-2">
             Les pays organisateurs : avantage terrain
           </h3>

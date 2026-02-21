@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Se déplacer à ${city.name} — Transports CDM 2026`,
     description: `Guide transports à ${city.name} pour la Coupe du Monde 2026 : métro, bus, taxi, Uber, navettes, aéroport. Tarifs et conseils.`,
-    alternates: { canonical: `https://cdm2026.fr/transport/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/transport/${slug}` },
   };
 }
 
@@ -85,7 +85,7 @@ export default async function TransportPage({ params }: PageProps) {
     "@type": "FAQPage",
     name: `Transports à ${city.name} — CDM 2026`,
     description: `Guide transports à ${city.name} pour la Coupe du Monde 2026.`,
-    url: `https://cdm2026.fr/transport/${slug}`,
+    url: `https://www.cdm2026.fr/transport/${slug}`,
     mainEntity: faqItems.map((f) => ({
       "@type": "Question",
       name: f.question,

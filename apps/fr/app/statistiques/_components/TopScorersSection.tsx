@@ -33,8 +33,8 @@ export function TopScorersSection({ topScorers }: TopScorersSectionProps) {
                     : i === 1
                     ? "bg-gray-300 text-gray-700"
                     : i === 2
-                    ? "bg-accent//80 text-white"
-                    : "bg-gray-100-700 text-gray-600"
+                    ? "bg-accent/80 text-white"
+                    : "bg-gray-100 text-gray-600"
                 }`}
               >
                 {i + 1}

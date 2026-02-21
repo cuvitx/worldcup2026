@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     title: "Règlement CDM 2026 - Tout savoir sur les nouvelles règles",
     description:
       "Format, VAR, remplacements, cartons : découvrez le règlement complet de la Coupe du Monde 2026 avec 48 équipes.",
-    url: "https://cdm2026.fr/reglement",
+    url: "https://www.cdm2026.fr/reglement",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/reglement",
+    canonical: "https://www.cdm2026.fr/reglement",
   },
 };
 
@@ -396,7 +396,7 @@ export default function ReglementPage() {
             "@type": "WebPage",
             name: "Règlement Coupe du Monde 2026 - Format, VAR, Remplacements",
             description: "Règlement officiel de la Coupe du Monde 2026 : format à 48 équipes, VAR, remplacements et lois du jeu FIFA.",
-            url: "https://cdm2026.fr/reglement",
+            url: "https://www.cdm2026.fr/reglement",
           }),
         }}
       />

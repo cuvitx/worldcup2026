@@ -16,10 +16,10 @@ export function PhasesDeVente() {
             >
               <div className={`shrink-0 mt-1 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap ${
                 phase.statusColor === "green"
-                  ? "bg-accent/15accent/10 text-accent"
+                  ? "bg-accent/15 text-accent"
                   : phase.statusColor === "blue"
-                  ? "bg-primary/10secondary/20 text-primary"
-                  : "bg-gray-100-700 text-gray-500 line-through"
+                  ? "bg-primary/10 text-primary"
+                  : "bg-gray-100 text-gray-500 line-through"
               }`}>
                 {phase.status}
               </div>

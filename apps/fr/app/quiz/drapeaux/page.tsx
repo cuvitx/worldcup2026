@@ -163,9 +163,9 @@ export default function QuizDrapeauxPage() {
               let cls = "border border-gray-200 hover:border-accent";
               if (selected) {
                 if (choice === team.name) {
-                  cls = "border-2 border-green-500 bg-green-50green-900/20";
+                  cls = "border-2 border-green-500 bg-green-50";
                 } else if (choice === selected && choice !== team.name) {
-                  cls = "border-2 border-red-500 bg-red-50red-900/20";
+                  cls = "border-2 border-red-500 bg-red-50";
                 } else {
                   cls = "border border-gray-200 opacity-50";
                 }

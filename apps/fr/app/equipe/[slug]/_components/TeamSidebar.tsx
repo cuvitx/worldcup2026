@@ -72,7 +72,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
             </h3>
             <div className="overflow-x-auto"><table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500 text-gray-500 text-xs">
+                <tr className="bg-gray-50 text-xs uppercase text-gray-500 text-gray-500 text-xs">
                   <th className="py-2 px-2 text-left">#</th>
                   <th className="py-2 px-2 text-left">Équipe</th>
                   <th className="py-2 px-2 text-center">Pts</th>
@@ -83,7 +83,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
                 {standings.map((row, idx) => (
                   <tr key={row.team.id} className={`border-b border-gray-100 ${row.team.id === team.id ? "bg-primary/5 font-bold" : ""}`}>
                     <td className="py-2">
-                      <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-accent/10 text-accentaccent/20" : "bg-gray-100 text-gray-500slate-800"}`}>{idx + 1}</span>
+                      <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-accent/10 text-accent" : "bg-gray-100 text-gray-500"}`}>{idx + 1}</span>
                     </td>
                     <td className="py-2">
                       <Link href={`/equipe/${row.team.slug}`} className="hover:text-primary flex items-center gap-1">
@@ -137,15 +137,15 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
           )}
           {enriched?.goalStats && (
             <div className="grid grid-cols-3 gap-2 text-center text-sm">
-              <div className="rounded bg-gray-50-700 p-2">
+              <div className="rounded bg-gray-50 p-2">
                 <p className="text-lg font-bold text-field">{enriched?.goalStats.scored}</p>
                 <p className="text-xs text-gray-500">Buts marques</p>
               </div>
-              <div className="rounded bg-gray-50-700 p-2">
+              <div className="rounded bg-gray-50 p-2">
                 <p className="text-lg font-bold text-red-500">{enriched?.goalStats.conceded}</p>
                 <p className="text-xs text-gray-500">Buts encaisses</p>
               </div>
-              <div className="rounded bg-gray-50-700 p-2">
+              <div className="rounded bg-gray-50 p-2">
                 <p className="text-lg font-bold text-primary">{enriched?.goalStats.cleanSheets}</p>
                 <p className="text-xs text-gray-500">Clean sheets</p>
               </div>

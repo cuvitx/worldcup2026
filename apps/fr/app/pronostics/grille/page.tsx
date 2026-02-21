@@ -141,7 +141,7 @@ export default function GrillePronosticsPage() {
                 key={g.letter}
                 className="rounded-xl border border-gray-200 bg-white overflow-hidden"
               >
-                <div className="bg-gray-100-700 px-4 py-2.5 font-bold text-sm text-gray-900">
+                <div className="bg-gray-100 px-4 py-2.5 font-bold text-sm text-gray-900">
                   Groupe {g.letter}
                 </div>
                 <div className="divide-y divide-gray-100">
@@ -162,7 +162,7 @@ export default function GrillePronosticsPage() {
                             maxLength={2}
                             value={p.home}
                             onChange={(e) => update(m.id, "home", e.target.value)}
-                            className="w-10 h-9 text-center rounded-md border border-gray-300 bg-gray-50-700 text-gray-900 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-10 h-9 text-center rounded-md border border-gray-300 bg-gray-50 text-gray-900 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             aria-label={`Score ${teamName(m.homeTeamId)}`}
                           />
                           <span className="text-gray-400 font-bold">-</span>
@@ -172,7 +172,7 @@ export default function GrillePronosticsPage() {
                             maxLength={2}
                             value={p.away}
                             onChange={(e) => update(m.id, "away", e.target.value)}
-                            className="w-10 h-9 text-center rounded-md border border-gray-300 bg-gray-50-700 text-gray-900 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-10 h-9 text-center rounded-md border border-gray-300 bg-gray-50 text-gray-900 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             aria-label={`Score ${teamName(m.awayTeamId)}`}
                           />
                           <span className="flex-1 text-left text-sm font-medium text-gray-900 break-words">

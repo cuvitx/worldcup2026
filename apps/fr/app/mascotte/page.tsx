@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: "Mascotte Coupe du Monde 2026",
     description:
       "Découvrez la mascotte officielle de la CDM 2026, son histoire et sa signification pour le tournoi.",
-    url: "https://cdm2026.fr/mascotte",
+    url: "https://www.cdm2026.fr/mascotte",
   },
   alternates: {
-    canonical: "https://cdm2026.fr/mascotte",
+    canonical: "https://www.cdm2026.fr/mascotte",
   },
 };
 
@@ -159,7 +159,7 @@ export default function MascottePage() {
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50-900">
+                  <thead className="bg-gray-50">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Année
@@ -212,7 +212,7 @@ export default function MascottePage() {
               </div>
             </div>
 
-            <div className="mt-4 p-4 bg-blue-50blue-900/20 rounded-lg border border-blue-100">
+            <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
               <p className="text-sm text-gray-700">
                 <strong className="text-accent">Anecdote :</strong> World Cup Willie (Angleterre 1966) est la toute première
                 mascotte officielle d'une Coupe du Monde. Depuis, chaque édition a eu sa mascotte, devenant un symbole
@@ -313,7 +313,7 @@ export default function MascottePage() {
             "@type": "WebPage",
             name: "Mascotte Coupe du Monde 2026 - Découvrez la mascotte officielle",
             description: "Découvrez la mascotte officielle de la Coupe du Monde 2026, son histoire et sa signification.",
-            url: "https://cdm2026.fr/mascotte",
+            url: "https://www.cdm2026.fr/mascotte",
           }),
         }}
       />

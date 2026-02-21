@@ -125,7 +125,7 @@ export default async function GuidePage({ params }: PageProps) {
                     <div
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-primary bg-primary/5secondary/10" : "border-gray-200 bg-white"
+                        isFeatured ? "border-primary bg-primary/5" : "border-gray-200 bg-white"
                       }`}
                     >
                       {isFeatured && (
@@ -230,7 +230,7 @@ export default async function GuidePage({ params }: PageProps) {
               </nav>
 
               {/* CTA */}
-              <div className="rounded-xl bg-primary/5primary/10 border border-primary/20 p-5">
+              <div className="rounded-xl bg-primary/5 border border-primary/20 p-5">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Commencer a parier</h3>
                 <p className="mb-4 text-sm text-gray-600">
                   Profitez des bonus de bienvenue pour la CDM 2026.
@@ -313,8 +313,8 @@ export default async function GuidePage({ params }: PageProps) {
             description: guide.metaDescription,
             datePublished: "2025-01-15",
             dateModified: "2025-02-15",
-            author: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr" },
-            publisher: { "@type": "Organization", name: "CDM 2026", url: "https://cdm2026.fr", logo: { "@type": "ImageObject", url: "https://cdm2026.fr/icon-512.png" } },
+            author: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr" },
+            publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.cdm2026.fr", logo: { "@type": "ImageObject", url: "https://www.cdm2026.fr/icon-512.png" } },
             mainEntityOfPage: `${domains.fr}/guide/${guide.slug}`,
             url: `${domains.fr}/guide/${guide.slug}`,
           }),

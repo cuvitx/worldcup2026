@@ -110,7 +110,7 @@ export default function Quiz() {
         <div className="grid gap-4">
           <button
             onClick={() => { setDifficulty("all"); setPhase("category"); }}
-            className="rounded-xl border-2 border-primary/50 bg-primary/5secondary/10 p-5 text-left hover:bg-secondary/10 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-primary/50 bg-primary/5 p-5 text-left hover:bg-secondary/10 transition-colors shadow-sm"
           >
             <h3 className="text-lg font-semibold text-gray-900">Toutes les difficultés</h3>
             <p className="text-sm text-gray-600">Mix de questions faciles, moyennes et difficiles</p>
@@ -170,7 +170,7 @@ export default function Quiz() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <button
             onClick={() => startGame("all")}
-            className="rounded-xl border-2 border-primary/50 bg-primary/5secondary/10 p-5 text-left hover:bg-secondary/10 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-primary/50 bg-primary/5 p-5 text-left hover:bg-secondary/10 transition-colors shadow-sm"
           >
             <h3 className="text-lg font-semibold text-gray-900 mt-1">Toutes les catégories</h3>
             <p className="text-sm text-gray-600">{availableCount("all")} questions</p>
@@ -273,9 +273,9 @@ export default function Quiz() {
           if (selected === null) {
             classes += "border-gray-200 bg-white/50 text-gray-900 hover:border-primary/40 hover:bg-primary/5 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
-            classes += "border-accent bg-accent/10accent/15 text-accent scale-[1.01]";
+            classes += "border-accent bg-accent/10 text-accent scale-[1.01]";
           } else if (idx === selected) {
-            classes += "border-red-500 bg-red-50red-500/20 text-red-700 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
+            classes += "border-red-500 bg-red-50 text-red-700 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
             classes += "border-gray-200 bg-gray-50/30 text-gray-400 opacity-50";
           }
@@ -294,8 +294,8 @@ export default function Quiz() {
         <div
           className={`mt-4 p-4 rounded-xl text-sm animate-[fadeSlideIn_0.3s_ease-out] ${
             selected === currentQuestion.correctIndex
-              ? "bg-accent/10accent/10 border border-accent/30 text-accent"
-              : "bg-red-50red-500/10 border border-red-200 text-red-800"
+              ? "bg-accent/10 border border-accent/30 text-accent"
+              : "bg-red-50 border border-red-200 text-red-800"
           }`}
         >
           {selected === currentQuestion.correctIndex ? "Bonne réponse ! " : "Mauvaise réponse. "}

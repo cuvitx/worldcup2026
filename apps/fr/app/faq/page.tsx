@@ -13,7 +13,7 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "FAQ - Coupe du Monde 2026",
       description: "Réponses à toutes vos questions sur la CDM 2026 : format, équipes, paris et pronostics.",
-      url: "https://cdm2026.fr/faq",
+      url: "https://www.cdm2026.fr/faq",
     },
   };
 }
@@ -83,7 +83,7 @@ export default function FaqPage() {
               >
                 <span>{emoji}</span>
                 {label}
-                <span className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700 ml-1">
+                <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 ml-1">
                   {items.length}
                 </span>
               </a>

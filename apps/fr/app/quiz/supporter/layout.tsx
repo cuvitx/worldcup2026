@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Quiz : Quel pays vas-tu supporter à la CDM 2026 ?",
     description: "10 questions pour trouver ton équipe idéale. Fais le quiz et partage ton résultat !",
-    url: "https://cdm2026.fr/quiz/supporter",
+    url: "https://www.cdm2026.fr/quiz/supporter",
   },
-  alternates: { canonical: "https://cdm2026.fr/quiz/supporter" },
+  alternates: { canonical: "https://www.cdm2026.fr/quiz/supporter" },
 };
 
 export default function QuizSupporterLayout({ children }: { children: React.ReactNode }) {

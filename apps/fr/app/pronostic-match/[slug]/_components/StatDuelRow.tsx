@@ -45,7 +45,7 @@ export function StatDuelRow({
       </div>
       <div className="w-full h-2 rounded-full flex overflow-hidden gap-0.5">
         <div
-          className={`h-full rounded-l-full transition-all duration-700 ${homeIsBetter ? "bg-primary" : "bg-gray-300gray-600"}`}
+          className={`h-full rounded-l-full transition-all duration-700 ${homeIsBetter ? "bg-primary" : "bg-gray-300"}`}
           style={{ width: `${homePct}%` }}
         />
         <div

@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     title: "Meilleurs Bookmakers CDM 2026 | Comparatif Sites de Paris Sportifs",
     description:
       "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026. Bonus, cotes, app mobile, live betting et notes détaillées.",
-    url: "https://cdm2026.fr/meilleurs-bookmakers",
+    url: "https://www.cdm2026.fr/meilleurs-bookmakers",
   },
-  alternates: { canonical: "https://cdm2026.fr/meilleurs-bookmakers" },
+  alternates: { canonical: "https://www.cdm2026.fr/meilleurs-bookmakers" },
 };
 
 interface Bookmaker {
@@ -112,12 +112,12 @@ function ReviewSchema({ bk }: { bk: Bookmaker }) {
     author: {
       "@type": "Organization",
       name: "CDM 2026",
-      url: "https://cdm2026.fr",
+      url: "https://www.cdm2026.fr",
     },
     publisher: {
       "@type": "Organization",
       name: "CDM 2026",
-      url: "https://cdm2026.fr",
+      url: "https://www.cdm2026.fr",
     },
   };
   return (

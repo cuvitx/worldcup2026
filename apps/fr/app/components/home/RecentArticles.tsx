@@ -16,11 +16,11 @@ interface RecentArticlesProps {
 }
 
 const categoryColors: Record<string, string> = {
-  stades: "bg-accent/10 text-accentaccent/20",
-  billets: "bg-field/10 text-fieldfield/20",
-  equipes: "bg-primary/10 text-primaryprimary/20",
-  paris: "bg-primary/10 text-primaryprimary/20",
-  transferts: "bg-accent/15 text-accentaccent/10",
+  stades: "bg-accent/10 text-accent",
+  billets: "bg-field/10 text-field",
+  equipes: "bg-primary/10 text-primary",
+  paris: "bg-primary/10 text-primary",
+  transferts: "bg-accent/15 text-accent",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -33,7 +33,7 @@ const categoryLabels: Record<string, string> = {
 
 export function RecentArticles({ recentArticles }: RecentArticlesProps) {
   return (
-    <section className="bg-whitegray-950 py-16">
+    <section className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">

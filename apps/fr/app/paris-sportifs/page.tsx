@@ -193,6 +193,46 @@ export default function ParisSportifsPage() {
       </div>
 
       <BookmakerCTA />
+
+      {/* Tous nos guides paris */}
+      <section className="py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Tous nos guides paris</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { href: "/paris-corners", icon: "🚩", title: "Paris sur les corners", description: "Stratégies et conseils pour parier sur les corners" },
+              { href: "/paris-handicap", icon: "⚖️", title: "Paris handicap", description: "Comprendre et maîtriser les paris handicap" },
+              { href: "/paris-live", icon: "⚡", title: "Paris en live", description: "Techniques pour parier en direct pendant les matchs" },
+              { href: "/paris-mi-temps", icon: "⏸️", title: "Paris mi-temps", description: "Exploiter les opportunités à la mi-temps" },
+              { href: "/paris-combines", icon: "🔗", title: "Paris combinés", description: "Maximiser les gains avec les combinés" },
+              { href: "/pronostic-btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Pronostics sur les deux équipes qui marquent" },
+              { href: "/pronostic-over-under", icon: "📊", title: "Over/Under", description: "Parier sur le nombre de buts dans un match" },
+              { href: "/value-bets", icon: "💎", title: "Value bets", description: "Identifier les cotes sous-évaluées par les bookmakers" },
+              { href: "/cashout-guide", icon: "💰", title: "Guide cashout", description: "Quand et comment utiliser le cash-out" },
+              { href: "/bankroll-cdm", icon: "🏦", title: "Gestion de bankroll", description: "Gérer votre budget paris pour la CDM 2026" },
+              { href: "/strategie-paris-groupes", icon: "🎯", title: "Stratégie paris groupes", description: "Stratégies spécifiques aux phases de groupes" },
+              { href: "/guide-paris", icon: "📖", title: "Guide complet des paris", description: "Le guide ultime pour parier sur le football" },
+              { href: "/lexique-paris", icon: "📚", title: "Lexique des paris", description: "Tous les termes des paris sportifs expliqués" },
+              { href: "/impact-meteo-paris", icon: "🌦️", title: "Impact météo sur les paris", description: "Comment la météo influence les résultats" },
+              { href: "/methodes-paiement", icon: "💳", title: "Méthodes de paiement", description: "Dépôts et retraits sur les sites de paris" },
+              { href: "/meilleurs-bookmakers", icon: "🏆", title: "Meilleurs bookmakers", description: "Comparatif des meilleurs sites de paris" },
+              { href: "/comparateur-cotes", icon: "📈", title: "Comparateur de cotes", description: "Comparez les cotes des bookmakers en temps réel" },
+              { href: "/bonus", icon: "🎁", title: "Bonus bookmakers", description: "Tous les bonus et offres de bienvenue" },
+            ].map(item => (
+              <Link key={item.href} href={item.href} className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <FAQSection title="Questions sur les paris sportifs CDM 2026" items={faqItems} />
 </>
   );

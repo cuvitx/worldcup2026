@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Chants de supporters CDM 2026 — Hymnes et chansons par pays",
   description:
     "Les chants de supporters les plus emblématiques de la Coupe du Monde : Allez les Bleus, Seven Nation Army, Olé Olé, et bien d'autres. Top 10 des hymnes légendaires.",
-  alternates: { canonical: "https://cdm2026.fr/chants-supporters" },
+  alternates: { canonical: "https://www.cdm2026.fr/chants-supporters" },
   openGraph: {
     title: "Chants de supporters CDM 2026",
     description: "Top 10 des chants les plus iconiques de la Coupe du Monde. De Allez les Bleus à Seven Nation Army.",
-    url: "https://cdm2026.fr/chants-supporters",
+    url: "https://www.cdm2026.fr/chants-supporters",
   },
 };
 
@@ -176,7 +176,7 @@ export default function ChantsSupportersPage() {
                     <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
                       <Mic className="h-3 w-3" /> {chant.origin}
                     </div>
-                    <div className="bg-gray-50gray-800 rounded-lg px-3 py-2 text-sm italic text-gray-600">
+                    <div className="bg-gray-50 rounded-lg px-3 py-2 text-sm italic text-gray-600">
                       &ldquo;{chant.lyrics}&rdquo;
                     </div>
                   </div>

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wall of Fame CDM — Les moments qui ont marqué l'histoire",
     description: "Les 15 instants de légende de la Coupe du Monde, du but du siècle au 7-1.",
-    url: "https://cdm2026.fr/wall-of-fame",
+    url: "https://www.cdm2026.fr/wall-of-fame",
   },
-  alternates: { canonical: "https://cdm2026.fr/wall-of-fame" },
+  alternates: { canonical: "https://www.cdm2026.fr/wall-of-fame" },
 };
 
 const moments = [

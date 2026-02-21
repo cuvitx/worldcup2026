@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Pronostic Finalistes CDM 2026 — Qui sera en finale ?",
   description:
     "Qui sera en finale de la Coupe du Monde 2026 ? Cotes finalistes, analyse des tableaux possibles et parcours des favoris.",
-  alternates: { canonical: "https://cdm2026.fr/pronostic-finalistes" },
+  alternates: { canonical: "https://www.cdm2026.fr/pronostic-finalistes" },
   openGraph: {
     title: "Pronostic Finalistes CDM 2026",
     description: "Cotes finalistes, tableaux possibles et analyse du parcours vers la finale.",
-    url: "https://cdm2026.fr/pronostic-finalistes",
+    url: "https://www.cdm2026.fr/pronostic-finalistes",
   },
 };
 

@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Analyse complète de la cote ${team.name} pour remporter la CDM 2026.`,
       url: `${domains.fr}/cote-champion/${team.slug}`,
     },
-    alternates: { canonical: `https://cdm2026.fr/cote-champion/${team.slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/cote-champion/${team.slug}` },
   };
 }
 
@@ -335,7 +335,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </div>
               </div>
               {isValueBet ? (
-                <div className="rounded-lg bg-green-50green-900/20 border border-green-200 p-4">
+                <div className="rounded-lg bg-green-50 border border-green-200 p-4">
                   <p className="font-bold text-green-700"><Check className="h-5 w-5 inline-block" /> Value bet détecté !</p>
                   <p className="text-sm text-green-600 mt-1">
                     Notre modèle estime que {team.name} a plus de chances ({estimatedProb}%) que ce que la cote suggère ({impliedProb}%).
@@ -343,7 +343,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   </p>
                 </div>
               ) : (
-                <div className="rounded-lg bg-orange-50orange-900/20 border border-orange-200 p-4">
+                <div className="rounded-lg bg-orange-50 border border-orange-200 p-4">
                   <p className="font-bold text-orange-700"><AlertTriangle className="h-5 w-5 inline-block" /> Pas de value bet identifié</p>
                   <p className="text-sm text-orange-600 mt-1">
                     La cote actuelle reflète correctement les chances de {team.name} selon notre modèle.

@@ -43,7 +43,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
                     href={bm.url}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
-                    className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                    className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
                   >
                     {bm.logo && <img src={bm.logo} alt={bm.name} className="w-6 h-6 rounded object-contain shrink-0" loading="lazy" />}
                     <span className="flex-1 font-medium text-sm text-gray-800 group-hover:text-primary transition-colors">
@@ -79,7 +79,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
             )}
 
             {weaknesses.length > 0 && (
-              <div className="rounded-xl border border-red-200 bg-red-50red-900/15 p-5">
+              <div className="rounded-xl border border-red-200 bg-red-50 p-5">
                 <h3 className="text-lg font-semibold text-red-700 mb-3">
                   Points de vigilance
                 </h3>

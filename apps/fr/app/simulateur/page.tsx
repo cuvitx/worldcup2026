@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Simulateur CDM 2026 : construisez votre bracket, prédisez les 16 matchs et couronnez votre champion. 32 équipes, 100% interactif et gratuit !",
   alternates: {
-    canonical: "https://cdm2026.fr/simulateur",
+    canonical: "https://www.cdm2026.fr/simulateur",
   },
   openGraph: {
     title: "Simulateur CDM 2026 | Construisez votre bracket",
@@ -54,22 +54,6 @@ export default function SimulateurPage() {
                     "label": "Simulateur"
           }
 ]} />
-      {/* Breadcrumb */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 py-2.5">
-          <ol className="flex items-center gap-2 text-xs text-gray-500 flex-wrap min-w-0">
-            <li>
-              <Link href="/" className="hover:text-primary transition-colors">
-                Accueil
-              </Link>
-            </li>
-            <li className="text-gray-300">/</li>
-            <li className="text-gray-900 font-medium">
-              Simulateur
-            </li>
-          </ol>
-        </div>
-      </nav>
 
       {/* Hero */}
       <section
@@ -138,22 +122,6 @@ export default function SimulateurPage() {
       <SocialProof />
 
       <FAQSection title="Questions sur le simulateur" items={faqItems} />
-
-      {/* JSON-LD Breadcrumb */}
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.cdm2026.fr" },
-              { "@type": "ListItem", position: 2, name: "Simulateur", item: "https://www.cdm2026.fr/simulateur" },
-            ],
-          }),
-        }}
-      />
     </>
   );
 }

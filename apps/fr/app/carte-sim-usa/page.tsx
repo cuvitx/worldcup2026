@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
       description: "eSIM vs carte SIM : Holafly, Airalo, T-Mobile Tourist Plan, forfait Free inclus.",
       url: `${domains.fr}/carte-sim-usa`,
     },
-    alternates: { canonical: "https://cdm2026.fr/carte-sim-usa" },
+    alternates: { canonical: "https://www.cdm2026.fr/carte-sim-usa" },
   };
 }
 
@@ -133,7 +133,7 @@ export default function CarteSimUsaPage() {
           eSIM vs carte SIM physique
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-[#00B865] bg-green-50green-900/20 p-6">
+          <div className="rounded-2xl border border-[#00B865] bg-green-50 p-6">
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
               <Zap className="w-5 h-5 text-[#00B865]" />
               eSIM (recommandé)
@@ -179,7 +179,7 @@ export default function CarteSimUsaPage() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-lg">{plan.name}</h3>
-                  <span className="text-xs bg-gray-100-700 px-2 py-0.5 rounded-full">{plan.type}</span>
+                  <span className="text-xs bg-gray-100 px-2 py-0.5 rounded-full">{plan.type}</span>
                 </div>
                 {plan.recommended && (
                   <span className="bg-[#00B865] text-white text-xs font-semibold px-2 py-1 rounded-full">Recommandé</span>

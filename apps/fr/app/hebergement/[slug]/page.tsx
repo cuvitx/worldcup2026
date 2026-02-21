@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Hébergement à ${city.name} — CDM 2026 : Hôtels et Airbnb`,
     description: `Où dormir à ${city.name} pendant la Coupe du Monde 2026 ? Hôtels, Airbnb, quartiers recommandés et fourchettes de prix.`,
-    alternates: { canonical: `https://cdm2026.fr/hebergement/${slug}` },
+    alternates: { canonical: `https://www.cdm2026.fr/hebergement/${slug}` },
   };
 }
 
@@ -80,7 +80,7 @@ export default async function HebergementPage({ params }: PageProps) {
     "@type": "TouristDestination",
     name: `Hébergement à ${city.name} — Coupe du Monde 2026`,
     description: `Où dormir à ${city.name} pendant la Coupe du Monde 2026 ? Hôtels, Airbnb, quartiers recommandés et fourchettes de prix.`,
-    url: `https://cdm2026.fr/hebergement/${slug}`,
+    url: `https://www.cdm2026.fr/hebergement/${slug}`,
     touristType: "Sports fan",
   };
 
