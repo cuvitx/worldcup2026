@@ -120,7 +120,7 @@ export default async function EffectifPage({ params }: PageProps) {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Disclaimer */}
-        <div className="rounded-lg bg-secondary/10 border border-secondary/30 p-4 mb-8">
+        <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 mb-8">
           <p className="text-sm text-gray-700 font-medium">
             <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste provisoire</strong> — sera confirmée par le sélectionneur en mai 2026. Les joueurs listés ci-dessous sont les plus probables selon les dernières convocations.
           </p>
@@ -132,7 +132,7 @@ export default async function EffectifPage({ params }: PageProps) {
             {stars.length > 0 && (
               <section className="rounded-xl bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                  <Star className="h-6 w-6 text-secondary" />
+                  <Star className="h-6 w-6 text-accent" />
                   Joueurs stars
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-3">
@@ -140,10 +140,10 @@ export default async function EffectifPage({ params }: PageProps) {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="rounded-lg border-2 border-secondary/30 bg-secondary/5 p-4 hover:border-secondary transition-colors text-center"
+                      className="rounded-lg border-2 border-accent/30 bg-accent/5 p-4 hover:border-accent transition-colors text-center"
                     >
                       <p className="text-lg font-bold text-gray-900">{player.name}</p>
-                      <p className="text-sm text-secondary font-semibold">{positionLabels[player.position] ?? player.position}</p>
+                      <p className="text-sm text-accent font-semibold">{positionLabels[player.position] ?? player.position}</p>
                       <p className="text-sm text-gray-500 mt-1">{player.club}</p>
                       <p className="text-xs text-gray-400 mt-1">
                         {player.caps} sél. · {player.goals} buts · {player.age} ans
@@ -163,7 +163,7 @@ export default async function EffectifPage({ params }: PageProps) {
               return (
                 <section key={pos} className="rounded-xl bg-white p-6 shadow-sm">
                   <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
-                    <Icon className="h-5 w-5 text-secondary" />
+                    <Icon className="h-5 w-5 text-accent" />
                     {positionLabels[pos] ?? pos}s ({posPlayers.length})
                   </h2>
                   <div className="overflow-x-auto">
@@ -183,13 +183,13 @@ export default async function EffectifPage({ params }: PageProps) {
                           return (
                             <tr
                               key={player.id}
-                              className={`border-b border-gray-100 ${isStar ? "bg-secondary/5" : ""}`}
+                              className={`border-b border-gray-100 ${isStar ? "bg-accent/5" : ""}`}
                             >
                               <td className="py-3 pr-4 text-gray-500">{positionLabels[player.position] ?? player.position}</td>
                               <td className="py-3 pr-4">
-                                <Link href={`/joueur/${player.slug}`} className="font-medium text-accent hover:underline">
+                                <Link href={`/joueur/${player.slug}`} className="font-medium text-primary hover:underline">
                                   {player.name}
-                                  {isStar && <span className="ml-1 text-secondary"><Star className="h-5 w-5 inline-block" /></span>}
+                                  {isStar && <span className="ml-1 text-accent"><Star className="h-5 w-5 inline-block" /></span>}
                                 </Link>
                               </td>
                               <td className="py-3 pr-4 text-gray-600">{player.club}</td>
@@ -252,27 +252,27 @@ export default async function EffectifPage({ params }: PageProps) {
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href={`/equipe/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/equipe/${team.slug}`} className="text-primary hover:underline">
                     Fiche complète {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/parier/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/parier/${team.slug}`} className="text-primary hover:underline">
                     Parier sur {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/cote-champion/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/cote-champion/${team.slug}`} className="text-primary hover:underline">
                     Cote {team.name} championne
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/pronostic/${team.slug}`} className="text-accent hover:underline">
+                  <Link href={`/pronostic/${team.slug}`} className="text-primary hover:underline">
                     Pronostic {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-accent hover:underline">
+                  <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary hover:underline">
                     Groupe {team.group}
                   </Link>
                 </li>
