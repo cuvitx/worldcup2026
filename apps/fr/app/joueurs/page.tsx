@@ -4,7 +4,7 @@ import { RelatedLinks } from "../components/RelatedLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { players } from "@repo/data/players";
-import { teamsById } from "@repo/data/teams";
+import { teams, teamsById } from "@repo/data/teams";
 export const metadata: Metadata = {
   title: "210 joueurs cles de la Coupe du Monde 2026 | Effectifs & Stats",
   description:
@@ -67,6 +67,18 @@ export default function PlayersPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-8">
+        {/* Annuaires */}
+        <section className="rounded-lg bg-white p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Parcourir par équipe</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+            {teams.filter(t => players.some(p => p.teamId === t.id)).map((t) => (
+              <Link key={t.slug} href={`/joueurs/equipe/${t.slug}`} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-colors text-sm font-medium text-gray-900">
+                <span>{t.flag}</span> {t.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Top Scorers */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Meilleurs buteurs en sélection</h2>

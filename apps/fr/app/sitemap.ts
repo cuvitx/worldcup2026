@@ -205,6 +205,8 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
         ...staticSlugs("cote-carton-jaune", TOP_50_PLAYER_SLUGS, { prio: 0.7 }),
         ...staticSlugs("cote-buteur", TOP_50_PLAYER_SLUGS, { prio: 0.7 }),
         ...staticSlugs("statistiques-arbitre", REFEREE_SLUGS, { prio: 0.7 }),
+        ...slugPages("joueurs/equipe", teams, { prio: 0.7 }),
+        ...slugPages("joueurs/groupe", groups, { prio: 0.7 }),
       ];
 
     case "pronostics":
