@@ -31,7 +31,7 @@ export function PalmaresSection2026() {
  ))}
  </div>
  <Link
- href="/pronostic-vainqueur"
+ href="/pronostic/vainqueur"
  className="inline-flex items-center gap-2 rounded-full bg-white text-primary font-bold px-8 py-4 text-lg hover:bg-gray-100 transition-colors shadow-lg"
  >
  Voir le pronostic vainqueur 2026

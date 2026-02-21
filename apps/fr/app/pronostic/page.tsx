@@ -176,7 +176,7 @@ export default function PronosticHubPage() {
                 Top 5 favoris selon notre modèle ELO
               </p>
             </div>
-            <Link href="/pronostic-vainqueur" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
+            <Link href="/pronostic/vainqueur" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
               Analyse complète →
             </Link>
           </div>
@@ -221,7 +221,7 @@ export default function PronosticHubPage() {
 
           <div className="text-center">
             <Link
-              href="/pronostic-vainqueur"
+              href="/pronostic/vainqueur"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white hover:-translate-y-0.5 transition-all"
             >
               Voir le pronostic vainqueur complet (Top 10 + dark horses)
@@ -406,7 +406,7 @@ export default function PronosticHubPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               {
-                href: "/pronostic-vainqueur",
+                href: "/pronostic/vainqueur",
                 icon: "",
                 title: "Pronostic vainqueur",
                 desc: "Top 10 favoris avec cotes et dark horses",
@@ -461,16 +461,16 @@ export default function PronosticHubPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Tous nos pronostics</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { href: "/pronostic-vainqueur", icon: "🏆", title: "Pronostic vainqueur CDM 2026", description: "Qui va gagner la Coupe du Monde 2026 ?" },
-              { href: "/pronostic-btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Pronostics sur les deux équipes qui marquent" },
-              { href: "/pronostic-over-under", icon: "📊", title: "Over/Under", description: "Pronostics sur le nombre de buts" },
-              { href: "/pronostic-cartons", icon: "🟨", title: "Pronostic cartons", description: "Prévisions sur les cartons jaunes et rouges" },
-              { href: "/pronostic-clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles équipes garderont leur cage inviolée" },
-              { href: "/pronostic-finalistes", icon: "🥇", title: "Pronostic finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
-              { href: "/pronostic-buteurs", icon: "👟", title: "Meilleurs buteurs", description: "Qui sera le meilleur buteur du tournoi ?" },
-              { href: "/pronostic-scores-exacts", icon: "🎯", title: "Scores exacts", description: "Pronostics de scores exacts match par match" },
-              { href: "/pronostic-tirs-au-but", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
-              { href: "/paris-corners", icon: "🚩", title: "Pronostic corners", description: "Pronostics sur le nombre de corners" },
+              { href: "/pronostic/vainqueur", icon: "🏆", title: "Pronostic vainqueur CDM 2026", description: "Qui va gagner la Coupe du Monde 2026 ?" },
+              { href: "/pronostic/btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Pronostics sur les deux équipes qui marquent" },
+              { href: "/pronostic/over-under", icon: "📊", title: "Over/Under", description: "Pronostics sur le nombre de buts" },
+              { href: "/pronostic/cartons", icon: "🟨", title: "Pronostic cartons", description: "Prévisions sur les cartons jaunes et rouges" },
+              { href: "/pronostic/clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles équipes garderont leur cage inviolée" },
+              { href: "/pronostic/finalistes", icon: "🥇", title: "Pronostic finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
+              { href: "/pronostic/buteurs", icon: "👟", title: "Meilleurs buteurs", description: "Qui sera le meilleur buteur du tournoi ?" },
+              { href: "/pronostic/scores-exacts", icon: "🎯", title: "Scores exacts", description: "Pronostics de scores exacts match par match" },
+              { href: "/pronostic/tirs-au-but", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
+              { href: "/paris-sportifs/corners", icon: "🚩", title: "Pronostic corners", description: "Pronostics sur le nombre de corners" },
               { href: "/pronostics/grille", icon: "📋", title: "Grille de pronostics", description: "Remplissez votre grille de pronostics CDM" },
               { href: "/pronostics/leaderboard", icon: "🏅", title: "Classement pronostiqueurs", description: "Le classement des meilleurs pronostiqueurs" },
               { href: "/simulateur", icon: "🎮", title: "Simulateur de tournoi", description: "Simulez le tableau final de la CDM 2026" },

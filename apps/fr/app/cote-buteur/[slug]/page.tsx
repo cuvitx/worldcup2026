@@ -62,7 +62,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
   const odds = getScorerOdds(slug);
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
-    { name: "Pronostic buteurs", url: "/pronostic-buteurs" },
+    { name: "Pronostic buteurs", url: "/pronostic/buteurs" },
     { name: `Cote ${player.name} Buteur`, url: `/cote-buteur/${slug}` },
   ];
 
@@ -80,7 +80,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic-buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
+          <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic/buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Trophy className="inline w-8 h-8 mr-2" />
             Cote {player.name} Buteur CDM 2026 — Pronostic et Analyse
@@ -186,7 +186,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
             <span className="font-semibold text-primary">Fiche {player.name}</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
-          <Link href="/pronostic-buteurs" className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
+          <Link href="/pronostic/buteurs" className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
             <span className="font-semibold text-primary">Pronostic buteurs CDM 2026</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>

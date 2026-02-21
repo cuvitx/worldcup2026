@@ -156,7 +156,7 @@ export default function GroupsPage() {
               icon: ""
             },
             {
-              href: "/pronostic-vainqueur",
+              href: "/pronostic/vainqueur",
               title: "Pronostic vainqueur",
               description: "Nos prédictions et cotes pour le vainqueur de la CDM 2026.",
               icon: ""

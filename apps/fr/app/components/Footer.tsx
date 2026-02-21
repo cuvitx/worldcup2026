@@ -23,7 +23,7 @@ const columns = [
   {
     title: "Pronostics",
     links: [
-      { href: "/pronostic-vainqueur", label: "Pronostic vainqueur" },
+      { href: "/pronostic/vainqueur", label: "Pronostic vainqueur" },
       { href: "/pronostic/france", label: "Pronostic France" },
       { href: "/pronostic/bresil", label: "Pronostic Brésil" },
       { href: "/comparateur-cotes", label: "Comparateur de cotes" },

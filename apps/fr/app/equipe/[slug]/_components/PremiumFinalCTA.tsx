@@ -32,7 +32,7 @@ export function PremiumFinalCTA({ team }: PremiumFinalCTAProps) {
             Pronostic {team.name}
           </Link>
           <Link 
-            href="/pronostic-vainqueur" 
+            href="/pronostic/vainqueur" 
             className="w-full sm:w-auto rounded-lg border border-secondary/40 bg-secondary/15 text-secondary font-bold px-6 py-3 text-center hover:bg-secondary/25 transition-all"
           >
             Pronostic vainqueur

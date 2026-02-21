@@ -53,12 +53,12 @@ const mainCategories = [
     { label: "Tableau final", href: "/tableau-final" },
   ]},
   { title: "Pronostics", links: [
-    { label: "Pronostic vainqueur", href: "/pronostic-vainqueur" },
+    { label: "Pronostic vainqueur", href: "/pronostic/vainqueur" },
     { label: "Pronostic meilleur buteur", href: "/pronostic-meilleur-buteur" },
-    { label: "Pronostics scores exacts", href: "/pronostic-scores-exacts" },
-    { label: "Pronostic over/under", href: "/pronostic-over-under" },
+    { label: "Pronostics scores exacts", href: "/pronostic/scores-exacts" },
+    { label: "Pronostic over/under", href: "/pronostic/over-under" },
     { label: "Simulateur", href: "/simulateur" },
-    { label: "Dark horses", href: "/dark-horses" },
+    { label: "Dark horses", href: "/paris-sportifs/dark-horses" },
   ]},
   { title: "Equipes et joueurs", links: [
     { label: "Toutes les equipes", href: "/equipes" },
@@ -68,16 +68,16 @@ const mainCategories = [
   { title: "Lieux", links: [
     { label: "Stades", href: "/stades" },
     { label: "Villes hotes", href: "/villes" },
-    { label: "Decalage horaire", href: "/decalage-horaire" },
+    { label: "Decalage horaire", href: "/voyage/decalage-horaire" },
     { label: "Ou regarder les matchs", href: "/ou-regarder" },
     { label: "Regarder la CDM au travail", href: "/regarder-cdm-au-travail" },
-    { label: "ESTA USA", href: "/esta-usa" },
+    { label: "ESTA USA", href: "/voyage/esta-visa-usa" },
   ]},
   { title: "Paris sportifs", links: [
     { label: "Comparateur de cotes", href: "/comparateur-cotes" },
-    { label: "Guide des paris", href: "/guide-paris" },
-    { label: "Bankroll CDM", href: "/bankroll-cdm" },
-    { label: "Lexique des paris", href: "/lexique-paris" },
+    { label: "Guide des paris", href: "/paris-sportifs/guide" },
+    { label: "Bankroll CDM", href: "/paris-sportifs/bankroll" },
+    { label: "Lexique des paris", href: "/paris-sportifs/lexique" },
   ]},
   { title: "A propos", links: [
     { label: "Format du tournoi", href: "/format" },

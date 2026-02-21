@@ -209,7 +209,7 @@ export default function ProfilPage() {
           {/* Quick links */}
           <div className="grid grid-cols-2 gap-3">
             <Link
-              href="/pronostic-vainqueur"
+              href="/pronostic/vainqueur"
               className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md"
             >
               <span className="text-2xl block mb-1"></span>

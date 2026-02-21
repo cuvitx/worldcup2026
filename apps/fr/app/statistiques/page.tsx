@@ -222,7 +222,7 @@ export default function StatistiquesPage() {
                Palmarès complet
             </Link>
             <Link
-              href="/pronostic-vainqueur"
+              href="/pronostic/vainqueur"
               className="inline-flex items-center gap-2 rounded-full bg-white/20 border border-white/30 text-white font-bold px-6 py-3 hover:bg-white/30 transition-colors"
             >
                Pronostic 2026

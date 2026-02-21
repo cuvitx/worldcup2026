@@ -52,7 +52,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
       <div className="rounded-xl bg-primary/10 border border-primary/20 p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">Pronostic vainqueur CDM 2026</h3>
         <p className="text-sm text-gray-600 mb-3">Qui soulèvera le trophée ? Découvrez notre analyse complète.</p>
-        <Link href="/pronostic-vainqueur" className="text-sm font-semibold text-primary hover:underline">Voir le pronostic vainqueur →</Link>
+        <Link href="/pronostic/vainqueur" className="text-sm font-semibold text-primary hover:underline">Voir le pronostic vainqueur →</Link>
       </div>
     </div>
   );

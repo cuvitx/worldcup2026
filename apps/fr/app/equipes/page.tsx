@@ -113,7 +113,7 @@ export default function TeamsPage() {
               icon: ""
             },
             {
-              href: "/pronostic-vainqueur",
+              href: "/pronostic/vainqueur",
               title: "Qui va gagner ?",
               description: "Nos pronostics et cotes pour le vainqueur de la CDM 2026.",
               icon: ""

@@ -188,7 +188,7 @@ export default async function TeamPage({ params }: PageProps) {
             </div>
           </Link>
           <Link
-            href="/pronostic-vainqueur"
+            href="/pronostic/vainqueur"
             className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Medal className="h-5 w-5 inline-block" /></span>

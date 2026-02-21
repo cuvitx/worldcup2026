@@ -45,7 +45,7 @@ export function HeroSection() {
         {/* CTAs */}
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           <Link
-            href="/pronostic-vainqueur"
+            href="/pronostic/vainqueur"
             className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/80 w-full sm:w-auto"
           >
             <span className="text-base"></span>

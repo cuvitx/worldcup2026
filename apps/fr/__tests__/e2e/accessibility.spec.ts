@@ -17,7 +17,7 @@ const PAGES = [
   { path: '/groupes', name: 'Groupes' },
   { path: '/groupe/a', name: 'Groupe A' },
   { path: '/match/mexique-afrique-du-sud', name: 'Match' },
-  { path: '/pronostic-vainqueur', name: 'Pronostic Vainqueur' },
+  { path: '/pronostic/vainqueur', name: 'Pronostic Vainqueur' },
   { path: '/pronostic/france', name: 'Pronostic France' },
   { path: '/buteurs', name: 'Buteurs' },
   { path: '/simulateur', name: 'Simulateur' },

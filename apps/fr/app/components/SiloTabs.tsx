@@ -62,19 +62,19 @@ function detectSilo(pathname: string): SiloMatch | null {
 
   // Pronostics silo (static pages)
   const pronosticsPages = [
-    "/pronostic-vainqueur", "/pronostic-btts", "/pronostic-over-under",
-    "/pronostic-cartons", "/pronostic-corners", "/pronostic-clean-sheet",
-    "/pronostic-finalistes", "/pronostic-tirs-au-but", "/pronostic-scores-exacts",
-    "/pronostic-buteurs", "/paris-sportifs", "/paris-combines", "/paris-handicap",
-    "/paris-live", "/paris-mi-temps", "/paris-corners", "/value-bets", "/comparateur-cotes",
+    "/pronostic/vainqueur", "/pronostic/btts", "/pronostic/over-under",
+    "/pronostic/cartons", "/pronostic-corners", "/pronostic/clean-sheet",
+    "/pronostic/finalistes", "/pronostic/tirs-au-but", "/pronostic/scores-exacts",
+    "/pronostic/buteurs", "/paris-sportifs", "/paris-sportifs/combines", "/paris-sportifs/handicap",
+    "/paris-sportifs/live", "/paris-sportifs/mi-temps", "/paris-sportifs/corners", "/paris-sportifs/value-bets", "/comparateur-cotes",
   ];
   if (pronosticsPages.includes(p)) return { silo: "pronostics", slug: null };
 
   // Guide voyage silo
   const guidePages = [
-    "/esta-usa", "/visa-mexique", "/formalites-canada", "/decalage-horaire",
-    "/vols", "/budget", "/assurance-voyage", "/carte-sim-usa", "/valise-cdm",
-    "/pourboires-usa", "/supporter-francais-usa", "/wifi-stades", "/alcool-stades",
+    "/voyage/esta-visa-usa", "/voyage/visa-mexique", "/voyage/formalites-canada", "/voyage/decalage-horaire",
+    "/vols", "/budget", "/voyage/assurance", "/voyage/carte-sim", "/voyage/valise",
+    "/voyage/pourboires", "/voyage/supporter-francais", "/voyage/wifi-stades", "/voyage/alcool-stades",
     "/hebergement",
   ];
   if (guidePages.includes(p) || p.startsWith("/guide")) return { silo: "guide-voyage", slug: null };
@@ -130,27 +130,27 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
       ];
     case "pronostics":
       return [
-        { label: "Vainqueur", href: "/pronostic-vainqueur" },
-        { label: "BTTS", href: "/pronostic-btts" },
-        { label: "Over/Under", href: "/pronostic-over-under" },
-        { label: "Cartons", href: "/pronostic-cartons" },
-        { label: "Corners", href: "/paris-corners" },
-        { label: "Clean Sheet", href: "/pronostic-clean-sheet" },
-        { label: "Buteurs", href: "/pronostic-buteurs" },
-        { label: "Scores exacts", href: "/pronostic-scores-exacts" },
+        { label: "Vainqueur", href: "/pronostic/vainqueur" },
+        { label: "BTTS", href: "/pronostic/btts" },
+        { label: "Over/Under", href: "/pronostic/over-under" },
+        { label: "Cartons", href: "/pronostic/cartons" },
+        { label: "Corners", href: "/paris-sportifs/corners" },
+        { label: "Clean Sheet", href: "/pronostic/clean-sheet" },
+        { label: "Buteurs", href: "/pronostic/buteurs" },
+        { label: "Scores exacts", href: "/pronostic/scores-exacts" },
         { label: "Paris sportifs", href: "/paris-sportifs" },
         { label: "Comparateur", href: "/comparateur-cotes" },
       ];
     case "guide-voyage":
       return [
-        { label: "ESTA", href: "/esta-usa" },
-        { label: "Visa Mexique", href: "/visa-mexique" },
-        { label: "Canada", href: "/formalites-canada" },
-        { label: "Décalage", href: "/decalage-horaire" },
+        { label: "ESTA", href: "/voyage/esta-visa-usa" },
+        { label: "Visa Mexique", href: "/voyage/visa-mexique" },
+        { label: "Canada", href: "/voyage/formalites-canada" },
+        { label: "Décalage", href: "/voyage/decalage-horaire" },
         { label: "Vols", href: "/vols" },
         { label: "Budget", href: "/budget" },
-        { label: "Assurance", href: "/assurance-voyage" },
-        { label: "Carte SIM", href: "/carte-sim-usa" },
+        { label: "Assurance", href: "/voyage/assurance" },
+        { label: "Carte SIM", href: "/voyage/carte-sim" },
       ];
     default:
       return [];

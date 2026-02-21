@@ -328,7 +328,7 @@ export default function FinalePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/pronostic-vainqueur"
+                href="/pronostic/vainqueur"
                 className="inline-flex items-center gap-2 bg-white/10 text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-white/20 transition-colors"
               >
                 Voir les pronostics

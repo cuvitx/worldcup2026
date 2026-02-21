@@ -453,7 +453,7 @@ export default function ButeursPage() {
 
         <RelatedContent
           items={[
-            { href: '/pronostic-vainqueur', emoji: '', title: 'Pronostic vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
+            { href: '/pronostic/vainqueur', emoji: '', title: 'Pronostic vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
             { href: '/groupes', emoji: '', title: 'Tous les groupes', description: 'Les 12 groupes et classements' },
             { href: '/simulateur', emoji: '', title: 'Simulateur de bracket', description: 'Créez votre bracket complet' },
             { href: '/comparateur-cotes', emoji: '', title: 'Comparateur de cotes', description: 'Meilleures cotes bookmakers' },

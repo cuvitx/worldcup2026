@@ -122,7 +122,7 @@ export function Section2026() {
         {/* CTA */}
         <div className="flex flex-wrap justify-center gap-3">
           <Link
-            href="/pronostic-vainqueur"
+            href="/pronostic/vainqueur"
             className="inline-flex items-center gap-2 rounded-full bg-white text-primary font-bold px-6 py-3 hover:bg-gray-100 transition-colors shadow-lg"
           >
              Pronostic vainqueur 2026

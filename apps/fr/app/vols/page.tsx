@@ -240,7 +240,7 @@ export default function VolsPage() {
             Budget CDM 2026 <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/supporter-francais-usa"
+            href="/voyage/supporter-francais"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
           >
             Guide supporter français

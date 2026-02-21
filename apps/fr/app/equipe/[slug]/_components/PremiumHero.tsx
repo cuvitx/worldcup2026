@@ -87,7 +87,7 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
                 Découvrir l&apos;effectif
               </a>
               <Link
-                href="/pronostic-vainqueur"
+                href="/pronostic/vainqueur"
                 className="rounded-lg border border-secondary/40 bg-secondary/15 px-5 py-2.5 font-semibold text-secondary text-sm text-center hover:bg-secondary/25 transition-all"
               >
                 Pronostic vainqueur

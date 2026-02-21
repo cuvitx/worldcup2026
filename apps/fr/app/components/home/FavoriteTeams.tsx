@@ -23,7 +23,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
             Cotes Vainqueur
           </p>
-          <SectionHeading title="Équipes favorites" subtitle="Top 5 FIFA · Pronostics & chances de titre" linkHref="/pronostic-vainqueur" linkLabel="Tous les pronostics →" />
+          <SectionHeading title="Équipes favorites" subtitle="Top 5 FIFA · Pronostics & chances de titre" linkHref="/pronostic/vainqueur" linkLabel="Tous les pronostics →" />
         </div>
 
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">

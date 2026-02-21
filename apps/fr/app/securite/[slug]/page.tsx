@@ -413,7 +413,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
                 : "Au Canada, les soins ne sont pas gratuits pour les non-résidents. Prévoyez une couverture adaptée."}
           </p>
           <Link
-            href="/assurance-voyage"
+            href="/voyage/assurance"
             className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
           >
             Comparer les assurances voyage

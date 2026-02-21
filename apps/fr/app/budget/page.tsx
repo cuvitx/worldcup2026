@@ -204,7 +204,7 @@ export default function BudgetPage() {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/decalage-horaire"
+            href="/voyage/decalage-horaire"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
           >
             Décalage horaire

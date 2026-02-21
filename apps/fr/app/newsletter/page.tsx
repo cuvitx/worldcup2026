@@ -348,7 +348,7 @@ export default function NewsletterPage() {
               ← Retour à l&apos;accueil
             </Link>
             <span className="text-gray-600">·</span>
-            <Link href="/pronostic-vainqueur" className="text-sm text-gray-400 hover:text-white transition-colors">
+            <Link href="/pronostic/vainqueur" className="text-sm text-gray-400 hover:text-white transition-colors">
               Pronostic vainqueur
             </Link>
             <span className="text-gray-600">·</span>

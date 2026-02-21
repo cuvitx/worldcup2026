@@ -32,7 +32,7 @@ function getProximityLinks(
         description: `Voir l'analyse détaillée de ${t1Cap} - ${t2Cap}`,
       },
       {
-        href: `/pronostic-buteurs`,
+        href: `/pronostic/buteurs`,
         label: "Cotes buteurs du match",
         description: "Consulter les cotes des buteurs probables",
       },
@@ -54,7 +54,7 @@ function getProximityLinks(
         description: "Découvrir l'effectif complet de sa sélection",
       },
       {
-        href: `/pronostic-buteurs`,
+        href: `/pronostic/buteurs`,
         label: "Accéder au pronostic buteurs",
         description: `Consulter les cotes de ${name} et ses rivaux`,
       },
@@ -134,7 +134,7 @@ function getProximityLinks(
   // Default
   return [
     {
-      href: "/pronostic-vainqueur",
+      href: "/pronostic/vainqueur",
       label: "Accéder au pronostic vainqueur",
       description: "Découvrir notre analyse des favoris du tournoi",
     },

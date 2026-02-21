@@ -213,7 +213,7 @@ export default function BonusHubPage() {
             <Link href="/meilleurs-bookmakers" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Meilleurs bookmakers
             </Link>
-            <Link href="/guide-paris" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/paris-sportifs/guide" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Guide des paris
             </Link>
             <Link href="/methodes-paiement" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">

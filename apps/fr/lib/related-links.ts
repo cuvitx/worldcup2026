@@ -21,7 +21,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/effectif/${slug}`, emoji: '👥', title: `Effectif ${name}`, description: `Les joueurs sélectionnés` },
       { href: `/parier/${slug}`, emoji: '🎰', title: `Parier sur ${name}`, description: `Meilleurs paris disponibles` },
       { href: `/cote-champion/${slug}`, emoji: '🏆', title: `Cote champion ${name}`, description: `Cotes pour remporter la CDM` },
-      { href: `/pronostic-vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner la CDM 2026 ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner la CDM 2026 ?` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur de cotes`, description: `Comparez les cotes des bookmakers` },
     ];
   }
@@ -97,13 +97,13 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/scenarios-qualification/${slug}`, emoji: '🧮', title: `Scénarios qualification`, description: `Toutes les possibilités` },
       { href: `/groupes`, emoji: '📊', title: `Tous les groupes`, description: `Vue d'ensemble des poules` },
       { href: `/match/calendrier`, emoji: '📅', title: `Calendrier`, description: `Calendrier complet` },
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner la CDM ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner la CDM ?` },
       { href: `/simulateur`, emoji: '🎮', title: `Simulateur`, description: `Simulez les résultats` },
     ];
   }
 
-  // ── /pronostic-vainqueur ──
-  if (p === '/pronostic-vainqueur') {
+  // ── /pronostic/vainqueur ──
+  if (p === '/pronostic/vainqueur') {
     return [
       { href: `/pronostic/france`, emoji: '🇫🇷', title: `Pronostic France`, description: `Nos pronostics pour la France` },
       { href: `/pronostic/bresil`, emoji: '🇧🇷', title: `Pronostic Brésil`, description: `Nos pronostics pour le Brésil` },
@@ -124,47 +124,47 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/effectif/${slug}`, emoji: '👥', title: `Effectif ${name}`, description: `Joueurs sélectionnés` },
       { href: `/parier/${slug}`, emoji: '🎰', title: `Parier sur ${name}`, description: `Meilleurs paris` },
       { href: `/cote-champion/${slug}`, emoji: '🏆', title: `Cote champion`, description: `Cotes pour le titre` },
-      { href: `/pronostic-vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
     ];
   }
 
-  // ── /pronostic-btts ──
-  if (p === '/pronostic-btts') {
+  // ── /pronostic/btts ──
+  if (p === '/pronostic/btts') {
     return [
-      { href: `/pronostic-over-under`, emoji: '📈', title: `Over/Under`, description: `Pronostics plus/moins de buts` },
-      { href: `/pronostic-cartons`, emoji: '🟨', title: `Pronostic cartons`, description: `Cartons jaunes & rouges` },
-      { href: `/paris-corners`, emoji: '🚩', title: `Paris corners`, description: `Pronostics corners` },
-      { href: `/pronostic-clean-sheet`, emoji: '🧤', title: `Clean sheet`, description: `Pronostics clean sheet` },
-      { href: `/pronostic-scores-exacts`, emoji: '🎯', title: `Scores exacts`, description: `Pronostics de scores` },
+      { href: `/pronostic/over-under`, emoji: '📈', title: `Over/Under`, description: `Pronostics plus/moins de buts` },
+      { href: `/pronostic/cartons`, emoji: '🟨', title: `Pronostic cartons`, description: `Cartons jaunes & rouges` },
+      { href: `/paris-sportifs/corners`, emoji: '🚩', title: `Paris corners`, description: `Pronostics corners` },
+      { href: `/pronostic/clean-sheet`, emoji: '🧤', title: `Clean sheet`, description: `Pronostics clean sheet` },
+      { href: `/pronostic/scores-exacts`, emoji: '🎯', title: `Scores exacts`, description: `Pronostics de scores` },
       { href: `/paris-sportifs`, emoji: '🎰', title: `Paris sportifs`, description: `Guide complet des paris` },
     ];
   }
 
-  // ── /pronostic-over-under ──
-  if (p === '/pronostic-over-under') {
+  // ── /pronostic/over-under ──
+  if (p === '/pronostic/over-under') {
     return [
-      { href: `/pronostic-btts`, emoji: '⚽', title: `BTTS`, description: `Les deux équipes marquent` },
-      { href: `/pronostic-cartons`, emoji: '🟨', title: `Pronostic cartons`, description: `Cartons jaunes & rouges` },
-      { href: `/pronostic-clean-sheet`, emoji: '🧤', title: `Clean sheet`, description: `Pronostics clean sheet` },
-      { href: `/paris-combines`, emoji: '🔗', title: `Paris combinés`, description: `Combinez vos pronostics` },
+      { href: `/pronostic/btts`, emoji: '⚽', title: `BTTS`, description: `Les deux équipes marquent` },
+      { href: `/pronostic/cartons`, emoji: '🟨', title: `Pronostic cartons`, description: `Cartons jaunes & rouges` },
+      { href: `/pronostic/clean-sheet`, emoji: '🧤', title: `Clean sheet`, description: `Pronostics clean sheet` },
+      { href: `/paris-sportifs/combines`, emoji: '🔗', title: `Paris combinés`, description: `Combinez vos pronostics` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
-      { href: `/guide-paris`, emoji: '📖', title: `Guide paris`, description: `Tout savoir sur les paris` },
+      { href: `/paris-sportifs/guide`, emoji: '📖', title: `Guide paris`, description: `Tout savoir sur les paris` },
     ];
   }
 
   // ── Other /pronostic-* pages ──
   if (p.startsWith('/pronostic-') || p === '/pronostic') {
     const pronoPages = [
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
-      { href: `/pronostic-btts`, emoji: '⚽', title: `BTTS`, description: `Les deux équipes marquent` },
-      { href: `/pronostic-over-under`, emoji: '📈', title: `Over/Under`, description: `Plus/moins de buts` },
-      { href: `/pronostic-buteurs`, emoji: '👟', title: `Pronostic buteurs`, description: `Meilleurs buteurs` },
-      { href: `/pronostic-cartons`, emoji: '🟨', title: `Pronostic cartons`, description: `Cartons jaunes & rouges` },
-      { href: `/pronostic-scores-exacts`, emoji: '🎯', title: `Scores exacts`, description: `Pronostics de scores` },
-      { href: `/pronostic-clean-sheet`, emoji: '🧤', title: `Clean sheet`, description: `Pronostics clean sheet` },
-      { href: `/pronostic-finalistes`, emoji: '🏅', title: `Pronostic finalistes`, description: `Qui sera en finale ?` },
-      { href: `/pronostic-tirs-au-but`, emoji: '🥅', title: `Tirs au but`, description: `Pronostics penalties` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+      { href: `/pronostic/btts`, emoji: '⚽', title: `BTTS`, description: `Les deux équipes marquent` },
+      { href: `/pronostic/over-under`, emoji: '📈', title: `Over/Under`, description: `Plus/moins de buts` },
+      { href: `/pronostic/buteurs`, emoji: '👟', title: `Pronostic buteurs`, description: `Meilleurs buteurs` },
+      { href: `/pronostic/cartons`, emoji: '🟨', title: `Pronostic cartons`, description: `Cartons jaunes & rouges` },
+      { href: `/pronostic/scores-exacts`, emoji: '🎯', title: `Scores exacts`, description: `Pronostics de scores` },
+      { href: `/pronostic/clean-sheet`, emoji: '🧤', title: `Clean sheet`, description: `Pronostics clean sheet` },
+      { href: `/pronostic/finalistes`, emoji: '🏅', title: `Pronostic finalistes`, description: `Qui sera en finale ?` },
+      { href: `/pronostic/tirs-au-but`, emoji: '🥅', title: `Tirs au but`, description: `Pronostics penalties` },
     ];
     return pronoPages.filter(l => l.href !== p).slice(0, 6);
   }
@@ -173,11 +173,11 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
   if (p === '/paris-sportifs') {
     return [
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
-      { href: `/pronostic-btts`, emoji: '⚽', title: `BTTS`, description: `Les deux marquent` },
-      { href: `/pronostic-over-under`, emoji: '📈', title: `Over/Under`, description: `Plus/moins de buts` },
-      { href: `/paris-handicap`, emoji: '⚖️', title: `Paris handicap`, description: `Guide du handicap` },
-      { href: `/paris-combines`, emoji: '🔗', title: `Paris combinés`, description: `Combinez vos paris` },
-      { href: `/paris-live`, emoji: '🔴', title: `Paris live`, description: `Parier en direct` },
+      { href: `/pronostic/btts`, emoji: '⚽', title: `BTTS`, description: `Les deux marquent` },
+      { href: `/pronostic/over-under`, emoji: '📈', title: `Over/Under`, description: `Plus/moins de buts` },
+      { href: `/paris-sportifs/handicap`, emoji: '⚖️', title: `Paris handicap`, description: `Guide du handicap` },
+      { href: `/paris-sportifs/combines`, emoji: '🔗', title: `Paris combinés`, description: `Combinez vos paris` },
+      { href: `/paris-sportifs/live`, emoji: '🔴', title: `Paris live`, description: `Parier en direct` },
     ];
   }
 
@@ -185,11 +185,11 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
   if (p.startsWith('/paris-')) {
     const parisPages = [
       { href: `/paris-sportifs`, emoji: '🎰', title: `Paris sportifs`, description: `Guide complet` },
-      { href: `/paris-combines`, emoji: '🔗', title: `Paris combinés`, description: `Combinez vos paris` },
-      { href: `/paris-handicap`, emoji: '⚖️', title: `Paris handicap`, description: `Guide du handicap` },
-      { href: `/paris-live`, emoji: '🔴', title: `Paris live`, description: `Parier en direct` },
-      { href: `/paris-corners`, emoji: '🚩', title: `Paris corners`, description: `Pronostics corners` },
-      { href: `/paris-mi-temps`, emoji: '⏱️', title: `Paris mi-temps`, description: `Paris à la mi-temps` },
+      { href: `/paris-sportifs/combines`, emoji: '🔗', title: `Paris combinés`, description: `Combinez vos paris` },
+      { href: `/paris-sportifs/handicap`, emoji: '⚖️', title: `Paris handicap`, description: `Guide du handicap` },
+      { href: `/paris-sportifs/live`, emoji: '🔴', title: `Paris live`, description: `Parier en direct` },
+      { href: `/paris-sportifs/corners`, emoji: '🚩', title: `Paris corners`, description: `Pronostics corners` },
+      { href: `/paris-sportifs/mi-temps`, emoji: '⏱️', title: `Paris mi-temps`, description: `Paris à la mi-temps` },
     ];
     return parisPages.filter(l => l.href !== p).slice(0, 6);
   }
@@ -203,7 +203,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/score-exact/${slug}`, emoji: '🎯', title: `Score exact`, description: `Pronostic de score` },
       { href: `/compos-officielles/${slug}`, emoji: '📋', title: `Compos`, description: `Compositions probables` },
       { href: `/sur-quelle-chaine/${slug}`, emoji: '📺', title: `Chaîne TV`, description: `Où regarder` },
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui gagne la CDM ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui gagne la CDM ?` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
     ];
   }
@@ -216,8 +216,8 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/bonus`, emoji: '🎁', title: `Bonus paris`, description: `Tous les bonus disponibles` },
       { href: `/paris-sportifs`, emoji: '🎰', title: `Paris sportifs`, description: `Guide complet des paris` },
       { href: `/meilleurs-bookmakers`, emoji: '🏅', title: `Meilleurs bookmakers`, description: `Notre classement` },
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
-      { href: `/guide-paris`, emoji: '📖', title: `Guide paris`, description: `Tout savoir sur les paris` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+      { href: `/paris-sportifs/guide`, emoji: '📖', title: `Guide paris`, description: `Tout savoir sur les paris` },
     ];
   }
 
@@ -226,7 +226,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
   if (actuMatch) {
     return [
       { href: `/actualites`, emoji: '📰', title: `Toutes les actualités`, description: `Dernières news CDM 2026` },
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
       { href: `/match/calendrier`, emoji: '📅', title: `Calendrier`, description: `Calendrier des matchs` },
       { href: `/equipes`, emoji: '🏳️', title: `Les équipes`, description: `Les 48 équipes qualifiées` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
@@ -244,8 +244,8 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/hebergement`, emoji: '🏨', title: `Hébergement`, description: `Où dormir` },
       { href: `/vols`, emoji: '✈️', title: `Vols`, description: `Trouver un vol` },
       { href: `/budget`, emoji: '💰', title: `Budget`, description: `Combien ça coûte ?` },
-      { href: `/esta-usa`, emoji: '🛂', title: `ESTA USA`, description: `Formalités d'entrée` },
-      { href: `/decalage-horaire`, emoji: '🕐', title: `Décalage horaire`, description: `Horaires des matchs` },
+      { href: `/voyage/esta-visa-usa`, emoji: '🛂', title: `ESTA USA`, description: `Formalités d'entrée` },
+      { href: `/voyage/decalage-horaire`, emoji: '🕐', title: `Décalage horaire`, description: `Horaires des matchs` },
       { href: `/guides`, emoji: '📚', title: `Tous les guides`, description: `Guides pratiques` },
     ];
     return guidePages.filter(l => l.href !== p && !p.startsWith(l.href + '/')).slice(0, 6);
@@ -261,7 +261,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/pronostic/${slug}`, emoji: '🔮', title: `Pronostic ${name}`, description: `Nos pronostics` },
       { href: `/parier/${slug}`, emoji: '🎰', title: `Parier sur ${name}`, description: `Meilleurs paris` },
       { href: `/cote-champion/${slug}`, emoji: '🏆', title: `Cote champion`, description: `Cotes pour le titre` },
-      { href: `/pronostic-vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
       { href: `/joueurs`, emoji: '👥', title: `Tous les joueurs`, description: `Annuaire des joueurs` },
     ];
   }
@@ -276,7 +276,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/pronostic/${slug}`, emoji: '🔮', title: `Pronostic ${name}`, description: `Nos pronostics` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
       { href: `/paris-sportifs`, emoji: '🎰', title: `Paris sportifs`, description: `Guide complet` },
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
       { href: `/bonus`, emoji: '🎁', title: `Bonus paris`, description: `Offres des bookmakers` },
     ];
   }
@@ -289,7 +289,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
       { href: `/match/${slug}`, emoji: '⚽', title: `Fiche match`, description: `Infos complètes` },
       { href: `/pronostic-match/${slug}`, emoji: '🔮', title: `Pronostic`, description: `Notre analyse` },
       { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui gagne la CDM ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui gagne la CDM ?` },
       { href: `/paris-sportifs`, emoji: '🎰', title: `Paris sportifs`, description: `Guide des paris` },
       { href: `/match/calendrier`, emoji: '📅', title: `Calendrier`, description: `Tous les matchs` },
     ];
@@ -298,7 +298,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
   // ── Homepage ──
   if (p === '/' || p === '') {
     return [
-      { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner la CDM ?` },
+      { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner la CDM ?` },
       { href: `/match/calendrier`, emoji: '📅', title: `Calendrier`, description: `Tous les matchs` },
       { href: `/groupes`, emoji: '📊', title: `Les groupes`, description: `Phase de poules` },
       { href: `/equipes`, emoji: '🏳️', title: `Les équipes`, description: `48 équipes qualifiées` },
@@ -310,7 +310,7 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
   // ── Default fallback for misc pages ──
   // Listing pages, quiz, stats, etc.
   const defaults: RelatedItem[] = [
-    { href: `/pronostic-vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
+    { href: `/pronostic/vainqueur`, emoji: '🏆', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
     { href: `/match/calendrier`, emoji: '📅', title: `Calendrier`, description: `Tous les matchs` },
     { href: `/comparateur-cotes`, emoji: '📊', title: `Comparateur cotes`, description: `Comparez les cotes` },
     { href: `/equipes`, emoji: '🏳️', title: `Les équipes`, description: `48 équipes qualifiées` },

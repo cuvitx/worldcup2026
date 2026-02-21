@@ -309,7 +309,7 @@ export default function ClassementFifaPage() {
         <RelatedLinks variant="compact" title="Pages liées" links={[
           { href: "/equipes", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "" },
           { href: "/groupes", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "" },
-          { href: "/pronostic-vainqueur", title: "Pronostic vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
+          { href: "/pronostic/vainqueur", title: "Pronostic vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
           { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "" },
           { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre équipe", icon: "" },
         ]} />

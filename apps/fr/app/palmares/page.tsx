@@ -87,7 +87,7 @@ export default function PalmaresPage() {
  icon: ""
  },
  {
- href: "/pronostic-vainqueur",
+ href: "/pronostic/vainqueur",
  title: "Pronostic CDM 2026",
  description: "Qui va remporter la prochaine Coupe du Monde ? Nos prédictions et cotes.",
  icon: ""

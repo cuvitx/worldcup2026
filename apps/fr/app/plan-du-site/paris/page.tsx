@@ -46,9 +46,9 @@ const sections = [
   {
     title: "Guides de paris",
     links: [
-      { label: "Guide des paris sportifs", href: "/guide-paris" },
-      { label: "Bankroll CDM 2026", href: "/bankroll-cdm" },
-      { label: "Lexique des paris", href: "/lexique-paris" },
+      { label: "Guide des paris sportifs", href: "/paris-sportifs/guide" },
+      { label: "Bankroll CDM 2026", href: "/paris-sportifs/bankroll" },
+      { label: "Lexique des paris", href: "/paris-sportifs/lexique" },
       { label: "Comparateur de cotes", href: "/comparateur-cotes" },
     ],
   },
@@ -78,9 +78,9 @@ const sections = [
   {
     title: "Pronostics competition",
     links: [
-      { label: "Pronostic vainqueur", href: "/pronostic-vainqueur" },
-      { label: "Pronostic scores exacts", href: "/pronostic-scores-exacts" },
-      { label: "Pronostic over/under", href: "/pronostic-over-under" },
+      { label: "Pronostic vainqueur", href: "/pronostic/vainqueur" },
+      { label: "Pronostic scores exacts", href: "/pronostic/scores-exacts" },
+      { label: "Pronostic over/under", href: "/pronostic/over-under" },
     ],
   },
 ];
