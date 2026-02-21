@@ -1,24 +1,18 @@
 import type { MetadataRoute } from "next";
+import { teams } from "@repo/data/teams";
+import { groups } from "@repo/data/groups";
+import { stadiums } from "@repo/data/stadiums";
+import { cities } from "@repo/data/cities";
+import { players } from "@repo/data/players";
+import { matches } from "@repo/data/matches";
+import { scorerPlayers } from "@repo/data/scorers";
+import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
+import { guides } from "@repo/data/guides";
+import { newsArticles } from "@repo/data/news";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.cdm2026.fr";
 const TODAY = new Date().toISOString();
 const STATIC = "2026-02-21";
-
-/* ── Safe data loaders ── */
-function safeLoad<T>(fn: () => T, fallback: T): T {
-  try { return fn(); } catch (e) { console.error("[sitemap] Failed to load:", e); return fallback; }
-}
-
-const teams = safeLoad(() => require("@repo/data/teams").teams as { slug: string }[], []);
-const groups = safeLoad(() => require("@repo/data/groups").groups as { slug: string }[], []);
-const stadiums = safeLoad(() => require("@repo/data/stadiums").stadiums as { slug: string }[], []);
-const cities = safeLoad(() => require("@repo/data/cities").cities as { slug: string }[], []);
-const players = safeLoad(() => require("@repo/data/players").players as { slug: string }[], []);
-const matches = safeLoad(() => require("@repo/data/matches").matches as { slug: string; date: string }[], []);
-const scorerPlayers = safeLoad(() => require("@repo/data/scorers").scorerPlayers as { slug: string }[], []);
-const bookmakerReviews = safeLoad(() => require("@repo/data/bookmaker-reviews").bookmakerReviews as { slug: string }[], []);
-const guides = safeLoad(() => require("@repo/data/guides").guides as { slug: string }[], []);
-const newsArticles = safeLoad(() => require("@repo/data/news").newsArticles as { slug: string; date: string }[], []);
 
 console.log(`[sitemap] Data: teams=${teams.length} matches=${matches.length} players=${players.length} stadiums=${stadiums.length} cities=${cities.length} groups=${groups.length} guides=${guides.length} news=${newsArticles.length}`);
 
@@ -65,121 +59,126 @@ function u(path: string, opts?: { lastmod?: string; freq?: string; prio?: number
     priority: opts?.prio ?? 0.7,
   };
 }
-function slugs(prefix: string, items: { slug: string }[], opts?: { lastmod?: string; prio?: number }) {
+function sl(prefix: string, items: { slug: string }[], opts?: { lastmod?: string; prio?: number }) {
   return items.map((s) => u(`/${prefix}/${s.slug}`, opts));
 }
-function statics(prefix: string, items: string[], opts?: { lastmod?: string; prio?: number }) {
+function st(prefix: string, items: string[], opts?: { lastmod?: string; prio?: number }) {
   return items.map((s) => u(`/${prefix}/${s}`, opts));
 }
 
-/* ── Single sitemap → /sitemap.xml ── */
-export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
+/* ── Sitemap segments ── */
+type SegmentId = "static" | "teams" | "matches" | "groups" | "stadiums-cities" | "players" | "pronostics" | "paris" | "voyage" | "articles" | "h2h";
+const SEGMENTS: SegmentId[] = ["static","teams","matches","groups","stadiums-cities","players","pronostics","paris","voyage","articles","h2h"];
 
-  /* Static pages */
-  entries.push(
-    u("/", { lastmod: TODAY, freq: "daily", prio: 1.0 }),
-    u("/equipe", { prio: 0.9 }), u("/groupes", { prio: 0.9 }), u("/joueurs", { prio: 0.8 }),
-    u("/stades", { prio: 0.8 }), u("/villes", { prio: 0.8 }), u("/buteurs", { lastmod: TODAY, prio: 0.9 }),
-    u("/match/calendrier", { lastmod: TODAY, prio: 0.9 }), u("/match/aujourdhui", { lastmod: TODAY, prio: 0.9 }),
-    u("/tableau", { lastmod: TODAY, prio: 0.9 }), u("/live", { lastmod: TODAY, freq: "daily", prio: 0.9 }),
-    u("/simulateur", { prio: 0.8 }), u("/comparateur-cotes", { lastmod: TODAY, prio: 0.9 }),
-    u("/comparateur-joueurs", { prio: 0.8 }), u("/comparateur-equipes", { prio: 0.8 }),
-    u("/statistiques", { prio: 0.8 }), u("/histoire", { prio: 0.8, freq: "monthly" }),
-    u("/palmares", { prio: 0.7, freq: "monthly" }), u("/faq", { prio: 0.7 }),
-    u("/quiz", { prio: 0.7 }), u("/guides", { prio: 0.8 }), u("/guide/glossaire", { prio: 0.7 }),
-    u("/carte-stades", { prio: 0.7 }), u("/ou-regarder", { prio: 0.8 }), u("/billets", { prio: 0.8 }),
-    u("/fan-zones", { prio: 0.7 }), u("/recherche", { prio: 0.6 }), u("/newsletter", { prio: 0.4 }),
-    u("/arbitres", { prio: 0.7 }), u("/h2h", { prio: 0.7 }), u("/bonus", { prio: 0.8 }),
-    u("/meilleurs-bookmakers", { prio: 0.8 }), u("/methodes-paiement", { prio: 0.7 }),
-    u("/actualites", { lastmod: TODAY, freq: "daily", prio: 0.9 }),
-    u("/pronostic", { lastmod: TODAY, prio: 0.8 }), u("/pronostics/grille", { lastmod: TODAY, prio: 0.8 }),
-    u("/pronostics/leaderboard", { lastmod: TODAY, prio: 0.7 }),
-    u("/paris-sportifs", { lastmod: TODAY, prio: 0.9 }), u("/voyage", { prio: 0.8 }),
-    u("/plan-du-site", { prio: 0.3 }), u("/a-propos", { prio: 0.3 }),
-    u("/contact", { prio: 0.3 }), u("/jeu-responsable", { prio: 0.3 }),
-    u("/mentions-legales", { prio: 0.2 }), u("/politique-de-confidentialite", { prio: 0.2 }),
-    u("/methodologie", { prio: 0.5 }), u("/equipe-editoriale", { prio: 0.3 }),
-  );
+export async function generateSitemaps() {
+  return SEGMENTS.map((_, id) => ({ id }));
+}
 
-  /* Pronostics */
-  for (const t of ["vainqueur","btts","over-under","buteurs","cartons","clean-sheet","scores-exacts","finalistes","tirs-au-but"]) {
-    entries.push(u(`/pronostic/${t}`, { lastmod: TODAY, prio: 0.8 }));
-  }
+export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
+  const seg = SEGMENTS[id];
 
-  /* Paris sportifs */
-  for (const p of ["corners","handicap","live","mi-temps","combines","bankroll","value-bets","lexique","cashout","strategie","guide","dark-horses","ballon-or"]) {
-    entries.push(u(`/paris-sportifs/${p}`, { prio: 0.7 }));
-  }
+  switch (seg) {
+    case "static":
+      return [
+        u("/", { lastmod: TODAY, freq: "daily", prio: 1.0 }),
+        u("/equipe", { prio: 0.9 }), u("/groupes", { prio: 0.9 }), u("/joueurs", { prio: 0.8 }),
+        u("/stades", { prio: 0.8 }), u("/villes", { prio: 0.8 }), u("/buteurs", { lastmod: TODAY, prio: 0.9 }),
+        u("/match/calendrier", { lastmod: TODAY, prio: 0.9 }), u("/match/aujourdhui", { lastmod: TODAY, prio: 0.9 }),
+        u("/tableau", { lastmod: TODAY, prio: 0.9 }), u("/live", { lastmod: TODAY, freq: "daily", prio: 0.9 }),
+        u("/simulateur", { prio: 0.8 }), u("/comparateur-cotes", { lastmod: TODAY, prio: 0.9 }),
+        u("/comparateur-joueurs", { prio: 0.8 }), u("/comparateur-equipes", { prio: 0.8 }),
+        u("/statistiques", { prio: 0.8 }), u("/histoire", { prio: 0.8, freq: "monthly" }),
+        u("/palmares", { prio: 0.7 }), u("/faq", { prio: 0.7 }), u("/quiz", { prio: 0.7 }),
+        u("/guides", { prio: 0.8 }), u("/guide/glossaire", { prio: 0.7 }), u("/carte-stades", { prio: 0.7 }),
+        u("/ou-regarder", { prio: 0.8 }), u("/billets", { prio: 0.8 }), u("/fan-zones", { prio: 0.7 }),
+        u("/recherche", { prio: 0.6 }), u("/newsletter", { prio: 0.4 }), u("/arbitres", { prio: 0.7 }),
+        u("/h2h", { prio: 0.7 }), u("/bonus", { prio: 0.8 }), u("/meilleurs-bookmakers", { prio: 0.8 }),
+        u("/methodes-paiement", { prio: 0.7 }), u("/actualites", { lastmod: TODAY, freq: "daily", prio: 0.9 }),
+        u("/pronostic", { lastmod: TODAY, prio: 0.8 }), u("/pronostics/grille", { lastmod: TODAY, prio: 0.8 }),
+        u("/pronostics/leaderboard", { lastmod: TODAY, prio: 0.7 }),
+        u("/paris-sportifs", { lastmod: TODAY, prio: 0.9 }), u("/voyage", { prio: 0.8 }),
+        u("/plan-du-site", { prio: 0.3 }), u("/a-propos", { prio: 0.3 }), u("/contact", { prio: 0.3 }),
+        u("/jeu-responsable", { prio: 0.3 }), u("/mentions-legales", { prio: 0.2 }),
+        u("/politique-de-confidentialite", { prio: 0.2 }), u("/methodologie", { prio: 0.5 }),
+        u("/equipe-editoriale", { prio: 0.3 }),
+      ];
 
-  /* Voyage */
-  for (const v of ["esta-visa-usa","visa-mexique","formalites-canada","vols-budget","assurance","carte-sim","valise","decalage-horaire","pourboires","supporter-francais","wifi-stades","alcool-stades","hebergement","securite"]) {
-    entries.push(u(`/voyage/${v}`, { prio: 0.7 }));
-  }
+    case "teams":
+      return [
+        ...sl("equipe", teams, { prio: 0.9 }), ...sl("effectif", teams, { prio: 0.8 }),
+        ...sl("parier", teams, { prio: 0.8 }), ...sl("cote-champion", teams, { prio: 0.8 }),
+        ...sl("pronostic", teams, { lastmod: TODAY, prio: 0.9 }),
+        ...sl("scenarios-qualification-equipe", teams, { prio: 0.7 }),
+        ...sl("joueurs/equipe", teams, { prio: 0.7 }),
+      ];
 
-  /* Teams */
-  entries.push(...slugs("equipe", teams, { prio: 0.9 }));
-  entries.push(...slugs("effectif", teams, { prio: 0.8 }));
-  entries.push(...slugs("parier", teams, { prio: 0.8 }));
-  entries.push(...slugs("cote-champion", teams, { prio: 0.8 }));
-  entries.push(...slugs("pronostic", teams, { lastmod: TODAY, prio: 0.9 }));
-  entries.push(...slugs("scenarios-qualification-equipe", teams, { prio: 0.7 }));
-  entries.push(...slugs("joueurs/equipe", teams, { prio: 0.7 }));
+    case "matches":
+      return [
+        ...sl("match", matches, { prio: 0.8 }), ...sl("pronostic-match", matches, { lastmod: TODAY, prio: 0.9 }),
+        ...sl("score-exact", matches, { prio: 0.7 }), ...sl("compos-officielles", matches, { prio: 0.7 }),
+        ...sl("arbitre", matches, { prio: 0.7 }), ...sl("corners", matches, { prio: 0.7 }),
+        ...sl("possession", matches, { prio: 0.7 }), ...sl("hors-jeu", matches, { prio: 0.7 }),
+        ...sl("sur-quelle-chaine", matches, { prio: 0.8 }),
+        ...Array.from({ length: 39 }, (_, i) => u(`/calendrier/jour-${i + 1}`, { lastmod: TODAY, prio: 0.8 })),
+      ];
 
-  /* Matches */
-  entries.push(...slugs("match", matches, { prio: 0.8 }));
-  entries.push(...slugs("pronostic-match", matches, { lastmod: TODAY, prio: 0.9 }));
-  entries.push(...slugs("score-exact", matches, { prio: 0.7 }));
-  entries.push(...slugs("compos-officielles", matches, { prio: 0.7 }));
-  entries.push(...slugs("arbitre", matches, { prio: 0.7 }));
-  entries.push(...slugs("corners", matches, { prio: 0.7 }));
-  entries.push(...slugs("possession", matches, { prio: 0.7 }));
-  entries.push(...slugs("hors-jeu", matches, { prio: 0.7 }));
-  entries.push(...slugs("sur-quelle-chaine", matches, { prio: 0.8 }));
-  for (let i = 1; i <= 39; i++) entries.push(u(`/calendrier/jour-${i}`, { lastmod: TODAY, prio: 0.8 }));
+    case "groups":
+      return [
+        ...sl("groupe", groups, { prio: 0.9 }), ...sl("pronostic-groupe", groups, { lastmod: TODAY, prio: 0.8 }),
+        ...sl("scenarios-qualification", groups, { prio: 0.7 }), ...sl("joueurs/groupe", groups, { prio: 0.7 }),
+      ];
 
-  /* Groups */
-  entries.push(...slugs("groupe", groups, { prio: 0.9 }));
-  entries.push(...slugs("pronostic-groupe", groups, { lastmod: TODAY, prio: 0.8 }));
-  entries.push(...slugs("scenarios-qualification", groups, { prio: 0.7 }));
-  entries.push(...slugs("joueurs/groupe", groups, { prio: 0.7 }));
+    case "stadiums-cities":
+      return [
+        ...sl("stade", stadiums, { prio: 0.8 }), ...sl("ville", cities, { prio: 0.8 }),
+        ...sl("fan-zone", cities, { prio: 0.7 }), ...sl("hebergement", cities, { prio: 0.7 }),
+        ...sl("meteo", cities, { prio: 0.7 }), ...sl("transport", cities, { prio: 0.7 }),
+        ...sl("guide-supporter", cities, { prio: 0.7 }), ...sl("securite", cities, { prio: 0.7 }),
+        ...st("ecrans-geants", ECRANS_GEANTS_SLUGS, { prio: 0.7 }),
+      ];
 
-  /* Stadiums & Cities */
-  entries.push(...slugs("stade", stadiums, { prio: 0.8 }));
-  entries.push(...slugs("ville", cities, { prio: 0.8 }));
-  entries.push(...slugs("fan-zone", cities, { prio: 0.7 }));
-  entries.push(...slugs("hebergement", cities, { prio: 0.7 }));
-  entries.push(...slugs("meteo", cities, { prio: 0.7 }));
-  entries.push(...slugs("transport", cities, { prio: 0.7 }));
-  entries.push(...slugs("guide-supporter", cities, { prio: 0.7 }));
-  entries.push(...slugs("securite", cities, { prio: 0.7 }));
-  entries.push(...statics("ecrans-geants", ECRANS_GEANTS_SLUGS, { prio: 0.7 }));
+    case "players":
+      return [
+        ...sl("joueur", players, { prio: 0.7 }), ...sl("buteur", scorerPlayers, { lastmod: TODAY, prio: 0.8 }),
+        ...["tirs-cadres","passes-decisives","tacles","cote-carton-jaune","cote-buteur"].flatMap(
+          (p) => st(p, TOP_50_PLAYER_SLUGS, { prio: 0.7 })
+        ),
+        ...st("statistiques-arbitre", REFEREE_SLUGS, { prio: 0.7 }),
+      ];
 
-  /* Players */
-  entries.push(...slugs("joueur", players, { prio: 0.7 }));
-  entries.push(...slugs("buteur", scorerPlayers, { lastmod: TODAY, prio: 0.8 }));
-  for (const prefix of ["tirs-cadres","passes-decisives","tacles","cote-carton-jaune","cote-buteur"]) {
-    entries.push(...statics(prefix, TOP_50_PLAYER_SLUGS, { prio: 0.7 }));
-  }
-  entries.push(...statics("statistiques-arbitre", REFEREE_SLUGS, { prio: 0.7 }));
+    case "pronostics":
+      return ["vainqueur","btts","over-under","buteurs","cartons","clean-sheet","scores-exacts","finalistes","tirs-au-but"]
+        .map((t) => u(`/pronostic/${t}`, { lastmod: TODAY, prio: 0.8 }));
 
-  /* Bookmakers & Bonus */
-  entries.push(...slugs("bookmaker", bookmakerReviews, { prio: 0.8 }));
-  entries.push(...statics("bonus", BONUS_SLUGS, { prio: 0.8 }));
+    case "paris":
+      return [
+        ...["corners","handicap","live","mi-temps","combines","bankroll","value-bets","lexique","cashout","strategie","guide","dark-horses","ballon-or"]
+          .map((p) => u(`/paris-sportifs/${p}`, { prio: 0.7 })),
+        ...sl("bookmaker", bookmakerReviews, { prio: 0.8 }), ...st("bonus", BONUS_SLUGS, { prio: 0.8 }),
+      ];
 
-  /* Articles & Guides */
-  entries.push(...newsArticles.map((a) => u(`/actualites/${a.slug}`, { lastmod: a.date, prio: 0.7 })));
-  entries.push(...slugs("guide", guides, { prio: 0.8 }));
+    case "voyage":
+      return ["esta-visa-usa","visa-mexique","formalites-canada","vols-budget","assurance","carte-sim","valise","decalage-horaire","pourboires","supporter-francais","wifi-stades","alcool-stades","hebergement","securite"]
+        .map((v) => u(`/voyage/${v}`, { prio: 0.7 }));
 
-  /* H2H */
-  entries.push(...statics("confrontation", CONFRONTATION_SLUGS, { prio: 0.7 }));
-  for (let i = 0; i < teams.length; i++) {
-    for (let j = i + 1; j < teams.length; j++) {
-      const t1 = teams[i], t2 = teams[j];
-      if (t1 && t2) entries.push(u(`/h2h/${t1.slug}-vs-${t2.slug}`, { prio: 0.6, freq: "monthly" }));
+    case "articles":
+      return [
+        ...newsArticles.map((a) => u(`/actualites/${a.slug}`, { lastmod: a.date, prio: 0.7 })),
+        ...sl("guide", guides, { prio: 0.8 }),
+      ];
+
+    case "h2h": {
+      const entries: MetadataRoute.Sitemap = st("confrontation", CONFRONTATION_SLUGS, { prio: 0.7 });
+      for (let i = 0; i < teams.length; i++) {
+        for (let j = i + 1; j < teams.length; j++) {
+          const t1 = teams[i], t2 = teams[j];
+          if (t1 && t2) entries.push(u(`/h2h/${t1.slug}-vs-${t2.slug}`, { prio: 0.6, freq: "monthly" }));
+        }
+      }
+      return entries;
     }
-  }
 
-  console.log(`[sitemap] Total URLs: ${entries.length}`);
-  return entries;
+    default:
+      return [];
+  }
 }
