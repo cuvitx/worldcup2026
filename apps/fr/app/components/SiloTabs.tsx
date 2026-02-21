@@ -134,7 +134,7 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
         { label: "BTTS", href: "/pronostic-btts" },
         { label: "Over/Under", href: "/pronostic-over-under" },
         { label: "Cartons", href: "/pronostic-cartons" },
-        { label: "Corners", href: "/pronostic-corners" },
+        { label: "Corners", href: "/paris-corners" },
         { label: "Clean Sheet", href: "/pronostic-clean-sheet" },
         { label: "Buteurs", href: "/pronostic-buteurs" },
         { label: "Scores exacts", href: "/pronostic-scores-exacts" },
