@@ -8,7 +8,7 @@ import { citiesById } from "@repo/data/cities";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
-import { BookOpen, Car, CircleDot, Map, Ticket, Tv } from "lucide-react"
+import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-react"
 
 export const revalidate = 86400;
 export const dynamicParams = false;
@@ -332,7 +332,7 @@ export default async function StadiumPage({ params }: PageProps) {
                 )}
                 <li>
                   <Link href="/carte-stades" className="text-primary hover:underline">
-                    <Map className="h-5 w-5 inline-block" /> Carte des stades
+                    <MapIcon className="h-5 w-5 inline-block" /> Carte des stades
                   </Link>
                 </li>
                 <li>
