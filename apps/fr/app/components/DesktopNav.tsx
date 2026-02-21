@@ -78,7 +78,7 @@ export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavPro
                                 onClick={() => setActiveMenu(null)}
                               >
                                 <LinkIcon link={link} />
-                                <span className="flex-1">{link.label}</span>
+                                <span className="flex-1 whitespace-nowrap">{link.label}</span>
                                 {link.sub && (
                                   <span className="text-[10px] text-gray-500 ml-2 shrink-0">
                                     {link.sub}
