@@ -7,7 +7,7 @@ import { domains } from "@repo/data/route-mapping";
 import { teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { bookmakers } from "@repo/data/affiliates";
-import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link, Swords, Trophy } from "lucide-react";
+import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link2, Swords, Trophy } from "lucide-react";
 import type { Team } from "@repo/data/types";
 import { ANJBanner } from "@repo/ui/anj-banner";
 
@@ -349,7 +349,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
 
             {/* Liens utiles */}
             <div className="rounded-xl border border-gray-200  bg-white  p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900  mb-3"><Link className="h-5 w-5 inline-block" /> À voir aussi</h3>
+              <h3 className="font-bold text-gray-900  mb-3"><Link2 className="h-5 w-5 inline-block" /> À voir aussi</h3>
               <ul className="space-y-2 text-sm">
                 <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline"><Swords className="h-5 w-5 inline-block" /> H2H détaillé + pronostic</Link></li>
                 <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Cote {team1.name} championne</Link></li>

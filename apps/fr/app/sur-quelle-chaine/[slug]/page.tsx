@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BookOpen, Building2, ClipboardList, Clock, ExternalLink, Globe, Landmark, Link, MapPin, Monitor, Radio, Tv, Wifi } from "lucide-react";
+import { BookOpen, Building2, ClipboardList, Clock, ExternalLink, Globe, Landmark, Link2, MapPin, Monitor, Radio, Tv, Wifi } from "lucide-react";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
@@ -360,7 +360,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
 
             {/* Links */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3"><Link className="h-5 w-5 inline-block" /> Pages liées</h3>
+              <h3 className="font-bold text-gray-900 mb-3"><Link2 className="h-5 w-5 inline-block" /> Pages liées</h3>
               <ul className="space-y-2 text-sm">
                 {stadium && (
                   <li>

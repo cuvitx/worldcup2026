@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Link } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 
 export interface RelatedLink {
   href: string;
@@ -25,7 +25,7 @@ export function RelatedLinks({
     return (
       <section className="my-8 p-6 bg-gray-50/50 rounded-xl border border-gray-200">
         <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <span className="text-xl"><Link className="h-5 w-5 inline-block" /></span>
+          <span className="text-xl"><ExternalLink className="h-5 w-5 inline-block" /></span>
           {title}
         </h2>
         <ul className="space-y-2">
@@ -62,7 +62,7 @@ export function RelatedLinks({
     <section className="my-12 sm:my-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-          <span className="text-2xl"><Link className="h-5 w-5 inline-block" /></span>
+          <span className="text-2xl"><ExternalLink className="h-5 w-5 inline-block" /></span>
           {title}
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
