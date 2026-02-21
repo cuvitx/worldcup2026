@@ -58,7 +58,7 @@ export default function CashoutGuidePage() {
 
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Guide du Cashout" }]} />
+<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Guide du Cashout" }]} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

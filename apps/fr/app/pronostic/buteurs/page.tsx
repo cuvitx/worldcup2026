@@ -58,7 +58,7 @@ const faqItems = [
 export default function PronosticButeursPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Meilleur buteur" }]} />
+<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Meilleur buteur" }]} />
 
       {/* Hero */}
       <section className="hero-animated text-center py-16 px-4">

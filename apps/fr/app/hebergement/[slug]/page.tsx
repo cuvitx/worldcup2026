@@ -90,7 +90,7 @@ export default async function HebergementPage({ params }: PageProps) {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Hébergement ${city.name}` }]} />
+          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Hébergement ${city.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Hotel className="inline w-8 h-8 mr-2" />
             Hébergement à {city.name} — CDM 2026 : Hôtels et Airbnb

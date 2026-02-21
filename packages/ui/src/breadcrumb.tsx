@@ -20,6 +20,8 @@ export interface BreadcrumbItem {
  */
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
+  /** When true, renders with transparent bg + white text (for use inside hero sections) */
+  transparent?: boolean;
 }
 
 /**
@@ -39,7 +41,7 @@ interface BreadcrumbProps {
  * />
  * ```
  */
-export function Breadcrumb({ items }: BreadcrumbProps) {
+export function Breadcrumb({ items, transparent = false }: BreadcrumbProps) {
   // Convert items to BreadcrumbSchema format
   const schemaItems = items.map((item) => ({
     name: item.label,
@@ -52,9 +54,9 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
       <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       {/* Breadcrumb UI */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
+      <nav className={transparent ? "" : "bg-white border-b border-gray-200"}>
+        <div className={transparent ? "py-2" : "mx-auto max-w-7xl px-4 py-3"}>
+          <ol className={`flex items-center gap-2 text-sm flex-wrap min-w-0 ${transparent ? "text-white/60" : "text-gray-500"}`}>
             {items.map((item, index) => {
               const isLast = index === items.length - 1;
               
@@ -63,12 +65,12 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                   {item.href && !isLast ? (
                     <Link
                       href={item.href}
-                      className="hover:text-primary transition-colors"
+                      className={transparent ? "hover:text-white transition-colors" : "hover:text-primary transition-colors"}
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    <span className={isLast ? "text-gray-900 font-medium" : ""}>
+                    <span className={isLast ? (transparent ? "text-white font-medium" : "text-gray-900 font-medium") : ""}>
                       {item.label}
                     </span>
                   )}

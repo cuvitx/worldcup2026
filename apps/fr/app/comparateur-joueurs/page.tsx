@@ -41,7 +41,7 @@ export default function ComparateurJoueursPage() {
 
   return (
     <>
-<Breadcrumb items={[
+<Breadcrumb transparent items={[
           {
                     "label": "Accueil",
                     "href": "/"

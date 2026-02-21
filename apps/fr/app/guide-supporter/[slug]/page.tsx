@@ -286,7 +286,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
+          <Breadcrumb transparent items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
           <h1 className="mt-4 text-2xl font-extrabold sm:text-4xl lg:text-5xl">
             Guide du supporter à <span className="text-accent">{city.name}</span>
           </h1>

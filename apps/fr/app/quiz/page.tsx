@@ -65,7 +65,7 @@ export default function QuizPage() {
 
   return (
     <>
-<Breadcrumb items={[
+<Breadcrumb transparent items={[
           {
                     "label": "Accueil",
                     "href": "/"

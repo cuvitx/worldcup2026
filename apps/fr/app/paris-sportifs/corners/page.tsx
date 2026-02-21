@@ -106,7 +106,7 @@ export default function ParisCornersPage() {
   
   return (
     <>
-<Breadcrumb items={breadcrumbItems} />
+<Breadcrumb transparent items={breadcrumbItems} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

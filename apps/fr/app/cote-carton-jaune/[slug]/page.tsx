@@ -86,7 +86,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
   return (
     <>
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb items={breadcrumbItems} />
+        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mt-6">
           Cote carton jaune — {player.name}
         </h1>

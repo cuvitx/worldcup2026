@@ -155,7 +155,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb transparent items={breadcrumbItems} />
           <div className="mt-6 flex flex-col items-center gap-4 text-center md:flex-row md:justify-center md:gap-8">
             <div className="flex flex-col items-center">
               <span className="text-4xl sm:text-6xl">{team1.flag}</span>

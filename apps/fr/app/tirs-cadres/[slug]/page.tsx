@@ -81,7 +81,7 @@ export default async function TirsCadresPage({ params }: PageProps) {
   return (
     <>
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb items={breadcrumbItems} />
+        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mt-6">
           Parier sur les tirs cadrés de {player.name}
         </h1>

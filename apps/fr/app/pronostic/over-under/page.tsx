@@ -59,7 +59,7 @@ const faqItems = [
 export default function PronosticOverUnderPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Over/Under" }]} />
+<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Over/Under" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Over/Under Buts — CDM 2026</h1>

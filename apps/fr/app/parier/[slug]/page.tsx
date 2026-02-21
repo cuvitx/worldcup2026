@@ -111,7 +111,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb transparent items={breadcrumbItems} />
           <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}

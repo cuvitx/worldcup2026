@@ -80,7 +80,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic/buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
+          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic/buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Trophy className="inline w-8 h-8 mr-2" />
             Cote {player.name} Buteur CDM 2026 — Pronostic et Analyse

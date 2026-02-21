@@ -170,7 +170,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
+          <Breadcrumb transparent items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
           <p className="text-sm font-medium text-gray-300 mt-4 uppercase tracking-wide">{stage} — CDM 2026</p>
           <h1 className="mt-4 text-2xl font-extrabold sm:text-4xl lg:text-5xl leading-tight">
             Sur quelle chaîne regarder<br />

@@ -272,7 +272,7 @@ export default async function FanZonePage({ params }: PageProps) {
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Fan Zones", href: "/fan-zones" }, { label: `Fan Zone ${city.name}` }]} />
+          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Fan Zones", href: "/fan-zones" }, { label: `Fan Zone ${city.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <PartyPopper className="inline w-8 h-8 mr-2" />
             Fan Zone à {city.name} — Coupe du Monde 2026
