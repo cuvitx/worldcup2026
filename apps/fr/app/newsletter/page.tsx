@@ -162,7 +162,7 @@ export default function NewsletterPage() {
       </section>
 
       {/* ===== BÉNÉFICES ===== */}
-      <section className="bg-gray-50slate-900/50 py-16">
+      <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -177,7 +177,7 @@ export default function NewsletterPage() {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="relative rounded-xl border border-gray-200 bg-whiteslate-800 p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+                className="relative rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
               >
                 {b.badge && (
                   <span className="absolute top-3 right-3 rounded-full bg-primary/10primary/20 px-2.5 py-0.5 text-xs font-bold text-primary">
@@ -194,7 +194,7 @@ export default function NewsletterPage() {
       </section>
 
       {/* ===== APERÇU D'UN MAIL ===== */}
-      <section className="bg-whiteslate-900 py-16 border-t border-gray-100">
+      <section className="bg-white py-16 border-t border-gray-100">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -208,7 +208,7 @@ export default function NewsletterPage() {
           {/* Email mockup */}
           <div className="mx-auto max-w-2xl rounded-2xl border border-gray-200 shadow-xl overflow-hidden">
             {/* Email client bar */}
-            <div className="flex items-center gap-2 bg-gray-100slate-800 px-4 py-3 border-b border-gray-200">
+            <div className="flex items-center gap-2 bg-gray-100 px-4 py-3 border-b border-gray-200">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-primary" />
                 <div className="w-3 h-3 rounded-full bg-secondary" />
@@ -220,7 +220,7 @@ export default function NewsletterPage() {
             </div>
 
             {/* Email content */}
-            <div className="bg-whiteslate-900 p-6">
+            <div className="bg-white p-6">
               <div className="border-b border-gray-100 pb-4 mb-4">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-xs font-bold text-gray-500">DE :</span>
@@ -246,14 +246,14 @@ export default function NewsletterPage() {
 
                 <div className="space-y-2">
                   <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Match de la semaine</p>
-                  <div className="rounded-lg border border-gray-100 bg-gray-50slate-800 p-3">
+                  <div className="rounded-lg border border-gray-100 bg-gray-50 p-3">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">🇫🇷</span>
                         <span className="font-bold text-sm text-gray-900">France</span>
                       </div>
                       <div className="text-center">
-                        <span className="text-xs font-bold text-gray-500 bg-gray-200gray-700 px-2 py-0.5 rounded">VS</span>
+                        <span className="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-0.5 rounded">VS</span>
                         <p className="text-[10px] text-gray-500 mt-0.5">8e de finale · 22h00</p>
                       </div>
                       <div className="flex items-center gap-2">
@@ -270,7 +270,7 @@ export default function NewsletterPage() {
                     { label: 'Nul (ap)', value: '25%', color: 'text-gray-500' },
                     { label: 'Victoire Argentine', value: '30%', color: 'text-secondary' },
                   ].map((p) => (
-                    <div key={p.label} className="rounded-lg bg-gray-50slate-800 p-2">
+                    <div key={p.label} className="rounded-lg bg-gray-50 p-2">
                       <p className={`text-lg font-extrabold ${p.color}`}>{p.value}</p>
                       <p className="text-[10px] text-gray-500">{p.label}</p>
                     </div>
@@ -287,7 +287,7 @@ export default function NewsletterPage() {
       </section>
 
       {/* ===== TESTIMONIALS ===== */}
-      <section className="bg-gray-50slate-900/50 py-16 border-t border-gray-100">
+      <section className="bg-gray-50 py-16 border-t border-gray-100">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -300,7 +300,7 @@ export default function NewsletterPage() {
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 shadow-sm"
+                className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl">{t.avatar}</span>
@@ -339,7 +339,7 @@ export default function NewsletterPage() {
             Gratuit. Sans spam. Désinscription en 1 clic.
           </p>
 
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
             <NewsletterForm />
           </div>
 

@@ -47,7 +47,7 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
             <Link
               key={article.id}
               href={`/actualites/${article.slug}`}
-              className="group relative flex flex-col rounded-2xl border border-gray-100 bg-whiteslate-900 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="group relative flex flex-col rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                 <span className="text-6xl opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500">

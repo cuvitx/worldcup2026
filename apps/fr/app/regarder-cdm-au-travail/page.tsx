@@ -16,6 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Code du travail, tolérance des employeurs, solutions RTT et télétravail. Le guide complet.",
       url: `${domains.fr}/regarder-cdm-au-travail`,
     },
+    alternates: { canonical: "https://cdm2026.fr/regarder-cdm-au-travail" },
   };
 }
 
@@ -102,22 +103,22 @@ export default function RegarderCdmAuTravailPage() {
           La tolérance des employeurs (les vrais chiffres)
         </h2>
         <div className="grid gap-6 md:grid-cols-4">
-          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 text-center">
             <TrendingUp className="w-8 h-8 text-[#00B865] mx-auto mb-2" />
             <p className="text-3xl font-extrabold text-[#022149]">73 %</p>
             <p className="text-sm text-gray-600 mt-1">des entreprises tolèrent la diffusion des matchs des Bleus</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 text-center">
             <Monitor className="w-8 h-8 text-[#D4AF37] mx-auto mb-2" />
             <p className="text-3xl font-extrabold text-[#022149]">45 %</p>
             <p className="text-sm text-gray-600 mt-1">installent un écran en salle de pause</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 text-center">
             <Briefcase className="w-8 h-8 text-[#022149] mx-auto mb-2" />
             <p className="text-3xl font-extrabold text-[#022149]">62 %</p>
             <p className="text-sm text-gray-600 mt-1">des salariés préfèrent le télétravail les jours de match</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 text-center">
             <Coffee className="w-8 h-8 text-amber-600 mx-auto mb-2" />
             <p className="text-3xl font-extrabold text-[#022149]">89 %</p>
             <p className="text-sm text-gray-600 mt-1">des DRH considèrent qu&apos;interdire est contre-productif</p>
@@ -133,7 +134,7 @@ export default function RegarderCdmAuTravailPage() {
           Les solutions (du plus légal au plus audacieux)
         </h2>
         <div className="space-y-4">
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
               <span className="bg-green-100green-900 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">1</span>
               <h3 className="font-bold">Poser un RTT ou une demi-journée</h3>
@@ -145,7 +146,7 @@ export default function RegarderCdmAuTravailPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
               <span className="bg-green-100green-900 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">2</span>
               <h3 className="font-bold">Négocier le télétravail</h3>
@@ -158,7 +159,7 @@ export default function RegarderCdmAuTravailPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
               <span className="bg-yellow-100yellow-900 text-yellow-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">3</span>
               <h3 className="font-bold">La pause déjeuner prolongée</h3>
@@ -171,7 +172,7 @@ export default function RegarderCdmAuTravailPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
               <span className="bg-orange-100orange-900 text-orange-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">4</span>
               <h3 className="font-bold">L&apos;écran collectif en salle de pause</h3>
@@ -184,7 +185,7 @@ export default function RegarderCdmAuTravailPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <div className="flex items-center gap-3 mb-2">
               <span className="bg-red-100red-900 text-red-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">5</span>
               <h3 className="font-bold">Le live-tweet / notifications</h3>

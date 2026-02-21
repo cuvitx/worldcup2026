@@ -119,7 +119,7 @@ export default function FormatPage() {
                       1. Phase de groupes
                     </h3>
                   </div>
-                  <div className="bg-whiteslate-800 rounded-xl p-5 border border-gray-200">
+                  <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <div className="text-center mb-3">
                       <p className="text-3xl font-extrabold text-accent">48 équipes</p>
                       <p className="text-sm text-gray-600 mt-1">
@@ -128,7 +128,7 @@ export default function FormatPage() {
                     </div>
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((g) => (
-                        <div key={g} className="bg-gray-50slate-900 rounded px-2 py-1.5 text-center font-semibold text-gray-900">
+                        <div key={g} className="bg-gray-50-900 rounded px-2 py-1.5 text-center font-semibold text-gray-900">
                           Groupe {g}
                         </div>
                       ))}
@@ -149,7 +149,7 @@ export default function FormatPage() {
                       2. Qualification pour les 8e de finale
                     </h3>
                   </div>
-                  <div className="bg-whiteslate-800 rounded-xl p-5 border border-gray-200">
+                  <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <div className="grid sm:grid-cols-3 gap-4 text-center">
                       <div>
                         <p className="text-2xl font-extrabold text-accent">12</p>
@@ -189,7 +189,7 @@ export default function FormatPage() {
                       3. Phase à élimination directe
                     </h3>
                   </div>
-                  <div className="bg-whiteslate-800 rounded-xl p-5 border border-gray-200">
+                  <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <div className="flex items-center justify-between text-center gap-2">
                       <div className="flex-1">
                         <p className="text-xl font-bold text-gray-900">32</p>
@@ -231,10 +231,10 @@ export default function FormatPage() {
               Ancien format (32 équipes) vs Nouveau format (48 équipes)
             </h2>
 
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50slate-900">
+                  <thead className="bg-gray-50-900">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Critère
@@ -287,7 +287,7 @@ export default function FormatPage() {
               Comment sont classés les meilleurs 3e ?
             </h2>
             
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
               <p className="text-sm text-gray-700 mb-4">
                 Les 12 troisièmes de groupe sont classés entre eux selon les critères suivants (dans l'ordre) :
               </p>
@@ -324,7 +324,7 @@ export default function FormatPage() {
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-accent mb-3 flex items-center gap-2">
                   <span className="text-xl"><Check className="h-5 w-5 inline-block" /></span>
                   Avantages
@@ -357,7 +357,7 @@ export default function FormatPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-red-600 mb-3 flex items-center gap-2">
                   <span className="text-xl"><AlertTriangle className="h-5 w-5 inline-block" /></span>
                   Inconvénients
@@ -402,7 +402,7 @@ export default function FormatPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
                 <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}

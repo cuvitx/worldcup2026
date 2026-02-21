@@ -16,6 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Politique FIFA, règles USA/Canada/Mexique, horaires et types de boissons autorisés dans les stades.",
       url: `${domains.fr}/alcool-stades`,
     },
+    alternates: { canonical: "https://cdm2026.fr/alcool-stades" },
   };
 }
 
@@ -140,7 +141,7 @@ export default function AlcoolStadesPage() {
           {countryRules.map((c) => (
             <div
               key={c.country}
-              className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6"
+              className="rounded-2xl border border-gray-200 bg-white p-6"
             >
               <h3 className="font-bold text-lg mb-4">{c.country}</h3>
               <ul className="space-y-2">

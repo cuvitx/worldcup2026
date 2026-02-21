@@ -9,7 +9,7 @@ const Quiz = dynamic(() => import("./components/Quiz"), {
   loading: () => (
     <div className="flex items-center justify-center min-h-[400px]">
       <div className="animate-pulse text-center">
-        <div className="w-16 h-16 bg-gray-200gray-700 rounded-full mx-auto mb-4" />
+        <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4" />
         <p className="text-gray-600">Chargement du quiz...</p>
       </div>
     </div>

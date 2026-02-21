@@ -55,7 +55,7 @@ export default function SimulateurPage() {
           }
 ]} />
       {/* Breadcrumb */}
-      <nav className="bg-whiteslate-900 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-2.5">
           <ol className="flex items-center gap-2 text-xs text-gray-500 flex-wrap min-w-0">
             <li>
@@ -129,7 +129,7 @@ export default function SimulateurPage() {
       </section>
 
       {/* Simulator */}
-      <section className="bg-gray-50slate-900/50 py-8 sm:py-12">
+      <section className="bg-gray-50 py-8 sm:py-12">
         <div className="mx-auto max-w-[1600px] px-2 lg:px-4">
           <BracketSimulator />
         </div>

@@ -57,7 +57,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
           <Link
             key={stadium.id}
             href={`/stade/${stadium.slug}`}
-            className="group/card flex-none w-56 snap-start rounded-2xl overflow-hidden border border-gray-200 bg-whiteslate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+            className="group/card flex-none w-56 snap-start rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
           >
             {/* Image container */}
             <div className="relative h-36 bg-gradient-to-br from-blue-900/80 to-gray-900 overflow-hidden">

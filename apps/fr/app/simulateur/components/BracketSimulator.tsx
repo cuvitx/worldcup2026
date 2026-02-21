@@ -148,7 +148,7 @@ export function BracketSimulator() {
           </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-gray-200 bg-gray-50slate-800 p-5 text-center">
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
           <p className="text-2xl mb-2"></p>
           <p className="text-sm font-semibold text-gray-700">
             Sélectionnez les vainqueurs pour simuler le tournoi
@@ -166,7 +166,7 @@ export function BracketSimulator() {
         </div>
         <button
           onClick={reset}
-          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 bg-whiteslate-800 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition-all"
+          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition-all"
         >
           <RefreshCw className="h-5 w-5 inline-block" /> Réinitialiser
         </button>

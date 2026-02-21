@@ -97,24 +97,24 @@ export default function GuideParisPage() {
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Intro */}
-        <section className="prose dark:prose-invert max-w-none mb-12">
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        <section className="prose  max-w-none mb-12">
+          <p className="text-lg text-gray-700  leading-relaxed">
             La Coupe du Monde 2026 sera le plus grand événement de paris sportifs de l&apos;histoire avec 104 matchs sur 39 jours. Que vous soyez novice ou parieur occasionnel, ce guide vous donnera toutes les clés pour comprendre les différents types de paris, gérer votre budget et adopter une stratégie intelligente. N&apos;oubliez pas : les paris sportifs doivent rester un loisir, jamais une source de revenus.
           </p>
         </section>
 
         {/* Types de paris */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <Target className="w-6 h-6 text-secondary" />
             Les types de paris
           </h2>
           <div className="space-y-4">
             {typesDeParis.map((pari) => (
-              <div key={pari.nom} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 sm:p-6">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{pari.nom}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">{pari.desc}</p>
-                <div className="rounded-lg bg-primary/5 dark:bg-primary/10 px-4 py-2.5 text-xs text-gray-700 dark:text-gray-300">
+              <div key={pari.nom} className="rounded-xl border border-gray-200  bg-white  p-5 sm:p-6">
+                <h3 className="text-lg font-bold text-gray-900  mb-2">{pari.nom}</h3>
+                <p className="text-sm text-gray-600  mb-3">{pari.desc}</p>
+                <div className="rounded-lg bg-primary/5  px-4 py-2.5 text-xs text-gray-700 ">
                   <strong>Exemple :</strong> {pari.exemple}
                 </div>
               </div>
@@ -124,11 +124,11 @@ export default function GuideParisPage() {
 
         {/* Lexique */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <BookOpen className="w-6 h-6 text-secondary" />
             Lexique du parieur
           </h2>
-          <div className="rounded-2xl border border-gray-200 dark:border-slate-700 overflow-hidden">
+          <div className="rounded-2xl border border-gray-200  overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -136,11 +136,11 @@ export default function GuideParisPage() {
                   <th className="px-4 py-3 text-left font-semibold">Définition</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200  bg-white ">
                 {lexique.map((item) => (
                   <tr key={item.terme}>
-                    <td className="px-4 py-3 font-bold text-gray-900 dark:text-white whitespace-nowrap">{item.terme}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{item.def}</td>
+                    <td className="px-4 py-3 font-bold text-gray-900  whitespace-nowrap">{item.terme}</td>
+                    <td className="px-4 py-3 text-gray-600 ">{item.def}</td>
                   </tr>
                 ))}
               </tbody>
@@ -150,15 +150,15 @@ export default function GuideParisPage() {
 
         {/* Erreurs à éviter */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <AlertCircle className="w-6 h-6 text-red-500" />
             Erreurs à éviter
           </h2>
-          <div className="rounded-2xl border border-red-200 dark:border-red-900/30 bg-red-50/50 dark:bg-red-950/20 p-6">
+          <div className="rounded-2xl border border-red-200  bg-red-50/50  p-6">
             <ul className="space-y-3">
               {erreurs.map((err, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">
+                <li key={i} className="flex items-start gap-3 text-sm text-gray-700 ">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100  text-red-600  flex items-center justify-center text-xs font-bold">
                     {i + 1}
                   </span>
                   {err}
@@ -170,30 +170,30 @@ export default function GuideParisPage() {
 
         {/* Bankroll management */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <Wallet className="w-6 h-6 text-secondary" />
             Gestion de bankroll
           </h2>
-          <div className="rounded-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-6 sm:p-8">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
+          <div className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8">
+            <p className="text-gray-700  mb-4">
               La gestion de bankroll est la <strong>règle n°1</strong> des paris sportifs. Votre bankroll est le budget total que vous consacrez aux paris. Voici les principes fondamentaux :
             </p>
             <div className="grid sm:grid-cols-2 gap-4 text-sm">
               <div className="rounded-xl bg-accent/5 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Définissez votre budget</h3>
-                <p className="text-gray-600 dark:text-gray-300">Fixez un montant que vous pouvez vous permettre de perdre intégralement (ex : 100€ pour toute la CDM). Ne dépassez jamais cette somme.</p>
+                <h3 className="font-bold text-gray-900  mb-2">Définissez votre budget</h3>
+                <p className="text-gray-600 ">Fixez un montant que vous pouvez vous permettre de perdre intégralement (ex : 100€ pour toute la CDM). Ne dépassez jamais cette somme.</p>
               </div>
               <div className="rounded-xl bg-accent/5 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">La règle des 1-5%</h3>
-                <p className="text-gray-600 dark:text-gray-300">Ne misez jamais plus de 1 à 5% de votre bankroll sur un seul pari. Avec 100€, cela signifie des mises de 1€ à 5€ maximum par pari.</p>
+                <h3 className="font-bold text-gray-900  mb-2">La règle des 1-5%</h3>
+                <p className="text-gray-600 ">Ne misez jamais plus de 1 à 5% de votre bankroll sur un seul pari. Avec 100€, cela signifie des mises de 1€ à 5€ maximum par pari.</p>
               </div>
               <div className="rounded-xl bg-accent/5 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Tracez vos paris</h3>
-                <p className="text-gray-600 dark:text-gray-300">Notez chaque pari (mise, cote, résultat, gain/perte). Cela vous permet d&apos;analyser vos performances et d&apos;identifier vos points forts.</p>
+                <h3 className="font-bold text-gray-900  mb-2">Tracez vos paris</h3>
+                <p className="text-gray-600 ">Notez chaque pari (mise, cote, résultat, gain/perte). Cela vous permet d&apos;analyser vos performances et d&apos;identifier vos points forts.</p>
               </div>
               <div className="rounded-xl bg-accent/5 p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Ne courez jamais après vos pertes</h3>
-                <p className="text-gray-600 dark:text-gray-300">Après une série de pertes, ne doublez pas vos mises. Restez discipliné et respectez votre plan. Les pertes font partie du jeu.</p>
+                <h3 className="font-bold text-gray-900  mb-2">Ne courez jamais après vos pertes</h3>
+                <p className="text-gray-600 ">Après une série de pertes, ne doublez pas vos mises. Restez discipliné et respectez votre plan. Les pertes font partie du jeu.</p>
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ export default function GuideParisPage() {
 
         {/* Stratégie */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <Brain className="w-6 h-6 text-secondary" />
             Conseils stratégie CDM 2026
           </h2>
@@ -213,11 +213,11 @@ export default function GuideParisPage() {
               { title: "Diversifiez vos marchés", desc: "Ne misez pas uniquement en 1X2. Les marchés Over/Under et BTTS offrent souvent de meilleures opportunités. Le pari buteur est aussi très intéressant avec des cotes élevées." },
               { title: "Comparez toujours les cotes", desc: "Un écart de cote de 0.10 peut paraître faible, mais sur 50 paris, c'est une différence significative. Inscrivez-vous sur plusieurs bookmakers et pariez toujours sur la meilleure cote." },
             ].map((conseil) => (
-              <div key={conseil.title} className="flex gap-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={conseil.title} className="flex gap-4 rounded-xl border border-gray-200  bg-white  p-5">
                 <TrendingUp className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">{conseil.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{conseil.desc}</p>
+                  <h3 className="font-bold text-gray-900  mb-1">{conseil.title}</h3>
+                  <p className="text-sm text-gray-600 ">{conseil.desc}</p>
                 </div>
               </div>
             ))}
@@ -226,8 +226,8 @@ export default function GuideParisPage() {
 
         {/* CTA */}
         <section className="rounded-2xl bg-accent/10 border border-accent/20 p-6 sm:p-8 text-center mb-10">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Prêt à parier sur la CDM 2026 ?</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Comparez les bookmakers et profitez des bonus de bienvenue pour commencer.</p>
+          <h2 className="text-xl font-bold text-gray-900  mb-3">Prêt à parier sur la CDM 2026 ?</h2>
+          <p className="text-sm text-gray-600  mb-4">Comparez les bookmakers et profitez des bonus de bienvenue pour commencer.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/meilleurs-bookmakers"
@@ -243,10 +243,7 @@ export default function GuideParisPage() {
             </Link>
           </div>
         </section>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

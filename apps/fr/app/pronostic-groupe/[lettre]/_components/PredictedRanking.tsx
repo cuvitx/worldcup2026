@@ -15,7 +15,7 @@ interface SortedTeam {
 const RANK_LABEL = ["1er", "2e", "3e", "4e"];
 const RANK_COLOR = [
   "border-primary bg-primary/5secondary/10",
-  "border-gray-400 bg-gray-50slate-800/40",
+  "border-gray-400 bg-gray-50/40",
   "border-primary/20 bg-primary/5primary/10",
   "border-red-300 bg-red-50red-900/10",
 ];
@@ -32,7 +32,7 @@ interface PredictedRankingProps {
 
 export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
   return (
-    <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-5">Classement prédit</h2>
       <div className="space-y-3">
         {sortedTeams.map(({ team, pred }, idx) => {

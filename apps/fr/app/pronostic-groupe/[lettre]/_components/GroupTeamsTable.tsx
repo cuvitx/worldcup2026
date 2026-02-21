@@ -18,7 +18,7 @@ interface GroupTeamsTableProps {
 
 export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTableProps) {
   return (
-    <section className="rounded-xl bg-whiteslate-800 shadow-sm overflow-hidden">
+    <section className="rounded-xl bg-white shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900">
           Équipes du Groupe {groupLetter}
@@ -26,7 +26,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
+          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-3 text-left">Équipe</th>
               <th className="px-4 py-3 text-center">FIFA</th>
@@ -50,7 +50,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
                 </td>
                 <td className="px-4 py-3 text-center text-gray-600">{team!.fifaRanking > 0 ? `#${team!.fifaRanking}` : "—"}</td>
                 <td className="px-4 py-3 text-center">
-                  <span className="rounded-full bg-gray-100slate-700 px-3 py-1 text-xs font-medium text-gray-700">{team!.confederation}</span>
+                  <span className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700">{team!.confederation}</span>
                 </td>
                 <td className="px-4 py-3 text-center text-gray-600">{team!.wcAppearances}</td>
                 <td className="px-4 py-3 text-gray-600 text-xs hidden sm:table-cell">{team!.bestResult}</td>

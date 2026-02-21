@@ -138,7 +138,7 @@ export function PlayerComparator() {
               return (
               <div
                 key={p.id}
-                className="rounded-xl border-2 p-5 text-center bg-whiteslate-800 shadow-md transition-transform hover:scale-[1.02]"
+                className="rounded-xl border-2 p-5 text-center bg-white shadow-md transition-transform hover:scale-[1.02]"
                 style={{ borderColor: COLORS[i] }}
               >
                 {/* Player photo or initials */}
@@ -183,7 +183,7 @@ export function PlayerComparator() {
               const best = Math.max(...values);
 
               return (
-                <div key={key} className="rounded-lg bg-whiteslate-800 p-4 shadow-sm">
+                <div key={key} className="rounded-lg bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold mb-3 text-gray-700">
                     {label}
                   </h4>
@@ -197,7 +197,7 @@ export function PlayerComparator() {
                           <span className="w-24 sm:w-28 text-xs truncate text-right text-gray-600 font-medium">
                             {p.name.split(" ").pop()}
                           </span>
-                          <div className="flex-1 h-7 rounded-full bg-gray-100slate-700 overflow-hidden">
+                          <div className="flex-1 h-7 rounded-full bg-gray-100-700 overflow-hidden">
                             <AnimatedBar
                               pct={pct}
                               color={isBest ? BEST_COLOR : COLORS[i]!}
@@ -220,7 +220,7 @@ export function PlayerComparator() {
           </div>
 
           {/* Summary table */}
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow mt-10 overflow-x-auto">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow mt-10 overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-200">

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,10 +8,6 @@ import { EVENT_DATES } from "@repo/data/constants";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
-
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/profil" },
-};
 
 const TEAMS = [
   { slug: "france", flag: "🇫🇷", name: "France" },
@@ -140,7 +134,7 @@ export default function ProfilPage() {
 
       {/* ─── Onboarding / Team selector ─── */}
       {showOnboarding ? (
-        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Quelle est ton équipe ?</h2>
           <p className="mb-5 text-sm text-gray-500">
             Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
@@ -187,7 +181,7 @@ export default function ProfilPage() {
           </div>
 
           {/* Upcoming matches */}
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Prochains matchs</h3>
             <div className="space-y-2">
               {upcomingMatches.map((m, i) => (
@@ -250,21 +244,21 @@ export default function ProfilPage() {
 
       {/* Stats cards with icons */}
       <div className="mb-10 grid grid-cols-3 gap-2 sm:gap-4">
-        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100slate-800 transition-transform hover:scale-[1.03]">
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 transition-transform hover:scale-[1.03]">
           <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
             <FileText className="w-6 h-6 text-primary" />
           </div>
           <p className="text-2xl font-bold">{stats.visitedPages.length}</p>
           <p className="text-xs text-gray-500 mt-1">Pages visitées</p>
         </div>
-        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100slate-800 transition-transform hover:scale-[1.03]">
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 transition-transform hover:scale-[1.03]">
           <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
             <Vote className="w-6 h-6 text-primary" />
           </div>
           <p className="text-2xl font-bold">{stats.votes}</p>
           <p className="text-xs text-gray-500 mt-1">Votes</p>
         </div>
-        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100slate-800 transition-transform hover:scale-[1.03]">
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 transition-transform hover:scale-[1.03]">
           <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
           </div>
           <p className="text-2xl font-bold">{stats.quizScore ? `${stats.quizScore}/20` : "—"}</p>
@@ -283,7 +277,7 @@ export default function ProfilPage() {
               className={`relative rounded-xl p-5 text-center transition-all duration-300 ${
                 unlocked
                   ? "bg-white shadow-lg shadow-yellow-200/50 ring-2 ring-yellow-400slate-800"
-                  : "bg-whiteslate-800/50 border border-gray-200 opacity-60"
+                  : "bg-white/50 border border-gray-200 opacity-60"
               }`}
             >
               {!unlocked && (

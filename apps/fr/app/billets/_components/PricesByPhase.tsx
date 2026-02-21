@@ -10,7 +10,7 @@ const phaseIcons: Record<string, React.ReactNode> = {
 
 export function PricesByPhase() {
   return (
-    <section id="prix" className="bg-gray-50slate-900/50 py-12">
+    <section id="prix" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
            Prix des billets par phase
@@ -23,7 +23,7 @@ export function PricesByPhase() {
           {ticketPhases.map((phase) => (
             <div
               key={phase.phase}
-              className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm"
+              className="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm"
             >
               <div className={`flex items-center gap-3 px-5 py-4 ${
                 phase.color === "gold"
@@ -46,7 +46,7 @@ export function PricesByPhase() {
               <div className="p-5">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
                   {phase.catPrices.map((cat) => (
-                    <div key={cat.cat} className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+                    <div key={cat.cat} className="rounded-lg bg-gray-50-700 p-3 text-center">
                       <p className="text-sm font-bold text-gray-700 mb-1">{cat.cat}</p>
                       <p className="text-base font-extrabold text-gray-900">{cat.price}</p>
                       <p className="text-xs text-gray-600 mt-1">{cat.desc}</p>

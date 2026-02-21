@@ -36,7 +36,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
           isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
         }`}
       >
-        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow group">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow group">
           <div
             className={`flex items-center gap-3 mb-3 ${
               isLeft ? "md:flex-row-reverse" : "flex-row"

@@ -72,18 +72,18 @@ export default function FaqPage() {
       </section>
 
       {/* Category badges */}
-      <section className="border-b border-gray-200 bg-whiteslate-900 py-4 sticky top-0 z-10">
+      <section className="border-b border-gray-200 bg-white py-4 sticky top-0 z-10">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
             {itemsByCategory.map(({ key, label, emoji, items }) => (
               <a
                 key={key}
                 href={`#${key}`}
-                className="inline-flex items-center gap-1.5 rounded-full bg-gray-100slate-800 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 <span>{emoji}</span>
                 {label}
-                <span className="rounded-full bg-gray-100slate-700 px-3 py-1 text-xs font-medium text-gray-700 ml-1">
+                <span className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700 ml-1">
                   {items.length}
                 </span>
               </a>
@@ -102,11 +102,11 @@ export default function FaqPage() {
               {items.map((item) => (
                 <details
                   key={item.id}
-                  className="group rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm hover:shadow-md transition-shadow"
+                  className="group rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
                 >
                   <summary className="cursor-pointer px-6 py-4 font-medium text-gray-900 hover:text-primary transition-colors list-none flex items-center justify-between gap-4">
                     <h3 className="text-lg font-semibold text-gray-900">{item.question.fr}</h3>
-                    <span className="faq-icon shrink-0 w-6 h-6 rounded-full bg-gray-100gray-700 flex items-center justify-center text-gray-500">
+                    <span className="faq-icon shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                       </svg>

@@ -84,11 +84,11 @@ export default function BonusWinamaxPage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Winamax</h2>
+                <h2 className="text-2xl font-bold text-gray-900 ">Winamax</h2>
                 <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full font-semibold">N°1 France</span>
               </div>
               <p className="text-4xl font-extrabold text-accent mb-2">Jusqu&apos;à 100€</p>
-              <p className="text-gray-600 dark:text-gray-300">1er pari remboursé en freebets si perdu</p>
+              <p className="text-gray-600 ">1er pari remboursé en freebets si perdu</p>
               <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
                 <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" /> 9.2/10</span>
                 <span>Code promo : <strong>Aucun nécessaire</strong></span>
@@ -106,7 +106,7 @@ export default function BonusWinamaxPage() {
         </section>
 
         {/* Présentation détaillée */}
-        <section className="prose dark:prose-invert max-w-none mb-12">
+        <section className="prose  max-w-none mb-12">
           <h2>Pourquoi choisir Winamax pour la CDM 2026 ?</h2>
           <p>
             Winamax est le leader des paris sportifs en France avec plus de 5 millions d&apos;utilisateurs. Fondé en 2010, le bookmaker français s&apos;est imposé grâce à ses cotes parmi les plus compétitives du marché, une interface utilisateur reconnue comme la meilleure du secteur et une communauté de parieurs unique en son genre.
@@ -118,15 +118,15 @@ export default function BonusWinamaxPage() {
 
         {/* Avantages */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Les avantages Winamax</h2>
+          <h2 className="text-2xl font-bold text-gray-900  mb-6">Les avantages Winamax</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {avantages.map((av) => (
-              <div key={av.title} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={av.title} className="rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex items-center gap-3 mb-2">
                   <av.icon className="w-5 h-5 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">{av.title}</h3>
+                  <h3 className="font-bold text-gray-900 ">{av.title}</h3>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{av.desc}</p>
+                <p className="text-sm text-gray-600 ">{av.desc}</p>
               </div>
             ))}
           </div>
@@ -134,19 +134,19 @@ export default function BonusWinamaxPage() {
 
         {/* Étapes inscription */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <UserPlus className="w-6 h-6 text-secondary" />
             Comment s&apos;inscrire étape par étape
           </h2>
           <div className="space-y-4">
             {etapesInscription.map((etape) => (
-              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg">
                   {etape.step}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">{etape.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{etape.desc}</p>
+                  <h3 className="font-bold text-gray-900  mb-1">{etape.title}</h3>
+                  <p className="text-sm text-gray-600 ">{etape.desc}</p>
                 </div>
               </div>
             ))}
@@ -155,11 +155,11 @@ export default function BonusWinamaxPage() {
 
         {/* Cotes boostées CDM */}
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Cotes boostées CDM 2026 sur Winamax</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Cotes boostées CDM 2026 sur Winamax</h2>
+          <p className="text-gray-700  mb-4">
             Pendant toute la durée de la Coupe du Monde 2026, Winamax proposera des <strong>cotes boostées quotidiennes</strong> sur les matchs du jour. Ces offres flash permettent d&apos;obtenir des cotes majorées de 20 à 50% sur des sélections ciblées : vainqueur du match, buteur, score exact...
           </p>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm text-gray-700 ">
             {[
               "Cotes boostées sur chaque match des Bleus",
               "Offres spéciales phases à élimination directe",
@@ -191,10 +191,7 @@ export default function BonusWinamaxPage() {
             <Link href="/meilleurs-bookmakers" className="text-primary hover:underline">Comparatif bookmakers</Link>
           </p>
         </div>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

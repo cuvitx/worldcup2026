@@ -75,7 +75,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
     <div className="overflow-x-auto -mx-6 px-6">
       <table className="w-full text-sm min-w-[540px]">
         <thead>
-          <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500border-b border-gray-200">
+          <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500border-b border-gray-200">
             <th className={thClass} onClick={() => handleSort("position")}>
               Poste <SortIcon col="position" />
             </th>

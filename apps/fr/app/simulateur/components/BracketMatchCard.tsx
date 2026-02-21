@@ -18,7 +18,7 @@ export function BracketMatchCard({
         winner
           ? "border-accent/30 shadow-sm"
           : "border-gray-200"
-      } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-whiteslate-800`}
+      } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-white`}
     >
       <TeamSlot
         team={team1}
@@ -26,7 +26,7 @@ export function BracketMatchCard({
         onSelect={() => team1 && onSelect(team1.id)}
         canPick={canPick}
       />
-      <div className="h-px bg-gray-100gray-700" />
+      <div className="h-px bg-gray-100" />
       <TeamSlot
         team={team2}
         isWinner={winner === team2?.id}
@@ -66,7 +66,7 @@ function TeamSlot({
         isWinner
           ? "bg-accent/10secondary/10 font-bold"
           : canPick
-          ? "hover:bg-gray-50slate-700 cursor-pointer"
+          ? "hover:bg-gray-50-700 cursor-pointer"
           : "cursor-default opacity-60"
       }`}
     >

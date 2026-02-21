@@ -1,6 +1,6 @@
 export function QuickStats() {
   return (
-    <section className="bg-whiteslate-900 border-b border-gray-100">
+    <section className="bg-white border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-4 py-6">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[

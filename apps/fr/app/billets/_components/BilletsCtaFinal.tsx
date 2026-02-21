@@ -4,7 +4,7 @@ import { Ticket } from "lucide-react"
 
 export function BilletsCtaFinal() {
   return (
-    <section className="bg-whiteslate-900 py-10 border-t border-gray-100">
+    <section className="bg-white py-10 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">

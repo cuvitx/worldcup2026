@@ -15,7 +15,7 @@ export function MatchActions({
 }: MatchActionsProps) {
   return (
     <>
-      <div className="bg-whiteslate-900 border-b border-gray-100">
+      <div className="bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2.5">
           <ShareButtons
             url={`https://www.cdm2026.fr/pronostic-match/${matchSlug}`}

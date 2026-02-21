@@ -64,7 +64,7 @@ export default function CitiesPage() {
                     <Link
                       key={city.id}
                       href={`/ville/${city.slug}`}
-                      className="group rounded-xl border border-gray-200 bg-whiteslate-800 p-5 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div className="flex items-start gap-3">
                         <span className="text-3xl">{countryFlags[country]}</span>

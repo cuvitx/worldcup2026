@@ -43,7 +43,7 @@ export default function MethodologiePage() {
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12 space-y-8">
         {/* ELO Rating System */}
-        <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+        <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Le modèle ELO
           </h2>
@@ -57,7 +57,7 @@ export default function MethodologiePage() {
 
           <div className="rounded-lg bg-gray-50gray-700 p-5 mb-4">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Formule simplifiée</h3>
-            <div className="font-mono text-sm bg-whiteslate-800 rounded p-3 border border-gray-200">
+            <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200">
               <p>
                 R<sub>new</sub> = R<sub>old</sub> + K × (S - E)
               </p>
@@ -82,7 +82,7 @@ export default function MethodologiePage() {
 
           <div className="rounded-lg bg-gray-50gray-700 p-5">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Score attendu (Expected Score)</h3>
-            <div className="font-mono text-sm bg-whiteslate-800 rounded p-3 border border-gray-200">
+            <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200">
               <p>
                 E = 1 / (1 + 10<sup>(R<sub>adversaire</sub> - R<sub>équipe</sub>) / 400</sup>)
               </p>
@@ -96,7 +96,7 @@ export default function MethodologiePage() {
         </section>
 
         {/* AI Pipeline */}
-        <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+        <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             <Bot className="h-5 w-5 inline-block" /> Pipeline IA triple-tier
           </h2>
@@ -169,7 +169,7 @@ export default function MethodologiePage() {
         </section>
 
         {/* Factors */}
-        <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+        <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
              Facteurs d&apos;analyse
           </h2>
@@ -236,7 +236,7 @@ export default function MethodologiePage() {
         </section>
 
         {/* How predictions work */}
-        <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+        <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Comment sont calculées les probabilités
           </h2>
@@ -259,7 +259,7 @@ export default function MethodologiePage() {
               Les cotes estimées sont dérivées des probabilités selon la formule :
             </p>
             <div className="rounded-lg bg-gray-50gray-700 p-4">
-              <div className="font-mono text-sm bg-whiteslate-800 rounded p-3 border border-gray-200 text-center">
+              <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200 text-center">
                 Cote = 1 / Probabilité
               </div>
               <p className="mt-2 text-sm text-gray-500 text-center">

@@ -139,7 +139,7 @@ export default function JeuResponsablePage() {
               {conseils.map((conseil) => (
                 <div
                   key={conseil.title}
-                  className="rounded-lg bg-gray-50slate-700 p-5"
+                  className="rounded-lg bg-gray-50-700 p-5"
                 >
                   <h3 className="text-lg font-semibold text-gray-900">{conseil.title}</h3>
                   <p className="mt-2 text-sm">{conseil.text}</p>
@@ -170,7 +170,7 @@ export default function JeuResponsablePage() {
           </section>
 
           {/* Test rapide */}
-          <section className="rounded-xl bg-gray-50slate-700 p-6">
+          <section className="rounded-xl bg-gray-50-700 p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16.5h10"/></svg> Auto-évaluation rapide
             </h2>
@@ -207,7 +207,7 @@ export default function JeuResponsablePage() {
               {ressources.map((r) => (
                 <div
                   key={r.name}
-                  className="rounded-lg border border-gray-200 bg-whiteslate-800 p-5"
+                  className="rounded-lg border border-gray-200 bg-white p-5"
                 >
                   <h3 className="text-lg font-semibold text-gray-900">{r.name}</h3>
                   <p className="mt-1 text-sm text-gray-600">
@@ -246,28 +246,28 @@ export default function JeuResponsablePage() {
               pour vous aider à garder le contrôle :
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-gray-50slate-700 p-4">
+              <div className="rounded-lg bg-gray-50-700 p-4">
                 <h3 className="text-lg font-semibold text-gray-900"> Limites de dépôts</h3>
                 <p className="mt-1 text-sm">
                   Fixez un plafond journalier, hebdomadaire ou mensuel de
                   dépôts sur votre compte.
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50slate-700 p-4">
+              <div className="rounded-lg bg-gray-50-700 p-4">
                 <h3 className="text-lg font-semibold text-gray-900"><Timer className="h-5 w-5 inline-block" />Limites de temps</h3>
                 <p className="mt-1 text-sm">
                   Définissez un temps maximum de connexion pour éviter les
                   sessions prolongées.
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50slate-700 p-4">
+              <div className="rounded-lg bg-gray-50-700 p-4">
                 <h3 className="text-lg font-semibold text-gray-900">Auto-exclusion temporaire</h3>
                 <p className="mt-1 text-sm">
                   Bloquez votre compte pendant une période choisie (24h, 1
                   semaine, 1 mois…).
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50slate-700 p-4">
+              <div className="rounded-lg bg-gray-50-700 p-4">
                 <h3 className="text-lg font-semibold text-gray-900"><svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Interdiction volontaire de jeu</h3>
                 <p className="mt-1 text-sm">
                   Inscrivez-vous au fichier national des interdits de jeux pour

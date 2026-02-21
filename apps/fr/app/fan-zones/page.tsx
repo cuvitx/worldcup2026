@@ -120,7 +120,7 @@ export default function FanZonesPage() {
             {fanZones.map((fz) => (
               <div
                 key={fz.ville}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-white p-5"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">

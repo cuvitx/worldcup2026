@@ -55,28 +55,28 @@ export default function AProposPage() {
               Ce que nous proposons
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900">Fiches équipes</h3>
                 <p className="mt-1 text-sm">
                   Analyses détaillées des 48 équipes qualifiées, avec effectifs,
                   statistiques et historique en Coupe du Monde.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900">Pronostics</h3>
                 <p className="mt-1 text-sm">
                   Pronostics basés sur les données statistiques et les
                   classements ELO pour chaque match et confrontation.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900">Comparaison de cotes</h3>
                 <p className="mt-1 text-sm">
                   Comparaison des cotes des principaux bookmakers agréés pour
                   vous aider à trouver les meilleures valeurs.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900">Guide pratique</h3>
                 <p className="mt-1 text-sm">
                   Guides des 16 villes hôtes et des stades, avec informations
@@ -155,7 +155,7 @@ export default function AProposPage() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg bg-gray-50slate-700 p-4 text-center"
+                  className="rounded-lg bg-gray-50-700 p-4 text-center"
                 >
                   <p className="text-2xl font-bold text-primary">
                     {stat.value}

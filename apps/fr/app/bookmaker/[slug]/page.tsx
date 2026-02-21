@@ -94,13 +94,13 @@ export default async function BookmakerPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
-            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Presentation de {bk.name}</h2>
               <p className="text-gray-700">{bk.description}</p>
             </section>
 
             {/* Ratings */}
-            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Notes détaillées</h2>
               <div className="space-y-3">
                 {Object.entries(bk.ratings).map(([key, value]) => (
@@ -125,7 +125,7 @@ export default async function BookmakerPage({ params }: PageProps) {
             </section>
 
             {/* Pros & Cons */}
-            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Avantages et inconvenients</h2>
               <p className="mb-4 text-sm text-gray-600">{bk.prosConsIntro}</p>
               <div className="grid gap-4 sm:grid-cols-2">
@@ -156,7 +156,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Content Sections */}
             {bk.sections.map((section, i) => (
-              <section key={i} className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+              <section key={i} className="rounded-lg bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">{section.title}</h2>
                 <p className="text-gray-700">{section.content}</p>
               </section>
@@ -181,7 +181,7 @@ export default async function BookmakerPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Info Card */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Infos {bk.name}</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -216,11 +216,11 @@ export default async function BookmakerPage({ params }: PageProps) {
             </div>
 
             {/* Payment methods */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Moyens de paiement</h3>
               <div className="flex flex-wrap gap-2">
                 {bk.paymentMethods.map((method) => (
-                  <span key={method} className="rounded-full bg-gray-100slate-700 px-3 py-1 text-xs font-medium text-gray-700">
+                  <span key={method} className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700">
                     {method}
                   </span>
                 ))}
@@ -229,7 +229,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Guides utiles</h3>
                 <ul className="space-y-2">
                   {relatedGuides.map((guide) => (
@@ -244,7 +244,7 @@ export default async function BookmakerPage({ params }: PageProps) {
             )}
 
             {/* Other bookmakers */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Autres bookmakers</h3>
               <ul className="space-y-2">
                 {otherBookmakers.map((other) => (

@@ -14,7 +14,7 @@ interface GroupsOverviewProps {
 
 export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
   return (
-    <section className="bg-gray-50slate-900/60 py-16">
+    <section className="bg-gray-50-900/60 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
@@ -38,7 +38,7 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
               <Link
                 key={group.slug}
                 href={`/groupe/${group.slug}`}
-                className="group block rounded-2xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:-translate-y-1.5 transition-all duration-300"
+                className="group block rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-primary to-deep">
                   <span className="text-xs font-black text-accent">

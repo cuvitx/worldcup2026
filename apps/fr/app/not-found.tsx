@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50slate-900">
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50-900">
       {/* Ballon animé + carton rouge */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
         {/* Ballon avec animation CSS custom : rebond + rotation */}
@@ -64,28 +64,28 @@ export default function NotFound() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
         <Link
           href="/"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Accueil
         </Link>
         <Link
           href="/groupes"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Groupes
         </Link>
         <Link
           href="/simulateur"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Simulateur
         </Link>
         <Link
           href="/match/calendrier"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Calendrier

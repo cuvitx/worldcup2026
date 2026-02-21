@@ -112,10 +112,10 @@ export default function ClassementFifaPage() {
               Classement FIFA complet (19 janvier 2026)
             </h2>
             
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50slate-900">
+                  <thead className="bg-gray-50-900">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Rang FIFA
@@ -188,7 +188,7 @@ export default function ClassementFifaPage() {
             </div>
 
             {playoffTeams.length > 0 && (
-              <div className="mt-6 bg-gray-50slate-900 rounded-xl p-5 border border-gray-200">
+              <div className="mt-6 bg-gray-50-900 rounded-xl p-5 border border-gray-200">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">
                   Places de barrages en attente
                 </h3>
@@ -224,7 +224,7 @@ export default function ClassementFifaPage() {
                 return (
                   <div
                     key={conf}
-                    className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm"
+                    className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm"
                   >
                     <h3 className="text-lg font-bold text-gray-900 mb-3">{conf}</h3>
                     <div className="space-y-2">
@@ -257,7 +257,7 @@ export default function ClassementFifaPage() {
                 <Link
                   key={team.id}
                   href={`/equipe/${team.slug}`}
-                  className="flex items-center gap-4 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group"
+                  className="flex items-center gap-4 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group"
                 >
                   <div className="flex-shrink-0">
                     <div className="text-3xl font-extrabold text-accent">#{team.fifaRanking}</div>
@@ -286,7 +286,7 @@ export default function ClassementFifaPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
                 <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}

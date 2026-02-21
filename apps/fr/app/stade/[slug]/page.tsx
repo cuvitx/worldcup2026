@@ -93,21 +93,21 @@ export default async function StadiumPage({ params }: PageProps) {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8 min-w-0">
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm overflow-hidden">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm overflow-hidden">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Présentation</h2>
               <p className="text-gray-700 leading-relaxed break-words">{stadium.description}</p>
             </section>
 
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {stadium.capacity.toLocaleString("fr-FR")}
                   </p>
                   <p className="text-sm text-gray-500">Capacité</p>
                 </div>
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary capitalize">
                     {stadium.roofType === "retractable"
                       ? "Rétractable"
@@ -118,18 +118,18 @@ export default async function StadiumPage({ params }: PageProps) {
                   <p className="text-sm text-gray-500">Toit</p>
                 </div>
                 {stadium.yearBuilt && (
-                  <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                  <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                     <p className="text-2xl font-bold text-primary">{stadium.yearBuilt}</p>
                     <p className="text-sm text-gray-500">Année de construction</p>
                   </div>
                 )}
                 {stadium.distanceFromCenter && (
-                  <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                  <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                     <p className="text-2xl font-bold text-primary">{stadium.distanceFromCenter} km</p>
                     <p className="text-sm text-gray-500">Du centre-ville</p>
                   </div>
                 )}
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{stadium.country}</p>
                   <p className="text-sm text-gray-500">Pays</p>
                 </div>
@@ -137,7 +137,7 @@ export default async function StadiumPage({ params }: PageProps) {
             </section>
 
             {/* Équipe résidente + GPS + Carte mini */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Localisation &amp; équipe résidente</h2>
               <div className="space-y-4">
                 {stadium.homeTeam && (
@@ -202,7 +202,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* Matches at this stadium */}
             {stadiumMatches.length > 0 && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Matchs au {stadium.name} ({stadiumMatches.length})
                 </h2>
@@ -234,7 +234,7 @@ export default async function StadiumPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Informations</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -302,7 +302,7 @@ export default async function StadiumPage({ params }: PageProps) {
                 .filter((t): t is NonNullable<typeof t> => t != null);
               if (playingTeams.length === 0) return null;
               return (
-                <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipes qui jouent ici</h3>
                   <ul className="space-y-2 text-sm">
                     {playingTeams.map((t) => (
@@ -322,7 +322,7 @@ export default async function StadiumPage({ params }: PageProps) {
             })()}
 
             {/* Useful links */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 {city && (
@@ -351,7 +351,7 @@ export default async function StadiumPage({ params }: PageProps) {
             </div>
 
             {/* Other stadiums */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Autres stades</h3>
               <ul className="space-y-2 text-sm">
                 {stadiums

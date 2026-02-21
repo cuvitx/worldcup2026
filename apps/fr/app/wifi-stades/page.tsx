@@ -127,7 +127,7 @@ export default function WifiStadesPage() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Tv className="h-7 w-7 text-accent" /> Conseils pour partager en live
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
             <ul className="space-y-3">
               {conseilsLive.map((c, i) => (
                 <li key={i} className="flex gap-3 text-sm text-gray-700">
@@ -148,7 +148,7 @@ export default function WifiStadesPage() {
             {appsUtiles.map((app) => (
               <div
                 key={app.nom}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-white p-5"
               >
                 <h3 className="font-bold text-gray-900">{app.nom}</h3>
                 <p className="text-sm text-gray-600 mt-1">{app.desc}</p>

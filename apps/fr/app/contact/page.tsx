@@ -66,7 +66,7 @@ export default function ContactPage() {
             <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Nous écrire
             </h2>
-            <div className="rounded-xl border border-gray-200 bg-gray-50slate-700 p-6">
+            <div className="rounded-xl border border-gray-200 bg-gray-50-700 p-6">
               <p className="mb-4">
                 Pour toute question relative au site, à nos contenus, à nos
                 analyses ou à une demande de partenariat, envoyez-nous un email :
@@ -95,7 +95,7 @@ export default function ContactPage() {
               {faqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-lg border border-gray-200 bg-whiteslate-800"
+                  className="group rounded-lg border border-gray-200 bg-white"
                 >
                   <summary className="cursor-pointer px-5 py-4 font-semibold text-gray-900 transition-colors hover:text-primary">
                     {faq.question}

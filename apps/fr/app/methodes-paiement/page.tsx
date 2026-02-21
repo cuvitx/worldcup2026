@@ -120,7 +120,7 @@ function BoolIcon({ value }: { value: boolean }) {
   return value ? (
     <CheckCircle className="w-4 h-4 text-accent mx-auto" />
   ) : (
-    <X className="w-4 h-4 text-gray-300 dark:text-gray-600 mx-auto" />
+    <X className="w-4 h-4 text-gray-300  mx-auto" />
   );
 }
 
@@ -150,19 +150,19 @@ export default function MethodesPaiementPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Intro */}
-        <section className="prose dark:prose-invert max-w-none mb-12">
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        <section className="prose  max-w-none mb-12">
+          <p className="text-lg text-gray-700  leading-relaxed">
             Le choix de votre méthode de paiement influence directement votre expérience de paris sportifs : rapidité des dépôts, délais de retrait, sécurité et frais éventuels. Nous avons comparé les 6 principales méthodes de paiement acceptées par les bookmakers agréés en France pour vous aider à choisir la solution la plus adaptée à vos besoins pendant la CDM 2026.
           </p>
         </section>
 
         {/* Tableau par bookmaker */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <Shield className="w-6 h-6 text-secondary" />
             Disponibilité par bookmaker
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 ">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -175,10 +175,10 @@ export default function MethodesPaiementPage() {
                   <th className="px-4 py-3 text-center font-semibold">Virement</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200  bg-white ">
                 {bookmakersPaiement.map((bk) => (
                   <tr key={bk.nom}>
-                    <td className="px-4 py-3 font-bold text-gray-900 dark:text-white">{bk.nom}</td>
+                    <td className="px-4 py-3 font-bold text-gray-900 ">{bk.nom}</td>
                     <td className="px-4 py-3"><BoolIcon value={bk.cb} /></td>
                     <td className="px-4 py-3"><BoolIcon value={bk.paypal} /></td>
                     <td className="px-4 py-3"><BoolIcon value={bk.applePay} /></td>
@@ -194,45 +194,45 @@ export default function MethodesPaiementPage() {
 
         {/* Détail des méthodes */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <CreditCard className="w-6 h-6 text-secondary" />
             Détail des méthodes de paiement
           </h2>
           <div className="space-y-4">
             {methodes.map((m) => (
-              <div key={m.nom} className="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 sm:p-6">
+              <div key={m.nom} className="rounded-2xl border border-gray-200  bg-white  p-5 sm:p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <m.icon className="w-6 h-6 text-accent" />
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{m.nom}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 ">{m.nom}</h3>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-4 text-xs">
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3 text-center">
+                  <div className="rounded-lg bg-gray-50  p-3 text-center">
                     <p className="text-gray-500 mb-1">Dépôt min.</p>
-                    <p className="font-bold text-gray-900 dark:text-white">{m.depotMin}</p>
+                    <p className="font-bold text-gray-900 ">{m.depotMin}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3 text-center">
+                  <div className="rounded-lg bg-gray-50  p-3 text-center">
                     <p className="text-gray-500 mb-1">Dépôt max.</p>
-                    <p className="font-bold text-gray-900 dark:text-white">{m.depotMax}</p>
+                    <p className="font-bold text-gray-900 ">{m.depotMax}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3 text-center">
+                  <div className="rounded-lg bg-gray-50  p-3 text-center">
                     <p className="text-gray-500 mb-1">Délai dépôt</p>
-                    <p className="font-bold text-gray-900 dark:text-white">{m.delaiDepot}</p>
+                    <p className="font-bold text-gray-900 ">{m.delaiDepot}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3 text-center">
+                  <div className="rounded-lg bg-gray-50  p-3 text-center">
                     <p className="text-gray-500 mb-1">Délai retrait</p>
-                    <p className="font-bold text-gray-900 dark:text-white">{m.delaiRetrait}</p>
+                    <p className="font-bold text-gray-900 ">{m.delaiRetrait}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3 text-center col-span-2 sm:col-span-1">
+                  <div className="rounded-lg bg-gray-50  p-3 text-center col-span-2 sm:col-span-1">
                     <p className="text-gray-500 mb-1">Frais</p>
                     <p className="font-bold text-accent">{m.frais}</p>
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white mb-2">Avantages</p>
+                    <p className="font-semibold text-gray-900  mb-2">Avantages</p>
                     <ul className="space-y-1">
                       {m.avantages.map((a) => (
-                        <li key={a} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                        <li key={a} className="flex items-center gap-2 text-gray-600 ">
                           <CheckCircle className="w-3.5 h-3.5 text-accent shrink-0" />
                           {a}
                         </li>
@@ -240,10 +240,10 @@ export default function MethodesPaiementPage() {
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white mb-2">Inconvénients</p>
+                    <p className="font-semibold text-gray-900  mb-2">Inconvénients</p>
                     <ul className="space-y-1">
                       {m.inconvenients.map((inc) => (
-                        <li key={inc} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                        <li key={inc} className="flex items-center gap-2 text-gray-600 ">
                           <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
                           {inc}
                         </li>
@@ -258,34 +258,34 @@ export default function MethodesPaiementPage() {
 
         {/* Conseils */}
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Nos conseils pour les paiements</h2>
-          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 dark:text-gray-300">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Nos conseils pour les paiements</h2>
+          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <h3 className="font-bold text-gray-900  mb-2 flex items-center gap-2">
                 <Clock className="w-4 h-4 text-accent" /> Rapidité de retrait
               </h3>
               <p>Si la rapidité de retrait est votre priorité, privilégiez PayPal, Skrill ou Neteller. Vos gains sont disponibles en quelques heures contre 1 à 5 jours pour la CB ou le virement.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <h3 className="font-bold text-gray-900  mb-2 flex items-center gap-2">
                 <Shield className="w-4 h-4 text-accent" /> Sécurité
               </h3>
               <p>Toutes les méthodes listées sont sécurisées sur les bookmakers agréés ANJ. PayPal et Apple Pay ajoutent une couche de sécurité supplémentaire car vos données bancaires ne sont pas partagées.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Même méthode dépôt/retrait</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Même méthode dépôt/retrait</h3>
               <p>La plupart des bookmakers exigent que vous retiriez avec la même méthode que celle utilisée pour le dépôt. Choisissez donc dès le départ une méthode qui accepte les retraits.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Limites de dépôt</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Limites de dépôt</h3>
               <p>Tous les bookmakers agréés ANJ permettent de fixer des limites de dépôt (quotidiennes, hebdomadaires, mensuelles). Utilisez cette fonctionnalité pour jouer responsablement.</p>
             </div>
           </div>
         </section>
 
         {/* Cross-links */}
-        <section className="rounded-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-6 sm:p-8 mb-10">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Pages associées</h2>
+        <section className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8 mb-10">
+          <h2 className="text-xl font-bold text-gray-900  mb-4">Pages associées</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/meilleurs-bookmakers" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Meilleurs bookmakers
@@ -298,10 +298,7 @@ export default function MethodesPaiementPage() {
             </Link>
           </div>
         </section>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

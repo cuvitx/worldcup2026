@@ -16,6 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Chapka, ACS, Allianz, Mondial Assistance : quelle assurance choisir pour la CDM 2026 ?",
       url: `${domains.fr}/assurance-voyage`,
     },
+    alternates: { canonical: "https://cdm2026.fr/assurance-voyage" },
   };
 }
 
@@ -188,7 +189,7 @@ export default function AssuranceVoyagePage() {
               {insurers.map((ins, i) => (
                 <tr
                   key={ins.name}
-                  className={`${i % 2 === 0 ? "bg-gray-50slate-800" : "bg-whiteslate-900"} ${ins.recommended ? "ring-2 ring-[#00B865]" : ""}`}
+                  className={`${i % 2 === 0 ? "bg-gray-50" : "bg-white"} ${ins.recommended ? "ring-2 ring-[#00B865]" : ""}`}
                 >
                   <td className="px-4 py-3 font-semibold">
                     {ins.name}
@@ -218,7 +219,7 @@ export default function AssuranceVoyagePage() {
           {insurers.map((ins) => (
             <div
               key={ins.name}
-              className={`rounded-2xl border bg-whiteslate-800 p-6 ${ins.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200"}`}
+              className={`rounded-2xl border bg-white p-6 ${ins.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200"}`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div>

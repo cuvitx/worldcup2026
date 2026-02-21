@@ -150,7 +150,7 @@ export default async function TeamPage({ params }: PageProps) {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Link
             href={`/groupe/${team.group.toLowerCase()}`}
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><ClipboardList className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
@@ -160,7 +160,7 @@ export default async function TeamPage({ params }: PageProps) {
           </Link>
           <Link
             href={`/pronostic/${team.slug}`}
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
@@ -170,7 +170,7 @@ export default async function TeamPage({ params }: PageProps) {
           </Link>
           <Link
             href={`/pronostic-groupe/${team.group.toLowerCase()}`}
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><BarChart3 className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
@@ -180,7 +180,7 @@ export default async function TeamPage({ params }: PageProps) {
           </Link>
           <Link
             href="/classement-fifa"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Trophy className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
@@ -190,7 +190,7 @@ export default async function TeamPage({ params }: PageProps) {
           </Link>
           <Link
             href="/pronostic-vainqueur"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Medal className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
@@ -200,7 +200,7 @@ export default async function TeamPage({ params }: PageProps) {
           </Link>
           <Link
             href="/comparateur-joueurs"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Users className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">

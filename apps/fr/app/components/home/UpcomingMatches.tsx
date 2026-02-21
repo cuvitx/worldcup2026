@@ -55,7 +55,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                 <Link
                   key={match.id}
                   href={`/pronostic-match/${match.slug}`}
-                  className="group flex items-center gap-4 rounded-xl border border-gray-100 bg-whiteslate-900 px-4 sm:px-6 py-4 hover:border-primary/20 hover:shadow-md transition-all"
+                  className="group flex items-center gap-4 rounded-xl border border-gray-100 bg-white px-4 sm:px-6 py-4 hover:border-primary/20 hover:shadow-md transition-all"
                 >
                   {/* Date & Info */}
                   <div className="hidden sm:flex flex-col items-center shrink-0 w-20 text-center">
@@ -71,7 +71,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                   </div>
 
                   {/* Separator */}
-                  <div className="hidden sm:block w-px h-10 bg-gray-200gray-700 shrink-0" />
+                  <div className="hidden sm:block w-px h-10 bg-gray-200 shrink-0" />
 
                   {/* Teams */}
                   <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -95,7 +95,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                   {/* Stadium */}
                   {stadium && (
                     <>
-                      <div className="hidden md:block w-px h-10 bg-gray-200gray-700 shrink-0" />
+                      <div className="hidden md:block w-px h-10 bg-gray-200 shrink-0" />
                       <div className="hidden md:block shrink-0 w-40">
                         <p className="text-xs font-medium text-gray-700 truncate">{stadium.name}</p>
                         <p className="text-[10px] text-gray-500">{stadium.city}</p>

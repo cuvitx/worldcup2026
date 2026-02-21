@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState } from "react";
@@ -51,10 +49,6 @@ const standingLabels: Record<Standing, string> = {
 
 /* ────────── Helpers ────────── */
 
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/calculateur-budget" },
-};
-
 function fmt(n: number) {
   return n.toLocaleString("fr-FR");
 }
@@ -62,7 +56,7 @@ function fmt(n: number) {
 function ProgressBar({ value, max, color }: { value: number; max: number; color: string }) {
   const pct = Math.min((value / max) * 100, 100);
   return (
-    <div className="h-3 w-full rounded-full bg-gray-200gray-700 overflow-hidden">
+    <div className="h-3 w-full rounded-full bg-gray-200 overflow-hidden">
       <div className={`h-full rounded-full transition-all duration-500 ${color}`} style={{ width: `${pct}%` }} />
     </div>
   );

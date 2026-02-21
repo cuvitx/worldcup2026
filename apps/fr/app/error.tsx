@@ -10,7 +10,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50slate-900">
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50-900">
       {/* Carton jaune animé */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
         <div className="flex flex-col items-center" aria-hidden="true">
@@ -73,7 +73,7 @@ export default function Error({
         </button>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-whiteslate-800 px-8 py-3.5 font-bold text-gray-700 shadow-sm hover:border-primary//30 hover:text-primary transition-all hover:-translate-y-0.5 text-sm"
+          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-8 py-3.5 font-bold text-gray-700 shadow-sm hover:border-primary//30 hover:text-primary transition-all hover:-translate-y-0.5 text-sm"
         >
           ← Retour à l&apos;accueil
         </Link>

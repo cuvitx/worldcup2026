@@ -313,7 +313,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
           {data.fanZones.map((fz) => (
             <div
               key={fz.name}
-              className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6"
+              className="rounded-2xl border border-gray-200 bg-white p-6"
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg">{fz.name}</h3>
@@ -370,7 +370,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
               <a
                 key={s}
                 href={`/ecrans-geants/${s}`}
-                className="text-sm bg-gray-100slate-700 px-3 py-1.5 rounded-full hover:bg-[#00B865] hover:text-white transition-colors"
+                className="text-sm bg-gray-100-700 px-3 py-1.5 rounded-full hover:bg-[#00B865] hover:text-white transition-colors"
               >
                 {cityData[s]?.name ?? s}
               </a>

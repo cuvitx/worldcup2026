@@ -15,7 +15,7 @@ interface PremiumMatchCalendarProps {
 
 export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumMatchCalendarProps) {
   return (
-    <section id="calendrier" className="bg-gray-50slate-900/50 py-12">
+    <section id="calendrier" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Calendrier des matchs — {teamName}
@@ -55,7 +55,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="block rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30"
+                className="block rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30"
               >
                 <div className="flex items-center gap-4 px-5 py-4">
                   <div className="shrink-0 text-center hidden sm:block w-20">

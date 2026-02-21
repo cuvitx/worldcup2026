@@ -161,7 +161,7 @@ export default function GlossairePage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-whiteslate-900 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
@@ -183,12 +183,12 @@ export default function GlossairePage() {
         </p>
 
         {/* Alphabetical navigation */}
-        <nav className="flex flex-wrap gap-1.5 mb-8 sticky top-0 bg-whiteslate-900 py-3 z-10 border-b border-gray-100">
+        <nav className="flex flex-wrap gap-1.5 mb-8 sticky top-0 bg-white py-3 z-10 border-b border-gray-100">
           {letters.map((letter) => (
             <a
               key={letter}
               href={`#${letter}`}
-              className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100slate-800 hover:bg-primary hover:text-white text-sm font-bold text-gray-700 transition"
+              className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-primary hover:text-white text-sm font-bold text-gray-700 transition"
             >
               {letter}
             </a>
@@ -216,7 +216,7 @@ export default function GlossairePage() {
                   {grouped[letter]!.map((term) => (
                     <div
                       key={term.name}
-                      className={`bg-whiteslate-800 rounded-xl border border-gray-200 border-l-4 ${color} p-4 hover:shadow-md transition-shadow`}
+                      className={`bg-white rounded-xl border border-gray-200 border-l-4 ${color} p-4 hover:shadow-md transition-shadow`}
                     >
                       <h3 className="text-lg font-semibold text-gray-900">{term.name}</h3>
                       <p className="text-gray-700 mt-1">{term.definition}</p>

@@ -23,7 +23,7 @@ export function RelatedLinks({
 
   if (variant === "compact") {
     return (
-      <section className="my-8 p-6 bg-gray-50slate-800/50 rounded-xl border border-gray-200">
+      <section className="my-8 p-6 bg-gray-50/50 rounded-xl border border-gray-200">
         <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
           <span className="text-xl"><Link className="h-5 w-5 inline-block" /></span>
           {title}
@@ -70,7 +70,7 @@ export function RelatedLinks({
             <Link
               key={link.href}
               href={link.href}
-              className="group rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md hover:border-primary/30 transition-all duration-200"
+              className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all duration-200"
             >
               <div className="flex items-start gap-3">
                 {link.icon && (

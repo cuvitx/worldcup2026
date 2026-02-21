@@ -131,7 +131,7 @@ export default async function EffectifPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-10">
             {/* Stars */}
             {stars.length > 0 && (
-              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Star className="h-6 w-6 text-secondary" />
                   Joueurs stars
@@ -162,7 +162,7 @@ export default async function EffectifPage({ params }: PageProps) {
               const Icon = sectionIcons[pos] ?? Users;
 
               return (
-                <section key={pos} className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+                <section key={pos} className="rounded-xl bg-white p-6 shadow-sm">
                   <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
                     <Icon className="h-5 w-5 text-secondary" />
                     {positionLabels[pos] ?? pos}s ({posPlayers.length})
@@ -207,7 +207,7 @@ export default async function EffectifPage({ params }: PageProps) {
             })}
 
             {allPlayers.length === 0 && (
-              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm text-center">
+              <section className="rounded-xl bg-white p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">
                   La liste des joueurs de {team.name} sera disponible prochainement.
@@ -216,7 +216,7 @@ export default async function EffectifPage({ params }: PageProps) {
             )}
 
             {/* Absents notables */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
                 <UserX className="h-5 w-5 text-red-500" />
                 Absents notables / Blessés
@@ -224,7 +224,7 @@ export default async function EffectifPage({ params }: PageProps) {
               <p className="text-sm text-gray-500 italic">
                 Cette section sera mise à jour à l&apos;approche du tournoi, lorsque les listes définitives seront connues et que les blessures pré-tournoi seront confirmées.
               </p>
-              <div className="mt-4 rounded-lg bg-gray-50slate-700/30 p-4">
+              <div className="mt-4 rounded-lg bg-gray-50-700/30 p-4">
                 <p className="text-sm text-gray-400">Aucun absent notable confirmé pour le moment.</p>
               </div>
             </section>
@@ -235,7 +235,7 @@ export default async function EffectifPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <aside className="space-y-6">
-            <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Résumé effectif</h3>
               <div className="space-y-2 text-sm">
                 {sortedPositions.map((pos) => (
@@ -251,7 +251,7 @@ export default async function EffectifPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>

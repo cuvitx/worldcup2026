@@ -108,7 +108,7 @@ export default async function H2HPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             {/* Comparison — visual face-to-face */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Comparaison</h2>
               <div className="space-y-4">
                 {[
@@ -124,10 +124,10 @@ export default async function H2HPage({ params }: PageProps) {
                       <div className="flex items-center gap-3">
                         <span className="w-16 text-right text-sm font-bold text-primary">{row.v1}</span>
                         <div className="flex-1 flex gap-1">
-                          <div className="flex-1 h-5 rounded-l-full bg-gray-100slate-700 overflow-hidden flex justify-end">
+                          <div className="flex-1 h-5 rounded-l-full bg-gray-100-700 overflow-hidden flex justify-end">
                             <div className="h-full rounded-l-full bg-primary transition-all duration-700" style={{ width: `${pct1}%` }} />
                           </div>
-                          <div className="flex-1 h-5 rounded-r-full bg-gray-100slate-700 overflow-hidden">
+                          <div className="flex-1 h-5 rounded-r-full bg-gray-100-700 overflow-hidden">
                             <div className="h-full rounded-r-full bg-primary transition-all duration-700" style={{ width: `${pct2}%` }} />
                           </div>
                         </div>
@@ -154,7 +154,7 @@ export default async function H2HPage({ params }: PageProps) {
             </section>
 
             {/* Historical H2H */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Historique des confrontations</h2>
               {h2h && h2h.totalMatches > 0 ? (
                 <>
@@ -163,7 +163,7 @@ export default async function H2HPage({ params }: PageProps) {
                       <p className="text-xl font-bold text-primary sm:text-3xl">{h2h.team1Wins}</p>
                       <p className="text-xs text-gray-500">Victoires {team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50slate-700 p-2 text-center sm:p-4">
+                    <div className="rounded-lg bg-gray-50-700 p-2 text-center sm:p-4">
                       <p className="text-xl font-bold text-gray-600 sm:text-3xl">{h2h.draws}</p>
                       <p className="text-xs text-gray-500">Nuls</p>
                     </div>
@@ -173,11 +173,11 @@ export default async function H2HPage({ params }: PageProps) {
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
                       <p className="text-xl font-bold text-primary">{h2h.totalMatches}</p>
                       <p className="text-xs text-gray-500">Matchs joues</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
                       <p className="text-xl font-bold text-primary">{h2h.team1Goals} - {h2h.team2Goals}</p>
                       <p className="text-xs text-gray-500">Buts marques</p>
                     </div>
@@ -197,7 +197,7 @@ export default async function H2HPage({ params }: PageProps) {
             </section>
 
             {/* Prediction */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Pronostic</h2>
               {matchPred ? (
                 <>
@@ -206,7 +206,7 @@ export default async function H2HPage({ params }: PageProps) {
                       <p className="text-lg font-bold text-field sm:text-2xl">{Math.round(matchPred.team1WinProb * 100)}%</p>
                       <p className="text-xs text-gray-500 truncate">{team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50slate-700 p-2 text-center sm:p-4">
+                    <div className="rounded-lg bg-gray-50-700 p-2 text-center sm:p-4">
                       <p className="text-lg font-bold text-gray-600 sm:text-2xl">{Math.round(matchPred.drawProb * 100)}%</p>
                       <p className="text-xs text-gray-500">Nul</p>
                     </div>
@@ -227,11 +227,11 @@ export default async function H2HPage({ params }: PageProps) {
                     avec un rating de {Math.max(pred1.eloRating, pred2.eloRating)} contre {Math.min(pred1.eloRating, pred2.eloRating)}.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
                       <p className="text-lg font-bold text-primary">{pred1.eloRating}</p>
                       <p className="text-xs text-gray-500">ELO {team1.name}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 text-center">
                       <p className="text-lg font-bold text-primary">{pred2.eloRating}</p>
                       <p className="text-xs text-gray-500">ELO {team2.name}</p>
                     </div>
@@ -248,7 +248,7 @@ export default async function H2HPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Team Links */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiches équipes</h3>
               <div className="space-y-3">
                 <Link

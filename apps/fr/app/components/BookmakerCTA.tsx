@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { ExternalLink } from "lucide-react";
 import { bookmakers } from "@repo/data/affiliates";
+import { ANJBanner } from "@repo/ui/anj-banner";
 import type { Bookmaker } from "@repo/data/affiliates";
 
 interface BookmakerCTAProps {
@@ -45,20 +46,18 @@ export function BookmakerCTA({ variant = "inline", bookmaker }: BookmakerCTAProp
             <ExternalLink className="h-4 w-4" />
           </a>
         </div>
-        <p className="relative z-10 mt-4 text-xs text-white/70">
-          18+ | Jouer comporte des risques : endettement, dependance. Appelez le 09 74 75 13 13 (appel non surtaxe).
-        </p>
+        <ANJBanner />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-slate-800 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4   sm:flex-row sm:items-center sm:justify-between">
       <div>
         <p className="font-medium text-foreground">
           Meilleure cote sur {bk.name} — {bk.bonus}
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{bk.bonusDetail}</p>
+        <p className="text-sm text-gray-500 ">{bk.bonusDetail}</p>
       </div>
       <a
         href={bk.url}
@@ -69,9 +68,7 @@ export function BookmakerCTA({ variant = "inline", bookmaker }: BookmakerCTAProp
         Voir l&apos;offre
         <ExternalLink className="h-4 w-4" />
       </a>
-      <p className="w-full text-xs text-gray-400 sm:hidden">
-        18+ | Jouer comporte des risques : endettement, dependance.
-      </p>
+      <ANJBanner />
     </div>
   );
 }

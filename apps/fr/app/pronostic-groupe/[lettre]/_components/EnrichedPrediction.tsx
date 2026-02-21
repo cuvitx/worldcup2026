@@ -18,7 +18,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
   if (enrichedSorted.length === 0) return null;
 
   return (
-    <section className="rounded-xl bg-whiteslate-800 shadow-sm overflow-hidden">
+    <section className="rounded-xl bg-white shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
           Pronostic détaillé — Points & Buts attendus
@@ -30,7 +30,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
+          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-3 text-left">Rang prédit</th>
               <th className="px-4 py-3 text-left">Équipe</th>
@@ -74,7 +74,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                   <td className="px-4 py-3 text-center">
                     <div className="flex flex-col items-center gap-1">
                       <span className="text-xs font-bold text-gray-700">{Math.round(ep.firstProb * 100)}%</span>
-                      <div className="w-12 h-1.5 bg-gray-200slate-600 rounded-full overflow-hidden">
+                      <div className="w-12 h-1.5 bg-gray-200-600 rounded-full overflow-hidden">
                         <div className="h-full bg-secondary rounded-full" style={{ width: `${Math.round(ep.firstProb * 100)}%` }} />
                       </div>
                     </div>
@@ -82,7 +82,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                   <td className="px-4 py-3 text-center">
                     <div className="flex flex-col items-center gap-1">
                       <span className={`text-xs font-bold ${idx < 2 ? "text-accent" : "text-gray-500"}`}>{Math.round(ep.qualifyProb * 100)}%</span>
-                      <div className="w-12 h-1.5 bg-gray-200slate-600 rounded-full overflow-hidden">
+                      <div className="w-12 h-1.5 bg-gray-200-600 rounded-full overflow-hidden">
                         <div className={`h-full rounded-full ${idx < 2 ? "bg-accent" : idx === 2 ? "bg-secondary" : "bg-red-400"}`} style={{ width: `${Math.round(ep.qualifyProb * 100)}%` }} />
                       </div>
                     </div>
@@ -103,7 +103,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
         </table>
       </div>
 
-      <div className="px-6 py-3 bg-gray-50slate-800/80 border-t border-gray-100">
+      <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
         <p className="text-[11px] text-gray-400">
           Pts prévus = total après 3 matchs de groupe · +/- buts = différence de buts attendue · Proba qual. = probabilité de se qualifier (1er ou 2e direct + meilleur 3e inclus)
         </p>

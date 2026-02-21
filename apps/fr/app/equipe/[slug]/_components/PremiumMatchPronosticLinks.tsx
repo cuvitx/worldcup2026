@@ -14,7 +14,7 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
   if (teamMatches.length === 0) return null;
 
   return (
-    <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
+    <section className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Pronostics des matchs — {team.name}
@@ -29,7 +29,7 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="group relative rounded-2xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-accent/40 hover:shadow-lg hover:-translate-y-1 transition-all"
+                className="group relative rounded-2xl border border-gray-200 bg-white p-5 hover:border-accent/40 hover:shadow-lg hover:-translate-y-1 transition-all"
               >
                 {/* Date badge */}
                 <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wide text-gray-400">

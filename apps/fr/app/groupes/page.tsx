@@ -72,7 +72,7 @@ export default function GroupsPage() {
               <Link
                 key={group.letter}
                 href={`/groupe/${group.slug}`}
-                className="group rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200"
+                className="group rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200"
               >
                 {/* Header */}
                 <div className="hero-animated px-4 py-3 flex items-center justify-between">

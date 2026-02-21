@@ -161,7 +161,7 @@ export default function ParisHandicapPage() {
                   <div className="flex flex-wrap gap-3 text-xs mb-2">
                     <span className="bg-primary/10white/10 px-2 py-1 rounded font-mono">{ex.handicap}</span>
                     <span className="bg-accent/10 text-accent px-2 py-1 rounded">{ex.bet}</span>
-                    <span className="bg-gray-100gray-700 px-2 py-1 rounded">Résultat : {ex.result}</span>
+                    <span className="bg-gray-100 px-2 py-1 rounded">Résultat : {ex.result}</span>
                     <span className={`font-bold ${color} uppercase`}>
                       {ex.outcome === "won" ? "Gagné" : ex.outcome === "lost" ? "Perdu" : "Remboursé"}
                     </span>

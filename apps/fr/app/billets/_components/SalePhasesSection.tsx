@@ -2,7 +2,7 @@ import { salePhases } from "./data";
 
 export function SalePhasesSection() {
   return (
-    <section id="phases-vente" className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
+    <section id="phases-vente" className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
            Calendrier des phases de vente
@@ -12,14 +12,14 @@ export function SalePhasesSection() {
           {salePhases.map((phase) => (
             <div
               key={phase.phase}
-              className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 flex items-start gap-4"
+              className="rounded-xl border border-gray-200 bg-white p-5 flex items-start gap-4"
             >
               <div className={`shrink-0 mt-1 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap ${
                 phase.statusColor === "green"
                   ? "bg-accent/15accent/10 text-accent"
                   : phase.statusColor === "blue"
                   ? "bg-primary/10secondary/20 text-primary"
-                  : "bg-gray-100slate-700 text-gray-500 line-through"
+                  : "bg-gray-100-700 text-gray-500 line-through"
               }`}>
                 {phase.status}
               </div>

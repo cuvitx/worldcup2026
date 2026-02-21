@@ -32,9 +32,9 @@ const COUNTRY_LABELS: Record<string, string> = {
 };
 
 const COUNTRY_COLORS: Record<string, string> = {
-  USA:    "bg-whiteslate-800 text-gray-900 border-gray-200",
-  Canada: "bg-whiteslate-800 text-gray-900 border-gray-200",
-  Mexico: "bg-whiteslate-800 text-gray-900 border-gray-200",
+  USA:    "bg-white text-gray-900 border-gray-200",
+  Canada: "bg-white text-gray-900 border-gray-200",
+  Mexico: "bg-white text-gray-900 border-gray-200",
 };
 
 export default function CarteStadesPage() {
@@ -81,7 +81,7 @@ export default function CarteStadesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-whiteslate-900 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
@@ -190,7 +190,7 @@ export default function CarteStadesPage() {
         </section>
 
         {/* Stats summary */}
-        <section className="mt-12 bg-gray-50slate-800/50 rounded-2xl p-6 border border-gray-200">
+        <section className="mt-12 bg-gray-50/50 rounded-2xl p-6 border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
              Chiffres clés
           </h2>
@@ -230,7 +230,7 @@ export default function CarteStadesPage() {
           </Link>
           <Link
             href="/match/calendrier"
-            className="inline-flex items-center gap-2 bg-whiteslate-800 text-gray-900 font-bold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-gray-900 font-bold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
           >
              Calendrier des matchs
           </Link>

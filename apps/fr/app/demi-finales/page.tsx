@@ -99,7 +99,7 @@ export default function DemiFinales() {
                   <th className="px-4 py-3 text-left">Match</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-medium text-gray-900">13 juillet 2026</td>
                   <td className="px-4 py-3 text-gray-600">Demi-finale 1</td>
@@ -122,7 +122,7 @@ export default function DemiFinales() {
             {stades.map((s) => (
               <div
                 key={s.nom}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md transition-shadow"
+                className="rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md transition-shadow"
               >
                 <h3 className="text-lg font-semibold text-gray-900">{s.nom}</h3>
                 <p className="text-sm text-gray-500 mt-1">{s.ville}</p>

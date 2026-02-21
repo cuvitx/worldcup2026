@@ -104,15 +104,15 @@ export default function BonusHubPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Introduction */}
-        <section className="prose dark:prose-invert max-w-none mb-12">
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        <section className="prose  max-w-none mb-12">
+          <p className="text-lg text-gray-700  leading-relaxed">
             La Coupe du Monde 2026 est l&apos;occasion idéale pour profiter des bonus de bienvenue des bookmakers. En vous inscrivant sur plusieurs sites, vous pouvez cumuler jusqu&apos;à <strong>390€ de freebets</strong> au total. Voici notre sélection des meilleures offres du moment, toutes vérifiées et issues de bookmakers agréés par l&apos;ANJ.
           </p>
         </section>
 
         {/* Cumul banner */}
         <div className="rounded-2xl bg-accent/10 border border-accent/20 p-6 mb-10 text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Cumul des bonus disponibles</p>
+          <p className="text-sm text-gray-600  mb-1">Cumul des bonus disponibles</p>
           <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 390€</p>
           <p className="text-sm text-gray-500 mt-1">en vous inscrivant sur les 4 bookmakers</p>
         </div>
@@ -122,8 +122,8 @@ export default function BonusHubPage() {
           {offers.map((offer, i) => (
             <div
               key={offer.slug}
-              className={`rounded-2xl border-2 bg-white dark:bg-slate-800 p-6 sm:p-8 relative ${
-                i === 0 ? "border-accent" : "border-gray-200 dark:border-slate-700"
+              className={`rounded-2xl border-2 bg-white  p-6 sm:p-8 relative ${
+                i === 0 ? "border-accent" : "border-gray-200 "
               }`}
             >
               {i === 0 && (
@@ -134,7 +134,7 @@ export default function BonusHubPage() {
               <div className="flex items-center gap-3 mb-4">
                 <Gift className="w-8 h-8 text-secondary" />
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">{offer.name}</h2>
+                  <h2 className="text-xl font-bold text-gray-900 ">{offer.name}</h2>
                   <div className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5 fill-secondary text-secondary" />
                     <span className="text-xs text-gray-500">{offer.note}/10</span>
@@ -143,14 +143,14 @@ export default function BonusHubPage() {
               </div>
 
               <p className="text-3xl font-extrabold text-accent mb-1">{offer.bonus}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{offer.bonusDetail}</p>
+              <p className="text-sm text-gray-600  mb-4">{offer.bonusDetail}</p>
 
               <div className="space-y-2 mb-6 text-sm">
-                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                <div className="flex items-center gap-2 text-gray-600 ">
                   <Clock className="w-4 h-4 text-primary shrink-0" />
                   <span>Code promo : <strong>{offer.codePromo}</strong></span>
                 </div>
-                <div className="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                <div className="flex items-start gap-2 text-gray-600 ">
                   <AlertTriangle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                   <span>Conditions : {offer.conditions}</span>
                 </div>
@@ -187,30 +187,30 @@ export default function BonusHubPage() {
 
         {/* Conseils */}
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Conseils pour bien utiliser vos bonus</h2>
-          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 dark:text-gray-300">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Conseils pour bien utiliser vos bonus</h2>
+          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Cumulez les offres</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Cumulez les offres</h3>
               <p>Inscrivez-vous sur les 4 bookmakers pour maximiser vos freebets. Chaque site propose son propre bonus de bienvenue, et il n&apos;y a aucune restriction à s&apos;inscrire sur plusieurs plateformes.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Lisez les conditions</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Lisez les conditions</h3>
               <p>Chaque bonus a ses conditions : durée de validité des freebets, types de paris éligibles, cote minimum. Prenez le temps de les lire pour éviter les mauvaises surprises.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Utilisez vos freebets à bon escient</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Utilisez vos freebets à bon escient</h3>
               <p>Les freebets sont idéaux pour tester des paris à cotes élevées (buteur, score exact) car vous ne risquez pas votre propre argent. Profitez-en sur les matchs de la CDM 2026.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Fixez vos limites</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Fixez vos limites</h3>
               <p>Même avec des bonus, restez responsable. Définissez un budget maximum et utilisez les outils de jeu responsable (limites de dépôt, auto-exclusion) proposés par chaque bookmaker.</p>
             </div>
           </div>
         </section>
 
         {/* Cross-links */}
-        <section className="rounded-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-6 sm:p-8 mb-10">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Pages associées</h2>
+        <section className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8 mb-10">
+          <h2 className="text-xl font-bold text-gray-900  mb-4">Pages associées</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/meilleurs-bookmakers" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Meilleurs bookmakers
@@ -223,10 +223,7 @@ export default function BonusHubPage() {
             </Link>
           </div>
         </section>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

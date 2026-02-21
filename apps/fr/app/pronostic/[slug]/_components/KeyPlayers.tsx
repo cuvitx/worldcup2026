@@ -16,7 +16,7 @@ export function KeyPlayers({ teamName, players }: KeyPlayersProps) {
   if (players.length === 0) return null;
 
   return (
-    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Joueurs cles de {teamName}</h2>
       <p className="mb-4 text-sm text-gray-600">Les joueurs qui feront la difference pour {teamName} lors de la Coupe du Monde 2026.</p>
       <div className="space-y-3">

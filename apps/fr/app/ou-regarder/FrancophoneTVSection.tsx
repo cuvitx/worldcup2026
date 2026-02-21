@@ -47,7 +47,7 @@ export function FrancophoneTVSection({ tvByCountryFrancophone }: FrancophoneTVSe
         {tvByCountryFrancophone.map((country) => (
           <div
             key={country.country}
-            className="bg-whiteslate-800 rounded-2xl border border-gray-200 overflow-hidden shadow-sm"
+            className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm"
           >
             <div className="bg-gray-50gray-700/50 px-6 py-4 border-b border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900">{country.country}</h3>

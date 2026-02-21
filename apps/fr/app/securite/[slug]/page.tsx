@@ -403,7 +403,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
 
       {/* Insurance CTA */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 text-center">
           <HeartPulse className="w-10 h-10 text-[#00B865] mx-auto mb-3" />
           <h3 className="font-bold text-lg mb-2">Assurance voyage recommandée</h3>
           <p className="text-sm text-gray-600 mb-4">

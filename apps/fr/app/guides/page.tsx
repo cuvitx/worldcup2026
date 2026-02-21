@@ -85,7 +85,7 @@ export default function GuidesPage() {
           if (!catGuides || catGuides.length === 0) return null;
           const emoji = categoryEmojis[cat] || "";
           return (
-            <section key={cat} className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+            <section key={cat} className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2">
                 <span className="text-2xl">{emoji}</span> {categoryLabels[cat]}
               </h2>
@@ -109,7 +109,7 @@ export default function GuidesPage() {
         })}
 
         {/* Bookmaker reviews */}
-        <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+        <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
             <span className="text-2xl"></span> Avis bookmakers
           </h2>
@@ -137,13 +137,13 @@ export default function GuidesPage() {
         <section className="rounded-xl bg-primary/5primary/10 p-6">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/paris-sportifs" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/paris-sportifs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Paris sportifs CDM 2026
             </Link>
-            <Link href="/buteurs" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/buteurs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs
             </Link>
-            <Link href="/pronostic/france" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/pronostic/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Pronostic France
             </Link>
           </div>

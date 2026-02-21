@@ -25,7 +25,7 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
   }
 
   return (
-    <section id="effectif" className="bg-whiteslate-900 py-12 border-t border-gray-100">
+    <section id="effectif" className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Effectif probable — {players.length} joueurs
@@ -50,7 +50,7 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:border-primary/30 hover:shadow-sm transition-all"
+                      className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:border-primary/30 hover:shadow-sm transition-all"
                     >
                       <div className="shrink-0 w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-extrabold text-sm">
                         {player.number ?? "—"}

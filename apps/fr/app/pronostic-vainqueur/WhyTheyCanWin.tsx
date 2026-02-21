@@ -26,7 +26,7 @@ interface WhyTheyCanWinProps {
 
 export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
   return (
-    <section id="analyse-top5" className="bg-whiteslate-900 py-12 border-t border-gray-100">
+    <section id="analyse-top5" className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Pourquoi ils peuvent gagner — Analyse top 5" subtitle="Décryptage en profondeur des 5 équipes les plus probables de soulever le trophée" />
 
@@ -40,15 +40,15 @@ export function WhyTheyCanWin({ top10, whyTheyCanWin }: WhyTheyCanWinProps) {
             return (
               <div
                 key={team.id}
-                className="rounded-2xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm"
+                className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm"
               >
                 {/* Header */}
                 <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
                   <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                     index === 0 ? "bg-accent/20 text-accent border-2 border-accent/50" :
-                    index === 1 ? "bg-gray-200slate-600 text-gray-700" :
+                    index === 1 ? "bg-gray-200-600 text-gray-700" :
                     index === 2 ? "bg-primary/10primary/20 text-primary" :
-                    "bg-gray-100slate-700 text-gray-600"
+                    "bg-gray-100-700 text-gray-600"
                   }`}>
                     {index + 1}
                   </div>

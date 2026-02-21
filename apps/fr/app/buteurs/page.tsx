@@ -96,7 +96,7 @@ export default function ButeursPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
 
         {/* ── TOP 20 MEILLEURS BUTEURS HISTORIQUES ── */}
-        <section className="rounded-xl bg-whiteslate-800 shadow-sm overflow-hidden">
+        <section className="rounded-xl bg-white shadow-sm overflow-hidden">
           <div className="px-6 pt-6 pb-5 border-b border-gray-100">
             <div className="flex items-center gap-3 mb-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
@@ -150,7 +150,7 @@ export default function ButeursPage() {
                       </div>
                       {/* Barre visuelle */}
                       <div className="mt-1.5 flex items-center gap-2">
-                        <div className="flex-1 h-2 bg-gray-100slate-700 rounded-full overflow-hidden">
+                        <div className="flex-1 h-2 bg-gray-100-700 rounded-full overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${barColor}`}
                             style={{ width: `${barPct}%` }}
@@ -172,7 +172,7 @@ export default function ButeursPage() {
             })}
           </div>
 
-          <div className="px-6 py-3 bg-gray-50slate-800/80 border-t border-gray-100">
+          <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
               Sources : FIFA · Statistiques arrêtées à la CDM 2022 · Mbappé (12 buts) actif, peut dépasser Klose en 2026
             </p>
@@ -180,7 +180,7 @@ export default function ButeursPage() {
         </section>
 
         {/* ── TOP 5 CANDIDATS (données prédictions-2026) ── */}
-        <section className="rounded-xl bg-whiteslate-800 shadow-sm overflow-hidden">
+        <section className="rounded-xl bg-white shadow-sm overflow-hidden">
           <div className="px-6 pt-6 pb-5 border-b border-gray-100">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl"></span>
@@ -201,7 +201,7 @@ export default function ButeursPage() {
                 idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent//5" :
                 idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50" :
                 idx === 2 ? "bg-gradient-to-r from-accent//5 to-accent//5" :
-                "bg-whiteslate-800";
+                "bg-white";
               const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
               const bestBookmakerOdds = Math.max(candidate.winamax, candidate.betclic, candidate.draftkings);
 
@@ -242,7 +242,7 @@ export default function ButeursPage() {
                         </div>
                         {/* Bar */}
                         <div className="flex-1 flex flex-col justify-center min-w-[100px]">
-                          <div className="h-2 bg-gray-100slate-700 rounded-full overflow-hidden">
+                          <div className="h-2 bg-gray-100-700 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-accent rounded-full"
                               style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
@@ -297,7 +297,7 @@ export default function ButeursPage() {
             })}
           </div>
 
-          <div className="px-6 py-3 bg-gray-50slate-800/80 border-t border-gray-100">
+          <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
               Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
@@ -306,7 +306,7 @@ export default function ButeursPage() {
         </section>
 
         {/* Top Scorer Ranking */}
-        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Favoris pour le Soulier d&apos;Or</h2>
           <p className="mb-6 text-sm text-gray-600">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
@@ -357,7 +357,7 @@ export default function ButeursPage() {
         </section>
 
         {/* All scorers by expected goals */}
-        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Tous les buteurs potentiels</h2>
           <p className="mb-6 text-sm text-gray-600">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
@@ -390,7 +390,7 @@ export default function ButeursPage() {
         </section>
 
         {/* By Team */}
-        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams

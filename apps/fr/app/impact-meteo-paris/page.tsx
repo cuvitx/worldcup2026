@@ -119,7 +119,7 @@ export default function ImpactMeteoParisPage() {
             <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
               <f.icon className="h-7 w-7 text-accent" /> {f.titre}
             </h2>
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4">
               <p className="text-gray-700 leading-relaxed">{f.description}</p>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">

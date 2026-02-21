@@ -97,7 +97,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           aria-label="Votre adresse email"
           required
           disabled={status === 'loading'}
-          className={`flex-1 rounded-lg border bg-whiteslate-800 px-4 text-gray-900 placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
+          className={`flex-1 rounded-lg border bg-white px-4 text-gray-900 placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
             status === 'error' || status === 'duplicate'
               ? 'border-red-300'
               : 'border-gray-300'

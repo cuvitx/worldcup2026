@@ -4,7 +4,7 @@ import { SectionHeading } from "@repo/ui/section-heading";
 
 export function MethodologySection() {
   return (
-    <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
+    <section className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Card hover padding="md">
           <SectionHeading emoji="" title="Méthodologie" />
@@ -34,7 +34,7 @@ export function MethodologySection() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-lg bg-whiteslate-900 p-4 border border-gray-200"
+                className="rounded-lg bg-white p-4 border border-gray-200"
               >
                 <p className="text-2xl mb-2">{item.icon}</p>
                 <p className="font-bold text-gray-900 text-sm mb-1">

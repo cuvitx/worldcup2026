@@ -127,7 +127,7 @@ export default async function ArticlePage({ params }: Props) {
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(fm.title)}&url=${encodeURIComponent(`https://cdm2026.fr/actualites/${slug}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-gray-100gray-700 px-3 py-2 text-xs font-medium hover:bg-gray-200 transition"
+            className="rounded-lg bg-gray-100 px-3 py-2 text-xs font-medium hover:bg-gray-200 transition"
           >
             𝕏 Twitter
           </a>
@@ -135,7 +135,7 @@ export default async function ArticlePage({ params }: Props) {
             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://cdm2026.fr/actualites/${slug}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-gray-100gray-700 px-3 py-2 text-xs font-medium hover:bg-gray-200 transition"
+            className="rounded-lg bg-gray-100 px-3 py-2 text-xs font-medium hover:bg-gray-200 transition"
           >
             Facebook
           </a>
@@ -143,7 +143,7 @@ export default async function ArticlePage({ params }: Props) {
             href={`https://wa.me/?text=${encodeURIComponent(`${fm.title} https://cdm2026.fr/actualites/${slug}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-gray-100gray-700 px-3 py-2 text-xs font-medium hover:bg-gray-200 transition"
+            className="rounded-lg bg-gray-100 px-3 py-2 text-xs font-medium hover:bg-gray-200 transition"
           >
             WhatsApp
           </a>

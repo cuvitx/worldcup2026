@@ -22,7 +22,7 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
   ];
 
   return (
-    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Probabilites par tour - {teamName}</h2>
       <p className="mb-4 text-sm text-gray-600">
         Probabilites estimees de {teamName} d&apos;atteindre chaque tour de la Coupe du Monde 2026, basees sur le modele ELO.

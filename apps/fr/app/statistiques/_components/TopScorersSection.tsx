@@ -22,7 +22,7 @@ export function TopScorersSection({ topScorers }: TopScorersSectionProps) {
       <p className="text-sm text-gray-500 mb-6">
         Meilleurs réalisateurs de l'histoire de la Coupe du Monde FIFA.
       </p>
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <div className="space-y-4">
           {topScorers.map((scorer, i) => (
             <div key={scorer.name} className="flex items-center gap-3">
@@ -34,7 +34,7 @@ export function TopScorersSection({ topScorers }: TopScorersSectionProps) {
                     ? "bg-gray-300 text-gray-700"
                     : i === 2
                     ? "bg-accent//80 text-white"
-                    : "bg-gray-100slate-700 text-gray-600"
+                    : "bg-gray-100-700 text-gray-600"
                 }`}
               >
                 {i + 1}

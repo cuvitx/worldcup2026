@@ -142,7 +142,7 @@ export default function ValisePageCDM() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Sun className="h-7 w-7 text-accent" /> Météo attendue (juin-juillet 2026)
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 prose max-w-none">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 prose max-w-none">
             <p>
               La CDM 2026 se déroule en <strong>été nord-américain</strong>. Attendez-vous à des températures
               de <strong>28-38°C</strong> dans le sud (Houston, Dallas, Miami, Mexico) et <strong>22-30°C</strong> dans
@@ -160,7 +160,7 @@ export default function ValisePageCDM() {
             <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
               <cat.icon className="h-7 w-7 text-accent" /> {cat.titre}
             </h2>
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
               <ul className="space-y-2">
                 {cat.items.map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-gray-700">

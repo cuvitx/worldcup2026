@@ -82,9 +82,9 @@ export default function BonusUnibetPage() {
         <section className="rounded-2xl border-2 border-accent bg-accent/5 p-6 sm:p-8 mb-10">
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Unibet</h2>
+              <h2 className="text-2xl font-bold text-gray-900  mb-2">Unibet</h2>
               <p className="text-4xl font-extrabold text-accent mb-2">Jusqu&apos;à 100€</p>
-              <p className="text-gray-600 dark:text-gray-300">remboursés en freebets si 1er pari perdu</p>
+              <p className="text-gray-600 ">remboursés en freebets si 1er pari perdu</p>
               <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
                 <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" /> 8.7/10</span>
                 <span>Code promo : <strong>Aucun nécessaire</strong></span>
@@ -101,7 +101,7 @@ export default function BonusUnibetPage() {
           </div>
         </section>
 
-        <section className="prose dark:prose-invert max-w-none mb-12">
+        <section className="prose  max-w-none mb-12">
           <h2>Pourquoi choisir Unibet pour la CDM 2026 ?</h2>
           <p>
             Unibet est un opérateur international de référence, présent en France depuis 2010 via une licence ANJ. Filiale du groupe Kindred (coté en bourse à Stockholm), Unibet offre une sécurité financière maximale et une expérience de paris complète.
@@ -112,34 +112,34 @@ export default function BonusUnibetPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Les avantages Unibet</h2>
+          <h2 className="text-2xl font-bold text-gray-900  mb-6">Les avantages Unibet</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {avantages.map((av) => (
-              <div key={av.title} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={av.title} className="rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex items-center gap-3 mb-2">
                   <av.icon className="w-5 h-5 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">{av.title}</h3>
+                  <h3 className="font-bold text-gray-900 ">{av.title}</h3>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{av.desc}</p>
+                <p className="text-sm text-gray-600 ">{av.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <UserPlus className="w-6 h-6 text-secondary" />
             Comment s&apos;inscrire sur Unibet
           </h2>
           <div className="space-y-4">
             {etapesInscription.map((etape) => (
-              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg">
                   {etape.step}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">{etape.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{etape.desc}</p>
+                  <h3 className="font-bold text-gray-900  mb-1">{etape.title}</h3>
+                  <p className="text-sm text-gray-600 ">{etape.desc}</p>
                 </div>
               </div>
             ))}
@@ -147,11 +147,11 @@ export default function BonusUnibetPage() {
         </section>
 
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Paris Builder : créez vos propres paris</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Paris Builder : créez vos propres paris</h2>
+          <p className="text-gray-700  mb-4">
             Le Paris Builder d&apos;Unibet est un outil unique pour la CDM 2026. Combinez plusieurs sélections au sein d&apos;un même match pour créer un pari sur mesure avec une cote personnalisée.
           </p>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm text-gray-700 ">
             {[
               "Combinez résultat + buteur + nombre de buts",
               "Cotes calculées automatiquement en temps réel",
@@ -182,10 +182,7 @@ export default function BonusUnibetPage() {
             <Link href="/meilleurs-bookmakers" className="text-primary hover:underline">Comparatif bookmakers</Link>
           </p>
         </div>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
@@ -31,10 +29,6 @@ const stadiums: Stadium[] = [
   { name: "Estadio BBVA", city: "Monterrey, Mexique", capacity: "53 500", hint: "Stade mexicain moderne inauguré en 2015, dominé par la silhouette de la montagne Cerro de la Silla. Domicile des Rayados." },
   { name: "Estadio Akron", city: "Guadalajara, Mexique", capacity: "49 850", hint: "Stade volcanique au design unique à Guadalajara, avec une structure extérieure rappelant un volcan. Domicile des Chivas." },
 ];
-
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/quiz/stades" },
-};
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -128,7 +122,7 @@ export default function QuizStadesPage() {
         </div>
       </div>
 
-      <div className="w-full bg-gray-200gray-700 h-1.5">
+      <div className="w-full bg-gray-200 h-1.5">
         <div className="bg-accent h-1.5 transition-all duration-300" style={{ width: `${((current + 1) / shuffled.length) * 100}%` }} />
       </div>
 

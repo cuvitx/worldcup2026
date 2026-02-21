@@ -17,7 +17,7 @@ export function ProgressBar({ rounds }: { rounds: Record<RoundName, MatchData[]>
       <span className="text-xs text-gray-500 whitespace-nowrap font-medium">
         Progression
       </span>
-      <div className="flex-1 h-2 rounded-full bg-gray-200gray-700 overflow-hidden">
+      <div className="flex-1 h-2 rounded-full bg-gray-200 overflow-hidden">
         <div
           className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${pct}%` }}

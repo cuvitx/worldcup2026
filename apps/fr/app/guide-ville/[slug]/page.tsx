@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: city.metaTitle,
       description: city.metaDescription,
     },
+    alternates: { canonical: `https://cdm2026.fr/guide-ville/${slug}` },
   };
 }
 

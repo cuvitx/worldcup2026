@@ -6,7 +6,7 @@ export function FinalesTable({ editions }: { editions: WorldCupEdition[] }) {
  <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
  Tableau complet des finales
  </h2>
- <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
+ <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
  <div className="overflow-x-auto">
  <table className="w-full text-sm">
  <thead className="bg-primary text-white text-xs uppercase tracking-wide">
@@ -40,7 +40,7 @@ export function FinalesTable({ editions }: { editions: WorldCupEdition[] }) {
  </span>
  </td>
  <td className="px-4 py-3 text-center">
- <span className="font-mono font-bold bg-gray-100slate-700 px-2 py-0.5 rounded text-xs">
+ <span className="font-mono font-bold bg-gray-100-700 px-2 py-0.5 rounded text-xs">
  {ed.score}
  </span>
  </td>

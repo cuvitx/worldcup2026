@@ -48,7 +48,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
               className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                 active === key
                   ? "bg-primary text-white shadow-md"
-                  : "bg-gray-100gray-700 text-gray-600 hover:bg-gray-200"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
               {confLabels[key]} ({count})
@@ -63,7 +63,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
           <Link
             key={team.id}
             href={`/equipe/${team.slug}`}
-            className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 p-3 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
+            className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
           >
             <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-200 shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}

@@ -108,7 +108,7 @@ export default function DecalageHorairePage() {
                   <th className="px-3 py-3 text-center" title="Match à 19h locale">19h loc.</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {villes.map((v) => (
                   <tr key={v.ville} className="hover:bg-gray-50">
                     <td className="px-3 py-2.5 font-medium text-gray-900 whitespace-nowrap">
@@ -135,7 +135,7 @@ export default function DecalageHorairePage() {
             Conseils pour suivre les matchs tardifs
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+            <div className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="flex items-center gap-2 mb-2">
                 <Moon className="h-5 w-5 text-secondary" />
                 <h3 className="font-semibold text-gray-900">Matchs de nuit (23h-02h)</h3>
@@ -147,7 +147,7 @@ export default function DecalageHorairePage() {
                 programmés sur la côte Est pour le prime time européen.
               </p>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+            <div className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="flex items-center gap-2 mb-2">
                 <Sun className="h-5 w-5 text-secondary" />
                 <h3 className="font-semibold text-gray-900">Matchs accessibles (19h-22h)</h3>

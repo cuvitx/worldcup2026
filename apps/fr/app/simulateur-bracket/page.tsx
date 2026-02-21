@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState, useCallback } from "react";
@@ -23,10 +21,6 @@ interface MatchSlot {
 // Top 2 per group (24) + 8 best 3rd-placed teams
 // Projected 1st/2nd/3rd based on FIFA ranking within each group
 // ---------------------------------------------------------------------------
-
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/simulateur-bracket" },
-};
 
 const PROJECTED = {
   A: { first: "mexique", second: "coree-du-sud", third: "afrique-du-sud" },
@@ -203,7 +197,7 @@ export default function SimulateurBracketPage() {
       </section>
 
       {/* Toolbar */}
-      <div className="sticky top-0 z-30 bg-whiteslate-900 border-b border-gray-200 shadow-sm">
+      <div className="sticky top-0 z-30 bg-white border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2 text-sm text-secondary">
             <Trophy className="h-4 w-4" />
@@ -395,7 +389,7 @@ function MatchCard({
   const teamB = getTeamLabel(match.teamB);
 
   return (
-    <div className="rounded-lg border border-gray-200 overflow-hidden w-[180px] bg-whiteslate-900 shadow-sm">
+    <div className="rounded-lg border border-gray-200 overflow-hidden w-[180px] bg-white shadow-sm">
       <TeamRow
         team={teamA}
         teamId={match.teamA}

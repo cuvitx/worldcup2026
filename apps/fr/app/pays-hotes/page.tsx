@@ -107,7 +107,7 @@ export default function PaysHotesPage() {
 
             <div className="space-y-6">
               {/* États-Unis */}
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-5xl">🇺🇸</span>
                   <div className="flex-1">
@@ -146,7 +146,7 @@ export default function PaysHotesPage() {
               </div>
 
               {/* Canada */}
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-5xl">🇨🇦</span>
                   <div className="flex-1">
@@ -184,7 +184,7 @@ export default function PaysHotesPage() {
               </div>
 
               {/* Mexique */}
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-5xl">🇲🇽</span>
                   <div className="flex-1">
@@ -231,7 +231,7 @@ export default function PaysHotesPage() {
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <FileText className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Visa & Documents</h3>
@@ -256,7 +256,7 @@ export default function PaysHotesPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Décalage horaire</h3>
@@ -281,7 +281,7 @@ export default function PaysHotesPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Plane className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Transport</h3>
@@ -306,7 +306,7 @@ export default function PaysHotesPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <DollarSign className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Budget & Monnaie</h3>
@@ -342,10 +342,10 @@ export default function PaysHotesPage() {
               </h2>
             </div>
 
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50slate-900">
+                  <thead className="bg-gray-50-900">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Ville
@@ -411,7 +411,7 @@ export default function PaysHotesPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
                 <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}

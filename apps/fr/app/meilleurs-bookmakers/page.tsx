@@ -137,7 +137,7 @@ function StarRating({ note }: { note: number }) {
         <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />
       ))}
       {half && <Star className="w-4 h-4 fill-secondary/50 text-secondary" />}
-      <span className="ml-1 text-sm font-bold text-gray-900 dark:text-white">{note}/10</span>
+      <span className="ml-1 text-sm font-bold text-gray-900 ">{note}/10</span>
     </div>
   );
 }
@@ -201,19 +201,19 @@ export default function MeilleursBookmakersPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Introduction */}
-        <section className="prose dark:prose-invert max-w-none mb-12">
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        <section className="prose  max-w-none mb-12">
+          <p className="text-lg text-gray-700  leading-relaxed">
             La Coupe du Monde 2026 s&apos;annonce comme l&apos;événement sportif le plus parié de l&apos;histoire avec ses 104 matchs répartis entre les États-Unis, le Canada et le Mexique. Pour en profiter pleinement, choisir le bon bookmaker est essentiel. Nous avons analysé en profondeur les 5 principaux sites de paris sportifs agréés en France selon des critères objectifs : qualité des cotes, bonus de bienvenue, application mobile, offre de paris en direct et fiabilité.
           </p>
         </section>
 
         {/* Tableau comparatif */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <Trophy className="w-6 h-6 text-secondary" />
             Tableau comparatif des bookmakers
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 ">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -226,10 +226,10 @@ export default function MeilleursBookmakersPage() {
                   <th className="px-4 py-3 text-center font-semibold">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200  bg-white ">
                 {bookmakers.map((bk, i) => (
                   <tr key={bk.slug} className={i === 0 ? "bg-accent/5" : ""}>
-                    <td className="px-4 py-4 font-bold text-gray-900 dark:text-white">
+                    <td className="px-4 py-4 font-bold text-gray-900 ">
                       <div className="flex items-center gap-2">
                         {i === 0 && <span className="text-xs bg-accent text-white px-2 py-0.5 rounded-full">N°1</span>}
                         {bk.name}
@@ -240,14 +240,14 @@ export default function MeilleursBookmakersPage() {
                       <br />
                       <span className="text-xs text-gray-500">{bk.bonusDetail}</span>
                     </td>
-                    <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300">{bk.cotesMoyennes}</td>
-                    <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300">
+                    <td className="px-4 py-4 text-center text-gray-700 ">{bk.cotesMoyennes}</td>
+                    <td className="px-4 py-4 text-center text-gray-700 ">
                       <div className="flex items-center justify-center gap-1">
                         <Smartphone className="w-4 h-4 text-primary" />
                         <span className="text-xs">{bk.appMobile}</span>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300">
+                    <td className="px-4 py-4 text-center text-gray-700 ">
                       <div className="flex items-center justify-center gap-1">
                         <Zap className="w-4 h-4 text-accent" />
                         <span className="text-xs">{bk.liveBetting}</span>
@@ -275,18 +275,18 @@ export default function MeilleursBookmakersPage() {
 
         {/* Détails par bookmaker */}
         <section className="space-y-8 mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  flex items-center gap-2">
             <TrendingUp className="w-6 h-6 text-secondary" />
             Avis détaillé par bookmaker
           </h2>
           {bookmakers.map((bk, i) => (
             <div
               key={bk.slug}
-              className="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 sm:p-8"
+              className="rounded-2xl border border-gray-200  bg-white  p-6 sm:p-8"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-gray-900  flex items-center gap-2">
                     {i + 1}. {bk.name}
                     {i === 0 && (
                       <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full font-semibold">
@@ -306,14 +306,14 @@ export default function MeilleursBookmakersPage() {
                   {bk.bonus} offerts
                 </a>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-gray-600  mb-4">
                 {bk.name} propose un bonus de bienvenue de <strong>{bk.bonus}</strong> ({bk.bonusDetail}) pour les nouveaux inscrits. Les cotes sont {bk.cotesMoyennes.toLowerCase()} avec un excellent service de {bk.liveBetting.toLowerCase()}. L&apos;application mobile est disponible sur {bk.appMobile.toLowerCase()}.
               </p>
               <div className="flex flex-wrap gap-2">
                 {bk.avantages.map((av) => (
                   <span
                     key={av}
-                    className="inline-flex items-center gap-1 text-xs bg-primary/5 text-primary dark:bg-primary/20 dark:text-blue-300 px-3 py-1.5 rounded-full font-medium"
+                    className="inline-flex items-center gap-1 text-xs bg-primary/5 text-primary   px-3 py-1.5 rounded-full font-medium"
                   >
                     <Shield className="w-3 h-3" />
                     {av}
@@ -334,30 +334,30 @@ export default function MeilleursBookmakersPage() {
 
         {/* Comment choisir */}
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-14">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Comment choisir son bookmaker pour la CDM 2026 ?</h2>
-          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 dark:text-gray-300">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Comment choisir son bookmaker pour la CDM 2026 ?</h2>
+          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Les cotes</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Les cotes</h3>
               <p>Les cotes déterminent vos gains potentiels. Un bookmaker avec des cotes supérieures de 2-3% vous rapportera significativement plus sur le long terme. Winamax et Betclic se distinguent sur ce critère.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Le bonus de bienvenue</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Le bonus de bienvenue</h3>
               <p>Le bonus de bienvenue est un avantage ponctuel mais non négligeable. Privilégiez les offres en freebets sans conditions de mise complexes. Inscrivez-vous sur plusieurs sites pour cumuler les bonus.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">L&apos;application mobile</h3>
+              <h3 className="font-bold text-gray-900  mb-2">L&apos;application mobile</h3>
               <p>Pendant la CDM 2026, vous voudrez parier en mobilité. Testez l&apos;application avant de vous engager : fluidité, rapidité, facilité de navigation et notifications en temps réel sont essentielles.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Le live betting</h3>
+              <h3 className="font-bold text-gray-900  mb-2">Le live betting</h3>
               <p>Les paris en direct représentent une part croissante des mises. Vérifiez la qualité du streaming, la variété des marchés live et la disponibilité du cash-out pour sécuriser vos gains en cours de match.</p>
             </div>
           </div>
         </section>
 
         {/* Cross-links */}
-        <section className="rounded-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-6 sm:p-8 mb-10">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Pages associées</h2>
+        <section className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8 mb-10">
+          <h2 className="text-xl font-bold text-gray-900  mb-4">Pages associées</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/bonus" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Tous les bonus CDM 2026
@@ -373,10 +373,7 @@ export default function MeilleursBookmakersPage() {
             </Link>
           </div>
         </section>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection title="Questions sur les bookmakers CDM 2026" items={faqItems} />

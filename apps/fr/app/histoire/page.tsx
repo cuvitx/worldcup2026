@@ -145,7 +145,7 @@ export default function HistoirePage() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-4 bg-whiteslate-800 rounded-xl border border-gray-100 p-4 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
+              className="flex items-center gap-4 bg-white rounded-xl border border-gray-100 p-4 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
             >
               <span className="text-3xl flex-shrink-0">{icon}</span>
               <div>

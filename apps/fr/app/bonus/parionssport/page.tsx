@@ -82,9 +82,9 @@ export default function BonusParionsSportPage() {
         <section className="rounded-2xl border-2 border-accent bg-accent/5 p-6 sm:p-8 mb-10">
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">ParionsSport</h2>
+              <h2 className="text-2xl font-bold text-gray-900  mb-2">ParionsSport</h2>
               <p className="text-4xl font-extrabold text-accent mb-2">Jusqu&apos;à 90€</p>
-              <p className="text-gray-600 dark:text-gray-300">offerts en freebets par la FDJ</p>
+              <p className="text-gray-600 ">offerts en freebets par la FDJ</p>
               <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
                 <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" /> 8.5/10</span>
                 <span>Code promo : <strong>Aucun nécessaire</strong></span>
@@ -101,7 +101,7 @@ export default function BonusParionsSportPage() {
           </div>
         </section>
 
-        <section className="prose dark:prose-invert max-w-none mb-12">
+        <section className="prose  max-w-none mb-12">
           <h2>Pourquoi choisir ParionsSport pour la CDM 2026 ?</h2>
           <p>
             ParionsSport est l&apos;opérateur de paris sportifs de la Française des Jeux (FDJ), une marque emblématique connue de tous les Français. Agréé ANJ depuis 2010, ParionsSport offre la sécurité d&apos;une entreprise publique cotée en bourse et un réseau de 30 000 points de vente physiques.
@@ -112,34 +112,34 @@ export default function BonusParionsSportPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Les avantages ParionsSport</h2>
+          <h2 className="text-2xl font-bold text-gray-900  mb-6">Les avantages ParionsSport</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {avantages.map((av) => (
-              <div key={av.title} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={av.title} className="rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex items-center gap-3 mb-2">
                   <av.icon className="w-5 h-5 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">{av.title}</h3>
+                  <h3 className="font-bold text-gray-900 ">{av.title}</h3>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{av.desc}</p>
+                <p className="text-sm text-gray-600 ">{av.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <UserPlus className="w-6 h-6 text-secondary" />
             Comment s&apos;inscrire sur ParionsSport
           </h2>
           <div className="space-y-4">
             {etapesInscription.map((etape) => (
-              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg">
                   {etape.step}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">{etape.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{etape.desc}</p>
+                  <h3 className="font-bold text-gray-900  mb-1">{etape.title}</h3>
+                  <p className="text-sm text-gray-600 ">{etape.desc}</p>
                 </div>
               </div>
             ))}
@@ -147,11 +147,11 @@ export default function BonusParionsSportPage() {
         </section>
 
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Grilles Loto Foot CDM 2026</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Grilles Loto Foot CDM 2026</h2>
+          <p className="text-gray-700  mb-4">
             ParionsSport propose des <strong>grilles Loto Foot exclusives</strong> pendant la Coupe du Monde 2026. Pronostiquez les résultats de 8 à 15 matchs pour tenter de remporter un jackpot pouvant atteindre plusieurs millions d&apos;euros.
           </p>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm text-gray-700 ">
             {[
               "Grilles spéciales CDM 2026 avec jackpots majorés",
               "Disponibles en ligne et en point de vente",
@@ -182,10 +182,7 @@ export default function BonusParionsSportPage() {
             <Link href="/meilleurs-bookmakers" className="text-primary hover:underline">Comparatif bookmakers</Link>
           </p>
         </div>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

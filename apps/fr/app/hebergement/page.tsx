@@ -120,7 +120,7 @@ export default function HebergementPage() {
             {villes.map((v) => (
               <div
                 key={v.ville}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-white p-5"
               >
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-accent" />
@@ -129,11 +129,11 @@ export default function HebergementPage() {
                   </h3>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-3 mb-3">
-                  <div className="rounded-lg bg-gray-50slate-700 p-3">
+                  <div className="rounded-lg bg-gray-50-700 p-3">
                     <p className="text-xs text-gray-500 uppercase mb-1">Hôtel</p>
                     <p className="font-bold text-primary">{v.hotel}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50slate-700 p-3">
+                  <div className="rounded-lg bg-gray-50-700 p-3">
                     <p className="text-xs text-gray-500 uppercase mb-1">Airbnb</p>
                     <p className="font-bold text-accent">{v.airbnb}</p>
                   </div>
@@ -157,7 +157,7 @@ export default function HebergementPage() {
               href="https://www.booking.com"
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="flex items-center justify-between rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md transition-shadow group"
+              className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md transition-shadow group"
             >
               <div>
                 <p className="font-semibold text-gray-900">Booking.com</p>
@@ -169,7 +169,7 @@ export default function HebergementPage() {
               href="https://www.airbnb.fr"
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="flex items-center justify-between rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md transition-shadow group"
+              className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md transition-shadow group"
             >
               <div>
                 <p className="font-semibold text-gray-900">Airbnb</p>

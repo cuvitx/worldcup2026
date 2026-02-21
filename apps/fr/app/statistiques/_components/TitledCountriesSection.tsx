@@ -31,7 +31,7 @@ export function TitledCountriesSection({
       <p className="text-sm text-gray-500 mb-6">
         Seules 8 nations ont remporté la Coupe du Monde depuis 1930.
       </p>
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <div className="space-y-5">
           {titledCountries.map((c, i) => (
             <div key={c.country} className="flex items-center gap-3">

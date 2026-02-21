@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     index: false, // page personnalisée → pas utile en SEO
     follow: false,
   },
+  alternates: { canonical: "https://cdm2026.fr/profil" },
 };
 
 export default function ProfilLayout({

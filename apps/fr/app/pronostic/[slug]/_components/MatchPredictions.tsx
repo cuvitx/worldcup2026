@@ -17,7 +17,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
   if (teamMatches.length === 0) return null;
 
   return (
-    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Pronostics des matchs de groupe</h2>
       <p className="mb-4 text-sm text-gray-600">Predictions pour les matchs de {teamName} dans le Groupe {teamGroup}.</p>
       <div className="space-y-4">
@@ -56,7 +56,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                       ? item.prob > matchPred.team1WinProb && item.prob > matchPred.team2WinProb
                       : item.prob > matchPred.team1WinProb && item.prob > matchPred.drawProb;
                     return (
-                      <div key={i} className={`rounded p-2 text-center ${isHighest ? "bg-field/10 border border-field/30" : "bg-gray-50slate-700"}`}>
+                      <div key={i} className={`rounded p-2 text-center ${isHighest ? "bg-field/10 border border-field/30" : "bg-gray-50-700"}`}>
                         <p className="text-sm font-bold">{Math.round(item.prob * 100)}%</p>
                         <p className="text-xs text-gray-500">{item.label}</p>
                       </div>

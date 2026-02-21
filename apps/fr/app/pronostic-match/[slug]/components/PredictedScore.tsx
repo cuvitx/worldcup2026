@@ -16,7 +16,7 @@ export function PredictedScore({
   awayName,
 }: PredictedScoreProps) {
   return (
-    <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Score exact predit</h2>
       <div className="flex items-center justify-center gap-6 rounded-lg bg-primary/5 p-8">
         <div className="text-center">

@@ -21,7 +21,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
   if (teamMatches.length === 0) return null;
 
   return (
-    <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Matchs de groupe</h2>
       <div className="space-y-3">
         {teamMatches.map((match) => {

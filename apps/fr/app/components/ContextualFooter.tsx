@@ -227,7 +227,7 @@ export function ContextualFooter() {
   const siloLinks = getSiloLinks(silo);
 
   return (
-    <section className="bg-gray-50slate-900 border-t border-gray-200">
+    <section className="bg-gray-50-900 border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {/* Col 1: Contextual */}

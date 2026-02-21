@@ -65,7 +65,7 @@ export function PremiumFAQ({ team, prediction, winnerOdds }: PremiumFAQProps) {
   const faqItems = generateFAQItems(team, prediction, winnerOdds);
 
   return (
-    <section className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
+    <section className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-4xl px-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Questions fréquentes — {team.name} CDM 2026
@@ -74,7 +74,7 @@ export function PremiumFAQ({ team, prediction, winnerOdds }: PremiumFAQProps) {
           {faqItems.map((item, i) => (
             <div
               key={i}
-              className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden"
+              className="rounded-xl border border-gray-200 bg-white overflow-hidden"
             >
               <details className="group">
                 <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 hover:text-primary transition-colors list-none">

@@ -16,7 +16,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
   const weaknesses = content?.weaknesses ?? [];
 
   return (
-    <section className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
+    <section className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Pronostic {team.name} — Cotes &amp; Analyse
@@ -24,7 +24,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Bookmaker odds */}
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
               Cotes vainqueur CDM 2026 — {team.name}
             </h3>
@@ -43,7 +43,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
                     href={bm.url}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
-                    className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50slate-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                    className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
                   >
                     {bm.logo && <img src={bm.logo} alt={bm.name} className="w-6 h-6 rounded object-contain shrink-0" loading="lazy" />}
                     <span className="flex-1 font-medium text-sm text-gray-800 group-hover:text-primary transition-colors">

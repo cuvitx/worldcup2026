@@ -79,7 +79,7 @@ export default function ComparateurCotesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-whiteslate-900 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
@@ -113,7 +113,7 @@ export default function ComparateurCotesPage() {
             className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition ${
               selectedGroup === "all"
                 ? "bg-primary text-white"
-                : "bg-gray-100slate-800 text-gray-700 hover:bg-gray-200"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
             Tous les groupes
@@ -125,7 +125,7 @@ export default function ComparateurCotesPage() {
               className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition ${
                 selectedGroup === g
                   ? "bg-primary text-white"
-                  : "bg-gray-100slate-800 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               Groupe {g}
@@ -138,7 +138,7 @@ export default function ComparateurCotesPage() {
           {filtered.map((match) => {
             const best = getBestOdds(match);
             return (
-              <div key={match.matchId} className="bg-whiteslate-800 rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+              <div key={match.matchId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 {/* Match header */}
                 <div className="bg-gray-50gray-700 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200">
                   <div className="flex items-center gap-2 flex-wrap min-w-0">
@@ -167,11 +167,11 @@ export default function ComparateurCotesPage() {
                     <tbody>
                       {match.odds.map((o, idx) => (
                         <tr key={o.bookmaker} className={`border-t border-gray-100 hover:bg-gray-100 transition-colors ${
-                          idx % 2 === 0 ? "bg-gray-50/50slate-700/50" : "bg-whiteslate-800"
+                          idx % 2 === 0 ? "bg-gray-50/50slate-700/50" : "bg-white"
                         }`}>
                           <td className="px-4 py-2.5 font-medium text-gray-900">
                             <div className="flex items-center gap-2">
-                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gray-200gray-600 text-xs font-bold text-gray-600">
+                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gray-200 text-xs font-bold text-gray-600">
                                 {o.bookmaker.charAt(0)}
                               </span>
                               {o.bookmaker}

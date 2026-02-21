@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
-
 "use client"
 
 import { useSearchParams, useRouter } from "next/navigation"
 import { useEffect, useState, Suspense } from "react"
 import { Flag, MapPin, Users, FileText } from "lucide-react"
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/admin" },
-};
 
 const SECRET = "cdm2026-admin-secret"
 
@@ -86,7 +80,7 @@ function AdminContent() {
         </h1>
 
         {/* Brand Book */}
-        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+        <section className="bg-white rounded-xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Brand Book</h2>
           <div className="space-y-4">
             <div>
@@ -118,11 +112,11 @@ function AdminContent() {
         </section>
 
         {/* Stats */}
-        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+        <section className="bg-white rounded-xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Stats du projet</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {statsData.map((s) => (
-              <div key={s.label} className="bg-gray-50slate-800 rounded-lg p-4 text-center">
+              <div key={s.label} className="bg-gray-50 rounded-lg p-4 text-center">
                 <div className="flex justify-center mb-1">
                   {s.Icon ? <s.Icon className="w-6 h-6" /> : <div className="h-6" />}
                 </div>
@@ -134,7 +128,7 @@ function AdminContent() {
         </section>
 
         {/* Liens utiles */}
-        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+        <section className="bg-white rounded-xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Liens utiles</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {links.map((l) => (
@@ -143,7 +137,7 @@ function AdminContent() {
                 href={l.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gray-50slate-800 rounded-lg p-3 hover:bg-gray-100 transition-colors"
+                className="flex items-center gap-2 bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors"
               >
                 <span className="font-medium">{l.name}</span>
               </a>
@@ -152,12 +146,12 @@ function AdminContent() {
         </section>
 
         {/* Checklist */}
-        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+        <section className="bg-white rounded-xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Checklist pré-lancement</h2>
           <ul className="space-y-2">
             {checklist.map((item) => (
               <li key={item.task} className="flex items-center gap-3">
-                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15accent/10 text-accent" : "bg-gray-100slate-800 text-gray-400"}`}>
+                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15accent/10 text-accent" : "bg-gray-100 text-gray-400"}`}>
                   {item.done ? "✓" : "○"}
                 </span>
                 <span className={item.done ? "line-through text-gray-400" : ""}>{item.task}</span>

@@ -16,7 +16,7 @@ export function WinProbabilityCard({
   awayName,
 }: WinProbabilityCardProps) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+    <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Probabilités de victoire
       </h2>
@@ -43,7 +43,7 @@ export function WinProbabilityCard({
         </div>
       </div>
       {/* Visual stacked bar */}
-      <div className="w-full h-4 rounded-full flex overflow-hidden gap-0.5 shadow-inner bg-gray-100gray-700">
+      <div className="w-full h-4 rounded-full flex overflow-hidden gap-0.5 shadow-inner bg-gray-100">
         <div
           className="h-full bg-primary rounded-l-full transition-all duration-700"
           style={{ width: `${Math.round(prediction.team1WinProb * 100)}%` }}

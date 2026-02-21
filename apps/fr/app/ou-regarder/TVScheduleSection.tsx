@@ -33,7 +33,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
             className={`rounded-xl border p-4 ${
               m.isFrance
                 ? "bg-secondary/5secondary/10 border-secondary/30"
-                : "bg-whiteslate-800 border-gray-200"
+                : "bg-white border-gray-200"
             }`}
           >
             <div className="flex items-start justify-between gap-2 mb-2">
@@ -63,8 +63,8 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
 
       {/* Desktop: table */}
       <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-        <table className="w-full text-sm bg-whiteslate-800">
-          <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+        <table className="w-full text-sm bg-white">
+          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
             <tr>
               <th className="px-4 py-3 text-left font-semibold text-gray-700 whitespace-nowrap">Date</th>
               <th className="px-4 py-3 text-left font-semibold text-gray-700">Heure 🇫🇷</th>

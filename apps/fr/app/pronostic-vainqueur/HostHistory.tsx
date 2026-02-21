@@ -20,7 +20,7 @@ interface HostHistoryProps {
 
 export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct }: HostHistoryProps) {
   return (
-    <section id="historique" className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
+    <section id="historique" className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Historique : qui a gagné à domicile ?" subtitle="Le pays hôte peut-il vraiment faire la différence ? Retour sur 22 éditions." />
 
@@ -76,7 +76,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-xs">
               <thead>
-                <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500text-gray-700">
+                <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500text-gray-700">
                   <th className="text-left px-3 py-2">Année</th>
                   <th className="text-left px-3 py-2">Hôte</th>
                   <th className="text-left px-3 py-2">Vainqueur</th>
@@ -91,7 +91,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
                     className={`border-t border-gray-100 ${
                       s.hostWon
                         ? "bg-primary/5secondary/10"
-                        : i % 2 === 0 ? "bg-whiteslate-800/50" : "bg-gray-50/50slate-800"
+                        : i % 2 === 0 ? "bg-white/50" : "bg-gray-50/50slate-800"
                     }`}
                   >
                     <td className="px-3 py-2 font-bold text-gray-900">{s.year}</td>
@@ -127,7 +127,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
               { flag: "🇨🇦", name: "Canada", note: "Alphonso Davies au sommet. Première CDM — la ferveur peut créer des miracles.", chance: "1.8%" },
               { flag: "🇲🇽", name: "Mexique", note: "L'Azteca en altitude (2240m) — avantage physique considérable en phase de groupes.", chance: "2.1%" },
             ].map((host) => (
-              <div key={host.name} className="rounded-xl bg-whiteslate-800 border border-gray-200 p-3">
+              <div key={host.name} className="rounded-xl bg-white border border-gray-200 p-3">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-xl">{host.flag}</span>
                   <span className="font-bold text-sm text-gray-900">{host.name}</span>

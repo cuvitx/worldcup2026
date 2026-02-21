@@ -24,7 +24,7 @@ export function StreamingFranceSection({ gratuit, payant }: StreamingFranceSecti
             <h3 className="text-lg font-semibold text-gray-900 text-field"><svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Streaming gratuit</h3>
             <p className="text-sm text-field">Aucun abonnement requis</p>
           </div>
-          <div className="p-6 space-y-3 bg-whiteslate-800">
+          <div className="p-6 space-y-3 bg-white">
             {gratuit.map((s) => (
               <a
                 key={s.name}
@@ -49,7 +49,7 @@ export function StreamingFranceSection({ gratuit, payant }: StreamingFranceSecti
             <h3 className="text-lg font-semibold text-gray-900"><svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Streaming payant</h3>
             <p className="text-sm text-primary">Abonnement requis — 104 matchs</p>
           </div>
-          <div className="p-6 space-y-3 bg-whiteslate-800">
+          <div className="p-6 space-y-3 bg-white">
             {payant.map((s) => (
               <a
                 key={s.name}

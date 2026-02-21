@@ -145,7 +145,7 @@ export default function VolsPage() {
             {destinations.map((d) => (
               <div
                 key={d.ville}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-white p-5"
               >
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-accent" /> {d.ville}
@@ -171,7 +171,7 @@ export default function VolsPage() {
             {conseilsReservation.map((c) => (
               <div
                 key={c.timing}
-                className="flex gap-4 items-start rounded-xl border border-gray-200 bg-whiteslate-800 p-4"
+                className="flex gap-4 items-start rounded-xl border border-gray-200 bg-white p-4"
               >
                 <span className="inline-flex items-center justify-center rounded-lg bg-accent/10 text-accent font-bold px-3 py-1 text-sm whitespace-nowrap">
                   {c.timing}
@@ -187,7 +187,7 @@ export default function VolsPage() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <DollarSign className="h-7 w-7 text-accent" /> Astuces pour payer moins cher
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
             <ul className="space-y-3 text-gray-700 text-sm">
               <li className="flex gap-2"><span className="text-accent font-bold">1.</span><span>Utilisez la navigation privée pour éviter les cookies qui font monter les prix.</span></li>
               <li className="flex gap-2"><span className="text-accent font-bold">2.</span><span>Comparez sur Google Flights, Skyscanner ET directement sur le site de la compagnie.</span></li>

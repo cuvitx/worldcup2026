@@ -31,7 +31,6 @@ export const metadata: Metadata = {
       "Pronostics, cotes, analyses des 48 équipes et calendrier des 104 matchs de la CDM 2026.",
     url: "https://cdm2026.fr",
   },
-  alternates: { canonical: "https://cdm2026.fr" },
 };
 
 /* ──────────────────────────────── data ──────────────────────────────── */
@@ -157,7 +156,7 @@ export default function HomePage() {
       <RecentArticles recentArticles={recentArticles} />
 
       {/* 5. STADES CDM 2026 */}
-      <section className="bg-gray-50slate-900/60 py-16">
+      <section className="bg-gray-50-900/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
@@ -195,7 +194,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-2.5 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 text-sm font-medium text-gray-900 hover:shadow-md hover:border-primary/30 transition-all"
+                className="flex items-center gap-2.5 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 hover:shadow-md hover:border-primary/30 transition-all"
               >
                 <span className="text-xl">{item.icon}</span>
                 {item.label}

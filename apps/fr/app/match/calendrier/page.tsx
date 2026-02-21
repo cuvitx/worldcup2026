@@ -1,6 +1,5 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
@@ -8,27 +7,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import CalendarViewWrapper from "./CalendarViewWrapper";
 import { FileText } from "lucide-react";
 import { RelatedLinks } from "../../components/RelatedLinks";
-
-const CalendarFilters = dynamic(() => import("./CalendarFilters"), {
-  loading: () => (
-    <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div className="animate-pulse space-y-4">
-        <div className="h-12 bg-gray-200gray-700 rounded-lg w-full" />
-        <div className="h-64 bg-gray-200gray-700 rounded-lg w-full" />
-      </div>
-    </div>
-  ),
-});
-
-const CalendarGrid = dynamic(() => import("./CalendarGrid"), {
-  loading: () => (
-    <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div className="animate-pulse space-y-4">
-        <div className="h-64 bg-gray-200gray-700 rounded-lg w-full" />
-      </div>
-    </div>
-  ),
-});
 
 const faqCalendrierItems = [
   {
@@ -139,8 +117,6 @@ export default function CalendrierPage() {
         matches={matchData}
         teamsById={teamData}
         stadiumsById={stadiumData}
-        CalendarFilters={CalendarFilters}
-        CalendarGrid={CalendarGrid}
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
@@ -170,7 +146,7 @@ export default function CalendrierPage() {
       </div>
 
       {/* ===== FAQ ===== */}
-      <section className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
+      <section className="bg-gray-50 py-12 border-t border-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Questions fréquentes — Calendrier CDM 2026
@@ -179,7 +155,7 @@ export default function CalendrierPage() {
             {faqCalendrierItems.map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden"
+                className="rounded-xl border border-gray-200 bg-white overflow-hidden"
               >
                 <details className="group">
                   <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-gray-900 hover:text-primary transition-colors list-none">

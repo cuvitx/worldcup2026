@@ -34,7 +34,7 @@ export function StatsTab({
             awayName={awayName}
           />
         ) : (
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow text-center">
             Statistiques non disponibles pour ce match.
           </div>
         )}

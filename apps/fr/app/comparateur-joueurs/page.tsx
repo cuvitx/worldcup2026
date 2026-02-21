@@ -53,7 +53,7 @@ export default function ComparateurJoueursPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Breadcrumb */}
-      <nav className="bg-whiteslate-900 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>

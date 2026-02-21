@@ -76,7 +76,7 @@ export default function SecuritePage() {
             <Shield className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">Conseils généraux</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
             <ul className="space-y-2">
               <li>Gardez une copie numérique de votre passeport (photo + cloud)</li>
               <li>Ne transportez pas de grosses sommes en liquide — privilégiez la carte bancaire</li>
@@ -127,7 +127,7 @@ export default function SecuritePage() {
                   <th className="px-4 py-3 text-left">Notes</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {urgences.map((u) => (
                   <tr key={u.pays} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-gray-900">{u.pays}</td>
@@ -147,7 +147,7 @@ export default function SecuritePage() {
             <Heart className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">Assurance voyage</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
             <p>
               <strong>Indispensable pour les États-Unis.</strong> Les frais médicaux américains
               sont parmi les plus élevés au monde : une nuit d&apos;hospitalisation peut coûter

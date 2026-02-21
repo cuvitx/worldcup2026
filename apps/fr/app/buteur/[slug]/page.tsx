@@ -87,7 +87,7 @@ export default async function ButeurPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Scoring Stats */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Statistiques de buts</h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
@@ -121,7 +121,7 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Odds Table */}
             {scorer && (
-              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Cotes buteur - {player.name}</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -133,22 +133,22 @@ export default async function ButeurPage({ params }: PageProps) {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">Buteur a tout moment (1+ but)</td>
                         <td className="py-3 text-right">{(scorer.anytimeScorerProb * 100).toFixed(1)}%</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over05GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">2+ buts dans le tournoi</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over15GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">3+ buts dans le tournoi</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500 bg-accent/5">
+                      <tr className="hover:bg-gray-50-700/50 text-xs uppercase text-gray-500 bg-accent/5">
                         <td className="py-3 font-bold">Meilleur buteur CDM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
                         <td className="py-3 text-right font-extrabold text-accent">{scorer.topScorerOdds}</td>
@@ -164,7 +164,7 @@ export default async function ButeurPage({ params }: PageProps) {
             )}
 
             {/* Analysis Text */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse : {player.name} buteur CDM 2026</h2>
               <div className="prose prose-sm max-w-none text-gray-700 space-y-3">
                 <p>
@@ -201,7 +201,7 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Teammates */}
             {teammates.length > 0 && (
-              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Autres buteurs de {team?.name}</h2>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {teammates.map((tm) => {
@@ -228,7 +228,7 @@ export default async function ButeurPage({ params }: PageProps) {
             )}
 
             {/* Affiliate CTA */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Parier sur {player.name} buteur
               </h2>
@@ -242,7 +242,7 @@ export default async function ButeurPage({ params }: PageProps) {
                     <div
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-accent bg-accent/5" : "border-gray-200 bg-whiteslate-800"
+                        isFeatured ? "border-accent bg-accent/5" : "border-gray-200 bg-white"
                       }`}
                     >
                       {isFeatured && (
@@ -281,7 +281,7 @@ export default async function ButeurPage({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Quick Stats */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche buteur</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -380,7 +380,7 @@ export default async function ButeurPage({ params }: PageProps) {
             </div>
 
             {/* Guide link */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Guides paris buteurs</h3>
               <ul className="space-y-2 text-sm">
                 <li>

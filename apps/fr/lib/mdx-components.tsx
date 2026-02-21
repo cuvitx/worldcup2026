@@ -11,10 +11,10 @@ function InfoBox({
   children: ReactNode;
 }) {
   const styles = {
-    info: "border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-900 dark:text-blue-200",
+    info: "border-blue-500 bg-blue-50  text-blue-900 ",
     warning:
-      "border-secondary bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary",
-    tip: "border-accent bg-accent/10 dark:bg-accent/10 text-accent dark:text-accent",
+      "border-secondary bg-secondary/10  text-secondary ",
+    tip: "border-accent bg-accent/10  text-accent ",
   };
   const icons = { info: "ℹ️", warning: "⚠️", tip: "💡" };
 
@@ -36,11 +36,11 @@ function StatHighlight({
   label: string;
 }) {
   return (
-    <div className="my-4 inline-flex flex-col items-center rounded-xl bg-primary/10 dark:bg-primary/20 px-6 py-4 not-prose">
-      <span className="text-3xl font-extrabold text-primary dark:text-secondary">
+    <div className="my-4 inline-flex flex-col items-center rounded-xl bg-primary/10  px-6 py-4 not-prose">
+      <span className="text-3xl font-extrabold text-primary ">
         {value}
       </span>
-      <span className="text-sm text-gray-600 dark:text-gray-300">{label}</span>
+      <span className="text-sm text-gray-600 ">{label}</span>
     </div>
   );
 }
@@ -57,10 +57,10 @@ function TeamCard({
   return (
     <Link
       href={`/equipes/${slug}`}
-      className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
+      className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200  bg-white  px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
     >
       {emoji && <span>{emoji}</span>}
-      <span className="text-primary dark:text-secondary">{name}</span>
+      <span className="text-primary ">{name}</span>
       <span className="text-xs text-gray-400">→</span>
     </Link>
   );
@@ -76,9 +76,9 @@ function MatchCard({
   return (
     <Link
       href={`/calendrier/${slug}`}
-      className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
+      className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200  bg-white  px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
     >
-      ⚽ <span className="text-primary dark:text-secondary">{label}</span>
+      ⚽ <span className="text-primary ">{label}</span>
       <span className="text-xs text-gray-400">→</span>
     </Link>
   );
@@ -96,9 +96,9 @@ function StadiumCard({
   return (
     <Link
       href={`/stades/${slug}`}
-      className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
+      className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200  bg-white  px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
     >
-      {emoji ?? "🏟️"} <span className="text-primary dark:text-secondary">{name}</span>
+      {emoji ?? "🏟️"} <span className="text-primary ">{name}</span>
       <span className="text-xs text-gray-400">→</span>
     </Link>
   );
@@ -141,7 +141,7 @@ export const mdxComponents = {
     const isExternal = href?.startsWith("http");
     if (!isExternal && href) {
       return (
-        <Link href={href} className="text-primary dark:text-secondary hover:underline" {...props}>
+        <Link href={href} className="text-primary  hover:underline" {...props}>
           {children}
         </Link>
       );
@@ -151,7 +151,7 @@ export const mdxComponents = {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-primary dark:text-secondary hover:underline"
+        className="text-primary  hover:underline"
         {...props}
       >
         {children}

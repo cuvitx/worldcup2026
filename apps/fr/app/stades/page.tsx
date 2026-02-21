@@ -82,7 +82,7 @@ export default function StadiumsPage() {
                     <Link
                       key={stadium.id}
                       href={`/stade/${stadium.slug}`}
-                      className="group rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div className="overflow-hidden">
                         <StadiumImage
@@ -102,7 +102,7 @@ export default function StadiumsPage() {
                           <span className="text-sm font-semibold text-accent">
                              {stadium.capacity.toLocaleString("fr-FR")} places
                           </span>
-                          <span className="rounded-full bg-gray-100slate-700 px-3 py-1 text-xs font-medium text-gray-700">
+                          <span className="rounded-full bg-gray-100-700 px-3 py-1 text-xs font-medium text-gray-700">
                             {stadium.roofType === "retractable" ? "Toit rétractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
                           </span>
                         </div>

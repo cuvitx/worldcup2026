@@ -118,7 +118,7 @@ export default function SupporterFrancaisUsaPage() {
             <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
               <r.icon className="h-7 w-7 text-accent" /> {r.titre}
             </h2>
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
               <p className="text-gray-700 leading-relaxed">{r.contenu}</p>
             </div>
           </section>
@@ -133,7 +133,7 @@ export default function SupporterFrancaisUsaPage() {
             {budgetTypes.map((b) => (
               <div
                 key={b.profil}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 text-center"
+                className="rounded-xl border border-gray-200 bg-white p-5 text-center"
               >
                 <p className="font-semibold text-gray-900">{b.profil}</p>
                 <p className="text-sm text-gray-500">{b.duree}</p>
@@ -148,7 +148,7 @@ export default function SupporterFrancaisUsaPage() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Users className="h-7 w-7 text-accent" /> Communauté française aux USA
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 prose max-w-none">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 prose max-w-none">
             <p>
               Plus de 150 000 Français vivent aux États-Unis. Rejoignez les groupes Facebook
               &quot;Français à New York&quot;, &quot;Français à Los Angeles&quot;, &quot;Français à Miami&quot;

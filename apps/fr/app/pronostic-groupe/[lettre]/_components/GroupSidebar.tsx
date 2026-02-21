@@ -13,7 +13,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
   return (
     <div className="space-y-6">
       {/* Liens vers le groupe */}
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <h3 className="text-lg font-semibold text-gray-900 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Liens utiles</h3>
         <div className="space-y-2">
           <Link href={`/groupe/${lettre}`} className="flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium transition-all hover:border-primary/30 hover:text-primary hover:bg-primary/5">
@@ -30,7 +30,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
       </div>
 
       {/* Navigation groupes */}
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Tous les groupes</h3>
         <div className="grid grid-cols-4 gap-2">
           {groups.map((g) => (

@@ -72,12 +72,12 @@ export default async function CityPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Présentation</h2>
               <p className="text-gray-700 leading-relaxed break-words">{city.description}</p>
             </section>
 
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 {cityStadiums.length > 1 ? "Stades" : "Stade"} de la Coupe du Monde
               </h2>
@@ -103,7 +103,7 @@ export default async function CityPage({ params }: PageProps) {
 
             {/* Matches in this city */}
             {cityMatches.length > 0 && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Matchs à {city.name} ({cityMatches.length})
                 </h2>
@@ -137,7 +137,7 @@ export default async function CityPage({ params }: PageProps) {
             {enrichment && (
               <>
                 {/* Météo */}
-                <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg> Météo en juin-juillet
                   </h2>
@@ -159,7 +159,7 @@ export default async function CityPage({ params }: PageProps) {
                 </section>
 
                 {/* Transport */}
-                <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-primary"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
                     Comment s&apos;y rendre
@@ -182,26 +182,26 @@ export default async function CityPage({ params }: PageProps) {
                 </section>
 
                 {/* Budget */}
-                <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                      Budget moyen
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 sm:p-4 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 sm:p-4 text-center">
                       <p className="text-lg font-bold text-primary">
                         {enrichment.budget.hotelMin}–{enrichment.budget.hotelMax}
                         <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
                       <p className="text-xs text-gray-500 mt-1">Hôtel / nuit</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 sm:p-4 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 sm:p-4 text-center">
                       <p className="text-lg font-bold text-primary">
                         ~{enrichment.budget.repas}
                         <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
                       </p>
                       <p className="text-xs text-gray-500 mt-1">Repas moyen</p>
                     </div>
-                    <div className="rounded-lg bg-gray-50slate-700 p-3 sm:p-4 text-center">
+                    <div className="rounded-lg bg-gray-50-700 p-3 sm:p-4 text-center">
                       <p className="text-lg font-bold text-primary">
                         ~{enrichment.budget.biere}
                         <span className="text-xs font-normal ml-1">{enrichment.budget.currency}</span>
@@ -212,13 +212,13 @@ export default async function CityPage({ params }: PageProps) {
                 </section>
 
                 {/* Activités */}
-                <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                      Que faire en dehors des matchs
                   </h2>
                   <div className="space-y-4">
                     {enrichment.activities.map((activity, i) => (
-                      <div key={i} className="rounded-lg border border-gray-100 bg-gray-50slate-700/50 p-4">
+                      <div key={i} className="rounded-lg border border-gray-100 bg-gray-50-700/50 p-4">
                         <p className="font-semibold text-gray-900 mb-1">{activity.title}</p>
                         <p className="text-sm text-gray-600">{activity.description}</p>
                       </div>
@@ -228,16 +228,16 @@ export default async function CityPage({ params }: PageProps) {
               </>
             )}
 
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Informations pratiques</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {(city.population / 1000000).toFixed(1)}M
                   </p>
                   <p className="text-sm text-gray-500">Population metro</p>
                 </div>
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{city.timezone.split("/").pop()?.replace(/_/g, " ")}</p>
                   <p className="text-sm text-gray-500">Fuseau horaire</p>
                 </div>
@@ -246,7 +246,7 @@ export default async function CityPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche ville</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -268,7 +268,7 @@ export default async function CityPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Autres villes hôtes</h3>
               <ul className="space-y-2 text-sm">
                 {cities
@@ -291,7 +291,7 @@ export default async function CityPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState } from "react";
@@ -40,10 +38,6 @@ const teamsData: TeamStats[] = [
   { name: "Nigeria", fifaRanking: 28, wcTitles: 0, wcParticipations: 6, wcGoals: 16, wcMatches: 21, bestResult: "8e (1994, 1998, 2014)", confederation: "CAF", topPlayer: "Victor Osimhen" },
   { name: "Australie", fifaRanking: 23, wcTitles: 0, wcParticipations: 6, wcGoals: 9, wcMatches: 20, bestResult: "8e (2006, 2022)", confederation: "AFC", topPlayer: "Jackson Irvine" },
 ];
-
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/comparateur-equipes" },
-};
 
 function StatBar({ val1, val2, label }: { val1: number; val2: number; label: string }) {
   const max = Math.max(val1, val2, 1);

@@ -105,9 +105,9 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
             </h2>
 
             {/* Calendar grid */}
-            <div className="bg-whiteslate-900 rounded-lg border border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
               {/* Day headers */}
-              <div className="grid grid-cols-7 border-b border-gray-200 bg-gray-100slate-800">
+              <div className="grid grid-cols-7 border-b border-gray-200 bg-gray-100">
                 {DAY_NAMES.map((name, i) => (
                   <div
                     key={i}
@@ -182,7 +182,7 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
 
       {/* Selected day details */}
       {selectedDay && selectedDayMatches.length > 0 && (
-        <section className="bg-gray-50slate-800 rounded-lg p-6 border border-gray-200">
+        <section className="bg-gray-50 rounded-lg p-6 border border-gray-200">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-bold text-gray-900">
               {new Date(selectedDay).toLocaleDateString("fr-FR", {

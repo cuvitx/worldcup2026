@@ -53,7 +53,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
   return (
     <section
       id="graphique"
-      className="bg-whiteslate-900 py-12 border-t border-gray-100"
+      className="bg-white py-12 border-t border-gray-100"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -93,7 +93,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
                     {team.name}
                   </span>
                 </div>
-                <div className="flex-1 h-7 bg-gray-100slate-800 rounded-lg overflow-hidden relative">
+                <div className="flex-1 h-7 bg-gray-100 rounded-lg overflow-hidden relative">
                   <div
                     className={`h-full ${conf.bg} opacity-85 rounded-lg transition-all duration-700 flex items-center pl-3`}
                     style={{ width: `${barWidth}%` }}

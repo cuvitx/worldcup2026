@@ -48,7 +48,7 @@ export function PredictionCard({
           <p className="text-xs text-gray-500">{home.name}</p>
           <p className="text-sm font-medium text-primary mt-1">{odds.home}</p>
         </div>
-        <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+        <div className="rounded-lg bg-gray-50-700 p-3 text-center">
           <p className="text-xl font-bold text-gray-600">
             {Math.round(prediction.drawProb * 100)}%
           </p>

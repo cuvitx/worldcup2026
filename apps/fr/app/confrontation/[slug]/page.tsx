@@ -183,8 +183,8 @@ export default async function ConfrontationPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
 
             {/* Bilan H2H */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900  mb-6">
                 <BarChart3 className="h-6 w-6 text-accent" /> Bilan face à face
               </h2>
               <div className="grid grid-cols-3 gap-4 mb-6">
@@ -192,7 +192,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
                   <p className="text-3xl font-extrabold text-primary">{t1Wins}</p>
                   <p className="text-xs text-secondary mt-1">Victoires {team1.name}</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50  p-4 text-center">
                   <p className="text-3xl font-extrabold text-gray-600">{draws}</p>
                   <p className="text-xs text-secondary mt-1">Nuls</p>
                 </div>
@@ -216,11 +216,11 @@ export default async function ConfrontationPage({ params }: PageProps) {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
+                <div className="rounded-lg bg-gray-50  p-3 text-center">
                   <p className="text-xl font-bold text-primary">{totalMatches}</p>
                   <p className="text-xs text-secondary">Matchs joués</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
+                <div className="rounded-lg bg-gray-50  p-3 text-center">
                   <p className="text-xl font-bold text-primary">{t1Goals} - {t2Goals}</p>
                   <p className="text-xs text-secondary">Buts marqués</p>
                 </div>
@@ -228,23 +228,23 @@ export default async function ConfrontationPage({ params }: PageProps) {
             </section>
 
             {/* Dernières confrontations */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900  mb-4">
                 <Calendar className="h-6 w-6 text-accent" /> Dernières confrontations
               </h2>
               <div className="space-y-3">
                 {historicalMatches.map((m, i) => (
-                  <div key={i} className="flex items-center justify-between rounded-lg border border-gray-100 dark:border-gray-700 p-4">
+                  <div key={i} className="flex items-center justify-between rounded-lg border border-gray-100  p-4">
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">{m.score}</p>
+                      <p className="font-semibold text-gray-900 ">{m.score}</p>
                       <p className="text-xs text-secondary">{m.competition} · {m.year}</p>
                     </div>
                     <span className={`rounded-full px-3 py-1 text-xs font-medium ${
                       m.winner === team1.name
-                        ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                        ? "bg-green-100 text-green-800  "
                         : m.winner === team2.name
-                          ? "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
-                          : "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300"
+                          ? "bg-red-100 text-red-800  "
+                          : "bg-gray-100 text-gray-600  "
                     }`}>
                       {m.winner}
                     </span>
@@ -254,20 +254,20 @@ export default async function ConfrontationPage({ params }: PageProps) {
             </section>
 
             {/* Statistiques comparées */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900  mb-4">
                 <Trophy className="h-6 w-6 text-accent" /> Statistiques comparées
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-700">
+                    <tr className="border-b border-gray-200 ">
                       <th className="text-left py-3 px-4 font-semibold">{team1.flag} {team1.name}</th>
                       <th className="text-center py-3 px-4 font-semibold text-secondary">Stat</th>
                       <th className="text-right py-3 px-4 font-semibold">{team2.flag} {team2.name}</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tbody className="divide-y divide-gray-100 ">
                     {[
                       { label: "Classement FIFA", v1: `#${team1.fifaRanking}`, v2: `#${team2.fifaRanking}` },
                       { label: "Participations CDM", v1: String(team1.wcAppearances), v2: String(team2.wcAppearances) },
@@ -276,9 +276,9 @@ export default async function ConfrontationPage({ params }: PageProps) {
                       { label: "Groupe 2026", v1: team1.group, v2: team2.group },
                     ].map((row) => (
                       <tr key={row.label}>
-                        <td className="py-3 px-4 font-medium text-gray-900 dark:text-white">{row.v1}</td>
+                        <td className="py-3 px-4 font-medium text-gray-900 ">{row.v1}</td>
                         <td className="py-3 px-4 text-center text-xs text-secondary">{row.label}</td>
-                        <td className="py-3 px-4 text-right font-medium text-gray-900 dark:text-white">{row.v2}</td>
+                        <td className="py-3 px-4 text-right font-medium text-gray-900 ">{row.v2}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -287,8 +287,8 @@ export default async function ConfrontationPage({ params }: PageProps) {
             </section>
 
             {/* Analyse */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Analyse de la confrontation</h2>
+            <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900  mb-4">Analyse de la confrontation</h2>
               <div className="text-secondary leading-relaxed space-y-4">
                 <p>
                   L&apos;affrontement entre {team1.name} et {team2.name} est l&apos;un des classiques du football mondial.
@@ -332,14 +332,14 @@ export default async function ConfrontationPage({ params }: PageProps) {
             </div>
 
             {/* Fiches équipes */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Fiches équipes</h3>
+            <div className="rounded-xl border border-gray-200  bg-white  p-5 shadow-sm">
+              <h3 className="font-bold text-gray-900  mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Fiches équipes</h3>
               <div className="space-y-2">
-                <Link href={`/equipe/${team1.slug}`} className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 hover:border-accent transition-colors">
+                <Link href={`/equipe/${team1.slug}`} className="flex items-center justify-between rounded-lg border border-gray-200  p-3 hover:border-accent transition-colors">
                   <span>{team1.flag} {team1.name}</span>
                   <ArrowRight className="h-4 w-4 text-accent" />
                 </Link>
-                <Link href={`/equipe/${team2.slug}`} className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 hover:border-accent transition-colors">
+                <Link href={`/equipe/${team2.slug}`} className="flex items-center justify-between rounded-lg border border-gray-200  p-3 hover:border-accent transition-colors">
                   <span>{team2.flag} {team2.name}</span>
                   <ArrowRight className="h-4 w-4 text-accent" />
                 </Link>
@@ -347,8 +347,8 @@ export default async function ConfrontationPage({ params }: PageProps) {
             </div>
 
             {/* Liens utiles */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3"><Link className="h-5 w-5 inline-block" /> À voir aussi</h3>
+            <div className="rounded-xl border border-gray-200  bg-white  p-5 shadow-sm">
+              <h3 className="font-bold text-gray-900  mb-3"><Link className="h-5 w-5 inline-block" /> À voir aussi</h3>
               <ul className="space-y-2 text-sm">
                 <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline"><Swords className="h-5 w-5 inline-block" /> H2H détaillé + pronostic</Link></li>
                 <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Cote {team1.name} championne</Link></li>
@@ -358,11 +358,11 @@ export default async function ConfrontationPage({ params }: PageProps) {
             </div>
 
             {/* ANJ Banner */}
-            <div className="rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800 p-4 text-center">
-              <p className="text-xs text-amber-800 dark:text-amber-300 font-medium">
+            <div className="rounded-xl border border-amber-200 bg-amber-50   p-4 text-center">
+              <p className="text-xs text-amber-800  font-medium">
                 🔞 18+ | Jouer comporte des risques : endettement, isolement, dépendance.
               </p>
-              <p className="text-xs text-amber-700 dark:text-amber-400 mt-1">
+              <p className="text-xs text-amber-700  mt-1">
                 Appelez le 09 74 75 13 13 (appel non surtaxé) — <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">anj.fr</a>
               </p>
             </div>
@@ -377,14 +377,14 @@ export default async function ConfrontationPage({ params }: PageProps) {
 
       {/* Autres confrontations */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Autres confrontations historiques</h2>
+        <h2 className="text-2xl font-bold text-gray-900  mb-6">Autres confrontations historiques</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {CONFRONTATIONS.filter((c) => c !== slug).slice(0, 6).map((c) => {
             const p = parseSlug(c);
             if (!p) return null;
             return (
-              <Link key={c} href={`/confrontation/${c}`} className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-accent transition-colors">
-                <span className="font-medium text-gray-900 dark:text-white">{p.team1.flag} {p.team1.name} vs {p.team2.name} {p.team2.flag}</span>
+              <Link key={c} href={`/confrontation/${c}`} className="flex items-center justify-between rounded-xl border border-gray-200  bg-white  p-4 hover:border-accent transition-colors">
+                <span className="font-medium text-gray-900 ">{p.team1.flag} {p.team1.name} vs {p.team2.name} {p.team2.flag}</span>
                 <ArrowRight className="h-4 w-4 text-accent flex-shrink-0" />
               </Link>
             );

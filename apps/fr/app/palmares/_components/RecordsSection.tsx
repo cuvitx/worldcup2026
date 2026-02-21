@@ -8,7 +8,7 @@ export function RecordsSection({ records }: { records: { icon: string; label: st
         {records.map((rec) => (
           <div
             key={rec.label}
-            className="rounded-xl bg-whiteslate-800 border border-gray-100 p-5 shadow-sm hover:border-primary/30 transition-colors"
+            className="rounded-xl bg-white border border-gray-100 p-5 shadow-sm hover:border-primary/30 transition-colors"
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent mb-3">
               <RecordIcon label={rec.label} />

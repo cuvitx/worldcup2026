@@ -17,14 +17,14 @@ interface QualificationOddsProps {
 
 export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
   return (
-    <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4"> Cotes de qualification (estimées)</h2>
       <p className="text-xs text-gray-400 mb-4">
         Cotes calculées à partir des probabilités ELO avec marge bookmaker (8%). À titre indicatif.
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
+          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-2 text-left">Équipe</th>
               <th className="px-4 py-2 text-center">Qual. groupes</th>

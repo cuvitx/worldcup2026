@@ -180,7 +180,7 @@ export function LeaderboardClient() {
       <div className="overflow-x-auto rounded-xl border border-gray-200">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500text-left text-xs font-semibold uppercase text-gray-500gray-50slate-700/50 text-xs uppercase text-gray-500">
+            <tr className="bg-gray-50-700/50 text-xs uppercase text-gray-500text-left text-xs font-semibold uppercase text-gray-500gray-50-700/50 text-xs uppercase text-gray-500">
               <th className="px-4 py-3 w-12">#</th>
               <th className="px-4 py-3">Pseudo</th>
               <th className="px-4 py-3 text-right">Points</th>

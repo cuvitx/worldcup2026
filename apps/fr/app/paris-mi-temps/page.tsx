@@ -114,7 +114,7 @@ export default function ParisMiTempsPage() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Clock className="h-7 w-7 text-accent" /> Comment ça marche ?
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 prose max-w-none">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 prose max-w-none">
             <p>
               Le pari <strong>mi-temps / fin de match (HT/FT)</strong> consiste à prédire le résultat
               à la pause ET le résultat final. Il y a <strong>9 combinaisons possibles</strong> (3 résultats
@@ -165,7 +165,7 @@ export default function ParisMiTempsPage() {
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {statsCDM.map((s) => (
-              <div key={s.stat} className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 text-center">
+              <div key={s.stat} className="rounded-xl border border-gray-200 bg-white p-5 text-center">
                 <p className="text-2xl font-extrabold text-accent">{s.valeur}</p>
                 <p className="font-semibold text-gray-900 text-sm mt-1">{s.stat}</p>
                 <p className="text-xs text-gray-500 mt-1">{s.detail}</p>
@@ -181,7 +181,7 @@ export default function ParisMiTempsPage() {
           </h2>
           <div className="space-y-4">
             {strategies.map((s) => (
-              <div key={s.titre} className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+              <div key={s.titre} className="rounded-xl border border-gray-200 bg-white p-5">
                 <h3 className="font-bold text-gray-900">{s.titre}</h3>
                 <p className="text-sm text-gray-700 mt-1">{s.description}</p>
                 <div className="flex gap-4 mt-2 text-xs">

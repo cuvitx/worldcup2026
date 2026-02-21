@@ -45,7 +45,7 @@ export function AntiArnaques() {
           ))}
         </div>
 
-        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
           <h3 className="text-lg font-semibold text-gray-900 text-red-800 mb-2">
              Que faire si vous avez été arnaqué ?
           </h3>

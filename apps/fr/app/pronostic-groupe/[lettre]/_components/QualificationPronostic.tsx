@@ -21,7 +21,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
   const eliminated = sortedTeams[3];
 
   return (
-    <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Pronostic qualification</h2>
       <p className="text-gray-600 mb-5 text-sm leading-relaxed">
         Dans le format de la Coupe du Monde 2026 (48 équipes, 12 groupes de 4),{" "}

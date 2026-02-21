@@ -142,7 +142,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
             {/* Cotes actuelles */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Trophy className="h-6 w-6 text-secondary" />
                 Cote actuelle — {team.name} vainqueur CDM 2026
@@ -170,7 +170,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Évolution de la cote */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <TrendingUp className="h-6 w-6 text-secondary" />
                 Évolution de la cote
@@ -195,7 +195,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Analyse forces/faiblesses */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <BarChart3 className="h-6 w-6 text-secondary" />
                 Analyse : Forces et faiblesses
@@ -276,7 +276,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Comparaison favoris */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Target className="h-6 w-6 text-secondary" />
                 Comparaison avec les favoris
@@ -321,7 +321,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Value bet */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 <Gem className="h-5 w-5 inline-block" /> Value bet — {team.name}
               </h2>
@@ -383,7 +383,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <aside className="space-y-6">
-            <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -414,7 +414,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Bookmakers</h3>
               <div className="space-y-3">
                 {bookmakers.slice(0, 4).map((bk) => (

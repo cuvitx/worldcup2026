@@ -20,7 +20,7 @@ export function FunFactsSection({ funFacts }: FunFactsSectionProps) {
         {funFacts.map((ff, i) => (
           <div
             key={i}
-            className="flex gap-4 bg-whiteslate-800 rounded-xl border border-gray-100 p-5 shadow-sm hover:border-primary/30 transition-colors"
+            className="flex gap-4 bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:border-primary/30 transition-colors"
           >
             <span className="text-3xl flex-shrink-0">{ff.emoji}</span>
             <p className="text-sm text-gray-700 leading-relaxed">

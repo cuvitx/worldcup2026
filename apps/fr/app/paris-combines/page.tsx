@@ -161,7 +161,7 @@ export default function ParisCombinaPage() {
           </h2>
           <div className="space-y-4">
             {types.map((t) => (
-              <div key={t.nom} className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+              <div key={t.nom} className="rounded-xl border border-gray-200 bg-white p-5">
                 <h3 className="font-bold text-gray-900 text-lg">{t.nom}</h3>
                 <p className="text-sm text-gray-700 mt-1">{t.description}</p>
                 <p className="text-xs text-accent bg-accent/5 rounded-lg p-2 mt-2">
@@ -179,7 +179,7 @@ export default function ParisCombinaPage() {
           </h2>
           <div className="space-y-4">
             {exemples.map((e) => (
-              <div key={e.titre} className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+              <div key={e.titre} className="rounded-xl border border-gray-200 bg-white p-5">
                 <h3 className="font-bold text-gray-900">{e.titre}</h3>
                 <ul className="mt-2 space-y-1">
                   {e.selections.map((s, i) => (
@@ -243,7 +243,7 @@ export default function ParisCombinaPage() {
                 href={b.url}
                 target="_blank"
                 rel="noopener noreferrer nofollow sponsored"
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all block"
+                className="rounded-xl border border-gray-200 bg-white p-5 hover:border-accent/50 hover:shadow-md transition-all block"
               >
                 <h3 className="font-bold text-gray-900 flex items-center gap-2">
                   {b.nom} <ExternalLink className="h-4 w-4 text-gray-400" />

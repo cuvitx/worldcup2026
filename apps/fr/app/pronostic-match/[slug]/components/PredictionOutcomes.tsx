@@ -18,9 +18,9 @@ export function PredictionOutcomes({
   awayName,
 }: PredictionOutcomesProps) {
   return (
-    <section className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm">
+    <section className="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-gray-100 bg-gray-50slate-900/50">
+      <div className="px-5 py-4 border-b border-gray-100 bg-gray-50">
         <h2 className="text-2xl font-bold text-gray-900">
           Pronostic 1-N-2
         </h2>
@@ -77,7 +77,7 @@ export function PredictionOutcomes({
                 </p>
 
                 {/* Visual bar */}
-                <div className="mt-3 h-1.5 w-full rounded-full bg-gray-200gray-600 overflow-hidden">
+                <div className="mt-3 h-1.5 w-full rounded-full bg-gray-200 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${
                       isHighlighted ? "bg-primary" : "bg-gray-400gray-500"
@@ -100,7 +100,7 @@ export function PredictionOutcomes({
                 <span className="w-6 text-sm font-bold text-gray-500 text-right shrink-0">
                   {outcome.key}
                 </span>
-                <div className="flex-1 h-2 rounded-full bg-gray-100gray-700 overflow-hidden">
+                <div className="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${
                       isHighlighted ? "bg-primary" : "bg-gray-400gray-500"

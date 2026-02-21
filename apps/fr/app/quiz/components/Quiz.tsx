@@ -123,7 +123,7 @@ export default function Quiz() {
               <button
                 key={d}
                 onClick={() => { setDifficulty(d); setPhase("category"); }}
-                className={`rounded-xl border bg-whiteslate-800/50 p-5 text-left shadow-sm transition-colors ${colors[d]}`}
+                className={`rounded-xl border bg-white/50 p-5 text-left shadow-sm transition-colors ${colors[d]}`}
               >
                 <h3 className="text-lg font-semibold text-gray-900">{difficultyLabels[d].label}</h3>
                 <p className="text-sm text-gray-600">{count} questions</p>
@@ -180,7 +180,7 @@ export default function Quiz() {
             <button
               key={cat}
               onClick={() => startGame(cat)}
-              className="rounded-xl border border-gray-200 bg-whiteslate-800/50 p-5 text-left shadow-sm hover:border-primary/50 hover:bg-primary/5 transition-colors"
+              className="rounded-xl border border-gray-200 bg-white/50 p-5 text-left shadow-sm hover:border-primary/50 hover:bg-primary/5 transition-colors"
             >
               <h3 className="text-lg font-semibold text-gray-900 mt-1">{categoryLabels[cat].label}</h3>
               <p className="text-sm text-gray-600">{availableCount(cat)} questions</p>
@@ -241,10 +241,10 @@ export default function Quiz() {
           Question {currentIndex + 1}/{gameQuestions.length}
         </span>
         <span className="flex items-center gap-2">
-          <span className="text-xs px-2 py-0.5 rounded bg-gray-100gray-700 text-gray-700">
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-700">
             {categoryLabels[currentQuestion.category].emoji} {categoryLabels[currentQuestion.category].label}
           </span>
-          <span className="text-xs px-2 py-0.5 rounded bg-gray-100gray-700 text-gray-700">
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-700">
             {difficultyLabels[currentQuestion.difficulty].emoji} {difficultyLabels[currentQuestion.difficulty].label}
           </span>
           {timerEnabled && (
@@ -254,7 +254,7 @@ export default function Quiz() {
           )}
         </span>
       </div>
-      <div className="w-full h-3 bg-gray-200gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
+      <div className="w-full h-3 bg-gray-200/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
           className="h-full bg-accent rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
@@ -271,13 +271,13 @@ export default function Quiz() {
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-200 bg-whiteslate-800/50 text-gray-900 hover:border-primary/40 hover:bg-primary/5 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 bg-white/50 text-gray-900 hover:border-primary/40 hover:bg-primary/5 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
             classes += "border-accent bg-accent/10accent/15 text-accent scale-[1.01]";
           } else if (idx === selected) {
             classes += "border-red-500 bg-red-50red-500/20 text-red-700 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
-            classes += "border-gray-200 bg-gray-50slate-800/30 text-gray-400 opacity-50";
+            classes += "border-gray-200 bg-gray-50/30 text-gray-400 opacity-50";
           }
 
           return (

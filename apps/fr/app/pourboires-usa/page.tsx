@@ -17,6 +17,7 @@ export function generateMetadata(): Metadata {
         "Tout savoir sur les pourboires américains : restaurants, bars, taxis, hôtels. Évitez les faux pas pendant la Coupe du Monde 2026.",
       url: `${domains.fr}/pourboires-usa`,
     },
+    alternates: { canonical: "https://cdm2026.fr/pourboires-usa" },
   };
 }
 
@@ -155,7 +156,7 @@ export default function PourbioiresUsaPage() {
           {tips.map((tip) => (
             <div
               key={tip.title}
-              className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6"
+              className="rounded-2xl border border-gray-200 bg-white p-6"
             >
               <div className="flex items-center gap-3 mb-3">
                 <tip.icon className="w-6 h-6 text-[#00B865]" />
@@ -192,7 +193,7 @@ export default function PourbioiresUsaPage() {
               {countryComparison.map((c, i) => (
                 <tr
                   key={c.country}
-                  className={i % 2 === 0 ? "bg-gray-50slate-800" : "bg-whiteslate-900"}
+                  className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
                 >
                   <td className="px-4 py-3 font-semibold">{c.country}</td>
                   <td className="px-4 py-3">{c.restaurant}</td>
@@ -252,25 +253,25 @@ export default function PourbioiresUsaPage() {
           Applications utiles
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <h3 className="font-bold mb-1">Tip Calculator (gratuite)</h3>
             <p className="text-sm text-gray-600">
               Calculez instantanément le pourboire et partagez la note entre convives. Disponible sur iOS et Android.
             </p>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <h3 className="font-bold mb-1">Splitwise</h3>
             <p className="text-sm text-gray-600">
               Idéal pour les groupes de supporters : suivez les dépenses partagées et les pourboires sur tout le séjour.
             </p>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <h3 className="font-bold mb-1">XE Currency</h3>
             <p className="text-sm text-gray-600">
               Convertissez rapidement euros en dollars pour calculer le vrai coût de vos pourboires.
             </p>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-5">
             <h3 className="font-bold mb-1">
               <CreditCard className="inline w-4 h-4 mr-1" />
               Revolut / Wise

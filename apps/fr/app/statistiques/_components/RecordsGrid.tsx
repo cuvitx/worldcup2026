@@ -24,7 +24,7 @@ export function RecordsGrid({ records }: RecordsGridProps) {
         {records.map((rec) => (
           <div
             key={rec.title}
-            className="bg-whiteslate-800 rounded-xl border border-gray-100 p-5 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
+            className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
           >
             <div className="flex items-start gap-3">
               <span className="text-3xl flex-shrink-0">{rec.icon}</span>

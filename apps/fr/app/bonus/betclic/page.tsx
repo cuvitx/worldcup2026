@@ -83,9 +83,9 @@ export default function BonusBetclicPage() {
         <section className="rounded-2xl border-2 border-accent bg-accent/5 p-6 sm:p-8 mb-10">
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Betclic</h2>
+              <h2 className="text-2xl font-bold text-gray-900  mb-2">Betclic</h2>
               <p className="text-4xl font-extrabold text-accent mb-2">Jusqu&apos;à 100€</p>
-              <p className="text-gray-600 dark:text-gray-300">en freebets sans conditions de mise</p>
+              <p className="text-gray-600 ">en freebets sans conditions de mise</p>
               <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
                 <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" /> 9.0/10</span>
                 <span>Code promo : <strong>Aucun nécessaire</strong></span>
@@ -103,7 +103,7 @@ export default function BonusBetclicPage() {
         </section>
 
         {/* Présentation */}
-        <section className="prose dark:prose-invert max-w-none mb-12">
+        <section className="prose  max-w-none mb-12">
           <h2>Pourquoi choisir Betclic pour la CDM 2026 ?</h2>
           <p>
             Betclic est l&apos;un des bookmakers les plus populaires en France, reconnu pour ses freebets généreux et son streaming live gratuit. Fondé en 2005, le bookmaker bordelais propose une expérience de paris complète avec plus de 200 marchés par match de football.
@@ -115,15 +115,15 @@ export default function BonusBetclicPage() {
 
         {/* Avantages */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Les avantages Betclic</h2>
+          <h2 className="text-2xl font-bold text-gray-900  mb-6">Les avantages Betclic</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {avantages.map((av) => (
-              <div key={av.title} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={av.title} className="rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex items-center gap-3 mb-2">
                   <av.icon className="w-5 h-5 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">{av.title}</h3>
+                  <h3 className="font-bold text-gray-900 ">{av.title}</h3>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{av.desc}</p>
+                <p className="text-sm text-gray-600 ">{av.desc}</p>
               </div>
             ))}
           </div>
@@ -131,19 +131,19 @@ export default function BonusBetclicPage() {
 
         {/* Étapes */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-2">
             <UserPlus className="w-6 h-6 text-secondary" />
             Comment s&apos;inscrire sur Betclic
           </h2>
           <div className="space-y-4">
             {etapesInscription.map((etape) => (
-              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+              <div key={etape.step} className="flex gap-4 rounded-xl border border-gray-200  bg-white  p-5">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg">
                   {etape.step}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">{etape.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{etape.desc}</p>
+                  <h3 className="font-bold text-gray-900  mb-1">{etape.title}</h3>
+                  <p className="text-sm text-gray-600 ">{etape.desc}</p>
                 </div>
               </div>
             ))}
@@ -152,11 +152,11 @@ export default function BonusBetclicPage() {
 
         {/* Streaming CDM */}
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Streaming gratuit CDM 2026</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Streaming gratuit CDM 2026</h2>
+          <p className="text-gray-700  mb-4">
             Betclic propose le <strong>streaming live gratuit</strong> de nombreux matchs de football. Pour la CDM 2026, suivez chaque rencontre en direct depuis l&apos;application mobile ou le site web. Conditions : avoir un compte Betclic avec un solde positif ou avoir placé un pari sur le match.
           </p>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm text-gray-700 ">
             {[
               "Streaming HD sur mobile et desktop",
               "Pariez en direct tout en regardant le match",
@@ -187,10 +187,7 @@ export default function BonusBetclicPage() {
             <Link href="/meilleurs-bookmakers" className="text-primary hover:underline">Comparatif bookmakers</Link>
           </p>
         </div>
-
-        <p className="text-center text-xs text-gray-500 mb-6">
-          18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
-        </p>
+        <ANJBanner />
       </div>
 
       <FAQSection

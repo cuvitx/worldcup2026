@@ -31,8 +31,8 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
         </p>
 
         <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-          <table className="w-full text-sm bg-whiteslate-800">
-            <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+          <table className="w-full text-sm bg-white">
+            <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
               <tr>
                 <th className="px-4 py-3 text-left font-semibold text-gray-700">Villes hôtes</th>
                 <th className="px-4 py-3 text-left font-semibold text-gray-700">Fuseau local</th>
@@ -70,7 +70,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
               className={`rounded-xl p-4 border ${
                 s.hot
                   ? "bg-field/5field/10 border-field/20"
-                  : "bg-whiteslate-800 border-gray-200"
+                  : "bg-white border-gray-200"
               }`}
             >
               <div className="font-mono text-sm text-gray-500">{s.local}</div>

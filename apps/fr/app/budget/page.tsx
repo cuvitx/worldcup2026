@@ -114,7 +114,7 @@ export default function BudgetPage() {
             {postes.map((p) => (
               <div
                 key={p.titre}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-white p-5"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <p.icon className="h-5 w-5 text-accent" />
@@ -149,7 +149,7 @@ export default function BudgetPage() {
             {totaux.map((t) => (
               <div
                 key={t.profil}
-                className="rounded-xl border-2 border-gray-200 bg-whiteslate-800 p-6 text-center hover:shadow-lg transition-shadow"
+                className="rounded-xl border-2 border-gray-200 bg-white p-6 text-center hover:shadow-lg transition-shadow"
               >
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{t.profil}</h3>
                 <p className="text-xs text-gray-500 mb-3">{t.duree}</p>
@@ -168,7 +168,7 @@ export default function BudgetPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Conseils pour réduire les coûts
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
             <ul className="space-y-3 text-gray-700 text-sm">
               <li className="flex gap-2">
                 <span className="text-accent font-bold">1.</span>

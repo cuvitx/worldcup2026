@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description: "10 questions pour trouver ton équipe idéale. Fais le quiz et partage ton résultat !",
     url: "https://cdm2026.fr/quiz/supporter",
   },
+  alternates: { canonical: "https://cdm2026.fr/quiz/supporter" },
 };
 
 export default function QuizSupporterLayout({ children }: { children: React.ReactNode }) {

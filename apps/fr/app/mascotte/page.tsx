@@ -103,7 +103,7 @@ export default function MascottePage() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Globe className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Ambassadeur culturel</h3>
@@ -115,7 +115,7 @@ export default function MascottePage() {
                 </p>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Users className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Connexion avec les enfants</h3>
@@ -126,7 +126,7 @@ export default function MascottePage() {
                 </p>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Heart className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Marketing & Merchandising</h3>
@@ -137,7 +137,7 @@ export default function MascottePage() {
                 </p>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Smile className="w-6 h-6 text-accent" />
                   <h3 className="font-bold text-gray-900">Animation des événements</h3>
@@ -156,10 +156,10 @@ export default function MascottePage() {
               Histoire des mascottes de la Coupe du Monde
             </h2>
             
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50slate-900">
+                  <thead className="bg-gray-50-900">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Année
@@ -227,7 +227,7 @@ export default function MascottePage() {
               Spéculations pour la mascotte 2026
             </h2>
             
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
               <p className="text-sm text-gray-700 mb-4 leading-relaxed">
                 Étant donné que la Coupe du Monde 2026 sera co-organisée par <strong>trois pays</strong> (États-Unis, Canada, Mexique),
                 plusieurs scénarios sont envisageables pour la mascotte :
@@ -277,7 +277,7 @@ export default function MascottePage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
                 <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}

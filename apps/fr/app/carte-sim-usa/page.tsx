@@ -16,6 +16,7 @@ export function generateMetadata(): Metadata {
       description: "eSIM vs carte SIM : Holafly, Airalo, T-Mobile Tourist Plan, forfait Free inclus.",
       url: `${domains.fr}/carte-sim-usa`,
     },
+    alternates: { canonical: "https://cdm2026.fr/carte-sim-usa" },
   };
 }
 
@@ -146,7 +147,7 @@ export default function CarteSimUsaPage() {
               <li className="flex gap-2"><XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />Nécessite un téléphone compatible</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
               <Signal className="w-5 h-5 text-[#D4AF37]" />
               Carte SIM physique
@@ -173,12 +174,12 @@ export default function CarteSimUsaPage() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl border bg-whiteslate-800 p-6 ${plan.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200"}`}
+              className={`rounded-2xl border bg-white p-6 ${plan.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200"}`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-lg">{plan.name}</h3>
-                  <span className="text-xs bg-gray-100slate-700 px-2 py-0.5 rounded-full">{plan.type}</span>
+                  <span className="text-xs bg-gray-100-700 px-2 py-0.5 rounded-full">{plan.type}</span>
                 </div>
                 {plan.recommended && (
                   <span className="bg-[#00B865] text-white text-xs font-semibold px-2 py-1 rounded-full">Recommandé</span>

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState, useMemo } from "react";
@@ -140,10 +138,6 @@ const questions: QuizQuestion[] = [
 
 /* ─── Component ────────────────────────────────────────────── */
 
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/quiz/supporter" },
-};
-
 export default function QuizSupporterPage() {
   const [currentQ, setCurrentQ] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({});
@@ -215,7 +209,7 @@ export default function QuizSupporterPage() {
       </p>
 
       {/* Progress bar */}
-      <div className="mb-8 h-2 w-full rounded-full bg-gray-200slate-700 overflow-hidden">
+      <div className="mb-8 h-2 w-full rounded-full bg-gray-200-700 overflow-hidden">
         <div
           className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${progress}%` }}
@@ -224,7 +218,7 @@ export default function QuizSupporterPage() {
 
       {!showResult ? (
         /* ─── Question ─── */
-        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow sm:p-8">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow sm:p-8">
           <div className="mb-1 text-sm font-medium text-gray-400">
             Question {currentQ + 1}/{questions.length}
           </div>

@@ -39,7 +39,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
               <Link
                 key={team.id}
                 href={`/equipe/${team.slug}`}
-                className="group relative flex flex-col items-center rounded-2xl border border-gray-100 bg-whiteslate-900 p-5 shadow-sm text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-5 shadow-sm text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 {index < 3 && (
                   <div className="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -47,7 +47,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
 
                 <span className="absolute top-2.5 left-2.5 text-[11px] font-black">
                   {index < 3 ? medals[index] : (
-                    <span className="bg-gray-100slate-800 text-gray-500 px-1.5 py-0.5 rounded text-[10px]">
+                    <span className="bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded text-[10px]">
                       #{team.fifaRanking}
                     </span>
                   )}
@@ -73,7 +73,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                         {winPct < 1 ? "<1" : winPct}%
                       </span>
                     </div>
-                    <div className="w-full bg-gray-100slate-800 rounded-full h-1">
+                    <div className="w-full bg-gray-100 rounded-full h-1">
                       <div
                         className="bg-primary h-1 rounded-full transition-all duration-700"
                         style={{ width: `${Math.min(winPct * 4, 100)}%` }}

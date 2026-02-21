@@ -105,7 +105,7 @@ export default function ActualitesPage() {
       {featured && (
         <Link
           href={`/actualites/${featured.slug}`}
-          className="group block rounded-2xl border border-gray-200 bg-whiteslate-800 shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
+          className="group block rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
         >
           <div className="grid md:grid-cols-[1fr_1fr] gap-0">
             <div className="bg-gradient-to-br from-primary/10 to-primary/10 flex items-center justify-center p-12">

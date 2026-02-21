@@ -131,7 +131,7 @@ export default function ParisCornersPage() {
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <CornerDownRight className="h-7 w-7 text-accent" /> Comprendre les paris corners
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
             <p>
               Les paris corners constituent un marché en pleine expansion sur les compétitions internationales.
               Contrairement aux paris classiques (1X2, buts), les corners offrent une approche statistique
@@ -193,7 +193,7 @@ export default function ParisCornersPage() {
             {topEquipes.map((eq, i) => (
               <div
                 key={eq.equipe}
-                className="flex items-start gap-4 rounded-xl border border-gray-200 bg-whiteslate-800 p-4"
+                className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-4"
               >
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 text-accent font-bold flex items-center justify-center text-sm">
                   {i + 1}
@@ -253,7 +253,7 @@ export default function ParisCornersPage() {
             {strategies.map((s) => (
               <div
                 key={s.titre}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-white p-5"
               >
                 <h3 className="font-bold text-gray-900 text-base mb-2">{s.titre}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{s.contenu}</p>
@@ -291,7 +291,7 @@ export default function ParisCornersPage() {
                 href={b.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all block"
+                className="rounded-xl border border-gray-200 bg-white p-5 hover:border-accent/50 hover:shadow-md transition-all block"
               >
                 <h3 className="font-bold text-gray-900 flex items-center gap-2">
                   {b.nom} <ExternalLink className="h-4 w-4 text-gray-400" />

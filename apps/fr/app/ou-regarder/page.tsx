@@ -192,7 +192,7 @@ export default function OuRegarderPage() {
           <h2 id="vpn" className="text-2xl font-bold text-gray-900 mb-6">
             <Globe className="h-5 w-5 inline-block" /> Comment regarder depuis l&apos;étranger (VPN)
           </h2>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
             <p className="text-gray-600 mb-6">
               Les plateformes de streaming françaises (TF1+, M6+, myCANAL) sont <strong className="text-gray-900">géo-bloquées</strong> à
               l&apos;étranger. Un VPN (Virtual Private Network) vous permet de simuler une connexion depuis la France
@@ -230,7 +230,7 @@ export default function OuRegarderPage() {
         {/* Fan Zones */}
         <section className="mb-14">
           <h2 id="fan-zones" className="text-2xl font-bold text-gray-900 mb-4"> Bars & Fan Zones</h2>
-          <div className="bg-gray-50slate-800 rounded-2xl border border-gray-200 p-6">
+          <div className="bg-gray-50 rounded-2xl border border-gray-200 p-6">
             <div className="flex items-start gap-4">
               <div className="text-4xl"></div>
               <div>
@@ -289,7 +289,7 @@ export default function OuRegarderPage() {
             </Link>
             <Link
               href="/carte-stades"
-              className="inline-block bg-whiteslate-800 text-gray-900 font-bold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition"
+              className="inline-block bg-white text-gray-900 font-bold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition"
             >
                Carte des stades
             </Link>

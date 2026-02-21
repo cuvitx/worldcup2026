@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function CtaSection() {
   return (
-    <section className="bg-whiteslate-900 py-10 border-t border-gray-100">
+    <section className="bg-white py-10 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap gap-4 justify-center">
           <Link

@@ -204,7 +204,7 @@ export default async function MatchPage({ params }: PageProps) {
           {home && away && (
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
               <span className="text-2xl"><Swords className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
@@ -216,7 +216,7 @@ export default async function MatchPage({ params }: PageProps) {
           {home && (
             <Link
               href={`/pronostic/${home.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
               <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
@@ -228,7 +228,7 @@ export default async function MatchPage({ params }: PageProps) {
           {away && (
             <Link
               href={`/pronostic/${away.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
               <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
@@ -240,7 +240,7 @@ export default async function MatchPage({ params }: PageProps) {
           {match.group && (
             <Link
               href={`/pronostic-groupe/${match.group.toLowerCase()}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
               <span className="text-2xl"><BarChart3 className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
@@ -251,7 +251,7 @@ export default async function MatchPage({ params }: PageProps) {
           )}
           <Link
             href="/classement-fifa"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Trophy className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
@@ -261,7 +261,7 @@ export default async function MatchPage({ params }: PageProps) {
           </Link>
           <Link
             href="/comparateur-cotes"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><TrendingUp className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">

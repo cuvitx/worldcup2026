@@ -36,7 +36,7 @@ export function CommentAcheter() {
   ];
 
   return (
-    <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
+    <section className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           <ShoppingCart className="h-5 w-5 inline-block" /> Comment acheter sur FIFA.com — Guide étape par étape
@@ -46,7 +46,7 @@ export function CommentAcheter() {
           {steps.map((step) => (
             <div
               key={step.step}
-              className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-primary/30 hover:shadow-sm transition-all"
+              className="rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/30 hover:shadow-sm transition-all"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-extrabold text-sm shrink-0">

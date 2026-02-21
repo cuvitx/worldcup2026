@@ -206,7 +206,7 @@ export default function ConfrontationsHistoriquesPage() {
               <Link
                 key={c.slug}
                 href={`/h2h/${c.slug}`}
-                className="block rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all"
+                className="block rounded-xl border border-gray-200 bg-white p-5 hover:border-accent/50 hover:shadow-md transition-all"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex flex-col items-center shrink-0">
@@ -218,7 +218,7 @@ export default function ConfrontationsHistoriquesPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-lg font-bold text-gray-900">{c.match}</h3>
-                      <span className="text-xs bg-gray-100slate-700 text-gray-600 px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-gray-100-700 text-gray-600 px-2 py-0.5 rounded-full">
                         {c.tour}
                       </span>
                     </div>

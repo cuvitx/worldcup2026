@@ -29,7 +29,7 @@ interface TopFavoritesProps {
 
 export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
   return (
-    <section id="top10" className="bg-gray-50slate-900/50 py-12">
+    <section id="top10" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
@@ -51,16 +51,16 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
             return (
               <div
                 key={team.id}
-                className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 {/* Header row */}
                 <div className="flex items-center gap-4 px-5 py-4">
                   {/* Rank */}
                   <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg ${
                     index === 0 ? "bg-accent/20 text-accent border-2 border-accent/50" :
-                    index === 1 ? "bg-gray-200slate-600 text-gray-700" :
+                    index === 1 ? "bg-gray-200-600 text-gray-700" :
                     index === 2 ? "bg-primary/10primary/20 text-primary" :
-                    "bg-gray-100slate-700 text-gray-600"
+                    "bg-gray-100-700 text-gray-600"
                   }`}>
                     {index + 1}
                   </div>
@@ -81,7 +81,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                       <span className="text-xs text-gray-600">
                         ELO {pred.eloRating}
                       </span>
-                      <span className="text-xs bg-gray-100slate-700 text-gray-600 px-2 py-0.5 rounded">
+                      <span className="text-xs bg-gray-100-700 text-gray-600 px-2 py-0.5 rounded">
                         {team.bestResult}
                       </span>
                     </div>
@@ -131,7 +131,7 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {/* Probability bar */}
                 <div className="px-5 pb-3">
                   <div className="flex items-center gap-3">
-                    <div className="flex-1 h-2 bg-gray-100slate-700 rounded-full overflow-hidden">
+                    <div className="flex-1 h-2 bg-gray-100-700 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-accent rounded-full transition-all"
                         style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}

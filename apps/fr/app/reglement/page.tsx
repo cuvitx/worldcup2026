@@ -89,7 +89,7 @@ export default function ReglementPage() {
               </h2>
             </div>
             
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Phase de groupes (12 groupes de 4 équipes)
               </h3>
@@ -124,7 +124,7 @@ export default function ReglementPage() {
               </ul>
             </div>
 
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Phase éliminatoire (32 équipes → 1 champion)
               </h3>
@@ -166,7 +166,7 @@ export default function ReglementPage() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Users className="w-5 h-5 text-accent" />
                   Effectif et remplacements
@@ -191,7 +191,7 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Clock className="w-5 h-5 text-accent" />
                   Durée de jeu
@@ -216,7 +216,7 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-accent" />
                   VAR (Video Assistant Referee)
@@ -241,7 +241,7 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-accent" />
                   Cartons et sanctions
@@ -274,7 +274,7 @@ export default function ReglementPage() {
               Critères de départage en phase de groupes
             </h2>
             
-            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
               <p className="text-sm text-gray-700 mb-4">
                 En cas d'égalité de points entre deux équipes ou plus dans un groupe, l'ordre suivant s'applique :
               </p>
@@ -306,7 +306,7 @@ export default function ReglementPage() {
             </h2>
             
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3">
                   Ballon officiel
                 </h3>
@@ -330,7 +330,7 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3">
                   Équipements joueurs
                 </h3>
@@ -366,7 +366,7 @@ export default function ReglementPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
                 <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}

@@ -27,7 +27,7 @@ export function RelatedContent({ items, title = 'Vous pourriez aussi aimer' }: R
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800/80 px-4 py-3 transition-all hover:shadow-md hover:border-primary/30"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white/80 px-4 py-3 transition-all hover:shadow-md hover:border-primary/30"
           >
             <span className="text-2xl shrink-0">{item.emoji}</span>
             <div className="min-w-0 flex-1">

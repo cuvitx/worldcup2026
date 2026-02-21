@@ -18,7 +18,7 @@ export function FAQSection({ faqItems }: FAQSectionProps) {
         {faqItems.map((faq, i) => (
           <details
             key={i}
-            className="group bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden"
+            className="group bg-white rounded-xl border border-gray-200 overflow-hidden"
           >
             <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition-colors list-none">
               <span>{faq.q}</span>

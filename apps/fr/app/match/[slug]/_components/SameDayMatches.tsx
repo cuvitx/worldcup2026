@@ -63,7 +63,7 @@ export function SameDayMatches({
               <Link
                 key={m.slug}
                 href={`/match/${m.slug}`}
-                className="flex items-center gap-3 w-full rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 transition-all hover:border-primary/30 hover:shadow-md"
+                className="flex items-center gap-3 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 transition-all hover:border-primary/30 hover:shadow-md"
               >
                 <span className="text-sm font-bold text-primary tabular-nums shrink-0">
                   {m.time}

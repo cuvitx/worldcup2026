@@ -20,7 +20,7 @@ interface DarkHorsesProps {
 
 export function DarkHorses({ darkHorses }: DarkHorsesProps) {
   return (
-    <section id="dark-horses" className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
+    <section id="dark-horses" className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
            Dark Horses — Les outsiders à surveiller
@@ -39,7 +39,7 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
               <Link
                 key={team.id}
                 href={`/equipe/${team.slug}`}
-                className="group rounded-xl border border-gray-200 bg-whiteslate-800 p-5 shadow-sm hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl">{team.flag}</span>
@@ -51,11 +51,11 @@ export function DarkHorses({ darkHorses }: DarkHorsesProps) {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 mt-3">
-                  <div className="rounded-lg bg-gray-50slate-700 p-2.5 text-center">
+                  <div className="rounded-lg bg-gray-50-700 p-2.5 text-center">
                     <p className="text-lg font-bold text-primary">{winPct}%</p>
                     <p className="text-[10px] text-gray-600">chance titre</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50slate-700 p-2.5 text-center">
+                  <div className="rounded-lg bg-gray-50-700 p-2.5 text-center">
                     <p className="text-lg font-bold text-accent">{qfPct}%</p>
                     <p className="text-[10px] text-gray-600">quart de finale</p>
                   </div>

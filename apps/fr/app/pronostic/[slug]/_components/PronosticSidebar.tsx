@@ -14,7 +14,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
   return (
     <div className="space-y-6">
       {/* Quick Stats Card */}
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche rapide</h3>
         <dl className="space-y-3 text-sm">
           <div className="flex justify-between"><dt className="text-gray-500">Classement FIFA</dt><dd className="font-medium">#{team.fifaRanking}</dd></div>
@@ -35,12 +35,12 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
       </div>
 
       {/* Related Teams */}
-      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipes du Groupe {team.group}</h3>
         <ul className="space-y-2">
           {groupTeams.map((t) => (
             <li key={t.id}>
-              <Link href={`/equipe/${t.slug}`} className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50slate-700 transition-colors">
+              <Link href={`/equipe/${t.slug}`} className="flex items-center justify-between gap-2 text-sm rounded-lg p-2 hover:bg-gray-50-700 transition-colors">
                 <div className="flex items-center gap-2"><span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span><span className="font-medium">{t.name}</span></div>
                 <span className="text-xs text-gray-500">#{t.fifaRanking}</span>
               </Link>
@@ -52,7 +52,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
 
       {/* H2H Links */}
       {groupTeams.length > 0 && (
-        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Confrontations directes</h3>
           <ul className="space-y-2">
             {groupTeams.map((t) => (

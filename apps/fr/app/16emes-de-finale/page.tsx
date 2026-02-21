@@ -92,7 +92,7 @@ export default function SeiziemesDeFinale() {
               Comment ça marche ?
             </h2>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Avec 48 équipes réparties en 12 groupes de 4, la phase de groupes qualifie
               <strong> 32 équipes</strong> pour les 16èmes de finale : les 12 premiers, les 12 deuxièmes
@@ -129,7 +129,7 @@ export default function SeiziemesDeFinale() {
                   <th className="px-4 py-3 text-left">Horaires (heure locale)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {[
                   { date: "28 juin 2026", matchs: "Matchs 1-4", heures: "13h / 16h / 19h / 22h" },
                   { date: "29 juin 2026", matchs: "Matchs 5-8", heures: "13h / 16h / 19h / 22h" },

@@ -13,7 +13,7 @@ interface EstimatedOddsProps {
 
 export function EstimatedOdds({ teamName, prediction }: EstimatedOddsProps) {
   return (
-    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Cotes estimees - {teamName} vainqueur CDM 2026</h2>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 text-center">
@@ -33,7 +33,7 @@ export function EstimatedOdds({ teamName, prediction }: EstimatedOddsProps) {
           { label: "Atteindre les 8e", odds: probToOdds(prediction.roundOf16Prob) },
           { label: "Atteindre la finale", odds: probToOdds(prediction.finalProb) },
         ].map((item) => (
-          <div key={item.label} className="rounded-lg bg-gray-50slate-700 p-3 text-center">
+          <div key={item.label} className="rounded-lg bg-gray-50-700 p-3 text-center">
             <p className="text-lg font-bold text-primary">{item.odds}</p>
             <p className="text-xs text-gray-500">{item.label}</p>
           </div>

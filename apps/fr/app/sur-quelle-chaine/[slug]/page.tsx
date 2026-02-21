@@ -192,7 +192,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
 
             {/* Diffusion France */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Tv className="h-6 w-6 text-primary" /> Diffusion en France
               </h2>
@@ -230,7 +230,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </section>
 
             {/* Diffusion internationale */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Globe className="h-6 w-6 text-primary" /> Diffusion internationale
               </h2>
@@ -255,7 +255,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </section>
 
             {/* Streaming */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Wifi className="h-6 w-6 text-primary" /> Streaming &amp; replay
               </h2>
@@ -278,13 +278,13 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </section>
 
             {/* Fuseaux horaires */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Clock className="h-6 w-6 text-primary" /> Horaires par fuseau
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {timeZones.map((tz) => (
-                  <div key={tz.label} className="text-center rounded-lg bg-gray-50slate-700/50 p-4">
+                  <div key={tz.label} className="text-center rounded-lg bg-gray-50-700/50 p-4">
                     <p className="text-sm text-secondary">{tz.label}</p>
                     <p className="text-2xl font-bold text-gray-900 mt-1">{tz.time}</p>
                   </div>
@@ -296,7 +296,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             <FAQSection title={`FAQ — ${homeName} vs ${awayName} à la TV`} items={faqItems} />
 
             {/* Maillage interne */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-lg font-bold text-gray-900 mb-3"><BookOpen className="h-5 w-5 inline-block" /> À lire aussi</h2>
               <div className="flex flex-wrap gap-3">
                 <Link href={`/match/${slug}`} className="inline-flex items-center gap-1 text-sm text-primary hover:underline">
@@ -325,7 +325,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </div>
 
             {/* Match info card */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Infos match</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -360,7 +360,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </div>
 
             {/* Links */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><Link className="h-5 w-5 inline-block" /> Pages liées</h3>
               <ul className="space-y-2 text-sm">
                 {stadium && (

@@ -120,37 +120,37 @@ export default async function PlayerPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Profil</h2>
               <p className="text-gray-700 leading-relaxed break-words">
                 {player.description}
               </p>
             </section>
 
-            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Statistiques internationales
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.caps}
                   </p>
                   <p className="text-sm text-gray-500">Selections</p>
                 </div>
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.goals}
                   </p>
                   <p className="text-sm text-gray-500">Buts</p>
                 </div>
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.age}
                   </p>
                   <p className="text-sm text-gray-500">Age</p>
                 </div>
-                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">
                     {positionLabels[player.position]}
                   </p>
@@ -160,7 +160,7 @@ export default async function PlayerPage({ params }: PageProps) {
             </section>
 
             {teammates.length > 0 && (
-              <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-lg bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Coequipiers en sélection
                 </h2>
@@ -201,7 +201,7 @@ export default async function PlayerPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche technique</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -240,7 +240,7 @@ export default async function PlayerPage({ params }: PageProps) {
             </div>
 
             {team && (
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipe</h3>
                 <Link
                   href={`/equipe/${team.slug}`}
@@ -257,7 +257,7 @@ export default async function PlayerPage({ params }: PageProps) {
               </div>
             )}
 
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5">
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Explorer</h3>
               <ul className="space-y-2 text-sm">
                 <li>

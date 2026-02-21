@@ -36,7 +36,7 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
         {internationalBroadcasters.map((b) => {
           const logos = countryLogos[b.country] || [];
           return (
-          <div key={b.country} className="bg-whiteslate-800 rounded-xl border border-gray-200 p-4">
+          <div key={b.country} className="bg-white rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">{b.flag}</span>
               <span className="font-bold text-gray-900">{b.country}</span>
@@ -67,8 +67,8 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
 
       {/* Desktop: table */}
       <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-        <table className="w-full text-sm bg-whiteslate-800">
-          <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+        <table className="w-full text-sm bg-white">
+          <thead className="bg-gray-50-700/50 text-xs uppercase text-gray-500">
             <tr>
               <th className="px-4 py-3 text-left font-semibold text-gray-700">Logo</th>
               <th className="px-4 py-3 text-left font-semibold text-gray-700">Pays</th>

@@ -196,7 +196,7 @@ export default async function MeteoPage({ params }: PageProps) {
         <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary leading-relaxed">
           <p>{weather.bettingImpact}</p>
         </div>
-        <p className="text-xs text-gray-400 mt-3">18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).</p>
+        <ANJBanner />
       </section>
 
       {/* Maillage */}

@@ -86,7 +86,7 @@ export default function LivePage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-whiteslate-900 border-b border-gray-200">
+      <nav className="bg-white border-b border-gray-200">
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
@@ -118,10 +118,10 @@ export default function LivePage() {
       <Countdown />
 
       {/* Pre-tournament notice */}
-      <section className="bg-whiteslate-900 py-8">
+      <section className="bg-white py-8">
         <div className="mx-auto max-w-3xl px-4">
-          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 px-6 py-5 text-center shadow-sm">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gray-100gray-700 px-4 py-1.5 text-gray-700 font-semibold text-sm mb-3">
+          <div className="rounded-2xl border border-gray-200 bg-white px-6 py-5 text-center shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-1.5 text-gray-700 font-semibold text-sm mb-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
               <span>En attente du coup d&apos;envoi</span>
             </div>
@@ -143,7 +143,7 @@ export default function LivePage() {
       </section>
 
       {/* Next 4 matches */}
-      <section className="bg-gray-50slate-800/50 py-8">
+      <section className="bg-gray-50/50 py-8">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Prochains matchs
@@ -157,7 +157,7 @@ export default function LivePage() {
                 <Link
                   key={match.id}
                   href={`/match/${match.slug}`}
-                  className="block rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-primary hover:shadow-md transition-all"
+                  className="block rounded-xl border border-gray-200 bg-white p-5 hover:border-primary hover:shadow-md transition-all"
                 >
                   <div className="text-xs text-gray-500 mb-3">
                     {formatDate(match.date)} · {formatTime(match.time)}
@@ -184,7 +184,7 @@ export default function LivePage() {
       </section>
 
       {/* Mock live match */}
-      <section className="bg-whiteslate-900 py-8">
+      <section className="bg-white py-8">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
             Aperçu du suivi en direct
@@ -193,7 +193,7 @@ export default function LivePage() {
             Voici à quoi ressemblera le suivi pendant le tournoi
           </p>
 
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow overflow-hidden">
             {/* Match header */}
             <div className="bg-primary text-white px-6 py-4">
               <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
@@ -230,7 +230,7 @@ export default function LivePage() {
               </h3>
               <div className="relative">
                 {/* Vertical timeline line */}
-                <div className="absolute left-[2.35rem] top-2 bottom-2 w-0.5 bg-gray-200gray-600" />
+                <div className="absolute left-[2.35rem] top-2 bottom-2 w-0.5 bg-gray-200" />
                 <div className="space-y-0">
                 {[
                   { minute: "12'", icon: "", text: "H. Lozano (Mexique)", side: "home" },
@@ -249,10 +249,10 @@ export default function LivePage() {
                     <span className="w-10 text-right text-xs font-mono text-gray-400 font-semibold shrink-0">
                       {evt.minute}
                     </span>
-                    <span className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-whiteslate-800 border-2 border-gray-200 shadow-sm shrink-0">
+                    <span className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-gray-200 shadow-sm shrink-0">
                       {evt.icon}
                     </span>
-                    <span className={`text-gray-800 ${evt.side === "center" ? "bg-gray-100gray-700 px-3 py-1 rounded-full text-xs" : ""}`}>{evt.text}</span>
+                    <span className={`text-gray-800 ${evt.side === "center" ? "bg-gray-100 px-3 py-1 rounded-full text-xs" : ""}`}>{evt.text}</span>
                   </div>
                 ))}
               </div>

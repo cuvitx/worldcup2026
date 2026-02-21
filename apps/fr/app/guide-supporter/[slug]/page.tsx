@@ -243,6 +243,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     openGraph: { title, description, url: `${domains.fr}/guide-supporter/${slug}` },
+    alternates: { canonical: `https://cdm2026.fr/guide-supporter/${slug}` },
   };
 }
 
@@ -307,7 +308,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Se rendre au stade */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Bus className="h-6 w-6 text-primary" /> Se rendre au stade
                 </h2>
@@ -339,7 +340,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Où dormir */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Bed className="h-6 w-6 text-primary" /> Où dormir à {city.name}
                 </h2>
@@ -348,7 +349,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guide.dormir.quartiers.map((q) => (
-                    <div key={q} className="rounded-lg bg-gray-50slate-700/50 p-3 text-center">
+                    <div key={q} className="rounded-lg bg-gray-50-700/50 p-3 text-center">
                       <p className="font-semibold text-gray-900 text-sm">{q}</p>
                     </div>
                   ))}
@@ -368,7 +369,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Où manger */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <UtensilsCrossed className="h-6 w-6 text-primary" /> Où manger
                 </h2>
@@ -381,7 +382,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Que faire entre les matchs */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Compass className="h-6 w-6 text-primary" /> Que faire entre les matchs
                 </h2>
@@ -398,7 +399,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Infos pratiques */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <ShieldCheck className="h-6 w-6 text-primary" /> Infos pratiques
                 </h2>
@@ -436,7 +437,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
             )}
 
             {/* Matchs dans cette ville */}
-            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <CalendarDays className="h-6 w-6 text-primary" /> Matchs à {city.name}
               </h2>
@@ -504,7 +505,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
             </div>
 
             {/* Quick links */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><Link className="h-5 w-5 inline-block" /> Pages liées</h3>
               <ul className="space-y-2 text-sm">
                 {cityStadiums.map((s) => (
@@ -533,7 +534,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
             </div>
 
             {/* City info */}
-            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> En bref</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">

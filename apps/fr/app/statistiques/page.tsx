@@ -147,7 +147,7 @@ export default function StatistiquesPage() {
             Survolez les barres pour voir le détail. Édition 1954 : 5,38 buts/match — record
             absolu.
           </p>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
             <GoalsChart goalsByEdition={goalsByEdition} />
             {/* Tableau compact */}
             <div className="mt-6 overflow-x-auto">

@@ -37,7 +37,7 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
             className={`rounded-2xl border p-6 flex flex-col ${
               ch.free
                 ? "bg-field/5field/10 border-field/20"
-                : "bg-whiteslate-800 border-gray-200"
+                : "bg-white border-gray-200"
             }`}
           >
             <div className="flex items-center gap-3 mb-3">

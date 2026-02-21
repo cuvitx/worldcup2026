@@ -76,7 +76,7 @@ export default function QuartsDeFinale() {
             <Swords className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">Le stade des grands</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Les quarts de finale marquent l&apos;entrée dans le « dernier carré élargi ».
               À ce stade, il ne reste que 8 équipes et chaque match peut devenir un classique
@@ -107,7 +107,7 @@ export default function QuartsDeFinale() {
                   <th className="px-4 py-3 text-left">Matchs</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-medium text-gray-900">9 juillet 2026</td>
                   <td className="px-4 py-3 text-gray-600">Quarts 1 et 2</td>

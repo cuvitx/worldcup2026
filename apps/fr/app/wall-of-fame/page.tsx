@@ -182,7 +182,7 @@ export default function WallOfFamePage() {
         {moments.map((m) => (
           <section
             key={m.rang}
-            className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 sm:p-8"
+            className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8"
           >
             <div className="flex items-start gap-4">
               <div className="flex flex-col items-center shrink-0">

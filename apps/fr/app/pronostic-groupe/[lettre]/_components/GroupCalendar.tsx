@@ -13,7 +13,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
   if (groupMatches.length === 0) return null;
 
   return (
-    <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Calendrier du Groupe {groupLetter}</h2>
       <div className="space-y-2">
         {groupMatches.map((match) => {
@@ -33,7 +33,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
               <div className="flex flex-1 items-center gap-1 justify-center min-w-0">
                 <span className="text-base shrink-0" aria-label={home?.name}>{home?.flag ?? ""}</span>
                 <span className="font-semibold text-xs text-right flex-1 min-w-0 truncate">{home?.name ?? "TBD"}</span>
-                <span className="text-xs text-gray-400 bg-gray-100slate-700 px-1.5 py-1 rounded font-mono shrink-0">vs</span>
+                <span className="text-xs text-gray-400 bg-gray-100-700 px-1.5 py-1 rounded font-mono shrink-0">vs</span>
                 <span className="font-semibold text-xs flex-1 min-w-0 truncate">{away?.name ?? "TBD"}</span>
                 <span className="text-base shrink-0" aria-label={away?.name}>{away?.flag ?? ""}</span>
               </div>

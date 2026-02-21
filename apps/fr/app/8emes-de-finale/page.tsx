@@ -77,7 +77,7 @@ export default function HuitiemesDeFinale() {
             <Target className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">Format & enjeux</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Les huitièmes de finale opposent les 16 vainqueurs des 16èmes de finale.
               C&apos;est le tour classique de la Coupe du Monde que les fans connaissent bien,
@@ -109,7 +109,7 @@ export default function HuitiemesDeFinale() {
                   <th className="px-4 py-3 text-left">Matchs</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {[
                   { date: "3 juillet 2026", matchs: "Matchs 1-2" },
                   { date: "4 juillet 2026", matchs: "Matchs 3-4" },

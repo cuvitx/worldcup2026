@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
@@ -29,10 +27,6 @@ const teams: Team[] = [
   { name: "Pays de Galles", flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" }, { name: "Norvège", flag: "🇳🇴" }, { name: "Indonésie", flag: "🇮🇩" },
   { name: "Nouvelle-Zélande", flag: "🇳🇿" }, { name: "Costa Rica", flag: "🇨🇷" }, { name: "Pérou", flag: "🇵🇪" },
 ];
-
-export const metadata: Metadata = {
-  alternates: { canonical: "https://cdm2026.fr/quiz/drapeaux" },
-};
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -149,7 +143,7 @@ export default function QuizDrapeauxPage() {
       </div>
 
       {/* Progress */}
-      <div className="w-full bg-gray-200gray-700 h-1.5">
+      <div className="w-full bg-gray-200 h-1.5">
         <div
           className="bg-accent h-1.5 transition-all duration-300"
           style={{ width: `${((current + 1) / shuffled.length) * 100}%` }}

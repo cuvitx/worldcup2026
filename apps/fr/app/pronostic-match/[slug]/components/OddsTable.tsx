@@ -25,9 +25,9 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
   const bestAway = findBest(allAway);
 
   return (
-    <section className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm">
+    <section className="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-gray-100 bg-gray-50slate-900/50">
+      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-gray-100 bg-gray-50">
         <h2 className="text-2xl font-bold text-gray-900">
           Comparateur de cotes
         </h2>
@@ -69,7 +69,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
               {bk.logo ? (
                 <img src={bk.logo} alt={bk.name} className="w-6 h-6 sm:w-7 sm:h-7 rounded-md object-contain shrink-0" loading="lazy" />
               ) : (
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-md bg-gray-100gray-700 flex items-center justify-center text-[10px] font-bold text-primary shrink-0 uppercase">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-md bg-gray-100 flex items-center justify-center text-[10px] font-bold text-primary shrink-0 uppercase">
                   {bk.name.slice(0, 2)}
                 </div>
               )}
@@ -114,7 +114,7 @@ export function OddsTable({ odds, homeName, awayName, bookmakers }: OddsTablePro
       ))}
 
       {/* Footer */}
-      <div className="px-4 sm:px-5 py-2.5 bg-gray-50slate-900/30 text-[11px] text-gray-400">
+      <div className="px-4 sm:px-5 py-2.5 bg-gray-50-900/30 text-[11px] text-gray-400">
         * Cotes estimées. Les cotes réelles peuvent varier.{" "}
         <span className="text-accent font-semibold">Surligné = meilleure valeur</span>
       </div>
@@ -129,7 +129,7 @@ function OddsCell({ value, isBest }: { value: string; isBest: boolean }) {
         className={`inline-block rounded-lg px-1.5 py-0.5 sm:px-2 sm:py-1 text-[11px] sm:text-sm font-bold tabular-nums ${
           isBest
             ? "bg-accent/10 text-accent border border-accent/30"
-            : "bg-gray-100gray-700 text-gray-700"
+            : "bg-gray-100 text-gray-700"
         }`}
       >
         {value}

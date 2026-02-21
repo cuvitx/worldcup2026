@@ -78,7 +78,7 @@ export default function ParisSportifsPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
         <div className="space-y-10">
         {/* Bookmaker Reviews */}
-        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 id="bookmakers" className="text-2xl font-bold text-gray-900 mb-2">Meilleurs sites de paris sportifs 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
             Nos avis détaillés sur les {bookmakerReviews.length} bookmakers agréés en France pour parier sur la CDM 2026.
@@ -144,7 +144,7 @@ export default function ParisSportifsPage() {
           const catGuides = guidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;
           return (
-            <section key={cat} className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+            <section key={cat} className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
               <h2 id={`guide-${cat}`} className="text-2xl font-bold text-gray-900 mb-4">{categoryLabels[cat]}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
@@ -167,16 +167,16 @@ export default function ParisSportifsPage() {
         <section className="rounded-xl bg-primary/5 border border-primary/10 p-6 sm:p-8">
           <h2 id="voir-aussi" className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/buteurs" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/buteurs" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs CDM 2026
             </Link>
-            <Link href="/pronostic/france" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/pronostic/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Pronostic France
             </Link>
-            <Link href="/match/calendrier" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/match/calendrier" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Calendrier des matchs
             </Link>
-            <Link href="/equipes" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/equipes" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Toutes les équipes
             </Link>
           </div>

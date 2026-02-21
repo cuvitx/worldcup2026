@@ -80,7 +80,7 @@ export default async function GuidePage({ params }: PageProps) {
             {/* Sections with interleaved CTAs */}
             {guide.sections.map((section, i) => (
               <div key={i}>
-                <section id={`section-${i}`} className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+                <section id={`section-${i}`} className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <span className="text-2xl">{sectionIcons[i % sectionIcons.length]}</span>
                     {section.title}
@@ -111,7 +111,7 @@ export default async function GuidePage({ params }: PageProps) {
             ))}
 
             {/* Bookmaker CTA block */}
-            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+            <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Meilleurs bookmakers pour la CDM 2026
               </h2>
@@ -125,7 +125,7 @@ export default async function GuidePage({ params }: PageProps) {
                     <div
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-primary bg-primary/5secondary/10" : "border-gray-200 bg-whiteslate-800"
+                        isFeatured ? "border-primary bg-primary/5secondary/10" : "border-gray-200 bg-white"
                       }`}
                     >
                       {isFeatured && (
@@ -164,7 +164,7 @@ export default async function GuidePage({ params }: PageProps) {
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+              <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides recommandes</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {relatedGuides.map((rg) => (
@@ -183,7 +183,7 @@ export default async function GuidePage({ params }: PageProps) {
 
             {/* Other Guides */}
             {guides.filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id)).length > 0 && (
-              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+              <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides liés</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guides
@@ -210,7 +210,7 @@ export default async function GuidePage({ params }: PageProps) {
           <div className="hidden lg:block">
             <div className="sticky top-8 space-y-6">
               {/* Table of Contents */}
-              <nav className="rounded-xl bg-whiteslate-800 p-5 shadow-sm border border-gray-100">
+              <nav className="rounded-xl bg-white p-5 shadow-sm border border-gray-100">
                 <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider"><FileText className="h-5 w-5 inline-block" /> Sommaire</h3>
                 <ol className="space-y-2">
                   {guide.sections.map((section, i) => (
@@ -248,7 +248,7 @@ export default async function GuidePage({ params }: PageProps) {
 
               {/* Related Bookmakers */}
               {relatedBookmakers.length > 0 && (
-                <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                   <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Bookmakers cites</h3>
                   <ul className="space-y-2">
                     {relatedBookmakers.map((rb) => (
@@ -267,7 +267,7 @@ export default async function GuidePage({ params }: PageProps) {
               )}
 
               {/* All guides */}
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Tous nos guides</h3>
                 <ul className="space-y-2">
                   {guides
@@ -289,7 +289,7 @@ export default async function GuidePage({ params }: PageProps) {
               </div>
 
               {/* Explorer */}
-              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Explorer</h3>
                 <ul className="space-y-2 text-sm">
                   <li><Link href="/buteurs" className="text-primary hover:underline">Cotes buteurs CDM 2026 →</Link></li>
