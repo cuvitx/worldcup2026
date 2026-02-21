@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Shield, TrendingUp, ArrowRight, ExternalLink, BarChart3 } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -14,9 +13,7 @@ const TOP_50_SLUGS = [
   "valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias",
   "hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva",
 ];
-
 const playersBySlug = Object.fromEntries(players.map((p) => [p.slug, p]));
-
 function getTackleStats(slug: string, position: string) {
   const seed = slug.charCodeAt(0) * 2 + slug.length;
   const baseT = position === "DF" ? 3.0 : position === "MF" ? 2.0 : 0.8;
@@ -37,16 +34,12 @@ function getTackleStats(slug: string, position: string) {
     unibetOver25: +(2.85 + (seed % 38) / 100).toFixed(2),
   };
 }
-
 const positionLabel = (pos: string) =>
   pos === "DF" ? "Défenseur" : pos === "MF" ? "Milieu" : pos === "FW" ? "Attaquant" : "Gardien";
-
 export async function generateStaticParams() {
   return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const player = playersBySlug[slug];
@@ -57,14 +50,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/tacles/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function TaclesPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
-
   const team = teamsById[player.teamId];
   const stats = getTackleStats(slug, player.position);
   const breadcrumbItems = [
@@ -79,11 +69,10 @@ export default async function TaclesPage({ params }: PageProps) {
     { question: `${player.name} est-il un bon tacleur pour un ${positionLabel(player.position).toLowerCase()} ?`, answer: `En tant que ${positionLabel(player.position).toLowerCase()}, ${stats.tacklesPerMatch > 2.0 ? `ses ${stats.tacklesPerMatch} tacles/match sont au-dessus de la moyenne pour son poste` : `son nombre de tacles reflète son rôle plus offensif`}.` },
     { question: "Comment fonctionne le pari over/under tacles ?", answer: "Le pari over/under tacles consiste à miser sur le fait qu'un joueur réalisera plus (over) ou moins (under) qu'un nombre défini de tacles pendant un match." },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Statistiques tacles {player.name}
         </h1>
@@ -91,7 +80,6 @@ export default async function TaclesPage({ params }: PageProps) {
           Analyse défensive et paris spécifiques sur les tacles de {player.name} ({team?.name}) pour la Coupe du Monde 2026.
         </p>
       </section>
-
       {/* Stats */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -116,7 +104,6 @@ export default async function TaclesPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">Duels gagnés</p>
           </div>
         </div>
-
         {/* Position profile */}
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 mb-8">
           <div className="flex items-center gap-3 mb-4">
@@ -134,7 +121,6 @@ export default async function TaclesPage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Odds */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -169,7 +155,6 @@ export default async function TaclesPage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -191,7 +176,6 @@ export default async function TaclesPage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
       </section>
-
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Paris joueur associés</h2>
@@ -206,7 +190,6 @@ export default async function TaclesPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Tacles ${player.name}`} items={faqItems} />
     </>
   );

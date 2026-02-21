@@ -60,7 +60,7 @@ export default function CarteStadesPage() {
 
   return (
     <>
-<Breadcrumb transparent items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

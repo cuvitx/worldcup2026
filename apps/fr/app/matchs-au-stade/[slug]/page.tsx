@@ -9,13 +9,10 @@ import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
 export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return stadiums.map((s) => ({ slug: s.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const stadium = stadiumsBySlug[slug];
@@ -27,36 +24,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/matchs-au-stade/${slug}` },
   };
 }
-
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00Z");
   return d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 }
-
 export default async function MatchsAuStadePage({ params }: PageProps) {
   const { slug } = await params;
   const stadium = stadiumsBySlug[slug];
   if (!stadium) notFound();
-
   const stadiumMatches = matchesByStadium[stadium.id] ?? [];
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
     { name: "Stades", url: "/stades" },
     { name: `Matchs au ${stadium.name}`, url: `/matchs-au-stade/${slug}` },
   ];
-
   const faqItems = [
     { question: `Combien de matchs sont prévus au ${stadium.name} ?`, answer: `${stadiumMatches.length} matchs de la Coupe du Monde 2026 se joueront au ${stadium.name} à ${stadium.city}.` },
     { question: `Quelle est la capacité du ${stadium.name} ?`, answer: `Le ${stadium.name} peut accueillir ${stadium.capacity.toLocaleString("fr-FR")} spectateurs en configuration Coupe du Monde.` },
     { question: "Comment acheter des billets ?", answer: "Les billets sont disponibles exclusivement sur le site officiel FIFA.com/tickets. Méfiez-vous des revendeurs non autorisés." },
   ];
-
   return (
     <>
+      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Matchs au ${stadium.name}` }]} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Matchs au ${stadium.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Calendar className="inline w-8 h-8 mr-2" />
             Tous les matchs au {stadium.name} — CDM 2026
@@ -66,7 +58,6 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Infos stade */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
@@ -86,7 +77,6 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
             <div className="text-sm text-accent">Matchs CDM 2026</div>
           </div>
         </div>
-
         {/* Tableau des matchs */}
         <h2 className="text-2xl font-bold text-primary mb-4">Programme des matchs</h2>
         <div className="overflow-x-auto">
@@ -131,7 +121,6 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
           <p className="text-accent text-center py-8">Le programme des matchs pour ce stade sera annoncé prochainement.</p>
         )}
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -149,7 +138,6 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Matchs au ${stadium.name}`} items={faqItems} />
     </>
   );

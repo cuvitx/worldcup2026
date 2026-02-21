@@ -52,7 +52,7 @@ export default function ComparateurCotesPage() {
 
   return (
     <>
-<Breadcrumb transparent items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

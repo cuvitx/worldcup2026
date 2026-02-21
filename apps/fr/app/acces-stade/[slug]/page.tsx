@@ -7,13 +7,10 @@ import { AlarmClock, ArrowRight, Bus, Car, Clock, Lock, MapPin, Plane, ShieldChe
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return stadiums.map((s) => ({ slug: s.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const stadium = stadiumsBySlug[slug];
@@ -24,7 +21,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/acces-stade/${slug}` },
   };
 }
-
 function getTransportInfo(stadium: { slug: string; city: string; distanceFromCenter?: number; country: "USA" | "Canada" | "Mexico" }) {
   const seed = stadium.slug.length + stadium.slug.charCodeAt(0);
   const dist = stadium.distanceFromCenter ?? 10;
@@ -39,12 +35,10 @@ function getTransportInfo(stadium: { slug: string; city: string; distanceFromCen
   const airportTime = 30 + (seed % 30);
   return { metroLines, centerTime, airportTime, parkingSpots: 5000 + (seed % 15000) };
 }
-
 export default async function AccesStadePage({ params }: PageProps) {
   const { slug } = await params;
   const stadium = stadiumsBySlug[slug];
   if (!stadium) notFound();
-
   const city = citiesById[stadium.cityId];
   const transport = getTransportInfo(stadium);
   const breadcrumbItems = [
@@ -52,20 +46,18 @@ export default async function AccesStadePage({ params }: PageProps) {
     { name: "Stades", url: "/stades" },
     { name: `Accès ${stadium.name}`, url: `/acces-stade/${slug}` },
   ];
-
   const faqItems = [
     { question: `Comment se rendre au ${stadium.name} en transports en commun ?`, answer: `Plusieurs lignes desservent le stade : ${transport.metroLines.join(", ")}. Comptez environ ${transport.centerTime} minutes depuis le centre-ville.` },
     { question: `Y a-t-il un parking au ${stadium.name} ?`, answer: `Oui, le stade dispose d'environ ${transport.parkingSpots.toLocaleString("fr-FR")} places de parking. Arrivez tôt car les places se remplissent rapidement les jours de match.` },
     { question: "Combien de temps avant le match faut-il arriver ?", answer: "Nous recommandons d'arriver au moins 2h30 avant le coup d'envoi pour passer les contrôles de sécurité FIFA sereinement et profiter de l'ambiance d'avant-match." },
     { question: `Peut-on prendre un Uber/taxi pour aller au ${stadium.name} ?`, answer: `Oui, des zones de dépose Uber/Lyft/taxi sont prévues à proximité du stade. Prévoyez un surcoût les jours de match et des temps d'attente allongés au retour.` },
   ];
-
   return (
     <>
+      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Accès ${stadium.name}` }]} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Accès ${stadium.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <MapPin className="inline w-8 h-8 mr-2" />
             Comment aller au {stadium.name} — Accès CDM 2026
@@ -75,7 +67,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Adresse */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
@@ -88,7 +79,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           <p className="text-accent text-sm">À {stadium.distanceFromCenter ?? 10} km du centre-ville</p>
         </div>
       </section>
-
       {/* Transports */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
@@ -103,7 +93,6 @@ export default async function AccesStadePage({ params }: PageProps) {
             </div>
           ))}
         </div>
-
         <div className="grid sm:grid-cols-3 gap-4">
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Clock className="w-6 h-6 text-accent mx-auto mb-2" />
@@ -122,7 +111,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Depuis l'aéroport */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
@@ -134,7 +122,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           <p><strong className="text-primary">Location de voiture :</strong> Agences disponibles à l&apos;aéroport. Parking au stade disponible mais limité les jours de match.</p>
         </div>
       </section>
-
       {/* Conseils */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
@@ -147,7 +134,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           <p><Thermometer className="h-5 w-5 inline-block" /> <strong className="text-primary">Hydratation :</strong> En été, les températures peuvent être élevées. Apportez une bouteille vide (à remplir à l&apos;intérieur) et de la crème solaire.</p>
         </div>
       </section>
-
       {/* Plan des alentours */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4">Plan des alentours</h2>
@@ -160,7 +146,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Maillage */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">À découvrir aussi</h2>
@@ -183,7 +168,6 @@ export default async function AccesStadePage({ params }: PageProps) {
           )}
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Accès ${stadium.name}`} items={faqItems} />
     </>
   );

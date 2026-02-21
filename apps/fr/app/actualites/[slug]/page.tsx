@@ -107,7 +107,7 @@ export default async function ArticlePage({ params }: Props) {
     <>
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
-      <Breadcrumb transparent items={[{label:"Accueil",href:"/"},{label:"Actualités",href:"/actualites"},{label:title}]} />
+      <Breadcrumb items={[{label:"Accueil",href:"/"},{label:"Actualités",href:"/actualites"},{label:title}]} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

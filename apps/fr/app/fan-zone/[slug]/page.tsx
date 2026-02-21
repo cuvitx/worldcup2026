@@ -6,13 +6,10 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CalendarDays, Check, Clock, Lightbulb, MapPin, Music, PartyPopper, Tv, Users, UtensilsCrossed } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const city = citiesBySlug[slug];
@@ -23,7 +20,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/fan-zone/${slug}` },
   };
 }
-
 interface FanZoneData {
   location: string;
   address: string;
@@ -35,7 +31,6 @@ interface FanZoneData {
   access: string;
   tips: string[];
 }
-
 function getFanZoneData(slug: string): FanZoneData {
   const data: Record<string, FanZoneData> = {
     "new-york-new-jersey": {
@@ -227,19 +222,16 @@ function getFanZoneData(slug: string): FanZoneData {
     tips: ["Arrivez tôt les jours de gros matchs", "Vérifiez la météo avant de partir", "Accès gratuit"],
   };
 }
-
 export default async function FanZonePage({ params }: PageProps) {
   const { slug } = await params;
   const city = citiesBySlug[slug];
   if (!city) notFound();
-
   const fanZone = getFanZoneData(slug);
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
     { name: "Fan Zones", url: "/fan-zones" },
     { name: `Fan Zone ${city.name}`, url: `/fan-zone/${slug}` },
   ];
-
   const faqItems = [
     { question: `Où se trouve la fan zone de ${city.name} ?`, answer: `La fan zone officielle se situe à ${fanZone.location}, ${fanZone.address}. Capacité : ${fanZone.capacity}.` },
     { question: `La fan zone de ${city.name} est-elle gratuite ?`, answer: "Oui, l'accès aux FIFA Fan Fests est gratuit. Certaines activités premium peuvent être payantes." },
@@ -247,7 +239,6 @@ export default async function FanZonePage({ params }: PageProps) {
     { question: "Peut-on manger et boire sur place ?", answer: `Oui ! ${fanZone.food}` },
     { question: "Comment se rendre à la fan zone ?", answer: fanZone.access },
   ];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
@@ -264,15 +255,13 @@ export default async function FanZonePage({ params }: PageProps) {
     isAccessibleForFree: true,
     organizer: { "@type": "Organization", name: "FIFA" },
   };
-
   return (
     <>
+      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Fan Zones", href: "/fan-zones" }, { label: `Fan Zone ${city.name}` }]} />
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Fan Zones", href: "/fan-zones" }, { label: `Fan Zone ${city.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <PartyPopper className="inline w-8 h-8 mr-2" />
             Fan Zone à {city.name} — Coupe du Monde 2026
@@ -280,7 +269,6 @@ export default async function FanZonePage({ params }: PageProps) {
           <p className="text-accent mt-3 text-lg">{city.country} • {fanZone.location}</p>
         </div>
       </section>
-
       {/* Infos clés */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Informations essentielles</h2>
@@ -307,7 +295,6 @@ export default async function FanZonePage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Adresse et accès */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
@@ -319,7 +306,6 @@ export default async function FanZonePage({ params }: PageProps) {
           <p className="text-accent font-semibold text-sm"><Check className="h-5 w-5 inline-block" /> Entrée gratuite</p>
         </div>
       </section>
-
       {/* Activités */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
@@ -334,7 +320,6 @@ export default async function FanZonePage({ params }: PageProps) {
           ))}
         </div>
       </section>
-
       {/* Restauration */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><UtensilsCrossed className="h-5 w-5 inline-block" /> Restauration</h2>
@@ -342,7 +327,6 @@ export default async function FanZonePage({ params }: PageProps) {
           <p>{fanZone.food}</p>
         </div>
       </section>
-
       {/* Conseils */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><Lightbulb className="h-5 w-5 inline-block" /> Conseils pratiques</h2>
@@ -356,7 +340,6 @@ export default async function FanZonePage({ params }: PageProps) {
           </ul>
         </div>
       </section>
-
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="bg-accent/10 rounded-2xl p-8 text-center">
@@ -375,7 +358,6 @@ export default async function FanZonePage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Maillage */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">À découvrir aussi</h2>
@@ -394,7 +376,6 @@ export default async function FanZonePage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Fan Zone ${city.name}`} items={faqItems} />
     </>
   );

@@ -10,12 +10,9 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { stageLabels } from "@repo/data/constants";
-
 export const revalidate = 86400;
 export const dynamicParams = false;
-
 // ─── Deterministic channel assignment ─────────────────────────────────────────
-
 function hashSlug(slug: string): number {
   let h = 0;
   for (let i = 0; i < slug.length; i++) {
@@ -23,11 +20,9 @@ function hashSlug(slug: string): number {
   }
   return Math.abs(h);
 }
-
 function getFrenchChannel(slug: string, homeTeamId: string, awayTeamId: string, stage: string): { name: string; type: string; free: boolean } {
   const isFranceMatch = homeTeamId === "france" || awayTeamId === "france";
   const isBigStage = ["semi-final", "final", "third-place"].includes(stage);
-
   if (isFranceMatch || isBigStage) {
     return { name: "TF1", type: "Gratuit (TNT)", free: true };
   }
@@ -42,7 +37,6 @@ function getFrenchChannel(slug: string, homeTeamId: string, awayTeamId: string, 
   if (h === 1) return { name: "M6", type: "Gratuit (TNT)", free: true };
   return { name: "beIN Sports", type: "Abonnement (~15 €/mois)", free: false };
 }
-
 function getInternationalChannels(slug: string) {
   const h = hashSlug(slug);
   return [
@@ -54,38 +48,29 @@ function getInternationalChannels(slug: string) {
     { country: "🇨🇦 Canada", channel: "TSN / RDS" },
   ];
 }
-
 // ─── Time zone helpers ────────────────────────────────────────────────────────
-
 function formatTimeInZone(date: string, timeUtc: string, tz: string, label: string): { label: string; time: string } {
   const dt = new Date(`${date}T${timeUtc}:00Z`);
   const formatted = dt.toLocaleTimeString("fr-FR", { timeZone: tz, hour: "2-digit", minute: "2-digit" });
   return { label, time: formatted };
 }
-
 // ─── Static params ────────────────────────────────────────────────────────────
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
 export async function generateStaticParams() {
   return matches.map((m) => ({ slug: m.slug }));
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) return {};
-
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
   const homeName = home?.name ?? "À déterminer";
   const awayName = away?.name ?? "À déterminer";
-
   const title = `Sur quelle chaîne regarder ${homeName} vs ${awayName} ? Programme TV CDM 2026`;
   const description = `Découvrez sur quelle chaîne regarder ${homeName} - ${awayName} en direct (TF1, M6, beIN Sports). Horaires, streaming et diffusion internationale pour la Coupe du Monde 2026.`;
-
   return {
     title,
     description,
@@ -97,25 +82,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/sur-quelle-chaine/${slug}` },
   };
 }
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
-
 export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
   const city = stadium ? citiesById[stadium.cityId] ?? null : null;
   const stage = stageLabels[match.stage] ?? match.stage;
-
   const homeName = home?.name ?? "À déterminer";
   const awayName = away?.name ?? "À déterminer";
   const homeFlag = home?.flag ?? "🏳️";
   const awayFlag = away?.flag ?? "🏳️";
-
   const dateStr = new Date(`${match.date}T${match.time}:00Z`).toLocaleDateString("fr-FR", {
     weekday: "long",
     day: "numeric",
@@ -128,7 +108,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
     minute: "2-digit",
     timeZone: "Europe/Paris",
   });
-
   const frenchChannel = getFrenchChannel(slug, match.homeTeamId, match.awayTeamId, match.stage);
   const intlChannels = getInternationalChannels(slug);
   const timeZones = [
@@ -137,13 +116,11 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
     formatTimeInZone(match.date, match.time, "America/Los_Angeles", "🇺🇸 Los Angeles"),
     formatTimeInZone(match.date, match.time, "America/Mexico_City", "🇲🇽 Mexico"),
   ];
-
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
     { name: "Où regarder", url: "/ou-regarder" },
     { name: `${homeName} vs ${awayName}`, url: `/sur-quelle-chaine/${slug}` },
   ];
-
   const faqItems = [
     {
       question: `Sur quelle chaîne voir ${homeName} vs ${awayName} gratuitement ?`,
@@ -164,13 +141,12 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
       answer: `Ce match se jouera au ${stadium?.name ?? "stade à confirmer"}${city ? ` à ${city.name}` : ""}, ${stadium?.country ?? ""}.`,
     },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <Breadcrumb transparent items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
           <p className="text-sm font-medium text-gray-300 mt-4 uppercase tracking-wide">{stage} — CDM 2026</p>
           <h1 className="mt-4 text-2xl font-extrabold sm:text-4xl lg:text-5xl leading-tight">
             Sur quelle chaîne regarder<br />
@@ -185,11 +161,9 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-
             {/* Diffusion France */}
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -227,7 +201,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                 </table>
               </div>
             </section>
-
             {/* Diffusion internationale */}
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -252,7 +225,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                 </table>
               </div>
             </section>
-
             {/* Streaming */}
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -275,7 +247,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                 ))}
               </div>
             </section>
-
             {/* Fuseaux horaires */}
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -290,10 +261,8 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                 ))}
               </div>
             </section>
-
             {/* FAQ */}
             <FAQSection title={`FAQ — ${homeName} vs ${awayName} à la TV`} items={faqItems} />
-
             {/* Maillage interne */}
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-lg font-bold text-gray-900 mb-3"><BookOpen className="h-5 w-5 inline-block" /> À lire aussi</h2>
@@ -310,7 +279,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
               </div>
             </section>
           </div>
-
           {/* Sidebar */}
           <aside className="space-y-6">
             {/* CTA */}
@@ -322,7 +290,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                 Guide complet TV →
               </Link>
             </div>
-
             {/* Match info card */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Infos match</h3>
@@ -357,7 +324,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                 )}
               </dl>
             </div>
-
             {/* Links */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><Link2 className="h-5 w-5 inline-block" /> Pages liées</h3>

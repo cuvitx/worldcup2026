@@ -6,13 +6,10 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CalendarCheck, Check, DollarSign, ExternalLink, Home, Hotel, MapPin, X } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const city = citiesBySlug[slug];
@@ -23,9 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/hebergement/${slug}` },
   };
 }
-
 interface QuartierInfo { name: string; description: string; priceRange: string; }
-
 function getQuartiers(slug: string): QuartierInfo[] {
   const quartiersByCity: Record<string, QuartierInfo[]> = {
     "new-york-new-jersey": [
@@ -55,26 +50,22 @@ function getQuartiers(slug: string): QuartierInfo[] {
   ];
   return quartiersByCity[slug] ?? defaultQuartiers;
 }
-
 export default async function HebergementPage({ params }: PageProps) {
   const { slug } = await params;
   const city = citiesBySlug[slug];
   if (!city) notFound();
-
   const quartiers = getQuartiers(slug);
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
     { name: "Villes", url: "/villes" },
     { name: `Hébergement ${city.name}`, url: `/hebergement/${slug}` },
   ];
-
   const faqItems = [
     { question: `Quel budget prévoir pour se loger à ${city.name} pendant la CDM 2026 ?`, answer: `Comptez 80-120€/nuit en budget, 150-250€ en gamme moyenne, et 300-500€ pour du premium. Les prix augmenteront fortement à l'approche du tournoi.` },
     { question: "Vaut-il mieux un hôtel ou un Airbnb ?", answer: "Les hôtels offrent plus de services (room service, conciergerie) et de flexibilité d'annulation. Les Airbnb permettent plus d'espace et une cuisine, idéal pour les groupes et les séjours longs." },
     { question: "Quand réserver son hébergement ?", answer: "Le plus tôt possible ! Les hébergements à proximité des stades se remplissent très vite. Réservez maintenant avec annulation gratuite pour sécuriser votre place." },
     { question: `Quel quartier choisir à ${city.name} ?`, answer: `Cela dépend de vos priorités : proximité du stade, vie nocturne, budget. Consultez notre guide des quartiers ci-dessus pour trouver l'option idéale.` },
   ];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristDestination",
@@ -83,14 +74,13 @@ export default async function HebergementPage({ params }: PageProps) {
     url: `https://www.cdm2026.fr/hebergement/${slug}`,
     touristType: "Sports fan",
   };
-
   return (
     <>
+      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Hébergement ${city.name}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Hébergement ${city.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Hotel className="inline w-8 h-8 mr-2" />
             Hébergement à {city.name} — CDM 2026 : Hôtels et Airbnb
@@ -100,7 +90,6 @@ export default async function HebergementPage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Fourchettes de prix */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
@@ -127,7 +116,6 @@ export default async function HebergementPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Quartiers recommandés */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
@@ -143,7 +131,6 @@ export default async function HebergementPage({ params }: PageProps) {
           ))}
         </div>
       </section>
-
       {/* Hôtel vs Airbnb */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Hôtel vs Airbnb : que choisir ?</h2>
@@ -170,7 +157,6 @@ export default async function HebergementPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Quand réserver */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="bg-accent/10 rounded-2xl p-8 text-center">
@@ -190,7 +176,6 @@ export default async function HebergementPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Maillage */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">À découvrir aussi</h2>
@@ -209,7 +194,6 @@ export default async function HebergementPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Hébergement à ${city.name}`} items={faqItems} />
     </>
   );

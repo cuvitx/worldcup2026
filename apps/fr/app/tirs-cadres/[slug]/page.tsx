@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Target, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -14,9 +13,7 @@ const TOP_50_SLUGS = [
   "valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias",
   "hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva",
 ];
-
 const playersBySlug = Object.fromEntries(players.map((p) => [p.slug, p]));
-
 function getShotStats(slug: string) {
   const seed = slug.length + slug.charCodeAt(0);
   const shotsPerMatch = +(1.5 + (seed % 40) / 10).toFixed(1);
@@ -38,13 +35,10 @@ function getShotStats(slug: string) {
     tournamentAvg: 0.8,
   };
 }
-
 export async function generateStaticParams() {
   return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const player = playersBySlug[slug];
@@ -55,14 +49,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/tirs-cadres/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function TirsCadresPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
-
   const team = teamsById[player.teamId];
   const stats = getShotStats(slug);
   const breadcrumbItems = [
@@ -77,11 +68,10 @@ export default async function TirsCadresPage({ params }: PageProps) {
     { question: "Le pari tirs cadrés est-il disponible sur tous les matchs ?", answer: "Oui, la plupart des bookmakers proposent ce marché sur tous les matchs de la Coupe du Monde 2026, y compris la phase de groupes." },
     { question: "Comment sont comptabilisés les tirs cadrés ?", answer: "Un tir cadré est un tir qui serait entré dans le but sans intervention du gardien ou d'un défenseur sur la ligne. Les buts comptent comme des tirs cadrés." },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Parier sur les tirs cadrés de {player.name}
         </h1>
@@ -89,7 +79,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
           Analyse statistique et cotes comparées pour les paris tirs cadrés de {player.name} ({team?.name}) lors de la Coupe du Monde 2026.
         </p>
       </section>
-
       {/* Stats Overview */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -114,7 +103,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">Sélections</p>
           </div>
         </div>
-
         {/* Tournament comparison */}
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 mb-8">
           <div className="flex items-center gap-3 mb-4">
@@ -134,7 +122,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Odds Table */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -175,7 +162,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -197,7 +183,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
       </section>
-
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Paris joueur associés</h2>
@@ -212,7 +197,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Tirs cadrés ${player.name}`} items={faqItems} />
     </>
   );

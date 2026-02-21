@@ -53,7 +53,7 @@ const faqItems = [
 export default function PronosticCartonsPage() {
   return (
     <>
-<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Cartons" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Cartons" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Cartons — CDM 2026</h1>

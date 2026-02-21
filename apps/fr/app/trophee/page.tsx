@@ -68,7 +68,7 @@ export default function TropheePage() {
 
   return (
     <>
-<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Le Trophée" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Le Trophée" }]} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

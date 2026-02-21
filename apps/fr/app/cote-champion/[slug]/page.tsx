@@ -8,23 +8,18 @@ import { teams, teamsBySlug } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, estimatedOutrightOdds } from "@repo/data/affiliates";
 import { AlertTriangle, ArrowUpDown, BarChart3, Check, Gem, Target, TrendingUp, Trophy, X } from "lucide-react";
-
 export const revalidate = 3600;
 export const dynamicParams = false;
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
 export async function generateStaticParams() {
   return teams.map((team) => ({ slug: team.slug }));
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) return {};
-
   return {
     title: `Cote ${team.name} Championne du Monde 2026 — Analyse & Value Bet`,
     description: `Cote ${team.name} pour gagner la Coupe du Monde 2026 : comparatif bookmakers, évolution des cotes et analyse value bet. Groupe ${team.group}.`,
@@ -36,7 +31,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-champion/${team.slug}` },
   };
 }
-
 /** Indicative odds per bookmaker based on FIFA ranking */
 function getOdds(fifaRanking: number): { winamax: number; betclic: number; unibet: number } {
   let base: number;
@@ -48,19 +42,16 @@ function getOdds(fifaRanking: number): { winamax: number; betclic: number; unibe
   else if (fifaRanking <= 40) base = 80.0;
   else if (fifaRanking <= 60) base = 150.0;
   else base = 500.0;
-
   return {
     winamax: Math.round(base * 0.95 * 100) / 100,
     betclic: base,
     unibet: Math.round(base * 1.05 * 100) / 100,
   };
 }
-
 /** Generate fictional past odds (higher) */
 function getPastOdds(currentBase: number): string {
   return (currentBase * 1.2 + Math.random() * 2).toFixed(2);
 }
-
 /** Get top 5 favorites for comparison */
 function getTopFavorites(currentTeamSlug: string) {
   const allPredictions = teams
@@ -70,15 +61,12 @@ function getTopFavorites(currentTeamSlug: string) {
     .sort((a, b) => (b.prediction?.winnerProb ?? 0) - (a.prediction?.winnerProb ?? 0))
     .slice(0, 6)
     .filter((x) => x.team.slug !== currentTeamSlug);
-
   return allPredictions.slice(0, 5);
 }
-
 export default async function CoteChampionPage({ params }: PageProps) {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) notFound();
-
   const prediction = predictionsByTeamId[team.id];
   const odds = getOdds(team.fifaRanking);
   const pastOdds = getPastOdds(odds.betclic);
@@ -87,17 +75,14 @@ export default async function CoteChampionPage({ params }: PageProps) {
   const estimatedProb = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : null;
   const isValueBet = estimatedProb !== null && estimatedProb > impliedProb;
   const topFavorites = getTopFavorites(team.slug);
-
   const breadcrumbItems = [
     { label: "Accueil", href: "/" },
     { label: "Cotes champion", href: "/cote-champion" },
     { label: `Cote ${team.name}` },
   ];
-
   // Forces & faiblesses based on ranking
   const isTopTier = team.fifaRanking <= 10;
   const isMidTier = team.fifaRanking > 10 && team.fifaRanking <= 30;
-
   const faqItems = [
     {
       question: `Quelle est la cote de ${team.name} pour gagner la CDM 2026 ?`,
@@ -114,13 +99,12 @@ export default async function CoteChampionPage({ params }: PageProps) {
       answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${odds.betclic.toFixed(2)}. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
     },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb transparent items={breadcrumbItems} />
           <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}
@@ -136,7 +120,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
@@ -167,7 +150,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 ))}
               </div>
             </section>
-
             {/* Évolution de la cote */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -192,7 +174,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   : " ce qui suggère une confiance moindre des bookmakers."}
               </p>
             </section>
-
             {/* Analyse forces/faiblesses */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -273,7 +254,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </div>
               )}
             </section>
-
             {/* Comparaison favoris */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -318,7 +298,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </table>
               </div>
             </section>
-
             {/* Value bet */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -352,7 +331,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </div>
               )}
             </section>
-
             {/* CTA */}
             <section className="bg-accent rounded-xl py-3.5 px-6 text-center">
               <p className="text-white font-bold text-lg mb-2">
@@ -375,11 +353,9 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
               </p>
             </section>
-
             {/* FAQ */}
             <FAQSection items={faqItems} title={`Questions fréquentes — Cote ${team.name}`} />
           </div>
-
           {/* Sidebar */}
           <aside className="space-y-6">
             <div className="rounded-xl bg-white p-6 shadow-sm">
@@ -412,7 +388,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </li>
               </ul>
             </div>
-
             <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Bookmakers</h3>
               <div className="space-y-3">

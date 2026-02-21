@@ -7,7 +7,6 @@ import { CornerDownRight, TrendingUp, ArrowRight, ExternalLink, BarChart3, MapPi
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
-
 function getCornerStats(homeId: string, awayId: string) {
   const seed = (homeId + awayId).length * 7 + homeId.charCodeAt(0);
   const homeCorners = +(4.5 + (seed % 30) / 10).toFixed(1);
@@ -26,13 +25,10 @@ function getCornerStats(homeId: string, awayId: string) {
     unibetOver115: +(2.45 + (seed % 32) / 100).toFixed(2),
   };
 }
-
 export async function generateStaticParams() {
   return matches.map((m) => ({ slug: m.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
@@ -45,21 +41,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/corners/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function CornersPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
   const homeName = home?.name ?? "A déterminer";
   const awayName = away?.name ?? "A déterminer";
   const stats = getCornerStats(match.homeTeamId, match.awayTeamId);
-
   const breadcrumbItems = [
     { label: "Accueil", href: "/" },
     { label: "Pronostics", href: "/pronostic" },
@@ -72,11 +64,10 @@ export default async function CornersPage({ params }: PageProps) {
     { question: "Quels facteurs influencent le nombre de corners ?", answer: "Le style de jeu (pressing haut, jeu offensif), la possession, la qualité des tirs (déviations), la taille du stade et les conditions météorologiques jouent tous un rôle." },
     { question: "Le format 48 équipes change-t-il les stats corners ?", answer: "Avec des écarts de niveau plus importants en phase de groupes, on peut s'attendre à davantage de corners dans les matchs déséquilibrés, avec des favoris qui dominent territorialement." },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Pronostic nombre de corners {homeName} - {awayName}
         </h1>
@@ -84,7 +75,6 @@ export default async function CornersPage({ params }: PageProps) {
           Stats corners historiques, cotes over/under et facteurs tactiques pour {homeName} vs {awayName}, Coupe du Monde 2026.
         </p>
       </section>
-
       {/* Corner stats */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -108,7 +98,6 @@ export default async function CornersPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">corners / match</p>
           </div>
         </div>
-
         {/* Factors */}
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 mb-8">
           <div className="flex items-center gap-3 mb-4">
@@ -131,7 +120,6 @@ export default async function CornersPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Odds */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -172,7 +160,6 @@ export default async function CornersPage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker.</p>
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -186,7 +173,6 @@ export default async function CornersPage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
       </section>
-
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Autres paris pour ce match</h2>
@@ -205,7 +191,6 @@ export default async function CornersPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Corners ${homeName} vs ${awayName}`} items={faqItems} />
     </>
   );

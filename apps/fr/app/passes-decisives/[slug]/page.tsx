@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Zap, TrendingUp, ArrowRight, ExternalLink, Users } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -14,9 +13,7 @@ const TOP_50_SLUGS = [
   "valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias",
   "hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva",
 ];
-
 const playersBySlug = Object.fromEntries(players.map((p) => [p.slug, p]));
-
 function getAssistStats(slug: string) {
   const seed = slug.length * 3 + slug.charCodeAt(1);
   const assistsTotal = Math.floor(2 + (seed % 18));
@@ -37,13 +34,10 @@ function getAssistStats(slug: string) {
     unibetAtLeast2: +(9.50 + (seed % 55) / 10).toFixed(2),
   };
 }
-
 export async function generateStaticParams() {
   return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const player = playersBySlug[slug];
@@ -54,14 +48,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/passes-decisives/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function PassesDecisivesPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
-
   const team = teamsById[player.teamId];
   const stats = getAssistStats(slug);
   const breadcrumbItems = [
@@ -76,11 +67,10 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
     { question: "Quelle différence entre passe décisive et key pass ?", answer: "Une passe décisive est une passe qui mène directement à un but. Une key pass (passe clé) est la dernière passe avant un tir, qu'il soit converti ou non." },
     { question: `${player.name} est-il un bon créateur ?`, answer: `Avec ${stats.keyPassesPerMatch} passes clés par match et ${stats.dribblesPerMatch} dribbles réussis par match en sélection, ${player.name} présente un profil ${stats.keyPassesPerMatch > 1.5 ? "très créatif" : "solide en création"}.` },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Cote passe décisive {player.name}
         </h1>
@@ -88,7 +78,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
           Statistiques de création et cotes pour parier sur les passes décisives de {player.name} ({team?.name}) lors de la CDM 2026.
         </p>
       </section>
-
       {/* Stats */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -113,7 +102,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">Dribbles / match</p>
           </div>
         </div>
-
         {/* Creator profile */}
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 mb-8">
           <div className="flex items-center gap-3 mb-4">
@@ -129,7 +117,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Odds */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -164,7 +151,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -186,7 +172,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
       </section>
-
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Paris joueur associés</h2>
@@ -201,7 +186,6 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Passes décisives ${player.name}`} items={faqItems} />
     </>
   );

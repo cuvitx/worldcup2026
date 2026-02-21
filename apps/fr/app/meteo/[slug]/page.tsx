@@ -6,13 +6,10 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CloudSun, Dice5, Droplets, Luggage, Sun, Thermometer, Wind } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const city = citiesBySlug[slug];
@@ -23,7 +20,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/meteo/${slug}` },
   };
 }
-
 interface WeatherData {
   tempJuneMin: number; tempJuneMax: number;
   tempJulyMin: number; tempJulyMax: number;
@@ -34,7 +30,6 @@ interface WeatherData {
   packingTips: string[];
   bettingImpact: string;
 }
-
 function getWeatherData(slug: string): WeatherData {
   const data: Record<string, WeatherData> = {
     "new-york-new-jersey": { tempJuneMin: 18, tempJuneMax: 29, tempJulyMin: 21, tempJulyMax: 32, rainJune: 112, rainJuly: 117, humidity: 65, altitude: 10, sunHours: 10, highlights: ["Étés chauds et humides", "Orages possibles en fin d'après-midi", "Soirées agréables"], packingTips: ["T-shirts et shorts", "Imperméable léger", "Crème solaire SPF 50", "Chapeau ou casquette"], bettingImpact: "La chaleur humide peut ralentir le rythme des matchs en 2e mi-temps, favorisant les under 2.5 buts." },
@@ -56,25 +51,21 @@ function getWeatherData(slug: string): WeatherData {
   };
   return data[slug] ?? { tempJuneMin: 18, tempJuneMax: 28, tempJulyMin: 20, tempJulyMax: 30, rainJune: 80, rainJuly: 70, humidity: 60, altitude: 100, sunHours: 10, highlights: ["Été chaud", "Quelques averses possibles"], packingTips: ["Vêtements légers", "Crème solaire", "Imperméable"], bettingImpact: "Conditions standard sans impact majeur attendu sur le jeu." };
 }
-
 export default async function MeteoPage({ params }: PageProps) {
   const { slug } = await params;
   const city = citiesBySlug[slug];
   if (!city) notFound();
-
   const weather = getWeatherData(slug);
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
     { name: "Villes", url: "/villes" },
     { name: `Météo ${city.name}`, url: `/meteo/${slug}` },
   ];
-
   const faqItems = [
     { question: `Quelle température fait-il à ${city.name} en juin-juillet ?`, answer: `En juin : ${weather.tempJuneMin}-${weather.tempJuneMax}°C. En juillet : ${weather.tempJulyMin}-${weather.tempJulyMax}°C. Humidité moyenne : ${weather.humidity}%.` },
     { question: `Pleut-il beaucoup à ${city.name} en été ?`, answer: `Précipitations moyennes : ${weather.rainJune}mm en juin et ${weather.rainJuly}mm en juillet. ${weather.rainJune > 150 ? "Prévoyez un imperméable, les averses sont fréquentes." : "Les pluies restent modérées."}` },
     { question: "La météo influence-t-elle les résultats de foot ?", answer: "Oui ! La chaleur, l'humidité et l'altitude affectent les performances physiques. Les études montrent que les matchs par forte chaleur produisent en moyenne moins de buts." },
   ];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -87,14 +78,13 @@ export default async function MeteoPage({ params }: PageProps) {
       acceptedAnswer: { "@type": "Answer", text: f.answer },
     })),
   };
-
   return (
     <>
+      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Météo ${city.name}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Météo ${city.name}` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <CloudSun className="inline w-8 h-8 mr-2" />
             Météo à {city.name} en juin-juillet 2026
@@ -102,7 +92,6 @@ export default async function MeteoPage({ params }: PageProps) {
           <p className="text-accent mt-3 text-lg">{city.country} • Prévisions pour la Coupe du Monde</p>
         </div>
       </section>
-
       {/* Températures */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
@@ -140,7 +129,6 @@ export default async function MeteoPage({ params }: PageProps) {
             </div>
           </div>
         </div>
-
         <div className="grid sm:grid-cols-3 gap-4">
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <Droplets className="w-6 h-6 text-accent mx-auto mb-2" />
@@ -159,7 +147,6 @@ export default async function MeteoPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Caractéristiques */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4">Ce qu&apos;il faut savoir</h2>
@@ -173,7 +160,6 @@ export default async function MeteoPage({ params }: PageProps) {
           </ul>
         </div>
       </section>
-
       {/* Que mettre dans sa valise */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
@@ -189,7 +175,6 @@ export default async function MeteoPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Impact sur les paris */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4"><Dice5 className="h-5 w-5 inline-block" /> Impact sur les paris</h2>
@@ -197,7 +182,6 @@ export default async function MeteoPage({ params }: PageProps) {
           <p>{weather.bettingImpact}</p>
         </div>
       </section>
-
       {/* Maillage */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">À découvrir aussi</h2>
@@ -216,7 +200,6 @@ export default async function MeteoPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Météo ${city.name}`} items={faqItems} />
     </>
   );

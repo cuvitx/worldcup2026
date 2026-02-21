@@ -10,23 +10,18 @@ import { playersByTeamId } from "@repo/data/players";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, estimatedOutrightOdds } from "@repo/data/affiliates";
 import { Calendar, Check, CircleDot, ExternalLink, ShieldCheck, Star, TrendingUp, Trophy } from "lucide-react";
-
 export const revalidate = 3600;
 export const dynamicParams = false;
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
 export async function generateStaticParams() {
   return teams.map((team) => ({ slug: team.slug }));
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) return {};
-
   return {
     title: `Parier sur ${team.name} — CDM 2026 : Cotes, Pronostics et Bonus`,
     description: `Parier sur ${team.name} à la Coupe du Monde 2026 : meilleures cotes, pronostics et bonus bookmakers. Analyse complète Groupe ${team.group}.`,
@@ -38,7 +33,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/parier/${team.slug}` },
   };
 }
-
 /** Generate indicative odds based on FIFA ranking */
 function getIndicativeOdds(fifaRanking: number): { winamax: string; betclic: string; unibet: string } {
   let base: number;
@@ -50,41 +44,34 @@ function getIndicativeOdds(fifaRanking: number): { winamax: string; betclic: str
   else if (fifaRanking <= 40) base = 80.0;
   else if (fifaRanking <= 60) base = 150.0;
   else base = 500.0;
-
   return {
     winamax: (base * 0.95).toFixed(2),
     betclic: base.toFixed(2),
     unibet: (base * 1.05).toFixed(2),
   };
 }
-
 export default async function ParierEquipePage({ params }: PageProps) {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) notFound();
-
   const prediction = predictionsByTeamId[team.id];
   const teamPlayers = playersByTeamId[team.id] ?? [];
   const teamMatches = matches.filter(
     (m) => m.homeTeamId === team.id || m.awayTeamId === team.id
   );
   const groupMatches = teamMatches.filter((m) => m.stage === "group");
-
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const odds = getIndicativeOdds(team.fifaRanking);
-
   // Key players: pick top 3 forwards/midfielders by caps
   const keyPlayers = teamPlayers
     .filter((p) => p.position === "FW" || p.position === "MF")
     .sort((a, b) => b.caps - a.caps)
     .slice(0, 3);
-
   const breadcrumbItems = [
     { label: "Accueil", href: "/" },
     { label: "Paris sportifs", href: "/paris-sportifs" },
     { label: `Parier sur ${team.name}` },
   ];
-
   const faqItems = [
     {
       question: `Comment parier sur ${team.name} pour la CDM 2026 ?`,
@@ -105,13 +92,12 @@ export default async function ParierEquipePage({ params }: PageProps) {
       answer: `Les paris les plus intéressants incluent : vainqueur du Groupe ${team.group}, qualification en phase finale, et les paris sur les matchs individuels de la phase de groupes.`,
     },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb transparent items={breadcrumbItems} />
           <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}
@@ -127,7 +113,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content */}
@@ -161,7 +146,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 Cotes indicatives basées sur le classement FIFA. Consultez les bookmakers pour les cotes en temps réel.
               </p>
             </section>
-
             {/* Calendrier des matchs */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -201,7 +185,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 </Link>
               </p>
             </section>
-
             {/* Meilleures cotes */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -242,7 +225,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 </table>
               </div>
             </section>
-
             {/* Joueurs clés */}
             {keyPlayers.length > 0 && (
               <section className="rounded-xl bg-white p-6 shadow-sm">
@@ -267,7 +249,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 </div>
               </section>
             )}
-
             {/* Paris recommandés */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -298,7 +279,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 )}
               </div>
             </section>
-
             {/* CTA Bookmaker */}
             <section className="bg-accent rounded-xl py-3.5 px-6 text-center">
               <p className="text-white font-bold text-lg mb-2">
@@ -321,11 +301,9 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
               </p>
             </section>
-
             {/* FAQ */}
             <FAQSection items={faqItems} title={`Questions fréquentes — Parier sur ${team.name}`} />
           </div>
-
           {/* Sidebar */}
           <aside className="space-y-6">
             {/* Quick links */}
@@ -364,7 +342,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
                 </li>
               </ul>
             </div>
-
             {/* Bookmaker sidebar */}
             <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Meilleurs bookmakers</h3>

@@ -10,12 +10,9 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
-
 export const revalidate = 86400;
 export const dynamicParams = false;
-
 // ─── Types ────────────────────────────────────────────────────────────────────
-
 interface GuideData {
   transport: { metro: string; parking: string; temps: string };
   dormir: { quartiers: string[]; prixMin: number; prixMax: number; devise: string };
@@ -23,9 +20,7 @@ interface GuideData {
   activites: { nom: string; desc: string }[];
   infos: { meteo: string; pourboires: string; securite: string; urgences: string };
 }
-
 // ─── Enrichment data per city ─────────────────────────────────────────────────
-
 const guidesData: Record<string, GuideData> = {
   "new-york-new-jersey": {
     transport: { metro: "NJ Transit depuis Penn Station (30 min) — ligne directe matchday. Métro MTA 24h/24 dans NYC.", parking: "Parkings officiels MetLife ($50-80). Navettes gratuites depuis Secaucus Junction.", temps: "12 km du centre de Manhattan, ~45 min en transports" },
@@ -220,25 +215,19 @@ const guidesData: Record<string, GuideData> = {
     infos: { meteo: "24-36°C, chaud et sec. Bien s'hydrater.", pourboires: "10-15%", securite: "San Pedro et zones touristiques très sûres. Monterrey est la ville la plus riche du Mexique.", urgences: "911" },
   },
 };
-
 // ─── Static params ────────────────────────────────────────────────────────────
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
 export async function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const city = citiesBySlug[slug];
   if (!city) return {};
-
   const title = `Guide du supporter à ${city.name} — CDM 2026`;
   const description = `Tout ce qu'il faut savoir pour vivre la Coupe du Monde 2026 à ${city.name} : transports, hébergement, restaurants, activités, sécurité et matchs au programme.`;
-
   return {
     title,
     description,
@@ -246,31 +235,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/guide-supporter/${slug}` },
   };
 }
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
-
 export default async function GuideSupporterPage({ params }: PageProps) {
   const { slug } = await params;
   const city = citiesBySlug[slug];
   if (!city) notFound();
-
   const guide = guidesData[slug];
   const cityStadiums = city.stadiumIds.map((id) => stadiumsById[id]).filter((s): s is NonNullable<typeof s> => s != null);
   const cityMatches = cityStadiums.flatMap((s) => matchesByStadium[s.id] ?? []).sort((a, b) => a.date.localeCompare(b.date));
-
   const breadcrumbItems = [
     { name: "Accueil", url: "/" },
     { name: "Villes", url: "/villes" },
     { name: `Guide ${city.name}`, url: `/guide-supporter/${slug}` },
   ];
-
   const faqItems = [
     { question: `Comment se rendre au stade à ${city.name} ?`, answer: guide ? guide.transport.metro : `Consultez les transports en commun locaux et les navettes spéciales mises en place pour la Coupe du Monde.` },
     { question: `Combien coûte un hôtel à ${city.name} pendant la CDM 2026 ?`, answer: guide ? `Comptez entre ${guide.dormir.prixMin} et ${guide.dormir.prixMax} ${guide.dormir.devise} par nuit selon le quartier et le standing. Réservez le plus tôt possible !` : "Les prix varient selon le quartier. Réservez très tôt pour les meilleures offres." },
     { question: `${city.name} est-elle sûre pour les supporters ?`, answer: guide?.infos.securite ?? "Les villes hôtes bénéficient d'un dispositif de sécurité renforcé pour la Coupe du Monde." },
     { question: `Combien de matchs se jouent à ${city.name} ?`, answer: `${cityMatches.length} matchs de la Coupe du Monde 2026 se joueront à ${city.name}.` },
   ];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TravelAction",
@@ -279,14 +262,13 @@ export default async function GuideSupporterPage({ params }: PageProps) {
     url: `https://www.cdm2026.fr/guide-supporter/${slug}`,
     location: { "@type": "Place", name: city.name, address: { "@type": "PostalAddress", addressCountry: city.country } },
   };
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb transparent items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
           <h1 className="mt-4 text-2xl font-extrabold sm:text-4xl lg:text-5xl">
             Guide du supporter à <span className="text-accent">{city.name}</span>
           </h1>
@@ -301,11 +283,9 @@ export default async function GuideSupporterPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-
             {/* Se rendre au stade */}
             {guide && (
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -337,7 +317,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </div>
               </section>
             )}
-
             {/* Où dormir */}
             {guide && (
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -366,7 +345,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </div>
               </section>
             )}
-
             {/* Où manger */}
             {guide && (
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -379,7 +357,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </p>
               </section>
             )}
-
             {/* Que faire entre les matchs */}
             {guide && (
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -396,7 +373,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </div>
               </section>
             )}
-
             {/* Infos pratiques */}
             {guide && (
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -435,7 +411,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </div>
               </section>
             )}
-
             {/* Matchs dans cette ville */}
             <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
@@ -482,11 +457,9 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </div>
               )}
             </section>
-
             {/* FAQ */}
             <FAQSection title={`FAQ — Supporter à ${city.name}`} items={faqItems} />
           </div>
-
           {/* Sidebar */}
           <aside className="space-y-6">
             {/* CTA Booking */}
@@ -503,7 +476,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 Voir sur Booking.com →
               </a>
             </div>
-
             {/* Quick links */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><Link2 className="h-5 w-5 inline-block" /> Pages liées</h3>
@@ -532,7 +504,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                 </li>
               </ul>
             </div>
-
             {/* City info */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> En bref</h3>

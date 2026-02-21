@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { User, BarChart3, TrendingUp, Globe, Target } from "lucide-react";
-
 export const metadata: Metadata = {
   title: "À propos de l'auteur | CDM 2026",
   description:
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://www.cdm2026.fr/equipe-editoriale" },
 };
-
 function PersonSchema() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -36,26 +34,19 @@ function PersonSchema() {
     />
   );
 }
-
 const specialites = [
   { icon: BarChart3, label: "Analyse statistique", desc: "Modèles ELO, xG, probabilités de qualification" },
   { icon: TrendingUp, label: "Pronostics & Paris", desc: "Cotes, value bets, stratégies de paris sportifs" },
   { icon: Globe, label: "Guides voyage", desc: "Villes hôtes, budget, hébergement, sécurité" },
   { icon: Target, label: "SEO & Contenu", desc: "Rédaction experte, données actualisées, sources FIFA" },
 ];
-
 export default function EquipeEditorialePage() {
   return (
     <>
+      <Breadcrumb items={[ { label: "Accueil", href: "/" }, { label: "À propos de l'auteur" }, ]} />
       <PersonSchema />
 <section className="hero-animated text-white py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <Breadcrumb
-            items={[
-              { label: "Accueil", href: "/" },
-              { label: "À propos de l'auteur" },
-            ]}
-          />
           <h1 className="mt-6 text-3xl sm:text-4xl font-bold text-accent">
             Xavier C.
           </h1>
@@ -64,7 +55,6 @@ export default function EquipeEditorialePage() {
           </p>
         </div>
       </section>
-
       <main id="main-content" className="mx-auto max-w-4xl px-4 py-12">
         {/* Avatar + Bio */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12">
@@ -84,7 +74,6 @@ export default function EquipeEditorialePage() {
             </p>
           </div>
         </div>
-
         {/* Spécialités */}
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Domaines d&apos;expertise
@@ -105,7 +94,6 @@ export default function EquipeEditorialePage() {
             </div>
           ))}
         </div>
-
         {/* Engagements */}
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Engagements
@@ -128,7 +116,6 @@ export default function EquipeEditorialePage() {
             <span><strong>Indépendance</strong> — Les classements de bookmakers reflètent une analyse objective</span>
           </li>
         </ul>
-
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-3">
           <Link

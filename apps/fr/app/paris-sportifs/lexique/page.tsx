@@ -344,7 +344,7 @@ export default function LexiqueParisPage() {
 
   return (
     <>
-<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Lexique Paris Sportifs" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Lexique Paris Sportifs" }]} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

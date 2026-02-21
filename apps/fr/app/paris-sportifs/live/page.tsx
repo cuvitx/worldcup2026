@@ -48,7 +48,7 @@ const faqItems = [
 export default function ParisLivePage() {
   return (
     <>
-<Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Paris live" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Paris live" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Live — CDM 2026</h1>

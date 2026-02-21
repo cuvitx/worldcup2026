@@ -71,7 +71,7 @@ export default function LivePage() {
 
   return (
     <>
-<Breadcrumb transparent items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

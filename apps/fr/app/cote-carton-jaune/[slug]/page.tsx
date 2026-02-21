@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, ArrowRight, BarChart3, ExternalLink, History, ShieldAlert, Swords, TrendingUp, Trophy, User } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -14,9 +13,7 @@ const TOP_50_SLUGS = [
   "valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias",
   "hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva",
 ];
-
 const playersBySlug = Object.fromEntries(players.map((p) => [p.slug, p]));
-
 function getCardStats(slug: string) {
   const seed = slug.length + slug.charCodeAt(0) + slug.charCodeAt(slug.length - 1);
   const yellowCards = 4 + (seed % 18);
@@ -43,13 +40,10 @@ function getCardStats(slug: string) {
     tournamentAvgFouls: 1.3,
   };
 }
-
 export async function generateStaticParams() {
   return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const player = playersBySlug[slug];
@@ -60,14 +54,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-carton-jaune/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function CoteCartonJaunePage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
-
   const team = teamsById[player.teamId];
   const stats = getCardStats(slug);
   const breadcrumbItems = [
@@ -82,11 +73,10 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
     { question: "Comment sont cotés les paris carton jaune ?", answer: "Le pari \"joueur reçoit un carton jaune\" est proposé par la plupart des bookmakers sur les matchs de la Coupe du Monde 2026. La cote dépend du profil disciplinaire du joueur, de l'adversaire et de l'enjeu du match." },
     { question: "L'arbitre influence-t-il les cotes carton jaune ?", answer: "Oui, l'arbitre désigné est un facteur clé. Certains arbitres distribuent en moyenne 4-5 cartons par match, d'autres seulement 2-3. Les bookmakers ajustent leurs cotes en conséquence." },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Cote carton jaune — {player.name}
         </h1>
@@ -94,7 +84,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           Profil disciplinaire, stats et cotes comparées pour parier sur un carton jaune de {player.name} ({team?.name}) à la Coupe du Monde 2026.
         </p>
       </section>
-
       {/* Stats disciplinaires */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -119,7 +108,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">Fautes / match</p>
           </div>
         </div>
-
         {/* Profil disciplinaire */}
         <div className={`rounded-xl p-6 mb-8 ${stats.isRough ? "bg-gradient-to-r from-yellow-50 to-red-50 border border-yellow-200" : "bg-gradient-to-r from-green-50 to-blue-50 border border-green-200"}`}>
           <h3 className="text-xl font-bold text-primary mb-2">
@@ -132,7 +120,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Cotes */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -175,7 +162,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
       </section>
-
       {/* Historique CDM */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -196,7 +182,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           )}
         </div>
       </section>
-
       {/* Comparaison tournoi */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-4">
@@ -216,7 +201,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Facteurs à considérer */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -238,7 +222,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -260,7 +243,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
       </section>
-
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Paris joueur associés</h2>
@@ -275,7 +257,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Carton jaune ${player.name}`} items={faqItems} />
     </>
   );

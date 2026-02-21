@@ -6,7 +6,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Flag, TrendingUp, ArrowRight, ExternalLink, Eye, Cpu } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
-
 function getOffsideStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 4 + awayId.charCodeAt(0) * 2 + homeId.length;
   const homeOffsides = +(1.5 + (seed % 20) / 10).toFixed(1);
@@ -25,13 +24,10 @@ function getOffsideStats(homeId: string, awayId: string) {
     unibetOver55: +(2.65 + (seed % 33) / 100).toFixed(2),
   };
 }
-
 export async function generateStaticParams() {
   return matches.map((m) => ({ slug: m.slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
@@ -44,20 +40,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/hors-jeu/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function HorsJeuPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
   const homeName = home?.name ?? "A déterminer";
   const awayName = away?.name ?? "A déterminer";
   const stats = getOffsideStats(match.homeTeamId, match.awayTeamId);
-
   const breadcrumbItems = [
     { label: "Accueil", href: "/" },
     { label: "Pronostics", href: "/pronostic" },
@@ -70,11 +62,10 @@ export default async function HorsJeuPage({ params }: PageProps) {
     { question: "Comment fonctionne le pari over/under hors-jeu ?", answer: "Vous pariez sur le nombre total de hors-jeu dans le match. Over 3.5 signifie au moins 4 hors-jeu, under 3.5 signifie 3 ou moins." },
     { question: "Quelles équipes sont les plus sanctionnées pour hors-jeu ?", answer: "Les équipes avec une ligne d'attaque rapide et des appels en profondeur fréquents sont plus sujettes aux hors-jeu. Le style de pressing haut du bloc adverse amplifie aussi ce phénomène." },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
-        <Breadcrumb transparent items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Parier sur les hors-jeu {homeName} - {awayName}
         </h1>
@@ -82,7 +73,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
           Stats hors-jeu, impact de la VAR semi-automatique et cotes over/under pour {homeName} vs {awayName}, CDM 2026.
         </p>
       </section>
-
       {/* Stats */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -106,7 +96,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-1">hors-jeu / match</p>
           </div>
         </div>
-
         {/* VAR Impact */}
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 mb-8">
           <div className="flex items-center gap-3 mb-4">
@@ -134,7 +123,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* Odds */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
@@ -175,7 +163,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker.</p>
       </section>
-
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
@@ -189,7 +176,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>
       </section>
-
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Autres paris pour ce match</h2>
@@ -208,7 +194,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Hors-jeu ${homeName} vs ${awayName}`} items={faqItems} />
     </>
   );

@@ -13,9 +13,7 @@ const TOP_50_SLUGS = [
   "valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias",
   "hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva",
 ];
-
 const playersBySlug = Object.fromEntries(players.map((p) => [p.slug, p]));
-
 function getScorerOdds(slug: string) {
   const seed = slug.length + slug.charCodeAt(0);
   return {
@@ -33,13 +31,10 @@ function getScorerOdds(slug: string) {
     unibetNextMatch: +(2.48 + (seed % 52) / 100).toFixed(2),
   };
 }
-
 export async function generateStaticParams() {
   return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
 }
-
 interface PageProps { params: Promise<{ slug: string }>; }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const player = playersBySlug[slug];
@@ -50,14 +45,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-buteur/${slug}` },
   };
 }
-
 export const dynamicParams = false;
-
 export default async function CoteButeurPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
-
   const team = teamsById[player.teamId];
   const odds = getScorerOdds(slug);
   const breadcrumbItems = [
@@ -65,22 +57,19 @@ export default async function CoteButeurPage({ params }: PageProps) {
     { name: "Pronostic buteurs", url: "/pronostic/buteurs" },
     { name: `Cote ${player.name} Buteur`, url: `/cote-buteur/${slug}` },
   ];
-
   const faqItems = [
     { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Les bookmakers proposent une cote autour de ${odds.winamaxAnytime} pour au moins 1 but dans le tournoi.` },
     { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `Les cotes meilleur buteur varient : Winamax ${odds.winamaxTopScorer}, Betclic ${odds.betclicTopScorer}, Unibet ${odds.unibetTopScorer}.` },
     { question: "Comment parier sur un buteur de la Coupe du Monde ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Comparez les cotes sur plusieurs bookmakers pour maximiser la valeur." },
     { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur du tournoi » et « meilleur buteur ». Les tirs au but ne comptent généralement pas." },
   ];
-
   const comparisons = TOP_50_SLUGS.filter((s) => s !== slug && playersBySlug[s]).slice(0, 4);
-
   return (
     <>
+      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic/buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
-          <Breadcrumb transparent items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic/buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Trophy className="inline w-8 h-8 mr-2" />
             Cote {player.name} Buteur CDM 2026 — Pronostic et Analyse
@@ -90,7 +79,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
           </p>
         </div>
       </section>
-
       {/* Stats */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
@@ -114,7 +102,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
             <div className="text-sm text-accent mt-1">Sélections</div>
           </div>
         </div>
-
         {/* Tableau cotes : Marquer au moins 1 but */}
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <TrendingUp className="w-6 h-6 text-accent" /> Cotes : Marquer au moins 1 but dans le tournoi
@@ -134,7 +121,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
             </tbody>
           </table>
         </div>
-
         {/* Tableau cotes : Meilleur buteur */}
         <h2 className="text-xl font-bold text-primary mb-4">Cotes : Meilleur buteur du tournoi</h2>
         <div className="overflow-x-auto mb-8">
@@ -152,7 +138,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
             </tbody>
           </table>
         </div>
-
         {/* Tableau cotes : Buteur prochain match */}
         <h2 className="text-xl font-bold text-primary mb-4">Cotes : Buteur dans le prochain match</h2>
         <div className="overflow-x-auto mb-8">
@@ -172,12 +157,10 @@ export default async function CoteButeurPage({ params }: PageProps) {
         </div>
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
       </section>
-
       {/* Analyse */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4">Analyse : style de jeu et potentiel buteur</h2>
       </section>
-
       {/* Maillage */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">À découvrir aussi</h2>
@@ -196,7 +179,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-
       <FAQSection title={`Questions fréquentes — Cote ${player.name} Buteur`} items={faqItems} />
     </>
   );

@@ -7,23 +7,18 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
 import { ClipboardList, ShieldAlert, Star, UserX, Users } from "lucide-react";
-
 export const revalidate = 3600;
 export const dynamicParams = false;
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
 export async function generateStaticParams() {
   return teams.map((team) => ({ slug: team.slug }));
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) return {};
-
   return {
     title: `Effectif ${team.name} — Liste des 26 joueurs CDM 2026`,
     description: `Effectif complet de ${team.name} pour la Coupe du Monde 2026 : liste des 26 joueurs, postes, clubs et sélections par poste.`,
@@ -35,23 +30,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/effectif/${team.slug}` },
   };
 }
-
 const positionLabels: Record<string, string> = {
   GK: "Gardien",
   DF: "Défenseur",
   MF: "Milieu",
   FW: "Attaquant",
 };
-
 const positionOrder: Record<string, number> = { GK: 0, DF: 1, MF: 2, FW: 3 };
-
 export default async function EffectifPage({ params }: PageProps) {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) notFound();
-
   const allPlayers = playersByTeamId[team.id] ?? [];
-
   // Group by position
   const grouped: Record<string, typeof allPlayers> = {};
   for (const p of allPlayers) {
@@ -59,22 +49,18 @@ export default async function EffectifPage({ params }: PageProps) {
     if (!grouped[pos]) grouped[pos] = [];
     grouped[pos].push(p);
   }
-
   // Sort positions: GK, DF, MF, FW
   const sortedPositions = Object.keys(grouped).sort(
     (a, b) => (positionOrder[a] ?? 9) - (positionOrder[b] ?? 9)
   );
-
   // Stars: top 3 by caps
   const stars = [...allPlayers].sort((a, b) => b.caps - a.caps).slice(0, 3);
-
   const breadcrumbItems = [
     { label: "Accueil", href: "/" },
     { label: "Équipes", href: "/equipes" },
     { label: team.name, href: `/equipe/${team.slug}` },
     { label: "Effectif" },
   ];
-
   const faqItems = [
     {
       question: `Combien de joueurs ${team.name} peut-elle emmener à la CDM 2026 ?`,
@@ -95,13 +81,12 @@ export default async function EffectifPage({ params }: PageProps) {
       answer: "Oui, la FIFA autorise le remplacement de joueurs blessés jusqu'à 24h avant le premier match de l'équipe, sous réserve de validation médicale.",
     },
   ];
-
   return (
     <>
+      <Breadcrumb items={breadcrumbItems} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumb transparent items={breadcrumbItems} />
           <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}
@@ -117,7 +102,6 @@ export default async function EffectifPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Disclaimer */}
         <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 mb-8">
@@ -125,7 +109,6 @@ export default async function EffectifPage({ params }: PageProps) {
             <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste provisoire</strong> — sera confirmée par le sélectionneur en mai 2026. Les joueurs listés ci-dessous sont les plus probables selon les dernières convocations.
           </p>
         </div>
-
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
             {/* Stars */}
@@ -153,13 +136,11 @@ export default async function EffectifPage({ params }: PageProps) {
                 </div>
               </section>
             )}
-
             {/* Players by position */}
             {sortedPositions.map((pos) => {
               const posPlayers = grouped[pos]!.sort((a, b) => (a.number ?? 99) - (b.number ?? 99));
               const sectionIcons: Record<string, typeof Users> = { GK: ShieldAlert, DF: Users, MF: Users, FW: Users };
               const Icon = sectionIcons[pos] ?? Users;
-
               return (
                 <section key={pos} className="rounded-xl bg-white p-6 shadow-sm">
                   <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
@@ -204,7 +185,6 @@ export default async function EffectifPage({ params }: PageProps) {
                 </section>
               );
             })}
-
             {allPlayers.length === 0 && (
               <section className="rounded-xl bg-white p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
@@ -213,7 +193,6 @@ export default async function EffectifPage({ params }: PageProps) {
                 </p>
               </section>
             )}
-
             {/* Absents notables */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
@@ -227,9 +206,7 @@ export default async function EffectifPage({ params }: PageProps) {
                 <p className="text-sm text-gray-400">Aucun absent notable confirmé pour le moment.</p>
               </div>
             </section>
-
           </div>
-
           {/* Sidebar */}
           <aside className="space-y-6">
             <div className="rounded-xl bg-white p-6 shadow-sm">
@@ -247,7 +224,6 @@ export default async function EffectifPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
-
             <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
@@ -280,7 +256,6 @@ export default async function EffectifPage({ params }: PageProps) {
             </div>
           </aside>
         </div>
-
         {/* FAQ — full width, centered */}
         <FAQSection items={faqItems} title={`Questions fréquentes — Effectif ${team.name}`} />
       </div>
