@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { CornerDownRight, TrendingUp, ArrowRight, ExternalLink, BarChart3, MapPin } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -66,6 +67,11 @@ export default async function CornersPage({ params }: PageProps) {
     { label: "Pronostics", href: "/pronostic" },
     { label: `Corners ${homeName} - ${awayName}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Pronostics", url: "/pronostic" },
+    { name: `Corners ${homeName} - ${awayName}`, url: `/corners/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Combien de corners pour ${homeName} vs ${awayName} ?`, answer: `Sur la base des stats historiques, on peut attendre environ ${stats.totalAvg} corners au total : ${stats.homeCorners} pour ${homeName} et ${stats.awayCorners} pour ${awayName}.` },
@@ -76,7 +82,7 @@ export default async function CornersPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

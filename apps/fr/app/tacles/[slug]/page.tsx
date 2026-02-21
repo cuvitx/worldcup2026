@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Shield, TrendingUp, ArrowRight, ExternalLink, BarChart3 } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -73,6 +74,11 @@ export default async function TaclesPage({ params }: PageProps) {
     { label: "Paris sportifs", href: "/paris-sportifs" },
     { label: `Tacles ${player.name}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Paris sportifs", url: "/paris-sportifs" },
+    { name: `Tacles ${player.name}`, url: `/tacles/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Combien de tacles ${player.name} réalise-t-il par match ?`, answer: `${player.name} réalise en moyenne ${stats.tacklesPerMatch} tacles par match en sélection, avec un taux de réussite de ${stats.tackleSuccessRate}%.` },
@@ -83,7 +89,7 @@ export default async function TaclesPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

@@ -74,11 +74,16 @@ const faqItems = [
 
 export default function WifiStadesPage() {
   const breadcrumbItems = [{ label: "Accueil", href: "/" }, { label: "WiFi & connectivité stades" }];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "WiFi & connectivité stades", url: "/wifi-stades" },
+  ];
+
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems as any} baseUrl={domains.fr} />
-      <Breadcrumb items={breadcrumbItems as any} />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

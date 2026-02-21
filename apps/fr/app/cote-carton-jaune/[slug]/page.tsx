@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ShieldAlert, TrendingUp, BarChart3, ArrowRight, ExternalLink, AlertTriangle, History } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -76,6 +77,11 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
     { label: "Paris sportifs", href: "/paris-sportifs" },
     { label: `Carton jaune ${player.name}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Paris sportifs", url: "/paris-sportifs" },
+    { name: `Carton jaune ${player.name}`, url: `/cote-carton-jaune/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Quelle est la cote pour un carton jaune de ${player.name} ?`, answer: `Les cotes indicatives pour un carton jaune de ${player.name} sont de ${stats.winamax} chez Winamax, ${stats.betclic} chez Betclic et ${stats.unibet} chez Unibet. Ces cotes varient selon le match et l'adversaire.` },
@@ -86,7 +92,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

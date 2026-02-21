@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { PieChart, TrendingUp, ArrowRight, ExternalLink, Swords } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -65,6 +66,11 @@ export default async function PossessionPage({ params }: PageProps) {
     { label: "Pronostics", href: "/pronostic" },
     { label: `Possession ${homeName} - ${awayName}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Pronostics", url: "/pronostic" },
+    { name: `Possession ${homeName} - ${awayName}`, url: `/possession/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Qui aura la possession entre ${homeName} et ${awayName} ?`, answer: `D'après les statistiques historiques, ${stats.homePoss > stats.awayPoss ? homeName : awayName} devrait avoir l'avantage en possession avec environ ${Math.max(stats.homePoss, stats.awayPoss)}% du ballon.` },
@@ -75,7 +81,7 @@ export default async function PossessionPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

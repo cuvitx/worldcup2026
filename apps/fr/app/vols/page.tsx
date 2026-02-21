@@ -117,11 +117,16 @@ const faqItems = [
 
 export default function VolsPage() {
   const breadcrumbItems = [{ label: "Accueil", href: "/" }, { label: "Vols CDM 2026" }];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Vols CDM 2026", url: "/vols" },
+  ];
+
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems as any} baseUrl={domains.fr} />
-      <Breadcrumb items={breadcrumbItems as any} />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

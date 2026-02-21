@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Target, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -71,6 +72,11 @@ export default async function TirsCadresPage({ params }: PageProps) {
     { label: "Paris sportifs", href: "/paris-sportifs" },
     { label: `Tirs cadrés ${player.name}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Paris sportifs", url: "/paris-sportifs" },
+    { name: `Tirs cadrés ${player.name}`, url: `/tirs-cadres/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Combien de tirs cadrés ${player.name} fait-il par match ?`, answer: `En sélection, ${player.name} affiche une moyenne de ${stats.onTargetPerMatch} tirs cadrés par match, avec un taux de cadrage de ${stats.onTargetPct}%.` },
@@ -81,7 +87,7 @@ export default async function TirsCadresPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

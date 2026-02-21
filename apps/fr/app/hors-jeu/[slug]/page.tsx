@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Flag, TrendingUp, ArrowRight, ExternalLink, Eye, Cpu } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -64,6 +65,11 @@ export default async function HorsJeuPage({ params }: PageProps) {
     { label: "Pronostics", href: "/pronostic" },
     { label: `Hors-jeu ${homeName} - ${awayName}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Pronostics", url: "/pronostic" },
+    { name: `Hors-jeu ${homeName} - ${awayName}`, url: `/hors-jeu/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Combien de hors-jeu pour ${homeName} vs ${awayName} ?`, answer: `On estime environ ${stats.totalAvg} hors-jeu au total : ${stats.homeOffsides} pour ${homeName} et ${stats.awayOffsides} pour ${awayName}, selon les moyennes historiques.` },
@@ -74,7 +80,7 @@ export default async function HorsJeuPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

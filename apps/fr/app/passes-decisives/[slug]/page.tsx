@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
+import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Zap, TrendingUp, ArrowRight, ExternalLink, Users } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -70,6 +71,11 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
     { label: "Paris sportifs", href: "/paris-sportifs" },
     { label: `Passe décisive ${player.name}` },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Paris sportifs", url: "/paris-sportifs" },
+    { name: `Passe décisive ${player.name}`, url: `/passes-decisives/${slug}` },
+  ];
 
   const faqItems = [
     { question: `Combien de passes décisives ${player.name} a-t-il en sélection ?`, answer: `${player.name} compte ${stats.assistsTotal} passes décisives en ${player.caps} sélections, soit une moyenne de ${stats.assistsPerMatch} par match.` },
@@ -80,7 +86,7 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems.map((b) => ({ name: b.label, url: b.href ?? "" }))} baseUrl="https://cdm2026.fr" />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
 
       <section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />

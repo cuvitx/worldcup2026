@@ -90,11 +90,16 @@ const faqItems = [
 
 export default function ParisMiTempsPage() {
   const breadcrumbItems = [{ label: "Accueil", href: "/" }, { label: "Paris mi-temps / fin de match" }];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Paris mi-temps / fin de match", url: "/paris-mi-temps" },
+  ];
+
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems as any} baseUrl={domains.fr} />
-      <Breadcrumb items={breadcrumbItems as any} />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

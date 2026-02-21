@@ -105,11 +105,16 @@ export default function ParisCornersPage() {
     { label: "Accueil", href: "/" },
     { label: "Paris corners CDM 2026" },
   ];
+  const schemaItems = [
+    { name: "Accueil", url: "/" },
+    { name: "Paris corners CDM 2026", url: "/paris-corners" },
+  ];
+
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems as any} baseUrl={domains.fr} />
-      <Breadcrumb items={breadcrumbItems as any} />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
