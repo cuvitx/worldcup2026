@@ -16,7 +16,7 @@ function LinkIcon({ link }: { link: MenuLink }) {
   }
   if (link.icon) {
     const Icon = link.icon;
-    return <Icon className="h-4 w-4 text-white/50 shrink-0" />;
+    return <Icon className="h-4 w-4 text-gray-400 shrink-0" />;
   }
   return null;
 }
@@ -26,7 +26,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
   const pathname = usePathname();
 
   return (
-    <div className="md:hidden border-t border-white/10 animate-[slideDown_200ms_ease-out] bg-deep">
+    <div className="md:hidden border-t border-gray-200 animate-[slideDown_200ms_ease-out] bg-white">
       <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
         {(Object.entries(megaMenus) as [MenuKey, (typeof megaMenus)[MenuKey]][]).map(([key, menu]) => {
           const MenuIcon = menu.icon;
@@ -34,7 +34,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
             <div key={key}>
               <button
                 onClick={() => setExpanded(expanded === key ? null : key)}
-                className="w-full flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="w-full flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-100 transition-colors"
                 aria-expanded={expanded === key}
                 aria-label={`${menu.label} — sous-menu`}
               >
@@ -59,20 +59,20 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
                 <div className="pl-4 pb-2 animate-fadeIn">
                   {menu.sections.map((section) => (
                     <div key={section.title} className="mb-2">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 px-3 py-1">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-3 py-1">
                         {section.title}
                       </p>
                       {section.links.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
-                          className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                          className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary transition-colors"
                           onClick={onClose}
                         >
                           <LinkIcon link={link} />
                           <span>{link.label}</span>
                           {link.sub && (
-                            <span className="text-[10px] text-white/40 ml-auto shrink-0">{link.sub}</span>
+                            <span className="text-[10px] text-gray-400 ml-auto shrink-0">{link.sub}</span>
                           )}
                         </Link>
                       ))}
@@ -86,32 +86,32 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
 
         <Link
           href="/match/calendrier"
-          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"
           onClick={onClose}
         >
-          <Calendar className="h-4 w-4" />
+          <Calendar className="h-4 w-4 text-gray-400" />
           Calendrier des matchs
         </Link>
         <Link
           href="/live"
-          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"
           onClick={onClose}
         >
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          <Radio className="h-4 w-4" />
+          <Radio className="h-4 w-4 text-gray-400" />
           Scores en direct
         </Link>
         <Link
           href="/profil"
-          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"
           onClick={onClose}
         >
           Mon profil
         </Link>
         <Link
           href="/recherche"
-          className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-white/10 transition-colors ${
-            pathname === "/recherche" ? "text-accent" : "text-white"
+          className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 transition-colors ${
+            pathname === "/recherche" ? "text-accent" : "text-gray-900"
           }`}
           onClick={onClose}
         >
