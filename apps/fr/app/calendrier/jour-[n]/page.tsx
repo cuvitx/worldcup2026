@@ -6,6 +6,7 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { EVENT_DATES } from "@repo/data/constants";
+import { Clock, Users } from "lucide-react"
 
 export const revalidate = 3600;
 
@@ -55,8 +56,8 @@ function stageBadgeClass(stage: string): string {
   if (stage === "final") return "bg-accent/20 text-accent font-bold";
   if (stage === "semi-final") return "bg-primary/20 text-primary font-semibold";
   if (stage === "quarter-final") return "bg-primary/20 text-primary";
-  if (stage === "round-of-16" || stage === "round-of-32") return "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary";
-  return "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300";
+  if (stage === "round-of-16" || stage === "round-of-32") return "bg-primary/10 text-primarysecondary/20";
+  return "bg-gray-100 text-gray-600slate-700";
 }
 
 // ============================================================
@@ -181,20 +182,20 @@ export default async function JourPage({ params }: PageProps) {
           {hasPrev ? (
             <Link
               href={`/calendrier/jour-${dayNum - 1}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors dark:text-gray-200"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 bg-whiteslate-800 px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               ← Jour {dayNum - 1}
             </Link>
           ) : (
             <div />
           )}
-          <span className="text-sm text-gray-500 dark:text-gray-300">
+          <span className="text-sm text-gray-500">
             Jour {dayNum} / {TOTAL_DAYS}
           </span>
           {hasNext ? (
             <Link
               href={`/calendrier/jour-${dayNum + 1}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors dark:text-gray-200"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 bg-whiteslate-800 px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               Jour {dayNum + 1} →
             </Link>
@@ -205,12 +206,12 @@ export default async function JourPage({ params }: PageProps) {
 
         {/* Matches list */}
         {dayMatches.length === 0 ? (
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
             <p className="text-4xl mb-4"></p>
-            <p className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-2">
+            <p className="text-lg font-semibold text-gray-700 mb-2">
               Journée sans match
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-300">
+            <p className="text-sm text-gray-500">
               Aucun match n'est programmé ce {dateFr}.
             </p>
             <div className="mt-6 flex justify-center gap-4">
@@ -247,10 +248,10 @@ export default async function JourPage({ params }: PageProps) {
                 <Link
                   key={match.id}
                   href={`/match/${match.slug}`}
-                  className={`block rounded-xl border bg-white dark:bg-slate-800 shadow-sm transition-all hover:shadow-md hover:border-primary/50 ${
+                  className={`block rounded-xl border bg-whiteslate-800 shadow-sm transition-all hover:shadow-md hover:border-primary/50 ${
                     isFinal
                       ? "border-primary/40 ring-2 ring-primary/20"
-                      : "border-gray-200 dark:border-slate-700"
+                      : "border-gray-200"
                   }`}
                 >
                   <div className="p-5">
@@ -259,10 +260,10 @@ export default async function JourPage({ params }: PageProps) {
                       <span className={`rounded-full px-3 py-1 text-xs ${badgeClass}`}>
                         {stageLbl}
                       </span>
-                      <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-300">
+                      <div className="flex items-center gap-3 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
-                          <span>🕐</span>
-                          <span className="font-medium text-gray-800 dark:text-gray-200">{frTime} (heure FR)</span>
+                          <span><Clock className="h-5 w-5 inline-block" /></span>
+                          <span className="font-medium text-gray-800">{frTime} (heure FR)</span>
                           <span className="text-xs text-gray-500">| {match.time} UTC</span>
                         </span>
                       </div>
@@ -276,18 +277,18 @@ export default async function JourPage({ params }: PageProps) {
                           {homeTeam?.flag ?? ""}
                         </span>
                         <div>
-                          <p className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
+                          <p className="font-bold text-gray-900 text-sm sm:text-base">
                             {homeTeam?.name ?? match.homeTeamId}
                           </p>
                           {homeTeam && (
-                            <p className="text-xs text-gray-500 dark:text-gray-300">{homeTeam.code}</p>
+                            <p className="text-xs text-gray-500">{homeTeam.code}</p>
                           )}
                         </div>
                       </div>
 
                       {/* VS */}
                       <div className="flex flex-col items-center gap-1 shrink-0">
-                        <span className="text-xl font-extrabold text-gray-400 dark:text-gray-400">VS</span>
+                        <span className="text-xl font-extrabold text-gray-400">VS</span>
                         {isFinal && (
                           <span className="text-xs font-bold text-accent"> FINALE</span>
                         )}
@@ -299,11 +300,11 @@ export default async function JourPage({ params }: PageProps) {
                           {awayTeam?.flag ?? ""}
                         </span>
                         <div>
-                          <p className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
+                          <p className="font-bold text-gray-900 text-sm sm:text-base">
                             {awayTeam?.name ?? match.awayTeamId}
                           </p>
                           {awayTeam && (
-                            <p className="text-xs text-gray-500 dark:text-gray-300">{awayTeam.code}</p>
+                            <p className="text-xs text-gray-500">{awayTeam.code}</p>
                           )}
                         </div>
                       </div>
@@ -311,7 +312,7 @@ export default async function JourPage({ params }: PageProps) {
 
                     {/* Stadium info */}
                     {stadium && (
-                      <div className="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-300">
+                      <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
                           <span></span>
                           <span>{stadium.name}</span>
@@ -322,7 +323,7 @@ export default async function JourPage({ params }: PageProps) {
                         </span>
                         {stadium.capacity && (
                           <span className="flex items-center gap-1">
-                            <span>👥</span>
+                            <span><Users className="h-5 w-5 inline-block" /></span>
                             <span>{stadium.capacity.toLocaleString("fr-FR")} places</span>
                           </span>
                         )}
@@ -340,7 +341,7 @@ export default async function JourPage({ params }: PageProps) {
           {hasPrev ? (
             <Link
               href={`/calendrier/jour-${dayNum - 1}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors dark:text-gray-200"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 bg-whiteslate-800 px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               ← Jour {dayNum - 1}
             </Link>
@@ -349,14 +350,14 @@ export default async function JourPage({ params }: PageProps) {
           )}
           <Link
             href="/match/calendrier"
-            className="rounded-lg bg-gray-100 dark:bg-slate-700 px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+            className="rounded-lg bg-gray-100slate-700 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors"
           >
             Calendrier complet
           </Link>
           {hasNext ? (
             <Link
               href={`/calendrier/jour-${dayNum + 1}`}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors dark:text-gray-200"
+              className="flex items-center gap-2 rounded-lg border border-gray-200 bg-whiteslate-800 px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               Jour {dayNum + 1} →
             </Link>
@@ -366,8 +367,8 @@ export default async function JourPage({ params }: PageProps) {
         </div>
 
         {/* Quick jump: all days */}
-        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mt-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Navigation rapide</h2>
+        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow mt-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Navigation rapide</h2>
           <div className="flex flex-wrap gap-2">
             {Array.from({ length: TOTAL_DAYS }, (_, i) => {
               const d = i + 1;
@@ -384,8 +385,8 @@ export default async function JourPage({ params }: PageProps) {
                     isActive
                       ? "bg-primary text-white"
                       : cnt > 0
-                      ? "bg-gray-100 dark:bg-slate-700 hover:bg-primary/20 text-gray-700 dark:text-gray-200"
-                      : "bg-gray-50 dark:bg-slate-700/50 text-gray-400 dark:text-gray-400 cursor-default"
+                      ? "bg-gray-100slate-700 hover:bg-primary/20 text-gray-700"
+                      : "bg-gray-50slate-700/50 text-gray-400 cursor-default"
                   }`}
                 >
                   {d}
@@ -396,7 +397,7 @@ export default async function JourPage({ params }: PageProps) {
               );
             })}
           </div>
-          <p className="mt-3 text-xs text-gray-400 dark:text-gray-400">
+          <p className="mt-3 text-xs text-gray-400">
             Les points verts indiquent les journées avec des matchs.
           </p>
         </div>

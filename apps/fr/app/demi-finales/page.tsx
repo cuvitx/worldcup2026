@@ -89,9 +89,9 @@ export default function DemiFinales() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Calendrier</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Calendrier</h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -99,14 +99,14 @@ export default function DemiFinales() {
                   <th className="px-4 py-3 text-left">Match</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
-                <tr className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                  <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">13 juillet 2026</td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Demi-finale 1</td>
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">13 juillet 2026</td>
+                  <td className="px-4 py-3 text-gray-600">Demi-finale 1</td>
                 </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                  <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">14 juillet 2026</td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Demi-finale 2</td>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">14 juillet 2026</td>
+                  <td className="px-4 py-3 text-gray-600">Demi-finale 2</td>
                 </tr>
               </tbody>
             </table>
@@ -116,20 +116,20 @@ export default function DemiFinales() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <MapPin className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Stades pressentis</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Stades pressentis</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {stades.map((s) => (
               <div
                 key={s.nom}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:shadow-md transition-shadow"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md transition-shadow"
               >
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{s.nom}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{s.ville}</p>
+                <h3 className="text-lg font-semibold text-gray-900">{s.nom}</h3>
+                <p className="text-sm text-gray-500 mt-1">{s.ville}</p>
                 <div className="mt-3 flex items-center gap-4 text-sm">
                   <span className="font-medium text-primary">{s.capacite} places</span>
                   <span className="text-gray-400">|</span>
-                  <span className="text-gray-600 dark:text-gray-300">{s.detail}</span>
+                  <span className="text-gray-600">{s.detail}</span>
                 </div>
               </div>
             ))}
@@ -139,10 +139,10 @@ export default function DemiFinales() {
         <section>
           <div className="rounded-xl border-2 border-dashed border-secondary/40 bg-secondary/5 p-8 text-center">
             <Trophy className="h-12 w-12 text-secondary mx-auto mb-4 opacity-60" />
-            <p className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <p className="text-lg font-semibold text-gray-900 mb-2">
               Affiches à venir
             </p>
-            <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto mb-6">
+            <p className="text-gray-500 max-w-md mx-auto mb-6">
               Les demi-finales seront déterminées par les résultats des quarts.
               Qui atteindra le dernier carré ?
             </p>

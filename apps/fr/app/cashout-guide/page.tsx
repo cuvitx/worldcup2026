@@ -77,10 +77,10 @@ export default function CashoutGuidePage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Comment ça marche */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Banknote className="h-7 w-7 text-accent" /> Comment fonctionne le cashout
           </h2>
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose max-w-none">
             <p>
               Le cashout est une fonctionnalité proposée par la plupart des bookmakers qui vous permet
               de <strong>clôturer un pari en cours</strong> avant que l&apos;événement ne se termine.
@@ -97,14 +97,14 @@ export default function CashoutGuidePage() {
 
         {/* Avantages */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <CheckCircle className="h-7 w-7 text-green-500" /> Avantages
           </h2>
           <ul className="space-y-2">
             {avantages.map((a) => (
               <li key={a} className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300">{a}</span>
+                <span className="text-gray-700">{a}</span>
               </li>
             ))}
           </ul>
@@ -112,14 +112,14 @@ export default function CashoutGuidePage() {
 
         {/* Pièges */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <AlertTriangle className="h-7 w-7 text-yellow-500" /> Pièges à éviter
           </h2>
           <ul className="space-y-2">
             {pieges.map((p) => (
               <li key={p} className="flex items-start gap-3">
                 <XCircle className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300">{p}</span>
+                <span className="text-gray-700">{p}</span>
               </li>
             ))}
           </ul>
@@ -127,7 +127,7 @@ export default function CashoutGuidePage() {
 
         {/* Comparatif bookmakers */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Clock className="h-7 w-7 text-accent" /> Comparatif cashout par bookmaker
           </h2>
           <div className="overflow-x-auto">
@@ -143,7 +143,7 @@ export default function CashoutGuidePage() {
               </thead>
               <tbody>
                 {comparatif.map((b, i) => (
-                  <tr key={b.bookmaker} className={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}>
+                  <tr key={b.bookmaker} className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}>
                     <td className="py-3 px-4 font-medium">{b.bookmaker}</td>
                     <td className="py-3 px-4">{b.cashout}</td>
                     <td className="py-3 px-4 text-center">{b.live ? <CheckCircle className="h-4 w-4 text-green-500 mx-auto" /> : <XCircle className="h-4 w-4 text-red-400 mx-auto" />}</td>

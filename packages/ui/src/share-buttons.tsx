@@ -80,7 +80,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
 
   return (
     <div className="flex items-center justify-center sm:justify-between gap-3 py-2 flex-wrap">
-      <span className="hidden sm:block text-sm font-medium text-gray-600 dark:text-gray-300">{label}</span>
+      <span className="hidden sm:block text-sm font-medium text-gray-600">{label}</span>
       <div className="flex items-center gap-2">
         {socialLinks(url, text).map((s) => (
           <a
@@ -89,7 +89,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
             target="_blank"
             rel="noopener noreferrer"
             style={{ width: 36, height: 36, minWidth: 36, minHeight: 36 }}
-            className="inline-flex items-center justify-center shrink-0 rounded-full bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
+            className="inline-flex items-center justify-center shrink-0 rounded-full bg-gray-100white/10 text-gray-600 hover:bg-gray-200 transition-colors"
             aria-label={`Partager sur ${s.name}`}
           >
             {s.icon}

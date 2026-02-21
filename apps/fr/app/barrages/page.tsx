@@ -132,7 +132,7 @@ export default function BarragesPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Globe className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Répartition des 48 places par confédération
             </h2>
           </div>
@@ -150,7 +150,7 @@ export default function BarragesPage() {
                 {placesParConfederation.map((c, i) => (
                   <tr
                     key={c.conf}
-                    className={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
+                    className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
                   >
                     <td className="py-3 px-4 font-medium">{c.conf}</td>
                     <td className="py-3 px-4 text-center">{c.directes}</td>
@@ -167,7 +167,7 @@ export default function BarragesPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Swords className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Matchs de barrage intercontinentaux
             </h2>
           </div>
@@ -175,7 +175,7 @@ export default function BarragesPage() {
             {barrageMatches.map((m) => (
               <div
                 key={m.id}
-                className="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg transition-shadow"
+                className="rounded-xl border border-gray-200 p-5 hover:shadow-lg transition-shadow"
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-semibold uppercase tracking-wider text-accent">
@@ -201,9 +201,9 @@ export default function BarragesPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex items-start gap-3 rounded-xl bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-4">
+          <div className="mt-6 flex items-start gap-3 rounded-xl bg-yellow-50yellow-900/20 border border-yellow-200 p-4">
             <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 shrink-0" />
-            <p className="text-sm text-yellow-800 dark:text-yellow-200">
+            <p className="text-sm text-yellow-800">
               Les équipes et lieux exacts seront confirmés à l&apos;issue des qualifications de chaque
               confédération. Cette page sera mise à jour dès les résultats connus.
             </p>
@@ -214,11 +214,11 @@ export default function BarragesPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Swords className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Enjeux et contexte
             </h2>
           </div>
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose max-w-none">
             <p>
               Les barrages intercontinentaux représentent la dernière chance pour 6 équipes de
               participer à la Coupe du Monde 2026. Avec le passage à 48 équipes, le nombre de places

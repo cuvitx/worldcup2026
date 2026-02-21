@@ -74,9 +74,9 @@ export default function SecuritePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Shield className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Conseils généraux</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Conseils généraux</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-3 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
             <ul className="space-y-2">
               <li>Gardez une copie numérique de votre passeport (photo + cloud)</li>
               <li>Ne transportez pas de grosses sommes en liquide — privilégiez la carte bancaire</li>
@@ -92,15 +92,15 @@ export default function SecuritePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <AlertTriangle className="h-6 w-6 text-amber-500" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Focus Mexique</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Focus Mexique</h2>
           </div>
-          <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 p-6 space-y-3 text-sm">
-            <p className="text-amber-900 dark:text-amber-100">
+          <div className="rounded-xl border border-amber-200 bg-amber-50amber-900/20 p-6 space-y-3 text-sm">
+            <p className="text-amber-900">
               Les 3 villes hôtes mexicaines (Mexico, Guadalajara, Monterrey) sont des métropoles
               modernes avec des infrastructures touristiques développées. Cependant, certaines
               précautions supplémentaires s&apos;imposent :
             </p>
-            <ul className="space-y-2 text-amber-800 dark:text-amber-200">
+            <ul className="space-y-2 text-amber-800">
               <li><strong>Mexico :</strong> Évitez Tepito, Doctores et Lagunilla la nuit. Restez dans Roma, Condesa, Polanco, Centro Histórico (zone touristique).</li>
               <li><strong>Guadalajara :</strong> Le centre historique et Chapultepec sont sûrs. Évitez les banlieues éloignées.</li>
               <li><strong>Monterrey :</strong> Le quartier San Pedro Garza García est le plus sûr. Le centre-ville est correct en journée.</li>
@@ -115,9 +115,9 @@ export default function SecuritePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Phone className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Numéros d&apos;urgence</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Numéros d&apos;urgence</h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -127,12 +127,12 @@ export default function SecuritePage() {
                   <th className="px-4 py-3 text-left">Notes</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
                 {urgences.map((u) => (
-                  <tr key={u.pays} className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{u.pays}</td>
+                  <tr key={u.pays} className="hover:bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">{u.pays}</td>
                     <td className="px-4 py-3 font-bold text-red-600">{u.police}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{u.ambassade}</td>
+                    <td className="px-4 py-3 text-gray-600">{u.ambassade}</td>
                     <td className="px-4 py-3 text-gray-500 text-xs">{u.notes}</td>
                   </tr>
                 ))}
@@ -145,9 +145,9 @@ export default function SecuritePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Heart className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Assurance voyage</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Assurance voyage</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-3 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
             <p>
               <strong>Indispensable pour les États-Unis.</strong> Les frais médicaux américains
               sont parmi les plus élevés au monde : une nuit d&apos;hospitalisation peut coûter

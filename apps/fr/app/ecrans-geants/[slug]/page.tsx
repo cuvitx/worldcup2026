@@ -242,6 +242,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `Écrans géants à ${data.name} — CDM 2026`,
       description: `Fan zones, bars et places publiques pour voir les matchs de la CDM 2026 à ${data.name}.`,
       url: `${domains.fr}/ecrans-geants/${slug}`,
+      },
+    alternates: { canonical: `https://cdm2026.fr/ecrans-geants/${slug}` },
     },
   };
 }
@@ -303,7 +305,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
 
       {/* Fan zones */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-8">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-8">
           <Monitor className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Les meilleurs spots à {data.name}
         </h2>
@@ -311,7 +313,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
           {data.fanZones.map((fz) => (
             <div
               key={fz.name}
-              className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6"
+              className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6"
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg">{fz.name}</h3>
@@ -319,7 +321,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
                   {typeLabels[fz.type]}
                 </span>
               </div>
-              <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex gap-2">
                   <MapPin className="w-4 h-4 text-[#00B865] shrink-0 mt-0.5" />
                   <span>{fz.address}</span>
@@ -329,7 +331,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
                   <span>{fz.capacity}</span>
                 </div>
                 <div className="flex gap-2">
-                  <Beer className="w-4 h-4 text-[#022149] dark:text-gray-400 shrink-0 mt-0.5" />
+                  <Beer className="w-4 h-4 text-[#022149] shrink-0 mt-0.5" />
                   <span>{fz.ambiance}</span>
                 </div>
               </div>
@@ -340,18 +342,18 @@ export default async function EcransGeantsPage({ params }: PageProps) {
 
       {/* Tips */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Sun className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Conseils pratiques
         </h2>
         <div className="space-y-3">
           {data.tips.map((tip) => (
-            <div key={tip} className="flex gap-3 text-gray-700 dark:text-gray-300">
+            <div key={tip} className="flex gap-3 text-gray-700">
               <ArrowRight className="w-5 h-5 text-[#00B865] shrink-0 mt-0.5" />
               <span>{tip}</span>
             </div>
           ))}
-          <div className="flex gap-3 text-gray-700 dark:text-gray-300">
+          <div className="flex gap-3 text-gray-700">
             <Clock className="w-5 h-5 text-[#00B865] shrink-0 mt-0.5" />
             <span>Les matchs de la CDM 2026 seront diffusés entre 14h et 3h du matin (heure de Paris) selon les fuseaux horaires USA/Canada/Mexique.</span>
           </div>
@@ -368,7 +370,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
               <a
                 key={s}
                 href={`/ecrans-geants/${s}`}
-                className="text-sm bg-gray-100 dark:bg-slate-700 px-3 py-1.5 rounded-full hover:bg-[#00B865] hover:text-white transition-colors"
+                className="text-sm bg-gray-100slate-700 px-3 py-1.5 rounded-full hover:bg-[#00B865] hover:text-white transition-colors"
               >
                 {cityData[s]?.name ?? s}
               </a>

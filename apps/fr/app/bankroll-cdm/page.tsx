@@ -93,13 +93,13 @@ export default function BankrollCdmPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Budget recommandé */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <Wallet className="h-7 w-7 text-accent" /> Budget recommandé
           </h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {budgetTiers.map((t) => (
-              <div key={t.level} className="rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-3">
-                <h3 className="font-bold text-primary dark:text-white">{t.level}</h3>
+              <div key={t.level} className="rounded-xl border border-gray-200 p-5 space-y-3">
+                <h3 className="font-bold text-primary">{t.level}</h3>
                 <p className="text-2xl font-black text-accent">{t.budget}</p>
                 <div className="text-sm text-gray-500 space-y-1">
                   <p>Mise/pari : {t.mise}</p>
@@ -113,18 +113,18 @@ export default function BankrollCdmPage() {
 
         {/* Staking plans */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <Calculator className="h-7 w-7 text-accent" /> Staking plans
           </h2>
           <div className="space-y-4">
             {stakingPlans.map((sp) => (
-              <div key={sp.name} className="rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+              <div key={sp.name} className="rounded-xl border border-gray-200 p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-primary dark:text-white">{sp.name}</h3>
+                  <h3 className="font-bold text-primary">{sp.name}</h3>
                   <span className={`text-xs font-semibold ${sp.riskColor}`}>Risque : {sp.risk}</span>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{sp.desc}</p>
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg px-3 py-2 text-sm text-gray-500">
+                <p className="text-sm text-gray-600 mb-2">{sp.desc}</p>
+                <div className="bg-gray-50gray-800 rounded-lg px-3 py-2 text-sm text-gray-500">
                   <strong>Exemple :</strong> {sp.example}
                 </div>
               </div>
@@ -134,14 +134,14 @@ export default function BankrollCdmPage() {
 
         {/* Erreurs */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <AlertTriangle className="h-7 w-7 text-red-500" /> Erreurs à éviter
           </h2>
           <ul className="space-y-2">
             {erreurs.map((e) => (
               <li key={e} className="flex items-start gap-3">
                 <AlertTriangle className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300">{e}</span>
+                <span className="text-gray-700">{e}</span>
               </li>
             ))}
           </ul>

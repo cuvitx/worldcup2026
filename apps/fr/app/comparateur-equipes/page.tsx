@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState } from "react";
@@ -39,13 +41,17 @@ const teamsData: TeamStats[] = [
   { name: "Australie", fifaRanking: 23, wcTitles: 0, wcParticipations: 6, wcGoals: 9, wcMatches: 20, bestResult: "8e (2006, 2022)", confederation: "AFC", topPlayer: "Jackson Irvine" },
 ];
 
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/comparateur-equipes" },
+};
+
 function StatBar({ val1, val2, label }: { val1: number; val2: number; label: string }) {
   const max = Math.max(val1, val2, 1);
   return (
     <div className="space-y-1">
       <div className="flex justify-between text-xs font-medium text-gray-500">{label}<span /></div>
       <div className="flex items-center gap-2">
-        <span className="w-10 text-right text-sm font-bold text-primary dark:text-white">{val1}</span>
+        <span className="w-10 text-right text-sm font-bold text-primary">{val1}</span>
         <div className="flex-1 flex gap-1 h-5">
           <div className="flex-1 flex justify-end">
             <div className="bg-accent rounded-l-md h-full transition-all duration-500" style={{ width: `${(val1 / max) * 100}%` }} />
@@ -54,7 +60,7 @@ function StatBar({ val1, val2, label }: { val1: number; val2: number; label: str
             <div className="bg-secondary rounded-r-md h-full transition-all duration-500" style={{ width: `${(val2 / max) * 100}%` }} />
           </div>
         </div>
-        <span className="w-10 text-sm font-bold text-primary dark:text-white">{val2}</span>
+        <span className="w-10 text-sm font-bold text-primary">{val2}</span>
       </div>
     </div>
   );
@@ -90,7 +96,7 @@ export default function ComparateurEquipesPage() {
           <select
             value={team1}
             onChange={(e) => setTeam1(e.target.value)}
-            className="w-full sm:w-64 rounded-xl border border-gray-300 dark:border-gray-600 px-4 py-3 text-sm font-medium bg-white dark:bg-gray-800"
+            className="w-full sm:w-64 rounded-xl border border-gray-300 px-4 py-3 text-sm font-medium bg-whitegray-800"
           >
             {teamsData.map((t) => (
               <option key={t.name} value={t.name}>{t.name}</option>
@@ -100,7 +106,7 @@ export default function ComparateurEquipesPage() {
           <select
             value={team2}
             onChange={(e) => setTeam2(e.target.value)}
-            className="w-full sm:w-64 rounded-xl border border-gray-300 dark:border-gray-600 px-4 py-3 text-sm font-medium bg-white dark:bg-gray-800"
+            className="w-full sm:w-64 rounded-xl border border-gray-300 px-4 py-3 text-sm font-medium bg-whitegray-800"
           >
             {teamsData.map((t) => (
               <option key={t.name} value={t.name}>{t.name}</option>
@@ -113,18 +119,18 @@ export default function ComparateurEquipesPage() {
             {/* Header noms */}
             <div className="flex justify-between items-center">
               <div className="text-center flex-1">
-                <h3 className="text-xl font-extrabold text-primary dark:text-white">{t1.name}</h3>
+                <h3 className="text-xl font-extrabold text-primary">{t1.name}</h3>
                 <p className="text-xs text-gray-500">{t1.confederation}</p>
               </div>
               <BarChart3 className="h-6 w-6 text-gray-300" />
               <div className="text-center flex-1">
-                <h3 className="text-xl font-extrabold text-primary dark:text-white">{t2.name}</h3>
+                <h3 className="text-xl font-extrabold text-primary">{t2.name}</h3>
                 <p className="text-xs text-gray-500">{t2.confederation}</p>
               </div>
             </div>
 
             {/* Stats comparées */}
-            <div className="space-y-4 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+            <div className="space-y-4 rounded-xl border border-gray-200 p-6">
               <StatBar val1={t1.fifaRanking} val2={t2.fifaRanking} label="Classement FIFA (plus bas = meilleur)" />
               <StatBar val1={t1.wcTitles} val2={t2.wcTitles} label="Titres de Champion du Monde" />
               <StatBar val1={t1.wcParticipations} val2={t2.wcParticipations} label="Participations en CDM" />
@@ -135,11 +141,11 @@ export default function ComparateurEquipesPage() {
             {/* Détails */}
             <div className="grid sm:grid-cols-2 gap-4">
               {[t1, t2].map((t) => (
-                <div key={t.name} className="rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-3">
-                  <h4 className="font-bold text-primary dark:text-white flex items-center gap-2">
+                <div key={t.name} className="rounded-xl border border-gray-200 p-5 space-y-3">
+                  <h4 className="font-bold text-primary flex items-center gap-2">
                     <Users className="h-4 w-4 text-accent" /> {t.name}
                   </h4>
-                  <div className="text-sm space-y-1.5 text-gray-600 dark:text-gray-300">
+                  <div className="text-sm space-y-1.5 text-gray-600">
                     <p className="flex items-center gap-2"><TrendingUp className="h-3.5 w-3.5 text-gray-400" /> Classement FIFA : <strong>#{t.fifaRanking}</strong></p>
                     <p className="flex items-center gap-2"><Trophy className="h-3.5 w-3.5 text-gray-400" /> Meilleur résultat : <strong>{t.bestResult}</strong></p>
                     <p className="flex items-center gap-2"><Target className="h-3.5 w-3.5 text-gray-400" /> Ratio buts/match : <strong>{(t.wcGoals / Math.max(t.wcMatches, 1)).toFixed(2)}</strong></p>

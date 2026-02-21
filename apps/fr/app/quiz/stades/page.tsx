@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
@@ -29,6 +31,10 @@ const stadiums: Stadium[] = [
   { name: "Estadio BBVA", city: "Monterrey, Mexique", capacity: "53 500", hint: "Stade mexicain moderne inauguré en 2015, dominé par la silhouette de la montagne Cerro de la Silla. Domicile des Rayados." },
   { name: "Estadio Akron", city: "Guadalajara, Mexique", capacity: "49 850", hint: "Stade volcanique au design unique à Guadalajara, avec une structure extérieure rappelant un volcan. Domicile des Chivas." },
 ];
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/quiz/stades" },
+};
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -87,16 +93,16 @@ export default function QuizStadesPage() {
       <div className="min-h-[80vh] flex items-center justify-center px-4">
         <div className="max-w-md w-full text-center space-y-6">
           <Trophy className="h-16 w-16 text-secondary mx-auto" />
-          <h1 className="text-3xl font-extrabold text-primary dark:text-white">Quiz terminé !</h1>
+          <h1 className="text-3xl font-extrabold text-primary">Quiz terminé !</h1>
           <p className="text-5xl font-black text-accent">{score}/{shuffled.length}</p>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-gray-600">
             {pct >= 80 ? "Bravo ! Vous connaissez les stades de la CDM 2026 !" : pct >= 50 ? "Pas mal ! Révisez un peu et retentez." : "Vous avez du travail ! Visitez notre page stades pour apprendre."}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button onClick={restart} className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
               <RotateCcw className="h-4 w-4" /> Rejouer
             </button>
-            <Link href="/quiz/drapeaux" className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 rounded-xl py-3.5 px-8 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <Link href="/quiz/drapeaux" className="inline-flex items-center gap-2 border border-gray-300 rounded-xl py-3.5 px-8 font-semibold hover:bg-gray-50 transition-colors">
               Quiz Drapeaux <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -122,7 +128,7 @@ export default function QuizStadesPage() {
         </div>
       </div>
 
-      <div className="w-full bg-gray-200 dark:bg-gray-700 h-1.5">
+      <div className="w-full bg-gray-200gray-700 h-1.5">
         <div className="bg-accent h-1.5 transition-all duration-300" style={{ width: `${((current + 1) / shuffled.length) * 100}%` }} />
       </div>
 
@@ -130,8 +136,8 @@ export default function QuizStadesPage() {
         <div className="max-w-lg w-full text-center space-y-8">
           <div>
             <p className="text-sm text-gray-500 mb-2">Quel est ce stade ?</p>
-            <div className="rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 text-left space-y-3">
-              <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">{stadium.hint}</p>
+            <div className="rounded-xl bg-gray-50gray-800 border border-gray-200 p-6 text-left space-y-3">
+              <p className="text-sm text-gray-700 leading-relaxed">{stadium.hint}</p>
               <div className="flex items-center gap-4 text-xs text-gray-500">
                 <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {stadium.city}</span>
                 <span>Capacité : {stadium.capacity}</span>
@@ -141,11 +147,11 @@ export default function QuizStadesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {choices.map((choice) => {
-              let cls = "border border-gray-200 dark:border-gray-700 hover:border-accent";
+              let cls = "border border-gray-200 hover:border-accent";
               if (selected) {
-                if (choice === stadium.name) cls = "border-2 border-green-500 bg-green-50 dark:bg-green-900/20";
-                else if (choice === selected) cls = "border-2 border-red-500 bg-red-50 dark:bg-red-900/20";
-                else cls = "border border-gray-200 dark:border-gray-700 opacity-50";
+                if (choice === stadium.name) cls = "border-2 border-green-500 bg-green-50green-900/20";
+                else if (choice === selected) cls = "border-2 border-red-500 bg-red-50red-900/20";
+                else cls = "border border-gray-200 opacity-50";
               }
               return (
                 <button key={choice} onClick={() => handleAnswer(choice)} disabled={!!selected} className={`rounded-xl py-3 px-4 font-medium text-sm transition-all flex items-center justify-center gap-2 ${cls}`}>

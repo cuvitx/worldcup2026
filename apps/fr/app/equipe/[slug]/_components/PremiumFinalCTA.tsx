@@ -8,7 +8,7 @@ interface PremiumFinalCTAProps {
 export function PremiumFinalCTA({ team }: PremiumFinalCTAProps) {
   return (
     <section 
-      className="hero-animated py-10 border-t border-gray-100 dark:border-slate-700"
+      className="hero-animated py-10 border-t border-gray-100"
     >
       <div className="mx-auto max-w-7xl px-4 text-center">
         <h2 className="text-2xl font-bold text-white mb-3">

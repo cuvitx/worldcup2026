@@ -54,7 +54,7 @@ export default function CitiesPage() {
           const countryCities = cities.filter((c) => c.country === country);
           return (
             <section key={country}>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 {countryLabels[country]} ({countryCities.length} villes)
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -64,34 +64,34 @@ export default function CitiesPage() {
                     <Link
                       key={city.id}
                       href={`/ville/${city.slug}`}
-                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5 shadow-sm hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group rounded-xl border border-gray-200 bg-whiteslate-800 p-5 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div className="flex items-start gap-3">
                         <span className="text-3xl">{countryFlags[country]}</span>
                         <div className="min-w-0 flex-1">
-                          <p className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                          <p className="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">
                             {city.name}
                           </p>
-                          <p className="text-sm text-gray-500 dark:text-gray-300">
+                          <p className="text-sm text-gray-500">
                             {city.state}
                           </p>
                         </div>
                       </div>
                       <div className="mt-4 grid grid-cols-2 gap-3">
-                        <div className="rounded-lg bg-gray-50 dark:bg-gray-700/50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500 dark:text-gray-300">Population</p>
-                          <p className="text-sm font-bold text-gray-900 dark:text-white">
+                        <div className="rounded-lg bg-gray-50gray-700/50 p-2.5 text-center">
+                          <p className="text-xs text-gray-500">Population</p>
+                          <p className="text-sm font-bold text-gray-900">
                             {(city.population / 1_000_000).toFixed(1)}M
                           </p>
                         </div>
-                        <div className="rounded-lg bg-gray-50 dark:bg-gray-700/50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500 dark:text-gray-300">Stades</p>
-                          <p className="text-sm font-bold text-gray-900 dark:text-white">
+                        <div className="rounded-lg bg-gray-50gray-700/50 p-2.5 text-center">
+                          <p className="text-xs text-gray-500">Stades</p>
+                          <p className="text-sm font-bold text-gray-900">
                             {cityStadiums.length}
                           </p>
                         </div>
                       </div>
-                      <div className="mt-3 text-xs text-gray-500 dark:text-gray-300">
+                      <div className="mt-3 text-xs text-gray-500">
                          {cityStadiums.map((s) => s.name).join(", ") || "—"}
                       </div>
                     </Link>
@@ -105,11 +105,11 @@ export default function CitiesPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/stades", title: "Les 16 stades", description: "Capacité, photos et matchs de chaque stade", icon: "🏟️" },
-          { href: "/carte-stades", title: "Carte des stades", description: "Carte interactive des 16 stades", icon: "🗺️" },
-          { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada et Mexique : guide complet", icon: "🌎" },
-          { href: "/billets", title: "Billets", description: "Comment acheter vos billets CDM 2026", icon: "🎟️" },
-          { href: "/ou-regarder", title: "Où regarder", description: "Chaînes TV et streaming CDM 2026", icon: "📺" },
+          { href: "/stades", title: "Les 16 stades", description: "Capacité, photos et matchs de chaque stade", icon: "" },
+          { href: "/carte-stades", title: "Carte des stades", description: "Carte interactive des 16 stades", icon: "" },
+          { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada et Mexique : guide complet", icon: "" },
+          { href: "/billets", title: "Billets", description: "Comment acheter vos billets CDM 2026", icon: "" },
+          { href: "/ou-regarder", title: "Où regarder", description: "Chaînes TV et streaming CDM 2026", icon: "" },
         ]} />
       </div>
     </>

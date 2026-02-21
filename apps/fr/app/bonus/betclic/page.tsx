@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Profitez de l'offre Betclic : 100€ en freebets sans conditions pour la CDM 2026.",
     url: "https://cdm2026.fr/bonus/betclic",
   },
+  alternates: { canonical: "https://cdm2026.fr/bonus/betclic" },
 };
 
 function ReviewSchema() {

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -8,6 +10,10 @@ import { EVENT_DATES } from "@repo/data/constants";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/profil" },
+};
 
 const TEAMS = [
   { slug: "france", flag: "🇫🇷", name: "France" },
@@ -121,22 +127,22 @@ export default function ProfilPage() {
 ]} />
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
-          <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+          <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
           <li>/</li>
-          <li className="text-gray-800 dark:text-gray-200 font-medium">Mon Profil</li>
+          <li className="text-gray-800 font-medium">Mon Profil</li>
         </ol>
       </nav>
 
-      <h1 className="mb-2 text-3xl font-bold dark:text-white">Mon CDM 2026 </h1>
-      <p className="mb-8 text-gray-500 dark:text-gray-300">Ton espace perso — sans compte, tout est local.</p>
+      <h1 className="mb-2 text-3xl font-bold">Mon CDM 2026 </h1>
+      <p className="mb-8 text-gray-500">Ton espace perso — sans compte, tout est local.</p>
 
       {/* ─── Onboarding / Team selector ─── */}
       {showOnboarding ? (
-        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Quelle est ton équipe ?</h2>
-          <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">
+        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-10 sm:p-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Quelle est ton équipe ?</h2>
+          <p className="mb-5 text-sm text-gray-500">
             Choisis l&apos;équipe que tu vas supporter pendant la CDM 2026 !
           </p>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
@@ -144,14 +150,14 @@ export default function ProfilPage() {
               <button
                 key={team.slug}
                 onClick={() => selectTeam(team.slug)}
-                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-primary/40 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-secondary/50"
+                className="flex flex-col items-center gap-1 rounded-xl border border-gray-200 bg-white p-3 text-center transition-all hover:border-primary/40 hover:shadow-md active:scale-95"
               >
                 <span className="text-2xl">{team.flag}</span>
-                <span className="text-xs font-medium text-gray-700 dark:text-gray-300 leading-tight">{team.name}</span>
+                <span className="text-xs font-medium text-gray-700 leading-tight">{team.name}</span>
               </button>
             ))}
           </div>
-          <p className="mt-3 text-center text-xs text-gray-600 dark:text-gray-400">
+          <p className="mt-3 text-center text-xs text-gray-600">
             Tu pourras changer plus tard !
           </p>
         </div>
@@ -181,20 +187,20 @@ export default function ProfilPage() {
           </div>
 
           {/* Upcoming matches */}
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Prochains matchs</h3>
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Prochains matchs</h3>
             <div className="space-y-2">
               {upcomingMatches.map((m, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3 dark:bg-slate-700/50"
+                  className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3slate-700/50"
                 >
                   <div>
-                    <p className="text-sm font-medium dark:text-white">{m.opponent}</p>
+                    <p className="text-sm font-medium">{m.opponent}</p>
                     <p className="text-xs text-gray-500">{m.stage}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-bold text-accent dark:text-secondary">
+                    <p className="text-sm font-bold text-accent">
                       {daysUntil(m.date)}j
                     </p>
                     <p className="text-xs text-gray-500">
@@ -210,23 +216,23 @@ export default function ProfilPage() {
           <div className="grid grid-cols-2 gap-3">
             <Link
               href="/pronostic-vainqueur"
-              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md"
             >
               <span className="text-2xl block mb-1"></span>
-              <span className="text-sm font-medium dark:text-white">Mes pronostics</span>
+              <span className="text-sm font-medium">Mes pronostics</span>
             </Link>
             <Link
               href="/quiz/supporter"
-              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:shadow-md"
             >
               <span className="text-2xl block mb-1"></span>
-              <span className="text-sm font-medium dark:text-white">Quiz supporter</span>
+              <span className="text-sm font-medium">Quiz supporter</span>
             </Link>
           </div>
 
           <button
             onClick={() => setShowOnboarding(true)}
-            className="text-sm text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 underline"
+            className="text-sm text-gray-500 hover:text-gray-600 underline"
           >
             Changer d&apos;équipe
           </button>
@@ -244,30 +250,30 @@ export default function ProfilPage() {
 
       {/* Stats cards with icons */}
       <div className="mb-10 grid grid-cols-3 gap-2 sm:gap-4">
-        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700">
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100slate-800 transition-transform hover:scale-[1.03]">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
             <FileText className="w-6 h-6 text-primary" />
           </div>
-          <p className="text-2xl font-bold dark:text-white">{stats.visitedPages.length}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Pages visitées</p>
+          <p className="text-2xl font-bold">{stats.visitedPages.length}</p>
+          <p className="text-xs text-gray-500 mt-1">Pages visitées</p>
         </div>
-        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700">
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100slate-800 transition-transform hover:scale-[1.03]">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
             <Vote className="w-6 h-6 text-primary" />
           </div>
-          <p className="text-2xl font-bold dark:text-white">{stats.votes}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Votes</p>
+          <p className="text-2xl font-bold">{stats.votes}</p>
+          <p className="text-xs text-gray-500 mt-1">Votes</p>
         </div>
-        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700 transition-transform hover:scale-[1.03]">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-slate-700">
+        <div className="rounded-xl bg-white p-5 text-center shadow-md border border-gray-100slate-800 transition-transform hover:scale-[1.03]">
+          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10slate-700">
           </div>
-          <p className="text-2xl font-bold dark:text-white">{stats.quizScore ? `${stats.quizScore}/20` : "—"}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Score quiz</p>
+          <p className="text-2xl font-bold">{stats.quizScore ? `${stats.quizScore}/20` : "—"}</p>
+          <p className="text-xs text-gray-500 mt-1">Score quiz</p>
         </div>
       </div>
 
       {/* Badges — grid 3x2 with glow/lock */}
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Badges</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Badges</h2>
       <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
         {ALL_BADGES.map((badge) => {
           const unlocked = unlockedBadges.includes(badge.id);
@@ -276,22 +282,22 @@ export default function ProfilPage() {
               key={badge.id}
               className={`relative rounded-xl p-5 text-center transition-all duration-300 ${
                 unlocked
-                  ? "bg-white shadow-lg shadow-yellow-200/50 ring-2 ring-yellow-400 dark:bg-slate-800 dark:shadow-yellow-500/20"
-                  : "bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 opacity-60"
+                  ? "bg-white shadow-lg shadow-yellow-200/50 ring-2 ring-yellow-400slate-800"
+                  : "bg-whiteslate-800/50 border border-gray-200 opacity-60"
               }`}
             >
               {!unlocked && (
-                <div className="absolute top-2 right-2 text-gray-400 dark:text-gray-400">
+                <div className="absolute top-2 right-2 text-gray-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                   </svg>
                 </div>
               )}
               <span className="text-4xl block">{badge.emoji}</span>
-              <p className="mt-2 font-bold text-sm dark:text-white">{badge.name}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">{badge.description}</p>
+              <p className="mt-2 font-bold text-sm">{badge.name}</p>
+              <p className="text-xs text-gray-500 mt-1">{badge.description}</p>
               {unlocked && (
-                <span className="mt-2 inline-block rounded-full bg-field/10 px-2 py-0.5 text-xs text-field font-semibold dark:bg-field/20 dark:text-field">
+                <span className="mt-2 inline-block rounded-full bg-field/10 px-2 py-0.5 text-xs text-field font-semiboldfield/20">
                   Débloqué
                 </span>
               )}

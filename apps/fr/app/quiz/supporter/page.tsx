@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState, useMemo } from "react";
@@ -116,7 +118,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: "Si tu pouvais revivre un moment de CDM, ce serait...",
-    emoji: "⏪",
+    emoji: "",
     options: [
       { label: "France 2018, la deuxième étoile ", points: { france: 4 } },
       { label: "Maroc 2022, le rêve africain", points: { maroc: 4, senegal: 1 } },
@@ -137,6 +139,10 @@ const questions: QuizQuestion[] = [
 ];
 
 /* ─── Component ────────────────────────────────────────────── */
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/quiz/supporter" },
+};
 
 export default function QuizSupporterPage() {
   const [currentQ, setCurrentQ] = useState(0);
@@ -191,25 +197,25 @@ export default function QuizSupporterPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 py-10 sm:py-12">
 {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
-          <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+          <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
           <li>/</li>
-          <li><Link href="/quiz" className="text-primary dark:text-secondary hover:underline">Quiz</Link></li>
+          <li><Link href="/quiz" className="text-primary hover:underline">Quiz</Link></li>
           <li>/</li>
-          <li className="text-gray-800 dark:text-gray-200 font-medium">Quel pays supporter ?</li>
+          <li className="text-gray-800 font-medium">Quel pays supporter ?</li>
         </ol>
       </nav>
 
-      <h1 className="mb-2 text-3xl font-extrabold dark:text-white">
+      <h1 className="mb-2 text-3xl font-extrabold">
         Quel pays vas-tu supporter ?
       </h1>
-      <p className="mb-8 text-gray-500 dark:text-gray-300">
+      <p className="mb-8 text-gray-500">
         Réponds à {questions.length} questions et découvre ton équipe idéale pour la CDM 2026 !
       </p>
 
       {/* Progress bar */}
-      <div className="mb-8 h-2 w-full rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
+      <div className="mb-8 h-2 w-full rounded-full bg-gray-200slate-700 overflow-hidden">
         <div
           className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${progress}%` }}
@@ -218,11 +224,11 @@ export default function QuizSupporterPage() {
 
       {!showResult ? (
         /* ─── Question ─── */
-        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow sm:p-8">
-          <div className="mb-1 text-sm font-medium text-gray-400 dark:text-gray-400">
+        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow sm:p-8">
+          <div className="mb-1 text-sm font-medium text-gray-400">
             Question {currentQ + 1}/{questions.length}
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             {questions[currentQ]!.emoji} {questions[currentQ]!.question}
           </h2>
           <div className="grid gap-3">
@@ -230,7 +236,7 @@ export default function QuizSupporterPage() {
               <button
                 key={i}
                 onClick={() => handleAnswer(i)}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 text-left font-medium text-gray-800 transition-all hover:border-primary/40 hover:bg-primary/5 hover:shadow-md active:scale-[0.98] dark:border-slate-600 dark:bg-slate-700 dark:text-gray-200 dark:hover:border-secondary/50 dark:hover:bg-slate-600"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 text-left font-medium text-gray-800 transition-all hover:border-primary/40 hover:bg-primary/5 hover:shadow-md active:scale-[0.98]"
               >
                 {opt.label}
               </button>
@@ -239,14 +245,14 @@ export default function QuizSupporterPage() {
         </div>
       ) : resultTeam ? (
         /* ─── Result ─── */
-        <div className="rounded-2xl border border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-6 shadow-xl dark:border-yellow-800/50 dark:from-slate-800 dark:to-slate-800 sm:p-8">
+        <div className="rounded-2xl border border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-6 shadow-xl sm:p-8">
           <div className="mb-4 text-center">
             <span className="text-7xl block mb-4">{resultTeam.flag}</span>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white ">
+            <h2 className="text-2xl font-bold text-gray-900 ">
               Tu devrais supporter {resultTeam.flag} {resultTeam.name} !
             </h2>
           </div>
-          <p className="mb-6 text-center text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="mb-6 text-center text-gray-600 leading-relaxed">
             {resultTeam.desc}
           </p>
 
@@ -259,21 +265,21 @@ export default function QuizSupporterPage() {
             </Link>
             <button
               onClick={handleShare}
-              className="inline-flex items-center justify-center rounded-xl border-2 border-primary px-6 py-3 font-bold text-primary transition-all hover:bg-primary/5 active:scale-95 dark:border-secondary dark:text-secondary dark:hover:bg-slate-700"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-primary px-6 py-3 font-bold text-primary transition-all hover:bg-primary/5 active:scale-95"
             >
               Partager </button>
           </div>
 
           <button
             onClick={handleRestart}
-            className="mt-6 block mx-auto text-sm text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 underline"
+            className="mt-6 block mx-auto text-sm text-gray-500 hover:text-gray-600 underline"
           >
             Recommencer le quiz
           </button>
 
           {/* Top 3 */}
-          <div className="mt-8 border-t border-gray-200 pt-6 dark:border-slate-600">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 text-center uppercase tracking-wider text-gray-500">
+          <div className="mt-8 border-t border-gray-200 pt-6">
+            <h3 className="text-sm font-semibold text-gray-900 mb-3 text-center uppercase tracking-wider text-gray-500">
               Ton top 3
             </h3>
             <div className="flex justify-center gap-4">
@@ -289,7 +295,7 @@ export default function QuizSupporterPage() {
                         {i === 0 ? "" : i === 1 ? "" : ""}
                       </div>
                       <div className="text-2xl">{t.flag}</div>
-                      <div className="text-xs font-medium text-gray-500 dark:text-gray-300">{t.name}</div>
+                      <div className="text-xs font-medium text-gray-500">{t.name}</div>
                       <div className="text-xs text-gray-500">{pts} pts</div>
                     </div>
                   );

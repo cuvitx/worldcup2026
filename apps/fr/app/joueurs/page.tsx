@@ -75,12 +75,12 @@ export default function PlayersPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-8">
         {/* Top Scorers */}
-        <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Meilleurs buteurs en sélection</h2>
+        <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Meilleurs buteurs en sélection</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-slate-700 text-left">
+                <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">Joueur</th>
                   <th className="pb-3 font-medium text-gray-500">Équipe</th>
                   <th className="pb-3 font-medium text-gray-500">Club</th>
@@ -95,7 +95,7 @@ export default function PlayersPage() {
                   .map((player) => {
                     const team = teamsById[player.teamId];
                     return (
-                      <tr key={player.id} className="hover:bg-gray-50 dark:bg-slate-700">
+                      <tr key={player.id} className="hover:bg-gray-50slate-700">
                         <td className="py-3">
                           <Link href={`/joueur/${player.slug}`} className="font-medium hover:text-primary">
                             {player.name}
@@ -126,8 +126,8 @@ export default function PlayersPage() {
             .filter((p) => p.position === pos)
             .sort((a, b) => b.goals - a.goals || b.caps - a.caps);
           return (
-            <section key={pos} className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{positionLabels[pos]} ({posPlayers.length})</h2>
+            <section key={pos} className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{positionLabels[pos]} ({posPlayers.length})</h2>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {posPlayers.map((player) => {
                   const team = teamsById[player.teamId];
@@ -135,7 +135,7 @@ export default function PlayersPage() {
                     <Link
                       key={player.id}
                       href={`/joueur/${player.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
                       <div>
                         <p className="font-semibold">{player.name}</p>
@@ -158,10 +158,10 @@ export default function PlayersPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs de la CDM 2026", icon: "⚽" },
-          { href: "/comparateur-joueurs", title: "Comparateur de joueurs", description: "Comparez les stats de 2 joueurs", icon: "👥" },
-          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "🏟️" },
-          { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des équipes", icon: "🏆" },
+          { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs de la CDM 2026", icon: "" },
+          { href: "/comparateur-joueurs", title: "Comparateur de joueurs", description: "Comparez les stats de 2 joueurs", icon: "" },
+          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "" },
+          { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des équipes", icon: "" },
         ]} />
       </div>
 

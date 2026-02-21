@@ -128,10 +128,10 @@ export default function ParisCornersPage() {
 
         {/* Introduction */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <CornerDownRight className="h-7 w-7 text-accent" /> Comprendre les paris corners
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-3 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-3 text-gray-700 text-sm leading-relaxed">
             <p>
               Les paris corners constituent un marché en pleine expansion sur les compétitions internationales.
               Contrairement aux paris classiques (1X2, buts), les corners offrent une approche statistique
@@ -150,25 +150,25 @@ export default function ParisCornersPage() {
 
         {/* Stats historiques */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <BarChart3 className="h-7 w-7 text-accent" /> Statistiques corners par Coupe du Monde
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-accent/30 text-left">
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Édition</th>
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Matchs</th>
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Total corners</th>
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Moyenne / match</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Édition</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Matchs</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Total corners</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Moyenne / match</th>
                 </tr>
               </thead>
               <tbody>
                 {statsHistoriques.map((s) => (
-                  <tr key={s.edition} className="border-b border-gray-100 dark:border-slate-700">
-                    <td className="py-2.5 px-4 font-medium text-gray-900 dark:text-white">{s.edition}</td>
-                    <td className="py-2.5 px-4 text-gray-600 dark:text-gray-400">{s.matchs}</td>
-                    <td className="py-2.5 px-4 text-gray-600 dark:text-gray-400">{s.totalCorners}</td>
+                  <tr key={s.edition} className="border-b border-gray-100">
+                    <td className="py-2.5 px-4 font-medium text-gray-900">{s.edition}</td>
+                    <td className="py-2.5 px-4 text-gray-600">{s.matchs}</td>
+                    <td className="py-2.5 px-4 text-gray-600">{s.totalCorners}</td>
                     <td className="py-2.5 px-4 text-accent font-bold">{s.moyenne}</td>
                   </tr>
                 ))}
@@ -182,10 +182,10 @@ export default function ParisCornersPage() {
 
         {/* Top 5 équipes */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <TrendingUp className="h-7 w-7 text-accent" /> Top 5 équipes les plus &ldquo;cornereuses&rdquo;
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-sm text-gray-600 mb-4">
             Ces équipes génèrent le plus de corners par match en compétitions internationales récentes.
             Ciblez leurs matchs pour vos paris over corners.
           </p>
@@ -193,19 +193,19 @@ export default function ParisCornersPage() {
             {topEquipes.map((eq, i) => (
               <div
                 key={eq.equipe}
-                className="flex items-start gap-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4"
+                className="flex items-start gap-4 rounded-xl border border-gray-200 bg-whiteslate-800 p-4"
               >
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 text-accent font-bold flex items-center justify-center text-sm">
                   {i + 1}
                 </span>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
-                    <h3 className="font-bold text-gray-900 dark:text-white">{eq.equipe}</h3>
+                    <h3 className="font-bold text-gray-900">{eq.equipe}</h3>
                     <span className="text-xs bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded-full">
                       {eq.moyCorners} corners/match
                     </span>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{eq.style}</p>
+                  <p className="text-xs text-gray-500 mt-1">{eq.style}</p>
                 </div>
               </div>
             ))}
@@ -214,25 +214,25 @@ export default function ParisCornersPage() {
 
         {/* Tableau cotes */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <BarChart3 className="h-7 w-7 text-accent" /> Cotes over/under corners — comparatif
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-accent/30 text-left">
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Marché</th>
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Winamax</th>
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Betclic</th>
-                  <th className="py-3 px-4 text-primary dark:text-white font-semibold">Unibet</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Marché</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Winamax</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Betclic</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Unibet</th>
                 </tr>
               </thead>
               <tbody>
                 {cotesCorners.map((c) => (
-                  <tr key={c.marche} className="border-b border-gray-100 dark:border-slate-700">
-                    <td className="py-2.5 px-4 font-medium text-gray-900 dark:text-white">{c.marche}</td>
-                    <td className="py-2.5 px-4 text-gray-600 dark:text-gray-400">{c.winamax}</td>
-                    <td className="py-2.5 px-4 text-gray-600 dark:text-gray-400">{c.betclic}</td>
+                  <tr key={c.marche} className="border-b border-gray-100">
+                    <td className="py-2.5 px-4 font-medium text-gray-900">{c.marche}</td>
+                    <td className="py-2.5 px-4 text-gray-600">{c.winamax}</td>
+                    <td className="py-2.5 px-4 text-gray-600">{c.betclic}</td>
                     <td className="py-2.5 px-4 text-accent font-bold">{c.unibet}</td>
                   </tr>
                 ))}
@@ -246,17 +246,17 @@ export default function ParisCornersPage() {
 
         {/* Stratégies */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <CornerDownRight className="h-7 w-7 text-accent" /> Stratégies pour parier sur les corners
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {strategies.map((s) => (
               <div
                 key={s.titre}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
               >
-                <h3 className="font-bold text-gray-900 dark:text-white text-base mb-2">{s.titre}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{s.contenu}</p>
+                <h3 className="font-bold text-gray-900 text-base mb-2">{s.titre}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{s.contenu}</p>
               </div>
             ))}
           </div>
@@ -264,10 +264,10 @@ export default function ParisCornersPage() {
 
         {/* Lien pronostics par match */}
         <section className="rounded-xl border border-accent/20 bg-accent/5 p-6 text-center">
-          <h2 className="text-xl font-bold text-primary dark:text-white mb-2">
+          <h2 className="text-xl font-bold text-primary mb-2">
             Pronostics corners match par match
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-sm text-gray-600 mb-4">
             Retrouvez nos analyses corners détaillées pour chaque match de la CDM 2026 :
             over/under, 1er corner, corners par mi-temps.
           </p>
@@ -281,7 +281,7 @@ export default function ParisCornersPage() {
 
         {/* Bookmakers CTA */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <CornerDownRight className="h-7 w-7 text-accent" /> Meilleurs bookmakers pour les paris corners
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -291,12 +291,12 @@ export default function ParisCornersPage() {
                 href={b.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all block"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all block"
               >
-                <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2">
                   {b.nom} <ExternalLink className="h-4 w-4 text-gray-400" />
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{b.desc}</p>
+                <p className="text-sm text-gray-600 mt-1">{b.desc}</p>
                 <span className="inline-block mt-3 bg-accent text-white rounded-xl py-3.5 px-4 text-sm font-semibold text-center w-full">
                   Parier sur {b.nom}
                 </span>

@@ -63,7 +63,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Navigation principale mobile"
-      className="sm:hidden fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md bg-white/90 dark:bg-slate-900/95 border-t border-gray-200 dark:border-slate-700 safe-area-inset-bottom"
+      className="sm:hidden fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md bg-white/90slate-900/95 border-t border-gray-200 safe-area-inset-bottom"
     >
       <ul className="flex items-stretch h-16">
         {NAV_ITEMS.map(({ href, label, icon }) => {
@@ -79,15 +79,15 @@ export function BottomNav() {
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset",
                   "active:scale-95",
                   active
-                    ? "text-primary dark:text-secondary"
-                    : "text-gray-500 dark:text-slate-300 hover:text-gray-900 dark:hover:text-slate-100",
+                    ? "text-primary"
+                    : "text-gray-500 hover:text-gray-900",
                 ].join(" ")}
               >
                 <span
                   className={[
                     "flex items-center justify-center w-10 h-6 rounded-full transition-all duration-200",
                     active
-                      ? "bg-primary/10 dark:bg-primary/20 scale-110"
+                      ? "bg-primary/10primary/20 scale-110"
                       : "scale-100",
                   ].join(" ")}
                   aria-hidden="true"

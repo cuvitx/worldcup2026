@@ -25,15 +25,15 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
   };
 
   return (
-    <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-      <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+    <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 text-center">
         Choisissez deux équipes
       </h2>
       <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
         <select
           value={team1}
           onChange={(e) => setTeam1(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white sm:flex-1"
+          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 sm:flex-1"
         >
           <option value="">Équipe 1</option>
           {teams.map((t) => (
@@ -48,7 +48,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
         <select
           value={team2}
           onChange={(e) => setTeam2(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white sm:flex-1"
+          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 sm:flex-1"
         >
           <option value="">Équipe 2</option>
           {teams.map((t) => (

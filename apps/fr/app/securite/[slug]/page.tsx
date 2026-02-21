@@ -238,6 +238,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `Est-ce dangereux à ${data.name} ? — CDM 2026`,
       description: `Score sécurité ${data.score}/10 · Quartiers sûrs et à éviter · Numéros d'urgence · Transport de nuit`,
       url: `${domains.fr}/securite/${slug}`,
+      },
+    alternates: { canonical: `https://cdm2026.fr/securite/${slug}` },
     },
   };
 }
@@ -309,7 +311,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
       {/* Safe & Avoid areas */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 p-6">
+          <div className="rounded-2xl border border-green-200 bg-green-50green-900/20 p-6">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-600" />
               Quartiers sûrs
@@ -323,7 +325,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 p-6">
+          <div className="rounded-2xl border border-red-200 bg-red-50red-900/20 p-6">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-red-600" />
               Quartiers à éviter
@@ -369,13 +371,13 @@ export default async function SecuriteCityPage({ params }: PageProps) {
 
       {/* Night transport */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Moon className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Transport de nuit
         </h2>
         <ul className="space-y-3">
           {data.nightTransport.map((t) => (
-            <li key={t} className="flex gap-3 text-gray-700 dark:text-gray-300">
+            <li key={t} className="flex gap-3 text-gray-700">
               <Moon className="w-5 h-5 text-[#00B865] shrink-0 mt-0.5" />
               <span>{t}</span>
             </li>
@@ -385,13 +387,13 @@ export default async function SecuriteCityPage({ params }: PageProps) {
 
       {/* Tips */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Shield className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Conseils pratiques
         </h2>
         <div className="space-y-3">
           {data.tips.map((tip) => (
-            <div key={tip} className="flex gap-3 text-gray-700 dark:text-gray-300">
+            <div key={tip} className="flex gap-3 text-gray-700">
               <Shield className="w-5 h-5 text-[#00B865] shrink-0 mt-0.5" />
               <span>{tip}</span>
             </div>
@@ -401,10 +403,10 @@ export default async function SecuriteCityPage({ params }: PageProps) {
 
       {/* Insurance CTA */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6 text-center">
+        <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
           <HeartPulse className="w-10 h-10 text-[#00B865] mx-auto mb-3" />
           <h3 className="font-bold text-lg mb-2">Assurance voyage recommandée</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+          <p className="text-sm text-gray-600 mb-4">
             {data.country === "USA"
               ? "Aux États-Unis, une simple visite aux urgences peut coûter 3 000 à 10 000 $. Ne partez pas sans assurance."
               : data.country === "Mexique"

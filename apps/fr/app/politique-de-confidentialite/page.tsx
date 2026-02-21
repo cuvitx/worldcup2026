@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { domains } from "@repo/data/route-mapping";
+import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Politique de confidentialité | CDM 2026",
   description:
@@ -37,7 +38,7 @@ export default function PolitiqueConfidentialitePage() {
       </section>
 
       <div className="mx-auto max-w-4xl px-4 py-12">
-        <div className="space-y-8 text-gray-700 dark:text-gray-300 leading-relaxed">
+        <div className="space-y-8 text-gray-700 leading-relaxed">
 
           {/* Intro */}
           <section>
@@ -57,7 +58,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 1. Responsable du traitement */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               1. Responsable du traitement
             </h2>
             <ul className="space-y-1 text-sm">
@@ -73,7 +74,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 2. Données collectées */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               2. Données collectées et finalités
             </h2>
             <p className="mb-3">
@@ -82,39 +83,39 @@ export default function PolitiqueConfidentialitePage() {
               susceptibles d&apos;être traitées sont :
             </p>
             <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse border border-gray-200 dark:border-slate-700">
+              <table className="w-full text-sm border-collapse border border-gray-200">
                 <thead>
-                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
-                    <th className="border border-gray-200 dark:border-slate-600 px-4 py-2 text-left font-semibold">Données</th>
-                    <th className="border border-gray-200 dark:border-slate-600 px-4 py-2 text-left font-semibold">Finalité</th>
-                    <th className="border border-gray-200 dark:border-slate-600 px-4 py-2 text-left font-semibold">Base légale</th>
+                  <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold">Données</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold">Finalité</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold">Base légale</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Adresse IP (anonymisée)</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Analyse d&apos;audience, sécurité</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Intérêt légitime</td>
+                    <td className="border border-gray-200 px-4 py-2">Adresse IP (anonymisée)</td>
+                    <td className="border border-gray-200 px-4 py-2">Analyse d&apos;audience, sécurité</td>
+                    <td className="border border-gray-200 px-4 py-2">Intérêt légitime</td>
                   </tr>
-                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Données de navigation (pages vues, durée)</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Amélioration du service</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Consentement</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Préférences utilisateur (thème, langue)</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Personnalisation</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Intérêt légitime</td>
-                  </tr>
-                  <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Adresse email (newsletter)</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Envoi de la newsletter</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Consentement</td>
+                  <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+                    <td className="border border-gray-200 px-4 py-2">Données de navigation (pages vues, durée)</td>
+                    <td className="border border-gray-200 px-4 py-2">Amélioration du service</td>
+                    <td className="border border-gray-200 px-4 py-2">Consentement</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Données cookies tiers</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Publicité, affiliation</td>
-                    <td className="border border-gray-200 dark:border-slate-600 px-4 py-2">Consentement</td>
+                    <td className="border border-gray-200 px-4 py-2">Préférences utilisateur (thème, langue)</td>
+                    <td className="border border-gray-200 px-4 py-2">Personnalisation</td>
+                    <td className="border border-gray-200 px-4 py-2">Intérêt légitime</td>
+                  </tr>
+                  <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
+                    <td className="border border-gray-200 px-4 py-2">Adresse email (newsletter)</td>
+                    <td className="border border-gray-200 px-4 py-2">Envoi de la newsletter</td>
+                    <td className="border border-gray-200 px-4 py-2">Consentement</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">Données cookies tiers</td>
+                    <td className="border border-gray-200 px-4 py-2">Publicité, affiliation</td>
+                    <td className="border border-gray-200 px-4 py-2">Consentement</td>
                   </tr>
                 </tbody>
               </table>
@@ -123,7 +124,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 3. Cookies */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               3. Cookies et traceurs
             </h2>
             <p className="mb-3">
@@ -132,7 +133,7 @@ export default function PolitiqueConfidentialitePage() {
               non essentiels.
             </p>
 
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 mt-4 mb-2">
               3.1 Cookies essentiels (pas de consentement requis)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -140,7 +141,7 @@ export default function PolitiqueConfidentialitePage() {
               <li><strong>theme</strong> — Préférence de thème clair/sombre (durée : session)</li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 mt-4 mb-2">
               3.2 Cookies analytiques (avec consentement)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -160,7 +161,7 @@ export default function PolitiqueConfidentialitePage() {
               </li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 mt-4 mb-2">
               3.3 Cookies tiers / affiliation (avec consentement)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -175,7 +176,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 4. Hébergement et transfert de données */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               4. Hébergement et transferts hors UE
             </h2>
             <p>
@@ -192,7 +193,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 5. Durée de conservation */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               5. Durée de conservation des données
             </h2>
             <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -205,7 +206,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 6. Vos droits */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               6. Vos droits (RGPD)
             </h2>
             <p className="mb-3">
@@ -266,7 +267,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 7. Sécurité */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               7. Sécurité des données
             </h2>
             <p>
@@ -283,7 +284,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 8. Mineurs */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               8. Mineurs
             </h2>
             <p>
@@ -296,15 +297,12 @@ export default function PolitiqueConfidentialitePage() {
               </a>
               .
             </p>
-            <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm">
-              <strong>Rappel :</strong> Les jeux d&apos;argent sont interdits aux personnes
-              mineures. Appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
-            </div>
+            <ANJBanner />
           </section>
 
           {/* 9. Liens externes */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               9. Liens vers des sites tiers
             </h2>
             <p>
@@ -316,7 +314,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* 10. Modifications */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               10. Modifications de la présente politique
             </h2>
             <p>
@@ -329,7 +327,7 @@ export default function PolitiqueConfidentialitePage() {
 
           {/* Contact */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Contact</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Contact</h2>
             <p>
               Pour toute question relative à cette politique de confidentialité :{" "}
               <a href="mailto:contact@cdm2026.fr" className="text-primary hover:underline">

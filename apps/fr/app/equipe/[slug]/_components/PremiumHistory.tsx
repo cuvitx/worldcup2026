@@ -31,27 +31,27 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
   if (!history || history.length === 0) {
     // Fallback: simple stats display
     return (
-      <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+      <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Historique en Coupe du Monde
           </h2>
           <div className="grid sm:grid-cols-3 gap-4 mb-6">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 p-5 text-center">
-              <p className="text-3xl font-extrabold text-gray-900 dark:text-white">{team.wcAppearances}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold mt-1">Participations</p>
+            <div className="rounded-xl border border-gray-200 bg-gray-50slate-800 p-5 text-center">
+              <p className="text-3xl font-extrabold text-gray-900">{team.wcAppearances}</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Participations</p>
             </div>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 p-5 text-center">
+            <div className="rounded-xl border border-gray-200 bg-gray-50slate-800 p-5 text-center">
               <p className="text-lg font-extrabold text-accent">{team.bestResult}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold mt-1">Meilleur résultat</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Meilleur résultat</p>
             </div>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 p-5 text-center">
-              <p className="text-3xl font-extrabold text-gray-900 dark:text-white">#{team.fifaRanking}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold mt-1">Classement FIFA</p>
+            <div className="rounded-xl border border-gray-200 bg-gray-50slate-800 p-5 text-center">
+              <p className="text-3xl font-extrabold text-gray-900">#{team.fifaRanking}</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Classement FIFA</p>
             </div>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{team.description}</p>
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+            <p className="text-sm text-gray-600 leading-relaxed">{team.description}</p>
           </div>
         </div>
       </section>
@@ -61,19 +61,19 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
   const stats = countResults(history);
 
   return (
-    <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+    <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Historique en Coupe du Monde (1930–2022)
         </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
+        <p className="text-sm text-gray-500 mb-6">
           {summaryLine(stats)}
         </p>
 
-        <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm">
+        <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
           <table className="w-full text-sm min-w-[480px]">
             <thead>
-              <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-700 dark:text-gray-300">
+              <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-700">
                 <th className="text-left px-4 py-3 font-bold">Année</th>
                 <th className="text-left px-4 py-3 font-bold">Résultat</th>
                 <th className="text-left px-4 py-3 font-bold hidden sm:table-cell">Note</th>
@@ -83,17 +83,17 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
               {history.map((edition, i) => (
                 <tr
                   key={edition.year}
-                  className={`border-t border-gray-100 dark:border-slate-700/50 ${
+                  className={`border-t border-gray-100 ${
                     edition.result.includes("CHAMPION")
-                      ? "bg-primary/5 dark:bg-secondary/10"
+                      ? "bg-primary/5secondary/10"
                       : edition.result.includes("Finaliste")
-                      ? "bg-gray-50/50 dark:bg-slate-800/50"
+                      ? "bg-gray-50/50slate-800/50"
                       : i % 2 === 0
-                      ? "bg-white dark:bg-slate-800/30"
-                      : "bg-gray-50/30 dark:bg-slate-800/60"
+                      ? "bg-whiteslate-800/30"
+                      : "bg-gray-50/30slate-800/60"
                   }`}
                 >
-                  <td className="px-4 py-2.5 font-bold text-gray-900 dark:text-white whitespace-nowrap">
+                  <td className="px-4 py-2.5 font-bold text-gray-900 whitespace-nowrap">
                     {edition.year}
                   </td>
                   <td className="px-4 py-2.5">
@@ -101,10 +101,10 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
                       edition.result.includes("CHAMPION")
                         ? "text-accent text-base"
                         : edition.result.includes("Finaliste")
-                        ? "text-gray-600 dark:text-gray-200"
+                        ? "text-gray-600"
                         : edition.result.includes("Non qualifi") || edition.result.includes("Non participant") || edition.result.includes("N'existait pas")
-                        ? "text-gray-400 dark:text-gray-400"
-                        : "text-gray-700 dark:text-gray-300"
+                        ? "text-gray-400"
+                        : "text-gray-700"
                     }`}>
                       {edition.flag && edition.flag !== "—" && edition.flag !== "" && (
                         <span className="mr-1">{edition.flag}</span>
@@ -112,7 +112,7 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
                       {edition.result}
                     </span>
                   </td>
-                  <td className="px-4 py-2.5 text-xs text-gray-500 dark:text-gray-300 hidden sm:table-cell max-w-xs">
+                  <td className="px-4 py-2.5 text-xs text-gray-500 hidden sm:table-cell max-w-xs">
                     {edition.note}
                   </td>
                 </tr>

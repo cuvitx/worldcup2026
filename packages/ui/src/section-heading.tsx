@@ -38,11 +38,11 @@ export function SectionHeading({ title, subtitle, linkHref, linkLabel, emoji, ch
   return (
     <div className="flex items-end justify-between mb-4">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <h2 className="text-2xl font-bold text-gray-900">
           {emoji && <>{emoji} </>}{title}
         </h2>
         {subtitle && (
-          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{subtitle}</p>
+          <p className="text-sm text-gray-600 mt-1">{subtitle}</p>
         )}
       </div>
       {linkHref && linkLabel && (

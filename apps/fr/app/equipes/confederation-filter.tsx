@@ -34,7 +34,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Équipes par confédération</h2>
+      <h2 className="text-2xl font-bold text-gray-900">Équipes par confédération</h2>
 
       {/* Filter pills */}
       <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible">
@@ -48,7 +48,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
               className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                 active === key
                   ? "bg-primary text-white shadow-md"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                  : "bg-gray-100gray-700 text-gray-600 hover:bg-gray-200"
               }`}
             >
               {confLabels[key]} ({count})
@@ -63,14 +63,14 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
           <Link
             key={team.id}
             href={`/equipe/${team.slug}`}
-            className="group flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
+            className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 p-3 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
           >
             <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-200 shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>
               {team.flag}
             </span>
             <div className="min-w-0">
-              <p className="font-semibold text-gray-900 dark:text-white truncate">{team.name}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-300">
+              <p className="font-semibold text-gray-900 truncate">{team.name}</p>
+              <p className="text-xs text-gray-500">
                 #{team.fifaRanking} FIFA · Groupe {team.group}
               </p>
               {team.isHost && (

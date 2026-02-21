@@ -16,9 +16,9 @@ export function BracketMatchCard({
     <div
       className={`rounded-xl overflow-hidden border transition-all ${
         winner
-          ? "border-accent/30 dark:border-accent/20 shadow-sm"
-          : "border-gray-200 dark:border-gray-600"
-      } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-white dark:bg-slate-800`}
+          ? "border-accent/30 shadow-sm"
+          : "border-gray-200"
+      } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-whiteslate-800`}
     >
       <TeamSlot
         team={team1}
@@ -26,7 +26,7 @@ export function BracketMatchCard({
         onSelect={() => team1 && onSelect(team1.id)}
         canPick={canPick}
       />
-      <div className="h-px bg-gray-100 dark:bg-gray-700" />
+      <div className="h-px bg-gray-100gray-700" />
       <TeamSlot
         team={team2}
         isWinner={winner === team2?.id}
@@ -50,7 +50,7 @@ function TeamSlot({
 }) {
   if (!team) {
     return (
-      <div className="flex items-center gap-2 px-2.5 py-2 text-gray-500 dark:text-gray-600">
+      <div className="flex items-center gap-2 px-2.5 py-2 text-gray-500">
         <span className="text-base opacity-40">⬜</span>
         <span className="text-xs italic">À déterminer</span>
       </div>
@@ -64,9 +64,9 @@ function TeamSlot({
       onClick={onSelect}
       className={`w-full flex items-center gap-2 px-2.5 py-2 text-left transition-all ${
         isWinner
-          ? "bg-accent/10 dark:bg-secondary/10 font-bold"
+          ? "bg-accent/10secondary/10 font-bold"
           : canPick
-          ? "hover:bg-gray-50 dark:bg-slate-700 dark:hover:bg-gray-700/60 cursor-pointer"
+          ? "hover:bg-gray-50slate-700 cursor-pointer"
           : "cursor-default opacity-60"
       }`}
     >
@@ -76,14 +76,14 @@ function TeamSlot({
       <span
         className={`text-xs truncate flex-1 ${
           isWinner
-            ? "text-accent dark:text-secondary"
-            : "text-gray-800 dark:text-gray-200"
+            ? "text-accent"
+            : "text-gray-800"
         }`}
       >
         {team.name}
       </span>
       {isWinner && (
-        <span className="shrink-0 text-accent dark:text-secondary text-xs font-bold">✓</span>
+        <span className="shrink-0 text-accent text-xs font-bold">✓</span>
       )}
     </button>
   );

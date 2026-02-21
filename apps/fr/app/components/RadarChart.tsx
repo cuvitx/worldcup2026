@@ -38,13 +38,13 @@ export default function RadarChart({ rating, color = "var(--color-gold)", classN
   const gridRings = Array.from({ length: LEVELS }, (_, i) => {
     const r = (R / LEVELS) * (i + 1);
     const pts = AXES.map((_, j) => polarToXY(j * angleStep, r).join(",")).join(" ");
-    return <polygon key={i} points={pts} fill="none" stroke="currentColor" className="text-gray-300 dark:text-slate-600" strokeWidth={i === LEVELS - 1 ? 1.5 : 0.7} />;
+    return <polygon key={i} points={pts} fill="none" stroke="currentColor" className="text-gray-300" strokeWidth={i === LEVELS - 1 ? 1.5 : 0.7} />;
   });
 
   // Axis lines
   const axisLines = AXES.map((_, i) => {
     const [x, y] = polarToXY(i * angleStep, R);
-    return <line key={i} x1={CX} y1={CY} x2={x} y2={y} stroke="currentColor" className="text-gray-300 dark:text-slate-600" strokeWidth={0.7} />;
+    return <line key={i} x1={CX} y1={CY} x2={x} y2={y} stroke="currentColor" className="text-gray-300" strokeWidth={0.7} />;
   });
 
   // Data polygon
@@ -65,10 +65,10 @@ export default function RadarChart({ rating, color = "var(--color-gold)", classN
         y={y}
         textAnchor="middle"
         dominantBaseline="middle"
-        className="fill-gray-700 dark:fill-gray-300 text-[11px] font-medium"
+        className="fill-gray-700 text-[11px] font-medium"
       >
         <tspan x={x} dy="-0.4em">{axis.label}</tspan>
-        <tspan x={x} dy="1.2em" className="fill-gray-500 dark:fill-gray-400 text-[10px]">{val}</tspan>
+        <tspan x={x} dy="1.2em" className="fill-gray-500 text-[10px]">{val}</tspan>
       </text>
     );
   });

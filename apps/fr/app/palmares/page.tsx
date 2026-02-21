@@ -76,15 +76,15 @@ export default function PalmaresPage() {
  links={[
  {
  href: "/histoire",
- title: "📜 Histoire de la CDM",
+ title: " Histoire de la CDM",
  description: "Timeline complète des 22 éditions depuis 1930 avec faits marquants et anecdotes.",
- icon: "📜"
+ icon: ""
  },
  {
  href: "/statistiques",
- title: "📊 Statistiques détaillées",
+ title: " Statistiques détaillées",
  description: "Records, performances et analyses statistiques de toutes les Coupes du Monde.",
- icon: "📊"
+ icon: ""
  },
  {
  href: "/pronostic-vainqueur",

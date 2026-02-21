@@ -10,7 +10,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50 dark:bg-slate-900">
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50slate-900">
       {/* Carton jaune animé */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
         <div className="flex flex-col items-center" aria-hidden="true">
@@ -21,7 +21,7 @@ export default function Error({
             
           </span>
           <div
-            className="w-12 h-2 rounded-full bg-black/10 dark:bg-black/30 blur-sm mt-1"
+            className="w-12 h-2 rounded-full bg-black/10black/30 blur-sm mt-1"
             style={{ animation: "ball-shadow 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           />
         </div>
@@ -41,21 +41,21 @@ export default function Error({
 
       {/* Badge */}
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent//10 border border-accent//20 text-accent text-sm font-semibold mb-6">
-        🟨 Carton Jaune — Faute technique
+         Carton Jaune — Faute technique
       </div>
 
       {/* Titre */}
-      <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+      <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
         Carton jaune&nbsp;!{" "}
         <span className="text-primary">Une erreur technique</span> est survenue
       </h1>
 
       {/* Sous-titre */}
-      <p className="text-gray-500 dark:text-gray-300 text-lg max-w-md mb-3">
+      <p className="text-gray-500 text-lg max-w-md mb-3">
         L&apos;arbitre a sifflé une faute technique. Pas de panique, on peut reprendre le jeu.
       </p>
       {error.digest && (
-        <p className="text-gray-400 dark:text-gray-500 text-xs mb-6 font-mono">
+        <p className="text-gray-400 text-xs mb-6 font-mono">
           Réf : {error.digest}
         </p>
       )}
@@ -73,7 +73,7 @@ export default function Error({
         </button>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-3.5 font-bold text-gray-700 dark:text-gray-200 shadow-sm hover:border-primary//30 hover:text-primary dark:hover:border-primary//30 dark:hover:text-secondary transition-all hover:-translate-y-0.5 text-sm"
+          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-whiteslate-800 px-8 py-3.5 font-bold text-gray-700 shadow-sm hover:border-primary//30 hover:text-primary transition-all hover:-translate-y-0.5 text-sm"
         >
           ← Retour à l&apos;accueil
         </Link>

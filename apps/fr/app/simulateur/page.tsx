@@ -55,16 +55,16 @@ export default function SimulateurPage() {
           }
 ]} />
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-whiteslate-900 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-2.5">
-          <ol className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-xs text-gray-500 flex-wrap min-w-0">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
               </Link>
             </li>
-            <li className="text-gray-300 dark:text-gray-600">/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">
+            <li className="text-gray-300">/</li>
+            <li className="text-gray-900 font-medium">
               Simulateur
             </li>
           </ol>
@@ -110,7 +110,7 @@ export default function SimulateurPage() {
                 {[
                   { icon: "", text: "32 équipes" },
                   { icon: "", text: "16 matchs à prédire" },
-                  { icon: "💾", text: "Sauvegarde auto" },
+                  { icon: "", text: "Sauvegarde auto" },
                 ].map((item) => (
                   <span
                     key={item.text}
@@ -129,7 +129,7 @@ export default function SimulateurPage() {
       </section>
 
       {/* Simulator */}
-      <section className="bg-gray-50 dark:bg-slate-900/50 py-8 sm:py-12">
+      <section className="bg-gray-50slate-900/50 py-8 sm:py-12">
         <div className="mx-auto max-w-[1600px] px-2 lg:px-4">
           <BracketSimulator />
         </div>

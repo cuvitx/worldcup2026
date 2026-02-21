@@ -32,9 +32,9 @@ const COUNTRY_LABELS: Record<string, string> = {
 };
 
 const COUNTRY_COLORS: Record<string, string> = {
-  USA:    "bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-slate-700",
-  Canada: "bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-slate-700",
-  Mexico: "bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-slate-700",
+  USA:    "bg-whiteslate-800 text-gray-900 border-gray-200",
+  Canada: "bg-whiteslate-800 text-gray-900 border-gray-200",
+  Mexico: "bg-whiteslate-800 text-gray-900 border-gray-200",
 };
 
 export default function CarteStadesPage() {
@@ -81,22 +81,22 @@ export default function CarteStadesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-whiteslate-900 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-primary dark:hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 Accueil
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/stades" className="hover:text-primary dark:hover:text-primary transition-colors">
+              <Link href="/stades" className="hover:text-primary transition-colors">
                 Stades
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">Carte interactive</li>
+            <li className="text-gray-900 font-medium">Carte interactive</li>
           </ol>
         </div>
       </nav>
@@ -120,7 +120,7 @@ export default function CarteStadesPage() {
         {/* Interactive map */}
         <section className="mb-10" aria-label="Carte interactive">
           <StadiumMapLazy />
-          <p className="text-xs text-center text-gray-400 dark:text-gray-400 mt-2">
+          <p className="text-xs text-center text-gray-400 mt-2">
             Survolez un marqueur pour voir les détails · Cliquez pour accéder à la fiche du stade
           </p>
         </section>
@@ -129,7 +129,7 @@ export default function CarteStadesPage() {
         <section aria-labelledby="liste-stades">
           <h2
             id="liste-stades"
-            className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6"
+            className="text-2xl font-bold text-gray-900 mb-6"
           >
              Liste des 16 stades
           </h2>
@@ -142,9 +142,9 @@ export default function CarteStadesPage() {
 
               return (
                 <div key={country}>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
                     {COUNTRY_LABELS[country]}
-                    <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-300">
+                    <span className="ml-2 text-sm font-normal text-gray-500">
                       ({countryStadiums.length} stade{countryStadiums.length > 1 ? "s" : ""})
                     </span>
                   </h3>
@@ -190,32 +190,32 @@ export default function CarteStadesPage() {
         </section>
 
         {/* Stats summary */}
-        <section className="mt-12 bg-gray-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        <section className="mt-12 bg-gray-50slate-800/50 rounded-2xl p-6 border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
              Chiffres clés
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-secondary">16</div>
-              <div className="text-sm text-gray-500 dark:text-gray-300">Stades</div>
+              <div className="text-3xl font-extrabold text-primary">16</div>
+              <div className="text-sm text-gray-500">Stades</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-secondary">
+              <div className="text-3xl font-extrabold text-primary">
                 {stadiums.reduce((s, st) => s + st.capacity, 0).toLocaleString("fr-FR")}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-300">Places totales</div>
+              <div className="text-sm text-gray-500">Places totales</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-secondary">
+              <div className="text-3xl font-extrabold text-primary">
                 {Math.max(...stadiums.map((s) => s.capacity)).toLocaleString("fr-FR")}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-300">Capacité max (Azteca)</div>
+              <div className="text-sm text-gray-500">Capacité max (Azteca)</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-primary dark:text-secondary">
+              <div className="text-3xl font-extrabold text-primary">
                 {Math.round(stadiums.reduce((s, st) => s + st.capacity, 0) / stadiums.length).toLocaleString("fr-FR")}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-300">Capacité moyenne</div>
+              <div className="text-sm text-gray-500">Capacité moyenne</div>
             </div>
           </div>
         </section>
@@ -230,7 +230,7 @@ export default function CarteStadesPage() {
           </Link>
           <Link
             href="/match/calendrier"
-            className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 bg-whiteslate-800 text-gray-900 font-bold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
           >
              Calendrier des matchs
           </Link>

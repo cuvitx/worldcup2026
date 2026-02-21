@@ -7,6 +7,7 @@ import { Target, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
 
+import { ANJBanner } from "@repo/ui/anj-banner";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -194,8 +195,9 @@ export default async function TirsCadresPage({ params }: PageProps) {
               Unibet <ExternalLink className="w-4 h-4" />
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-4">18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).</p>
+          <p className="text-xs text-gray-400 mt-4"></p>
         </div>
+        <ANJBanner />
       </section>
 
       {/* Related */}

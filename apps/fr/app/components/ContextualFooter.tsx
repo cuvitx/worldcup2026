@@ -227,12 +227,12 @@ export function ContextualFooter() {
   const siloLinks = getSiloLinks(silo);
 
   return (
-    <section className="bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800">
+    <section className="bg-gray-50slate-900 border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {/* Col 1: Contextual */}
           <div>
-            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] dark:text-white mb-4">
+            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] mb-4">
               {columnIcons[silo]}
               {siloTitles[silo]}
             </h3>
@@ -241,7 +241,7 @@ export function ContextualFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#022149] dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 hover:text-[#022149] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -252,7 +252,7 @@ export function ContextualFooter() {
 
           {/* Col 2: Top Nations */}
           <div>
-            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] dark:text-white mb-4">
+            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] mb-4">
               <Star className="h-4 w-4 text-[#D4AF37]" />
               Top Nations
             </h3>
@@ -261,7 +261,7 @@ export function ContextualFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#022149] dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 hover:text-[#022149] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -272,7 +272,7 @@ export function ContextualFooter() {
 
           {/* Col 3: Outils */}
           <div>
-            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] dark:text-white mb-4">
+            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] mb-4">
               <Calculator className="h-4 w-4 text-[#00B865]" />
               Outils
             </h3>
@@ -281,7 +281,7 @@ export function ContextualFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#022149] dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 hover:text-[#022149] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -292,7 +292,7 @@ export function ContextualFooter() {
 
           {/* Col 4: Légal */}
           <div>
-            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] dark:text-white mb-4">
+            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#022149] mb-4">
               <FileText className="h-4 w-4 text-gray-400" />
               Légal
             </h3>
@@ -301,7 +301,7 @@ export function ContextualFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#022149] dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 hover:text-[#022149] transition-colors"
                   >
                     {link.label}
                   </Link>

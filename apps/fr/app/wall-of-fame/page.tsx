@@ -182,7 +182,7 @@ export default function WallOfFamePage() {
         {moments.map((m) => (
           <section
             key={m.rang}
-            className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 sm:p-8"
+            className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 sm:p-8"
           >
             <div className="flex items-start gap-4">
               <div className="flex flex-col items-center shrink-0">
@@ -192,10 +192,10 @@ export default function WallOfFamePage() {
                 <Star className="h-4 w-4 text-yellow-500 mt-1" />
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">{m.titre}</h2>
+                <h2 className="text-xl font-bold text-gray-900">{m.titre}</h2>
                 <p className="text-sm text-accent font-medium mt-1">{m.contexte}</p>
-                <p className="text-gray-700 dark:text-gray-300 mt-3 leading-relaxed">{m.description}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 italic">
+                <p className="text-gray-700 mt-3 leading-relaxed">{m.description}</p>
+                <p className="text-sm text-gray-500 mt-2 italic">
                   <strong>Impact :</strong> {m.impact}
                 </p>
               </div>

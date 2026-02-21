@@ -147,7 +147,7 @@ export default function ChantsSupportersPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Music className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Top 10 des chants légendaires
             </h2>
           </div>
@@ -155,7 +155,7 @@ export default function ChantsSupportersPage() {
             {topChants.map((chant) => (
               <div
                 key={chant.rank}
-                className="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg transition-shadow"
+                className="rounded-xl border border-gray-200 p-5 hover:shadow-lg transition-shadow"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary/20 text-secondary font-black text-lg shrink-0">
@@ -163,20 +163,20 @@ export default function ChantsSupportersPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <h3 className="font-bold text-primary dark:text-white text-lg">
+                      <h3 className="font-bold text-primary text-lg">
                         {chant.title}
                       </h3>
                       <span className="text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
                         <Globe className="h-3 w-3" /> {chant.country}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                    <p className="text-sm text-gray-600 mb-2">
                       {chant.description}
                     </p>
                     <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
                       <Mic className="h-3 w-3" /> {chant.origin}
                     </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg px-3 py-2 text-sm italic text-gray-600 dark:text-gray-400">
+                    <div className="bg-gray-50gray-800 rounded-lg px-3 py-2 text-sm italic text-gray-600">
                       &ldquo;{chant.lyrics}&rdquo;
                     </div>
                   </div>

@@ -91,15 +91,15 @@ export default function ClassementFifaPage() {
         <div>
           {/* Intro */}
           <div className="mb-10">
-            <h2 id="introduction" className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 id="introduction" className="text-2xl font-bold text-gray-900 mb-4">
               Le classement FIFA : référence mondiale
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               Le classement mondial de la FIFA est l'indicateur de référence pour évaluer la force des sélections nationales.
               Mis à jour mensuellement depuis 1993, il prend en compte les résultats des matchs officiels pondérés par leur importance,
               la force de l'adversaire et la confédération concernée.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               Pour la Coupe du Monde 2026, le classement FIFA a joué un rôle décisif dans la composition des chapeaux lors du tirage au sort.
               Les 12 équipes les mieux classées ont été réparties comme têtes de série dans les 12 groupes, 
               influençant directement les parcours et les confrontations potentielles.
@@ -108,43 +108,43 @@ export default function ClassementFifaPage() {
 
           {/* Tableau classement FIFA */}
           <div className="mb-12">
-            <h2 id="classement-complet" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="classement-complet" className="text-2xl font-bold text-gray-900 mb-6">
               Classement FIFA complet (19 janvier 2026)
             </h2>
             
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden shadow-sm">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 dark:bg-slate-900">
+                  <thead className="bg-gray-50slate-900">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Rang FIFA
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Équipe
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Confédération
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Groupe
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         CDM
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-slate-700">
+                  <tbody className="divide-y divide-gray-200">
                     {teamsRanked.map((team, idx) => (
                       <tr
                         key={team.id}
-                        className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                        className="hover:bg-gray-50 transition-colors"
                       >
                         <td className="px-4 py-3 whitespace-nowrap">
                           <div className="flex items-center gap-2">
                             <span className={`
                               font-bold text-sm
-                              ${team.fifaRanking <= 12 ? "text-accent" : "text-gray-900 dark:text-white"}
+                              ${team.fifaRanking <= 12 ? "text-accent" : "text-gray-900"}
                             `}>
                               #{team.fifaRanking}
                             </span>
@@ -161,23 +161,23 @@ export default function ClassementFifaPage() {
                             className="flex items-center gap-2 hover:text-accent transition-colors group"
                           >
                             <Flag flag={team.flag} name={team.name} className="w-6 h-4" />
-                            <span className="font-medium text-gray-900 dark:text-white group-hover:underline">
+                            <span className="font-medium text-gray-900 group-hover:underline">
                               {team.name}
                             </span>
                           </Link>
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
                           {team.confederation}
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap">
                           <Link
                             href={`/groupe/${team.group.toLowerCase()}`}
-                            className="text-sm font-semibold text-gray-900 dark:text-white hover:text-accent transition-colors"
+                            className="text-sm font-semibold text-gray-900 hover:text-accent transition-colors"
                           >
                             Groupe {team.group}
                           </Link>
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
                           {team.wcAppearances}
                         </td>
                       </tr>
@@ -188,16 +188,16 @@ export default function ClassementFifaPage() {
             </div>
 
             {playoffTeams.length > 0 && (
-              <div className="mt-6 bg-gray-50 dark:bg-slate-900 rounded-xl p-5 border border-gray-200 dark:border-slate-700">
-                <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2">
+              <div className="mt-6 bg-gray-50slate-900 rounded-xl p-5 border border-gray-200">
+                <h3 className="text-sm font-bold text-gray-900 mb-2">
                   Places de barrages en attente
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <p className="text-sm text-gray-600 mb-3">
                   {playoffTeams.length} places restent à déterminer via les barrages UEFA et intercontinentaux (mars 2026) :
                 </p>
                 <ul className="space-y-1.5">
                   {playoffTeams.map((team) => (
-                    <li key={team.id} className="text-sm text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                    <li key={team.id} className="text-sm text-gray-700 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                       <span>{team.name}</span>
                     </li>
@@ -209,7 +209,7 @@ export default function ClassementFifaPage() {
 
           {/* Analyse par confédération */}
           <div className="mb-12">
-            <h2 id="par-confederation" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="par-confederation" className="text-2xl font-bold text-gray-900 mb-6">
               Répartition par confédération
             </h2>
             
@@ -224,21 +224,21 @@ export default function ClassementFifaPage() {
                 return (
                   <div
                     key={conf}
-                    className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm"
+                    className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm"
                   >
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{conf}</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">{conf}</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600 dark:text-gray-400">Équipes</span>
-                        <span className="text-sm font-bold text-gray-900 dark:text-white">{confTeams.length}</span>
+                        <span className="text-sm text-gray-600">Équipes</span>
+                        <span className="text-sm font-bold text-gray-900">{confTeams.length}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600 dark:text-gray-400">Meilleur rang</span>
+                        <span className="text-sm text-gray-600">Meilleur rang</span>
                         <span className="text-sm font-bold text-accent">#{bestRank || "—"}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600 dark:text-gray-400">Rang moyen</span>
-                        <span className="text-sm font-bold text-gray-900 dark:text-white">{avgRank}</span>
+                        <span className="text-sm text-gray-600">Rang moyen</span>
+                        <span className="text-sm font-bold text-gray-900">{avgRank}</span>
                       </div>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default function ClassementFifaPage() {
 
           {/* Top 10 */}
           <div className="mb-12">
-            <h2 id="top-10" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="top-10" className="text-2xl font-bold text-gray-900 mb-6">
               Top 10 mondial FIFA
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -257,17 +257,17 @@ export default function ClassementFifaPage() {
                 <Link
                   key={team.id}
                   href={`/equipe/${team.slug}`}
-                  className="flex items-center gap-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group"
+                  className="flex items-center gap-4 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group"
                 >
                   <div className="flex-shrink-0">
                     <div className="text-3xl font-extrabold text-accent">#{team.fifaRanking}</div>
                   </div>
                   <Flag flag={team.flag} name={team.name} className="w-10 h-7 flex-shrink-0" />
                   <div className="flex-1">
-                    <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                    <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                       {team.name}
                     </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-gray-600">
                       {team.confederation} · Groupe {team.group}
                     </div>
                   </div>
@@ -286,12 +286,12 @@ export default function ClassementFifaPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">{desc}</div>
+                <div className="text-xs text-gray-600">{desc}</div>
               </Link>
             ))}
           </div>
@@ -307,11 +307,11 @@ export default function ClassementFifaPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/equipes", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "🏟️" },
-          { href: "/groupes", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "📋" },
-          { href: "/pronostic-vainqueur", title: "Pronostic vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "🥇" },
-          { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "📊" },
-          { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre équipe", icon: "🎮" },
+          { href: "/equipes", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "" },
+          { href: "/groupes", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "" },
+          { href: "/pronostic-vainqueur", title: "Pronostic vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
+          { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "" },
+          { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre équipe", icon: "" },
         ]} />
       </div>
 

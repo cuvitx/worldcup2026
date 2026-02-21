@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026. Bonus, cotes, app mobile, live betting et notes détaillées.",
     url: "https://cdm2026.fr/meilleurs-bookmakers",
   },
+  alternates: { canonical: "https://cdm2026.fr/meilleurs-bookmakers" },
 };
 
 interface Bookmaker {

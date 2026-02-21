@@ -119,7 +119,7 @@ export default function ParisHandicapPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Scale className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">Les différents handicaps</h2>
+            <h2 className="text-2xl font-bold text-primary">Les différents handicaps</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
@@ -131,7 +131,7 @@ export default function ParisHandicapPage() {
               </thead>
               <tbody>
                 {handicapTypes.map((h, i) => (
-                  <tr key={h.value} className={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}>
+                  <tr key={h.value} className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}>
                     <td className="py-3 px-4 font-mono font-bold text-accent">{h.value}</td>
                     <td className="py-3 px-4">{h.desc}</td>
                   </tr>
@@ -145,28 +145,28 @@ export default function ParisHandicapPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Info className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">Exemples concrets</h2>
+            <h2 className="text-2xl font-bold text-primary">Exemples concrets</h2>
           </div>
           <div className="space-y-4">
             {examples.map((ex) => {
               const Icon = ex.outcome === "won" ? CheckCircle : ex.outcome === "lost" ? XCircle : MinusCircle;
               const color = ex.outcome === "won" ? "text-green-600" : ex.outcome === "lost" ? "text-red-600" : "text-yellow-600";
-              const bg = ex.outcome === "won" ? "border-green-200 dark:border-green-800" : ex.outcome === "lost" ? "border-red-200 dark:border-red-800" : "border-yellow-200 dark:border-yellow-800";
+              const bg = ex.outcome === "won" ? "border-green-200" : ex.outcome === "lost" ? "border-red-200" : "border-yellow-200";
               return (
                 <div key={ex.match} className={`rounded-xl border ${bg} p-5`}>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-primary dark:text-white">{ex.match}</span>
+                    <span className="font-bold text-primary">{ex.match}</span>
                     <Icon className={`h-5 w-5 ${color}`} />
                   </div>
                   <div className="flex flex-wrap gap-3 text-xs mb-2">
-                    <span className="bg-primary/10 dark:bg-white/10 px-2 py-1 rounded font-mono">{ex.handicap}</span>
+                    <span className="bg-primary/10white/10 px-2 py-1 rounded font-mono">{ex.handicap}</span>
                     <span className="bg-accent/10 text-accent px-2 py-1 rounded">{ex.bet}</span>
-                    <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">Résultat : {ex.result}</span>
+                    <span className="bg-gray-100gray-700 px-2 py-1 rounded">Résultat : {ex.result}</span>
                     <span className={`font-bold ${color} uppercase`}>
                       {ex.outcome === "won" ? "Gagné" : ex.outcome === "lost" ? "Perdu" : "Remboursé"}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{ex.explanation}</p>
+                  <p className="text-sm text-gray-600">{ex.explanation}</p>
                 </div>
               );
             })}

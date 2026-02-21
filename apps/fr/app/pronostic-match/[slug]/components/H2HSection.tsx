@@ -17,8 +17,8 @@ export function H2HSection({
   awayName,
 }: H2HSectionProps) {
   return (
-    <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+    <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Historique des confrontations
       </h2>
       {h2h && h2h.totalMatches > 0 ? (
@@ -32,7 +32,7 @@ export function H2HSection({
                 Victoires {homeName}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+            <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
               <p className="text-3xl font-bold text-gray-600">
                 {h2h.draws}
               </p>
@@ -48,13 +48,13 @@ export function H2HSection({
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
+            <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
               <p className="text-xl font-bold text-primary">
                 {h2h.totalMatches}
               </p>
               <p className="text-xs text-gray-500">Matchs joues</p>
             </div>
-            <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
+            <div className="rounded-lg bg-gray-50slate-700 p-3 text-center">
               <p className="text-xl font-bold text-primary">
                 {h2h.team1Goals} - {h2h.team2Goals}
               </p>

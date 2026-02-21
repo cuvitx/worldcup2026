@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Profitez de l'offre Winamax : 100€ remboursés en freebets pour la CDM 2026.",
     url: "https://cdm2026.fr/bonus/winamax",
   },
+  alternates: { canonical: "https://cdm2026.fr/bonus/winamax" },
 };
 
 function ReviewSchema() {

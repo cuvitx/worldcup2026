@@ -6,6 +6,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+import { ANJBanner } from "@repo/ui/anj-banner";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -176,63 +177,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
       {/* Analyse */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-4">Analyse : style de jeu et potentiel buteur</h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary leading-relaxed space-y-4">
-          <p>
-            {player.name} évolue au poste de {player.position === "FW" ? "attaquant" : player.position === "MF" ? "milieu" : player.position === "DF" ? "défenseur" : "gardien"} et
-            présente un profil {odds.goalsPerMatch > 0.35 ? "très offensif, avec une capacité de finition au-dessus de la moyenne internationale" : "intéressant devant le but malgré un rôle qui n'est pas exclusivement axé sur la finition"}.
-            Avec {odds.goalsInternational} buts en {player.caps} sélections, sa régularité en fait un candidat crédible pour figurer parmi les buteurs du tournoi.
-          </p>
-          <p>
-            En Coupe du Monde, {player.name} a déjà inscrit {odds.wcPreviousGoals} but{odds.wcPreviousGoals > 1 ? "s" : ""} lors des éditions précédentes.
-            La qualité des adversaires dans la phase de groupes sera déterminante : des défenses moins solides augmentent statistiquement les chances de marquer dès les premiers matchs.
-          </p>
-          <p>
-            Son club actuel ({player.club}) lui offre un temps de jeu régulier et un rôle central dans le système offensif, ce qui maintient sa forme et sa confiance devant le but à un niveau optimal pour le tournoi.
-          </p>
-        </div>
-      </section>
-
-      {/* Comparaison */}
-      <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-6">Comparaison avec d&apos;autres buteurs potentiels</h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          {comparisons.map((s) => {
-            const p = playersBySlug[s]!;
-            const o = getScorerOdds(s);
-            return (
-              <Link key={s} href={`/cote-buteur/${s}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-                <div>
-                  <span className="font-semibold text-primary">{p.name}</span>
-                  <span className="text-secondary text-sm ml-2">({teamsById[p.teamId]?.name})</span>
-                  <div className="text-xs text-secondary mt-1">{o.goalsInternational} buts int. • Cote anytime {o.winamaxAnytime}</div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-accent flex-shrink-0" />
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <div className="bg-white rounded-2xl border border-gray-200 p-8">
-          <h3 className="text-xl font-bold text-primary mb-4">Parier sur {player.name} buteur</h3>
-          <p className="text-gray-600 mb-6">
-            Comparez les meilleures cotes pour parier sur {player.name} buteur lors de la Coupe du Monde 2026.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.winamax.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Winamax <ExternalLink className="w-4 h-4" />
-            </a>
-            <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Betclic <ExternalLink className="w-4 h-4" />
-            </a>
-            <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Unibet <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-          <p className="text-xs text-gray-400 mt-4">18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).</p>
-        </div>
+        <ANJBanner />
       </section>
 
       {/* Maillage */}

@@ -12,6 +12,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { TableOfContents } from "@repo/ui";
 import { RelatedLinks } from "../components/RelatedLinks";
+import { Globe } from "lucide-react"
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
   description:
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
       "TF1, M6, beIN Sports, BBC, Fox Sports… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
     url: "https://cdm2026.fr/ou-regarder",
   },
+  alternates: { canonical: "https://cdm2026.fr/ou-regarder" },
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -136,7 +138,7 @@ const timeZones = [
 const typicalSchedule = [
   { local: "13h00 (EDT)", france: "19h00 (CEST)", note: "1er créneau — soirée accessible ", hot: true },
   { local: "16h00 (EDT)", france: "22h00 (CEST)", note: "2e créneau — début de soirée" },
-  { local: "19h00 (EDT)", france: "01h00 (CEST+1)", note: "3e créneau — tard dans la nuit 🌙" },
+  { local: "19h00 (EDT)", france: "01h00 (CEST+1)", note: "3e créneau — tard dans la nuit " },
   { local: "21h00 (EDT)", france: "03h00 (CEST+1)", note: "4e créneau — milieu de nuit " },
 ];
 
@@ -187,12 +189,12 @@ export default function OuRegarderPage() {
 
         {/* VPN Section */}
         <section className="mb-14">
-          <h2 id="vpn" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            🌐 Comment regarder depuis l&apos;étranger (VPN)
+          <h2 id="vpn" className="text-2xl font-bold text-gray-900 mb-6">
+            <Globe className="h-5 w-5 inline-block" /> Comment regarder depuis l&apos;étranger (VPN)
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Les plateformes de streaming françaises (TF1+, M6+, myCANAL) sont <strong className="text-gray-900 dark:text-gray-100">géo-bloquées</strong> à
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
+            <p className="text-gray-600 mb-6">
+              Les plateformes de streaming françaises (TF1+, M6+, myCANAL) sont <strong className="text-gray-900">géo-bloquées</strong> à
               l&apos;étranger. Un VPN (Virtual Private Network) vous permet de simuler une connexion depuis la France
               pour accéder aux flux en direct.
             </p>
@@ -202,16 +204,16 @@ export default function OuRegarderPage() {
                 { step: "2", title: "Se connecter à un serveur 🇫🇷", desc: "Lancez le VPN et sélectionnez un serveur situé en France (Paris, Lyon…)." },
                 { step: "3", title: "Regarder les matchs", desc: "Accédez à TF1+, M6+ ou beIN Connect normalement. Le streaming fonctionne comme si vous étiez en France." },
               ].map((s) => (
-                <div key={s.step} className="rounded-xl bg-gray-50 dark:bg-gray-700/50 p-5">
-                  <div className="w-10 h-10 rounded-full bg-primary dark:bg-primary text-white flex items-center justify-center font-extrabold text-lg mb-3">
+                <div key={s.step} className="rounded-xl bg-gray-50gray-700/50 p-5">
+                  <div className="w-10 h-10 rounded-full bg-primaryprimary text-white flex items-center justify-center font-extrabold text-lg mb-3">
                     {s.step}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{s.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{s.desc}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{s.title}</h3>
+                  <p className="text-sm text-gray-600">{s.desc}</p>
                 </div>
               ))}
             </div>
-            <div className="p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
+            <div className="p-4 bg-accent/10accent/10 border border-accent/30 rounded-xl text-sm text-accent">
               <p className="font-semibold">Légalité du VPN</p>
               <p className="mt-1">
                 L&apos;utilisation d&apos;un VPN est légale en France et dans la plupart des pays. Cependant, contourner un géo-blocage
@@ -227,17 +229,17 @@ export default function OuRegarderPage() {
 
         {/* Fan Zones */}
         <section className="mb-14">
-          <h2 id="fan-zones" className="text-2xl font-bold text-gray-900 dark:text-white mb-4"> Bars & Fan Zones</h2>
-          <div className="bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
+          <h2 id="fan-zones" className="text-2xl font-bold text-gray-900 mb-4"> Bars & Fan Zones</h2>
+          <div className="bg-gray-50slate-800 rounded-2xl border border-gray-200 p-6">
             <div className="flex items-start gap-4">
               <div className="text-4xl"></div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Fan zones officielles</h3>
-                <p className="text-gray-600 dark:text-gray-300 mt-1 text-sm">
+                <h3 className="text-lg font-semibold text-gray-900">Fan zones officielles</h3>
+                <p className="text-gray-600 mt-1 text-sm">
                   Les fan zones officielles en France seront annoncées prochainement par les municipalités et la FFF.
                   Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants et des animations.
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 italic">
+                <p className="text-sm text-gray-500 mt-3 italic">
                   Cette section sera mise à jour dès l&apos;annonce officielle des fan zones.
                 </p>
               </div>
@@ -251,31 +253,31 @@ export default function OuRegarderPage() {
           links={[
             {
               href: "/match/calendrier",
-              title: "📅 Calendrier des matchs",
+              title: " Calendrier des matchs",
               description: "Tous les matchs avec dates, horaires et stades. Filtrez par phase ou équipe.",
-              icon: "📅"
+              icon: ""
             },
             {
               href: "/billets",
-              title: "🎫 Billets CDM 2026",
+              title: " Billets CDM 2026",
               description: "Prix, dates de vente et conseils pour acheter vos billets sur FIFA.com.",
-              icon: "🎫"
+              icon: ""
             },
             {
               href: "/quiz",
-              title: "🧠 Quiz CDM 2026",
+              title: " Quiz CDM 2026",
               description: "Testez vos connaissances sur la Coupe du Monde et les équipes participantes.",
-              icon: "🧠"
+              icon: ""
             }
           ]}
         />
 
         {/* CTA */}
-        <div className="p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20 text-center">
-          <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+        <div className="p-6 bg-primary/5primary/10 rounded-2xl border border-primary/20 text-center">
+          <p className="text-lg font-semibold text-gray-900 mb-2">
             Envie de parier sur les matchs ?
           </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+          <p className="text-gray-600 mb-4">
             Comparez les cotes des meilleurs bookmakers français pour la CDM 2026.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -287,7 +289,7 @@ export default function OuRegarderPage() {
             </Link>
             <Link
               href="/carte-stades"
-              className="inline-block bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              className="inline-block bg-whiteslate-800 text-gray-900 font-bold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition"
             >
                Carte des stades
             </Link>

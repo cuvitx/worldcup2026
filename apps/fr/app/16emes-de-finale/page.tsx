@@ -88,11 +88,11 @@ export default function SeiziemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Info className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Comment ça marche ?
             </h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Avec 48 équipes réparties en 12 groupes de 4, la phase de groupes qualifie
               <strong> 32 équipes</strong> pour les 16èmes de finale : les 12 premiers, les 12 deuxièmes
@@ -116,11 +116,11 @@ export default function SeiziemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Calendrier prévu
             </h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -129,7 +129,7 @@ export default function SeiziemesDeFinale() {
                   <th className="px-4 py-3 text-left">Horaires (heure locale)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
                 {[
                   { date: "28 juin 2026", matchs: "Matchs 1-4", heures: "13h / 16h / 19h / 22h" },
                   { date: "29 juin 2026", matchs: "Matchs 5-8", heures: "13h / 16h / 19h / 22h" },
@@ -137,10 +137,10 @@ export default function SeiziemesDeFinale() {
                   { date: "1er juillet 2026", matchs: "Matchs 13-14", heures: "19h / 22h" },
                   { date: "2 juillet 2026", matchs: "Matchs 15-16", heures: "19h / 22h" },
                 ].map((r) => (
-                  <tr key={r.date} className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{r.date}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{r.matchs}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{r.heures}</td>
+                  <tr key={r.date} className="hover:bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">{r.date}</td>
+                    <td className="px-4 py-3 text-gray-600">{r.matchs}</td>
+                    <td className="px-4 py-3 text-gray-600">{r.heures}</td>
                   </tr>
                 ))}
               </tbody>
@@ -152,16 +152,16 @@ export default function SeiziemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Trophy className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Tableau des matchs
             </h2>
           </div>
           <div className="rounded-xl border-2 border-dashed border-secondary/40 bg-secondary/5 p-8 text-center">
             <Swords className="h-12 w-12 text-secondary mx-auto mb-4 opacity-60" />
-            <p className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <p className="text-lg font-semibold text-gray-900 mb-2">
               Tableau à venir
             </p>
-            <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto mb-6">
+            <p className="text-gray-500 max-w-md mx-auto mb-6">
               Le tableau complet des 16èmes de finale sera dévoilé après le tirage au sort
               et confirmé à l&apos;issue de la phase de groupes.
             </p>

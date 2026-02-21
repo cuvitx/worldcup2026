@@ -122,7 +122,7 @@ export default function RecordsPage() {
           <section key={cat.title}>
             <div className="flex items-center gap-3 mb-6">
               <cat.icon className="h-7 w-7 text-accent" />
-              <h2 className="text-2xl font-bold text-primary dark:text-white">{cat.title}</h2>
+              <h2 className="text-2xl font-bold text-primary">{cat.title}</h2>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse">
@@ -137,7 +137,7 @@ export default function RecordsPage() {
                   {cat.records.map((r, i) => (
                     <tr
                       key={r.label}
-                      className={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
+                      className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
                     >
                       <td className="py-3 px-4 font-medium">{r.label}</td>
                       <td className="py-3 px-4 font-bold text-accent">{r.value}</td>

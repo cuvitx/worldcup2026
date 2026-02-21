@@ -72,12 +72,12 @@ export default function EquipeEditorialePage() {
             XC
           </div>
           <div>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               Passionné de football depuis toujours, je suis le créateur et unique rédacteur de CDM 2026.
               Mon objectif : proposer le guide le plus complet sur la Coupe du Monde 2026 — analyses statistiques,
               pronostics argumentés, guides pratiques pour les supporters et comparatifs de paris sportifs.
             </p>
-            <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="mt-4 text-gray-700 leading-relaxed">
               Toutes les données du site proviennent de sources officielles (FIFA, confédérations) et sont
               régulièrement mises à jour. Les pronostics sont basés sur des modèles statistiques (ELO, xG)
               et non sur de simples intuitions.
@@ -86,31 +86,31 @@ export default function EquipeEditorialePage() {
         </div>
 
         {/* Spécialités */}
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Domaines d&apos;expertise
         </h2>
         <div className="grid sm:grid-cols-2 gap-4 mb-12">
           {specialites.map((s) => (
             <div
               key={s.label}
-              className="flex items-start gap-3 rounded-xl border border-gray-200 dark:border-gray-700 p-4"
+              className="flex items-start gap-3 rounded-xl border border-gray-200 p-4"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
                 <s.icon className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white">{s.label}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
+                <h3 className="font-semibold text-gray-900">{s.label}</h3>
+                <p className="text-sm text-gray-600">{s.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Engagements */}
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Engagements
         </h2>
-        <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-12">
+        <ul className="space-y-3 text-gray-700 mb-12">
           <li className="flex items-start gap-2">
             <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
             <span><strong>Sources vérifiées</strong> — Données FIFA, UEFA, CONMEBOL et confédérations officielles</span>
@@ -139,7 +139,7 @@ export default function EquipeEditorialePage() {
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-xl border border-gray-300 dark:border-gray-600 px-6 py-2.5 text-center font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-2.5 text-center font-medium text-gray-700 hover:bg-gray-50 transition-colors"
           >
             Me contacter
           </Link>

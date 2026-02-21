@@ -98,11 +98,11 @@ export default function TropheePage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Gem className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Design et caractéristiques
             </h2>
           </div>
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose max-w-none">
             <p>
               Le trophée actuel de la Coupe du Monde FIFA a été conçu par le sculpteur italien
               <strong> Silvio Gazzaniga</strong> en 1974. Il représente deux figures humaines
@@ -121,7 +121,7 @@ export default function TropheePage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <History className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Histoire du trophée
             </h2>
           </div>
@@ -129,7 +129,7 @@ export default function TropheePage() {
             {timeline.map((event) => (
               <div
                 key={event.year}
-                className="flex gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-5"
+                className="flex gap-4 rounded-xl border border-gray-200 p-5"
               >
                 <div className="shrink-0">
                   <span className="inline-block bg-secondary/20 text-secondary font-bold text-sm px-3 py-1 rounded-full">
@@ -137,8 +137,8 @@ export default function TropheePage() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary dark:text-white mb-1">{event.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{event.description}</p>
+                  <h3 className="font-bold text-primary mb-1">{event.title}</h3>
+                  <p className="text-sm text-gray-600">{event.description}</p>
                 </div>
               </div>
             ))}

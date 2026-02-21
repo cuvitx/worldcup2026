@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { FileText, Plane, Shield, Heart, Globe, ExternalLink, CheckCircle, AlertTriangle } from "lucide-react";
+import { AlertTriangle, CheckCircle, ClipboardList, DollarSign, ExternalLink, FileText, Globe, Heart, Lightbulb, Pin, Plane, Shield, Ticket } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Visa Mexique CDM 2026 — Formalités d'entrée pour les Français",
@@ -104,13 +104,13 @@ export default function VisaMexiquePage() {
             d&apos;une carte d&apos;embarquement migratoire.
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5 space-y-3">
-            <h3 className="font-bold text-lg">📋 Comment obtenir la FMM</h3>
+            <h3 className="font-bold text-lg"><ClipboardList className="h-5 w-5 inline-block" /> Comment obtenir la FMM</h3>
             <ol className="space-y-2 text-sm text-secondary list-decimal list-inside">
               <li><strong>En ligne (recommandé)</strong> : sur le site de l&apos;INM (<a href="https://www.inm.gob.mx/" target="_blank" rel="noopener noreferrer" className="text-accent underline">inm.gob.mx</a>) avant votre départ. Imprimez le formulaire.</li>
               <li><strong>Dans l&apos;avion</strong> : les compagnies aériennes distribuent le formulaire papier pendant le vol.</li>
               <li><strong>À l&apos;arrivée</strong> : des formulaires sont disponibles aux guichets d&apos;immigration de l&apos;aéroport.</li>
             </ol>
-            <div className="flex items-start gap-2 mt-3 p-3 rounded-lg bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800">
+            <div className="flex items-start gap-2 mt-3 p-3 rounded-lg bg-yellow-50yellow-950/30 border border-yellow-200">
               <AlertTriangle className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
               <p className="text-sm text-secondary">
                 <strong>Important :</strong> Conservez votre FMM pendant tout votre séjour. Elle vous sera
@@ -128,10 +128,10 @@ export default function VisaMexiquePage() {
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { icon: "🛂", title: "Passeport valide", desc: "Valide au moins 6 mois après la date d'entrée au Mexique. Passeport biométrique recommandé." },
-              { icon: "📄", title: "FMM remplie", desc: "Formulaire migratoire à remplir en ligne ou dans l'avion." },
-              { icon: "✈️", title: "Billet retour", desc: "Preuve de sortie du territoire (billet d'avion retour ou continuation)." },
-              { icon: "🏨", title: "Justificatif d'hébergement", desc: "Réservation d'hôtel ou adresse de séjour (peut être demandé)." },
+              { icon: "", title: "Passeport valide", desc: "Valide au moins 6 mois après la date d'entrée au Mexique. Passeport biométrique recommandé." },
+              { icon: "", title: "FMM remplie", desc: "Formulaire migratoire à remplir en ligne ou dans l'avion." },
+              { icon: "", title: "Billet retour", desc: "Preuve de sortie du territoire (billet d'avion retour ou continuation)." },
+              { icon: "", title: "Justificatif d'hébergement", desc: "Réservation d'hôtel ou adresse de séjour (peut être demandé)." },
             ].map((doc) => (
               <div key={doc.title} className="rounded-xl border p-4">
                 <p className="font-bold">{doc.icon} {doc.title}</p>
@@ -167,7 +167,7 @@ export default function VisaMexiquePage() {
             ))}
           </div>
           <p className="text-xs text-secondary mt-3">
-            💡 Astuce : si vous voyagez aussi aux USA pour d&apos;autres matchs, attention — un transit
+            <Lightbulb className="h-5 w-5 inline-block" /> Astuce : si vous voyagez aussi aux USA pour d&apos;autres matchs, attention — un transit
             par les États-Unis nécessite un{" "}
             <Link href="/esta-usa" className="text-accent underline">ESTA valide</Link>.
           </p>
@@ -204,32 +204,32 @@ export default function VisaMexiquePage() {
               href="/billets"
               className="inline-flex items-center gap-2 rounded-xl bg-white text-accent px-6 py-3.5 font-bold hover:bg-white/90 transition-all"
             >
-              🎟 Acheter ses billets
+              <Ticket className="h-5 w-5 inline-block" /> Acheter ses billets
             </Link>
             <Link
               href="/calculateur-budget"
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3.5 font-bold hover:bg-white/10 transition-all"
             >
-              💰 Calculer mon budget
+              <DollarSign className="h-5 w-5 inline-block" /> Calculer mon budget
             </Link>
           </div>
         </section>
 
         {/* FAQ */}
         <FAQSection
-          title="❓ Questions fréquentes — Formalités Mexique CDM 2026"
+          title=" Questions fréquentes — Formalités Mexique CDM 2026"
           items={faqItems}
         />
 
         {/* Liens connexes */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">📌 Voir aussi</h2>
+          <h2 className="text-2xl font-bold mb-4"><Pin className="h-5 w-5 inline-block" /> Voir aussi</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               { href: "/esta-usa", icon: "🇺🇸", title: "ESTA USA", desc: "Guide complet pour l'autorisation de voyage aux États-Unis." },
               { href: "/formalites-canada", icon: "🇨🇦", title: "Formalités Canada (AVE)", desc: "AVE obligatoire pour les matchs à Vancouver et Toronto." },
-              { href: "/budget", icon: "💰", title: "Budget CDM 2026", desc: "Combien coûte un voyage pour la Coupe du Monde 2026 ?" },
-              { href: "/assurance-voyage", icon: "🛡️", title: "Assurance voyage", desc: "Comparatif des meilleures assurances pour la CDM 2026." },
+              { href: "/budget", icon: "", title: "Budget CDM 2026", desc: "Combien coûte un voyage pour la Coupe du Monde 2026 ?" },
+              { href: "/assurance-voyage", icon: "", title: "Assurance voyage", desc: "Comparatif des meilleures assurances pour la CDM 2026." },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl border p-4 hover:border-accent/50 transition-colors block">
                 <p className="font-bold">{link.icon} {link.title}</p>

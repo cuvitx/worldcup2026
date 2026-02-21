@@ -87,7 +87,7 @@ export default function MaillotsPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Shirt className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Galerie des maillots
             </h2>
           </div>
@@ -96,10 +96,10 @@ export default function MaillotsPage() {
               <Link
                 key={kit.slug}
                 href={`/equipe/${kit.slug}`}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 p-4 hover:shadow-lg transition-all"
+                className="group rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-all"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-primary dark:text-white group-hover:text-accent transition-colors">
+                  <h3 className="font-bold text-primary group-hover:text-accent transition-colors">
                     {kit.team}
                   </h3>
                   <span className="text-xs text-gray-500">{kit.brand}</span>
@@ -107,13 +107,13 @@ export default function MaillotsPage() {
                 <div className="flex gap-3 mb-3">
                   <div className="text-center flex-1">
                     <div className={`h-16 rounded-lg ${kit.homeCss} flex items-center justify-center`}>
-                      <Shirt className="h-6 w-6 text-gray-600 dark:text-gray-200 opacity-50" />
+                      <Shirt className="h-6 w-6 text-gray-600 opacity-50" />
                     </div>
                     <span className="text-xs text-gray-500 mt-1 block">Domicile</span>
                   </div>
                   <div className="text-center flex-1">
                     <div className={`h-16 rounded-lg ${kit.awayCss} flex items-center justify-center`}>
-                      <Shirt className="h-6 w-6 text-gray-600 dark:text-gray-200 opacity-50" />
+                      <Shirt className="h-6 w-6 text-gray-600 opacity-50" />
                     </div>
                     <span className="text-xs text-gray-500 mt-1 block">Extérieur</span>
                   </div>

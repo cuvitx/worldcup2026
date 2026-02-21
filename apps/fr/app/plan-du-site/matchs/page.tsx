@@ -16,6 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Les 104 matchs du Mondial 2026 : phase de groupes, eliminatoires et finale.",
       url: "https://cdm2026.fr/plan-du-site/matchs",
     },
+    alternates: { canonical: "https://cdm2026.fr/plan-du-site/matchs" },
   };
 }
 
@@ -58,7 +59,7 @@ export default function PlanDuSiteMatchsPage() {
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
 <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Matchs</h1>
-      <p className="mt-2 text-gray-600 dark:text-gray-400">
+      <p className="mt-2 text-gray-600">
         Les 104 matchs de la Coupe du Monde 2026 avec tous les liens associes.
       </p>
 
@@ -69,7 +70,7 @@ export default function PlanDuSiteMatchsPage() {
             {group.matches.map((m) => {
               const label = getMatchLabel(m);
               return (
-                <div key={m.id} className="border-b border-gray-100 pb-3 dark:border-gray-800">
+                <div key={m.id} className="border-b border-gray-100 pb-3">
                   <h3 className="font-medium text-foreground">
                     <Link href={`/match/${m.slug}`} className="text-primary hover:text-accent transition-colors">
                       {label}

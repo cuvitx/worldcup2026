@@ -9,8 +9,8 @@ const Quiz = dynamic(() => import("./components/Quiz"), {
   loading: () => (
     <div className="flex items-center justify-center min-h-[400px]">
       <div className="animate-pulse text-center">
-        <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-4" />
-        <p className="text-gray-600 dark:text-gray-300">Chargement du quiz...</p>
+        <div className="w-16 h-16 bg-gray-200gray-700 rounded-full mx-auto mb-4" />
+        <p className="text-gray-600">Chargement du quiz...</p>
       </div>
     </div>
   ),
@@ -79,16 +79,16 @@ export default function QuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <nav className="bg-white dark:bg-white/5 border-b border-gray-200 dark:border-gray-800">
+      <nav className="bg-whitewhite/5 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
             <li>
-              <Link href="/" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              <Link href="/" className="hover:text-gray-900 transition-colors">
                 Accueil
               </Link>
             </li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Quiz</li>
+            <li className="text-gray-900 font-medium">Quiz</li>
           </ol>
         </div>
       </nav>
@@ -117,15 +117,15 @@ export default function QuizPage() {
             links={[
               {
                 href: "/histoire",
-                title: "📜 Histoire de la CDM",
+                title: " Histoire de la CDM",
                 description: "Timeline complète depuis 1930 pour réviser avant le quiz.",
-                icon: "📜"
+                icon: ""
               },
               {
                 href: "/simulateur",
-                title: "⚽ Simulateur de tournoi",
+                title: " Simulateur de tournoi",
                 description: "Simulez votre propre bracket et prédisez le vainqueur.",
-                icon: "⚽"
+                icon: ""
               },
               {
                 href: "/equipes",

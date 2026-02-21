@@ -39,7 +39,7 @@ export function GoalsChart({ goalsByEdition }: GoalsChartProps) {
                     {ed.goals} buts · {ed.avg}/match
                   </div>
                 </div>
-                <span className="text-[10px] text-gray-600 dark:text-gray-300 rotate-45 origin-left translate-y-3 whitespace-nowrap">
+                <span className="text-[10px] text-gray-600 rotate-45 origin-left translate-y-3 whitespace-nowrap">
                   {goalsByEdition.indexOf(ed) % 2 === 0 ? ed.year : ""}
                 </span>
               </div>
@@ -47,13 +47,13 @@ export function GoalsChart({ goalsByEdition }: GoalsChartProps) {
           })}
         </div>
         {/* Légende */}
-        <div className="mt-6 flex items-center gap-4 justify-center text-xs text-gray-500 dark:text-gray-300">
+        <div className="mt-6 flex items-center gap-4 justify-center text-xs text-gray-500">
           <span className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-primary inline-block" />
             Record (172 buts en 2022)
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-primary dark:bg-primary inline-block" />
+            <span className="w-3 h-3 rounded-sm bg-primaryprimary inline-block" />
             Autres éditions
           </span>
         </div>

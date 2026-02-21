@@ -161,34 +161,34 @@ export default function GlossairePage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-whiteslate-900 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/paris-sportifs" className="text-primary dark:text-secondary hover:underline">Paris sportifs</Link></li>
+            <li><Link href="/paris-sportifs" className="text-primary hover:underline">Paris sportifs</Link></li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">Glossaire</li>
+            <li className="text-gray-900 font-medium">Glossaire</li>
           </ol>
         </div>
       </nav>
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-4xl mb-2">
+        <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-2">
           Glossaire des Paris Sportifs
         </h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-3xl">
+        <p className="text-gray-600 mb-6 max-w-3xl">
           Plus de {glossary.length} termes de paris sportifs expliqués simplement, avec des exemples concrets
           liés à la Coupe du Monde 2026. De A à Z, tout le vocabulaire du parieur.
         </p>
 
         {/* Alphabetical navigation */}
-        <nav className="flex flex-wrap gap-1.5 mb-8 sticky top-0 bg-white dark:bg-slate-900 py-3 z-10 border-b border-gray-100 dark:border-gray-700">
+        <nav className="flex flex-wrap gap-1.5 mb-8 sticky top-0 bg-whiteslate-900 py-3 z-10 border-b border-gray-100">
           {letters.map((letter) => (
             <a
               key={letter}
               href={`#${letter}`}
-              className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-primary hover:text-white text-sm font-bold text-gray-700 dark:text-gray-300 transition"
+              className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100slate-800 hover:bg-primary hover:text-white text-sm font-bold text-gray-700 transition"
             >
               {letter}
             </a>
@@ -207,8 +207,8 @@ export default function GlossairePage() {
             const color = borderColors[li % borderColors.length];
             return (
               <section key={letter} id={letter}>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-primary/20 pb-2 flex items-center gap-2">
-                  <span className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary font-extrabold">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-primary/20 pb-2 flex items-center gap-2">
+                  <span className="w-10 h-10 rounded-xl bg-primary/10primary/20 flex items-center justify-center text-primary font-extrabold">
                     {letter}
                   </span>
                 </h2>
@@ -216,11 +216,11 @@ export default function GlossairePage() {
                   {grouped[letter]!.map((term) => (
                     <div
                       key={term.name}
-                      className={`bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 border-l-4 ${color} p-4 hover:shadow-md transition-shadow`}
+                      className={`bg-whiteslate-800 rounded-xl border border-gray-200 border-l-4 ${color} p-4 hover:shadow-md transition-shadow`}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{term.name}</h3>
-                      <p className="text-gray-700 dark:text-gray-300 mt-1">{term.definition}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-300 mt-2 italic bg-gray-50 dark:bg-gray-700/50 rounded-lg px-3 py-2">
+                      <h3 className="text-lg font-semibold text-gray-900">{term.name}</h3>
+                      <p className="text-gray-700 mt-1">{term.definition}</p>
+                      <p className="text-sm text-gray-500 mt-2 italic bg-gray-50gray-700/50 rounded-lg px-3 py-2">
                          {term.example}
                       </p>
                     </div>
@@ -233,8 +233,8 @@ export default function GlossairePage() {
 
         {/* CTA */}
         <div className="mt-12 p-6 bg-primary/5 rounded-xl text-center">
-          <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Prêt à parier sur la CDM 2026 ?</p>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">Comparez les cotes des meilleurs bookmakers français.</p>
+          <p className="text-lg font-semibold text-gray-900 mb-2">Prêt à parier sur la CDM 2026 ?</p>
+          <p className="text-gray-600 mb-4">Comparez les cotes des meilleurs bookmakers français.</p>
           <Link
             href="/comparateur-cotes"
             className="inline-block bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"

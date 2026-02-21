@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  MapPin, Bed, UtensilsCrossed, Compass, ShieldCheck, CalendarDays,
-  Bus, ParkingCircle, Clock, DollarSign, Thermometer, Phone, ExternalLink,
-} from "lucide-react";
+import { Bed, Bus, CalendarDays, CircleDot, ClipboardList, Clock, Compass, DollarSign, ExternalLink, Landmark, Link, MapPin, ParkingCircle, Phone, ShieldCheck, Thermometer, UtensilsCrossed } from "lucide-react";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
@@ -297,9 +294,9 @@ export default async function GuideSupporterPage({ params }: PageProps) {
           </p>
           <div className="mt-4 flex flex-wrap gap-3 text-sm text-gray-300">
             {cityStadiums.map((s) => (
-              <span key={s.id}>🏟️ {s.name} ({s.capacity.toLocaleString("fr-FR")} places)</span>
+              <span key={s.id}><Landmark className="h-5 w-5 inline-block" /> {s.name} ({s.capacity.toLocaleString("fr-FR")} places)</span>
             ))}
-            <span>⚽ {cityMatches.length} matchs</span>
+            <span><CircleDot className="h-5 w-5 inline-block" /> {cityMatches.length} matchs</span>
           </div>
         </div>
       </section>
@@ -310,29 +307,29 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Se rendre au stade */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Bus className="h-6 w-6 text-primary" /> Se rendre au stade
                 </h2>
-                <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <div className="space-y-4 text-gray-700">
                   <div className="flex items-start gap-3">
                     <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Transports en commun</p>
+                      <p className="font-semibold text-gray-900">Transports en commun</p>
                       <p>{guide.transport.metro}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <ParkingCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Parking</p>
+                      <p className="font-semibold text-gray-900">Parking</p>
                       <p>{guide.transport.parking}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Clock className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Temps de trajet</p>
+                      <p className="font-semibold text-gray-900">Temps de trajet</p>
                       <p>{guide.transport.temps}</p>
                     </div>
                   </div>
@@ -342,17 +339,17 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Où dormir */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Bed className="h-6 w-6 text-primary" /> Où dormir à {city.name}
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                <p className="text-gray-700 mb-4">
                   Budget : <strong>{guide.dormir.prixMin}–{guide.dormir.prixMax} {guide.dormir.devise}</strong> par nuit selon le quartier.
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guide.dormir.quartiers.map((q) => (
-                    <div key={q} className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3 text-center">
-                      <p className="font-semibold text-gray-900 dark:text-white text-sm">{q}</p>
+                    <div key={q} className="rounded-lg bg-gray-50slate-700/50 p-3 text-center">
+                      <p className="font-semibold text-gray-900 text-sm">{q}</p>
                     </div>
                   ))}
                 </div>
@@ -371,11 +368,11 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Où manger */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <UtensilsCrossed className="h-6 w-6 text-primary" /> Où manger
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300">{guide.manger.cuisine}</p>
+                <p className="text-gray-700">{guide.manger.cuisine}</p>
                 <p className="mt-2 text-sm text-secondary">
                   <DollarSign className="inline h-4 w-4" /> Budget moyen : <strong>{guide.manger.budgetRepas}</strong>
                 </p>
@@ -384,14 +381,14 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Que faire entre les matchs */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Compass className="h-6 w-6 text-primary" /> Que faire entre les matchs
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {guide.activites.map((a) => (
-                    <div key={a.nom} className="rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-                      <h3 className="font-bold text-gray-900 dark:text-white">{a.nom}</h3>
+                    <div key={a.nom} className="rounded-lg border border-gray-200 p-4">
+                      <h3 className="font-bold text-gray-900">{a.nom}</h3>
                       <p className="mt-1 text-sm text-secondary">{a.desc}</p>
                     </div>
                   ))}
@@ -401,36 +398,36 @@ export default async function GuideSupporterPage({ params }: PageProps) {
 
             {/* Infos pratiques */}
             {guide && (
-              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <ShieldCheck className="h-6 w-6 text-primary" /> Infos pratiques
                 </h2>
-                <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <div className="space-y-4 text-gray-700">
                   <div className="flex items-start gap-3">
                     <Thermometer className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Météo (juin-juillet)</p>
+                      <p className="font-semibold text-gray-900">Météo (juin-juillet)</p>
                       <p>{guide.infos.meteo}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <DollarSign className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Pourboires</p>
+                      <p className="font-semibold text-gray-900">Pourboires</p>
                       <p>{guide.infos.pourboires}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <ShieldCheck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Sécurité</p>
+                      <p className="font-semibold text-gray-900">Sécurité</p>
                       <p>{guide.infos.securite}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Numéros d'urgence</p>
+                      <p className="font-semibold text-gray-900">Numéros d'urgence</p>
                       <p>{guide.infos.urgences}</p>
                     </div>
                   </div>
@@ -439,8 +436,8 @@ export default async function GuideSupporterPage({ params }: PageProps) {
             )}
 
             {/* Matchs dans cette ville */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <CalendarDays className="h-6 w-6 text-primary" /> Matchs à {city.name}
               </h2>
               {cityMatches.length === 0 ? (
@@ -466,11 +463,11 @@ export default async function GuideSupporterPage({ params }: PageProps) {
                       <Link
                         key={m.id}
                         href={`/match/${m.slug}`}
-                        className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-700 p-3 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                        className="flex items-center justify-between rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <span className="text-xs text-secondary whitespace-nowrap">{dateStr}</span>
-                          <span className="font-semibold text-gray-900 dark:text-white text-sm truncate">
+                          <span className="font-semibold text-gray-900 text-sm truncate">
                             {home?.flag ?? "🏳️"} {home?.name ?? "TBD"} vs {away?.name ?? "TBD"} {away?.flag ?? "🏳️"}
                           </span>
                         </div>
@@ -507,8 +504,8 @@ export default async function GuideSupporterPage({ params }: PageProps) {
             </div>
 
             {/* Quick links */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">🔗 Pages liées</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3"><Link className="h-5 w-5 inline-block" /> Pages liées</h3>
               <ul className="space-y-2 text-sm">
                 {cityStadiums.map((s) => (
                   <li key={s.id}>
@@ -536,28 +533,28 @@ export default async function GuideSupporterPage({ params }: PageProps) {
             </div>
 
             {/* City info */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">📋 En bref</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> En bref</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-secondary">Population</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{city.population.toLocaleString("fr-FR")}</dd>
+                  <dd className="font-medium text-gray-900">{city.population.toLocaleString("fr-FR")}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-secondary">Pays</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{city.country}</dd>
+                  <dd className="font-medium text-gray-900">{city.country}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-secondary">Fuseau</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{city.timezone.replace("America/", "")}</dd>
+                  <dd className="font-medium text-gray-900">{city.timezone.replace("America/", "")}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-secondary">Stade(s)</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{cityStadiums.length}</dd>
+                  <dd className="font-medium text-gray-900">{cityStadiums.length}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-secondary">Matchs</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{cityMatches.length}</dd>
+                  <dd className="font-medium text-gray-900">{cityMatches.length}</dd>
                 </div>
               </dl>
             </div>

@@ -81,7 +81,7 @@ export default function ArbitresPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Scale className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Liste des arbitres principaux
             </h2>
           </div>
@@ -100,7 +100,7 @@ export default function ArbitresPage() {
                 {referees.map((r, i) => (
                   <tr
                     key={r.name}
-                    className={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
+                    className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
                   >
                     <td className="py-3 px-4 font-medium">{r.name}</td>
                     <td className="py-3 px-4 flex items-center gap-2">

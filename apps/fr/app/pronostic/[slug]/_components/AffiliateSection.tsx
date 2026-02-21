@@ -6,8 +6,8 @@ interface AffiliateSectionProps {
 
 export function AffiliateSection({ teamName }: AffiliateSectionProps) {
   return (
-    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Parier sur {teamName}</h2>
+    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+      <h2 className="text-2xl font-bold text-gray-900 mb-2">Parier sur {teamName}</h2>
       <p className="mb-6 text-sm text-gray-600">
         Comparez les meilleurs sites de paris sportifs agreees en France pour parier sur {teamName}à la Coupe du Monde 2026.
       </p>
@@ -18,7 +18,7 @@ export function AffiliateSection({ teamName }: AffiliateSectionProps) {
             <div
               key={bk.id}
               className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-lg border-2 p-4 transition-shadow hover:shadow-md ${
-                isFeatured ? "border-primary bg-primary/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                isFeatured ? "border-primary bg-primary/5" : "border-gray-200 bg-whiteslate-800"
               }`}
             >
               {isFeatured && <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-white">Recommande</span>}

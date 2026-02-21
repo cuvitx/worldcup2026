@@ -62,11 +62,11 @@ const TYPE_LABELS: Record<SearchItem["type"], string> = {
 };
 
 const TYPE_COLORS: Record<SearchItem["type"], string> = {
-  team: "text-primary dark:text-white bg-primary/10 dark:bg-primary/20",
-  player: "text-field dark:text-field bg-field/10 dark:bg-field/20",
-  match: "text-accent dark:text-secondary bg-accent/10 dark:bg-secondary/20",
-  stadium: "text-accent dark:text-accent bg-accent//10 dark:bg-accent//10",
-  city: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30",
+  team: "text-primary bg-primary/10primary/20",
+  player: "text-field bg-field/10field/20",
+  match: "text-accent bg-accent/10secondary/20",
+  stadium: "text-accent bg-accent//10accent//10",
+  city: "text-rose-600 bg-rose-50rose-900/30",
 };
 
 // ─── Normalize + filter ───────────────────────────────────────────────────────
@@ -91,7 +91,7 @@ const SUGGESTIONS = [
   { label: "🇧🇷 Brésil", query: "Brésil" },
   { label: "🇦🇷 Argentine", query: "Argentine" },
   { label: "MetLife", query: "MetLife" },
-  { label: "🌆 New York", query: "New York" },
+  { label: " New York", query: "New York" },
   { label: "Mbappe", query: "Mbappe" },
   { label: "Finale", query: "Finale" },
 ];
@@ -165,7 +165,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {/* Search input */}
       <div className="relative mb-6">
         <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-          <IconSearch className="w-5 h-5 text-gray-500 dark:text-gray-300" />
+          <IconSearch className="w-5 h-5 text-gray-500" />
         </div>
         <input
           ref={inputRef}
@@ -175,11 +175,11 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
           placeholder="Rechercher une équipe, un joueur, un stade..."
           className="
             w-full pl-12 pr-12 py-4 text-base
-            bg-white dark:bg-slate-800
-            border-2 border-gray-200 dark:border-gray-600
+            bg-whiteslate-800
+            border-2 border-gray-200
             rounded-2xl shadow-sm
-            text-gray-900 dark:text-gray-100
-            placeholder-gray-500 dark:placeholder-gray-400
+            text-gray-900
+            placeholder-gray-500
             focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
             transition-all duration-200
           "
@@ -191,7 +191,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
         {query && (
           <button
             onClick={clearQuery}
-            className="absolute inset-y-0 right-4 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="absolute inset-y-0 right-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
             aria-label="Effacer la recherche"
           >
             <IconClose />
@@ -203,12 +203,12 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {!query && (
         <div className="text-center py-8">
           <div className="text-5xl mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
+          <p className="text-gray-600 mb-6">
             Recherchez parmi{" "}
-            <strong className="text-gray-700 dark:text-gray-200">48 équipes</strong>,{" "}
-            <strong className="text-gray-700 dark:text-gray-200">966 joueurs</strong>,{" "}
-            <strong className="text-gray-700 dark:text-gray-200">104 matchs</strong>,{" "}
-            <strong className="text-gray-700 dark:text-gray-200">16 stades</strong>{" "}
+            <strong className="text-gray-700">48 équipes</strong>,{" "}
+            <strong className="text-gray-700">966 joueurs</strong>,{" "}
+            <strong className="text-gray-700">104 matchs</strong>,{" "}
+            <strong className="text-gray-700">16 stades</strong>{" "}
             et bien plus.
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
@@ -216,7 +216,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
               <button
                 key={s.query}
                 onClick={() => setQuery(s.query)}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-colors"
+                className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100gray-700 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {s.label}
               </button>
@@ -228,12 +228,12 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {/* No results */}
       {query && totalCount === 0 && (
         <div className="text-center py-12">
-          <div className="text-5xl mb-3">😕</div>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
+          <div className="text-5xl mb-3"></div>
+          <p className="text-gray-600 text-lg">
             Aucun résultat pour{" "}
-            <strong className="text-gray-900 dark:text-gray-100">« {query} </strong>
+            <strong className="text-gray-900">« {query} </strong>
           </p>
-          <p className="text-gray-400 dark:text-gray-400 mt-2 text-sm">
+          <p className="text-gray-400 mt-2 text-sm">
             Essayez un autre terme ou vérifiez l&apos;orthographe
           </p>
         </div>
@@ -243,9 +243,9 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
       {query && totalCount > 0 && (
         <>
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-            <p className="text-sm text-gray-500 dark:text-gray-300">
-              <strong className="text-gray-900 dark:text-gray-100">{totalCount}</strong> résultat{totalCount > 1 ? "s" : ""} pour{" "}
-              <strong className="text-gray-900 dark:text-gray-100">« {query} </strong>
+            <p className="text-sm text-gray-500">
+              <strong className="text-gray-900">{totalCount}</strong> résultat{totalCount > 1 ? "s" : ""} pour{" "}
+              <strong className="text-gray-900">« {query} </strong>
             </p>
           </div>
 
@@ -256,7 +256,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
               className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
                 activeType === "all"
                   ? "bg-primary text-white"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                  : "bg-gray-100gray-700 text-gray-600 hover:bg-gray-200"
               }`}
             >
               Tout ({totalCount})
@@ -268,7 +268,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                 className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
                   activeType === type
                     ? "bg-primary text-white"
-                    : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                    : "bg-gray-100gray-700 text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 {TYPE_LABELS[type]} ({grouped[type]?.length ?? 0})
@@ -287,10 +287,10 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                     <span className={`p-1.5 rounded-lg ${TYPE_COLORS[type]}`}>
                       {TYPE_ICONS[type]}
                     </span>
-                    <h2 id={`group-${type}`} className="font-bold text-gray-900 dark:text-gray-100">
+                    <h2 id={`group-${type}`} className="font-bold text-gray-900">
                       {TYPE_LABELS[type]}
                     </h2>
-                    <span className="text-xs text-gray-400 dark:text-gray-400 ml-1">
+                    <span className="text-xs text-gray-400 ml-1">
                       {items.length} résultat{items.length > 1 ? "s" : ""}
                     </span>
                   </div>
@@ -303,9 +303,9 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                         href={item.href}
                         className="
                           flex items-center gap-3 p-3 rounded-xl
-                          bg-white dark:bg-slate-800
-                          border border-gray-200 dark:border-gray-700
-                          hover:border-primary/40 hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-700/50
+                          bg-whiteslate-800
+                          border border-gray-200
+                          hover:border-primary/40 hover:shadow-md hover:bg-gray-50
                           transition-all duration-150 group
                         "
                       >
@@ -313,14 +313,14 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                           {TYPE_ICONS[type]}
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="font-medium text-gray-900 dark:text-gray-100 text-sm truncate group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                          <div className="font-medium text-gray-900 text-sm truncate group-hover:text-primary transition-colors">
                             {item.title}
                           </div>
-                          <div className="text-xs text-gray-500 dark:text-gray-300 truncate mt-0.5">
+                          <div className="text-xs text-gray-500 truncate mt-0.5">
                             {item.description}
                           </div>
                         </div>
-                        <svg className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0 group-hover:text-primary dark:group-hover:text-primary transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg className="w-4 h-4 text-gray-300 shrink-0 group-hover:text-primary transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="9 18 15 12 9 6" />
                         </svg>
                       </Link>
@@ -331,7 +331,7 @@ export function SearchClient({ data, initialQuery = "" }: Props) {
                   {activeType === "all" && items.length > 6 && (
                     <button
                       onClick={() => setActiveType(type)}
-                      className="mt-2 text-sm text-primary dark:text-secondary hover:underline font-medium"
+                      className="mt-2 text-sm text-primary hover:underline font-medium"
                     >
                       Voir les {items.length - 6} autres {TYPE_LABELS[type].toLowerCase()} →
                     </button>

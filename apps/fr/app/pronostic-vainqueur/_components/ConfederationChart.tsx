@@ -53,7 +53,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
   return (
     <section
       id="graphique"
-      className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700"
+      className="bg-whiteslate-900 py-12 border-t border-gray-100"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -67,7 +67,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
           {Object.entries(CONFEDERATION_COLORS).map(([key, val]) => (
             <div key={key} className="flex items-center gap-1.5 text-xs">
               <span className={`inline-block w-3 h-3 rounded-sm ${val.bg}`} />
-              <span className="text-gray-600 dark:text-gray-300">{val.label}</span>
+              <span className="text-gray-600">{val.label}</span>
             </div>
           ))}
         </div>
@@ -84,16 +84,16 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
 
             return (
               <div key={team.id} className="flex items-center gap-3">
-                <span className="shrink-0 w-6 text-right text-xs font-bold text-gray-600 dark:text-gray-400">
+                <span className="shrink-0 w-6 text-right text-xs font-bold text-gray-600">
                   {index + 1}
                 </span>
                 <div className="flex items-center gap-1.5 w-24 sm:w-36 shrink-0">
                   <span className="text-lg sm:text-xl shrink-0">{team.flag}</span>
-                  <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white break-words leading-tight">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-900 break-words leading-tight">
                     {team.name}
                   </span>
                 </div>
-                <div className="flex-1 h-7 bg-gray-100 dark:bg-slate-800 rounded-lg overflow-hidden relative">
+                <div className="flex-1 h-7 bg-gray-100slate-800 rounded-lg overflow-hidden relative">
                   <div
                     className={`h-full ${conf.bg} opacity-85 rounded-lg transition-all duration-700 flex items-center pl-3`}
                     style={{ width: `${barWidth}%` }}
@@ -111,7 +111,7 @@ export function ConfederationChart({ top10 }: ConfederationChartProps) {
           })}
         </div>
 
-        <div className="mt-4 text-xs text-gray-600 dark:text-gray-400">
+        <div className="mt-4 text-xs text-gray-600">
           * Largeur des barres proportionnelle à la probabilité de remporter le titre
           (modèle ELO). Les cotes sont indicatives.
         </div>

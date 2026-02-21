@@ -15,6 +15,7 @@ export function generateMetadata(): Metadata {
       description: "Bookmakers, bonus, guides de paris et player props pour le Mondial 2026.",
       url: "https://cdm2026.fr/plan-du-site/paris",
     },
+    alternates: { canonical: "https://cdm2026.fr/plan-du-site/paris" },
   };
 }
 
@@ -89,7 +90,7 @@ export default function PlanDuSiteParisPage() {
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
 <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Paris sportifs</h1>
-      <p className="mt-2 text-gray-600 dark:text-gray-400">
+      <p className="mt-2 text-gray-600">
         Toutes les pages paris sportifs, bookmakers, bonus et guides.
       </p>
 

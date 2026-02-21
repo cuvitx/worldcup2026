@@ -1,4 +1,5 @@
 import type { CityGuide } from "./city-data";
+import { Sun, TrainFront } from "lucide-react"
 
 export function CityHero({ city }: { city: CityGuide }) {
   return (
@@ -15,7 +16,7 @@ export function CityHero({ city }: { city: CityGuide }) {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-xs text-white/50 uppercase tracking-wide mb-1">☀ Climat</p>
+            <p className="text-xs text-white/50 uppercase tracking-wide mb-1"><Sun className="h-5 w-5 inline-block" /> Climat</p>
             <p className="text-sm text-white/80">{city.climate}</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
@@ -23,7 +24,7 @@ export function CityHero({ city }: { city: CityGuide }) {
             <p className="text-sm text-white/80">{city.airport}</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-xs text-white/50 uppercase tracking-wide mb-1">🚇 Transport</p>
+            <p className="text-xs text-white/50 uppercase tracking-wide mb-1"><TrainFront className="h-5 w-5 inline-block" /> Transport</p>
             <p className="text-sm text-white/80">{city.metro}</p>
           </div>
         </div>

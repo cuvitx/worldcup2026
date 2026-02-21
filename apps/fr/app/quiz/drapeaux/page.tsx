@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
@@ -27,6 +29,10 @@ const teams: Team[] = [
   { name: "Pays de Galles", flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" }, { name: "Norvège", flag: "🇳🇴" }, { name: "Indonésie", flag: "🇮🇩" },
   { name: "Nouvelle-Zélande", flag: "🇳🇿" }, { name: "Costa Rica", flag: "🇨🇷" }, { name: "Pérou", flag: "🇵🇪" },
 ];
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/quiz/drapeaux" },
+};
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -88,13 +94,13 @@ export default function QuizDrapeauxPage() {
       <div className="min-h-[80vh] flex items-center justify-center px-4">
         <div className="max-w-md w-full text-center space-y-6">
           <Trophy className="h-16 w-16 text-secondary mx-auto" />
-          <h1 className="text-3xl font-extrabold text-primary dark:text-white">
+          <h1 className="text-3xl font-extrabold text-primary">
             Quiz terminé !
           </h1>
           <p className="text-5xl font-black text-accent">
             {score}/{shuffled.length}
           </p>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-gray-600">
             {pct >= 90
               ? "Excellent ! Vous êtes un expert des drapeaux !"
               : pct >= 60
@@ -110,7 +116,7 @@ export default function QuizDrapeauxPage() {
             </button>
             <Link
               href="/quiz/stades"
-              className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 rounded-xl py-3.5 px-8 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 border border-gray-300 rounded-xl py-3.5 px-8 font-semibold hover:bg-gray-50 transition-colors"
             >
               Quiz Stades <ArrowRight className="h-4 w-4" />
             </Link>
@@ -143,7 +149,7 @@ export default function QuizDrapeauxPage() {
       </div>
 
       {/* Progress */}
-      <div className="w-full bg-gray-200 dark:bg-gray-700 h-1.5">
+      <div className="w-full bg-gray-200gray-700 h-1.5">
         <div
           className="bg-accent h-1.5 transition-all duration-300"
           style={{ width: `${((current + 1) / shuffled.length) * 100}%` }}
@@ -160,14 +166,14 @@ export default function QuizDrapeauxPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {choices.map((choice) => {
-              let cls = "border border-gray-200 dark:border-gray-700 hover:border-accent";
+              let cls = "border border-gray-200 hover:border-accent";
               if (selected) {
                 if (choice === team.name) {
-                  cls = "border-2 border-green-500 bg-green-50 dark:bg-green-900/20";
+                  cls = "border-2 border-green-500 bg-green-50green-900/20";
                 } else if (choice === selected && choice !== team.name) {
-                  cls = "border-2 border-red-500 bg-red-50 dark:bg-red-900/20";
+                  cls = "border-2 border-red-500 bg-red-50red-900/20";
                 } else {
-                  cls = "border border-gray-200 dark:border-gray-700 opacity-50";
+                  cls = "border border-gray-200 opacity-50";
                 }
               }
               return (

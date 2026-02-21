@@ -107,34 +107,34 @@ export default function BudgetPage() {
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-12">
         {/* Postes de dépenses */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Détail par poste de dépense
           </h2>
           <div className="space-y-4">
             {postes.map((p) => (
               <div
                 key={p.titre}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <p.icon className="h-5 w-5 text-accent" />
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{p.titre}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">{p.titre}</h3>
                 </div>
                 <div className="grid grid-cols-3 gap-3 mb-3">
-                  <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-3 text-center">
+                  <div className="rounded-lg bg-green-50green-900/20 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Budget</p>
                     <p className="font-bold text-accent">{p.budget}</p>
                   </div>
-                  <div className="rounded-lg bg-yellow-50 dark:bg-yellow-900/20 p-3 text-center">
+                  <div className="rounded-lg bg-yellow-50yellow-900/20 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Moyen</p>
                     <p className="font-bold text-secondary">{p.moyen}</p>
                   </div>
-                  <div className="rounded-lg bg-red-50 dark:bg-red-900/20 p-3 text-center">
+                  <div className="rounded-lg bg-red-50red-900/20 p-3 text-center">
                     <p className="text-xs text-gray-500 uppercase">Premium</p>
                     <p className="font-bold text-red-500">{p.premium}</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{p.detail}</p>
+                <p className="text-sm text-gray-600">{p.detail}</p>
               </div>
             ))}
           </div>
@@ -142,16 +142,16 @@ export default function BudgetPage() {
 
         {/* Totaux */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Budget total estimé
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
             {totaux.map((t) => (
               <div
                 key={t.profil}
-                className="rounded-xl border-2 border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 text-center hover:shadow-lg transition-shadow"
+                className="rounded-xl border-2 border-gray-200 bg-whiteslate-800 p-6 text-center hover:shadow-lg transition-shadow"
               >
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{t.profil}</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{t.profil}</h3>
                 <p className="text-xs text-gray-500 mb-3">{t.duree}</p>
                 <p className={`text-2xl font-black ${t.couleur}`}>{t.total}</p>
               </div>
@@ -165,11 +165,11 @@ export default function BudgetPage() {
 
         {/* Tips */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Conseils pour réduire les coûts
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6">
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+            <ul className="space-y-3 text-gray-700 text-sm">
               <li className="flex gap-2">
                 <span className="text-accent font-bold">1.</span>
                 <span>Réservez vos vols tôt (6-9 mois avant) et utilisez des alertes de prix.</span>

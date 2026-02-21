@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { TableOfContents } from "@repo/ui";
-import { Smile, Heart, Users, Globe } from "lucide-react";
+import { Globe, Heart, Smile, Trophy, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Mascotte Coupe du Monde 2026 - Découvrez la mascotte officielle | CDM 2026",
@@ -64,7 +64,7 @@ export default function MascottePage() {
             et inclusif du plus grand tournoi de football au monde.
           </p>
           <div className="flex justify-center">
-            <div className="text-8xl">🏆</div>
+            <div className="text-8xl"><Trophy className="h-5 w-5 inline-block" /></div>
           </div>
         </div>
       </section>
@@ -73,20 +73,20 @@ export default function MascottePage() {
         <div>
           {/* Introduction */}
           <div className="mb-12">
-            <h2 id="introduction" className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 id="introduction" className="text-2xl font-bold text-gray-900 mb-4">
               Un symbole attendu pour 2026
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               La <strong>mascotte officielle de la Coupe du Monde 2026</strong> n'a pas encore été révélée par la FIFA.
               Selon la tradition, elle devrait être dévoilée au cours de l'année 2025, environ 12 à 18 mois avant le coup d'envoi
               du tournoi le <strong>11 juin 2026</strong>.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               Cette édition étant co-organisée par <strong>trois pays</strong> (États-Unis, Canada et Mexique),
               la mascotte pourrait représenter un concept fédérateur entre ces trois nations, ou bien se décliner
               en plusieurs personnages incarnant chacun l'identité culturelle d'un pays hôte.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               Quoi qu'il en soit, la mascotte 2026 aura pour mission d'incarner l'esprit de ce tournoi historique,
               le premier à réunir <strong>48 équipes</strong>, et de toucher le cœur des supporters du monde entier,
               en particulier les jeunes générations.
@@ -97,52 +97,52 @@ export default function MascottePage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <Smile className="w-7 h-7 text-accent" />
-              <h2 id="role-mascotte" className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 id="role-mascotte" className="text-2xl font-bold text-gray-900">
                 Le rôle d'une mascotte de Coupe du Monde
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Globe className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Ambassadeur culturel</h3>
+                  <h3 className="font-bold text-gray-900">Ambassadeur culturel</h3>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   La mascotte représente l'identité, les valeurs et la culture du ou des pays hôtes.
                   Elle permet de créer un lien émotionnel entre le tournoi et les supporters du monde entier,
                   tout en mettant en lumière les traditions locales.
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Users className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Connexion avec les enfants</h3>
+                  <h3 className="font-bold text-gray-900">Connexion avec les enfants</h3>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   Les mascottes sont conçues pour séduire les plus jeunes supporters. Elles incarnent la joie,
                   le fair-play et l'esprit sportif, et deviennent souvent des icônes pour toute une génération de fans.
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Heart className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Marketing & Merchandising</h3>
+                  <h3 className="font-bold text-gray-900">Marketing & Merchandising</h3>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   La mascotte génère d'importants revenus via la vente de produits dérivés (peluches, vêtements, accessoires).
                   Elle est omniprésente dans les campagnes publicitaires et événements officiels du tournoi.
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Smile className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Animation des événements</h3>
+                  <h3 className="font-bold text-gray-900">Animation des événements</h3>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   Présente lors des cérémonies d'ouverture et de clôture, des Fan Zones, des avant-matchs et événements promotionnels,
                   la mascotte anime et divertit les foules tout au long du tournoi.
                 </p>
@@ -152,30 +152,30 @@ export default function MascottePage() {
 
           {/* Histoire des mascottes */}
           <div className="mb-12">
-            <h2 id="histoire-mascottes" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="histoire-mascottes" className="text-2xl font-bold text-gray-900 mb-6">
               Histoire des mascottes de la Coupe du Monde
             </h2>
             
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden shadow-sm">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 dark:bg-slate-900">
+                  <thead className="bg-gray-50slate-900">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Année
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Pays
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Mascotte
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Description
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-slate-700">
+                  <tbody className="divide-y divide-gray-200">
                     {[
                       { annee: "2022", pays: "Qatar", nom: "La'eeb", desc: "Keffieh animé (coiffe arabe)" },
                       { annee: "2018", pays: "Russie", nom: "Zabivaka", desc: "Loup souriant en maillot" },
@@ -192,17 +192,17 @@ export default function MascottePage() {
                       { annee: "1974", pays: "Allemagne", nom: "Tip & Tap", desc: "Deux garçons (Allemagne Ouest/Est)" },
                       { annee: "1966", pays: "Angleterre", nom: "World Cup Willie", desc: "Lion en maillot britannique (1ère mascotte)" },
                     ].map((row, idx) => (
-                      <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
+                      <tr key={idx} className="hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-3 whitespace-nowrap font-bold text-accent">
                           {row.annee}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">
                           {row.pays}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap font-semibold text-gray-900 dark:text-white">
+                        <td className="px-4 py-3 whitespace-nowrap font-semibold text-gray-900">
                           {row.nom}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
+                        <td className="px-4 py-3 text-sm text-gray-600">
                           {row.desc}
                         </td>
                       </tr>
@@ -212,8 +212,8 @@ export default function MascottePage() {
               </div>
             </div>
 
-            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+            <div className="mt-4 p-4 bg-blue-50blue-900/20 rounded-lg border border-blue-100">
+              <p className="text-sm text-gray-700">
                 <strong className="text-accent">Anecdote :</strong> World Cup Willie (Angleterre 1966) est la toute première
                 mascotte officielle d'une Coupe du Monde. Depuis, chaque édition a eu sa mascotte, devenant un symbole
                 indissociable du tournoi et un objet de collection pour les fans.
@@ -223,40 +223,40 @@ export default function MascottePage() {
 
           {/* Spéculations 2026 */}
           <div className="mb-12">
-            <h2 id="speculations-2026" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="speculations-2026" className="text-2xl font-bold text-gray-900 mb-6">
               Spéculations pour la mascotte 2026
             </h2>
             
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <p className="text-sm text-gray-700 mb-4 leading-relaxed">
                 Étant donné que la Coupe du Monde 2026 sera co-organisée par <strong>trois pays</strong> (États-Unis, Canada, Mexique),
                 plusieurs scénarios sont envisageables pour la mascotte :
               </p>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <li className="flex items-start gap-3 text-sm text-gray-700">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold mt-0.5">1</span>
                   <div>
-                    <strong className="text-gray-900 dark:text-white">Une mascotte unique et fédératrice :</strong>
+                    <strong className="text-gray-900">Une mascotte unique et fédératrice :</strong>
                     <p className="mt-1">
                       Un personnage qui incarne les valeurs communes des trois nations (diversité, unité, innovation).
                       Elle pourrait intégrer des éléments visuels des trois cultures.
                     </p>
                   </div>
                 </li>
-                <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <li className="flex items-start gap-3 text-sm text-gray-700">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold mt-0.5">2</span>
                   <div>
-                    <strong className="text-gray-900 dark:text-white">Trois mascottes complémentaires :</strong>
+                    <strong className="text-gray-900">Trois mascottes complémentaires :</strong>
                     <p className="mt-1">
                       Comme en 2002 (Corée/Japon avec Ato, Kaz & Nik), chaque pays hôte pourrait avoir sa propre mascotte,
                       formant ensemble un trio symbolique.
                     </p>
                   </div>
                 </li>
-                <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <li className="flex items-start gap-3 text-sm text-gray-700">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold mt-0.5">3</span>
                   <div>
-                    <strong className="text-gray-900 dark:text-white">Inspiration des animaux emblématiques :</strong>
+                    <strong className="text-gray-900">Inspiration des animaux emblématiques :</strong>
                     <p className="mt-1">
                       Aigle (USA), castor ou orignal (Canada), aigle royal ou jaguar (Mexique) pourraient servir de base.
                       Ou un animal mythique fusionnant ces trois identités.
@@ -277,12 +277,12 @@ export default function MascottePage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">{desc}</div>
+                <div className="text-xs text-gray-600">{desc}</div>
               </Link>
             ))}
           </div>
@@ -297,10 +297,10 @@ export default function MascottePage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/histoire", title: "Histoire de la CDM", description: "Retour sur toutes les éditions", icon: "📖" },
-          { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada, Mexique", icon: "🌎" },
-          { href: "/billets", title: "Billets CDM 2026", description: "Comment acheter vos places", icon: "🎟️" },
-          { href: "/quiz", title: "Quiz CDM", description: "Testez vos connaissances", icon: "🧠" },
+          { href: "/histoire", title: "Histoire de la CDM", description: "Retour sur toutes les éditions", icon: "" },
+          { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada, Mexique", icon: "" },
+          { href: "/billets", title: "Billets CDM 2026", description: "Comment acheter vos places", icon: "" },
+          { href: "/quiz", title: "Quiz CDM", description: "Testez vos connaissances", icon: "" },
         ]} /></div>
       <FAQSection title="Questions sur la mascotte" items={faqItems} />
 

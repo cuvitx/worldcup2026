@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Shield, AlertTriangle, Clock, DollarSign, FileText, Globe, CheckCircle, XCircle, ExternalLink, Plane } from "lucide-react";
+import { AlertTriangle, Baby, Ban, Check, CheckCircle, ClipboardList, Clock, DollarSign, ExternalLink, FileText, Globe, Lightbulb, Pin, Plane, Shield, ShieldCheck, Ticket, X, XCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "ESTA USA pour la Coupe du Monde 2026 — Guide complet pour les Français",
@@ -116,7 +116,7 @@ export default function EstaUsaPage() {
             approuvé — mais c&apos;est très rare pour les touristes.
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
-            <h3 className="font-bold text-lg mb-3">📋 Résumé ESTA en un coup d&apos;œil</h3>
+            <h3 className="font-bold text-lg mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Résumé ESTA en un coup d&apos;œil</h3>
             <ul className="grid sm:grid-cols-2 gap-3 text-sm text-secondary">
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Prix : <strong>21 $ USD</strong> (≈ 19 €)</span></li>
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Validité : <strong>2 ans</strong> ou jusqu&apos;à expiration du passeport</span></li>
@@ -222,21 +222,21 @@ export default function EstaUsaPage() {
             ils ne volent pas purement et simplement vos informations personnelles.
           </p>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 dark:bg-red-950/30 dark:border-red-800 p-4">
+            <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50red-950/30 p-4">
               <XCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-red-700 dark:text-red-400">🚫 Sites à éviter</p>
+                <p className="font-bold text-red-700"><Ban className="h-5 w-5 inline-block" /> Sites à éviter</p>
                 <p className="text-sm text-secondary mt-1">
-                  Tout site dont l&apos;URL n&apos;est PAS <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">esta.cbp.dhs.gov</code>.
+                  Tout site dont l&apos;URL n&apos;est PAS <code className="bg-gray-100gray-800 px-1 rounded">esta.cbp.dhs.gov</code>.
                   Les faux sites utilisent des noms comme &quot;esta-france.com&quot;, &quot;esta-formulaire.fr&quot; ou &quot;us-esta.org&quot;.
                   Ils apparaissent souvent en publicité Google.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/30 dark:border-green-800 p-4">
+            <div className="flex items-start gap-3 rounded-lg border border-green-200 bg-green-50green-950/30 p-4">
               <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-green-700 dark:text-green-400">✅ Le seul site officiel</p>
+                <p className="font-bold text-green-700"><Check className="h-5 w-5 inline-block" /> Le seul site officiel</p>
                 <p className="text-sm text-secondary mt-1">
                   <a href="https://esta.cbp.dhs.gov/" target="_blank" rel="noopener noreferrer" className="text-accent underline font-semibold">
                     https://esta.cbp.dhs.gov/
@@ -261,7 +261,7 @@ export default function EstaUsaPage() {
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold mb-2">✅ Ce que permet l&apos;ESTA</h3>
+              <h3 className="font-bold mb-2"><Check className="h-5 w-5 inline-block" /> Ce que permet l&apos;ESTA</h3>
               <ul className="space-y-2 text-sm text-secondary">
                 <li>• Séjour touristique ou affaires jusqu&apos;à 90 jours</li>
                 <li>• Entrées multiples pendant 2 ans</li>
@@ -270,7 +270,7 @@ export default function EstaUsaPage() {
               </ul>
             </div>
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold mb-2">❌ Ce que NE permet PAS l&apos;ESTA</h3>
+              <h3 className="font-bold mb-2"><X className="h-5 w-5 inline-block" /> Ce que NE permet PAS l&apos;ESTA</h3>
               <ul className="space-y-2 text-sm text-secondary">
                 <li>• Travailler aux États-Unis</li>
                 <li>• Étudier (cursus long)</li>
@@ -289,7 +289,7 @@ export default function EstaUsaPage() {
           </h2>
           <div className="space-y-4">
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold mb-2">🛂 Double nationalité</h3>
+              <h3 className="font-bold mb-2"><ShieldCheck className="h-5 w-5 inline-block" /> Double nationalité</h3>
               <p className="text-secondary text-sm leading-relaxed">
                 Si vous avez la double nationalité (ex. franco-américaine), vous devez entrer aux USA avec votre
                 passeport américain — l&apos;ESTA ne sera pas nécessaire. Si votre seconde nationalité est celle
@@ -299,7 +299,7 @@ export default function EstaUsaPage() {
               </p>
             </div>
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold mb-2">❌ Refus ESTA : que faire ?</h3>
+              <h3 className="font-bold mb-2"><X className="h-5 w-5 inline-block" /> Refus ESTA : que faire ?</h3>
               <p className="text-secondary text-sm leading-relaxed">
                 Un refus ESTA (&quot;Travel Not Authorized&quot;) signifie que vous devez solliciter un visa classique
                 auprès de l&apos;ambassade des États-Unis à Paris. Les motifs fréquents : voyage récent en Iran, Irak,
@@ -308,7 +308,7 @@ export default function EstaUsaPage() {
               </p>
             </div>
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold mb-2">👶 Mineurs</h3>
+              <h3 className="font-bold mb-2"><Baby className="h-5 w-5 inline-block" /> Mineurs</h3>
               <p className="text-secondary text-sm leading-relaxed">
                 Chaque voyageur, y compris les enfants et bébés, doit avoir son propre ESTA et son propre passeport
                 biométrique. Un parent peut remplir le formulaire pour un mineur.
@@ -329,7 +329,7 @@ export default function EstaUsaPage() {
             uniquement aux États-Unis, un seul ESTA suffit pour tout votre séjour.
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
-            <h3 className="font-bold text-lg mb-3">💡 Conseils CDM 2026</h3>
+            <h3 className="font-bold text-lg mb-3"><Lightbulb className="h-5 w-5 inline-block" /> Conseils CDM 2026</h3>
             <ul className="space-y-2 text-sm text-secondary">
               <li>• <strong>Faites votre ESTA dès maintenant</strong> — valable 2 ans, il couvrira la CDM 2026</li>
               <li>• Si vous voyagez aussi au <Link href="/formalites-canada" className="text-accent underline">Canada</Link> ou au <Link href="/visa-mexique" className="text-accent underline">Mexique</Link>, vous aurez besoin de formalités supplémentaires (AVE, FMM)</li>
@@ -360,26 +360,26 @@ export default function EstaUsaPage() {
               href="/billets"
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3.5 font-bold hover:bg-white/10 transition-all"
             >
-              🎟 Acheter ses billets CDM 2026
+              <Ticket className="h-5 w-5 inline-block" /> Acheter ses billets CDM 2026
             </Link>
           </div>
         </section>
 
         {/* FAQ */}
         <FAQSection
-          title="❓ Questions fréquentes — ESTA et CDM 2026"
+          title=" Questions fréquentes — ESTA et CDM 2026"
           items={faqItems}
         />
 
         {/* Liens connexes */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">📌 Voir aussi</h2>
+          <h2 className="text-2xl font-bold mb-4"><Pin className="h-5 w-5 inline-block" /> Voir aussi</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               { href: "/visa-mexique", icon: "🇲🇽", title: "Formalités Mexique", desc: "FMM, documents nécessaires et conseils pour les matchs au Mexique." },
               { href: "/formalites-canada", icon: "🇨🇦", title: "Formalités Canada (AVE)", desc: "Autorisation de Voyage Électronique pour les matchs à Vancouver et Toronto." },
-              { href: "/billets", icon: "🎟", title: "Billets CDM 2026", desc: "Prix, dates de vente et comment acheter ses places sur FIFA.com." },
-              { href: "/assurance-voyage", icon: "🛡️", title: "Assurance voyage", desc: "Comparatif des assurances voyage pour la CDM 2026." },
+              { href: "/billets", icon: "", title: "Billets CDM 2026", desc: "Prix, dates de vente et comment acheter ses places sur FIFA.com." },
+              { href: "/assurance-voyage", icon: "", title: "Assurance voyage", desc: "Comparatif des assurances voyage pour la CDM 2026." },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl border p-4 hover:border-accent/50 transition-colors block">
                 <p className="font-bold">{link.icon} {link.title}</p>

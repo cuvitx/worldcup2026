@@ -82,14 +82,14 @@ export default function StrategieParisGroupesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         <div className="space-y-6">
           {strategies.map((s) => (
-            <div key={s.title} className="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-shadow">
+            <div key={s.title} className="rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4">
                 <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-accent/10">
                   <s.icon className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-primary dark:text-white mb-2">{s.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{s.content}</p>
+                  <h3 className="font-bold text-lg text-primary mb-2">{s.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{s.content}</p>
                 </div>
               </div>
             </div>

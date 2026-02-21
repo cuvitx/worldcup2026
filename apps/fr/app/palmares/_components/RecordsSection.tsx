@@ -1,21 +1,21 @@
 export function RecordsSection({ records }: { records: { icon: string; label: string; value: string; detail: string }[] }) {
   return (
     <section>
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Records &amp; stats marquantes
       </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {records.map((rec) => (
           <div
             key={rec.label}
-            className="rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 shadow-sm hover:border-primary/30 transition-colors"
+            className="rounded-xl bg-whiteslate-800 border border-gray-100 p-5 shadow-sm hover:border-primary/30 transition-colors"
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent mb-3">
               <RecordIcon label={rec.label} />
             </div>
             <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">{rec.label}</div>
             <div className="font-bold text-lg mb-1">{rec.value}</div>
-            <div className="text-sm text-gray-500 dark:text-gray-300">{rec.detail}</div>
+            <div className="text-sm text-gray-500">{rec.detail}</div>
           </div>
         ))}
       </div>

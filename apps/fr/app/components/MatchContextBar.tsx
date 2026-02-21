@@ -47,8 +47,8 @@ export function MatchContextBar({ matchSlug }: MatchContextBarProps) {
   const groupLabel = match.group ? ` — Groupe ${match.group}` : "";
 
   return (
-    <div className="rounded-xl bg-gray-50 p-4 dark:bg-slate-800">
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <div className="rounded-xl bg-gray-50 p-4slate-800">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-700">
         <span className="inline-flex items-center gap-1.5">
           <Calendar className="h-4 w-4 text-primary" />
           {formatDateFR(match.date)}

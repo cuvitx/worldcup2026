@@ -45,7 +45,7 @@ interface CardProps {
 export function Card({ children, className = "", hover = false, padding = "lg" }: CardProps) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm ${paddingMap[padding]} ${
+      className={`rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm ${paddingMap[padding]} ${
         hover ? "hover:shadow-md transition-shadow" : ""
       } ${className}`}
     >

@@ -42,36 +42,36 @@ export default function TeamsPage() {
         <ConfederationFilter teams={sorted} />
 
         {/* Ranking Table */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-gray-700 mb-10 mt-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Classement FIFA des 48 équipes</h2>
+        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200 mb-10 mt-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-gray-600 text-left">
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">#</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Équipe</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 hidden sm:table-cell">Conf.</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300">Gr.</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right hidden sm:table-cell">Chances</th>
-                  <th className="pb-3 font-medium text-gray-500 dark:text-gray-300 text-right">Pronostic</th>
+                <tr className="border-b border-gray-200 text-left">
+                  <th className="pb-3 font-medium text-gray-500">#</th>
+                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
+                  <th className="pb-3 font-medium text-gray-500 hidden sm:table-cell">Conf.</th>
+                  <th className="pb-3 font-medium text-gray-500">Gr.</th>
+                  <th className="pb-3 font-medium text-gray-500 text-right hidden sm:table-cell">Chances</th>
+                  <th className="pb-3 font-medium text-gray-500 text-right">Pronostic</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+              <tbody className="divide-y divide-gray-100">
                 {sorted.map((team) => {
                   const pred = predictionsByTeamId[team.id];
                   return (
-                    <tr key={team.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 border-b border-gray-100 dark:border-gray-700/40 transition-colors">
-                      <td className="py-3 font-medium text-gray-900 dark:text-white">{team.fifaRanking}</td>
+                    <tr key={team.id} className="hover:bg-gray-50 border-b border-gray-100 transition-colors">
+                      <td className="py-3 font-medium text-gray-900">{team.fifaRanking}</td>
                       <td className="py-3">
                         <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 hover:text-primary min-w-0">
                           <span className="text-lg shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
-                          <span className="font-medium text-gray-900 dark:text-white truncate">{team.name}</span>
+                          <span className="font-medium text-gray-900 truncate">{team.name}</span>
                           {team.isHost && <span className="text-xs text-accent font-semibold">(Hôte)</span>}
                         </Link>
                       </td>
-                      <td className="py-3 text-gray-500 dark:text-gray-300 hidden sm:table-cell">{team.confederation}</td>
+                      <td className="py-3 text-gray-500 hidden sm:table-cell">{team.confederation}</td>
                       <td className="py-3">
-                        <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary text-gray-700 dark:text-gray-300">{team.group}</Link>
+                        <Link href={`/groupe/${team.group.toLowerCase()}`} className="hover:text-primary text-gray-700">{team.group}</Link>
                       </td>
                       <td className="py-3 text-right hidden sm:table-cell">
                         {pred ? (
@@ -102,15 +102,15 @@ export default function TeamsPage() {
           links={[
             {
               href: "/groupes",
-              title: "📊 Les 12 groupes",
+              title: " Les 12 groupes",
               description: "Composition et classements des groupes A à L.",
-              icon: "📊"
+              icon: ""
             },
             {
               href: "/match/calendrier",
-              title: "📅 Calendrier complet",
+              title: " Calendrier complet",
               description: "Tous les matchs avec dates, horaires et stades.",
-              icon: "📅"
+              icon: ""
             },
             {
               href: "/pronostic-vainqueur",

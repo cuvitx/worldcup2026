@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { TableOfContents } from "@repo/ui";
-import { Trophy, Users, ArrowRight, Target } from "lucide-react";
+import { AlertTriangle, ArrowRight, Check, Target, Trophy, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Format Coupe du Monde 2026 - 48 équipes, 12 groupes, Bracket | CDM 2026",
@@ -83,20 +83,20 @@ export default function FormatPage() {
         <div>
           {/* Introduction */}
           <div className="mb-12">
-            <h2 id="introduction" className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 id="introduction" className="text-2xl font-bold text-gray-900 mb-4">
               Une révolution dans l'histoire du Mondial
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               La Coupe du Monde 2026 marque un tournant historique avec l'introduction d'un nouveau format à <strong>48 équipes</strong>,
               contre 32 lors des éditions précédentes (1998-2022). Ce changement radical, voté par le Conseil de la FIFA en janvier 2017,
               vise à rendre le tournoi plus inclusif en permettant à davantage de nations de participer à la plus grande compétition sportive mondiale.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               Le format retenu divise les 48 équipes en <strong>12 groupes de 4 équipes</strong> chacun. Les deux premiers de chaque groupe
               se qualifient automatiquement pour les huitièmes de finale, accompagnés des <strong>8 meilleurs troisièmes</strong>.
               Au total, 32 équipes accèdent à la phase à élimination directe, contre 16 dans l'ancien format.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               Cette nouvelle configuration porte le nombre total de matchs à <strong>104</strong> (contre 64 auparavant),
               allongeant la durée du tournoi à 39 jours (11 juin - 19 juillet 2026). Le champion du monde devra toujours jouer 7 matchs
               pour soulever le trophée, mais le parcours sera différent avec un premier tour élargi.
@@ -105,35 +105,35 @@ export default function FormatPage() {
 
           {/* Schéma du format */}
           <div className="mb-12">
-            <h2 id="schema-format" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="schema-format" className="text-2xl font-bold text-gray-900 mb-6">
               Schéma du format 2026
             </h2>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-xl border border-gray-200 dark:border-slate-700 p-8 shadow-sm">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-gray-200 p-8 shadow-sm">
               <div className="flex flex-col items-center gap-6">
                 {/* Étape 1 : Phase de groupes */}
                 <div className="w-full">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <Users className="w-6 h-6 text-accent" />
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900">
                       1. Phase de groupes
                     </h3>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-gray-200 dark:border-slate-700">
+                  <div className="bg-whiteslate-800 rounded-xl p-5 border border-gray-200">
                     <div className="text-center mb-3">
                       <p className="text-3xl font-extrabold text-accent">48 équipes</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      <p className="text-sm text-gray-600 mt-1">
                         12 groupes de 4 équipes
                       </p>
                     </div>
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((g) => (
-                        <div key={g} className="bg-gray-50 dark:bg-slate-900 rounded px-2 py-1.5 text-center font-semibold text-gray-900 dark:text-white">
+                        <div key={g} className="bg-gray-50slate-900 rounded px-2 py-1.5 text-center font-semibold text-gray-900">
                           Groupe {g}
                         </div>
                       ))}
                     </div>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-4 text-center">
+                    <p className="text-sm text-gray-700 mt-4 text-center">
                       Chaque équipe joue <strong>3 matchs</strong> (contre les 3 autres de son groupe)
                     </p>
                   </div>
@@ -145,34 +145,34 @@ export default function FormatPage() {
                 <div className="w-full">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <Target className="w-6 h-6 text-accent" />
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900">
                       2. Qualification pour les 8e de finale
                     </h3>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-gray-200 dark:border-slate-700">
+                  <div className="bg-whiteslate-800 rounded-xl p-5 border border-gray-200">
                     <div className="grid sm:grid-cols-3 gap-4 text-center">
                       <div>
                         <p className="text-2xl font-extrabold text-accent">12</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                        <p className="text-xs text-gray-600 mt-1">
                           Vainqueurs de groupe (1er)
                         </p>
                       </div>
                       <div>
                         <p className="text-2xl font-extrabold text-accent">12</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                        <p className="text-xs text-gray-600 mt-1">
                           Deuxièmes de groupe
                         </p>
                       </div>
                       <div>
                         <p className="text-2xl font-extrabold text-secondary">8</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                        <p className="text-xs text-gray-600 mt-1">
                           Meilleurs 3e (sur 12)
                         </p>
                       </div>
                     </div>
-                    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700 text-center">
+                    <div className="mt-4 pt-4 border-t border-gray-200 text-center">
                       <p className="text-3xl font-extrabold text-accent">32 équipes qualifiées</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      <p className="text-sm text-gray-600 mt-1">
                         pour les huitièmes de finale
                       </p>
                     </div>
@@ -185,38 +185,38 @@ export default function FormatPage() {
                 <div className="w-full">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <Trophy className="w-6 h-6 text-secondary" />
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900">
                       3. Phase à élimination directe
                     </h3>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-gray-200 dark:border-slate-700">
+                  <div className="bg-whiteslate-800 rounded-xl p-5 border border-gray-200">
                     <div className="flex items-center justify-between text-center gap-2">
                       <div className="flex-1">
-                        <p className="text-xl font-bold text-gray-900 dark:text-white">32</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">1/8</p>
+                        <p className="text-xl font-bold text-gray-900">32</p>
+                        <p className="text-xs text-gray-600 mt-1">1/8</p>
                       </div>
                       <ArrowRight className="w-4 h-4 text-gray-400" />
                       <div className="flex-1">
-                        <p className="text-xl font-bold text-gray-900 dark:text-white">16</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">1/4</p>
+                        <p className="text-xl font-bold text-gray-900">16</p>
+                        <p className="text-xs text-gray-600 mt-1">1/4</p>
                       </div>
                       <ArrowRight className="w-4 h-4 text-gray-400" />
                       <div className="flex-1">
-                        <p className="text-xl font-bold text-gray-900 dark:text-white">8</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">1/2</p>
+                        <p className="text-xl font-bold text-gray-900">8</p>
+                        <p className="text-xs text-gray-600 mt-1">1/2</p>
                       </div>
                       <ArrowRight className="w-4 h-4 text-gray-400" />
                       <div className="flex-1">
-                        <p className="text-xl font-bold text-gray-900 dark:text-white">4</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Finale</p>
+                        <p className="text-xl font-bold text-gray-900">4</p>
+                        <p className="text-xs text-gray-600 mt-1">Finale</p>
                       </div>
                       <ArrowRight className="w-4 h-4 text-gray-400" />
                       <div className="flex-1">
                         <p className="text-xl font-bold text-secondary">1</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Champion</p>
+                        <p className="text-xs text-gray-600 mt-1">Champion</p>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-4 text-center">
+                    <p className="text-sm text-gray-700 mt-4 text-center">
                       Matchs à élimination directe (prolongations + tirs au but si nécessaire)
                     </p>
                   </div>
@@ -227,27 +227,27 @@ export default function FormatPage() {
 
           {/* Comparaison ancien vs nouveau format */}
           <div className="mb-12">
-            <h2 id="comparaison" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="comparaison" className="text-2xl font-bold text-gray-900 mb-6">
               Ancien format (32 équipes) vs Nouveau format (48 équipes)
             </h2>
 
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden shadow-sm">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 dark:bg-slate-900">
+                  <thead className="bg-gray-50slate-900">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Critère
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Format 32 (1998-2022)
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Format 48 (2026+)
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-slate-700">
+                  <tbody className="divide-y divide-gray-200">
                     {[
                       { critere: "Nombre d'équipes", ancien: "32", nouveau: "48" },
                       { critere: "Nombre de groupes", ancien: "8 groupes de 4", nouveau: "12 groupes de 4" },
@@ -263,11 +263,11 @@ export default function FormatPage() {
                       { critere: "Places CONCACAF (Am. Nord)", ancien: "3,5", nouveau: "6 (dont 3 hôtes)" },
                       { critere: "Places OFC (Océanie)", ancien: "0,5", nouveau: "1" },
                     ].map((row, idx) => (
-                      <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
-                        <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                      <tr key={idx} className="hover:bg-gray-50 transition-colors">
+                        <td className="px-4 py-3 font-medium text-gray-900">
                           {row.critere}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-4 py-3 text-sm text-gray-700">
                           {row.ancien}
                         </td>
                         <td className="px-4 py-3 text-sm text-accent font-semibold">
@@ -283,12 +283,12 @@ export default function FormatPage() {
 
           {/* Règle des meilleurs 3e */}
           <div className="mb-12">
-            <h2 id="meilleurs-3e" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="meilleurs-3e" className="text-2xl font-bold text-gray-900 mb-6">
               Comment sont classés les meilleurs 3e ?
             </h2>
             
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <p className="text-sm text-gray-700 mb-4">
                 Les 12 troisièmes de groupe sont classés entre eux selon les critères suivants (dans l'ordre) :
               </p>
               <ol className="space-y-3">
@@ -299,7 +299,7 @@ export default function FormatPage() {
                   "Points de fair-play (cartons jaunes = -1, rouge indirect = -3, rouge direct = -4)",
                   "Tirage au sort FIFA (en dernier recours)"
                 ].map((criterion, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-700">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold mt-0.5">
                       {idx + 1}
                     </span>
@@ -307,8 +307,8 @@ export default function FormatPage() {
                   </li>
                 ))}
               </ol>
-              <div className="mt-5 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="mt-5 p-4 bg-blue-50blue-900/20 rounded-lg border border-blue-100">
+                <p className="text-sm text-gray-700">
                   <strong className="text-accent">Important :</strong> Seuls les 8 meilleurs troisièmes sur 12 se qualifient.
                   Finir 3e de son groupe ne garantit donc PAS automatiquement la qualification, contrairement au format Euro
                   (où 4 meilleurs 3e sur 6 se qualifient).
@@ -319,17 +319,17 @@ export default function FormatPage() {
 
           {/* Avantages et inconvénients */}
           <div className="mb-12">
-            <h2 id="avantages-inconvenients" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="avantages-inconvenients" className="text-2xl font-bold text-gray-900 mb-6">
               Avantages et inconvénients du nouveau format
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <h3 className="font-bold text-accent mb-3 flex items-center gap-2">
-                  <span className="text-xl">✅</span>
+                  <span className="text-xl"><Check className="h-5 w-5 inline-block" /></span>
                   Avantages
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span>Plus de nations représentées (+50% d'équipes)</span>
@@ -357,34 +357,34 @@ export default function FormatPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
-                  <span className="text-xl">⚠️</span>
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl"><AlertTriangle className="h-5 w-5 inline-block" /></span>
                   Inconvénients
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                    <span className="text-red-600 mt-0.5">•</span>
                     <span>Dilution du niveau sportif (équipes plus faibles)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                    <span className="text-red-600 mt-0.5">•</span>
                     <span>Tournoi plus long (fatigue des joueurs)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                    <span className="text-red-600 mt-0.5">•</span>
                     <span>Risque de matchs nuls tactiques pour viser la 3e place</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                    <span className="text-red-600 mt-0.5">•</span>
                     <span>Complexité du classement des meilleurs 3e</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                    <span className="text-red-600 mt-0.5">•</span>
                     <span>Coût organisationnel plus élevé (infrastructure)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                    <span className="text-red-600 mt-0.5">•</span>
                     <span>Impact environnemental accru (déplacements, émissions)</span>
                   </li>
                 </ul>
@@ -402,12 +402,12 @@ export default function FormatPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">{desc}</div>
+                <div className="text-xs text-gray-600">{desc}</div>
               </Link>
             ))}
           </div>
@@ -423,11 +423,11 @@ export default function FormatPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/groupes", title: "Les 12 groupes", description: "Composition de chaque groupe", icon: "📋" },
-          { href: "/match/calendrier", title: "Calendrier des matchs", description: "Les 104 matchs de la CDM 2026", icon: "📅" },
-          { href: "/simulateur", title: "Simulateur", description: "Simulez le tableau final", icon: "🎮" },
-          { href: "/tableau", title: "Tableau final", description: "Bracket des phases éliminatoires", icon: "🗓️" },
-          { href: "/reglement", title: "Règlement", description: "Règles officielles de la CDM 2026", icon: "📖" },
+          { href: "/groupes", title: "Les 12 groupes", description: "Composition de chaque groupe", icon: "" },
+          { href: "/match/calendrier", title: "Calendrier des matchs", description: "Les 104 matchs de la CDM 2026", icon: "" },
+          { href: "/simulateur", title: "Simulateur", description: "Simulez le tableau final", icon: "" },
+          { href: "/tableau", title: "Tableau final", description: "Bracket des phases éliminatoires", icon: "" },
+          { href: "/reglement", title: "Règlement", description: "Règles officielles de la CDM 2026", icon: "" },
         ]} /></div>
       <FAQSection title="Questions sur le format" items={faqItems} />
 

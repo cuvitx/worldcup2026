@@ -63,10 +63,10 @@ export default function ContactPage() {
         <div className="space-y-12 text-gray-700 leading-relaxed">
           {/* Contact form-like section */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Nous écrire
             </h2>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 p-6">
+            <div className="rounded-xl border border-gray-200 bg-gray-50slate-700 p-6">
               <p className="mb-4">
                 Pour toute question relative au site, à nos contenus, à nos
                 analyses ou à une demande de partenariat, envoyez-nous un email :
@@ -88,16 +88,16 @@ export default function ContactPage() {
 
           {/* FAQ */}
           <section>
-            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
               Questions fréquentes
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                  className="group rounded-lg border border-gray-200 bg-whiteslate-800"
                 >
-                  <summary className="cursor-pointer px-5 py-4 font-semibold text-gray-900 dark:text-white transition-colors hover:text-primary">
+                  <summary className="cursor-pointer px-5 py-4 font-semibold text-gray-900 transition-colors hover:text-primary">
                     {faq.question}
                   </summary>
                   <p className="px-5 pb-4 text-gray-600">{faq.answer}</p>
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
           {/* À propos */}
           <section>
-            <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-3 text-2xl font-bold text-gray-900">
               À propos du site
             </h2>
             <p>
@@ -126,7 +126,7 @@ export default function ContactPage() {
 
           {/* Jeu responsable */}
           <section className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Jeu responsable
             </h2>
             <p>
@@ -146,7 +146,7 @@ export default function ContactPage() {
 
           {/* Liens utiles */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Liens utiles
             </h2>
             <ul className="space-y-2">

@@ -84,7 +84,7 @@ export default function H2HIndexPage() {
       </section>
 
       {/* Team Selector */}
-      <section className="bg-gray-50 py-10 sm:py-12 dark:bg-slate-800/50">
+      <section className="bg-gray-50 py-10 sm:py-12slate-800/50">
         <div className="mx-auto max-w-3xl px-4">
           <H2HSelector teams={teamList} />
         </div>
@@ -93,7 +93,7 @@ export default function H2HIndexPage() {
       {/* Popular Matchups */}
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Confrontations populaires
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -103,17 +103,17 @@ export default function H2HIndexPage() {
                   <Link
                     key={m.slug}
                     href={`/h2h/${m.slug}`}
-                    className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-primary/50"
+                    className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-xl">{m.home.flag}</span>
-                      <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                      <span className="text-sm font-semibold text-gray-900">
                         {m.home.name}
                       </span>
                     </div>
                     <span className="text-xs font-bold text-gray-500">VS</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                      <span className="text-sm font-semibold text-gray-900">
                         {m.away.name}
                       </span>
                       <span className="text-xl">{m.away.flag}</span>
@@ -126,9 +126,9 @@ export default function H2HIndexPage() {
       </section>
 
       {/* Group Stage Matchups */}
-      <section className="border-t border-gray-200 bg-gray-50 py-10 dark:border-slate-700 dark:bg-slate-800/50">
+      <section className="border-t border-gray-200 bg-gray-50 py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Matchs de la phase de groupes
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -138,17 +138,17 @@ export default function H2HIndexPage() {
                   <Link
                     key={m.slug}
                     href={`/h2h/${m.slug}`}
-                    className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-primary/50"
+                    className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-xl">{m.home.flag}</span>
-                      <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                      <span className="text-sm font-semibold text-gray-900">
                         {m.home.name}
                       </span>
                     </div>
                     <span className="text-xs font-bold text-gray-500">VS</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                      <span className="text-sm font-semibold text-gray-900">
                         {m.away.name}
                       </span>
                       <span className="text-xl">{m.away.flag}</span>
@@ -163,10 +163,10 @@ export default function H2HIndexPage() {
       {/* All Teams Grid */}
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Toutes les équipes
           </h2>
-          <p className="mb-4 text-sm text-gray-500 dark:text-gray-300">
+          <p className="mb-4 text-sm text-gray-500">
             Cliquez sur une équipe pour voir toutes ses confrontations possibles.
           </p>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
@@ -177,7 +177,7 @@ export default function H2HIndexPage() {
                 <Link
                   key={t.slug}
                   href={`/equipe/${t.slug}`}
-                  className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-primary/30 hover:bg-primary/5 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:border-primary/50"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-primary/30 hover:bg-primary/5"
                 >
                   <span>{t.flag}</span>
                   <span className="truncate">{t.name}</span>
@@ -189,11 +189,11 @@ export default function H2HIndexPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/equipes", title: "Les 48 équipes", description: "Fiches complètes de chaque sélection", icon: "🏟️" },
-          { href: "/match/calendrier", title: "Calendrier des matchs", description: "Tous les matchs de la CDM 2026", icon: "📅" },
-          { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des 48 équipes", icon: "🏆" },
-          { href: "/comparateur-joueurs", title: "Comparateur joueurs", description: "Comparez les stars du mondial", icon: "👥" },
-          { href: "/statistiques", title: "Statistiques", description: "Chiffres et stats de la CDM 2026", icon: "📊" },
+          { href: "/equipes", title: "Les 48 équipes", description: "Fiches complètes de chaque sélection", icon: "" },
+          { href: "/match/calendrier", title: "Calendrier des matchs", description: "Tous les matchs de la CDM 2026", icon: "" },
+          { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des 48 équipes", icon: "" },
+          { href: "/comparateur-joueurs", title: "Comparateur joueurs", description: "Comparez les stars du mondial", icon: "" },
+          { href: "/statistiques", title: "Statistiques", description: "Chiffres et stats de la CDM 2026", icon: "" },
         ]} />
       </div>
     </>

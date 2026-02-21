@@ -15,12 +15,12 @@ interface PremiumMatchCalendarProps {
 
 export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumMatchCalendarProps) {
   return (
-    <section id="calendrier" className="bg-gray-50 dark:bg-slate-900/50 py-12">
+    <section id="calendrier" className="bg-gray-50slate-900/50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Calendrier des matchs — {teamName}
         </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
+        <p className="text-sm text-gray-500 mb-6">
           Groupe {teamsById[teamId]?.group} · CDM 2026 · Heure locale (Paris)
         </p>
 
@@ -55,14 +55,14 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="block rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30 dark:hover:border-secondary/40"
+                className="block rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30"
               >
                 <div className="flex items-center gap-4 px-5 py-4">
                   <div className="shrink-0 text-center hidden sm:block w-20">
-                    <p className="text-xs text-gray-400 dark:text-gray-400 capitalize">
+                    <p className="text-xs text-gray-400 capitalize">
                       {dateObj.toLocaleDateString("fr-FR", { weekday: "short" })}
                     </p>
-                    <p className="text-lg font-extrabold text-gray-900 dark:text-white">
+                    <p className="text-lg font-extrabold text-gray-900">
                       {dateObj.getDate()}/{dateObj.getMonth() + 1}
                     </p>
                     <p className="text-xs text-primary">{timeStr}</p>
@@ -71,27 +71,27 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
                       <span className="text-xl">{homeTeam?.flag ?? ""}</span>
-                      <span className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
+                      <span className="font-bold text-gray-900 text-sm sm:text-base">
                         {homeTeam?.name ?? match.homeTeamId}
                       </span>
-                      <span className="text-gray-400 dark:text-gray-400 font-bold">vs</span>
-                      <span className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">
+                      <span className="text-gray-400 font-bold">vs</span>
+                      <span className="font-bold text-gray-900 text-sm sm:text-base">
                         {awayTeam?.name ?? match.awayTeamId}
                       </span>
                       <span className="text-xl">{awayTeam?.flag ?? ""}</span>
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       {match.group && (
-                        <span className="text-xs bg-primary/10 dark:bg-secondary/20 text-primary dark:text-secondary px-2 py-0.5 rounded font-medium">
+                        <span className="text-xs bg-primary/10secondary/20 text-primary px-2 py-0.5 rounded font-medium">
                           Groupe {match.group}
                         </span>
                       )}
                       {stadium && (
-                        <span className="text-xs text-gray-500 dark:text-gray-300">
+                        <span className="text-xs text-gray-500">
                           {stadium.name}
                         </span>
                       )}
-                      <span className="text-xs text-gray-400 dark:text-gray-400 sm:hidden">
+                      <span className="text-xs text-gray-400 sm:hidden">
                         {dateStr} · {timeStr}
                       </span>
                     </div>
@@ -101,7 +101,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                     {teamWinOdds && teamWinOdds !== "—" && (
                       <div>
                         <p className="text-lg font-extrabold text-accent">{teamWinOdds}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-300">victoire</p>
+                        <p className="text-xs text-gray-500">victoire</p>
                       </div>
                     )}
                     <span className="mt-1 inline-flex text-xs text-primary font-medium">

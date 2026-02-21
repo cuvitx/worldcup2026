@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { MapPin, Bus, Car, Clock, ArrowRight, Plane, ShieldCheck } from "lucide-react";
+import { AlarmClock, ArrowRight, Bus, Car, Clock, Lock, MapPin, Plane, ShieldCheck, Smartphone, Thermometer } from "lucide-react";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 export const dynamicParams = false;
@@ -141,10 +141,10 @@ export default async function AccesStadePage({ params }: PageProps) {
           <ShieldCheck className="w-6 h-6 text-accent" /> Conseils pratiques
         </h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3 text-secondary">
-          <p>⏰ <strong className="text-primary">Arrivez 2h30 avant</strong> le coup d&apos;envoi pour passer les contrôles de sécurité FIFA sans stress.</p>
-          <p>🔒 <strong className="text-primary">Sécurité à l&apos;entrée :</strong> Pas de sacs à dos volumineux, pas de bouteilles en verre, pas de parapluies. Seuls les petits sacs transparents sont autorisés.</p>
-          <p>📱 <strong className="text-primary">Billets numériques :</strong> Chargez votre billet FIFA sur votre téléphone avant de partir. Prévoyez une batterie externe.</p>
-          <p>🌡️ <strong className="text-primary">Hydratation :</strong> En été, les températures peuvent être élevées. Apportez une bouteille vide (à remplir à l&apos;intérieur) et de la crème solaire.</p>
+          <p><AlarmClock className="h-5 w-5 inline-block" /> <strong className="text-primary">Arrivez 2h30 avant</strong> le coup d&apos;envoi pour passer les contrôles de sécurité FIFA sans stress.</p>
+          <p><Lock className="h-5 w-5 inline-block" /> <strong className="text-primary">Sécurité à l&apos;entrée :</strong> Pas de sacs à dos volumineux, pas de bouteilles en verre, pas de parapluies. Seuls les petits sacs transparents sont autorisés.</p>
+          <p><Smartphone className="h-5 w-5 inline-block" /> <strong className="text-primary">Billets numériques :</strong> Chargez votre billet FIFA sur votre téléphone avant de partir. Prévoyez une batterie externe.</p>
+          <p><Thermometer className="h-5 w-5 inline-block" /> <strong className="text-primary">Hydratation :</strong> En été, les températures peuvent être élevées. Apportez une bouteille vide (à remplir à l&apos;intérieur) et de la crème solaire.</p>
         </div>
       </section>
 

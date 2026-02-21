@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { FileText, Shield, Globe, ExternalLink, CheckCircle, Clock, AlertTriangle, Plane } from "lucide-react";
+import { AlertTriangle, CheckCircle, ClipboardList, Clock, ExternalLink, FileText, Globe, Landmark, Pin, Plane, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Formalités Canada CDM 2026 — AVE pour les supporters français",
@@ -103,7 +103,7 @@ export default function FormalitesCanadaPage() {
             à destination du Canada (y compris les transits).
           </p>
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-5 mt-4">
-            <h3 className="font-bold text-lg mb-3">📋 AVE en un coup d&apos;œil</h3>
+            <h3 className="font-bold text-lg mb-3"><ClipboardList className="h-5 w-5 inline-block" /> AVE en un coup d&apos;œil</h3>
             <ul className="grid sm:grid-cols-2 gap-3 text-sm text-secondary">
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Prix : <strong>7 CAD</strong> (≈ 5 €)</span></li>
               <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> <span>Validité : <strong>5 ans</strong> ou expiration du passeport</span></li>
@@ -227,10 +227,10 @@ export default function FormalitesCanadaPage() {
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { icon: "🛂", title: "Passeport valide", desc: "Passeport français valide pendant toute la durée du séjour. Biométrique ou électronique." },
-              { icon: "📧", title: "AVE approuvée", desc: "Demande en ligne approuvée, liée à votre passeport. Gardez l'email de confirmation." },
-              { icon: "✈️", title: "Billet retour", desc: "Preuve de sortie du territoire canadien (billet retour ou continuation)." },
-              { icon: "💰", title: "Preuve de fonds", desc: "Moyens financiers suffisants pour le séjour (peut être demandé à l'arrivée)." },
+              { icon: "", title: "Passeport valide", desc: "Passeport français valide pendant toute la durée du séjour. Biométrique ou électronique." },
+              { icon: "", title: "AVE approuvée", desc: "Demande en ligne approuvée, liée à votre passeport. Gardez l'email de confirmation." },
+              { icon: "", title: "Billet retour", desc: "Preuve de sortie du territoire canadien (billet retour ou continuation)." },
+              { icon: "", title: "Preuve de fonds", desc: "Moyens financiers suffisants pour le séjour (peut être demandé à l'arrivée)." },
             ].map((doc) => (
               <div key={doc.title} className="rounded-xl border p-4">
                 <p className="font-bold">{doc.icon} {doc.title}</p>
@@ -251,21 +251,21 @@ export default function FormalitesCanadaPage() {
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold text-lg mb-2">🏟️ Vancouver</h3>
+              <h3 className="font-bold text-lg mb-2"><Landmark className="h-5 w-5 inline-block" /> Vancouver</h3>
               <p className="text-secondary text-sm">
                 <strong>BC Place</strong> (54 500 places). Matchs de phase de groupes et huitièmes de finale.
                 Vol Paris → Vancouver : environ 10h direct (Air Canada, Air France).
               </p>
             </div>
             <div className="rounded-xl border p-5">
-              <h3 className="font-bold text-lg mb-2">🏟️ Toronto</h3>
+              <h3 className="font-bold text-lg mb-2"><Landmark className="h-5 w-5 inline-block" /> Toronto</h3>
               <p className="text-secondary text-sm">
                 <strong>BMO Field</strong> (45 000 places étendues pour la CDM). Phase de groupes.
                 Vol Paris → Toronto : environ 8h direct (Air Canada, Air France, Air Transat).
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-2 mt-4 p-3 rounded-lg bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800">
+          <div className="flex items-start gap-2 mt-4 p-3 rounded-lg bg-yellow-50yellow-950/30 border border-yellow-200">
             <AlertTriangle className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
             <p className="text-sm text-secondary">
               <strong>Attention :</strong> Si vous traversez la frontière terrestre USA-Canada (ex. road trip
@@ -302,19 +302,19 @@ export default function FormalitesCanadaPage() {
 
         {/* FAQ */}
         <FAQSection
-          title="❓ Questions fréquentes — AVE Canada et CDM 2026"
+          title=" Questions fréquentes — AVE Canada et CDM 2026"
           items={faqItems}
         />
 
         {/* Liens connexes */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">📌 Voir aussi</h2>
+          <h2 className="text-2xl font-bold mb-4"><Pin className="h-5 w-5 inline-block" /> Voir aussi</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               { href: "/esta-usa", icon: "🇺🇸", title: "ESTA USA", desc: "Guide complet ESTA pour les matchs aux États-Unis." },
               { href: "/visa-mexique", icon: "🇲🇽", title: "Formalités Mexique", desc: "FMM et documents pour les matchs au Mexique." },
-              { href: "/billets", icon: "🎟", title: "Billets CDM 2026", desc: "Prix, dates de vente et comment acheter ses places." },
-              { href: "/calculateur-budget", icon: "💰", title: "Calculateur budget", desc: "Estimez le coût total de votre voyage CDM 2026." },
+              { href: "/billets", icon: "", title: "Billets CDM 2026", desc: "Prix, dates de vente et comment acheter ses places." },
+              { href: "/calculateur-budget", icon: "", title: "Calculateur budget", desc: "Estimez le coût total de votre voyage CDM 2026." },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl border p-4 hover:border-accent/50 transition-colors block">
                 <p className="font-bold">{link.icon} {link.title}</p>

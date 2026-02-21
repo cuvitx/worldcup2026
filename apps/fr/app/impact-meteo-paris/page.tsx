@@ -116,18 +116,18 @@ export default function ImpactMeteoParisPage() {
         {/* Facteurs */}
         {facteurs.map((f) => (
           <section key={f.titre}>
-            <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
               <f.icon className="h-7 w-7 text-accent" /> {f.titre}
             </h2>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{f.description}</p>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4">
+              <p className="text-gray-700 leading-relaxed">{f.description}</p>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
                   <BarChart3 className="h-5 w-5 text-secondary" /> Stats historiques
                 </h3>
                 <ul className="space-y-1">
                   {f.stats.map((s, i) => (
-                    <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+                    <li key={i} className="text-sm text-gray-600 flex gap-2">
                       <span className="text-accent">•</span> {s}
                     </li>
                   ))}
@@ -137,7 +137,7 @@ export default function ImpactMeteoParisPage() {
                 <h3 className="font-semibold text-accent mb-1 flex items-center gap-2">
                   <Target className="h-5 w-5" /> Recommandation paris
                 </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">{f.recommandation}</p>
+                <p className="text-sm text-gray-700">{f.recommandation}</p>
               </div>
             </div>
           </section>
@@ -145,26 +145,26 @@ export default function ImpactMeteoParisPage() {
 
         {/* Tableau historique */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <BarChart3 className="h-7 w-7 text-accent" /> Stats historiques par édition
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-slate-700">
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Édition</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Température</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Buts/match</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Particularité</th>
+                <tr className="border-b border-gray-200">
+                  <th className="py-3 px-4 font-semibold text-gray-900">Édition</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Température</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Buts/match</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Particularité</th>
                 </tr>
               </thead>
               <tbody>
                 {statsHistoriques.map((s) => (
-                  <tr key={s.edition} className="border-b border-gray-100 dark:border-slate-800">
-                    <td className="py-3 px-4 font-medium text-gray-900 dark:text-white">{s.edition}</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">{s.temp}</td>
+                  <tr key={s.edition} className="border-b border-gray-100">
+                    <td className="py-3 px-4 font-medium text-gray-900">{s.edition}</td>
+                    <td className="py-3 px-4 text-gray-700">{s.temp}</td>
                     <td className="py-3 px-4 text-accent font-semibold">{s.buts}</td>
-                    <td className="py-3 px-4 text-gray-500 dark:text-gray-400">{s.particularite}</td>
+                    <td className="py-3 px-4 text-gray-500">{s.particularite}</td>
                   </tr>
                 ))}
               </tbody>

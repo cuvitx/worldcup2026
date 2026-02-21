@@ -82,7 +82,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
   const paragraphs = splitIntoParagraphs(preview);
 
   return (
-    <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+    <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
       {/* Header */}
       <div className="mb-5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -90,10 +90,10 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
             <rect width="22" height="22" rx="6" fill="#2563eb" opacity="0.1" />
             <path d="M7 11h8M11 7v8" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{t.title}</h2>
+          <h2 className="text-lg font-bold text-gray-900">{t.title}</h2>
         </div>
         {grounded && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-accent/5 dark:bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent dark:text-accent border border-accent/20 dark:border-accent/30">
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent/5accent/10 px-2.5 py-1 text-xs font-medium text-accent border border-accent/20">
             <CheckIcon />
             {t.verified}
           </span>
@@ -104,7 +104,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
       {paragraphs.length > 0 && (
         <div className="mb-5 space-y-3">
           {paragraphs.map((p, i) => (
-            <p key={i} className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{p}</p>
+            <p key={i} className="text-sm leading-relaxed text-gray-700">{p}</p>
           ))}
         </div>
       )}
@@ -112,14 +112,14 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
       {/* Key factors — visual cards */}
       {keyFactors.length > 0 && (
         <div className="mb-5">
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+          <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">
             {t.factors}
           </h3>
           <div className="grid gap-2 sm:grid-cols-2">
             {keyFactors.map((factor, i) => (
-              <div key={i} className="flex items-start gap-3 rounded-lg bg-gray-50 dark:bg-slate-700 p-3 border border-gray-100 dark:border-gray-600">
+              <div key={i} className="flex items-start gap-3 rounded-lg bg-gray-50slate-700 p-3 border border-gray-100">
                 <FactorIcon index={i} />
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-snug">{factor}</p>
+                <p className="text-sm text-gray-700 leading-snug">{factor}</p>
               </div>
             ))}
           </div>
@@ -131,7 +131,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
         {prediction && (
           <div className="rounded-lg bg-primary/5 p-4 border border-primary/10">
             <p className="mb-1 text-xs font-bold uppercase tracking-wider text-primary/60">{t.prediction}</p>
-            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{prediction}</p>
+            <p className="text-sm font-semibold text-gray-900">{prediction}</p>
           </div>
         )}
         {bettingAngle && (
@@ -140,7 +140,7 @@ export function AiMatchPreview({ preview, keyFactors, prediction, bettingAngle, 
               <TargetIcon />
               <p className="text-xs font-bold uppercase tracking-wider text-gold">{t.bettingAngle}</p>
             </div>
-            <p className="text-sm text-gray-700 dark:text-gray-300">{bettingAngle}</p>
+            <p className="text-sm text-gray-700">{bettingAngle}</p>
           </div>
         )}
       </div>

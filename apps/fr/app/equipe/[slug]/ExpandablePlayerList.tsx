@@ -32,7 +32,7 @@ function PlayerCard({ player }: { player: Player }) {
   return (
     <Link
       href={`/joueur/${player.slug}`}
-      className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+      className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
     >
       {/* 40×40 avatar */}
       {imgPath ? (

@@ -22,7 +22,7 @@ export function UpcomingMatches() {
     <section className="py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-gray-900">
             Premiers matchs du tournoi
           </h2>
           <Link
@@ -41,15 +41,15 @@ export function UpcomingMatches() {
               <Link
                 key={match.id}
                 href={`/pronostic-match/${match.slug}`}
-                className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-primary/30 hover:shadow-md dark:border-gray-700 dark:bg-slate-800"
+                className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-primary/30 hover:shadow-md"
               >
-                <div className="mb-3 flex items-center justify-between text-xs text-gray-500 dark:text-gray-300">
+                <div className="mb-3 flex items-center justify-between text-xs text-gray-500">
                   <span>
                     Groupe {match.group} · Journée {match.matchday}
                   </span>
                   <span>{formatDate(match.date)}</span>
                 </div>
-                <div className="flex items-center justify-center gap-4 text-lg font-bold text-gray-900 dark:text-white">
+                <div className="flex items-center justify-center gap-4 text-lg font-bold text-gray-900">
                   <span className="text-right">
                     <span role="img" aria-label={`Drapeau de ${home?.name ?? match.homeTeamId}`}>{home?.flag ?? ""}</span> {home?.name ?? match.homeTeamId}
                   </span>
@@ -58,7 +58,7 @@ export function UpcomingMatches() {
                     <span role="img" aria-label={`Drapeau de ${away?.name ?? match.awayTeamId}`}>{away?.flag ?? ""}</span> {away?.name ?? match.awayTeamId}
                   </span>
                 </div>
-                <div className="mt-3 text-center text-xs text-gray-500 dark:text-gray-300">
+                <div className="mt-3 text-center text-xs text-gray-500">
                   {match.time} UTC · {stadium?.name ?? match.stadiumId}
                 </div>
               </Link>

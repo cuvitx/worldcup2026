@@ -70,14 +70,14 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className={`flex items-center gap-3 rounded-xl border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10 ${compact ? 'p-3' : 'p-5'}`}>
+      <div className={`flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/10accent/10 ${compact ? 'p-3' : 'p-5'}`}>
         <span className="text-2xl"></span>
         <div>
-          <p className={`font-bold text-accent dark:text-accent ${compact ? 'text-sm' : 'text-base'}`}>
+          <p className={`font-bold text-accent ${compact ? 'text-sm' : 'text-base'}`}>
             Inscription confirmée !
           </p>
           {!compact && (
-            <p className="text-sm text-accent dark:text-accent/80 mt-0.5">
+            <p className="text-sm text-accent mt-0.5">
               Vous recevrez notre newsletter chaque semaine dès le coup d&apos;envoi de la CDM 2026.
             </p>
           )}
@@ -97,10 +97,10 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           aria-label="Votre adresse email"
           required
           disabled={status === 'loading'}
-          className={`flex-1 rounded-lg border bg-white dark:bg-slate-800 px-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
+          className={`flex-1 rounded-lg border bg-whiteslate-800 px-4 text-gray-900 placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-primary/50 disabled:opacity-60 ${
             status === 'error' || status === 'duplicate'
-              ? 'border-red-300 dark:border-red-700'
-              : 'border-gray-300 dark:border-gray-600'
+              ? 'border-red-300'
+              : 'border-gray-300'
           } ${compact ? 'py-2 text-sm' : 'py-3 text-base'}`}
         />
         <button
@@ -115,17 +115,17 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       </div>
 
       {status === 'error' && (
-        <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+        <p className="mt-2 text-xs text-red-600">
           {errorMsg || 'Veuillez entrer une adresse email valide.'}
         </p>
       )}
       {status === 'duplicate' && (
-        <p className="mt-2 text-xs text-accent dark:text-accent">
+        <p className="mt-2 text-xs text-accent">
            Cette adresse est déjà inscrite. À très bientôt !
         </p>
       )}
       {!compact && (status === 'idle' || status === 'loading') && (
-        <p className="mt-2 text-xs text-gray-400 dark:text-gray-400">
+        <p className="mt-2 text-xs text-gray-400">
           Gratuit · Sans spam · Désinscription en 1 clic
         </p>
       )}

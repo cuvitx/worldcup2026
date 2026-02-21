@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50 dark:bg-slate-900">
+    <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50slate-900">
       {/* Ballon animé + carton rouge */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
         {/* Ballon avec animation CSS custom : rebond + rotation */}
@@ -15,7 +15,7 @@ export default function NotFound() {
           </span>
           {/* Ombre portée qui pulse */}
           <div
-            className="w-12 h-2 rounded-full bg-black/10 dark:bg-black/30 blur-sm mt-1"
+            className="w-12 h-2 rounded-full bg-black/10black/30 blur-sm mt-1"
             style={{ animation: "ball-shadow 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           />
         </div>
@@ -36,21 +36,21 @@ export default function NotFound() {
 
       {/* Badge arbitre */}
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6">
-        🟥 Carton Rouge — Expulsion immédiate
+         Carton Rouge — Expulsion immédiate
       </div>
 
       {/* Titre */}
-      <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+      <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
         Cette page a pris{" "}
         <span className="text-primary">un carton rouge</span>&nbsp;!
       </h1>
 
       {/* Sous-titre */}
-      <p className="text-gray-500 dark:text-gray-300 text-lg max-w-md mb-3">
+      <p className="text-gray-500 text-lg max-w-md mb-3">
         L&apos;arbitre a expulsé cette URL du terrain. Elle ne joue plus pour
         cette équipe.
       </p>
-      <p className="text-gray-400 dark:text-gray-400 text-sm mb-10 font-mono">
+      <p className="text-gray-400 text-sm mb-10 font-mono">
         Erreur 404 — Page introuvable
       </p>
 
@@ -58,34 +58,34 @@ export default function NotFound() {
       <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-accent/40 to-transparent mb-10" />
 
       {/* Liens utiles */}
-      <p className="text-sm text-gray-400 dark:text-gray-400 font-medium uppercase tracking-wider mb-5">
+      <p className="text-sm text-gray-400 font-medium uppercase tracking-wider mb-5">
         Retour sur le terrain
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
         <Link
           href="/"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Accueil
         </Link>
         <Link
           href="/groupes"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Groupes
         </Link>
         <Link
           href="/simulateur"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Simulateur
         </Link>
         <Link
           href="/match/calendrier"
-          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-200 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary dark:hover:border-primary/30 dark:hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
+          className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-whiteslate-800 border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
           Calendrier

@@ -140,20 +140,20 @@ export default function StatistiquesPage() {
 
         {/* Buts par édition */}
         <section>
-          <h2 id="buts-edition" className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+          <h2 id="buts-edition" className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
              Buts marqués par édition (1930–2022)
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
+          <p className="text-sm text-gray-500 mb-6">
             Survolez les barres pour voir le détail. Édition 1954 : 5,38 buts/match — record
             absolu.
           </p>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
             <GoalsChart goalsByEdition={goalsByEdition} />
             {/* Tableau compact */}
             <div className="mt-6 overflow-x-auto">
               <table className="w-full text-xs text-center">
                 <thead>
-                  <tr className="text-gray-400 uppercase border-b border-gray-100 dark:border-slate-700">
+                  <tr className="text-gray-400 uppercase border-b border-gray-100">
                     <th className="py-2 px-2 text-left">Édition</th>
                     <th className="py-2 px-2">Équipes</th>
                     <th className="py-2 px-2">Matchs</th>
@@ -161,24 +161,24 @@ export default function StatistiquesPage() {
                     <th className="py-2 px-2">Moy/match</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50 dark:divide-slate-700/50">
+                <tbody className="divide-y divide-gray-50">
                   {[...goalsByEdition].reverse().map((ed) => (
                     <tr
                       key={ed.year}
-                      className={`hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors ${
-                        ed.goals === maxGoals ? "bg-primary/5 dark:bg-primary/10" : ""
+                      className={`hover:bg-gray-50 transition-colors ${
+                        ed.goals === maxGoals ? "bg-primary/5primary/10" : ""
                       }`}
                     >
                       <td className="py-1.5 px-2 font-bold text-primary text-left">
                         {ed.year}
                       </td>
-                      <td className="py-1.5 px-2 text-gray-600 dark:text-gray-300">
+                      <td className="py-1.5 px-2 text-gray-600">
                         {ed.teams}
                       </td>
-                      <td className="py-1.5 px-2 text-gray-600 dark:text-gray-300">
+                      <td className="py-1.5 px-2 text-gray-600">
                         {ed.matches}
                       </td>
-                      <td className="py-1.5 px-2 font-bold text-gray-900 dark:text-gray-100">
+                      <td className="py-1.5 px-2 font-bold text-gray-900">
                         {ed.goals}
                         {ed.goals === maxGoals && (
                           <span className="ml-1 text-primary text-[9px]">★</span>
@@ -201,7 +201,7 @@ export default function StatistiquesPage() {
 
         {/* CTA */}
         <section className="rounded-2xl bg-gradient-to-br from-primary to-primary text-white p-8 text-center shadow-xl">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">
              Explorez toute l'histoire
           </h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">
@@ -243,9 +243,9 @@ export default function StatistiquesPage() {
         links={[
           {
             href: "/histoire",
-            title: "📜 Histoire de la CDM",
+            title: " Histoire de la CDM",
             description: "Timeline complète des 22 éditions depuis 1930 avec faits marquants.",
-            icon: "📜"
+            icon: ""
           },
           {
             href: "/palmares",
@@ -262,7 +262,7 @@ export default function StatistiquesPage() {
         ]}
       />
 
-      <FAQSection title="❓ Questions sur les statistiques de la CDM" items={faqItems} />
+      <FAQSection title=" Questions sur les statistiques de la CDM" items={faqItems} />
     </>
   );
 }

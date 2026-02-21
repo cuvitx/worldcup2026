@@ -104,28 +104,28 @@ export default function FanZonesPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-12">
-        <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 p-5 flex gap-3">
-          <Monitor className="h-5 w-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
-          <p className="text-sm text-amber-800 dark:text-amber-200">
+        <div className="rounded-xl border border-amber-200 bg-amber-50amber-900/20 p-5 flex gap-3">
+          <Monitor className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
+          <p className="text-sm text-amber-800">
             Les emplacements ci-dessous sont basés sur les annonces préliminaires et les éditions précédentes.
             La liste officielle sera mise à jour dès confirmation par la FIFA.
           </p>
         </div>
 
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Fan zones par ville hôte
           </h2>
           <div className="space-y-4">
             {fanZones.map((fz) => (
               <div
                 key={fz.ville}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-accent" />
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       {fz.drapeau} {fz.ville}
                     </h3>
                   </div>
@@ -134,10 +134,10 @@ export default function FanZonesPage() {
                     <span>{fz.capacite}</span>
                   </div>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                <p className="text-sm text-gray-700 mb-1">
                   <strong>Lieu :</strong> {fz.lieu}
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600">
                   {fz.activites}
                 </p>
               </div>

@@ -75,9 +75,9 @@ export default function HuitiemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Target className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Format & enjeux</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Format & enjeux</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Les huitièmes de finale opposent les 16 vainqueurs des 16èmes de finale.
               C&apos;est le tour classique de la Coupe du Monde que les fans connaissent bien,
@@ -99,9 +99,9 @@ export default function HuitiemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Calendrier prévu</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Calendrier prévu</h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -109,16 +109,16 @@ export default function HuitiemesDeFinale() {
                   <th className="px-4 py-3 text-left">Matchs</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
                 {[
                   { date: "3 juillet 2026", matchs: "Matchs 1-2" },
                   { date: "4 juillet 2026", matchs: "Matchs 3-4" },
                   { date: "5 juillet 2026", matchs: "Matchs 5-6" },
                   { date: "6 juillet 2026", matchs: "Matchs 7-8" },
                 ].map((r) => (
-                  <tr key={r.date} className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{r.date}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{r.matchs}</td>
+                  <tr key={r.date} className="hover:bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">{r.date}</td>
+                    <td className="px-4 py-3 text-gray-600">{r.matchs}</td>
                   </tr>
                 ))}
               </tbody>
@@ -129,10 +129,10 @@ export default function HuitiemesDeFinale() {
         <section>
           <div className="rounded-xl border-2 border-dashed border-secondary/40 bg-secondary/5 p-8 text-center">
             <Swords className="h-12 w-12 text-secondary mx-auto mb-4 opacity-60" />
-            <p className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <p className="text-lg font-semibold text-gray-900 mb-2">
               Affiches à venir
             </p>
-            <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto mb-6">
+            <p className="text-gray-500 max-w-md mx-auto mb-6">
               Les affiches des huitièmes de finale seront connues à l&apos;issue des 16èmes.
               Simulez dès maintenant les matchs possibles.
             </p>

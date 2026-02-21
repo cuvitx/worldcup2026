@@ -16,6 +16,7 @@ const PLAYER_PHOTO_SLUGS = new Set([
   "thibaut-courtois", "trent-alexander-arnold", "victor-osimhen", "vinicius-jr",
 ]);
 import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
+import { CircleDot, Sparkles, Users } from "lucide-react"
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -119,37 +120,37 @@ export default async function PlayerPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Profil</h2>
+            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Profil</h2>
               <p className="text-gray-700 leading-relaxed break-words">
                 {player.description}
               </p>
             </section>
 
-            <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Statistiques internationales
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.caps}
                   </p>
                   <p className="text-sm text-gray-500">Selections</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.goals}
                   </p>
                   <p className="text-sm text-gray-500">Buts</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.age}
                   </p>
                   <p className="text-sm text-gray-500">Age</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">
                     {positionLabels[player.position]}
                   </p>
@@ -159,8 +160,8 @@ export default async function PlayerPage({ params }: PageProps) {
             </section>
 
             {teammates.length > 0 && (
-              <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Coequipiers en sélection
                 </h2>
                 <div className="space-y-3">
@@ -172,7 +173,7 @@ export default async function PlayerPage({ params }: PageProps) {
                     <Link
                       key={mate.id}
                       href={`/joueur/${mate.slug}`}
-                      className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                      className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
                       {/* Mini avatar */}
                       {mateImg ? (
@@ -200,8 +201,8 @@ export default async function PlayerPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiche technique</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche technique</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Nom complet</dt>
@@ -239,11 +240,11 @@ export default async function PlayerPage({ params }: PageProps) {
             </div>
 
             {team && (
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Équipe</h3>
+              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipe</h3>
                 <Link
                   href={`/equipe/${team.slug}`}
-                  className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
+                  className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30"
                 >
                   <span className="text-2xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                   <div>
@@ -256,28 +257,28 @@ export default async function PlayerPage({ params }: PageProps) {
               </div>
             )}
 
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Explorer</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Explorer</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/joueurs" className="text-primary dark:text-secondary hover:underline">
-                    ⚽ Tous les joueurs clés
+                  <Link href="/joueurs" className="text-primary hover:underline">
+                    <CircleDot className="h-5 w-5 inline-block" /> Tous les joueurs clés
                   </Link>
                 </li>
                 <li>
-                  <Link href="/buteurs" className="text-primary dark:text-secondary hover:underline">
-                    🥅 Meilleurs buteurs
+                  <Link href="/buteurs" className="text-primary hover:underline">
+                     Meilleurs buteurs
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparateur-joueurs" className="text-primary dark:text-secondary hover:underline">
-                    👥 Comparateur de joueurs
+                  <Link href="/comparateur-joueurs" className="text-primary hover:underline">
+                    <Users className="h-5 w-5 inline-block" /> Comparateur de joueurs
                   </Link>
                 </li>
                 {team && (
                   <li>
-                    <Link href={`/pronostic/${team.slug}`} className="text-primary dark:text-secondary hover:underline">
-                      🔮 Pronostic {team.name}
+                    <Link href={`/pronostic/${team.slug}`} className="text-primary hover:underline">
+                      <Sparkles className="h-5 w-5 inline-block" /> Pronostic {team.name}
                     </Link>
                   </li>
                 )}

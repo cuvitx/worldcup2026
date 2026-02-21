@@ -7,7 +7,7 @@ import { domains } from "@repo/data/route-mapping";
 import { teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { bookmakers } from "@repo/data/affiliates";
-import { Swords, BarChart3, Trophy, Calendar, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link, Swords, Trophy } from "lucide-react";
 import type { Team } from "@repo/data/types";
 
 /* ─── Top 30 confrontations marquantes ─────────────────────────────────────── */
@@ -333,7 +333,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
 
             {/* Fiches équipes */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">📋 Fiches équipes</h3>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Fiches équipes</h3>
               <div className="space-y-2">
                 <Link href={`/equipe/${team1.slug}`} className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 hover:border-accent transition-colors">
                   <span>{team1.flag} {team1.name}</span>
@@ -348,12 +348,12 @@ export default async function ConfrontationPage({ params }: PageProps) {
 
             {/* Liens utiles */}
             <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">🔗 À voir aussi</h3>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-3"><Link className="h-5 w-5 inline-block" /> À voir aussi</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline">⚔️ H2H détaillé + pronostic</Link></li>
-                <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline">🏆 Cote {team1.name} championne</Link></li>
-                <li><Link href={`/cote-champion/${team2.slug}`} className="text-primary hover:underline">🏆 Cote {team2.name} championne</Link></li>
-                <li><Link href="/confrontations-historiques" className="text-primary hover:underline">📊 Toutes les confrontations</Link></li>
+                <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline"><Swords className="h-5 w-5 inline-block" /> H2H détaillé + pronostic</Link></li>
+                <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Cote {team1.name} championne</Link></li>
+                <li><Link href={`/cote-champion/${team2.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Cote {team2.name} championne</Link></li>
+                <li><Link href="/confrontations-historiques" className="text-primary hover:underline"><BarChart3 className="h-5 w-5 inline-block" /> Toutes les confrontations</Link></li>
               </ul>
             </div>
 

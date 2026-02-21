@@ -70,23 +70,23 @@ export function CookieConsent({ lang }: CookieConsentProps) {
       aria-modal="true"
       aria-label="Consentement cookies"
     >
-      <div className="w-full max-w-lg rounded-2xl bg-white dark:bg-slate-800 shadow-2xl p-6 md:p-8">
+      <div className="w-full max-w-lg rounded-2xl bg-whiteslate-800 shadow-2xl p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
             <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
           </div>
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+          <h2 className="text-lg font-bold text-gray-900">
             {t.title}
           </h2>
         </div>
 
-        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+        <p className="text-sm text-gray-600 leading-relaxed mb-6">
           {t.message}{" "}
           <a
             href={t.learnMoreLink}
-            className="underline text-primary dark:text-secondary hover:opacity-80 transition-opacity"
+            className="underline text-primary hover:opacity-80 transition-opacity"
           >
             {t.learnMore}
           </a>
@@ -95,7 +95,7 @@ export function CookieConsent({ lang }: CookieConsentProps) {
         <div className="flex flex-col-reverse sm:flex-row gap-3">
           <button
             onClick={handleDecline}
-            className="flex-1 cursor-pointer rounded-xl border border-gray-300 dark:border-slate-600 px-5 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 transition-all hover:bg-gray-100 dark:hover:bg-slate-700"
+            className="flex-1 cursor-pointer rounded-xl border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-all hover:bg-gray-100"
           >
             {t.decline}
           </button>

@@ -54,15 +54,15 @@ export default function RecherchePage() {
           ].map((s) => (
             <div
               key={s.label}
-              className="group relative bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 text-center hover:border-accent/40 hover:shadow-md transition-all"
+              className="group relative bg-whiteslate-800 rounded-2xl border border-gray-200 p-4 sm:p-5 text-center hover:border-accent/40 hover:shadow-md transition-all"
             >
-              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-primary/10 dark:bg-secondary/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary dark:text-secondary" dangerouslySetInnerHTML={{ __html: s.icon }} />
+              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-primary/10secondary/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary" dangerouslySetInnerHTML={{ __html: s.icon }} />
               </div>
-              <div className="font-extrabold text-gray-900 dark:text-gray-100 text-2xl leading-tight">
+              <div className="font-extrabold text-gray-900 text-2xl leading-tight">
                 {s.count}
               </div>
-              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
+              <div className="text-xs font-medium text-gray-500 mt-0.5">{s.label}</div>
             </div>
           ))}
         </div>

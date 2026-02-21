@@ -25,13 +25,13 @@ export function TitledCountriesSection({
 
   return (
     <section id="pays-titres">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+      <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
          Pays les plus titrés
       </h2>
-      <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
+      <p className="text-sm text-gray-500 mb-6">
         Seules 8 nations ont remporté la Coupe du Monde depuis 1930.
       </p>
-      <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
         <div className="space-y-5">
           {titledCountries.map((c, i) => (
             <div key={c.country} className="flex items-center gap-3">

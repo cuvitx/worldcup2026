@@ -60,7 +60,7 @@ export default async function GuideVillePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="min-h-screen bg-white dark:bg-deep">
+      <main className="min-h-screen bg-whitedeep">
         <CityHero city={city} />
         <TransportSection cityName={city.name} transport={city.transport} />
         <LodgingSection lodging={city.lodging} />
@@ -71,7 +71,7 @@ export default async function GuideVillePage({ params }: PageProps) {
         <CityFaqSection faq={city.faq} />
 
         {/* ─── Back navigation ─── */}
-        <section className="py-8 border-t border-gray-100 dark:border-white/5">
+        <section className="py-8 border-t border-gray-100">
           <div className="mx-auto max-w-5xl px-4 flex flex-wrap gap-4">
             <Link href="/" className="text-sm text-accent hover:underline">
               ← Accueil

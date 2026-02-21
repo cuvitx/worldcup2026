@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { Printer } from "lucide-react"
 
 export function PrintButton() {
   useEffect(() => {
@@ -21,7 +22,7 @@ export function PrintButton() {
       onClick={handlePrint}
       className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
     >
-      🖨 Imprimer
+      <Printer className="h-5 w-5 inline-block" /> Imprimer
     </button>
   );
 }

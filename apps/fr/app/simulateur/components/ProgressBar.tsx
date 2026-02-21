@@ -14,16 +14,16 @@ export function ProgressBar({ rounds }: { rounds: Record<RoundName, MatchData[]>
 
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="text-xs text-gray-500 dark:text-gray-300 whitespace-nowrap font-medium">
+      <span className="text-xs text-gray-500 whitespace-nowrap font-medium">
         Progression
       </span>
-      <div className="flex-1 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+      <div className="flex-1 h-2 rounded-full bg-gray-200gray-700 overflow-hidden">
         <div
           className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
-      <span className="text-xs font-bold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+      <span className="text-xs font-bold text-gray-700 whitespace-nowrap">
         {filledMatches}/{totalMatches}
       </span>
     </div>

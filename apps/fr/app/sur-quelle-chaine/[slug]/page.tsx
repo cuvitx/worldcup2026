@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Tv, Radio, Globe, Clock, ExternalLink, Wifi, Monitor } from "lucide-react";
+import { BookOpen, Building2, ClipboardList, Clock, ExternalLink, Globe, Landmark, Link, MapPin, Monitor, Radio, Tv, Wifi } from "lucide-react";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
@@ -93,6 +93,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       url: `${domains.fr}/sur-quelle-chaine/${slug}`,
+      },
+    alternates: { canonical: `https://cdm2026.fr/sur-quelle-chaine/${slug}` },
     },
   };
 }
@@ -179,8 +181,8 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             Programme TV &amp; streaming — {dateStr} à {heureParisStr}
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm text-gray-300">
-            <span>🏟️ {stadium?.name ?? "Stade à confirmer"}</span>
-            {city && <span>📍 {city.name}, {stadium?.country}</span>}
+            <span><Landmark className="h-5 w-5 inline-block" /> {stadium?.name ?? "Stade à confirmer"}</span>
+            {city && <span><MapPin className="h-5 w-5 inline-block" /> {city.name}, {stadium?.country}</span>}
           </div>
         </div>
       </section>
@@ -190,35 +192,35 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
 
             {/* Diffusion France */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Tv className="h-6 w-6 text-primary" /> Diffusion en France
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-700">
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Chaîne</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Type</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Statut</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Chaîne</th>
+                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Type</th>
+                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Statut</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-100 dark:border-gray-700/50 bg-green-50/50 dark:bg-green-900/10">
-                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">{frenchChannel.name}</td>
-                      <td className="py-3 px-4 text-gray-600 dark:text-gray-400">{frenchChannel.type}</td>
+                    <tr className="border-b border-gray-100 bg-green-50/50green-900/10">
+                      <td className="py-3 px-4 font-semibold text-gray-900">{frenchChannel.name}</td>
+                      <td className="py-3 px-4 text-gray-600">{frenchChannel.type}</td>
                       <td className="py-3 px-4">
-                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${frenchChannel.free ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400" : "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400"}`}>
-                          {frenchChannel.free ? "✅ Gratuit" : "🔒 Payant"}
+                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${frenchChannel.free ? "bg-green-100 text-green-800green-900/30" : "bg-amber-100 text-amber-800amber-900/30"}`}>
+                          {frenchChannel.free ? " Gratuit" : " Payant"}
                         </span>
                       </td>
                     </tr>
-                    <tr className="border-b border-gray-100 dark:border-gray-700/50">
-                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">beIN Sports</td>
-                      <td className="py-3 px-4 text-gray-600 dark:text-gray-400">Abonnement (~15 €/mois)</td>
+                    <tr className="border-b border-gray-100">
+                      <td className="py-3 px-4 font-semibold text-gray-900">beIN Sports</td>
+                      <td className="py-3 px-4 text-gray-600">Abonnement (~15 €/mois)</td>
                       <td className="py-3 px-4">
-                        <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-                          📺 104 matchs
+                        <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800blue-900/30">
+                          <Tv className="h-5 w-5 inline-block" /> 104 matchs
                         </span>
                       </td>
                     </tr>
@@ -228,23 +230,23 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </section>
 
             {/* Diffusion internationale */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Globe className="h-6 w-6 text-primary" /> Diffusion internationale
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-700">
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Pays</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">Chaîne</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Pays</th>
+                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Chaîne</th>
                     </tr>
                   </thead>
                   <tbody>
                     {intlChannels.map((ch) => (
-                      <tr key={ch.country} className="border-b border-gray-100 dark:border-gray-700/50">
-                        <td className="py-3 px-4 text-gray-900 dark:text-white">{ch.country}</td>
-                        <td className="py-3 px-4 font-medium text-gray-700 dark:text-gray-300">{ch.channel}</td>
+                      <tr key={ch.country} className="border-b border-gray-100">
+                        <td className="py-3 px-4 text-gray-900">{ch.country}</td>
+                        <td className="py-3 px-4 font-medium text-gray-700">{ch.channel}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -253,8 +255,8 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </section>
 
             {/* Streaming */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Wifi className="h-6 w-6 text-primary" /> Streaming &amp; replay
               </h2>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -263,11 +265,11 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
                   { name: "Molotov TV", desc: "Accès aux chaînes TNT (TF1, M6)", price: "Gratuit (base)", free: true },
                   { name: "myCANAL", desc: "Via option beIN Sports", price: "Inclus avec abonnement", free: false },
                 ].map((s) => (
-                  <div key={s.name} className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 text-center">
+                  <div key={s.name} className="rounded-lg border border-gray-200 p-4 text-center">
                     <Monitor className="mx-auto h-8 w-8 text-accent mb-2" />
-                    <h3 className="font-bold text-gray-900 dark:text-white">{s.name}</h3>
+                    <h3 className="font-bold text-gray-900">{s.name}</h3>
                     <p className="text-xs text-secondary mt-1">{s.desc}</p>
-                    <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${s.free ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400" : "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400"}`}>
+                    <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${s.free ? "bg-green-100 text-green-800green-900/30" : "bg-amber-100 text-amber-800amber-900/30"}`}>
                       {s.price}
                     </span>
                   </div>
@@ -276,15 +278,15 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </section>
 
             {/* Fuseaux horaires */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Clock className="h-6 w-6 text-primary" /> Horaires par fuseau
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {timeZones.map((tz) => (
-                  <div key={tz.label} className="text-center rounded-lg bg-gray-50 dark:bg-slate-700/50 p-4">
+                  <div key={tz.label} className="text-center rounded-lg bg-gray-50slate-700/50 p-4">
                     <p className="text-sm text-secondary">{tz.label}</p>
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{tz.time}</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-1">{tz.time}</p>
                   </div>
                 ))}
               </div>
@@ -294,8 +296,8 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             <FAQSection title={`FAQ — ${homeName} vs ${awayName} à la TV`} items={faqItems} />
 
             {/* Maillage interne */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-3">📖 À lire aussi</h2>
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-lg font-bold text-gray-900 mb-3"><BookOpen className="h-5 w-5 inline-block" /> À lire aussi</h2>
               <div className="flex flex-wrap gap-3">
                 <Link href={`/match/${slug}`} className="inline-flex items-center gap-1 text-sm text-primary hover:underline">
                   <ExternalLink className="h-4 w-4" /> Fiche match {homeName} vs {awayName}
@@ -323,55 +325,55 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
             </div>
 
             {/* Match info card */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">📋 Infos match</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Infos match</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-secondary">Date</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{dateStr}</dd>
+                  <dd className="font-medium text-gray-900">{dateStr}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-secondary">Heure (Paris)</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{heureParisStr}</dd>
+                  <dd className="font-medium text-gray-900">{heureParisStr}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-secondary">Stade</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{stadium?.name ?? "TBC"}</dd>
+                  <dd className="font-medium text-gray-900">{stadium?.name ?? "TBC"}</dd>
                 </div>
                 {city && (
                   <div className="flex justify-between">
                     <dt className="text-secondary">Ville</dt>
-                    <dd className="font-medium text-gray-900 dark:text-white">{city.name}</dd>
+                    <dd className="font-medium text-gray-900">{city.name}</dd>
                   </div>
                 )}
                 <div className="flex justify-between">
                   <dt className="text-secondary">Phase</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{stage}</dd>
+                  <dd className="font-medium text-gray-900">{stage}</dd>
                 </div>
                 {match.group && (
                   <div className="flex justify-between">
                     <dt className="text-secondary">Groupe</dt>
-                    <dd className="font-medium text-gray-900 dark:text-white">Groupe {match.group}</dd>
+                    <dd className="font-medium text-gray-900">Groupe {match.group}</dd>
                   </div>
                 )}
               </dl>
             </div>
 
             {/* Links */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">🔗 Pages liées</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3"><Link className="h-5 w-5 inline-block" /> Pages liées</h3>
               <ul className="space-y-2 text-sm">
                 {stadium && (
                   <li>
                     <Link href={`/stade/${stadium.slug}`} className="text-primary hover:underline">
-                      🏟️ {stadium.name}
+                      <Landmark className="h-5 w-5 inline-block" /> {stadium.name}
                     </Link>
                   </li>
                 )}
                 {city && (
                   <li>
                     <Link href={`/ville/${city.slug}`} className="text-primary hover:underline">
-                      🏙️ {city.name}
+                      <Building2 className="h-5 w-5 inline-block" /> {city.name}
                     </Link>
                   </li>
                 )}

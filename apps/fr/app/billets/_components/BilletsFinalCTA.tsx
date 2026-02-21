@@ -1,13 +1,14 @@
 import { EXTERNAL_URLS } from "@repo/data/constants";
 import Link from "next/link";
+import { Ticket } from "lucide-react"
 
 export function BilletsFinalCTA() {
   return (
-    <section className="bg-white dark:bg-slate-900 py-10 border-t border-gray-100 dark:border-slate-700">
+    <section className="bg-whiteslate-900 py-10 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            🎟 Prêt à vivre la CDM 2026 en direct ?
+        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">
+            <Ticket className="h-5 w-5 inline-block" /> Prêt à vivre la CDM 2026 en direct ?
           </h2>
           <p className="text-gray-300 mb-6 max-w-lg mx-auto text-sm">
             Ne manquez pas l&apos;événement sportif du siècle. Inscrivez-vous sur FIFA.com

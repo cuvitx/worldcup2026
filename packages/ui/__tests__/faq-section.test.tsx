@@ -107,7 +107,7 @@ describe("FAQSection", () => {
 
     const section = container.querySelector("section");
     expect(section).toHaveClass("bg-gray-50");
-    expect(section).toHaveClass("dark:bg-slate-900/60");
+    expect(section).toHaveClass("");
 
     const h2 = screen.getByText("❓ Questions fréquentes");
     expect(h2).toHaveClass("text-2xl");

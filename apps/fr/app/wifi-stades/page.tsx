@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 };
 
 const stades5g = [
-  { ville: "New York (MetLife)", wifi: "✅ WiFi FIFA", reseau5g: "✅ T-Mobile, Verizon, AT&T", note: "Excellente couverture, zone urbaine dense" },
-  { ville: "Los Angeles (SoFi)", wifi: "✅ WiFi FIFA", reseau5g: "✅ 5G natif SoFi (partenariat)", note: "Le stade le plus connecté au monde (inauguré 2020)" },
-  { ville: "Miami (Hard Rock)", wifi: "✅ WiFi FIFA", reseau5g: "✅ T-Mobile, AT&T", note: "Rénové récemment, bon réseau" },
-  { ville: "Houston (NRG)", wifi: "✅ WiFi FIFA", reseau5g: "✅ Verizon, AT&T", note: "Stade couvert, signal stable" },
-  { ville: "Dallas (AT&T)", wifi: "✅ WiFi FIFA", reseau5g: "✅ AT&T (stade propriétaire)", note: "Infrastructure premium, partenaire réseau" },
-  { ville: "Mexico (Azteca)", wifi: "✅ WiFi FIFA", reseau5g: "⚠️ 5G limité (Telcel en déploiement)", note: "Réseau 4G LTE correct, 5G partiel" },
-  { ville: "Toronto (BMO)", wifi: "✅ WiFi FIFA", reseau5g: "✅ Rogers, Bell", note: "Bonne couverture canadienne" },
-  { ville: "San Francisco (Levi's)", wifi: "✅ WiFi FIFA", reseau5g: "✅ Tous opérateurs", note: "Silicon Valley = excellente infra" },
+  { ville: "New York (MetLife)", wifi: " WiFi FIFA", reseau5g: " T-Mobile, Verizon, AT&T", note: "Excellente couverture, zone urbaine dense" },
+  { ville: "Los Angeles (SoFi)", wifi: " WiFi FIFA", reseau5g: " 5G natif SoFi (partenariat)", note: "Le stade le plus connecté au monde (inauguré 2020)" },
+  { ville: "Miami (Hard Rock)", wifi: " WiFi FIFA", reseau5g: " T-Mobile, AT&T", note: "Rénové récemment, bon réseau" },
+  { ville: "Houston (NRG)", wifi: " WiFi FIFA", reseau5g: " Verizon, AT&T", note: "Stade couvert, signal stable" },
+  { ville: "Dallas (AT&T)", wifi: " WiFi FIFA", reseau5g: " AT&T (stade propriétaire)", note: "Infrastructure premium, partenaire réseau" },
+  { ville: "Mexico (Azteca)", wifi: " WiFi FIFA", reseau5g: " 5G limité (Telcel en déploiement)", note: "Réseau 4G LTE correct, 5G partiel" },
+  { ville: "Toronto (BMO)", wifi: " WiFi FIFA", reseau5g: " Rogers, Bell", note: "Bonne couverture canadienne" },
+  { ville: "San Francisco (Levi's)", wifi: " WiFi FIFA", reseau5g: " Tous opérateurs", note: "Silicon Valley = excellente infra" },
 ];
 
 const appsUtiles = [
@@ -95,26 +95,26 @@ export default function WifiStadesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Couverture par stade */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <Signal className="h-7 w-7 text-accent" /> Couverture WiFi & 5G par stade
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-slate-700">
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Stade</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">WiFi</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">5G</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Note</th>
+                <tr className="border-b border-gray-200">
+                  <th className="py-3 px-4 font-semibold text-gray-900">Stade</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">WiFi</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">5G</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Note</th>
                 </tr>
               </thead>
               <tbody>
                 {stades5g.map((s) => (
-                  <tr key={s.ville} className="border-b border-gray-100 dark:border-slate-800">
-                    <td className="py-3 px-4 font-medium text-gray-900 dark:text-white">{s.ville}</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">{s.wifi}</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">{s.reseau5g}</td>
-                    <td className="py-3 px-4 text-gray-500 dark:text-gray-400">{s.note}</td>
+                  <tr key={s.ville} className="border-b border-gray-100">
+                    <td className="py-3 px-4 font-medium text-gray-900">{s.ville}</td>
+                    <td className="py-3 px-4 text-gray-700">{s.wifi}</td>
+                    <td className="py-3 px-4 text-gray-700">{s.reseau5g}</td>
+                    <td className="py-3 px-4 text-gray-500">{s.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -124,13 +124,13 @@ export default function WifiStadesPage() {
 
         {/* Conseils live */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Tv className="h-7 w-7 text-accent" /> Conseils pour partager en live
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
             <ul className="space-y-3">
               {conseilsLive.map((c, i) => (
-                <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <li key={i} className="flex gap-3 text-sm text-gray-700">
                   <span className="text-accent font-bold">{i + 1}.</span>
                   <span>{c}</span>
                 </li>
@@ -141,17 +141,17 @@ export default function WifiStadesPage() {
 
         {/* Apps utiles */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Smartphone className="h-7 w-7 text-accent" /> Apps utiles à télécharger
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {appsUtiles.map((app) => (
               <div
                 key={app.nom}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
               >
-                <h3 className="font-bold text-gray-900 dark:text-white">{app.nom}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{app.desc}</p>
+                <h3 className="font-bold text-gray-900">{app.nom}</h3>
+                <p className="text-sm text-gray-600 mt-1">{app.desc}</p>
               </div>
             ))}
           </div>

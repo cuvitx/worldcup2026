@@ -5,6 +5,7 @@ import { teams, teamsById } from "@repo/data/teams";
 import { teamPredictions } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { matches } from "@repo/data/matches";
+import { FolderOpen } from "lucide-react"
 export const metadata: Metadata = {
   title: "Pronostics CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
   description:
@@ -72,7 +73,7 @@ const TRENDS = [
     border: "border-indigo-500/20",
   },
   {
-    icon: "🐎",
+    icon: "",
     title: "Maroc — Dark horse",
     desc: "Demi-finaliste 2022 · 3.2% de chance de titre",
     color: "from-accent/20 to-accent/10",
@@ -133,7 +134,7 @@ export default function PronosticHubPage() {
               Pronostic vainqueur
             </a>
             <a href="#groupes" className="rounded-lg border border-secondary/30 bg-secondary/10 px-5 py-2.5 font-semibold text-secondary hover:bg-secondary/20 transition-all">
-              🗂 Pronostics groupes
+              <FolderOpen className="h-5 w-5 inline-block" /> Pronostics groupes
             </a>
             <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
               Pronostics matchs
@@ -143,9 +144,9 @@ export default function PronosticHubPage() {
       </section>
 
       {/* ===== TENDANCES ===== */}
-      <section className="bg-white dark:bg-slate-900 py-10 border-b border-gray-100 dark:border-slate-700">
+      <section className="bg-whiteslate-900 py-10 border-b border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
             Tendances & stats CDM 2026
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -155,8 +156,8 @@ export default function PronosticHubPage() {
                 className={`rounded-xl border ${trend.border} bg-gradient-to-br ${trend.color} p-4`}
               >
                 <span className="text-2xl block mb-2">{trend.icon}</span>
-                <p className="font-bold text-gray-900 dark:text-white text-sm mb-1">{trend.title}</p>
-                <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">{trend.desc}</p>
+                <p className="font-bold text-gray-900 text-sm mb-1">{trend.title}</p>
+                <p className="text-xs text-gray-600 leading-relaxed">{trend.desc}</p>
               </div>
             ))}
           </div>
@@ -164,14 +165,14 @@ export default function PronosticHubPage() {
       </section>
 
       {/* ===== PRONOSTIC VAINQUEUR ===== */}
-      <section id="vainqueur" className="bg-gray-50 dark:bg-slate-900/50 py-12">
+      <section id="vainqueur" className="bg-gray-50slate-900/50 py-12">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900">
                 Pronostic Vainqueur CDM 2026
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-500 mt-1">
                 Top 5 favoris selon notre modèle ELO
               </p>
             </div>
@@ -189,8 +190,8 @@ export default function PronosticHubPage() {
                 <Link
                   key={team.id}
                   href={`/equipe/${team.slug}`}
-                  className={`group relative rounded-xl border bg-white dark:bg-slate-800 p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all ${
-                    index === 0 ? "border-accent/50" : "border-gray-200 dark:border-slate-700"
+                  className={`group relative rounded-xl border bg-whiteslate-800 p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all ${
+                    index === 0 ? "border-accent/50" : "border-gray-200"
                   }`}
                 >
                   {index === 0 && (
@@ -199,15 +200,15 @@ export default function PronosticHubPage() {
                     </span>
                   )}
                   <span className="text-3xl block mb-2">{team.flag}</span>
-                  <p className="font-bold text-sm text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                  <p className="font-bold text-sm text-gray-900 group-hover:text-primary transition-colors">
                     {team.name}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">#{index + 1} mondial</p>
+                  <p className="text-xs text-gray-500 mt-0.5">#{index + 1} mondial</p>
                   <div className="mt-2 flex items-center justify-between text-xs">
                     <span className="text-primary font-bold">{winPct}%</span>
                     <span className="text-accent font-bold">{odds}</span>
                   </div>
-                  <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                  <div className="mt-1 h-1.5 bg-gray-100slate-700 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-accent rounded-full"
                       style={{ width: `${Math.min(pred.winnerProb * 100 * 7, 100)}%` }}
@@ -230,14 +231,14 @@ export default function PronosticHubPage() {
       </section>
 
       {/* ===== PRONOSTICS PAR GROUPE ===== */}
-      <section id="groupes" className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+      <section id="groupes" className="bg-whiteslate-900 py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🗂 Pronostics par groupe (A → L)
+              <h2 className="text-2xl font-bold text-gray-900">
+                <FolderOpen className="h-5 w-5 inline-block" /> Pronostics par groupe (A → L)
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-500 mt-1">
                 Qualifiés et outsiders de chaque groupe de la CDM 2026
               </p>
             </div>
@@ -260,10 +261,10 @@ export default function PronosticHubPage() {
                 <Link
                   key={group.slug}
                   href={`/pronostic-groupe/${group.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   {/* Header */}
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-primary dark:from-slate-900 dark:to-slate-800 text-white">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-primary text-white">
                     <span className="text-sm font-extrabold bg-accent/20 text-accent px-2 py-0.5 rounded">
                       Groupe {group.letter}
                     </span>
@@ -281,10 +282,10 @@ export default function PronosticHubPage() {
                         <div
                           key={team.id}
                           className={`flex items-center gap-2 text-xs ${
-                            i < 2 ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-400"
+                            i < 2 ? "text-gray-900" : "text-gray-400"
                           }`}
                         >
-                          <span className="w-4 text-center text-gray-300 dark:text-gray-600 font-bold">{i + 1}</span>
+                          <span className="w-4 text-center text-gray-300 font-bold">{i + 1}</span>
                           <span className="text-base shrink-0">{team.flag}</span>
                           <span className="flex-1 font-medium truncate">{team.name}</span>
                           {i < 2 && (
@@ -295,7 +296,7 @@ export default function PronosticHubPage() {
                     })}
                     {/* Placeholders pour barrages */}
                     {group.teams.filter((id) => id.startsWith("barrage")).map((id) => (
-                      <div key={id} className="flex items-center gap-2 text-xs text-gray-300 dark:text-gray-600">
+                      <div key={id} className="flex items-center gap-2 text-xs text-gray-300">
                         <span className="w-4 text-center font-bold">?</span>
                         <span className="text-base shrink-0"></span>
                         <span className="flex-1 font-medium truncate">Barrage</span>
@@ -310,14 +311,14 @@ export default function PronosticHubPage() {
       </section>
 
       {/* ===== PRONOSTICS MATCHS ===== */}
-      <section id="matchs" className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
+      <section id="matchs" className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900">
                 Pronostics des matchs clés
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-500 mt-1">
                 Analyses détaillées des affiches les plus attendues
               </p>
             </div>
@@ -336,11 +337,11 @@ export default function PronosticHubPage() {
                 <Link
                   key={match.id}
                   href={`/pronostic-match/${match.slug}`}
-                  className="group rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group rounded-xl border border-gray-200 bg-whiteslate-800 p-4 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   <div className="flex items-center gap-2 mb-2">
                     {match.group && (
-                      <span className="text-[10px] bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded font-medium">
+                      <span className="text-[10px] bg-gray-100slate-700 text-gray-600 px-2 py-0.5 rounded font-medium">
                         Groupe {match.group}
                       </span>
                     )}
@@ -353,19 +354,19 @@ export default function PronosticHubPage() {
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
                       <span className="text-2xl shrink-0">{home.flag}</span>
-                      <span className="text-sm font-bold text-gray-900 dark:text-white truncate group-hover:text-primary transition-colors">
+                      <span className="text-sm font-bold text-gray-900 truncate group-hover:text-primary transition-colors">
                         {home.name}
                       </span>
                     </div>
                     <span className="text-xs font-bold text-gray-400 shrink-0 px-2">vs</span>
                     <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                      <span className="text-sm font-bold text-gray-900 dark:text-white truncate text-right">
+                      <span className="text-sm font-bold text-gray-900 truncate text-right">
                         {away.name}
                       </span>
                       <span className="text-2xl shrink-0">{away.flag}</span>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-400 dark:text-gray-400 mt-2">
+                  <p className="text-xs text-gray-400 mt-2">
                     {new Date(match.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
                       day: "numeric",
                       month: "long",
@@ -388,7 +389,7 @@ export default function PronosticHubPage() {
           <div className="mt-6 text-center">
             <Link
               href="/pronostic"
-              className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-3 font-semibold text-gray-700 dark:text-gray-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-whiteslate-800 px-8 py-3 font-semibold text-gray-700 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Voir tous les pronostics matchs
             </Link>
@@ -397,9 +398,9 @@ export default function PronosticHubPage() {
       </section>
 
       {/* ===== LIENS RAPIDES ===== */}
-      <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+      <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Outils complémentaires
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -442,7 +443,7 @@ export default function PronosticHubPage() {
                   <span className="text-3xl mb-3 block transition-transform group-hover:scale-110 duration-200">
                     {item.icon}
                   </span>
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">{item.title}</h3>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">{item.title}</h3>
                   <p className="text-xs text-white/70">{item.desc}</p>
                   <p className="mt-3 text-xs font-bold text-white/80 group-hover:gap-2 transition-all">
                     Accéder →
@@ -455,9 +456,9 @@ export default function PronosticHubPage() {
       </section>
 
       {/* ===== DISCLAIMER ===== */}
-      <section className="bg-gray-50 dark:bg-slate-900/50 py-6 border-t border-gray-100 dark:border-slate-700">
+      <section className="bg-gray-50slate-900/50 py-6 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs text-gray-400 dark:text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
             Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
             Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}
             <Link href="/jeu-responsable" className="underline hover:text-primary">Jeu responsable — 18+</Link>

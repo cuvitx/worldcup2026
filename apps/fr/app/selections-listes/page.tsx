@@ -64,10 +64,10 @@ export default function SelectionsListesPage() {
         <div className="flex items-center gap-4 rounded-xl bg-secondary/10 border border-secondary/30 p-6">
           <Clock className="h-8 w-8 text-secondary shrink-0" />
           <div>
-            <h2 className="text-lg font-bold text-primary dark:text-white">
+            <h2 className="text-lg font-bold text-primary">
               Annonces prévues en mai 2026
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+            <p className="text-sm text-gray-600 mt-1">
               Les listes officielles des 26 joueurs seront publiées par chaque fédération environ
               3 semaines avant le coup d&apos;envoi. Cette page sera mise à jour en temps réel.
             </p>
@@ -78,7 +78,7 @@ export default function SelectionsListesPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <ClipboardList className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               48 équipes qualifiées
             </h2>
           </div>
@@ -87,7 +87,7 @@ export default function SelectionsListesPage() {
               <Link
                 key={team}
                 href={`/equipe/${team.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-").replace(/'/g, "-")}`}
-                className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2.5 hover:border-accent hover:shadow-md transition-all text-sm font-medium"
+                className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 hover:border-accent hover:shadow-md transition-all text-sm font-medium"
               >
                 <Users className="h-4 w-4 text-gray-400" />
                 <span className="truncate">{team}</span>

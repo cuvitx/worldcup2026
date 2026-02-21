@@ -60,13 +60,13 @@ export default function BracketPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {/* Champion prediction */}
         {champion && teamsById[champion] && (
-          <section className="rounded-xl border-2 border-yellow-400 dark:border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/30 p-6 text-center">
-            <p className="text-sm font-medium text-accent dark:text-accent uppercase tracking-wide mb-2">Champion prédit</p>
+          <section className="rounded-xl border-2 border-yellow-400 bg-gradient-to-r from-yellow-50 to-amber-50 p-6 text-center">
+            <p className="text-sm font-medium text-accent uppercase tracking-wide mb-2">Champion prédit</p>
             <Link href={`/equipe/${teamsById[champion]!.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
               <span className="text-3xl sm:text-5xl" role="img" aria-label={`Drapeau de ${teamsById[champion]!.name}`}>{teamsById[champion]!.flag}</span>
-              <span className="text-3xl font-extrabold text-gray-900 dark:text-white">{teamsById[champion]!.name}</span>
+              <span className="text-3xl font-extrabold text-gray-900">{teamsById[champion]!.name}</span>
             </Link>
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">Base sur les classements ELO et les pronostics de la phase de groupes</p>
+            <p className="mt-2 text-sm text-gray-500">Base sur les classements ELO et les pronostics de la phase de groupes</p>
           </section>
         )}
 

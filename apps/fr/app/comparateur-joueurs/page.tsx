@@ -9,7 +9,7 @@ const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) =
     <div className="flex items-center justify-center min-h-[500px]">
       <div className="animate-pulse text-center">
         <div className="w-16 h-16 bg-primary/20 rounded-full mx-auto mb-4" />
-        <p className="text-gray-600 dark:text-gray-300">Chargement du comparateur...</p>
+        <p className="text-gray-600">Chargement du comparateur...</p>
       </div>
     </div>
   ),
@@ -53,12 +53,12 @@ export default function ComparateurJoueursPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-whiteslate-900 border-b border-gray-200">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
+            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Comparateur de joueurs</li>
+            <li className="text-gray-900 font-medium">Comparateur de joueurs</li>
           </ol>
         </div>
       </nav>
@@ -95,10 +95,10 @@ export default function ComparateurJoueursPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/joueurs", title: "Joueurs clés", description: "Les 210 joueurs stars de la CDM 2026", icon: "⚽" },
-          { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs du tournoi", icon: "🥅" },
-          { href: "/h2h", title: "Face-à-face", description: "Historique des confrontations entre équipes", icon: "⚔️" },
-          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "🏟️" },
+          { href: "/joueurs", title: "Joueurs clés", description: "Les 210 joueurs stars de la CDM 2026", icon: "" },
+          { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs du tournoi", icon: "" },
+          { href: "/h2h", title: "Face-à-face", description: "Historique des confrontations entre équipes", icon: "" },
+          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "" },
         ]} />
       </div>
     </>

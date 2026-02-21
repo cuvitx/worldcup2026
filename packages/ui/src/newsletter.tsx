@@ -201,11 +201,11 @@ export function Newsletter({
       );
     }
     return (
-      <div className={`rounded-2xl border border-accent/30 dark:border-accent/20 bg-accent/10 dark:bg-accent/10 p-5 flex items-center gap-4 ${className}`}>
+      <div className={`rounded-2xl border border-accent/30 bg-accent/10accent/10 p-5 flex items-center gap-4 ${className}`}>
         <span className="text-3xl shrink-0"></span>
         <div>
-          <p className="font-bold text-accent dark:text-accent">{l.success}</p>
-          <p className="text-sm text-accent dark:text-accent/80 mt-0.5">{l.successDetail}</p>
+          <p className="font-bold text-accent">{l.success}</p>
+          <p className="text-sm text-accent mt-0.5">{l.successDetail}</p>
         </div>
       </div>
     );
@@ -242,12 +242,12 @@ export function Newsletter({
   /* ── CARD VARIANT ── */
   if (variant === "card") {
     return (
-      <div className={`rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm p-5 ${className}`}>
+      <div className={`rounded-2xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 ${className}`}>
         <div className="flex items-start gap-3 mb-3">
-          <span className="inline-flex items-center rounded-full border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-700 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary dark:text-secondary shrink-0">{l.title}</span>
+          <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-100slate-700 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary shrink-0">{l.title}</span>
           <div>
-            <p className="font-bold text-gray-900 dark:text-white text-sm leading-snug">{l.bannerTitle}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-300 mt-0.5">{l.bannerSubtitle}</p>
+            <p className="font-bold text-gray-900 text-sm leading-snug">{l.bannerTitle}</p>
+            <p className="text-xs text-gray-500 mt-0.5">{l.bannerSubtitle}</p>
           </div>
         </div>
         <form onSubmit={handleSubmit} className="flex gap-2">
@@ -259,7 +259,7 @@ export function Newsletter({
             aria-label={l.placeholder}
             required
             disabled={status === "loading"}
-            className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-slate-900 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-primary/20 dark:focus:border-primary/20 focus:ring-1 focus:ring-primary/30 transition-all disabled:opacity-60"
+            className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-gray-50slate-900 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-primary/20 focus:ring-1 focus:ring-primary/30 transition-all disabled:opacity-60"
           />
           <button
             type="submit"
@@ -269,8 +269,8 @@ export function Newsletter({
             {status === "loading" ? "..." : "OK"}
           </button>
         </form>
-        {status === "error" && <p className="mt-1.5 text-xs text-red-500 dark:text-red-400">{errorMsg === "api" ? l.apiError : l.error}</p>}
-        {status === "duplicate" && <p className="mt-1.5 text-xs text-accent dark:text-accent">{l.duplicate}</p>}
+        {status === "error" && <p className="mt-1.5 text-xs text-red-500">{errorMsg === "api" ? l.apiError : l.error}</p>}
+        {status === "duplicate" && <p className="mt-1.5 text-xs text-accent">{l.duplicate}</p>}
       </div>
     );
   }
@@ -278,7 +278,7 @@ export function Newsletter({
   /* ── BANNER VARIANT (default) ── */
   return (
     <section
-      className={`border-t border-gray-100 dark:border-gray-800 ${className}`}
+      className={`border-t border-gray-100 ${className}`}
       style={{ background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 py-10">
@@ -310,7 +310,7 @@ export function Newsletter({
                 aria-label={l.placeholder}
                 required
                 disabled={status === "loading"}
-                className={`flex-1 rounded-xl border bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-accent/50 disabled:opacity-60 ${
+                className={`flex-1 rounded-xl border bg-white/10white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 outline-none transition-all focus:ring-2 focus:ring-accent/50 disabled:opacity-60 ${
                   status === "error" || status === "duplicate"
                     ? "border-red-400/50"
                     : "border-white/20 focus:border-accent/30"

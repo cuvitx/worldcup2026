@@ -31,20 +31,20 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
         {comparisonRows.map((row) => (
           <div
             key={row.label}
-            className="rounded-lg bg-gray-50 dark:bg-slate-700/50 p-3"
+            className="rounded-lg bg-gray-50slate-700/50 p-3"
           >
-            <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-2 font-medium">
+            <p className="text-xs text-gray-500 text-center mb-2 font-medium">
               {row.label}
             </p>
             <div className="grid grid-cols-2 gap-2">
               <div className="flex items-center gap-2">
                 <span className="text-sm shrink-0">{home.flag}</span>
-                <span className="text-sm font-bold text-gray-900 dark:text-white break-words">
+                <span className="text-sm font-bold text-gray-900 break-words">
                   {row.v1}
                 </span>
               </div>
               <div className="flex items-center justify-end gap-2">
-                <span className="text-sm font-bold text-gray-900 dark:text-white break-words text-right">
+                <span className="text-sm font-bold text-gray-900 break-words text-right">
                   {row.v2}
                 </span>
                 <span className="text-sm shrink-0">{away.flag}</span>

@@ -4,6 +4,7 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Map, TrendingUp, ArrowRight } from "lucide-react";
 
+import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Pronostic Finalistes CDM 2026 — Qui sera en finale ?",
   description:
@@ -128,12 +129,7 @@ export default function PronosticFinalistesPage() {
 
       <FAQSection title="Questions fréquentes — Finalistes CDM 2026" items={faqItems} />
 
-      <section className="max-w-3xl mx-auto px-4 py-6 text-center">
-        <p className="text-xs text-gray-400">
-          Les paris sportifs sont réservés aux personnes majeures (18+). Jouer comporte des risques : endettement, dépendance, isolement.
-          Appelez le 09 74 75 13 13 (appel non surtaxé). <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">anj.fr</a>
-        </p>
-      </section>
+      <ANJBanner />
     </>
   );
 }

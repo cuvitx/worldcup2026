@@ -74,9 +74,9 @@ export default function QuartsDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Swords className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Le stade des grands</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Le stade des grands</h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Les quarts de finale marquent l&apos;entrée dans le « dernier carré élargi ».
               À ce stade, il ne reste que 8 équipes et chaque match peut devenir un classique
@@ -97,9 +97,9 @@ export default function QuartsDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Calendrier</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Calendrier</h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -107,14 +107,14 @@ export default function QuartsDeFinale() {
                   <th className="px-4 py-3 text-left">Matchs</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
-                <tr className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                  <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">9 juillet 2026</td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Quarts 1 et 2</td>
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">9 juillet 2026</td>
+                  <td className="px-4 py-3 text-gray-600">Quarts 1 et 2</td>
                 </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                  <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">10 juillet 2026</td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Quarts 3 et 4</td>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">10 juillet 2026</td>
+                  <td className="px-4 py-3 text-gray-600">Quarts 3 et 4</td>
                 </tr>
               </tbody>
             </table>
@@ -124,10 +124,10 @@ export default function QuartsDeFinale() {
         <section>
           <div className="rounded-xl border-2 border-dashed border-secondary/40 bg-secondary/5 p-8 text-center">
             <Medal className="h-12 w-12 text-secondary mx-auto mb-4 opacity-60" />
-            <p className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <p className="text-lg font-semibold text-gray-900 mb-2">
               Affiches à venir
             </p>
-            <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto mb-6">
+            <p className="text-gray-500 max-w-md mx-auto mb-6">
               Les affiches des quarts de finale seront déterminées par les résultats
               des huitièmes. Testez vos pronostics avec notre simulateur.
             </p>

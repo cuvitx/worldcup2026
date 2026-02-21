@@ -138,20 +138,20 @@ export default function VolsPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Destinations */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <Plane className="h-7 w-7 text-accent" /> Vols depuis Paris par destination
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((d) => (
               <div
                 key={d.ville}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
               >
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-accent" /> {d.ville}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{d.aeroports}</p>
-                <div className="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                <p className="text-sm text-gray-500 mt-1">{d.aeroports}</p>
+                <div className="mt-3 space-y-1 text-sm text-gray-700">
                   <p><strong>Compagnies :</strong> {d.compagnies}</p>
                   <p><strong>Prix A/R :</strong> <span className="text-accent font-semibold">{d.prixRange}</span></p>
                   <p><strong>Durée :</strong> {d.duree}</p>
@@ -164,19 +164,19 @@ export default function VolsPage() {
 
         {/* Quand réserver */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Calendar className="h-7 w-7 text-accent" /> Quand réserver ses vols ?
           </h2>
           <div className="space-y-3">
             {conseilsReservation.map((c) => (
               <div
                 key={c.timing}
-                className="flex gap-4 items-start rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4"
+                className="flex gap-4 items-start rounded-xl border border-gray-200 bg-whiteslate-800 p-4"
               >
                 <span className="inline-flex items-center justify-center rounded-lg bg-accent/10 text-accent font-bold px-3 py-1 text-sm whitespace-nowrap">
                   {c.timing}
                 </span>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">{c.conseil}</p>
+                <p className="text-gray-700 text-sm">{c.conseil}</p>
               </div>
             ))}
           </div>
@@ -184,11 +184,11 @@ export default function VolsPage() {
 
         {/* Astuces */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <DollarSign className="h-7 w-7 text-accent" /> Astuces pour payer moins cher
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6">
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+            <ul className="space-y-3 text-gray-700 text-sm">
               <li className="flex gap-2"><span className="text-accent font-bold">1.</span><span>Utilisez la navigation privée pour éviter les cookies qui font monter les prix.</span></li>
               <li className="flex gap-2"><span className="text-accent font-bold">2.</span><span>Comparez sur Google Flights, Skyscanner ET directement sur le site de la compagnie.</span></li>
               <li className="flex gap-2"><span className="text-accent font-bold">3.</span><span>Réservez un mardi ou mercredi — les prix sont statistiquement plus bas.</span></li>
@@ -200,7 +200,7 @@ export default function VolsPage() {
 
         {/* Comparateurs sponsorisés */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <ExternalLink className="h-7 w-7 text-accent" /> Comparer les vols
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
@@ -224,7 +224,7 @@ export default function VolsPage() {
               href="https://www.kayak.fr/"
               target="_blank"
               rel="noopener noreferrer nofollow sponsored"
-              className="inline-flex items-center gap-2 border border-gray-300 dark:border-slate-600 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              className="inline-flex items-center gap-2 border border-gray-300 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 transition-colors"
             >
               Kayak <ExternalLink className="h-4 w-4" />
             </a>

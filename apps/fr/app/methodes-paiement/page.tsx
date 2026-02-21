@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Comparatif complet des méthodes de dépôt et retrait : CB, PayPal, Apple Pay, Skrill, Neteller, virement.",
     url: "https://cdm2026.fr/methodes-paiement",
   },
+  alternates: { canonical: "https://cdm2026.fr/methodes-paiement" },
 };
 
 interface MethodePaiement {

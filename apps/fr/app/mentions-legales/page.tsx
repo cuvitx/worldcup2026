@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { ANJBanner } from "@repo/ui/anj-banner";
 export const metadata: Metadata = {
   title: "Mentions légales | CDM 2026",
   description:
@@ -38,7 +39,7 @@ export default function MentionsLegalesPage() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8 text-gray-700 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               1. Éditeur du site
             </h2>
             <p>
@@ -64,7 +65,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               2. Hébergeur
             </h2>
             <p>Le Site est hébergé par :</p>
@@ -88,7 +89,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               3. Propriété intellectuelle
             </h2>
             <p>
@@ -105,7 +106,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               4. Protection des données personnelles (CNIL / RGPD)
             </h2>
             <p>
@@ -133,7 +134,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               5. Cookies
             </h2>
             <p>
@@ -162,7 +163,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               6. Liens d&apos;affiliation
             </h2>
             <p>
@@ -175,41 +176,14 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               7. Clause de non-responsabilité — Paris sportifs
             </h2>
-            <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-5">
-              <p>
-                Les pronostics, analyses et comparaisons de cotes présentés sur
-                ce site sont fournis <strong>à titre informatif uniquement</strong>{" "}
-                et ne constituent en aucun cas des conseils en investissement ou
-                des incitations à parier.
-              </p>
-              <p className="mt-2">
-                Les paris sportifs comportent des{" "}
-                <strong>risques de pertes financières</strong>. L&apos;éditeur du
-                site ne saurait être tenu responsable des pertes résultant de
-                l&apos;utilisation des informations publiées.
-              </p>
-              <p className="mt-2">
-                Les jeux d&apos;argent sont <strong>interdits aux mineurs</strong>.
-                Jouer comporte des risques : endettement, isolement, dépendance.
-                Appelez le{" "}
-                <strong>09 74 75 13 13</strong> (appel non surtaxé).
-              </p>
-              <p className="mt-3">
-                <Link
-                  href="/jeu-responsable"
-                  className="font-medium text-primary hover:underline"
-                >
-                  Consulter notre page Jeu responsable →
-                </Link>
-              </p>
-            </div>
+            <ANJBanner />
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               8. Limitation de responsabilité
             </h2>
             <p>
@@ -226,7 +200,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               9. Droit applicable
             </h2>
             <p>
@@ -237,7 +211,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Contact</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Contact</h2>
             <p>
               Pour toute question concernant ces mentions légales :{" "}
               <a

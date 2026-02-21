@@ -113,35 +113,35 @@ export default function HebergementPage() {
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-12">
         {/* Par ville */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Guide par ville hôte
           </h2>
           <div className="space-y-4">
             {villes.map((v) => (
               <div
                 key={v.ville}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5"
               >
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-accent" />
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-gray-900">
                     {v.drapeau} {v.ville}
                   </h3>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-3 mb-3">
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3">
+                  <div className="rounded-lg bg-gray-50slate-700 p-3">
                     <p className="text-xs text-gray-500 uppercase mb-1">Hôtel</p>
                     <p className="font-bold text-primary">{v.hotel}</p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3">
+                  <div className="rounded-lg bg-gray-50slate-700 p-3">
                     <p className="text-xs text-gray-500 uppercase mb-1">Airbnb</p>
                     <p className="font-bold text-accent">{v.airbnb}</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                <p className="text-sm text-gray-600 mb-1">
                   <strong>Quartiers :</strong> {v.quartiers}
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{v.conseil}</p>
+                <p className="text-sm text-gray-600">{v.conseil}</p>
               </div>
             ))}
           </div>
@@ -149,7 +149,7 @@ export default function HebergementPage() {
 
         {/* Liens réservation */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Réserver votre hébergement
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -157,10 +157,10 @@ export default function HebergementPage() {
               href="https://www.booking.com"
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:shadow-md transition-shadow group"
+              className="flex items-center justify-between rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md transition-shadow group"
             >
               <div>
-                <p className="font-semibold text-gray-900 dark:text-white">Booking.com</p>
+                <p className="font-semibold text-gray-900">Booking.com</p>
                 <p className="text-sm text-gray-500">Hôtels, appartements, annulation gratuite</p>
               </div>
               <ExternalLink className="h-5 w-5 text-gray-400 group-hover:text-accent transition-colors" />
@@ -169,10 +169,10 @@ export default function HebergementPage() {
               href="https://www.airbnb.fr"
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:shadow-md transition-shadow group"
+              className="flex items-center justify-between rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:shadow-md transition-shadow group"
             >
               <div>
-                <p className="font-semibold text-gray-900 dark:text-white">Airbnb</p>
+                <p className="font-semibold text-gray-900">Airbnb</p>
                 <p className="text-sm text-gray-500">Logements entiers, expériences locales</p>
               </div>
               <ExternalLink className="h-5 w-5 text-gray-400 group-hover:text-accent transition-colors" />

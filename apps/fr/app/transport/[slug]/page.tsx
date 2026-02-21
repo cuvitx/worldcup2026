@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Bus, Car, Plane, Train, ArrowRight, DollarSign } from "lucide-react";
+import { ArrowRight, Bus, Car, DollarSign, Plane, Train } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
 export const dynamicParams = false;
@@ -181,7 +181,7 @@ export default async function TransportPage({ params }: PageProps) {
 
       {/* Navettes CDM */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">🚌 Navettes spéciales CDM 2026</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4"><Bus className="h-5 w-5 inline-block" /> Navettes spéciales CDM 2026</h2>
         <div className="bg-accent/10 rounded-xl p-6 text-secondary">
           <p>{transport.shuttleInfo}</p>
           <p className="mt-2 text-sm">Les horaires et itinéraires détaillés seront annoncés par la FIFA et les autorités locales avant le tournoi.</p>
@@ -190,7 +190,7 @@ export default async function TransportPage({ params }: PageProps) {
 
       {/* Location de voiture */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">🚗 Location de voiture</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4"><Car className="h-5 w-5 inline-block" /> Location de voiture</h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary">
           <p>{transport.carRental}</p>
         </div>

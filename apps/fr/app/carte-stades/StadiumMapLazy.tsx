@@ -7,7 +7,7 @@ const StadiumMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-96 rounded-xl bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-400">
+      <div className="h-96 rounded-xl bg-gray-100slate-800 flex items-center justify-center text-gray-400">
         Chargement de la carte…
       </div>
     ),

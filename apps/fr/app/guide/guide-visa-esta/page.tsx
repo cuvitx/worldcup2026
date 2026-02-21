@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TableOfContents } from "@repo/ui";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+import { ShieldCheck, TrainFront } from "lucide-react"
 export const metadata: Metadata = {
   title: "Visa ESTA pour les USA — Tout savoir pour la CDM 2026",
   description:
@@ -77,27 +78,27 @@ export default function GuideVisaEsta() {
 
       <div className="mx-auto max-w-5xl px-4 py-10 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
         <div>
-        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500 dark:text-gray-300">
+        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500">
           <ol className="flex items-center gap-1 flex-wrap">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li><Link href="/guides" className="text-primary dark:text-secondary hover:underline">Guides</Link></li>
+            <li><Link href="/guides" className="text-primary hover:underline">Guides</Link></li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-white font-medium">Visa ESTA</li>
+            <li className="text-gray-900 font-medium">Visa ESTA</li>
           </ol>
         </nav>
 
-        <article className="prose prose-lg dark:prose-invert max-w-none">
+        <article className="prose prose-lg max-w-none">
           <div className="mb-4 flex items-center gap-3">
-            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary dark:bg-secondary/20 dark:text-secondary">Guide pratique</span>
-            <time className="text-sm text-gray-500 dark:text-gray-300" dateTime="2026-02-19">19 février 2026</time>
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primarysecondary/20">Guide pratique</span>
+            <time className="text-sm text-gray-500" dateTime="2026-02-19">19 février 2026</time>
           </div>
 
-          <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white md:text-4xl mb-6">
-            🛂 Visa ESTA pour les USA : tout savoir pour la CDM 2026
+          <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-6">
+            <ShieldCheck className="h-5 w-5 inline-block" /> Visa ESTA pour les USA : tout savoir pour la CDM 2026
           </h1>
 
-          <p className="text-lg text-gray-600 dark:text-gray-300 font-medium mb-8 not-prose">
+          <p className="text-lg text-gray-600 font-medium mb-8 not-prose">
             La majorité des matchs de la Coupe du Monde 2026 se joueront aux États-Unis. Pour les ressortissants français et européens, l&apos;ESTA est le document indispensable. Voici tout ce qu&apos;il faut savoir.
           </p>
 
@@ -130,9 +131,9 @@ export default function GuideVisaEsta() {
             En période de Coupe du Monde, le volume de demandes ESTA va exploser. Nous recommandons de faire votre demande <strong>au minimum 3 mois avant votre départ</strong>. Si vous avez déjà un ESTA valide, vérifiez sa date d&apos;expiration dès maintenant.
           </p>
 
-          <div className="not-prose my-8 rounded-xl bg-accent//10 border border-accent//30 p-6 dark:bg-accent//10 dark:border-accent//20">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-accent dark:text-accent mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Attention aux arnaques</h3>
-            <p className="text-sm text-accent dark:text-accent">
+          <div className="not-prose my-8 rounded-xl bg-accent//10 border border-accent//30 p-6accent//10">
+            <h3 className="text-lg font-semibold text-gray-900 text-accent mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Attention aux arnaques</h3>
+            <p className="text-sm text-accent">
               De nombreux sites frauduleux proposent des « ESTA express  à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
             </p>
           </div>
@@ -171,24 +172,24 @@ export default function GuideVisaEsta() {
           <p>Certaines informations (adresse aux USA, numéro de vol) peuvent être modifiées. Pour toute modification de données d&apos;identité, une nouvelle demande est nécessaire.</p>
         </article>
 
-        <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Guides liés</h2>
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides liés</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Où dormir pendant la CDM 2026</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Guide hébergement villes hôtes</p>
+            <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 bg-whiteslate-800 p-4 hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-gray-900">Où dormir pendant la CDM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Guide hébergement villes hôtes</p>
             </Link>
-            <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🚆 Se déplacer entre les stades</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Transport inter-villes et logistique</p>
+            <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 bg-whiteslate-800 p-4 hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-gray-900"><TrainFront className="h-5 w-5 inline-block" /> Se déplacer entre les stades</h3>
+              <p className="text-sm text-gray-500 mt-1">Transport inter-villes et logistique</p>
             </Link>
-            <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white"> Budget CDM 2026</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Combien ça coûte ? Estimation complète</p>
+            <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 bg-whiteslate-800 p-4 hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-gray-900"> Budget CDM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Combien ça coûte ? Estimation complète</p>
             </Link>
-            <Link href="/stades" className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white"> Les stades de la CDM 2026</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">Tous les stades du Mondial</p>
+            <Link href="/stades" className="rounded-lg border border-gray-200 bg-whiteslate-800 p-4 hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-gray-900"> Les stades de la CDM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Tous les stades du Mondial</p>
             </Link>
           </div>
         </div>

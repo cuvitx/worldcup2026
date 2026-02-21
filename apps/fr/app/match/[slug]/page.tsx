@@ -21,6 +21,7 @@ import {
 } from "./_components";
 import { ContextualSidebar } from "../../components/ContextualSidebar";
 import { MatchContextBar } from "../../components/MatchContextBar";
+import { BarChart3, Sparkles, Swords, TrendingUp, Trophy } from "lucide-react"
 
 const AiExpertInsight = dynamic(
   () => import("@repo/ui/ai-expert-insight").then((m) => ({ default: m.AiExpertInsight })),
@@ -92,14 +93,17 @@ export default async function MatchPage({ params }: PageProps) {
   const matchPhase = getMatchPhase(match.date, match.time);
   const isCompleted = matchPhase === "completed";
 
-  // Fetch AI-enriched data
+  // AI-enriched data: skip during build (no API keys), fetch at runtime via ISR
   let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
-  try {
-    enriched = await generateFullMatchPreview(slug, "fr", {
-      includeExpert: matchPhase === "upcoming",
-    });
-  } catch {
-    // AI generation failed — page renders with static data only
+  const isBuild = process.env.NEXT_PHASE === "phase-production-build" || !process.env.GEMINI_API_KEY;
+  if (!isBuild) {
+    try {
+      enriched = await generateFullMatchPreview(slug, "fr", {
+        includeExpert: matchPhase === "upcoming",
+      });
+    } catch {
+      // AI generation failed — page renders with static data only
+    }
   }
 
   const sameDayMatches = matches.filter(
@@ -195,16 +199,16 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Contextual internal links */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">À explorer aussi</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">À explorer aussi</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {home && away && (
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
-              <span className="text-2xl">⚔️</span>
+              <span className="text-2xl"><Swords className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900 dark:text-white">Face-à-face {home.name} vs {away.name}</p>
+                <p className="text-sm font-semibold text-gray-900">Face-à-face {home.name} vs {away.name}</p>
                 <p className="text-xs text-gray-500">Historique des confrontations</p>
               </div>
             </Link>
@@ -212,11 +216,11 @@ export default async function MatchPage({ params }: PageProps) {
           {home && (
             <Link
               href={`/pronostic/${home.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
-              <span className="text-2xl">🔮</span>
+              <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic {home.name}</p>
+                <p className="text-sm font-semibold text-gray-900">Pronostic {home.name}</p>
                 <p className="text-xs text-gray-500">Analyse et prédictions CDM 2026</p>
               </div>
             </Link>
@@ -224,11 +228,11 @@ export default async function MatchPage({ params }: PageProps) {
           {away && (
             <Link
               href={`/pronostic/${away.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
-              <span className="text-2xl">🔮</span>
+              <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic {away.name}</p>
+                <p className="text-sm font-semibold text-gray-900">Pronostic {away.name}</p>
                 <p className="text-xs text-gray-500">Analyse et prédictions CDM 2026</p>
               </div>
             </Link>
@@ -236,32 +240,32 @@ export default async function MatchPage({ params }: PageProps) {
           {match.group && (
             <Link
               href={`/pronostic-groupe/${match.group.toLowerCase()}`}
-              className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+              className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
-              <span className="text-2xl">📊</span>
+              <span className="text-2xl"><BarChart3 className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900 dark:text-white">Pronostic Groupe {match.group}</p>
+                <p className="text-sm font-semibold text-gray-900">Pronostic Groupe {match.group}</p>
                 <p className="text-xs text-gray-500">Classement prédit et qualifiés</p>
               </div>
             </Link>
           )}
           <Link
             href="/classement-fifa"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
-            <span className="text-2xl">🏆</span>
+            <span className="text-2xl"><Trophy className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900 dark:text-white">Classement FIFA</p>
+              <p className="text-sm font-semibold text-gray-900">Classement FIFA</p>
               <p className="text-xs text-gray-500">Ranking mondial des 48 équipes</p>
             </div>
           </Link>
           <Link
             href="/comparateur-cotes"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
-            <span className="text-2xl">📈</span>
+            <span className="text-2xl"><TrendingUp className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900 dark:text-white">Comparateur de cotes</p>
+              <p className="text-sm font-semibold text-gray-900">Comparateur de cotes</p>
               <p className="text-xs text-gray-500">Meilleurs bookmakers pour ce match</p>
             </div>
           </Link>

@@ -72,7 +72,7 @@ export default function GroupsPage() {
               <Link
                 key={group.letter}
                 href={`/groupe/${group.slug}`}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-200"
+                className="group rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200"
               >
                 {/* Header */}
                 <div className="hero-animated px-4 py-3 flex items-center justify-between">
@@ -85,7 +85,7 @@ export default function GroupsPage() {
                 </div>
 
                 {/* Teams table */}
-                <div className="divide-y divide-gray-100 dark:divide-gray-700">
+                <div className="divide-y divide-gray-100">
                   {groupTeams.map(({ team, pred, id }, idx) => {
                     const isQualified = idx < 2;
                     return (
@@ -93,11 +93,11 @@ export default function GroupsPage() {
                         key={id}
                         className={`flex items-center gap-3 px-4 py-3 text-sm ${
                           isQualified
-                            ? "bg-accent/5 dark:bg-accent/10"
+                            ? "bg-accent/5accent/10"
                             : ""
                         }`}
                       >
-                        <span className="w-5 text-center text-xs font-bold text-gray-600 dark:text-gray-300">
+                        <span className="w-5 text-center text-xs font-bold text-gray-600">
                           {idx + 1}
                         </span>
                         <span className="text-xl" role="img" aria-label={team?.name ?? id}>
@@ -105,18 +105,18 @@ export default function GroupsPage() {
                         </span>
                         <span className={`flex-1 font-medium break-words text-sm ${
                           isQualified 
-                            ? "text-accent dark:text-accent" 
-                            : "text-gray-800 dark:text-gray-200"
+                            ? "text-accent" 
+                            : "text-gray-800"
                         }`}>
                           {team?.name ?? id}
                         </span>
                         {team && (
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                          <span className="text-xs text-gray-500">
                             #{team.fifaRanking}
                           </span>
                         )}
                         {pred && (
-                          <span className="text-xs font-bold text-primary dark:text-secondary tabular-nums">
+                          <span className="text-xs font-bold text-primary tabular-nums">
                             {(pred.groupStageProb * 100).toFixed(0)}%
                           </span>
                         )}
@@ -130,9 +130,9 @@ export default function GroupsPage() {
         </div>
 
         {/* Legend */}
-        <div className="mt-8 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-300">
+        <div className="mt-8 flex items-center gap-4 text-xs text-gray-500">
           <span className="flex items-center gap-1.5">
-            <span className="inline-block w-3 h-3 rounded bg-accent/10 dark:bg-accent/20 border border-accent/30 dark:border-accent/30" />
+            <span className="inline-block w-3 h-3 rounded bg-accent/10accent/20 border border-accent/30" />
             Qualifié (top 2)
           </span>
           <span>% = chances de sortie de groupe</span>
@@ -151,9 +151,9 @@ export default function GroupsPage() {
             },
             {
               href: "/match/calendrier",
-              title: "📅 Calendrier des matchs",
+              title: " Calendrier des matchs",
               description: "Tous les matchs de la phase de groupes avec dates et horaires.",
-              icon: "📅"
+              icon: ""
             },
             {
               href: "/pronostic-vainqueur",

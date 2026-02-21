@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Calendrier CDM 2026 — Version imprimable",
   description:
     "Version imprimable du calendrier complet de la Coupe du Monde 2026 : les 104 matchs avec dates, horaires, stades et équipes. Format PDF.",
+  alternates: { canonical: "https://cdm2026.fr/calendrier/imprimer" },
   robots: { index: false, follow: false },
 };
 
@@ -72,16 +73,16 @@ export default function CalendrierImprimerPage() {
         <PrintButton />
         <a
           href="/match/calendrier"
-          className="rounded-lg border border-gray-300 dark:border-slate-600 px-5 py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700"
+          className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-100"
         >
           ← Retour au calendrier
         </a>
       </div>
 
-      <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+      <h1 className="text-2xl font-bold mb-6 text-gray-900">
          Calendrier Coupe du Monde 2026
       </h1>
-      <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
+      <p className="text-sm text-gray-500 mb-6">
         104 matchs · 11 juin – 19 juillet 2026 · USA / Mexique / Canada
       </p>
 
@@ -95,7 +96,7 @@ export default function CalendrierImprimerPage() {
         });
         return (
           <div key={date} className="mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               {formatted}
             </h2>
             <div className="overflow-x-auto"><table>
@@ -111,13 +112,13 @@ export default function CalendrierImprimerPage() {
                 {dayMatches
                   .sort((a, b) => a.time.localeCompare(b.time))
                   .map((m) => (
-                    <tr key={m.id} className="text-gray-800 dark:text-gray-200">
+                    <tr key={m.id} className="text-gray-800">
                       <td className="font-mono text-xs">{m.time}</td>
                       <td className="font-semibold">
                         {teamName(m.homeTeamId)} vs {teamName(m.awayTeamId)}
                       </td>
                       <td className="text-xs">{stageLabel(m.stage, m.group)}</td>
-                      <td className="hidden sm:table-cell text-xs text-gray-500 dark:text-gray-300">
+                      <td className="hidden sm:table-cell text-xs text-gray-500">
                         {stadiumName(m.stadiumId)}
                       </td>
                     </tr>

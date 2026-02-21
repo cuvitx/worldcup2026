@@ -16,11 +16,11 @@ interface RecentArticlesProps {
 }
 
 const categoryColors: Record<string, string> = {
-  stades: "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent",
-  billets: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
-  equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent",
-  transferts: "bg-accent/15 text-accent dark:bg-accent/10 dark:text-accent",
+  stades: "bg-accent/10 text-accentaccent/20",
+  billets: "bg-field/10 text-fieldfield/20",
+  equipes: "bg-primary/10 text-primaryprimary/20",
+  paris: "bg-primary/10 text-primaryprimary/20",
+  transferts: "bg-accent/15 text-accentaccent/10",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -33,7 +33,7 @@ const categoryLabels: Record<string, string> = {
 
 export function RecentArticles({ recentArticles }: RecentArticlesProps) {
   return (
-    <section className="bg-white dark:bg-gray-950 py-16">
+    <section className="bg-whitegray-950 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
@@ -47,9 +47,9 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
             <Link
               key={article.id}
               href={`/actualites/${article.slug}`}
-              className="group relative flex flex-col rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="group relative flex flex-col rounded-2xl border border-gray-100 bg-whiteslate-900 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+              <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                 <span className="text-6xl opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500">
                   {article.imageEmoji}
                 </span>
@@ -71,16 +71,16 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
                   {categoryLabels[article.category] ?? article.category}
                 </span>
 
-                <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
                   {article.title}
                 </h3>
 
-                <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed line-clamp-2 flex-1">
+                <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 flex-1">
                   {article.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50 dark:border-gray-800">
-                  <p className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50">
+                  <p className="text-[10px] text-gray-500 font-medium">
                     {new Date(article.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
                       day: "numeric",
                       month: "long",

@@ -40,7 +40,7 @@ const categories = [
     titre: "Tech & électronique",
     items: [
       "Adaptateur prise US (Type A/B — les prises françaises ne rentrent pas !)",
-      "⚠️ Voltage : les USA utilisent 110V/60Hz. Les chargeurs modernes (téléphone, laptop) sont bi-voltage (100-240V). Vérifiez la mention sur votre chargeur. Les sèche-cheveux et fers à lisser européens NE fonctionneront PAS sans convertisseur.",
+      " Voltage : les USA utilisent 110V/60Hz. Les chargeurs modernes (téléphone, laptop) sont bi-voltage (100-240V). Vérifiez la mention sur votre chargeur. Les sèche-cheveux et fers à lisser européens NE fonctionneront PAS sans convertisseur.",
       "Batterie externe / power bank (10 000+ mAh recommandé)",
       "Câbles de charge (USB-C, Lightning)",
       "eSIM ou carte SIM US prépayée (T-Mobile, AT&T)",
@@ -139,10 +139,10 @@ export default function ValisePageCDM() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Météo */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Sun className="h-7 w-7 text-accent" /> Météo attendue (juin-juillet 2026)
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 prose dark:prose-invert max-w-none">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 prose max-w-none">
             <p>
               La CDM 2026 se déroule en <strong>été nord-américain</strong>. Attendez-vous à des températures
               de <strong>28-38°C</strong> dans le sud (Houston, Dallas, Miami, Mexico) et <strong>22-30°C</strong> dans
@@ -157,13 +157,13 @@ export default function ValisePageCDM() {
         {/* Checklists par catégorie */}
         {categories.map((cat) => (
           <section key={cat.titre}>
-            <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
               <cat.icon className="h-7 w-7 text-accent" /> {cat.titre}
             </h2>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6">
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
               <ul className="space-y-2">
                 {cat.items.map((item, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                  <li key={i} className="flex gap-3 text-sm text-gray-700">
                     <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
@@ -175,13 +175,13 @@ export default function ValisePageCDM() {
 
         {/* Interdits stade */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <AlertTriangle className="h-7 w-7 text-red-500" /> Objets interdits dans les stades
           </h2>
-          <div className="rounded-xl border border-red-200 dark:border-red-900/30 bg-red-50 dark:bg-red-900/10 p-6">
+          <div className="rounded-xl border border-red-200 bg-red-50red-900/10 p-6">
             <ul className="space-y-2">
               {interditsStade.map((item, i) => (
-                <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <li key={i} className="flex gap-3 text-sm text-gray-700">
                   <AlertTriangle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>

@@ -24,7 +24,7 @@ const tvLogos: Record<string, string> = {
 export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
   return (
     <section id="tv-france" className="mb-14">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         🇫🇷 Droits TV en France — Détail par chaîne
       </h2>
 
@@ -36,8 +36,8 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
             key={ch.name}
             className={`rounded-2xl border p-6 flex flex-col ${
               ch.free
-                ? "bg-field/5 dark:bg-field/10 border-field/20 dark:border-field/30"
-                : "bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700"
+                ? "bg-field/5field/10 border-field/20"
+                : "bg-whiteslate-800 border-gray-200"
             }`}
           >
             <div className="flex items-center gap-3 mb-3">
@@ -57,25 +57,25 @@ export function TVFranceSection({ tvFranceDetailed }: TVFranceSectionProps) {
                 </div>
               )}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{ch.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">{ch.name}</h3>
                 <span
                   className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                     ch.free
-                      ? "bg-field/10 dark:bg-field/20 text-field dark:text-field"
-                      : "bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary"
+                      ? "bg-field/10field/20 text-field"
+                      : "bg-secondary/10secondary/20 text-secondary"
                   }`}
                 >
                   {ch.type}
                 </span>
               </div>
             </div>
-            <p className="text-lg font-bold text-primary dark:text-secondary mb-2">{ch.matches}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 flex-1">{ch.details}</p>
+            <p className="text-lg font-bold text-primary mb-2">{ch.matches}</p>
+            <p className="text-sm text-gray-600 flex-1">{ch.details}</p>
           </div>
         )})}
       </div>
 
-      <div className="mt-4 p-4 bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl text-sm text-accent dark:text-accent">
+      <div className="mt-4 p-4 bg-accent/10accent/10 border border-accent/30 rounded-xl text-sm text-accent">
         <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Note importante</p>
         <p className="mt-1">
           Les droits TV de TF1 sont encore en cours de finalisation. M6 a confirmé 54 matchs.

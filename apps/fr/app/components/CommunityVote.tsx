@@ -78,11 +78,11 @@ export default function CommunityVote({
   ];
 
   return (
-    <section className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-slate-800">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+    <section className="rounded-2xl border border-gray-200 bg-white p-6">
+      <h2 className="text-2xl font-bold text-gray-900 mb-1">
         L&apos;avis de la communauté
       </h2>
-      <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">
+      <p className="mb-5 text-sm text-gray-500">
         {showResults
           ? `${results.totalVotes.toLocaleString("fr-FR")} votes`
           : "Quel est votre pronostic pour ce match ?"}
@@ -94,18 +94,18 @@ export default function CommunityVote({
             <button
               key={opt.key}
               onClick={() => handleVote(opt.key)}
-              className={`group relative flex flex-col items-center gap-2 rounded-xl border-2 border-gray-200 px-3 py-4 font-semibold transition-all hover:scale-[1.03] hover:shadow-md dark:border-gray-600 ${
+              className={`group relative flex flex-col items-center gap-2 rounded-xl border-2 border-gray-200 px-3 py-4 font-semibold transition-all hover:scale-[1.03] hover:shadow-md ${
                 opt.key === "1"
-                  ? "hover:border-primary hover:bg-primary/10 dark:hover:border-secondary dark:hover:bg-secondary/10"
+                  ? "hover:border-primary hover:bg-primary/10"
                   : opt.key === "N"
-                    ? "hover:border-gray-400 hover:bg-gray-50 dark:bg-slate-700 dark:hover:border-gray-400 dark:hover:bg-gray-700/40"
-                    : "hover:border-accent hover:bg-accent/5 dark:hover:border-secondary dark:hover:bg-secondary/10"
+                    ? "hover:border-gray-400 hover:bg-gray-50slate-700"
+                    : "hover:border-accent hover:bg-accent/5"
               }`}
             >
-              <span className="text-2xl font-black text-gray-500 dark:text-gray-600 group-hover:text-gray-500">
+              <span className="text-2xl font-black text-gray-500 group-hover:text-gray-500">
                 {opt.key}
               </span>
-              <span className="text-center text-xs leading-tight text-gray-700 dark:text-gray-300 sm:text-sm">
+              <span className="text-center text-xs leading-tight text-gray-700 sm:text-sm">
                 {opt.label}
               </span>
             </button>
@@ -116,10 +116,10 @@ export default function CommunityVote({
           {options.map((opt) => (
             <div key={opt.key} className="relative">
               <div className="flex items-center justify-between gap-2 mb-1.5">
-                <span className={`text-sm font-medium min-w-0 truncate ${voted === opt.key ? opt.text + " font-bold" : "text-gray-700 dark:text-gray-300"}`}>
+                <span className={`text-sm font-medium min-w-0 truncate ${voted === opt.key ? opt.text + " font-bold" : "text-gray-700"}`}>
                   {voted === opt.key && <><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>{" "}</>}{opt.label}
                 </span>
-                <span className={`text-sm font-bold tabular-nums shrink-0 ${voted === opt.key ? opt.text : "text-gray-600 dark:text-gray-300"}`}>
+                <span className={`text-sm font-bold tabular-nums shrink-0 ${voted === opt.key ? opt.text : "text-gray-600"}`}>
                   {opt.pct}%
                 </span>
               </div>

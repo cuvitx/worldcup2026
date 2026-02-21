@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import { Plane, Hotel, Ticket, Utensils, Bus, Calculator, ChevronDown, ExternalLink } from "lucide-react";
+import { Bus, Calculator, Calendar, ChevronDown, DollarSign, ExternalLink, Hotel, Lightbulb, MapPin, Plane, Ticket, Utensils } from "lucide-react";
 
 /* ────────── Data ────────── */
 
@@ -42,12 +44,16 @@ const cities: CityData[] = [
 const matchPrices: Record<Standing, number> = { budget: 70, moyen: 150, premium: 300 };
 
 const standingLabels: Record<Standing, string> = {
-  budget: "🎒 Budget",
-  moyen: "⭐ Moyen",
-  premium: "💎 Premium",
+  budget: " Budget",
+  moyen: " Moyen",
+  premium: " Premium",
 };
 
 /* ────────── Helpers ────────── */
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/calculateur-budget" },
+};
 
 function fmt(n: number) {
   return n.toLocaleString("fr-FR");
@@ -56,7 +62,7 @@ function fmt(n: number) {
 function ProgressBar({ value, max, color }: { value: number; max: number; color: string }) {
   const pct = Math.min((value / max) * 100, 100);
   return (
-    <div className="h-3 w-full rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+    <div className="h-3 w-full rounded-full bg-gray-200gray-700 overflow-hidden">
       <div className={`h-full rounded-full transition-all duration-500 ${color}`} style={{ width: `${pct}%` }} />
     </div>
   );
@@ -94,7 +100,7 @@ export default function CalculateurBudgetPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary">
-              💰 Outil interactif
+              <DollarSign className="h-5 w-5 inline-block" /> Outil interactif
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
               Calculateur budget CDM 2026
@@ -113,12 +119,12 @@ export default function CalculateurBudgetPage() {
           <div className="lg:col-span-2 space-y-6">
             {/* Ville */}
             <div>
-              <label className="block text-sm font-bold mb-2">📍 Ville de destination</label>
+              <label className="block text-sm font-bold mb-2"><MapPin className="h-5 w-5 inline-block" /> Ville de destination</label>
               <div className="relative">
                 <select
                   value={cityIdx}
                   onChange={(e) => setCityIdx(Number(e.target.value))}
-                  className="w-full appearance-none rounded-xl border bg-white dark:bg-gray-900 px-4 py-3 pr-10 font-medium focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full appearance-none rounded-xl border bg-whitegray-900 px-4 py-3 pr-10 font-medium focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   {cities.map((c, i) => (
                     <option key={c.name} value={i}>
@@ -133,7 +139,7 @@ export default function CalculateurBudgetPage() {
             {/* Jours */}
             <div>
               <label className="block text-sm font-bold mb-2">
-                📅 Nombre de jours : <span className="text-accent">{days}</span>
+                <Calendar className="h-5 w-5 inline-block" /> Nombre de jours : <span className="text-accent">{days}</span>
               </label>
               <input
                 type="range"
@@ -151,7 +157,7 @@ export default function CalculateurBudgetPage() {
 
             {/* Standing */}
             <div>
-              <label className="block text-sm font-bold mb-2">🏨 Standing</label>
+              <label className="block text-sm font-bold mb-2"><Hotel className="h-5 w-5 inline-block" /> Standing</label>
               <div className="grid grid-cols-3 gap-2">
                 {(Object.keys(standingLabels) as Standing[]).map((s) => (
                   <button
@@ -172,7 +178,7 @@ export default function CalculateurBudgetPage() {
             {/* Matchs */}
             <div>
               <label className="block text-sm font-bold mb-2">
-                🎟 Nombre de matchs : <span className="text-accent">{matchCount}</span>
+                <Ticket className="h-5 w-5 inline-block" /> Nombre de matchs : <span className="text-accent">{matchCount}</span>
               </label>
               <input
                 type="range"
@@ -225,7 +231,7 @@ export default function CalculateurBudgetPage() {
                 href="/billets"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3.5 font-bold text-white hover:bg-accent/90 transition-all"
               >
-                🎟 Acheter ses billets
+                <Ticket className="h-5 w-5 inline-block" /> Acheter ses billets
               </Link>
               <a
                 href="https://www.booking.com/searchresults.fr.html?ss=United+States"
@@ -242,7 +248,7 @@ export default function CalculateurBudgetPage() {
                 href="/hebergement"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-3 text-sm font-medium hover:border-accent/50 transition-all"
               >
-                🏨 Guide hébergement
+                <Hotel className="h-5 w-5 inline-block" /> Guide hébergement
               </Link>
               <a
                 href="https://www.airbnb.fr/"
@@ -259,7 +265,7 @@ export default function CalculateurBudgetPage() {
 
         {/* Disclaimer */}
         <p className="text-xs text-secondary text-center mt-10 max-w-2xl mx-auto">
-          💡 Ces estimations sont indicatives et basées sur les prix moyens constatés début 2025.
+          <Lightbulb className="h-5 w-5 inline-block" /> Ces estimations sont indicatives et basées sur les prix moyens constatés début 2025.
           Les tarifs réels peuvent varier selon la période, la disponibilité et les promotions.
           Les prix des billets correspondent aux catégories FIFA officielles (phase de groupes).
         </p>

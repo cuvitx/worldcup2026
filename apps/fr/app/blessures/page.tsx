@@ -41,9 +41,9 @@ const injuries: PlayerInjury[] = [
 ];
 
 const statusConfig: Record<Status, { bg: string; text: string; icon: typeof ShieldCheck }> = {
-  Apte: { bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-700 dark:text-green-400", icon: ShieldCheck },
-  Incertain: { bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-700 dark:text-yellow-400", icon: Clock },
-  Forfait: { bg: "bg-red-100 dark:bg-red-900/30", text: "text-red-700 dark:text-red-400", icon: AlertTriangle },
+  Apte: { bg: "bg-green-100green-900/30", text: "text-green-700", icon: ShieldCheck },
+  Incertain: { bg: "bg-yellow-100yellow-900/30", text: "text-yellow-700", icon: Clock },
+  Forfait: { bg: "bg-red-100red-900/30", text: "text-red-700", icon: AlertTriangle },
 };
 
 export default function BlessuresPage() {
@@ -92,7 +92,7 @@ export default function BlessuresPage() {
             { label: "Incertains", count: incertains.length, color: "text-yellow-600" },
             { label: "Forfaits", count: forfaits.length, color: "text-red-600" },
           ].map((s) => (
-            <div key={s.label} className="text-center rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+            <div key={s.label} className="text-center rounded-xl border border-gray-200 p-4">
               <span className={`block text-3xl font-black ${s.color}`}>{s.count}</span>
               <span className="text-sm text-gray-500">{s.label}</span>
             </div>
@@ -103,7 +103,7 @@ export default function BlessuresPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <HeartPulse className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary dark:text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Tableau des blessures par joueur
             </h2>
           </div>
@@ -126,7 +126,7 @@ export default function BlessuresPage() {
                   return (
                     <tr
                       key={p.player}
-                      className={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
+                      className={i % 2 === 0 ? "bg-gray-50gray-800" : "bg-whitegray-900"}
                     >
                       <td className="py-3 px-4 font-medium">{p.player}</td>
                       <td className="py-3 px-4">{p.team}</td>
@@ -144,9 +144,9 @@ export default function BlessuresPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-6 flex items-start gap-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4">
+          <div className="mt-6 flex items-start gap-3 rounded-xl bg-blue-50blue-900/20 border border-blue-200 p-4">
             <Clock className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
-            <p className="text-sm text-blue-800 dark:text-blue-200">
+            <p className="text-sm text-blue-800">
               Dernière mise à jour : février 2026. Les statuts seront actualisés à l&apos;approche de la CDM.
             </p>
           </div>

@@ -72,11 +72,11 @@ export default function RegarderCdmAuTravailPage() {
 
       {/* What the law says */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Scale className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Ce que dit le Code du travail
         </h2>
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg max-w-none">
           <p>
             Soyons clairs dès le départ : <strong>il n&apos;existe aucun droit à regarder un match de football
             pendant les heures de travail</strong>. Le Code du travail est formel. Pendant vos heures de travail, vous
@@ -97,30 +97,30 @@ export default function RegarderCdmAuTravailPage() {
 
       {/* Employer tolerance */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Users className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           La tolérance des employeurs (les vrais chiffres)
         </h2>
         <div className="grid gap-6 md:grid-cols-4">
-          <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
             <TrendingUp className="w-8 h-8 text-[#00B865] mx-auto mb-2" />
-            <p className="text-3xl font-extrabold text-[#022149] dark:text-white">73 %</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">des entreprises tolèrent la diffusion des matchs des Bleus</p>
+            <p className="text-3xl font-extrabold text-[#022149]">73 %</p>
+            <p className="text-sm text-gray-600 mt-1">des entreprises tolèrent la diffusion des matchs des Bleus</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
             <Monitor className="w-8 h-8 text-[#D4AF37] mx-auto mb-2" />
-            <p className="text-3xl font-extrabold text-[#022149] dark:text-white">45 %</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">installent un écran en salle de pause</p>
+            <p className="text-3xl font-extrabold text-[#022149]">45 %</p>
+            <p className="text-sm text-gray-600 mt-1">installent un écran en salle de pause</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6 text-center">
-            <Briefcase className="w-8 h-8 text-[#022149] dark:text-gray-400 mx-auto mb-2" />
-            <p className="text-3xl font-extrabold text-[#022149] dark:text-white">62 %</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">des salariés préfèrent le télétravail les jours de match</p>
+          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
+            <Briefcase className="w-8 h-8 text-[#022149] mx-auto mb-2" />
+            <p className="text-3xl font-extrabold text-[#022149]">62 %</p>
+            <p className="text-sm text-gray-600 mt-1">des salariés préfèrent le télétravail les jours de match</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6 text-center">
+          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6 text-center">
             <Coffee className="w-8 h-8 text-amber-600 mx-auto mb-2" />
-            <p className="text-3xl font-extrabold text-[#022149] dark:text-white">89 %</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">des DRH considèrent qu&apos;interdire est contre-productif</p>
+            <p className="text-3xl font-extrabold text-[#022149]">89 %</p>
+            <p className="text-sm text-gray-600 mt-1">des DRH considèrent qu&apos;interdire est contre-productif</p>
           </div>
         </div>
         <p className="text-xs text-gray-400 mt-3">Sources : sondages Ifop/OpinionWay lors des CDM 2018 et 2022</p>
@@ -128,69 +128,69 @@ export default function RegarderCdmAuTravailPage() {
 
       {/* Solutions */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Lightbulb className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Les solutions (du plus légal au plus audacieux)
         </h2>
         <div className="space-y-4">
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">1</span>
+              <span className="bg-green-100green-900 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">1</span>
               <h3 className="font-bold">Poser un RTT ou une demi-journée</h3>
-              <span className="ml-auto text-xs bg-green-100 dark:bg-green-900 text-green-700 px-2 py-0.5 rounded-full">100 % légal</span>
+              <span className="ml-auto text-xs bg-green-100green-900 text-green-700 px-2 py-0.5 rounded-full">100 % légal</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               La solution la plus propre. Anticipez et posez votre journée dès que le calendrier des matchs est connu.
               Attention : votre employeur peut refuser si tout le service demande le même jour. Premier arrivé, premier servi.
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">2</span>
+              <span className="bg-green-100green-900 text-green-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">2</span>
               <h3 className="font-bold">Négocier le télétravail</h3>
-              <span className="ml-auto text-xs bg-green-100 dark:bg-green-900 text-green-700 px-2 py-0.5 rounded-full">Légal</span>
+              <span className="ml-auto text-xs bg-green-100green-900 text-green-700 px-2 py-0.5 rounded-full">Légal</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Depuis le Covid, le télétravail est entré dans les m&oelig;urs. Proposez de travailler de chez vous les
               jours de match. Vous serez productif le matin et pourrez regarder le match de 17h en toute sérénité.
               Win-win.
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">3</span>
+              <span className="bg-yellow-100yellow-900 text-yellow-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">3</span>
               <h3 className="font-bold">La pause déjeuner prolongée</h3>
-              <span className="ml-auto text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-700 px-2 py-0.5 rounded-full">Toléré</span>
+              <span className="ml-auto text-xs bg-yellow-100yellow-900 text-yellow-700 px-2 py-0.5 rounded-full">Toléré</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Pour les matchs de 14h, une pause déjeuner &laquo; étendue &raquo; peut faire l&apos;affaire. Certaines
               entreprises acceptent de décaler les horaires. Parlez-en avec votre manager — la transparence est toujours
               mieux que la planque.
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">4</span>
+              <span className="bg-orange-100orange-900 text-orange-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">4</span>
               <h3 className="font-bold">L&apos;écran collectif en salle de pause</h3>
-              <span className="ml-auto text-xs bg-orange-100 dark:bg-orange-900 text-orange-700 px-2 py-0.5 rounded-full">Sur accord</span>
+              <span className="ml-auto text-xs bg-orange-100orange-900 text-orange-700 px-2 py-0.5 rounded-full">Sur accord</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Proposez à votre direction d&apos;installer un écran dans un espace commun. C&apos;est bon pour la
               cohésion d&apos;équipe, ça évite le streaming sauvage sur 50 postes, et ça fait plaisir à tout le monde.
               Argument imparable : &laquo; Ça booste l&apos;engagement collaborateur &raquo;.
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">5</span>
+              <span className="bg-red-100red-900 text-red-700 font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center">5</span>
               <h3 className="font-bold">Le live-tweet / notifications</h3>
-              <span className="ml-auto text-xs bg-red-100 dark:bg-red-900 text-red-700 px-2 py-0.5 rounded-full">Risqué</span>
+              <span className="ml-auto text-xs bg-red-100red-900 text-red-700 px-2 py-0.5 rounded-full">Risqué</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Quand vous ne pouvez vraiment pas regarder le match : activez les notifications de L&apos;Équipe ou
               FotMob et suivez le match en texte. C&apos;est frustrant, mais c&apos;est mieux que rien. Et quand toute
               l&apos;open space hurle en même temps, vous saurez que la France a marqué.
@@ -201,11 +201,11 @@ export default function RegarderCdmAuTravailPage() {
 
       {/* Precedents */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Clock className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Les précédents : 2018 et 2022
         </h2>
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg max-w-none">
           <h3>CDM 2018 (Russie) — L&apos;âge d&apos;or</h3>
           <p>
             Les matchs étaient à des heures européennes (14h, 16h, 18h, 20h). Résultat : la France entière a regardé

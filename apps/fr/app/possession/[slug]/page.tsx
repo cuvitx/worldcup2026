@@ -7,6 +7,7 @@ import { PieChart, TrendingUp, ArrowRight, ExternalLink, Swords } from "lucide-r
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 
+import { ANJBanner } from "@repo/ui/anj-banner";
 function getPossessionStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 5 + awayId.charCodeAt(0) * 3;
   const homePoss = +(48 + (seed % 12)).toFixed(0);
@@ -179,8 +180,9 @@ export default async function PossessionPage({ params }: PageProps) {
             <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betclic <ExternalLink className="w-4 h-4" /></a>
             <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Unibet <ExternalLink className="w-4 h-4" /></a>
           </div>
-          <p className="text-xs text-gray-400 mt-4">18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).</p>
+          <p className="text-xs text-gray-400 mt-4"></p>
         </div>
+        <ANJBanner />
       </section>
 
       {/* Related */}

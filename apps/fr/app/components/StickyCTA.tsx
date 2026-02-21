@@ -29,8 +29,8 @@ export function StickyCTA() {
 
   return (
     <div className="fixed bottom-16 sm:bottom-0 inset-x-0 z-40 md:hidden">
-      <div className="flex items-center justify-between gap-3 bg-white/90 backdrop-blur-sm border-t border-gray-200 px-4 py-3 shadow-lg dark:bg-slate-900/90 dark:border-slate-700">
-        <p className="text-sm font-bold text-gray-900 dark:text-gray-100 min-w-0 flex-1 pr-1">
+      <div className="flex items-center justify-between gap-3 bg-white/90 backdrop-blur-sm border-t border-gray-200 px-4 py-3 shadow-lgslate-900/90">
+        <p className="text-sm font-bold text-gray-900 min-w-0 flex-1 pr-1">
           <span className="text-accent">{featuredBookmaker.bonus}</span>{" "}
           <span className="text-gray-500 font-normal text-xs">{featuredBookmaker.bonusDetail}</span>
         </p>
@@ -45,7 +45,7 @@ export function StickyCTA() {
           </a>
           <button
             onClick={dismiss}
-            className="p-1 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
+            className="p-1 text-gray-500 hover:text-gray-600"
             aria-label="Fermer"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

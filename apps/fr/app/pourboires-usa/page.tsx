@@ -134,7 +134,7 @@ export default function PourbioiresUsaPage() {
 
       {/* Intro */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg max-w-none">
           <p>
             En France, le service est compris dans l&apos;addition. Aux États-Unis, c&apos;est une tout autre histoire.
             Le <strong>tip</strong> (pourboire) représente une part essentielle du revenu des travailleurs du secteur
@@ -147,7 +147,7 @@ export default function PourbioiresUsaPage() {
 
       {/* Tips by category */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-8">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-8">
           <DollarSign className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Combien laisser selon la situation
         </h2>
@@ -155,7 +155,7 @@ export default function PourbioiresUsaPage() {
           {tips.map((tip) => (
             <div
               key={tip.title}
-              className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6"
+              className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6"
             >
               <div className="flex items-center gap-3 mb-3">
                 <tip.icon className="w-6 h-6 text-[#00B865]" />
@@ -164,7 +164,7 @@ export default function PourbioiresUsaPage() {
                   {tip.pct}
                 </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{tip.detail}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">{tip.detail}</p>
             </div>
           ))}
         </div>
@@ -172,7 +172,7 @@ export default function PourbioiresUsaPage() {
 
       {/* Country comparison */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Globe className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Différences USA / Canada / Mexique
         </h2>
@@ -192,14 +192,14 @@ export default function PourbioiresUsaPage() {
               {countryComparison.map((c, i) => (
                 <tr
                   key={c.country}
-                  className={i % 2 === 0 ? "bg-gray-50 dark:bg-slate-800" : "bg-white dark:bg-slate-900"}
+                  className={i % 2 === 0 ? "bg-gray-50slate-800" : "bg-whiteslate-900"}
                 >
                   <td className="px-4 py-3 font-semibold">{c.country}</td>
                   <td className="px-4 py-3">{c.restaurant}</td>
                   <td className="px-4 py-3">{c.bar}</td>
                   <td className="px-4 py-3">{c.taxi}</td>
                   <td className="px-4 py-3">{c.hotel}</td>
-                  <td className="px-4 py-3 text-gray-500 dark:text-gray-400">{c.note}</td>
+                  <td className="px-4 py-3 text-gray-500">{c.note}</td>
                 </tr>
               ))}
             </tbody>
@@ -209,11 +209,11 @@ export default function PourbioiresUsaPage() {
 
       {/* Pitfalls */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <AlertTriangle className="inline-block w-6 h-6 mr-2 text-red-500" />
           Pièges à éviter
         </h2>
-        <div className="space-y-4 text-gray-700 dark:text-gray-300">
+        <div className="space-y-4 text-gray-700">
           <div className="flex gap-3">
             <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             <p>
@@ -247,35 +247,35 @@ export default function PourbioiresUsaPage() {
 
       {/* Apps */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Smartphone className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Applications utiles
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <h3 className="font-bold mb-1">Tip Calculator (gratuite)</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Calculez instantanément le pourboire et partagez la note entre convives. Disponible sur iOS et Android.
             </p>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <h3 className="font-bold mb-1">Splitwise</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Idéal pour les groupes de supporters : suivez les dépenses partagées et les pourboires sur tout le séjour.
             </p>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <h3 className="font-bold mb-1">XE Currency</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Convertissez rapidement euros en dollars pour calculer le vrai coût de vos pourboires.
             </p>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
             <h3 className="font-bold mb-1">
               <CreditCard className="inline w-4 h-4 mr-1" />
               Revolut / Wise
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600">
               Payez en dollars sans frais de change et gérez vos pourboires directement depuis l&apos;appli.
             </p>
           </div>

@@ -91,7 +91,7 @@ function RoundColumn({
             />
             {!isFinal && (
               <div
-                className="absolute right-0 top-1/2 w-3 border-t border-gray-300 dark:border-gray-600 translate-x-full opacity-50"
+                className="absolute right-0 top-1/2 w-3 border-t border-gray-300 translate-x-full opacity-50"
                 style={{ marginTop: "-0.5px" }}
               />
             )}

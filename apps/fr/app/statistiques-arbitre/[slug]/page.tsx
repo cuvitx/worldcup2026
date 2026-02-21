@@ -3,17 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
-import {
-  Scale,
-  ArrowRight,
-  AlertTriangle,
-  BarChart3,
-  Flag,
-  TrendingUp,
-  Shield,
-  User,
-  Calendar,
-} from "lucide-react";
+import { AlertTriangle, ArrowRight, BarChart3, Calendar, CircleDot, Flag, Scale, Shield, TrendingUp, User } from "lucide-react";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -285,14 +275,14 @@ export default async function StatistiquesArbitrePage({ params }: PageProps) {
           <div className="space-y-4">
             <div className="rounded-xl border border-gray-200 border-l-4 border-l-[#00B865] p-4">
               <div className="flex items-baseline justify-between mb-1">
-                <h3 className="font-bold text-[#022149]">📊 Marché cartons</h3>
+                <h3 className="font-bold text-[#022149]"><BarChart3 className="h-5 w-5 inline-block" /> Marché cartons</h3>
                 <span className="text-xs font-medium text-[#00B865]">{recommendation.cards}</span>
               </div>
               <p className="text-sm text-gray-700">{recommendation.detail}</p>
             </div>
             <div className="rounded-xl border border-gray-200 border-l-4 border-l-[#D4AF37] p-4">
               <div className="flex items-baseline justify-between mb-1">
-                <h3 className="font-bold text-[#022149]">⚽ Penalties</h3>
+                <h3 className="font-bold text-[#022149]"><CircleDot className="h-5 w-5 inline-block" /> Penalties</h3>
                 <span className="text-xs font-medium text-[#D4AF37]">
                   {ref.penaltiesPerMatch >= 0.4 ? "Tendance élevée" : ref.penaltiesPerMatch >= 0.3 ? "Moyenne" : "Tendance basse"}
                 </span>
@@ -308,7 +298,7 @@ export default async function StatistiquesArbitrePage({ params }: PageProps) {
             </div>
             <div className="rounded-xl border border-gray-200 border-l-4 border-l-red-500 p-4">
               <div className="flex items-baseline justify-between mb-1">
-                <h3 className="font-bold text-[#022149]">🟥 Cartons rouges</h3>
+                <h3 className="font-bold text-[#022149]"> Cartons rouges</h3>
                 <span className="text-xs font-medium text-red-500">
                   {ref.redPerMatch >= 0.3 ? "Risque élevé" : ref.redPerMatch >= 0.2 ? "Risque modéré" : "Risque faible"}
                 </span>

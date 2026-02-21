@@ -84,21 +84,21 @@ export default function ReglementPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Trophy className="w-7 h-7 text-accent" />
-              <h2 id="format-tournoi" className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 id="format-tournoi" className="text-2xl font-bold text-gray-900">
                 Format du tournoi
               </h2>
             </div>
             
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 mb-6 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Phase de groupes (12 groupes de 4 équipes)
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold mt-0.5">1</span>
                   <div>
-                    <span className="font-semibold text-gray-900 dark:text-white">48 équipes réparties en 12 groupes de 4</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    <span className="font-semibold text-gray-900">48 équipes réparties en 12 groupes de 4</span>
+                    <p className="text-sm text-gray-600 mt-1">
                       Chaque équipe affronte les 3 autres équipes de son groupe (3 matchs par équipe).
                     </p>
                   </div>
@@ -106,8 +106,8 @@ export default function ReglementPage() {
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold mt-0.5">2</span>
                   <div>
-                    <span className="font-semibold text-gray-900 dark:text-white">Les 2 premiers de chaque groupe se qualifient (24 équipes)</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    <span className="font-semibold text-gray-900">Les 2 premiers de chaque groupe se qualifient (24 équipes)</span>
+                    <p className="text-sm text-gray-600 mt-1">
                       Les vainqueurs et dauphins de chaque groupe accèdent automatiquement aux huitièmes de finale.
                     </p>
                   </div>
@@ -115,8 +115,8 @@ export default function ReglementPage() {
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold mt-0.5">3</span>
                   <div>
-                    <span className="font-semibold text-gray-900 dark:text-white">Les 8 meilleurs 3e se qualifient également (32 équipes qualifiées au total)</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    <span className="font-semibold text-gray-900">Les 8 meilleurs 3e se qualifient également (32 équipes qualifiées au total)</span>
+                    <p className="text-sm text-gray-600 mt-1">
                       Un classement des 12 troisièmes est établi selon les critères : points, différence de buts, buts marqués, fair-play.
                     </p>
                   </div>
@@ -124,11 +124,11 @@ export default function ReglementPage() {
               </ul>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Phase éliminatoire (32 équipes → 1 champion)
               </h3>
-              <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+              <div className="space-y-3 text-sm text-gray-700">
                 <div className="flex items-center gap-3">
                   <Target className="w-5 h-5 text-accent flex-shrink-0" />
                   <span><strong>Huitièmes de finale :</strong> 32 équipes → 16 équipes (matchs à élimination directe)</span>
@@ -150,7 +150,7 @@ export default function ReglementPage() {
                   <span><strong>Finale :</strong> Sacre du champion du monde</span>
                 </div>
               </div>
-              <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 italic">
+              <p className="mt-4 text-sm text-gray-600 italic">
                 En cas d'égalité après 90 minutes : 2 × 15 minutes de prolongation, puis tirs au but si nécessaire.
               </p>
             </div>
@@ -160,18 +160,18 @@ export default function ReglementPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Clock className="w-7 h-7 text-accent" />
-              <h2 id="regles-match" className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 id="regles-match" className="text-2xl font-bold text-gray-900">
                 Règles de match
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Users className="w-5 h-5 text-accent" />
                   Effectif et remplacements
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>26 joueurs</strong> par sélection (liste officielle)</span>
@@ -191,12 +191,12 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Clock className="w-5 h-5 text-accent" />
                   Durée de jeu
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>90 minutes</strong> (2 × 45 min) + temps additionnel</span>
@@ -216,12 +216,12 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-accent" />
                   VAR (Video Assistant Referee)
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>Buts :</strong> validation ou annulation (hors-jeu, faute, main)</span>
@@ -241,12 +241,12 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-accent" />
                   Cartons et sanctions
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>Carton jaune :</strong> avertissement (2 jaunes = 1 rouge)</span>
@@ -270,12 +270,12 @@ export default function ReglementPage() {
 
           {/* Critères de départage */}
           <div className="mb-12">
-            <h2 id="criteres-departage" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="criteres-departage" className="text-2xl font-bold text-gray-900 mb-6">
               Critères de départage en phase de groupes
             </h2>
             
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
+              <p className="text-sm text-gray-700 mb-4">
                 En cas d'égalité de points entre deux équipes ou plus dans un groupe, l'ordre suivant s'applique :
               </p>
               <ol className="space-y-3">
@@ -288,7 +288,7 @@ export default function ReglementPage() {
                   "Points de fair-play (cartons jaunes = -1, carton rouge indirect = -3, carton rouge direct = -4, carton jaune + rouge = -5)",
                   "Tirage au sort effectué par la commission d'organisation de la FIFA"
                 ].map((criterion, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-700">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold mt-0.5">
                       {idx + 1}
                     </span>
@@ -301,16 +301,16 @@ export default function ReglementPage() {
 
           {/* Ballons et équipements */}
           <div className="mb-12">
-            <h2 id="equipements" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="equipements" className="text-2xl font-bold text-gray-900 mb-6">
               Ballon et équipements officiels
             </h2>
             
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-3">
                   Ballon officiel
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span>Ballon Adidas certifié FIFA Quality Pro</span>
@@ -330,11 +330,11 @@ export default function ReglementPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-3">
                   Équipements joueurs
                 </h3>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span>Maillot, short, chaussettes obligatoires</span>
@@ -366,12 +366,12 @@ export default function ReglementPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">{desc}</div>
+                <div className="text-xs text-gray-600">{desc}</div>
               </Link>
             ))}
           </div>

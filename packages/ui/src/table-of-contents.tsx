@@ -49,10 +49,10 @@ export function TableOfContents({ items }: TableOfContentsProps) {
       aria-label="Table des matières"
       className="hidden lg:block sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto"
     >
-      <p className="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">
+      <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">
         Sommaire
       </p>
-      <ul className="space-y-0.5 border-l-2 border-gray-200 dark:border-slate-700">
+      <ul className="space-y-0.5 border-l-2 border-gray-200">
         {items.map((item) => {
           const isActive = activeId === item.id;
           const indent = item.level >= 3 ? "pl-6" : "pl-3";
@@ -62,8 +62,8 @@ export function TableOfContents({ items }: TableOfContentsProps) {
                 onClick={() => handleClick(item.id)}
                 className={`block w-full text-left text-sm py-1 ${indent} transition-colors border-l-2 -ml-[2px] ${
                   isActive
-                    ? "border-primary text-primary dark:text-primary font-medium"
-                    : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+                    ? "border-primary text-primary font-medium"
+                    : "border-transparent text-gray-500 hover:text-gray-900"
                 }`}
               >
                 {item.label}

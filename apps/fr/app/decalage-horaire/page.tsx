@@ -83,9 +83,9 @@ export default function DecalageHorairePage() {
 
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-12">
         {/* Info */}
-        <div className="rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-5 flex gap-3">
-          <Globe className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
-          <p className="text-sm text-blue-800 dark:text-blue-200">
+        <div className="rounded-xl border border-blue-200 bg-blue-50blue-900/20 p-5 flex gap-3">
+          <Globe className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
+          <p className="text-sm text-blue-800">
             Pendant la CDM 2026 (11 juin - 19 juillet), l&apos;Amérique du Nord est en heure d&apos;été.
             La France est en CEST (UTC+2). Les décalages ci-dessous tiennent compte de ces ajustements.
           </p>
@@ -93,10 +93,10 @@ export default function DecalageHorairePage() {
 
         {/* Table */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Tableau des fuseaux horaires par ville
           </h2>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -108,17 +108,17 @@ export default function DecalageHorairePage() {
                   <th className="px-3 py-3 text-center" title="Match à 19h locale">19h loc.</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
                 {villes.map((v) => (
-                  <tr key={v.ville} className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                    <td className="px-3 py-2.5 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                  <tr key={v.ville} className="hover:bg-gray-50">
+                    <td className="px-3 py-2.5 font-medium text-gray-900 whitespace-nowrap">
                       {v.pays} {v.ville}
                     </td>
-                    <td className="px-3 py-2.5 text-gray-500 dark:text-gray-400 text-xs">{v.fuseau}</td>
+                    <td className="px-3 py-2.5 text-gray-500 text-xs">{v.fuseau}</td>
                     <td className="px-3 py-2.5 text-center font-semibold text-primary">{v.diff}</td>
-                    <td className="px-3 py-2.5 text-center text-gray-700 dark:text-gray-300">{v.ex13}</td>
-                    <td className="px-3 py-2.5 text-center text-gray-700 dark:text-gray-300">{v.ex16}</td>
-                    <td className="px-3 py-2.5 text-center text-gray-700 dark:text-gray-300">{v.ex19}</td>
+                    <td className="px-3 py-2.5 text-center text-gray-700">{v.ex13}</td>
+                    <td className="px-3 py-2.5 text-center text-gray-700">{v.ex16}</td>
+                    <td className="px-3 py-2.5 text-center text-gray-700">{v.ex19}</td>
                   </tr>
                 ))}
               </tbody>
@@ -131,28 +131,28 @@ export default function DecalageHorairePage() {
 
         {/* Conseils */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Conseils pour suivre les matchs tardifs
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
               <div className="flex items-center gap-2 mb-2">
                 <Moon className="h-5 w-5 text-secondary" />
-                <h3 className="font-semibold text-gray-900 dark:text-white">Matchs de nuit (23h-02h)</h3>
+                <h3 className="font-semibold text-gray-900">Matchs de nuit (23h-02h)</h3>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-gray-600">
                 Pour les matchs en soirée locale sur la côte Ouest ou au Mexique,
                 prévoyez une sieste en fin d&apos;après-midi. Préparez café et en-cas.
                 Les matchs les plus importants (phases finales) seront généralement
                 programmés sur la côte Est pour le prime time européen.
               </p>
             </div>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
               <div className="flex items-center gap-2 mb-2">
                 <Sun className="h-5 w-5 text-secondary" />
-                <h3 className="font-semibold text-gray-900 dark:text-white">Matchs accessibles (19h-22h)</h3>
+                <h3 className="font-semibold text-gray-900">Matchs accessibles (19h-22h)</h3>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-gray-600">
                 Les matchs de 13h heure locale sur la côte Est (19h à Paris) sont
                 idéaux. Les phases finales et la finale (22h à Paris) offrent un
                 créneau parfait. Privilégiez les matchs de la côte Est si vous

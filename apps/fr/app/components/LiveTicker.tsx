@@ -114,7 +114,7 @@ export function LiveTicker() {
     : "";
 
   return (
-    <div className="sticky top-[64px] z-40 w-full backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-gray-200/50 dark:border-gray-700/50">
+    <div className="sticky top-[64px] z-40 w-full backdrop-blur-md bg-white/80slate-900/80 border-b border-gray-200/50">
       <div className="mx-auto max-w-7xl flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm">
         <Link
           href={`/match/${nextMatch.slug}`}
@@ -126,7 +126,7 @@ export function LiveTicker() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
               </span>
-              <span className="font-bold text-primary dark:text-secondary uppercase text-xs tracking-wide">
+              <span className="font-bold text-primary uppercase text-xs tracking-wide">
                 En direct
               </span>
             </span>
@@ -140,14 +140,14 @@ export function LiveTicker() {
           </span>
         </Link>
         {countdown && (
-          <span className="text-gray-500 dark:text-gray-300 text-xs shrink-0">
+          <span className="text-gray-500 text-xs shrink-0">
             {countdownText}
           </span>
         )}
         <button
           type="button"
           onClick={handleDismiss}
-          className="ml-2 shrink-0 p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 transition-colors"
+          className="ml-2 shrink-0 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-200/50 transition-colors"
           aria-label="Fermer le ticker"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

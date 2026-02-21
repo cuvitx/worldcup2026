@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { newsArticles, newsCategories, type NewsCategory } from "@repo/data/news";
 import { getAllArticles } from "../../lib/mdx";
+import { PenLine } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
 };
 
 const categoryColors: Record<NewsCategory, string> = {
-  transferts: "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary",
-  stades: "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary",
-  billets: "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary",
-  equipes: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-white",
-  paris: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
+  transferts: "bg-primary/10 text-primarysecondary/20",
+  stades: "bg-primary/10 text-primarysecondary/20",
+  billets: "bg-primary/10 text-primarysecondary/20",
+  equipes: "bg-primary/10 text-primaryprimary/20",
+  paris: "bg-primary/10 text-primaryprimary/20",
 };
 
 function formatDate(dateStr: string) {
@@ -104,10 +105,10 @@ export default function ActualitesPage() {
       {featured && (
         <Link
           href={`/actualites/${featured.slug}`}
-          className="group block rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
+          className="group block rounded-2xl border border-gray-200 bg-whiteslate-800 shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
         >
           <div className="grid md:grid-cols-[1fr_1fr] gap-0">
-            <div className="bg-gradient-to-br from-primary/10 to-primary/10 dark:from-primary/20 dark:to-primary/20 flex items-center justify-center p-12">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/10 flex items-center justify-center p-12">
               <span className="text-4xl sm:text-8xl">{featured.imageEmoji}</span>
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center">
@@ -115,14 +116,14 @@ export default function ActualitesPage() {
                 <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryColors[featured.category]}`}>
                   {newsCategories[featured.category]}
                 </span>
-                <time className="text-xs text-gray-500 dark:text-gray-300" dateTime={featured.date}>
+                <time className="text-xs text-gray-500" dateTime={featured.date}>
                   {formatDate(featured.date)}
                 </time>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors mb-3">
+              <h2 className="text-2xl font-bold text-gray-900 transition-colors mb-3">
                 {featured.title}
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 line-clamp-3 mb-4">
+              <p className="text-gray-600 line-clamp-3 mb-4">
                 {featured.excerpt}
               </p>
               <span className="text-sm font-bold text-primary">Lire l&apos;article →</span>
@@ -137,21 +138,21 @@ export default function ActualitesPage() {
           <Link
             key={article.id}
             href={`/actualites/${article.slug}`}
-            className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 dark:border-gray-700 dark:bg-slate-800"
+            className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
           >
             <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>
             <div className="flex items-center gap-2 mb-2">
               <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[article.category]}`}>
                 {newsCategories[article.category]}
               </span>
-              <time className="text-xs text-gray-500 dark:text-gray-300" dateTime={article.date}>
+              <time className="text-xs text-gray-500" dateTime={article.date}>
                 {formatDate(article.date)}
               </time>
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white transition-colors line-clamp-2 mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 transition-colors line-clamp-2 mb-2">
               {article.title}
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
+            <p className="text-sm text-gray-600 line-clamp-3">
               {article.excerpt}
             </p>
           </Link>
@@ -163,30 +164,30 @@ export default function ActualitesPage() {
         if (mdxArticles.length === 0) return null;
         return (
           <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">📝 Analyses &amp; Articles</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6"><PenLine className="h-5 w-5 inline-block" /> Analyses &amp; Articles</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {mdxArticles.map((article) => (
                 <Link
                   key={article.slug}
                   href={`/actualites/${article.slug}`}
-                  className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 dark:border-gray-700 dark:bg-slate-800"
+                  className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
                 >
                   {article.imageEmoji && <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>}
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary">
+                    <span className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primaryprimary/20">
                       {article.category}
                     </span>
-                    <time className="text-xs text-gray-500 dark:text-gray-300" dateTime={article.date}>
+                    <time className="text-xs text-gray-500" dateTime={article.date}>
                       {formatDate(article.date)}
                     </time>
                     {article.readingTime && (
                       <span className="text-xs text-gray-400">{article.readingTime} min</span>
                     )}
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white transition-colors line-clamp-2 mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 transition-colors line-clamp-2 mb-2">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
+                  <p className="text-sm text-gray-600 line-clamp-3">
                     {article.description}
                   </p>
                 </Link>

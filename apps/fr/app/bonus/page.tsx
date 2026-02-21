@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Comparatif des bonus de bienvenue et codes promo pour parier sur la CDM 2026.",
     url: "https://cdm2026.fr/bonus",
   },
+  alternates: { canonical: "https://cdm2026.fr/bonus" },
 };
 
 interface BonusOffer {

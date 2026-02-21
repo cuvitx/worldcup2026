@@ -100,18 +100,18 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
 
         return (
           <section key={`${year}-${month}`}>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
               {label}
             </h2>
 
             {/* Calendar grid */}
-            <div className="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden">
+            <div className="bg-whiteslate-900 rounded-lg border border-gray-200 overflow-hidden">
               {/* Day headers */}
-              <div className="grid grid-cols-7 border-b border-gray-200 dark:border-slate-700 bg-gray-100 dark:bg-slate-800">
+              <div className="grid grid-cols-7 border-b border-gray-200 bg-gray-100slate-800">
                 {DAY_NAMES.map((name, i) => (
                   <div
                     key={i}
-                    className="py-2 text-center text-xs font-semibold text-gray-700 dark:text-gray-300 hidden sm:block"
+                    className="py-2 text-center text-xs font-semibold text-gray-700 hidden sm:block"
                   >
                     {name}
                   </div>
@@ -119,7 +119,7 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                 {DAY_NAMES_MOBILE.map((name, i) => (
                   <div
                     key={i}
-                    className="py-2 text-center text-xs font-semibold text-gray-700 dark:text-gray-300 sm:hidden"
+                    className="py-2 text-center text-xs font-semibold text-gray-700 sm:hidden"
                   >
                     {name}
                   </div>
@@ -133,7 +133,7 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                     return (
                       <div
                         key={idx}
-                        className="aspect-square sm:aspect-auto sm:min-h-[80px] border-r border-b border-gray-100 dark:border-slate-800 bg-gray-50/30 dark:bg-slate-900/30"
+                        className="aspect-square sm:aspect-auto sm:min-h-[80px] border-r border-b border-gray-100 bg-gray-50/30slate-900/30"
                       />
                     );
                   }
@@ -155,14 +155,14 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                       }}
                       disabled={!hasMatches}
                       className={`
-                        aspect-square sm:aspect-auto sm:min-h-[80px] border-r border-b border-gray-100 dark:border-slate-800
-                        ${hasMatches ? "cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-800/50" : "cursor-default"}
+                        aspect-square sm:aspect-auto sm:min-h-[80px] border-r border-b border-gray-100
+                        ${hasMatches ? "cursor-pointer hover:bg-gray-100" : "cursor-default"}
                         ${isSelected ? "ring-2 ring-primary ring-inset" : ""}
                         transition-colors
                       `}
                     >
                       <div className="p-1 sm:p-2 h-full flex flex-col items-start">
-                        <div className={`text-xs sm:text-sm font-medium ${hasMatches ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-600"}`}>
+                        <div className={`text-xs sm:text-sm font-medium ${hasMatches ? "text-gray-900" : "text-gray-400"}`}>
                           {dayInfo.day}
                         </div>
                         {hasMatches && (
@@ -182,9 +182,9 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
 
       {/* Selected day details */}
       {selectedDay && selectedDayMatches.length > 0 && (
-        <section className="bg-gray-50 dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700">
+        <section className="bg-gray-50slate-800 rounded-lg p-6 border border-gray-200">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold text-gray-900">
               {new Date(selectedDay).toLocaleDateString("fr-FR", {
                 weekday: "long",
                 day: "numeric",
@@ -194,7 +194,7 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
             </h3>
             <button
               onClick={() => setSelectedDay(null)}
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              className="text-sm text-gray-600 hover:text-gray-900"
             >
               Fermer ✕
             </button>

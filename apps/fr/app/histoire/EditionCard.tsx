@@ -1,3 +1,4 @@
+import { Users } from "lucide-react"
 export interface CdmEdition {
   year: number;
   host: string;
@@ -35,7 +36,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
           isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
         }`}
       >
-        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow group">
+        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow group">
           <div
             className={`flex items-center gap-3 mb-3 ${
               isLeft ? "md:flex-row-reverse" : "flex-row"
@@ -60,17 +61,17 @@ export function EditionCard({ edition, side }: EditionCardProps) {
           >
             <span className="text-2xl">{edition.winnerFlag}</span>
             <div>
-              <div className="font-bold text-gray-900 dark:text-white">
+              <div className="font-bold text-gray-900">
                 {edition.winner}
               </div>
-              <div className="text-xs text-accent dark:text-accent font-medium">
+              <div className="text-xs text-accent font-medium">
                  Champion · {edition.score} vs {edition.runnerUpFlag} {edition.runnerUp}
               </div>
             </div>
           </div>
 
           <div
-            className={`flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-3 ${
+            className={`flex items-center gap-2 text-xs text-gray-500 mb-3 ${
               isLeft ? "md:justify-end" : ""
             }`}
           >
@@ -82,14 +83,14 @@ export function EditionCard({ edition, side }: EditionCardProps) {
           </div>
 
           <div
-            className={`border-t border-gray-100 dark:border-slate-700 pt-3 ${
+            className={`border-t border-gray-100 pt-3 ${
               isLeft ? "md:text-right" : ""
             }`}
           >
             <div className="text-xs font-bold text-primary uppercase tracking-wide mb-1">
               {edition.highlight}
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-xs text-gray-600 leading-relaxed">
               {edition.highlightDetail}
             </p>
           </div>
@@ -100,7 +101,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
             }`}
           >
             <span className="flex items-center gap-1">
-              <span>👥</span> {edition.teams} équipes
+              <span><Users className="h-5 w-5 inline-block" /></span> {edition.teams} équipes
             </span>
             <span className="flex items-center gap-1">
               <span></span> {edition.totalGoals} buts
@@ -111,7 +112,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
 
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center z-10">
         <div
-          className={`w-10 h-10 rounded-full border-4 border-white dark:border-slate-900 flex items-center justify-center text-sm font-bold text-white shadow-lg bg-gradient-to-br ${edition.color}`}
+          className={`w-10 h-10 rounded-full border-4 border-white flex items-center justify-center text-sm font-bold text-white shadow-lg bg-gradient-to-br ${edition.color}`}
         >
           {edition.winnerFlag}
         </div>

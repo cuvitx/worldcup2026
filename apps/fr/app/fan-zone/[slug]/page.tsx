@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { PartyPopper, MapPin, Clock, Music, Tv, Users, ArrowRight, CalendarDays } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, Clock, Lightbulb, MapPin, Music, PartyPopper, Tv, Users, UtensilsCrossed } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 export const dynamicParams = false;
 
@@ -316,7 +316,7 @@ export default async function FanZonePage({ params }: PageProps) {
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-3">
           <p className="text-secondary"><strong className="text-primary">Adresse :</strong> {fanZone.address}</p>
           <p className="text-secondary"><strong className="text-primary">Accès :</strong> {fanZone.access}</p>
-          <p className="text-accent font-semibold text-sm">✅ Entrée gratuite</p>
+          <p className="text-accent font-semibold text-sm"><Check className="h-5 w-5 inline-block" /> Entrée gratuite</p>
         </div>
       </section>
 
@@ -328,7 +328,7 @@ export default async function FanZonePage({ params }: PageProps) {
         <div className="grid sm:grid-cols-2 gap-3">
           {fanZone.activities.map((activity, i) => (
             <div key={i} className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 p-4">
-              <span className="text-accent text-lg">🎉</span>
+              <span className="text-accent text-lg"><PartyPopper className="h-5 w-5 inline-block" /></span>
               <span className="text-secondary">{activity}</span>
             </div>
           ))}
@@ -337,7 +337,7 @@ export default async function FanZonePage({ params }: PageProps) {
 
       {/* Restauration */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">🍔 Restauration</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4"><UtensilsCrossed className="h-5 w-5 inline-block" /> Restauration</h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary">
           <p>{fanZone.food}</p>
         </div>
@@ -345,7 +345,7 @@ export default async function FanZonePage({ params }: PageProps) {
 
       {/* Conseils */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">💡 Conseils pratiques</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4"><Lightbulb className="h-5 w-5 inline-block" /> Conseils pratiques</h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6">
           <ul className="space-y-2">
             {fanZone.tips.map((tip, i) => (

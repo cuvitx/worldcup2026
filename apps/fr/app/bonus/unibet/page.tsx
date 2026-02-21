@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Profitez de l'offre Unibet : 100€ remboursés en freebets pour la CDM 2026.",
     url: "https://cdm2026.fr/bonus/unibet",
   },
+  alternates: { canonical: "https://cdm2026.fr/bonus/unibet" },
 };
 
 function ReviewSchema() {

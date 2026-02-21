@@ -8,18 +8,7 @@ import { groups } from "@repo/data/groups";
 import { matches } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { getISOCode } from "@repo/data/country-codes";
-import {
-  Trophy,
-  ArrowRight,
-  Target,
-  TrendingUp,
-  TrendingDown,
-  AlertTriangle,
-  BarChart3,
-  Users,
-  CheckCircle2,
-  XCircle,
-} from "lucide-react";
+import { AlertTriangle, ArrowRight, BarChart3, CheckCircle2, Lightbulb, Medal, Target, TrendingDown, TrendingUp, Trophy, Users, X, XCircle } from "lucide-react";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -193,10 +182,10 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
           </h2>
           <div className="rounded-xl border border-gray-200 overflow-hidden">
             <div className="grid grid-cols-4 text-center text-sm font-bold bg-[#022149] text-white">
-              <div className="p-3">🥇 1er</div>
-              <div className="p-3">🥈 2ème</div>
-              <div className="p-3">🥉 3ème qualifié</div>
-              <div className="p-3">❌ Éliminée</div>
+              <div className="p-3"><Medal className="h-5 w-5 inline-block" /> 1er</div>
+              <div className="p-3"><Medal className="h-5 w-5 inline-block" /> 2ème</div>
+              <div className="p-3"><Medal className="h-5 w-5 inline-block" /> 3ème qualifié</div>
+              <div className="p-3"><X className="h-5 w-5 inline-block" /> Éliminée</div>
             </div>
             <div className="grid grid-cols-4 text-center">
               {[
@@ -247,7 +236,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
               </p>
             </div>
             <div className="bg-[#D4AF37]/10 rounded-lg p-3 text-sm text-gray-600">
-              💡 Finir 1er permet d&apos;éviter potentiellement les grosses équipes en 16èmes de finale.
+              <Lightbulb className="h-5 w-5 inline-block" /> Finir 1er permet d&apos;éviter potentiellement les grosses équipes en 16èmes de finale.
             </div>
           </div>
         </section>
@@ -272,7 +261,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
               </p>
             </div>
             <div className="bg-blue-50 rounded-lg p-3 text-sm text-gray-600">
-              💡 Les 2 premiers de chaque groupe sont directement qualifiés pour les 16èmes de finale.
+              <Lightbulb className="h-5 w-5 inline-block" /> Les 2 premiers de chaque groupe sont directement qualifiés pour les 16èmes de finale.
             </div>
           </div>
         </section>
@@ -303,7 +292,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
               </p>
             </div>
             <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-600">
-              💡 8 des 12 troisièmes se qualifient. La différence de buts et les buts marqués départagent les ex-aequo.
+              <Lightbulb className="h-5 w-5 inline-block" /> 8 des 12 troisièmes se qualifient. La différence de buts et les buts marqués départagent les ex-aequo.
             </div>
           </div>
         </section>
@@ -328,7 +317,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
               </p>
             </div>
             <div className="bg-red-50 rounded-lg p-3 text-sm text-gray-600">
-              ⚠️ {team.name} serait éliminée si elle termine 4ème du groupe ou parmi les 4 pires 3èmes.
+              <AlertTriangle className="h-5 w-5 inline-block" /> {team.name} serait éliminée si elle termine 4ème du groupe ou parmi les 4 pires 3èmes.
             </div>
           </div>
         </section>

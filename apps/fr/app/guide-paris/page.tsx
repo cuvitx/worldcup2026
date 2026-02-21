@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Apprenez à parier sur la CDM 2026 : types de paris, stratégies, lexique et conseils pour débutants.",
     url: "https://cdm2026.fr/guide-paris",
   },
+  alternates: { canonical: "https://cdm2026.fr/guide-paris" },
 };
 
 const typesDeParis = [

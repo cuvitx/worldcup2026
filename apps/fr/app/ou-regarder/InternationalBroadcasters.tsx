@@ -27,7 +27,7 @@ const countryLogos: Record<string, string[]> = {
 export function InternationalBroadcasters({ internationalBroadcasters }: InternationalBroadcastersProps) {
   return (
     <section id="diffuseurs-internationaux" className="mb-14">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
          Diffuseurs internationaux
       </h2>
 
@@ -36,10 +36,10 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
         {internationalBroadcasters.map((b) => {
           const logos = countryLogos[b.country] || [];
           return (
-          <div key={b.country} className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+          <div key={b.country} className="bg-whiteslate-800 rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">{b.flag}</span>
-              <span className="font-bold text-gray-900 dark:text-gray-100">{b.country}</span>
+              <span className="font-bold text-gray-900">{b.country}</span>
             </div>
             {logos.length > 0 && (
               <div className="flex items-center gap-2 mb-2 flex-wrap">
@@ -56,9 +56,9 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
                 ))}
               </div>
             )}
-            <p className="text-sm font-semibold text-primary dark:text-secondary mb-1">{b.channels}</p>
-            <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">{b.details}</p>
-            <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-0.5 rounded-full">
+            <p className="text-sm font-semibold text-primary mb-1">{b.channels}</p>
+            <p className="text-xs text-gray-600 mb-2">{b.details}</p>
+            <span className="text-xs font-semibold bg-field/10field/20 text-field px-2 py-0.5 rounded-full">
               Gratuit : {b.free}
             </span>
           </div>
@@ -66,22 +66,22 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
       </div>
 
       {/* Desktop: table */}
-      <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-        <table className="w-full text-sm bg-white dark:bg-slate-800">
-          <thead className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500dark:bg-gray-700">
+      <div className="hidden md:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+        <table className="w-full text-sm bg-whiteslate-800">
+          <thead className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
             <tr>
-              <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Logo</th>
-              <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Pays</th>
-              <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Chaînes / Diffuseurs</th>
-              <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Détails</th>
-              <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Accès gratuit</th>
+              <th className="px-4 py-3 text-left font-semibold text-gray-700">Logo</th>
+              <th className="px-4 py-3 text-left font-semibold text-gray-700">Pays</th>
+              <th className="px-4 py-3 text-left font-semibold text-gray-700">Chaînes / Diffuseurs</th>
+              <th className="px-4 py-3 text-left font-semibold text-gray-700">Détails</th>
+              <th className="px-4 py-3 text-left font-semibold text-gray-700">Accès gratuit</th>
             </tr>
           </thead>
           <tbody>
             {internationalBroadcasters.map((b) => {
               const logos = countryLogos[b.country] || [];
               return (
-              <tr key={b.country} className="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30">
+              <tr key={b.country} className="border-t border-gray-100 hover:bg-gray-50">
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-2">
                     {logos.length > 0 ? (
@@ -103,13 +103,13 @@ export function InternationalBroadcasters({ internationalBroadcasters }: Interna
                     )}
                   </div>
                 </td>
-                <td className="px-4 py-3 font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                <td className="px-4 py-3 font-bold text-gray-900 whitespace-nowrap">
                   {b.flag} {b.country}
                 </td>
-                <td className="px-4 py-3 font-semibold text-primary dark:text-secondary">{b.channels}</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs">{b.details}</td>
+                <td className="px-4 py-3 font-semibold text-primary">{b.channels}</td>
+                <td className="px-4 py-3 text-gray-600 text-xs">{b.details}</td>
                 <td className="px-4 py-3">
-                  <span className="text-xs font-semibold bg-field/10 dark:bg-field/20 text-field dark:text-field px-2 py-1 rounded-full">
+                  <span className="text-xs font-semibold bg-field/10field/20 text-field px-2 py-1 rounded-full">
                     {b.free}
                   </span>
                 </td>

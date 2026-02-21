@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { ANJBanner } from "@repo/ui/anj-banner";
+import { Globe, Timer } from "lucide-react"
 export const metadata: Metadata = {
   title: "Jeu responsable — Paris sportifs et prévention",
   description:
@@ -97,26 +99,11 @@ export default function JeuResponsablePage() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-12 text-gray-700 leading-relaxed">
           {/* Bannière d'alerte */}
-          <div className="rounded-xl border-2 border-red-300 bg-red-50 p-6">
-            <p className="text-lg font-bold text-red-800">
-              Les jeux d&apos;argent et de hasard peuvent être dangereux :
-              pertes d&apos;argent, conflits familiaux, addiction…
-            </p>
-            <p className="mt-3 text-lg font-semibold text-red-700">
-              Appelez le{" "}
-              <a
-                href="tel:0974751313"
-                className="underline decoration-2"
-              >
-                09 74 75 13 13
-              </a>{" "}
-              (Joueurs Info Service — appel non surtaxé, 7j/7).
-            </p>
-          </div>
+          <ANJBanner />
 
           {/* Nos engagements */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Nos engagements
             </h2>
             <ul className="list-disc space-y-2 pl-6">
@@ -145,16 +132,16 @@ export default function JeuResponsablePage() {
 
           {/* Conseils */}
           <section>
-            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
               Conseils pour parier responsablement
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {conseils.map((conseil) => (
                 <div
                   key={conseil.title}
-                  className="rounded-lg bg-gray-50 dark:bg-slate-700 p-5"
+                  className="rounded-lg bg-gray-50slate-700 p-5"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{conseil.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">{conseil.title}</h3>
                   <p className="mt-2 text-sm">{conseil.text}</p>
                 </div>
               ))}
@@ -163,7 +150,7 @@ export default function JeuResponsablePage() {
 
           {/* Signes problématiques */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Signes d&apos;une pratique problématique
             </h2>
             <p className="mb-4">
@@ -183,8 +170,8 @@ export default function JeuResponsablePage() {
           </section>
 
           {/* Test rapide */}
-          <section className="rounded-xl bg-gray-50 dark:bg-slate-700 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+          <section className="rounded-xl bg-gray-50slate-700 p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16.5h10"/></svg> Auto-évaluation rapide
             </h2>
             <p className="mb-3">
@@ -213,16 +200,16 @@ export default function JeuResponsablePage() {
 
           {/* Ressources d'aide */}
           <section>
-            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
               Ressources d&apos;aide
             </h2>
             <div className="space-y-4">
               {ressources.map((r) => (
                 <div
                   key={r.name}
-                  className="rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5"
+                  className="rounded-lg border border-gray-200 bg-whiteslate-800 p-5"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{r.name}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">{r.name}</h3>
                   <p className="mt-1 text-sm text-gray-600">
                     {r.description}
                   </p>
@@ -241,7 +228,7 @@ export default function JeuResponsablePage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"
                     >
-                      🌐 {r.url.replace("https://www.", "")}
+                      <Globe className="h-5 w-5 inline-block" /> {r.url.replace("https://www.", "")}
                     </a>
                   </div>
                 </div>
@@ -251,7 +238,7 @@ export default function JeuResponsablePage() {
 
           {/* Outils d'auto-exclusion */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Outils d&apos;auto-exclusion
             </h2>
             <p className="mb-4">
@@ -259,29 +246,29 @@ export default function JeuResponsablePage() {
               pour vous aider à garder le contrôle :
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white"> Limites de dépôts</h3>
+              <div className="rounded-lg bg-gray-50slate-700 p-4">
+                <h3 className="text-lg font-semibold text-gray-900"> Limites de dépôts</h3>
                 <p className="mt-1 text-sm">
                   Fixez un plafond journalier, hebdomadaire ou mensuel de
                   dépôts sur votre compte.
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">⏱Limites de temps</h3>
+              <div className="rounded-lg bg-gray-50slate-700 p-4">
+                <h3 className="text-lg font-semibold text-gray-900"><Timer className="h-5 w-5 inline-block" />Limites de temps</h3>
                 <p className="mt-1 text-sm">
                   Définissez un temps maximum de connexion pour éviter les
                   sessions prolongées.
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Auto-exclusion temporaire</h3>
+              <div className="rounded-lg bg-gray-50slate-700 p-4">
+                <h3 className="text-lg font-semibold text-gray-900">Auto-exclusion temporaire</h3>
                 <p className="mt-1 text-sm">
                   Bloquez votre compte pendant une période choisie (24h, 1
                   semaine, 1 mois…).
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Interdiction volontaire de jeu</h3>
+              <div className="rounded-lg bg-gray-50slate-700 p-4">
+                <h3 className="text-lg font-semibold text-gray-900"><svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Interdiction volontaire de jeu</h3>
                 <p className="mt-1 text-sm">
                   Inscrivez-vous au fichier national des interdits de jeux pour
                   une durée de 3 ans (renouvelable). Demande sur{" "}
@@ -299,7 +286,7 @@ export default function JeuResponsablePage() {
             </div>
 
             <div className="mt-6 rounded-lg bg-primary/5 border border-primary/20 p-4">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900">
                 Outils chez les principaux bookmakers
               </h3>
               <ul className="mt-2 space-y-1 text-sm">
@@ -325,7 +312,7 @@ export default function JeuResponsablePage() {
 
           {/* Rappel final */}
           <div className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6 text-center">
-            <p className="text-lg font-bold text-gray-900 dark:text-white">
+            <p className="text-lg font-bold text-gray-900">
               Les jeux d&apos;argent sont interdits aux mineurs.
             </p>
             <p className="mt-2 font-semibold">

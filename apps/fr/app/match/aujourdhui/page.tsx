@@ -50,7 +50,7 @@ export default function AujourdhuiPage() {
                 <Link
                   key={match.id}
                   href={`/match/${match.slug}`}
-                  className="flex items-center gap-4 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                  className="flex items-center gap-4 rounded-lg border border-gray-200 bg-whiteslate-800 p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                 >
                   <span className="text-sm font-semibold text-primary w-14 text-center shrink-0">
                     {match.time}
@@ -83,7 +83,7 @@ export default function AujourdhuiPage() {
             })}
           </div>
         ) : (
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow text-center">
             <p className="text-lg text-gray-600">
               Aucun match aujourd&apos;hui.
             </p>
@@ -100,12 +100,12 @@ export default function AujourdhuiPage() {
                   <p className="text-sm text-gray-500 mb-3">Prochain match :</p>
                   <Link
                     href={`/match/${nextMatch.slug}`}
-                    className="inline-block rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-6 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                    className="inline-block rounded-lg border border-gray-200 bg-gray-50slate-700 px-6 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <p className="text-sm text-gray-500 mb-1">
                       {matchDate} a {nextMatch.time} UTC
                     </p>
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                    <p className="font-semibold text-gray-900">
                       <span role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag}</span> {home?.name ?? "A determiner"} vs{" "}
                       {away?.name ?? "A determiner"} <span role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag}</span>
                     </p>

@@ -123,10 +123,10 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
       aria-modal="true"
       aria-label="Newsletter"
     >
-      <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow relative w-full max-w-md">
+      <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow relative w-full max-w-md">
         <button
           onClick={dismiss}
-          className="absolute top-3 right-3 rounded-full p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="absolute top-3 right-3 rounded-full p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
           aria-label="Fermer"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -137,8 +137,8 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
         {status === "success" ? (
           <div className="text-center py-4">
             <span className="text-5xl block mb-3"></span>
-            <p className="text-lg font-bold text-gray-900 dark:text-white">Inscription confirmée !</p>
-            <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+            <p className="text-lg font-bold text-gray-900">Inscription confirmée !</p>
+            <p className="text-sm text-gray-500 mt-1">
               À très bientôt dans votre boîte mail.
             </p>
           </div>
@@ -146,10 +146,10 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
           <>
             <div className="text-center mb-5">
               <span className="text-4xl block mb-2"></span>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-black">
+              <h3 className="text-lg font-semibold text-gray-900 font-black">
                 Ne manquez rien de la CDM 2026
               </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-500 mt-1">
                 Pronostics, analyses et actus chaque semaine. Gratuit, sans spam.
               </p>
             </div>
@@ -163,7 +163,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
                 aria-label="Votre adresse email"
                 required
                 disabled={status === "loading"}
-                className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-60"
+                className="w-full rounded-lg border border-gray-300 bg-whitegray-700 px-4 py-3 text-gray-900 placeholder-gray-400 outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-60"
               />
               <button
                 type="submit"
@@ -180,7 +180,7 @@ export function NewsletterPopup({ delayMs = 60000, scrollPct = 0.5 }: Newsletter
               </p>
             )}
 
-            <p className="mt-3 text-center text-[10px] text-gray-400 dark:text-gray-400">
+            <p className="mt-3 text-center text-[10px] text-gray-400">
               Désinscription en 1 clic · Pas de spam, promis 
             </p>
           </>

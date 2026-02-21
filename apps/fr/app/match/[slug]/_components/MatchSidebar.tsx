@@ -39,12 +39,12 @@ export function MatchSidebar({
     <div className="space-y-6">
       {stadium && (
         <Card hover padding="md">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Lieu du match
           </h3>
           <Link
             href={`/stade/${stadium.slug}`}
-            className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30"
+            className="block rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30"
           >
             <p className="font-semibold">{stadium.name}</p>
             <p className="text-sm text-gray-500">
@@ -64,7 +64,7 @@ export function MatchSidebar({
       )}
 
       <Card hover padding="md">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
           Infos match
         </h3>
         <dl className="space-y-3 text-sm">
@@ -114,7 +114,7 @@ export function MatchSidebar({
         />
       ) : (
         <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
             Cotes du match
           </h3>
           <p className="text-sm text-gray-600">

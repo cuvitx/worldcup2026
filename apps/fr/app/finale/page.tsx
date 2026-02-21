@@ -107,11 +107,11 @@ export default function FinalePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <MapPin className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Le MetLife Stadium : l&apos;écrin de la finale
             </h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Situé à East Rutherford, dans le New Jersey, à quelques kilomètres de Manhattan,
               le MetLife Stadium est l&apos;un des plus grands stades des États-Unis. Inauguré en
@@ -135,7 +135,7 @@ export default function FinalePage() {
                 { val: "1,7 Md$", label: "Coût construction" },
                 { val: "Ouvert", label: "Toit" },
               ].map((s) => (
-                <div key={s.label} className="rounded-lg bg-gray-50 dark:bg-slate-700 p-3 text-center">
+                <div key={s.label} className="rounded-lg bg-gray-50slate-700 p-3 text-center">
                   <p className="text-lg font-bold text-primary">{s.val}</p>
                   <p className="text-xs text-gray-500">{s.label}</p>
                 </div>
@@ -148,11 +148,11 @@ export default function FinalePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Star className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               La finale revient aux États-Unis après 32 ans
             </h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               La dernière fois qu&apos;une finale de Coupe du Monde s&apos;est jouée sur le sol
               américain, c&apos;était le 17 juillet 1994 au Rose Bowl de Pasadena. Ce jour-là,
@@ -178,11 +178,11 @@ export default function FinalePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <History className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Historique des finales de Coupe du Monde
             </h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
@@ -192,13 +192,13 @@ export default function FinalePage() {
                   <th className="px-4 py-3 text-left">Vainqueur</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+              <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
                 {finalesHistorique.map((f) => (
-                  <tr key={f.annee} className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{f.annee}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{f.lieu}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{f.affiche}</td>
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{f.vainqueur}</td>
+                  <tr key={f.annee} className="hover:bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">{f.annee}</td>
+                    <td className="px-4 py-3 text-gray-600">{f.lieu}</td>
+                    <td className="px-4 py-3 text-gray-600">{f.affiche}</td>
+                    <td className="px-4 py-3 font-medium text-gray-900">{f.vainqueur}</td>
                   </tr>
                 ))}
               </tbody>
@@ -215,11 +215,11 @@ export default function FinalePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <TrendingUp className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Pronostics et cotes pour la finale
             </h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               Il est encore tôt pour prédire les finalistes, mais les bookmakers ont déjà
               leurs favoris pour le titre. L&apos;Argentine de Messi (si le capitaine est
@@ -234,16 +234,16 @@ export default function FinalePage() {
               candidats crédibles.
             </p>
 
-            <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-slate-600 mt-4">
+            <div className="overflow-x-auto rounded-lg border border-gray-200 mt-4">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50 dark:bg-slate-700">
+                <thead className="bg-gray-50slate-700">
                   <tr>
-                    <th className="px-4 py-2 text-left text-gray-600 dark:text-gray-300">Équipe</th>
-                    <th className="px-4 py-2 text-left text-gray-600 dark:text-gray-300">Cote indicative</th>
-                    <th className="px-4 py-2 text-left text-gray-600 dark:text-gray-300">Probabilité implicite</th>
+                    <th className="px-4 py-2 text-left text-gray-600">Équipe</th>
+                    <th className="px-4 py-2 text-left text-gray-600">Cote indicative</th>
+                    <th className="px-4 py-2 text-left text-gray-600">Probabilité implicite</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-slate-600 bg-white dark:bg-slate-800">
+                <tbody className="divide-y divide-gray-200 bg-whiteslate-800">
                   {[
                     { equipe: "🇧🇷 Brésil", cote: "5.50", prob: "~18%" },
                     { equipe: "🇦🇷 Argentine", cote: "6.00", prob: "~17%" },
@@ -252,10 +252,10 @@ export default function FinalePage() {
                     { equipe: "🇪🇸 Espagne", cote: "8.00", prob: "~13%" },
                     { equipe: "🇩🇪 Allemagne", cote: "10.00", prob: "~10%" },
                   ].map((e) => (
-                    <tr key={e.equipe} className="hover:bg-gray-50 dark:hover:bg-slate-700">
-                      <td className="px-4 py-2 font-medium text-gray-900 dark:text-white">{e.equipe}</td>
+                    <tr key={e.equipe} className="hover:bg-gray-50">
+                      <td className="px-4 py-2 font-medium text-gray-900">{e.equipe}</td>
                       <td className="px-4 py-2 text-secondary font-bold">{e.cote}</td>
-                      <td className="px-4 py-2 text-gray-600 dark:text-gray-300">{e.prob}</td>
+                      <td className="px-4 py-2 text-gray-600">{e.prob}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -276,11 +276,11 @@ export default function FinalePage() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Trophy className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               Les finales légendaires
             </h2>
           </div>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
               <strong>2022 : Argentine 3-3 France (4-2 t.a.b.)</strong> — Considérée par beaucoup
               comme la plus grande finale de l&apos;histoire. Messi ouvre le score sur penalty,

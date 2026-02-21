@@ -115,28 +115,28 @@ export default function SupporterFrancaisUsaPage() {
         {/* Rubriques */}
         {rubriques.map((r) => (
           <section key={r.titre}>
-            <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
               <r.icon className="h-7 w-7 text-accent" /> {r.titre}
             </h2>
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{r.contenu}</p>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6">
+              <p className="text-gray-700 leading-relaxed">{r.contenu}</p>
             </div>
           </section>
         ))}
 
         {/* Budget estimatif */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <DollarSign className="h-7 w-7 text-accent" /> Budget estimatif
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
             {budgetTypes.map((b) => (
               <div
                 key={b.profil}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 text-center"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 text-center"
               >
-                <p className="font-semibold text-gray-900 dark:text-white">{b.profil}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{b.duree}</p>
+                <p className="font-semibold text-gray-900">{b.profil}</p>
+                <p className="text-sm text-gray-500">{b.duree}</p>
                 <p className={`text-xl font-bold mt-2 ${b.couleur}`}>{b.montant}</p>
               </div>
             ))}
@@ -145,10 +145,10 @@ export default function SupporterFrancaisUsaPage() {
 
         {/* Communauté française */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Users className="h-7 w-7 text-accent" /> Communauté française aux USA
           </h2>
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 prose dark:prose-invert max-w-none">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 prose max-w-none">
             <p>
               Plus de 150 000 Français vivent aux États-Unis. Rejoignez les groupes Facebook
               &quot;Français à New York&quot;, &quot;Français à Los Angeles&quot;, &quot;Français à Miami&quot;
@@ -180,13 +180,13 @@ export default function SupporterFrancaisUsaPage() {
           </Link>
           <Link
             href="/securite"
-            className="inline-flex items-center gap-2 border border-gray-300 dark:border-slate-600 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 border border-gray-300 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 transition-colors"
           >
             Sécurité aux USA
           </Link>
           <Link
             href="/pourboires-usa"
-            className="inline-flex items-center gap-2 border border-gray-300 dark:border-slate-600 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 border border-gray-300 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 transition-colors"
           >
             Guide pourboires
           </Link>

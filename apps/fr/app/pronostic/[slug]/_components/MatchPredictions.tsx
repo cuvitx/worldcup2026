@@ -17,8 +17,8 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
   if (teamMatches.length === 0) return null;
 
   return (
-    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Pronostics des matchs de groupe</h2>
+    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Pronostics des matchs de groupe</h2>
       <p className="mb-4 text-sm text-gray-600">Predictions pour les matchs de {teamName} dans le Groupe {teamGroup}.</p>
       <div className="space-y-4">
         {teamMatches.map((match) => {
@@ -27,7 +27,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
           const matchPred = matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`];
 
           return (
-            <div key={match.id} className="rounded-lg border border-gray-200 dark:border-slate-700 p-4">
+            <div key={match.id} className="rounded-lg border border-gray-200 p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{opponent?.flag ?? ""}</span>
@@ -56,7 +56,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                       ? item.prob > matchPred.team1WinProb && item.prob > matchPred.team2WinProb
                       : item.prob > matchPred.team1WinProb && item.prob > matchPred.drawProb;
                     return (
-                      <div key={i} className={`rounded p-2 text-center ${isHighest ? "bg-field/10 border border-field/30" : "bg-gray-50 dark:bg-slate-700"}`}>
+                      <div key={i} className={`rounded p-2 text-center ${isHighest ? "bg-field/10 border border-field/30" : "bg-gray-50slate-700"}`}>
                         <p className="text-sm font-bold">{Math.round(item.prob * 100)}%</p>
                         <p className="text-xs text-gray-500">{item.label}</p>
                       </div>

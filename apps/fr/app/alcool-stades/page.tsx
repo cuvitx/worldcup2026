@@ -106,7 +106,7 @@ export default function AlcoolStadesPage() {
 
       {/* Intro + FIFA policy */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg max-w-none">
           <h2 className="flex items-center gap-2">
             <Beer className="w-6 h-6 text-[#D4AF37]" />
             Politique FIFA 2026 : Budweiser de retour
@@ -132,7 +132,7 @@ export default function AlcoolStadesPage() {
 
       {/* Rules by country */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-8">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-8">
           <MapPin className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Règles par pays
         </h2>
@@ -140,12 +140,12 @@ export default function AlcoolStadesPage() {
           {countryRules.map((c) => (
             <div
               key={c.country}
-              className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6"
+              className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6"
             >
               <h3 className="font-bold text-lg mb-4">{c.country}</h3>
               <ul className="space-y-2">
                 {c.rules.map((rule) => (
-                  <li key={rule} className="flex gap-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li key={rule} className="flex gap-2 text-sm text-gray-600">
                     <ShieldCheck className="w-4 h-4 text-[#00B865] shrink-0 mt-0.5" />
                     <span>{rule}</span>
                   </li>
@@ -158,11 +158,11 @@ export default function AlcoolStadesPage() {
 
       {/* Horaires & types */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Clock className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Horaires de vente et types de boissons
         </h2>
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg max-w-none">
           <p>
             Dans la plupart des stades américains, la vente d&apos;alcool débute à l&apos;ouverture des portes (environ
             2 heures avant le coup d&apos;envoi) et s&apos;arrête généralement à la <strong>75e minute</strong> de jeu.
@@ -192,12 +192,12 @@ export default function AlcoolStadesPage() {
 
       {/* Warning */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-6">
+        <div className="rounded-2xl bg-amber-50amber-900/20 border border-amber-200 p-6">
           <div className="flex items-start gap-3">
             <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-bold text-amber-800 dark:text-amber-300 mb-2">Rappel important</h3>
-              <p className="text-sm text-amber-700 dark:text-amber-400">
+              <h3 className="font-bold text-amber-800 mb-2">Rappel important</h3>
+              <p className="text-sm text-amber-700">
                 L&apos;ébriété manifeste peut entraîner l&apos;expulsion du stade et l&apos;annulation de votre billet
                 sans remboursement. Les stades américains appliquent une politique de tolérance zéro envers les
                 comportements perturbateurs liés à l&apos;alcool. Consommez de manière responsable et hydratez-vous —

@@ -7,6 +7,7 @@ import { teamsById } from "@repo/data/teams";
 import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -86,8 +87,8 @@ export default async function ButeurPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Scoring Stats */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Statistiques de buts</h2>
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Statistiques de buts</h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{player.goals}</p>
@@ -120,34 +121,34 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Odds Table */}
             {scorer && (
-              <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Cotes buteur - {player.name}</h2>
+              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Cotes buteur - {player.name}</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200 dark:border-slate-700 text-left">
+                      <tr className="border-b border-gray-200 text-left">
                         <th className="pb-3 font-medium text-gray-500">Marche</th>
                         <th className="pb-3 font-medium text-gray-500 text-right">Probabilite</th>
                         <th className="pb-3 font-medium text-gray-500 text-right">Cote estimee</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">Buteur a tout moment (1+ but)</td>
                         <td className="py-3 text-right">{(scorer.anytimeScorerProb * 100).toFixed(1)}%</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over05GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">2+ buts dans le tournoi</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over15GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500">
+                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500">
                         <td className="py-3 font-medium">3+ buts dans le tournoi</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500 bg-accent/5">
+                      <tr className="hover:bg-gray-50slate-700/50 text-xs uppercase text-gray-500 bg-accent/5">
                         <td className="py-3 font-bold">Meilleur buteur CDM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
                         <td className="py-3 text-right font-extrabold text-accent">{scorer.topScorerOdds}</td>
@@ -163,8 +164,8 @@ export default async function ButeurPage({ params }: PageProps) {
             )}
 
             {/* Analysis Text */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Analyse : {player.name} buteur CDM 2026</h2>
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse : {player.name} buteur CDM 2026</h2>
               <div className="prose prose-sm max-w-none text-gray-700 space-y-3">
                 <p>
                   {player.name} ({player.age} ans) evolue au poste de {positionLabel.toLowerCase()} pour {player.club} et
@@ -200,8 +201,8 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Teammates */}
             {teammates.length > 0 && (
-              <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Autres buteurs de {team?.name}</h2>
+              <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Autres buteurs de {team?.name}</h2>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {teammates.map((tm) => {
                     const tmScorer = scorerOddsById[tm.id];
@@ -209,7 +210,7 @@ export default async function ButeurPage({ params }: PageProps) {
                       <Link
                         key={tm.id}
                         href={`/buteur/${tm.slug}`}
-                        className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                        className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                       >
                         <div>
                           <p className="font-semibold">{tm.name}</p>
@@ -227,8 +228,8 @@ export default async function ButeurPage({ params }: PageProps) {
             )}
 
             {/* Affiliate CTA */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Parier sur {player.name} buteur
               </h2>
               <p className="mb-6 text-sm text-gray-600">
@@ -241,11 +242,11 @@ export default async function ButeurPage({ params }: PageProps) {
                     <div
                       key={bk.id}
                       className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
-                        isFeatured ? "border-accent bg-accent/5" : "border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                        isFeatured ? "border-accent bg-accent/5" : "border-gray-200 bg-whiteslate-800"
                       }`}
                     >
                       {isFeatured && (
-                        <span className="absolute -top-3 left-4 rounded-full bg-accent dark:bg-accent px-3 py-0.5 text-xs font-bold text-black">
+                        <span className="absolute -top-3 left-4 rounded-full bg-accentaccent px-3 py-0.5 text-xs font-bold text-black">
                           Recommandé
                         </span>
                       )}
@@ -273,17 +274,15 @@ export default async function ButeurPage({ params }: PageProps) {
                   );
                 })}
               </div>
-              <p className="mt-4 text-xs text-gray-500 text-center">
-                18+. Les jeux d&apos;argent comportent des risques : pertes, addiction. Appelez le 09 74 75 13 13.
-              </p>
+              <ANJBanner />
             </section>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Quick Stats */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiche buteur</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche buteur</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Position</dt>
@@ -352,7 +351,7 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Sidebar CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Parier sur {player.name}
               </h3>
               {scorer && (
@@ -381,8 +380,8 @@ export default async function ButeurPage({ params }: PageProps) {
             </div>
 
             {/* Guide link */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Guides paris buteurs</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Guides paris buteurs</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/guide/parier-buteurs" className="text-primary hover:underline">

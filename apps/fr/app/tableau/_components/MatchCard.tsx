@@ -3,11 +3,11 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 
 const roundColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
-  "round-of-32": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-gray-200 dark:border-slate-700", text: "text-primary dark:text-secondary", badge: "bg-primary" },
-  "round-of-16": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-indigo-200 dark:border-indigo-800", text: "text-primary dark:text-secondary", badge: "bg-primary" },
-  "quarter-final": { bg: "bg-primary/5 dark:bg-primary/30", border: "border-purple-200 dark:border-purple-800", text: "text-primary dark:text-secondary", badge: "bg-primary" },
-  "semi-final": { bg: "bg-accent/10 dark:bg-accent/10", border: "border-accent/30 dark:border-accent/20", text: "text-accent dark:text-accent", badge: "bg-accent" },
-  final: { bg: "bg-accent/5 dark:bg-accent/10", border: "border-accent/30 dark:border-accent/20", text: "text-accent dark:text-accent", badge: "bg-accent" },
+  "round-of-32": { bg: "bg-primary/5primary/30", border: "border-gray-200", text: "text-primary", badge: "bg-primary" },
+  "round-of-16": { bg: "bg-primary/5primary/30", border: "border-indigo-200", text: "text-primary", badge: "bg-primary" },
+  "quarter-final": { bg: "bg-primary/5primary/30", border: "border-purple-200", text: "text-primary", badge: "bg-primary" },
+  "semi-final": { bg: "bg-accent/10accent/10", border: "border-accent/30", text: "text-accent", badge: "bg-accent" },
+  final: { bg: "bg-accent/5accent/10", border: "border-accent/30", text: "text-accent", badge: "bg-accent" },
 };
 
 export { roundColors };
@@ -25,8 +25,8 @@ function TeamSlot({ teamId, isWinner, label }: { teamId: string | null; isWinner
   return (
     <Link
       href={`/equipe/${team.slug}`}
-      className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
-        isWinner ? "font-bold text-primary dark:text-secondary" : "text-gray-700 dark:text-gray-300"
+      className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-100 rounded ${
+        isWinner ? "font-bold text-primary" : "text-gray-700"
       }`}
     >
       <span className="text-base" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
@@ -61,7 +61,7 @@ export function MatchCard({
             <TeamSlot teamId={homeTeamId} isWinner={winnerId === homeTeamId} label={homeLabel} />
             <TeamSlot teamId={awayTeamId} isWinner={winnerId === awayTeamId} label={awayLabel} />
           </div>
-          <div className="px-3 py-1.5 text-xs text-gray-500 dark:text-gray-300 bg-white/60 dark:bg-black/20 flex justify-between">
+          <div className="px-3 py-1.5 text-xs text-gray-500 bg-white/60black/20 flex justify-between">
             <span>{dateStr}</span>
             <span className="text-gray-500">{match.slug}</span>
           </div>

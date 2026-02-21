@@ -23,10 +23,10 @@ const POSITION_LABELS: Record<string, string> = {
   FW: "Attaquant",
 };
 const POSITION_COLORS: Record<string, string> = {
-  GK: "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary",
-  DF: "bg-primary/10 text-primary dark:bg-secondary/20 dark:text-secondary",
-  MF: "bg-field/10 text-field dark:bg-field/20 dark:text-field",
-  FW: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary",
+  GK: "bg-primary/10 text-primarysecondary/20",
+  DF: "bg-primary/10 text-primarysecondary/20",
+  MF: "bg-field/10 text-fieldfield/20",
+  FW: "bg-primary/10 text-primaryprimary/20",
 };
 
 type SortKey = "position" | "name" | "age" | "club" | "caps" | "goals";
@@ -69,13 +69,13 @@ export default function SquadTable({ players }: { players: Player[] }) {
   }
 
   const thClass =
-    "px-3 py-2 text-left text-xs font-semibold text-gray-500 dark:text-gray-300 uppercase tracking-wide cursor-pointer select-none hover:text-primary transition-colors";
+    "px-3 py-2 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide cursor-pointer select-none hover:text-primary transition-colors";
 
   return (
     <div className="overflow-x-auto -mx-6 px-6">
       <table className="w-full text-sm min-w-[540px]">
         <thead>
-          <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500border-b border-gray-200 dark:border-slate-600">
+          <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500border-b border-gray-200">
             <th className={thClass} onClick={() => handleSort("position")}>
               Poste <SortIcon col="position" />
             </th>
@@ -100,8 +100,8 @@ export default function SquadTable({ players }: { players: Player[] }) {
           {sorted.map((player, idx) => (
             <tr
               key={player.id}
-              className={`border-b border-gray-100 dark:border-slate-700 transition-colors hover:bg-primary/5 ${
-                idx % 2 === 0 ? "" : "bg-gray-50/50 dark:bg-slate-700/20"
+              className={`border-b border-gray-100 transition-colors hover:bg-primary/5 ${
+                idx % 2 === 0 ? "" : "bg-gray-50/50slate-700/20"
               }`}
             >
               <td className="px-3 py-2.5">
@@ -116,13 +116,13 @@ export default function SquadTable({ players }: { players: Player[] }) {
               <td className="px-3 py-2.5">
                 <Link
                   href={`/joueur/${player.slug}`}
-                  className="font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors"
+                  className="font-semibold text-gray-900 hover:text-primary transition-colors"
                 >
                   {player.name}
                 </Link>
               </td>
-              <td className="px-3 py-2.5 text-gray-600 dark:text-gray-300">{player.age} ans</td>
-              <td className="px-3 py-2.5 text-gray-600 dark:text-gray-300 max-w-[140px] truncate">
+              <td className="px-3 py-2.5 text-gray-600">{player.age} ans</td>
+              <td className="px-3 py-2.5 text-gray-600 max-w-[140px] truncate">
                 {player.club}
               </td>
               <td className="px-3 py-2.5 text-center font-medium text-primary">{player.caps}</td>

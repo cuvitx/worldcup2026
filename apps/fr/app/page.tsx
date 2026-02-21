@@ -31,6 +31,7 @@ export const metadata: Metadata = {
       "Pronostics, cotes, analyses des 48 équipes et calendrier des 104 matchs de la CDM 2026.",
     url: "https://cdm2026.fr",
   },
+  alternates: { canonical: "https://cdm2026.fr" },
 };
 
 /* ──────────────────────────────── data ──────────────────────────────── */
@@ -156,10 +157,10 @@ export default function HomePage() {
       <RecentArticles recentArticles={recentArticles} />
 
       {/* 5. STADES CDM 2026 */}
-      <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
+      <section className="bg-gray-50slate-900/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary dark:text-accent mb-1.5">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
               🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
             </p>
             <SectionHeading title="Stades CDM 2026" subtitle="16 stades répartis dans 3 pays hôtes" linkHref="/stades" linkLabel="Tous les stades →" />
@@ -178,23 +179,23 @@ export default function HomePage() {
           <SectionHeading title="Explorer la CDM 2026" subtitle="Tout ce qu'il faut savoir pour suivre le mondial" />
           <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-8">
             {[
-              { href: "/classement-fifa", icon: "🏆", label: "Classement FIFA" },
-              { href: "/joueurs", icon: "⚽", label: "Joueurs clés" },
-              { href: "/villes", icon: "🏙️", label: "Villes hôtes" },
-              { href: "/pays-hotes", icon: "🌎", label: "Pays hôtes" },
-              { href: "/format", icon: "📐", label: "Format du tournoi" },
-              { href: "/ou-regarder", icon: "📺", label: "Où regarder" },
-              { href: "/billets", icon: "🎟️", label: "Billets" },
-              { href: "/h2h", icon: "⚔️", label: "Face-à-face (H2H)" },
-              { href: "/mascotte", icon: "🐾", label: "Mascotte" },
-              { href: "/histoire", icon: "📖", label: "Histoire de la CDM" },
-              { href: "/comparateur-joueurs", icon: "👥", label: "Comparer joueurs" },
-              { href: "/tableau", icon: "🗓️", label: "Tableau final" },
+              { href: "/classement-fifa", icon: "", label: "Classement FIFA" },
+              { href: "/joueurs", icon: "", label: "Joueurs clés" },
+              { href: "/villes", icon: "", label: "Villes hôtes" },
+              { href: "/pays-hotes", icon: "", label: "Pays hôtes" },
+              { href: "/format", icon: "", label: "Format du tournoi" },
+              { href: "/ou-regarder", icon: "", label: "Où regarder" },
+              { href: "/billets", icon: "", label: "Billets" },
+              { href: "/h2h", icon: "", label: "Face-à-face (H2H)" },
+              { href: "/mascotte", icon: "", label: "Mascotte" },
+              { href: "/histoire", icon: "", label: "Histoire de la CDM" },
+              { href: "/comparateur-joueurs", icon: "", label: "Comparer joueurs" },
+              { href: "/tableau", icon: "", label: "Tableau final" },
             ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm font-medium text-gray-900 dark:text-white hover:shadow-md hover:border-primary/30 transition-all"
+                className="flex items-center gap-2.5 rounded-xl border border-gray-200 bg-whiteslate-800 px-4 py-3 text-sm font-medium text-gray-900 hover:shadow-md hover:border-primary/30 transition-all"
               >
                 <span className="text-xl">{item.icon}</span>
                 {item.label}

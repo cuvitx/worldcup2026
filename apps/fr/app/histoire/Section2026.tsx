@@ -6,7 +6,7 @@ export function Section2026() {
       <div className="relative">
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 -top-8 w-0.5 h-8 bg-gradient-to-b from-primary to-transparent" />
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10 top-0">
-          <div className="w-12 h-12 rounded-full border-4 border-white dark:border-slate-900 flex items-center justify-center text-xl font-bold text-white shadow-xl bg-gradient-to-br from-primary to-primary">
+          <div className="w-12 h-12 rounded-full border-4 border-white flex items-center justify-center text-xl font-bold text-white shadow-xl bg-gradient-to-br from-primary to-primary">
             
           </div>
         </div>
@@ -18,7 +18,7 @@ export function Section2026() {
             <span></span>
             <span>Édition historique</span>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">
             2026 : La Plus Grande CDM de l&apos;Histoire
           </h2>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
@@ -30,7 +30,7 @@ export function Section2026() {
         {/* Stats clés */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           {[
-            { val: "48", label: "Équipes", icon: "👥", desc: "vs 32 auparavant (+50%)" },
+            { val: "48", label: "Équipes", icon: "", desc: "vs 32 auparavant (+50%)" },
             { val: "104", label: "Matchs", icon: "", desc: "vs 64 en 2022" },
             { val: "3", label: "Pays hôtes", icon: "", desc: "USA · Canada · Mexique" },
             { val: "16", label: "Villes", icon: "", desc: "sur 3 continents" },
@@ -69,8 +69,8 @@ export function Section2026() {
         </div>
 
         {/* Nouveau format */}
-        <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+        <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
             <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Nouveau format révolutionnaire
           </h3>
           <div className="grid sm:grid-cols-2 gap-4 text-sm text-white/80">
@@ -96,7 +96,7 @@ export function Section2026() {
 
         {/* Favoris 2026 */}
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center mb-4"> Favoris pour 2026</h3>
+          <h3 className="text-lg font-semibold text-gray-900 text-center mb-4"> Favoris pour 2026</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { flag: "🇧🇷", country: "Brésil", cote: "5e titre ?" },

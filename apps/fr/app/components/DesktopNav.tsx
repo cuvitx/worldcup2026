@@ -52,7 +52,7 @@ export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavPro
                 <div className={`grid gap-4 ${menu.sections.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
                   {menu.sections.map((section) => (
                     <div key={section.title}>
-                      <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 px-2">
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2 px-2">
                         {section.title}
                       </p>
                       <ul className="space-y-0.5">
@@ -60,7 +60,7 @@ export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavPro
                           <li key={link.href}>
                             <Link
                               href={link.href}
-                              className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 dark:text-text hover:bg-gray-100 dark:hover:bg-white/8 hover:text-primary transition-colors"
+                              className="flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
                               onClick={() => setActiveMenu(null)}
                             >
                               <span>{link.label}</span>

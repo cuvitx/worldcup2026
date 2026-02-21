@@ -104,35 +104,35 @@ export default function Quiz() {
   if (phase === "difficulty") {
     return (
       <div className="max-w-xl mx-auto">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">Choisissez la difficulté</h2>
+        <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">Choisissez la difficulté</h2>
         <p className="text-center text-gray-500 mb-8">Sélectionnez votre niveau avant de commencer</p>
 
         <div className="grid gap-4">
           <button
             onClick={() => { setDifficulty("all"); setPhase("category"); }}
-            className="rounded-xl border-2 border-primary/50 bg-primary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-primary/50 bg-primary/5secondary/10 p-5 text-left hover:bg-secondary/10 transition-colors shadow-sm"
           >
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Toutes les difficultés</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Mix de questions faciles, moyennes et difficiles</p>
+            <h3 className="text-lg font-semibold text-gray-900">Toutes les difficultés</h3>
+            <p className="text-sm text-gray-600">Mix de questions faciles, moyennes et difficiles</p>
           </button>
 
           {(Object.keys(difficultyLabels) as Difficulty[]).map((d) => {
-            const colors = { facile: "border-accent/30 hover:bg-accent/10 dark:hover:bg-accent/20", moyen: "border-secondary/30 hover:bg-secondary/10 dark:hover:bg-secondary/20", difficile: "border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20" };
+            const colors = { facile: "border-accent/30 hover:bg-accent/10", moyen: "border-secondary/30 hover:bg-secondary/10", difficile: "border-red-300 hover:bg-red-50" };
             const count = questions.filter((q) => q.difficulty === d).length;
             return (
               <button
                 key={d}
                 onClick={() => { setDifficulty(d); setPhase("category"); }}
-                className={`rounded-xl border bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm transition-colors ${colors[d]}`}
+                className={`rounded-xl border bg-whiteslate-800/50 p-5 text-left shadow-sm transition-colors ${colors[d]}`}
               >
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{difficultyLabels[d].label}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{count} questions</p>
+                <h3 className="text-lg font-semibold text-gray-900">{difficultyLabels[d].label}</h3>
+                <p className="text-sm text-gray-600">{count} questions</p>
               </button>
             );
           })}
         </div>
 
-        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-300 cursor-pointer mt-6">
+        <label className="flex items-center justify-center gap-2 text-sm text-gray-600 cursor-pointer mt-6">
           <input
             type="checkbox"
             checked={timerEnabled}
@@ -162,28 +162,28 @@ export default function Quiz() {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           Retour
         </button>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">Choisissez une catégorie</h2>
+        <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">Choisissez une catégorie</h2>
         <p className="text-center text-gray-500 mb-6">
-          Difficulté : <span className="font-semibold text-gray-900 dark:text-white">{difficulty === "all" ? "Toutes" : difficultyLabels[difficulty].label}</span>
+          Difficulté : <span className="font-semibold text-gray-900">{difficulty === "all" ? "Toutes" : difficultyLabels[difficulty].label}</span>
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <button
             onClick={() => startGame("all")}
-            className="rounded-xl border-2 border-primary/50 bg-primary/5 dark:bg-secondary/10 p-5 text-left hover:bg-secondary/10 dark:hover:bg-secondary/15 transition-colors shadow-sm"
+            className="rounded-xl border-2 border-primary/50 bg-primary/5secondary/10 p-5 text-left hover:bg-secondary/10 transition-colors shadow-sm"
           >
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-1">Toutes les catégories</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">{availableCount("all")} questions</p>
+            <h3 className="text-lg font-semibold text-gray-900 mt-1">Toutes les catégories</h3>
+            <p className="text-sm text-gray-600">{availableCount("all")} questions</p>
           </button>
 
           {(Object.keys(categoryLabels) as Question["category"][]).map((cat) => (
             <button
               key={cat}
               onClick={() => startGame(cat)}
-              className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50 p-5 text-left shadow-sm hover:border-primary/50 hover:bg-primary/5 dark:hover:bg-secondary/10 transition-colors"
+              className="rounded-xl border border-gray-200 bg-whiteslate-800/50 p-5 text-left shadow-sm hover:border-primary/50 hover:bg-primary/5 transition-colors"
             >
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-1">{categoryLabels[cat].label}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">{availableCount(cat)} questions</p>
+              <h3 className="text-lg font-semibold text-gray-900 mt-1">{categoryLabels[cat].label}</h3>
+              <p className="text-sm text-gray-600">{availableCount(cat)} questions</p>
             </button>
           ))}
         </div>
@@ -196,10 +196,10 @@ export default function Quiz() {
     return (
       <div className="max-w-lg mx-auto text-center">
         <div className="text-4xl mb-4 sm:text-7xl">{scoreEmoji}</div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">
           {score}/{gameQuestions.length}
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-6">{scoreMessage}</p>
+        <p className="text-gray-600 mb-6">{scoreMessage}</p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
@@ -241,10 +241,10 @@ export default function Quiz() {
           Question {currentIndex + 1}/{gameQuestions.length}
         </span>
         <span className="flex items-center gap-2">
-          <span className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-100gray-700 text-gray-700">
             {categoryLabels[currentQuestion.category].emoji} {categoryLabels[currentQuestion.category].label}
           </span>
-          <span className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+          <span className="text-xs px-2 py-0.5 rounded bg-gray-100gray-700 text-gray-700">
             {difficultyLabels[currentQuestion.difficulty].emoji} {difficultyLabels[currentQuestion.difficulty].label}
           </span>
           {timerEnabled && (
@@ -254,7 +254,7 @@ export default function Quiz() {
           )}
         </span>
       </div>
-      <div className="w-full h-3 bg-gray-200 dark:bg-gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
+      <div className="w-full h-3 bg-gray-200gray-700/50 rounded-full mb-6 overflow-hidden shadow-inner">
         <div
           className="h-full bg-accent rounded-full transition-all duration-500 ease-out relative"
           style={{ width: `${progress}%` }}
@@ -264,20 +264,20 @@ export default function Quiz() {
       </div>
 
       {/* Question */}
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">{currentQuestion.question}</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-6">{currentQuestion.question}</h3>
 
       {/* Options */}
       <div className="grid gap-3">
         {currentQuestion.options.map((opt, idx) => {
           let classes = "w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-300 ease-out ";
           if (selected === null) {
-            classes += "border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800/50 text-gray-900 dark:text-gray-100 hover:border-primary/40 hover:bg-primary/5 dark:hover:bg-secondary/10 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
+            classes += "border-gray-200 bg-whiteslate-800/50 text-gray-900 hover:border-primary/40 hover:bg-primary/5 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer active:scale-[0.98]";
           } else if (idx === currentQuestion.correctIndex) {
-            classes += "border-accent bg-accent/10 dark:bg-accent/15 text-accent dark:text-accent scale-[1.01]";
+            classes += "border-accent bg-accent/10accent/15 text-accent scale-[1.01]";
           } else if (idx === selected) {
-            classes += "border-red-500 bg-red-50 dark:bg-red-500/20 text-red-700 dark:text-red-300 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
+            classes += "border-red-500 bg-red-50red-500/20 text-red-700 shadow-lg shadow-red-500/20 animate-[shake_0.4s_ease-in-out]";
           } else {
-            classes += "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800/30 text-gray-400 dark:text-gray-400 opacity-50";
+            classes += "border-gray-200 bg-gray-50slate-800/30 text-gray-400 opacity-50";
           }
 
           return (
@@ -294,8 +294,8 @@ export default function Quiz() {
         <div
           className={`mt-4 p-4 rounded-xl text-sm animate-[fadeSlideIn_0.3s_ease-out] ${
             selected === currentQuestion.correctIndex
-              ? "bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 text-accent dark:text-accent"
-              : "bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300"
+              ? "bg-accent/10accent/10 border border-accent/30 text-accent"
+              : "bg-red-50red-500/10 border border-red-200 text-red-800"
           }`}
         >
           {selected === currentQuestion.correctIndex ? "Bonne réponse ! " : "Mauvaise réponse. "}

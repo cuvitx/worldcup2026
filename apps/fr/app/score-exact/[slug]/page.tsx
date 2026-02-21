@@ -9,6 +9,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { bookmakers } from "@repo/data/affiliates";
 import type { Team, Match, Stadium } from "@repo/data/types";
+import { BarChart3, CircleDot, Dice5, Landmark, Lock, Pin, Search, Star, Target } from "lucide-react"
 
 // ─── Static generation ───
 export const dynamicParams = false;
@@ -369,7 +370,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
         {/* Probabilités de scores exacts */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">📊 Probabilités de scores exacts</h2>
+          <h2 className="text-2xl font-bold mb-6"><BarChart3 className="h-5 w-5 inline-block" /> Probabilités de scores exacts</h2>
           <div className="rounded-xl overflow-hidden border border-border">
             <table className="w-full text-sm">
               <thead>
@@ -431,11 +432,11 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
         {/* Le Choix de l'Expert */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">🎯 Le Choix de l&apos;Expert</h2>
+          <h2 className="text-2xl font-bold mb-6"><Target className="h-5 w-5 inline-block" /> Le Choix de l&apos;Expert</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Pick 1: Sécurité */}
             <div className="rounded-xl border border-border bg-card p-6 space-y-4">
-              <div className="text-xs font-semibold uppercase tracking-wider text-green-600">🔒 Sécurité</div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-green-600"><Lock className="h-5 w-5 inline-block" /> Sécurité</div>
               <div className="text-3xl font-extrabold text-foreground">{bestScore.score}</div>
               <div className="text-sm text-muted-foreground">Cote : {bestScore.coteWinamax}</div>
               <p className="text-sm leading-relaxed">
@@ -459,7 +460,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
             {/* Pick 2: Spéculatif */}
             <div className="rounded-xl border border-border bg-card p-6 space-y-4">
-              <div className="text-xs font-semibold uppercase tracking-wider text-orange-500">🎲 Spéculatif</div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-orange-500"><Dice5 className="h-5 w-5 inline-block" /> Spéculatif</div>
               <div className="text-3xl font-extrabold text-foreground">{specScore.score}</div>
               <div className="text-sm text-muted-foreground">Cote : {specScore.coteBetclic}</div>
               <p className="text-sm leading-relaxed">
@@ -482,7 +483,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
             {/* Pick 3: Multichoix */}
             <div className="rounded-xl border border-border bg-card p-6 space-y-4">
-              <div className="text-xs font-semibold uppercase tracking-wider text-blue-500">🎰 Multichoix</div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-blue-500"><Dice5 className="h-5 w-5 inline-block" /> Multichoix</div>
               <div className="text-2xl font-extrabold text-foreground">
                 {homeWinScores.length >= 2
                   ? `Victoire ${home.name} (${homeWinScores.map((s) => s.score).join(", ")})`
@@ -510,11 +511,11 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
         {/* Analyse E-E-A-T */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">🔍 Analyse du match</h2>
+          <h2 className="text-2xl font-bold mb-6"><Search className="h-5 w-5 inline-block" /> Analyse du match</h2>
           <div className="space-y-6">
             {/* Facteur A */}
             <div className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-bold text-lg mb-2">⚽ Stats offensives et défensives</h3>
+              <h3 className="font-bold text-lg mb-2"><CircleDot className="h-5 w-5 inline-block" /> Stats offensives et défensives</h3>
               <p className="text-sm leading-relaxed">
                 <strong>{home.name}</strong> ({home.fifaRanking}e FIFA) affiche un potentiel offensif estimé à {homeGoalsEst} buts/match
                 et une solidité défensive de {homeDefEst} buts encaissés/match.
@@ -528,7 +529,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
             {/* Facteur B */}
             <div className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-bold text-lg mb-2">⭐ Joueurs clés</h3>
+              <h3 className="font-bold text-lg mb-2"><Star className="h-5 w-5 inline-block" /> Joueurs clés</h3>
               <p className="text-sm leading-relaxed">
                 Côté <strong>{home.name}</strong>, les regards seront tournés vers <strong>{homeStars[0]}</strong>
                 {homeStars[1] ? ` et ${homeStars[1]}` : ""}, capables de faire basculer un match à eux seuls.
@@ -540,7 +541,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
             {/* Facteur C */}
             <div className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-bold text-lg mb-2">🏟️ Conditions du match</h3>
+              <h3 className="font-bold text-lg mb-2"><Landmark className="h-5 w-5 inline-block" /> Conditions du match</h3>
               <p className="text-sm leading-relaxed">
                 Ce match de <strong>{phaseIntro}</strong> se joue
                 {stadium ? ` au ${stadium.name} (${stadium.capacity.toLocaleString("fr-FR")} places)` : ""}
@@ -560,7 +561,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
         {/* Score Multichoix */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">🎯 Score Exact Multichoix</h2>
+          <h2 className="text-2xl font-bold mb-6"><Target className="h-5 w-5 inline-block" /> Score Exact Multichoix</h2>
           <p className="text-sm leading-relaxed mb-6">
             Le pari « Score Exact Multichoix » vous permet de sélectionner plusieurs scores dans un seul et même pari.
             La cote est plus basse qu&apos;un score exact simple, mais vos chances de gain augmentent considérablement.
@@ -594,7 +595,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
         {/* Maillage interne */}
         <section className="border-t border-border pt-10">
-          <h2 className="text-xl font-bold mb-4">📌 À lire aussi</h2>
+          <h2 className="text-xl font-bold mb-4"><Pin className="h-5 w-5 inline-block" /> À lire aussi</h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { href: `/pronostic-match/${slug}`, label: `Pronostic ${home.name} vs ${away.name}` },

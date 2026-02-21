@@ -4,11 +4,11 @@ import { SectionHeading } from "@repo/ui/section-heading";
 
 export function MethodologySection() {
   return (
-    <section className="bg-white dark:bg-slate-900 py-12 border-t border-gray-100 dark:border-slate-700">
+    <section className="bg-whiteslate-900 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Card hover padding="md">
-          <SectionHeading emoji="📐" title="Méthodologie" />
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+          <SectionHeading emoji="" title="Méthodologie" />
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
             Nos pronostics sont calculés à partir d&apos;un modèle ELO adapté au
             football international, combiné à des simulations Monte Carlo du tournoi
             (100 000 itérations). Les cotes bookmakers sont intégrées comme signal
@@ -34,13 +34,13 @@ export function MethodologySection() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-lg bg-white dark:bg-slate-900 p-4 border border-gray-200 dark:border-slate-700"
+                className="rounded-lg bg-whiteslate-900 p-4 border border-gray-200"
               >
                 <p className="text-2xl mb-2">{item.icon}</p>
-                <p className="font-bold text-gray-900 dark:text-white text-sm mb-1">
+                <p className="font-bold text-gray-900 text-sm mb-1">
                   {item.title}
                 </p>
-                <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-xs text-gray-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

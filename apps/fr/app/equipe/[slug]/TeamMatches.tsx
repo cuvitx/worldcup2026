@@ -21,8 +21,8 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
   if (teamMatches.length === 0) return null;
 
   return (
-    <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Matchs de groupe</h2>
+    <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Matchs de groupe</h2>
       <div className="space-y-3">
         {teamMatches.map((match) => {
           const opponent = teamsLookup[
@@ -33,7 +33,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
             <Link
               key={match.id}
               href={`/match/${match.slug}`}
-              className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+              className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
             >
               <span className="text-sm text-gray-500 w-20 shrink-0">
                 {match.date.slice(5)}

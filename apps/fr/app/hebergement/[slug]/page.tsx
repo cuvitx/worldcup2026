@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Hotel, MapPin, DollarSign, ArrowRight, ExternalLink, CalendarCheck } from "lucide-react";
+import { ArrowRight, CalendarCheck, Check, DollarSign, ExternalLink, Home, Hotel, MapPin, X } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 export const dynamicParams = false;
 
@@ -149,23 +149,23 @@ export default async function HebergementPage({ params }: PageProps) {
         <h2 className="text-2xl font-bold text-primary mb-6">Hôtel vs Airbnb : que choisir ?</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h3 className="font-bold text-primary text-lg mb-3">🏨 Hôtel</h3>
+            <h3 className="font-bold text-primary text-lg mb-3"><Hotel className="h-5 w-5 inline-block" /> Hôtel</h3>
             <ul className="space-y-2 text-secondary text-sm">
-              <li>✅ Room service et conciergerie</li>
-              <li>✅ Annulation flexible</li>
-              <li>✅ Sécurité et réception 24h/24</li>
-              <li>❌ Moins d&apos;espace</li>
-              <li>❌ Pas de cuisine</li>
+              <li><Check className="h-5 w-5 inline-block" /> Room service et conciergerie</li>
+              <li><Check className="h-5 w-5 inline-block" /> Annulation flexible</li>
+              <li><Check className="h-5 w-5 inline-block" /> Sécurité et réception 24h/24</li>
+              <li><X className="h-5 w-5 inline-block" /> Moins d&apos;espace</li>
+              <li><X className="h-5 w-5 inline-block" /> Pas de cuisine</li>
             </ul>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h3 className="font-bold text-primary text-lg mb-3">🏠 Airbnb</h3>
+            <h3 className="font-bold text-primary text-lg mb-3"><Home className="h-5 w-5 inline-block" /> Airbnb</h3>
             <ul className="space-y-2 text-secondary text-sm">
-              <li>✅ Plus d&apos;espace, cuisine équipée</li>
-              <li>✅ Idéal pour les groupes</li>
-              <li>✅ Ambiance locale authentique</li>
-              <li>❌ Check-in parfois compliqué</li>
-              <li>❌ Annulation moins flexible</li>
+              <li><Check className="h-5 w-5 inline-block" /> Plus d&apos;espace, cuisine équipée</li>
+              <li><Check className="h-5 w-5 inline-block" /> Idéal pour les groupes</li>
+              <li><Check className="h-5 w-5 inline-block" /> Ambiance locale authentique</li>
+              <li><X className="h-5 w-5 inline-block" /> Check-in parfois compliqué</li>
+              <li><X className="h-5 w-5 inline-block" /> Annulation moins flexible</li>
             </ul>
           </div>
         </div>

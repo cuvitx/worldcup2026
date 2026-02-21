@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -7,6 +9,10 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/pronostics/grille" },
+};
+
 const STORAGE_KEY = "cdm2026-pronostics";
 
 type Pronostics = Record<string, { home: string; away: string }>;
@@ -139,21 +145,21 @@ export default function GrillePronosticsPage() {
             return (
               <div
                 key={g.letter}
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden"
               >
-                <div className="bg-gray-100 dark:bg-slate-700 px-4 py-2.5 font-bold text-sm text-gray-900 dark:text-white">
+                <div className="bg-gray-100slate-700 px-4 py-2.5 font-bold text-sm text-gray-900">
                   Groupe {g.letter}
                 </div>
-                <div className="divide-y divide-gray-100 dark:divide-slate-700">
+                <div className="divide-y divide-gray-100">
                   {gm.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)).map((m) => {
                     const p = pronostics[m.id] ?? { home: "", away: "" };
                     return (
                       <div key={m.id} className="px-4 py-3">
-                        <div className="text-xs text-gray-500 dark:text-gray-300 mb-1.5">
+                        <div className="text-xs text-gray-500 mb-1.5">
                           {new Date(m.date + "T12:00:00Z").toLocaleDateString("fr-FR", { day: "numeric", month: "short" })} · {m.time}
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="flex-1 text-right text-sm font-medium text-gray-900 dark:text-white break-words">
+                          <span className="flex-1 text-right text-sm font-medium text-gray-900 break-words">
                             {teamFlag(m.homeTeamId)} {teamName(m.homeTeamId)}
                           </span>
                           <input
@@ -162,7 +168,7 @@ export default function GrillePronosticsPage() {
                             maxLength={2}
                             value={p.home}
                             onChange={(e) => update(m.id, "home", e.target.value)}
-                            className="w-10 h-9 text-center rounded-md border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-10 h-9 text-center rounded-md border border-gray-300 bg-gray-50slate-700 text-gray-900 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             aria-label={`Score ${teamName(m.homeTeamId)}`}
                           />
                           <span className="text-gray-400 font-bold">-</span>
@@ -172,10 +178,10 @@ export default function GrillePronosticsPage() {
                             maxLength={2}
                             value={p.away}
                             onChange={(e) => update(m.id, "away", e.target.value)}
-                            className="w-10 h-9 text-center rounded-md border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-10 h-9 text-center rounded-md border border-gray-300 bg-gray-50slate-700 text-gray-900 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             aria-label={`Score ${teamName(m.awayTeamId)}`}
                           />
-                          <span className="flex-1 text-left text-sm font-medium text-gray-900 dark:text-white break-words">
+                          <span className="flex-1 text-left text-sm font-medium text-gray-900 break-words">
                             {teamName(m.awayTeamId)} {teamFlag(m.awayTeamId)}
                           </span>
                         </div>

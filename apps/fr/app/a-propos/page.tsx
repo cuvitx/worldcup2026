@@ -38,7 +38,7 @@ export default function AProposPage() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8 text-gray-700 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Notre mission
             </h2>
             <p>
@@ -51,33 +51,33 @@ export default function AProposPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Ce que nous proposons
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Fiches équipes</h3>
+              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Fiches équipes</h3>
                 <p className="mt-1 text-sm">
                   Analyses détaillées des 48 équipes qualifiées, avec effectifs,
                   statistiques et historique en Coupe du Monde.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Pronostics</h3>
+              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Pronostics</h3>
                 <p className="mt-1 text-sm">
                   Pronostics basés sur les données statistiques et les
                   classements ELO pour chaque match et confrontation.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Comparaison de cotes</h3>
+              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Comparaison de cotes</h3>
                 <p className="mt-1 text-sm">
                   Comparaison des cotes des principaux bookmakers agréés pour
                   vous aider à trouver les meilleures valeurs.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Guide pratique</h3>
+              <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Guide pratique</h3>
                 <p className="mt-1 text-sm">
                   Guides des 16 villes hôtes et des stades, avec informations
                   pratiques pour les supporters.
@@ -87,7 +87,7 @@ export default function AProposPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Notre équipe d&apos;experts
             </h2>
             <p>
@@ -104,7 +104,7 @@ export default function AProposPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Notre méthodologie
             </h2>
             <p>
@@ -129,7 +129,7 @@ export default function AProposPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Indépendance éditoriale
             </h2>
             <p>
@@ -143,7 +143,7 @@ export default function AProposPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               La Coupe du Monde 2026 en chiffres
             </h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -155,7 +155,7 @@ export default function AProposPage() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center"
+                  className="rounded-lg bg-gray-50slate-700 p-4 text-center"
                 >
                   <p className="text-2xl font-bold text-primary">
                     {stat.value}
@@ -167,7 +167,7 @@ export default function AProposPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Liens utiles</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Liens utiles</h2>
             <ul className="space-y-2">
               <li>
                 <Link href="/equipe-editoriale" className="text-primary hover:underline">

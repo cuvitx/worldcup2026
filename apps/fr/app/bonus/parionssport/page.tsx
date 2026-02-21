@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Profitez de l'offre ParionsSport : 90€ en freebets pour la CDM 2026.",
     url: "https://cdm2026.fr/bonus/parionssport",
   },
+  alternates: { canonical: "https://cdm2026.fr/bonus/parionssport" },
 };
 
 function ReviewSchema() {

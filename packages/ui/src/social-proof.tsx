@@ -89,7 +89,7 @@ export function SocialProof() {
   return (
     <section
       ref={ref}
-      className="py-12 sm:py-16 bg-gradient-to-r from-primary/5 via-primary to-primary/5 dark:from-primary/10 dark:via-primary/10 dark:to-primary/10 border-y border-gray-200 dark:border-gray-700/40"
+      className="py-12 sm:py-16 bg-gradient-to-r from-primary/5 via-primary to-primary/5 border-y border-gray-200"
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
@@ -99,7 +99,7 @@ export function SocialProof() {
               <span className="text-3xl sm:text-4xl font-black text-primary tabular-nums">
                 <AnimatedCounter target={c.value} started={visible} />
               </span>
-              <span className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+              <span className="text-sm text-gray-600 font-medium">
                 {c.label}
               </span>
             </div>

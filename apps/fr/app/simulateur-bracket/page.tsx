@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 "use client";
 
 import { useState, useCallback } from "react";
@@ -21,6 +23,10 @@ interface MatchSlot {
 // Top 2 per group (24) + 8 best 3rd-placed teams
 // Projected 1st/2nd/3rd based on FIFA ranking within each group
 // ---------------------------------------------------------------------------
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/simulateur-bracket" },
+};
 
 const PROJECTED = {
   A: { first: "mexique", second: "coree-du-sud", third: "afrique-du-sud" },
@@ -197,7 +203,7 @@ export default function SimulateurBracketPage() {
       </section>
 
       {/* Toolbar */}
-      <div className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="sticky top-0 z-30 bg-whiteslate-900 border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2 text-sm text-secondary">
             <Trophy className="h-4 w-4" />
@@ -219,7 +225,7 @@ export default function SimulateurBracketPage() {
             </button>
             <button
               onClick={reset}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reinitialiser
@@ -289,7 +295,7 @@ export default function SimulateurBracketPage() {
             </button>
             <button
               onClick={reset}
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
             >
               <RotateCcw className="h-4 w-4" />
               Recommencer
@@ -359,7 +365,7 @@ function RoundColumn({
               onSelect={onSelect}
             />
             {roundIdx < totalRounds - 1 && (
-              <div className="w-4 flex items-center justify-center text-gray-300 dark:text-gray-600">
+              <div className="w-4 flex items-center justify-center text-gray-300">
                 <ChevronRight className="h-3 w-3" />
               </div>
             )}
@@ -389,7 +395,7 @@ function MatchCard({
   const teamB = getTeamLabel(match.teamB);
 
   return (
-    <div className="rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden w-[180px] bg-white dark:bg-slate-900 shadow-sm">
+    <div className="rounded-lg border border-gray-200 overflow-hidden w-[180px] bg-whiteslate-900 shadow-sm">
       <TeamRow
         team={teamA}
         teamId={match.teamA}
@@ -397,7 +403,7 @@ function MatchCard({
         canSelect={match.teamA !== null && match.teamB !== null}
         onSelect={() => match.teamA && onSelect(roundIdx, matchIdx, match.teamA)}
       />
-      <div className="border-t border-gray-100 dark:border-gray-800" />
+      <div className="border-t border-gray-100" />
       <TeamRow
         team={teamB}
         teamId={match.teamB}
@@ -428,7 +434,7 @@ function TeamRow({
 }) {
   if (!team) {
     return (
-      <div className="px-3 py-2 text-xs text-gray-400 dark:text-gray-500 italic h-9 flex items-center">
+      <div className="px-3 py-2 text-xs text-gray-400 italic h-9 flex items-center">
         A determiner
       </div>
     );

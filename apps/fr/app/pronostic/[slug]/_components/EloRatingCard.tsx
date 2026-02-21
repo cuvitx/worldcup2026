@@ -9,13 +9,13 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
   const eloPercent = Math.min(100, Math.max(0, ((eloRating - eloMin) / (eloMax - eloMin)) * 100));
 
   return (
-    <section className="rounded-lg bg-white dark:bg-slate-800 p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Rating ELO de {teamName}</h2>
+    <section className="rounded-lg bg-whiteslate-800 p-6 shadow-sm">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Rating ELO de {teamName}</h2>
       <div className="flex items-end gap-4 mb-4">
         <p className="text-3xl font-extrabold text-primary sm:text-5xl">{eloRating}</p>
         <p className="text-sm text-gray-500 pb-1">points ELO</p>
       </div>
-      <div className="relative h-4 rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
+      <div className="relative h-4 rounded-full bg-gray-200slate-700 overflow-hidden">
         <div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{

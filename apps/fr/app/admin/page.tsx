@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
+
 "use client"
 
 import { useSearchParams, useRouter } from "next/navigation"
 import { useEffect, useState, Suspense } from "react"
 import { Flag, MapPin, Users, FileText } from "lucide-react"
 import { Breadcrumb } from "@repo/ui/breadcrumb";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://cdm2026.fr/admin" },
+};
 
 const SECRET = "cdm2026-admin-secret"
 
@@ -68,10 +74,10 @@ function AdminContent() {
                     "label": "Admin"
           }
 ]} />
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 p-4 md:p-8">
+    <div className="min-h-screen bg-gray-100gray-950 text-gray-900 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Banner */}
-        <div className="bg-accent/10 dark:bg-accent/10 border border-accent/30 dark:border-accent/20 rounded-xl px-6 py-4 text-center font-semibold text-accent dark:text-accent">
+        <div className="bg-accent/10accent/10 border border-accent/30 rounded-xl px-6 py-4 text-center font-semibold text-accent">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Page admin — accès restreint
         </div>
 
@@ -80,11 +86,11 @@ function AdminContent() {
         </h1>
 
         {/* Brand Book */}
-        <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Brand Book</h2>
+        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Brand Book</h2>
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Palette</h3>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Palette</h3>
               <div className="flex flex-wrap gap-3">
                 {colors.map((c) => (
                   <div key={c.hex} className="flex flex-col items-center gap-1">
@@ -96,7 +102,7 @@ function AdminContent() {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Typographie</h3>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Typographie</h3>
               <div className="flex flex-wrap gap-6">
                 <div>
                   <p className="font-[family-name:var(--font-montserrat)] text-2xl font-bold">Montserrat</p>
@@ -112,24 +118,24 @@ function AdminContent() {
         </section>
 
         {/* Stats */}
-        <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Stats du projet</h2>
+        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Stats du projet</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {statsData.map((s) => (
-              <div key={s.label} className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 text-center">
+              <div key={s.label} className="bg-gray-50slate-800 rounded-lg p-4 text-center">
                 <div className="flex justify-center mb-1">
                   {s.Icon ? <s.Icon className="w-6 h-6" /> : <div className="h-6" />}
                 </div>
                 <div className="text-2xl font-bold">{s.value}</div>
-                <div className="text-sm text-gray-500 dark:text-gray-300">{s.label}</div>
+                <div className="text-sm text-gray-500">{s.label}</div>
               </div>
             ))}
           </div>
         </section>
 
         {/* Liens utiles */}
-        <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Liens utiles</h2>
+        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Liens utiles</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {links.map((l) => (
               <a
@@ -137,7 +143,7 @@ function AdminContent() {
                 href={l.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gray-50 dark:bg-slate-800 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="flex items-center gap-2 bg-gray-50slate-800 rounded-lg p-3 hover:bg-gray-100 transition-colors"
               >
                 <span className="font-medium">{l.name}</span>
               </a>
@@ -146,12 +152,12 @@ function AdminContent() {
         </section>
 
         {/* Checklist */}
-        <section className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Checklist pré-lancement</h2>
+        <section className="bg-whiteslate-900 rounded-xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Checklist pré-lancement</h2>
           <ul className="space-y-2">
             {checklist.map((item) => (
               <li key={item.task} className="flex items-center gap-3">
-                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15 dark:bg-accent/10 text-accent dark:text-accent" : "bg-gray-100 dark:bg-slate-800 text-gray-400"}`}>
+                <span className={`w-5 h-5 rounded flex items-center justify-center text-xs ${item.done ? "bg-accent/15accent/10 text-accent" : "bg-gray-100slate-800 text-gray-400"}`}>
                   {item.done ? "✓" : "○"}
                 </span>
                 <span className={item.done ? "line-through text-gray-400" : ""}>{item.task}</span>

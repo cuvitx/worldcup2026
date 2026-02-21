@@ -9,6 +9,7 @@ import { ConfettiParticles } from "./ConfettiParticles";
 import { ProgressBar } from "./ProgressBar";
 import { DesktopBracket } from "./DesktopBracket";
 import { MobileBracket } from "./MobileBracket";
+import { RefreshCw } from "lucide-react"
 
 // ---------------------------------------------------------------------------
 // Main component
@@ -147,12 +148,12 @@ export function BracketSimulator() {
           </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800 p-5 text-center">
+        <div className="rounded-xl border border-gray-200 bg-gray-50slate-800 p-5 text-center">
           <p className="text-2xl mb-2"></p>
-          <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+          <p className="text-sm font-semibold text-gray-700">
             Sélectionnez les vainqueurs pour simuler le tournoi
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
+          <p className="text-xs text-gray-500 mt-1">
             Cliquez sur une équipe pour la qualifier au tour suivant
           </p>
         </div>
@@ -165,9 +166,9 @@ export function BracketSimulator() {
         </div>
         <button
           onClick={reset}
-          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 transition-all"
+          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 bg-whiteslate-800 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition-all"
         >
-          🔄 Réinitialiser
+          <RefreshCw className="h-5 w-5 inline-block" /> Réinitialiser
         </button>
       </div>
 

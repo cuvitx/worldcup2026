@@ -107,12 +107,12 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
   const reset = () => { setTeam(""); setGroup(""); setStadium(""); setPhase(""); };
 
-  const selectClass = "rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-primary/20 focus:ring-1 focus:ring-primary outline-none";
+  const selectClass = "rounded-lg border border-gray-300 bg-whiteslate-800 px-3 py-2 text-sm text-gray-700 focus:border-primary/20 focus:ring-1 focus:ring-primary outline-none";
 
   return (
     <>
       {/* Filters */}
-      <section className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-slate-800 py-4">
+      <section className="border-b border-gray-200 bg-gray-50slate-800 py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 sm:gap-3">
             <select value={team} onChange={(e) => setTeam(e.target.value)} className={selectClass + " col-span-2 sm:col-span-1"}>
@@ -146,7 +146,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
             {hasFilters && (
               <button
                 onClick={reset}
-                className="col-span-2 sm:col-span-1 rounded-lg bg-gray-200 dark:bg-gray-700 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                className="col-span-2 sm:col-span-1 rounded-lg bg-gray-200gray-700 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 transition-colors"
               >
                 ✕ Réinitialiser
               </button>
@@ -161,14 +161,14 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       </section>
 
       {/* Quick nav */}
-      <section className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 py-4 sticky top-0 z-10">
+      <section className="border-b border-gray-200 bg-whiteslate-900 py-4 sticky top-0 z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
             {Array.from(matchesByStage.entries()).map(([stage, sm]) => (
               <a
                 key={stage}
                 href={`#${stage}`}
-                className="shrink-0 rounded-full bg-gray-100 dark:bg-slate-800 px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
+                className="shrink-0 rounded-full bg-gray-100slate-800 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {stageLabels[stage]} ({sm.length})
               </a>
@@ -192,13 +192,13 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
 
             return (
               <section key={stage} id={stage}>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   {stageLabels[stage]}
                 </h2>
                 <div className="space-y-6">
                   {Array.from(byDate.entries()).map(([date, dateMatches], idx) => (
-                    <div key={date} className={idx > 0 ? "border-t border-gray-100 dark:border-slate-700 pt-4" : ""}>
-                      <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
+                    <div key={date} className={idx > 0 ? "border-t border-gray-100 pt-4" : ""}>
+                      <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
                         {new Date(date).toLocaleDateString("fr-FR", {
                           weekday: "long",
                           day: "numeric",

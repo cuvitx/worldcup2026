@@ -22,7 +22,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   secondary:
     "bg-transparent text-secondary border border-secondary hover:bg-[rgba(46,196,182,0.08)] hover:-translate-y-px",
   outline:
-    "bg-transparent text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 hover:-translate-y-px",
+    "bg-transparent text-gray-900 border border-gray-300 hover:bg-gray-100 hover:-translate-y-px",
   ghost:
     "bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/[0.18] hover:-translate-y-px",
   cta:

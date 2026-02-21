@@ -127,17 +127,17 @@ export default function CarteSimUsaPage() {
 
       {/* eSIM vs Physical */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Smartphone className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           eSIM vs carte SIM physique
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-[#00B865] bg-green-50 dark:bg-green-900/20 p-6">
+          <div className="rounded-2xl border border-[#00B865] bg-green-50green-900/20 p-6">
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
               <Zap className="w-5 h-5 text-[#00B865]" />
               eSIM (recommandé)
             </h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-gray-700">
               <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />Activation instantanée depuis la France</li>
               <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />Gardez votre SIM française en parallèle</li>
               <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />Pas de déplacement en boutique</li>
@@ -146,12 +146,12 @@ export default function CarteSimUsaPage() {
               <li className="flex gap-2"><XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />Nécessite un téléphone compatible</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-6">
+          <div className="rounded-2xl border border-gray-200 bg-whiteslate-800 p-6">
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
               <Signal className="w-5 h-5 text-[#D4AF37]" />
               Carte SIM physique
             </h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-gray-700">
               <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />Numéro US pour appels/SMS locaux</li>
               <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />Compatible tous téléphones débloqués</li>
               <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />Souvent plus de data incluse</li>
@@ -165,7 +165,7 @@ export default function CarteSimUsaPage() {
 
       {/* Comparison cards */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Globe className="inline-block w-6 h-6 mr-2 text-[#D4AF37]" />
           Comparatif des solutions
         </h2>
@@ -173,18 +173,18 @@ export default function CarteSimUsaPage() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl border bg-white dark:bg-slate-800 p-6 ${plan.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200 dark:border-gray-700"}`}
+              className={`rounded-2xl border bg-whiteslate-800 p-6 ${plan.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200"}`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-lg">{plan.name}</h3>
-                  <span className="text-xs bg-gray-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">{plan.type}</span>
+                  <span className="text-xs bg-gray-100slate-700 px-2 py-0.5 rounded-full">{plan.type}</span>
                 </div>
                 {plan.recommended && (
                   <span className="bg-[#00B865] text-white text-xs font-semibold px-2 py-1 rounded-full">Recommandé</span>
                 )}
               </div>
-              <p className="text-xl font-extrabold text-[#022149] dark:text-white mb-3">{plan.price}</p>
+              <p className="text-xl font-extrabold text-[#022149] mb-3">{plan.price}</p>
               <div className="grid grid-cols-2 gap-2 text-sm mb-4">
                 <div><span className="text-gray-500">Data :</span> <strong>{plan.data}</strong></div>
                 <div><span className="text-gray-500">Durée :</span> <strong>{plan.duration}</strong></div>
@@ -193,12 +193,12 @@ export default function CarteSimUsaPage() {
               </div>
               <div className="space-y-1 text-sm mb-4">
                 {plan.pros.map((p) => (
-                  <div key={p} className="flex gap-1.5 text-gray-600 dark:text-gray-300">
+                  <div key={p} className="flex gap-1.5 text-gray-600">
                     <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />{p}
                   </div>
                 ))}
                 {plan.cons.map((c) => (
-                  <div key={c} className="flex gap-1.5 text-gray-600 dark:text-gray-300">
+                  <div key={c} className="flex gap-1.5 text-gray-600">
                     <XCircle className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />{c}
                   </div>
                 ))}
@@ -219,11 +219,11 @@ export default function CarteSimUsaPage() {
 
       {/* Stadium coverage */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Wifi className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Couverture dans les stades
         </h2>
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg max-w-none">
           <p>
             Tous les stades de la Coupe du Monde 2026 sont équipés de systèmes d&apos;antennes distribuées (DAS) conçus
             pour gérer 60 000 à 80 000 connexions simultanées. Cependant, pendant les moments forts des matchs

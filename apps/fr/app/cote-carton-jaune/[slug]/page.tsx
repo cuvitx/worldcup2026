@@ -3,10 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { ShieldAlert, TrendingUp, BarChart3, ArrowRight, ExternalLink, AlertTriangle, History } from "lucide-react";
+import { AlertTriangle, ArrowRight, BarChart3, ExternalLink, History, ShieldAlert, Swords, TrendingUp, Trophy, User } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
 
+import { ANJBanner } from "@repo/ui/anj-banner";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -123,7 +124,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
         {/* Profil disciplinaire */}
         <div className={`rounded-xl p-6 mb-8 ${stats.isRough ? "bg-gradient-to-r from-yellow-50 to-red-50 border border-yellow-200" : "bg-gradient-to-r from-green-50 to-blue-50 border border-green-200"}`}>
           <h3 className="text-xl font-bold text-primary mb-2">
-            Profil : {stats.isRough ? "🟡 Joueur rugueux" : "✅ Joueur fair-play"}
+            Profil : {stats.isRough ? " Joueur rugueux" : " Joueur fair-play"}
           </h3>
           <p className="text-gray-700">
             {stats.isRough
@@ -225,15 +226,15 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="bg-white rounded-xl border border-gray-200 p-5">
-            <h3 className="font-bold text-primary mb-2">⚔️ Adversaire</h3>
+            <h3 className="font-bold text-primary mb-2"><Swords className="h-5 w-5 inline-block" /> Adversaire</h3>
             <p className="text-sm text-gray-600">Les équipes combatives (Australie, Corée du Sud, Uruguay) génèrent plus de fautes et de cartons. Le style de jeu adverse influe directement sur la probabilité de sanction.</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5">
-            <h3 className="font-bold text-primary mb-2">🏆 Enjeu du match</h3>
+            <h3 className="font-bold text-primary mb-2"><Trophy className="h-5 w-5 inline-block" /> Enjeu du match</h3>
             <p className="text-sm text-gray-600">Les matchs à élimination directe et les derbys génèrent plus de tension. Phase de groupes = moins de cartons en moyenne que les 8es ou quarts de finale.</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5">
-            <h3 className="font-bold text-primary mb-2">👨‍⚖️ Arbitre</h3>
+            <h3 className="font-bold text-primary mb-2"><User className="h-5 w-5 inline-block" />‍⚖️ Arbitre</h3>
             <p className="text-sm text-gray-600">Certains arbitres distribuent 4-5 cartons par match, d&apos;autres 2-3. Vérifiez la désignation arbitrale pour affiner votre analyse avant de parier.</p>
           </div>
         </div>
@@ -257,8 +258,9 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
               Unibet <ExternalLink className="w-4 h-4" />
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-4">18+ | Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).</p>
+          <p className="text-xs text-gray-400 mt-4"></p>
         </div>
+        <ANJBanner />
       </section>
 
       {/* Related */}

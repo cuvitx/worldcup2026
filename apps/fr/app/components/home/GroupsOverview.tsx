@@ -14,7 +14,7 @@ interface GroupsOverviewProps {
 
 export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
   return (
-    <section className="bg-gray-50 dark:bg-slate-900/60 py-16">
+    <section className="bg-gray-50slate-900/60 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
@@ -38,7 +38,7 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
               <Link
                 key={group.slug}
                 href={`/groupe/${group.slug}`}
-                className="group block rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:-translate-y-1.5 transition-all duration-300"
+                className="group block rounded-2xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-primary to-deep">
                   <span className="text-xs font-black text-accent">
@@ -49,17 +49,17 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
                   </span>
                 </div>
 
-                <div className="divide-y divide-gray-50 dark:divide-gray-700/30 py-1">
+                <div className="divide-y divide-gray-50 py-1">
                   {groupTeams.map((team, i) => (
                     <div
                       key={team.id}
                       className={`flex items-center gap-2 px-3 py-1.5 ${
                         i < 2
-                          ? "text-gray-900 dark:text-gray-100"
-                          : "text-gray-400 dark:text-gray-400"
+                          ? "text-gray-900"
+                          : "text-gray-400"
                       }`}
                     >
-                      <span className="text-xs text-gray-500 dark:text-gray-600 w-3 shrink-0 font-bold">
+                      <span className="text-xs text-gray-500 w-3 shrink-0 font-bold">
                         {i + 1}
                       </span>
                       <span className="text-sm shrink-0" role="img" aria-label={team.name}>

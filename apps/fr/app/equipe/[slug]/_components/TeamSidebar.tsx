@@ -39,8 +39,8 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
         const labels: Record<string, string> = { V: "Victoire", N: "Nul", D: "Défaite" };
         return (
           <Card hover padding="md">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Forme récente</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-300 mb-3">5 derniers matchs</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Forme récente</h3>
+            <p className="text-sm text-gray-500 mb-3">5 derniers matchs</p>
             <div className="flex gap-2">
               {form.map((r, i) => (
                 <span key={i} title={labels[r]} className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold text-white ${colors[r]}`}>{r}</span>
@@ -67,12 +67,12 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
           .sort((a, b) => b.pts - a.pts || b.gd - a.gd);
         return (
           <Card hover padding="md">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary dark:text-secondary hover:underline">Groupe {team.group}</Link>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <Link href={`/groupe/${team.group.toLowerCase()}`} className="text-primary hover:underline">Groupe {team.group}</Link>
             </h3>
             <div className="overflow-x-auto"><table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 dark:bg-slate-700/50 text-xs uppercase text-gray-500dark:bg-slate-800 text-gray-500 text-xs">
+                <tr className="bg-gray-50slate-700/50 text-xs uppercase text-gray-500 text-gray-500 text-xs">
                   <th className="py-2 px-2 text-left">#</th>
                   <th className="py-2 px-2 text-left">Équipe</th>
                   <th className="py-2 px-2 text-center">Pts</th>
@@ -81,9 +81,9 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
               </thead>
               <tbody>
                 {standings.map((row, idx) => (
-                  <tr key={row.team.id} className={`border-b border-gray-100 dark:border-gray-800 ${row.team.id === team.id ? "bg-primary/5 font-bold" : ""}`}>
+                  <tr key={row.team.id} className={`border-b border-gray-100 ${row.team.id === team.id ? "bg-primary/5 font-bold" : ""}`}>
                     <td className="py-2">
-                      <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent" : "bg-gray-100 text-gray-500 dark:bg-slate-800"}`}>{idx + 1}</span>
+                      <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${idx < 2 ? "bg-accent/10 text-accentaccent/20" : "bg-gray-100 text-gray-500slate-800"}`}>{idx + 1}</span>
                     </td>
                     <td className="py-2">
                       <Link href={`/equipe/${row.team.slug}`} className="hover:text-primary flex items-center gap-1">
@@ -108,7 +108,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
 
       {/* Quick Stats */}
       <Card hover padding="md">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Fiche technique</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche technique</h3>
         <dl className="space-y-3 text-sm">
           <DataRow label="Code FIFA" value={team.code} />
           <DataRow label="Confederation" value={team.confederation} />
@@ -122,7 +122,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       {/* Live Form & Stats */}
       {(enriched?.form || enriched?.goalStats) && (
         <Card hover padding="md">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Forme actuelle</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Forme actuelle</h3>
           {enriched?.form && (
             <div className="mb-3">
               <p className="text-sm text-gray-500 mb-1">5 derniers matchs</p>
@@ -137,15 +137,15 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
           )}
           {enriched?.goalStats && (
             <div className="grid grid-cols-3 gap-2 text-center text-sm">
-              <div className="rounded bg-gray-50 dark:bg-slate-700 p-2">
+              <div className="rounded bg-gray-50slate-700 p-2">
                 <p className="text-lg font-bold text-field">{enriched?.goalStats.scored}</p>
                 <p className="text-xs text-gray-500">Buts marques</p>
               </div>
-              <div className="rounded bg-gray-50 dark:bg-slate-700 p-2">
+              <div className="rounded bg-gray-50slate-700 p-2">
                 <p className="text-lg font-bold text-red-500">{enriched?.goalStats.conceded}</p>
                 <p className="text-xs text-gray-500">Buts encaisses</p>
               </div>
-              <div className="rounded bg-gray-50 dark:bg-slate-700 p-2">
+              <div className="rounded bg-gray-50slate-700 p-2">
                 <p className="text-lg font-bold text-primary">{enriched?.goalStats.cleanSheets}</p>
                 <p className="text-xs text-gray-500">Clean sheets</p>
               </div>
@@ -157,7 +157,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       {/* Injuries */}
       {(enriched?.injuries?.length ?? 0) > 0 && (
         <Card hover padding="md">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Blessures</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Blessures</h3>
           <ul className="space-y-2">
             {enriched?.injuries?.map((inj) => (
               <li key={inj.player} className="flex items-center gap-2 text-sm">
@@ -172,7 +172,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
 
       {/* CTA Betting */}
       <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Pronostic {team.name}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Pronostic {team.name}</h3>
         {prediction ? (
           <div className="space-y-3">
             <dl className="space-y-3 text-sm">
@@ -206,7 +206,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
 
       {/* Related Teams */}
       <Card hover padding="md">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Équipes du groupe {team.group}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipes du groupe {team.group}</h3>
         <ul className="space-y-2">
           {groupTeams.map((t) => (
             <li key={t.id}>

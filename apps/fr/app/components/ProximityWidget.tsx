@@ -160,8 +160,8 @@ export function ProximityWidget({
   const links = getProximityLinks(currentPath, team1, team2, player);
 
   return (
-    <div className="bg-gray-50 dark:bg-slate-800 rounded-xl p-6">
-      <p className="text-sm font-semibold text-[#022149] dark:text-white mb-4">
+    <div className="bg-gray-50slate-800 rounded-xl p-6">
+      <p className="text-sm font-semibold text-[#022149] mb-4">
         Les visiteurs ont aussi consulté
       </p>
       <div className="grid gap-3 sm:grid-cols-3">
@@ -169,13 +169,13 @@ export function ProximityWidget({
           <Link
             key={link.href}
             href={link.href}
-            className="group flex flex-col gap-1 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-[#00B865] transition-colors"
+            className="group flex flex-col gap-1 rounded-lg border border-gray-200 bg-whiteslate-900 p-4 hover:border-[#00B865] transition-colors"
           >
-            <span className="text-sm font-medium text-[#022149] dark:text-white group-hover:text-[#00B865] transition-colors flex items-center gap-1">
+            <span className="text-sm font-medium text-[#022149] group-hover:text-[#00B865] transition-colors flex items-center gap-1">
               {link.label}
               <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-gray-500">
               {link.description}
             </span>
           </Link>

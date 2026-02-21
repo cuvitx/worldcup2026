@@ -120,10 +120,10 @@ export default function HistoirePage() {
         <div>
         {/* Intro */}
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <h2 id="timeline" className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 id="timeline" className="text-2xl font-bold text-gray-900 mb-3">
             Une timeline de légendes
           </h2>
-          <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">
+          <p className="text-gray-500 text-sm leading-relaxed">
             De Pelé à Maradona, de Zidane à Messi, chaque édition a produit ses propres héros et moments mythiques.
             Découvrez l&apos;histoire complète du tournoi le plus regardé de la planète.
           </p>
@@ -145,14 +145,14 @@ export default function HistoirePage() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-4 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
+              className="flex items-center gap-4 bg-whiteslate-800 rounded-xl border border-gray-100 p-4 shadow-sm hover:border-primary/30 hover:shadow-md transition-all group"
             >
               <span className="text-3xl flex-shrink-0">{icon}</span>
               <div>
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                <div className="font-bold text-gray-900 group-hover:text-primary transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-300">{desc}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </div>
             </Link>
           ))}
@@ -173,9 +173,9 @@ export default function HistoirePage() {
           },
           {
             href: "/statistiques",
-            title: "📊 Statistiques avancées",
+            title: " Statistiques avancées",
             description: "Records, performances historiques et analyses statistiques de la Coupe du Monde.",
-            icon: "📊"
+            icon: ""
           },
           {
             href: "/equipes",
@@ -186,7 +186,7 @@ export default function HistoirePage() {
         ]}
       />
 
-      <FAQSection title="❓ Questions sur l'histoire de la CDM" items={faqItems} />
+      <FAQSection title=" Questions sur l'histoire de la CDM" items={faqItems} />
 
       {/* Schema.org */}
       <script

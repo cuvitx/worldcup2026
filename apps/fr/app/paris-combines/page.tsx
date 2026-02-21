@@ -156,14 +156,14 @@ export default function ParisCombinaPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Types */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <Layers className="h-7 w-7 text-accent" /> Types de paris combinés
           </h2>
           <div className="space-y-4">
             {types.map((t) => (
-              <div key={t.nom} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-                <h3 className="font-bold text-gray-900 dark:text-white text-lg">{t.nom}</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">{t.description}</p>
+              <div key={t.nom} className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+                <h3 className="font-bold text-gray-900 text-lg">{t.nom}</h3>
+                <p className="text-sm text-gray-700 mt-1">{t.description}</p>
                 <p className="text-xs text-accent bg-accent/5 rounded-lg p-2 mt-2">
                   <Calculator className="inline h-3 w-3 mr-1" /> {t.exemple}
                 </p>
@@ -174,16 +174,16 @@ export default function ParisCombinaPage() {
 
         {/* Exemples */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
             <Calculator className="h-7 w-7 text-accent" /> 5 exemples de combinés CDM 2026
           </h2>
           <div className="space-y-4">
             {exemples.map((e) => (
-              <div key={e.titre} className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-                <h3 className="font-bold text-gray-900 dark:text-white">{e.titre}</h3>
+              <div key={e.titre} className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5">
+                <h3 className="font-bold text-gray-900">{e.titre}</h3>
                 <ul className="mt-2 space-y-1">
                   {e.selections.map((s, i) => (
-                    <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+                    <li key={i} className="text-sm text-gray-600 flex gap-2">
                       <span className="text-accent">→</span> {s}
                     </li>
                   ))}
@@ -191,9 +191,9 @@ export default function ParisCombinaPage() {
                 <div className="flex flex-wrap gap-4 mt-3 text-sm">
                   <span className="text-accent font-semibold">Cote : {e.cote}</span>
                   <span>Mise : {e.mise}</span>
-                  <span className="font-bold text-green-600 dark:text-green-400">Gain : {e.gain}</span>
+                  <span className="font-bold text-green-600">Gain : {e.gain}</span>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 italic">{e.analyse}</p>
+                <p className="text-xs text-gray-500 mt-2 italic">{e.analyse}</p>
               </div>
             ))}
           </div>
@@ -202,13 +202,13 @@ export default function ParisCombinaPage() {
         {/* Avantages / Risques */}
         <div className="grid gap-6 sm:grid-cols-2">
           <section>
-            <h2 className="text-xl font-bold text-primary dark:text-white mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
               <CheckCircle className="h-6 w-6 text-green-500" /> Avantages
             </h2>
-            <div className="rounded-xl border border-green-200 dark:border-green-900/30 bg-green-50 dark:bg-green-900/10 p-5">
+            <div className="rounded-xl border border-green-200 bg-green-50green-900/10 p-5">
               <ul className="space-y-2">
                 {avantages.map((a, i) => (
-                  <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex gap-2">
+                  <li key={i} className="text-sm text-gray-700 flex gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> {a}
                   </li>
                 ))}
@@ -216,13 +216,13 @@ export default function ParisCombinaPage() {
             </div>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-primary dark:text-white mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
               <XCircle className="h-6 w-6 text-red-500" /> Risques
             </h2>
-            <div className="rounded-xl border border-red-200 dark:border-red-900/30 bg-red-50 dark:bg-red-900/10 p-5">
+            <div className="rounded-xl border border-red-200 bg-red-50red-900/10 p-5">
               <ul className="space-y-2">
                 {risques.map((r, i) => (
-                  <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex gap-2">
+                  <li key={i} className="text-sm text-gray-700 flex gap-2">
                     <XCircle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" /> {r}
                   </li>
                 ))}
@@ -233,7 +233,7 @@ export default function ParisCombinaPage() {
 
         {/* Bookmakers */}
         <section>
-          <h2 className="text-2xl font-bold text-primary dark:text-white mb-4 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
             <Layers className="h-7 w-7 text-accent" /> Meilleurs bookmakers pour les combinés
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -243,12 +243,12 @@ export default function ParisCombinaPage() {
                 href={b.url}
                 target="_blank"
                 rel="noopener noreferrer nofollow sponsored"
-                className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all block"
+                className="rounded-xl border border-gray-200 bg-whiteslate-800 p-5 hover:border-accent/50 hover:shadow-md transition-all block"
               >
-                <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2">
                   {b.nom} <ExternalLink className="h-4 w-4 text-gray-400" />
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{b.avantage}</p>
+                <p className="text-sm text-gray-600 mt-1">{b.avantage}</p>
               </a>
             ))}
           </div>

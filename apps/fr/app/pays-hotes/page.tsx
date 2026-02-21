@@ -83,16 +83,16 @@ export default function PaysHotesPage() {
         <div>
           {/* Intro */}
           <div className="mb-12">
-            <h2 id="introduction" className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 id="introduction" className="text-2xl font-bold text-gray-900 mb-4">
               Une organisation continentale historique
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               La Coupe du Monde 2026 sera la première édition organisée conjointement par trois pays :
               les <strong>États-Unis</strong>, le <strong>Canada</strong> et le <strong>Mexique</strong>.
               C'est également la première fois qu'un Mondial se déroule avec 48 équipes et 104 matchs,
               faisant de cette édition la plus grande de l'histoire.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+            <p className="text-gray-700 mb-3 leading-relaxed">
               Les États-Unis accueilleront la majorité des rencontres (60 matchs, dont tous les quarts de finale et au-delà),
               tandis que le Canada et le Mexique organiseront chacun 10 matchs de phases de groupes et huitièmes de finale.
               La <strong>finale</strong> se jouera au mythique <strong>MetLife Stadium</strong> de New York/New Jersey le <strong>19 juillet 2026</strong>.
@@ -101,43 +101,43 @@ export default function PaysHotesPage() {
 
           {/* Les 3 pays hôtes */}
           <div className="mb-12">
-            <h2 id="pays-hotes" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="pays-hotes" className="text-2xl font-bold text-gray-900 mb-6">
               Les trois pays hôtes
             </h2>
 
             <div className="space-y-6">
               {/* États-Unis */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-5xl">🇺🇸</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
                       États-Unis
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600">
                       Hôte principal · 60 matchs · Quarts, demi-finales et finale
                     </p>
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Population</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">335 millions d'habitants</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Population</span>
+                    <p className="text-sm text-gray-900 font-medium">335 millions d'habitants</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Monnaie</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">Dollar américain (USD, $)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Monnaie</span>
+                    <p className="text-sm text-gray-900 font-medium">Dollar américain (USD, $)</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Villes hôtes</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">11 villes</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Villes hôtes</span>
+                    <p className="text-sm text-gray-900 font-medium">11 villes</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Visa</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">ESTA ($21, en ligne)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Visa</span>
+                    <p className="text-sm text-gray-900 font-medium">ESTA ($21, en ligne)</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   Les États-Unis accueillent la Coupe du Monde pour la deuxième fois après 1994 (finale au Rose Bowl de Pasadena).
                   Le pays dispose des infrastructures les plus développées avec des stades NFL ultramodernes pouvant accueillir
                   plus de 70 000 spectateurs. Les villes américaines incluent New York/New Jersey (finale), Los Angeles, Miami,
@@ -146,37 +146,37 @@ export default function PaysHotesPage() {
               </div>
 
               {/* Canada */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-5xl">🇨🇦</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
                       Canada
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600">
                       Co-organisateur · 10 matchs · Phase de groupes et huitièmes
                     </p>
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Population</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">39 millions d'habitants</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Population</span>
+                    <p className="text-sm text-gray-900 font-medium">39 millions d'habitants</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Monnaie</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">Dollar canadien (CAD, $)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Monnaie</span>
+                    <p className="text-sm text-gray-900 font-medium">Dollar canadien (CAD, $)</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Villes hôtes</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">2 villes (Toronto, Vancouver)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Villes hôtes</span>
+                    <p className="text-sm text-gray-900 font-medium">2 villes (Toronto, Vancouver)</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Visa</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">AVE ($7 CAD, en ligne)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Visa</span>
+                    <p className="text-sm text-gray-900 font-medium">AVE ($7 CAD, en ligne)</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   Le Canada organise la Coupe du Monde pour la première fois de son histoire. Les deux villes hôtes,
                   Toronto (BMO Field) et Vancouver (BC Place), offrent une expérience cosmopolite unique avec des infrastructures
                   de qualité. Le Canada est également qualifié pour le tournoi, une première depuis 1986.
@@ -184,37 +184,37 @@ export default function PaysHotesPage() {
               </div>
 
               {/* Mexique */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-6 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-5xl">🇲🇽</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
                       Mexique
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600">
                       Co-organisateur · 10 matchs · Phase de groupes et huitièmes · Match d'ouverture
                     </p>
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Population</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">128 millions d'habitants</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Population</span>
+                    <p className="text-sm text-gray-900 font-medium">128 millions d'habitants</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Monnaie</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">Peso mexicain (MXN, $)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Monnaie</span>
+                    <p className="text-sm text-gray-900 font-medium">Peso mexicain (MXN, $)</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Villes hôtes</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">3 villes</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Villes hôtes</span>
+                    <p className="text-sm text-gray-900 font-medium">3 villes</p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Visa</span>
-                    <p className="text-sm text-gray-900 dark:text-white font-medium">Pas de visa (séjour &lt; 180 jours)</p>
+                    <span className="text-xs font-semibold text-gray-500 uppercase">Visa</span>
+                    <p className="text-sm text-gray-900 font-medium">Pas de visa (séjour &lt; 180 jours)</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   Le Mexique devient le premier pays à organiser trois Coupes du Monde (1970, 1986, 2026).
                   Le mythique <strong>Estadio Azteca</strong> de Mexico City, qui a vu les sacres de Pelé (1970) et Maradona (1986),
                   accueillera le <strong>match d'ouverture</strong> le 11 juin 2026. Les deux autres villes sont Guadalajara et Monterrey.
@@ -226,17 +226,17 @@ export default function PaysHotesPage() {
 
           {/* Infos pratiques */}
           <div className="mb-12">
-            <h2 id="infos-pratiques" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 id="infos-pratiques" className="text-2xl font-bold text-gray-900 mb-6">
               Infos pratiques pour voyager
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <FileText className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Visa & Documents</h3>
+                  <h3 className="font-bold text-gray-900">Visa & Documents</h3>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>USA :</strong> ESTA obligatoire ($21, valable 2 ans) — demande en ligne sur <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener" className="text-accent hover:underline">esta.cbp.dhs.gov</a></span>
@@ -256,12 +256,12 @@ export default function PaysHotesPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Décalage horaire</h3>
+                  <h3 className="font-bold text-gray-900">Décalage horaire</h3>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>New York / Toronto :</strong> -6h (France 18h = 12h local)</span>
@@ -281,12 +281,12 @@ export default function PaysHotesPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Plane className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Transport</h3>
+                  <h3 className="font-bold text-gray-900">Transport</h3>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>Avion :</strong> Paris → New York (~8h), Paris → Los Angeles (~11h)</span>
@@ -306,12 +306,12 @@ export default function PaysHotesPage() {
                 </ul>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm">
+              <div className="bg-whiteslate-800 rounded-xl border border-gray-200 p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <DollarSign className="w-6 h-6 text-accent" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">Budget & Monnaie</h3>
+                  <h3 className="font-bold text-gray-900">Budget & Monnaie</h3>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
                     <span><strong>Budget jour :</strong> ~100-150 USD (repas + transport local)</span>
@@ -337,31 +337,31 @@ export default function PaysHotesPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <MapPin className="w-7 h-7 text-accent" />
-              <h2 id="villes-hotes" className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 id="villes-hotes" className="text-2xl font-bold text-gray-900">
                 Les 16 villes hôtes
               </h2>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden shadow-sm">
+            <div className="bg-whiteslate-800 rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 dark:bg-slate-900">
+                  <thead className="bg-gray-50slate-900">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Ville
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Pays
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Stade
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
                         Matchs
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-slate-700">
+                  <tbody className="divide-y divide-gray-200">
                     {[
                       { ville: "New York/New Jersey", pays: "🇺🇸 USA", stade: "MetLife Stadium", matchs: "Finale + 7 autres" },
                       { ville: "Los Angeles", pays: "🇺🇸 USA", stade: "SoFi Stadium", matchs: "8 matchs" },
@@ -380,17 +380,17 @@ export default function PaysHotesPage() {
                       { ville: "Toronto", pays: "🇨🇦 Canada", stade: "BMO Field", matchs: "6 matchs" },
                       { ville: "Vancouver", pays: "🇨🇦 Canada", stade: "BC Place", matchs: "7 matchs" },
                     ].map((row, idx) => (
-                      <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
-                        <td className="px-4 py-3 whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                      <tr key={idx} className="hover:bg-gray-50 transition-colors">
+                        <td className="px-4 py-3 whitespace-nowrap font-medium text-gray-900">
                           {row.ville}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
                           {row.pays}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">
                           {row.stade}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
                           {row.matchs}
                         </td>
                       </tr>
@@ -411,12 +411,12 @@ export default function PaysHotesPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col gap-2 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
+                className="flex flex-col gap-2 bg-whiteslate-800 rounded-xl border border-gray-200 p-4 shadow-sm hover:border-accent/30 hover:shadow-md transition-all group text-center"
               >
-                <div className="font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                   {label}
                 </div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">{desc}</div>
+                <div className="text-xs text-gray-600">{desc}</div>
               </Link>
             ))}
           </div>
@@ -431,11 +431,11 @@ export default function PaysHotesPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/villes", title: "Villes hôtes", description: "Guide des 16 villes de la CDM 2026", icon: "🏙️" },
-          { href: "/stades", title: "Les 16 stades", description: "Stades, capacités et matchs", icon: "🏟️" },
-          { href: "/format", title: "Format du tournoi", description: "48 équipes, 12 groupes, 104 matchs", icon: "📐" },
-          { href: "/billets", title: "Billets", description: "Acheter ses billets CDM 2026", icon: "🎟️" },
-          { href: "/guide/guide-visa-esta", title: "Guide Visa/ESTA", description: "Formalités pour voyager aux USA", icon: "📄" },
+          { href: "/villes", title: "Villes hôtes", description: "Guide des 16 villes de la CDM 2026", icon: "" },
+          { href: "/stades", title: "Les 16 stades", description: "Stades, capacités et matchs", icon: "" },
+          { href: "/format", title: "Format du tournoi", description: "48 équipes, 12 groupes, 104 matchs", icon: "" },
+          { href: "/billets", title: "Billets", description: "Acheter ses billets CDM 2026", icon: "" },
+          { href: "/guide/guide-visa-esta", title: "Guide Visa/ESTA", description: "Formalités pour voyager aux USA", icon: "" },
         ]} /></div>
       <FAQSection title="Questions sur les pays hôtes" items={faqItems} />
 

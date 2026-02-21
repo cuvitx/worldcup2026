@@ -6,6 +6,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { mockOdds, allGroups, type MatchOdds } from "./mock-odds";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
+import { ANJBanner } from "@repo/ui/anj-banner";
 function getBestOdds(match: MatchOdds) {
   const best = { home: 0, draw: 0, away: 0 };
   for (const o of match.odds) {
@@ -78,12 +79,12 @@ export default function ComparateurCotesPage() {
       />
 
       {/* Breadcrumb */}
-      <nav className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="bg-whiteslate-900 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap min-w-0">
-            <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>
+            <li><Link href="/" className="text-primary hover:underline">Accueil</Link></li>
             <li>/</li>
-            <li className="text-gray-900 dark:text-gray-100 font-medium">Comparateur de cotes</li>
+            <li className="text-gray-900 font-medium">Comparateur de cotes</li>
           </ol>
         </div>
       </nav>
@@ -112,7 +113,7 @@ export default function ComparateurCotesPage() {
             className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition ${
               selectedGroup === "all"
                 ? "bg-primary text-white"
-                : "bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                : "bg-gray-100slate-800 text-gray-700 hover:bg-gray-200"
             }`}
           >
             Tous les groupes
@@ -124,7 +125,7 @@ export default function ComparateurCotesPage() {
               className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition ${
                 selectedGroup === g
                   ? "bg-primary text-white"
-                  : "bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "bg-gray-100slate-800 text-gray-700 hover:bg-gray-200"
               }`}
             >
               Groupe {g}
@@ -137,25 +138,25 @@ export default function ComparateurCotesPage() {
           {filtered.map((match) => {
             const best = getBestOdds(match);
             return (
-              <div key={match.matchId} className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div key={match.matchId} className="bg-whiteslate-800 rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 {/* Match header */}
-                <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 dark:border-gray-600">
+                <div className="bg-gray-50gray-700 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200">
                   <div className="flex items-center gap-2 flex-wrap min-w-0">
                     <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded shrink-0">
                       Groupe {match.group}
                     </span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm break-words min-w-0">
+                    <span className="font-semibold text-gray-900 text-sm break-words min-w-0">
                       {match.homeFlag} {match.homeTeam} vs {match.awayTeam} {match.awayFlag}
                     </span>
                   </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-300 shrink-0">{match.date} 2026</span>
+                  <span className="text-xs text-gray-500 shrink-0">{match.date} 2026</span>
                 </div>
 
                 {/* Odds table */}
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="text-gray-500 dark:text-gray-300 text-xs uppercase">
+                      <tr className="text-gray-500 text-xs uppercase">
                         <th className="px-4 py-2 text-left font-medium">Bookmaker</th>
                         <th className="px-4 py-2 text-center font-medium">1 ({match.homeTeam})</th>
                         <th className="px-4 py-2 text-center font-medium">N (Nul)</th>
@@ -165,29 +166,29 @@ export default function ComparateurCotesPage() {
                     </thead>
                     <tbody>
                       {match.odds.map((o, idx) => (
-                        <tr key={o.bookmaker} className={`border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ${
-                          idx % 2 === 0 ? "bg-gray-50/50 dark:bg-slate-700/50" : "bg-white dark:bg-slate-800"
+                        <tr key={o.bookmaker} className={`border-t border-gray-100 hover:bg-gray-100 transition-colors ${
+                          idx % 2 === 0 ? "bg-gray-50/50slate-700/50" : "bg-whiteslate-800"
                         }`}>
-                          <td className="px-4 py-2.5 font-medium text-gray-900 dark:text-gray-100">
+                          <td className="px-4 py-2.5 font-medium text-gray-900">
                             <div className="flex items-center gap-2">
-                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gray-200 dark:bg-gray-600 text-xs font-bold text-gray-600 dark:text-gray-300">
+                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gray-200gray-600 text-xs font-bold text-gray-600">
                                 {o.bookmaker.charAt(0)}
                               </span>
                               {o.bookmaker}
                             </div>
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.home === best.home ? "text-accent dark:text-accent bg-accent/10 dark:bg-accent/10" : "text-gray-700 dark:text-gray-300"
+                            o.home === best.home ? "text-accent bg-accent/10accent/10" : "text-gray-700"
                           }`}>
                             {o.home.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.draw === best.draw ? "text-accent dark:text-accent bg-accent/10 dark:bg-accent/10" : "text-gray-700 dark:text-gray-300"
+                            o.draw === best.draw ? "text-accent bg-accent/10accent/10" : "text-gray-700"
                           }`}>
                             {o.draw.toFixed(2)}
                           </td>
                           <td className={`px-4 py-2.5 text-center font-mono font-semibold ${
-                            o.away === best.away ? "text-accent dark:text-accent bg-accent/10 dark:bg-accent/10" : "text-gray-700 dark:text-gray-300"
+                            o.away === best.away ? "text-accent bg-accent/10accent/10" : "text-gray-700"
                           }`}>
                             {o.away.toFixed(2)}
                           </td>
@@ -216,14 +217,15 @@ export default function ComparateurCotesPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 p-4 bg-accent//10 dark:bg-accent//10 border border-accent//30 dark:border-accent//20 rounded-lg text-sm text-accent dark:text-accent">
+        <div className="mt-8 p-4 bg-accent//10accent//10 border border-accent//30 rounded-lg text-sm text-accent">
           <p className="font-semibold mb-1">Avertissement</p>
           <p>
             Cotes indicatives, susceptibles de varier. Les cotes affichées sont fournies à titre informatif et peuvent
             évoluer à tout moment. Consultez directement le site du bookmaker pour les cotes en temps réel.
-            Jouer comporte des risques : endettement, isolement, dépendance. Appelez le 09 74 75 13 13 (appel non surtaxé).
+            
           </p>
         </div>
+        <ANJBanner />
       </main>
     </>
   );

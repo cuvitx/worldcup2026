@@ -85,21 +85,21 @@ export default function GuidesPage() {
           if (!catGuides || catGuides.length === 0) return null;
           const emoji = categoryEmojis[cat] || "";
           return (
-            <section key={cat} className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">
+            <section key={cat} className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+              <h2 className="text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2">
                 <span className="text-2xl">{emoji}</span> {categoryLabels[cat]}
               </h2>
-              <p className="mb-5 text-sm text-gray-500 dark:text-gray-300">{categoryDescriptions[cat]}</p>
+              <p className="mb-5 text-sm text-gray-500">{categoryDescriptions[cat]}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (
                   <Link
                     key={guide.id}
                     href={`/guide/${guide.slug}`}
-                    className="group rounded-xl border border-gray-200 dark:border-gray-600 p-5 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md hover:-translate-y-0.5"
+                    className="group rounded-xl border border-gray-200 p-5 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md hover:-translate-y-0.5"
                   >
                     <div className="text-3xl mb-3">{emoji}</div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 transition-colors">{guide.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-300 line-clamp-2 mb-3">{guide.intro}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 transition-colors">{guide.title}</h3>
+                    <p className="text-sm text-gray-500 line-clamp-2 mb-3">{guide.intro}</p>
                     <p className="text-sm font-bold text-primary">Lire →</p>
                   </Link>
                 ))}
@@ -109,11 +109,11 @@ export default function GuidesPage() {
         })}
 
         {/* Bookmaker reviews */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+        <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm border border-gray-100">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
             <span className="text-2xl"></span> Avis bookmakers
           </h2>
-          <p className="mb-4 text-sm text-gray-500 dark:text-gray-300">
+          <p className="mb-4 text-sm text-gray-500">
             Tests et avis détaillés des meilleurs bookmakers agréés en France.
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -121,11 +121,11 @@ export default function GuidesPage() {
               <Link
                 key={bk.id}
                 href={`/bookmaker/${bk.slug}`}
-                className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-600 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
+                className="flex items-center justify-between rounded-xl border border-gray-200 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
               >
                 <div>
-                  <p className="font-bold text-gray-900 dark:text-gray-100">{bk.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-300">{bk.tagline}</p>
+                  <p className="font-bold text-gray-900">{bk.name}</p>
+                  <p className="text-xs text-gray-500">{bk.tagline}</p>
                 </div>
                 <p className="font-bold text-field">{bk.bonus}</p>
               </Link>
@@ -134,16 +134,16 @@ export default function GuidesPage() {
         </section>
 
         {/* Cross-links */}
-        <section className="rounded-xl bg-primary/5 dark:bg-primary/10 p-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Voir aussi</h2>
+        <section className="rounded-xl bg-primary/5primary/10 p-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Voir aussi</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/paris-sportifs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/paris-sportifs" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Paris sportifs CDM 2026
             </Link>
-            <Link href="/buteurs" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/buteurs" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Cotes buteurs
             </Link>
-            <Link href="/pronostic/france" className="rounded-lg bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/pronostic/france" className="rounded-lg bg-whiteslate-800 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Pronostic France
             </Link>
           </div>

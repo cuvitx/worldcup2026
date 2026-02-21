@@ -18,8 +18,8 @@ export function RelatedContent({ items, title = 'Vous pourriez aussi aimer' }: R
   if (!items.length) return null;
 
   return (
-    <section className="mt-10 border-t border-gray-200 dark:border-gray-700/60 pt-8">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+    <section className="mt-10 border-t border-gray-200 pt-8">
+      <h2 className="text-lg font-bold text-gray-900 mb-4">
         {title}
       </h2>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -27,14 +27,14 @@ export function RelatedContent({ items, title = 'Vous pourriez aussi aimer' }: R
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-slate-800/80 px-4 py-3 transition-all hover:shadow-md hover:border-primary/30"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-whiteslate-800/80 px-4 py-3 transition-all hover:shadow-md hover:border-primary/30"
           >
             <span className="text-2xl shrink-0">{item.emoji}</span>
             <div className="min-w-0 flex-1">
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+              <h3 className="text-sm font-semibold text-gray-900 truncate">
                 {item.title}
               </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+              <p className="text-xs text-gray-500 truncate">
                 {item.description}
               </p>
             </div>

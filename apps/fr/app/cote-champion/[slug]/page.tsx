@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, estimatedOutrightOdds } from "@repo/data/affiliates";
-import { Trophy, TrendingUp, BarChart3, Target, ArrowUpDown } from "lucide-react";
+import { AlertTriangle, ArrowUpDown, BarChart3, Check, Gem, Target, TrendingUp, Trophy, X } from "lucide-react";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -32,6 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${team.flag} Cote ${team.name} Championne du Monde 2026`,
       description: `Analyse complète de la cote ${team.name} pour remporter la CDM 2026.`,
       url: `${domains.fr}/cote-champion/${team.slug}`,
+      },
+    alternates: { canonical: `https://cdm2026.fr/cote-champion/${team.slug}` },
     },
   };
 }
@@ -140,8 +142,8 @@ export default async function CoteChampionPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
             {/* Cotes actuelles */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Trophy className="h-6 w-6 text-secondary" />
                 Cote actuelle — {team.name} vainqueur CDM 2026
               </h2>
@@ -168,8 +170,8 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Évolution de la cote */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <TrendingUp className="h-6 w-6 text-secondary" />
                 Évolution de la cote
               </h2>
@@ -184,7 +186,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   <p className="text-2xl font-bold text-primary">{odds.betclic.toFixed(2)}</p>
                 </div>
               </div>
-              <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+              <p className="mt-4 text-sm text-gray-600">
                 La cote de {team.name} {parseFloat(pastOdds) > odds.betclic ? "a baissé" : "a augmenté"} depuis janvier,
                 {parseFloat(pastOdds) > odds.betclic
                   ? " ce qui indique que les bookmakers la considèrent comme plus compétitive."
@@ -193,15 +195,15 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Analyse forces/faiblesses */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <BarChart3 className="h-6 w-6 text-secondary" />
                 Analyse : Forces et faiblesses
               </h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <h3 className="font-semibold text-green-600 mb-2">✅ Forces</h3>
-                  <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="font-semibold text-green-600 mb-2"><Check className="h-5 w-5 inline-block" /> Forces</h3>
+                  <ul className="space-y-1 text-sm text-gray-600">
                     {isTopTier ? (
                       <>
                         <li>• Effectif de classe mondiale</li>
@@ -224,8 +226,8 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-red-600 mb-2">❌ Faiblesses</h3>
-                  <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="font-semibold text-red-600 mb-2"><X className="h-5 w-5 inline-block" /> Faiblesses</h3>
+                  <ul className="space-y-1 text-sm text-gray-600">
                     {isTopTier ? (
                       <>
                         <li>• Pression des attentes</li>
@@ -250,7 +252,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </div>
               {prediction && (
                 <div className="mt-6 rounded-lg bg-primary/5 p-4">
-                  <p className="font-semibold text-gray-900 dark:text-white">Parcours probable</p>
+                  <p className="font-semibold text-gray-900">Parcours probable</p>
                   <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                     <div className="text-center">
                       <p className="text-gray-500">Phase de groupes</p>
@@ -274,24 +276,24 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Comparaison favoris */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Target className="h-6 w-6 text-secondary" />
                 Comparaison avec les favoris
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-slate-700">
-                      <th className="py-3 pr-4 font-semibold text-gray-700 dark:text-gray-300">Équipe</th>
-                      <th className="py-3 pr-4 font-semibold text-gray-700 dark:text-gray-300">FIFA</th>
-                      <th className="py-3 pr-4 font-semibold text-gray-700 dark:text-gray-300">Cote</th>
-                      <th className="py-3 font-semibold text-gray-700 dark:text-gray-300">Prob.</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="py-3 pr-4 font-semibold text-gray-700">Équipe</th>
+                      <th className="py-3 pr-4 font-semibold text-gray-700">FIFA</th>
+                      <th className="py-3 pr-4 font-semibold text-gray-700">Cote</th>
+                      <th className="py-3 font-semibold text-gray-700">Prob.</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-100 dark:border-slate-700/50 bg-accent/5">
-                      <td className="py-3 pr-4 font-bold text-gray-900 dark:text-white">
+                    <tr className="border-b border-gray-100 bg-accent/5">
+                      <td className="py-3 pr-4 font-bold text-gray-900">
                         {team.flag} {team.name}
                       </td>
                       <td className="py-3 pr-4">#{team.fifaRanking}</td>
@@ -301,7 +303,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                     {topFavorites.map(({ team: t, prediction: pred }) => {
                       const tOdds = getOdds(t.fifaRanking);
                       return (
-                        <tr key={t.id} className="border-b border-gray-100 dark:border-slate-700/50">
+                        <tr key={t.id} className="border-b border-gray-100">
                           <td className="py-3 pr-4">
                             <Link href={`/cote-champion/${t.slug}`} className="text-accent hover:underline">
                               {t.flag} {t.name}
@@ -319,9 +321,9 @@ export default async function CoteChampionPage({ params }: PageProps) {
             </section>
 
             {/* Value bet */}
-            <section className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                💎 Value bet — {team.name}
+            <section className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <Gem className="h-5 w-5 inline-block" /> Value bet — {team.name}
               </h2>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
@@ -334,17 +336,17 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </div>
               </div>
               {isValueBet ? (
-                <div className="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4">
-                  <p className="font-bold text-green-700 dark:text-green-400">✅ Value bet détecté !</p>
-                  <p className="text-sm text-green-600 dark:text-green-500 mt-1">
+                <div className="rounded-lg bg-green-50green-900/20 border border-green-200 p-4">
+                  <p className="font-bold text-green-700"><Check className="h-5 w-5 inline-block" /> Value bet détecté !</p>
+                  <p className="text-sm text-green-600 mt-1">
                     Notre modèle estime que {team.name} a plus de chances ({estimatedProb}%) que ce que la cote suggère ({impliedProb}%).
                     La value est de +{((estimatedProb ?? 0) - impliedProb).toFixed(1)} points.
                   </p>
                 </div>
               ) : (
-                <div className="rounded-lg bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 p-4">
-                  <p className="font-bold text-orange-700 dark:text-orange-400">⚠️ Pas de value bet identifié</p>
-                  <p className="text-sm text-orange-600 dark:text-orange-500 mt-1">
+                <div className="rounded-lg bg-orange-50orange-900/20 border border-orange-200 p-4">
+                  <p className="font-bold text-orange-700"><AlertTriangle className="h-5 w-5 inline-block" /> Pas de value bet identifié</p>
+                  <p className="text-sm text-orange-600 mt-1">
                     La cote actuelle reflète correctement les chances de {team.name} selon notre modèle.
                     {estimatedProb !== null && estimatedProb < impliedProb && ` Notre estimation (${estimatedProb}%) est même inférieure à la probabilité implicite (${impliedProb}%).`}
                   </p>
@@ -381,8 +383,8 @@ export default async function CoteChampionPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <aside className="space-y-6">
-            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">Liens utiles</h3>
+            <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href={`/equipe/${team.slug}`} className="text-accent hover:underline">
@@ -412,8 +414,8 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-3">Bookmakers</h3>
+            <div className="rounded-xl bg-whiteslate-800 p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3">Bookmakers</h3>
               <div className="space-y-3">
                 {bookmakers.slice(0, 4).map((bk) => (
                   <a
@@ -421,9 +423,9 @@ export default async function CoteChampionPage({ params }: PageProps) {
                     href={bk.url}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
-                    className="block rounded-lg border border-gray-200 dark:border-slate-700 p-3 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+                    className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
                   >
-                    <p className="font-semibold text-gray-900 dark:text-white text-sm">{bk.name}</p>
+                    <p className="font-semibold text-gray-900 text-sm">{bk.name}</p>
                     <p className="text-accent text-xs font-bold">{bk.bonus} {bk.bonusDetail}</p>
                   </a>
                 ))}

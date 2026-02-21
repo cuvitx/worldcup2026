@@ -96,20 +96,20 @@ export default function ButeursPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-10">
 
         {/* ── TOP 20 MEILLEURS BUTEURS HISTORIQUES ── */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
-          <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
+        <section className="rounded-xl bg-whiteslate-800 shadow-sm overflow-hidden">
+          <div className="px-6 pt-6 pb-5 border-b border-gray-100">
             <div className="flex items-center gap-3 mb-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900">
                 Top 20 meilleurs buteurs de l&apos;histoire de la CDM
               </h2>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-300">
+            <p className="text-sm text-gray-500">
               Classement historique toutes éditions confondues (1930–2022) — Record : Klose avec 16 buts
             </p>
           </div>
 
-          <div className="divide-y divide-gray-100 dark:divide-slate-700">
+          <div className="divide-y divide-gray-100">
             {historicalScorers.map((scorer, idx) => {
               const maxGoals = 16; // Klose
               const barPct = Math.round((scorer.goals / maxGoals) * 100);
@@ -123,7 +123,7 @@ export default function ButeursPage() {
               return (
                 <div
                   key={`${scorer.name}-${idx}`}
-                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-accent//5 dark:bg-accent//5" : ""}`}
+                  className={`px-4 py-3 sm:px-6 ${idx === 0 ? "bg-accent//5accent//5" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     {/* Rang */}
@@ -141,16 +141,16 @@ export default function ButeursPage() {
                         <span className="text-lg shrink-0" role="img" aria-label={scorer.countryName}>
                           {scorer.country}
                         </span>
-                        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base break-words">
+                        <span className="font-semibold text-gray-900 text-sm sm:text-base break-words">
                           {scorer.name}
                         </span>
-                        <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-300">
+                        <span className="hidden sm:inline text-xs text-gray-500">
                           {scorer.editions}
                         </span>
                       </div>
                       {/* Barre visuelle */}
                       <div className="mt-1.5 flex items-center gap-2">
-                        <div className="flex-1 h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                        <div className="flex-1 h-2 bg-gray-100slate-700 rounded-full overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${barColor}`}
                             style={{ width: `${barPct}%` }}
@@ -161,7 +161,7 @@ export default function ButeursPage() {
 
                     {/* Nombre de buts */}
                     <div className="shrink-0 text-right">
-                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-accent" : idx < 3 ? "text-gray-600 dark:text-gray-300" : "text-accent dark:text-secondary"}`}>
+                      <span className={`text-xl font-extrabold ${idx === 0 ? "text-accent" : idx < 3 ? "text-gray-600" : "text-accent"}`}>
                         {scorer.goals}
                       </span>
                       <p className="text-[10px] text-gray-500 uppercase tracking-wide">buts</p>
@@ -172,36 +172,36 @@ export default function ButeursPage() {
             })}
           </div>
 
-          <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
-            <p className="text-[11px] text-gray-400 dark:text-gray-400">
+          <div className="px-6 py-3 bg-gray-50slate-800/80 border-t border-gray-100">
+            <p className="text-[11px] text-gray-400">
               Sources : FIFA · Statistiques arrêtées à la CDM 2022 · Mbappé (12 buts) actif, peut dépasser Klose en 2026
             </p>
           </div>
         </section>
 
         {/* ── TOP 5 CANDIDATS (données prédictions-2026) ── */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm overflow-hidden">
-          <div className="px-6 pt-6 pb-5 border-b border-gray-100 dark:border-slate-700">
+        <section className="rounded-xl bg-whiteslate-800 shadow-sm overflow-hidden">
+          <div className="px-6 pt-6 pb-5 border-b border-gray-100">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl"></span>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-gray-900">
                 Top 5 candidats au Soulier d&apos;Or
               </h2>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-300">
+            <p className="text-sm text-gray-500">
               Cotes réelles multi-bookmakers · Buts attendus (modèle ELO) · Fév. 2026
             </p>
           </div>
 
-          <div className="divide-y divide-gray-100 dark:divide-slate-700">
+          <div className="divide-y divide-gray-100">
             {topScorerCandidates.map((candidate, idx) => {
               const team = teamsById[candidate.teamId];
               const medal = idx === 0 ? "" : idx === 1 ? "" : idx === 2 ? "" : `${idx + 1}.`;
               const podiumBg =
-                idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent//5 dark:from-secondary/10 dark:to-accent//5" :
-                idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50 dark:from-slate-800/80 dark:to-slate-800/40" :
-                idx === 2 ? "bg-gradient-to-r from-accent//5 to-accent//5 dark:from-accent//5 dark:to-accent//5" :
-                "bg-white dark:bg-slate-800";
+                idx === 0 ? "bg-gradient-to-r from-secondary/5 to-accent//5" :
+                idx === 1 ? "bg-gradient-to-r from-gray-50 to-slate-50/50" :
+                idx === 2 ? "bg-gradient-to-r from-accent//5 to-accent//5" :
+                "bg-whiteslate-800";
               const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
               const bestBookmakerOdds = Math.max(candidate.winamax, candidate.betclic, candidate.draftkings);
 
@@ -214,13 +214,13 @@ export default function ButeursPage() {
                     {/* Player info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        <h3 className="text-lg font-semibold text-gray-900">
                           {candidate.name}
                         </h3>
                         {team && (
                           <div className="flex items-center gap-1.5">
                             <span className="text-xl">{team.flag}</span>
-                            <Link href={`/equipe/${team.slug}`} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                            <Link href={`/equipe/${team.slug}`} className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">
                               {team.name}
                             </Link>
                           </div>
@@ -233,7 +233,7 @@ export default function ButeursPage() {
                       {/* Buts stats */}
                       <div className="flex flex-wrap gap-4 mb-3">
                         <div className="text-center">
-                          <p className="text-2xl font-extrabold text-primary dark:text-white">{candidate.expectedGoals}</p>
+                          <p className="text-2xl font-extrabold text-primary">{candidate.expectedGoals}</p>
                           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Buts attendus</p>
                         </div>
                         <div className="text-center">
@@ -242,7 +242,7 @@ export default function ButeursPage() {
                         </div>
                         {/* Bar */}
                         <div className="flex-1 flex flex-col justify-center min-w-[100px]">
-                          <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                          <div className="h-2 bg-gray-100slate-700 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-accent rounded-full"
                               style={{ width: `${Math.min(impliedPct * 6, 100)}%` }}
@@ -255,7 +255,7 @@ export default function ButeursPage() {
                       {/* Strengths */}
                       <ul className="space-y-0.5">
                         {candidate.strengths.map((s, si) => (
-                          <li key={si} className="flex items-start gap-1.5 text-xs text-gray-600 dark:text-gray-300">
+                          <li key={si} className="flex items-start gap-1.5 text-xs text-gray-600">
                             <svg className="w-4 h-4 shrink-0 mt-0.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                             {s}
                           </li>
@@ -265,24 +265,24 @@ export default function ButeursPage() {
 
                     {/* Bookmaker odds column */}
                     <div className="shrink-0 flex flex-col gap-2 min-w-[130px]">
-                      <p className="text-[10px] text-gray-400 dark:text-gray-400 uppercase tracking-wide font-semibold mb-1">
+                      <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5 dark:bg-primary/10 border-primary/20 dark:border-primary/20"}`}>
-                        <span className="text-xs font-semibold text-primary dark:text-secondary">Winamax</span>
-                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-accent" : "text-primary dark:text-secondary"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5primary/10 border-primary/20"}`}>
+                        <span className="text-xs font-semibold text-primary">Winamax</span>
+                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-accent" : "text-primary"}`}>
                           {candidate.winamax.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10 dark:bg-secondary/10 border-primary/30 dark:border-secondary/20"}`}>
-                        <span className="text-xs font-semibold text-accent dark:text-secondary">Betclic</span>
-                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-accent" : "text-accent dark:text-secondary"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10secondary/10 border-primary/30"}`}>
+                        <span className="text-xs font-semibold text-accent">Betclic</span>
+                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-accent" : "text-accent"}`}>
                           {candidate.betclic.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5 dark:bg-field/10 border-field/10 dark:border-field/20"}`}>
-                        <span className="text-xs font-semibold text-field dark:text-field">DraftKings</span>
-                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-accent" : "text-field dark:text-field"}`}>
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5field/10 border-field/10"}`}>
+                        <span className="text-xs font-semibold text-field">DraftKings</span>
+                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-accent" : "text-field"}`}>
                           {candidate.draftkings.toFixed(2)}
                         </span>
                       </div>
@@ -297,8 +297,8 @@ export default function ButeursPage() {
             })}
           </div>
 
-          <div className="px-6 py-3 bg-gray-50 dark:bg-slate-800/80 border-t border-gray-100 dark:border-slate-700">
-            <p className="text-[11px] text-gray-400 dark:text-gray-400">
+          <div className="px-6 py-3 bg-gray-50slate-800/80 border-t border-gray-100">
+            <p className="text-[11px] text-gray-400">
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
               Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
             </p>
@@ -306,15 +306,15 @@ export default function ButeursPage() {
         </section>
 
         {/* Top Scorer Ranking */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Favoris pour le Soulier d&apos;Or</h2>
-          <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
+        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Favoris pour le Soulier d&apos;Or</h2>
+          <p className="mb-6 text-sm text-gray-600">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-slate-700 text-left">
+                <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">#</th>
                   <th className="pb-3 font-medium text-gray-500">Joueur</th>
                   <th className="pb-3 font-medium text-gray-500">Équipe</th>
@@ -328,7 +328,7 @@ export default function ButeursPage() {
                   const player = playersById[so.playerId];
                   const team = player ? teamsById[player.teamId] : undefined;
                   return (
-                    <tr key={so.playerId} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 border-b border-gray-100 dark:border-slate-700/40 transition-colors">
+                    <tr key={so.playerId} className="hover:bg-gray-50 border-b border-gray-100 transition-colors">
                       <td className="py-3 text-gray-500 font-medium">{i + 1}</td>
                       <td className="py-3">
                         {player && (
@@ -357,9 +357,9 @@ export default function ButeursPage() {
         </section>
 
         {/* All scorers by expected goals */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Tous les buteurs potentiels</h2>
-          <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
+        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Tous les buteurs potentiels</h2>
+          <p className="mb-6 text-sm text-gray-600">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
           </p>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -371,7 +371,7 @@ export default function ButeursPage() {
                 <Link
                   key={so.playerId}
                   href={`/buteur/${player.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                  className="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                 >
                   <div>
                     <p className="font-semibold">{player.name}</p>
@@ -390,8 +390,8 @@ export default function ButeursPage() {
         </section>
 
         {/* By Team */}
-        <section className="rounded-xl bg-white dark:bg-slate-800 p-6 sm:p-8 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Buteurs par équipe</h2>
+        <section className="rounded-xl bg-whiteslate-800 p-6 sm:p-8 shadow-sm border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .sort((a, b) => a.fifaRanking - b.fifaRanking)
@@ -399,10 +399,10 @@ export default function ButeursPage() {
                 const teamScorers = scorersByTeam[team.id];
                 if (!teamScorers || teamScorers.length === 0) return null;
                 return (
-                  <div key={team.id} className="rounded-xl border border-gray-200 dark:border-slate-700 p-4">
+                  <div key={team.id} className="rounded-xl border border-gray-200 p-4">
                     <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 mb-3 hover:text-primary">
                       <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{team.name}</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">{team.name}</h3>
                     </Link>
                     <ul className="space-y-1">
                       {teamScorers.slice(0, DISPLAY_LIMITS.TEAM_SCORERS_PREVIEW).map((so) => {
@@ -429,7 +429,7 @@ export default function ButeursPage() {
 
         {/* CTA */}
         <section className="rounded-lg bg-primary/5 border border-primary/20 p-6 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Parier sur les buteurs CDM 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Parier sur les buteurs CDM 2026</h2>
           <p className="mb-4 text-sm text-gray-600">
             Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>

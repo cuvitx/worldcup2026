@@ -8,6 +8,7 @@ import { citiesById } from "@repo/data/cities";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
+import { BookOpen, Car, CircleDot, Map, Ticket, Tv } from "lucide-react"
 
 export const revalidate = 86400;
 export const dynamicParams = false;
@@ -92,21 +93,21 @@ export default async function StadiumPage({ params }: PageProps) {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8 min-w-0">
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm overflow-hidden">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Présentation</h2>
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm overflow-hidden">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Présentation</h2>
               <p className="text-gray-700 leading-relaxed break-words">{stadium.description}</p>
             </section>
 
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Caractéristiques</h2>
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Caractéristiques</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">
                     {stadium.capacity.toLocaleString("fr-FR")}
                   </p>
                   <p className="text-sm text-gray-500">Capacité</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary capitalize">
                     {stadium.roofType === "retractable"
                       ? "Rétractable"
@@ -117,18 +118,18 @@ export default async function StadiumPage({ params }: PageProps) {
                   <p className="text-sm text-gray-500">Toit</p>
                 </div>
                 {stadium.yearBuilt && (
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                  <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                     <p className="text-2xl font-bold text-primary">{stadium.yearBuilt}</p>
                     <p className="text-sm text-gray-500">Année de construction</p>
                   </div>
                 )}
                 {stadium.distanceFromCenter && (
-                  <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                  <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                     <p className="text-2xl font-bold text-primary">{stadium.distanceFromCenter} km</p>
                     <p className="text-sm text-gray-500">Du centre-ville</p>
                   </div>
                 )}
-                <div className="rounded-lg bg-gray-50 dark:bg-slate-700 p-4 text-center">
+                <div className="rounded-lg bg-gray-50slate-700 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{stadium.country}</p>
                   <p className="text-sm text-gray-500">Pays</p>
                 </div>
@@ -136,44 +137,44 @@ export default async function StadiumPage({ params }: PageProps) {
             </section>
 
             {/* Équipe résidente + GPS + Carte mini */}
-            <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Localisation &amp; équipe résidente</h2>
+            <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Localisation &amp; équipe résidente</h2>
               <div className="space-y-4">
                 {stadium.homeTeam && (
                   <div className="flex items-start gap-3">
-                    <span className="text-xl mt-0.5">🏈</span>
+                    <span className="text-xl mt-0.5"><CircleDot className="h-5 w-5 inline-block" /></span>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Équipe résidente</p>
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">{stadium.homeTeam}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Équipe résidente</p>
+                      <p className="text-sm font-medium text-gray-900">{stadium.homeTeam}</p>
                     </div>
                   </div>
                 )}
                 <div className="flex items-start gap-3">
                   <span className="text-xl mt-0.5"></span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Coordonnées GPS</p>
-                    <p className="text-sm font-mono text-gray-900 dark:text-white">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Coordonnées GPS</p>
+                    <p className="text-sm font-mono text-gray-900">
                       {stadium.latitude.toFixed(4)} N, {Math.abs(stadium.longitude).toFixed(4)} O
                     </p>
                   </div>
                 </div>
                 {stadium.distanceFromCenter && (
                   <div className="flex items-start gap-3">
-                    <span className="text-xl mt-0.5">🚗</span>
+                    <span className="text-xl mt-0.5"><Car className="h-5 w-5 inline-block" /></span>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300 mb-0.5">Distance du centre-ville</p>
-                      <p className="text-sm text-gray-900 dark:text-white">≈ {stadium.distanceFromCenter} km</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Distance du centre-ville</p>
+                      <p className="text-sm text-gray-900">≈ {stadium.distanceFromCenter} km</p>
                     </div>
                   </div>
                 )}
                 {/* Mini map link */}
-                <div className="mt-4 rounded-lg bg-primary/5 dark:bg-primary/20 border border-gray-200 dark:border-slate-700 p-4">
+                <div className="mt-4 rounded-lg bg-primary/5primary/20 border border-gray-200 p-4">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                     <div className="flex items-center gap-3 min-w-0">
                       <span className="text-2xl shrink-0"></span>
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-primary dark:text-gray-200">Voir sur la carte des stades</p>
-                        <p className="text-xs text-primary dark:text-secondary">Positionnement de tous les stades CDM 2026</p>
+                        <p className="text-sm font-semibold text-primary">Voir sur la carte des stades</p>
+                        <p className="text-xs text-primary">Positionnement de tous les stades CDM 2026</p>
                       </div>
                     </div>
                     <Link
@@ -201,8 +202,8 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* Matches at this stadium */}
             {stadiumMatches.length > 0 && (
-              <section className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <section className="rounded-xl border border-gray-200 bg-whiteslate-800 p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Matchs au {stadium.name} ({stadiumMatches.length})
                 </h2>
                 <div className="space-y-2">
@@ -213,7 +214,7 @@ export default async function StadiumPage({ params }: PageProps) {
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-slate-700 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
+                        className="flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                       >
                         <span className="text-xs text-gray-500 w-12 shrink-0">{match.date.slice(5)}</span>
                         <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? ""}</span>
@@ -233,8 +234,8 @@ export default async function StadiumPage({ params }: PageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Informations</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Informations</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Ville</dt>
@@ -301,8 +302,8 @@ export default async function StadiumPage({ params }: PageProps) {
                 .filter((t): t is NonNullable<typeof t> => t != null);
               if (playingTeams.length === 0) return null;
               return (
-                <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Équipes qui jouent ici</h3>
+                <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipes qui jouent ici</h3>
                   <ul className="space-y-2 text-sm">
                     {playingTeams.map((t) => (
                       <li key={t.id}>
@@ -321,44 +322,44 @@ export default async function StadiumPage({ params }: PageProps) {
             })()}
 
             {/* Useful links */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Liens utiles</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 {city && (
                   <li>
-                    <Link href={`/guide-ville/${city.slug}`} className="text-primary dark:text-secondary hover:underline">
-                      📖 Guide de {city.name}
+                    <Link href={`/guide-ville/${city.slug}`} className="text-primary hover:underline">
+                      <BookOpen className="h-5 w-5 inline-block" /> Guide de {city.name}
                     </Link>
                   </li>
                 )}
                 <li>
-                  <Link href="/carte-stades" className="text-primary dark:text-secondary hover:underline">
-                    🗺️ Carte des stades
+                  <Link href="/carte-stades" className="text-primary hover:underline">
+                    <Map className="h-5 w-5 inline-block" /> Carte des stades
                   </Link>
                 </li>
                 <li>
-                  <Link href="/billets" className="text-primary dark:text-secondary hover:underline">
-                    🎟️ Acheter des billets
+                  <Link href="/billets" className="text-primary hover:underline">
+                    <Ticket className="h-5 w-5 inline-block" /> Acheter des billets
                   </Link>
                 </li>
                 <li>
-                  <Link href="/ou-regarder" className="text-primary dark:text-secondary hover:underline">
-                    📺 Où regarder les matchs
+                  <Link href="/ou-regarder" className="text-primary hover:underline">
+                    <Tv className="h-5 w-5 inline-block" /> Où regarder les matchs
                   </Link>
                 </li>
               </ul>
             </div>
 
             {/* Other stadiums */}
-            <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Autres stades</h3>
+            <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Autres stades</h3>
               <ul className="space-y-2 text-sm">
                 {stadiums
                   .filter((s) => s.id !== stadium.id)
                   .slice(0, 5)
                   .map((s) => (
                     <li key={s.id}>
-                      <Link href={`/stade/${s.slug}`} className="text-primary dark:text-secondary hover:underline">
+                      <Link href={`/stade/${s.slug}`} className="text-primary hover:underline">
                         {s.name} ({s.city})
                       </Link>
                     </li>

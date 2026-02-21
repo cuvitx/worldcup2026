@@ -15,6 +15,7 @@ export function generateMetadata(): Metadata {
       description: "Naviguer sur cdm2026.fr : toutes les pages du site en un clin d'oeil.",
       url: "https://cdm2026.fr/plan-du-site",
     },
+    alternates: { canonical: "https://cdm2026.fr/plan-du-site" },
   };
 }
 
@@ -93,7 +94,7 @@ export default function PlanDuSitePage() {
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
 <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site</h1>
-      <p className="mt-2 text-gray-600 dark:text-gray-400">
+      <p className="mt-2 text-gray-600">
         Retrouvez toutes les pages de cdm2026.fr organisees par categorie.
       </p>
 
@@ -103,11 +104,11 @@ export default function PlanDuSitePage() {
           <Link
             key={s.href}
             href={s.href}
-            className="group rounded-xl border border-gray-200 p-5 transition-colors hover:border-primary dark:border-gray-700"
+            className="group rounded-xl border border-gray-200 p-5 transition-colors hover:border-primary"
           >
             <s.icon className="mb-2 h-6 w-6 text-primary" />
             <h2 className="font-semibold text-foreground group-hover:text-primary">{s.title}</h2>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{s.description}</p>
+            <p className="mt-1 text-sm text-gray-500">{s.description}</p>
           </Link>
         ))}
       </section>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
-import { CloudSun, Thermometer, Droplets, Wind, ArrowRight, Luggage } from "lucide-react";
+import { ArrowRight, CloudSun, Dice5, Droplets, Luggage, Sun, Thermometer, Wind } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 export const dynamicParams = false;
 
@@ -110,7 +110,7 @@ export default async function MeteoPage({ params }: PageProps) {
         </h2>
         <div className="grid sm:grid-cols-2 gap-4 mb-8">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h3 className="font-bold text-primary mb-3">🌤️ Juin 2026</h3>
+            <h3 className="font-bold text-primary mb-3"><Sun className="h-5 w-5 inline-block" /> Juin 2026</h3>
             <div className="flex justify-between items-center">
               <span className="text-secondary">Min</span>
               <span className="text-2xl font-extrabold text-primary">{weather.tempJuneMin}°C</span>
@@ -125,7 +125,7 @@ export default async function MeteoPage({ params }: PageProps) {
             </div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h3 className="font-bold text-primary mb-3">☀️ Juillet 2026</h3>
+            <h3 className="font-bold text-primary mb-3"><Sun className="h-5 w-5 inline-block" /> Juillet 2026</h3>
             <div className="flex justify-between items-center">
               <span className="text-secondary">Min</span>
               <span className="text-2xl font-extrabold text-primary">{weather.tempJulyMin}°C</span>
@@ -192,7 +192,7 @@ export default async function MeteoPage({ params }: PageProps) {
 
       {/* Impact sur les paris */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">🎲 Impact sur les paris</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4"><Dice5 className="h-5 w-5 inline-block" /> Impact sur les paris</h2>
         <div className="bg-white rounded-xl border border-gray-200 p-6 text-secondary leading-relaxed">
           <p>{weather.bettingImpact}</p>
         </div>

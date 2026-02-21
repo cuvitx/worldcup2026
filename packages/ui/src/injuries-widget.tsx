@@ -50,7 +50,7 @@ function InjuryList({ team, injuries, t }: { team: string; injuries: Injury[]; t
   if (injuries.length === 0) {
     return (
       <div>
-        <p className="font-semibold text-gray-700 dark:text-gray-200 mb-2">{team}</p>
+        <p className="font-semibold text-gray-700 mb-2">{team}</p>
         <p className="text-sm text-accent">{t.noInjuries}</p>
       </div>
     );
@@ -58,15 +58,15 @@ function InjuryList({ team, injuries, t }: { team: string; injuries: Injury[]; t
 
   return (
     <div>
-      <p className="font-semibold text-gray-700 dark:text-gray-200 mb-2">{team}</p>
+      <p className="font-semibold text-gray-700 mb-2">{team}</p>
       <ul className="space-y-1.5">
         {injuries.map((inj) => (
           <li key={inj.player} className="flex items-center gap-2 text-sm">
-            <span className={`rounded px-1.5 py-0.5 text-xs font-medium ${typeColors[inj.type] ?? "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"}`}>
+            <span className={`rounded px-1.5 py-0.5 text-xs font-medium ${typeColors[inj.type] ?? "bg-gray-100gray-700 text-gray-600"}`}>
               {inj.type === "Missing Fixture" ? t.absent : inj.type}
             </span>
-            <span className="font-medium text-gray-800 dark:text-gray-200">{inj.player}</span>
-            <span className="text-gray-500 dark:text-gray-400">— {inj.reason}</span>
+            <span className="font-medium text-gray-800">{inj.player}</span>
+            <span className="text-gray-500">— {inj.reason}</span>
           </li>
         ))}
       </ul>
@@ -99,8 +99,8 @@ export function InjuriesWidget({ homeTeam, awayTeam, homeInjuries, awayInjuries,
   if (homeInjuries.length === 0 && awayInjuries.length === 0) return null;
 
   return (
-    <div className="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-sm">
-      <h4 className="mb-3 text-sm font-semibold text-gray-700 dark:text-gray-200 uppercase tracking-wide">
+    <div className="rounded-lg bg-whiteslate-800 p-4 shadow-sm">
+      <h4 className="mb-3 text-sm font-semibold text-gray-700 uppercase tracking-wide">
         {t.title}
       </h4>
       <div className="space-y-4">

@@ -139,35 +139,35 @@ export default function AssuranceVoyagePage() {
 
       {/* Why it's essential */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <AlertTriangle className="inline-block w-6 h-6 mr-2 text-red-500" />
           Pourquoi c&apos;est indispensable
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 p-5 text-center">
+          <div className="rounded-xl border border-red-200 bg-red-50red-900/20 p-5 text-center">
             <DollarSign className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-2xl font-extrabold text-red-600">3 000 - 5 000 $</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Consultation urgences USA</p>
+            <p className="text-sm text-gray-600 mt-1">Consultation urgences USA</p>
           </div>
-          <div className="rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 p-5 text-center">
+          <div className="rounded-xl border border-red-200 bg-red-50red-900/20 p-5 text-center">
             <HeartPulse className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-2xl font-extrabold text-red-600">20 000 - 50 000 $</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Fracture + hospitalisation</p>
+            <p className="text-sm text-gray-600 mt-1">Fracture + hospitalisation</p>
           </div>
-          <div className="rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 p-5 text-center">
+          <div className="rounded-xl border border-red-200 bg-red-50red-900/20 p-5 text-center">
             <Plane className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-2xl font-extrabold text-red-600">15 000 - 30 000 $</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Rapatriement sanitaire</p>
+            <p className="text-sm text-gray-600 mt-1">Rapatriement sanitaire</p>
           </div>
         </div>
-        <p className="text-gray-600 dark:text-gray-300 mt-6 text-sm">
+        <p className="text-gray-600 mt-6 text-sm">
           La carte européenne d&apos;assurance maladie (CEAM) ne fonctionne <strong>pas</strong> aux États-Unis, au Canada ni au Mexique. Votre mutuelle française ne couvre généralement pas ou très peu les frais à l&apos;étranger hors UE. Une assurance voyage dédiée est le seul moyen de partir l&apos;esprit tranquille.
         </p>
       </section>
 
       {/* Comparison table */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] dark:text-white mb-6">
+        <h2 className="text-xl font-bold sm:text-2xl text-[#022149] mb-6">
           <Shield className="inline-block w-6 h-6 mr-2 text-[#00B865]" />
           Comparatif des 4 meilleurs assureurs
         </h2>
@@ -188,7 +188,7 @@ export default function AssuranceVoyagePage() {
               {insurers.map((ins, i) => (
                 <tr
                   key={ins.name}
-                  className={`${i % 2 === 0 ? "bg-gray-50 dark:bg-slate-800" : "bg-white dark:bg-slate-900"} ${ins.recommended ? "ring-2 ring-[#00B865]" : ""}`}
+                  className={`${i % 2 === 0 ? "bg-gray-50slate-800" : "bg-whiteslate-900"} ${ins.recommended ? "ring-2 ring-[#00B865]" : ""}`}
                 >
                   <td className="px-4 py-3 font-semibold">
                     {ins.name}
@@ -218,7 +218,7 @@ export default function AssuranceVoyagePage() {
           {insurers.map((ins) => (
             <div
               key={ins.name}
-              className={`rounded-2xl border bg-white dark:bg-slate-800 p-6 ${ins.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200 dark:border-gray-700"}`}
+              className={`rounded-2xl border bg-whiteslate-800 p-6 ${ins.recommended ? "border-[#00B865] ring-1 ring-[#00B865]" : "border-gray-200"}`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div>
@@ -230,7 +230,7 @@ export default function AssuranceVoyagePage() {
                   <span className="font-bold text-sm">{ins.rating}</span>
                 </div>
               </div>
-              <p className="text-2xl font-extrabold text-[#022149] dark:text-white mb-4">
+              <p className="text-2xl font-extrabold text-[#022149] mb-4">
                 {ins.priceFrom} <span className="text-sm font-normal text-gray-500">{ins.pricePer}</span>
               </p>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
@@ -244,7 +244,7 @@ export default function AssuranceVoyagePage() {
                   <p className="font-semibold text-green-600 mb-1">Avantages</p>
                   <ul className="space-y-1">
                     {ins.pros.map((p) => (
-                      <li key={p} className="flex gap-1.5 text-gray-600 dark:text-gray-300">
+                      <li key={p} className="flex gap-1.5 text-gray-600">
                         <Shield className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />
                         {p}
                       </li>
@@ -255,7 +255,7 @@ export default function AssuranceVoyagePage() {
                   <p className="font-semibold text-red-600 mb-1">Limites</p>
                   <ul className="space-y-1">
                     {ins.cons.map((c) => (
-                      <li key={c} className="flex gap-1.5 text-gray-600 dark:text-gray-300">
+                      <li key={c} className="flex gap-1.5 text-gray-600">
                         <AlertTriangle className="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" />
                         {c}
                       </li>

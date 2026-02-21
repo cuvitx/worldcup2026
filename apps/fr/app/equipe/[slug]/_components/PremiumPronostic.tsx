@@ -16,16 +16,16 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
   const weaknesses = content?.weaknesses ?? [];
 
   return (
-    <section className="bg-gray-50 dark:bg-slate-900/50 py-12 border-t border-gray-100 dark:border-slate-700">
+    <section className="bg-gray-50slate-900/50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Pronostic {team.name} — Cotes &amp; Analyse
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Bookmaker odds */}
-          <div className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <div className="rounded-xl border border-gray-200 bg-whiteslate-800 shadow-sm p-5 hover:shadow-md transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
               Cotes vainqueur CDM 2026 — {team.name}
             </h3>
             <div className="space-y-2">
@@ -43,10 +43,10 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
                     href={bm.url}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
-                    className="flex items-center gap-3 rounded-lg border border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                    className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50slate-700 px-4 py-2.5 hover:border-primary/30 hover:bg-primary/5 transition-all group"
                   >
                     {bm.logo && <img src={bm.logo} alt={bm.name} className="w-6 h-6 rounded object-contain shrink-0" loading="lazy" />}
-                    <span className="flex-1 font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">
+                    <span className="flex-1 font-medium text-sm text-gray-800 group-hover:text-primary transition-colors">
                       {bm.name}
                     </span>
                     <span className="text-xs text-accent font-semibold">{bm.bonus}</span>
@@ -79,13 +79,13 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
             )}
 
             {weaknesses.length > 0 && (
-              <div className="rounded-xl border border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/15 p-5">
-                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3">
+              <div className="rounded-xl border border-red-200 bg-red-50red-900/15 p-5">
+                <h3 className="text-lg font-semibold text-red-700 mb-3">
                   Points de vigilance
                 </h3>
                 <ul className="space-y-1.5">
                   {weaknesses.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-red-700 dark:text-red-300">
+                    <li key={i} className="flex items-start gap-2 text-sm text-red-700">
                       <span className="shrink-0 mt-0.5">•</span>
                       {point}
                     </li>

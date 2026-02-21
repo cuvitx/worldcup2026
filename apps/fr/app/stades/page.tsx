@@ -82,7 +82,7 @@ export default function StadiumsPage() {
                     <Link
                       key={stadium.id}
                       href={`/stade/${stadium.slug}`}
-                      className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group rounded-xl border border-gray-200 bg-whiteslate-800 overflow-hidden shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div className="overflow-hidden">
                         <StadiumImage
@@ -94,15 +94,15 @@ export default function StadiumsPage() {
                         />
                       </div>
                       <div className="p-4">
-                        <p className="font-bold text-gray-900 dark:text-white">{stadium.name}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+                        <p className="font-bold text-gray-900">{stadium.name}</p>
+                        <p className="text-sm text-gray-500 mt-1">
                            {city?.name ?? stadium.city}
                         </p>
                         <div className="mt-2 flex items-center justify-between">
                           <span className="text-sm font-semibold text-accent">
                              {stadium.capacity.toLocaleString("fr-FR")} places
                           </span>
-                          <span className="rounded-full bg-gray-100 dark:bg-slate-700 px-3 py-1 text-xs font-medium text-gray-700 dark:text-gray-300">
+                          <span className="rounded-full bg-gray-100slate-700 px-3 py-1 text-xs font-medium text-gray-700">
                             {stadium.roofType === "retractable" ? "Toit rétractable" : stadium.roofType === "fixed" ? "Toit fixe" : "Ciel ouvert"}
                           </span>
                         </div>
@@ -116,7 +116,7 @@ export default function StadiumsPage() {
         })}
       </div>
 
-      <FAQSection title="❓ Questions sur les stades de la CDM 2026" items={faqItems} />
+      <FAQSection title=" Questions sur les stades de la CDM 2026" items={faqItems} />
     </>
   );
 }
