@@ -21,9 +21,23 @@ interface SiloMatch {
   slug: string | null;
 }
 
+/* Slugs that are pronostic TYPES, not team slugs */
+const PRONOSTIC_TYPE_SLUGS = new Set([
+  "vainqueur", "btts", "over-under", "buteurs", "cartons", "clean-sheet",
+  "scores-exacts", "finalistes", "tirs-au-but",
+]);
+
 function detectSilo(pathname: string): SiloMatch | null {
   // Remove trailing slash
   const p = pathname.replace(/\/$/, "") || "/";
+
+  // Special case: /pronostic/{type} → pronostics silo, not equipe
+  if (p.startsWith("/pronostic/")) {
+    const slug = p.slice("/pronostic/".length).split("/")[0];
+    if (slug && PRONOSTIC_TYPE_SLUGS.has(slug)) {
+      return { silo: "pronostics", slug: null };
+    }
+  }
 
   // Silos with dynamic slug
   const slugSilos: { prefixes: string[]; silo: string }[] = [
