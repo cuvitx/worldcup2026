@@ -8,6 +8,14 @@ interface Tab {
   href: string;
 }
 
+const TOP_50_SLUGS = new Set([
+  "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
+  "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
+  "alvarez","martinez-lautaro","isak","vlahovic","morata","richarlison","gakpo","thuram","kim-min-jae","hakimi",
+  "valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias",
+  "hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva",
+]);
+
 interface SiloMatch {
   silo: string;
   slug: string | null;
@@ -113,15 +121,19 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
         { label: "Guide supporter", href: `/guide-supporter/${slug}` },
         { label: "Sécurité", href: `/securite/${slug}` },
       ];
-    case "joueur":
-      return [
-        { label: "Joueur", href: `/joueur/${slug}` },
-        { label: "Tirs cadrés", href: `/tirs-cadres/${slug}` },
-        { label: "Passes", href: `/passes-decisives/${slug}` },
-        { label: "Tacles", href: `/tacles/${slug}` },
-        { label: "Cote carton", href: `/cote-carton-jaune/${slug}` },
-        { label: "Cote buteur", href: `/cote-buteur/${slug}` },
-      ];
+    case "joueur": {
+      const base = [{ label: "Joueur", href: `/joueur/${slug}` }];
+      if (slug && TOP_50_SLUGS.has(slug)) {
+        base.push(
+          { label: "Tirs cadrés", href: `/tirs-cadres/${slug}` },
+          { label: "Passes", href: `/passes-decisives/${slug}` },
+          { label: "Tacles", href: `/tacles/${slug}` },
+          { label: "Cote carton", href: `/cote-carton-jaune/${slug}` },
+          { label: "Cote buteur", href: `/cote-buteur/${slug}` },
+        );
+      }
+      return base;
+    }
     case "groupe":
       return [
         { label: "Groupe", href: `/groupe/${slug}` },
