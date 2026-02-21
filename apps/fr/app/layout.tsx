@@ -62,7 +62,13 @@ export const metadata: Metadata = {
     creator: "@cdm2026",
     images: [`${domains.fr}/og-default.jpg`],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large" as const,
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico?v=2", sizes: "48x48" },
@@ -89,8 +95,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         {/* next/font/google self-hosts Inter → pas besoin de CDN externe */}
         {/* Le preload des fonts (.woff2) est injecté automatiquement par next/font */}
-        {/* max-image-preview:large → autorise Google Discover à afficher des grandes images */}
-        <meta name="robots" content="max-image-preview:large" />
+        {/* robots unifié : index + max-image-preview pour Google Discover */}
         <meta name="google-site-verification" content="FuzJBEoixXdM6UjwmDg2-gNx8dQX0Lf9w0mxk9O5GC4" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
         {/* TODO: Activer GA4 — remplacer G-XXXXXXXXXX par l'ID réel puis décommenter les scripts gtag */}
