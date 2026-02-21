@@ -32,9 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${team.flag} Cote ${team.name} Championne du Monde 2026`,
       description: `Analyse complète de la cote ${team.name} pour remporter la CDM 2026.`,
       url: `${domains.fr}/cote-champion/${team.slug}`,
-      },
-    alternates: { canonical: `https://cdm2026.fr/cote-champion/${team.slug}` },
     },
+    alternates: { canonical: `https://cdm2026.fr/cote-champion/${team.slug}` },
   };
 }
 

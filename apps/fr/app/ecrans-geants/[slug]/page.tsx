@@ -244,7 +244,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/ecrans-geants/${slug}`,
       },
     alternates: { canonical: `https://cdm2026.fr/ecrans-geants/${slug}` },
-    },
   };
 }
 

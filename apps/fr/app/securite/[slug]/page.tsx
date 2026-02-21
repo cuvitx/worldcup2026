@@ -240,7 +240,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/securite/${slug}`,
       },
     alternates: { canonical: `https://cdm2026.fr/securite/${slug}` },
-    },
   };
 }
 

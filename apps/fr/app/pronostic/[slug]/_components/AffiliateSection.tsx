@@ -1,4 +1,5 @@
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 interface AffiliateSectionProps {
   teamName: string;

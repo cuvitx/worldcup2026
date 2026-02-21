@@ -5,6 +5,7 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CloudSun, Dice5, Droplets, Luggage, Sun, Thermometer, Wind } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
+import { ANJBanner } from "@repo/ui/anj-banner";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {

@@ -95,7 +95,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/sur-quelle-chaine/${slug}`,
       },
     alternates: { canonical: `https://cdm2026.fr/sur-quelle-chaine/${slug}` },
-    },
   };
 }
 

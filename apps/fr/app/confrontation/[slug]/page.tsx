@@ -9,6 +9,7 @@ import { h2hByPair } from "@repo/data/h2h";
 import { bookmakers } from "@repo/data/affiliates";
 import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link, Swords, Trophy } from "lucide-react";
 import type { Team } from "@repo/data/types";
+import { ANJBanner } from "@repo/ui/anj-banner";
 
 /* ─── Top 30 confrontations marquantes ─────────────────────────────────────── */
 
@@ -357,15 +358,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
               </ul>
             </div>
 
-            {/* ANJ Banner */}
-            <div className="rounded-xl border border-amber-200 bg-amber-50   p-4 text-center">
-              <p className="text-xs text-amber-800  font-medium">
-                🔞 18+ | Jouer comporte des risques : endettement, isolement, dépendance.
-              </p>
-              <p className="text-xs text-amber-700  mt-1">
-                Appelez le 09 74 75 13 13 (appel non surtaxé) — <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">anj.fr</a>
-              </p>
-            </div>
+            <ANJBanner />
           </aside>
         </div>
       </div>

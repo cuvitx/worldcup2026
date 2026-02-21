@@ -36,7 +36,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/parier/${team.slug}`,
       },
     alternates: { canonical: `https://cdm2026.fr/parier/${team.slug}` },
-    },
   };
 }
 

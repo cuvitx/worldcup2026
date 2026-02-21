@@ -33,7 +33,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${domains.fr}/effectif/${team.slug}`,
       },
     alternates: { canonical: `https://cdm2026.fr/effectif/${team.slug}` },
-    },
   };
 }
 
