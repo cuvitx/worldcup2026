@@ -6,7 +6,7 @@ test.describe('Navigation E2E', () => {
     await page.goto('/');
     
     // Cliquer sur le lien Équipes
-    await page.click('a[href="/equipes"]');
+    await page.click('a[href="/equipe"]');
     
     // Vérifier l'URL
     await expect(page).toHaveURL(/\/equipes/);
@@ -62,7 +62,7 @@ test.describe('Navigation E2E', () => {
     await page.goto('/equipe/FRA');
     
     // Chercher un lien de retour (breadcrumb ou back button)
-    const backLink = page.locator('a[href="/equipes"], a:has-text("Retour"), a:has-text("←")').first();
+    const backLink = page.locator('a[href="/equipe"], a:has-text("Retour"), a:has-text("←")').first();
     
     if (await backLink.count() > 0) {
       await backLink.click();

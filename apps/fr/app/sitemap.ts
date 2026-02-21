@@ -103,7 +103,7 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
     case "static":
       return [
         u("/", { lastmod: TODAY, freq: "daily", prio: 1.0 }),
-        u("/equipes", { prio: 0.9 }),
+        u("/equipe", { prio: 0.9 }),
         u("/groupes", { prio: 0.9 }),
         u("/joueurs", { prio: 0.8 }),
         u("/stades", { prio: 0.8 }),

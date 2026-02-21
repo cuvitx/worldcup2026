@@ -189,7 +189,7 @@ export default function H2HIndexPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/equipes", title: "Les 48 équipes", description: "Fiches complètes de chaque sélection", icon: "" },
+          { href: "/equipe", title: "Les 48 équipes", description: "Fiches complètes de chaque sélection", icon: "" },
           { href: "/match/calendrier", title: "Calendrier des matchs", description: "Tous les matchs de la CDM 2026", icon: "" },
           { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des 48 équipes", icon: "" },
           { href: "/comparateur-joueurs", title: "Comparateur joueurs", description: "Comparez les stars du mondial", icon: "" },

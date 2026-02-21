@@ -137,7 +137,7 @@ export default function GroupsPage() {
           variant="compact"
           links={[
             {
-              href: "/equipes",
+              href: "/equipe",
               title: "Toutes les équipes",
               description: "Découvrez les 48 équipes qualifiées avec stats et pronostics.",
               icon: ""

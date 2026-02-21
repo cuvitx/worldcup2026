@@ -254,7 +254,7 @@ export default function StatistiquesPage() {
             icon: ""
           },
           {
-            href: "/equipes",
+            href: "/equipe",
             title: "Équipes CDM 2026",
             description: "Les 48 équipes qualifiées avec stats et performances.",
             icon: ""

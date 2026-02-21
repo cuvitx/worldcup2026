@@ -78,7 +78,7 @@ export default function ComparateurJoueursPage() {
           { href: "/joueurs", title: "Joueurs clés", description: "Les 210 joueurs stars de la CDM 2026", icon: "" },
           { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs du tournoi", icon: "" },
           { href: "/h2h", title: "Face-à-face", description: "Historique des confrontations entre équipes", icon: "" },
-          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "" },
+          { href: "/equipe", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "" },
         ]} />
       </div>
     </>

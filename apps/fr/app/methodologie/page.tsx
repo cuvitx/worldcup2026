@@ -311,7 +311,7 @@ export default function MethodologiePage() {
               Calendrier des matchs
             </Link>
             <Link
-              href="/equipes"
+              href="/equipe"
               className="rounded-lg bg-white/10 px-5 py-2 text-sm font-semibold hover:bg-white/20"
             >
               Les 48 équipes

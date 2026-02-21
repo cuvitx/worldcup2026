@@ -35,7 +35,7 @@ interface BreadcrumbProps {
  * <Breadcrumb
  *   items={[
  *     { label: "Accueil", href: "/" },
- *     { label: "Équipes", href: "/equipes" },
+ *     { label: "Équipes", href: "/equipe" },
  *     { label: "France" } // current page, no href
  *   ]}
  * />

@@ -137,7 +137,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
         <nav className="flex flex-wrap items-center gap-1.5 text-sm text-gray-500">
           <Link href="/" className="hover:text-[#022149]">Accueil</Link>
           <span>/</span>
-          <Link href="/equipes" className="hover:text-[#022149]">Équipes</Link>
+          <Link href="/equipe" className="hover:text-[#022149]">Équipes</Link>
           <span>/</span>
           <Link href={`/equipe/${team.slug}`} className="hover:text-[#022149]">{team.name}</Link>
           <span>/</span>

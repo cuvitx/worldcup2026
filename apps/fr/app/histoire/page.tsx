@@ -140,7 +140,7 @@ export default function HistoirePage() {
           {[
             { href: "/palmares", icon: "", label: "Palmarès complet", desc: "Tous les vainqueurs de 1930 à 2022" },
             { href: "/statistiques", icon: "", label: "Statistiques", desc: "Records, buteurs, buts par édition" },
-            { href: "/equipes", icon: "", label: "Les 48 équipes 2026", desc: "Groupes, effectifs et pronostics" },
+            { href: "/equipe", icon: "", label: "Les 48 équipes 2026", desc: "Groupes, effectifs et pronostics" },
           ].map(({ href, icon, label, desc }) => (
             <Link
               key={href}
@@ -178,7 +178,7 @@ export default function HistoirePage() {
             icon: ""
           },
           {
-            href: "/equipes",
+            href: "/equipe",
             title: "Équipes CDM 2026",
             description: "Découvrez les 48 équipes qualifiées pour la prochaine Coupe du Monde.",
             icon: ""

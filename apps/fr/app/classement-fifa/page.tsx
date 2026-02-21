@@ -279,7 +279,7 @@ export default function ClassementFifaPage() {
           {/* Navigation */}
           <div className="mt-12 grid sm:grid-cols-3 gap-4">
             {[
-              { href: "/equipes", label: "Toutes les équipes", desc: "48 sélections qualifiées" },
+              { href: "/equipe", label: "Toutes les équipes", desc: "48 sélections qualifiées" },
               { href: "/groupes", label: "Composition des groupes", desc: "12 groupes de 4 équipes" },
               { href: "/statistiques", label: "Statistiques CDM", desc: "Records et analyses" },
             ].map(({ href, label, desc }) => (
@@ -307,7 +307,7 @@ export default function ClassementFifaPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/equipes", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "" },
+          { href: "/equipe", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "" },
           { href: "/groupes", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "" },
           { href: "/pronostic/vainqueur", title: "Pronostic vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
           { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "" },

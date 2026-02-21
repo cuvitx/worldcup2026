@@ -169,7 +169,7 @@ export default function ParisSportifsPage() {
             <Link href="/match/calendrier" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Calendrier des matchs
             </Link>
-            <Link href="/equipes" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/equipe" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Toutes les équipes
             </Link>
           </div>

@@ -119,7 +119,7 @@ export default function QuizPage() {
                 icon: ""
               },
               {
-                href: "/equipes",
+                href: "/equipe",
                 title: "Les 48 équipes",
                 description: "Explorez toutes les équipes qualifiées avec stats et pronostics.",
                 icon: ""

@@ -165,7 +165,7 @@ export default function PlayersPage() {
         <RelatedLinks variant="compact" title="Pages liées" links={[
           { href: "/buteurs", title: "Meilleurs buteurs", description: "Classement des buteurs de la CDM 2026", icon: "" },
           { href: "/comparateur-joueurs", title: "Comparateur de joueurs", description: "Comparez les stats de 2 joueurs", icon: "" },
-          { href: "/equipes", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "" },
+          { href: "/equipe", title: "Les 48 équipes", description: "Effectifs complets par sélection", icon: "" },
           { href: "/classement-fifa", title: "Classement FIFA", description: "Ranking mondial des équipes", icon: "" },
         ]} />
       </div>

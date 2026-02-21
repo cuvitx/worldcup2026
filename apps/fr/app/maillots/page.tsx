@@ -134,7 +134,7 @@ export default function MaillotsPage() {
 
         <div className="text-center">
           <Link
-            href="/equipes"
+            href="/equipe"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
           >
             Voir toutes les équipes <ArrowRight className="h-4 w-4" />

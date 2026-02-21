@@ -124,7 +124,7 @@ export interface ButtonLinkProps {
  * 
  * @example
  * ```tsx
- * <ButtonLink href="/equipes" variant="outline">
+ * <ButtonLink href="/equipe" variant="outline">
  *   Toutes les équipes
  * </ButtonLink>
  * ```

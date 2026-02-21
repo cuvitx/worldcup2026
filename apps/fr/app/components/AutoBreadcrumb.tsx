@@ -160,7 +160,7 @@ const SEGMENT_LABELS: Record<string, string> = {
 
 /* ── Parent hub routes for dynamic segments ── */
 const PARENT_HUBS: Record<string, { label: string; href: string }> = {
-  equipe: { label: "Équipes", href: "/equipes" },
+  equipe: { label: "Équipes", href: "/equipe" },
   groupe: { label: "Groupes", href: "/groupes" },
   joueur: { label: "Joueurs", href: "/joueurs" },
   buteur: { label: "Buteurs", href: "/buteurs" },
@@ -171,9 +171,9 @@ const PARENT_HUBS: Record<string, { label: string; href: string }> = {
   bookmaker: { label: "Bookmakers", href: "/meilleurs-bookmakers" },
   bonus: { label: "Bonus", href: "/bonus" },
   actualites: { label: "Actualités", href: "/actualites" },
-  effectif: { label: "Équipes", href: "/equipes" },
+  effectif: { label: "Équipes", href: "/equipe" },
   parier: { label: "Paris sportifs", href: "/paris-sportifs" },
-  "cote-champion": { label: "Équipes", href: "/equipes" },
+  "cote-champion": { label: "Équipes", href: "/equipe" },
   "cote-buteur": { label: "Joueurs", href: "/joueurs" },
   "cote-carton-jaune": { label: "Joueurs", href: "/joueurs" },
   "score-exact": { label: "Matchs", href: "/match/calendrier" },
@@ -198,7 +198,7 @@ const PARENT_HUBS: Record<string, { label: string; href: string }> = {
   "pronostic-match": { label: "Pronostics", href: "/pronostic" },
   "pronostic-groupe": { label: "Pronostics", href: "/pronostic" },
   "scenarios-qualification": { label: "Groupes", href: "/groupes" },
-  "scenarios-qualification-equipe": { label: "Équipes", href: "/equipes" },
+  "scenarios-qualification-equipe": { label: "Équipes", href: "/equipe" },
   "statistiques-arbitre": { label: "Arbitres", href: "/arbitres" },
   "acces-stade": { label: "Stades", href: "/stades" },
   "guide-ville": { label: "Villes", href: "/villes" },

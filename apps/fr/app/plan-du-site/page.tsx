@@ -27,7 +27,7 @@ const sitemapSections = [
   },
   {
     title: "Equipes",
-    href: "/plan-du-site/equipes",
+    href: "/plan-du-site/equipe",
     icon: Users,
     description: "Les 48 equipes qualifiees, organisees par groupe.",
   },
@@ -55,7 +55,7 @@ const mainCategories = [
     { label: "Dark horses", href: "/paris-sportifs/dark-horses" },
   ]},
   { title: "Equipes et joueurs", links: [
-    { label: "Toutes les equipes", href: "/equipes" },
+    { label: "Toutes les equipes", href: "/equipe" },
     { label: "Classement FIFA", href: "/classement-fifa" },
     { label: "Palmares", href: "/palmares" },
   ]},
