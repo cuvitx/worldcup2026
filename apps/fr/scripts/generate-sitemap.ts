@@ -123,6 +123,8 @@ ${entries.map(e => `  <url>
   </url>`).join("\n")}
 </urlset>`;
 
-const outPath = join(process.cwd(), "apps/fr/public/sitemap.xml");
+import { fileURLToPath } from "url";
+const __script_dir = fileURLToPath(new URL(".", import.meta.url));
+const outPath = join(__script_dir, "../public/sitemap.xml");
 writeFileSync(outPath, xml, "utf-8");
 console.log(`[sitemap] Written ${entries.length} URLs to ${outPath}`);
