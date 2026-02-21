@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { Shield, AlertTriangle, Clock, DollarSign, FileText, Globe, CheckCircle, XCircle, ExternalLink, Plane } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -55,14 +53,7 @@ const faqItems = [
 export default function EstaUsaPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "ESTA USA — CDM 2026", url: "/esta-usa" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "ESTA USA — CDM 2026" },

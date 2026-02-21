@@ -12,9 +12,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { TableOfContents } from "@repo/ui";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
   description:
@@ -160,8 +157,7 @@ const faqItems = [
 export default function OuRegarderPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Où regarder","url":"/ou-regarder"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Où regarder les matchs" },

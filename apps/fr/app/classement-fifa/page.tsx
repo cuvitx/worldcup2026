@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { teams } from "@repo/data/teams";
 import Flag from "@repo/ui/flag";
@@ -60,15 +58,7 @@ const faqItems = [
 export default function ClassementFifaPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Classement FIFA", url: "/classement-fifa" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">

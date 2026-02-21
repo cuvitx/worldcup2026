@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { Swords, Calendar, ArrowRight, Info, Trophy } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -47,14 +45,7 @@ const faqItems = [
 export default function SeiziemesDeFinale() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "16èmes de finale", url: "/16emes-de-finale" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "16èmes de finale" },

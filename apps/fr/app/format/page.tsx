@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { TableOfContents } from "@repo/ui";
 import { Trophy, Users, ArrowRight, Target } from "lucide-react";
@@ -52,15 +50,7 @@ const faqItems = [
 export default function FormatPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Format du tournoi", url: "/format" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-secondary uppercase tracking-widest mb-2">

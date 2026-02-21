@@ -1,4 +1,3 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { stageLabels, EXTERNAL_URLS } from "@repo/data/constants";
 import type { Metadata } from "next";
@@ -316,8 +315,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbs} baseUrl={EXTERNAL_URLS.SITE} />
-      <script
+<script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsEventSchema) }}
       />

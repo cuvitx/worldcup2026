@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Tv, Radio, Globe, Clock, ExternalLink, Wifi, Monitor } from "lucide-react";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
@@ -167,9 +166,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />

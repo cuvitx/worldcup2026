@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { BookOpen, ArrowRight } from "lucide-react";
 
@@ -346,14 +344,7 @@ export default function LexiqueParisPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Lexique Paris Sportifs", url: "/lexique-paris" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Lexique Paris Sportifs" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Lexique Paris Sportifs" }]} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

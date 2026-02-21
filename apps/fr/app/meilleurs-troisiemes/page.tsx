@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { groups } from "@repo/data/groups";
 import { teamsById } from "@repo/data/teams";
 import { Trophy, ArrowRight, Info, BarChart3, Scale, Shield, Target } from "lucide-react";
@@ -82,16 +80,7 @@ const faqItems = [
 export default function MeilleursTroisiemesPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Format", url: "/format" },
-          { name: "Meilleurs 3èmes", url: "/meilleurs-troisiemes" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">

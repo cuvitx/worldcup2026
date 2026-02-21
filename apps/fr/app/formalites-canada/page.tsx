@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { FileText, Shield, Globe, ExternalLink, CheckCircle, Clock, AlertTriangle, Plane } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -44,14 +42,7 @@ const faqItems = [
 export default function FormalitesCanadaPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Formalités Canada — CDM 2026", url: "/formalites-canada" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Formalités Canada — CDM 2026" },

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { matches } from "@repo/data/matches";
 import { teams } from "@repo/data/teams";
 
@@ -24,12 +23,6 @@ const breadcrumbItems: { label: string; href?: string }[] = [
   { label: "Accueil", href: "/" },
   { label: "Plan du site", href: "/plan-du-site" },
   { label: "Matchs" },
-];
-
-const schemaItems = [
-  { name: "Accueil", url: "/" },
-  { name: "Plan du site", url: "/plan-du-site" },
-  { name: "Matchs", url: "/plan-du-site/matchs" },
 ];
 
 const stageLabels: Record<string, string> = {
@@ -64,9 +57,7 @@ export default function PlanDuSiteMatchsPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
-      <BreadcrumbSchema items={schemaItems} baseUrl="https://cdm2026.fr" />
-
-      <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Matchs</h1>
+<h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Matchs</h1>
       <p className="mt-2 text-gray-600 dark:text-gray-400">
         Les 104 matchs de la Coupe du Monde 2026 avec tous les liens associes.
       </p>

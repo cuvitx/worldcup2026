@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { Map, Users, Trophy, TrendingUp, Calendar, BookOpen, Landmark, Globe } from "lucide-react";
 
 export const revalidate = 86400;
@@ -22,11 +21,6 @@ export function generateMetadata(): Metadata {
 const breadcrumbItems: { label: string; href?: string }[] = [
   { label: "Accueil", href: "/" },
   { label: "Plan du site" },
-];
-
-const schemaItems = [
-  { name: "Accueil", url: "/" },
-  { name: "Plan du site", url: "/plan-du-site" },
 ];
 
 const sitemapSections = [
@@ -98,9 +92,7 @@ export default function PlanDuSitePage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
-      <BreadcrumbSchema items={schemaItems} baseUrl="https://cdm2026.fr" />
-
-      <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site</h1>
+<h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site</h1>
       <p className="mt-2 text-gray-600 dark:text-gray-400">
         Retrouvez toutes les pages de cdm2026.fr organisees par categorie.
       </p>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { Monitor, MapPin, Clock, Users, Beer, Sun, ArrowRight } from "lucide-react";
@@ -281,16 +280,7 @@ export default async function EcransGeantsPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Écrans géants", url: "/ecrans-geants" },
-          { name: data.name, url: `/ecrans-geants/${slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Écrans géants", href: "/ecrans-geants" },

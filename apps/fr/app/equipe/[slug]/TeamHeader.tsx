@@ -1,6 +1,4 @@
 import { HeroSection } from "@repo/ui/hero-section";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import Image from "next/image";
 import Link from "next/link";
 import { getFlagPath } from "@repo/data/country-codes";
@@ -20,8 +18,7 @@ interface TeamHeaderProps {
 export function TeamHeader({ team }: TeamHeaderProps) {
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Équipes",url:"/equipes"},{name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},{name:team.name,url:"/equipe/"+team.slug}]} baseUrl={domains.fr} />
-      {/* Breadcrumbs */}
+{/* Breadcrumbs */}
 {/* Team Header */}
       <HeroSection title={team.name} subtitle={`${team.confederation} · Classement FIFA #${team.fifaRanking} · Groupe ${team.group}`}>
         <div className="flex flex-wrap items-center gap-6 sm:gap-8 mt-4">

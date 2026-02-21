@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import {
   GoalsChart,
   TopScorersSection,
@@ -103,16 +101,7 @@ export default function StatistiquesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Statistiques CDM", url: "/statistiques" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Fil d'Ariane */}
+{/* Fil d'Ariane */}
 {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

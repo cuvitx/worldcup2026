@@ -1,4 +1,3 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { AiMatchPreview } from "@repo/ui/ai-match-preview";
 import dynamic from "next/dynamic";
 import { generateFullMatchPreview } from "@repo/ai/generators";
@@ -119,19 +118,7 @@ export default async function MatchPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Calendrier", url: "/match/calendrier" },
-          {
-            name: (home?.name ?? "TBD") + " vs " + (away?.name ?? "TBD"),
-            url: "/match/" + match.slug,
-          },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Breadcrumb */}
+{/* Breadcrumb */}
 {/* Hero */}
       <MatchHeroAdaptive
         matchPhase={matchPhase}

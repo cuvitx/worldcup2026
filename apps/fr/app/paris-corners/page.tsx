@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { CornerDownRight, ArrowRight, AlertTriangle, TrendingUp, BarChart3, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -105,16 +103,10 @@ export default function ParisCornersPage() {
     { label: "Accueil", href: "/" },
     { label: "Paris corners CDM 2026" },
   ];
-  const schemaItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Paris corners CDM 2026", url: "/paris-corners" },
-  ];
-
-
+  
   return (
     <>
-      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
-      <Breadcrumb items={breadcrumbItems} />
+<Breadcrumb items={breadcrumbItems} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

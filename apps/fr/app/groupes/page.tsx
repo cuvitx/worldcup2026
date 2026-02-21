@@ -8,9 +8,6 @@ import { teamsById } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "Les 12 groupes de la Coupe du Monde 2026 | Classement & Pronostics",
   description:
@@ -48,8 +45,7 @@ export default function GroupsPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Groupes","url":"/groupes"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Groupes" },

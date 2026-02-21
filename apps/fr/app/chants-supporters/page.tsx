@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Music, ArrowRight, Mic, Globe, Star } from "lucide-react";
 
@@ -128,14 +126,7 @@ export default function ChantsSupportersPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Chants de supporters", url: "/chants-supporters" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Chants de supporters" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Chants de supporters" }]} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

@@ -2,9 +2,6 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 /* ─── Types ────────────────────────────────────────────────── */
 
 interface QuizOption {
@@ -193,8 +190,7 @@ export default function QuizSupporterPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 py-10 sm:py-12">
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Quiz","url":"/quiz"},{"name":"Quiz Supporter","url":"/quiz/supporter"}]} baseUrl={domains.fr} />
-      {/* Breadcrumb */}
+{/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500 dark:text-gray-300" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 flex-wrap min-w-0">
           <li><Link href="/" className="text-primary dark:text-secondary hover:underline">Accueil</Link></li>

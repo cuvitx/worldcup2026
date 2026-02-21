@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
-
 import type { CdmEdition } from "./EditionCard";
 import { Timeline } from "./Timeline";
 import { Section2026 } from "./Section2026";
@@ -84,15 +81,7 @@ export default function HistoirePage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Histoire de la CDM", url: "/histoire" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Fil d'Ariane */}
+{/* Fil d'Ariane */}
 {/* Hero */}
       <section className="relative bg-primary text-white py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-5">

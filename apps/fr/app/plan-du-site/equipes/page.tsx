@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { groups } from "@repo/data/groups";
 import { teams } from "@repo/data/teams";
 
@@ -26,21 +25,13 @@ const breadcrumbItems: { label: string; href?: string }[] = [
   { label: "Equipes" },
 ];
 
-const schemaItems = [
-  { name: "Accueil", url: "/" },
-  { name: "Plan du site", url: "/plan-du-site" },
-  { name: "Equipes", url: "/plan-du-site/equipes" },
-];
-
 const teamsById = Object.fromEntries(teams.map((t) => [t.id, t]));
 
 export default function PlanDuSiteEquipesPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
-      <BreadcrumbSchema items={schemaItems} baseUrl="https://cdm2026.fr" />
-
-      <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Equipes</h1>
+<h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Equipes</h1>
       <p className="mt-2 text-gray-600 dark:text-gray-400">
         Les 48 equipes qualifiees pour la Coupe du Monde 2026, organisees par groupe.
       </p>

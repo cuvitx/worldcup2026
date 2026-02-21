@@ -3,8 +3,6 @@
 import { useState, useCallback } from "react";
 import Flag from "@repo/ui/flag";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { teamsById } from "@repo/data/teams";
 import { Trophy, RotateCcw, Share2, ChevronRight } from "lucide-react";
 
@@ -177,15 +175,7 @@ export default function SimulateurBracketPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Simulateur", url: "/simulateur" },
-          { name: "Bracket interactif", url: "/simulateur-bracket" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Simulateur", href: "/simulateur" },

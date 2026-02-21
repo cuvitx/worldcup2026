@@ -4,8 +4,6 @@ import { RelatedLinks } from "../components/RelatedLinks";
 import { teams } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { H2HSelector } from "./h2h-selector";
 
 export const metadata: Metadata = {
@@ -68,15 +66,7 @@ export default function H2HIndexPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Confrontations H2H", url: "/h2h" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Breadcrumbs */}
+{/* Breadcrumbs */}
 {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

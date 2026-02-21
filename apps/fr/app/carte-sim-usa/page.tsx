@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { Smartphone, Wifi, Signal, Globe, CheckCircle, XCircle, ExternalLink, Zap } from "lucide-react";
@@ -106,15 +105,7 @@ const faqItems = [
 export default function CarteSimUsaPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Forfait téléphone CDM 2026", url: "/carte-sim-usa" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Forfait téléphone CDM 2026" },

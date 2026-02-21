@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { bookmakers } from "@repo/data/affiliates";
 
 export const revalidate = 86400;
@@ -23,12 +22,6 @@ const breadcrumbItems: { label: string; href?: string }[] = [
   { label: "Accueil", href: "/" },
   { label: "Plan du site", href: "/plan-du-site" },
   { label: "Paris sportifs" },
-];
-
-const schemaItems = [
-  { name: "Accueil", url: "/" },
-  { name: "Plan du site", url: "/plan-du-site" },
-  { name: "Paris sportifs", url: "/plan-du-site/paris" },
 ];
 
 const sections = [
@@ -95,9 +88,7 @@ export default function PlanDuSiteParisPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Breadcrumb items={breadcrumbItems} />
-      <BreadcrumbSchema items={schemaItems} baseUrl="https://cdm2026.fr" />
-
-      <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Paris sportifs</h1>
+<h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Paris sportifs</h1>
       <p className="mt-2 text-gray-600 dark:text-gray-400">
         Toutes les pages paris sportifs, bookmakers, bonus et guides.
       </p>

@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { faqItems, faqCategories } from "@repo/data/faq";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const revalidate = 86400;
 
 export function generateMetadata(): Metadata {
@@ -53,8 +50,7 @@ export default function FaqPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"FAQ","url":"/faq"}]} baseUrl={domains.fr} />
-      <script
+<script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
@@ -97,17 +95,7 @@ export default async function ArbitrePage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Calendrier", url: "/match/calendrier" },
-          { name: `${homeName} vs ${awayName}`, url: `/match/${slug}` },
-          { name: "Arbitre", url: `/arbitre/${slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-sm text-white/60 mb-2">{stage} — {dateStr}</p>

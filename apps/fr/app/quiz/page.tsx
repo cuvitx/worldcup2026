@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import dynamic from "next/dynamic";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { RelatedLinks } from "../components/RelatedLinks";
 
@@ -67,8 +65,7 @@ export default function QuizPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Quiz","url":"/quiz"}]} baseUrl={domains.fr} />
-      <Breadcrumb items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

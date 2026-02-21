@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Wallet, ArrowRight, Calculator, Shield, TrendingUp, AlertTriangle } from "lucide-react";
 
@@ -75,14 +73,7 @@ export default function BankrollCdmPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Bankroll CDM 2026", url: "/bankroll-cdm" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Bankroll CDM" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Bankroll CDM" }]} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

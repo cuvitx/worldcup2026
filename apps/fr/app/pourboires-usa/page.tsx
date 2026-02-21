@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { DollarSign, Coffee, Car, Hotel, AlertTriangle, Smartphone, Globe, CreditCard } from "lucide-react";
@@ -113,15 +112,7 @@ const faqItems = [
 export default function PourbioiresUsaPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Guide des pourboires USA", url: "/pourboires-usa" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Guide des pourboires USA" },

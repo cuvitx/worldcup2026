@@ -1,5 +1,3 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -74,7 +72,6 @@ export default async function PlayerPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Joueurs",url:"/joueurs"},{name:player.name,url:"/joueur/"+player.slug}]} baseUrl={domains.fr} />
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">

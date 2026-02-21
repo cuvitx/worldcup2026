@@ -1,4 +1,3 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import { Newsletter } from "@repo/ui/newsletter";
@@ -90,17 +89,7 @@ export default async function TeamPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema 
-        items={[
-          {name:"Accueil",url:"/"},
-          {name:"Équipes",url:"/equipes"},
-          {name:"Groupe "+team.group,url:"/groupe/"+team.group.toLowerCase()},
-          {name:team.name,url:"/equipe/"+team.slug}
-        ]} 
-        baseUrl={domains.fr} 
-      />
-
-      {/* Breadcrumbs */}
+{/* Breadcrumbs */}
 {/* Premium Hero + Probability (single hero-animated section) */}
       <section className="hero-animated text-white">
         <PremiumHero 

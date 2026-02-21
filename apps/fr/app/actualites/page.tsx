@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { newsArticles, newsCategories, type NewsCategory } from "@repo/data/news";
 import { getAllArticles } from "../../lib/mdx";
@@ -89,8 +87,7 @@ export default function ActualitesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
       />
-      <BreadcrumbSchema items={[{ name: "Accueil", url: "/" }, { name: "Actualités", url: "/actualites" }]} baseUrl={domains.fr} />
-      {/* Breadcrumb */}
+{/* Breadcrumb */}
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

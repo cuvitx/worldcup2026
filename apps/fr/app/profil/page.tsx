@@ -5,8 +5,6 @@ import Link from "next/link";
 import { FileText, Vote } from "lucide-react";
 import { useBadges, ALL_BADGES } from "@repo/ui/badge-system";
 import { EVENT_DATES } from "@repo/data/constants";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
@@ -112,8 +110,7 @@ export default function ProfilPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Profil","url":"/profil"}]} baseUrl={domains.fr} />
-      <Breadcrumb items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

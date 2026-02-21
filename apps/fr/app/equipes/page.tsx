@@ -6,9 +6,6 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 import { ConfederationFilter } from "./confederation-filter";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "Les 48 équipes de la Coupe du Monde 2026 | Classement, Stats & Pronostics",
   description:
@@ -25,8 +22,7 @@ export default function TeamsPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Équipes","url":"/equipes"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Équipes" },

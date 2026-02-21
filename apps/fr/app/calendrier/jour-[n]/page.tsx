@@ -1,4 +1,3 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -144,16 +143,7 @@ export default async function JourPage({ params }: PageProps) {
   return (
     <>
       {/* Structured data */}
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Calendrier", url: "/match/calendrier" },
-          { name: `Jour ${dayNum}`, url: `/calendrier/jour-${dayNum}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Breadcrumb */}
+{/* Breadcrumb */}
 {/* Hero header */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16">
         <div className="mx-auto max-w-5xl px-4">

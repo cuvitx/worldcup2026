@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { Briefcase, Scale, Clock, Coffee, Monitor, Lightbulb, TrendingUp, Users } from "lucide-react";
@@ -51,15 +50,7 @@ const faqItems = [
 export default function RegarderCdmAuTravailPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Regarder la CDM au travail", url: "/regarder-cdm-au-travail" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Regarder la CDM au travail" },

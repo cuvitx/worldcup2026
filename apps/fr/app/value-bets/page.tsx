@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { TrendingUp, Calculator, Target, ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 
@@ -133,15 +131,7 @@ const faqItems = [
 export default function ValueBetsPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Paris sportifs", url: "/paris-sportifs" },
-          { name: "Value bets", url: "/value-bets" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Paris sportifs", href: "/paris-sportifs" },

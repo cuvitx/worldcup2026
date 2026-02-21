@@ -3,8 +3,6 @@ import Link from "next/link";
 import { BracketSimulator } from "./components/BracketSimulator";
 import { SocialProof } from "@repo/ui/social-proof";
 import { FAQSection } from "@repo/ui/faq-section";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
@@ -47,8 +45,7 @@ export default function SimulateurPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Simulateur","url":"/simulateur"}]} baseUrl={domains.fr} />
-      <Breadcrumb items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Newsletter } from "@repo/ui/newsletter";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import {
   TopFavorites,
@@ -46,8 +44,7 @@ export const metadata: Metadata = {
 export default function PronosticVainqueurPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Pronostics","url":"/pronostic"},{"name":"Vainqueur","url":"/pronostic-vainqueur"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Pronostic vainqueur" },

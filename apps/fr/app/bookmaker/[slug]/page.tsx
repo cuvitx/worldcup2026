@@ -1,4 +1,3 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
@@ -57,8 +56,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Paris sportifs",url:"/paris-sportifs"},{name:bk.name,url:"/bookmaker/"+bk.slug}]} baseUrl={domains.fr} />
-      {/* Breadcrumbs */}
+{/* Breadcrumbs */}
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

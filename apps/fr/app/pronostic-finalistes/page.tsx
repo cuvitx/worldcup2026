@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Map, TrendingUp, ArrowRight } from "lucide-react";
 
@@ -45,8 +43,7 @@ const faqItems = [
 export default function PronosticFinalistesPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: "Accueil", url: "/" }, { name: "Pronostics", url: "/pronostic" }, { name: "Finalistes", url: "/pronostic-finalistes" }]} baseUrl={domains.fr} />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Finalistes" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Finalistes" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Qui sera en finale ? — CDM 2026</h1>

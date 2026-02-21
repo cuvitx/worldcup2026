@@ -6,8 +6,6 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 import CalendarViewWrapper from "./CalendarViewWrapper";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FileText } from "lucide-react";
 import { RelatedLinks } from "../../components/RelatedLinks";
 
@@ -101,8 +99,7 @@ export default function CalendrierPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Calendrier","url":"/match/calendrier"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Calendrier des matchs" },

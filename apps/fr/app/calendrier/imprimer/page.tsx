@@ -4,9 +4,6 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { PrintButton } from "./PrintButton";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "Calendrier CDM 2026 — Version imprimable",
   description:
@@ -46,8 +43,7 @@ export default function CalendrierImprimerPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Calendrier","url":"/match/calendrier"},{"name":"Imprimer","url":"/calendrier/imprimer"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Calendrier", href: "/match/calendrier" },

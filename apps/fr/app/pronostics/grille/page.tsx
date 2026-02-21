@@ -7,9 +7,6 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 const STORAGE_KEY = "cdm2026-pronostics";
 
 type Pronostics = Record<string, { home: string; away: string }>;
@@ -96,8 +93,7 @@ export default function GrillePronosticsPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Pronostics","url":"/pronostic"},{"name":"Grille","url":"/pronostics/grille"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Pronostics", href: "/pronostic" },

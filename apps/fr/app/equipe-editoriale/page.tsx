@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { User, BarChart3, TrendingUp, Globe, Target } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -50,15 +48,7 @@ export default function EquipeEditorialePage() {
   return (
     <>
       <PersonSchema />
-      <BreadcrumbSchema
-        baseUrl="https://cdm2026.fr"
-        items={[
-          { name: "Accueil", url: "https://cdm2026.fr" },
-          { name: "À propos de l'auteur", url: "https://cdm2026.fr/equipe-editoriale" },
-        ]}
-      />
-
-      <section className="hero-animated text-white py-16 sm:py-20">
+<section className="hero-animated text-white py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <Breadcrumb
             items={[

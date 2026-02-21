@@ -5,9 +5,6 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const revalidate = 300; // 5 minutes
 
 export const metadata: Metadata = {
@@ -23,8 +20,7 @@ export default function AujourdhuiPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Matchs","url":"/match/calendrier"},{"name":"Aujourd'hui","url":"/match/aujourdhui"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Calendrier", href: "/match/calendrier" },

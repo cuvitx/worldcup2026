@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { FileText, Plane, Shield, Heart, Globe, ExternalLink, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -44,14 +42,7 @@ const faqItems = [
 export default function VisaMexiquePage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Formalités Mexique — CDM 2026", url: "/visa-mexique" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Formalités Mexique — CDM 2026" },

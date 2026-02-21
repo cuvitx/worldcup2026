@@ -8,9 +8,6 @@ import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "Les 16 stades de la Coupe du Monde 2026 | Capacité, Ville & Matchs",
   description:
@@ -60,8 +57,7 @@ export default function StadiumsPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Stades","url":"/stades"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Stades" },

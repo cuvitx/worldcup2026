@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Hotel, MapPin, DollarSign, ArrowRight, ExternalLink, CalendarCheck } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
-import { domains } from "@repo/data/route-mapping";
-
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -90,9 +87,7 @@ export default async function HebergementPage({ params }: PageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
           <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Hébergement ${city.name}` }]} />

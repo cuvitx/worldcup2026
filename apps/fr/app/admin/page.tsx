@@ -3,8 +3,6 @@
 import { useSearchParams, useRouter } from "next/navigation"
 import { useEffect, useState, Suspense } from "react"
 import { Flag, MapPin, Users, FileText } from "lucide-react"
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 const SECRET = "cdm2026-admin-secret"
@@ -61,8 +59,7 @@ function AdminContent() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Admin","url":"/admin"}]} baseUrl={domains.fr} />
-      <Breadcrumb items={[
+<Breadcrumb items={[
           {
                     "label": "Accueil",
                     "href": "/"

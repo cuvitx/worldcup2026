@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Award, Trophy, Star, ArrowRight } from "lucide-react";
 
@@ -50,8 +48,7 @@ const faqItems = [
 export default function BallonOrCdmPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: "Accueil", url: "/" }, { name: "Pronostics", url: "/pronostic" }, { name: "Ballon d'Or CDM", url: "/ballon-or-cdm" }]} baseUrl={domains.fr} />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Ballon d'Or CDM" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Ballon d'Or CDM" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Ballon d&apos;Or CDM 2026</h1>

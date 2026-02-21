@@ -10,9 +10,6 @@ import { FinalesTable } from "./_components/FinalesTable";
 import { RecordsSection } from "./_components/RecordsSection";
 import { PalmaresSection2026 } from "./_components/PalmaresSection2026";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
  title: "Palmarès Coupe du Monde FIFA | Historique 1930–2022",
  description:
@@ -58,8 +55,7 @@ export default function PalmaresPage() {
 
  return (
  <>
- <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Palmarès",url:"/palmares"}]} baseUrl={domains.fr} />
- <Breadcrumb
+<Breadcrumb
  items={[
  { label: "Accueil", href: "/" },
  { label: "Palmarès" },

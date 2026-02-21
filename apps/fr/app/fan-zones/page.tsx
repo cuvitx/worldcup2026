@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { PartyPopper, MapPin, Monitor, Users } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -80,14 +78,7 @@ const faqItems = [
 export default function FanZonesPage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Fan zones", url: "/fan-zones" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Fan zones CDM 2026" },

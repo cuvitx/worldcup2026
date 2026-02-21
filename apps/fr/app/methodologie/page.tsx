@@ -2,8 +2,6 @@ import { Breadcrumb } from "@repo/ui/breadcrumb";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { domains } from "@repo/data/route-mapping";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-
 export const metadata: Metadata = {
   title: "Notre méthodologie | Comment nous calculons nos pronostics CDM 2026",
   description:
@@ -21,8 +19,7 @@ export const metadata: Metadata = {
 export default function MethodologiePage() {
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Méthodologie","url":"/methodologie"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Méthodologie" },

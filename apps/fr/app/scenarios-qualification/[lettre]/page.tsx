@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { groups, groupsBySlug } from "@repo/data/groups";
 import { teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
@@ -74,17 +72,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Format", url: "/format" },
-          { name: "Scénarios qualification", url: "/scenarios-qualification/a" },
-          { name: `Groupe ${group.letter}`, url: `/scenarios-qualification/${lettre}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">

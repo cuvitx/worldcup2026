@@ -1,6 +1,5 @@
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { generateFullMatchPreview } from "@repo/ai/generators";
-import { domains, getAlternates } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { teamsById } from "@repo/data/teams";
@@ -109,16 +108,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Calendrier", url: "/match/calendrier" },
-          { name: `Pronostic ${homeName} vs ${awayName}`, url: `/pronostic-match/${match.slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <BreadcrumbNav homeName={homeName} awayName={awayName} />
+<BreadcrumbNav homeName={homeName} awayName={awayName} />
       <MatchHero home={home} away={away} match={match} stadium={stadium} city={city} stage={stage} homeName={homeName} awayName={awayName} dateFormatted={dateFormatted} />
       <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
       <MatchTabsClient>

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 import { cities, citiesBySlug } from "./_components/city-data";
 import { CityHero } from "./_components/CityHero";
 import { TransportSection } from "./_components/TransportSection";
@@ -58,16 +55,7 @@ export default async function GuideVillePage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Guides", url: "/guides" },
-          { name: `Guide ${city.name}`, url: `/guide-ville/${city.slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <script
+<script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />

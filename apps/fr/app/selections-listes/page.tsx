@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Users, Clock, ArrowRight, ClipboardList } from "lucide-react";
 
@@ -45,14 +43,7 @@ export default function SelectionsListesPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Listes des 26", url: "/selections-listes" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Listes des 26" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Listes des 26" }]} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

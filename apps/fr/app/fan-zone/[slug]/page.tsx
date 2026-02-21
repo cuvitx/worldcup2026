@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { PartyPopper, MapPin, Clock, Music, Tv, Users, ArrowRight, CalendarDays } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
-import { domains } from "@repo/data/route-mapping";
-
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -270,8 +267,7 @@ export default async function FanZonePage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

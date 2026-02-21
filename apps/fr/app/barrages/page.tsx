@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Swords, Calendar, MapPin, ArrowRight, Globe, AlertTriangle } from "lucide-react";
 
@@ -97,14 +95,7 @@ export default function BarragesPage() {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Barrages CDM 2026", url: "/barrages" },
-        ]}
-        baseUrl={domains.fr}
-      />
-      <Breadcrumb
+<Breadcrumb
         items={[{ label: "Accueil", href: "/" }, { label: "Barrages CDM 2026" }]}
       />
 

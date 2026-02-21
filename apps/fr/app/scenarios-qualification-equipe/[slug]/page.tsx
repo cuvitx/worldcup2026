@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
@@ -129,17 +128,7 @@ export default async function ScenariosQualificationPage({ params }: PageProps) 
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Équipes", url: "/equipes" },
-          { name: team.name, url: `/equipe/${team.slug}` },
-          { name: "Scénarios de qualification", url: `/scenarios-qualification-equipe/${team.slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-sm text-white/60 mb-2">Groupe {team.group} — CDM 2026</p>

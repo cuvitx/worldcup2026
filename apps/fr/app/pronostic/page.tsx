@@ -5,9 +5,6 @@ import { teams, teamsById } from "@repo/data/teams";
 import { teamPredictions } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { matches } from "@repo/data/matches";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "Pronostics CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
   description:
@@ -99,15 +96,7 @@ export default function PronosticHubPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Pronostics CDM 2026", url: "/pronostic" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      {/* Breadcrumb */}
+{/* Breadcrumb */}
 {/* ===== HERO ===== */}
       <section className="hero-animated py-14 md:py-20 text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Clock, Target, TrendingUp, ArrowRight } from "lucide-react";
 
@@ -47,8 +45,7 @@ const faqItems = [
 export default function PronosticTirsAuButPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: "Accueil", url: "/" }, { name: "Pronostics", url: "/pronostic" }, { name: "Tirs au but", url: "/pronostic-tirs-au-but" }]} baseUrl={domains.fr} />
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Tirs au but" }]} />
+<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Tirs au but" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-4">Prolongation & Tirs au But — CDM 2026</h1>

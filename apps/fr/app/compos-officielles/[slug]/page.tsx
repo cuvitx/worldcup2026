@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
-import { domains } from "@repo/data/route-mapping";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
@@ -135,17 +133,7 @@ export default async function ComposOfficiellesPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Calendrier", url: "/match/calendrier" },
-          { name: `${homeName} vs ${awayName}`, url: `/match/${slug}` },
-          { name: "Compo officielle", url: `/compos-officielles/${slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <script
+<script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />

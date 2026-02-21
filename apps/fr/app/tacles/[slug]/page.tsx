@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Shield, TrendingUp, ArrowRight, ExternalLink, BarChart3 } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -74,12 +72,7 @@ export default async function TaclesPage({ params }: PageProps) {
     { label: "Paris sportifs", href: "/paris-sportifs" },
     { label: `Tacles ${player.name}` },
   ];
-  const schemaItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Paris sportifs", url: "/paris-sportifs" },
-    { name: `Tacles ${player.name}`, url: `/tacles/${slug}` },
-  ];
-
+  
   const faqItems = [
     { question: `Combien de tacles ${player.name} réalise-t-il par match ?`, answer: `${player.name} réalise en moyenne ${stats.tacklesPerMatch} tacles par match en sélection, avec un taux de réussite de ${stats.tackleSuccessRate}%.` },
     { question: "Peut-on parier sur les tacles d'un joueur ?", answer: "Oui, certains bookmakers proposent des marchés sur le nombre de tacles d'un joueur pendant un match de la Coupe du Monde 2026. Ce marché est plus courant pour les défenseurs et milieux défensifs." },
@@ -89,9 +82,7 @@ export default async function TaclesPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
-
-      <section className="hero-animated text-center py-16 px-4">
+<section className="hero-animated text-center py-16 px-4">
         <Breadcrumb items={breadcrumbItems} />
         <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mt-6">
           Statistiques tacles {player.name}

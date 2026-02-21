@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 
 import { faqItems } from "./_components/data";
@@ -31,8 +29,7 @@ export const metadata: Metadata = {
 export default function BilletsPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Billets CDM 2026",url:"/billets"}]} baseUrl={domains.fr} />
-      <BilletsToc />
+<BilletsToc />
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },

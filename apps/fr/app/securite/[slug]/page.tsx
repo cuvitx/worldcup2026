@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { cities } from "@repo/data/cities";
@@ -281,16 +280,7 @@ export default async function SecuriteCityPage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Sécurité", url: "/securite" },
-          { name: data.name, url: `/securite/${slug}` },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Sécurité", href: "/securite" },

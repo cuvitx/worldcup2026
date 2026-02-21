@@ -2,15 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Calendar, ArrowRight, Ticket, Building2 } from "lucide-react";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
-import { domains } from "@repo/data/route-mapping";
-
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -56,9 +53,7 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbItems} baseUrl={domains.fr} />
-
-      {/* Hero */}
+{/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
           <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Matchs au ${stadium.name}` }]} />

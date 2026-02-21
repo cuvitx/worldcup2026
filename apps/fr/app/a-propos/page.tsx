@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const metadata: Metadata = {
   title: "À propos de CDM 2026 | Coupe du Monde 2026",
   description:
@@ -20,8 +17,7 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"À propos",url:"/a-propos"}]} baseUrl={domains.fr} />
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "À propos" },

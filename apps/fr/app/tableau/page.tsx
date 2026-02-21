@@ -6,9 +6,6 @@ import { teamsById } from "@repo/data/teams";
 import { champion } from "./_components/bracket-data";
 import { DesktopBracket, MobileBracket } from "./_components/BracketView";
 import { ProbabilitiesTable } from "./_components/ProbabilitiesTable";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
@@ -48,8 +45,7 @@ export default function BracketPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={[{"name":"Accueil","url":"/"},{"name":"Tableau final","url":"/tableau"}]} baseUrl={domains.fr} />
-      {/* Breadcrumbs */}
+{/* Breadcrumbs */}
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

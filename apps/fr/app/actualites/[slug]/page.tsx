@@ -5,9 +5,6 @@ import { getArticleBySlug, getRelatedArticles, getMdxSlugs } from "../../../lib/
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "../../../lib/mdx-components";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
-import { domains } from "@repo/data/route-mapping";
-
 const categoryColors: Record<string, string> = {
   analyse: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
   guide: "bg-accent/10 text-accent dark:bg-accent/10 dark:text-accent",
@@ -80,8 +77,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <BreadcrumbSchema items={[{name:"Accueil",url:"/"},{name:"Actualités",url:"/actualites"},{name:fm.title,url:`/actualites/${slug}`}]} baseUrl={domains.fr} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <Breadcrumb items={[{label:"Accueil",href:"/"},{label:"Actualités",href:"/actualites"},{label:fm.title}]} />
 

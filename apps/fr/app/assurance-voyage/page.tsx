@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@repo/ui/breadcrumb";
-import { BreadcrumbSchema } from "@repo/ui/breadcrumb-schema";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { HeartPulse, Shield, DollarSign, Plane, AlertTriangle, Star, ExternalLink } from "lucide-react";
@@ -118,15 +117,7 @@ const faqItems = [
 export default function AssuranceVoyagePage() {
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Accueil", url: "/" },
-          { name: "Assurance voyage CDM 2026", url: "/assurance-voyage" },
-        ]}
-        baseUrl={domains.fr}
-      />
-
-      <Breadcrumb
+<Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
           { label: "Assurance voyage CDM 2026" },
