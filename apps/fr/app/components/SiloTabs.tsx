@@ -180,7 +180,7 @@ export function SiloTabs() {
               className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 isActive
                   ? "bg-primary text-white"
-                  : "border border-gray-300 bg-gray-50 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+                  : "border border-primary/30 text-primary/70 hover:bg-primary/5 hover:border-primary/50"
               }`}
             >
               {tab.label}
