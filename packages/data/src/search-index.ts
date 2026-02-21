@@ -21,20 +21,6 @@ const typeLabels: Record<Lang, Record<SearchItem["type"], string>> = {
     stadium: "Stade",
     city: "Ville",
   },
-  en: {
-    team: "Team",
-    match: "Match",
-    player: "Player",
-    stadium: "Stadium",
-    city: "City",
-  },
-  es: {
-    team: "Equipo",
-    match: "Partido",
-    player: "Jugador",
-    stadium: "Estadio",
-    city: "Ciudad",
-  },
 };
 
 export { typeLabels as searchTypeLabels };
@@ -49,30 +35,10 @@ const stageLabels: Record<Lang, Record<string, string>> = {
     "third-place": "Match pour la 3e place",
     final: "Finale",
   },
-  en: {
-    group: "Group stage",
-    "round-of-32": "Round of 32",
-    "round-of-16": "Round of 16",
-    "quarter-final": "Quarter-final",
-    "semi-final": "Semi-final",
-    "third-place": "Third place play-off",
-    final: "Final",
-  },
-  es: {
-    group: "Fase de grupos",
-    "round-of-32": "Dieciseisavos de final",
-    "round-of-16": "Octavos de final",
-    "quarter-final": "Cuartos de final",
-    "semi-final": "Semifinal",
-    "third-place": "Partido por el 3er puesto",
-    final: "Final",
-  },
 };
 
 const positionLabels: Record<Lang, Record<string, string>> = {
   fr: { GK: "Gardien", DF: "Defenseur", MF: "Milieu", FW: "Attaquant" },
-  en: { GK: "Goalkeeper", DF: "Defender", MF: "Midfielder", FW: "Forward" },
-  es: { GK: "Portero", DF: "Defensa", MF: "Centrocampista", FW: "Delantero" },
 };
 
 export function buildSearchIndex(lang: Lang): SearchItem[] {
@@ -98,7 +64,7 @@ export function buildSearchIndex(lang: Lang): SearchItem[] {
     const stageLookup = stageLabels[lang];
     const stage = (stageLookup ? stageLookup[match.stage] : undefined) ?? match.stage;
     const dateFormatted = new Date(match.date + "T00:00:00Z").toLocaleDateString(
-      lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US",
+      "fr-FR",
       { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }
     );
 

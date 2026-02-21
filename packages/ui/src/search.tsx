@@ -22,14 +22,10 @@ const MAX_RESULTS = 8;
 
 const typeLabels: Record<Lang, Record<SearchResultType, string>> = {
   fr: { team: "Equipe", player: "Joueur", stadium: "Stade", city: "Ville" },
-  en: { team: "Team", player: "Player", stadium: "Stadium", city: "City" },
-  es: { team: "Equipo", player: "Jugador", stadium: "Estadio", city: "Ciudad" },
 };
 
 const placeholders: Record<Lang, string> = {
   fr: "Rechercher...",
-  en: "Search...",
-  es: "Buscar...",
 };
 
 /**
@@ -89,7 +85,7 @@ for (const t of teams) {
 /**
  * Props for the Search component.
  * 
- * @param lang - UI language: "fr" | "en" | "es"
+ * @param lang - UI language: "fr"
  */
 export interface SearchProps {
   lang: Lang;
@@ -369,11 +365,7 @@ export function Search({ lang }: SearchProps) {
       {/* No results message */}
       {isOpen && query.trim().length >= 2 && results.length === 0 && (
         <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-lg bg-white p-4 text-center text-sm text-gray-500 shadow-xl ring-1 ring-black/10">
-          {lang === "fr"
-            ? "Aucun resultat"
-            : lang === "es"
-              ? "Sin resultados"
-              : "No results"}
+          Aucun résultat
         </div>
       )}
     </div>

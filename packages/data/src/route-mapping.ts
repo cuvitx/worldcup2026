@@ -3,12 +3,10 @@
 // Single source of truth for URL paths and hreflang alternates across FR/EN/ES.
 // ============================================================================
 
-export type Lang = "fr" | "en" | "es";
+export type Lang = "fr";
 
 export const domains: Record<Lang, string> = {
   fr: "https://www.cdm2026.fr",
-  en: "https://www.cdm2026.fr",
-  es: "https://www.cdm2026.fr",
 };
 
 // Route type -> localized path prefix (without leading or trailing slash)
@@ -41,64 +39,6 @@ export const routePrefixes = {
     contact: "contact",
     faq: "faq",
     bracket: "tableau",
-  },
-  en: {
-    team: "team",
-    teams: "teams",
-    match: "match",
-    matchSchedule: "match/schedule",
-    matchToday: "match/today",
-    prediction: "prediction",
-    predictionMatch: "prediction-match",
-    group: "group",
-    player: "player",
-    players: "players",
-    scorer: "scorer",
-    scorers: "scorers",
-    stadium: "stadium",
-    stadiums: "stadiums",
-    city: "city",
-    cities: "cities",
-    h2h: "h2h",
-    bookmaker: "bookmaker",
-    guide: "guide",
-    guides: "guides",
-    betting: "betting",
-    about: "about",
-    legal: "legal",
-    responsibleGambling: "responsible-gambling",
-    contact: "contact",
-    faq: "faq",
-    bracket: "bracket",
-  },
-  es: {
-    team: "equipo",
-    teams: "equipos",
-    match: "match",
-    matchSchedule: "match/calendario",
-    matchToday: "match/hoy",
-    prediction: "pronostico",
-    predictionMatch: "pronostico-partido",
-    group: "grupo",
-    player: "jugador",
-    players: "jugadores",
-    scorer: "goleador",
-    scorers: "goleadores",
-    stadium: "estadio",
-    stadiums: "estadios",
-    city: "ciudad",
-    cities: "ciudades",
-    h2h: "h2h",
-    bookmaker: "casa-apuestas",
-    guide: "guia",
-    guides: "guias",
-    betting: "apuestas",
-    about: "acerca-de",
-    legal: "aviso-legal",
-    responsibleGambling: "juego-responsable",
-    contact: "contacto",
-    faq: "faq",
-    bracket: "cuadro",
   },
 } as const;
 
