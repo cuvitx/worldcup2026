@@ -290,12 +290,14 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* Teams playing at this stadium */}
             {(() => {
-              const teamMap = new Map<string, (typeof teamsById)[string]>();
+              const teamMap = new Map<string, { id: string; name: string; slug: string; flag: string }>();
               stadiumMatches.forEach((m) => {
-                if (teamsById[m.homeTeamId]) teamMap.set(m.homeTeamId, teamsById[m.homeTeamId]);
-                if (teamsById[m.awayTeamId]) teamMap.set(m.awayTeamId, teamsById[m.awayTeamId]);
+                const home = teamsById[m.homeTeamId];
+                const away = teamsById[m.awayTeamId];
+                if (home) teamMap.set(m.homeTeamId, home);
+                if (away) teamMap.set(m.awayTeamId, away);
               });
-              const playingTeams = [...teamMap.values()].filter((t): t is NonNullable<typeof t> => t != null);
+              const playingTeams = [...teamMap.values()];
               if (playingTeams.length === 0) return null;
               return (
                 <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
