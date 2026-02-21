@@ -23,8 +23,6 @@ export function OrganizationSchema({
     url,
     sameAs: [
       "https://www.cdm2026.fr",
-      "https://worldcup2026guide.com",
-      "https://mundial2026.es",
     ],
   };
 
