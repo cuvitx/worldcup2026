@@ -228,8 +228,6 @@ export default async function EffectifPage({ params }: PageProps) {
               </div>
             </section>
 
-            {/* FAQ */}
-            <FAQSection items={faqItems} title={`Questions fréquentes — Effectif ${team.name}`} />
           </div>
 
           {/* Sidebar */}
@@ -282,6 +280,9 @@ export default async function EffectifPage({ params }: PageProps) {
             </div>
           </aside>
         </div>
+
+        {/* FAQ — full width, centered */}
+        <FAQSection items={faqItems} title={`Questions fréquentes — Effectif ${team.name}`} />
       </div>
     </>
   );
