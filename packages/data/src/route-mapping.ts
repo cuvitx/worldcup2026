@@ -112,12 +112,6 @@ export function getAlternates(type: RouteType, slug: string, currentLang: Lang) 
   const currentPrefix = routePrefixes[currentLang][type];
   return {
     canonical: `/${currentPrefix}/${slug}`,
-    languages: {
-      "fr": `${domains.fr}/${routePrefixes.fr[type]}/${slug}`,
-      "en": `${domains.en}/${routePrefixes.en[type]}/${slug}`,
-      "es": `${domains.es}/${routePrefixes.es[type]}/${slug}`,
-      "x-default": `${domains.en}/${routePrefixes.en[type]}/${slug}`,
-    },
   };
 }
 
@@ -129,12 +123,6 @@ export function getStaticAlternates(type: RouteType, currentLang: Lang) {
   const currentPrefix = routePrefixes[currentLang][type];
   return {
     canonical: `/${currentPrefix}`,
-    languages: {
-      "fr": `${domains.fr}/${routePrefixes.fr[type]}`,
-      "en": `${domains.en}/${routePrefixes.en[type]}`,
-      "es": `${domains.es}/${routePrefixes.es[type]}`,
-      "x-default": `${domains.en}/${routePrefixes.en[type]}`,
-    },
   };
 }
 
@@ -144,11 +132,5 @@ export function getStaticAlternates(type: RouteType, currentLang: Lang) {
 export function getHomeAlternates() {
   return {
     canonical: "/",
-    languages: {
-      "fr": domains.fr,
-      "en": domains.en,
-      "es": domains.es,
-      "x-default": domains.en,
-    },
   };
 }
