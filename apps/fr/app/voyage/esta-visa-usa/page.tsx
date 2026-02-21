@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, Baby, Ban, Check, CheckCircle, ClipboardList, Clock, DollarSign, ExternalLink, FileText, Globe, Lightbulb, Pin, Plane, Shield, ShieldCheck, Ticket, X, XCircle } from "lucide-react";
 
@@ -53,12 +52,6 @@ const faqItems = [
 export default function EstaUsaPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "ESTA USA — CDM 2026" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

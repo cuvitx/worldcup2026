@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucide-react";
 
@@ -79,13 +78,6 @@ const offers: BonusOffer[] = [
 export default function BonusHubPage() {
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Paris sportifs", href: "/paris-sportifs" },
-          { label: "Bonus & Codes promo" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

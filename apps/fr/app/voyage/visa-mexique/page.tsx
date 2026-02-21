@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, CheckCircle, ClipboardList, DollarSign, ExternalLink, FileText, Globe, Heart, Lightbulb, Pin, Plane, Shield, Ticket } from "lucide-react";
 
@@ -42,12 +41,6 @@ const faqItems = [
 export default function VisaMexiquePage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Formalités Mexique — CDM 2026" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

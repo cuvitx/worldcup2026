@@ -1,4 +1,3 @@
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
@@ -55,13 +54,7 @@ export default async function EffectifPage({ params }: PageProps) {
   );
   // Stars: top 3 by caps
   const stars = [...allPlayers].sort((a, b) => b.caps - a.caps).slice(0, 3);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Équipes", href: "/equipes" },
-    { label: team.name, href: `/equipe/${team.slug}` },
-    { label: "Effectif" },
-  ];
-  const faqItems = [
+const faqItems = [
     {
       question: `Combien de joueurs ${team.name} peut-elle emmener à la CDM 2026 ?`,
       answer: "Chaque sélection peut convoquer 26 joueurs pour la Coupe du Monde 2026, dont 3 gardiens obligatoires.",
@@ -83,7 +76,6 @@ export default async function EffectifPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlarmClock, ArrowRight, Bus, Car, Clock, Lock, MapPin, Plane, ShieldCheck, Smartphone, Thermometer } from "lucide-react";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
@@ -41,12 +40,7 @@ export default async function AccesStadePage({ params }: PageProps) {
   if (!stadium) notFound();
   const city = citiesById[stadium.cityId];
   const transport = getTransportInfo(stadium);
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Stades", url: "/stades" },
-    { name: `Accès ${stadium.name}`, url: `/acces-stade/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Comment se rendre au ${stadium.name} en transports en commun ?`, answer: `Plusieurs lignes desservent le stade : ${transport.metroLines.join(", ")}. Comptez environ ${transport.centerTime} minutes depuis le centre-ville.` },
     { question: `Y a-t-il un parking au ${stadium.name} ?`, answer: `Oui, le stade dispose d'environ ${transport.parkingSpots.toLocaleString("fr-FR")} places de parking. Arrivez tôt car les places se remplissent rapidement les jours de match.` },
     { question: "Combien de temps avant le match faut-il arriver ?", answer: "Nous recommandons d'arriver au moins 2h30 avant le coup d'envoi pour passer les contrôles de sécurité FIFA sereinement et profiter de l'ambiance d'avant-match." },
@@ -54,7 +48,6 @@ export default async function AccesStadePage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Accès ${stadium.name}` }]} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { BookOpen, Target, AlertCircle, Wallet, Brain, CheckCircle, ArrowRight, TrendingUp } from "lucide-react";
 
@@ -73,13 +72,6 @@ const erreurs = [
 export default function GuideParisPage() {
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Paris sportifs", href: "/paris-sportifs" },
-          { label: "Guide des paris" },
-        ]}
-      />
 
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

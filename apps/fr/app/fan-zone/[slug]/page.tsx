@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CalendarDays, Check, Clock, Lightbulb, MapPin, Music, PartyPopper, Tv, Users, UtensilsCrossed } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
@@ -227,12 +226,7 @@ export default async function FanZonePage({ params }: PageProps) {
   const city = citiesBySlug[slug];
   if (!city) notFound();
   const fanZone = getFanZoneData(slug);
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Fan Zones", url: "/fan-zones" },
-    { name: `Fan Zone ${city.name}`, url: `/fan-zone/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Où se trouve la fan zone de ${city.name} ?`, answer: `La fan zone officielle se situe à ${fanZone.location}, ${fanZone.address}. Capacité : ${fanZone.capacity}.` },
     { question: `La fan zone de ${city.name} est-elle gratuite ?`, answer: "Oui, l'accès aux FIFA Fan Fests est gratuit. Certaines activités premium peuvent être payantes." },
     { question: "Quels sont les horaires de la fan zone ?", answer: fanZone.openingHours },
@@ -257,7 +251,6 @@ export default async function FanZonePage({ params }: PageProps) {
   };
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Fan Zones", href: "/fan-zones" }, { label: `Fan Zone ${city.name}` }]} />
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

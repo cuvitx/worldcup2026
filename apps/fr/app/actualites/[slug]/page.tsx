@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { getArticleBySlug, getRelatedArticles, getMdxSlugs } from "../../../lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "../../../lib/mdx-components";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { newsArticles } from "@repo/data/news";
 const categoryColors: Record<string, string> = {
   analyse: "bg-blue-100 text-blue-800",
@@ -107,7 +106,6 @@ export default async function ArticlePage({ params }: Props) {
     <>
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
-      <Breadcrumb items={[{label:"Accueil",href:"/"},{label:"Actualités",href:"/actualites"},{label:title}]} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

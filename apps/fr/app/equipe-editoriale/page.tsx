@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { User, BarChart3, TrendingUp, Globe, Target } from "lucide-react";
 export const metadata: Metadata = {
   title: "À propos de l'auteur | CDM 2026",
@@ -43,7 +42,6 @@ const specialites = [
 export default function EquipeEditorialePage() {
   return (
     <>
-      <Breadcrumb items={[ { label: "Accueil", href: "/" }, { label: "À propos de l'auteur" }, ]} />
       <PersonSchema />
 <section className="hero-animated text-white py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">

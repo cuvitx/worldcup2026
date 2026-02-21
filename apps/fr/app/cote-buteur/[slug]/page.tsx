@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -52,12 +51,7 @@ export default async function CoteButeurPage({ params }: PageProps) {
   if (!player) notFound();
   const team = teamsById[player.teamId];
   const odds = getScorerOdds(slug);
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Pronostic buteurs", url: "/pronostic/buteurs" },
-    { name: `Cote ${player.name} Buteur`, url: `/cote-buteur/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Les bookmakers proposent une cote autour de ${odds.winamaxAnytime} pour au moins 1 but dans le tournoi.` },
     { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `Les cotes meilleur buteur varient : Winamax ${odds.winamaxTopScorer}, Betclic ${odds.betclicTopScorer}, Unibet ${odds.unibetTopScorer}.` },
     { question: "Comment parier sur un buteur de la Coupe du Monde ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Comparez les cotes sur plusieurs bookmakers pour maximiser la valeur." },
@@ -66,7 +60,6 @@ export default async function CoteButeurPage({ params }: PageProps) {
   const comparisons = TOP_50_SLUGS.filter((s) => s !== slug && playersBySlug[s]).slice(0, 4);
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostic buteurs", href: "/pronostic/buteurs" }, { label: `Cote ${player.name} Buteur` }]} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">

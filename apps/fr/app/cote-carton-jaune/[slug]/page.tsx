@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, ArrowRight, BarChart3, ExternalLink, History, ShieldAlert, Swords, TrendingUp, Trophy, User } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -61,13 +60,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
   if (!player) notFound();
   const team = teamsById[player.teamId];
   const stats = getCardStats(slug);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Paris sportifs", href: "/paris-sportifs" },
-    { label: `Carton jaune ${player.name}` },
-  ];
-  
-  const faqItems = [
+const faqItems = [
     { question: `Quelle est la cote pour un carton jaune de ${player.name} ?`, answer: `Les cotes indicatives pour un carton jaune de ${player.name} sont de ${stats.winamax} chez Winamax, ${stats.betclic} chez Betclic et ${stats.unibet} chez Unibet. Ces cotes varient selon le match et l'adversaire.` },
     { question: `${player.name} prend-il souvent des cartons jaunes ?`, answer: `${player.name} affiche une moyenne de ${stats.cardsPerMatch} carton jaune par match en sélection, avec ${stats.yellowCards} cartons en ${stats.matchesPlayed} matchs. Son profil est considéré comme ${stats.isRough ? "plutôt rugueux" : "plutôt fair-play"}.` },
     { question: "Comment sont cotés les paris carton jaune ?", answer: "Le pari \"joueur reçoit un carton jaune\" est proposé par la plupart des bookmakers sur les matchs de la Coupe du Monde 2026. La cote dépend du profil disciplinaire du joueur, de l'adversaire et de l'enjeu du match." },
@@ -75,7 +68,6 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Cote carton jaune — {player.name}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { CornerDownRight, TrendingUp, ArrowRight, ExternalLink, BarChart3, MapPin } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -52,13 +51,7 @@ export default async function CornersPage({ params }: PageProps) {
   const homeName = home?.name ?? "A déterminer";
   const awayName = away?.name ?? "A déterminer";
   const stats = getCornerStats(match.homeTeamId, match.awayTeamId);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Pronostics", href: "/pronostic" },
-    { label: `Corners ${homeName} - ${awayName}` },
-  ];
-  
-  const faqItems = [
+const faqItems = [
     { question: `Combien de corners pour ${homeName} vs ${awayName} ?`, answer: `Sur la base des stats historiques, on peut attendre environ ${stats.totalAvg} corners au total : ${stats.homeCorners} pour ${homeName} et ${stats.awayCorners} pour ${awayName}.` },
     { question: "Qu'est-ce que le pari over/under 9.5 corners ?", answer: "C'est un pari sur le nombre total de corners dans le match. Over 9.5 signifie que vous pariez sur au moins 10 corners au total, under 9.5 sur 9 corners ou moins." },
     { question: "Quels facteurs influencent le nombre de corners ?", answer: "Le style de jeu (pressing haut, jeu offensif), la possession, la qualité des tirs (déviations), la taille du stade et les conditions météorologiques jouent tous un rôle." },
@@ -66,7 +59,6 @@ export default async function CornersPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Pronostic nombre de corners {homeName} - {awayName}

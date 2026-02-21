@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, Bus, Car, DollarSign, Plane, Train } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
@@ -57,12 +56,7 @@ export default async function TransportPage({ params }: PageProps) {
   if (!city) notFound();
   const transport = getTransportData(slug, city.country);
   const cityStadiums = (city.stadiumIds ?? []).map((id) => stadiumsById[id]).filter((s): s is NonNullable<typeof s> => !!s);
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Villes", url: "/villes" },
-    { name: `Transports ${city.name}`, url: `/transport/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Quel est le meilleur moyen de se déplacer à ${city.name} ?`, answer: `Les transports en commun sont généralement le meilleur choix (${transport.dailyPassCost} par trajet). Complétez avec Uber/Lyft pour les trajets hors réseau.` },
     { question: `Comment aller de l'aéroport au centre de ${city.name} ?`, answer: `Depuis ${transport.airportName} : ${transport.airportTransfer} Budget : ${transport.airportCost}.` },
     { question: "Y a-t-il des navettes spéciales CDM 2026 ?", answer: transport.shuttleInfo },
@@ -82,7 +76,6 @@ export default async function TransportPage({ params }: PageProps) {
   };
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Transports ${city.name}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

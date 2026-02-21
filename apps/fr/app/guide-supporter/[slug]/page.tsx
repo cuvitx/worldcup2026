@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Bed, Bus, CalendarDays, CircleDot, ClipboardList, Clock, Compass, DollarSign, ExternalLink, Landmark, Link2, MapPin, ParkingCircle, Phone, ShieldCheck, Thermometer, UtensilsCrossed } from "lucide-react";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { cities, citiesBySlug } from "@repo/data/cities";
@@ -243,12 +242,7 @@ export default async function GuideSupporterPage({ params }: PageProps) {
   const guide = guidesData[slug];
   const cityStadiums = city.stadiumIds.map((id) => stadiumsById[id]).filter((s): s is NonNullable<typeof s> => s != null);
   const cityMatches = cityStadiums.flatMap((s) => matchesByStadium[s.id] ?? []).sort((a, b) => a.date.localeCompare(b.date));
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Villes", url: "/villes" },
-    { name: `Guide ${city.name}`, url: `/guide-supporter/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Comment se rendre au stade à ${city.name} ?`, answer: guide ? guide.transport.metro : `Consultez les transports en commun locaux et les navettes spéciales mises en place pour la Coupe du Monde.` },
     { question: `Combien coûte un hôtel à ${city.name} pendant la CDM 2026 ?`, answer: guide ? `Comptez entre ${guide.dormir.prixMin} et ${guide.dormir.prixMax} ${guide.dormir.devise} par nuit selon le quartier et le standing. Réservez le plus tôt possible !` : "Les prix varient selon le quartier. Réservez très tôt pour les meilleures offres." },
     { question: `${city.name} est-elle sûre pour les supporters ?`, answer: guide?.infos.securite ?? "Les villes hôtes bénéficient d'un dispositif de sécurité renforcé pour la Coupe du Monde." },
@@ -264,7 +258,6 @@ export default async function GuideSupporterPage({ params }: PageProps) {
   };
   return (
     <>
-      <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

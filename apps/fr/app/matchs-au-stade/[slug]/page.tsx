@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Calendar, ArrowRight, Ticket, Building2 } from "lucide-react";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
@@ -33,19 +32,13 @@ export default async function MatchsAuStadePage({ params }: PageProps) {
   const stadium = stadiumsBySlug[slug];
   if (!stadium) notFound();
   const stadiumMatches = matchesByStadium[stadium.id] ?? [];
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Stades", url: "/stades" },
-    { name: `Matchs au ${stadium.name}`, url: `/matchs-au-stade/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Combien de matchs sont prévus au ${stadium.name} ?`, answer: `${stadiumMatches.length} matchs de la Coupe du Monde 2026 se joueront au ${stadium.name} à ${stadium.city}.` },
     { question: `Quelle est la capacité du ${stadium.name} ?`, answer: `Le ${stadium.name} peut accueillir ${stadium.capacity.toLocaleString("fr-FR")} spectateurs en configuration Coupe du Monde.` },
     { question: "Comment acheter des billets ?", answer: "Les billets sont disponibles exclusivement sur le site officiel FIFA.com/tickets. Méfiez-vous des revendeurs non autorisés." },
   ];
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Stades", href: "/stades" }, { label: `Matchs au ${stadium.name}` }]} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { teams } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { ConfederationFilter } from "./confederation-filter";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
   title: "Les 48 équipes de la Coupe du Monde 2026 | Classement, Stats & Pronostics",
@@ -22,12 +21,6 @@ export default function TeamsPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Équipes" },
-        ]}
-      />
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Les 48 équipes de la CDM 2026</h1>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 
 import { faqItems } from "./_components/data";
@@ -31,12 +30,6 @@ export default function BilletsPage() {
   return (
     <>
 <BilletsToc />
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Billets CDM 2026" },
-        ]}
-      />
 
       <HeroSection />
 

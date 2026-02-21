@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Users, BarChart3, Target, ArrowRight } from "lucide-react";
 
@@ -54,7 +53,6 @@ const faqItems = [
 export default function PronosticBttsPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "BTTS" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Les Deux Équipes Marquent — CDM 2026</h1>

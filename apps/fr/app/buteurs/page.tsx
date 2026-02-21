@@ -9,7 +9,6 @@ import { bookmakers } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 // ─── Top 20 meilleurs buteurs historiques de la Coupe du Monde ───────────────
 const historicalScorers = [
   { rank: 1,  name: "Miroslav Klose",    country: "🇩🇪", countryName: "Allemagne",   goals: 16, editions: "2002, 2006, 2010, 2014" },
@@ -78,12 +77,6 @@ export default function ButeursPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Buteurs" },
-        ]}
-      />
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Cotes buteurs CDM 2026</h1>

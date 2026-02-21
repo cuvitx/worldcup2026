@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Gift, CheckCircle, ArrowRight, Star, Shield, Zap, TrendingUp, UserPlus } from "lucide-react";
 
@@ -47,13 +46,6 @@ export default function BonusWinamaxPage() {
   return (
     <>
       <ReviewSchema />
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Bonus", href: "/bonus" },
-          { label: "Winamax" },
-        ]}
-      />
 
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

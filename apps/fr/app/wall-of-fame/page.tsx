@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Star, ArrowRight } from "lucide-react";
 
@@ -158,11 +157,8 @@ const faqItems = [
 ];
 
 export default function WallOfFamePage() {
-  const breadcrumbItems = [{ label: "Accueil", href: "/" }, { label: "Wall of Fame CDM" }];
-  
-  return (
+return (
     <>
-<Breadcrumb items={breadcrumbItems} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

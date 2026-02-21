@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Star, Smartphone, Zap, Gift, Shield, ExternalLink, Trophy, TrendingUp } from "lucide-react";
 
@@ -176,13 +175,6 @@ export default function MeilleursBookmakersPage() {
         <ReviewSchema key={bk.slug} bk={bk} />
       ))}
 
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Paris sportifs", href: "/paris-sportifs" },
-          { label: "Meilleurs bookmakers" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

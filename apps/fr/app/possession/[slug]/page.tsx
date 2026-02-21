@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { PieChart, TrendingUp, ArrowRight, ExternalLink, Swords } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -50,13 +49,7 @@ export default async function PossessionPage({ params }: PageProps) {
   const homeName = home?.name ?? "A déterminer";
   const awayName = away?.name ?? "A déterminer";
   const stats = getPossessionStats(match.homeTeamId, match.awayTeamId);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Pronostics", href: "/pronostic" },
-    { label: `Possession ${homeName} - ${awayName}` },
-  ];
-  
-  const faqItems = [
+const faqItems = [
     { question: `Qui aura la possession entre ${homeName} et ${awayName} ?`, answer: `D'après les statistiques historiques, ${stats.homePoss > stats.awayPoss ? homeName : awayName} devrait avoir l'avantage en possession avec environ ${Math.max(stats.homePoss, stats.awayPoss)}% du ballon.` },
     { question: "La possession garantit-elle la victoire ?", answer: "Non, la possession ne garantit pas la victoire. De nombreuses équipes performantes en Coupe du Monde pratiquent un jeu en contre-attaque efficace avec peu de possession." },
     { question: "Comment parier sur la possession ?", answer: "Les bookmakers proposent des marchés sur la possession : quelle équipe aura plus de 55% de possession, ou encore si le total sera au-dessus/en dessous d'un seuil." },
@@ -64,7 +57,6 @@ export default async function PossessionPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Qui aura la possession ? {homeName} vs {awayName}

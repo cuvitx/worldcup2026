@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Swords, Calendar, MapPin, ArrowRight, Globe, AlertTriangle } from "lucide-react";
 
@@ -95,9 +94,6 @@ export default function BarragesPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[{ label: "Accueil", href: "/" }, { label: "Barrages CDM 2026" }]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

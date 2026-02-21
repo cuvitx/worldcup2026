@@ -6,7 +6,6 @@ import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teamsById } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
   title: "Les 12 groupes de la Coupe du Monde 2026 | Classement & Pronostics",
@@ -45,12 +44,6 @@ export default function GroupsPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Groupes" },
-        ]}
-      />
 <HeroSection
         badge="Phase de groupes"
         title="Les 12 groupes de la CDM 2026"

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { TableOfContents } from "@repo/ui";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { BookmakerCTA } from "../components/BookmakerCTA";
 
 export const metadata: Metadata = {
@@ -60,12 +59,6 @@ export default function ParisSportifsPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Paris sportifs" },
-        ]}
-      />
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Paris sportifs CDM 2026</h1>

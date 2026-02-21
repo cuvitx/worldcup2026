@@ -12,7 +12,6 @@ import { bookmakers, featuredBookmaker, estimatedMatchOdds } from "@repo/data/af
 import { stageLabels } from "@repo/data/constants";
 import { MatchHero, MatchTabsClient } from "./components";
 import {
-  BreadcrumbNav,
   MatchStructuredData,
   RelatedMatchesSection,
   PredictionTab,
@@ -108,7 +107,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
   return (
     <>
-<BreadcrumbNav homeName={homeName} awayName={awayName} />
+
       <MatchHero home={home} away={away} match={match} stadium={stadium} city={city} stage={stage} homeName={homeName} awayName={awayName} dateFormatted={dateFormatted} />
       <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
       <MatchTabsClient>

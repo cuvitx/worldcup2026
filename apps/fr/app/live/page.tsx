@@ -5,7 +5,6 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { Countdown } from "@repo/ui/countdown";
 import { EVENT_DATES } from "@repo/data/constants";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Résultats en direct - Coupe du Monde 2026",
@@ -71,15 +70,7 @@ export default function LivePage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Live"
-          }
-]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

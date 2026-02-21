@@ -3,7 +3,6 @@ import Link from "next/link";
 import { BracketSimulator } from "./components/BracketSimulator";
 import { SocialProof } from "@repo/ui/social-proof";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
@@ -45,15 +44,7 @@ export default function SimulateurPage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Simulateur"
-          }
-]} />
+
 
       {/* Hero */}
       <section

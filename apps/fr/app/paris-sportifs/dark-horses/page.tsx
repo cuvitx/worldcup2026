@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Flame, TrendingUp, Star, ArrowRight } from "lucide-react";
 
@@ -71,7 +70,6 @@ const faqItems = [
 export default function DarkHorsesPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Dark horses" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Dark Horses — CDM 2026</h1>

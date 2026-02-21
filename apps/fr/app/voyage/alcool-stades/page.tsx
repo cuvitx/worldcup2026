@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { Beer, ShieldCheck, Clock, MapPin, AlertTriangle } from "lucide-react";
@@ -85,12 +84,6 @@ const faqItems = [
 export default function AlcoolStadesPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Alcool dans les stades" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

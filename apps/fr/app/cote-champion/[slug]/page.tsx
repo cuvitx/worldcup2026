@@ -1,4 +1,3 @@
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
@@ -75,12 +74,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
   const estimatedProb = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : null;
   const isValueBet = estimatedProb !== null && estimatedProb > impliedProb;
   const topFavorites = getTopFavorites(team.slug);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Cotes champion", href: "/cote-champion" },
-    { label: `Cote ${team.name}` },
-  ];
-  // Forces & faiblesses based on ranking
+// Forces & faiblesses based on ranking
   const isTopTier = team.fifaRanking <= 10;
   const isMidTier = team.fifaRanking > 10 && team.fifaRanking <= 30;
   const faqItems = [
@@ -101,7 +95,6 @@ export default async function CoteChampionPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

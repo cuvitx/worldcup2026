@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Glossaire Paris Sportifs | Tous les termes expliqués",
@@ -141,19 +140,7 @@ export default function GlossairePage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Guide",
-                    "href": "/guides"
-          },
-          {
-                    "label": "Glossaire"
-          }
-]} />
+
       <script
         type="application/ld+json"
         suppressHydrationWarning

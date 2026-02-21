@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { TrendingUp, Calculator, Target, ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 
@@ -131,13 +130,6 @@ const faqItems = [
 export default function ValueBetsPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Paris sportifs", href: "/paris-sportifs" },
-          { label: "Value bets" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-center py-16 px-4">

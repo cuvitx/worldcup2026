@@ -9,7 +9,6 @@ import { InternationalBroadcasters } from "./InternationalBroadcasters";
 import { TVScheduleSection } from "./TVScheduleSection";
 import { TimeZoneSection } from "./TimeZoneSection";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { TableOfContents } from "@repo/ui";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { Globe } from "lucide-react"
@@ -159,12 +158,6 @@ const faqItems = [
 export default function OuRegarderPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Où regarder les matchs" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Swords, Calendar, ArrowRight, Info, Trophy } from "lucide-react";
 
@@ -45,12 +44,6 @@ const faqItems = [
 export default function SeiziemesDeFinale() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "16èmes de finale" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

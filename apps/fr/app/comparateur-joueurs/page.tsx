@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RelatedLinks } from "../components/RelatedLinks";
 import dynamic from "next/dynamic";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 const PlayerComparator = dynamic(() => import("./PlayerComparator").then((mod) => ({ default: mod.PlayerComparator })), {
   loading: () => (
@@ -41,15 +40,7 @@ export default function ComparateurJoueursPage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Comparateur de joueurs"
-          }
-]} />
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Hero */}

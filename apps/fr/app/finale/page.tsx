@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Calendar, MapPin, TrendingUp, History, Star, ArrowRight } from "lucide-react";
 
@@ -64,12 +63,6 @@ const faqItems = [
 export default function FinalePage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Finale CDM 2026" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 sm:py-20 overflow-hidden">

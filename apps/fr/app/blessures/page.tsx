@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { HeartPulse, AlertTriangle, Clock, ArrowRight, ShieldCheck } from "lucide-react";
 
@@ -68,7 +67,6 @@ export default function BlessuresPage() {
 
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Blessures" }]} />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

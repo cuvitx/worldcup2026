@@ -6,7 +6,6 @@ import { FileText, Share2 } from "lucide-react";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 const STORAGE_KEY = "cdm2026-pronostics";
 
 type Pronostics = Record<string, { home: string; away: string }>;
@@ -93,13 +92,6 @@ export default function GrillePronosticsPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Pronostics", href: "/pronostic" },
-          { label: "Grille de pronostics" },
-        ]}
-      />
       <style>{`
         @media print {
           .no-print { display: none !important; }

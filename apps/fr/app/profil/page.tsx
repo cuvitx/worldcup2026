@@ -5,7 +5,6 @@ import Link from "next/link";
 import { FileText, Vote } from "lucide-react";
 import { useBadges, ALL_BADGES } from "@repo/ui/badge-system";
 import { EVENT_DATES } from "@repo/data/constants";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 /* ─── Team data for onboarding ─────────────────────────────── */
 
@@ -110,15 +109,7 @@ export default function ProfilPage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Profil"
-          }
-]} />
+
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">

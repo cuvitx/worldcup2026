@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { cities } from "@repo/data/cities";
@@ -281,13 +280,6 @@ export default async function SecuriteCityPage({ params }: PageProps) {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Sécurité", href: "/securite" },
-          { label: data.name },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

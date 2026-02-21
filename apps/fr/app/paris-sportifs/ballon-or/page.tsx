@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Award, Trophy, Star, ArrowRight } from "lucide-react";
 
@@ -48,7 +47,6 @@ const faqItems = [
 export default function BallonOrCdmPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Ballon d'Or CDM" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Ballon d&apos;Or CDM 2026</h1>

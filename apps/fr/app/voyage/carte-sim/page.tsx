@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { Smartphone, Wifi, Signal, Globe, CheckCircle, XCircle, ExternalLink, Zap } from "lucide-react";
@@ -106,12 +105,6 @@ const faqItems = [
 export default function CarteSimUsaPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Forfait téléphone CDM 2026" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

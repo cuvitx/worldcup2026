@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { bookmakers } from "@repo/data/affiliates";
 
 export const revalidate = 86400;
@@ -18,12 +17,6 @@ export function generateMetadata(): Metadata {
     alternates: { canonical: "https://www.cdm2026.fr/plan-du-site/paris" },
   };
 }
-
-const breadcrumbItems: { label: string; href?: string }[] = [
-  { label: "Accueil", href: "/" },
-  { label: "Plan du site", href: "/plan-du-site" },
-  { label: "Paris sportifs" },
-];
 
 const sections = [
   {
@@ -88,7 +81,6 @@ const sections = [
 export default function PlanDuSiteParisPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
-      <Breadcrumb items={breadcrumbItems} />
 <h1 className="mt-6 text-3xl font-bold text-foreground">Plan du site — Paris sportifs</h1>
       <p className="mt-2 text-gray-600">
         Toutes les pages paris sportifs, bookmakers, bonus et guides.

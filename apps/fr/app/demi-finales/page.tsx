@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Calendar, ArrowRight, MapPin } from "lucide-react";
 
@@ -49,12 +48,6 @@ const stades = [
 export default function DemiFinales() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Demi-finales" },
-        ]}
-      />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

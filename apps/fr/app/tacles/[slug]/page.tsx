@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Shield, TrendingUp, ArrowRight, ExternalLink, BarChart3 } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -57,13 +56,7 @@ export default async function TaclesPage({ params }: PageProps) {
   if (!player) notFound();
   const team = teamsById[player.teamId];
   const stats = getTackleStats(slug, player.position);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Paris sportifs", href: "/paris-sportifs" },
-    { label: `Tacles ${player.name}` },
-  ];
-  
-  const faqItems = [
+const faqItems = [
     { question: `Combien de tacles ${player.name} réalise-t-il par match ?`, answer: `${player.name} réalise en moyenne ${stats.tacklesPerMatch} tacles par match en sélection, avec un taux de réussite de ${stats.tackleSuccessRate}%.` },
     { question: "Peut-on parier sur les tacles d'un joueur ?", answer: "Oui, certains bookmakers proposent des marchés sur le nombre de tacles d'un joueur pendant un match de la Coupe du Monde 2026. Ce marché est plus courant pour les défenseurs et milieux défensifs." },
     { question: `${player.name} est-il un bon tacleur pour un ${positionLabel(player.position).toLowerCase()} ?`, answer: `En tant que ${positionLabel(player.position).toLowerCase()}, ${stats.tacklesPerMatch > 2.0 ? `ses ${stats.tacklesPerMatch} tacles/match sont au-dessus de la moyenne pour son poste` : `son nombre de tacles reflète son rôle plus offensif`}.` },
@@ -71,7 +64,6 @@ export default async function TaclesPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Statistiques tacles {player.name}

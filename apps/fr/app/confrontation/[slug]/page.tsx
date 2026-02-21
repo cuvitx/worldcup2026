@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { teamsBySlug } from "@repo/data/teams";
@@ -88,12 +87,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
   const t1Goals = h2h?.team1Goals ?? t1Wins * 2 + draws + (s % 10);
   const t2Goals = h2h?.team2Goals ?? t2Wins * 2 + draws + (s % 8);
   const historicalMatches = getHistoricalMatches(slug, team1.name, team2.name);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Confrontations", href: "/confrontations-historiques" },
-    { label: `${team1.name} vs ${team2.name}` },
-  ];
-  const breadcrumbSchema = [
+const breadcrumbSchema = [
     { name: "Accueil", url: "/" },
     { name: "Confrontations", url: "/confrontations-historiques" },
     { name: `${team1.name} vs ${team2.name}`, url: `/confrontation/${slug}` },
@@ -120,7 +114,6 @@ export default async function ConfrontationPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

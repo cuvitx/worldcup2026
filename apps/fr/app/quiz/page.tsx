@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import dynamic from "next/dynamic";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { RelatedLinks } from "../components/RelatedLinks";
 
 const Quiz = dynamic(() => import("./components/Quiz"), {
@@ -65,15 +64,7 @@ export default function QuizPage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Quiz"
-          }
-]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

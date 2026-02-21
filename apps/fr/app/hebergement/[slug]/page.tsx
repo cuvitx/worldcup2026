@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CalendarCheck, Check, DollarSign, ExternalLink, Home, Hotel, MapPin, X } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
@@ -55,12 +54,7 @@ export default async function HebergementPage({ params }: PageProps) {
   const city = citiesBySlug[slug];
   if (!city) notFound();
   const quartiers = getQuartiers(slug);
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Villes", url: "/villes" },
-    { name: `Hébergement ${city.name}`, url: `/hebergement/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Quel budget prévoir pour se loger à ${city.name} pendant la CDM 2026 ?`, answer: `Comptez 80-120€/nuit en budget, 150-250€ en gamme moyenne, et 300-500€ pour du premium. Les prix augmenteront fortement à l'approche du tournoi.` },
     { question: "Vaut-il mieux un hôtel ou un Airbnb ?", answer: "Les hôtels offrent plus de services (room service, conciergerie) et de flexibilité d'annulation. Les Airbnb permettent plus d'espace et une cuisine, idéal pour les groupes et les séjours longs." },
     { question: "Quand réserver son hébergement ?", answer: "Le plus tôt possible ! Les hébergements à proximité des stades se remplissent très vite. Réservez maintenant avec annulation gratuite pour sécuriser votre place." },
@@ -76,7 +70,6 @@ export default async function HebergementPage({ params }: PageProps) {
   };
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Hébergement ${city.name}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

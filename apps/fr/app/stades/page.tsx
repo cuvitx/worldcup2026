@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "Les 16 stades de la Coupe du Monde 2026 | Capacité, Ville & Matchs",
   description:
@@ -57,12 +56,6 @@ export default function StadiumsPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Stades" },
-        ]}
-      />
 <HeroSection
         badge="Infrastructures"
         title="Les 16 stades de la CDM 2026"

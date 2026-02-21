@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { faqItems, faqCategories } from "@repo/data/faq";
 import { getStaticAlternates } from "@repo/data/route-mapping";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 export const revalidate = 86400;
 
 export function generateMetadata(): Metadata {
@@ -55,12 +54,6 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "FAQ" },
-        ]}
-      />
 
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

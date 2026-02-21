@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Clock, Globe, Moon, Sun } from "lucide-react";
 
@@ -56,12 +55,6 @@ const faqItems = [
 export default function DecalageHorairePage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Décalage horaire" },
-        ]}
-      />
 
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

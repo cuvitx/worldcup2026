@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, CheckCircle, ClipboardList, Clock, ExternalLink, FileText, Globe, Landmark, Pin, Plane, Shield } from "lucide-react";
 
@@ -42,12 +41,6 @@ const faqItems = [
 export default function FormalitesCanadaPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Formalités Canada — CDM 2026" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

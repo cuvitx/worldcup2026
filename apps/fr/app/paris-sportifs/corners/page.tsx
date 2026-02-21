@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { CornerDownRight, ArrowRight, AlertTriangle, TrendingUp, BarChart3, ExternalLink } from "lucide-react";
 
@@ -99,14 +98,8 @@ const faqItems = [
 /* ---------- page ---------- */
 
 export default function ParisCornersPage() {
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Paris corners CDM 2026" },
-  ];
-  
-  return (
+return (
     <>
-<Breadcrumb items={breadcrumbItems} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

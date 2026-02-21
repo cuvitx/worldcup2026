@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "Contact — Contactez l'équipe CDM 2026",
   description:
@@ -39,12 +38,6 @@ const faqs = [
 export default function ContactPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Contact" },
-        ]}
-      />
 
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

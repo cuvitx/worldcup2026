@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import CalendarViewWrapper from "./CalendarViewWrapper";
 import { FileText } from "lucide-react";
 import { RelatedLinks } from "../../components/RelatedLinks";
@@ -77,12 +76,6 @@ export default function CalendrierPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Calendrier des matchs" },
-        ]}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

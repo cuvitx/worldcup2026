@@ -1,4 +1,3 @@
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 
@@ -55,12 +54,6 @@ export default function PalmaresPage() {
 
  return (
  <>
-<Breadcrumb
- items={[
- { label: "Accueil", href: "/" },
- { label: "Palmarès" },
- ]}
- />
 
  <PalmaresHero />
 

@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import Flag from "@repo/ui/flag";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { teamsById } from "@repo/data/teams";
 import { Trophy, RotateCcw, Share2, ChevronRight } from "lucide-react";
 
@@ -175,13 +174,6 @@ export default function SimulateurBracketPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Simulateur", href: "/simulateur" },
-          { label: "Bracket interactif" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16 overflow-hidden">

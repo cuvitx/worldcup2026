@@ -4,7 +4,6 @@ import { getTodaysMatches, getNextMatch } from "@repo/data/tournament-state";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { getStaticAlternates } from "@repo/data/route-mapping";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 export const revalidate = 300; // 5 minutes
 
 export const metadata: Metadata = {
@@ -20,13 +19,6 @@ export default function AujourdhuiPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Calendrier", href: "/match/calendrier" },
-          { label: "Matchs du jour" },
-        ]}
-      />
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Matchs du jour</h1>

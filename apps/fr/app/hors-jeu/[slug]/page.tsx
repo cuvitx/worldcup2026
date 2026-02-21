@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Flag, TrendingUp, ArrowRight, ExternalLink, Eye, Cpu } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -50,13 +49,7 @@ export default async function HorsJeuPage({ params }: PageProps) {
   const homeName = home?.name ?? "A déterminer";
   const awayName = away?.name ?? "A déterminer";
   const stats = getOffsideStats(match.homeTeamId, match.awayTeamId);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Pronostics", href: "/pronostic" },
-    { label: `Hors-jeu ${homeName} - ${awayName}` },
-  ];
-  
-  const faqItems = [
+const faqItems = [
     { question: `Combien de hors-jeu pour ${homeName} vs ${awayName} ?`, answer: `On estime environ ${stats.totalAvg} hors-jeu au total : ${stats.homeOffsides} pour ${homeName} et ${stats.awayOffsides} pour ${awayName}, selon les moyennes historiques.` },
     { question: "Le hors-jeu semi-automatique change-t-il les stats ?", answer: "Oui, la technologie de hors-jeu semi-automatique utilisée en CDM 2026 détecte les situations limites plus précisément, ce qui peut légèrement augmenter le nombre de hors-jeu signalés par rapport aux arbitrages traditionnels." },
     { question: "Comment fonctionne le pari over/under hors-jeu ?", answer: "Vous pariez sur le nombre total de hors-jeu dans le match. Over 3.5 signifie au moins 4 hors-jeu, under 3.5 signifie 3 ou moins." },
@@ -64,7 +57,6 @@ export default async function HorsJeuPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Parier sur les hors-jeu {homeName} - {awayName}

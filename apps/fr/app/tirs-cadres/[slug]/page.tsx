@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Target, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
 import { players } from "@repo/data/players";
@@ -56,13 +55,7 @@ export default async function TirsCadresPage({ params }: PageProps) {
   if (!player) notFound();
   const team = teamsById[player.teamId];
   const stats = getShotStats(slug);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Paris sportifs", href: "/paris-sportifs" },
-    { label: `Tirs cadrés ${player.name}` },
-  ];
-  
-  const faqItems = [
+const faqItems = [
     { question: `Combien de tirs cadrés ${player.name} fait-il par match ?`, answer: `En sélection, ${player.name} affiche une moyenne de ${stats.onTargetPerMatch} tirs cadrés par match, avec un taux de cadrage de ${stats.onTargetPct}%.` },
     { question: `Quelle est la meilleure cote pour parier sur les tirs cadrés de ${player.name} ?`, answer: `Les cotes varient selon les bookmakers. Pour over 0.5 tir cadré, comparez Winamax (${stats.winamaxOver05}), Betclic (${stats.betclicOver05}) et Unibet (${stats.unibetOver05}).` },
     { question: "Le pari tirs cadrés est-il disponible sur tous les matchs ?", answer: "Oui, la plupart des bookmakers proposent ce marché sur tous les matchs de la Coupe du Monde 2026, y compris la phase de groupes." },
@@ -70,7 +63,6 @@ export default async function TirsCadresPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
           Parier sur les tirs cadrés de {player.name}

@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "210 joueurs cles de la Coupe du Monde 2026 | Effectifs & Stats",
   description:
@@ -55,12 +54,6 @@ export default function PlayersPage() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Joueurs" },
-        ]}
-      />
 <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">

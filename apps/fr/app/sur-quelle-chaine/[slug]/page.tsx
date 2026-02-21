@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookOpen, Building2, ClipboardList, Clock, ExternalLink, Globe, Landmark, Link2, MapPin, Monitor, Radio, Tv, Wifi } from "lucide-react";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { matches, matchesBySlug } from "@repo/data/matches";
@@ -116,12 +115,7 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
     formatTimeInZone(match.date, match.time, "America/Los_Angeles", "🇺🇸 Los Angeles"),
     formatTimeInZone(match.date, match.time, "America/Mexico_City", "🇲🇽 Mexico"),
   ];
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Où regarder", url: "/ou-regarder" },
-    { name: `${homeName} vs ${awayName}`, url: `/sur-quelle-chaine/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     {
       question: `Sur quelle chaîne voir ${homeName} vs ${awayName} gratuitement ?`,
       answer: frenchChannel.free
@@ -143,7 +137,6 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems.map((b) => ({ label: b.name, href: b.url }))} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

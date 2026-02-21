@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, BarChart3, User, ArrowRight } from "lucide-react";
 
@@ -53,7 +52,6 @@ const faqItems = [
 export default function PronosticCartonsPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Cartons" }]} />
 
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Cartons — CDM 2026</h1>

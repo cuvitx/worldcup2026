@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CloudSun, Dice5, Droplets, Luggage, Sun, Thermometer, Wind } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
@@ -56,12 +55,7 @@ export default async function MeteoPage({ params }: PageProps) {
   const city = citiesBySlug[slug];
   if (!city) notFound();
   const weather = getWeatherData(slug);
-  const breadcrumbItems = [
-    { name: "Accueil", url: "/" },
-    { name: "Villes", url: "/villes" },
-    { name: `Météo ${city.name}`, url: `/meteo/${slug}` },
-  ];
-  const faqItems = [
+const faqItems = [
     { question: `Quelle température fait-il à ${city.name} en juin-juillet ?`, answer: `En juin : ${weather.tempJuneMin}-${weather.tempJuneMax}°C. En juillet : ${weather.tempJulyMin}-${weather.tempJulyMax}°C. Humidité moyenne : ${weather.humidity}%.` },
     { question: `Pleut-il beaucoup à ${city.name} en été ?`, answer: `Précipitations moyennes : ${weather.rainJune}mm en juin et ${weather.rainJuly}mm en juillet. ${weather.rainJune > 150 ? "Prévoyez un imperméable, les averses sont fréquentes." : "Les pluies restent modérées."}` },
     { question: "La météo influence-t-elle les résultats de foot ?", answer: "Oui ! La chaleur, l'humidité et l'altitude affectent les performances physiques. Les études montrent que les matchs par forte chaleur produisent en moyenne moins de buts." },
@@ -80,7 +74,6 @@ export default async function MeteoPage({ params }: PageProps) {
   };
   return (
     <>
-      <Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Villes", href: "/villes" }, { label: `Météo ${city.name}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">

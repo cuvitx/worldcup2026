@@ -3,7 +3,6 @@
 import { useSearchParams, useRouter } from "next/navigation"
 import { useEffect, useState, Suspense } from "react"
 import { Flag, MapPin, Users, FileText } from "lucide-react"
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 const SECRET = "cdm2026-admin-secret"
 
@@ -59,15 +58,7 @@ function AdminContent() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Admin"
-          }
-]} />
+
     <div className="min-h-screen bg-gray-100 text-gray-900 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Banner */}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TableOfContents } from "@repo/ui";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { ShieldCheck, TrainFront } from "lucide-react"
 export const metadata: Metadata = {
   title: "Visa ESTA pour les USA — Tout savoir pour la CDM 2026",
@@ -66,13 +65,6 @@ export default function GuideVisaEsta() {
 
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Guides", href: "/guides" },
-          { label: "Guide Visa & ESTA" },
-        ]}
-      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 

@@ -1,4 +1,3 @@
-export { BreadcrumbNav } from "./BreadcrumbNav";
 export { ComparedStatsCard } from "./ComparedStatsCard";
 export { WinProbabilityCard } from "./WinProbabilityCard";
 export { MatchStructuredData } from "./MatchStructuredData";

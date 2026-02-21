@@ -14,6 +14,7 @@ import { BottomNav } from "./components/BottomNav";
 import { NewsletterPopup } from "@repo/ui/newsletter-popup";
 import { AutoRelatedContent } from "./components/AutoRelatedContent";
 import { SiloTabs } from "./components/SiloTabs";
+import { AutoBreadcrumb } from "./components/AutoBreadcrumb";
 import "./globals.css";
 
 /* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
@@ -121,7 +122,7 @@ export default function RootLayout({
         <Header />
         <LiveScoreBarWrapper />
         <LiveTicker />
-        <main id="main-content" className="flex-1"><SiloTabs />{children}</main>
+        <main id="main-content" className="flex-1"><AutoBreadcrumb /><SiloTabs />{children}</main>
         <AutoRelatedContent />
         <Footer />
         <BackToTop />

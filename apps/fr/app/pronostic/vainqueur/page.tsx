@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Newsletter } from "@repo/ui/newsletter";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import {
   TopFavorites,
@@ -44,12 +43,6 @@ export const metadata: Metadata = {
 export default function PronosticVainqueurPage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Pronostic vainqueur" },
-        ]}
-      />
 
       {/* Hero */}
       <HeroSection />

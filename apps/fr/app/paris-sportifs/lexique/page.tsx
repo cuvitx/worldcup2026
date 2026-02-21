@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { BookOpen, ArrowRight } from "lucide-react";
 
@@ -344,7 +343,6 @@ export default function LexiqueParisPage() {
 
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Lexique Paris Sportifs" }]} />
 
       {/* Hero */}
       <section className="hero-animated text-white py-16 overflow-hidden">

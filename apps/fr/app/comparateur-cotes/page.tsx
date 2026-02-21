@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { mockOdds, allGroups, type MatchOdds } from "./mock-odds";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 
 function getBestOdds(match: MatchOdds) {
   const best = { home: 0, draw: 0, away: 0 };
@@ -52,15 +51,7 @@ export default function ComparateurCotesPage() {
 
   return (
     <>
-<Breadcrumb items={[
-          {
-                    "label": "Accueil",
-                    "href": "/"
-          },
-          {
-                    "label": "Comparateur de cotes"
-          }
-]} />
+
       {/* SEO metadata via head — handled by metadata export in layout or generateMetadata */}
       <script
         type="application/ld+json"

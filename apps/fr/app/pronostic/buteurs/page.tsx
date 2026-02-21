@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Target, TrendingUp, Star, ArrowRight } from "lucide-react";
 
@@ -58,7 +57,6 @@ const faqItems = [
 export default function PronosticButeursPage() {
   return (
     <>
-<Breadcrumb items={[{ label: "Accueil", href: "/" }, { label: "Pronostics", href: "/pronostic" }, { label: "Meilleur buteur" }]} />
 
       {/* Hero */}
       <section className="hero-animated text-center py-16 px-4">

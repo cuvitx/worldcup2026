@@ -1,4 +1,3 @@
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { domains } from "@repo/data/route-mapping";
@@ -20,12 +19,6 @@ export const metadata: Metadata = {
 export default function MethodologiePage() {
   return (
     <>
-<Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Méthodologie" },
-        ]}
-      />
 
       {/* Hero */}
       <section className="hero-animated text-white py-14 sm:py-20">

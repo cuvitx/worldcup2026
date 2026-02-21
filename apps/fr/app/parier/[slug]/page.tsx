@@ -1,4 +1,3 @@
-import { Breadcrumb } from "@repo/ui/breadcrumb";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
@@ -67,12 +66,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
     .filter((p) => p.position === "FW" || p.position === "MF")
     .sort((a, b) => b.caps - a.caps)
     .slice(0, 3);
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Paris sportifs", href: "/paris-sportifs" },
-    { label: `Parier sur ${team.name}` },
-  ];
-  const faqItems = [
+const faqItems = [
     {
       question: `Comment parier sur ${team.name} pour la CDM 2026 ?`,
       answer: `Inscrivez-vous sur un bookmaker agréé ANJ (Betclic, Winamax, Unibet), profitez du bonus de bienvenue, puis recherchez "Coupe du Monde 2026" et sélectionnez ${team.name} dans les paris vainqueur, qualification de groupe ou matchs individuels.`,
@@ -94,7 +88,6 @@ export default async function ParierEquipePage({ params }: PageProps) {
   ];
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} />
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
