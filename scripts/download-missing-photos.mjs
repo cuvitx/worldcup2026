@@ -27,8 +27,8 @@ const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
 const TEAM_FILTER = args.includes("--team") ? args[args.indexOf("--team") + 1] : null;
 
-// Rate limit: 1 request per second (Wikipedia API etiquette)
-const DELAY_MS = 1200;
+// Rate limit: Wikipedia asks for polite usage, 200ms is fine for low volume
+const DELAY_MS = 250;
 
 function log(msg) {
   console.log(`[photos] ${msg}`);
