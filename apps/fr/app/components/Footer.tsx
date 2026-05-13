@@ -100,6 +100,30 @@ export function Footer() {
               ))}
             </div>
           </div>
+
+          {/* Sources officielles (E-E-A-T) */}
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+              Sources officielles
+            </p>
+            <div className="flex items-center gap-3 flex-wrap">
+              {[
+                { href: "https://www.fifa.com/fifaplus/fr/tournaments/mens/worldcup/canadamexicousa2026", label: "FIFA.com" },
+                { href: "https://www.fff.fr", label: "FFF" },
+                { href: "https://www.anj.fr", label: "ANJ" },
+              ].map((source) => (
+                <a
+                  key={source.label}
+                  href={source.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-gray-300 hover:text-white hover:border-white/20 transition-colors"
+                >
+                  {source.label} ↗
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* 4-column main grid */}

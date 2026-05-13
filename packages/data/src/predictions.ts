@@ -24,7 +24,7 @@ export interface MatchPrediction {
 }
 
 // ============================================================================
-// Team Predictions — All 42 confirmed teams
+// Team Predictions — All 48 teams
 // ============================================================================
 
 export const teamPredictions: TeamPrediction[] = [
@@ -199,6 +199,17 @@ export const teamPredictions: TeamPrediction[] = [
     winnerProb: 0.010,
   },
   {
+    teamId: "turquie",
+    eloRating: 1830,
+    groupStageProb: 0.62,
+    roundOf32Prob: 0.55,
+    roundOf16Prob: 0.30,
+    quarterFinalProb: 0.14,
+    semiFinalProb: 0.05,
+    finalProb: 0.02,
+    winnerProb: 0.008,
+  },
+  {
     teamId: "etats-unis",
     eloRating: 1820,
     groupStageProb: 0.75,
@@ -208,6 +219,17 @@ export const teamPredictions: TeamPrediction[] = [
     semiFinalProb: 0.12,
     finalProb: 0.04,
     winnerProb: 0.008,
+  },
+  {
+    teamId: "suede",
+    eloRating: 1810,
+    groupStageProb: 0.55,
+    roundOf32Prob: 0.48,
+    roundOf16Prob: 0.25,
+    quarterFinalProb: 0.11,
+    semiFinalProb: 0.04,
+    finalProb: 0.015,
+    winnerProb: 0.006,
   },
   {
     teamId: "mexique",
@@ -233,6 +255,17 @@ export const teamPredictions: TeamPrediction[] = [
   },
 
   // Mid Tier (ELO 1700-1800)
+  {
+    teamId: "tchequie",
+    eloRating: 1780,
+    groupStageProb: 0.52,
+    roundOf32Prob: 0.45,
+    roundOf16Prob: 0.22,
+    quarterFinalProb: 0.09,
+    semiFinalProb: 0.03,
+    finalProb: 0.01,
+    winnerProb: 0.004,
+  },
   {
     teamId: "coree-du-sud",
     eloRating: 1780,
@@ -311,6 +344,17 @@ export const teamPredictions: TeamPrediction[] = [
     winnerProb: 0.0008,
   },
   {
+    teamId: "rd-congo",
+    eloRating: 1720,
+    groupStageProb: 0.30,
+    roundOf32Prob: 0.25,
+    roundOf16Prob: 0.10,
+    quarterFinalProb: 0.04,
+    semiFinalProb: 0.01,
+    finalProb: 0.004,
+    winnerProb: 0.001,
+  },
+  {
     teamId: "egypte",
     eloRating: 1710,
     groupStageProb: 0.54,
@@ -333,6 +377,18 @@ export const teamPredictions: TeamPrediction[] = [
     winnerProb: 0.0006,
   },
 
+  {
+    teamId: "irak",
+    eloRating: 1690,
+    groupStageProb: 0.25,
+    roundOf32Prob: 0.20,
+    roundOf16Prob: 0.08,
+    quarterFinalProb: 0.03,
+    semiFinalProb: 0.01,
+    finalProb: 0.003,
+    winnerProb: 0.001,
+  },
+
   // Lower Mid Tier (ELO 1600-1700)
   {
     teamId: "algerie",
@@ -344,6 +400,17 @@ export const teamPredictions: TeamPrediction[] = [
     semiFinalProb: 0.02,
     finalProb: 0.005,
     winnerProb: 0.0005,
+  },
+  {
+    teamId: "bosnie-herzegovine",
+    eloRating: 1680,
+    groupStageProb: 0.38,
+    roundOf32Prob: 0.32,
+    roundOf16Prob: 0.14,
+    quarterFinalProb: 0.05,
+    semiFinalProb: 0.02,
+    finalProb: 0.005,
+    winnerProb: 0.002,
   },
   {
     teamId: "ghana",
@@ -535,6 +602,30 @@ export const matchPredictions: MatchPrediction[] = [
     team2WinProb: 0.52,
     predictedScore: "0-1",
   },
+  {
+    team1Id: "coree-du-sud",
+    team2Id: "tchequie",
+    team1WinProb: 0.42,
+    drawProb: 0.30,
+    team2WinProb: 0.28,
+    predictedScore: "1-1",
+  },
+  {
+    team1Id: "tchequie",
+    team2Id: "afrique-du-sud",
+    team1WinProb: 0.55,
+    drawProb: 0.27,
+    team2WinProb: 0.18,
+    predictedScore: "2-0",
+  },
+  {
+    team1Id: "tchequie",
+    team2Id: "mexique",
+    team1WinProb: 0.28,
+    drawProb: 0.30,
+    team2WinProb: 0.42,
+    predictedScore: "1-2",
+  },
 
   // GROUP B
   {
@@ -560,6 +651,30 @@ export const matchPredictions: MatchPrediction[] = [
     drawProb: 0.27,
     team2WinProb: 0.19,
     predictedScore: "2-1",
+  },
+  {
+    team1Id: "canada",
+    team2Id: "bosnie-herzegovine",
+    team1WinProb: 0.48,
+    drawProb: 0.29,
+    team2WinProb: 0.23,
+    predictedScore: "1-1",
+  },
+  {
+    team1Id: "suisse",
+    team2Id: "bosnie-herzegovine",
+    team1WinProb: 0.52,
+    drawProb: 0.28,
+    team2WinProb: 0.20,
+    predictedScore: "2-1",
+  },
+  {
+    team1Id: "bosnie-herzegovine",
+    team2Id: "qatar",
+    team1WinProb: 0.44,
+    drawProb: 0.30,
+    team2WinProb: 0.26,
+    predictedScore: "1-1",
   },
 
   // GROUP C
@@ -637,6 +752,30 @@ export const matchPredictions: MatchPrediction[] = [
     team2WinProb: 0.34,
     predictedScore: "1-1",
   },
+  {
+    team1Id: "australie",
+    team2Id: "turquie",
+    team1WinProb: 0.28,
+    drawProb: 0.29,
+    team2WinProb: 0.43,
+    predictedScore: "0-1",
+  },
+  {
+    team1Id: "turquie",
+    team2Id: "paraguay",
+    team1WinProb: 0.52,
+    drawProb: 0.28,
+    team2WinProb: 0.20,
+    predictedScore: "2-1",
+  },
+  {
+    team1Id: "turquie",
+    team2Id: "etats-unis",
+    team1WinProb: 0.30,
+    drawProb: 0.30,
+    team2WinProb: 0.40,
+    predictedScore: "1-2",
+  },
 
   // GROUP E
   {
@@ -712,6 +851,30 @@ export const matchPredictions: MatchPrediction[] = [
     drawProb: 0.25,
     team2WinProb: 0.59,
     predictedScore: "0-2",
+  },
+  {
+    team1Id: "tunisie",
+    team2Id: "suede",
+    team1WinProb: 0.24,
+    drawProb: 0.30,
+    team2WinProb: 0.46,
+    predictedScore: "0-1",
+  },
+  {
+    team1Id: "pays-bas",
+    team2Id: "suede",
+    team1WinProb: 0.50,
+    drawProb: 0.28,
+    team2WinProb: 0.22,
+    predictedScore: "2-1",
+  },
+  {
+    team1Id: "japon",
+    team2Id: "suede",
+    team1WinProb: 0.40,
+    drawProb: 0.30,
+    team2WinProb: 0.30,
+    predictedScore: "1-1",
   },
 
   // GROUP G
@@ -839,6 +1002,30 @@ export const matchPredictions: MatchPrediction[] = [
     team2WinProb: 0.61,
     predictedScore: "0-2",
   },
+  {
+    team1Id: "irak",
+    team2Id: "norvege",
+    team1WinProb: 0.30,
+    drawProb: 0.32,
+    team2WinProb: 0.38,
+    predictedScore: "1-1",
+  },
+  {
+    team1Id: "france",
+    team2Id: "irak",
+    team1WinProb: 0.78,
+    drawProb: 0.16,
+    team2WinProb: 0.06,
+    predictedScore: "3-0",
+  },
+  {
+    team1Id: "senegal",
+    team2Id: "irak",
+    team1WinProb: 0.52,
+    drawProb: 0.28,
+    team2WinProb: 0.20,
+    predictedScore: "2-1",
+  },
 
   // GROUP J
   {
@@ -914,6 +1101,30 @@ export const matchPredictions: MatchPrediction[] = [
     drawProb: 0.31,
     team2WinProb: 0.39,
     predictedScore: "1-1",
+  },
+  {
+    team1Id: "portugal",
+    team2Id: "rd-congo",
+    team1WinProb: 0.78,
+    drawProb: 0.16,
+    team2WinProb: 0.06,
+    predictedScore: "3-0",
+  },
+  {
+    team1Id: "colombie",
+    team2Id: "rd-congo",
+    team1WinProb: 0.68,
+    drawProb: 0.22,
+    team2WinProb: 0.10,
+    predictedScore: "2-0",
+  },
+  {
+    team1Id: "rd-congo",
+    team2Id: "ouzbekistan",
+    team1WinProb: 0.46,
+    drawProb: 0.29,
+    team2WinProb: 0.25,
+    predictedScore: "1-0",
   },
 
   // GROUP L

@@ -1,17 +1,17 @@
 import type { Group } from "./types";
 
 // Groups from the official FIFA World Cup 2026 draw (December 5, 2025, Washington D.C.)
-// Note: 6 playoff spots (4 UEFA paths + 2 inter-confederation) will be determined in March 2026.
+// All 48 teams confirmed — 6 playoff spots resolved in March 2026.
 export const groups: Group[] = [
   {
     letter: "A",
     slug: "a",
-    teams: ["mexique", "afrique-du-sud", "coree-du-sud", "barrage-uefa-d"],
+    teams: ["mexique", "afrique-du-sud", "coree-du-sud", "tchequie"],
   },
   {
     letter: "B",
     slug: "b",
-    teams: ["canada", "suisse", "qatar", "barrage-uefa-a"],
+    teams: ["canada", "suisse", "qatar", "bosnie-herzegovine"],
   },
   {
     letter: "C",
@@ -21,7 +21,7 @@ export const groups: Group[] = [
   {
     letter: "D",
     slug: "d",
-    teams: ["etats-unis", "paraguay", "australie", "barrage-uefa-c"],
+    teams: ["etats-unis", "paraguay", "australie", "turquie"],
   },
   {
     letter: "E",
@@ -31,7 +31,7 @@ export const groups: Group[] = [
   {
     letter: "F",
     slug: "f",
-    teams: ["pays-bas", "japon", "tunisie", "barrage-uefa-b"],
+    teams: ["pays-bas", "japon", "tunisie", "suede"],
   },
   {
     letter: "G",
@@ -46,7 +46,7 @@ export const groups: Group[] = [
   {
     letter: "I",
     slug: "i",
-    teams: ["france", "senegal", "norvege", "barrage-interconf-2"],
+    teams: ["france", "senegal", "norvege", "irak"],
   },
   {
     letter: "J",
@@ -56,7 +56,7 @@ export const groups: Group[] = [
   {
     letter: "K",
     slug: "k",
-    teams: ["portugal", "colombie", "ouzbekistan", "barrage-interconf-1"],
+    teams: ["portugal", "colombie", "ouzbekistan", "rd-congo"],
   },
   {
     letter: "L",

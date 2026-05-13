@@ -175,7 +175,7 @@ export default function ComparateurCotesPage() {
                             <a
                               href={o.url}
                               target="_blank"
-                              rel="noopener noreferrer nofollow"
+                              rel="noopener noreferrer sponsored nofollow"
                               className="inline-block bg-primary hover:bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded transition"
                             >
                               Parier →

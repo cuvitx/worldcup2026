@@ -93,6 +93,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* Preconnect to third-party origins for faster resource loading */}
+        <link rel="preconnect" href="https://flagcdn.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://flagcdn.com" />
         {/* next/font/google self-hosts Inter → pas besoin de CDN externe */}
         {/* Le preload des fonts (.woff2) est injecté automatiquement par next/font */}
         {/* robots unifié : index + max-image-preview pour Google Discover */}

@@ -84,6 +84,21 @@ const homepageJsonLd = [
     location: { "@type": "Place", name: "États-Unis, Canada, Mexique" },
     sport: "Football",
     description: "Première Coupe du Monde FIFA à 48 équipes. 104 matchs dans 16 stades.",
+    organizer: {
+      "@type": "Organization",
+      name: "FIFA",
+      url: "https://www.fifa.com",
+    },
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    image: "https://www.cdm2026.fr/og-default.jpg",
+    offers: {
+      "@type": "Offer",
+      url: "https://www.fifa.com/tickets",
+      name: "Billets Coupe du Monde 2026",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+    },
   },
 ];
 

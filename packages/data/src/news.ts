@@ -14,6 +14,210 @@ export interface NewsArticle {
 
 export const newsArticles: NewsArticle[] = [
   {
+    id: 60,
+    slug: "listes-preliminaires-30-joueurs-selections-cdm-2026",
+    title: "Listes préliminaires : les 30 joueurs retenus par chaque sélection",
+    excerpt: "Les 48 sélections engagées dans la Coupe du Monde 2026 ont communiqué leurs listes préliminaires de 30 joueurs à la FIFA. Premiers enseignements et surprises.",
+    content: `La FIFA a reçu l'ensemble des listes préliminaires de 30 joueurs transmises par les 48 sélections qualifiées pour la Coupe du Monde 2026. Chaque équipe devra réduire cette liste à 26 joueurs définitifs avant le 1er juin, date limite imposée par l'instance internationale.
+
+Parmi les premières surprises, on note l'absence de plusieurs cadres habituels. L'Angleterre se passe de Jack Grealish, tandis que le Brésil n'a pas retenu Firmino. En France, Didier Deschamps a convoqué le jeune Désiré Doué mais a laissé de côté Kingsley Coman, alimentant les débats.
+
+Du côté des sélections plus modestes, la Tchéquie et la Bosnie-Herzégovine, fraîchement qualifiées via les barrages, ont opté pour des groupes expérimentés mélangeant joueurs de grands championnats et éléments issus de leurs ligues nationales. L'Irak et la RD Congo misent quant à eux sur la solidarité collective.
+
+Les prochaines semaines seront décisives avec les derniers matchs amicaux de préparation qui permettront aux sélectionneurs d'affiner leurs choix. Les blessures de dernière minute pourraient encore rebattre les cartes dans plusieurs effectifs.`,
+    date: "2026-05-12",
+    category: "equipes",
+    tags: ["listes", "sélections", "30 joueurs", "préparation"],
+    imageEmoji: "📋",
+  },
+  {
+    id: 59,
+    slug: "calendrier-tv-complet-matchs-cdm-2026-france",
+    title: "CDM 2026 : le calendrier TV complet des matchs en France",
+    excerpt: "TF1 et beIN Sports se partagent la diffusion des 104 matchs de la Coupe du Monde 2026. Voici le programme complet des retransmissions.",
+    content: `Le partage des droits TV pour la Coupe du Monde 2026 en France est désormais finalisé. TF1 diffusera 28 matchs en clair, dont l'intégralité des matchs de l'équipe de France, les demi-finales et la finale. beIN Sports assurera la couverture complète des 104 rencontres.
+
+Le décalage horaire avec l'Amérique du Nord implique des horaires tardifs pour les téléspectateurs français. Les matchs de poules débuteront entre 17h et 4h du matin heure de Paris. Les rencontres les plus attendues, notamment celles des Bleus, sont programmées entre 21h et minuit pour maximiser l'audience.
+
+TF1 a annoncé un dispositif éditorial renforcé avec des émissions spéciales avant et après chaque match diffusé en clair. Bixente Lizarazu, Grégoire Margotton et Thierry Henry composeront le trio principal des consultants. beIN Sports mobilisera quant à lui une équipe de 40 journalistes sur place.
+
+Les opérateurs télécoms ont confirmé que les matchs en clair seront également accessibles via les box internet et les applications mobiles, assurant une couverture maximale sur l'ensemble du territoire français.`,
+    date: "2026-05-08",
+    category: "equipes",
+    tags: ["TV", "diffusion", "TF1", "beIN Sports", "programme"],
+    imageEmoji: "📺",
+  },
+  {
+    id: 58,
+    slug: "derniers-matchs-amicaux-enseignements-cdm-2026",
+    title: "Derniers matchs amicaux : les enseignements à un mois du Mondial",
+    excerpt: "La fenêtre internationale de mai a livré ses derniers enseignements. Tour d'horizon des performances et des motifs d'inquiétude avant la CDM 2026.",
+    content: `À un mois du coup d'envoi de la Coupe du Monde 2026, les derniers matchs amicaux de préparation ont offert un aperçu de la forme des principales sélections. La France a signé deux victoires convaincantes face à la Grèce (3-1) et la Pologne (2-0), confirmant sa montée en puissance.
+
+L'Argentine de Lionel Scaloni a rassuré avec un succès 2-1 contre le Chili, malgré une défense parfois fébrile. Le Brésil a en revanche suscité l'inquiétude après un match nul 1-1 contre le Pérou, avec un manque de créativité dans le jeu offensif.
+
+L'Allemagne a impressionné en dominant le Danemark 3-0, tandis que l'Espagne a concédé un nul surprenant face à la Serbie (1-1). Les Pays-Bas ont battu la Belgique dans un derby des plats pays riche en occasions (2-1). L'Angleterre a terminé sa préparation par une victoire 4-0 contre l'Irlande.
+
+Du côté des équipes issues des barrages, la Turquie a montré de belles dispositions en battant la Hongrie 2-0, tandis que la Suède a fait match nul 1-1 avec le Mexique. La Tchéquie a signé une victoire encourageante 2-1 face à l'Ukraine.`,
+    date: "2026-05-03",
+    category: "equipes",
+    tags: ["matchs amicaux", "préparation", "forme", "résultats"],
+    imageEmoji: "⚽",
+  },
+  {
+    id: 57,
+    slug: "cotes-bookmakers-6-semaines-coup-envoi-cdm-2026",
+    title: "Les cotes des bookmakers à 6 semaines du coup d'envoi",
+    excerpt: "Les bookmakers ont mis à jour leurs cotes pour le vainqueur de la Coupe du Monde 2026. L'Argentine et la France se détachent nettement.",
+    content: `À six semaines du match d'ouverture, les cotes des bookmakers se précisent pour la Coupe du Monde 2026. L'Argentine est désormais la favorite avec une cote moyenne de 5.00, devant la France à 5.50 et l'Espagne à 7.00. Le Brésil recule légèrement à 8.00 après ses prestations en demi-teinte lors des amicaux.
+
+L'Angleterre reste bien cotée à 9.00, tandis que l'Allemagne remonte à 10.00 grâce à ses récentes performances convaincantes. Le Portugal de Cristiano Ronaldo est proposé à 14.00, suivi des Pays-Bas à 16.00.
+
+Parmi les outsiders, le Maroc (25.00) et la Croatie (30.00) attirent les parieurs les plus aventureux. Les États-Unis, portés par l'avantage du terrain, sont cotés à 20.00. La Colombie à 22.00 représente également un pari intéressant selon les analystes.
+
+Les experts rappellent que les cotes évolueront encore significativement avec l'annonce des listes définitives et les éventuelles blessures de dernière minute. Les bookmakers ajustent quotidiennement leurs modèles en fonction de l'actualité des sélections.`,
+    date: "2026-04-25",
+    category: "paris",
+    tags: ["cotes", "bookmakers", "favoris", "pronostics"],
+    imageEmoji: "📊",
+  },
+  {
+    id: 56,
+    slug: "blessures-joueurs-incertains-cdm-2026",
+    title: "Blessures : quels joueurs sont incertains pour la CDM 2026 ?",
+    excerpt: "Plusieurs stars sont touchées par des blessures à l'approche du Mondial. Point sur les cas les plus préoccupants dans les grandes sélections.",
+    content: `La course contre la montre a commencé pour plusieurs joueurs majeurs dont la participation à la Coupe du Monde 2026 est menacée par des blessures. En France, Aurélien Tchouaméni souffre d'une lésion musculaire à la cuisse gauche contractée en demi-finale de Ligue des Champions. Son staff médical se veut optimiste mais la prudence reste de mise.
+
+En Angleterre, Bukayo Saka est en phase de reprise après une entorse de la cheville survenue début avril. L'ailier d'Arsenal devrait être rétabli à temps mais manquera la préparation. Au Brésil, Vinícius Jr a été ménagé ces dernières semaines en raison de douleurs récurrentes au genou droit.
+
+L'Espagne est confrontée à l'absence probable de Pedri, victime d'une rechute de sa blessure aux adducteurs. Gavi, de retour après une longue indisponibilité, est quant à lui dans le groupe mais sa forme physique pose question. L'Allemagne doit composer sans Florian Wirtz, victime d'une rupture du ligament croisé en mars.
+
+Ces absences ou incertitudes pourraient redistribuer les cartes dans la hiérarchie des favoris. Les staffs médicaux des sélections travaillent d'arrache-pied pour maximiser les chances de récupération de leurs cadres avant le 11 juin.`,
+    date: "2026-04-18",
+    category: "equipes",
+    tags: ["blessures", "joueurs", "incertitudes", "santé"],
+    imageEmoji: "🏥",
+  },
+  {
+    id: 55,
+    slug: "fifa-rankings-avril-2026-france-numero-un",
+    title: "FIFA Rankings avril 2026 : la France reprend la tête",
+    excerpt: "Le classement FIFA d'avril 2026 consacre la France en tête du ranking mondial, devant l'Argentine et l'Espagne. Un signal fort avant le Mondial.",
+    content: `La FIFA a publié son classement mondial d'avril 2026, le dernier avant la Coupe du Monde. La France retrouve la première place qu'elle avait perdue en 2024, grâce à ses résultats impeccables lors des qualifications et des matchs amicaux récents. Les Bleus devancent l'Argentine de 12 points et l'Espagne de 28 points.
+
+Le top 10 se compose de la France (1874 pts), l'Argentine (1862 pts), l'Espagne (1846 pts), l'Angleterre (1821 pts), le Brésil (1808 pts), l'Allemagne (1795 pts), le Portugal (1783 pts), les Pays-Bas (1770 pts), la Belgique (1758 pts) et la Colombie (1742 pts).
+
+Parmi les mouvements notables, la Turquie fait son entrée dans le top 25 (23e) après sa qualification via les barrages UEFA et ses récents résultats probants. La Suède remonte à la 28e place. La Tchéquie et la Bosnie-Herzégovine progressent également significativement.
+
+Ce classement n'a pas d'impact direct sur le tirage au sort, déjà effectué, mais il influence le coefficient FIFA utilisé pour les têtes de série des futures compétitions. Il constitue surtout un indicateur de forme et de dynamique à l'approche du tournoi le plus attendu de la décennie.`,
+    date: "2026-04-10",
+    category: "equipes",
+    tags: ["FIFA", "classement", "ranking", "France"],
+    imageEmoji: "🏆",
+  },
+  {
+    id: 54,
+    slug: "billets-cdm-2026-derniere-vague-tickets",
+    title: "Billets CDM 2026 : dernière vague de tickets disponibles",
+    excerpt: "La FIFA lance la dernière phase de vente de billets pour la Coupe du Monde 2026. Environ 800 000 tickets sont encore disponibles pour les retardataires.",
+    content: `La FIFA a annoncé l'ouverture de la dernière vague de vente de billets pour la Coupe du Monde 2026, à compter du 5 avril. Environ 800 000 tickets restent disponibles, principalement pour les matchs de poules des groupes les moins demandés et quelques places en catégorie premium pour les phases finales.
+
+Les matchs les plus demandés — finale au MetLife Stadium, demi-finales, et tous les matchs des États-Unis — sont depuis longtemps complets. En revanche, des places restent accessibles pour plusieurs rencontres de poules, notamment dans les stades mexicains et canadiens, à partir de 35 dollars la place.
+
+La FIFA a mis en place un système de revente officiel permettant aux détenteurs de billets de céder leurs places à prix encadré. Ce dispositif vise à lutter contre le marché noir, où certains billets pour la finale se négocient à plus de 10 000 dollars.
+
+Les organisateurs rappellent que tous les billets sont nominatifs et dématérialisés, accessibles uniquement via l'application FIFA Tickets. Un contrôle d'identité sera effectué à l'entrée de chaque stade pour garantir la sécurité et lutter contre la fraude.`,
+    date: "2026-04-02",
+    category: "billets",
+    tags: ["billets", "vente", "FIFA", "dernière chance"],
+    imageEmoji: "🎟️",
+  },
+  {
+    id: 53,
+    slug: "barrages-intercontinentaux-irak-rd-congo-qualifies",
+    title: "Barrages intercontinentaux : l'Irak et la RD Congo qualifiés",
+    excerpt: "L'Irak et la République Démocratique du Congo ont décroché les deux derniers billets pour la CDM 2026 via les barrages intercontinentaux.",
+    content: `Les barrages intercontinentaux de la FIFA ont livré leur verdict et complètent le tableau des 48 équipes qualifiées pour la Coupe du Monde 2026. L'Irak a éliminé le Costa Rica sur l'ensemble des deux matchs (1-0, 1-1) pour décrocher une place dans le Groupe I aux côtés de la France, du Sénégal et de la Norvège.
+
+La République Démocratique du Congo a quant à elle créé la surprise en dominant le Pérou (2-1, 0-0). Les Léopards retrouvent la Coupe du Monde pour la deuxième fois de leur histoire, après leur unique participation en 1974 sous le nom de Zaïre. Ils rejoignent le Groupe K avec le Portugal, la Colombie et l'Ouzbékistan.
+
+L'Irak, qui n'avait plus participé à un Mondial depuis 1986, célèbre un retour historique. La sélection irakienne, portée par une génération talentueuse emmenée par le capitaine Ali Adnan, a fait vibrer tout un pays. Des scènes de liesse ont été observées dans les rues de Bagdad après la qualification.
+
+Pour la RD Congo, c'est l'aboutissement d'un travail de fond mené par la fédération depuis plusieurs années. L'équipe, emmenée par Chancel Mbemba et Cédric Bakambu, espère faire mieux que la génération de 1974 et passer le premier tour.`,
+    date: "2026-03-31",
+    category: "equipes",
+    tags: ["barrages", "Irak", "RD Congo", "qualification", "intercontinental"],
+    imageEmoji: "🌍",
+  },
+  {
+    id: 52,
+    slug: "barrages-uefa-suede-turquie-tchequie-bosnie-qualifiees",
+    title: "Barrages UEFA : la Suède, la Turquie, la Tchéquie et la Bosnie créent la surprise",
+    excerpt: "Les quatre dernières places européennes pour la CDM 2026 ont été attribuées. La Suède, la Turquie, la Tchéquie et la Bosnie-Herzégovine complètent la liste.",
+    content: `Les barrages UEFA pour la Coupe du Monde 2026 ont livré quatre qualifiés qui complètent la représentation européenne au Mondial. La Turquie a dominé le Pays de Galles en finale du barrage C (2-0, 1-1), confirmant son retour au plus haut niveau après une Coupe du Monde 2022 manquée.
+
+La Suède, absente de l'édition 2022, fait son retour en battant la Grèce dans un barrage B accroché (1-0, 2-2). Les Scandinaves, emmenés par Alexander Isak et Viktor Gyökeres, rejoignent un Groupe F relevé avec les Pays-Bas, le Japon et la Tunisie.
+
+La Tchéquie a créé la surprise en éliminant l'Ukraine en barrage D (1-1, 2-1 a.p.). Les Tchèques, portés par Patrik Schick et une défense solide, intègrent le Groupe A avec le Mexique, la Corée du Sud et l'Afrique du Sud. La Bosnie-Herzégovine a quant à elle sorti l'Islande en barrage A (3-1, 0-0) pour décrocher sa deuxième participation mondiale après 2014.
+
+Ces quatre qualifications portent la représentation européenne à 16 équipes, le maximum alloué par la FIFA au continent. Un contingent record qui reflète la densité compétitive du football européen.`,
+    date: "2026-03-31",
+    category: "equipes",
+    tags: ["barrages UEFA", "Suède", "Turquie", "Tchéquie", "Bosnie", "qualification"],
+    imageEmoji: "🇪🇺",
+  },
+  {
+    id: 51,
+    slug: "48-equipes-qualifiees-cdm-2026-liste-complete",
+    title: "Les 48 équipes qualifiées pour la CDM 2026 sont connues",
+    excerpt: "Avec la fin des barrages, les 48 équipes participantes à la Coupe du Monde 2026 sont désormais toutes connues. Récapitulatif complet par groupe.",
+    content: `La phase de qualification pour la Coupe du Monde 2026 est officiellement terminée. Les 48 équipes qui se disputeront le titre mondial du 11 juin au 19 juillet aux États-Unis, au Mexique et au Canada sont désormais connues. Six derniers qualifiés ont rejoint le plateau via les barrages UEFA et intercontinentaux.
+
+Voici la composition définitive des 12 groupes : Groupe A (Mexique, Corée du Sud, Afrique du Sud, Tchéquie), Groupe B (Canada, Suisse, Qatar, Bosnie-Herzégovine), Groupe C (Brésil, Maroc, Écosse, Haïti), Groupe D (États-Unis, Paraguay, Australie, Turquie), Groupe E (Allemagne, Côte d'Ivoire, Équateur, Curaçao), Groupe F (Pays-Bas, Japon, Tunisie, Suède).
+
+Groupe G (Belgique, Iran, Égypte, Nouvelle-Zélande), Groupe H (Espagne, Uruguay, Arabie Saoudite, Cap-Vert), Groupe I (France, Sénégal, Norvège, Irak), Groupe J (Argentine, Autriche, Algérie, Jordanie), Groupe K (Portugal, Colombie, Ouzbékistan, RD Congo), Groupe L (Angleterre, Croatie, Ghana, Panama).
+
+Cette édition 2026 promet un spectacle inédit avec 104 matchs répartis sur 39 jours. Le record de 48 équipes permet à plusieurs nations de vivre leur première participation ou un retour historique sur la scène mondiale.`,
+    date: "2026-03-25",
+    category: "equipes",
+    tags: ["48 équipes", "qualification", "groupes", "liste complète"],
+    imageEmoji: "🌎",
+  },
+  {
+    id: 50,
+    slug: "metlife-stadium-pelouse-hybride-validee-tests",
+    title: "MetLife Stadium : la pelouse hybride validée après les premiers tests",
+    excerpt: "La nouvelle pelouse hybride du MetLife Stadium a passé les tests FIFA avec succès. Le stade de la finale est prêt à accueillir le Mondial.",
+    content: `Le MetLife Stadium d'East Rutherford, qui accueillera la finale de la Coupe du Monde 2026 le 19 juillet, a franchi une étape cruciale avec la validation de sa nouvelle pelouse hybride par les inspecteurs FIFA. Les tests de qualité, de drainage et de résistance ont tous été concluants.
+
+La pelouse, mélange de gazon naturel et de fibres synthétiques, a été installée selon le système SISGrass utilisé dans les plus grands stades européens. "La qualité du terrain est exceptionnelle, comparable aux meilleurs stades de Premier League", a déclaré l'inspecteur en chef de la FIFA après les essais.
+
+Ce résultat met fin à des mois d'inquiétude. Le MetLife Stadium, habituellement utilisé pour le football américain avec une surface synthétique, a dû repenser entièrement son système de terrain pour répondre aux exigences FIFA. L'investissement de 60 millions de dollars spécifiquement dédié à la pelouse semble avoir porté ses fruits.
+
+Un match test entre le New York Red Bulls et le New York City FC est programmé pour fin avril afin de valider le comportement du terrain en conditions de jeu réelles. Les ajustements finaux seront effectués en mai avant l'installation définitive du mobilier FIFA.`,
+    date: "2026-03-15",
+    category: "stades",
+    tags: ["MetLife Stadium", "pelouse", "FIFA", "finale", "tests"],
+    imageEmoji: "🏟️",
+  },
+  {
+    id: 49,
+    slug: "programme-matchs-amicaux-preparation-cdm-2026",
+    title: "CDM 2026 : le programme des matchs amicaux de préparation",
+    excerpt: "Les principales sélections ont annoncé leur calendrier de matchs amicaux en vue de la Coupe du Monde 2026. Tour d'horizon des affiches de préparation.",
+    content: `À trois mois du coup d'envoi de la Coupe du Monde 2026, les sélections nationales finalisent leur programme de préparation. La France disputera quatre matchs amicaux : contre la Grèce (mars), l'Ukraine (avril), la Pologne (mai) et la Bulgarie (début juin) avant de rejoindre sa base de préparation aux États-Unis.
+
+L'Argentine, tenante du titre, affrontera le Chili, le Venezuela et le Paraguay lors de la fenêtre de mars-avril. Le Brésil a programmé des rencontres face au Pérou, à la Bolivie et au Mexique. L'Espagne se mesurera à la Serbie et au Portugal dans un mini-tournoi amical ibérique en avril.
+
+L'Angleterre accueillera l'Irlande et le Danemark à Wembley en mai, tandis que l'Allemagne affrontera la Suède et le Danemark à domicile. Les Pays-Bas ont choisi de se confronter à la Belgique et à l'Italie, deux adversaires de haut calibre pour préparer au mieux la phase de poules.
+
+Les équipes qualifiées via les barrages auront un calendrier plus contraint. La Turquie, la Suède, la Tchéquie et la Bosnie-Herzégovine disposent d'un délai réduit pour préparer leurs premiers matchs. L'Irak et la RD Congo devront également optimiser le peu de temps disponible avant leur entrée en lice historique.`,
+    date: "2026-03-05",
+    category: "equipes",
+    tags: ["matchs amicaux", "préparation", "calendrier", "sélections"],
+    imageEmoji: "📅",
+  },
+  {
     id: 1,
     slug: "metlife-stadium-renovation-finale-2026",
     title: "MetLife Stadium : les travaux de rénovation pour la finale avancent à grands pas",
