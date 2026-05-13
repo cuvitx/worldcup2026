@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 /**
- * Download missing player photos from Wikipedia/Wikimedia Commons.
+ * Download missing player photos from Wikipedia + TheSportsDB (fallback).
  *
- * - Reads all players from packages/data/src/players.ts
- * - Checks which ones already have photos in public/images/players/
- * - Fetches thumbnails from Wikipedia API for missing players
- * - Saves as 400px JPG/PNG
- * - Updates apps/fr/lib/player-images.ts mapping
+ * Strategy:
+ *   1. Wikipedia page/summary API → thumbnail (free, CC license)
+ *   2. TheSportsDB searchplayers API → cutout/thumb (free tier)
  *
  * Usage:
  *   node scripts/download-missing-photos.mjs              # download all missing
@@ -25,27 +23,20 @@ const PLAYER_IMAGES_TS = path.join(ROOT, "apps/fr/lib/player-images.ts");
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
-const TEAM_FILTER = args.includes("--team") ? args[args.indexOf("--team") + 1] : null;
+const TEAM_FILTER = args.includes("--team")
+  ? args[args.indexOf("--team") + 1]
+  : null;
 
-// Rate limit: Wikipedia asks for polite usage, 200ms is fine for low volume
-const DELAY_MS = 250;
+const DELAY_MS = 300;
+const UA = "CDM2026Bot/1.0 (https://cdm2026.fr)";
 
 function log(msg) {
   console.log(`[photos] ${msg}`);
 }
-
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-/** Build Wikipedia article name from player name */
-function guessWikiName(name) {
-  // Common patterns: "Kylian Mbappé" → "Kylian Mbappé"
-  // For disambiguation, we'd need a manual mapping, but most work as-is
-  return name;
-}
-
-/** Slugify a name for filename */
 function slugifyName(name) {
   return name
     .normalize("NFD")
@@ -55,11 +46,14 @@ function slugifyName(name) {
     .replace(/^-|-$/g, "");
 }
 
-/** Extract all players from the TypeScript source */
 function getAllPlayers() {
-  const raw = fs.readFileSync(path.join(ROOT, "packages/data/src/players.ts"), "utf8");
+  const raw = fs.readFileSync(
+    path.join(ROOT, "packages/data/src/players.ts"),
+    "utf8"
+  );
   const players = [];
-  const regex = /{\s*\n\s*id:\s*"([^"]+)",\s*\n\s*name:\s*"([^"]+)",\s*\n\s*slug:\s*"([^"]+)",\s*\n\s*teamId:\s*"([^"]+)"/g;
+  const regex =
+    /{\s*\n\s*id:\s*"([^"]+)",\s*\n\s*name:\s*"([^"]+)",\s*\n\s*slug:\s*"([^"]+)",\s*\n\s*teamId:\s*"([^"]+)"/g;
   let m;
   while ((m = regex.exec(raw)) !== null) {
     players.push({ id: m[1], name: m[2], slug: m[3], teamId: m[4] });
@@ -67,21 +61,20 @@ function getAllPlayers() {
   return players;
 }
 
-/** Get existing photos */
 function getExistingPhotos() {
   if (!fs.existsSync(IMAGES_DIR)) {
     fs.mkdirSync(IMAGES_DIR, { recursive: true });
     return new Set();
   }
-  const files = fs.readdirSync(IMAGES_DIR);
-  return new Set(files.map((f) => f.replace(/\.(jpg|png|webp)$/, "")));
+  return new Set(
+    fs.readdirSync(IMAGES_DIR).map((f) => f.replace(/\.(jpg|jpeg|png|webp|JPG|svg)$/, ""))
+  );
 }
 
-/** Get existing mapping from player-images.ts */
 function getExistingMapping() {
   const raw = fs.readFileSync(PLAYER_IMAGES_TS, "utf8");
   const map = {};
-  const regex = /["']?([^"']+)["']?\s*:\s*"([^"]+)"/g;
+  const regex = /["']?([^"'\s:]+)["']?\s*:\s*"([^"]+)"/g;
   let m;
   while ((m = regex.exec(raw)) !== null) {
     map[m[1]] = m[2];
@@ -89,39 +82,61 @@ function getExistingMapping() {
   return map;
 }
 
-/** Fetch Wikipedia thumbnail for a player */
-async function fetchWikiThumbnail(playerName) {
-  const encoded = encodeURIComponent(playerName);
-  const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encoded}`;
+// ─── Source 1: Wikipedia ─────────────────────────────────────────────────────
 
+async function fetchFromWikipedia(playerName) {
   try {
-    const res = await fetch(url, {
-      headers: { "User-Agent": "CDM2026Bot/1.0 (https://cdm2026.fr)" },
-    });
+    const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(playerName)}`;
+    const res = await fetch(url, { headers: { "User-Agent": UA } });
     if (!res.ok) return null;
     const data = await res.json();
-    // Prefer original image, fall back to thumbnail
     return data.originalimage?.source || data.thumbnail?.source || null;
   } catch {
     return null;
   }
 }
 
-/** Download image to local file */
+// ─── Source 2: TheSportsDB ───────────────────────────────────────────────────
+
+async function fetchFromSportsDB(playerName) {
+  try {
+    const url = `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${encodeURIComponent(playerName)}`;
+    const res = await fetch(url, { headers: { "User-Agent": UA } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const p = data.player?.[0];
+    if (!p) return null;
+    // Prefer cutout (transparent bg), then thumb
+    return p.strCutout || p.strThumb || null;
+  } catch {
+    return null;
+  }
+}
+
+// ─── Download image ──────────────────────────────────────────────────────────
+
 async function downloadImage(imageUrl, destPath) {
   try {
     const res = await fetch(imageUrl, {
-      headers: { "User-Agent": "CDM2026Bot/1.0 (https://cdm2026.fr)" },
+      headers: { "User-Agent": UA },
+      redirect: "follow",
     });
     if (!res.ok) return false;
     const buffer = Buffer.from(await res.arrayBuffer());
-    if (buffer.length < 1000) return false; // too small, probably error
+    if (buffer.length < 500) return false;
     fs.writeFileSync(destPath, buffer);
     return true;
   } catch {
     return false;
   }
 }
+
+function getExtFromUrl(url) {
+  const m = url.match(/\.(jpg|jpeg|png|webp|svg)/i);
+  return m ? m[1].toLowerCase() : "jpg";
+}
+
+// ─── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
   log(`Starting photo download (${DRY_RUN ? "DRY RUN" : "LIVE"})...`);
@@ -130,65 +145,72 @@ async function main() {
   const existingPhotos = getExistingPhotos();
   const existingMapping = getExistingMapping();
 
-  log(`Total players: ${players.length}`);
-  log(`Existing photos: ${existingPhotos.size}`);
-
-  // Filter to players without photos
   let missing = players.filter((p) => {
-    const filename = existingMapping[p.id] || existingMapping[p.slug] || slugifyName(p.name);
+    const filename =
+      existingMapping[p.id] || existingMapping[p.slug] || slugifyName(p.name);
     return !existingPhotos.has(filename);
   });
 
   if (TEAM_FILTER) {
     missing = missing.filter((p) => p.teamId === TEAM_FILTER);
-    log(`Filtered to team: ${TEAM_FILTER} (${missing.length} missing)`);
+    log(`Filtered to team: ${TEAM_FILTER}`);
   }
 
-  log(`Missing photos: ${missing.length}`);
+  log(`Total: ${players.length} | Existing: ${existingPhotos.size} | Missing: ${missing.length}`);
 
   if (DRY_RUN) {
-    missing.slice(0, 20).forEach((p) => log(`  Would download: ${p.name} (${p.teamId})`));
-    if (missing.length > 20) log(`  ... and ${missing.length - 20} more`);
+    missing.slice(0, 10).forEach((p) => log(`  ${p.name} (${p.teamId})`));
+    if (missing.length > 10) log(`  ... +${missing.length - 10} more`);
     return;
   }
 
-  let downloaded = 0;
-  let failed = 0;
+  let wiki = 0,
+    sportsdb = 0,
+    failed = 0;
   const newMappings = [];
 
-  for (const player of missing) {
-    const wikiName = guessWikiName(player.name);
+  for (let i = 0; i < missing.length; i++) {
+    const player = missing[i];
     const filename = slugifyName(player.name);
-    const ext = ".jpg";
+    const progress = `[${i + 1}/${missing.length}]`;
 
-    log(`  ${player.name} (${player.teamId})...`);
-    const imageUrl = await fetchWikiThumbnail(wikiName);
+    // Try Wikipedia first
+    let imageUrl = await fetchFromWikipedia(player.name);
+    let source = "wiki";
+
+    // Fallback to TheSportsDB
+    if (!imageUrl) {
+      await sleep(DELAY_MS);
+      imageUrl = await fetchFromSportsDB(player.name);
+      source = "sportsdb";
+    }
 
     if (!imageUrl) {
-      log(`    ✗ No Wikipedia image found`);
+      log(`  ${progress} ✗ ${player.name} (${player.teamId}) — no image`);
       failed++;
       await sleep(DELAY_MS);
       continue;
     }
 
-    // Determine file extension from URL
-    const actualExt = imageUrl.match(/\.(jpg|jpeg|png|webp|svg)/i)?.[1] || "jpg";
-    const destPath = path.join(IMAGES_DIR, `${filename}.${actualExt}`);
-
+    const ext = getExtFromUrl(imageUrl);
+    const destPath = path.join(IMAGES_DIR, `${filename}.${ext}`);
     const ok = await downloadImage(imageUrl, destPath);
+
     if (ok) {
-      log(`    ✓ Saved ${filename}.${actualExt}`);
-      downloaded++;
+      if (source === "wiki") wiki++;
+      else sportsdb++;
       newMappings.push({ id: player.id, slug: player.slug, filename });
+      if ((wiki + sportsdb) % 50 === 0) {
+        log(`  ${progress} ✓ ${player.name} [${source}] — ${wiki + sportsdb} total`);
+      }
     } else {
-      log(`    ✗ Download failed`);
       failed++;
     }
 
     await sleep(DELAY_MS);
   }
 
-  // Update player-images.ts with new mappings
+  // Update player-images.ts
   if (newMappings.length > 0) {
     let raw = fs.readFileSync(PLAYER_IMAGES_TS, "utf8");
     const insertBefore = "\n};\n";
@@ -197,19 +219,23 @@ async function main() {
       const newEntries = newMappings
         .map((m) => `  "${m.id}": "${m.filename}",`)
         .join("\n");
-      raw = raw.slice(0, insertPoint) + "\n\n  // Auto-downloaded " + new Date().toISOString().slice(0, 10) + "\n" + newEntries + raw.slice(insertPoint);
+      raw =
+        raw.slice(0, insertPoint) +
+        "\n\n  // Auto-downloaded " +
+        new Date().toISOString().slice(0, 10) +
+        "\n" +
+        newEntries +
+        raw.slice(insertPoint);
       fs.writeFileSync(PLAYER_IMAGES_TS, raw, "utf8");
-      log(`\n✓ Updated player-images.ts with ${newMappings.length} new entries`);
     }
   }
 
   log(`\n=== Done ===`);
-  log(`Downloaded: ${downloaded}`);
-  log(`Failed: ${failed}`);
-  log(`Already had: ${existingPhotos.size}`);
+  log(`Wikipedia: ${wiki} | TheSportsDB: ${sportsdb} | Failed: ${failed}`);
+  log(`Total photos: ${existingPhotos.size + wiki + sportsdb}`);
 }
 
 main().catch((err) => {
-  console.error("[photos] Fatal error:", err);
+  console.error("[photos] Fatal:", err);
   process.exit(1);
 });
