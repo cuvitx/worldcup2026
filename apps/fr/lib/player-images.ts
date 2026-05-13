@@ -125,6 +125,24 @@ export const playerImageMap: Record<string, string> = {
 
   // Uruguay
   valverde: "federico-valverde",
+
+  // Auto-downloaded 2026-05-13
+  "samba": "brice-samba",
+  "lucas-chevalier": "lucas-chevalier",
+  "konaté": "ibrahima-konate",
+  "lucas-digne": "lucas-digne",
+  "lucas-hernandez": "lucas-hernandez",
+  "malo-gusto": "malo-gusto",
+  "maxence-lacroix": "maxence-lacroix",
+  "pierre-kalulu": "pierre-kalulu",
+  "theo-hernandez": "theo-hernandez",
+  "maghnes-akliouche": "maghnes-akliouche",
+  "manu-kone": "manu-kone",
+  "kante": "n-golo-kante",
+  "rayan-cherki": "rayan-cherki",
+  "desire-doue": "desire-doue",
+  "hugo-ekitike": "hugo-ekitike",
+  "randal-muani": "randal-kolo-muani",
 };
 
 /**
