@@ -1,0 +1,73 @@
+name: "Daily Data Update"
+
+on:
+  schedule:
+    # 6h UTC = 8h Paris, every day
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "What to update"
+        required: false
+        default: "all"
+        type: choice
+        options:
+          - all
+          - rosters
+          - news
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run update script
+        run: |
+          TARGET="${{ github.event.inputs.target || 'all' }}"
+          if [ "$TARGET" = "rosters" ]; then
+            node scripts/update-data.mjs --rosters
+          elif [ "$TARGET" = "news" ]; then
+            node scripts/update-data.mjs --news
+          else
+            node scripts/update-data.mjs
+          fi
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet packages/data/src/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          SUMMARY=""
+          if [ -f .update-summary.txt ]; then
+            SUMMARY=$(cat .update-summary.txt)
+            rm .update-summary.txt
+          fi
+
+          git add packages/data/src/
+          git commit -m "chore(data): mise à jour automatique $(date +%Y-%m-%d)
+
+          ${SUMMARY}
+
+          [skip ci] Auto-update via GitHub Actions"
+
+          git push
