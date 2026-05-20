@@ -13,6 +13,7 @@ import { BottomNav } from "./components/BottomNav";
 import { AutoRelatedContent } from "./components/AutoRelatedContent";
 import { SiloTabs } from "./components/SiloTabs";
 import { AutoBreadcrumb } from "./components/AutoBreadcrumb";
+import { AffiliateTracker } from "./components/AffiliateTracker";
 import "./globals.css";
 
 /* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
@@ -143,6 +144,7 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <StickyCTA />
+        <AffiliateTracker />
         <BottomNav />
         </BadgeSystem>
       </body>
