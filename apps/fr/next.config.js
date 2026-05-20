@@ -15,8 +15,6 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Ezoic ads.txt
-      { source: "/ads.txt", destination: "https://srv.adstxtmanager.com/19390/cdm2026.fr", permanent: true },
       { source: "/equipe-de-france", destination: "/equipe/france", permanent: true },
       { source: "/portrait/:slug", destination: "/joueur/:slug", permanent: true },
       // Redirects for resolved playoff teams (March 2026)
