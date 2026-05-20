@@ -6,12 +6,10 @@ import { domains, getHomeAlternates } from "@repo/data/route-mapping";
 import { OrganizationSchema } from "@repo/ui/organization-schema";
 import { LiveScoreBarWrapper } from "./components/LiveScoreBarWrapper";
 import { LiveTicker } from "./components/LiveTicker";
-import { CookieConsent } from "@repo/ui/cookie-consent";
 import { BackToTop } from "@repo/ui/back-to-top";
 import { StickyCTA } from "./components/StickyCTA";
 import { BadgeSystem } from "@repo/ui/badge-system";
 import { BottomNav } from "./components/BottomNav";
-import { NewsletterPopup } from "@repo/ui/newsletter-popup";
 import { AutoRelatedContent } from "./components/AutoRelatedContent";
 import { SiloTabs } from "./components/SiloTabs";
 import { AutoBreadcrumb } from "./components/AutoBreadcrumb";
@@ -101,7 +99,17 @@ export default function RootLayout({
         {/* robots unifié : index + max-image-preview pour Google Discover */}
         <meta name="google-site-verification" content="FuzJBEoixXdM6UjwmDg2-gNx8dQX0Lf9w0mxk9O5GC4" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
-        {/* TODO: Activer GA4 — remplacer G-XXXXXXXXXX par l'ID réel puis décommenter les scripts gtag */}
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}',{anonymize_ip:true});`,
+              }}
+            />
+          </>
+        )}
       </head>
       {/*
         Body — Brand Book CDM2026 :
@@ -135,8 +143,6 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <StickyCTA />
-        <CookieConsent lang="fr" />
-        <NewsletterPopup />
         <BottomNav />
         </BadgeSystem>
       </body>
