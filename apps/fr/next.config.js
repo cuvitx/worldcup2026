@@ -15,6 +15,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Ezoic ads.txt
+      { source: "/ads.txt", destination: "https://srv.adstxtmanager.com/19390/cdm2026.fr", permanent: true },
       { source: "/equipe-de-france", destination: "/equipe/france", permanent: true },
       { source: "/portrait/:slug", destination: "/joueur/:slug", permanent: true },
       // Redirects for resolved playoff teams (March 2026)
@@ -70,7 +72,7 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://flagcdn.com https://*.googleapis.com https://*.gstatic.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.google-analytics.com https://*.ezojs.com https://*.ezoic.com https://*.ezoiccdn.com https://ezoicanalytics.com https://cmp.gatekeeperconsent.com https://the.gatekeeperconsent.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://flagcdn.com https://*.googleapis.com https://*.gstatic.com https://*.ezoic.com https://*.ezoiccdn.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.ezoic.com https://*.ezoiccdn.com https://ezoicanalytics.com; frame-src 'self' https://*.ezoic.com; object-src 'none'; base-uri 'self'; form-action 'self';",
           },
         ],
       },
