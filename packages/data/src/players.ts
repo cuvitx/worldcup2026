@@ -1,8 +1,8 @@
 import { Player } from "./types";
 
 // Date constants for player data freshness
-const LAST_UPDATED = "2026-05-24";
-const CLUB_UPDATED_AT = "2026-05-24";
+const LAST_UPDATED = "2026-05-25";
+const CLUB_UPDATED_AT = "2026-05-25";
 
 /** Add date metadata to all players */
 function withDates(playerList: Omit<Player, "lastUpdated" | "clubUpdatedAt">[]): Player[] {
