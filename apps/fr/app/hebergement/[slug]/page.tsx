@@ -4,10 +4,7 @@ import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CalendarCheck, Check, DollarSign, ExternalLink, Home, Hotel, MapPin, X } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
-export const dynamicParams = false;
-export async function generateStaticParams() {
-  return cities.map((c) => ({ slug: c.slug }));
-}
+export const runtime = "edge";
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

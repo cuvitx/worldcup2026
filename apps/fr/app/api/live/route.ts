@@ -1,5 +1,7 @@
 import { getLiveFixtures } from "@repo/api/football";
 
+export const runtime = "edge";
+
 /**
  * Fetch live football fixtures from external API
  * @returns {Promise<Response>} JSON response with live fixtures or empty array

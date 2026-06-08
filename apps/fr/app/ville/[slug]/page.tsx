@@ -12,14 +12,10 @@ import { cityEnrichmentData } from "./city-enrichment";
 import { BookOpen, Building2, Globe, Ticket, Tv } from "lucide-react"
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return cities.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

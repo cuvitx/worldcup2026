@@ -18,15 +18,11 @@ const PLAYER_PHOTO_SLUGS = new Set([
 import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
 import { CircleDot, Sparkles, Users } from "lucide-react"
 
+export const runtime = "edge";
 export const revalidate = 3600;
-export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return players.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

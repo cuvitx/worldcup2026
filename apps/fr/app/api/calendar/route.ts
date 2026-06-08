@@ -1,4 +1,6 @@
 import { headers } from "next/headers";
+
+export const runtime = "edge";
 import { rateLimit } from "../_lib/rate-limit";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";

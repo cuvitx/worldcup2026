@@ -11,14 +11,10 @@ import { getISOCode } from "@repo/data/country-codes";
 import { AlertTriangle, ArrowRight, BarChart3, CheckCircle2, Lightbulb, Medal, Target, TrendingDown, TrendingUp, Trophy, Users, X, XCircle } from "lucide-react";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return teams.map((team) => ({ slug: team.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

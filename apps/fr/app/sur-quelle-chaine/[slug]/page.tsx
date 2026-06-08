@@ -9,8 +9,9 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { stageLabels } from "@repo/data/constants";
+
+export const runtime = "edge";
 export const revalidate = 86400;
-export const dynamicParams = false;
 // ─── Deterministic channel assignment ─────────────────────────────────────────
 function hashSlug(slug: string): number {
   let h = 0;
@@ -56,9 +57,6 @@ function formatTimeInZone(date: string, timeUtc: string, tz: string, label: stri
 // ─── Static params ────────────────────────────────────────────────────────────
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
 }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

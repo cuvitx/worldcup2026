@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+export const runtime = "edge";
 
 
 export const alt = "Match CDM 2026";

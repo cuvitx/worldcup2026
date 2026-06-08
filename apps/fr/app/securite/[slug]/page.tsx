@@ -7,7 +7,7 @@ import { Shield, AlertTriangle, Phone, Moon, HeartPulse, MapPin } from "lucide-r
 import Link from "next/link";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -220,10 +220,6 @@ const securityData: Record<string, CitySecurityData> = {
     tips: ["Ville magnifique et très sûre globalement", "Downtown Eastside peut choquer — situation sociale difficile mais pas dangereuse pour les passants", "Climat doux en été (20-25°C)"],
   },
 };
-
-export async function generateStaticParams() {
-  return cities.map((c) => ({ slug: c.slug }));
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

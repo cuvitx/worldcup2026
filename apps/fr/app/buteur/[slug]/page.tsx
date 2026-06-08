@@ -8,17 +8,11 @@ import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
 
+export const runtime = "edge";
 export const revalidate = 3600;
-export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return players
-    .filter((p) => p.position === "FW" || p.position === "MF")
-    .map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

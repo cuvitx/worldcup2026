@@ -5,7 +5,7 @@ import { domains } from "@repo/data/route-mapping";
 import { Monitor, MapPin, Clock, Users, Beer, Sun, ArrowRight } from "lucide-react";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -225,9 +225,6 @@ const slugs = [
   "angers", "brest", "metz", "reims", "le-havre",
 ];
 
-export function generateStaticParams() {
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

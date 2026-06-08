@@ -1,4 +1,6 @@
 import { matchesBySlug } from "@repo/data/matches";
+
+export const runtime = "edge";
 import { teamsById } from "@repo/data/teams";
 import { getOddsForMatch } from "@repo/api/odds";
 import { matchSlugSchema } from "@repo/api";

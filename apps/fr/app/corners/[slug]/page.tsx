@@ -6,6 +6,9 @@ import { CornerDownRight, TrendingUp, ArrowRight, ExternalLink, BarChart3, MapPi
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+
+export const runtime = "edge";
+
 function getCornerStats(homeId: string, awayId: string) {
   const seed = (homeId + awayId).length * 7 + homeId.charCodeAt(0);
   const homeCorners = +(4.5 + (seed % 30) / 10).toFixed(1);
@@ -24,9 +27,6 @@ function getCornerStats(homeId: string, awayId: string) {
     unibetOver115: +(2.45 + (seed % 32) / 100).toFixed(2),
   };
 }
-export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
-}
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -40,7 +40,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/corners/${slug}` },
   };
 }
-export const dynamicParams = false;
 export default async function CornersPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];

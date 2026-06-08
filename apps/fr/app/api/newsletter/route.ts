@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = "edge";
 import { headers } from 'next/headers';
 import { rateLimit } from '../_lib/rate-limit';
 

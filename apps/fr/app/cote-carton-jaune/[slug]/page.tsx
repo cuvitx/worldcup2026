@@ -39,9 +39,7 @@ function getCardStats(slug: string) {
     tournamentAvgFouls: 1.3,
   };
 }
-export async function generateStaticParams() {
-  return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
-}
+export const runtime = "edge";
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -53,7 +51,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-carton-jaune/${slug}` },
   };
 }
-export const dynamicParams = false;
 export default async function CoteCartonJaunePage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];

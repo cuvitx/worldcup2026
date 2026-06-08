@@ -11,14 +11,10 @@ import { stageLabels } from "@repo/data/constants";
 import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-react"
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return stadiums.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

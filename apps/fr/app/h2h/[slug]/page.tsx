@@ -8,26 +8,10 @@ import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
 
 export const revalidate = 300;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-// Generate all possible team vs team combinations
-export async function generateStaticParams() {
-  const realTeams = teams.filter((t) => !t.slug.startsWith("barrage-") && !t.slug.startsWith("intercontinental-"));
-  const params: { slug: string }[] = [];
-  for (let i = 0; i < realTeams.length; i++) {
-    for (let j = i + 1; j < realTeams.length; j++) {
-      const t1 = realTeams[i];
-      const t2 = realTeams[j];
-      if (t1 && t2) {
-        params.push({ slug: `${t1.slug}-vs-${t2.slug}` });
-      }
-    }
-  }
-  return params;
 }
 
 function parseSlug(slug: string) {

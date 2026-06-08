@@ -18,14 +18,10 @@ import { QualificationOdds } from "./_components/QualificationOdds";
 import { GroupSidebar } from "./_components/GroupSidebar";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
-}
-
-export async function generateStaticParams() {
-  return groups.map((group) => ({ lettre: group.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
