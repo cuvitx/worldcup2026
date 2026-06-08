@@ -7,10 +7,14 @@ import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-r
 import { guides, guidesById } from "@repo/data/guides";
 
 export const revalidate = 86400;
-export const runtime = "edge";
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return bookmakerReviews.map((bk) => ({ slug: bk.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

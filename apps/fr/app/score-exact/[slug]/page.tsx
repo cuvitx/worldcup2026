@@ -11,7 +11,12 @@ import { bookmakers } from "@repo/data/affiliates";
 import type { Team, Match, Stadium } from "@repo/data/types";
 import { BarChart3, CircleDot, Dice5, Landmark, Lock, Pin, Search, Star, Target } from "lucide-react"
 
-export const runtime = "edge";
+// ─── Static generation ───
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return matches.map((m) => ({ slug: m.slug }));
+}
 
 // ─── Star players map (1-2 per team) ───
 const starPlayers: Record<string, string[]> = {

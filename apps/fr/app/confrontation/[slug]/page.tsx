@@ -52,7 +52,10 @@ function getHistoricalMatches(slug: string, t1Name: string, t2Name: string) {
   });
 }
 export const revalidate = 86400;
-export const runtime = "edge";
+export const dynamicParams = false;
+export async function generateStaticParams() {
+  return CONFRONTATIONS.filter((slug) => parseSlug(slug) !== null).map((slug) => ({ slug }));
+}
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

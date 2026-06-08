@@ -10,9 +10,12 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, estimatedOutrightOdds } from "@repo/data/affiliates";
 import { Calendar, Check, CircleDot, ExternalLink, ShieldCheck, Star, TrendingUp, Trophy } from "lucide-react";
 export const revalidate = 3600;
-export const runtime = "edge";
+export const dynamicParams = false;
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+export async function generateStaticParams() {
+  return teams.map((team) => ({ slug: team.slug }));
 }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

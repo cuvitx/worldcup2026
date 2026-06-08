@@ -6,7 +6,7 @@ import { domains } from "@repo/data/route-mapping";
 import { AlertTriangle, ArrowRight, BarChart3, Calendar, CircleDot, Flag, Scale, Shield, TrendingUp, User } from "lucide-react";
 
 export const revalidate = 3600;
-export const runtime = "edge";
+export const dynamicParams = false;
 
 /* ── Referee data ── */
 interface Referee {
@@ -68,6 +68,10 @@ const refereesBySlug: Record<string, Referee> = Object.fromEntries(
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return referees.map((r) => ({ slug: r.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

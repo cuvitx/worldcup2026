@@ -5,9 +5,11 @@ import { teams, teamsById } from "@repo/data/teams";
 import { groups } from "@repo/data/groups";
 import { players } from "@repo/data/players";
 
-export const runtime = "edge";
-
 interface Props { params: Promise<{ lettre: string }> }
+
+export async function generateStaticParams() {
+  return groups.map((g) => ({ lettre: g.slug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lettre } = await params;

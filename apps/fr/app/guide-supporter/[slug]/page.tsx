@@ -10,7 +10,7 @@ import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
 export const revalidate = 86400;
-export const runtime = "edge";
+export const dynamicParams = false;
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface GuideData {
   transport: { metro: string; parking: string; temps: string };
@@ -217,6 +217,9 @@ const guidesData: Record<string, GuideData> = {
 // ─── Static params ────────────────────────────────────────────────────────────
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+export async function generateStaticParams() {
+  return cities.map((c) => ({ slug: c.slug }));
 }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

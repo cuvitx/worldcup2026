@@ -5,9 +5,6 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { PieChart, TrendingUp, ArrowRight, ExternalLink, Swords } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
-
-export const runtime = "edge";
-
 function getPossessionStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 5 + awayId.charCodeAt(0) * 3;
   const homePoss = +(48 + (seed % 12)).toFixed(0);
@@ -26,6 +23,9 @@ function getPossessionStats(homeId: string, awayId: string) {
 }
 const styleLabel = (poss: number) =>
   poss >= 55 ? "tiki-taka / possession" : poss >= 50 ? "équilibré" : "contre-attaque / pressing";
+export async function generateStaticParams() {
+  return matches.map((m) => ({ slug: m.slug }));
+}
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/possession/${slug}` },
   };
 }
+export const dynamicParams = false;
 export default async function PossessionPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];

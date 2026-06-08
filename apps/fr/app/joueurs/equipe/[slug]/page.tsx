@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { teams, teamsById } from "@repo/data/teams";
 import { players } from "@repo/data/players";
 
-export const runtime = "edge";
-
 interface Props { params: Promise<{ slug: string }> }
+
+export async function generateStaticParams() {
+  return teams.map((t) => ({ slug: t.slug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

@@ -1,6 +1,4 @@
 import { matchesBySlug } from "@repo/data/matches";
-
-export const runtime = "edge";
 import { stadiumsById } from "@repo/data/stadiums";
 import { getWeatherForecast } from "@repo/api/weather";
 import { getWeatherImpact, matchSlugSchema } from "@repo/api";

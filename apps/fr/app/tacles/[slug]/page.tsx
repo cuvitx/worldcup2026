@@ -35,7 +35,9 @@ function getTackleStats(slug: string, position: string) {
 }
 const positionLabel = (pos: string) =>
   pos === "DF" ? "Défenseur" : pos === "MF" ? "Milieu" : pos === "FW" ? "Attaquant" : "Gardien";
-export const runtime = "edge";
+export async function generateStaticParams() {
+  return TOP_50_SLUGS.filter((s) => playersBySlug[s]).map((slug) => ({ slug }));
+}
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -47,6 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/tacles/${slug}` },
   };
 }
+export const dynamicParams = false;
 export default async function TaclesPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];

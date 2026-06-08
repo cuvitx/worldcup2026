@@ -11,10 +11,13 @@ import type { Player } from "@repo/data/types";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
-export const runtime = "edge";
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
+}
+
+export async function generateStaticParams() {
+  return groups.map((group) => ({ lettre: group.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

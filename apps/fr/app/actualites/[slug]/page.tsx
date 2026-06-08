@@ -5,20 +5,6 @@ import { getArticleBySlug, getRelatedArticles, getMdxSlugs } from "../../../lib/
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "../../../lib/mdx-components";
 import { newsArticles } from "@repo/data/news";
-
-export function generateStaticParams() {
-  const mdxSlugs = getMdxSlugs().map((slug) => ({ slug }));
-  const newsSlugs = newsArticles.map((a) => ({ slug: a.slug }));
-  const seen = new Set(mdxSlugs.map((s) => s.slug));
-  const combined = [...mdxSlugs];
-  for (const s of newsSlugs) {
-    if (!seen.has(s.slug)) {
-      combined.push(s);
-      seen.add(s.slug);
-    }
-  }
-  return combined;
-}
 const categoryColors: Record<string, string> = {
   analyse: "bg-blue-100 text-blue-800",
   guide: "bg-accent/10 text-accent",
@@ -43,6 +29,20 @@ function formatDate(dateStr: string) {
   });
 }
 
+export function generateStaticParams() {
+  const mdxSlugs = getMdxSlugs().map((slug) => ({ slug }));
+  const newsSlugs = newsArticles.map((a) => ({ slug: a.slug }));
+  // Dedupe
+  const seen = new Set(mdxSlugs.map((s) => s.slug));
+  const combined = [...mdxSlugs];
+  for (const s of newsSlugs) {
+    if (!seen.has(s.slug)) {
+      combined.push(s);
+      seen.add(s.slug);
+    }
+  }
+  return combined;
+}
 
 function getNewsArticle(slug: string) {
   return newsArticles.find((a) => a.slug === slug) ?? null;

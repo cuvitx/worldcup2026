@@ -1,6 +1,4 @@
 import { teamsBySlug } from "@repo/data/teams";
-
-export const runtime = "edge";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { playersByTeamId } from "@repo/data/players";
 import { matches } from "@repo/data/matches";

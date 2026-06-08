@@ -8,10 +8,14 @@ import { stageLabels } from "@repo/data/constants";
 import { notFound } from "next/navigation";
 import { Scale, ArrowRight, AlertTriangle, BarChart3, Flag, TrendingUp } from "lucide-react";
 
-export const runtime = "edge";
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return matches.map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

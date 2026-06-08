@@ -7,10 +7,14 @@ import { matchesByGroup } from "@repo/data/matches";
 import { notFound } from "next/navigation";
 import { ArrowRight, Target, TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
 
-export const runtime = "edge";
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ lettre: string }>;
+}
+
+export async function generateStaticParams() {
+  return groups.map((g) => ({ lettre: g.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

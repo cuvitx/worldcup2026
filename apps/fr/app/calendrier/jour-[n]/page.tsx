@@ -9,7 +9,6 @@ import { EVENT_DATES } from "@repo/data/constants";
 import { Clock, Users } from "lucide-react"
 
 export const revalidate = 3600;
-export const runtime = "edge";
 
 // ============================================================
 //  Tournament dates: June 11 (day 1) to July 19 (day 39)
@@ -64,6 +63,11 @@ function stageBadgeClass(stage: string): string {
 // ============================================================
 //  Static params: generate pages for jour-1 to jour-39
 // ============================================================
+export async function generateStaticParams() {
+  return Array.from({ length: TOTAL_DAYS }, (_, i) => ({
+    n: String(i + 1),
+  }));
+}
 
 // ============================================================
 //  Metadata

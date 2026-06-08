@@ -1,7 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 /**
  * Generate 192×192px PWA icon dynamically (globe design)
  * @returns {Promise<ImageResponse>} PNG image response

@@ -7,7 +7,10 @@ import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
-export const runtime = "edge";
+export const dynamicParams = false;
+export async function generateStaticParams() {
+  return stadiums.map((s) => ({ slug: s.slug }));
+}
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

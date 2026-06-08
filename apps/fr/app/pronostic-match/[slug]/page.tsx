@@ -23,10 +23,14 @@ import {
 } from "./_components";
 
 export const revalidate = 300;
-export const runtime = "edge";
+export const dynamicParams = false;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return matches.map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

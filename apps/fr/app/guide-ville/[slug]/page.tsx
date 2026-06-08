@@ -11,7 +11,11 @@ import { MatchInfoSection } from "./_components/MatchInfoSection";
 import { SecuritySection } from "./_components/SecuritySection";
 import { CityFaqSection } from "./_components/CityFaqSection";
 
-export const runtime = "edge";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return cities.map((c) => ({ slug: c.slug }));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
