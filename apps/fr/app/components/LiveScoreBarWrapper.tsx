@@ -12,6 +12,8 @@ export function LiveScoreBarWrapper() {
 
   if (todaysMatches.length === 0) return null;
 
+  const matchDate = todaysMatches[0]!.date;
+
   const liveMatches: LiveMatch[] = todaysMatches.map((m) => ({
     id: m.id,
     homeTeam: teamsById[m.homeTeamId]?.name ?? m.homeTeamId,
@@ -28,6 +30,7 @@ export function LiveScoreBarWrapper() {
     <LiveScoreBar
       todaysMatches={liveMatches}
       matchBasePath="/match"
+      matchDate={matchDate}
       locale="fr"
     />
   );

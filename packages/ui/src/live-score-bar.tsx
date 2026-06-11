@@ -3,23 +3,17 @@
 import { useEffect, useState, useCallback, memo } from "react";
 
 // ============================================================================
-// LiveScoreBar — Horizontal scrollable bar showing live/today's matches
-// Polls /api/live every 30s for real-time scores.
-// Falls back to static match data when no API key is configured.
+// LiveScoreBar — Slim ticker showing today's/live matches below the header.
+// Polls /api/live every 30s for real-time scores during the tournament.
+// Hides itself when the static data is stale (wrong date).
 // ============================================================================
 
-/**
- * Translations for live score bar.
- */
 const translations = {
-  fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "Aujourd'hui" },
-  en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "Today" },
-  es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "Hoy" },
+  fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "Aujourd'hui", live: "EN DIRECT" },
+  en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "Today", live: "LIVE" },
+  es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "Hoy", live: "EN VIVO" },
 };
 
-/**
- * A single live match data structure.
- */
 export interface LiveMatch {
   id: string;
   homeTeam: string;
@@ -32,111 +26,75 @@ export interface LiveMatch {
   slug: string;
 }
 
-/**
- * Props for the LiveScoreBar component.
- * 
- * @param todaysMatches - Today's matches from static data as fallback
- * @param matchBasePath - Base path for match links (e.g. "/match" for FR)
- * @param apiEndpoint - API endpoint to poll (default: "/api/live")
- * @param pollInterval - Polling interval in ms (default: 30000)
- * @param locale - UI language
- */
 interface LiveScoreBarProps {
-  /** Today's matches from static data as fallback */
   todaysMatches: LiveMatch[];
-  /** Base path for match links (e.g. "/match" for FR, "/match" for EN) */
   matchBasePath: string;
-  /** API endpoint to poll */
+  matchDate?: string;
   apiEndpoint?: string;
-  /** Polling interval in ms (default 30000) */
   pollInterval?: number;
   locale?: "fr" | "en" | "es";
 }
 
-/**
- * StatusBadge — Match status badge (LIVE, HT, FT, UPCOMING).
- */
-function StatusBadge({ status, elapsed, t }: { status: LiveMatch["status"]; elapsed: number | null; t: { halftime: string; finished: string; upcoming: string } }) {
-  if (status === "live") {
-    return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
-        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
-        {elapsed ? `${elapsed}'` : "LIVE"}
-      </span>
-    );
-  }
-  if (status === "halftime") {
-    return (
-      <span className="rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
-        {t.halftime}
-      </span>
-    );
+function StatusDot({ status }: { status: LiveMatch["status"] }) {
+  if (status === "live" || status === "halftime") {
+    return <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />;
   }
   if (status === "finished") {
-    return (
-      <span className="rounded-full bg-gray-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
-        {t.finished}
-      </span>
-    );
+    return <span className="h-1.5 w-1.5 rounded-full bg-gray-400" />;
   }
-  return (
-    <span className="rounded-full bg-primary/80 px-1.5 py-0.5 text-[10px] font-bold text-white">
-      {status === "upcoming" ? t.upcoming : status}
-    </span>
-  );
+  return <span className="h-1.5 w-1.5 rounded-full bg-accent" />;
 }
 
-function MatchCard({ match, t }: { match: LiveMatch; t: { halftime: string; finished: string; upcoming: string } }) {
+function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }) {
   const isLive = match.status === "live" || match.status === "halftime";
 
   return (
     <div
-      className={`flex shrink-0 flex-col items-center gap-1 rounded-lg px-3 py-2 min-w-[140px] ${
-        isLive ? "bg-white/20 ring-1 ring-white/30" : "bg-white/10"
+      className={`flex shrink-0 items-center gap-2 rounded-full px-3 py-1 text-xs text-white transition-colors ${
+        isLive
+          ? "bg-white/15 ring-1 ring-white/20"
+          : "bg-white/5 hover:bg-white/10"
       }`}
     >
-      <StatusBadge status={match.status} elapsed={match.elapsed} t={t} />
-      <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
-        <span className="truncate">{match.homeTeam}</span>
-        {match.homeScore !== null && match.awayScore !== null ? (
-          <span className={`font-bold ${isLive ? "text-gold" : ""}`}>
-            {match.homeScore} - {match.awayScore}
-          </span>
-        ) : (
-          <span className="text-white/60">{match.time}</span>
-        )}
-        <span className="truncate text-right">{match.awayTeam}</span>
-      </div>
+      <StatusDot status={match.status} />
+      <span className="font-medium">{match.homeTeam}</span>
+      {match.homeScore !== null && match.awayScore !== null ? (
+        <span className={`font-bold tabular-nums ${isLive ? "text-accent" : ""}`}>
+          {match.homeScore}-{match.awayScore}
+        </span>
+      ) : (
+        <span className="text-white/40 tabular-nums">{match.time}</span>
+      )}
+      <span className="font-medium">{match.awayTeam}</span>
+      {isLive && match.elapsed && (
+        <span className="text-[10px] font-bold text-red-400">{match.elapsed}&apos;</span>
+      )}
     </div>
   );
 }
 
-/**
- * LiveScoreBar component — Horizontal scrollable bar showing today's/live matches with real-time scores.
- * 
- * Polls API every 30s during tournament. Falls back to static data when API unavailable.
- * 
- * @example
- * ```tsx
- * <LiveScoreBar
- *   todaysMatches={staticMatches}
- *   matchBasePath="/match"
- *   locale="fr"
- * />
- * ```
- */
 export const LiveScoreBar = memo(function LiveScoreBar({
   todaysMatches,
   matchBasePath,
+  matchDate,
   apiEndpoint = "/api/live",
   pollInterval = 30000,
   locale,
 }: LiveScoreBarProps) {
   const t = translations[locale ?? "fr"];
   const [matches, setMatches] = useState<LiveMatch[]>(todaysMatches);
+  const [isStale, setIsStale] = useState(false);
+
+  // Client-side: check if the static data is for today
+  useEffect(() => {
+    if (!matchDate) return;
+    const clientToday = new Date().toISOString().slice(0, 10);
+    if (matchDate !== clientToday) {
+      setIsStale(true);
+    }
+  }, [matchDate]);
 
   const fetchLive = useCallback(async () => {
-    // Don't poll before tournament starts (June 11, 2026)
     const tournamentStart = new Date("2026-06-11T00:00:00Z");
     const tournamentEnd = new Date("2026-07-19T23:59:59Z");
     const now = new Date();
@@ -178,22 +136,25 @@ export const LiveScoreBar = memo(function LiveScoreBar({
     return () => clearInterval(interval);
   }, [fetchLive, pollInterval]);
 
-  if (matches.length === 0) return null;
+  if (matches.length === 0 || isStale) return null;
+
+  const hasLive = matches.some((m) => m.status === "live" || m.status === "halftime");
 
   return (
-    <div className="bg-primary/90 border-b border-white/10">
+    <div className="border-b border-white/5 bg-[#0a1628]">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex items-center justify-center gap-3 overflow-x-auto py-1.5 scrollbar-hide">
-          <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-white/40">
-            {t.today}
+        <div className="flex items-center justify-center gap-2 overflow-x-auto py-1.5 scrollbar-hide">
+          <span className="shrink-0 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/30">
+            {hasLive ? t.live : t.today}
           </span>
+          <span className="h-3 w-px bg-white/10 shrink-0" />
           {matches.map((match) => (
             <a
               key={match.id}
               href={match.slug ? `${matchBasePath}/${match.slug}` : "#"}
               className="contents"
             >
-              <MatchCard match={match} t={t} />
+              <MatchPill match={match} t={t} />
             </a>
           ))}
         </div>
