@@ -181,10 +181,10 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   if (matches.length === 0) return null;
 
   return (
-    <div className="bg-accent border-b border-white/10">
+    <div className="bg-primary/90 border-b border-white/10">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex items-center gap-3 overflow-x-auto py-2 scrollbar-hide">
-          <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-white/50">
+        <div className="flex items-center justify-center gap-3 overflow-x-auto py-1.5 scrollbar-hide">
+          <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-white/40">
             {t.today}
           </span>
           {matches.map((match) => (
