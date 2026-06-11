@@ -88,7 +88,8 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   // Client-side: check if the static data is for today
   useEffect(() => {
     if (!matchDate) return;
-    const clientToday = new Date().toISOString().slice(0, 10);
+    const now = new Date();
+    const clientToday = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
     if (matchDate !== clientToday) {
       setIsStale(true);
     }
@@ -141,7 +142,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   const hasLive = matches.some((m) => m.status === "live" || m.status === "halftime");
 
   return (
-    <div className="border-b border-white/5 bg-[#0a1628]">
+    <div className="border-b border-white/5 bg-primary">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center gap-2 overflow-x-auto py-1.5 scrollbar-hide">
           <span className="shrink-0 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/30">
