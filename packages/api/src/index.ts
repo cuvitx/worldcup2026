@@ -11,6 +11,7 @@ export {
   getLiveFixtures,
   getFixtureEvents,
   getWorldCupFixtures,
+  getFixturesByDate,
 } from "./football/client";
 export { enrichTeamFromApi, mapInjuries } from "./football/mappers";
 

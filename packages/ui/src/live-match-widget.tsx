@@ -67,6 +67,17 @@ interface LiveMatchWidgetProps {
   locale?: "fr" | "en" | "es";
 }
 
+const STATUS_MAP: Record<string, LiveMatchData["status"]> = {
+  "1H": "live",
+  "2H": "live",
+  ET: "live",
+  P: "live",
+  HT: "halftime",
+  FT: "finished",
+  AET: "finished",
+  PEN: "finished",
+};
+
 /**
  * EventIcon — Icon for match event type (goal, card, substitution).
  */
@@ -127,6 +138,21 @@ export function LiveMatchWidget({
     }
   }, [matchDate, matchTime]);
 
+  const findMatchInFixtures = useCallback(
+    (fixtures: Array<{
+      fixture: { id: number; status: { short: string; elapsed: number | null } };
+      teams: { home: { name: string }; away: { name: string } };
+      goals: { home: number | null; away: number | null };
+    }>) => {
+      return fixtures.find(
+        (f) =>
+          f.teams.home.name.toLowerCase().includes(homeTeam.toLowerCase().split(" ")[0] ?? "") ||
+          f.teams.away.name.toLowerCase().includes(awayTeam.toLowerCase().split(" ")[0] ?? "")
+      );
+    },
+    [homeTeam, awayTeam]
+  );
+
   const fetchLive = useCallback(async () => {
     try {
       const res = await fetch(apiEndpoint);
@@ -135,39 +161,53 @@ export function LiveMatchWidget({
 
       if (!Array.isArray(fixtures)) return;
 
-      // Find our match in the live fixtures
-      const match = fixtures.find(
-        (f: {
-          teams: { home: { name: string }; away: { name: string } };
-        }) =>
-          f.teams.home.name.toLowerCase().includes(homeTeam.toLowerCase().split(" ")[0] ?? "") ||
-          f.teams.away.name.toLowerCase().includes(awayTeam.toLowerCase().split(" ")[0] ?? "")
-      );
-
+      const match = findMatchInFixtures(fixtures);
       if (!match) return;
-
-      const statusMap: Record<string, LiveMatchData["status"]> = {
-        "1H": "live",
-        "2H": "live",
-        ET: "live",
-        P: "live",
-        HT: "halftime",
-        FT: "finished",
-        AET: "finished",
-        PEN: "finished",
-      };
 
       setData({
         homeScore: match.goals.home,
         awayScore: match.goals.away,
-        status: statusMap[match.fixture.status.short] ?? "upcoming",
+        status: STATUS_MAP[match.fixture.status.short] ?? "upcoming",
         elapsed: match.fixture.status.elapsed,
         events: [],
       });
     } catch {
       // Silently fail
     }
-  }, [apiEndpoint, homeTeam, awayTeam]);
+  }, [apiEndpoint, findMatchInFixtures]);
+
+  // Fetch final score for completed matches (one-time)
+  useEffect(() => {
+    const matchStart = new Date(`${matchDate}T${matchTime}:00Z`);
+    const now = new Date();
+    const diffHours = (now.getTime() - matchStart.getTime()) / (1000 * 60 * 60);
+
+    if (diffHours <= 3) return; // Not finished yet
+
+    const fetchResult = async () => {
+      try {
+        const res = await fetch(`/api/fixtures?date=${matchDate}`);
+        if (!res.ok) return;
+        const fixtures = await res.json();
+        if (!Array.isArray(fixtures)) return;
+
+        const match = findMatchInFixtures(fixtures);
+        if (!match) return;
+
+        setData({
+          homeScore: match.goals.home,
+          awayScore: match.goals.away,
+          status: STATUS_MAP[match.fixture.status.short] ?? "finished",
+          elapsed: null,
+          events: [],
+        });
+      } catch {
+        // Silently fail — keep showing static data
+      }
+    };
+
+    fetchResult();
+  }, [matchDate, matchTime, findMatchInFixtures]);
 
   // Poll only when match could be live
   useEffect(() => {

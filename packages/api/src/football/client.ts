@@ -169,3 +169,18 @@ export async function getWorldCupFixtures(): Promise<ApiFixture[]> {
     []
   );
 }
+
+/** Get fixtures for a specific date (YYYY-MM-DD) */
+export async function getFixturesByDate(date: string): Promise<ApiFixture[]> {
+  return rateLimitedCachedFetch(
+    `football:fixtures:date:${date}`,
+    CACHE_TTL.INJURIES, // 1h — results don't change often
+    () =>
+      apiFetch<ApiFixture>("fixtures", {
+        league: String(API_FOOTBALL.worldCupLeagueId),
+        season: String(API_FOOTBALL.season),
+        date,
+      }),
+    []
+  );
+}
