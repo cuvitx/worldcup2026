@@ -15,7 +15,7 @@ export function OddsTable() {
           Cotes vainqueur CDM 2026 — Multi-bookmakers
         </h2>
         <p className="text-sm text-gray-600 mb-1">
-          Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700">juin 2026</span>.
+          Cotes décimales des principaux bookmakers partenaires. Mises à jour : <span className="font-semibold text-gray-700">juin 2026</span>.
         </p>
         <p className="text-xs text-gray-600 mb-6">
           ↑ Tendance haussière vs. cotes d&apos;ouverture (déc. 2025) · ↓ Tendance baissière · → Stable
@@ -26,9 +26,10 @@ export function OddsTable() {
             <thead>
               <tr className="bg-gray-50 text-xs uppercase text-gray-500text-gray-700">
                 <th className="text-left px-3 sm:px-4 py-3 font-bold">Équipe</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#FF6600] hidden sm:table-cell">Winamax</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#00A0A0] hidden lg:table-cell">Bet365</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-[#53B648] hidden lg:table-cell">DraftKings</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-primary hidden sm:table-cell">PokerStars</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-accent hidden lg:table-cell">Betsson</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-primary hidden lg:table-cell">PMU Sport</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-accent hidden lg:table-cell">Genybet</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-accent whitespace-nowrap">Cote</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-primary whitespace-nowrap">Proba.</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-gray-600 whitespace-nowrap hidden sm:table-cell">Trend</th>
@@ -46,7 +47,7 @@ export function OddsTable() {
                     ? "text-red-500"
                     : "text-gray-600";
                 const impliedPct = Math.round(fav.impliedProbability * 100 * 10) / 10;
-                const bestOdds = Math.max(fav.winamax, fav.bet365, fav.draftkings);
+                const bestOdds = Math.max(fav.pokerstarsSports, fav.betsson, fav.pmuSport, fav.genybet);
 
                 return (
                   <tr
@@ -70,22 +71,28 @@ export function OddsTable() {
                         </Link>
                       </div>
                     </td>
-                    {/* Winamax */}
+                    {/* PokerStars Sports */}
                     <td className="px-2 sm:px-4 py-3 text-center hidden sm:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.winamax === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
-                        {fav.winamax.toFixed(2)}
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.pokerstarsSports === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
+                        {fav.pokerstarsSports.toFixed(2)}
                       </span>
                     </td>
-                    {/* Bet365 */}
+                    {/* Betsson */}
                     <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.bet365 === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
-                        {fav.bet365.toFixed(2)}
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.betsson === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
+                        {fav.betsson.toFixed(2)}
                       </span>
                     </td>
-                    {/* DraftKings */}
+                    {/* PMU Sport */}
                     <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.draftkings === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
-                        {fav.draftkings.toFixed(2)}
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.pmuSport === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
+                        {fav.pmuSport.toFixed(2)}
+                      </span>
+                    </td>
+                    {/* Genybet */}
+                    <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
+                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.genybet === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
+                        {fav.genybet.toFixed(2)}
                       </span>
                     </td>
                     {/* Moyenne */}
@@ -116,7 +123,7 @@ export function OddsTable() {
             <span>→ Stable</span>
           </div>
           <p className="text-xs text-gray-600 max-w-xs text-right">
-            Sources : Winamax (football.fr), Bet365 (covers.com), DraftKings (nbcsports.com). Cotes décimales. Jeu responsable — 18+.
+            Sources : PokerStars Sports, Betsson, PMU Sport, Genybet. Cotes décimales. Jeu responsable — 18+.
           </p>
         </div>
 

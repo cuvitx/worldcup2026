@@ -20,21 +20,19 @@ export interface MatchOdds {
 }
 
 const bookmakerUrls: Record<string, string> = {
-  Betclic: "https://www.betclic.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  Winamax: "https://www.winamax.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  "Parions Sport": "https://www.enligne.parionssport.fdj.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  Unibet: "https://www.unibet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  ZEbet: "https://www.zebet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+  "PokerStars Sports": "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+  Betsson: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+  "PMU Sport": "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+  Genybet: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
 };
 
 function makeOdds(home: number, draw: number, away: number) {
   // Create slight variations per bookmaker
   const variations = [
-    { bk: "Betclic", h: 0, d: 0.02, a: -0.02 },
-    { bk: "Winamax", h: 0.03, d: -0.01, a: 0.01 },
-    { bk: "Parions Sport", h: -0.02, d: 0.03, a: 0.02 },
-    { bk: "Unibet", h: 0.05, d: -0.03, a: -0.01 },
-    { bk: "ZEbet", h: -0.03, d: 0.05, a: 0.05 },
+    { bk: "PokerStars Sports", h: 0, d: 0.02, a: -0.02 },
+    { bk: "Betsson", h: 0.03, d: -0.01, a: 0.01 },
+    { bk: "PMU Sport", h: -0.02, d: 0.03, a: 0.02 },
+    { bk: "Genybet", h: 0.05, d: -0.03, a: -0.01 },
   ];
   return variations.map((v) => ({
     bookmaker: v.bk,

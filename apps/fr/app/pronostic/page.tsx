@@ -367,11 +367,11 @@ export default function PronosticHubPage() {
                     </div>
                   </div>
                   <p className="text-xs text-gray-400 mt-2">
-                    {new Date(match.date + "T00:00:00Z").toLocaleDateString("fr-FR", {
+                    {new Date(match.date + "T00:00:00+02:00").toLocaleDateString("fr-FR", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
-                      timeZone: "UTC",
+                      timeZone: "Europe/Paris",
                     })}
                     {match.time ? ` · ${match.time.slice(0, 5)}` : ""}
                   </p>
@@ -416,7 +416,7 @@ export default function PronosticHubPage() {
                 href: "/comparateur-cotes",
                 icon: "",
                 title: "Comparateur de cotes",
-                desc: "Comparez Betclic, Winamax, Parions Sport...",
+                desc: "Comparez PokerStars Sports, Betsson, PMU Sport...",
                 gradient: "from-accent to-accent/70",
               },
               {

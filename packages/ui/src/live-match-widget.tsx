@@ -43,7 +43,7 @@ interface LiveMatchData {
  * Props for the LiveMatchWidget component.
  * 
  * @param matchDate - Match date in ISO format (e.g., "2026-06-11")
- * @param matchTime - Match time in UTC (e.g., "19:00")
+ * @param matchTime - Match time in Europe/Paris CEST (e.g., "21:00")
  * @param homeTeam - Home team name
  * @param awayTeam - Away team name
  * @param stadium - Stadium name for display
@@ -54,7 +54,7 @@ interface LiveMatchData {
 interface LiveMatchWidgetProps {
   /** Match date in ISO format (2026-06-11) */
   matchDate: string;
-  /** Match time in UTC (19:00) */
+  /** Match time in Europe/Paris CEST (21:00) */
   matchTime: string;
   homeTeam: string;
   awayTeam: string;
@@ -97,7 +97,7 @@ function EventIcon({ type }: { type: MatchEvent["type"] }) {
  * ```tsx
  * <LiveMatchWidget
  *   matchDate="2026-06-11"
- *   matchTime="19:00"
+ *   matchTime="21:00"
  *   homeTeam="Mexique"
  *   awayTeam="Afrique du Sud"
  *   stadium="Estadio Azteca"
@@ -126,7 +126,7 @@ export function LiveMatchWidget({
 
   // Determine initial status from date/time
   useEffect(() => {
-    const matchStart = new Date(`${matchDate}T${matchTime}:00Z`);
+    const matchStart = new Date(`${matchDate}T${matchTime}:00+02:00`);
     const now = new Date();
     const diffMs = now.getTime() - matchStart.getTime();
     const diffHours = diffMs / (1000 * 60 * 60);
@@ -145,7 +145,9 @@ export function LiveMatchWidget({
       goals: { home: number | null; away: number | null };
     }>) => {
       // Match by kickoff time (most reliable across languages)
-      const kickoffUTC = `${matchDate}T${matchTime}:00`;
+      // Convert Paris time back to UTC for API comparison
+      const parisDate = new Date(`${matchDate}T${matchTime}:00+02:00`);
+      const kickoffUTC = parisDate.toISOString().slice(0, 19);
       const byTime = fixtures.find((f) => f.fixture.date.startsWith(kickoffUTC));
       if (byTime) return byTime;
 
@@ -184,7 +186,7 @@ export function LiveMatchWidget({
 
   // Fetch final score for completed matches (one-time)
   useEffect(() => {
-    const matchStart = new Date(`${matchDate}T${matchTime}:00Z`);
+    const matchStart = new Date(`${matchDate}T${matchTime}:00+02:00`);
     const now = new Date();
     const diffHours = (now.getTime() - matchStart.getTime()) / (1000 * 60 * 60);
 
@@ -217,7 +219,7 @@ export function LiveMatchWidget({
 
   // Poll only when match could be live
   useEffect(() => {
-    const matchStart = new Date(`${matchDate}T${matchTime}:00Z`);
+    const matchStart = new Date(`${matchDate}T${matchTime}:00+02:00`);
     const now = new Date();
     const diffMs = now.getTime() - matchStart.getTime();
     const diffHours = diffMs / (1000 * 60 * 60);
@@ -305,7 +307,7 @@ export function LiveMatchWidget({
 }
 
 function formatMatchDateTime(date: string, time: string, dateLocale: string, timezone: string): string {
-  const d = new Date(`${date}T${time}:00Z`);
+  const d = new Date(`${date}T${time}:00+02:00`);
   return d.toLocaleDateString(dateLocale, {
     weekday: "short",
     day: "numeric",

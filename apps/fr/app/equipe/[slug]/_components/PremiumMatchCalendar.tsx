@@ -38,7 +38,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
 
             const teamWinOdds = isHome ? odds?.home : odds?.away;
 
-            const dateObj = new Date(`${match.date}T${match.time ?? "00:00"}Z`);
+            const dateObj = new Date(`${match.date}T${match.time ?? "00:00"}+02:00`);
             const dateStr = dateObj.toLocaleDateString("fr-FR", {
               weekday: "long",
               day: "numeric",

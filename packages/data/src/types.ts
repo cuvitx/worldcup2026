@@ -27,11 +27,14 @@ export interface Match {
   homeTeamId: string;
   awayTeamId: string;
   date: string; // ISO date
-  time: string; // UTC time
+  time: string; // Europe/Paris (CEST, UTC+2)
   stadiumId: string;
   stage: "group" | "round-of-32" | "round-of-16" | "quarter-final" | "semi-final" | "third-place" | "final";
   group?: string;
   matchday?: number;
+  homeScore?: number;
+  awayScore?: number;
+  status?: "scheduled" | "live" | "finished";
 }
 
 export interface Stadium {

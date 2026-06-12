@@ -29,8 +29,8 @@ const stades5g = [
 const appsUtiles = [
   { nom: "FIFA+", desc: "App officielle FIFA — stats live, replays, highlights, billets numériques. Indispensable." },
   { nom: "FIFA Tickets", desc: "Gérez vos billets de match, accédez au stade via QR code." },
-  { nom: "Winamax", desc: "Paris sportifs en direct depuis le stade. Cotes live et cashout. 🔞 18+" },
-  { nom: "Betclic", desc: "Alternative paris sportifs avec bonus CDM. Cotes compétitives. 🔞 18+" },
+  { nom: "PokerStars Sports", desc: "Paris sportifs en direct depuis le stade. Cotes live et cashout. 🔞 18+" },
+  { nom: "Betsson", desc: "Alternative paris sportifs avec bonus CDM. Cotes compétitives. 🔞 18+" },
   { nom: "Google Translate", desc: "Traduction instantanée anglais/espagnol, utile au quotidien." },
   { nom: "Uber / Lyft", desc: "Transport depuis/vers les stades. Indispensable aux USA." },
   { nom: "Google Maps", desc: "Navigation GPS, horaires transports en commun, estimation temps trajet." },

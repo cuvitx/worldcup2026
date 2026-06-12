@@ -63,7 +63,7 @@ const glossary: Term[] = [
     definition:
       "L'opérateur qui propose des cotes et accepte vos paris. En France, seuls les bookmakers agréés ANJ sont autorisés.",
     example:
-      "Comparer les cotes de Betclic, Unibet et Winamax pour France – Brésil en demi-finale.",
+      "Comparer les cotes de PokerStars Sports, PMU Sport et Betsson pour France – Brésil en demi-finale.",
   },
   {
     term: "BTTS (Both Teams To Score)",

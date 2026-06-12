@@ -133,7 +133,7 @@ export default function PronosticBttsPage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <Link href="https://www.betclic.fr/paris-sportifs" target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
+        <Link href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
           Parier BTTS CDM 2026 <ArrowRight className="inline w-4 h-4 ml-1" />
         </Link>
       </section>

@@ -41,10 +41,8 @@ function formatDate(date: string): string {
 }
 
 function formatTime(time: string): string {
-  const [h, m] = time.split(":");
-  const utcHour = parseInt(h!, 10);
-  const parisHour = utcHour + 2; // CEST (summer)
-  return `${String(parisHour).padStart(2, "0")}:${m}`;
+  // Times are already in Europe/Paris (CEST)
+  return time;
 }
 
 function formatDateShort(date: string): string {
@@ -59,7 +57,7 @@ function formatDateShort(date: string): string {
 function getNextMatches(count: number) {
   const now = new Date();
   return matches
-    .filter((m) => new Date(`${m.date}T${m.time}:00Z`) > now)
+    .filter((m) => new Date(`${m.date}T${m.time}:00+02:00`) > now)
     .sort((a, b) => `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`))
     .slice(0, count);
 }

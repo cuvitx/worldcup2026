@@ -107,7 +107,7 @@ export default async function ArbitrePage({ params }: PageProps) {
             ?
           </h1>
           <p className="text-white/80">
-            {stadium?.name ?? "Stade à confirmer"} — {match.time} UTC
+            {stadium?.name ?? "Stade à confirmer"} — {match.time} (heure de Paris)
           </p>
         </div>
       </section>

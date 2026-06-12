@@ -6,7 +6,7 @@ import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucid
 export const metadata: Metadata = {
   title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres Bookmakers",
   description:
-    "Tous les bonus et codes promo des bookmakers pour la Coupe du Monde 2026. Winamax, Betclic, Unibet, ParionsSport : jusqu'à 100€ offerts.",
+    "Tous les bonus et codes promo des bookmakers pour la Coupe du Monde 2026. PokerStars Sports, Betsson, PMU Sport, Genybet : jusqu'à 150€ offerts.",
   openGraph: {
     title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres",
     description:
@@ -30,48 +30,48 @@ interface BonusOffer {
 
 const offers: BonusOffer[] = [
   {
-    name: "Winamax",
-    slug: "winamax",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "1er pari remboursé en freebets si perdu",
+    name: "PokerStars Sports",
+    slug: "pokerstars-sports",
+    bonus: "100€ offerts",
+    bonusDetail: "en freebets sur votre 1er pari",
     codePromo: "Aucun code nécessaire",
     conditions: "1er dépôt min. 10€, pari simple ou combiné",
     note: 9.2,
-    url: "https://www.winamax.fr",
-    highlights: ["Remboursement immédiat", "Aucun code requis", "Cotes boostées CDM 2026"],
+    url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    highlights: ["Freebets immédiats", "Aucun code requis", "Cotes boostées CDM 2026"],
   },
   {
-    name: "Betclic",
-    slug: "betclic",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "en freebets sans conditions de mise",
+    name: "Betsson",
+    slug: "betsson",
+    bonus: "100€ offerts",
+    bonusDetail: "sur votre 1er pari",
     codePromo: "Aucun code nécessaire",
     conditions: "1er dépôt min. 10€, freebets utilisables 7 jours",
     note: 9.0,
-    url: "https://www.betclic.fr",
-    highlights: ["Freebets sans conditions", "Valables 7 jours", "Streaming gratuit inclus"],
+    url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    highlights: ["Freebets sans conditions", "Valables 7 jours", "Large choix de marchés"],
   },
   {
-    name: "Unibet",
-    slug: "unibet",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "remboursés en freebets sur 1er pari",
+    name: "PMU Sport",
+    slug: "pmu-sport",
+    bonus: "100€ offerts",
+    bonusDetail: "en freebets sans condition",
     codePromo: "Aucun code nécessaire",
     conditions: "1er pari perdant remboursé, min. 1€",
     note: 8.7,
-    url: "https://www.unibet.fr",
-    highlights: ["Remboursement si pari perdu", "Paris builder", "Statistiques détaillées"],
+    url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    highlights: ["Remboursement si pari perdu", "Marque de confiance", "Statistiques détaillées"],
   },
   {
-    name: "ParionsSport",
-    slug: "parionssport",
-    bonus: "Jusqu'à 90€",
-    bonusDetail: "offerts en freebets",
+    name: "Genybet",
+    slug: "genybet",
+    bonus: "150€ offerts",
+    bonusDetail: "sur votre 1er pari sportif",
     codePromo: "Aucun code nécessaire",
-    conditions: "1er pari jusqu'à 90€ remboursé en freebets",
+    conditions: "1er pari jusqu'à 150€ remboursé en freebets",
     note: 8.5,
-    url: "https://www.enligne.parionssport.fdj.fr",
-    highlights: ["Marque FDJ", "Points de vente physiques", "Cotes boostées événements"],
+    url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    highlights: ["Meilleur bonus du marché", "Paris sportifs & hippiques", "Cotes boostées événements"],
   },
 ];
 
@@ -103,7 +103,7 @@ export default function BonusHubPage() {
         {/* Cumul banner */}
         <div className="rounded-2xl bg-accent/10 border border-accent/20 p-6 mb-10 text-center">
           <p className="text-sm text-gray-600  mb-1">Cumul des bonus disponibles</p>
-          <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 390€</p>
+          <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 450€</p>
           <p className="text-sm text-gray-500 mt-1">en vous inscrivant sur les 4 bookmakers</p>
         </div>
 
@@ -155,22 +155,14 @@ export default function BonusHubPage() {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={offer.url}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored nofollow"
-                  className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors flex-1"
-                >
-                  Profiter du bonus <ArrowRight className="w-4 h-4" />
-                </a>
-                <Link
-                  href={`/bonus/${offer.slug}`}
-                  className="inline-flex items-center justify-center gap-2 bg-primary/10 text-primary rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-primary/20 transition-colors"
-                >
-                  Détails
-                </Link>
-              </div>
+              <a
+                href={offer.url}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors w-full"
+              >
+                Profiter du bonus <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           ))}
         </section>
@@ -220,7 +212,7 @@ export default function BonusHubPage() {
         items={[
           {
             question: "Peut-on cumuler les bonus de plusieurs bookmakers ?",
-            answer: "Oui, chaque bookmaker propose son propre bonus de bienvenue. Vous pouvez vous inscrire sur Winamax, Betclic, Unibet et ParionsSport pour cumuler jusqu'à 390€ de freebets.",
+            answer: "Oui, chaque bookmaker propose son propre bonus de bienvenue. Vous pouvez vous inscrire sur PokerStars Sports, Betsson, PMU Sport et Genybet pour cumuler jusqu'à 450€ de freebets.",
           },
           {
             question: "Les bonus sont-ils valables pour la CDM 2026 ?",
@@ -232,7 +224,7 @@ export default function BonusHubPage() {
           },
           {
             question: "Combien de temps ai-je pour utiliser mes freebets ?",
-            answer: "La durée varie selon les bookmakers : 7 jours chez Betclic, 14 jours chez Winamax et Unibet, 7 jours chez ParionsSport. Consultez les conditions de chaque offre pour plus de détails.",
+            answer: "La durée varie selon les bookmakers : 7 jours chez Betsson, 14 jours chez PokerStars Sports et PMU Sport, 7 jours chez Genybet. Consultez les conditions de chaque offre pour plus de détails.",
           },
           {
             question: "Que se passe-t-il si mon premier pari est gagnant ?",

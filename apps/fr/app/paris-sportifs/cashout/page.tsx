@@ -31,12 +31,10 @@ const pieges = [
 ];
 
 const comparatif = [
-  { bookmaker: "Bet365", cashout: "Total + Partiel", live: true, auto: true, note: "Référence du cashout, le plus complet" },
-  { bookmaker: "Betclic", cashout: "Total + Partiel", live: true, auto: false, note: "Bon cashout, disponible sur la plupart des marchés" },
-  { bookmaker: "Unibet", cashout: "Total", live: true, auto: false, note: "Cashout total uniquement, pas de partiel" },
-  { bookmaker: "Winamax", cashout: "Total + Partiel", live: true, auto: false, note: "Cashout fiable, bien intégré à l'app" },
-  { bookmaker: "ParionsSport", cashout: "Total", live: true, auto: false, note: "Cashout basique mais fonctionnel" },
-  { bookmaker: "PMU", cashout: "Total", live: false, auto: false, note: "Cashout limité, pas disponible en live" },
+  { bookmaker: "PokerStars Sports", cashout: "Total + Partiel", live: true, auto: true, note: "Cashout fiable, bien intégré à l'app" },
+  { bookmaker: "Betsson", cashout: "Total + Partiel", live: true, auto: false, note: "Bon cashout, disponible sur la plupart des marchés" },
+  { bookmaker: "PMU Sport", cashout: "Total", live: true, auto: false, note: "Cashout total uniquement, pas de partiel" },
+  { bookmaker: "Genybet", cashout: "Total", live: true, auto: false, note: "Cashout basique mais fonctionnel" },
 ];
 
 export default function CashoutGuidePage() {

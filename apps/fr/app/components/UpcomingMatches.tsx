@@ -59,7 +59,7 @@ export function UpcomingMatches() {
                   </span>
                 </div>
                 <div className="mt-3 text-center text-xs text-gray-500">
-                  {match.time} UTC · {stadium?.name ?? match.stadiumId}
+                  {match.time} · {stadium?.name ?? match.stadiumId}
                 </div>
               </Link>
             );

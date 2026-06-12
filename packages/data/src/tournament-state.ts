@@ -20,9 +20,9 @@ export type MatchPhase = "upcoming" | "live" | "completed";
 const TOURNAMENT_START = "2026-06-11";
 const TOURNAMENT_END = "2026-07-19";
 
-/** Build a UTC Date from a match date (ISO) and time (HH:MM UTC). */
+/** Build a Date from a match date (ISO) and time (HH:MM Europe/Paris CEST). */
 function matchDateTime(matchDate: string, matchTime: string): Date {
-  return new Date(`${matchDate}T${matchTime}:00Z`);
+  return new Date(`${matchDate}T${matchTime}:00+02:00`);
 }
 
 /**
@@ -78,7 +78,7 @@ export function getDaysUntilKickoff(): number {
   return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 }
 
-/** Get today's matches sorted by time (UTC). */
+/** Get today's matches sorted by time (Europe/Paris). */
 export function getTodaysMatches(): Match[] {
   const todayISO = new Date().toISOString().slice(0, 10);
   return (matches as Match[])

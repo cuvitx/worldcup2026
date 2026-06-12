@@ -297,7 +297,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${home.name} vs ${away.name} – Coupe du Monde 2026`,
-    startDate: `${match.date}T${match.time}:00Z`,
+    startDate: `${match.date}T${match.time}:00+02:00`,
     location: stadium
       ? {
           "@type": "StadiumOrArena",

@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: getAlternates("match", slug, "fr"),
     openGraph: {
       title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — CDM 2026`,
-      description: `${stage} - CDM 2026 | ${match.date} ${match.time} UTC`,
+      description: `${stage} - CDM 2026 | ${match.date} ${match.time} (heure de Paris)`,
       images: [
         {
           url: `${domains.fr}/images/og-default.png`,
@@ -282,7 +282,7 @@ export default async function MatchPage({ params }: PageProps) {
             description: `${home?.name ?? "TBD"} contre ${away?.name ?? "TBD"}, ${stage} de la Coupe du Monde FIFA 2026.`,
             eventStatus: "https://schema.org/EventScheduled",
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-            startDate: `${match.date}T${match.time || "00:00"}:00-04:00`,
+            startDate: `${match.date}T${match.time || "00:00"}:00+02:00`,
             location: stadium
               ? {
                   "@type": "StadiumOrArena",

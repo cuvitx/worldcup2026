@@ -76,7 +76,7 @@ export function MatchHero({
               VS
             </span>
             <span className="text-xs text-gray-300 font-medium tabular-nums">
-              {match.time} UTC
+              {match.time}
             </span>
           </div>
 

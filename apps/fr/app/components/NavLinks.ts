@@ -132,10 +132,10 @@ export const megaMenus: Record<string, MegaMenuDef> = {
       {
         title: "Bookmakers",
         links: [
-          { href: "/bookmaker/betclic", label: "Betclic + bonus", icon: Star },
-          { href: "/bookmaker/winamax", label: "Winamax + bonus", icon: Star },
-          { href: "/bookmaker/unibet", label: "Unibet + bonus", icon: Star },
-          { href: "/bookmaker/parions-sport", label: "ParionsSport + bonus", icon: Star },
+          { href: "/bookmaker/betclic", label: "PokerStars Sports + bonus", icon: Star },
+          { href: "/bookmaker/winamax", label: "Betsson + bonus", icon: Star },
+          { href: "/bookmaker/unibet", label: "PMU Sport + bonus", icon: Star },
+          { href: "/bookmaker/parions-sport", label: "Genybet + bonus", icon: Star },
           { href: "/comparateur-cotes", label: "Comparateur cotes", icon: Scale },
         ],
       },

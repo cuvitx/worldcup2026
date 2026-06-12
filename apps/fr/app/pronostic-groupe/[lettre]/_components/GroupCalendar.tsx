@@ -28,7 +28,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
             >
               <div className="text-xs text-gray-500 w-24 shrink-0">
                 <div>{dateStr}</div>
-                <div className="font-medium text-gray-700">{match.time} UTC</div>
+                <div className="font-medium text-gray-700">{match.time}</div>
               </div>
               <div className="flex flex-1 items-center gap-1 justify-center min-w-0">
                 <span className="text-base shrink-0" aria-label={home?.name}>{home?.flag ?? ""}</span>

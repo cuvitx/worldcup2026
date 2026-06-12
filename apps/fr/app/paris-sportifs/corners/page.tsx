@@ -35,18 +35,18 @@ const topEquipes = [
 ];
 
 const cotesCorners = [
-  { marche: "Over 9.5 corners", winamax: "1.85", betclic: "1.82", unibet: "1.88" },
-  { marche: "Under 9.5 corners", winamax: "1.95", betclic: "1.98", unibet: "1.92" },
-  { marche: "Over 11.5 corners", winamax: "2.40", betclic: "2.35", unibet: "2.45" },
-  { marche: "Under 11.5 corners", winamax: "1.55", betclic: "1.58", unibet: "1.52" },
-  { marche: "1er corner — Équipe A", winamax: "1.80", betclic: "1.75", unibet: "1.82" },
-  { marche: "Dernier corner — Équipe B", winamax: "2.10", betclic: "2.05", unibet: "2.15" },
+  { marche: "Over 9.5 corners", pokerstarssports: "1.85", betsson: "1.82", pmusport: "1.88" },
+  { marche: "Under 9.5 corners", pokerstarssports: "1.95", betsson: "1.98", pmusport: "1.92" },
+  { marche: "Over 11.5 corners", pokerstarssports: "2.40", betsson: "2.35", pmusport: "2.45" },
+  { marche: "Under 11.5 corners", pokerstarssports: "1.55", betsson: "1.58", pmusport: "1.52" },
+  { marche: "1er corner — Équipe A", pokerstarssports: "1.80", betsson: "1.75", pmusport: "1.82" },
+  { marche: "Dernier corner — Équipe B", pokerstarssports: "2.10", betsson: "2.05", pmusport: "2.15" },
 ];
 
 const bookmakers = [
-  { nom: "Winamax", desc: "Large choix de marchés corners, cotes compétitives, interface intuitive", url: "https://www.winamax.fr" },
-  { nom: "Betclic", desc: "Over/under corners dès la phase de groupes, promos régulières CDM", url: "https://www.betclic.fr" },
-  { nom: "Unibet", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli", url: "https://www.unibet.fr" },
+  { nom: "PokerStars Sports", desc: "Large choix de marchés corners, cotes compétitives, interface intuitive", url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "Betsson", desc: "Over/under corners dès la phase de groupes, promos régulières CDM", url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "PMU Sport", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli", url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
 ];
 
 const strategies = [
@@ -215,18 +215,18 @@ return (
               <thead>
                 <tr className="border-b-2 border-accent/30 text-left">
                   <th className="py-3 px-4 text-primary font-semibold">Marché</th>
-                  <th className="py-3 px-4 text-primary font-semibold">Winamax</th>
-                  <th className="py-3 px-4 text-primary font-semibold">Betclic</th>
-                  <th className="py-3 px-4 text-primary font-semibold">Unibet</th>
+                  <th className="py-3 px-4 text-primary font-semibold">PokerStars Sports</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Betsson</th>
+                  <th className="py-3 px-4 text-primary font-semibold">PMU Sport</th>
                 </tr>
               </thead>
               <tbody>
                 {cotesCorners.map((c) => (
                   <tr key={c.marche} className="border-b border-gray-100">
                     <td className="py-2.5 px-4 font-medium text-gray-900">{c.marche}</td>
-                    <td className="py-2.5 px-4 text-gray-600">{c.winamax}</td>
-                    <td className="py-2.5 px-4 text-gray-600">{c.betclic}</td>
-                    <td className="py-2.5 px-4 text-accent font-bold">{c.unibet}</td>
+                    <td className="py-2.5 px-4 text-gray-600">{c.pokerstarssports}</td>
+                    <td className="py-2.5 px-4 text-gray-600">{c.betsson}</td>
+                    <td className="py-2.5 px-4 text-accent font-bold">{c.pmusport}</td>
                   </tr>
                 ))}
               </tbody>

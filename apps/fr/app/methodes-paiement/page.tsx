@@ -107,11 +107,10 @@ interface BookmakerPaiement {
 }
 
 const bookmakersPaiement: BookmakerPaiement[] = [
-  { nom: "Winamax", cb: true, paypal: false, applePay: true, skrill: true, neteller: true, virement: true },
-  { nom: "Betclic", cb: true, paypal: true, applePay: true, skrill: true, neteller: true, virement: true },
-  { nom: "Unibet", cb: true, paypal: true, applePay: false, skrill: true, neteller: true, virement: true },
-  { nom: "ParionsSport", cb: true, paypal: true, applePay: false, skrill: false, neteller: false, virement: true },
-  { nom: "Bwin", cb: true, paypal: true, applePay: false, skrill: true, neteller: true, virement: true },
+  { nom: "PokerStars Sports", cb: true, paypal: false, applePay: true, skrill: true, neteller: true, virement: true },
+  { nom: "Betsson", cb: true, paypal: true, applePay: true, skrill: true, neteller: true, virement: true },
+  { nom: "PMU Sport", cb: true, paypal: true, applePay: false, skrill: true, neteller: true, virement: true },
+  { nom: "Genybet", cb: true, paypal: true, applePay: false, skrill: false, neteller: false, virement: true },
 ];
 
 function BoolIcon({ value }: { value: boolean }) {
@@ -296,7 +295,7 @@ export default function MethodesPaiementPage() {
           { question: "Quelle est la méthode de paiement la plus rapide ?", answer: "Pour les dépôts, toutes les méthodes sont instantanées sauf le virement (1-3 jours). Pour les retraits, PayPal, Skrill et Neteller sont les plus rapides (quelques heures), suivis de la carte bancaire (1-3 jours) et du virement (2-5 jours)." },
           { question: "Y a-t-il des frais de dépôt ou retrait ?", answer: "Non, les bookmakers agréés ANJ ne facturent généralement aucun frais sur les dépôts et retraits. Attention toutefois aux frais internes de certains portefeuilles électroniques (Skrill, Neteller) pour les transferts vers votre compte bancaire." },
           { question: "Puis-je retirer sur une autre méthode que celle du dépôt ?", answer: "En général, les bookmakers exigent que le retrait soit effectué sur la même méthode que le dépôt (pour des raisons anti-blanchiment). Si la méthode de dépôt n'accepte pas les retraits (ex : Apple Pay), le retrait se fera par virement bancaire." },
-          { question: "Quel est le dépôt minimum sur les bookmakers ?", answer: "Le dépôt minimum est généralement de 10€ sur les bookmakers français (Winamax, Betclic, Unibet, ParionsSport), quelle que soit la méthode de paiement. Le virement bancaire peut avoir un minimum plus élevé (20€)." },
+          { question: "Quel est le dépôt minimum sur les bookmakers ?", answer: "Le dépôt minimum est généralement de 10€ sur les bookmakers français (PokerStars Sports, Betsson, PMU Sport, Genybet), quelle que soit la méthode de paiement. Le virement bancaire peut avoir un minimum plus élevé (20€)." },
           { question: "Les paiements sont-ils sécurisés ?", answer: "Oui, tous les bookmakers agréés ANJ utilisent le cryptage SSL 256 bits et respectent les normes PCI DSS pour la protection des données bancaires. PayPal et Apple Pay ajoutent une couche de sécurité supplémentaire." },
         ]}
       />

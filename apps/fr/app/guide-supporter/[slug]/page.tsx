@@ -417,12 +417,12 @@ const faqItems = [
                     const home = teamsById[m.homeTeamId];
                     const away = teamsById[m.awayTeamId];
                     const stadium = stadiumsById[m.stadiumId];
-                    const dateStr = new Date(`${m.date}T${m.time}:00Z`).toLocaleDateString("fr-FR", {
+                    const dateStr = new Date(`${m.date}T${m.time}:00+02:00`).toLocaleDateString("fr-FR", {
                       day: "numeric",
                       month: "short",
                       timeZone: "Europe/Paris",
                     });
-                    const timeStr = new Date(`${m.date}T${m.time}:00Z`).toLocaleTimeString("fr-FR", {
+                    const timeStr = new Date(`${m.date}T${m.time}:00+02:00`).toLocaleTimeString("fr-FR", {
                       hour: "2-digit",
                       minute: "2-digit",
                       timeZone: "Europe/Paris",

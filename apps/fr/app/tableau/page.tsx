@@ -39,7 +39,7 @@ export default function BracketPage() {
     },
     {
       question: "Peut-on parier sur le tableau final de la CDM 2026 ?",
-      answer: "Oui, tous les bookmakers français (Winamax, Betclic, ParionsSport) proposent des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une équipe en quarts/demi/finale, et bien sûr le vainqueur final du tournoi. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
+      answer: "Oui, tous les bookmakers français (PokerStars Sports, Betsson, PMU Sport) proposent des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une équipe en quarts/demi/finale, et bien sûr le vainqueur final du tournoi. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
     }
   ];
 

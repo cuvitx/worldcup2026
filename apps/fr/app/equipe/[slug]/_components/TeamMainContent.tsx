@@ -254,7 +254,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                   <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? ""}</span>
                   <div className="flex-1">
                     <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}</p>
-                    <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.time} UTC</p>
+                    <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.time}</p>
                   </div>
                 </Link>
               );

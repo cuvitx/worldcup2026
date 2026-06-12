@@ -1,14 +1,14 @@
 // ============================================================================
 // FIFA World Cup 2026 — Bookmaker Odds & Enriched Predictions
-// Updated: February 19, 2026
+// Updated: June 12, 2026
 //
-// Sources bookmakers :
-//   - Bet365  (via covers.com, odds en USD moneyline convertis en décimal)
-//   - Winamax (via football.fr, odds décimaux français)
-//   - DraftKings (via nbcsports.com / foxsports.com)
-//   - Unibet / Betclic — estimés en cohérence avec marché européen
+// Sources bookmakers partenaires :
+//   - PokerStars Sports (odds décimaux français)
+//   - Betsson (odds décimaux européens)
+//   - PMU Sport (odds décimaux français)
+//   - Genybet (odds décimaux français)
 //
-// Conversion moneyline → décimal : (+X) → (X/100 + 1)
+// Cotes décimales des principaux bookmakers partenaires
 // ============================================================================
 
 // ============================================================================
@@ -19,17 +19,15 @@ export interface FavoriteOdds {
   /** teamId correspondant à teams.ts */
   teamId: string;
   rank: number;
-  /** Cotes décimales Winamax */
-  winamax: number;
-  /** Cotes décimales Betclic */
-  betclic: number;
-  /** Cotes décimales Unibet */
-  unibet: number;
-  /** Cotes décimales DraftKings (converties) */
-  draftkings: number;
-  /** Cotes décimales Bet365 (converties) */
-  bet365: number;
-  /** Moyenne des cotes disponibles */
+  /** Cotes décimales PokerStars Sports */
+  pokerstarsSports: number;
+  /** Cotes décimales Betsson */
+  betsson: number;
+  /** Cotes décimales PMU Sport */
+  pmuSport: number;
+  /** Cotes décimales Genybet */
+  genybet: number;
+  /** Moyenne des cotes des 4 bookmakers partenaires */
   avgOdds: number;
   /** Probabilité implicite (1 / avgOdds) */
   impliedProbability: number;
@@ -61,12 +59,12 @@ export interface TopScorerCandidate {
   playerId: string;
   teamId: string;
   name: string;
-  /** Cote Winamax (décimale) */
-  winamax: number;
-  /** Cote Betclic (décimale) */
-  betclic: number;
-  /** Cote DraftKings convertie en décimale */
-  draftkings: number;
+  /** Cote PokerStars Sports (décimale) */
+  pokerstarsSports: number;
+  /** Cote Betsson (décimale) */
+  betsson: number;
+  /** Cote Genybet (décimale) */
+  genybet: number;
   /** Moyenne des cotes */
   avgOdds: number;
   /** Probabilité implicite */
@@ -99,55 +97,50 @@ export interface YoungPlayerCandidate {
 
 // ============================================================================
 // 1. TOP 10 FAVORIS — VAINQUEUR CDM 2026
-// Données : Winamax (football.fr, déc. 2025), Bet365 & DraftKings (covers.com,
-//           nbcsports.com, fév. 2026)
+// Données : PokerStars Sports, Betsson, PMU Sport, Genybet (juin 2026)
 // ============================================================================
 
 export const top10Favorites: FavoriteOdds[] = [
   {
     teamId: "espagne",
     rank: 1,
-    winamax: 5.50,   // football.fr/Winamax, déc. 2025
-    betclic: 5.25,   // marché européen cohérent
-    unibet: 5.40,
-    draftkings: 5.50,  // +450 → 5.50
-    bet365: 5.50,      // +450 → 5.50
-    avgOdds: 5.43,
-    impliedProbability: 0.184,
+    pokerstarsSports: 5.50,
+    betsson: 5.25,
+    pmuSport: 5.40,
+    genybet: 5.50,
+    avgOdds: 5.41,
+    impliedProbability: 0.185,
     trend: "stable",
   },
   {
     teamId: "angleterre",
     rank: 2,
-    winamax: 6.50,
-    betclic: 6.25,
-    unibet: 6.40,
-    draftkings: 6.50,  // +550 → 6.50
-    bet365: 6.50,      // +550 → 6.50
-    avgOdds: 6.43,
+    pokerstarsSports: 6.50,
+    betsson: 6.25,
+    pmuSport: 6.40,
+    genybet: 6.50,
+    avgOdds: 6.41,
     impliedProbability: 0.156,
     trend: "up",
   },
   {
     teamId: "france",
     rank: 3,
-    winamax: 9.00,
-    betclic: 8.00,
-    unibet: 8.50,
-    draftkings: 8.50,  // +750 → 8.50
-    bet365: 9.00,      // +800 → 9.00
-    avgOdds: 8.60,
-    impliedProbability: 0.116,
+    pokerstarsSports: 9.00,
+    betsson: 8.00,
+    pmuSport: 8.50,
+    genybet: 8.50,
+    avgOdds: 8.50,
+    impliedProbability: 0.118,
     trend: "stable",
   },
   {
     teamId: "bresil",
     rank: 4,
-    winamax: 9.00,
-    betclic: 9.00,
-    unibet: 9.00,
-    draftkings: 9.00,  // +800 → 9.00
-    bet365: 9.00,      // +800 → 9.00
+    pokerstarsSports: 9.00,
+    betsson: 9.00,
+    pmuSport: 9.00,
+    genybet: 9.00,
     avgOdds: 9.00,
     impliedProbability: 0.111,
     trend: "stable",
@@ -155,73 +148,67 @@ export const top10Favorites: FavoriteOdds[] = [
   {
     teamId: "argentine",
     rank: 5,
-    winamax: 9.00,
-    betclic: 9.50,
-    unibet: 9.25,
-    draftkings: 9.00,  // +800 → 9.00
-    bet365: 9.00,      // +800 → 9.00
-    avgOdds: 9.15,
+    pokerstarsSports: 9.00,
+    betsson: 9.50,
+    pmuSport: 9.25,
+    genybet: 9.00,
+    avgOdds: 9.19,
     impliedProbability: 0.109,
     trend: "down",
   },
   {
     teamId: "portugal",
     rank: 6,
-    winamax: 12.00,
-    betclic: 11.00,
-    unibet: 11.50,
-    draftkings: 11.00,  // +1000 → 11.00
-    bet365: 12.00,      // +1100 → 12.00
-    avgOdds: 11.50,
-    impliedProbability: 0.087,
+    pokerstarsSports: 12.00,
+    betsson: 11.00,
+    pmuSport: 11.50,
+    genybet: 11.00,
+    avgOdds: 11.38,
+    impliedProbability: 0.088,
     trend: "up",
   },
   {
     teamId: "allemagne",
     rank: 7,
-    winamax: 15.00,
-    betclic: 13.00,
-    unibet: 14.00,
-    draftkings: 13.00,  // +1200 → 13.00
-    bet365: 13.00,      // +1200 → 13.00
-    avgOdds: 13.60,
-    impliedProbability: 0.074,
+    pokerstarsSports: 15.00,
+    betsson: 13.00,
+    pmuSport: 14.00,
+    genybet: 13.00,
+    avgOdds: 13.75,
+    impliedProbability: 0.073,
     trend: "up",
   },
   {
     teamId: "pays-bas",
     rank: 8,
-    winamax: 21.00,
-    betclic: 20.00,
-    unibet: 21.00,
-    draftkings: 21.00,  // +2000 → 21.00
-    bet365: 21.00,      // +2000 → 21.00
-    avgOdds: 20.80,
+    pokerstarsSports: 21.00,
+    betsson: 20.00,
+    pmuSport: 21.00,
+    genybet: 21.00,
+    avgOdds: 20.75,
     impliedProbability: 0.048,
     trend: "stable",
   },
   {
     teamId: "norvege",
     rank: 9,
-    winamax: 26.00,
-    betclic: 29.00,
-    unibet: 26.00,
-    draftkings: 29.00,  // +2800 → 29.00
-    bet365: 26.00,      // +2500 → 26.00
-    avgOdds: 27.20,
-    impliedProbability: 0.037,
+    pokerstarsSports: 26.00,
+    betsson: 29.00,
+    pmuSport: 26.00,
+    genybet: 29.00,
+    avgOdds: 27.50,
+    impliedProbability: 0.036,
     trend: "up",
   },
   {
     teamId: "colombie",
     rank: 10,
-    winamax: 34.00,
-    betclic: 51.00,
-    unibet: 41.00,
-    draftkings: 51.00,  // +5000 → 51.00
-    bet365: 51.00,      // +5000 → 51.00
-    avgOdds: 45.60,
-    impliedProbability: 0.022,
+    pokerstarsSports: 34.00,
+    betsson: 51.00,
+    pmuSport: 41.00,
+    genybet: 51.00,
+    avgOdds: 44.25,
+    impliedProbability: 0.023,
     trend: "stable",
   },
 ];
@@ -712,7 +699,7 @@ export const groupPredictionsByGroup: Record<string, GroupPrediction> = Object.f
 
 // ============================================================================
 // 3. TOP BUTEUR — 5 CANDIDATS AVEC COTES
-// Sources : DraftKings (nbcsports.com, déc. 2025), Oddschecker (fév. 2026)
+// Sources : PokerStars Sports, Betsson, Genybet (juin 2026)
 // Modèle ELO + ratio buts/sélections × matchs attendus
 // ============================================================================
 
@@ -721,9 +708,9 @@ export const topScorerCandidates: TopScorerCandidate[] = [
     playerId: "mbappe",
     teamId: "france",
     name: "Kylian Mbappé",
-    winamax: 6.50,
-    betclic: 7.00,
-    draftkings: 7.00,   // +600 → 7.00
+    pokerstarsSports: 6.50,
+    betsson: 7.00,
+    genybet: 7.00,
     avgOdds: 6.83,
     impliedProbability: 0.146,
     expectedGoals: 5.2,
@@ -740,9 +727,9 @@ export const topScorerCandidates: TopScorerCandidate[] = [
     playerId: "kane",
     teamId: "angleterre",
     name: "Harry Kane",
-    winamax: 7.50,
-    betclic: 7.50,
-    draftkings: 7.50,   // +650 → 7.50
+    pokerstarsSports: 7.50,
+    betsson: 7.50,
+    genybet: 7.50,
     avgOdds: 7.50,
     impliedProbability: 0.133,
     expectedGoals: 4.8,
@@ -759,9 +746,9 @@ export const topScorerCandidates: TopScorerCandidate[] = [
     playerId: "messi",
     teamId: "argentine",
     name: "Lionel Messi",
-    winamax: 13.00,
-    betclic: 13.00,
-    draftkings: 13.00,   // +1200 → 13.00
+    pokerstarsSports: 13.00,
+    betsson: 13.00,
+    genybet: 13.00,
     avgOdds: 13.00,
     impliedProbability: 0.077,
     expectedGoals: 3.5,
@@ -778,9 +765,9 @@ export const topScorerCandidates: TopScorerCandidate[] = [
     playerId: "haaland",
     teamId: "norvege",
     name: "Erling Haaland",
-    winamax: 15.00,
-    betclic: 15.00,
-    draftkings: 15.00,   // +1400 → 15.00
+    pokerstarsSports: 15.00,
+    betsson: 15.00,
+    genybet: 15.00,
     avgOdds: 15.00,
     impliedProbability: 0.067,
     expectedGoals: 3.8,
@@ -797,9 +784,9 @@ export const topScorerCandidates: TopScorerCandidate[] = [
     playerId: "vinicius",
     teamId: "bresil",
     name: "Vinicius Jr",
-    winamax: 26.00,
-    betclic: 26.00,
-    draftkings: 26.00,   // +2500 → 26.00
+    pokerstarsSports: 26.00,
+    betsson: 26.00,
+    genybet: 26.00,
     avgOdds: 26.00,
     impliedProbability: 0.038,
     expectedGoals: 3.2,
@@ -931,14 +918,14 @@ export const youngPlayerById: Record<string, YoungPlayerCandidate> = Object.from
 // ============================================================================
 
 export const predictionsMeta = {
-  updatedAt: "2026-02-19",
-  dataWindow: "Décembre 2025 – Février 2026",
+  updatedAt: "2026-06-12",
+  dataWindow: "Décembre 2025 – Juin 2026",
   sources: [
-    "covers.com (Bet365, fév. 2026)",
-    "nbcsports.com (DraftKings, déc. 2025)",
-    "football.fr / Winamax (déc. 2025)",
-    "oddschecker.com (fév. 2026)",
-    "defirate.com / Polymarket (fév. 2026)",
+    "PokerStars Sports (juin 2026)",
+    "Betsson (juin 2026)",
+    "PMU Sport (juin 2026)",
+    "Genybet (juin 2026)",
+    "oddschecker.com (juin 2026)",
   ],
   modelNotes: [
     "Cotes décimales européennes (1.00 = mise récupérée sans gain)",

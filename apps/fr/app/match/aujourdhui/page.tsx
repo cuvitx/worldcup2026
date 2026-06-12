@@ -95,7 +95,7 @@ export default function AujourdhuiPage() {
                     className="inline-block rounded-lg border border-gray-200 bg-gray-50 px-6 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <p className="text-sm text-gray-500 mb-1">
-                      {matchDate} a {nextMatch.time} UTC
+                      {matchDate} a {nextMatch.time}
                     </p>
                     <p className="font-semibold text-gray-900">
                       <span role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag}</span> {home?.name ?? "A determiner"} vs{" "}

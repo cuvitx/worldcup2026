@@ -12,15 +12,15 @@ function getOffsideStats(homeId: string, awayId: string) {
   const totalAvg = +(homeOffsides + awayOffsides).toFixed(1);
   return {
     homeOffsides, awayOffsides, totalAvg,
-    winamaxOver35: +(1.75 + (seed % 25) / 100).toFixed(2),
-    winamaxUnder35: +(2.00 + (seed % 20) / 100).toFixed(2),
-    betclicOver35: +(1.72 + (seed % 22) / 100).toFixed(2),
-    betclicUnder35: +(2.05 + (seed % 18) / 100).toFixed(2),
-    unibetOver35: +(1.78 + (seed % 24) / 100).toFixed(2),
-    unibetUnder35: +(1.98 + (seed % 22) / 100).toFixed(2),
-    winamaxOver55: +(2.60 + (seed % 35) / 100).toFixed(2),
-    betclicOver55: +(2.55 + (seed % 30) / 100).toFixed(2),
-    unibetOver55: +(2.65 + (seed % 33) / 100).toFixed(2),
+    pokerstarssportsOver35: +(1.75 + (seed % 25) / 100).toFixed(2),
+    pokerstarssportsUnder35: +(2.00 + (seed % 20) / 100).toFixed(2),
+    betssonOver35: +(1.72 + (seed % 22) / 100).toFixed(2),
+    betssonUnder35: +(2.05 + (seed % 18) / 100).toFixed(2),
+    pmusportOver35: +(1.78 + (seed % 24) / 100).toFixed(2),
+    pmusportUnder35: +(1.98 + (seed % 22) / 100).toFixed(2),
+    pokerstarssportsOver55: +(2.60 + (seed % 35) / 100).toFixed(2),
+    betssonOver55: +(2.55 + (seed % 30) / 100).toFixed(2),
+    pmusportOver55: +(2.65 + (seed % 33) / 100).toFixed(2),
   };
 }
 export async function generateStaticParams() {
@@ -126,29 +126,29 @@ const faqItems = [
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">Marché</th>
-                <th className="text-center p-3">Winamax</th>
-                <th className="text-center p-3">Betclic</th>
-                <th className="text-center p-3">Unibet</th>
+                <th className="text-center p-3">PokerStars Sports</th>
+                <th className="text-center p-3">Betsson</th>
+                <th className="text-center p-3">PMU Sport</th>
               </tr>
             </thead>
             <tbody>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">Over 3.5 hors-jeu</td>
-                <td className="text-center p-3">{stats.winamaxOver35}</td>
-                <td className="text-center p-3">{stats.betclicOver35}</td>
-                <td className="text-center p-3">{stats.unibetOver35}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsOver35}</td>
+                <td className="text-center p-3">{stats.betssonOver35}</td>
+                <td className="text-center p-3">{stats.pmusportOver35}</td>
               </tr>
               <tr className="bg-white">
                 <td className="p-3 font-semibold">Under 3.5 hors-jeu</td>
-                <td className="text-center p-3">{stats.winamaxUnder35}</td>
-                <td className="text-center p-3">{stats.betclicUnder35}</td>
-                <td className="text-center p-3">{stats.unibetUnder35}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsUnder35}</td>
+                <td className="text-center p-3">{stats.betssonUnder35}</td>
+                <td className="text-center p-3">{stats.pmusportUnder35}</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">Over 5.5 hors-jeu</td>
-                <td className="text-center p-3">{stats.winamaxOver55}</td>
-                <td className="text-center p-3">{stats.betclicOver55}</td>
-                <td className="text-center p-3">{stats.unibetOver55}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsOver55}</td>
+                <td className="text-center p-3">{stats.betssonOver55}</td>
+                <td className="text-center p-3">{stats.pmusportOver55}</td>
               </tr>
             </tbody>
           </table>
@@ -161,9 +161,9 @@ const faqItems = [
           <h3 className="text-xl font-bold text-primary mb-4">Parier sur les hors-jeu</h3>
           <p className="text-gray-600 mb-6">Comparez les cotes hors-jeu pour {homeName} vs {awayName}.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.winamax.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Winamax <ExternalLink className="w-4 h-4" /></a>
-            <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betclic <ExternalLink className="w-4 h-4" /></a>
-            <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Unibet <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PokerStars Sports <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betsson <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>

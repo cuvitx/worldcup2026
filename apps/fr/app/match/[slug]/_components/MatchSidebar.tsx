@@ -81,7 +81,7 @@ export function MatchSidebar({
           )}
           {match.matchday && <DataRow label="Journée" value={`J${match.matchday}`} />}
           <DataRow label="Date" value={dateFormatted} />
-          <DataRow label="Heure (UTC)" value={match.time} />
+          <DataRow label="Heure (Paris)" value={match.time} />
         </dl>
       </Card>
 

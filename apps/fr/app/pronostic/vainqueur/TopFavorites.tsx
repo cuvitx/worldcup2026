@@ -111,13 +111,16 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {fav && (
                   <div className="flex gap-1.5 px-5 pb-2 overflow-x-auto">
                     <span className="shrink-0 rounded bg-primary/10 border border-primary/20 px-2 py-1 text-[11px] font-bold text-primary text-center whitespace-nowrap">
-                      Winamax {fav.winamax.toFixed(2)}
+                      PokerStars {fav.pokerstarsSports.toFixed(2)}
                     </span>
                     <span className="shrink-0 rounded bg-accent/10 border border-accent/30 px-2 py-1 text-[11px] font-bold text-accent text-center whitespace-nowrap">
-                      Bet365 {fav.bet365.toFixed(2)}
+                      Betsson {fav.betsson.toFixed(2)}
+                    </span>
+                    <span className="shrink-0 rounded bg-primary/10 border border-primary/20 px-2 py-1 text-[11px] font-bold text-primary text-center whitespace-nowrap">
+                      PMU Sport {fav.pmuSport.toFixed(2)}
                     </span>
                     <span className="shrink-0 rounded bg-accent/10 border border-accent/30 px-2 py-1 text-[11px] font-bold text-accent text-center whitespace-nowrap">
-                      DraftKings {fav.draftkings.toFixed(2)}
+                      Genybet {fav.genybet.toFixed(2)}
                     </span>
                   </div>
                 )}

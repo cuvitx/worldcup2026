@@ -57,10 +57,10 @@ interface MatchCardProps {
 }
 
 function formatDate(date: string) {
-  return new Date(date + "T00:00:00Z").toLocaleDateString("fr-FR", {
+  return new Date(date + "T00:00:00+02:00").toLocaleDateString("fr-FR", {
     day: "numeric",
     month: "short",
-    timeZone: "UTC",
+    timeZone: "Europe/Paris",
   });
 }
 

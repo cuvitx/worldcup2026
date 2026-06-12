@@ -171,7 +171,7 @@ export async function GET(): Promise<Response> {
       `${stage}`,
       `${homeFlag} ${homeName} 🆚 ${awayFlag} ${awayName}`,
       `📍 ${stadiumName} — ${stadiumCity}`,
-      `🕐 Coup d'envoi : ${match.time} UTC`,
+      `🕐 Coup d'envoi : ${match.time} (heure de Paris)`,
       `🌐 ${url}`,
     ].join("\\n");
 

@@ -48,8 +48,8 @@ function getInternationalChannels(slug: string) {
   ];
 }
 // ─── Time zone helpers ────────────────────────────────────────────────────────
-function formatTimeInZone(date: string, timeUtc: string, tz: string, label: string): { label: string; time: string } {
-  const dt = new Date(`${date}T${timeUtc}:00Z`);
+function formatTimeInZone(date: string, timeParis: string, tz: string, label: string): { label: string; time: string } {
+  const dt = new Date(`${date}T${timeParis}:00+02:00`);
   const formatted = dt.toLocaleTimeString("fr-FR", { timeZone: tz, hour: "2-digit", minute: "2-digit" });
   return { label, time: formatted };
 }
@@ -95,14 +95,14 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
   const awayName = away?.name ?? "À déterminer";
   const homeFlag = home?.flag ?? "🏳️";
   const awayFlag = away?.flag ?? "🏳️";
-  const dateStr = new Date(`${match.date}T${match.time}:00Z`).toLocaleDateString("fr-FR", {
+  const dateStr = new Date(`${match.date}T${match.time}:00+02:00`).toLocaleDateString("fr-FR", {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: "Europe/Paris",
   });
-  const heureParisStr = new Date(`${match.date}T${match.time}:00Z`).toLocaleTimeString("fr-FR", {
+  const heureParisStr = new Date(`${match.date}T${match.time}:00+02:00`).toLocaleTimeString("fr-FR", {
     hour: "2-digit",
     minute: "2-digit",
     timeZone: "Europe/Paris",

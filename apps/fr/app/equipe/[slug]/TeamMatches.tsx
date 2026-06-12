@@ -44,7 +44,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
                   {isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}
                 </p>
                 <p className="text-xs text-gray-500">
-                  J{match.matchday} &middot; {match.time} UTC
+                  J{match.matchday} &middot; {match.time}
                 </p>
               </div>
             </Link>

@@ -164,7 +164,7 @@ export default function PolitiqueConfidentialitePage() {
               3.3 Cookies tiers / affiliation (avec consentement)
             </h3>
             <ul className="list-disc pl-6 space-y-1 text-sm">
-              <li>Cookies des bookmakers partenaires (Betclic, Winamax, Unibet, PMU) pour le suivi des conversions d&apos;affiliation.</li>
+              <li>Cookies des bookmakers partenaires (PokerStars Sports, Betsson, PMU Sport, Genybet) pour le suivi des conversions d&apos;affiliation.</li>
             </ul>
 
             <p className="mt-3 text-sm">

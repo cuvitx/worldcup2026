@@ -121,7 +121,7 @@ export default async function ComposOfficiellesPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "Event",
     name: `${homeName} vs ${awayName} - ${stage} CDM 2026`,
-    startDate: `${match.date}T${match.time}:00Z`,
+    startDate: `${match.date}T${match.time}:00+02:00`,
     location: {
       "@type": "Place",
       name: stadium?.name ?? "Stade à confirmer",
@@ -149,7 +149,7 @@ export default async function ComposOfficiellesPage({ params }: PageProps) {
             </span>
           </h1>
           <p className="text-white/80">
-            {stadium?.name ?? "Stade à confirmer"} — {match.time} UTC
+            {stadium?.name ?? "Stade à confirmer"} — {match.time} (heure de Paris)
           </p>
         </div>
       </section>

@@ -54,6 +54,17 @@ const nextConfig = {
       { source: '/scenarios-qualification-equipe/barrage-uefa-c', destination: '/scenarios-qualification-equipe/turquie', permanent: true },
       { source: '/scenarios-qualification-equipe/barrage-interconf-1', destination: '/scenarios-qualification-equipe/rd-congo', permanent: true },
       { source: '/scenarios-qualification-equipe/barrage-interconf-2', destination: '/scenarios-qualification-equipe/irak', permanent: true },
+      // Old player slugs → effectif page (squad changes June 2026)
+      { source: '/joueur/lucas-chevalier', destination: '/effectif/france', permanent: true },
+      { source: '/joueur/pierre-kalulu', destination: '/effectif/france', permanent: true },
+      { source: '/joueur/camavinga', destination: '/effectif/france', permanent: true },
+      { source: '/joueur/hugo-ekitike', destination: '/effectif/france', permanent: true },
+      { source: '/joueur/randal-muani', destination: '/effectif/france', permanent: true },
+      // Old bookmaker bonus pages → bonus hub
+      { source: '/bonus/winamax', destination: '/bonus', permanent: true },
+      { source: '/bonus/betclic', destination: '/bonus', permanent: true },
+      { source: '/bonus/unibet', destination: '/bonus', permanent: true },
+      { source: '/bonus/parionssport', destination: '/bonus', permanent: true },
     ];
   },
   async headers() {

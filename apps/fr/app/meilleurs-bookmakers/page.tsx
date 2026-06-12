@@ -6,7 +6,7 @@ import { Star, Smartphone, Zap, Gift, Shield, ExternalLink, Trophy, TrendingUp }
 export const metadata: Metadata = {
   title: "Meilleurs Bookmakers CDM 2026 | Comparatif Sites de Paris Sportifs",
   description:
-    "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026 : Winamax, Betclic, Unibet, ParionsSport, Bwin. Bonus, cotes, avis et notes.",
+    "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026 : PokerStars Sports, Betsson, PMU Sport, Genybet. Bonus, cotes, avis et notes.",
   openGraph: {
     title: "Meilleurs Bookmakers CDM 2026 | Comparatif Sites de Paris Sportifs",
     description:
@@ -31,64 +31,52 @@ interface Bookmaker {
 
 const bookmakers: Bookmaker[] = [
   {
-    name: "Winamax",
-    slug: "winamax",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "1er pari remboursé en freebets",
+    name: "PokerStars Sports",
+    slug: "pokerstars-sports",
+    bonus: "100€ offerts",
+    bonusDetail: "en freebets sur votre 1er pari",
     cotesMoyennes: "Excellentes (93-95%)",
     appMobile: "iOS & Android, très fluide",
     liveBetting: "Streaming + cash-out",
     note: 9.2,
-    url: "https://www.winamax.fr",
-    avantages: ["Meilleures cotes du marché", "Interface intuitive", "Communauté active", "Cotes boostées quotidiennes"],
+    url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    avantages: ["Meilleures cotes du marché", "Interface intuitive", "Freebets immédiats", "Cotes boostées quotidiennes"],
   },
   {
-    name: "Betclic",
-    slug: "betclic",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "en freebets sans conditions",
+    name: "Betsson",
+    slug: "betsson",
+    bonus: "100€ offerts",
+    bonusDetail: "sur votre 1er pari",
     cotesMoyennes: "Très bonnes (92-94%)",
     appMobile: "iOS & Android, rapide",
     liveBetting: "Streaming live gratuit",
     note: 9.0,
-    url: "https://www.betclic.fr",
-    avantages: ["Freebets sans conditions", "Streaming gratuit", "Large choix de marchés", "Programme fidélité"],
+    url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    avantages: ["Opérateur international fiable", "Streaming gratuit", "Large choix de marchés", "Programme fidélité"],
   },
   {
-    name: "Unibet",
-    slug: "unibet",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "remboursés en freebets",
+    name: "PMU Sport",
+    slug: "pmu-sport",
+    bonus: "100€ offerts",
+    bonusDetail: "en freebets sans condition",
     cotesMoyennes: "Bonnes (91-93%)",
     appMobile: "iOS & Android, complète",
     liveBetting: "Cash-out partiel disponible",
     note: 8.7,
-    url: "https://www.unibet.fr",
-    avantages: ["Opérateur international fiable", "Cash-out partiel", "Paris builder", "Statistiques intégrées"],
+    url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    avantages: ["Marque de confiance", "Cash-out partiel", "Statistiques intégrées", "Points de vente physiques"],
   },
   {
-    name: "ParionsSport",
-    slug: "parionssport",
-    bonus: "Jusqu'à 90€",
-    bonusDetail: "offerts en freebets",
+    name: "Genybet",
+    slug: "genybet",
+    bonus: "150€ offerts",
+    bonusDetail: "sur votre 1er pari sportif",
     cotesMoyennes: "Correctes (90-92%)",
-    appMobile: "iOS & Android + points de vente",
+    appMobile: "iOS & Android + hippique",
     liveBetting: "Live betting complet",
     note: 8.5,
-    url: "https://www.enligne.parionssport.fdj.fr",
-    avantages: ["Marque FDJ de confiance", "Points de vente physiques", "Grilles Loto Foot", "Cotes boostées événements"],
-  },
-  {
-    name: "Bwin",
-    slug: "bwin",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "de bonus de bienvenue",
-    cotesMoyennes: "Bonnes (91-93%)",
-    appMobile: "iOS & Android, moderne",
-    liveBetting: "Streaming + statistiques live",
-    note: 8.3,
-    url: "https://www.bwin.fr",
-    avantages: ["Présence internationale", "Statistiques détaillées", "Interface moderne", "Nombreux sports disponibles"],
+    url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    avantages: ["Meilleur bonus du marché (150€)", "Paris sportifs & hippiques", "Cotes boostées événements", "Interface moderne"],
   },
 ];
 
@@ -144,12 +132,12 @@ const faqItems = [
   {
     question: "Quel est le meilleur bookmaker pour la CDM 2026 ?",
     answer:
-      "Winamax est notre choix n°1 grâce à ses cotes parmi les plus élevées du marché français, son interface fluide et son bonus de bienvenue attractif. Betclic est une excellente alternative avec ses freebets sans conditions et son streaming gratuit.",
+      "PokerStars Sports est notre choix n°1 grâce à ses cotes parmi les plus élevées du marché français, son interface fluide et ses freebets immédiats. Betsson est une excellente alternative avec son streaming gratuit et son large choix de marchés.",
   },
   {
     question: "Les bookmakers listés sont-ils légaux en France ?",
     answer:
-      "Oui, tous les bookmakers présentés sur cette page (Winamax, Betclic, Unibet, ParionsSport, Bwin) sont agréés par l'ANJ (Autorité Nationale des Jeux) et sont parfaitement légaux en France.",
+      "Oui, tous les bookmakers présentés sur cette page (PokerStars Sports, Betsson, PMU Sport, Genybet) sont agréés par l'ANJ (Autorité Nationale des Jeux) et sont parfaitement légaux en France.",
   },
   {
     question: "Peut-on cumuler les bonus de plusieurs bookmakers ?",
@@ -328,7 +316,7 @@ export default function MeilleursBookmakersPage() {
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
               <h3 className="font-bold text-gray-900  mb-2">Les cotes</h3>
-              <p>Les cotes déterminent vos gains potentiels. Un bookmaker avec des cotes supérieures de 2-3% vous rapportera significativement plus sur le long terme. Winamax et Betclic se distinguent sur ce critère.</p>
+              <p>Les cotes déterminent vos gains potentiels. Un bookmaker avec des cotes supérieures de 2-3% vous rapportera significativement plus sur le long terme. PokerStars Sports et Betsson se distinguent sur ce critère.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900  mb-2">Le bonus de bienvenue</h3>

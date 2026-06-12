@@ -10,7 +10,7 @@ export const faqItems = [
   {
     question: "Quelles sont les meilleures cotes pour le vainqueur CDM 2026 ?",
     answer:
-      "Les cotes varient selon les bookmakers. Pour l'Argentine, les cotes tournent autour de 6.50, pour la France autour de 7.50, et pour l'Espagne autour de 8.00. Comparez sur Betclic ou Winamax pour obtenir les meilleures cotes du moment.",
+      "Les cotes varient selon les bookmakers. Pour l'Argentine, les cotes tournent autour de 6.50, pour la France autour de 7.50, et pour l'Espagne autour de 8.00. Comparez sur PokerStars Sports ou Betsson pour obtenir les meilleures cotes du moment.",
   },
   {
     question: "L'équipe de France peut-elle gagner la CDM 2026 ?",

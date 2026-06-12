@@ -101,10 +101,10 @@ const risques = [
 ];
 
 const bookmakers = [
-  { nom: "Winamax", avantage: "Cotes boostées sur les combinés CDM, interface fluide", url: "https://www.winamax.fr" },
-  { nom: "Betclic", avantage: "Bonus combiné jusqu'à +50%, large choix de marchés", url: "https://www.betclic.fr" },
-  { nom: "Unibet", avantage: "Combo Boost réguliers, cashout partiel sur combinés", url: "https://www.unibet.fr" },
-  { nom: "ParionsSport", avantage: "Point de vente + en ligne, offre Paris Combo", url: "https://www.enligne.parionssport.fdj.fr" },
+  { nom: "PokerStars Sports", avantage: "Cotes boostées sur les combinés CDM, interface fluide", url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "Betsson", avantage: "Bonus combiné jusqu'à +50%, large choix de marchés", url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "PMU Sport", avantage: "Combo Boost réguliers, cashout partiel sur combinés", url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "Genybet", avantage: "Point de vente + en ligne, offre Paris Combo", url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
 ];
 
 const faqItems = [

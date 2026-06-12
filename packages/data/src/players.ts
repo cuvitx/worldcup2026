@@ -26,17 +26,17 @@ export const players: Player[] = withDates([
     description: "Gardien aux réflexes fulgurants, héros des séances de tirs au but en Ligue des Nations."
   },
   {
-    id: "lucas-chevalier",
-    name: "Lucas Chevalier",
-    slug: "lucas-chevalier",
+    id: "robin-risser",
+    name: "Robin Risser",
+    slug: "robin-risser",
     teamId: "france",
     position: "GK",
-    number: undefined,
-    age: 24,
-    club: "LOSC Lille",
+    number: 23,
+    age: 21,
+    club: "RC Lens",
     goals: 0,
-    caps: 5,
-    description: "Jeune gardien talentueux du LOSC, réflexes exceptionnels."
+    caps: 3,
+    description: "Jeune gardien prometteur du RC Lens, titulaire surprise de la liste des 26."
   },
   {
     id: "maignan",
@@ -130,17 +130,17 @@ export const players: Player[] = withDates([
     description: "Défenseur central rapide et élégant."
   },
   {
-    id: "pierre-kalulu",
-    name: "Pierre Kalulu",
-    slug: "pierre-kalulu",
+    id: "jules-kounde",
+    name: "Jules Koundé",
+    slug: "jules-kounde",
     teamId: "france",
     position: "DF",
-    number: undefined,
-    age: 25,
-    club: "Juventus",
-    goals: 0,
-    caps: 5,
-    description: "Défenseur polyvalent et intelligent dans le placement."
+    number: 5,
+    age: 27,
+    club: "FC Barcelone",
+    goals: 3,
+    caps: 35,
+    description: "Latéral droit rapide et technique, pilier de la défense barcelonaise."
   },
   {
     id: "theo-hernandez",
@@ -182,17 +182,17 @@ export const players: Player[] = withDates([
     description: "Milieu défensif puissant et technique, maître de la récupération."
   },
   {
-    id: "camavinga",
-    name: "Eduardo Camavinga",
-    slug: "camavinga",
+    id: "william-saliba",
+    name: "William Saliba",
+    slug: "william-saliba",
     teamId: "france",
-    position: "MF",
-    number: 6,
-    age: 23,
-    club: "Real Madrid",
+    position: "DF",
+    number: 17,
+    age: 25,
+    club: "Arsenal",
     goals: 1,
     caps: 25,
-    description: "Milieu polyvalent d'une précocité remarquable, déjà multiple vainqueur de la Ligue des Champions."
+    description: "Défenseur central imposant et élégant, pilier d'Arsenal et de l'équipe de France."
   },
   {
     id: "maghnes-akliouche",
@@ -286,17 +286,17 @@ export const players: Player[] = withDates([
     description: "Jeune ailier créatif et dribbleur, l'un des plus grands talents français."
   },
   {
-    id: "hugo-ekitike",
-    name: "Hugo Ekitike",
-    slug: "hugo-ekitike",
+    id: "bradley-barcola",
+    name: "Bradley Barcola",
+    slug: "bradley-barcola",
     teamId: "france",
     position: "FW",
-    number: undefined,
+    number: 12,
     age: 23,
-    club: "Eintracht Francfort",
-    goals: 2,
-    caps: 5,
-    description: "Attaquant élégant et technique, buteur instinctif."
+    club: "Paris Saint-Germain",
+    goals: 4,
+    caps: 18,
+    description: "Ailier explosif du PSG, dribbleur redoutable et buteur en puissance."
   },
   {
     id: "mbappe",
@@ -338,17 +338,17 @@ export const players: Player[] = withDates([
     description: "Ailier ambidextre d'une vitesse fulgurante, capable d'éliminer sur les deux côtés."
   },
   {
-    id: "randal-muani",
-    name: "Randal Kolo Muani",
-    slug: "randal-muani",
+    id: "jean-philippe-mateta",
+    name: "Jean-Philippe Mateta",
+    slug: "jean-philippe-mateta",
     teamId: "france",
     position: "FW",
-    number: undefined,
+    number: 22,
     age: 27,
-    club: "PSG",
-    goals: 7,
-    caps: 25,
-    description: "Attaquant puissant et polyvalent, efficace en pivot."
+    club: "Crystal Palace",
+    goals: 3,
+    caps: 10,
+    description: "Attaquant puissant et opportuniste, buteur efficace dans la surface."
   },
 
   // Argentina

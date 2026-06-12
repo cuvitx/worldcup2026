@@ -55,7 +55,7 @@ export default function ButeursPage() {
     },
     {
       question: "Qui va gagner le Soulier d'Or de la CDM 2026 ?",
-      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez les bookmakers (~6.00 sur Winamax) grce à son jeune ge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
+      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez les bookmakers (~6.50 sur PokerStars Sports) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
     },
     {
       question: "Quel est le record de buts sur une seule édition de la CDM ?",
@@ -71,7 +71,7 @@ export default function ButeursPage() {
     },
     {
       question: "Où parier sur les buteurs de la CDM 2026 ?",
-      answer: "Les meilleurs bookmakers français pour parier sur les buteurs sont Winamax (cotes compétitives, interface fluide), Betclic (large choix de marchés buteurs) et ParionsSport (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un joueur. Comparez toujours les cotes avant de parier. 18+, jouez responsablement."
+      answer: "Les meilleurs bookmakers pour parier sur les buteurs sont PokerStars Sports (cotes compétitives), Betsson (large choix de marchés buteurs), PMU Sport (bonus généreux) et Genybet (interface fluide). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un joueur. Comparez toujours les cotes avant de parier. 18+, jouez responsablement."
     }
   ];
 
@@ -196,7 +196,7 @@ export default function ButeursPage() {
                 idx === 2 ? "bg-gradient-to-r from-accent/5 to-accent/5" :
                 "bg-white";
               const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
-              const bestBookmakerOdds = Math.max(candidate.winamax, candidate.betclic, candidate.draftkings);
+              const bestBookmakerOdds = Math.max(candidate.pokerstarsSports, candidate.betsson, candidate.genybet);
 
               return (
                 <div key={candidate.playerId} className={`p-6 ${podiumBg}`}>
@@ -261,22 +261,22 @@ export default function ButeursPage() {
                       <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-1">
                         Cotes meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.winamax === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5 border-primary/20"}`}>
-                        <span className="text-xs font-semibold text-primary">Winamax</span>
-                        <span className={`text-sm font-bold ${candidate.winamax === bestBookmakerOdds ? "text-accent" : "text-primary"}`}>
-                          {candidate.winamax.toFixed(2)}
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.pokerstarsSports === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5 border-primary/20"}`}>
+                        <span className="text-xs font-semibold text-primary">PokerStars</span>
+                        <span className={`text-sm font-bold ${candidate.pokerstarsSports === bestBookmakerOdds ? "text-accent" : "text-primary"}`}>
+                          {candidate.pokerstarsSports.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betclic === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10 border-primary/30"}`}>
-                        <span className="text-xs font-semibold text-accent">Betclic</span>
-                        <span className={`text-sm font-bold ${candidate.betclic === bestBookmakerOdds ? "text-accent" : "text-accent"}`}>
-                          {candidate.betclic.toFixed(2)}
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betsson === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10 border-primary/30"}`}>
+                        <span className="text-xs font-semibold text-accent">Betsson</span>
+                        <span className={`text-sm font-bold ${candidate.betsson === bestBookmakerOdds ? "text-accent" : "text-accent"}`}>
+                          {candidate.betsson.toFixed(2)}
                         </span>
                       </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.draftkings === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5 border-field/10"}`}>
-                        <span className="text-xs font-semibold text-field">DraftKings</span>
-                        <span className={`text-sm font-bold ${candidate.draftkings === bestBookmakerOdds ? "text-accent" : "text-field"}`}>
-                          {candidate.draftkings.toFixed(2)}
+                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.genybet === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5 border-field/10"}`}>
+                        <span className="text-xs font-semibold text-field">Genybet</span>
+                        <span className={`text-sm font-bold ${candidate.genybet === bestBookmakerOdds ? "text-accent" : "text-field"}`}>
+                          {candidate.genybet.toFixed(2)}
                         </span>
                       </div>
                       <div className="flex items-center justify-between rounded-lg px-3 py-2 bg-primary/5 border border-primary/20">
@@ -293,7 +293,7 @@ export default function ButeursPage() {
           <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-accent" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
-              Sources : Winamax (football.fr), Betclic, DraftKings (nbcsports.com). Fév. 2026. 18+.
+              Sources : PokerStars Sports, Betsson, Genybet. Juin 2026. 18+.
             </p>
           </div>
         </section>

@@ -13,7 +13,7 @@ interface CountdownState {
 }
 
 function getMatchDateTime(date: string, time: string): Date {
-  return new Date(`${date}T${time}:00Z`);
+  return new Date(`${date}T${time}:00+02:00`);
 }
 
 export function LiveTicker() {

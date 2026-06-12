@@ -1,12 +1,21 @@
 import type { Match } from "@repo/data/types";
 
 /**
+ * Build a Date from match date/time (Europe/Paris CEST).
+ * We parse as UTC-equivalent by appending "+02:00" so that
+ * Date.getTime() returns the correct absolute instant.
+ */
+function toMatchDate(date: string, time: string): Date {
+  return new Date(`${date}T${time}:00+02:00`);
+}
+
+/**
  * Get upcoming matches (future only)
  */
 export function getUpcomingMatches(matches: Match[]): Match[] {
   const now = new Date();
   return matches.filter((m) => {
-    const matchDate = new Date(`${m.date}T${m.time ?? "00:00"}Z`);
+    const matchDate = toMatchDate(m.date, m.time ?? "00:00");
     return matchDate >= now;
   });
 }
@@ -17,7 +26,7 @@ export function getUpcomingMatches(matches: Match[]): Match[] {
 export function getPastMatches(matches: Match[]): Match[] {
   const now = new Date();
   return matches.filter((m) => {
-    const matchDate = new Date(`${m.date}T${m.time ?? "00:00"}Z`);
+    const matchDate = toMatchDate(m.date, m.time ?? "00:00");
     return matchDate < now;
   });
 }
@@ -28,10 +37,10 @@ export function getPastMatches(matches: Match[]): Match[] {
  */
 export function isMatchLive(match: Match): boolean {
   const now = new Date();
-  const matchDate = new Date(`${match.date}T${match.time ?? "00:00"}Z`);
+  const matchDate = toMatchDate(match.date, match.time ?? "00:00");
   const twoHoursMs = 2 * 60 * 60 * 1000;
   const diff = now.getTime() - matchDate.getTime();
-  
+
   // Match is live if kickoff was in the past but within 2 hours
   return diff >= 0 && diff < twoHoursMs;
 }
@@ -47,7 +56,7 @@ export function formatMatchDate(
   locale = "fr-FR",
   options?: Intl.DateTimeFormatOptions
 ): string {
-  const matchDate = new Date(`${match.date}T${match.time ?? "00:00"}Z`);
+  const matchDate = toMatchDate(match.date, match.time ?? "00:00");
   const defaultOptions: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -57,6 +66,6 @@ export function formatMatchDate(
     minute: "2-digit",
     timeZone: "Europe/Paris",
   };
-  
+
   return matchDate.toLocaleString(locale, options ?? defaultOptions);
 }

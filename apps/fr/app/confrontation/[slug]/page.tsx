@@ -109,7 +109,7 @@ const breadcrumbSchema = [
     },
     {
       question: `Où parier sur ${team1.name} vs ${team2.name} ?`,
-      answer: `Les meilleurs bookmakers pour parier sur ce duel sont Winamax, Betclic et Unibet, tous agréés par l'ANJ. Comparez les cotes avant de miser.`,
+      answer: `Les meilleurs bookmakers pour parier sur ce duel sont PokerStars Sports, Betsson et PMU Sport, tous agréés par l'ANJ. Comparez les cotes avant de miser.`,
     },
   ];
   return (
