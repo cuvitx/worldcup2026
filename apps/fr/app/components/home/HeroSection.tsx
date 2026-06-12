@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { HeroCountdown } from "./HeroCountdown";
 import { EVENT_DATES } from "@repo/data/constants";
 
 export function HeroSection() {
@@ -62,8 +61,6 @@ export function HeroSection() {
           </Link>
         </div>
 
-        {/* Countdown glassmorphism */}
-        <HeroCountdown />
       </div>
 
       {/* Arrow scroll indicator */}

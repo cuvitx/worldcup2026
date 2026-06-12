@@ -18,6 +18,8 @@ export function LiveScoreBarWrapper() {
     id: m.id,
     homeTeam: teamsById[m.homeTeamId]?.name ?? m.homeTeamId,
     awayTeam: teamsById[m.awayTeamId]?.name ?? m.awayTeamId,
+    homeCode: teamsById[m.homeTeamId]?.code,
+    awayCode: teamsById[m.awayTeamId]?.code,
     homeScore: null,
     awayScore: null,
     status: "upcoming",

@@ -18,6 +18,8 @@ export interface LiveMatch {
   id: string;
   homeTeam: string;
   awayTeam: string;
+  homeCode?: string;
+  awayCode?: string;
   homeScore: number | null;
   awayScore: number | null;
   status: "upcoming" | "live" | "halftime" | "finished";
@@ -47,17 +49,19 @@ function StatusDot({ status }: { status: LiveMatch["status"] }) {
 
 function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }) {
   const isLive = match.status === "live" || match.status === "halftime";
+  const homeName = match.homeCode ?? match.homeTeam;
+  const awayName = match.awayCode ?? match.awayTeam;
 
   return (
     <div
-      className={`flex shrink-0 items-center gap-2 rounded-full px-3 py-1 text-xs text-white transition-colors ${
+      className={`flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] text-white transition-colors ${
         isLive
           ? "bg-white/15 ring-1 ring-white/20"
           : "bg-white/5 hover:bg-white/10"
       }`}
     >
       <StatusDot status={match.status} />
-      <span className="font-medium">{match.homeTeam}</span>
+      <span className="font-semibold">{homeName}</span>
       {match.homeScore !== null && match.awayScore !== null ? (
         <span className={`font-bold tabular-nums ${isLive ? "text-accent" : ""}`}>
           {match.homeScore}-{match.awayScore}
@@ -65,7 +69,7 @@ function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }
       ) : (
         <span className="text-white/40 tabular-nums">{match.time}</span>
       )}
-      <span className="font-medium">{match.awayTeam}</span>
+      <span className="font-semibold">{awayName}</span>
       {isLive && match.elapsed && (
         <span className="text-[10px] font-bold text-red-400">{match.elapsed}&apos;</span>
       )}
