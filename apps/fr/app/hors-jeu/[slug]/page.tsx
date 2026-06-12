@@ -58,10 +58,10 @@ const faqItems = [
   return (
     <>
 <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-accent mt-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-6">
           Parier sur les hors-jeu {homeName} - {awayName}
         </h1>
-        <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-lg text-white/70 mt-4 max-w-2xl mx-auto">
           Stats hors-jeu, impact de la VAR semi-automatique et cotes over/under pour {homeName} vs {awayName}, CDM 2026.
         </p>
       </section>

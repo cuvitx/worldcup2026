@@ -325,19 +325,19 @@ export default async function ScoreExactPage({ params }: PageProps) {
       <section className="hero-animated relative overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-accent/5 py-12 sm:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
           {/* Breadcrumb visual */}
-          <nav className="mb-6 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-primary">Accueil</Link>
+          <nav className="mb-6 text-sm text-white/70">
+            <Link href="/" className="hover:text-white">Accueil</Link>
             <span className="mx-2">›</span>
             <span>Score Exact</span>
             <span className="mx-2">›</span>
-            <span className="text-foreground font-medium">{home.name} vs {away.name}</span>
+            <span className="text-white font-medium">{home.name} vs {away.name}</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
             Pronostic Score Exact {home.flag} {home.name} vs {away.name} {away.flag} : Nos 3 scénarios probables
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             {stage} • {dateFormatted} • {stadium?.name ?? "Stade à confirmer"}
             {city ? `, ${city.name}` : ""}
           </p>
