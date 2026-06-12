@@ -95,6 +95,43 @@ export const LiveScoreBar = memo(function LiveScoreBar({
     }
   }, [matchDate]);
 
+  // Fetch today's results (one-time) to show scores for finished matches
+  useEffect(() => {
+    if (!matchDate) return;
+    const fetchResults = async () => {
+      try {
+        const res = await fetch(`/api/fixtures?date=${matchDate}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!Array.isArray(data) || data.length === 0) return;
+
+        setMatches((prev) =>
+          prev.map((m) => {
+            const kickoff = `${matchDate}T${m.time}:00`;
+            const apiMatch = data.find(
+              (f: { fixture: { date: string } }) =>
+                f.fixture.date.startsWith(kickoff)
+            ) as {
+              fixture: { status: { short: string; elapsed: number | null } };
+              goals: { home: number | null; away: number | null };
+            } | undefined;
+            if (!apiMatch) return m;
+            return {
+              ...m,
+              homeScore: apiMatch.goals.home,
+              awayScore: apiMatch.goals.away,
+              status: mapApiStatus(apiMatch.fixture.status.short),
+              elapsed: apiMatch.fixture.status.elapsed,
+            };
+          })
+        );
+      } catch {
+        // Silently fail
+      }
+    };
+    fetchResults();
+  }, [matchDate]);
+
   const fetchLive = useCallback(async () => {
     const tournamentStart = new Date("2026-06-11T00:00:00Z");
     const tournamentEnd = new Date("2026-07-19T23:59:59Z");
