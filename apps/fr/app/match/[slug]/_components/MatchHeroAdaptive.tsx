@@ -5,6 +5,7 @@ import { LiveMatchWidget } from "@repo/ui/live-match-widget";
 import type { Team } from "@repo/data/types";
 import type { Stadium } from "@repo/data/types";
 import type { MatchPhase } from "@repo/data/tournament-state";
+import { useLiveData } from "../../../providers/LiveDataProvider";
 
 interface MatchHeroAdaptiveProps {
   matchPhase: MatchPhase;
@@ -30,6 +31,7 @@ export function MatchHeroAdaptive({
   match,
   dateFormatted,
 }: MatchHeroAdaptiveProps) {
+  const { liveFixtures } = useLiveData();
   const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
 
@@ -48,6 +50,7 @@ export function MatchHeroAdaptive({
             awayTeam={away?.name ?? "A determiner"}
             stadium={stadium?.name ?? "Stade a confirmer"}
             locale="fr"
+            liveFixtures={liveFixtures.length > 0 ? liveFixtures : undefined}
           />
           <div className="mt-4 flex justify-center gap-8 text-white">
             {home && (

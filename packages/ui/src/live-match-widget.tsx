@@ -51,6 +51,15 @@ interface LiveMatchData {
  * @param apiEndpoint - API endpoint for live data (default: "/api/live")
  * @param locale - UI language
  */
+/**
+ * Raw API fixture shape passed from a centralized provider.
+ */
+interface ApiFixtureLike {
+  fixture: { id: number; date: string; status: { short: string; elapsed: number | null } };
+  teams: { home: { name: string }; away: { name: string } };
+  goals: { home: number | null; away: number | null };
+}
+
 interface LiveMatchWidgetProps {
   /** Match date in ISO format (2026-06-11) */
   matchDate: string;
@@ -65,6 +74,8 @@ interface LiveMatchWidgetProps {
   /** API endpoint for live data */
   apiEndpoint?: string;
   locale?: "fr" | "en" | "es";
+  /** When provided (from a centralized LiveDataProvider), skips internal polling */
+  liveFixtures?: ApiFixtureLike[];
 }
 
 const STATUS_MAP: Record<string, LiveMatchData["status"]> = {
@@ -113,7 +124,9 @@ export function LiveMatchWidget({
   stadium,
   apiEndpoint = "/api/live",
   locale,
+  liveFixtures,
 }: LiveMatchWidgetProps) {
+  const hasExternalData = !!liveFixtures;
   const t = translations[locale ?? "fr"];
 
   const [data, setData] = useState<LiveMatchData>({
@@ -161,7 +174,25 @@ export function LiveMatchWidget({
     [matchDate, matchTime, homeTeam, awayTeam]
   );
 
+  // When external live data is provided (from centralized provider), use it directly
+  useEffect(() => {
+    if (!liveFixtures || liveFixtures.length === 0) return;
+
+    const match = findMatchInFixtures(liveFixtures);
+    if (!match) return;
+
+    setData({
+      homeScore: match.goals.home,
+      awayScore: match.goals.away,
+      status: STATUS_MAP[match.fixture.status.short] ?? "upcoming",
+      elapsed: match.fixture.status.elapsed,
+      events: [],
+    });
+  }, [liveFixtures, findMatchInFixtures]);
+
+  // Internal polling — only when NO external provider
   const fetchLive = useCallback(async () => {
+    if (hasExternalData) return; // Skip: data comes from provider
     try {
       const res = await fetch(apiEndpoint);
       if (!res.ok) return;
@@ -182,7 +213,7 @@ export function LiveMatchWidget({
     } catch {
       // Silently fail
     }
-  }, [apiEndpoint, findMatchInFixtures]);
+  }, [apiEndpoint, findMatchInFixtures, hasExternalData]);
 
   // Fetch final score for completed matches (one-time)
   useEffect(() => {
@@ -217,8 +248,9 @@ export function LiveMatchWidget({
     fetchResult();
   }, [matchDate, matchTime, findMatchInFixtures]);
 
-  // Poll only when match could be live
+  // Poll only when match could be live AND no external provider
   useEffect(() => {
+    if (hasExternalData) return; // Skip: data comes from provider
     const matchStart = new Date(`${matchDate}T${matchTime}:00+02:00`);
     const now = new Date();
     const diffMs = now.getTime() - matchStart.getTime();
@@ -230,7 +262,7 @@ export function LiveMatchWidget({
       const interval = setInterval(fetchLive, 30000);
       return () => clearInterval(interval);
     }
-  }, [matchDate, matchTime, fetchLive]);
+  }, [matchDate, matchTime, fetchLive, hasExternalData]);
 
   const isLive = data.status === "live" || data.status === "halftime";
   const isFinished = data.status === "finished";

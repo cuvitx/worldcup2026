@@ -14,6 +14,7 @@ import { AutoRelatedContent } from "./components/AutoRelatedContent";
 import { SiloTabs } from "./components/SiloTabs";
 import { AutoBreadcrumb } from "./components/AutoBreadcrumb";
 import { AffiliateTracker } from "./components/AffiliateTracker";
+import { LiveDataProvider } from "./providers/LiveDataProvider";
 import "./globals.css";
 
 /* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
@@ -147,6 +148,7 @@ export default function RootLayout({
         />
         <OrganizationSchema url={domains.fr} name="CDM 2026 - Coupe du Monde" />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Aller au contenu</a>
+        <LiveDataProvider>
         <BadgeSystem>
         <Header />
         <LiveScoreBarWrapper />
@@ -159,6 +161,7 @@ export default function RootLayout({
         <AffiliateTracker />
         <BottomNav />
         </BadgeSystem>
+        </LiveDataProvider>
       </body>
     </html>
   );

@@ -28,6 +28,16 @@ export interface LiveMatch {
   slug: string;
 }
 
+/**
+ * Raw API fixture shape passed from a centralized provider.
+ * When provided, LiveScoreBar skips its own polling.
+ */
+interface ApiFixtureLike {
+  fixture: { id: number; date: string; status: { short: string; elapsed: number | null } };
+  teams: { home: { name: string }; away: { name: string } };
+  goals: { home: number | null; away: number | null };
+}
+
 interface LiveScoreBarProps {
   todaysMatches: LiveMatch[];
   matchBasePath: string;
@@ -35,6 +45,8 @@ interface LiveScoreBarProps {
   apiEndpoint?: string;
   pollInterval?: number;
   locale?: "fr" | "en" | "es";
+  /** When provided (from a centralized LiveDataProvider), skips internal polling */
+  liveFixtures?: ApiFixtureLike[];
 }
 
 function StatusDot({ status }: { status: LiveMatch["status"] }) {
@@ -84,10 +96,12 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   apiEndpoint = "/api/live",
   pollInterval = 30000,
   locale,
+  liveFixtures,
 }: LiveScoreBarProps) {
   const t = translations[locale ?? "fr"];
   const [matches, setMatches] = useState<LiveMatch[]>(todaysMatches);
   const [isStale, setIsStale] = useState(false);
+  const hasExternalData = !!liveFixtures;
 
   // Client-side: check if the static data is for today
   useEffect(() => {
@@ -98,6 +112,23 @@ export const LiveScoreBar = memo(function LiveScoreBar({
       setIsStale(true);
     }
   }, [matchDate]);
+
+  // When external live data is provided (from centralized provider), use it directly
+  useEffect(() => {
+    if (!liveFixtures || liveFixtures.length === 0) return;
+    const liveMatches: LiveMatch[] = liveFixtures.map((f) => ({
+      id: String(f.fixture.id),
+      homeTeam: f.teams.home.name,
+      awayTeam: f.teams.away.name,
+      homeScore: f.goals.home,
+      awayScore: f.goals.away,
+      status: mapApiStatus(f.fixture.status.short),
+      elapsed: f.fixture.status.elapsed,
+      time: "",
+      slug: "",
+    }));
+    setMatches((prev) => mergeLiveData(prev, liveMatches));
+  }, [liveFixtures]);
 
   // Fetch today's results (one-time) to show scores for finished matches
   useEffect(() => {
@@ -138,7 +169,9 @@ export const LiveScoreBar = memo(function LiveScoreBar({
     fetchResults();
   }, [matchDate]);
 
+  // Internal polling — only when NO external provider
   const fetchLive = useCallback(async () => {
+    if (hasExternalData) return; // Skip: data comes from provider
     const tournamentStart = new Date("2026-06-11T00:00:00+02:00");
     const tournamentEnd = new Date("2026-07-19T23:59:59+02:00");
     const now = new Date();
@@ -172,13 +205,14 @@ export const LiveScoreBar = memo(function LiveScoreBar({
     } catch {
       // Silently fail — keep showing static data
     }
-  }, [apiEndpoint]);
+  }, [apiEndpoint, hasExternalData]);
 
   useEffect(() => {
+    if (hasExternalData) return; // Skip: data comes from provider
     fetchLive();
     const interval = setInterval(fetchLive, pollInterval);
     return () => clearInterval(interval);
-  }, [fetchLive, pollInterval]);
+  }, [fetchLive, pollInterval, hasExternalData]);
 
   if (matches.length === 0 || isStale) return null;
 
