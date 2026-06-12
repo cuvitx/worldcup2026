@@ -140,17 +140,23 @@ export function LiveMatchWidget({
 
   const findMatchInFixtures = useCallback(
     (fixtures: Array<{
-      fixture: { id: number; status: { short: string; elapsed: number | null } };
+      fixture: { id: number; date: string; status: { short: string; elapsed: number | null } };
       teams: { home: { name: string }; away: { name: string } };
       goals: { home: number | null; away: number | null };
     }>) => {
+      // Match by kickoff time (most reliable across languages)
+      const kickoffUTC = `${matchDate}T${matchTime}:00`;
+      const byTime = fixtures.find((f) => f.fixture.date.startsWith(kickoffUTC));
+      if (byTime) return byTime;
+
+      // Fallback: fuzzy match on team names (first word)
       return fixtures.find(
         (f) =>
           f.teams.home.name.toLowerCase().includes(homeTeam.toLowerCase().split(" ")[0] ?? "") ||
           f.teams.away.name.toLowerCase().includes(awayTeam.toLowerCase().split(" ")[0] ?? "")
       );
     },
-    [homeTeam, awayTeam]
+    [matchDate, matchTime, homeTeam, awayTeam]
   );
 
   const fetchLive = useCallback(async () => {
