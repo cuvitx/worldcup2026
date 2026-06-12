@@ -257,10 +257,10 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
     const slug = effectifMatch[1]!;
     const name = slugToName(slug);
     return [
-      { href: `/equipe/${slug}`, emoji: '🏳️', title: `Équipe ${name}`, description: `Fiche complète` },
-      { href: `/pronostic/${slug}`, emoji: '🔮', title: `Pronostic ${name}`, description: `Nos pronostics` },
       { href: `/parier/${slug}`, emoji: '🎰', title: `Parier sur ${name}`, description: `Meilleurs paris` },
       { href: `/cote-champion/${slug}`, emoji: '🏆', title: `Cote champion`, description: `Cotes pour le titre` },
+      { href: `/pronostic/${slug}`, emoji: '🔮', title: `Pronostic ${name}`, description: `Nos pronostics` },
+      { href: `/equipe/${slug}`, emoji: '🏳️', title: `Équipe ${name}`, description: `Fiche complète` },
       { href: `/pronostic/vainqueur`, emoji: '🥇', title: `Pronostic vainqueur`, description: `Qui va gagner ?` },
       { href: `/joueurs`, emoji: '👥', title: `Tous les joueurs`, description: `Annuaire des joueurs` },
     ];

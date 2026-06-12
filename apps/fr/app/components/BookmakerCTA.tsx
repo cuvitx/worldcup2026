@@ -17,8 +17,7 @@ function pickBookmaker(id?: string): Bookmaker {
     if (found) return found;
   }
   const top = bookmakers.filter((b) => b.highlight);
-  const pool = top.length > 0 ? top : bookmakers.slice(0, 4);
-  return pool[Math.floor(Math.random() * pool.length)]!;
+  return (top.length > 0 ? top : bookmakers)[0]!;
 }
 
 export function BookmakerCTA({ variant = "inline", bookmaker }: BookmakerCTAProps) {

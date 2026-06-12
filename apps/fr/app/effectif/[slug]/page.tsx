@@ -3,9 +3,13 @@ import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug } from "@repo/data/teams";
+import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
-import { ClipboardList, ShieldAlert, Star, UserX, Users } from "lucide-react";
+import { matches } from "@repo/data/matches";
+import { bookmakers } from "@repo/data/affiliates";
+import { ClipboardList, ExternalLink, ShieldAlert, Star, UserX, Users } from "lucide-react";
+import { BookmakerCTA } from "../../components/BookmakerCTA";
+import { BetOfTheDay } from "../../components/BetOfTheDay";
 export const revalidate = 3600;
 export const dynamicParams = false;
 interface PageProps {
@@ -54,6 +58,12 @@ export default async function EffectifPage({ params }: PageProps) {
   );
   // Stars: top 3 by caps
   const stars = [...allPlayers].sort((a, b) => b.caps - a.caps).slice(0, 3);
+  // Next match for this team
+  const teamMatches = matches
+    .filter((m) => m.homeTeamId === team.id || m.awayTeamId === team.id)
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const today = new Date().toISOString().slice(0, 10);
+  const nextMatch = teamMatches.find((m) => m.date >= today);
 const faqItems = [
     {
       question: `Combien de joueurs ${team.name} peut-elle emmener à la CDM 2026 ?`,
@@ -128,6 +138,8 @@ const faqItems = [
                 </div>
               </section>
             )}
+            {/* CTA Banner */}
+            <BookmakerCTA variant="banner" />
             {/* Players by position */}
             {sortedPositions.map((pos) => {
               const posPlayers = grouped[pos]!.sort((a, b) => (a.number ?? 99) - (b.number ?? 99));
@@ -185,6 +197,34 @@ const faqItems = [
                 </p>
               </section>
             )}
+            {/* Prochain match */}
+            {nextMatch && (() => {
+              const home = teamsById[nextMatch.homeTeamId];
+              const away = teamsById[nextMatch.awayTeamId];
+              return (
+                <section className="rounded-xl bg-primary/5 border border-primary/20 p-6">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                    Prochain match {team.name}
+                  </h2>
+                  <Link
+                    href={`/pronostic-match/${nextMatch.slug}`}
+                    className="flex items-center justify-between rounded-lg bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{home?.flag}</span>
+                      <span className="font-bold text-gray-900">{home?.name} vs {away?.name}</span>
+                      <span className="text-2xl">{away?.flag}</span>
+                    </div>
+                    <span className="text-sm text-gray-500">
+                      {new Date(nextMatch.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
+                    </span>
+                  </Link>
+                  <div className="mt-4">
+                    <BookmakerCTA variant="inline" />
+                  </div>
+                </section>
+              );
+            })()}
             {/* Absents notables */}
             <section className="rounded-xl bg-white p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
@@ -215,6 +255,28 @@ const faqItems = [
                   <span className="font-bold text-primary">{allPlayers.length}</span>
                 </div>
               </div>
+            </div>
+            <BetOfTheDay compact />
+            <div className="rounded-xl bg-white p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-3">Parier sur {team.name}</h3>
+              <div className="space-y-3">
+                {bookmakers.slice(0, 3).map((bk) => (
+                  <a
+                    key={bk.id}
+                    href={bk.url}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored nofollow"
+                    className="flex items-center justify-between rounded-lg border border-gray-200 p-3 hover:border-primary/40 hover:shadow-sm transition-all"
+                  >
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">{bk.name}</p>
+                      <p className="text-xs text-accent font-semibold">{bk.bonus}</p>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-gray-400" />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-3 text-[10px] text-gray-400 text-center">18+ | Pariez responsablement</p>
             </div>
             <div className="rounded-xl bg-white p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
