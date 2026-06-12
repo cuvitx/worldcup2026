@@ -54,10 +54,10 @@ function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }
 
   return (
     <div
-      className={`flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] text-white transition-colors ${
+      className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-[11px] text-white transition-colors ${
         isLive
-          ? "bg-white/15 ring-1 ring-white/20"
-          : "bg-white/5 hover:bg-white/10"
+          ? "bg-white/20 ring-1 ring-white/30"
+          : "bg-white/10 hover:bg-white/15"
       }`}
     >
       <StatusDot status={match.status} />
@@ -67,7 +67,7 @@ function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }
           {match.homeScore}-{match.awayScore}
         </span>
       ) : (
-        <span className="text-white/40 tabular-nums">{match.time}</span>
+        <span className="text-white/70 tabular-nums">{match.time}</span>
       )}
       <span className="font-semibold">{awayName}</span>
       {isLive && match.elapsed && (
