@@ -902,10 +902,8 @@ details[open] .faq-icon {
   overflow-wrap: anywhere;
 }
 
-/* Global mobile overflow prevention */
-html, body {
-  overflow-x: hidden;
-}
+/* Global mobile overflow prevention — handled at line ~106 with overflow-x: clip
+   (clip is preferred over hidden: it doesn't break position:sticky and works on iOS Safari) */
 
 /* Prevent long words from breaking layout on mobile */
 p, li, dd, blockquote, figcaption, .prose {

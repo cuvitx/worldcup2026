@@ -151,7 +151,7 @@ export default function RootLayout({
         <Header />
         <LiveScoreBarWrapper />
         <LiveTicker />
-        <main id="main-content" className="flex-1"><AutoBreadcrumb /><SiloTabs />{children}</main>
+        <main id="main-content" className="flex-1 overflow-x-clip"><AutoBreadcrumb /><SiloTabs />{children}</main>
         <AutoRelatedContent />
         <Footer />
         <BackToTop />

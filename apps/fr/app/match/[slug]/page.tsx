@@ -316,7 +316,9 @@ export default async function MatchPage({ params }: PageProps) {
       />
 
       {/* Contextual navigation */}
-      <MatchContextBar matchSlug={match.slug} />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-6">
+        <MatchContextBar matchSlug={match.slug} />
+      </div>
       
     </>
   );
