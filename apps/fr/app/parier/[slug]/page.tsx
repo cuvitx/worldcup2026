@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 /** Generate indicative odds based on FIFA ranking */
-function getIndicativeOdds(fifaRanking: number): { winamax: string; betclic: string; unibet: string } {
+function getIndicativeOdds(fifaRanking: number): { pokerstarssports: string; betsson: string; pmusport: string } {
   let base: number;
   if (fifaRanking <= 3) base = 5.0;
   else if (fifaRanking <= 6) base = 7.0;
@@ -44,9 +44,9 @@ function getIndicativeOdds(fifaRanking: number): { winamax: string; betclic: str
   else if (fifaRanking <= 60) base = 150.0;
   else base = 500.0;
   return {
-    winamax: (base * 0.95).toFixed(2),
-    betclic: base.toFixed(2),
-    unibet: (base * 1.05).toFixed(2),
+    pokerstarssports: (base * 0.95).toFixed(2),
+    betsson: base.toFixed(2),
+    pmusport: (base * 1.05).toFixed(2),
   };
 }
 export default async function ParierEquipePage({ params }: PageProps) {
@@ -69,11 +69,11 @@ export default async function ParierEquipePage({ params }: PageProps) {
 const faqItems = [
     {
       question: `Comment parier sur ${team.name} pour la CDM 2026 ?`,
-      answer: `Inscrivez-vous sur un bookmaker agréé ANJ (Betclic, Winamax, Unibet), profitez du bonus de bienvenue, puis recherchez "Coupe du Monde 2026" et sélectionnez ${team.name} dans les paris vainqueur, qualification de groupe ou matchs individuels.`,
+      answer: `Inscrivez-vous sur un bookmaker agréé ANJ (PokerStars Sports, Betsson, PMU Sport), profitez du bonus de bienvenue, puis recherchez "Coupe du Monde 2026" et sélectionnez ${team.name} dans les paris vainqueur, qualification de groupe ou matchs individuels.`,
     },
     {
       question: `Quelle est la cote de ${team.name} pour gagner la CDM 2026 ?`,
-      answer: `La cote indicative de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${odds.betclic} chez Betclic. Cette cote évolue selon les résultats et la forme de l'équipe.`,
+      answer: `La cote indicative de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${odds.betsson} chez Betsson. Cette cote évolue selon les résultats et la forme de l'équipe.`,
     },
     {
       question: `${team.name} peut-elle se qualifier en phase à élimination directe ?`,
@@ -118,21 +118,21 @@ const faqItems = [
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
-                  <p className="text-sm text-gray-500 mb-1">Winamax</p>
-                  <p className="text-3xl font-extrabold text-primary">{odds.winamax}</p>
+                  <p className="text-sm text-gray-500 mb-1">PokerStars Sports</p>
+                  <p className="text-3xl font-extrabold text-primary">{odds.pokerstarssports}</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
-                  <p className="text-sm text-gray-500 mb-1">Betclic</p>
-                  <p className="text-3xl font-extrabold text-primary">{odds.betclic}</p>
+                  <p className="text-sm text-gray-500 mb-1">Betsson</p>
+                  <p className="text-3xl font-extrabold text-primary">{odds.betsson}</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
-                  <p className="text-sm text-gray-500 mb-1">Unibet</p>
-                  <p className="text-3xl font-extrabold text-primary">{odds.unibet}</p>
+                  <p className="text-sm text-gray-500 mb-1">PMU Sport</p>
+                  <p className="text-3xl font-extrabold text-primary">{odds.pmusport}</p>
                 </div>
               </div>
               {prediction && (
                 <p className="mt-4 text-sm text-accent">
-                  Probabilité implicite : {Math.round((1 / parseFloat(odds.betclic)) * 100)}% · Notre estimation : {Math.round(prediction.winnerProb * 100)}%
+                  Probabilité implicite : {Math.round((1 / parseFloat(odds.betsson)) * 100)}% · Notre estimation : {Math.round(prediction.winnerProb * 100)}%
                 </p>
               )}
               <p className="mt-2 text-xs text-gray-400">
@@ -199,7 +199,7 @@ const faqItems = [
                       <tr key={bk.id} className="border-b border-gray-100">
                         <td className="py-3 pr-4 font-medium text-gray-900">{bk.name}</td>
                         <td className="py-3 pr-4 font-bold text-primary">
-                          {i === 0 ? odds.winamax : i === 1 ? odds.betclic : odds.unibet}
+                          {i === 0 ? odds.pokerstarssports : i === 1 ? odds.betsson : odds.pmusport}
                         </td>
                         <td className="py-3 pr-4 text-accent font-semibold">{bk.bonus}</td>
                         <td className="py-3">

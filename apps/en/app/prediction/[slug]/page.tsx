@@ -343,7 +343,7 @@ export default async function PredictionTeamPage({ params }: PageProps) {
                               </p>
                               <p className="text-xs text-gray-500">
                                 MD{match.matchday} &middot; {match.date} &middot;{" "}
-                                {match.time} UTC
+                                {match.time} CEST
                               </p>
                             </div>
                           </div>

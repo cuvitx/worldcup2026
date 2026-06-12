@@ -19,15 +19,15 @@ function getScorerOdds(slug: string) {
     goalsInternational: 10 + (seed % 50),
     goalsPerMatch: +(0.2 + (seed % 30) / 100).toFixed(2),
     wcPreviousGoals: seed % 8,
-    winamaxAnytime: +(1.80 + (seed % 40) / 100).toFixed(2),
-    betclicAnytime: +(1.85 + (seed % 35) / 100).toFixed(2),
-    unibetAnytime: +(1.82 + (seed % 38) / 100).toFixed(2),
-    winamaxTopScorer: +(8.00 + (seed % 200) / 10).toFixed(2),
-    betclicTopScorer: +(8.50 + (seed % 180) / 10).toFixed(2),
-    unibetTopScorer: +(8.20 + (seed % 190) / 10).toFixed(2),
-    winamaxNextMatch: +(2.50 + (seed % 50) / 100).toFixed(2),
-    betclicNextMatch: +(2.55 + (seed % 45) / 100).toFixed(2),
-    unibetNextMatch: +(2.48 + (seed % 52) / 100).toFixed(2),
+    pokerstarssportsAnytime: +(1.80 + (seed % 40) / 100).toFixed(2),
+    betssonAnytime: +(1.85 + (seed % 35) / 100).toFixed(2),
+    pmusportAnytime: +(1.82 + (seed % 38) / 100).toFixed(2),
+    pokerstarssportsTopScorer: +(8.00 + (seed % 200) / 10).toFixed(2),
+    betssonTopScorer: +(8.50 + (seed % 180) / 10).toFixed(2),
+    pmusportTopScorer: +(8.20 + (seed % 190) / 10).toFixed(2),
+    pokerstarssportsNextMatch: +(2.50 + (seed % 50) / 100).toFixed(2),
+    betssonNextMatch: +(2.55 + (seed % 45) / 100).toFixed(2),
+    pmusportNextMatch: +(2.48 + (seed % 52) / 100).toFixed(2),
   };
 }
 export async function generateStaticParams() {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote ${player.name} Buteur CDM 2026 — Pronostic et Analyse`,
-    description: `Cotes buteur de ${player.name} pour la Coupe du Monde 2026 : marquer un but, meilleur buteur. Comparatif Winamax, Betclic, Unibet.`,
+    description: `Cotes buteur de ${player.name} pour la Coupe du Monde 2026 : marquer un but, meilleur buteur. Comparatif PokerStars Sports, Betsson, PMU Sport.`,
     alternates: { canonical: `https://www.cdm2026.fr/cote-buteur/${slug}` },
   };
 }
@@ -52,8 +52,8 @@ export default async function CoteButeurPage({ params }: PageProps) {
   const team = teamsById[player.teamId];
   const odds = getScorerOdds(slug);
 const faqItems = [
-    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Les bookmakers proposent une cote autour de ${odds.winamaxAnytime} pour au moins 1 but dans le tournoi.` },
-    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `Les cotes meilleur buteur varient : Winamax ${odds.winamaxTopScorer}, Betclic ${odds.betclicTopScorer}, Unibet ${odds.unibetTopScorer}.` },
+    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Les bookmakers proposent une cote autour de ${odds.pokerstarssportsAnytime} pour au moins 1 but dans le tournoi.` },
+    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `Les cotes meilleur buteur varient : PokerStars Sports ${odds.pokerstarssportsTopScorer}, Betsson ${odds.betssonTopScorer}, PMU Sport ${odds.pmusportTopScorer}.` },
     { question: "Comment parier sur un buteur de la Coupe du Monde ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Comparez les cotes sur plusieurs bookmakers pour maximiser la valeur." },
     { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur du tournoi » et « meilleur buteur ». Les tirs au but ne comptent généralement pas." },
   ];
@@ -108,9 +108,9 @@ const faqItems = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr><td className="p-3">Winamax</td><td className="text-center p-3 font-bold text-accent">{odds.winamaxAnytime}</td></tr>
-              <tr><td className="p-3">Betclic</td><td className="text-center p-3 font-bold text-accent">{odds.betclicAnytime}</td></tr>
-              <tr><td className="p-3">Unibet</td><td className="text-center p-3 font-bold text-accent">{odds.unibetAnytime}</td></tr>
+              <tr><td className="p-3">PokerStars Sports</td><td className="text-center p-3 font-bold text-accent">{odds.pokerstarssportsAnytime}</td></tr>
+              <tr><td className="p-3">Betsson</td><td className="text-center p-3 font-bold text-accent">{odds.betssonAnytime}</td></tr>
+              <tr><td className="p-3">PMU Sport</td><td className="text-center p-3 font-bold text-accent">{odds.pmusportAnytime}</td></tr>
             </tbody>
           </table>
         </div>
@@ -125,9 +125,9 @@ const faqItems = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr><td className="p-3">Winamax</td><td className="text-center p-3 font-bold text-accent">{odds.winamaxTopScorer}</td></tr>
-              <tr><td className="p-3">Betclic</td><td className="text-center p-3 font-bold text-accent">{odds.betclicTopScorer}</td></tr>
-              <tr><td className="p-3">Unibet</td><td className="text-center p-3 font-bold text-accent">{odds.unibetTopScorer}</td></tr>
+              <tr><td className="p-3">PokerStars Sports</td><td className="text-center p-3 font-bold text-accent">{odds.pokerstarssportsTopScorer}</td></tr>
+              <tr><td className="p-3">Betsson</td><td className="text-center p-3 font-bold text-accent">{odds.betssonTopScorer}</td></tr>
+              <tr><td className="p-3">PMU Sport</td><td className="text-center p-3 font-bold text-accent">{odds.pmusportTopScorer}</td></tr>
             </tbody>
           </table>
         </div>
@@ -142,9 +142,9 @@ const faqItems = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr><td className="p-3">Winamax</td><td className="text-center p-3 font-bold text-accent">{odds.winamaxNextMatch}</td></tr>
-              <tr><td className="p-3">Betclic</td><td className="text-center p-3 font-bold text-accent">{odds.betclicNextMatch}</td></tr>
-              <tr><td className="p-3">Unibet</td><td className="text-center p-3 font-bold text-accent">{odds.unibetNextMatch}</td></tr>
+              <tr><td className="p-3">PokerStars Sports</td><td className="text-center p-3 font-bold text-accent">{odds.pokerstarssportsNextMatch}</td></tr>
+              <tr><td className="p-3">Betsson</td><td className="text-center p-3 font-bold text-accent">{odds.betssonNextMatch}</td></tr>
+              <tr><td className="p-3">PMU Sport</td><td className="text-center p-3 font-bold text-accent">{odds.pmusportNextMatch}</td></tr>
             </tbody>
           </table>
         </div>

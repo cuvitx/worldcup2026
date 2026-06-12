@@ -200,7 +200,7 @@ function MatchCard({
   const match = matches.find((m) => m.id === matchId);
   const colors = roundColors[stage] ?? roundColors["round-of-32"]!;
   const dateStr = match
-    ? new Date(match.date + "T" + match.time + ":00Z").toLocaleDateString("es-ES", {
+    ? new Date(match.date + "T" + match.time + ":00+02:00").toLocaleDateString("es-ES", {
         day: "numeric",
         month: "short",
       })

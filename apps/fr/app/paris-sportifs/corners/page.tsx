@@ -91,7 +91,7 @@ const faqItems = [
   {
     question: "Peut-on parier sur les corners en live ?",
     answer:
-      "Oui, la plupart des bookmakers (Winamax, Betclic, Unibet) proposent les marchés corners en live. C'est même une stratégie populaire : observer les 15 premières minutes pour évaluer le rythme du match avant de miser sur le total corners.",
+      "Oui, la plupart des bookmakers (PokerStars Sports, Betsson, PMU Sport) proposent les marchés corners en live. C'est même une stratégie populaire : observer les 15 premières minutes pour évaluer le rythme du match avant de miser sur le total corners.",
   },
 ];
 

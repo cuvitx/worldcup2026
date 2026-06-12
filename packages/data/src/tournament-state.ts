@@ -34,8 +34,8 @@ function matchDateTime(matchDate: string, matchTime: string): Date {
  */
 export function getTournamentPhase(): TournamentPhase {
   const now = new Date();
-  const startDate = new Date(`${TOURNAMENT_START}T00:00:00Z`);
-  const endDate = new Date(`${TOURNAMENT_END}T23:59:59Z`);
+  const startDate = new Date(`${TOURNAMENT_START}T00:00:00+02:00`);
+  const endDate = new Date(`${TOURNAMENT_END}T23:59:59+02:00`);
 
   if (now < startDate) return "pre-tournament";
   if (now > endDate) return "completed";
@@ -73,7 +73,7 @@ export function getTournamentPhase(): TournamentPhase {
  */
 export function getDaysUntilKickoff(): number {
   const now = new Date();
-  const start = new Date(`${TOURNAMENT_START}T00:00:00Z`);
+  const start = new Date(`${TOURNAMENT_START}T00:00:00+02:00`);
   const diffMs = start.getTime() - now.getTime();
   return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 }

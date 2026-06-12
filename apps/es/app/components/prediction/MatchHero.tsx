@@ -78,7 +78,7 @@ export function MatchHero({
             </div>
             <div className="text-center">
               <span className="text-3xl font-bold text-gold">VS</span>
-              <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
+              <p className="mt-1 text-sm text-gray-400">{match.time} CEST</p>
             </div>
             <div className="flex flex-col items-center">
               <span className="text-6xl">{away?.flag ?? "\ud83c\udff3\ufe0f"}</span>

@@ -46,32 +46,33 @@ function foldLine(line: string): string {
 }
 
 /**
- * Convert "YYYY-MM-DD" + "HH:MM" UTC → iCal DTSTART format
+ * Convert "YYYY-MM-DD" + "HH:MM" Europe/Paris (CEST) → iCal DTSTART format (UTC)
  * @param {string} date - Date in YYYY-MM-DD format
- * @param {string} time - Time in HH:MM format (UTC)
- * @returns {string} iCalendar datetime (e.g., "20260611T190000Z")
+ * @param {string} time - Time in HH:MM format (Europe/Paris CEST)
+ * @returns {string} iCalendar datetime in UTC (e.g., "20260611T190000Z")
  * @example
- * toIcalDate("2026-06-11", "19:00") // "20260611T190000Z"
+ * toIcalDate("2026-06-11", "21:00") // "20260611T190000Z"
  */
 function toIcalDate(date: string, time: string): string {
-  const [year, month, day] = date.split("-");
-  const [hour, minute] = time.split(":");
-  return `${year}${month}${day}T${hour}${minute}00Z`;
+  const d = new Date(`${date}T${time}:00+02:00`);
+  const yy = d.getUTCFullYear().toString();
+  const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(d.getUTCDate()).padStart(2, "0");
+  const hh = String(d.getUTCHours()).padStart(2, "0");
+  const mi = String(d.getUTCMinutes()).padStart(2, "0");
+  return `${yy}${mm}${dd}T${hh}${mi}00Z`;
 }
 
 /**
  * Add 2 hours to the start time for DTEND (default match duration + halftime)
  * @param {string} date - Date in YYYY-MM-DD format
- * @param {string} time - Time in HH:MM format (UTC)
- * @returns {string} iCalendar datetime 2 hours after start
+ * @param {string} time - Time in HH:MM format (Europe/Paris CEST)
+ * @returns {string} iCalendar datetime 2 hours after start (UTC)
  * @example
- * toIcalDateEnd("2026-06-11", "19:00") // "20260611T210000Z"
+ * toIcalDateEnd("2026-06-11", "21:00") // "20260611T210000Z"
  */
 function toIcalDateEnd(date: string, time: string): string {
-  const [year, month, day] = date.split("-").map(Number) as [number, number, number];
-  const [hour, minute] = time.split(":").map(Number) as [number, number];
-
-  const d = new Date(Date.UTC(year, month - 1, day, hour, minute, 0));
+  const d = new Date(`${date}T${time}:00+02:00`);
   d.setUTCHours(d.getUTCHours() + 2);
 
   const yy = d.getUTCFullYear().toString();

@@ -22,15 +22,15 @@ function getShotStats(slug: string) {
     shotsPerMatch,
     onTargetPerMatch,
     onTargetPct: +onTargetPct,
-    winamaxOver05: +(1.55 + (seed % 20) / 100).toFixed(2),
-    winamaxUnder05: +(2.20 + (seed % 15) / 100).toFixed(2),
-    betclicOver05: +(1.60 + (seed % 18) / 100).toFixed(2),
-    betclicUnder05: +(2.15 + (seed % 12) / 100).toFixed(2),
-    unibetOver05: +(1.58 + (seed % 22) / 100).toFixed(2),
-    unibetUnder05: +(2.18 + (seed % 14) / 100).toFixed(2),
-    winamaxOver15: +(2.80 + (seed % 30) / 100).toFixed(2),
-    betclicOver15: +(2.75 + (seed % 25) / 100).toFixed(2),
-    unibetOver15: +(2.85 + (seed % 28) / 100).toFixed(2),
+    pokerstarssportsOver05: +(1.55 + (seed % 20) / 100).toFixed(2),
+    pokerstarssportsUnder05: +(2.20 + (seed % 15) / 100).toFixed(2),
+    betssonOver05: +(1.60 + (seed % 18) / 100).toFixed(2),
+    betssonUnder05: +(2.15 + (seed % 12) / 100).toFixed(2),
+    pmusportOver05: +(1.58 + (seed % 22) / 100).toFixed(2),
+    pmusportUnder05: +(2.18 + (seed % 14) / 100).toFixed(2),
+    pokerstarssportsOver15: +(2.80 + (seed % 30) / 100).toFixed(2),
+    betssonOver15: +(2.75 + (seed % 25) / 100).toFixed(2),
+    pmusportOver15: +(2.85 + (seed % 28) / 100).toFixed(2),
     tournamentAvg: 0.8,
   };
 }
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Parier sur les tirs cadrés de ${player.name} — CDM 2026`,
-    description: `Stats tirs cadrés de ${player.name} en sélection, cotes over/under Winamax, Betclic, Unibet pour la Coupe du Monde 2026.`,
+    description: `Stats tirs cadrés de ${player.name} en sélection, cotes over/under PokerStars Sports, Betsson, PMU Sport pour la Coupe du Monde 2026.`,
     alternates: { canonical: `https://www.cdm2026.fr/tirs-cadres/${slug}` },
   };
 }
@@ -57,7 +57,7 @@ export default async function TirsCadresPage({ params }: PageProps) {
   const stats = getShotStats(slug);
 const faqItems = [
     { question: `Combien de tirs cadrés ${player.name} fait-il par match ?`, answer: `En sélection, ${player.name} affiche une moyenne de ${stats.onTargetPerMatch} tirs cadrés par match, avec un taux de cadrage de ${stats.onTargetPct}%.` },
-    { question: `Quelle est la meilleure cote pour parier sur les tirs cadrés de ${player.name} ?`, answer: `Les cotes varient selon les bookmakers. Pour over 0.5 tir cadré, comparez Winamax (${stats.winamaxOver05}), Betclic (${stats.betclicOver05}) et Unibet (${stats.unibetOver05}).` },
+    { question: `Quelle est la meilleure cote pour parier sur les tirs cadrés de ${player.name} ?`, answer: `Les cotes varient selon les bookmakers. Pour over 0.5 tir cadré, comparez PokerStars Sports (${stats.pokerstarssportsOver05}), Betsson (${stats.betssonOver05}) et PMU Sport (${stats.pmusportOver05}).` },
     { question: "Le pari tirs cadrés est-il disponible sur tous les matchs ?", answer: "Oui, la plupart des bookmakers proposent ce marché sur tous les matchs de la Coupe du Monde 2026, y compris la phase de groupes." },
     { question: "Comment sont comptabilisés les tirs cadrés ?", answer: "Un tir cadré est un tir qui serait entré dans le but sans intervention du gardien ou d'un défenseur sur la ligne. Les buts comptent comme des tirs cadrés." },
   ];
@@ -125,29 +125,29 @@ const faqItems = [
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">Marché</th>
-                <th className="text-center p-3">Winamax</th>
-                <th className="text-center p-3">Betclic</th>
-                <th className="text-center p-3">Unibet</th>
+                <th className="text-center p-3">PokerStars Sports</th>
+                <th className="text-center p-3">Betsson</th>
+                <th className="text-center p-3">PMU Sport</th>
               </tr>
             </thead>
             <tbody>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">Over 0.5 tir cadré</td>
-                <td className="text-center p-3">{stats.winamaxOver05}</td>
-                <td className="text-center p-3">{stats.betclicOver05}</td>
-                <td className="text-center p-3">{stats.unibetOver05}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsOver05}</td>
+                <td className="text-center p-3">{stats.betssonOver05}</td>
+                <td className="text-center p-3">{stats.pmusportOver05}</td>
               </tr>
               <tr className="bg-white">
                 <td className="p-3 font-semibold">Under 0.5 tir cadré</td>
-                <td className="text-center p-3">{stats.winamaxUnder05}</td>
-                <td className="text-center p-3">{stats.betclicUnder05}</td>
-                <td className="text-center p-3">{stats.unibetUnder05}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsUnder05}</td>
+                <td className="text-center p-3">{stats.betssonUnder05}</td>
+                <td className="text-center p-3">{stats.pmusportUnder05}</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">Over 1.5 tirs cadrés</td>
-                <td className="text-center p-3">{stats.winamaxOver15}</td>
-                <td className="text-center p-3">{stats.betclicOver15}</td>
-                <td className="text-center p-3">{stats.unibetOver15}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsOver15}</td>
+                <td className="text-center p-3">{stats.betssonOver15}</td>
+                <td className="text-center p-3">{stats.pmusportOver15}</td>
               </tr>
             </tbody>
           </table>
@@ -162,14 +162,14 @@ const faqItems = [
             Trouvez la meilleure cote pour vos paris sur les tirs cadrés de {player.name} lors de la Coupe du Monde 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.winamax.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Winamax <ExternalLink className="w-4 h-4" />
+            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PokerStars Sports <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Betclic <ExternalLink className="w-4 h-4" />
+            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              Betsson <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Unibet <ExternalLink className="w-4 h-4" />
+            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>

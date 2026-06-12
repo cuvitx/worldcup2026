@@ -63,9 +63,9 @@ export function buildSearchIndex(lang: Lang): SearchItem[] {
 
     const stageLookup = stageLabels[lang];
     const stage = (stageLookup ? stageLookup[match.stage] : undefined) ?? match.stage;
-    const dateFormatted = new Date(match.date + "T00:00:00Z").toLocaleDateString(
+    const dateFormatted = new Date(match.date + "T00:00:00+02:00").toLocaleDateString(
       "fr-FR",
-      { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }
+      { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Paris" }
     );
 
     items.push({

@@ -139,8 +139,8 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   }, [matchDate]);
 
   const fetchLive = useCallback(async () => {
-    const tournamentStart = new Date("2026-06-11T00:00:00Z");
-    const tournamentEnd = new Date("2026-07-19T23:59:59Z");
+    const tournamentStart = new Date("2026-06-11T00:00:00+02:00");
+    const tournamentEnd = new Date("2026-07-19T23:59:59+02:00");
     const now = new Date();
     if (now < tournamentStart || now > tournamentEnd) return;
 

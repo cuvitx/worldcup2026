@@ -25,12 +25,12 @@ function getTackleStats(slug: string, position: string) {
     interceptionsPerMatch,
     tackleSuccessRate: +tackleSuccessRate,
     duelsWonPct: +(50 + (seed % 20)).toFixed(0),
-    winamaxOver15: +(1.90 + (seed % 30) / 100).toFixed(2),
-    betclicOver15: +(1.85 + (seed % 25) / 100).toFixed(2),
-    unibetOver15: +(1.92 + (seed % 28) / 100).toFixed(2),
-    winamaxOver25: +(2.80 + (seed % 40) / 100).toFixed(2),
-    betclicOver25: +(2.75 + (seed % 35) / 100).toFixed(2),
-    unibetOver25: +(2.85 + (seed % 38) / 100).toFixed(2),
+    pokerstarssportsOver15: +(1.90 + (seed % 30) / 100).toFixed(2),
+    betssonOver15: +(1.85 + (seed % 25) / 100).toFixed(2),
+    pmusportOver15: +(1.92 + (seed % 28) / 100).toFixed(2),
+    pokerstarssportsOver25: +(2.80 + (seed % 40) / 100).toFixed(2),
+    betssonOver25: +(2.75 + (seed % 35) / 100).toFixed(2),
+    pmusportOver25: +(2.85 + (seed % 38) / 100).toFixed(2),
   };
 }
 const positionLabel = (pos: string) =>
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Statistiques tacles ${player.name} — Paris spécifiques CDM 2026`,
-    description: `Stats défensives de ${player.name} : tacles, interceptions, duels. Cotes paris spécifiques Winamax, Betclic, Unibet pour la CDM 2026.`,
+    description: `Stats défensives de ${player.name} : tacles, interceptions, duels. Cotes paris spécifiques PokerStars Sports, Betsson, PMU Sport pour la CDM 2026.`,
     alternates: { canonical: `https://www.cdm2026.fr/tacles/${slug}` },
   };
 }
@@ -124,23 +124,23 @@ const faqItems = [
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">Marché</th>
-                <th className="text-center p-3">Winamax</th>
-                <th className="text-center p-3">Betclic</th>
-                <th className="text-center p-3">Unibet</th>
+                <th className="text-center p-3">PokerStars Sports</th>
+                <th className="text-center p-3">Betsson</th>
+                <th className="text-center p-3">PMU Sport</th>
               </tr>
             </thead>
             <tbody>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">Over 1.5 tacles</td>
-                <td className="text-center p-3">{stats.winamaxOver15}</td>
-                <td className="text-center p-3">{stats.betclicOver15}</td>
-                <td className="text-center p-3">{stats.unibetOver15}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsOver15}</td>
+                <td className="text-center p-3">{stats.betssonOver15}</td>
+                <td className="text-center p-3">{stats.pmusportOver15}</td>
               </tr>
               <tr className="bg-white">
                 <td className="p-3 font-semibold">Over 2.5 tacles</td>
-                <td className="text-center p-3">{stats.winamaxOver25}</td>
-                <td className="text-center p-3">{stats.betclicOver25}</td>
-                <td className="text-center p-3">{stats.unibetOver25}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsOver25}</td>
+                <td className="text-center p-3">{stats.betssonOver25}</td>
+                <td className="text-center p-3">{stats.pmusportOver25}</td>
               </tr>
             </tbody>
           </table>
@@ -155,14 +155,14 @@ const faqItems = [
             Retrouvez les meilleures cotes pour les paris sur les tacles de {player.name} pendant la CDM 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.winamax.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Winamax <ExternalLink className="w-4 h-4" />
+            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PokerStars Sports <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Betclic <ExternalLink className="w-4 h-4" />
+            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              Betsson <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Unibet <ExternalLink className="w-4 h-4" />
+            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>

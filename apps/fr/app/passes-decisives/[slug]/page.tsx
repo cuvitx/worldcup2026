@@ -25,12 +25,12 @@ function getAssistStats(slug: string) {
     assistsPerMatch,
     keyPassesPerMatch,
     dribblesPerMatch,
-    winamaxAtLeast1: +(3.20 + (seed % 40) / 100).toFixed(2),
-    betclicAtLeast1: +(3.10 + (seed % 35) / 100).toFixed(2),
-    unibetAtLeast1: +(3.30 + (seed % 38) / 100).toFixed(2),
-    winamaxAtLeast2: +(9.00 + (seed % 50) / 10).toFixed(2),
-    betclicAtLeast2: +(8.50 + (seed % 45) / 10).toFixed(2),
-    unibetAtLeast2: +(9.50 + (seed % 55) / 10).toFixed(2),
+    pokerstarssportsAtLeast1: +(3.20 + (seed % 40) / 100).toFixed(2),
+    betssonAtLeast1: +(3.10 + (seed % 35) / 100).toFixed(2),
+    pmusportAtLeast1: +(3.30 + (seed % 38) / 100).toFixed(2),
+    pokerstarssportsAtLeast2: +(9.00 + (seed % 50) / 10).toFixed(2),
+    betssonAtLeast2: +(8.50 + (seed % 45) / 10).toFixed(2),
+    pmusportAtLeast2: +(9.50 + (seed % 55) / 10).toFixed(2),
   };
 }
 export async function generateStaticParams() {
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote passe décisive ${player.name} — CDM 2026`,
-    description: `Cotes et stats passes décisives de ${player.name} pour la Coupe du Monde 2026. Comparatif Winamax, Betclic, Unibet et pronostics.`,
+    description: `Cotes et stats passes décisives de ${player.name} pour la Coupe du Monde 2026. Comparatif PokerStars Sports, Betsson, PMU Sport et pronostics.`,
     alternates: { canonical: `https://www.cdm2026.fr/passes-decisives/${slug}` },
   };
 }
@@ -56,7 +56,7 @@ export default async function PassesDecisivesPage({ params }: PageProps) {
   const stats = getAssistStats(slug);
 const faqItems = [
     { question: `Combien de passes décisives ${player.name} a-t-il en sélection ?`, answer: `${player.name} compte ${stats.assistsTotal} passes décisives en ${player.caps} sélections, soit une moyenne de ${stats.assistsPerMatch} par match.` },
-    { question: `Peut-on parier sur les passes décisives pendant la CDM 2026 ?`, answer: "Oui, les principaux bookmakers (Winamax, Betclic, Unibet) proposent le marché 'au moins 1 passe décisive dans le match' sur les rencontres de la Coupe du Monde." },
+    { question: `Peut-on parier sur les passes décisives pendant la CDM 2026 ?`, answer: "Oui, les principaux bookmakers (PokerStars Sports, Betsson, PMU Sport) proposent le marché 'au moins 1 passe décisive dans le match' sur les rencontres de la Coupe du Monde." },
     { question: "Quelle différence entre passe décisive et key pass ?", answer: "Une passe décisive est une passe qui mène directement à un but. Une key pass (passe clé) est la dernière passe avant un tir, qu'il soit converti ou non." },
     { question: `${player.name} est-il un bon créateur ?`, answer: `Avec ${stats.keyPassesPerMatch} passes clés par match et ${stats.dribblesPerMatch} dribbles réussis par match en sélection, ${player.name} présente un profil ${stats.keyPassesPerMatch > 1.5 ? "très créatif" : "solide en création"}.` },
   ];
@@ -120,23 +120,23 @@ const faqItems = [
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">Marché</th>
-                <th className="text-center p-3">Winamax</th>
-                <th className="text-center p-3">Betclic</th>
-                <th className="text-center p-3">Unibet</th>
+                <th className="text-center p-3">PokerStars Sports</th>
+                <th className="text-center p-3">Betsson</th>
+                <th className="text-center p-3">PMU Sport</th>
               </tr>
             </thead>
             <tbody>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">Au moins 1 passe décisive</td>
-                <td className="text-center p-3">{stats.winamaxAtLeast1}</td>
-                <td className="text-center p-3">{stats.betclicAtLeast1}</td>
-                <td className="text-center p-3">{stats.unibetAtLeast1}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsAtLeast1}</td>
+                <td className="text-center p-3">{stats.betssonAtLeast1}</td>
+                <td className="text-center p-3">{stats.pmusportAtLeast1}</td>
               </tr>
               <tr className="bg-white">
                 <td className="p-3 font-semibold">Au moins 2 passes décisives</td>
-                <td className="text-center p-3">{stats.winamaxAtLeast2}</td>
-                <td className="text-center p-3">{stats.betclicAtLeast2}</td>
-                <td className="text-center p-3">{stats.unibetAtLeast2}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsAtLeast2}</td>
+                <td className="text-center p-3">{stats.betssonAtLeast2}</td>
+                <td className="text-center p-3">{stats.pmusportAtLeast2}</td>
               </tr>
             </tbody>
           </table>
@@ -151,14 +151,14 @@ const faqItems = [
             Comparez les cotes pour les paris passes décisives de {player.name} lors de la CDM 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.winamax.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Winamax <ExternalLink className="w-4 h-4" />
+            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PokerStars Sports <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Betclic <ExternalLink className="w-4 h-4" />
+            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              Betsson <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Unibet <ExternalLink className="w-4 h-4" />
+            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>

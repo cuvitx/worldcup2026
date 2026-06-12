@@ -345,7 +345,7 @@ export default async function PronosticTeamPage({ params }: PageProps) {
                               </p>
                               <p className="text-xs text-gray-500">
                                 J{match.matchday} &middot; {match.date} &middot;{" "}
-                                {match.time} UTC
+                                {match.time} CEST
                               </p>
                             </div>
                           </div>

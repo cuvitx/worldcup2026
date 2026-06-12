@@ -302,7 +302,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             "@type": "SportsEvent",
             name: `${homeName} vs ${awayName} - Copa del Mundo 2026`,
             eventStatus: "https://schema.org/EventScheduled",
-            startDate: `${match.date}T${match.time}:00Z`,
+            startDate: `${match.date}T${match.time}:00+02:00`,
             location: stadium
               ? {
                   "@type": "StadiumOrArena",

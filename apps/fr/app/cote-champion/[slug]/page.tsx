@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 /** Indicative odds per bookmaker based on FIFA ranking */
-function getOdds(fifaRanking: number): { winamax: number; betclic: number; unibet: number } {
+function getOdds(fifaRanking: number): { pokerstarssports: number; betsson: number; pmusport: number } {
   let base: number;
   if (fifaRanking <= 3) base = 5.0;
   else if (fifaRanking <= 6) base = 7.0;
@@ -42,9 +42,9 @@ function getOdds(fifaRanking: number): { winamax: number; betclic: number; unibe
   else if (fifaRanking <= 60) base = 150.0;
   else base = 500.0;
   return {
-    winamax: Math.round(base * 0.95 * 100) / 100,
-    betclic: base,
-    unibet: Math.round(base * 1.05 * 100) / 100,
+    pokerstarssports: Math.round(base * 0.95 * 100) / 100,
+    betsson: base,
+    pmusport: Math.round(base * 1.05 * 100) / 100,
   };
 }
 /** Generate fictional past odds (higher) */
@@ -68,9 +68,9 @@ export default async function CoteChampionPage({ params }: PageProps) {
   if (!team) notFound();
   const prediction = predictionsByTeamId[team.id];
   const odds = getOdds(team.fifaRanking);
-  const pastOdds = getPastOdds(odds.betclic);
+  const pastOdds = getPastOdds(odds.betsson);
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
-  const impliedProb = Math.round((1 / odds.betclic) * 100 * 10) / 10;
+  const impliedProb = Math.round((1 / odds.betsson) * 100 * 10) / 10;
   const estimatedProb = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : null;
   const isValueBet = estimatedProb !== null && estimatedProb > impliedProb;
   const topFavorites = getTopFavorites(team.slug);
@@ -80,7 +80,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
   const faqItems = [
     {
       question: `Quelle est la cote de ${team.name} pour gagner la CDM 2026 ?`,
-      answer: `La cote de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${odds.betclic.toFixed(2)} chez Betclic, ${odds.winamax.toFixed(2)} chez Winamax et ${odds.unibet.toFixed(2)} chez Unibet.`,
+      answer: `La cote de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${odds.betsson.toFixed(2)} chez Betsson, ${odds.pokerstarssports.toFixed(2)} chez PokerStars Sports et ${odds.pmusport.toFixed(2)} chez PMU Sport.`,
     },
     {
       question: `${team.name} est-elle un value bet pour la CDM 2026 ?`,
@@ -90,7 +90,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
     },
     {
       question: `Comment évolue la cote de ${team.name} ?`,
-      answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${odds.betclic.toFixed(2)}. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
+      answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${odds.betsson.toFixed(2)}. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
     },
   ];
   return (
@@ -124,9 +124,9 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
-                  { name: "Winamax", odds: odds.winamax, bk: bookmakers[1] },
-                  { name: "Betclic", odds: odds.betclic, bk: bookmakers[0] },
-                  { name: "Unibet", odds: odds.unibet, bk: bookmakers[3] },
+                  { name: "PokerStars Sports", odds: odds.pokerstarssports, bk: bookmakers[1] },
+                  { name: "Betsson", odds: odds.betsson, bk: bookmakers[0] },
+                  { name: "PMU Sport", odds: odds.pmusport, bk: bookmakers[3] },
                 ].map((item) => (
                   <div key={item.name} className="rounded-lg bg-primary/5 p-4 text-center">
                     <p className="text-sm text-gray-500 mb-1">{item.name}</p>
@@ -157,12 +157,12 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 <ArrowUpDown className="h-5 w-5 text-gray-400" />
                 <div className="text-center">
                   <p className="text-xs text-gray-400">Actuellement</p>
-                  <p className="text-2xl font-bold text-primary">{odds.betclic.toFixed(2)}</p>
+                  <p className="text-2xl font-bold text-primary">{odds.betsson.toFixed(2)}</p>
                 </div>
               </div>
               <p className="mt-4 text-sm text-gray-600">
-                La cote de {team.name} {parseFloat(pastOdds) > odds.betclic ? "a baissé" : "a augmenté"} depuis janvier,
-                {parseFloat(pastOdds) > odds.betclic
+                La cote de {team.name} {parseFloat(pastOdds) > odds.betsson ? "a baissé" : "a augmenté"} depuis janvier,
+                {parseFloat(pastOdds) > odds.betsson
                   ? " ce qui indique que les bookmakers la considèrent comme plus compétitive."
                   : " ce qui suggère une confiance moindre des bookmakers."}
               </p>
@@ -269,7 +269,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                         {team.flag} {team.name}
                       </td>
                       <td className="py-3 pr-4">#{team.fifaRanking}</td>
-                      <td className="py-3 pr-4 font-bold text-primary">{odds.betclic.toFixed(2)}</td>
+                      <td className="py-3 pr-4 font-bold text-primary">{odds.betsson.toFixed(2)}</td>
                       <td className="py-3 font-bold text-accent">{estimatedProb ?? impliedProb}%</td>
                     </tr>
                     {topFavorites.map(({ team: t, prediction: pred }) => {
@@ -282,7 +282,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                             </Link>
                           </td>
                           <td className="py-3 pr-4">#{t.fifaRanking}</td>
-                          <td className="py-3 pr-4 font-bold text-primary">{tOdds.betclic.toFixed(2)}</td>
+                          <td className="py-3 pr-4 font-bold text-primary">{tOdds.betsson.toFixed(2)}</td>
                           <td className="py-3">{pred ? Math.round(pred.winnerProb * 100) : "—"}%</td>
                         </tr>
                       );

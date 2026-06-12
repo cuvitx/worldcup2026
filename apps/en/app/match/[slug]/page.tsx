@@ -59,7 +59,7 @@ export async function generateMetadata({
     description: `${homeName} vs ${awayName}, ${stage} of the 2026 World Cup. On ${new Date(match.date).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" })} at ${stadium?.name ?? "stadium TBC"}.`,
     openGraph: {
       title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""}`,
-      description: `${stage} - WC 2026 | ${match.date} ${match.time} UTC`,
+      description: `${stage} - WC 2026 | ${match.date} ${match.time} CEST`,
     },
   };
 }
@@ -177,7 +177,7 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
               <div className="text-center">
                 <span className="text-3xl font-bold text-gold">VS</span>
-                <p className="mt-1 text-sm text-gray-400">{match.time} UTC</p>
+                <p className="mt-1 text-sm text-gray-400">{match.time} CEST</p>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-6xl">{away?.flag ?? "🏳️"}</span>
@@ -456,7 +456,7 @@ export default async function MatchPage({ params }: PageProps) {
             "@type": "SportsEvent",
             name: `${home?.name ?? "TBD"} vs ${away?.name ?? "TBD"} - World Cup 2026`,
             eventStatus: "https://schema.org/EventScheduled",
-            startDate: `${match.date}T${match.time}:00Z`,
+            startDate: `${match.date}T${match.time}:00+02:00`,
             location: stadium
               ? {
                   "@type": "StadiumOrArena",

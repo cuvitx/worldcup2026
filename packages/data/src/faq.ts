@@ -593,9 +593,9 @@ export const faqItems: FaqItem[] = [
       es: "Cuales son las mejores casas de apuestas legales en Francia para el Mundial 2026?",
     },
     answer: {
-      fr: "En France, seuls les opérateurs agréés par l'ANJ (Autorité Nationale des Jeux) sont autorisés à proposer des paris sportifs en ligne. Parmi les principaux bookmakers légaux, on retrouve Betclic, Winamax, Unibet, ParionsSport (FDJ), ZEbet, PMU Sport et Bwin. Chacun propose des offres de bienvenue différentes : freebets, paris remboursés ou bonus sur dépôt. Pour la Coupe du Monde 2026, ces opérateurs multiplieront les promotions spéciales. Comparez les cotes entre plusieurs sites pour maximiser vos gains potentiels, car les écarts peuvent atteindre 5 à 10% sur certains marchés. Vérifiez toujours que le logo ANJ figure sur le site avant de vous inscrire.",
-      en: "In France, only ANJ-licensed operators can offer online sports betting. Top legal bookmakers include Betclic, Winamax, Unibet, ParionsSport (FDJ), ZEbet, PMU Sport and Bwin. Compare odds across sites as differences can reach 5-10% on some markets. Always check for the ANJ logo.",
-      es: "En Francia, solo los operadores con licencia ANJ pueden ofrecer apuestas deportivas online. Los principales incluyen Betclic, Winamax, Unibet, ParionsSport, ZEbet, PMU Sport y Bwin. Compara cuotas entre sitios.",
+      fr: "En France, seuls les opérateurs agréés par l'ANJ (Autorité Nationale des Jeux) sont autorisés à proposer des paris sportifs en ligne. Parmi les principaux bookmakers légaux, on retrouve PokerStars Sports, Betsson, PMU Sport et Genybet. Chacun propose des offres de bienvenue différentes : freebets, paris remboursés ou bonus sur dépôt. Pour la Coupe du Monde 2026, ces opérateurs multiplieront les promotions spéciales. Comparez les cotes entre plusieurs sites pour maximiser vos gains potentiels, car les écarts peuvent atteindre 5 à 10% sur certains marchés. Vérifiez toujours que le logo ANJ figure sur le site avant de vous inscrire.",
+      en: "In France, only ANJ-licensed operators can offer online sports betting. Top legal bookmakers include PokerStars Sports, Betsson, PMU Sport and Genybet. Compare odds across sites as differences can reach 5-10% on some markets. Always check for the ANJ logo.",
+      es: "En Francia, solo los operadores con licencia ANJ pueden ofrecer apuestas deportivas online. Los principales incluyen PokerStars Sports, Betsson, PMU Sport y Genybet. Compara cuotas entre sitios.",
     },
     category: "betting",
   },

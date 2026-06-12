@@ -238,7 +238,7 @@ export default async function TeamPage({ params }: PageProps) {
                             {isHome ? "vs" : "@"} {opponent?.name ?? "Por determinar"}
                           </p>
                           <p className="text-xs text-gray-500">
-                            J{match.matchday} &middot; {match.time} UTC
+                            J{match.matchday} &middot; {match.time} CEST
                           </p>
                         </div>
                       </Link>

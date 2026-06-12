@@ -93,7 +93,7 @@ export const guides: Guide[] = [
     slug: "meilleurs-sites-paris-sportifs",
     title: "Meilleurs sites de paris sportifs 2026",
     metaTitle: "Meilleurs sites de paris sportifs 2026 | Comparatif & Avis",
-    metaDescription: "Comparatif des meilleurs sites de paris sportifs en France pour 2026. Bonus, cotes, applications et avis detailles sur Betclic, Winamax, Unibet.",
+    metaDescription: "Comparatif des meilleurs sites de paris sportifs en France pour 2026. Bonus, cotes, applications et avis detailles sur PokerStars Sports, Betsson, PMU Sport.",
     intro: "Avec plus d'une dizaine de bookmakers agréés en France, il n'est pas toujours facile de choisir. Nous avons teste et compare les meilleurs sites de paris sportifs pour vous aider a trouver celui qui correspond a votre profil, avec un focus sur la Coupe du Monde 2026.",
     category: "bookmaker",
     relatedGuideIds: ["comment-parier-cdm-2026", "comment-retirer-gains", "guide-parieur-débutant"],

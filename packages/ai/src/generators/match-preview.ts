@@ -181,7 +181,7 @@ function buildMatchContext(data: {
   const lines: string[] = [];
 
   lines.push(`Match: ${data.home.name} vs ${data.away.name}`);
-  lines.push(`Date: ${data.match.date} ${data.match.time} UTC`);
+  lines.push(`Date: ${data.match.date} ${data.match.time} CEST`);
   lines.push(`Stage: ${data.match.stage}${data.match.group ? ` (Group ${data.match.group})` : ""}`);
   if (data.stadium) lines.push(`Venue: ${data.stadium.name}, ${data.stadium.city} (${data.stadium.capacity} capacity)`);
 

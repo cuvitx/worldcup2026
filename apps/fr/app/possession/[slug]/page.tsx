@@ -13,12 +13,12 @@ function getPossessionStats(homeId: string, awayId: string) {
     homePoss: +homePoss, awayPoss,
     homePassAccuracy: +(82 + (seed % 10)).toFixed(0),
     awayPassAccuracy: +(80 + ((seed * 2) % 11)).toFixed(0),
-    winamaxHomeOver55: +(2.40 + (seed % 30) / 100).toFixed(2),
-    betclicHomeOver55: +(2.35 + (seed % 25) / 100).toFixed(2),
-    unibetHomeOver55: +(2.45 + (seed % 28) / 100).toFixed(2),
-    winamaxAwayOver55: +(2.80 + (seed % 35) / 100).toFixed(2),
-    betclicAwayOver55: +(2.75 + (seed % 30) / 100).toFixed(2),
-    unibetAwayOver55: +(2.85 + (seed % 33) / 100).toFixed(2),
+    pokerstarssportsHomeOver55: +(2.40 + (seed % 30) / 100).toFixed(2),
+    betssonHomeOver55: +(2.35 + (seed % 25) / 100).toFixed(2),
+    pmusportHomeOver55: +(2.45 + (seed % 28) / 100).toFixed(2),
+    pokerstarssportsAwayOver55: +(2.80 + (seed % 35) / 100).toFixed(2),
+    betssonAwayOver55: +(2.75 + (seed % 30) / 100).toFixed(2),
+    pmusportAwayOver55: +(2.85 + (seed % 33) / 100).toFixed(2),
   };
 }
 const styleLabel = (poss: number) =>
@@ -124,23 +124,23 @@ const faqItems = [
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">Marché</th>
-                <th className="text-center p-3">Winamax</th>
-                <th className="text-center p-3">Betclic</th>
-                <th className="text-center p-3">Unibet</th>
+                <th className="text-center p-3">PokerStars Sports</th>
+                <th className="text-center p-3">Betsson</th>
+                <th className="text-center p-3">PMU Sport</th>
               </tr>
             </thead>
             <tbody>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">{homeName} &gt;55% possession</td>
-                <td className="text-center p-3">{stats.winamaxHomeOver55}</td>
-                <td className="text-center p-3">{stats.betclicHomeOver55}</td>
-                <td className="text-center p-3">{stats.unibetHomeOver55}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsHomeOver55}</td>
+                <td className="text-center p-3">{stats.betssonHomeOver55}</td>
+                <td className="text-center p-3">{stats.pmusportHomeOver55}</td>
               </tr>
               <tr className="bg-white">
                 <td className="p-3 font-semibold">{awayName} &gt;55% possession</td>
-                <td className="text-center p-3">{stats.winamaxAwayOver55}</td>
-                <td className="text-center p-3">{stats.betclicAwayOver55}</td>
-                <td className="text-center p-3">{stats.unibetAwayOver55}</td>
+                <td className="text-center p-3">{stats.pokerstarssportsAwayOver55}</td>
+                <td className="text-center p-3">{stats.betssonAwayOver55}</td>
+                <td className="text-center p-3">{stats.pmusportAwayOver55}</td>
               </tr>
             </tbody>
           </table>
@@ -153,9 +153,9 @@ const faqItems = [
           <h3 className="text-xl font-bold text-primary mb-4">Parier sur la possession</h3>
           <p className="text-gray-600 mb-6">Comparez les cotes possession pour {homeName} vs {awayName}.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.winamax.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Winamax <ExternalLink className="w-4 h-4" /></a>
-            <a href="https://www.betclic.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betclic <ExternalLink className="w-4 h-4" /></a>
-            <a href="https://www.unibet.fr" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Unibet <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PokerStars Sports <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betsson <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>

@@ -2093,14 +2093,14 @@ Ce nouveau format suscite des débats. Ses partisans y voient une opportunité d
     slug: "paris-sportifs-bonus-bookmakers-coupe-du-monde",
     title: "Paris sportifs CDM 2026 : les meilleurs bonus des bookmakers",
     excerpt: "Les bookmakers rivalisent d'offres spéciales pour la Coupe du Monde 2026. Comparatif des meilleurs bonus disponibles pour les parieurs français.",
-    content: `À l'approche de la Coupe du Monde 2026, les opérateurs de paris sportifs agréés en France déploient des offres promotionnelles exceptionnelles. Betclic propose un bonus de bienvenue allant jusqu'à 100€ en freebets, tandis que Winamax offre jusqu'à 100€ de paris gratuits.
+    content: `À l'approche de la Coupe du Monde 2026, les opérateurs de paris sportifs agréés en France déploient des offres promotionnelles exceptionnelles. PokerStars Sports propose un bonus de bienvenue allant jusqu'à 100€ en freebets, tandis que Betsson offre jusqu'à 100€ de paris gratuits.
 
-Parier-Foot a analysé les différentes offres disponibles : Unibet se distingue avec un cashback de 50€ sur le premier pari, et PMU Sport propose des cotes boostées sur tous les matchs de l'équipe de France. Les offres sont valables pour les nouveaux inscrits majeurs.
+Parier-Foot a analysé les différentes offres disponibles : PMU Sport se distingue avec un cashback de 50€ sur le premier pari, et Genybet propose des cotes boostées sur tous les matchs de l'équipe de France. Les offres sont valables pour les nouveaux inscrits majeurs.
 
 Rappelons que les paris sportifs comportent des risques de dépendance et d'endettement. Il est essentiel de jouer de manière responsable et de ne jamais parier plus que ce que l'on peut se permettre de perdre. Le numéro d'aide est le 09 74 75 13 13 (appel non surtaxé).`,
     date: "2026-01-20",
     category: "paris",
-    tags: ["bonus", "bookmakers", "Betclic", "Winamax", "offres"],
+    tags: ["bonus", "bookmakers", "PokerStars Sports", "Betsson", "offres"],
     imageEmoji: "🎰",
   },
   {
@@ -2455,7 +2455,7 @@ Pour les scores en direct et la couverture générale, plusieurs applications se
 
 Pour regarder les matchs en streaming, les applications des chaînes françaises sont essentielles. TF1+ (application gratuite, compte requis) permettra de regarder tous les matchs diffusés par TF1 en live et en replay. France.tv propose le même service pour les matchs de France Télévisions. L'application beIN Sports (abonnement requis) offre l'intégralité de la couverture de la compétition. Pour les possesseurs d'Apple TV, Amazon Fire Stick ou Chromecast, ces applications sont également disponibles pour streamer sur grand écran.
 
-Pour les amateurs de paris sportifs, les applications des bookmakers (Winamax, Unibet, PMU, Betclic, Bwin) proposent en temps réel les cotes sur tous les matchs, avec des options de paris en direct (live betting) pendant les matchs. Ces applications envoient des notifications push pour signaler les changements de cotes importants et les offres promotionnelles. Rappelons que le jeu doit rester un divertissement — jouer de manière responsable est essentiel. 18+, 09 74 75 13 13.
+Pour les amateurs de paris sportifs, les applications des bookmakers (PokerStars Sports, Betsson, PMU Sport, Genybet) proposent en temps réel les cotes sur tous les matchs, avec des options de paris en direct (live betting) pendant les matchs. Ces applications envoient des notifications push pour signaler les changements de cotes importants et les offres promotionnelles. Rappelons que le jeu doit rester un divertissement — jouer de manière responsable est essentiel. 18+, 09 74 75 13 13.
 
 Sur les réseaux sociaux, Twitter/X reste la plateforme de référence pour suivre l'actualité foot en temps réel, avec des fils dédiés aux matchs, les réactions des joueurs et les analyses d'experts. Instagram et TikTok proposent des highlights et des contenus courts des moments forts. YouTube et Instagram des équipes nationales et des joueurs offrent des coulisses exclusives. Enfin, pour les supporters qui veulent participer à la communauté de supporters français pendant la Coupe du Monde, des groupes WhatsApp et Telegram spécialisés permettent de partager réactions, pronostics et bonne humeur avec d'autres fans des Bleus. Notre site cdm2026.fr propose également une application web progressive (PWA) avec simulateur de groupes, comparateur d'équipes et analyses détaillées pour les fans les plus passionnés.`,
     date: "2026-02-07",
@@ -2478,7 +2478,7 @@ Pour les marchés à long terme ("Outright"), vous pouvez parier sur le vainqueu
 
 Les paris en direct (live betting) sont devenus très populaires. Pendant un match, les cotes évoluent en temps réel en fonction de l'action sur le terrain. Si une équipe encaisse un but rapidement, les cotes pour sa victoire augmentent, offrant potentiellement de bonnes opportunités. Cependant, les décisions rapides sous l'adrénaline peuvent être dangereuses — fixez-vous une mise maximale avant le match et ne la dépassez pas.
 
-Quelques conseils pratiques pour les débutants : commencez par des mises modestes (1 à 5€) le temps de comprendre le fonctionnement ; comparez les cotes sur plusieurs opérateurs (Winamax, Unibet, PMU, Betclic, Bwin proposent tous des cotes légèrement différentes) ; profitez des offres de bienvenue des bookmakers (bonus sur premier dépôt) mais lisez attentivement les conditions ; fixez-vous un budget maximum pour la Coupe du Monde et ne le dépassez jamais ; ne jamais parier pour "récupérer" ses pertes (c'est la spirale du jeu problématique). Les paris sportifs sont un divertissement, pas une stratégie d'investissement. Si vous pensez avoir des comportements problématiques, contactez le 09 74 75 13 13 (numéro national de prévention du jeu). Jouez de manière responsable. 18+.`,
+Quelques conseils pratiques pour les débutants : commencez par des mises modestes (1 à 5€) le temps de comprendre le fonctionnement ; comparez les cotes sur plusieurs opérateurs (PokerStars Sports, Betsson, PMU Sport, Genybet proposent tous des cotes légèrement différentes) ; profitez des offres de bienvenue des bookmakers (bonus sur premier dépôt) mais lisez attentivement les conditions ; fixez-vous un budget maximum pour la Coupe du Monde et ne le dépassez jamais ; ne jamais parier pour "récupérer" ses pertes (c'est la spirale du jeu problématique). Les paris sportifs sont un divertissement, pas une stratégie d'investissement. Si vous pensez avoir des comportements problématiques, contactez le 09 74 75 13 13 (numéro national de prévention du jeu). Jouez de manière responsable. 18+.`,
     date: "2026-02-06",
     category: "paris",
     tags: ["paris sportifs", "cotes", "guide", "débutant", "bookmakers", "stratégie"],

@@ -33,10 +33,9 @@ function dateToFrench(dateStr: string): string {
 }
 
 function utcToFrParis(time: string): string {
-  // time is "HH:MM" UTC, tournament is June-July → CEST = UTC+2
+  // Times are already in Europe/Paris (CEST) — just reformat with French "h"
   const [h, m] = time.split(":").map(Number);
-  const frH = ((h ?? 0) + 2) % 24;
-  return `${String(frH).padStart(2, "0")}h${String(m ?? 0).padStart(2, "0")}`;
+  return `${String(h ?? 0).padStart(2, "0")}h${String(m ?? 0).padStart(2, "0")}`;
 }
 
 function stageLabel(stage: string, group?: string): string {

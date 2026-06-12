@@ -121,7 +121,7 @@ const faqItems = [
   {
     question: "Qu'est-ce qu'un boost combiné ?",
     answer:
-      "Un boost combiné est une promotion où le bookmaker augmente vos gains si votre combiné est gagnant (ex : +10% pour 3 sélections, +30% pour 5+). Winamax et Betclic proposent régulièrement ce type de boost pendant les grandes compétitions.",
+      "Un boost combiné est une promotion où le bookmaker augmente vos gains si votre combiné est gagnant (ex : +10% pour 3 sélections, +30% pour 5+). PokerStars Sports et Betsson proposent régulièrement ce type de boost pendant les grandes compétitions.",
   },
   {
     question: "Vaut-il mieux un combiné ou un system ?",
