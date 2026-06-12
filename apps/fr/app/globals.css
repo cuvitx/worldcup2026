@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* Disable dark mode entirely — override Tailwind v4 default (prefers-color-scheme) */
+@custom-variant dark (&:where(.force-light));
 
 /* Button vertical centering is now handled inline via Tailwind classes (inline-flex items-center justify-center) */
 
