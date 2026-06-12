@@ -400,19 +400,19 @@ header.hero-animated {
   background-size: 24px 24px;
   pointer-events: none;
 }
-/* Force readable text colors inside hero sections */
-.hero-animated .text-muted-foreground,
-.hero-animated .text-gray-500,
-.hero-animated .text-gray-600,
-.hero-animated .text-gray-700 {
+/* Force readable text colors inside hero sections (not header) */
+section.hero-animated .text-muted-foreground,
+section.hero-animated .text-gray-500,
+section.hero-animated .text-gray-600,
+section.hero-animated .text-gray-700 {
   color: rgba(255, 255, 255, 0.7) !important;
 }
-.hero-animated .text-foreground,
-.hero-animated .text-gray-800,
-.hero-animated .text-gray-900 {
+section.hero-animated .text-foreground,
+section.hero-animated .text-gray-800,
+section.hero-animated .text-gray-900 {
   color: #fff !important;
 }
-.hero-animated .text-accent {
+section.hero-animated .text-accent {
   color: #fff !important;
 }
 /* Gold glow removed — Xavier finds it outdated */
