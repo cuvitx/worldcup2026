@@ -77,8 +77,8 @@ export default function ActualitesPage() {
       answer: "Oui, la France s'est qualifiée pour la Coupe du Monde 2026 en terminant première de son groupe lors des éliminatoires européens. Les Bleus, vice-champions du monde 2022 et champions du monde 2018, font partie des grands favoris du tournoi. Sous la direction de Didier Deschamps, l'équipe dispose d'un effectif exceptionnel avec Kylian Mbappé, Antoine Griezmann, Aurélien Tchouaméni et de nombreux jeunes talents."
     },
     {
-      question: "Quand aura lieu le tirage au sort des groupes de la CDM 2026 ?",
-      answer: "Le tirage au sort de la phase de groupes de la Coupe du Monde 2026 aura lieu en décembre 2025 ou janvier 2026 (date exacte à confirmer par la FIFA). Il déterminera la composition des 12 groupes de 4 équipes et définira le calendrier des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 équipes européennes par groupe, etc.)."
+      question: "Quand a eu lieu le tirage au sort des groupes de la CDM 2026 ?",
+      answer: "Le tirage au sort de la phase de groupes de la Coupe du Monde 2026 a eu lieu en décembre 2025. Il a déterminé la composition des 12 groupes de 4 équipes et définira le calendrier des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 équipes européennes par groupe, etc.)."
     }
   ];
 

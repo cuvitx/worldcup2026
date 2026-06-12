@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Users, Clock, ArrowRight, ClipboardList } from "lucide-react";
+import { Users, CheckCircle, ArrowRight, ClipboardList } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Listes des 26 joueurs CDM 2026 — Sélections par équipe",
   description:
-    "Les listes officielles des 26 joueurs sélectionnés par chaque équipe pour la Coupe du Monde 2026. Annonces prévues en mai 2026.",
+    "Les listes officielles des 26 joueurs sélectionnés par chaque équipe pour la Coupe du Monde 2026. Listes officielles confirmées pour le tournoi.",
   alternates: { canonical: "https://www.cdm2026.fr/selections-listes" },
   openGraph: {
     title: "Listes des 26 — Sélections CDM 2026",
-    description: "Les 26 joueurs de chaque équipe pour la CDM 2026. Annonces en mai 2026.",
+    description: "Les 26 joueurs de chaque équipe pour la CDM 2026. Listes officielles confirmées.",
     url: "https://www.cdm2026.fr/selections-listes",
   },
 };
@@ -27,8 +27,8 @@ const teams = [
 export default function SelectionsListesPage() {
   const faqItems = [
     {
-      question: "Quand les listes des 26 seront-elles annoncées ?",
-      answer: "Les sélectionneurs nationaux communiqueront leurs listes de 26 joueurs à la FIFA courant mai 2026, généralement 2 à 3 semaines avant le début de la compétition le 11 juin 2026.",
+      question: "Quand les listes des 26 ont-elles été annoncées ?",
+      answer: "Les sélectionneurs nationaux ont communiqué leurs listes de 26 joueurs à la FIFA en mai 2026, quelques semaines avant le début de la compétition le 11 juin 2026.",
     },
     {
       question: "Pourquoi 26 joueurs et pas 23 ?",
@@ -60,14 +60,13 @@ export default function SelectionsListesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Banner à venir */}
         <div className="flex items-center gap-4 rounded-xl bg-accent/10 border border-accent/30 p-6">
-          <Clock className="h-8 w-8 text-accent shrink-0" />
+          <CheckCircle className="h-8 w-8 text-accent shrink-0" />
           <div>
             <h2 className="text-lg font-bold text-primary">
-              Annonces prévues en mai 2026
+              Listes officielles confirmées
             </h2>
             <p className="text-sm text-gray-600 mt-1">
-              Les listes officielles des 26 joueurs seront publiées par chaque fédération environ
-              3 semaines avant le coup d&apos;envoi. Cette page sera mise à jour en temps réel.
+              Les listes officielles des 26 joueurs ont été publiées par chaque fédération. Cette page est mise à jour au fil du tournoi.
             </p>
           </div>
         </div>

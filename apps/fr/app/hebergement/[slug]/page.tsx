@@ -55,7 +55,7 @@ export default async function HebergementPage({ params }: PageProps) {
   if (!city) notFound();
   const quartiers = getQuartiers(slug);
 const faqItems = [
-    { question: `Quel budget prévoir pour se loger à ${city.name} pendant la CDM 2026 ?`, answer: `Comptez 80-120€/nuit en budget, 150-250€ en gamme moyenne, et 300-500€ pour du premium. Les prix augmenteront fortement à l'approche du tournoi.` },
+    { question: `Quel budget prévoir pour se loger à ${city.name} pendant la CDM 2026 ?`, answer: `Comptez 80-120€/nuit en budget, 150-250€ en gamme moyenne, et 300-500€ pour du premium. Les prix ont fortement augmenté pour la durée du tournoi.` },
     { question: "Vaut-il mieux un hôtel ou un Airbnb ?", answer: "Les hôtels offrent plus de services (room service, conciergerie) et de flexibilité d'annulation. Les Airbnb permettent plus d'espace et une cuisine, idéal pour les groupes et les séjours longs." },
     { question: "Quand réserver son hébergement ?", answer: "Le plus tôt possible ! Les hébergements à proximité des stades se remplissent très vite. Réservez maintenant avec annulation gratuite pour sécuriser votre place." },
     { question: `Quel quartier choisir à ${city.name} ?`, answer: `Cela dépend de vos priorités : proximité du stade, vie nocturne, budget. Consultez notre guide des quartiers ci-dessus pour trouver l'option idéale.` },

@@ -51,7 +51,7 @@ const faqItems = [
   {
     question: "Quels sont les favoris pour la finale 2026 ?",
     answer:
-      "Les principaux favoris selon les bookmakers sont le Brésil (cote ~5.50), l'Argentine (cote ~6.00), la France (cote ~6.50), l'Angleterre (cote ~7.00), l'Espagne (cote ~8.00) et l'Allemagne (cote ~10.00). Les cotes évolueront à l'approche du tournoi.",
+      "Les principaux favoris selon les bookmakers sont le Brésil (cote ~5.50), l'Argentine (cote ~6.00), la France (cote ~6.50), l'Angleterre (cote ~7.00), l'Espagne (cote ~8.00) et l'Allemagne (cote ~10.00). Les cotes évoluent au fil du tournoi.",
   },
   {
     question: "Comment regarder la finale en France ?",

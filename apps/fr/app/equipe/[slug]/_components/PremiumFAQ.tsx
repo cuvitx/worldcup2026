@@ -41,7 +41,7 @@ function generateFAQItems(team: Team, prediction?: Prediction, winnerOdds?: stri
   // Question 4: Ranking FIFA
   items.push({
     question: `Quel est le classement FIFA de ${team.name} ?`,
-    answer: `${team.name} occupe la ${team.fifaRanking}ᵉ place au classement FIFA (janvier 2026). L'équipe représente la confédération ${team.confederation}.`,
+    answer: `${team.name} occupe la ${team.fifaRanking}ᵉ place au classement FIFA (juin 2026). L'équipe représente la confédération ${team.confederation}.`,
   });
 
   // Question 5: Host status

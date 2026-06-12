@@ -23,11 +23,11 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: "Quelle est la mascotte de la Coupe du Monde 2026 ?",
-    answer: "La mascotte officielle de la Coupe du Monde 2026 sera annoncée par la FIFA courant 2025. Traditionnellement, les mascottes sont dévoilées environ un an avant le début du tournoi. Restez connectés pour découvrir le personnage qui incarnera l'esprit de cette édition historique à 48 équipes."
+    answer: "La mascotte officielle de la Coupe du Monde 2026 a été dévoilée par la FIFA en 2025. Traditionnellement, les mascottes sont dévoilées environ un an avant le début du tournoi. Découvrez le personnage qui incarne l'esprit de cette édition historique à 48 équipes."
   },
   {
     question: "Quand la mascotte de la CDM 2026 sera-t-elle révélée ?",
-    answer: "La FIFA n'a pas encore annoncé la date exacte de présentation de la mascotte 2026. Selon les éditions précédentes, elle devrait être dévoilée entre avril et juin 2025, soit environ un an avant le coup d'envoi du tournoi le 11 juin 2026. Un événement spécial est généralement organisé pour cette révélation."
+    answer: "La mascotte de la CDM 2026 a été présentée par la FIFA en 2025, conformément à la tradition."
   },
   {
     question: "Quelle était la mascotte de la Coupe du Monde 2022 ?",
@@ -77,8 +77,8 @@ export default function MascottePage() {
               Un symbole attendu pour 2026
             </h2>
             <p className="text-gray-700 mb-3 leading-relaxed">
-              La <strong>mascotte officielle de la Coupe du Monde 2026</strong> n'a pas encore été révélée par la FIFA.
-              Selon la tradition, elle devrait être dévoilée au cours de l'année 2025, environ 12 à 18 mois avant le coup d'envoi
+              La <strong>mascotte officielle de la Coupe du Monde 2026</strong> a été dévoilée par la FIFA en 2025,
+              environ 12 à 18 mois avant le coup d'envoi
               du tournoi le <strong>11 juin 2026</strong>.
             </p>
             <p className="text-gray-700 mb-3 leading-relaxed">

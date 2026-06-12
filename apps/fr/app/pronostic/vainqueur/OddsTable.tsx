@@ -15,7 +15,7 @@ export function OddsTable() {
           Cotes vainqueur CDM 2026 — Multi-bookmakers
         </h2>
         <p className="text-sm text-gray-600 mb-1">
-          Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700">février 2026</span>.
+          Cotes décimales réelles collectées auprès de Winamax, Bet365 et DraftKings. Mises à jour : <span className="font-semibold text-gray-700">juin 2026</span>.
         </p>
         <p className="text-xs text-gray-600 mb-6">
           ↑ Tendance haussière vs. cotes d&apos;ouverture (déc. 2025) · ↓ Tendance baissière · → Stable

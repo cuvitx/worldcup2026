@@ -70,14 +70,14 @@ const faqItems = [
       answer: "Chaque sélection peut convoquer 26 joueurs pour la Coupe du Monde 2026, dont 3 gardiens obligatoires.",
     },
     {
-      question: `Quand sera annoncée la liste définitive de ${team.name} ?`,
-      answer: `La liste définitive des 26 joueurs de ${team.name} sera annoncée par le sélectionneur en mai 2026, quelques semaines avant le début du tournoi (11 juin 2026).`,
+      question: `Quand a été annoncée la liste définitive de ${team.name} ?`,
+      answer: `La liste définitive des 26 joueurs de ${team.name} a été annoncée par le sélectionneur en mai 2026, avant le début du tournoi le 11 juin 2026.`,
     },
     {
       question: `Qui sont les joueurs stars de ${team.name} ?`,
       answer: stars.length > 0
         ? `Les joueurs les plus expérimentés de ${team.name} sont : ${stars.map((s) => `${s.name} (${s.caps} sél.)`).join(", ")}.`
-        : `La liste des joueurs de ${team.name} sera complétée à l'approche du tournoi.`,
+        : `La liste des joueurs de ${team.name} est celle retenue pour la Coupe du Monde 2026.`,
     },
     {
       question: `Un joueur blessé peut-il être remplacé ?`,
@@ -108,7 +108,7 @@ const faqItems = [
         {/* Disclaimer */}
         <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 mb-8">
           <p className="text-sm text-gray-700 font-medium">
-            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste provisoire</strong> — sera confirmée par le sélectionneur en mai 2026. Les joueurs listés ci-dessous sont les plus probables selon les dernières convocations.
+            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 joueurs sélectionnés pour la Coupe du Monde 2026.
           </p>
         </div>
         <div className="grid gap-8 lg:grid-cols-3">
@@ -193,7 +193,7 @@ const faqItems = [
               <section className="rounded-xl bg-white p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">
-                  La liste des joueurs de {team.name} sera disponible prochainement.
+                  La liste des joueurs de {team.name} n'est pas encore disponible.
                 </p>
               </section>
             )}
@@ -232,7 +232,7 @@ const faqItems = [
                 Absents notables / Blessés
               </h2>
               <p className="text-sm text-gray-500 italic">
-                Cette section sera mise à jour à l&apos;approche du tournoi, lorsque les listes définitives seront connues et que les blessures pré-tournoi seront confirmées.
+                Cette section est mise à jour au fil du tournoi, en fonction des blessures et remplacements officiels.
               </p>
               <div className="mt-4 rounded-lg bg-gray-50/30 p-4">
                 <p className="text-sm text-gray-400">Aucun absent notable confirmé pour le moment.</p>

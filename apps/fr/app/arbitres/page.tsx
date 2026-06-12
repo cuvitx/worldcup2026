@@ -121,7 +121,7 @@ export default function ArbitresPage() {
             </table>
           </div>
           <p className="mt-4 text-xs text-gray-500">
-            Liste indicative basée sur les récentes désignations FIFA. La liste officielle sera publiée courant 2026.
+            Liste indicative basée sur les récentes désignations FIFA. Liste mise à jour au fil du tournoi.
           </p>
         </section>
 

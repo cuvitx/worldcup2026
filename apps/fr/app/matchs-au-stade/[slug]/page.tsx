@@ -111,7 +111,7 @@ const faqItems = [
           </table>
         </div>
         {stadiumMatches.length === 0 && (
-          <p className="text-accent text-center py-8">Le programme des matchs pour ce stade sera annoncé prochainement.</p>
+          <p className="text-accent text-center py-8">Le programme des matchs pour ce stade n'est pas encore disponible.</p>
         )}
       </section>
       {/* CTA */}

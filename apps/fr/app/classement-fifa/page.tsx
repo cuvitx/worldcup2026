@@ -35,7 +35,7 @@ const faqItems = [
   },
   {
     question: "Quel est le pays #1 au classement FIFA en 2026 ?",
-    answer: "L'Argentine occupe la première place du classement FIFA au 19 janvier 2026, suivie de la France (#2) et de l'Espagne (#3). Les champions du monde 2022 ont consolidé leur position grâce à leur victoire au Qatar et leurs performances régulières en qualifications."
+    answer: "L'Argentine occupe la première place du classement FIFA en juin 2026, suivie de la France (#2) et de l'Espagne (#3). Les champions du monde 2022 ont consolidé leur position grâce à leur victoire au Qatar et leurs performances régulières en qualifications."
   },
   {
     question: "Le classement FIFA influence-t-il le tirage au sort ?",
@@ -109,7 +109,7 @@ export default function ClassementFifaPage() {
           {/* Tableau classement FIFA */}
           <div className="mb-12">
             <h2 id="classement-complet" className="text-2xl font-bold text-gray-900 mb-6">
-              Classement FIFA complet (19 janvier 2026)
+              Classement FIFA complet (juin 2026)
             </h2>
             
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">

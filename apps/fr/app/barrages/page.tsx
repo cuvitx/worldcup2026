@@ -200,8 +200,7 @@ export default function BarragesPage() {
           <div className="mt-6 flex items-start gap-3 rounded-xl bg-yellow-50 border border-yellow-200 p-4">
             <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 shrink-0" />
             <p className="text-sm text-yellow-800">
-              Les équipes et lieux exacts seront confirmés à l&apos;issue des qualifications de chaque
-              confédération. Cette page sera mise à jour dès les résultats connus.
+              Les qualifications sont terminées. Les 48 équipes sont confirmées.
             </p>
           </div>
         </section>

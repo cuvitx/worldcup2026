@@ -150,7 +150,7 @@ const faqItems = [
   { question: "Peut-on regarder la CDM 2026 sur téléphone ?", answer: "Oui. TF1+, M6+, beIN Connect, myCANAL et Molotov proposent tous des applications mobiles iOS et Android. Les matchs gratuits sur TF1+ et M6+ ne nécessitent aucun abonnement." },
   { question: "La CDM 2026 est-elle diffusée gratuitement dans d'autres pays ?", answer: "Oui ! Au Royaume-Uni (BBC iPlayer + ITVX), en Allemagne (ARD/ZDF Mediathek), en Espagne (RTVE Play), en Italie (RaiPlay), au Brésil (Globoplay) et au Mexique (Televisa/TV Azteca) — la Coupe du Monde est diffusée gratuitement sur les chaînes publiques." },
   { question: "Quelles chaînes diffusent la CDM 2026 aux États-Unis ?", answer: "Fox Sports (en anglais) et Telemundo (en espagnol) détiennent les droits TV aux États-Unis. Le streaming est disponible sur Peacock (NBC) et Tubi (Fox). Telemundo est accessible gratuitement." },
-  { question: "Existe-t-il des fan zones en France pour la CDM 2026 ?", answer: "Les fan zones officielles seront annoncées par les municipalités et la FFF. Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants. Les bars sportifs retransmettront également tous les matchs." },
+  { question: "Existe-t-il des fan zones en France pour la CDM 2026 ?", answer: "Les fan zones officielles sont annoncées par les municipalités et la FFF. Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants. Les bars sportifs retransmettront également tous les matchs." },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -229,7 +229,7 @@ export default function OuRegarderPage() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">Fan zones officielles</h3>
                 <p className="text-gray-600 mt-1 text-sm">
-                  Les fan zones officielles en France seront annoncées prochainement par les municipalités et la FFF.
+                  Les fan zones officielles en France sont annoncées par les municipalités et la FFF.
                   Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants et des animations.
                 </p>
                 <p className="text-sm text-gray-500 mt-3 italic">

@@ -28,10 +28,10 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
     <section id="effectif" className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Effectif probable — {players.length} joueurs
+          Effectif officiel — {players.length} joueurs
         </h2>
         <p className="text-sm text-gray-500 mb-6">
-          Sélection probable pour {teamName} à la CDM 2026. Mis à jour en février 2026.
+          Effectif officiel de {teamName} à la CDM 2026. Mis à jour en juin 2026.
         </p>
 
         <div className="space-y-6">
@@ -78,7 +78,7 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
         {players.length === 0 && (
           <div className="text-center py-8">
             <p className="text-gray-500">
-              L&apos;effectif sera annoncé prochainement.
+              L&apos;effectif n&apos;est pas encore disponible.
             </p>
           </div>
         )}

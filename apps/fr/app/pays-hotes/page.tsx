@@ -301,7 +301,7 @@ export default function PaysHotesPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span>Réservez tôt : prix explosent à l'approche du tournoi</span>
+                    <span>Les prix ont explosé pendant le tournoi</span>
                   </li>
                 </ul>
               </div>

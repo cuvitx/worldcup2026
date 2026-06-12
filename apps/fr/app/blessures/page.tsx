@@ -48,8 +48,8 @@ const statusConfig: Record<Status, { bg: string; text: string; icon: typeof Shie
 export default function BlessuresPage() {
   const faqItems = [
     {
-      question: "Quand les listes officielles des 26 joueurs seront-elles publiées ?",
-      answer: "Les sélectionneurs doivent communiquer leur liste de 26 joueurs à la FIFA en mai 2026, environ 2 à 3 semaines avant le début du tournoi le 11 juin 2026.",
+      question: "Quand les listes officielles des 26 joueurs ont-elles été publiées ?",
+      answer: "Les sélectionneurs ont communiqué leur liste de 26 joueurs à la FIFA en mai 2026, quelques semaines avant le début du tournoi le 11 juin 2026.",
     },
     {
       question: "Un joueur blessé peut-il être remplacé après l'annonce de la liste ?",
@@ -57,7 +57,7 @@ export default function BlessuresPage() {
     },
     {
       question: "Ces informations sont-elles à jour ?",
-      answer: "Cette page est mise à jour régulièrement en fonction des informations disponibles. Les statuts définitifs ne seront confirmés qu'à l'annonce des listes officielles en mai 2026.",
+      answer: "Cette page est mise à jour régulièrement en fonction des informations disponibles. Les statuts sont mis à jour en fonction des informations officielles pendant le tournoi.",
     },
   ];
 
@@ -145,7 +145,7 @@ export default function BlessuresPage() {
           <div className="mt-6 flex items-start gap-3 rounded-xl bg-blue-50 border border-blue-200 p-4">
             <Clock className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
             <p className="text-sm text-blue-800">
-              Dernière mise à jour : février 2026. Les statuts seront actualisés à l&apos;approche de la CDM.
+              Dernière mise à jour : juin 2026. Les statuts sont actualisés pendant le tournoi.
             </p>
           </div>
         </section>
