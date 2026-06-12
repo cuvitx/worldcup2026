@@ -108,7 +108,7 @@ export default async function H2HPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             {/* Comparison — visual face-to-face */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Comparaison</h2>
               <div className="space-y-4">
                 {[
@@ -154,7 +154,7 @@ export default async function H2HPage({ params }: PageProps) {
             </section>
 
             {/* Historical H2H */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Historique des confrontations</h2>
               {h2h && h2h.totalMatches > 0 ? (
                 <>
@@ -197,7 +197,7 @@ export default async function H2HPage({ params }: PageProps) {
             </section>
 
             {/* Prediction */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Pronostic</h2>
               {matchPred ? (
                 <>

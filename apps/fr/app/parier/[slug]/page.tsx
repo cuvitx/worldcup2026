@@ -111,7 +111,7 @@ const faqItems = [
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-10">
             {/* Cote victoire finale */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Trophy className="h-6 w-6 text-accent" />
                 Cote victoire finale {team.name}
@@ -140,7 +140,7 @@ const faqItems = [
               </p>
             </section>
             {/* Calendrier des matchs */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Calendar className="h-6 w-6 text-accent" />
                 Calendrier des matchs — Groupe {team.group}
@@ -179,7 +179,7 @@ const faqItems = [
               </p>
             </section>
             {/* Meilleures cotes */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <TrendingUp className="h-6 w-6 text-accent" />
                 Meilleures cotes {team.name} CDM 2026
@@ -220,7 +220,7 @@ const faqItems = [
             </section>
             {/* Joueurs clés */}
             {keyPlayers.length > 0 && (
-              <section className="rounded-xl bg-white p-6 shadow-sm">
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                   <Star className="h-6 w-6 text-accent" />
                   Joueurs clés à suivre
@@ -243,7 +243,7 @@ const faqItems = [
               </section>
             )}
             {/* Paris recommandés */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <ShieldCheck className="h-6 w-6 text-accent" />
                 Paris recommandés sur {team.name}
@@ -300,7 +300,7 @@ const faqItems = [
           {/* Sidebar */}
           <aside className="space-y-6">
             {/* Quick links */}
-            <div className="rounded-xl bg-white p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -336,7 +336,7 @@ const faqItems = [
               </ul>
             </div>
             {/* Bookmaker sidebar */}
-            <div className="rounded-xl bg-white p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Meilleurs bookmakers</h3>
               <div className="space-y-3">
                 {bookmakers.slice(0, 4).map((bk) => (

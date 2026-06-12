@@ -299,7 +299,7 @@ export default function ButeursPage() {
         </section>
 
         {/* Top Scorer Ranking */}
-        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Favoris pour le Soulier d&apos;Or</h2>
           <p className="mb-6 text-sm text-gray-600">
             Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la Coupe du Monde 2026.
@@ -350,7 +350,7 @@ export default function ButeursPage() {
         </section>
 
         {/* All scorers by expected goals */}
-        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Tous les buteurs potentiels</h2>
           <p className="mb-6 text-sm text-gray-600">
             Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
@@ -383,7 +383,7 @@ export default function ButeursPage() {
         </section>
 
         {/* By Team */}
-        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Buteurs par équipe</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams

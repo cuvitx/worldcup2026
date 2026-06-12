@@ -39,7 +39,7 @@ export function BookmakerCTA({ variant = "inline", bookmaker }: BookmakerCTAProp
           href={bk.url}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
-          className="group block rounded-2xl bg-gradient-to-r from-primary to-accent p-5 sm:p-6 text-white transition-shadow hover:shadow-lg"
+          className="group block rounded-2xl bg-gradient-to-r from-primary to-accent p-4 sm:p-6 text-white transition-shadow hover:shadow-lg"
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>

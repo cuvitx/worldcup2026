@@ -80,7 +80,7 @@ export default async function GuidePage({ params }: PageProps) {
             {/* Sections with interleaved CTAs */}
             {guide.sections.map((section, i) => (
               <div key={i}>
-                <section id={`section-${i}`} className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+                <section id={`section-${i}`} className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <span className="text-2xl">{sectionIcons[i % sectionIcons.length]}</span>
                     {section.title}
@@ -111,7 +111,7 @@ export default async function GuidePage({ params }: PageProps) {
             ))}
 
             {/* Bookmaker CTA block */}
-            <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Meilleurs bookmakers pour la CDM 2026
               </h2>
@@ -164,7 +164,7 @@ export default async function GuidePage({ params }: PageProps) {
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides recommandes</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {relatedGuides.map((rg) => (
@@ -183,7 +183,7 @@ export default async function GuidePage({ params }: PageProps) {
 
             {/* Other Guides */}
             {guides.filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id)).length > 0 && (
-              <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides liés</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guides

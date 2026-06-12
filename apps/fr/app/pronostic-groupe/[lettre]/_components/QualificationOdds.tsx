@@ -17,7 +17,7 @@ interface QualificationOddsProps {
 
 export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
   return (
-    <section className="rounded-xl bg-white p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4"> Cotes de qualification (estimées)</h2>
       <p className="text-xs text-gray-400 mb-4">
         Cotes calculées à partir des probabilités ELO avec marge bookmaker (8%). À titre indicatif.

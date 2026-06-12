@@ -72,7 +72,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
     "px-3 py-2 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide cursor-pointer select-none hover:text-primary transition-colors";
 
   return (
-    <div className="overflow-x-auto -mx-6 px-6">
+    <div className="overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6">
       <table className="w-full text-sm min-w-[540px]">
         <thead>
           <tr className="bg-gray-50 text-xs uppercase text-gray-500border-b border-gray-200">

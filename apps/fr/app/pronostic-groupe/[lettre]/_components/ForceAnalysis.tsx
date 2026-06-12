@@ -20,7 +20,7 @@ interface ForceAnalysisProps {
 
 export function ForceAnalysis({ sortedTeams, groupLetter }: ForceAnalysisProps) {
   return (
-    <section className="rounded-xl bg-white p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse des forces en présence</h2>
       <div className="space-y-4">
         {sortedTeams.map(({ team, pred }) => (

@@ -35,7 +35,7 @@ export default function TeamsPage() {
         <ConfederationFilter teams={sorted} />
 
         {/* Ranking Table */}
-        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200 mb-10 mt-10">
+        <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200 mb-10 mt-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Classement FIFA des 48 équipes</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">

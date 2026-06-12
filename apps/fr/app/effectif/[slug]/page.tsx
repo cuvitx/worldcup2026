@@ -111,16 +111,16 @@ const faqItems = [
             <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 joueurs sélectionnés pour la Coupe du Monde 2026.
           </p>
         </div>
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
             {/* Stars */}
             {stars.length > 0 && (
-              <section className="rounded-xl bg-white p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
-                  <Star className="h-6 w-6 text-accent" />
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  <Star className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                   Joueurs stars
                 </h2>
-                <div className="grid gap-4 sm:grid-cols-3">
+                <div className="grid gap-3 sm:grid-cols-3">
                   {stars.map((player) => (
                     <Link
                       key={player.id}
@@ -146,7 +146,7 @@ const faqItems = [
               const sectionIcons: Record<string, typeof Users> = { GK: ShieldAlert, DF: Users, MF: Users, FW: Users };
               const Icon = sectionIcons[pos] ?? Users;
               return (
-                <section key={pos} className="rounded-xl bg-white p-6 shadow-sm">
+                <section key={pos} className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
                   <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
                     <Icon className="h-5 w-5 text-accent" />
                     {positionLabels[pos] ?? pos}s ({posPlayers.length})
@@ -190,7 +190,7 @@ const faqItems = [
               );
             })}
             {allPlayers.length === 0 && (
-              <section className="rounded-xl bg-white p-6 shadow-sm text-center">
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">
                   La liste des joueurs de {team.name} n'est pas encore disponible.
@@ -202,20 +202,20 @@ const faqItems = [
               const home = teamsById[nextMatch.homeTeamId];
               const away = teamsById[nextMatch.awayTeamId];
               return (
-                <section className="rounded-xl bg-primary/5 border border-primary/20 p-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                <section className="rounded-xl bg-primary/5 border border-primary/20 p-4 sm:p-6">
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
                     Prochain match {team.name}
                   </h2>
                   <Link
                     href={`/pronostic-match/${nextMatch.slug}`}
-                    className="flex items-center justify-between rounded-lg bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
+                    className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between rounded-lg bg-white p-3 sm:p-4 shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{home?.flag}</span>
-                      <span className="font-bold text-gray-900">{home?.name} vs {away?.name}</span>
-                      <span className="text-2xl">{away?.flag}</span>
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                      <span className="text-xl sm:text-2xl shrink-0">{home?.flag}</span>
+                      <span className="font-bold text-gray-900 text-sm sm:text-base truncate">{home?.name} vs {away?.name}</span>
+                      <span className="text-xl sm:text-2xl shrink-0">{away?.flag}</span>
                     </div>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-xs sm:text-sm text-gray-500 shrink-0">
                       {new Date(nextMatch.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
                     </span>
                   </Link>
@@ -226,8 +226,8 @@ const faqItems = [
               );
             })()}
             {/* Absents notables */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
-              <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
+              <h2 className="flex items-center gap-2 text-lg sm:text-xl font-bold text-gray-900 mb-4">
                 <UserX className="h-5 w-5 text-red-500" />
                 Absents notables / Blessés
               </h2>
@@ -240,8 +240,8 @@ const faqItems = [
             </section>
           </div>
           {/* Sidebar */}
-          <aside className="space-y-6">
-            <div className="rounded-xl bg-white p-6 shadow-sm">
+          <aside className="space-y-4 sm:space-y-6">
+            <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Résumé effectif</h3>
               <div className="space-y-2 text-sm">
                 {sortedPositions.map((pos) => (
@@ -257,7 +257,7 @@ const faqItems = [
               </div>
             </div>
             <BetOfTheDay compact />
-            <div className="rounded-xl bg-white p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Parier sur {team.name}</h3>
               <div className="space-y-3">
                 {bookmakers.slice(0, 3).map((bk) => (
@@ -278,7 +278,7 @@ const faqItems = [
               </div>
               <p className="mt-3 text-[10px] text-gray-400 text-center">18+ | Pariez responsablement</p>
             </div>
-            <div className="rounded-xl bg-white p-6 shadow-sm">
+            <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
                 <li>

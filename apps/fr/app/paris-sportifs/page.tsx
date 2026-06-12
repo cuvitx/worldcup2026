@@ -71,7 +71,7 @@ export default function ParisSportifsPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
         <div className="space-y-10">
         {/* Bookmaker Reviews */}
-        <section className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+        <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 id="bookmakers" className="text-2xl font-bold text-gray-900 mb-2">Meilleurs sites de paris sportifs 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
             Nos avis détaillés sur les {bookmakerReviews.length} bookmakers agréés en France pour parier sur la CDM 2026.
@@ -137,7 +137,7 @@ export default function ParisSportifsPage() {
           const catGuides = guidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;
           return (
-            <section key={cat} className="rounded-xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+            <section key={cat} className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
               <h2 id={`guide-${cat}`} className="text-2xl font-bold text-gray-900 mb-4">{categoryLabels[cat]}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {catGuides.map((guide) => (

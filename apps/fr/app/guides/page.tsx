@@ -78,7 +78,7 @@ export default function GuidesPage() {
           if (!catGuides || catGuides.length === 0) return null;
           const emoji = categoryEmojis[cat] || "";
           return (
-            <section key={cat} className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+            <section key={cat} className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2">
                 <span className="text-2xl">{emoji}</span> {categoryLabels[cat]}
               </h2>
@@ -102,7 +102,7 @@ export default function GuidesPage() {
         })}
 
         {/* Bookmaker reviews */}
-        <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+        <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
             <span className="text-2xl"></span> Avis bookmakers
           </h2>
@@ -127,7 +127,7 @@ export default function GuidesPage() {
         </section>
 
         {/* Guides pratiques */}
-        <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-100">
+        <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Guides pratiques</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[

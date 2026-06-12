@@ -86,7 +86,7 @@ export default async function ButeurPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Scoring Stats */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Statistiques de buts</h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
@@ -120,7 +120,7 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Odds Table */}
             {scorer && (
-              <section className="rounded-xl bg-white p-6 shadow-sm">
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Cotes buteur - {player.name}</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -163,7 +163,7 @@ export default async function ButeurPage({ params }: PageProps) {
             )}
 
             {/* Analysis Text */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse : {player.name} buteur CDM 2026</h2>
               <div className="prose prose-sm max-w-none text-gray-700 space-y-3">
                 <p>
@@ -200,7 +200,7 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Teammates */}
             {teammates.length > 0 && (
-              <section className="rounded-xl bg-white p-6 shadow-sm">
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Autres buteurs de {team?.name}</h2>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {teammates.map((tm) => {
@@ -227,7 +227,7 @@ export default async function ButeurPage({ params }: PageProps) {
             )}
 
             {/* Affiliate CTA */}
-            <section className="rounded-xl bg-white p-6 shadow-sm">
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Parier sur {player.name} buteur
               </h2>

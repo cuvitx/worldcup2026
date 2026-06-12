@@ -4,7 +4,7 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 
 export function ProbabilitiesTable() {
   return (
-    <section className="rounded-xl bg-white p-6 shadow-sm border border-gray-200">
+    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-200">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Probabilités par tour</h2>
       <p className="text-sm text-gray-500 mb-4">Chances de chaque équipe d&#39;atteindre chaque tour, basees sur les classements ELO.</p>
       <div className="overflow-x-auto">

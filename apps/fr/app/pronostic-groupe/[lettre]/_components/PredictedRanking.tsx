@@ -32,7 +32,7 @@ interface PredictedRankingProps {
 
 export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
   return (
-    <section className="rounded-xl bg-white p-6 shadow-sm">
+    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-5">Classement prédit</h2>
       <div className="space-y-3">
         {sortedTeams.map(({ team, pred }, idx) => {
