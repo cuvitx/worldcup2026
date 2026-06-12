@@ -38,31 +38,27 @@ function pickBetOfTheDay(): DailyBet {
     return matchPredictionByPair[`${m.homeTeamId}:${m.awayTeamId}`];
   }
 
-  // Find the match with highest win probability (most "safe" bet)
-  let bestMatch = sorted[0]!;
-  let bestProb = 0;
-
-  for (const m of sorted) {
-    const pred = getPred(m);
-    if (!pred) continue;
-    const maxProb = Math.max(pred.team1WinProb, pred.team2WinProb);
-    if (maxProb > bestProb) {
-      bestProb = maxProb;
-      bestMatch = m;
+  // Only consider today's matches, or next upcoming day if none today
+  let todaysPool = sorted.filter((m) => m.date === today);
+  if (todaysPool.length === 0) {
+    const nextDate = sorted.find((m) => m.date > today)?.date;
+    if (nextDate) {
+      todaysPool = sorted.filter((m) => m.date === nextDate);
     }
   }
+  // If still empty (tournament over or not started), fall back to all matches
+  const pool = todaysPool.length > 0 ? todaysPool : sorted;
 
-  // Rotate through top 5 matches based on day
-  const top5 = sorted
+  // Pick the match with highest confidence from today's pool
+  const candidates = pool
     .map((m) => {
       const p = getPred(m);
       return { match: m, prob: p ? Math.max(p.team1WinProb, p.team2WinProb) : 0 };
     })
     .filter((x) => x.prob > 0)
-    .sort((a, b) => b.prob - a.prob)
-    .slice(0, 5);
+    .sort((a, b) => b.prob - a.prob);
 
-  const picked = top5[dayHash % top5.length] ?? { match: bestMatch, prob: bestProb };
+  const picked = candidates[dayHash % Math.max(candidates.length, 1)] ?? candidates[0] ?? { match: sorted[0]!, prob: 0 };
   const match = picked.match;
   const pred = getPred(match);
   const home = teamsById[match.homeTeamId];
