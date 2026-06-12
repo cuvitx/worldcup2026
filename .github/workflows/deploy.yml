@@ -25,5 +25,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           command_timeout: 25m
           script: |
-            rm -rf /srv/cdm2026/repo/apps/fr/.next
+            sudo rm -rf /srv/cdm2026/repo/apps/fr/.next
             /srv/cdm2026/deploy.sh
