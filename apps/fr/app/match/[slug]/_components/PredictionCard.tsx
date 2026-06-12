@@ -40,27 +40,27 @@ export function PredictionCard({
   return (
     <Card>
       <SectionHeading title={isCompleted ? "Resultat & Analyse" : "Pronostic"} />
-      <div className="grid grid-cols-3 gap-3 mb-4">
-        <div className="rounded-lg bg-field/10 p-3 text-center">
-          <p className="text-xl font-bold text-field">
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4">
+        <div className="rounded-lg bg-field/10 p-2 sm:p-3 text-center">
+          <p className="text-lg sm:text-xl font-bold text-field">
             {Math.round(prediction.team1WinProb * 100)}%
           </p>
-          <p className="text-xs text-gray-500">{home.name}</p>
-          <p className="text-sm font-medium text-primary mt-1">{odds.home}</p>
+          <p className="text-[10px] sm:text-xs text-gray-500 truncate">{home.name}</p>
+          <p className="text-xs sm:text-sm font-medium text-primary mt-1">{odds.home}</p>
         </div>
-        <div className="rounded-lg bg-gray-50 p-3 text-center">
-          <p className="text-xl font-bold text-gray-600">
+        <div className="rounded-lg bg-gray-50 p-2 sm:p-3 text-center">
+          <p className="text-lg sm:text-xl font-bold text-gray-600">
             {Math.round(prediction.drawProb * 100)}%
           </p>
-          <p className="text-xs text-gray-500">Nul</p>
-          <p className="text-sm font-medium text-primary mt-1">{odds.draw}</p>
+          <p className="text-[10px] sm:text-xs text-gray-500">Nul</p>
+          <p className="text-xs sm:text-sm font-medium text-primary mt-1">{odds.draw}</p>
         </div>
-        <div className="rounded-lg bg-field/10 p-3 text-center">
-          <p className="text-xl font-bold text-field">
+        <div className="rounded-lg bg-field/10 p-2 sm:p-3 text-center">
+          <p className="text-lg sm:text-xl font-bold text-field">
             {Math.round(prediction.team2WinProb * 100)}%
           </p>
-          <p className="text-xs text-gray-500">{away.name}</p>
-          <p className="text-sm font-medium text-primary mt-1">{odds.away}</p>
+          <p className="text-[10px] sm:text-xs text-gray-500 truncate">{away.name}</p>
+          <p className="text-xs sm:text-sm font-medium text-primary mt-1">{odds.away}</p>
         </div>
       </div>
       <div className="rounded-lg bg-primary/5 p-3 text-center mb-4">

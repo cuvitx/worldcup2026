@@ -84,15 +84,15 @@ export default function BlessuresPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
         {/* Stats rapides */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
           {[
             { label: "Aptes", count: aptes.length, color: "text-green-600" },
             { label: "Incertains", count: incertains.length, color: "text-yellow-600" },
             { label: "Forfaits", count: forfaits.length, color: "text-red-600" },
           ].map((s) => (
-            <div key={s.label} className="text-center rounded-xl border border-gray-200 p-4">
-              <span className={`block text-3xl font-black ${s.color}`}>{s.count}</span>
-              <span className="text-sm text-gray-500">{s.label}</span>
+            <div key={s.label} className="text-center rounded-xl border border-gray-200 p-3 sm:p-4">
+              <span className={`block text-2xl sm:text-3xl font-black ${s.color}`}>{s.count}</span>
+              <span className="text-xs sm:text-sm text-gray-500">{s.label}</span>
             </div>
           ))}
         </div>

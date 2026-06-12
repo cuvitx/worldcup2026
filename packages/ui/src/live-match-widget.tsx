@@ -260,25 +260,25 @@ export function LiveMatchWidget({
       </div>
 
       {/* Score */}
-      <div className="flex items-center justify-center gap-6 px-6 py-6 text-white">
-        <div className="flex-1 text-right">
-          <p className="text-lg font-bold">{homeTeam}</p>
+      <div className="flex items-center justify-center gap-3 sm:gap-6 px-3 sm:px-6 py-6 text-white">
+        <div className="flex-1 min-w-0 text-right">
+          <p className="text-sm sm:text-lg font-bold truncate">{homeTeam}</p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           {data.homeScore !== null && data.awayScore !== null ? (
-            <div className={`flex items-center gap-2 text-4xl font-black ${isLive ? "text-gold" : ""}`}>
+            <div className={`flex items-center gap-2 text-3xl sm:text-4xl font-black ${isLive ? "text-gold" : ""}`}>
               <span>{data.homeScore}</span>
               <span className="text-white/60">-</span>
               <span>{data.awayScore}</span>
             </div>
           ) : (
-            <div className="text-2xl font-bold text-white/60">VS</div>
+            <div className="text-xl sm:text-2xl font-bold text-white/60">VS</div>
           )}
         </div>
 
-        <div className="flex-1 text-left">
-          <p className="text-lg font-bold">{awayTeam}</p>
+        <div className="flex-1 min-w-0 text-left">
+          <p className="text-sm sm:text-lg font-bold truncate">{awayTeam}</p>
         </div>
       </div>
 

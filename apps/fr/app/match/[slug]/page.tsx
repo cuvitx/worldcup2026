@@ -205,9 +205,9 @@ export default async function MatchPage({ params }: PageProps) {
               href={`/h2h/${home.slug}-vs-${away.slug}`}
               className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
-              <span className="text-2xl"><Swords className="h-5 w-5 inline-block" /></span>
+              <span className="text-2xl shrink-0"><Swords className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900">Face-à-face {home.name} vs {away.name}</p>
+                <p className="text-sm font-semibold text-gray-900 truncate">Face-à-face {home.name} vs {away.name}</p>
                 <p className="text-xs text-gray-500">Historique des confrontations</p>
               </div>
             </Link>

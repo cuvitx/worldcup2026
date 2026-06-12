@@ -91,43 +91,43 @@ export function MatchHeroAdaptive({
         </div>
 
         {/* Teams face-off */}
-        <div className="flex items-center justify-center gap-6 sm:gap-12 mb-6">
+        <div className="flex items-center justify-center gap-4 sm:gap-12 mb-6">
           {/* Home */}
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>
+          <div className="flex flex-col items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[180px] sm:max-w-none">
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>
               {home?.flag ?? ""}
             </span>
             {home ? (
-              <Link href={`/equipe/${home.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary transition-colors">
+              <Link href={`/equipe/${home.slug}`} className="text-base sm:text-2xl font-extrabold hover:text-secondary transition-colors text-center leading-tight">
                 {home.name}
               </Link>
             ) : (
-              <p className="text-lg sm:text-2xl font-extrabold">À déterminer</p>
+              <p className="text-base sm:text-2xl font-extrabold text-center leading-tight">À déterminer</p>
             )}
             {home && (
-              <span className="inline-block rounded-full bg-white/10 px-3 py-0.5 text-xs text-gray-300">
+              <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] sm:text-xs text-gray-300">
                 #{home.fifaRanking} FIFA
               </span>
             )}
           </div>
 
           {/* VS */}
-          <span className="text-2xl sm:text-3xl font-black text-secondary">VS</span>
+          <span className="text-xl sm:text-3xl font-black text-secondary shrink-0">VS</span>
 
           {/* Away */}
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>
+          <div className="flex flex-col items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[180px] sm:max-w-none">
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>
               {away?.flag ?? ""}
             </span>
             {away ? (
-              <Link href={`/equipe/${away.slug}`} className="text-lg sm:text-2xl font-extrabold hover:text-secondary transition-colors">
+              <Link href={`/equipe/${away.slug}`} className="text-base sm:text-2xl font-extrabold hover:text-secondary transition-colors text-center leading-tight">
                 {away.name}
               </Link>
             ) : (
-              <p className="text-lg sm:text-2xl font-extrabold">À déterminer</p>
+              <p className="text-base sm:text-2xl font-extrabold text-center leading-tight">À déterminer</p>
             )}
             {away && (
-              <span className="inline-block rounded-full bg-white/10 px-3 py-0.5 text-xs text-gray-300">
+              <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] sm:text-xs text-gray-300">
                 #{away.fifaRanking} FIFA
               </span>
             )}

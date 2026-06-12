@@ -29,13 +29,12 @@ function formatDateFR(iso: string): string {
   });
 }
 
-function formatTimeFR(utcTime: string): string {
-  const parts = utcTime.split(":").map(Number);
+function formatTimeFR(parisTime: string): string {
+  const parts = parisTime.split(":").map(Number);
   const h = parts[0] ?? 0;
   const m = parts[1] ?? 0;
-  // UTC to CEST (UTC+2 in summer for France during the World Cup)
-  const cetH = (h + 2) % 24;
-  return `${String(cetH).padStart(2, "0")}h${String(m).padStart(2, "0")}`;
+  // Times in matches.ts are already in Europe/Paris (CEST, UTC+2)
+  return `${String(h).padStart(2, "0")}h${String(m).padStart(2, "0")}`;
 }
 
 export function MatchContextBar({ matchSlug }: MatchContextBarProps) {

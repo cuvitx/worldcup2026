@@ -113,18 +113,18 @@ export default function BudgetPage() {
                   <p.icon className="h-5 w-5 text-accent" />
                   <h3 className="text-lg font-semibold text-gray-900">{p.titre}</h3>
                 </div>
-                <div className="grid grid-cols-3 gap-3 mb-3">
-                  <div className="rounded-lg bg-green-50 p-3 text-center">
-                    <p className="text-xs text-gray-500 uppercase">Budget</p>
-                    <p className="font-bold text-accent">{p.budget}</p>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
+                  <div className="rounded-lg bg-green-50 p-2 sm:p-3 text-center">
+                    <p className="text-[10px] sm:text-xs text-gray-500 uppercase">Budget</p>
+                    <p className="text-sm sm:text-base font-bold text-accent">{p.budget}</p>
                   </div>
-                  <div className="rounded-lg bg-yellow-50 p-3 text-center">
-                    <p className="text-xs text-gray-500 uppercase">Moyen</p>
-                    <p className="font-bold text-accent">{p.moyen}</p>
+                  <div className="rounded-lg bg-yellow-50 p-2 sm:p-3 text-center">
+                    <p className="text-[10px] sm:text-xs text-gray-500 uppercase">Moyen</p>
+                    <p className="text-sm sm:text-base font-bold text-accent">{p.moyen}</p>
                   </div>
-                  <div className="rounded-lg bg-red-50 p-3 text-center">
-                    <p className="text-xs text-gray-500 uppercase">Premium</p>
-                    <p className="font-bold text-red-500">{p.premium}</p>
+                  <div className="rounded-lg bg-red-50 p-2 sm:p-3 text-center">
+                    <p className="text-[10px] sm:text-xs text-gray-500 uppercase">Premium</p>
+                    <p className="text-sm sm:text-base font-bold text-red-500">{p.premium}</p>
                   </div>
                 </div>
                 <p className="text-sm text-gray-600">{p.detail}</p>
