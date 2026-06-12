@@ -105,9 +105,9 @@ function getPhaseContext(stage: Match["stage"]): { intro: string; isKnockout: bo
 interface ScoreLine {
   score: string;
   probability: number;
-  coteWinamax: string;
-  coteBetclic: string;
-  coteUnibet: string;
+  cote1: string;
+  cote2: string;
+  cote3: string;
 }
 
 function computeScoreLines(
@@ -168,9 +168,9 @@ function computeScoreLines(
     return {
       score,
       probability: roundedPct,
-      coteWinamax: (baseCote * variance(1)).toFixed(2),
-      coteBetclic: (baseCote * variance(2)).toFixed(2),
-      coteUnibet: (baseCote * variance(3)).toFixed(2),
+      cote1: (baseCote * variance(1)).toFixed(2),
+      cote2: (baseCote * variance(2)).toFixed(2),
+      cote3: (baseCote * variance(3)).toFixed(2),
     };
   });
 }
@@ -227,9 +227,9 @@ export default async function ScoreExactPage({ params }: PageProps) {
   const homeStars = getStars(match.homeTeamId);
   const awayStars = getStars(match.awayTeamId);
 
-  const winamax = bookmakers.find((b) => b.id === "winamax")!;
-  const betclic = bookmakers.find((b) => b.id === "betclic")!;
-  const unibet = bookmakers.find((b) => b.id === "unibet")!;
+  const bk1 = bookmakers[0]!; // PokerStars Sports
+  const bk2 = bookmakers[1]!; // Betsson
+  const bk3 = bookmakers[2]!; // PMU Sport
 
   const bestScore = scoreLines[0]!;
   // Find a speculative high-cote score (position 3-5)
@@ -276,7 +276,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
     },
     {
       question: `Où trouver les meilleures cotes score exact pour ${home.name} vs ${away.name} ?`,
-      answer: `Comparez les cotes sur Winamax, Betclic et Unibet. Pour ce match, les cotes varient significativement : par exemple ${bestScore.score} est coté ${bestScore.coteWinamax} chez Winamax et ${bestScore.coteBetclic} chez Betclic. Inscrivez-vous chez plusieurs bookmakers pour profiter de la meilleure cote.`,
+      answer: `Comparez les cotes sur ${bk1.name}, ${bk2.name} et ${bk3.name}. Pour ce match, les cotes varient significativement : par exemple ${bestScore.score} est coté ${bestScore.cote1} chez ${bk1.name} et ${bestScore.cote2} chez ${bk2.name}. Inscrivez-vous chez plusieurs bookmakers pour profiter de la meilleure cote.`,
     },
     {
       question: "Peut-on combiner deux scores exacts dans un même pari ?",
@@ -377,9 +377,9 @@ export default async function ScoreExactPage({ params }: PageProps) {
                 <tr className="bg-primary text-white">
                   <th className="px-4 py-3 text-left font-semibold">Score</th>
                   <th className="px-4 py-3 text-center font-semibold">Probabilité</th>
-                  <th className="px-4 py-3 text-center font-semibold">Winamax</th>
-                  <th className="px-4 py-3 text-center font-semibold">Betclic</th>
-                  <th className="px-4 py-3 text-center font-semibold">Unibet</th>
+                  <th className="px-4 py-3 text-center font-semibold">{bk1.name}</th>
+                  <th className="px-4 py-3 text-center font-semibold">{bk2.name}</th>
+                  <th className="px-4 py-3 text-center font-semibold">{bk3.name}</th>
                 </tr>
               </thead>
               <tbody>
@@ -392,32 +392,32 @@ export default async function ScoreExactPage({ params }: PageProps) {
                     <td className="px-4 py-3 text-center">{line.probability}%</td>
                     <td className="px-4 py-3 text-center">
                       <a
-                        href={winamax.url}
+                        href={bk1.url}
                         target="_blank"
                         rel="noopener noreferrer sponsored nofollow"
                         className="text-primary hover:underline font-medium"
                       >
-                        {line.coteWinamax}
+                        {line.cote1}
                       </a>
                     </td>
                     <td className="px-4 py-3 text-center">
                       <a
-                        href={betclic.url}
+                        href={bk2.url}
                         target="_blank"
                         rel="noopener noreferrer sponsored nofollow"
                         className="text-primary hover:underline font-medium"
                       >
-                        {line.coteBetclic}
+                        {line.cote2}
                       </a>
                     </td>
                     <td className="px-4 py-3 text-center">
                       <a
-                        href={unibet.url}
+                        href={bk3.url}
                         target="_blank"
                         rel="noopener noreferrer sponsored nofollow"
                         className="text-primary hover:underline font-medium"
                       >
-                        {line.coteUnibet}
+                        {line.cote3}
                       </a>
                     </td>
                   </tr>
@@ -438,7 +438,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
             <div className="rounded-xl border border-border bg-card p-6 space-y-4">
               <div className="text-xs font-semibold uppercase tracking-wider text-green-600"><Lock className="h-5 w-5 inline-block" /> Sécurité</div>
               <div className="text-3xl font-extrabold text-foreground">{bestScore.score}</div>
-              <div className="text-sm text-muted-foreground">Cote : {bestScore.coteWinamax}</div>
+              <div className="text-sm text-muted-foreground">Cote : {bestScore.cote1}</div>
               <p className="text-sm leading-relaxed">
                 Le scénario le plus probable selon notre analyse. {home.fifaRanking < away.fifaRanking
                   ? `${home.name}, mieux classé au ranking FIFA, devrait contrôler le rythme du match.`
@@ -446,12 +446,12 @@ export default async function ScoreExactPage({ params }: PageProps) {
                 {" "}Un résultat cohérent avec la dynamique des deux équipes.
               </p>
               <a
-                href={winamax.url}
+                href={bk1.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 className="block w-full text-center bg-accent text-white rounded-xl py-3.5 font-bold hover:opacity-90 transition-opacity"
               >
-                Miser sur ce score chez Winamax
+                Miser sur ce score chez {bk1.name}
               </a>
               <p className="text-[10px] text-muted-foreground text-center">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
@@ -462,19 +462,19 @@ export default async function ScoreExactPage({ params }: PageProps) {
             <div className="rounded-xl border border-border bg-card p-6 space-y-4">
               <div className="text-xs font-semibold uppercase tracking-wider text-orange-500"><Dice5 className="h-5 w-5 inline-block" /> Spéculatif</div>
               <div className="text-3xl font-extrabold text-foreground">{specScore.score}</div>
-              <div className="text-sm text-muted-foreground">Cote : {specScore.coteBetclic}</div>
+              <div className="text-sm text-muted-foreground">Cote : {specScore.cote2}</div>
               <p className="text-sm leading-relaxed">
                 Un scénario à cote élevée mais crédible. Avec des joueurs comme {homeStars[0]} côté {home.name} et {awayStars[0]} côté {away.name},
                 ce match {tone} pourrait réserver des surprises.
                 {isKnockout ? " La pression des matchs à élimination directe amplifie l'imprévisibilité." : " En phase de groupes, les équipes prennent parfois des risques offensifs."}
               </p>
               <a
-                href={betclic.url}
+                href={bk2.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 className="block w-full text-center bg-accent text-white rounded-xl py-3.5 font-bold hover:opacity-90 transition-opacity"
               >
-                Profiter de la cote chez Betclic
+                Profiter de la cote chez {bk2.name}
               </a>
               <p className="text-[10px] text-muted-foreground text-center">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
@@ -495,12 +495,12 @@ export default async function ScoreExactPage({ params }: PageProps) {
                 idéal pour ce match de {phaseIntro}.
               </p>
               <a
-                href={unibet.url}
+                href={bk3.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 className="block w-full text-center bg-accent text-white rounded-xl py-3.5 font-bold hover:opacity-90 transition-opacity"
               >
-                Voir l&apos;offre Unibet
+                Voir l&apos;offre {bk3.name}
               </a>
               <p className="text-[10px] text-muted-foreground text-center">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
