@@ -267,7 +267,7 @@ export function LiveMatchWidget({
           {data.homeScore !== null && data.awayScore !== null ? (
             <div className={`flex items-center gap-2 text-4xl font-black ${isLive ? "text-gold" : ""}`}>
               <span>{data.homeScore}</span>
-              <span className="text-white/40">-</span>
+              <span className="text-white/60">-</span>
               <span>{data.awayScore}</span>
             </div>
           ) : (
@@ -281,7 +281,7 @@ export function LiveMatchWidget({
       </div>
 
       {/* Stadium */}
-      <div className="border-t border-white/10 px-4 py-2 text-center text-xs text-white/50">
+      <div className="border-t border-white/10 px-4 py-2 text-center text-xs text-white/70">
         {stadium}
       </div>
 
@@ -290,12 +290,12 @@ export function LiveMatchWidget({
         <div className="border-t border-white/10 px-4 py-2">
           {data.events.map((event, i) => (
             <div key={i} className="flex items-center gap-2 py-1 text-xs text-white/80">
-              <span className="font-mono text-white/50">
+              <span className="font-mono text-white/70">
                 {event.minute}&apos;{event.extra ? `+${event.extra}` : ""}
               </span>
               <EventIcon type={event.type} />
               <span>{event.player}</span>
-              <span className="text-white/40">({event.team})</span>
+              <span className="text-white/60">({event.team})</span>
             </div>
           ))}
         </div>

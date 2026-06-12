@@ -57,7 +57,7 @@ export function BettingCta({
                 <div className="flex items-center gap-2.5 min-w-0">
                   {bk.logo && <img src={bk.logo} alt={bk.name} className="w-6 h-6 rounded object-contain shrink-0" loading="lazy" />}
                   <span className="font-semibold text-sm">{bk.name}</span>
-                  <span className="text-xs text-white/50 hidden sm:inline">{bk.bonus}</span>
+                  <span className="text-xs text-white/70 hidden sm:inline">{bk.bonus}</span>
                 </div>
                 <span className="text-xs font-semibold text-accent shrink-0">
                   Voir l&apos;offre →
@@ -66,7 +66,7 @@ export function BettingCta({
             ))}
         </div>
 
-        <p className="mt-3 text-[10px] text-white/50">
+        <p className="mt-3 text-[10px] text-white/70">
           Cotes estimées, susceptibles d&apos;évoluer. Pariez responsablement. 18+
         </p>
       </div>

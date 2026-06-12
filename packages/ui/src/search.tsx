@@ -300,7 +300,7 @@ export function Search({ lang }: SearchProps) {
           }}
           onKeyDown={handleKeyDown}
           placeholder={placeholders[lang]}
-          className="w-full rounded-lg bg-white/10 py-2 pl-9 pr-3 text-sm text-white placeholder:text-white/50 outline-none focus:bg-white/20 focus:ring-2 focus:ring-accent transition-colors"
+          className="w-full rounded-lg bg-white/10 py-2 pl-9 pr-3 text-sm text-white placeholder:text-white/70 outline-none focus:bg-white/20 focus:ring-2 focus:ring-accent transition-colors"
           role="combobox"
           aria-expanded={isOpen && results.length > 0}
           aria-haspopup="listbox"
