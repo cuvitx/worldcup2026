@@ -35,7 +35,7 @@ export function useLiveData() {
 /**
  * LiveDataProvider — Single source of truth for live match data.
  *
- * Polls /api/live once every 30s during the tournament window.
+ * Polls /api/live once every 60s during the tournament window.
  * All consumers (LiveScoreBar, LiveMatchWidget) share the same data,
  * eliminating minute discrepancies between components.
  */
@@ -60,7 +60,7 @@ export function LiveDataProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     fetchLive();
-    const interval = setInterval(fetchLive, 30000);
+    const interval = setInterval(fetchLive, 60000);
     return () => clearInterval(interval);
   }, [fetchLive]);
 

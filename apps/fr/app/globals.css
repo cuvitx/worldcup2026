@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
 
 /* Button vertical centering is now handled inline via Tailwind classes (inline-flex items-center justify-center) */
 
@@ -344,17 +343,10 @@ textarea:focus-visible {
   box-shadow: var(--shadow-sm);
   background: var(--color-bg-card);
 }
-.dark .card {
-  border-color: var(--color-border);
-  background: var(--color-bg-card);
-}
 
 /* Utility: alternating section background — brand book */
 .section-alt {
   background: #F7F7F8;  /* Blanc Pelouse brand book */
-}
-.dark .section-alt {
-  background: #060D18;  /* Bleu Stade brand book */
 }
 
 /* Touch targets */
@@ -431,11 +423,7 @@ section.hero-animated .text-accent {
   overflow: hidden;
   position: relative;
 }
-.dark .match-card {
-  background: var(--color-bg-card);
-  border-color: var(--color-border);
-  box-shadow: none;
-}
+
 .match-card:hover {
   border-color: var(--color-accent);
   box-shadow: 0 4px 16px rgba(0, 184, 101, 0.12);
@@ -531,44 +519,6 @@ section.hero-animated .text-accent {
   animation: shimmer 1.5s infinite;
   border-radius: 6px;
 }
-.dark .skeleton {
-  background: linear-gradient(90deg, #1e2d3d 25%, #253545 50%, #1e2d3d 75%);
-  background-size: 200% 100%;
-}
-
-/* ============================================================
-   DARK MODE — Brand Book CDM2026
-   Dark mode = défaut (audience foot, usage soirée/match)
-   ============================================================ */
-
-.dark {
-  /* Backgrounds — Direction A Continental dark */
-  --color-bg:          #19247C;   /* Nuit de Match */
-  --color-bg-card:     #1e2d3d;   /* Gris Foncé dark */
-  --color-bg-elevated: #060D18;   /* Bleu Stade */
-
-  /* Textes */
-  --color-text:           #E8ECF1; /* Texte sur sombre */
-  --color-text-secondary: #636370; /* Gris Moyen (inchangé) */
-
-  /* Bordures subtiles */
-  --color-border: rgba(255, 255, 255, 0.08);
-
-  /* Or : version complète en dark */
-  --color-gold-current: #D4AF37;
-
-  /* Shadows : pas d'ombres en dark, bordures subtiles à la place */
-  --shadow-sm: none;
-  --shadow-md: none;
-  --shadow-lg: none;
-
-  /* Compat aliases (pour les classes existantes qui les utilisent) */
-  --color-bg-secondary:  #060D18;
-  --color-text-muted:    #8a8a9a;
-  --color-border-compat: rgba(255, 255, 255, 0.08);
-  --color-card:          #1e2d3d;
-  --color-card-hover:    #253545;
-}
 
 /* ============================================================
    QUIZ & FAQ ANIMATIONS (preserved from original)
@@ -630,11 +580,6 @@ details[open] .faq-icon {
 }
 @keyframes fadeIn {
   to { opacity: 1; }
-}
-.dark .mega-menu > div {
-  background: #1e293b;
-  border-color: rgba(255,255,255,0.1);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 /* ============================================================
@@ -883,9 +828,6 @@ details[open] .faq-icon {
   background: rgba(0,184,101,0.15);
   color: var(--color-accent);
   border-color: rgba(0,184,101,0.3);
-}
-.dark .odds-badge-best {
-  color: var(--color-accent);
 }
 
 /* Scrollbar hide utility */

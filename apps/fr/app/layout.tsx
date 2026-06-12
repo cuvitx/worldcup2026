@@ -125,22 +125,11 @@ export default function RootLayout({
           </>
         )}
       </head>
-      {/*
-        Body — Brand Book CDM2026 :
-        - Light mode  : bg #F7F7F8 (Blanc Pelouse), text #1A1A2E (Texte sur clair)
-        - Dark mode   : bg #0F1923 (Nuit de Match), text #E8ECF1 (Texte sur sombre)
-        CSS vars --color-bg / --color-text sont surchargés par .dark via globals.css
-      */}
       <body
         className={`${inter.className} flex min-h-screen flex-col antialiased`}
         style={{ background: "var(--color-bg)", color: "var(--color-text)" } as React.CSSProperties}
         suppressHydrationWarning
       >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`,
-          }}
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js")})}`,

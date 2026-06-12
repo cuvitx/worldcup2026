@@ -18,8 +18,8 @@ export function RelatedContent({ items, title = 'À explorer aussi' }: RelatedCo
   if (!items.length) return null;
 
   return (
-    <section className="mt-10 border-t border-gray-200 dark:border-gray-700 pt-8">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
+    <section className="mt-10 border-t border-gray-200 pt-8">
+      <h2 className="text-lg font-bold text-gray-900 mb-4">
         {title}
       </h2>
       <div className="grid gap-3 sm:grid-cols-2">

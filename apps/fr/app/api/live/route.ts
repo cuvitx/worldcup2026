@@ -13,7 +13,7 @@ export async function GET() {
 
     return Response.json(fixtures, {
       headers: {
-        "Cache-Control": "s-maxage=30, stale-while-revalidate=10",
+        "Cache-Control": "s-maxage=60, stale-while-revalidate=30",
       },
     });
   } catch {

@@ -259,7 +259,7 @@ export function LiveMatchWidget({
     // Only poll if match is within -30min to +4h window
     if (diffHours > -0.5 && diffHours < 4) {
       fetchLive();
-      const interval = setInterval(fetchLive, 30000);
+      const interval = setInterval(fetchLive, 60000);
       return () => clearInterval(interval);
     }
   }, [matchDate, matchTime, fetchLive, hasExternalData]);

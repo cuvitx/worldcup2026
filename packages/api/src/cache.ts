@@ -16,7 +16,7 @@ interface CacheEntry<T> {
 
 /** Cache TTLs in seconds by data type */
 export const CACHE_TTL = {
-  LIVE_SCORES: 30,
+  LIVE_SCORES: 60,
   ODDS: 300,
   WEATHER: 3600,
   TEAM_STATS: 86400,

@@ -221,8 +221,8 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   return (
     <div className="border-b border-white/5 bg-primary">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex items-center justify-center gap-2 overflow-x-auto py-1.5 scrollbar-hide">
-          <span className="shrink-0 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/70">
+        <div className="flex items-center justify-center gap-2 overflow-x-auto py-2 scrollbar-hide">
+          <span className="shrink-0 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-white/70 leading-none">
             {hasLive ? t.live : t.today}
           </span>
           <span className="h-3 w-px bg-white/10 shrink-0" />
