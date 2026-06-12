@@ -23,6 +23,7 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          timeout: 60s
           command_timeout: 25m
           script: |
             sudo rm -rf /srv/cdm2026/repo/apps/fr/.next
