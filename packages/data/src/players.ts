@@ -5,7 +5,7 @@ import type { Player } from "./types";
 // Updated: 2026-06-12 via API-Football
 // ============================================================================
 
-export const LAST_UPDATED = "2026-06-13";
+export const LAST_UPDATED = "2026-06-12";
 
 export const players: Player[] = [
   // South Africa
@@ -111,7 +111,7 @@ export const players: Player[] = [
     club: "Orlando Pirates",
     goals: 0,
     caps: 2,
-    description: "Jeune défenseur prometteur d\'Orlando Pirates."
+    description: "Jeune défenseur prometteur d\\'Orlando Pirates."
   },
   {
     id: "mbekezeli-mbokazi",
@@ -124,7 +124,7 @@ export const players: Player[] = [
     club: "Orlando Pirates",
     goals: 0,
     caps: 1,
-    description: "Jeune défenseur d\'Orlando Pirates en début de carrière internationale."
+    description: "Jeune défenseur d\\'Orlando Pirates en début de carrière internationale."
   },
   {
     id: "nkosinathi-sibisi",
@@ -137,7 +137,7 @@ export const players: Player[] = [
     club: "Orlando Pirates",
     goals: 0,
     caps: 10,
-    description: "Défenseur central solide d\'Orlando Pirates."
+    description: "Défenseur central solide d\\'Orlando Pirates."
   },
   {
     id: "olwethu-makhanya",
@@ -228,7 +228,7 @@ export const players: Player[] = [
     club: "Orlando Pirates",
     goals: 1,
     caps: 10,
-    description: "Milieu de terrain dynamique d\'Orlando Pirates."
+    description: "Milieu de terrain dynamique d\\'Orlando Pirates."
   },
   {
     id: "zwane",
@@ -267,7 +267,7 @@ export const players: Player[] = [
     club: "Orlando Pirates",
     goals: 0,
     caps: 5,
-    description: "Milieu de terrain énergique d\'Orlando Pirates."
+    description: "Milieu de terrain énergique d\\'Orlando Pirates."
   },
   {
     id: "letsoalo",
@@ -516,7 +516,7 @@ export const players: Player[] = [
     club: "Eintracht Francfort",
     goals: 2,
     caps: 10,
-    description: "Milieu offensif dynamique de l\'Eintracht Francfort."
+    description: "Milieu offensif dynamique de l\\'Eintracht Francfort."
   },
   {
     id: "boudaoui",
@@ -542,7 +542,7 @@ export const players: Player[] = [
     club: "Al-Ittihad",
     goals: 2,
     caps: 15,
-    description: "Milieu créatif et technique, formé à l\'Olympique Lyonnais."
+    description: "Milieu créatif et technique, formé à l\\'Olympique Lyonnais."
   },
   {
     id: "ibrahim-maza",
@@ -607,7 +607,7 @@ export const players: Player[] = [
     club: "Auxerre",
     goals: 0,
     caps: 5,
-    description: "Milieu de terrain combatif d\'Auxerre."
+    description: "Milieu de terrain combatif d\\'Auxerre."
   },
   {
     id: "ahmed-benbouali",
@@ -620,7 +620,7 @@ export const players: Player[] = [
     club: "USM Alger",
     goals: 5,
     caps: 15,
-    description: "Attaquant expérimenté de l\'USM Alger."
+    description: "Attaquant expérimenté de l\\'USM Alger."
   },
   {
     id: "amine-gouiri",
@@ -685,7 +685,7 @@ export const players: Player[] = [
     club: "Al Ahli",
     goals: 30,
     caps: 95,
-    description: "Star algérienne et champion d\'Afrique, ailier de classe mondiale."
+    description: "Star algérienne et champion d\\'Afrique, ailier de classe mondiale."
   },
 
   // Germany
@@ -726,7 +726,7 @@ export const players: Player[] = [
     club: "Hoffenheim",
     goals: 0,
     caps: 5,
-    description: "Gardien expérimenté d\'Hoffenheim, doublure fiable."
+    description: "Gardien expérimenté d\\'Hoffenheim, doublure fiable."
   },
   {
     id: "rudiger",
@@ -739,7 +739,7 @@ export const players: Player[] = [
     club: "Real Madrid",
     goals: 3,
     caps: 70,
-    description: "Défenseur central d\'élite du Real Madrid, puissant et dominant."
+    description: "Défenseur central d\\'élite du Real Madrid, puissant et dominant."
   },
   {
     id: "raum",
@@ -778,7 +778,7 @@ export const players: Player[] = [
     club: "Bayern Munich",
     goals: 5,
     caps: 95,
-    description: "Milieu de terrain d\'élite, polyvalent et leader du Bayern Munich."
+    description: "Milieu de terrain d\\'élite, polyvalent et leader du Bayern Munich."
   },
   {
     id: "malick-thiaw",
@@ -791,7 +791,7 @@ export const players: Player[] = [
     club: "AC Milan",
     goals: 0,
     caps: 5,
-    description: "Jeune défenseur central germano-finlandais de l\'AC Milan."
+    description: "Jeune défenseur central germano-finlandais de l\\'AC Milan."
   },
   {
     id: "nathaniel-brown",
@@ -804,7 +804,7 @@ export const players: Player[] = [
     club: "Eintracht Francfort",
     goals: 0,
     caps: 2,
-    description: "Jeune latéral américano-allemand de l\'Eintracht Francfort."
+    description: "Jeune latéral américano-allemand de l\\'Eintracht Francfort."
   },
   {
     id: "schlotterbeck",
@@ -999,7 +999,7 @@ export const players: Player[] = [
     club: "Arsenal",
     goals: 18,
     caps: 50,
-    description: "Attaquant polyvalent d\'Arsenal, buteur décisif."
+    description: "Attaquant polyvalent d\\'Arsenal, buteur décisif."
   },
   {
     id: "maximilian-beier",
@@ -1131,7 +1131,7 @@ export const players: Player[] = [
     club: "Manchester City",
     goals: 3,
     caps: 75,
-    description: "Défenseur central élégant et moderne, excellent dans la construction depuis l\'arrière."
+    description: "Défenseur central élégant et moderne, excellent dans la construction depuis l\\'arrière."
   },
   {
     id: "guehi",
@@ -1261,7 +1261,7 @@ export const players: Player[] = [
     club: "Real Madrid",
     goals: 10,
     caps: 50,
-    description: "Milieu complet et mature au-delà de son âge, futur Ballon d\'Or."
+    description: "Milieu complet et mature au-delà de son âge, futur Ballon d\\'Or."
   },
   {
     id: "mainoo",
@@ -1274,7 +1274,7 @@ export const players: Player[] = [
     club: "Manchester United",
     goals: 2,
     caps: 15,
-    description: "Jeune milieu de terrain mature et élégant, révélation de l\'Euro 2024."
+    description: "Jeune milieu de terrain mature et élégant, révélation de l\\'Euro 2024."
   },
   {
     id: "rashford",
@@ -1300,7 +1300,7 @@ export const players: Player[] = [
     club: "Aston Villa",
     goals: 1,
     caps: 5,
-    description: "Jeune attaquant polyvalent et dynamique d\'Aston Villa."
+    description: "Jeune attaquant polyvalent et dynamique d\\'Aston Villa."
   },
   {
     id: "noni-madueke",
@@ -1339,7 +1339,7 @@ export const players: Player[] = [
     club: "Arsenal",
     goals: 14,
     caps: 48,
-    description: "Ailier électrique et décisif, capable de déséquilibrer n\'importe quelle défense."
+    description: "Ailier électrique et décisif, capable de déséquilibrer n\\'importe quelle défense."
   },
   {
     id: "kane",
@@ -1352,7 +1352,7 @@ export const players: Player[] = [
     club: "Bayern Munich",
     goals: 78,
     caps: 112,
-    description: "Buteur prolifique et capitaine exemplaire, meilleur marqueur de l\'histoire anglaise."
+    description: "Buteur prolifique et capitaine exemplaire, meilleur marqueur de l\\'histoire anglaise."
   },
   {
     id: "ivan-benjamin-elijah-toney",
@@ -1445,7 +1445,7 @@ export const players: Player[] = [
     club: "Al-Hilal",
     goals: 0,
     caps: 15,
-    description: "Défenseur central robuste d\'Al-Hilal."
+    description: "Défenseur central robuste d\\'Al-Hilal."
   },
   {
     id: "hassan-kadesh-yahya-mahboob",
@@ -1510,7 +1510,7 @@ export const players: Player[] = [
     club: "Al-Hilal",
     goals: 0,
     caps: 10,
-    description: "Latéral gauche offensif d\'Al-Hilal."
+    description: "Latéral gauche offensif d\\'Al-Hilal."
   },
   {
     id: "saud-abdulhamid",
@@ -1578,9 +1578,9 @@ export const players: Player[] = [
     description: ""
   },
   {
-    id: "nasser-essa-shafi-al-shardan-al-dawsari",
-    name: "Nasser Essa Shafi Al Shardan Al Dawsari",
-    slug: "nasser-essa-shafi-al-shardan-al-dawsari",
+    id: "salem-mohammed-shafi-al-dawsari",
+    name: "Salem Mohammed Shafi Al Dawsari",
+    slug: "salem-mohammed-shafi-al-dawsari",
     teamId: "arabie-saoudite",
     position: "MF",
     number: 6,
@@ -1640,7 +1640,7 @@ export const players: Player[] = [
     club: "Al-Ahli",
     goals: 1,
     caps: 10,
-    description: "Jeune milieu prometteur d\'Al-Ahli."
+    description: "Jeune milieu prometteur d\\'Al-Ahli."
   },
   {
     id: "feras-tariq-nasser-al-brikan",
@@ -1705,7 +1705,7 @@ export const players: Player[] = [
     club: "Al-Shabab",
     goals: 5,
     caps: 15,
-    description: "Attaquant expérimenté d\'Al-Shabab."
+    description: "Attaquant expérimenté d\\'Al-Shabab."
   },
 
   // Argentina
@@ -1733,7 +1733,7 @@ export const players: Player[] = [
     club: "Atalanta",
     goals: 0,
     caps: 8,
-    description: "Gardien agile et réactif, solide en Serie A avec l\'Atalanta."
+    description: "Gardien agile et réactif, solide en Serie A avec l\\'Atalanta."
   },
   {
     id: "martinez-lautaro",
@@ -1811,7 +1811,7 @@ export const players: Player[] = [
     club: "Olympique Marseille",
     goals: 0,
     caps: 5,
-    description: "Défenseur central argentin de l\'Olympique de Marseille, combatif et aérien."
+    description: "Défenseur central argentin de l\\'Olympique de Marseille, combatif et aérien."
   },
   {
     id: "molina",
@@ -1889,7 +1889,7 @@ export const players: Player[] = [
     club: "Bayer Leverkusen",
     goals: 2,
     caps: 20,
-    description: "Milieu dynamique et combatif, champion d\'Allemagne invaincu avec Leverkusen."
+    description: "Milieu dynamique et combatif, champion d\\'Allemagne invaincu avec Leverkusen."
   },
   {
     id: "giovani-lo-celso",
@@ -2019,7 +2019,7 @@ export const players: Player[] = [
     club: "Inter Miami",
     goals: 109,
     caps: 187,
-    description: "Légende vivante du football, meilleur joueur de l\'histoire pour beaucoup."
+    description: "Légende vivante du football, meilleur joueur de l\\'histoire pour beaucoup."
   },
   {
     id: "nico-paz",
@@ -2073,7 +2073,7 @@ export const players: Player[] = [
     club: "Melbourne Victory",
     goals: 0,
     caps: 1,
-    description: "Jeune gardien prometteur de l\'A-League."
+    description: "Jeune gardien prometteur de l\\'A-League."
   },
   {
     id: "izzo",
@@ -2086,7 +2086,7 @@ export const players: Player[] = [
     club: "Adelaide United",
     goals: 0,
     caps: 5,
-    description: "Gardien fiable de l\'A-League australienne."
+    description: "Gardien fiable de l\\'A-League australienne."
   },
   {
     id: "alessandro-circati",
@@ -2138,7 +2138,7 @@ export const players: Player[] = [
     club: "Perth Glory",
     goals: 0,
     caps: 3,
-    description: "Jeune attaquant prometteur de l\'A-League."
+    description: "Jeune attaquant prometteur de l\\'A-League."
   },
   {
     id: "jason-geria",
@@ -2151,7 +2151,7 @@ export const players: Player[] = [
     club: "Melbourne Victory",
     goals: 0,
     caps: 10,
-    description: "Défenseur expérimenté de l\'A-League."
+    description: "Défenseur expérimenté de l\\'A-League."
   },
   {
     id: "jordan-bos",
@@ -2177,7 +2177,7 @@ export const players: Player[] = [
     club: "Melbourne City",
     goals: 0,
     caps: 1,
-    description: "Très jeune défenseur prometteur de l\'A-League."
+    description: "Très jeune défenseur prometteur de l\\'A-League."
   },
   {
     id: "degenek",
@@ -2229,7 +2229,7 @@ export const players: Player[] = [
     club: "Grasshopper",
     goals: 8,
     caps: 30,
-    description: "Ailier rapide et explosif d\'origine sud-soudanaise."
+    description: "Ailier rapide et explosif d\\'origine sud-soudanaise."
   },
   {
     id: "behich",
@@ -2372,7 +2372,7 @@ export const players: Player[] = [
     club: "Melbourne Victory",
     goals: 1,
     caps: 3,
-    description: "Attaquant australien d\'origine sri-lankaise en A-League."
+    description: "Attaquant australien d\\'origine sri-lankaise en A-League."
   },
   {
     id: "tete-yengi",
@@ -2712,7 +2712,7 @@ export const players: Player[] = [
     club: "Inter Milan",
     goals: 40,
     caps: 115,
-    description: "Capitaine et légende autrichienne, buteur prolifique de l\'histoire."
+    description: "Capitaine et légende autrichienne, buteur prolifique de l\\'histoire."
   },
   {
     id: "sasa-kalajdzic",
@@ -2753,7 +2753,7 @@ export const players: Player[] = [
     club: "Antwerp",
     goals: 0,
     caps: 3,
-    description: "Gardien agile et prometteur, formé à l\'Antwerp."
+    description: "Gardien agile et prometteur, formé à l\\'Antwerp."
   },
   {
     id: "thibaut-nicolas-marc-courtois",
@@ -3000,7 +3000,7 @@ export const players: Player[] = [
     club: "AS Roma",
     goals: 2,
     caps: 20,
-    description: "Ailier polyvalent et travailleur, aussi à l\'aise au milieu."
+    description: "Ailier polyvalent et travailleur, aussi à l\\'aise au milieu."
   },
   {
     id: "charles-marc-de-ketelaere",
@@ -3065,7 +3065,7 @@ export const players: Player[] = [
     club: "Napoli",
     goals: 85,
     caps: 115,
-    description: "Meilleur buteur de l\'histoire de la Belgique, avant-centre puissant et redoutable."
+    description: "Meilleur buteur de l\\'histoire de la Belgique, avant-centre puissant et redoutable."
   },
 
   // Bosnia
@@ -3223,7 +3223,7 @@ export const players: Player[] = [
     club: "Rapid Vienne",
     goals: 0,
     caps: 5,
-    description: "Milieu de terrain autrichien d\'origine bosnienne."
+    description: "Milieu de terrain autrichien d\\'origine bosnienne."
   },
   {
     id: "amir-hadziahmetovic",
@@ -3262,7 +3262,7 @@ export const players: Player[] = [
     club: "Ajax Amsterdam",
     goals: 1,
     caps: 15,
-    description: "Milieu de terrain prometteur évoluant à l\'Ajax."
+    description: "Milieu de terrain prometteur évoluant à l\\'Ajax."
   },
   {
     id: "dzenis-burnic",
@@ -3327,7 +3327,7 @@ export const players: Player[] = [
     club: "Sturm Graz",
     goals: 0,
     caps: 2,
-    description: "Très jeune attaquant autrichien d\'origine bosnienne."
+    description: "Très jeune attaquant autrichien d\\'origine bosnienne."
   },
   {
     id: "edin-dzeko",
@@ -3340,7 +3340,7 @@ export const players: Player[] = [
     club: "Fenerbahçe",
     goals: 65,
     caps: 135,
-    description: "Légende du football bosnien, meilleur buteur de l\'histoire du pays."
+    description: "Légende du football bosnien, meilleur buteur de l\\'histoire du pays."
   },
   {
     id: "ermedin-demirovic",
@@ -3433,7 +3433,7 @@ export const players: Player[] = [
     club: "Manchester City",
     goals: 0,
     caps: 30,
-    description: "Gardien d\'élite de Manchester City, excellent au pied."
+    description: "Gardien d\\'élite de Manchester City, excellent au pied."
   },
   {
     id: "weverton-pereira-da-silva",
@@ -3550,7 +3550,7 @@ export const players: Player[] = [
     club: "Paris Saint-Germain",
     goals: 6,
     caps: 80,
-    description: "Défenseur central d\'élite et capitaine du PSG."
+    description: "Défenseur central d\\'élite et capitaine du PSG."
   },
   {
     id: "wesley-vinicius-franca-lima",
@@ -3602,7 +3602,7 @@ export const players: Player[] = [
     club: "Manchester United",
     goals: 7,
     caps: 75,
-    description: "Milieu défensif d\'élite, quintuple vainqueur de la Ligue des champions."
+    description: "Milieu défensif d\\'élite, quintuple vainqueur de la Ligue des champions."
   },
   {
     id: "fabinho",
@@ -3654,7 +3654,7 @@ export const players: Player[] = [
     club: "Real Madrid",
     goals: 3,
     caps: 10,
-    description: "Prodige brésilien du Real Madrid, plus jeune buteur de l\'histoire du club."
+    description: "Prodige brésilien du Real Madrid, plus jeune buteur de l\\'histoire du club."
   },
   {
     id: "gabriel-martinelli",
@@ -3667,7 +3667,7 @@ export const players: Player[] = [
     club: "Arsenal",
     goals: 2,
     caps: 10,
-    description: "Ailier explosif d\'Arsenal, rapide et percutant."
+    description: "Ailier explosif d\\'Arsenal, rapide et percutant."
   },
   {
     id: "igor-thiago",
@@ -3745,7 +3745,7 @@ export const players: Player[] = [
     club: "Real Madrid",
     goals: 12,
     caps: 40,
-    description: "Ailier de génie, Ballon d\'Or et star du Real Madrid."
+    description: "Ailier de génie, Ballon d\\'Or et star du Real Madrid."
   },
 
   // Canada
@@ -4046,7 +4046,7 @@ export const players: Player[] = [
     club: "Real Valladolid",
     goals: 28,
     caps: 65,
-    description: "Attaquant prolifique, meilleur buteur de l\'histoire du Canada."
+    description: "Attaquant prolifique, meilleur buteur de l\\'histoire du Canada."
   },
   {
     id: "david",
@@ -4059,7 +4059,7 @@ export const players: Player[] = [
     club: "Lille",
     goals: 30,
     caps: 55,
-    description: "Attaquant d\'élite, buteur prolifique en Ligue 1 et en sélection."
+    description: "Attaquant d\\'élite, buteur prolifique en Ligue 1 et en sélection."
   },
   {
     id: "david",
@@ -4072,7 +4072,7 @@ export const players: Player[] = [
     club: "Lille",
     goals: 30,
     caps: 55,
-    description: "Attaquant d\'élite, buteur prolifique en Ligue 1 et en sélection."
+    description: "Attaquant d\\'élite, buteur prolifique en Ligue 1 et en sélection."
   },
   {
     id: "bair",
@@ -4347,7 +4347,7 @@ export const players: Player[] = [
     club: "Vitória Guimarães",
     goals: 2,
     caps: 10,
-    description: "Milieu offensif portugais d\'origine cap-verdienne, créatif et habile devant le but."
+    description: "Milieu offensif portugais d\\'origine cap-verdienne, créatif et habile devant le but."
   },
   {
     id: "willy-semedo",
@@ -4453,7 +4453,7 @@ export const players: Player[] = [
     club: "Atletico Nacional",
     goals: 0,
     caps: 125,
-    description: "Gardien légendaire de la Colombie, le plus capé de l\'histoire de la sélection."
+    description: "Gardien légendaire de la Colombie, le plus capé de l\\'histoire de la sélection."
   },
   {
     id: "montero-alvaro",
@@ -4622,7 +4622,7 @@ export const players: Player[] = [
     club: "Crystal Palace",
     goals: 3,
     caps: 50,
-    description: "Milieu défensif combatif et récupérateur, précieux dans l\'équilibre de l\'équipe."
+    description: "Milieu défensif combatif et récupérateur, précieux dans l\\'équilibre de l\\'équipe."
   },
   {
     id: "jhon-arias",
@@ -4674,7 +4674,7 @@ export const players: Player[] = [
     club: "Racing Club",
     goals: 5,
     caps: 35,
-    description: "Meneur de jeu au pied gauche magique, auteur d\'un but mémorable en Mondial 2018."
+    description: "Meneur de jeu au pied gauche magique, auteur d\\'un but mémorable en Mondial 2018."
   },
   {
     id: "jaminton-campaz",
@@ -4858,7 +4858,7 @@ export const players: Player[] = [
     club: "Bayern Munich",
     goals: 3,
     caps: 55,
-    description: "Défenseur central d\'élite surnommé \'le Monstre\', pilier du Bayern Munich."
+    description: "Défenseur central d\\'élite surnommé \\'le Monstre\\', pilier du Bayern Munich."
   },
   {
     id: "kim-moon-hwan",
@@ -5092,7 +5092,7 @@ export const players: Player[] = [
     club: "Tottenham",
     goals: 50,
     caps: 130,
-    description: "Capitaine et star, meilleur joueur asiatique de l\'histoire."
+    description: "Capitaine et star, meilleur joueur asiatique de l\\'histoire."
   },
   {
     id: "yang-hyun-jun",
@@ -5185,7 +5185,7 @@ export const players: Player[] = [
     club: "AS Roma",
     goals: 1,
     caps: 15,
-    description: "Défenseur central franco-ivoirien solide de l\'AS Roma."
+    description: "Défenseur central franco-ivoirien solide de l\\'AS Roma."
   },
   {
     id: "konan-ghislain",
@@ -5237,7 +5237,7 @@ export const players: Player[] = [
     club: "Monaco",
     goals: 0,
     caps: 15,
-    description: "Latéral droit puissant et offensif de l\'AS Monaco."
+    description: "Latéral droit puissant et offensif de l\\'AS Monaco."
   },
   {
     id: "yan-diomande",
@@ -5250,7 +5250,7 @@ export const players: Player[] = [
     club: "Lyon",
     goals: 0,
     caps: 1,
-    description: "Très jeune attaquant franco-ivoirien de l\'Olympique Lyonnais."
+    description: "Très jeune attaquant franco-ivoirien de l\\'Olympique Lyonnais."
   },
   {
     id: "christ-ravynel-inao-oulai",
@@ -5276,7 +5276,7 @@ export const players: Player[] = [
     club: "Al-Ahli",
     goals: 8,
     caps: 60,
-    description: "Milieu de terrain puissant et infatigable, ancien de l\'AC Milan."
+    description: "Milieu de terrain puissant et infatigable, ancien de l\\'AC Milan."
   },
   {
     id: "sangare",
@@ -5354,7 +5354,7 @@ export const players: Player[] = [
     club: "Lyon",
     goals: 0,
     caps: 1,
-    description: "Très jeune attaquant franco-ivoirien de l\'Olympique Lyonnais."
+    description: "Très jeune attaquant franco-ivoirien de l\\'Olympique Lyonnais."
   },
   {
     id: "amad-diallo-traore",
@@ -5419,7 +5419,7 @@ export const players: Player[] = [
     club: "Nice",
     goals: 1,
     caps: 5,
-    description: "Jeune attaquant franco-ivoirien de l\'OGC Nice."
+    description: "Jeune attaquant franco-ivoirien de l\\'OGC Nice."
   },
   {
     id: "nicolas-pepe",
@@ -5432,7 +5432,7 @@ export const players: Player[] = [
     club: "Villarreal",
     goals: 8,
     caps: 40,
-    description: "Ailier rapide et technique, ancien star d\'Arsenal."
+    description: "Ailier rapide et technique, ancien star d\\'Arsenal."
   },
   {
     id: "adingra",
@@ -5445,7 +5445,7 @@ export const players: Player[] = [
     club: "Brighton",
     goals: 5,
     caps: 15,
-    description: "Ailier explosif de Brighton, champion d\'Afrique 2024."
+    description: "Ailier explosif de Brighton, champion d\\'Afrique 2024."
   },
 
   // Croatia
@@ -5512,7 +5512,7 @@ export const players: Player[] = [
     club: "Bayer Leverkusen",
     goals: 1,
     caps: 18,
-    description: "Latéral droit polyvalent, champion d\'Allemagne avec le Bayer Leverkusen."
+    description: "Latéral droit polyvalent, champion d\\'Allemagne avec le Bayer Leverkusen."
   },
   {
     id: "sutalo",
@@ -5564,7 +5564,7 @@ export const players: Player[] = [
     club: "Fiorentina",
     goals: 1,
     caps: 15,
-    description: "Défenseur central rapide et technique, à l\'aise dans la relance."
+    description: "Défenseur central rapide et technique, à l\\'aise dans la relance."
   },
   {
     id: "erlic",
@@ -5590,7 +5590,7 @@ export const players: Player[] = [
     club: "Hoffenheim",
     goals: 30,
     caps: 95,
-    description: "Attaquant technique et buteur régulier, pilier de l\'attaque croate."
+    description: "Attaquant technique et buteur régulier, pilier de l\\'attaque croate."
   },
   {
     id: "perisic",
@@ -5616,7 +5616,7 @@ export const players: Player[] = [
     club: "Augsbourg",
     goals: 0,
     caps: 15,
-    description: "Milieu défensif solide d\'Augsbourg."
+    description: "Milieu défensif solide d\\'Augsbourg."
   },
   {
     id: "modric",
@@ -5629,7 +5629,7 @@ export const players: Player[] = [
     club: "Real Madrid",
     goals: 25,
     caps: 178,
-    description: "Légende vivante, Ballon d\'Or 2018, maestro intemporel du milieu de terrain."
+    description: "Légende vivante, Ballon d\\'Or 2018, maestro intemporel du milieu de terrain."
   },
   {
     id: "marco-pasalic",
@@ -6125,7 +6125,7 @@ export const players: Player[] = [
     club: "NEC Nimègue",
     goals: 1,
     caps: 5,
-    description: "Jeune ailier talentueux formé à l\'Ajax."
+    description: "Jeune ailier talentueux formé à l\\'Ajax."
   },
 
   // Scotland
@@ -6140,7 +6140,7 @@ export const players: Player[] = [
     club: "Norwich City",
     goals: 0,
     caps: 10,
-    description: "Gardien titulaire de l\'Écosse, fils de l\'ancien gardien Bryan Gunn."
+    description: "Gardien titulaire de l\\'Écosse, fils de l\\'ancien gardien Bryan Gunn."
   },
   {
     id: "craig-sinclair-gordon",
@@ -6192,7 +6192,7 @@ export const players: Player[] = [
     club: "Liverpool",
     goals: 3,
     caps: 75,
-    description: "Capitaine et latéral gauche d\'élite mondiale à Liverpool."
+    description: "Capitaine et latéral gauche d\\'élite mondiale à Liverpool."
   },
   {
     id: "ralston",
@@ -6322,7 +6322,7 @@ export const players: Player[] = [
     club: "Aston Villa",
     goals: 10,
     caps: 65,
-    description: "Milieu de terrain combatif et buteur, star d\'Aston Villa."
+    description: "Milieu de terrain combatif et buteur, star d\\'Aston Villa."
   },
   {
     id: "mclean",
@@ -6480,7 +6480,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 15,
-    description: "Gardien vétéran et expérimenté d\'Al Ahly."
+    description: "Gardien vétéran et expérimenté d\\'Al Ahly."
   },
   {
     id: "el-shenawy",
@@ -6493,7 +6493,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 25,
-    description: "Gardien champion d\'Afrique avec Al Ahly, excellent réflexes."
+    description: "Gardien champion d\\'Afrique avec Al Ahly, excellent réflexes."
   },
   {
     id: "mostafa-shobeir",
@@ -6506,7 +6506,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 8,
-    description: "Jeune gardien talentueux d\'Al Ahly."
+    description: "Jeune gardien talentueux d\\'Al Ahly."
   },
   {
     id: "tarek-alaa",
@@ -6519,7 +6519,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 5,
-    description: "Jeune défenseur en progression d\'Al Ahly."
+    description: "Jeune défenseur en progression d\\'Al Ahly."
   },
   {
     id: "fatouh",
@@ -6545,7 +6545,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 20,
-    description: "Milieu défensif solide et discipliné d\'Al Ahly."
+    description: "Milieu défensif solide et discipliné d\\'Al Ahly."
   },
   {
     id: "hossam-abdelmaguid",
@@ -6584,7 +6584,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 2,
     caps: 25,
-    description: "Défenseur central athlétique d\'Al Ahly, régulier en sélection."
+    description: "Défenseur central athlétique d\\'Al Ahly, régulier en sélection."
   },
   {
     id: "mohamed-hany",
@@ -6597,7 +6597,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 35,
-    description: "Latéral droit rapide et offensif d\'Al Ahly."
+    description: "Latéral droit rapide et offensif d\\'Al Ahly."
   },
   {
     id: "ramy-rabia",
@@ -6610,7 +6610,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 1,
     caps: 30,
-    description: "Défenseur central solide et expérimenté d\'Al Ahly."
+    description: "Défenseur central solide et expérimenté d\\'Al Ahly."
   },
   {
     id: "tarek-alaa",
@@ -6623,7 +6623,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 0,
     caps: 5,
-    description: "Jeune défenseur en progression d\'Al Ahly."
+    description: "Jeune défenseur en progression d\\'Al Ahly."
   },
   {
     id: "yasser-ibrahim",
@@ -6636,7 +6636,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 1,
     caps: 20,
-    description: "Défenseur central expérimenté et leader d\'Al Ahly."
+    description: "Défenseur central expérimenté et leader d\\'Al Ahly."
   },
   {
     id: "fathi-emam",
@@ -6649,7 +6649,7 @@ export const players: Player[] = [
     club: "Al Ahly",
     goals: 3,
     caps: 20,
-    description: "Milieu défensif puissant et récupérateur, moteur de l\'entrejeu d\'Al Ahly."
+    description: "Milieu défensif puissant et récupérateur, moteur de l\\'entrejeu d\\'Al Ahly."
   },
   {
     id: "haissem-hassan",
@@ -6836,17 +6836,17 @@ export const players: Player[] = [
     description: "Gardien vétéran et expérimenté de la sélection."
   },
   {
-    id: "ramirez-moises",
-    name: "Moisés Ramírez",
-    slug: "ramirez-moises",
+    id: "nilson-david-angulo-ramirez",
+    name: "Nilson David Angulo Ramírez",
+    slug: "nilson-david-angulo-ramirez",
     teamId: "equateur",
     position: "GK",
     number: 12,
     age: 25,
-    club: "Independiente del Valle",
+    club: "Ecuador",
     goals: 0,
-    caps: 8,
-    description: "Jeune gardien prometteur du football équatorien."
+    caps: 0,
+    description: ""
   },
   {
     id: "franco-alan",
@@ -6924,7 +6924,7 @@ export const players: Player[] = [
     club: "Bayer Leverkusen",
     goals: 1,
     caps: 35,
-    description: "Défenseur central jeune et talentueux, champion d\'Allemagne."
+    description: "Défenseur central jeune et talentueux, champion d\\'Allemagne."
   },
   {
     id: "pacho",
@@ -6989,7 +6989,7 @@ export const players: Player[] = [
     club: "Internacional",
     goals: 40,
     caps: 80,
-    description: "Légende et capitaine, meilleur buteur de l\'histoire de l\'Équateur."
+    description: "Légende et capitaine, meilleur buteur de l\\'histoire de l\\'Équateur."
   },
   {
     id: "jordy-alcivar",
@@ -7054,7 +7054,7 @@ export const players: Player[] = [
     club: "Internacional",
     goals: 40,
     caps: 80,
-    description: "Légende et capitaine, meilleur buteur de l\'histoire de l\'Équateur."
+    description: "Légende et capitaine, meilleur buteur de l\\'histoire de l\\'Équateur."
   },
   {
     id: "plata",
@@ -7173,7 +7173,7 @@ export const players: Player[] = [
     club: "Espanyol",
     goals: 0,
     caps: 3,
-    description: "Jeune gardien prometteur de l\'Espanyol."
+    description: "Jeune gardien prometteur de l\\'Espanyol."
   },
   {
     id: "simon",
@@ -7225,7 +7225,7 @@ export const players: Player[] = [
     club: "Espanyol",
     goals: 0,
     caps: 3,
-    description: "Jeune gardien prometteur de l\'Espanyol."
+    description: "Jeune gardien prometteur de l\\'Espanyol."
   },
   {
     id: "cucurella",
@@ -7238,7 +7238,7 @@ export const players: Player[] = [
     club: "Chelsea",
     goals: 0,
     caps: 20,
-    description: "Latéral gauche combatif et engagé, héros de l\'Euro 2024 avec la Roja."
+    description: "Latéral gauche combatif et engagé, héros de l\\'Euro 2024 avec la Roja."
   },
   {
     id: "marc-pubill-pages",
@@ -7290,7 +7290,7 @@ export const players: Player[] = [
     club: "Barcelona",
     goals: 8,
     caps: 45,
-    description: "Milieu offensif créatif et décisif, meilleur buteur de l\'Euro 2024."
+    description: "Milieu offensif créatif et décisif, meilleur buteur de l\\'Euro 2024."
   },
   {
     id: "fabian-ruiz-pena",
@@ -7316,7 +7316,7 @@ export const players: Player[] = [
     club: "Barcelona",
     goals: 20,
     caps: 50,
-    description: "Attaquant polyvalent et buteur régulier en sélection, à l\'aise sur les ailes."
+    description: "Attaquant polyvalent et buteur régulier en sélection, à l\\'aise sur les ailes."
   },
   {
     id: "marcos-llorente",
@@ -7394,7 +7394,7 @@ export const players: Player[] = [
     club: "Manchester City",
     goals: 8,
     caps: 60,
-    description: "Milieu défensif Ballon d\'Or 2024, métronome et patron du jeu espagnol."
+    description: "Milieu défensif Ballon d\\'Or 2024, métronome et patron du jeu espagnol."
   },
   {
     id: "yeremy-pino",
@@ -7446,7 +7446,7 @@ export const players: Player[] = [
     club: "Barcelona",
     goals: 8,
     caps: 30,
-    description: "Prodige barcelonais, phénomène technique d\'une maturité impressionnante."
+    description: "Prodige barcelonais, phénomène technique d\\'une maturité impressionnante."
   },
   {
     id: "oyarzabal",
@@ -7459,7 +7459,7 @@ export const players: Player[] = [
     club: "Real Sociedad",
     goals: 12,
     caps: 40,
-    description: "Ailier gauche et capitaine de la Real Sociedad, buteur en finale de l\'Euro 2024."
+    description: "Ailier gauche et capitaine de la Real Sociedad, buteur en finale de l\\'Euro 2024."
   },
   {
     id: "nicholas-williams-arthuer",
@@ -7604,7 +7604,7 @@ export const players: Player[] = [
     club: "Borussia Mönchengladbach",
     goals: 0,
     caps: 15,
-    description: "Latéral droit américain évoluant en Bundesliga depuis l\'adolescence."
+    description: "Latéral droit américain évoluant en Bundesliga depuis l\\'adolescence."
   },
   {
     id: "mckenzie",
@@ -7721,7 +7721,7 @@ export const players: Player[] = [
     club: "Columbus Crew",
     goals: 0,
     caps: 5,
-    description: "Milieu de terrain en MLS, fils de l\'ancien sélectionneur."
+    description: "Milieu de terrain en MLS, fils de l\\'ancien sélectionneur."
   },
   {
     id: "sergino-gianni-dest",
@@ -7931,7 +7931,7 @@ export const players: Player[] = [
     club: "Chelsea",
     goals: 0,
     caps: 5,
-    description: "Latéral droit rapide et moderne, formé à l\'OL."
+    description: "Latéral droit rapide et moderne, formé à l\\'OL."
   },
   {
     id: "maxence-lacroix",
@@ -7983,7 +7983,7 @@ export const players: Player[] = [
     club: "Arsenal",
     goals: 1,
     caps: 25,
-    description: "Défenseur central imposant et élégant, pilier d\'Arsenal et de l\'équipe de France."
+    description: "Défenseur central imposant et élégant, pilier d\\'Arsenal et de l\\'équipe de France."
   },
   {
     id: "rabiot",
@@ -8022,7 +8022,7 @@ export const players: Player[] = [
     club: "PSG",
     goals: 1,
     caps: 8,
-    description: "Jeune ailier créatif et dribbleur, l\'un des plus grands talents français."
+    description: "Jeune ailier créatif et dribbleur, l\\'un des plus grands talents français."
   },
   {
     id: "maghnes-akliouche",
@@ -8035,7 +8035,7 @@ export const players: Player[] = [
     club: "AS Monaco",
     goals: 1,
     caps: 8,
-    description: "Milieu offensif créatif et technique de l\'AS Monaco."
+    description: "Milieu offensif créatif et technique de l\\'AS Monaco."
   },
   {
     id: "manu-kone",
@@ -8074,7 +8074,7 @@ export const players: Player[] = [
     club: "Bayern Munich",
     goals: 3,
     caps: 12,
-    description: "Milieu offensif créatif et dribbleur, médaillé d\'or olympique aux JO de Paris 2024."
+    description: "Milieu offensif créatif et dribbleur, médaillé d\\'or olympique aux JO de Paris 2024."
   },
   {
     id: "kante",
@@ -8100,7 +8100,7 @@ export const players: Player[] = [
     club: "Paris Saint-Germain",
     goals: 7,
     caps: 45,
-    description: "Ailier ambidextre d\'une vitesse fulgurante, capable d\'éliminer sur les deux côtés."
+    description: "Ailier ambidextre d\\'une vitesse fulgurante, capable d\\'éliminer sur les deux côtés."
   },
   {
     id: "rayan-cherki",
@@ -8165,7 +8165,7 @@ export const players: Player[] = [
     club: "Real Madrid",
     goals: 55,
     caps: 94,
-    description: "Attaquant explosif et buteur exceptionnel, l\'un des meilleurs joueurs du monde."
+    description: "Attaquant explosif et buteur exceptionnel, l\\'un des meilleurs joueurs du monde."
   },
 
   // Ghana
@@ -8585,7 +8585,7 @@ export const players: Player[] = [
     club: "Anderlecht",
     goals: 0,
     caps: 8,
-    description: "Défenseur central belgo-haïtien d\'Anderlecht."
+    description: "Défenseur central belgo-haïtien d\\'Anderlecht."
   },
   {
     id: "jean-kevin-duverne",
@@ -8899,7 +8899,7 @@ export const players: Player[] = [
     club: "Erbil SC",
     goals: 0,
     caps: 15,
-    description: "Défenseur central robuste d\'Erbil SC."
+    description: "Défenseur central robuste d\\'Erbil SC."
   },
   {
     id: "frans-dhia-jirjis-haddad",
@@ -9068,7 +9068,7 @@ export const players: Player[] = [
     club: "Hansa Rostock",
     goals: 0,
     caps: 5,
-    description: "Jeune milieu créatif d\'origine assyrienne."
+    description: "Jeune milieu créatif d\\'origine assyrienne."
   },
   {
     id: "z-ismaeel",
@@ -9330,7 +9330,7 @@ export const players: Player[] = [
     club: "Esteghlal",
     goals: 0,
     caps: 10,
-    description: "Défenseur solide et régulier d\'Esteghlal."
+    description: "Défenseur solide et régulier d\\'Esteghlal."
   },
   {
     id: "khalilzadeh",
@@ -9356,7 +9356,7 @@ export const players: Player[] = [
     club: "FCV Dender",
     goals: 12,
     caps: 70,
-    description: "Ailier expérimenté et technique, ancien meilleur buteur de l\'Eredivisie."
+    description: "Ailier expérimenté et technique, ancien meilleur buteur de l\\'Eredivisie."
   },
   {
     id: "amir-mohammad-razzaghinia",
@@ -9499,7 +9499,7 @@ export const players: Player[] = [
     club: "Inter Milan",
     goals: 50,
     caps: 85,
-    description: "Capitaine et star, meilleur buteur iranien de l\'histoire récente."
+    description: "Capitaine et star, meilleur buteur iranien de l\\'histoire récente."
   },
   {
     id: "mohammad-mohebi",
@@ -9984,7 +9984,7 @@ export const players: Player[] = [
     club: "Al-Wehdat",
     goals: 0,
     caps: 10,
-    description: "Défenseur polyvalent d\'Al-Wehdat."
+    description: "Défenseur polyvalent d\\'Al-Wehdat."
   },
   {
     id: "mohannad-taha",
@@ -10023,7 +10023,7 @@ export const players: Player[] = [
     club: "Al-Faisaly",
     goals: 1,
     caps: 30,
-    description: "Défenseur vétéran et leader d\'Al-Faisaly."
+    description: "Défenseur vétéran et leader d\\'Al-Faisaly."
   },
   {
     id: "yazan-mousa-mahmoud-abu-al-arab",
@@ -10049,7 +10049,7 @@ export const players: Player[] = [
     club: "Al-Faisaly",
     goals: 0,
     caps: 5,
-    description: "Jeune défenseur prometteur d\'Al-Faisaly."
+    description: "Jeune défenseur prometteur d\\'Al-Faisaly."
   },
   {
     id: "ibrahim-sadeh",
@@ -10140,7 +10140,7 @@ export const players: Player[] = [
     club: "Al-Faisaly",
     goals: 1,
     caps: 5,
-    description: "Attaquant rapide et combatif d\'Al-Faisaly."
+    description: "Attaquant rapide et combatif d\\'Al-Faisaly."
   },
   {
     id: "ali-iyad-ali-olwan",
@@ -10246,7 +10246,7 @@ export const players: Player[] = [
     club: "Al-Hilal",
     goals: 0,
     caps: 65,
-    description: "Gardien d\'élite, héros de la Coupe du monde 2022."
+    description: "Gardien d\\'élite, héros de la Coupe du monde 2022."
   },
   {
     id: "hakimi",
@@ -10259,7 +10259,7 @@ export const players: Player[] = [
     club: "Paris Saint-Germain",
     goals: 10,
     caps: 70,
-    description: "Latéral droit d\'élite mondiale, star du PSG et du football marocain."
+    description: "Latéral droit d\\'élite mondiale, star du PSG et du football marocain."
   },
   {
     id: "anass-salah-eddine",
@@ -10441,7 +10441,7 @@ export const players: Player[] = [
     club: "AS Monaco",
     goals: 0,
     caps: 3,
-    description: "Jeune attaquant franco-marocain de l\'AS Monaco."
+    description: "Jeune attaquant franco-marocain de l\\'AS Monaco."
   },
   {
     id: "neil-el-aynaoui",
@@ -10599,7 +10599,7 @@ export const players: Player[] = [
     club: "Almería",
     goals: 2,
     caps: 55,
-    description: "Défenseur central expérimenté, pilier de l\'arrière-garde mexicaine."
+    description: "Défenseur central expérimenté, pilier de l\\'arrière-garde mexicaine."
   },
   {
     id: "aguirre-israel",
@@ -11173,7 +11173,7 @@ export const players: Player[] = [
     club: "Atletico Madrid",
     goals: 20,
     caps: 55,
-    description: "Attaquant de pointe puissant et aérien, complémentaire d\'Haaland."
+    description: "Attaquant de pointe puissant et aérien, complémentaire d\\'Haaland."
   },
   {
     id: "andreas-schjelderup",
@@ -11212,7 +11212,7 @@ export const players: Player[] = [
     club: "Manchester City",
     goals: 55,
     caps: 48,
-    description: "Machine à buts et phénomène physique, l\'un des meilleurs attaquants du monde."
+    description: "Machine à buts et phénomène physique, l\\'un des meilleurs attaquants du monde."
   },
   {
     id: "jrgen-strand-larsen",
@@ -11552,7 +11552,7 @@ export const players: Player[] = [
     club: "Auckland FC",
     goals: 2,
     caps: 8,
-    description: "Jeune attaquant d\'Auckland FC, vif et habile dans la surface de réparation."
+    description: "Jeune attaquant d\\'Auckland FC, vif et habile dans la surface de réparation."
   },
   {
     id: "kosta-barbarouses",
@@ -12024,7 +12024,7 @@ export const players: Player[] = [
     club: "Independiente Medellín",
     goals: 0,
     caps: 15,
-    description: "Défenseur solide d\'Independiente Medellín."
+    description: "Défenseur solide d\\'Independiente Medellín."
   },
   {
     id: "jorge-gutierrez",
@@ -12364,7 +12364,7 @@ export const players: Player[] = [
     club: "Olimpia",
     goals: 0,
     caps: 10,
-    description: "Latéral droit dynamique d\'Olimpia."
+    description: "Latéral droit dynamique d\\'Olimpia."
   },
   {
     id: "alonso-junior",
@@ -12639,7 +12639,7 @@ export const players: Player[] = [
     club: "Inter Milan",
     goals: 5,
     caps: 50,
-    description: "Piston droit infatigable de l\'Inter Milan."
+    description: "Piston droit infatigable de l\\'Inter Milan."
   },
   {
     id: "jan-paul-van-hecke",
@@ -12665,7 +12665,7 @@ export const players: Player[] = [
     club: "Ajax Amsterdam",
     goals: 0,
     caps: 3,
-    description: "Prodige de l\'Ajax, plus jeune international néerlandais récent."
+    description: "Prodige de l\\'Ajax, plus jeune international néerlandais récent."
   },
   {
     id: "mats-wieffer",
@@ -12821,7 +12821,7 @@ export const players: Player[] = [
     club: "AC Milan",
     goals: 4,
     caps: 20,
-    description: "Milieu de terrain moderne et élégant de l\'AC Milan."
+    description: "Milieu de terrain moderne et élégant de l\\'AC Milan."
   },
   {
     id: "brian-brobbey",
@@ -12834,7 +12834,7 @@ export const players: Player[] = [
     club: "Ajax Amsterdam",
     goals: 3,
     caps: 10,
-    description: "Attaquant puissant et rapide de l\'Ajax."
+    description: "Attaquant puissant et rapide de l\\'Ajax."
   },
   {
     id: "gakpo",
@@ -12873,7 +12873,7 @@ export const players: Player[] = [
     club: "Aston Villa",
     goals: 5,
     caps: 20,
-    description: "Attaquant rapide et technique d\'Aston Villa."
+    description: "Attaquant rapide et technique d\\'Aston Villa."
   },
   {
     id: "justin-dean-kluivert",
@@ -13174,7 +13174,7 @@ export const players: Player[] = [
     club: "Al Hilal",
     goals: 3,
     caps: 40,
-    description: "Milieu de terrain complet et régulier, doté d\'une frappe de balle exceptionnelle."
+    description: "Milieu de terrain complet et régulier, doté d\\'une frappe de balle exceptionnelle."
   },
   {
     id: "ruben-neves",
@@ -13187,7 +13187,7 @@ export const players: Player[] = [
     club: "Al Hilal",
     goals: 3,
     caps: 40,
-    description: "Milieu de terrain complet et régulier, doté d\'une frappe de balle exceptionnelle."
+    description: "Milieu de terrain complet et régulier, doté d\\'une frappe de balle exceptionnelle."
   },
   {
     id: "samu-costa",
@@ -13252,7 +13252,7 @@ export const players: Player[] = [
     club: "Paris Saint-Germain",
     goals: 6,
     caps: 18,
-    description: "Avant-centre puissant et technique, auteur d\'un triplé en Coupe du Monde 2022."
+    description: "Avant-centre puissant et technique, auteur d\\'un triplé en Coupe du Monde 2022."
   },
   {
     id: "joao-felix",
@@ -13293,7 +13293,7 @@ export const players: Player[] = [
     club: "Al-Sadd",
     goals: 0,
     caps: 30,
-    description: "Gardien titulaire du Qatar, pilier de l\'équipe."
+    description: "Gardien titulaire du Qatar, pilier de l\\'équipe."
   },
   {
     id: "salah-zakaria",
@@ -13527,7 +13527,7 @@ export const players: Player[] = [
     club: "Al-Sadd",
     goals: 30,
     caps: 75,
-    description: "Star du football qatarien, Ballon d\'Or asiatique 2024."
+    description: "Star du football qatarien, Ballon d\\'Or asiatique 2024."
   },
   {
     id: "ali-almoez",
@@ -13540,7 +13540,7 @@ export const players: Player[] = [
     club: "Al-Duhail",
     goals: 55,
     caps: 90,
-    description: "Meilleur buteur de l\'histoire du Qatar, attaquant prolifique."
+    description: "Meilleur buteur de l\\'histoire du Qatar, attaquant prolifique."
   },
   {
     id: "edmilson-junior",
@@ -13698,7 +13698,7 @@ export const players: Player[] = [
     club: "Lille",
     goals: 3,
     caps: 70,
-    description: "Capitaine et défenseur central d\'expérience, ancien du TP Mazembe et de Marseille."
+    description: "Capitaine et défenseur central d\\'expérience, ancien du TP Mazembe et de Marseille."
   },
   {
     id: "dylan-batubinsika",
@@ -13802,7 +13802,7 @@ export const players: Player[] = [
     club: "Augsbourg",
     goals: 2,
     caps: 10,
-    description: "Jeune attaquant polyvalent d\'Augsbourg."
+    description: "Jeune attaquant polyvalent d\\'Augsbourg."
   },
   {
     id: "ngalayel-mukau",
@@ -14142,7 +14142,7 @@ export const players: Player[] = [
     club: "AS Monaco",
     goals: 2,
     caps: 20,
-    description: "Milieu de terrain dynamique et technique de l\'AS Monaco."
+    description: "Milieu de terrain dynamique et technique de l\\'AS Monaco."
   },
   {
     id: "pape-gueye",
@@ -14155,7 +14155,7 @@ export const players: Player[] = [
     club: "Villarreal",
     goals: 1,
     caps: 20,
-    description: "Milieu box-to-box puissant et technique, passé par l\'Olympique de Marseille."
+    description: "Milieu box-to-box puissant et technique, passé par l\\'Olympique de Marseille."
   },
   {
     id: "pape-gueye",
@@ -14168,7 +14168,7 @@ export const players: Player[] = [
     club: "Villarreal",
     goals: 1,
     caps: 20,
-    description: "Milieu box-to-box puissant et technique, passé par l\'Olympique de Marseille."
+    description: "Milieu box-to-box puissant et technique, passé par l\\'Olympique de Marseille."
   },
   {
     id: "pathe-ciss",
@@ -14207,7 +14207,7 @@ export const players: Player[] = [
     club: "OGC Nice",
     goals: 3,
     caps: 15,
-    description: "Attaquant rapide et imprévisible de l\'OGC Nice."
+    description: "Attaquant rapide et imprévisible de l\\'OGC Nice."
   },
   {
     id: "ibrahim-mbaye",
@@ -14456,7 +14456,7 @@ export const players: Player[] = [
     club: "Hammarby",
     goals: 0,
     caps: 1,
-    description: "Jeune défenseur prometteur d\'Allsvenskan."
+    description: "Jeune défenseur prometteur d\\'Allsvenskan."
   },
   {
     id: "gabriel-gudmundsson",
@@ -14573,7 +14573,7 @@ export const players: Player[] = [
     club: "Newcastle",
     goals: 15,
     caps: 40,
-    description: "Attaquant d\'élite de Newcastle, buteur prolifique en Premier League."
+    description: "Attaquant d\\'élite de Newcastle, buteur prolifique en Premier League."
   },
   {
     id: "anthony-elanga",
@@ -14586,7 +14586,7 @@ export const players: Player[] = [
     club: "Nottingham Forest",
     goals: 2,
     caps: 12,
-    description: "Ailier rapide d\'origine suédoise en Premier League."
+    description: "Ailier rapide d\\'origine suédoise en Premier League."
   },
   {
     id: "benjamin-nygren",
@@ -14640,7 +14640,7 @@ export const players: Player[] = [
     club: "Borussia Dortmund",
     goals: 0,
     caps: 10,
-    description: "Gardien d\'élite du Borussia Dortmund, l\'un des meilleurs de Bundesliga."
+    description: "Gardien d\\'élite du Borussia Dortmund, l\\'un des meilleurs de Bundesliga."
   },
   {
     id: "marvin-keller",
@@ -14692,7 +14692,7 @@ export const players: Player[] = [
     club: "Galatasaray",
     goals: 0,
     caps: 15,
-    description: "Défenseur central suisse d\'origine turque évoluant en Turquie."
+    description: "Défenseur central suisse d\\'origine turque évoluant en Turquie."
   },
   {
     id: "luca-jaquez",
@@ -14718,7 +14718,7 @@ export const players: Player[] = [
     club: "Manchester City",
     goals: 2,
     caps: 60,
-    description: "Défenseur central d\'élite, champion d\'Angleterre avec Manchester City."
+    description: "Défenseur central d\\'élite, champion d\\'Angleterre avec Manchester City."
   },
   {
     id: "miro-muheim",
@@ -14783,7 +14783,7 @@ export const players: Player[] = [
     club: "Club Bruges",
     goals: 0,
     caps: 10,
-    description: "Jeune milieu défensif prometteur d\'origine kosovare."
+    description: "Jeune milieu défensif prometteur d\\'origine kosovare."
   },
   {
     id: "christian-andreas-fassnacht",
@@ -14809,7 +14809,7 @@ export const players: Player[] = [
     club: "Bologne",
     goals: 3,
     caps: 15,
-    description: "Ailier explosif et rapide, révélation de l\'Euro 2024."
+    description: "Ailier explosif et rapide, révélation de l\\'Euro 2024."
   },
   {
     id: "zakaria",
@@ -14861,7 +14861,7 @@ export const players: Player[] = [
     club: "Bayer Leverkusen",
     goals: 14,
     caps: 125,
-    description: "Capitaine et patron du milieu, champion d\'Allemagne avec Leverkusen."
+    description: "Capitaine et patron du milieu, champion d\\'Allemagne avec Leverkusen."
   },
   {
     id: "aebischer",
@@ -15006,7 +15006,7 @@ export const players: Player[] = [
     club: "Bayer Leverkusen",
     goals: 0,
     caps: 5,
-    description: "Gardien évoluant au Bayer Leverkusen, champion d\'Allemagne."
+    description: "Gardien évoluant au Bayer Leverkusen, champion d\\'Allemagne."
   },
   {
     id: "david-jurasek",
@@ -15084,7 +15084,7 @@ export const players: Player[] = [
     club: "Slavia Prague",
     goals: 3,
     caps: 25,
-    description: "Défenseur polyvalent, héros de l\'Euro 2020 avec un but décisif."
+    description: "Défenseur polyvalent, héros de l\\'Euro 2020 avec un but décisif."
   },
   {
     id: "vladimir-coufal",
@@ -15292,7 +15292,7 @@ export const players: Player[] = [
     club: "Viktoria Plzeň",
     goals: 3,
     caps: 10,
-    description: "Milieu offensif en vue lors de l\'Euro 2024."
+    description: "Milieu offensif en vue lors de l\\'Euro 2024."
   },
   {
     id: "tomas-chory",
@@ -15305,7 +15305,7 @@ export const players: Player[] = [
     club: "Slavia Prague",
     goals: 5,
     caps: 15,
-    description: "Attaquant puissant dans les airs et pivot d\'attaque."
+    description: "Attaquant puissant dans les airs et pivot d\\'attaque."
   },
 
   // Tunisia
@@ -15359,7 +15359,7 @@ export const players: Player[] = [
     club: "Espérance de Tunis",
     goals: 0,
     caps: 1,
-    description: "Jeune défenseur prometteur de l\'Espérance."
+    description: "Jeune défenseur prometteur de l\\'Espérance."
   },
   {
     id: "abdi-ali",
@@ -15450,7 +15450,7 @@ export const players: Player[] = [
     club: "Espérance de Tunis",
     goals: 0,
     caps: 1,
-    description: "Très jeune défenseur de l\'Espérance de Tunis."
+    description: "Très jeune défenseur de l\\'Espérance de Tunis."
   },
   {
     id: "yan-valery",
@@ -15502,7 +15502,7 @@ export const players: Player[] = [
     club: "Eintracht Francfort",
     goals: 4,
     caps: 50,
-    description: "Milieu défensif d\'élite en Bundesliga, pilier de la Tunisie."
+    description: "Milieu défensif d\\'élite en Bundesliga, pilier de la Tunisie."
   },
   {
     id: "hadj-mahmoud",
@@ -15593,7 +15593,7 @@ export const players: Player[] = [
     club: "Espérance de Tunis",
     goals: 5,
     caps: 15,
-    description: "Attaquant buteur de l\'Espérance de Tunis."
+    description: "Attaquant buteur de l\\'Espérance de Tunis."
   },
   {
     id: "hazem-mastouri",
@@ -15673,7 +15673,7 @@ export const players: Player[] = [
     club: "Beşiktaş",
     goals: 0,
     caps: 25,
-    description: "Gardien expérimenté, héros de l\'Euro 2024 avec un arrêt décisif."
+    description: "Gardien expérimenté, héros de l\\'Euro 2024 avec un arrêt décisif."
   },
   {
     id: "ugurcan-cakir",
@@ -15751,7 +15751,7 @@ export const players: Player[] = [
     club: "Al-Ahli",
     goals: 4,
     caps: 45,
-    description: "Défenseur central puissant, buteur à l\'Euro 2024."
+    description: "Défenseur central puissant, buteur à l\\'Euro 2024."
   },
   {
     id: "mert-muldur",
@@ -15842,7 +15842,7 @@ export const players: Player[] = [
     club: "Galatasaray",
     goals: 3,
     caps: 15,
-    description: "Ailier rapide de Galatasaray, révélation de l\'Euro 2024."
+    description: "Ailier rapide de Galatasaray, révélation de l\\'Euro 2024."
   },
   {
     id: "can-ylmaz-uzun",
@@ -15868,7 +15868,7 @@ export const players: Player[] = [
     club: "Inter Milan",
     goals: 18,
     caps: 85,
-    description: "Milieu de terrain d\'élite, meneur de jeu et tireur de coups francs."
+    description: "Milieu de terrain d\\'élite, meneur de jeu et tireur de coups francs."
   },
   {
     id: "irfan-can-kahveci",
@@ -16000,7 +16000,7 @@ export const players: Player[] = [
     club: "Galatasaray",
     goals: 0,
     caps: 135,
-    description: "Gardien légendaire de l\'Uruguay, capitaine emblématique de Galatasaray."
+    description: "Gardien légendaire de l\\'Uruguay, capitaine emblématique de Galatasaray."
   },
   {
     id: "mele",
@@ -16146,19 +16146,6 @@ export const players: Player[] = [
     description: ""
   },
   {
-    id: "martinez-emiliano-uru",
-    name: "Emiliano Martínez",
-    slug: "martinez-emiliano-uru",
-    teamId: "uruguay",
-    position: "MF",
-    number: 15,
-    age: 26,
-    club: "Palmeiras",
-    goals: 2,
-    caps: 15,
-    description: "Milieu offensif technique du Palmeiras, capable de jouer entre les lignes."
-  },
-  {
     id: "valverde",
     name: "Federico Valverde",
     slug: "valverde",
@@ -16232,6 +16219,19 @@ export const players: Player[] = [
     number: 6,
     age: 28,
     club: "Tottenham",
+    goals: 0,
+    caps: 0,
+    description: ""
+  },
+  {
+    id: "rodrigo-zalazar-martinez",
+    name: "Rodrigo Zalazar Martínez",
+    slug: "rodrigo-zalazar-martinez",
+    teamId: "uruguay",
+    position: "MF",
+    number: 15,
+    age: 26,
+    club: "Uruguay",
     goals: 0,
     caps: 0,
     description: ""
@@ -16330,20 +16330,16 @@ export const players: Player[] = [
 
 ];
 
-// Derived lookup maps
-export const playersById: Record<string, Player> = Object.fromEntries(
+// Derived indexes
+export const playersById: Record<string, (typeof players)[number]> = Object.fromEntries(
   players.map((p) => [p.id, p])
 );
 
-export const playersBySlug: Record<string, Player> = Object.fromEntries(
+export const playersBySlug: Record<string, (typeof players)[number]> = Object.fromEntries(
   players.map((p) => [p.slug, p])
 );
 
-export const playersByTeamId: Record<string, Player[]> = players.reduce(
-  (acc, p) => {
-    if (!acc[p.teamId]) acc[p.teamId] = [];
-    acc[p.teamId]!.push(p);
-    return acc;
-  },
-  {} as Record<string, Player[]>
-);
+export const playersByTeamId: Record<string, (typeof players)[number][]> = {};
+for (const p of players) {
+  (playersByTeamId[p.teamId] ??= []).push(p);
+}
