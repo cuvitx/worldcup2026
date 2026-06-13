@@ -122,7 +122,7 @@ export async function getInjuries(apiTeamId: number): Promise<ApiInjury[]> {
 export async function getLineup(fixtureId: number): Promise<ApiLineup[]> {
   return rateLimitedCachedFetch(
     `football:lineup:${fixtureId}`,
-    CACHE_TTL.TEAM_STATS,
+    CACHE_TTL.INJURIES, // 1h — lineups appear ~1h before kickoff
     () =>
       apiFetch<ApiLineup>("fixtures/lineups", {
         fixture: String(fixtureId),

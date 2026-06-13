@@ -163,11 +163,12 @@ async function fetchLineupsForMatch(
     const fixtures = await getFixturesByDate(matchDate);
     if (!fixtures.length) return { home: null, away: null };
 
-    // Find the fixture matching this match by kickoff time
-    const parisDate = new Date(`${matchDate}T${matchTime}:00+02:00`);
-    const kickoffUTC = parisDate.toISOString().slice(0, 19);
+    // Find the fixture matching this match by kickoff time (timestamp comparison, timezone-safe)
+    const kickoff = new Date(`${matchDate}T${matchTime}:00+02:00`).getTime();
 
-    let fixture = fixtures.find((f) => f.fixture.date.startsWith(kickoffUTC));
+    let fixture = fixtures.find(
+      (f) => Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
+    );
 
     // Fallback: fuzzy match by team name
     if (!fixture) {
