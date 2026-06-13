@@ -20,12 +20,15 @@ export interface LiveMatch {
   awayTeam: string;
   homeCode?: string;
   awayCode?: string;
+  homeFlag?: string;
+  awayFlag?: string;
   homeScore: number | null;
   awayScore: number | null;
   status: "upcoming" | "live" | "halftime" | "finished";
   elapsed: number | null;
   time: string;
   slug: string;
+  date?: string;
 }
 
 /**
@@ -59,10 +62,13 @@ function StatusDot({ status }: { status: LiveMatch["status"] }) {
   return <span className="h-1.5 w-1.5 rounded-full bg-accent" />;
 }
 
-function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }) {
+function MatchPill({ match, t, currentDate }: { match: LiveMatch; t: typeof translations.fr; currentDate?: string }) {
   const isLive = match.status === "live" || match.status === "halftime";
+  const isFinished = match.status === "finished";
+  const hasScore = match.homeScore !== null && match.awayScore !== null;
   const homeName = match.homeCode ?? match.homeTeam;
   const awayName = match.awayCode ?? match.awayTeam;
+  const isFutureDate = match.date && currentDate && match.date > currentDate;
 
   return (
     <div
@@ -72,18 +78,30 @@ function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }
           : "bg-white/10 hover:bg-white/15"
       }`}
     >
-      <StatusDot status={match.status} />
+      {isLive && <StatusDot status={match.status} />}
+      {match.homeFlag && <span className="text-xs">{match.homeFlag}</span>}
       <span className="font-semibold">{homeName}</span>
-      {match.homeScore !== null && match.awayScore !== null ? (
-        <span className={`font-bold tabular-nums ${isLive ? "text-accent" : ""}`}>
+      {hasScore ? (
+        <span className={`font-bold tabular-nums ${isLive ? "rounded bg-white/20 px-1.5 py-0.5" : ""}`}>
           {match.homeScore}-{match.awayScore}
         </span>
       ) : (
-        <span className="text-white/70 tabular-nums">{match.time}</span>
+        <span className="text-white/50 tabular-nums flex flex-col items-center leading-none">
+          <span>{match.time}</span>
+          {isFutureDate && (
+            <span className="text-[9px] text-white/40">
+              {new Date(match.date + "T00:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
+            </span>
+          )}
+        </span>
       )}
       <span className="font-semibold">{awayName}</span>
+      {match.awayFlag && <span className="text-xs">{match.awayFlag}</span>}
       {isLive && match.elapsed && (
-        <span className="text-[10px] font-bold text-red-400">{match.elapsed}&apos;</span>
+        <span className="rounded bg-red-500/80 px-1.5 py-0.5 text-[10px] font-bold text-white">{match.elapsed}&apos;</span>
+      )}
+      {isFinished && hasScore && (
+        <span className="text-[10px] font-medium text-white/40">{t.finished}</span>
       )}
     </div>
   );
@@ -229,6 +247,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center gap-2 overflow-x-auto py-2 scrollbar-hide">
           <span className="shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/70 leading-none">
+            {hasLive && <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />}
             {hasLive ? t.live : t.today}
           </span>
           <span className="h-3 w-px bg-white/10 shrink-0" />
@@ -238,7 +257,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
               href={match.slug ? `${matchBasePath}/${match.slug}` : "#"}
               className="contents"
             >
-              <MatchPill match={match} t={t} />
+              <MatchPill match={match} t={t} currentDate={matchDate} />
             </a>
           ))}
         </div>
