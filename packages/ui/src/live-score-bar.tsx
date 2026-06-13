@@ -66,7 +66,7 @@ function MatchPill({ match, t }: { match: LiveMatch; t: typeof translations.fr }
 
   return (
     <div
-      className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-[11px] text-white transition-colors ${
+      className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-[11px] leading-none text-white transition-colors ${
         isLive
           ? "bg-white/20 ring-1 ring-white/30"
           : "bg-white/10 hover:bg-white/15"
@@ -228,7 +228,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
     <div className="border-b border-white/5 bg-primary">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center gap-2 overflow-x-auto py-2 scrollbar-hide">
-          <span className="shrink-0 flex items-center gap-1.5 rounded-full px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/70">
+          <span className="shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/70 leading-none">
             {hasLive ? t.live : t.today}
           </span>
           <span className="h-3 w-px bg-white/10 shrink-0" />
