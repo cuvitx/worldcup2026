@@ -9,9 +9,9 @@ import { useEffect, useState, useCallback, memo } from "react";
 // ============================================================================
 
 const translations = {
-  fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "Aujourd'hui", live: "EN DIRECT" },
-  en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "Today", live: "LIVE" },
-  es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "Hoy", live: "EN VIVO" },
+  fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "MATCHS", live: "LIVE" },
+  en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "MATCHS", live: "LIVE" },
+  es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "PARTIDOS", live: "LIVE" },
 };
 
 export interface LiveMatch {
@@ -99,9 +99,6 @@ function MatchPill({ match, t, currentDate }: { match: LiveMatch; t: typeof tran
       {match.awayFlag && <span className="text-xs">{match.awayFlag}</span>}
       {isLive && match.elapsed && (
         <span className="rounded bg-red-500/80 px-1.5 py-0.5 text-[10px] font-bold text-white">{match.elapsed}&apos;</span>
-      )}
-      {isFinished && hasScore && (
-        <span className="text-[10px] font-medium text-white/40">{t.finished}</span>
       )}
     </div>
   );
