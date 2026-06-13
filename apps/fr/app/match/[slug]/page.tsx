@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { matches, matchesBySlug } from "@repo/data/matches";
+import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
@@ -81,11 +82,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function MatchPage({ params }: PageProps) {
   const { slug } = await params;
-  const match = matchesBySlug[slug];
-  if (!match) notFound();
+  const staticMatch = matchesBySlug[slug];
+  if (!staticMatch) notFound();
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
+  const home = teamsById[staticMatch.homeTeamId];
+  const away = teamsById[staticMatch.awayTeamId];
+
+  // Enrich with real API scores
+  const teamNameMap: Record<string, string> = {};
+  if (home) teamNameMap[home.id] = home.name;
+  if (away) teamNameMap[away.id] = away.name;
+  const enrichedMatches = await enrichMatchesWithResults([staticMatch], teamNameMap);
+  const match = enrichedMatches[0] ?? staticMatch;
   const stadium = stadiumsById[match.stadiumId];
   const city = stadium ? citiesById[stadium.cityId] ?? null : null;
   const stage = stageLabels[match.stage] ?? match.stage;

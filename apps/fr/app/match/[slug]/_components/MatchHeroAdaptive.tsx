@@ -18,6 +18,9 @@ interface MatchHeroAdaptiveProps {
     time: string;
     group?: string;
     slug: string;
+    homeScore?: number;
+    awayScore?: number;
+    status?: "scheduled" | "live" | "finished";
   };
   dateFormatted: string;
 }
@@ -34,7 +37,61 @@ export function MatchHeroAdaptive({
   const { liveFixtures } = useLiveData();
   const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
+  const hasScore = match.homeScore != null && match.awayScore != null;
 
+  // Completed match with known score — show final result
+  if (isCompleted && hasScore) {
+    return (
+      <section className="hero-animated text-white py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
+          <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
+            {stage}{match.group ? ` - Groupe ${match.group}` : ""}
+          </p>
+          <p className="mb-6 text-xs text-gray-400 uppercase tracking-wider">Terminé</p>
+
+          <div className="flex items-center justify-center gap-6 sm:gap-12 mb-6">
+            {/* Home */}
+            <div className="flex flex-col items-center gap-2 min-w-0 flex-1 max-w-[180px]">
+              <span className="text-4xl sm:text-6xl">{home?.flag ?? ""}</span>
+              {home ? (
+                <Link href={`/equipe/${home.slug}`} className="text-base sm:text-xl font-extrabold hover:text-secondary transition-colors text-center leading-tight">
+                  {home.name}
+                </Link>
+              ) : (
+                <p className="text-base sm:text-xl font-extrabold">À déterminer</p>
+              )}
+            </div>
+
+            {/* Score */}
+            <div className="flex items-center gap-3 sm:gap-5">
+              <span className="text-4xl sm:text-6xl font-black tabular-nums">{match.homeScore}</span>
+              <span className="text-lg sm:text-2xl font-bold text-gray-400">-</span>
+              <span className="text-4xl sm:text-6xl font-black tabular-nums">{match.awayScore}</span>
+            </div>
+
+            {/* Away */}
+            <div className="flex flex-col items-center gap-2 min-w-0 flex-1 max-w-[180px]">
+              <span className="text-4xl sm:text-6xl">{away?.flag ?? ""}</span>
+              {away ? (
+                <Link href={`/equipe/${away.slug}`} className="text-base sm:text-xl font-extrabold hover:text-secondary transition-colors text-center leading-tight">
+                  {away.name}
+                </Link>
+              ) : (
+                <p className="text-base sm:text-xl font-extrabold">À déterminer</p>
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300">
+            <span>{dateFormatted}</span>
+            {stadium && <span>{stadium.name}</span>}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Live match or completed without score — use LiveMatchWidget
   if (isLive || isCompleted) {
     return (
       <section className="hero-animated py-12 sm:py-16">
