@@ -73,6 +73,12 @@ function detectSilo(pathname: string): SiloMatch | null {
     },
   ];
 
+  // Non-slug pages that happen to start with a silo prefix
+  const excludedPages = new Set([
+    "/match/calendrier", "/match/aujourdhui",
+  ]);
+  if (excludedPages.has(p)) return null;
+
   for (const { prefixes, silo } of slugSilos) {
     for (const prefix of prefixes) {
       if (p.startsWith(prefix)) {
