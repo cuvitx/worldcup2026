@@ -80,9 +80,10 @@ export function getDaysUntilKickoff(): number {
 
 /** Get today's matches sorted by time (Europe/Paris). */
 export function getTodaysMatches(): Match[] {
-  const todayISO = new Date().toISOString().slice(0, 10);
+  // Use Paris timezone since all match times are CEST and the primary audience is French
+  const parisDate = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/Paris" }); // YYYY-MM-DD
   return (matches as Match[])
-    .filter((m) => m.date === todayISO)
+    .filter((m) => m.date === parisDate)
     .sort((a, b) => a.time.localeCompare(b.time));
 }
 
