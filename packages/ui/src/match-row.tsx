@@ -10,6 +10,9 @@ interface MatchRowProps {
   stadium?: string;
   href: string;
   className?: string;
+  homeScore?: number;
+  awayScore?: number;
+  status?: "scheduled" | "live" | "finished";
 }
 
 export function MatchRow({
@@ -22,7 +25,12 @@ export function MatchRow({
   stadium,
   href,
   className = "",
+  homeScore,
+  awayScore,
+  status,
 }: MatchRowProps) {
+  const isFinished = status === "finished" && homeScore != null && awayScore != null;
+  const isLive = status === "live";
   return (
     <Link
       href={href}
@@ -30,8 +38,8 @@ export function MatchRow({
     >
       {/* Main row: time | home vs away | group */}
       <div className="flex items-center gap-3">
-        <span className="text-sm font-bold text-primary tabular-nums w-12 shrink-0">
-          {time}
+        <span className={`text-sm font-bold tabular-nums w-12 shrink-0 ${isFinished ? "text-gray-400" : isLive ? "text-red-600" : "text-primary"}`}>
+          {isLive ? "EN DIRECT" : time}
         </span>
 
         {/* Home team */}
@@ -40,7 +48,17 @@ export function MatchRow({
           <span className="text-sm font-semibold text-gray-900 truncate">{homeName}</span>
         </div>
 
-        <span className="text-xs font-bold text-gray-400 shrink-0">vs</span>
+        {isFinished ? (
+          <span className="text-sm font-bold text-gray-900 shrink-0 tabular-nums">
+            {homeScore} - {awayScore}
+          </span>
+        ) : isLive ? (
+          <span className="text-sm font-bold text-red-600 shrink-0 tabular-nums animate-pulse">
+            {homeScore ?? 0} - {awayScore ?? 0}
+          </span>
+        ) : (
+          <span className="text-xs font-bold text-gray-400 shrink-0">vs</span>
+        )}
 
         {/* Away team */}
         <div className="flex items-center gap-1.5 flex-1 min-w-0 justify-end">

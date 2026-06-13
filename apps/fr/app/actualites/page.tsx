@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
-import { newsArticles, newsCategories, type NewsCategory } from "@repo/data/news";
 import { getAllArticles } from "../../lib/mdx";
-import { PenLine } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
@@ -18,14 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-const categoryColors: Record<NewsCategory, string> = {
-  transferts: "bg-primary/10 text-primary",
-  stades: "bg-primary/10 text-primary",
-  billets: "bg-primary/10 text-primary",
-  equipes: "bg-primary/10 text-primary",
-  paris: "bg-primary/10 text-primary",
-};
-
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("fr-FR", {
     day: "numeric",
@@ -34,30 +24,8 @@ function formatDate(dateStr: string) {
   });
 }
 
-const newsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  name: "Actualités Coupe du Monde 2026",
-  url: "https://www.cdm2026.fr/actualites",
-  mainEntity: {
-    "@type": "ItemList",
-    itemListElement: newsArticles.map((article, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      item: {
-        "@type": "NewsArticle",
-        headline: article.title,
-        datePublished: article.date,
-        url: `https://www.cdm2026.fr/actualites#${article.id}`,
-        publisher: { "@type": "Organization", name: "CDM 2026" },
-      },
-    })),
-  },
-};
-
 export default function ActualitesPage() {
-  const featured = newsArticles[0];
-  const rest = newsArticles.slice(1);
+  const articles = getAllArticles();
 
   const faqItems = [
     {
@@ -82,91 +50,85 @@ export default function ActualitesPage() {
     }
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Actualités Coupe du Monde 2026",
+    url: "https://www.cdm2026.fr/actualites",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: articles.map((article, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "NewsArticle",
+          headline: article.title,
+          datePublished: article.date,
+          url: `https://www.cdm2026.fr/actualites/${article.slug}`,
+          publisher: { "@type": "Organization", name: "CDM 2026" },
+        },
+      })),
+    },
+  };
+
   return (
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-{/* Breadcrumb */}
-{/* Hero */}
+
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">Actualités Coupe du Monde 2026</h1>
           <p className="text-gray-300 max-w-2xl">
-            Toutes les dernières informations sur la Coupe du Monde 2026 : stades, équipes, billets, paris sportifs et plus encore.
+            Analyses, guides et articles sur la Coupe du Monde 2026.
           </p>
         </div>
       </section>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        {articles.length === 0 ? (
+          <p className="text-center text-gray-500 py-12">Aucun article pour le moment.</p>
+        ) : (
+          <>
+            {/* Featured article */}
+            {articles[0] && (
+              <Link
+                href={`/actualites/${articles[0].slug}`}
+                className="group block rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
+              >
+                <div className="grid md:grid-cols-[1fr_1fr] gap-0">
+                  <div className="bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center p-12">
+                    <span className="text-4xl sm:text-8xl">{articles[0].imageEmoji ?? "📝"}</span>
+                  </div>
+                  <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-primary/10 text-primary">
+                        {articles[0].category}
+                      </span>
+                      <time className="text-xs text-gray-500" dateTime={articles[0].date}>
+                        {formatDate(articles[0].date)}
+                      </time>
+                      {articles[0].readingTime && (
+                        <span className="text-xs text-gray-400">{articles[0].readingTime} min</span>
+                      )}
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 transition-colors mb-3">
+                      {articles[0].title}
+                    </h2>
+                    <p className="text-gray-600 line-clamp-3 mb-4">
+                      {articles[0].description}
+                    </p>
+                    <span className="text-sm font-bold text-primary">Lire l&apos;article →</span>
+                  </div>
+                </div>
+              </Link>
+            )}
 
-      {/* Featured article */}
-      {featured && (
-        <Link
-          href={`/actualites/${featured.slug}`}
-          className="group block rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
-        >
-          <div className="grid md:grid-cols-[1fr_1fr] gap-0">
-            <div className="bg-gradient-to-br from-primary/10 to-primary/10 flex items-center justify-center p-12">
-              <span className="text-4xl sm:text-8xl">{featured.imageEmoji}</span>
-            </div>
-            <div className="p-6 md:p-8 flex flex-col justify-center">
-              <div className="flex items-center gap-2 mb-3">
-                <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryColors[featured.category]}`}>
-                  {newsCategories[featured.category]}
-                </span>
-                <time className="text-xs text-gray-500" dateTime={featured.date}>
-                  {formatDate(featured.date)}
-                </time>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900 transition-colors mb-3">
-                {featured.title}
-              </h2>
-              <p className="text-gray-600 line-clamp-3 mb-4">
-                {featured.excerpt}
-              </p>
-              <span className="text-sm font-bold text-primary">Lire l&apos;article →</span>
-            </div>
-          </div>
-        </Link>
-      )}
-
-      {/* Rest of articles grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {rest.map((article) => (
-          <Link
-            key={article.id}
-            href={`/actualites/${article.slug}`}
-            className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
-          >
-            <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[article.category]}`}>
-                {newsCategories[article.category]}
-              </span>
-              <time className="text-xs text-gray-500" dateTime={article.date}>
-                {formatDate(article.date)}
-              </time>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 transition-colors line-clamp-2 mb-2">
-              {article.title}
-            </h2>
-            <p className="text-sm text-gray-600 line-clamp-3">
-              {article.excerpt}
-            </p>
-          </Link>
-        ))}
-      </div>
-      {/* MDX Articles */}
-      {(() => {
-        const mdxArticles = getAllArticles();
-        if (mdxArticles.length === 0) return null;
-        return (
-          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6"><PenLine className="h-5 w-5 inline-block" /> Analyses &amp; Articles</h2>
+            {/* Rest of articles */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {mdxArticles.map((article) => (
+              {articles.slice(1).map((article) => (
                 <Link
                   key={article.slug}
                   href={`/actualites/${article.slug}`}
@@ -193,12 +155,11 @@ export default function ActualitesPage() {
                 </Link>
               ))}
             </div>
-          </div>
-        );
-      })()}
+          </>
+        )}
       </div>
 
       <FAQSection title="Questions fréquentes sur la CDM 2026" items={faqItems} />
-</div>
+    </div>
   );
 }

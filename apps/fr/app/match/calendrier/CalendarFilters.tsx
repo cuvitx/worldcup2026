@@ -15,6 +15,9 @@ interface MatchData {
   stadiumId: string;
   stage: string;
   group?: string;
+  homeScore?: number;
+  awayScore?: number;
+  status?: "scheduled" | "live" | "finished";
 }
 
 interface TeamInfo {
@@ -222,6 +225,9 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                               time={match.time}
                               group={match.group}
                               stadium={stad?.name}
+                              homeScore={match.homeScore}
+                              awayScore={match.awayScore}
+                              status={match.status}
                             />
                           );
                         })}

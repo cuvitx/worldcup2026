@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import CalendarViewWrapper from "./CalendarViewWrapper";
 import { FileText } from "lucide-react";
 import { RelatedLinks } from "../../components/RelatedLinks";
@@ -37,9 +38,20 @@ export const metadata: Metadata = {
   alternates: getStaticAlternates("matchSchedule", "fr"),
 };
 
-export default function CalendrierPage() {
+export const revalidate = 300; // 5min ISR — auto-refresh scores
+
+export default async function CalendrierPage() {
+  // Build team name map for API matching
+  const teamNameMap: Record<string, string> = {};
+  for (const [id, t] of Object.entries(teamsById)) {
+    if (t) teamNameMap[id] = t.name;
+  }
+
+  // Enrich static matches with real API results
+  const enrichedMatches = await enrichMatchesWithResults(matches, teamNameMap);
+
   // Serialize data for client component
-  const matchData = matches.map((m) => ({
+  const matchData = enrichedMatches.map((m) => ({
     id: m.id,
     slug: m.slug,
     homeTeamId: m.homeTeamId,
@@ -49,6 +61,9 @@ export default function CalendrierPage() {
     stadiumId: m.stadiumId,
     stage: m.stage,
     group: m.group,
+    homeScore: m.homeScore,
+    awayScore: m.awayScore,
+    status: m.status,
   }));
 
   const teamData: Record<string, { id: string; name: string; flag: string }> = {};

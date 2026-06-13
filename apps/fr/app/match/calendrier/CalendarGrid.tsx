@@ -13,6 +13,9 @@ interface MatchData {
   stadiumId: string;
   stage: string;
   group?: string;
+  homeScore?: number;
+  awayScore?: number;
+  status?: "scheduled" | "live" | "finished";
 }
 
 interface TeamInfo {
@@ -170,12 +173,18 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                                 <Link
                                   key={match.id}
                                   href={`/match/${match.slug}`}
-                                  className={`group flex items-center gap-1 text-xs py-0.5 px-1 rounded hover:bg-primary/10 transition-colors ${getPhaseColor(match.stage)}`}
+                                  className={`group flex items-center gap-1 text-xs py-0.5 px-1 rounded hover:bg-primary/10 transition-colors ${match.status === "finished" ? "bg-gray-100 text-gray-600" : getPhaseColor(match.stage)}`}
                                 >
-                                  <span className="text-[10px] text-gray-500 font-mono w-10 shrink-0">{match.time}</span>
+                                  <span className="text-[10px] text-gray-500 font-mono w-10 shrink-0">
+                                    {match.status === "finished" ? "FT" : match.time}
+                                  </span>
                                   <span className="shrink-0">{home?.flag ?? "🏳️"}</span>
                                   <span className="truncate text-gray-700 group-hover:text-primary">{home?.name ?? "TBD"}</span>
-                                  <span className="text-gray-400 text-[10px]">-</span>
+                                  {match.status === "finished" && match.homeScore != null ? (
+                                    <span className="font-bold text-gray-900 text-[11px] shrink-0">{match.homeScore}-{match.awayScore}</span>
+                                  ) : (
+                                    <span className="text-gray-400 text-[10px]">-</span>
+                                  )}
                                   <span className="shrink-0">{away?.flag ?? "🏳️"}</span>
                                   <span className="truncate text-gray-700 group-hover:text-primary">{away?.name ?? "TBD"}</span>
                                 </Link>
@@ -218,12 +227,18 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                     href={`/match/${match.slug}`}
                     className="flex items-center px-4 py-3 hover:bg-gray-50"
                   >
-                    <span className="text-sm font-mono text-gray-500 w-12">{match.time}</span>
+                    <span className={`text-sm font-mono w-12 ${match.status === "finished" ? "text-gray-400" : "text-gray-500"}`}>
+                      {match.status === "finished" ? "FT" : match.time}
+                    </span>
                     <span className="flex items-center gap-2 flex-1 min-w-0">
                       <span>{home?.flag ?? "🏳️"}</span>
                       <span className="font-medium text-sm truncate">{home?.name ?? "TBD"}</span>
                     </span>
-                    <span className="text-xs text-gray-400 mx-2">vs</span>
+                    {match.status === "finished" && match.homeScore != null ? (
+                      <span className="text-sm font-bold text-gray-900 mx-2 tabular-nums">{match.homeScore} - {match.awayScore}</span>
+                    ) : (
+                      <span className="text-xs text-gray-400 mx-2">vs</span>
+                    )}
                     <span className="flex items-center gap-2 flex-1 justify-end min-w-0">
                       <span className="font-medium text-sm truncate">{away?.name ?? "TBD"}</span>
                       <span>{away?.flag ?? "🏳️"}</span>

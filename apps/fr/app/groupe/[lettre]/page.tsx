@@ -7,7 +7,8 @@ import { teams, teamsById } from "@repo/data/teams";
 import { matchesByGroup } from "@repo/data/matches";
 import { playersByTeamId } from "@repo/data/players";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import type { Player } from "@repo/data/types";
+import { enrichMatchesWithResults } from "@repo/api/football/match-results";
+import type { Player, Match } from "@repo/data/types";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -45,7 +46,71 @@ export default async function GroupPage({ params }: PageProps) {
   if (!group) notFound();
 
   const groupTeams = group.teams.map((id) => teamsById[id]).filter((t): t is NonNullable<typeof t> => t != null);
-  const groupMatches = matchesByGroup[group.letter] ?? [];
+  const staticGroupMatches = matchesByGroup[group.letter] ?? [];
+
+  // Build team name map for API matching
+  const teamNameMap: Record<string, string> = {};
+  for (const t of groupTeams) { teamNameMap[t.id] = t.name; }
+
+  // Enrich with real API results (ISR-cached, auto-updates)
+  const groupMatches: Match[] = await enrichMatchesWithResults(staticGroupMatches, teamNameMap);
+
+  // Compute group standings from completed matches
+  const hasResults = groupMatches.some((m) => m.status === "finished");
+
+  interface Standing {
+    teamId: string;
+    played: number;
+    won: number;
+    drawn: number;
+    lost: number;
+    goalsFor: number;
+    goalsAgainst: number;
+    points: number;
+  }
+
+  const standingsMap = new Map<string, Standing>();
+  for (const team of groupTeams) {
+    standingsMap.set(team.id, {
+      teamId: team.id,
+      played: 0, won: 0, drawn: 0, lost: 0,
+      goalsFor: 0, goalsAgainst: 0, points: 0,
+    });
+  }
+
+  for (const match of groupMatches) {
+    if (match.status !== "finished" || match.homeScore == null || match.awayScore == null) continue;
+    const home = standingsMap.get(match.homeTeamId);
+    const away = standingsMap.get(match.awayTeamId);
+    if (!home || !away) continue;
+
+    home.played++;
+    away.played++;
+    home.goalsFor += match.homeScore;
+    home.goalsAgainst += match.awayScore;
+    away.goalsFor += match.awayScore;
+    away.goalsAgainst += match.homeScore;
+
+    if (match.homeScore > match.awayScore) {
+      home.won++; home.points += 3;
+      away.lost++;
+    } else if (match.homeScore < match.awayScore) {
+      away.won++; away.points += 3;
+      home.lost++;
+    } else {
+      home.drawn++; home.points += 1;
+      away.drawn++; away.points += 1;
+    }
+  }
+
+  const standings = Array.from(standingsMap.values()).sort((a, b) => {
+    if (b.points !== a.points) return b.points - a.points;
+    const diffA = a.goalsFor - a.goalsAgainst;
+    const diffB = b.goalsFor - b.goalsAgainst;
+    if (diffB !== diffA) return diffB - diffA;
+    if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
+    return 0;
+  });
 
   // Récupérer les joueurs vedettes du groupe (top 3-5 joueurs)
   const allGroupPlayers: Player[] = [];
@@ -138,6 +203,73 @@ export default async function GroupPage({ params }: PageProps) {
                 </table>
               </div>
             </section>
+
+            {/* Group Standings */}
+            {hasResults && (
+              <section className="rounded-lg bg-white p-4 sm:p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-4.5L16.5 16.5m0 0L12 12m4.5 4.5V7.5" /></svg>
+                  Classement du Groupe {group.letter}
+                </h2>
+                <div className="overflow-x-auto -mx-4 sm:mx-0">
+                  <table className="w-full text-sm min-w-[480px]">
+                    <thead>
+                      <tr className="border-b-2 border-gray-200 text-gray-500 text-xs uppercase tracking-wider">
+                        <th className="pb-2 pl-4 sm:pl-0 text-left font-semibold w-8">#</th>
+                        <th className="pb-2 text-left font-semibold">Équipe</th>
+                        <th className="pb-2 text-center font-semibold">MJ</th>
+                        <th className="pb-2 text-center font-semibold">V</th>
+                        <th className="pb-2 text-center font-semibold">N</th>
+                        <th className="pb-2 text-center font-semibold">D</th>
+                        <th className="pb-2 text-center font-semibold">BP</th>
+                        <th className="pb-2 text-center font-semibold">BC</th>
+                        <th className="pb-2 text-center font-semibold">Diff</th>
+                        <th className="pb-2 pr-4 sm:pr-0 text-center font-semibold">Pts</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {standings.map((s, idx) => {
+                        const team = teamsById[s.teamId];
+                        if (!team) return null;
+                        const diff = s.goalsFor - s.goalsAgainst;
+                        const isQualified = idx < 2;
+                        return (
+                          <tr
+                            key={s.teamId}
+                            className={`border-b border-gray-100 ${isQualified ? "bg-accent/5" : ""}`}
+                          >
+                            <td className="py-2.5 pl-4 sm:pl-0 font-bold text-gray-400">{idx + 1}</td>
+                            <td className="py-2.5">
+                              <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 font-medium hover:text-primary">
+                                <span className="text-lg">{team.flag}</span>
+                                <span className="hidden sm:inline">{team.name}</span>
+                                <span className="sm:hidden">{team.code}</span>
+                              </Link>
+                            </td>
+                            <td className="py-2.5 text-center">{s.played}</td>
+                            <td className="py-2.5 text-center text-green-600 font-medium">{s.won}</td>
+                            <td className="py-2.5 text-center text-gray-500">{s.drawn}</td>
+                            <td className="py-2.5 text-center text-red-500">{s.lost}</td>
+                            <td className="py-2.5 text-center">{s.goalsFor}</td>
+                            <td className="py-2.5 text-center">{s.goalsAgainst}</td>
+                            <td className="py-2.5 text-center font-medium">
+                              <span className={diff > 0 ? "text-green-600" : diff < 0 ? "text-red-500" : "text-gray-500"}>
+                                {diff > 0 ? `+${diff}` : diff}
+                              </span>
+                            </td>
+                            <td className="py-2.5 pr-4 sm:pr-0 text-center font-bold text-lg text-[#022149]">{s.points}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
+                  <span className="w-3 h-3 rounded-sm bg-accent/20 shrink-0" />
+                  Zone de qualification (top 2)
+                </div>
+              </section>
+            )}
 
             {/* Group Analysis - Enriched */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
@@ -344,20 +476,26 @@ export default async function GroupPage({ params }: PageProps) {
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
                     const away = teamsById[match.awayTeamId];
+                    const isFinished = match.status === "finished" && match.homeScore != null && match.awayScore != null;
                     return (
                       <Link
                         key={match.id}
                         href={`/match/${match.slug}`}
-                        className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
+                        className={`flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 rounded-lg border p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0 ${isFinished ? "border-gray-200 bg-gray-50/50" : "border-gray-200"}`}
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? ""}</span>
                           <span className="font-medium shrink-0 text-sm">{home?.name ?? "TBD"}</span>
-                          <span className="text-xs text-gray-500 shrink-0">vs</span>
+                          {isFinished ? (
+                            <span className="text-sm font-bold text-gray-900 shrink-0 tabular-nums">{match.homeScore} - {match.awayScore}</span>
+                          ) : (
+                            <span className="text-xs text-gray-500 shrink-0">vs</span>
+                          )}
                           <span className="font-medium shrink-0 text-right text-sm">{away?.name ?? "TBD"}</span>
                           <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? ""}</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs text-gray-500 sm:ml-auto sm:shrink-0">
+                          {isFinished && <span className="text-xs font-medium text-gray-400">Terminé</span>}
                           <span>{match.date.slice(5)}</span>
                           <span>·</span>
                           <span>{match.time}</span>

@@ -34,6 +34,9 @@ interface MatchData {
   stadiumId: string;
   stage: string;
   group?: string;
+  homeScore?: number;
+  awayScore?: number;
+  status?: "scheduled" | "live" | "finished";
 }
 
 interface TeamInfo {

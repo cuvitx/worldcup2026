@@ -14,6 +14,7 @@ export {
   getFixturesByDate,
 } from "./football/client";
 export { enrichTeamFromApi, mapInjuries } from "./football/mappers";
+export { enrichMatchesWithResults, getMatchResults } from "./football/match-results";
 
 // Weather
 export { getWeatherForecast } from "./weather/client";

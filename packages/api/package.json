@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./football": "./src/football/client.ts",
+    "./football/match-results": "./src/football/match-results.ts",
     "./weather": "./src/weather/client.ts",
     "./odds": "./src/odds/client.ts",
     "./factors": "./src/factors/index.ts",
