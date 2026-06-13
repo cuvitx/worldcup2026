@@ -34,7 +34,8 @@ export function MatchHeroAdaptive({
   match,
   dateFormatted,
 }: MatchHeroAdaptiveProps) {
-  const { liveFixtures } = useLiveData();
+  const { liveFixtures, todaysFixtures } = useLiveData();
+  const allFixtures = liveFixtures.length > 0 ? liveFixtures : todaysFixtures;
   const isLive = matchPhase === "live";
   const isCompleted = matchPhase === "completed";
   const hasScore = match.homeScore != null && match.awayScore != null;
@@ -107,7 +108,7 @@ export function MatchHeroAdaptive({
             awayTeam={away?.name ?? "A determiner"}
             stadium={stadium?.name ?? "Stade a confirmer"}
             locale="fr"
-            liveFixtures={liveFixtures.length > 0 ? liveFixtures : undefined}
+            liveFixtures={allFixtures.length > 0 ? allFixtures : undefined}
           />
           <div className="mt-4 flex justify-center gap-8 text-white">
             {home && (
