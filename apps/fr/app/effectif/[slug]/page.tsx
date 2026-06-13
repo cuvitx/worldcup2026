@@ -151,15 +151,14 @@ const faqItems = [
                     <Icon className="h-5 w-5 text-accent" />
                     {positionLabels[pos] ?? pos}s ({posPlayers.length})
                   </h2>
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
                     <table className="w-full text-left text-sm">
                       <thead>
                         <tr className="border-b border-gray-200">
-                          <th className="py-3 pr-4 font-semibold text-gray-700">Poste</th>
-                          <th className="py-3 pr-4 font-semibold text-gray-700">Nom</th>
-                          <th className="py-3 pr-4 font-semibold text-gray-700">Club</th>
-                          <th className="py-3 pr-4 font-semibold text-gray-700">Âge</th>
-                          <th className="py-3 font-semibold text-gray-700">Sélections</th>
+                          <th className="py-3 pr-3 font-semibold text-gray-700">Nom</th>
+                          <th className="py-3 pr-3 font-semibold text-gray-700">Club</th>
+                          <th className="py-3 pr-3 font-semibold text-gray-700">Âge</th>
+                          <th className="py-3 font-semibold text-gray-700">Sél.</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -170,16 +169,15 @@ const faqItems = [
                               key={player.id}
                               className={`border-b border-gray-100 ${isStar ? "bg-accent/5" : ""}`}
                             >
-                              <td className="py-3 pr-4 text-gray-500">{positionLabels[player.position] ?? player.position}</td>
-                              <td className="py-3 pr-4">
+                              <td className="py-3 pr-3">
                                 <Link href={`/joueur/${player.slug}`} className="font-medium text-primary hover:underline">
                                   {player.name}
                                   {isStar && <span className="ml-1 text-accent"><Star className="h-5 w-5 inline-block" /></span>}
                                 </Link>
                               </td>
-                              <td className="py-3 pr-4 text-gray-600">{player.club}</td>
-                              <td className="py-3 pr-4 text-gray-600">{player.age} ans</td>
-                              <td className="py-3 text-gray-600">{player.caps}</td>
+                              <td className="py-3 pr-3 text-gray-600">{player.club}</td>
+                              <td className="py-3 pr-3 text-gray-600 tabular-nums">{player.age}</td>
+                              <td className="py-3 text-gray-600 tabular-nums">{player.caps}</td>
                             </tr>
                           );
                         })}
