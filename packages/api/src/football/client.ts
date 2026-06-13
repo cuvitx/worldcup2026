@@ -15,6 +15,8 @@ import type {
   ApiFixtureEvent,
 } from "./types";
 
+export type { ApiLineup, ApiFixture };
+
 const RATE_LIMIT_KEY = "api-football";
 const RATE_LIMIT_CONFIG = {
   maxRequests: API_FOOTBALL.rateLimitPerDay,
