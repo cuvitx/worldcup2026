@@ -28,6 +28,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "en freebets sur votre 1er pari",
     url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 5,
+    logo: "/images/logos/pokerstars-sports.png",
     highlight: true,
   },
   {
@@ -38,6 +39,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "sur votre 1er pari",
     url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 5,
+    logo: "/images/logos/betsson.png",
     highlight: true,
   },
   {
@@ -48,6 +50,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "en freebets sans condition",
     url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 4,
+    logo: "/images/logos/pmu-sport.png",
     highlight: false,
   },
   {
@@ -58,6 +61,7 @@ export const bookmakers: Bookmaker[] = [
     bonusDetail: "sur votre 1er pari sportif",
     url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
     rating: 4,
+    logo: "/images/logos/genybet.png",
     highlight: false,
   },
 ];
