@@ -227,9 +227,9 @@ export default async function ScoreExactPage({ params }: PageProps) {
   const homeStars = getStars(match.homeTeamId);
   const awayStars = getStars(match.awayTeamId);
 
-  const bk1 = bookmakers[0]!; // PokerStars Sports
-  const bk2 = bookmakers[1]!; // Betsson
-  const bk3 = bookmakers[2]!; // PMU Sport
+  const bk1 = bookmakers[0]!;
+  const bk2 = bookmakers[1] ?? bk1;
+  const bk3 = bookmakers[2] ?? bk1;
 
   const bestScore = scoreLines[0]!;
   // Find a speculative high-cote score (position 3-5)

@@ -8,7 +8,8 @@ import { matchPredictionByPair, predictionsByTeamId } from "@repo/data/predictio
 import { h2hByPair } from "@repo/data/h2h";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
-import { bookmakers, featuredBookmaker, estimatedMatchOdds } from "@repo/data/affiliates";
+import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
+import { getOddsForMatch } from "@repo/api/football/odds";
 import { stageLabels } from "@repo/data/constants";
 import { MatchHero, MatchTabsClient } from "./components";
 import {
@@ -73,6 +74,14 @@ export default async function PronosticMatchPage({ params }: PageProps) {
     : null;
   const h2h = home && away ? h2hByPair[`${home.id}:${away.id}`] : undefined;
 
+  // Fetch real bookmaker odds from API-Football (cached 1h)
+  let realOdds: Awaited<ReturnType<typeof getOddsForMatch>> = null;
+  try {
+    realOdds = await getOddsForMatch(match.date, match.time);
+  } catch {
+    // API-Football unavailable — fallback to estimated odds
+  }
+
   let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
   try {
     enriched = await generateFullMatchPreview(slug, "fr", { includeExpert: true });
@@ -112,7 +121,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
       <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
       <MatchTabsClient>
         <PredictionTab prediction={prediction} outcomes={outcomes} maxProb={maxProb} home={home} away={away} homeName={homeName} awayName={awayName} match={match} predHome={predHome} predAway={predAway} h2h={h2h} stage={stage} dateFormatted={dateFormatted} stadium={stadium} city={city} enriched={enriched} odds={odds} featuredBookmaker={featuredBookmaker} relatedMatches={relatedMatches} />
-        <OddsTab odds={odds} homeName={homeName} awayName={awayName} bookmakers={bookmakers} featuredBookmaker={featuredBookmaker} matchSlug={match.slug} homeRanking={home?.fifaRanking ?? 50} awayRanking={away?.fifaRanking ?? 50} />
+        <OddsTab odds={odds} homeName={homeName} awayName={awayName} matchSlug={match.slug} homeRanking={home?.fifaRanking ?? 50} awayRanking={away?.fifaRanking ?? 50} realOdds={realOdds} />
         <StatsTab predHome={predHome} predAway={predAway} home={home} away={away} homeName={homeName} awayName={awayName} prediction={prediction} />
         <H2HTab home={home} away={away} h2h={h2h} homeName={homeName} awayName={awayName} />
         <InfoTab match={match} stadium={stadium} city={city} stage={stage} dateFormatted={dateFormatted} homeName={homeName} awayName={awayName} homeRanking={home?.fifaRanking ?? 50} awayRanking={away?.fifaRanking ?? 50} />

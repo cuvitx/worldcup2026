@@ -157,11 +157,11 @@ export function LiveMatchWidget({
       teams: { home: { name: string }; away: { name: string } };
       goals: { home: number | null; away: number | null };
     }>) => {
-      // Match by kickoff time (most reliable across languages)
-      // Convert Paris time back to UTC for API comparison
-      const parisDate = new Date(`${matchDate}T${matchTime}:00+02:00`);
-      const kickoffUTC = parisDate.toISOString().slice(0, 19);
-      const byTime = fixtures.find((f) => f.fixture.date.startsWith(kickoffUTC));
+      // Match by kickoff timestamp with 2-minute tolerance (timezone-agnostic)
+      const kickoff = new Date(`${matchDate}T${matchTime}:00+02:00`).getTime();
+      const byTime = fixtures.find(
+        (f) => Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
+      );
       if (byTime) return byTime;
 
       // Fallback: fuzzy match on team names (first word)
@@ -285,7 +285,7 @@ export function LiveMatchWidget({
         {isLive
           ? data.status === "halftime"
             ? t.halftime
-            : `${t.live} — ${data.elapsed}'`
+            : `${t.live}${data.elapsed != null ? ` — ${data.elapsed}'` : ""}`
           : isFinished
             ? t.finished
             : formatMatchDateTime(matchDate, matchTime, t.dateLocale, t.timezone)}

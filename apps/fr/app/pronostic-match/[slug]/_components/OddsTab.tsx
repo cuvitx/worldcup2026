@@ -1,27 +1,25 @@
-import type { Bookmaker } from "@repo/data/affiliates";
+import type { MatchOddsResult } from "@repo/api/football/odds";
 import CommunityVote from "../../../components/CommunityVote";
-import { OddsTable, BettingCta } from "../components";
+import { OddsTable } from "../components";
 
 interface OddsTabProps {
   odds: { home: string; draw: string; away: string } | null;
   homeName: string;
   awayName: string;
-  bookmakers: Bookmaker[];
-  featuredBookmaker: Bookmaker;
   matchSlug: string;
   homeRanking: number;
   awayRanking: number;
+  realOdds?: MatchOddsResult | null;
 }
 
 export function OddsTab({
   odds,
   homeName,
   awayName,
-  bookmakers,
-  featuredBookmaker,
   matchSlug,
   homeRanking,
   awayRanking,
+  realOdds,
 }: OddsTabProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
@@ -32,14 +30,10 @@ export function OddsTab({
               odds={odds}
               homeName={homeName}
               awayName={awayName}
-              bookmakers={bookmakers}
+              realOdds={realOdds}
+              matchSlug={matchSlug}
             />
           )}
-          <BettingCta
-            featuredBookmaker={featuredBookmaker}
-            bookmakers={bookmakers}
-            matchLabel={`${homeName} vs ${awayName}`}
-          />
         </div>
         <div className="space-y-4">
           <CommunityVote

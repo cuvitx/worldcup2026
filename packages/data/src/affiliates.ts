@@ -1,11 +1,18 @@
-/** @todo Replace affiliate URLs with real tracking URLs from partner programs */
 // ============================================================================
 // Affiliate Configuration — Sports Betting Partners
 // Single source of truth for all CTA blocks across the site.
 // Update this file to change bookmaker, bonus, or link across every page.
 // ============================================================================
 
-export const AFFILIATE_URLS_ARE_PLACEHOLDERS = true;
+export const AFFILIATE_URLS_ARE_PLACEHOLDERS = false;
+
+/** Base Gambling Affiliation tracking link for PMU PLAY */
+const PMU_GA_BASE = "https://www.gambling-affiliation.com/cpc/v=ak0CEPFp.xNc0Zux4eAz9mltNCb6fU43LYUUbJ-hUbE_GA7331V2";
+
+/** Build PMU tracking URL with optional tracking variable */
+export function pmuTrackingUrl(affVar?: string): string {
+  return `${PMU_GA_BASE}&aff_var_1=${affVar ?? ""}`;
+}
 
 export interface Bookmaker {
   id: string;
@@ -13,7 +20,7 @@ export interface Bookmaker {
   slug: string;
   bonus: string;          // e.g. "100€ offerts"
   bonusDetail: string;    // e.g. "sur votre 1er pari"
-  url: string;            // affiliate tracking URL (placeholder for now)
+  url: string;            // affiliate tracking URL
   rating: number;         // 1-5
   logo?: string;          // optional logo path
   highlight?: boolean;    // featured bookmaker
@@ -21,52 +28,19 @@ export interface Bookmaker {
 
 export const bookmakers: Bookmaker[] = [
   {
-    id: "pokerstars-sports",
-    name: "PokerStars Sports",
-    slug: "pokerstars-sports",
-    bonus: "100€ offerts",
-    bonusDetail: "en freebets sur votre 1er pari",
-    url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    rating: 5,
-    logo: "/images/logos/pokerstars-sports.png",
-    highlight: true,
-  },
-  {
-    id: "betsson",
-    name: "Betsson",
-    slug: "betsson",
-    bonus: "100€ offerts",
-    bonusDetail: "sur votre 1er pari",
-    url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    rating: 5,
-    logo: "/images/logos/betsson.png",
-    highlight: true,
-  },
-  {
     id: "pmu-sport",
     name: "PMU Sport",
     slug: "pmu-sport",
     bonus: "100€ offerts",
     bonusDetail: "en freebets sans condition",
-    url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    rating: 4,
+    url: pmuTrackingUrl("cdm2026"),
+    rating: 5,
     logo: "/images/logos/pmu-sport.png",
-    highlight: false,
-  },
-  {
-    id: "genybet",
-    name: "Genybet",
-    slug: "genybet",
-    bonus: "150€ offerts",
-    bonusDetail: "sur votre 1er pari sportif",
-    url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    rating: 4,
-    logo: "/images/logos/genybet.png",
-    highlight: false,
+    highlight: true,
   },
 ];
 
-export const featuredBookmaker = bookmakers.find((b) => b.id === "pokerstars-sports")!;
+export const featuredBookmaker = bookmakers[0]!;
 export const highlightedBookmakers = bookmakers.filter((b) => b.highlight);
 
 // Utility: convert ELO probability to approximate decimal odds
