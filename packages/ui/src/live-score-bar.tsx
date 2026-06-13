@@ -114,21 +114,27 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   }, [matchDate]);
 
   // When external live data is provided (from centralized provider), use it directly
+  // Match by kickoff time (not by ID — static IDs are slugs, API IDs are numeric)
   useEffect(() => {
-    if (!liveFixtures || liveFixtures.length === 0) return;
-    const liveMatches: LiveMatch[] = liveFixtures.map((f) => ({
-      id: String(f.fixture.id),
-      homeTeam: f.teams.home.name,
-      awayTeam: f.teams.away.name,
-      homeScore: f.goals.home,
-      awayScore: f.goals.away,
-      status: mapApiStatus(f.fixture.status.short),
-      elapsed: f.fixture.status.elapsed,
-      time: "",
-      slug: "",
-    }));
-    setMatches((prev) => mergeLiveData(prev, liveMatches));
-  }, [liveFixtures]);
+    if (!liveFixtures || liveFixtures.length === 0 || !matchDate) return;
+    setMatches((prev) =>
+      prev.map((m) => {
+        if (!m.time) return m;
+        const kickoff = new Date(`${matchDate}T${m.time}:00+02:00`).getTime();
+        const fixture = liveFixtures.find((f) =>
+          Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
+        );
+        if (!fixture) return m;
+        return {
+          ...m,
+          homeScore: fixture.goals.home,
+          awayScore: fixture.goals.away,
+          status: mapApiStatus(fixture.fixture.status.short),
+          elapsed: fixture.fixture.status.elapsed,
+        };
+      })
+    );
+  }, [liveFixtures, matchDate]);
 
   // Fetch today's results (one-time) to show scores for finished matches
   useEffect(() => {
@@ -222,7 +228,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
     <div className="border-b border-white/5 bg-primary">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center gap-2 overflow-x-auto py-2 scrollbar-hide">
-          <span className="shrink-0 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-white/70 leading-none">
+          <span className="shrink-0 flex items-center gap-1.5 rounded-full px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/70">
             {hasLive ? t.live : t.today}
           </span>
           <span className="h-3 w-px bg-white/10 shrink-0" />
