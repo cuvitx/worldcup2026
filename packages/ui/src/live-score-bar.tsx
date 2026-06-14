@@ -152,20 +152,33 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   }, [liveFixtures, matchDate]);
 
   // Fetch today's results (one-time) to show scores for finished matches
+  // Also fetches previous UTC day to catch matches crossing midnight
+  // (e.g., 00:00 CEST = 22:00 UTC previous day)
   useEffect(() => {
     if (!matchDate) return;
     const fetchResults = async () => {
       try {
-        const res = await fetch(`/api/fixtures?date=${matchDate}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (!Array.isArray(data) || data.length === 0) return;
+        const prevDay = new Date(new Date(matchDate + "T12:00:00Z").getTime() - 86400000)
+          .toISOString().slice(0, 10);
+
+        const [res1, res2] = await Promise.all([
+          fetch(`/api/fixtures?date=${matchDate}`),
+          fetch(`/api/fixtures?date=${prevDay}`),
+        ]);
+
+        const d1 = res1.ok ? await res1.json() : [];
+        const d2 = res2.ok ? await res2.json() : [];
+        const allFixtures = [
+          ...(Array.isArray(d1) ? d1 : []),
+          ...(Array.isArray(d2) ? d2 : []),
+        ];
+        if (allFixtures.length === 0) return;
 
         setMatches((prev) =>
           prev.map((m) => {
             // Match by kickoff timestamp (timezone-safe)
             const kickoff = new Date(`${matchDate}T${m.time}:00+02:00`).getTime();
-            const apiMatch = data.find(
+            const apiMatch = allFixtures.find(
               (f: { fixture: { date: string } }) =>
                 Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
             ) as {

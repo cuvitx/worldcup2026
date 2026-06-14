@@ -78,10 +78,30 @@ export function LiveDataProvider({ children }: { children: ReactNode }) {
 
     try {
       const today = getLocalToday();
-      const res = await fetch(`/api/fixtures?date=${today}`);
-      if (!res.ok) return;
-      const data = await res.json();
-      if (Array.isArray(data)) setTodaysFixtures(data);
+      // Also fetch previous UTC day for matches crossing midnight
+      // (e.g., 00:00 CEST = 22:00 UTC previous day)
+      const prevDay = new Date(new Date(today + "T12:00:00Z").getTime() - 86400000)
+        .toISOString().slice(0, 10);
+
+      const [res1, res2] = await Promise.all([
+        fetch(`/api/fixtures?date=${today}`),
+        fetch(`/api/fixtures?date=${prevDay}`),
+      ]);
+
+      const d1 = res1.ok ? await res1.json() : [];
+      const d2 = res2.ok ? await res2.json() : [];
+
+      // Merge and deduplicate by fixture ID
+      const seen = new Set<number>();
+      const merged: ApiFixture[] = [];
+      for (const f of [...(Array.isArray(d1) ? d1 : []), ...(Array.isArray(d2) ? d2 : [])]) {
+        if (!seen.has(f.fixture.id)) {
+          seen.add(f.fixture.id);
+          merged.push(f);
+        }
+      }
+
+      setTodaysFixtures(merged);
     } catch {
       // Silently fail
     }

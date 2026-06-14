@@ -20,7 +20,7 @@ function getLocalToday(): string {
  * When server-rendered data is stale (different date), hides the bar.
  */
 export function ConnectedLiveScoreBar({ todaysMatches, matchDate }: ConnectedLiveScoreBarProps) {
-  const { liveFixtures } = useLiveData();
+  const { liveFixtures, todaysFixtures } = useLiveData();
   const [clientToday] = useState(() => getLocalToday());
   const isStale = matchDate !== clientToday;
 
@@ -28,13 +28,16 @@ export function ConnectedLiveScoreBar({ todaysMatches, matchDate }: ConnectedLiv
   // The next page load will server-render the correct date.
   if (isStale) return null;
 
+  // Merge live + today's fixtures so finished matches also get scores
+  const allFixtures = liveFixtures.length > 0 ? liveFixtures : todaysFixtures;
+
   return (
     <LiveScoreBar
       todaysMatches={todaysMatches}
       matchBasePath="/match"
       matchDate={matchDate}
       locale="fr"
-      liveFixtures={liveFixtures.length > 0 ? liveFixtures : undefined}
+      liveFixtures={allFixtures.length > 0 ? allFixtures : undefined}
     />
   );
 }
