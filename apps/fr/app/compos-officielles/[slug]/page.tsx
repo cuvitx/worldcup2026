@@ -160,7 +160,15 @@ async function fetchLineupsForMatch(
   awayTeamName: string
 ): Promise<{ home: ApiLineup | null; away: ApiLineup | null }> {
   try {
-    const fixtures = await getFixturesByDate(matchDate);
+    // Fetch current + previous UTC day for matches crossing midnight
+    // (e.g., 00:00 CEST = 22:00 UTC previous day)
+    const prevDay = new Date(new Date(matchDate + "T12:00:00Z").getTime() - 86400000)
+      .toISOString().slice(0, 10);
+    const [fixtures1, fixtures2] = await Promise.all([
+      getFixturesByDate(matchDate),
+      getFixturesByDate(prevDay),
+    ]);
+    const fixtures = [...fixtures1, ...fixtures2];
     if (!fixtures.length) return { home: null, away: null };
 
     // Find the fixture matching this match by kickoff time (timestamp comparison, timezone-safe)
