@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -59,7 +60,7 @@ const offers: BonusOffer[] = [
     codePromo: "Aucun code nécessaire",
     conditions: "1er pari perdant remboursé, min. 1€",
     note: 8.7,
-    url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    url: pmuTrackingUrl("cdm2026"),
     highlights: ["Remboursement si pari perdu", "Marque de confiance", "Statistiques détaillées"],
   },
   {

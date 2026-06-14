@@ -2,6 +2,8 @@
 // Based on approximate ELO ratings / FIFA rankings with ~8% bookmaker margin
 // Each bookmaker has slightly different odds to simulate real market variation
 
+import { pmuTrackingUrl } from "@repo/data/affiliates";
+
 export interface MatchOdds {
   matchId: string;
   homeTeam: string;
@@ -22,7 +24,7 @@ export interface MatchOdds {
 const bookmakerUrls: Record<string, string> = {
   "PokerStars Sports": "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
   Betsson: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  "PMU Sport": "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+  "PMU Sport": pmuTrackingUrl("cdm2026"),
   Genybet: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
 };
 

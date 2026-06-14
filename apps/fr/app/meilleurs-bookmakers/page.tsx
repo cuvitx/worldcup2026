@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Star, Smartphone, Zap, Gift, Shield, ExternalLink, Trophy, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ const bookmakers: Bookmaker[] = [
     appMobile: "iOS & Android, complète",
     liveBetting: "Cash-out partiel disponible",
     note: 8.7,
-    url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    url: pmuTrackingUrl("cdm2026"),
     avantages: ["Marque de confiance", "Cash-out partiel", "Statistiques intégrées", "Points de vente physiques"],
   },
   {

@@ -5,6 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Flag, TrendingUp, ArrowRight, ExternalLink, Eye, Cpu } from "lucide-react";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 function getOffsideStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 4 + awayId.charCodeAt(0) * 2 + homeId.length;
   const homeOffsides = +(1.5 + (seed % 20) / 10).toFixed(1);
@@ -163,7 +164,7 @@ const faqItems = [
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PokerStars Sports <ExternalLink className="w-4 h-4" /></a>
             <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betsson <ExternalLink className="w-4 h-4" /></a>
-            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
+            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>
         </div>

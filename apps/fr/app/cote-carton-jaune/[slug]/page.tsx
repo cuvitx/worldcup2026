@@ -5,6 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, ArrowRight, BarChart3, ExternalLink, History, ShieldAlert, Swords, TrendingUp, Trophy, User } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -146,7 +147,7 @@ const faqItems = [
                 <td className="p-3 font-semibold">PMU Sport</td>
                 <td className="text-center p-3 font-bold text-accent">{stats.pmusport}</td>
                 <td className="text-center p-3">
-                  <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
+                  <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
                 </td>
               </tr>
             </tbody>
@@ -228,7 +229,7 @@ const faqItems = [
             <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               Betsson <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { CornerDownRight, ArrowRight, AlertTriangle, TrendingUp, BarChart3, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -46,7 +47,7 @@ const cotesCorners = [
 const bookmakers = [
   { nom: "PokerStars Sports", desc: "Large choix de marchés corners, cotes compétitives, interface intuitive", url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
   { nom: "Betsson", desc: "Over/under corners dès la phase de groupes, promos régulières CDM", url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
-  { nom: "PMU Sport", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli", url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "PMU Sport", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli", url: pmuTrackingUrl("cdm2026") },
 ];
 
 const strategies = [

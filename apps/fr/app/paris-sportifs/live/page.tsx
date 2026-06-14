@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Zap, Smartphone, TrendingUp, Shield, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 const apps = [
   { name: "PokerStars Sports", note: "4.8/5", points: "Interface fluide, cotes live compétitives, cashout rapide.", url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
   { name: "Betsson", note: "4.7/5", points: "Nombreux marchés live, streaming intégré, notifications.", url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
-  { name: "PMU Sport", note: "4.6/5", points: "Stats en direct, cashout partiel disponible, interface claire.", url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { name: "PMU Sport", note: "4.6/5", points: "Stats en direct, cashout partiel disponible, interface claire.", url: pmuTrackingUrl("cdm2026") },
   { name: "Genybet", note: "4.4/5", points: "Fiable, offre solide, bonus fréquents pour les grands événements.", url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
 ];
 
