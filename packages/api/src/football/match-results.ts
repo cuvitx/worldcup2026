@@ -30,28 +30,26 @@ export interface MatchResult {
 
 /**
  * Fetch all World Cup fixture results from API-Football.
- * Returns a map of kickoff timestamp → result for matching against static data.
+ * Returns a map of kickoff timestamp (rounded to minute) → result.
  * Cached for 5 minutes (same as ISR revalidation).
  */
-export async function getMatchResults(): Promise<Map<string, MatchResult>> {
+export async function getMatchResults(): Promise<Map<number, MatchResult>> {
   const fixtures = await cachedFetch<ApiFixture[]>(
     "football:wc-results",
     CACHE_TTL.ODDS, // 5 min
     () => getWorldCupFixtures()
   );
 
-  const results = new Map<string, MatchResult>();
+  const results = new Map<number, MatchResult>();
 
   for (const f of fixtures) {
     const status = API_STATUS_MAP[f.fixture.status.short];
     if (!status || (status === "scheduled" && f.goals.home == null)) continue;
 
-    // Build a key from date + teams for matching
-    // Use fixture date (ISO) truncated to YYYY-MM-DD + team names
-    const dateStr = f.fixture.date.slice(0, 10);
-    const key = buildFixtureKey(dateStr, f.teams.home.name, f.teams.away.name);
+    // Key by kickoff timestamp rounded to nearest minute (timezone-safe)
+    const kickoff = Math.round(new Date(f.fixture.date).getTime() / 60000);
 
-    results.set(key, {
+    results.set(kickoff, {
       homeScore: f.goals.home ?? 0,
       awayScore: f.goals.away ?? 0,
       status,
@@ -61,23 +59,17 @@ export async function getMatchResults(): Promise<Map<string, MatchResult>> {
   return results;
 }
 
-function buildFixtureKey(date: string, homeName: string, awayName: string): string {
-  return `${date}:${normalize(homeName)}:${normalize(awayName)}`;
-}
-
-function normalize(name: string): string {
-  return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-}
 
 /**
  * Enrich an array of static matches with real API results.
+ * Matches by kickoff timestamp (timezone-safe, language-independent).
  * Falls back to static data if API is unavailable.
  */
 export async function enrichMatchesWithResults(
   matches: Match[],
-  teamNameMap: Record<string, string> // teamId → team name for matching
+  _teamNameMap?: Record<string, string> // kept for backward compat, no longer used
 ): Promise<Match[]> {
-  let results: Map<string, MatchResult>;
+  let results: Map<number, MatchResult>;
   try {
     results = await getMatchResults();
   } catch {
@@ -91,40 +83,15 @@ export async function enrichMatchesWithResults(
     // If already has score in static data, keep it
     if (match.status === "finished" && match.homeScore != null) return match;
 
-    const homeName = teamNameMap[match.homeTeamId] ?? match.homeTeamId;
-    const awayName = teamNameMap[match.awayTeamId] ?? match.awayTeamId;
+    // Match by kickoff timestamp (rounded to minute) — timezone & language safe
+    const kickoff = Math.round(
+      new Date(`${match.date}T${match.time}:00+02:00`).getTime() / 60000
+    );
 
-    // Try to find matching fixture in API results
-    const key = buildFixtureKey(match.date, homeName, awayName);
-    const result = results.get(key);
+    const result = results.get(kickoff);
+    if (result) return { ...match, ...result };
 
-    // Also try with swapped date (timezone differences — match at 03:00 CEST may be previous day UTC)
-    if (!result) {
-      // Try previous day
-      const prevDate = shiftDate(match.date, -1);
-      const prevKey = buildFixtureKey(prevDate, homeName, awayName);
-      const prevResult = results.get(prevKey);
-      if (prevResult) {
-        return { ...match, ...prevResult };
-      }
-
-      // Try next day
-      const nextDate = shiftDate(match.date, 1);
-      const nextKey = buildFixtureKey(nextDate, homeName, awayName);
-      const nextResult = results.get(nextKey);
-      if (nextResult) {
-        return { ...match, ...nextResult };
-      }
-
-      return match;
-    }
-
-    return { ...match, ...result };
+    return match;
   });
 }
 
-function shiftDate(dateStr: string, days: number): string {
-  const d = new Date(dateStr);
-  d.setDate(d.getDate() + days);
-  return d.toISOString().slice(0, 10);
-}
