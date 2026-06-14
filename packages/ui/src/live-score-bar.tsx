@@ -163,12 +163,11 @@ export const LiveScoreBar = memo(function LiveScoreBar({
 
         setMatches((prev) =>
           prev.map((m) => {
-            // Convert Paris time to UTC for API comparison
-            const parisDate = new Date(`${matchDate}T${m.time}:00+02:00`);
-            const kickoffUTC = parisDate.toISOString().slice(0, 19);
+            // Match by kickoff timestamp (timezone-safe)
+            const kickoff = new Date(`${matchDate}T${m.time}:00+02:00`).getTime();
             const apiMatch = data.find(
               (f: { fixture: { date: string } }) =>
-                f.fixture.date.startsWith(kickoffUTC)
+                Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
             ) as {
               fixture: { status: { short: string; elapsed: number | null } };
               goals: { home: number | null; away: number | null };
