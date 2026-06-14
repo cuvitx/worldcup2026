@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { API_FOOTBALL } from "../config";
-import { cachedFetch, cacheGet, CACHE_TTL } from "../cache";
+import { cachedFetch, cacheGet, cacheSet, CACHE_TTL } from "../cache";
 import { checkRateLimit, getRemainingRequests } from "../rate-limiter";
 import type {
   ApiResponse,
@@ -120,15 +120,25 @@ export async function getInjuries(apiTeamId: number): Promise<ApiInjury[]> {
 
 /** Get lineup for a specific fixture */
 export async function getLineup(fixtureId: number): Promise<ApiLineup[]> {
-  return rateLimitedCachedFetch(
-    `football:lineup:${fixtureId}`,
-    CACHE_TTL.INJURIES, // 1h — lineups appear ~1h before kickoff
-    () =>
-      apiFetch<ApiLineup>("fixtures/lineups", {
-        fixture: String(fixtureId),
-      }),
-    []
-  );
+  const cacheKey = `football:lineup:${fixtureId}`;
+  const cached = await cacheGet<ApiLineup[]>(cacheKey);
+  if (cached !== null && cached.length > 0) return cached;
+
+  if (!checkRateLimit(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG)) {
+    return cached ?? [];
+  }
+
+  const data = await apiFetch<ApiLineup>("fixtures/lineups", {
+    fixture: String(fixtureId),
+  });
+
+  // Only cache non-empty results — empty results (lineup not yet announced)
+  // should be re-fetched on next page revalidation
+  if (data.length > 0) {
+    await cacheSet(cacheKey, data, CACHE_TTL.INJURIES);
+  }
+
+  return data;
 }
 
 /** Get live fixtures (currently in progress) */
