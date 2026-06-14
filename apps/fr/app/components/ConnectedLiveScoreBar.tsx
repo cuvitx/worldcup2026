@@ -28,8 +28,16 @@ export function ConnectedLiveScoreBar({ todaysMatches, matchDate }: ConnectedLiv
   // The next page load will server-render the correct date.
   if (isStale) return null;
 
-  // Merge live + today's fixtures so finished matches also get scores
-  const allFixtures = liveFixtures.length > 0 ? liveFixtures : todaysFixtures;
+  // Merge live + today's fixtures: live first (fresher elapsed), then finished
+  // Dedup by fixture ID so each match appears only once
+  const seenIds = new Set<number>();
+  const allFixtures: typeof liveFixtures = [];
+  for (const f of [...liveFixtures, ...todaysFixtures]) {
+    if (!seenIds.has(f.fixture.id)) {
+      seenIds.add(f.fixture.id);
+      allFixtures.push(f);
+    }
+  }
 
   return (
     <LiveScoreBar
