@@ -19,7 +19,7 @@ import { UpcomingMatches } from "./components/home/UpcomingMatches";
 import { GroupsOverview } from "./components/home/GroupsOverview";
 import { RecentArticles } from "./components/home/RecentArticles";
 import { FavoriteTeams } from "./components/home/FavoriteTeams";
-import { InlineBettingCTA } from "./components/InlineBettingCTA";
+import { GABanner } from "./components/GABanner";
 
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
@@ -165,10 +165,14 @@ export default function HomePage() {
       {/* 2. PROCHAINS MATCHS */}
       <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />
 
-      {/* BETTING CTA */}
-      <section className="py-8 sm:py-10">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <InlineBettingCTA tracking="homepage" />
+      {/* BETTING CTA — Habillage CDM */}
+      <section className="py-6 sm:py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <GABanner variant="1380x300" tracking="homepage" className="hidden sm:flex" />
+          <GABanner variant="370x90" tracking="homepage" className="flex sm:hidden" />
+          <p className="text-[10px] text-gray-400 text-center mt-2">
+            18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a>
+          </p>
         </div>
       </section>
 

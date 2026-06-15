@@ -570,7 +570,7 @@ export default async function GroupPage({ params }: PageProps) {
             </div>
 
             {/* PMU Visual Banner */}
-            <GABanner variant="medium" tracking={`groupe-${group.letter.toLowerCase()}`} />
+            <GABanner variant="300x250" tracking={`groupe-${group.letter.toLowerCase()}`} />
             <p className="text-[9px] text-gray-400 text-center mt-1">18+ | Offre soumise à conditions</p>
           </div>
         </div>

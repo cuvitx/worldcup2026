@@ -167,8 +167,8 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             </div>
           )}
-          <GABanner variant="large" tracking="match" className="hidden sm:flex" />
-          <GABanner variant="medium" tracking="match" className="flex sm:hidden" />
+          <GABanner variant="728x90" tracking="match" className="hidden sm:flex" />
+          <GABanner variant="370x90" tracking="match" className="flex sm:hidden" />
           <p className="mt-2 text-[10px] text-white/50">18+ | Offre soumise à conditions</p>
         </div>
       </div>

@@ -9,10 +9,16 @@ import { useEffect, useRef } from "react";
 
 /** Available banner script IDs from GA backoffice */
 const GA_SCRIPTS = {
-  /** Large banner (728x90 or similar desktop format) */
-  large: "p-ktSu91BxaZGtLk3-JxEMvon63xVw5PV-aEacCuJUA_GA7331V2",
-  /** Square/medium banner (300x250 or similar) */
-  medium: "5xAZxfSvUmYyK6RUdeIFXMu8Q7jUZurFO0x6ZHXlYNY_GA7331V2",
+  /** 728x90 — Desktop leaderboard */
+  "728x90": "p-ktSu91BxaZGtLk3-JxEMvon63xVw5PV-aEacCuJUA_GA7331V2",
+  /** 300x250 — Medium rectangle (sidebar, mobile) */
+  "300x250": "5xAZxfSvUmYyK6RUdeIFXMu8Q7jUZurFO0x6ZHXlYNY_GA7331V2",
+  /** 370x90 — Mobile banner */
+  "370x90": "h4sOPUsxeJjJultZIo9JBOaL1yLFEpxYhrGf7Bv-t6g_GA7331V2",
+  /** 1380x300 — Habillage CDM (hero banner) */
+  "1380x300": "bjjpByzimRUnt8pN84IYmkE-lLcTAeJ2cFZrik5KDsk_GA7331V2",
+  /** 1080x192 — Full-width thin banner */
+  "1080x192": "erBtbOD1NpCsXxVY4-DRg3DplRb7MGRy0FkjsvvXK3E_GA7331V2",
 } as const;
 
 interface GABannerProps {

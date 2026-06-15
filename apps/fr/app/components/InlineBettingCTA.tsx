@@ -12,10 +12,10 @@ interface InlineBettingCTAProps {
 export function InlineBettingCTA({ tracking }: InlineBettingCTAProps) {
   return (
     <div>
-      {/* Large banner (desktop) */}
-      <GABanner variant="large" tracking={tracking} className="hidden sm:flex" />
-      {/* Medium banner (mobile) */}
-      <GABanner variant="medium" tracking={tracking} className="flex sm:hidden" />
+      {/* Full-width thin banner (desktop) */}
+      <GABanner variant="1080x192" tracking={tracking} className="hidden sm:flex" />
+      {/* Mobile banner */}
+      <GABanner variant="370x90" tracking={tracking} className="flex sm:hidden" />
       <p className="text-[10px] text-gray-400 text-center mt-2">
         18+ | Offre soumise à conditions |{" "}
         <a href="tel:0974751313" className="underline">09 74 75 13 13</a>{" "}
