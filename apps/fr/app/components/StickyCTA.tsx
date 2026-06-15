@@ -39,7 +39,7 @@ export function StickyCTA() {
       />
       {/* Popup */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div className="relative rounded-2xl bg-white shadow-2xl overflow-visible">
+        <div className="relative rounded-2xl bg-white shadow-2xl overflow-visible sm:scale-[1.8] transition-transform">
           {/* Close button — outside top-right corner */}
           <button
             onClick={(e) => { e.stopPropagation(); dismiss(); }}
