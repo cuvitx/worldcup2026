@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { LiveMatchWidget } from "@repo/ui/live-match-widget";
 import type { Team } from "@repo/data/types";
@@ -39,8 +40,24 @@ export function MatchHeroAdaptive({
 }: MatchHeroAdaptiveProps) {
   const { liveFixtures, todaysFixtures } = useLiveData();
   const allFixtures = liveFixtures.length > 0 ? liveFixtures : todaysFixtures;
-  const isLive = matchPhase === "live";
-  const isCompleted = matchPhase === "completed";
+
+  // Client-side phase detection: override server matchPhase when stale ISR cache
+  const [clientPhase, setClientPhase] = useState<MatchPhase>(matchPhase);
+  useEffect(() => {
+    const kickoff = new Date(`${match.date}T${match.time}:00+02:00`);
+    const now = new Date();
+    const diffH = (now.getTime() - kickoff.getTime()) / 3600000;
+    if (matchPhase === "upcoming" && diffH >= -0.05 && diffH < 4) {
+      // Match should be live (started up to 4h ago)
+      setClientPhase("live");
+    } else if (matchPhase === "upcoming" && diffH >= 4) {
+      // Match should be completed (>4h since kickoff)
+      setClientPhase("completed");
+    }
+  }, [match.date, match.time, matchPhase]);
+
+  const isLive = clientPhase === "live";
+  const isCompleted = clientPhase === "completed";
   const hasScore = match.homeScore != null && match.awayScore != null;
 
   // Completed match with known score — show final result
