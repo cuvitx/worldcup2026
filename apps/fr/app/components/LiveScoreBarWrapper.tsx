@@ -1,19 +1,30 @@
 import { getTodaysMatches } from "@repo/data/tournament-state";
 import { teamsById } from "@repo/data";
 import type { LiveMatch } from "@repo/ui/live-score-bar";
+import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { ConnectedLiveScoreBar } from "./ConnectedLiveScoreBar";
+
+const STATUS_MAP: Record<string, LiveMatch["status"]> = {
+  finished: "finished",
+  live: "live",
+  scheduled: "upcoming",
+};
 
 /**
  * Server-side wrapper for LiveScoreBar.
- * Shows today's matches only.
+ * Enriches today's matches with API scores on the server (ISR),
+ * so finished-match scores are in the initial HTML — no JS needed.
+ * Client-side LiveDataProvider adds live updates on top.
  */
-export function LiveScoreBarWrapper() {
+export async function LiveScoreBarWrapper() {
   const todaysMatches = getTodaysMatches();
   if (todaysMatches.length === 0) return null;
 
+  // Server-side score enrichment (same as match pages)
+  const enriched = await enrichMatchesWithResults(todaysMatches);
   const matchDate = todaysMatches[0]!.date;
 
-  const liveMatches: LiveMatch[] = todaysMatches.map((m) => ({
+  const liveMatches: LiveMatch[] = enriched.map((m) => ({
     id: m.id,
     homeTeam: teamsById[m.homeTeamId]?.name ?? m.homeTeamId,
     awayTeam: teamsById[m.awayTeamId]?.name ?? m.awayTeamId,
@@ -21,9 +32,9 @@ export function LiveScoreBarWrapper() {
     awayCode: teamsById[m.awayTeamId]?.code,
     homeFlag: teamsById[m.homeTeamId]?.flag,
     awayFlag: teamsById[m.awayTeamId]?.flag,
-    homeScore: null,
-    awayScore: null,
-    status: "upcoming" as const,
+    homeScore: m.homeScore ?? null,
+    awayScore: m.awayScore ?? null,
+    status: STATUS_MAP[m.status ?? "scheduled"] ?? "upcoming",
     elapsed: null,
     time: m.time,
     slug: m.slug,
