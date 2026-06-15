@@ -1,21 +1,28 @@
 /**
  * Simple in-memory rate limiter for API clients.
- * Tracks request counts per time window and rejects when limit is exceeded.
+ * Resets at midnight UTC to match API-Football's daily limit cycle.
  */
 
 interface RateLimitConfig {
   maxRequests: number;
-  windowMs: number; // time window in milliseconds
+  windowMs: number; // kept for interface compat, but reset is midnight-aligned
 }
 
 const counters = new Map<string, { count: number; resetAt: number }>();
+
+/** Next midnight UTC timestamp */
+function nextMidnightUTC(): number {
+  const now = new Date();
+  const tomorrow = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1));
+  return tomorrow.getTime();
+}
 
 export function checkRateLimit(key: string, config: RateLimitConfig): boolean {
   const now = Date.now();
   const entry = counters.get(key);
 
   if (!entry || now >= entry.resetAt) {
-    counters.set(key, { count: 1, resetAt: now + config.windowMs });
+    counters.set(key, { count: 1, resetAt: nextMidnightUTC() });
     return true; // allowed
   }
 
