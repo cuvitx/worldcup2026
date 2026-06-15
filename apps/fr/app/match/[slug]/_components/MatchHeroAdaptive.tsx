@@ -39,7 +39,17 @@ export function MatchHeroAdaptive({
   dateFormatted,
 }: MatchHeroAdaptiveProps) {
   const { liveFixtures, todaysFixtures } = useLiveData();
-  const allFixtures = liveFixtures.length > 0 ? liveFixtures : todaysFixtures;
+
+  // Merge live + today's fixtures (dedup by fixture ID)
+  // Don't use ternary — it drops finished fixtures when any live fixture exists
+  const seenIds = new Set<number>();
+  const allFixtures: typeof liveFixtures = [];
+  for (const f of [...liveFixtures, ...todaysFixtures]) {
+    if (!seenIds.has(f.fixture.id)) {
+      seenIds.add(f.fixture.id);
+      allFixtures.push(f);
+    }
+  }
 
   // Client-side phase detection: override server matchPhase when stale ISR cache
   const [clientPhase, setClientPhase] = useState<MatchPhase>(matchPhase);
@@ -48,10 +58,8 @@ export function MatchHeroAdaptive({
     const now = new Date();
     const diffH = (now.getTime() - kickoff.getTime()) / 3600000;
     if (matchPhase === "upcoming" && diffH >= -0.05 && diffH < 4) {
-      // Match should be live (started up to 4h ago)
       setClientPhase("live");
     } else if (matchPhase === "upcoming" && diffH >= 4) {
-      // Match should be completed (>4h since kickoff)
       setClientPhase("completed");
     }
   }, [match.date, match.time, matchPhase]);
@@ -60,8 +68,9 @@ export function MatchHeroAdaptive({
   const isCompleted = clientPhase === "completed";
   const hasScore = match.homeScore != null && match.awayScore != null;
 
-  // Completed match with known score — show final result
-  if (isCompleted && hasScore) {
+  // Match with known score (from server enrichment) — show final result
+  // Use hasScore alone so we don't wait for clientPhase to catch up
+  if (hasScore && match.status === "finished") {
     return (
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
