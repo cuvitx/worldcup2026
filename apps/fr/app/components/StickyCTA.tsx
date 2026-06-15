@@ -2,58 +2,63 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { featuredBookmaker } from "@repo/data/affiliates";
+import { GABanner } from "./GABanner";
 
-const DISMISSED_KEY = "sticky-cta-dismissed";
+const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/mentions-legales", "/jeu-responsable"];
+const SHOW_DELAY_MS = 3000;
 
 export function StickyCTA() {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (LEGAL_PATHS.includes(pathname)) {
-      setVisible(false);
-      return;
-    }
-    const dismissed = localStorage.getItem(DISMISSED_KEY);
-    setVisible(!dismissed);
+    if (LEGAL_PATHS.includes(pathname)) return;
+
+    const dismissed = sessionStorage.getItem(DISMISSED_KEY);
+    if (dismissed) return;
+
+    const timer = setTimeout(() => setVisible(true), SHOW_DELAY_MS);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   if (!visible) return null;
 
   const dismiss = () => {
-    localStorage.setItem(DISMISSED_KEY, "1");
+    sessionStorage.setItem(DISMISSED_KEY, "1");
     setVisible(false);
   };
 
   return (
-    <div className="fixed bottom-16 sm:bottom-0 inset-x-0 z-40">
-      <div className="flex items-center justify-between gap-3 bg-white/90 backdrop-blur-sm border-t border-gray-200 px-4 py-3 shadow-lg">
-        <p className="text-sm font-bold text-gray-900 min-w-0 flex-1 pr-1">
-          <span className="text-accent">{featuredBookmaker.bonus}</span>{" "}
-          <span className="text-gray-500 font-normal text-xs">{featuredBookmaker.bonusDetail}</span>
-        </p>
-        <div className="flex items-center gap-2 shrink-0">
-          <a
-            href={featuredBookmaker.url}
-            target="_blank"
-            rel="noopener noreferrer sponsored nofollow"
-            className="rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent/80 transition-colors whitespace-nowrap"
-          >
-            Parier →
-          </a>
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+        onClick={dismiss}
+      />
+      {/* Popup */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+        <div className="relative pointer-events-auto rounded-2xl bg-white shadow-2xl overflow-hidden">
+          {/* Close button */}
           <button
             onClick={dismiss}
-            className="p-1 text-gray-500 hover:text-gray-600"
+            className="absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
             aria-label="Fermer"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+
+          {/* PMU 300x250 banner */}
+          <GABanner variant="300x250" tracking="popup" />
+
+          {/* Legal */}
+          <p className="bg-gray-50 px-3 py-2 text-[10px] text-gray-400 text-center">
+            18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a>
+          </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
