@@ -8,7 +8,7 @@ import { matchPredictionByPair, predictionsByTeamId } from "@repo/data/predictio
 import { h2hByPair } from "@repo/data/h2h";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
-import { estimatedMatchOdds, featuredBookmaker } from "@repo/data/affiliates";
+import { estimatedMatchOdds, featuredBookmaker, pmuTrackingUrl } from "@repo/data/affiliates";
 import { getOddsForMatch } from "@repo/api/football/odds";
 import { stageLabels } from "@repo/data/constants";
 import { MatchHero, MatchTabsClient } from "./components";
@@ -119,6 +119,30 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
       <MatchHero home={home} away={away} match={match} stadium={stadium} city={city} stage={stage} homeName={homeName} awayName={awayName} dateFormatted={dateFormatted} />
       <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
+
+      {/* Betting CTA — high-intent placement */}
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-4">
+        <div className="rounded-2xl bg-gradient-to-r from-[#022149] to-[#0a3d7a] px-5 py-4 text-white flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="flex-1 min-w-0">
+            <p className="font-bold text-base">Parier sur ce match</p>
+            {odds && (
+              <p className="text-sm text-white/70 mt-0.5">
+                Cotes estimées : <span className="text-accent font-semibold">{homeName} {odds.home}</span> · Nul {odds.draw} · <span className="text-accent font-semibold">{awayName} {odds.away}</span>
+              </p>
+            )}
+            <p className="text-[10px] text-white/40 mt-1">18+ | Offre soumise à conditions</p>
+          </div>
+          <a
+            href={pmuTrackingUrl("match-cta")}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            className="shrink-0 inline-block rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white hover:brightness-110 transition-all text-center"
+          >
+            100€ offerts sur PMU Sport →
+          </a>
+        </div>
+      </div>
+
       <MatchTabsClient>
         <PredictionTab prediction={prediction} outcomes={outcomes} maxProb={maxProb} home={home} away={away} homeName={homeName} awayName={awayName} match={match} predHome={predHome} predAway={predAway} h2h={h2h} stage={stage} dateFormatted={dateFormatted} stadium={stadium} city={city} enriched={enriched} odds={odds} featuredBookmaker={featuredBookmaker} relatedMatches={relatedMatches} />
         <OddsTab odds={odds} homeName={homeName} awayName={awayName} matchSlug={match.slug} homeRanking={home?.fifaRanking ?? 50} awayRanking={away?.fifaRanking ?? 50} realOdds={realOdds} />

@@ -21,7 +21,7 @@ export interface MatchOdds {
   }[];
 }
 
-const PMU_URL = pmuTrackingUrl("cdm2026");
+const PMU_URL = pmuTrackingUrl("comparateur-cotes");
 
 function makeOdds(home: number, draw: number, away: number) {
   return [

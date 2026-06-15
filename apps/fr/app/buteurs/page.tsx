@@ -412,7 +412,7 @@ export default function ButeursPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
-              href={pmuTrackingUrl("cdm2026")}
+              href={pmuTrackingUrl("buteurs")}
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
               className="inline-block rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"

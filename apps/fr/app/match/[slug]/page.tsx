@@ -13,6 +13,7 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
+import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
 import {
   MatchHeroAdaptive,
   TeamComparison,
@@ -127,6 +128,10 @@ export default async function MatchPage({ params }: PageProps) {
   const prediction =
     home && away ? matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`] : undefined;
 
+  const matchOdds = prediction
+    ? estimatedMatchOdds(prediction.team1WinProb, prediction.drawProb, prediction.team2WinProb)
+    : null;
+
   return (
     <>
 {/* Breadcrumb */}
@@ -140,6 +145,38 @@ export default async function MatchPage({ params }: PageProps) {
         match={match}
         dateFormatted={dateFormatted}
       />
+
+      {/* Betting CTA */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
+        <div className="rounded-2xl bg-gradient-to-r from-[#022149] to-[#0a3d7a] px-6 py-5 text-white text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-1">Parier sur ce match</p>
+          {matchOdds && home && away && (
+            <div className="flex justify-center gap-4 mb-4 mt-2">
+              <div className="flex flex-col items-center">
+                <span className="text-xs text-white/60">{home.flag} {home.name}</span>
+                <span className="text-xl font-bold text-accent">{matchOdds.home}</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-xs text-white/60">Nul</span>
+                <span className="text-xl font-bold text-white/90">{matchOdds.draw}</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-xs text-white/60">{away.flag} {away.name}</span>
+                <span className="text-xl font-bold text-accent">{matchOdds.away}</span>
+              </div>
+            </div>
+          )}
+          <a
+            href={pmuTrackingUrl("match-cta")}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            className="inline-block rounded-xl bg-accent px-8 py-3 text-base font-bold text-white hover:brightness-110 transition-all"
+          >
+            100€ offerts sur PMU Sport →
+          </a>
+          <p className="mt-2 text-[10px] text-white/50">18+ | Offre soumise à conditions</p>
+        </div>
+      </div>
 
       {/* Main Content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">

@@ -102,7 +102,7 @@ const risques = [
 ];
 
 const bookmakers = [
-  { nom: "PMU Sport", avantage: "Combo Boost réguliers, cashout partiel sur combinés, bookmaker agréé ANJ de confiance", url: pmuTrackingUrl("cdm2026") },
+  { nom: "PMU Sport", avantage: "Combo Boost réguliers, cashout partiel sur combinés, bookmaker agréé ANJ de confiance", url: pmuTrackingUrl("paris-sportifs") },
 ];
 
 const faqItems = [

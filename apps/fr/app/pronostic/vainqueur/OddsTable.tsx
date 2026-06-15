@@ -107,7 +107,7 @@ export function OddsTable() {
         {/* Bookmaker CTA */}
         <div className="mt-6">
           <a
-            href={pmuTrackingUrl("cdm2026")}
+            href={pmuTrackingUrl("prono-vainqueur")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             className="flex items-center justify-between rounded-xl border border-primary/20 bg-primary/5 p-4 transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -119,7 +119,7 @@ export function OddsTable() {
             </div>
             <div className="text-right">
               <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
-                Voir →
+                100€ offerts →
               </span>
             </div>
           </a>

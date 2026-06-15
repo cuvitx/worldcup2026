@@ -45,7 +45,7 @@ const cotesCorners = [
 ];
 
 const bookmakers = [
-  { nom: "PMU Sport", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli, bookmaker agréé ANJ", url: pmuTrackingUrl("cdm2026") },
+  { nom: "PMU Sport", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli, bookmaker agréé ANJ", url: pmuTrackingUrl("paris-sportifs") },
 ];
 
 const strategies = [
@@ -286,7 +286,7 @@ return (
                 </h3>
                 <p className="text-sm text-gray-600 mt-1">{b.desc}</p>
                 <span className="inline-block mt-3 bg-accent text-white rounded-xl py-3.5 px-4 text-sm font-semibold text-center w-full">
-                  Parier sur {b.nom}
+                  100€ offerts sur {b.nom}
                 </span>
               </a>
             ))}

@@ -33,7 +33,7 @@ export const bookmakers: Bookmaker[] = [
     slug: "pmu-sport",
     bonus: "100€ offerts",
     bonusDetail: "en freebets sans condition",
-    url: pmuTrackingUrl("cdm2026"),
+    url: pmuTrackingUrl("bookmakers"),
     rating: 5,
     logo: "/images/logos/pmu-sport.png",
     highlight: true,

@@ -156,14 +156,14 @@ const faqItems = [
             Retrouvez les meilleures cotes pour les paris sur les tacles de {player.name} pendant la CDM 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              PMU Sport <ExternalLink className="w-4 h-4" />
+            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              100€ offerts sur PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
-            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              PMU Sport <ExternalLink className="w-4 h-4" />
+            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              Parier sur PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
-            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              PMU Sport <ExternalLink className="w-4 h-4" />
+            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              Voir les cotes PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>

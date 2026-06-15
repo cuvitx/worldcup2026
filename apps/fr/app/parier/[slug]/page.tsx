@@ -189,7 +189,7 @@ const faqItems = [
                       <td className="py-3 pr-4 text-accent font-semibold">100€ offerts</td>
                       <td className="py-3">
                         <a
-                          href={pmuTrackingUrl("cdm2026")}
+                          href={pmuTrackingUrl("parier")}
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
                           className="inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
@@ -263,7 +263,7 @@ const faqItems = [
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <a
-                  href={pmuTrackingUrl("cdm2026")}
+                  href={pmuTrackingUrl("parier")}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
                   className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
@@ -321,7 +321,7 @@ const faqItems = [
               <h3 className="font-bold text-gray-900 mb-3">Bookmaker partenaire</h3>
               <div className="space-y-3">
                 <a
-                  href={pmuTrackingUrl("cdm2026")}
+                  href={pmuTrackingUrl("parier")}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
                   className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"

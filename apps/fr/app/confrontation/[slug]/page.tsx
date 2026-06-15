@@ -284,12 +284,12 @@ const breadcrumbSchema = [
               <p className="text-sm mt-2 text-white/80">Comparez les meilleures cotes chez les bookmakers agréés ANJ.</p>
               <div className="mt-4 space-y-2">
                 <a
-                  href={pmuTrackingUrl("cdm2026")}
+                  href={pmuTrackingUrl("h2h")}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
                   className="flex items-center justify-center gap-2 rounded-lg bg-white text-accent font-bold px-4 py-2.5 text-sm hover:bg-gray-100 transition-colors"
                 >
-                  PMU Sport <ExternalLink className="h-4 w-4" />
+                  100€ offerts — PMU Sport <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
             </div>

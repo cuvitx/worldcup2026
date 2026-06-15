@@ -149,12 +149,12 @@ const faqItems = [
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur PMU Sport avant de parier.</p>
         <div className="mt-6">
           <a
-            href={pmuTrackingUrl("cdm2026")}
+            href={pmuTrackingUrl("cote-buteur")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             className="inline-block bg-accent text-white rounded-xl py-3 px-6 font-semibold hover:opacity-90 transition-opacity"
           >
-            Parier sur {player.name} chez PMU Sport →
+            100€ offerts — Parier sur {player.name} chez PMU Sport →
           </a>
         </div>
       </section>

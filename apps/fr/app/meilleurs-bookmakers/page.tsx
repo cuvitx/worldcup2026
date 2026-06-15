@@ -40,7 +40,7 @@ const bookmakers: Bookmaker[] = [
     appMobile: "iOS & Android, complète",
     liveBetting: "Cash-out partiel disponible",
     note: 8.7,
-    url: pmuTrackingUrl("cdm2026"),
+    url: pmuTrackingUrl("comparateur"),
     avantages: ["Marque de confiance", "Cash-out partiel", "Statistiques intégrées", "Points de vente physiques"],
   },
 ];
@@ -206,7 +206,7 @@ export default function MeilleursBookmakersPage() {
                         rel="noopener noreferrer sponsored nofollow"
                         className="inline-flex items-center gap-1 bg-accent text-white rounded-xl py-3.5 px-5 font-bold text-sm hover:bg-accent/90 transition-colors"
                       >
-                        Visiter <ExternalLink className="w-3.5 h-3.5" />
+                        100€ offerts <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     </td>
                   </tr>
@@ -246,7 +246,7 @@ export default function MeilleursBookmakersPage() {
                   className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors self-start"
                 >
                   <Gift className="w-4 h-4" />
-                  {bk.bonus} offerts
+                  {bk.bonus} — Rejoindre PMU Sport
                 </a>
               </div>
               <p className="text-gray-600  mb-4">

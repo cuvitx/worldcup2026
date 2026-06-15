@@ -121,7 +121,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   <p className="text-sm text-gray-500 mb-1">PMU Sport</p>
                   <p className="text-3xl font-extrabold text-primary">{pmuOdds.toFixed(2)}</p>
                   <a
-                    href={pmuTrackingUrl("cdm2026")}
+                    href={pmuTrackingUrl("cote-champion")}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
                     className="mt-2 inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
@@ -319,7 +319,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <a
-                  href={pmuTrackingUrl("cdm2026")}
+                  href={pmuTrackingUrl("cote-champion")}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
                   className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
@@ -370,7 +370,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
               <h3 className="font-bold text-gray-900 mb-3">Bookmaker partenaire</h3>
               <div className="space-y-3">
                 <a
-                  href={pmuTrackingUrl("cdm2026")}
+                  href={pmuTrackingUrl("cote-champion")}
                   target="_blank"
                   rel="noopener noreferrer sponsored nofollow"
                   className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"

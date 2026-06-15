@@ -130,9 +130,10 @@ export default function BallonOrCdmPage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          Parier sur le Ballon d&apos;Or CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
+        <a href={pmuTrackingUrl("paris-sportifs")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
+          100€ offerts — Parier sur le Ballon d&apos;Or CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
+        <p className="text-xs text-gray-400 mt-3">18+ | Offre soumise à conditions</p>
       </section>
 
       <FAQSection title="Questions fréquentes — Ballon d'Or CDM 2026" items={faqItems} />

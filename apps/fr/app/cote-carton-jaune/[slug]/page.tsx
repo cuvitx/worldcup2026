@@ -131,7 +131,7 @@ const faqItems = [
                 <td className="p-3 font-semibold">PMU Sport</td>
                 <td className="text-center p-3 font-bold text-accent">{stats.pmusport}</td>
                 <td className="text-center p-3">
-                  <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
+                  <a href={pmuTrackingUrl("cote-carton")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
                 </td>
               </tr>
             </tbody>
@@ -207,8 +207,8 @@ const faqItems = [
             Trouvez la meilleure cote pour parier sur un carton jaune de {player.name} lors de la Coupe du Monde 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              PMU Sport <ExternalLink className="w-4 h-4" />
+            <a href={pmuTrackingUrl("cote-carton")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              100€ offerts sur PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>

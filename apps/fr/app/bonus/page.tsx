@@ -38,7 +38,7 @@ const offers: BonusOffer[] = [
     codePromo: "Aucun code nécessaire",
     conditions: "1er pari perdant remboursé, min. 1€",
     note: 8.7,
-    url: pmuTrackingUrl("cdm2026"),
+    url: pmuTrackingUrl("bonus"),
     highlights: ["Remboursement si pari perdu", "Marque de confiance", "Statistiques détaillées"],
   },
 ];
@@ -129,7 +129,7 @@ export default function BonusHubPage() {
                 rel="noopener noreferrer sponsored nofollow"
                 className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors w-full"
               >
-                Profiter du bonus <ArrowRight className="w-4 h-4" />
+                Obtenir 100€ offerts sur PMU Sport <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           ))}
