@@ -40,6 +40,9 @@ export async function GET(request: NextRequest) {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
       "Cache-Control": "public, max-age=3600",
+      // Override restrictive CSP for this iframe page so GA scripts/iframes/clicks work
+      "Content-Security-Policy": "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;",
+      "X-Frame-Options": "",
     },
   });
 }

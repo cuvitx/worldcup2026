@@ -6,7 +6,7 @@ import { GABanner } from "./GABanner";
 
 const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/mentions-legales", "/jeu-responsable"];
-const SHOW_DELAY_MS = 3000;
+const SHOW_DELAY_MS = 20000;
 
 export function StickyCTA() {
   const [visible, setVisible] = useState(false);
@@ -33,16 +33,16 @@ export function StickyCTA() {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-sm"
         onClick={dismiss}
       />
       {/* Popup */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
-        <div className="relative pointer-events-auto rounded-2xl bg-white shadow-2xl overflow-hidden">
-          {/* Close button */}
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+        <div className="relative rounded-2xl bg-white shadow-2xl overflow-visible">
+          {/* Close button — outside top-right corner */}
           <button
             onClick={dismiss}
-            className="absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
+            className="absolute -top-3 -right-3 z-[10000] flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-white hover:bg-black transition-colors shadow-lg"
             aria-label="Fermer"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -50,11 +50,13 @@ export function StickyCTA() {
             </svg>
           </button>
 
-          {/* PMU 300x250 banner */}
-          <GABanner variant="300x250" tracking="popup" />
+          {/* PMU 300x250 banner — iframe is fully clickable */}
+          <div className="rounded-2xl overflow-hidden">
+            <GABanner variant="300x250" tracking="popup" />
+          </div>
 
           {/* Legal */}
-          <p className="bg-gray-50 px-3 py-2 text-[10px] text-gray-400 text-center">
+          <p className="px-3 py-2 text-[10px] text-gray-400 text-center">
             18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a>
           </p>
         </div>
