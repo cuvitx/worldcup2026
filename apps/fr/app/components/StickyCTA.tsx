@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { GABanner } from "./GABanner";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 
 const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/mentions-legales", "/jeu-responsable"];
@@ -41,7 +42,7 @@ export function StickyCTA() {
         <div className="relative rounded-2xl bg-white shadow-2xl overflow-visible">
           {/* Close button — outside top-right corner */}
           <button
-            onClick={dismiss}
+            onClick={(e) => { e.stopPropagation(); dismiss(); }}
             className="absolute -top-3 -right-3 z-[10000] flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-white hover:bg-black transition-colors shadow-lg"
             aria-label="Fermer"
           >
@@ -50,10 +51,15 @@ export function StickyCTA() {
             </svg>
           </button>
 
-          {/* PMU 300x250 banner — iframe is fully clickable */}
-          <div className="rounded-2xl overflow-hidden">
+          {/* Entire popup is a clickable affiliate link */}
+          <a
+            href={pmuTrackingUrl("popup")}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            className="block rounded-2xl overflow-hidden"
+          >
             <GABanner variant="300x250" tracking="popup" />
-          </div>
+          </a>
 
           {/* Legal */}
           <p className="px-3 py-2 text-[10px] text-gray-400 text-center">
