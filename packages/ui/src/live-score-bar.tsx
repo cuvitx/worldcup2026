@@ -29,6 +29,9 @@ export interface LiveMatch {
   time: string;
   slug: string;
   date?: string;
+  /** API-Football team ID for home/away swap detection */
+  homeApiTeamId?: number;
+  awayApiTeamId?: number;
 }
 
 /**
@@ -140,10 +143,13 @@ export const LiveScoreBar = memo(function LiveScoreBar({
           Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
         );
         if (!fixture) return m;
+        // Detect home/away swap between our data and API
+        const swapped = m.homeApiTeamId != null && m.homeApiTeamId > 0
+          && (fixture as { teams?: { away?: { id?: number } } }).teams?.away?.id === m.homeApiTeamId;
         return {
           ...m,
-          homeScore: fixture.goals.home,
-          awayScore: fixture.goals.away,
+          homeScore: swapped ? fixture.goals.away : fixture.goals.home,
+          awayScore: swapped ? fixture.goals.home : fixture.goals.away,
           status: mapApiStatus(fixture.fixture.status.short),
           elapsed: fixture.fixture.status.elapsed,
         };
@@ -186,10 +192,13 @@ export const LiveScoreBar = memo(function LiveScoreBar({
               goals: { home: number | null; away: number | null };
             } | undefined;
             if (!apiMatch) return m;
+            // Detect home/away swap
+            const swapped2 = m.homeApiTeamId != null && m.homeApiTeamId > 0
+              && (apiMatch as { teams?: { away?: { id?: number } } }).teams?.away?.id === m.homeApiTeamId;
             return {
               ...m,
-              homeScore: apiMatch.goals.home,
-              awayScore: apiMatch.goals.away,
+              homeScore: swapped2 ? apiMatch.goals.away : apiMatch.goals.home,
+              awayScore: swapped2 ? apiMatch.goals.home : apiMatch.goals.away,
               status: mapApiStatus(apiMatch.fixture.status.short),
               elapsed: apiMatch.fixture.status.elapsed,
             };

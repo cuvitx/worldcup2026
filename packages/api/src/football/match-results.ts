@@ -6,6 +6,7 @@
 import type { Match } from "@repo/data/types";
 import type { ApiFixture } from "./types";
 import { getWorldCupFixtures } from "./client";
+import { teamApiIds } from "@repo/data/api-football-ids";
 import { cachedFetch, CACHE_TTL } from "../cache";
 
 /** Status mapping from API-Football short codes to our internal status */
@@ -26,6 +27,8 @@ export interface MatchResult {
   homeScore: number;
   awayScore: number;
   status: NonNullable<Match["status"]>;
+  apiHomeTeamId: number;
+  apiAwayTeamId: number;
 }
 
 /**
@@ -53,6 +56,8 @@ export async function getMatchResults(): Promise<Map<number, MatchResult>> {
       homeScore: f.goals.home ?? 0,
       awayScore: f.goals.away ?? 0,
       status,
+      apiHomeTeamId: f.teams.home.id,
+      apiAwayTeamId: f.teams.away.id,
     });
   }
 
@@ -63,6 +68,7 @@ export async function getMatchResults(): Promise<Map<number, MatchResult>> {
 /**
  * Enrich an array of static matches with real API results.
  * Matches by kickoff timestamp (timezone-safe, language-independent).
+ * Detects home/away swaps between our data and the API using team IDs.
  * Falls back to static data if API is unavailable.
  */
 export async function enrichMatchesWithResults(
@@ -89,9 +95,18 @@ export async function enrichMatchesWithResults(
     );
 
     const result = results.get(kickoff);
-    if (result) return { ...match, ...result };
+    if (!result) return match;
 
-    return match;
+    // Check if home/away are swapped between our data and the API
+    const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
+    const swapped = ourHomeApiId > 0 && ourHomeApiId === result.apiAwayTeamId;
+
+    return {
+      ...match,
+      homeScore: swapped ? result.awayScore : result.homeScore,
+      awayScore: swapped ? result.homeScore : result.awayScore,
+      status: result.status,
+    };
   });
 }
 

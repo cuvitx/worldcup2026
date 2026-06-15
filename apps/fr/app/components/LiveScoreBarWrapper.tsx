@@ -1,5 +1,6 @@
 import { getTodaysMatches } from "@repo/data/tournament-state";
 import { teamsById } from "@repo/data";
+import { teamApiIds } from "@repo/data/api-football-ids";
 import type { LiveMatch } from "@repo/ui/live-score-bar";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { ConnectedLiveScoreBar } from "./ConnectedLiveScoreBar";
@@ -39,6 +40,8 @@ export async function LiveScoreBarWrapper() {
     time: m.time,
     slug: m.slug,
     date: m.date,
+    homeApiTeamId: teamApiIds[m.homeTeamId] ?? 0,
+    awayApiTeamId: teamApiIds[m.awayTeamId] ?? 0,
   }));
 
   return (
