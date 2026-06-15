@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Trophy, TrendingUp, BarChart3, ArrowRight, ExternalLink } from "lucide-react";
+import { Trophy, TrendingUp, BarChart3, ArrowRight } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -19,14 +20,8 @@ function getScorerOdds(slug: string) {
     goalsInternational: 10 + (seed % 50),
     goalsPerMatch: +(0.2 + (seed % 30) / 100).toFixed(2),
     wcPreviousGoals: seed % 8,
-    pokerstarssportsAnytime: +(1.80 + (seed % 40) / 100).toFixed(2),
-    betssonAnytime: +(1.85 + (seed % 35) / 100).toFixed(2),
     pmusportAnytime: +(1.82 + (seed % 38) / 100).toFixed(2),
-    pokerstarssportsTopScorer: +(8.00 + (seed % 200) / 10).toFixed(2),
-    betssonTopScorer: +(8.50 + (seed % 180) / 10).toFixed(2),
     pmusportTopScorer: +(8.20 + (seed % 190) / 10).toFixed(2),
-    pokerstarssportsNextMatch: +(2.50 + (seed % 50) / 100).toFixed(2),
-    betssonNextMatch: +(2.55 + (seed % 45) / 100).toFixed(2),
     pmusportNextMatch: +(2.48 + (seed % 52) / 100).toFixed(2),
   };
 }
@@ -40,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote ${player.name} Buteur CDM 2026 — Pronostic et Analyse`,
-    description: `Cotes buteur de ${player.name} pour la Coupe du Monde 2026 : marquer un but, meilleur buteur. Comparatif PokerStars Sports, Betsson, PMU Sport.`,
+    description: `Cotes buteur de ${player.name} pour la Coupe du Monde 2026 : marquer un but, meilleur buteur. Cotes PMU Sport.`,
     alternates: { canonical: `https://www.cdm2026.fr/cote-buteur/${slug}` },
   };
 }
@@ -52,9 +47,9 @@ export default async function CoteButeurPage({ params }: PageProps) {
   const team = teamsById[player.teamId];
   const odds = getScorerOdds(slug);
 const faqItems = [
-    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Les bookmakers proposent une cote autour de ${odds.pokerstarssportsAnytime} pour au moins 1 but dans le tournoi.` },
-    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `Les cotes meilleur buteur varient : PokerStars Sports ${odds.pokerstarssportsTopScorer}, Betsson ${odds.betssonTopScorer}, PMU Sport ${odds.pmusportTopScorer}.` },
-    { question: "Comment parier sur un buteur de la Coupe du Monde ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Comparez les cotes sur plusieurs bookmakers pour maximiser la valeur." },
+    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. PMU Sport propose une cote autour de ${odds.pmusportAnytime} pour au moins 1 but dans le tournoi.` },
+    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `La cote meilleur buteur chez PMU Sport est de ${odds.pmusportTopScorer}.` },
+    { question: "Comment parier sur un buteur de la Coupe du Monde ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Retrouvez tous ces marchés sur PMU Sport." },
     { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur du tournoi » et « meilleur buteur ». Les tirs au but ne comptent généralement pas." },
   ];
   const comparisons = TOP_50_SLUGS.filter((s) => s !== slug && playersBySlug[s]).slice(0, 4);
@@ -97,7 +92,7 @@ const faqItems = [
         </div>
         {/* Tableau cotes : Marquer au moins 1 but */}
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
-          <TrendingUp className="w-6 h-6 text-accent" /> Cotes : Marquer au moins 1 but dans le tournoi
+          <TrendingUp className="w-6 h-6 text-accent" /> Cotes PMU Sport : Marquer au moins 1 but dans le tournoi
         </h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
@@ -108,14 +103,15 @@ const faqItems = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr><td className="p-3">PokerStars Sports</td><td className="text-center p-3 font-bold text-accent">{odds.pokerstarssportsAnytime}</td></tr>
-              <tr><td className="p-3">Betsson</td><td className="text-center p-3 font-bold text-accent">{odds.betssonAnytime}</td></tr>
-              <tr><td className="p-3">PMU Sport</td><td className="text-center p-3 font-bold text-accent">{odds.pmusportAnytime}</td></tr>
+              <tr>
+                <td className="p-3">PMU Sport</td>
+                <td className="text-center p-3 font-bold text-accent">{odds.pmusportAnytime}</td>
+              </tr>
             </tbody>
           </table>
         </div>
         {/* Tableau cotes : Meilleur buteur */}
-        <h2 className="text-xl font-bold text-primary mb-4">Cotes : Meilleur buteur du tournoi</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Cotes PMU Sport : Meilleur buteur du tournoi</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -125,14 +121,15 @@ const faqItems = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr><td className="p-3">PokerStars Sports</td><td className="text-center p-3 font-bold text-accent">{odds.pokerstarssportsTopScorer}</td></tr>
-              <tr><td className="p-3">Betsson</td><td className="text-center p-3 font-bold text-accent">{odds.betssonTopScorer}</td></tr>
-              <tr><td className="p-3">PMU Sport</td><td className="text-center p-3 font-bold text-accent">{odds.pmusportTopScorer}</td></tr>
+              <tr>
+                <td className="p-3">PMU Sport</td>
+                <td className="text-center p-3 font-bold text-accent">{odds.pmusportTopScorer}</td>
+              </tr>
             </tbody>
           </table>
         </div>
         {/* Tableau cotes : Buteur prochain match */}
-        <h2 className="text-xl font-bold text-primary mb-4">Cotes : Buteur dans le prochain match</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Cotes PMU Sport : Buteur dans le prochain match</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -142,13 +139,24 @@ const faqItems = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr><td className="p-3">PokerStars Sports</td><td className="text-center p-3 font-bold text-accent">{odds.pokerstarssportsNextMatch}</td></tr>
-              <tr><td className="p-3">Betsson</td><td className="text-center p-3 font-bold text-accent">{odds.betssonNextMatch}</td></tr>
-              <tr><td className="p-3">PMU Sport</td><td className="text-center p-3 font-bold text-accent">{odds.pmusportNextMatch}</td></tr>
+              <tr>
+                <td className="p-3">PMU Sport</td>
+                <td className="text-center p-3 font-bold text-accent">{odds.pmusportNextMatch}</td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
+        <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur PMU Sport avant de parier.</p>
+        <div className="mt-6">
+          <a
+            href={pmuTrackingUrl("cdm2026")}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            className="inline-block bg-accent text-white rounded-xl py-3 px-6 font-semibold hover:opacity-90 transition-opacity"
+          >
+            Parier sur {player.name} chez PMU Sport →
+          </a>
+        </div>
       </section>
       {/* Analyse */}
       <section className="max-w-5xl mx-auto px-4 py-10">

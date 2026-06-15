@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pronostic Vainqueur CDM 2026 — Qui va gagner ?",
     description:
-      "Top 10 des favoris CDM 2026, cotes comparées PokerStars Sports/Betsson, analyse complète. Découvrez notre pronostic vainqueur.",
+      "Top 10 des favoris CDM 2026, cotes PMU Sport, analyse complète. Découvrez notre pronostic vainqueur.",
     url: "https://www.cdm2026.fr/pronostic/vainqueur",
   },
 };

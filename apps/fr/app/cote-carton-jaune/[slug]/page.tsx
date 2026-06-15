@@ -33,8 +33,6 @@ function getCardStats(slug: string) {
     wcCards,
     profileScore,
     isRough,
-    pokerstarssports: +(3.00 + (seed % 40) / 10).toFixed(2),
-    betsson: +(2.90 + (seed % 45) / 10).toFixed(2),
     pmusport: +(3.10 + (seed % 38) / 10).toFixed(2),
     tournamentAvgCards: 0.14,
     tournamentAvgFouls: 1.3,
@@ -49,8 +47,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const player = playersBySlug[slug];
   if (!player) return {};
   return {
-    title: `Cote carton jaune ${player.name} — CDM 2026 | PokerStars Sports, Betsson, PMU Sport`,
-    description: `Statistiques disciplinaires de ${player.name}, cotes carton jaune PokerStars Sports, Betsson et PMU Sport pour la Coupe du Monde 2026. Profil, historique et analyse.`,
+    title: `Cote carton jaune ${player.name} — CDM 2026 | PMU Sport`,
+    description: `Statistiques disciplinaires de ${player.name}, cotes carton jaune PMU Sport pour la Coupe du Monde 2026. Profil, historique et analyse.`,
     alternates: { canonical: `https://www.cdm2026.fr/cote-carton-jaune/${slug}` },
   };
 }
@@ -62,7 +60,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
   const team = teamsById[player.teamId];
   const stats = getCardStats(slug);
 const faqItems = [
-    { question: `Quelle est la cote pour un carton jaune de ${player.name} ?`, answer: `Les cotes indicatives pour un carton jaune de ${player.name} sont de ${stats.pokerstarssports} chez PokerStars Sports, ${stats.betsson} chez Betsson et ${stats.pmusport} chez PMU Sport. Ces cotes varient selon le match et l'adversaire.` },
+    { question: `Quelle est la cote pour un carton jaune de ${player.name} ?`, answer: `La cote indicative pour un carton jaune de ${player.name} est de ${stats.pmusport} chez PMU Sport. Cette cote varie selon le match et l'adversaire.` },
     { question: `${player.name} prend-il souvent des cartons jaunes ?`, answer: `${player.name} affiche une moyenne de ${stats.cardsPerMatch} carton jaune par match en sélection, avec ${stats.yellowCards} cartons en ${stats.matchesPlayed} matchs. Son profil est considéré comme ${stats.isRough ? "plutôt rugueux" : "plutôt fair-play"}.` },
     { question: "Comment sont cotés les paris carton jaune ?", answer: "Le pari \"joueur reçoit un carton jaune\" est proposé par la plupart des bookmakers sur les matchs de la Coupe du Monde 2026. La cote dépend du profil disciplinaire du joueur, de l'adversaire et de l'enjeu du match." },
     { question: "L'arbitre influence-t-il les cotes carton jaune ?", answer: "Oui, l'arbitre désigné est un facteur clé. Certains arbitres distribuent en moyenne 4-5 cartons par match, d'autres seulement 2-3. Les bookmakers ajustent leurs cotes en conséquence." },
@@ -129,20 +127,6 @@ const faqItems = [
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-gray-50">
-                <td className="p-3 font-semibold">PokerStars Sports</td>
-                <td className="text-center p-3 font-bold text-accent">{stats.pokerstarssports}</td>
-                <td className="text-center p-3">
-                  <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
-                </td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 font-semibold">Betsson</td>
-                <td className="text-center p-3 font-bold text-accent">{stats.betsson}</td>
-                <td className="text-center p-3">
-                  <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
-                </td>
-              </tr>
               <tr className="bg-gray-50">
                 <td className="p-3 font-semibold">PMU Sport</td>
                 <td className="text-center p-3 font-bold text-accent">{stats.pmusport}</td>
@@ -223,12 +207,6 @@ const faqItems = [
             Trouvez la meilleure cote pour parier sur un carton jaune de {player.name} lors de la Coupe du Monde 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              PokerStars Sports <ExternalLink className="w-4 h-4" />
-            </a>
-            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Betsson <ExternalLink className="w-4 h-4" />
-            </a>
             <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               PMU Sport <ExternalLink className="w-4 h-4" />
             </a>

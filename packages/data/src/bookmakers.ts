@@ -19,61 +19,22 @@ export interface Bookmaker {
 
 export const bookmakers: Bookmaker[] = [
   {
-    id: "pokerstars-sports",
-    name: "PokerStars Sports",
-    slug: "pokerstars-sports",
-    url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    bonusUrl: "/bonus/pokerstars-sports",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "en freebets sur votre 1er pari",
-    logo: "/images/logos/pokerstars-sports.png",
-    rating: 5,
-    anjApproved: true,
-    highlight: true,
-  },
-  {
-    id: "betsson",
-    name: "Betsson",
-    slug: "betsson",
-    url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    bonusUrl: "/bonus/betsson",
-    bonus: "Jusqu'à 100€",
-    bonusDetail: "sur votre 1er pari",
-    logo: "/images/logos/betsson.png",
-    rating: 5,
-    anjApproved: true,
-    highlight: true,
-  },
-  {
     id: "pmu-sport",
     name: "PMU Sport",
     slug: "pmu-sport",
-    url: "https://paris-sportifs.pmu.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
+    url: "https://www.gambling-affiliation.com/cpc/v=ak0CEPFp.xNc0Zux4eAz9mltNCb6fU43LYUUbJ-hUbE_GA7331V2&aff_var_1=cdm2026",
     bonusUrl: "/bonus/pmu-sport",
     bonus: "Jusqu'à 100€",
     bonusDetail: "en freebets sans condition",
     logo: "/images/logos/pmu-sport.png",
     rating: 4,
     anjApproved: true,
-    highlight: false,
-  },
-  {
-    id: "genybet",
-    name: "Genybet",
-    slug: "genybet",
-    url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    bonusUrl: "/bonus/genybet",
-    bonus: "Jusqu'à 150€",
-    bonusDetail: "sur votre 1er pari sportif",
-    logo: "/images/logos/genybet.png",
-    rating: 4,
-    anjApproved: true,
-    highlight: false,
+    highlight: true,
   },
 ];
 
-/** Bookmaker mis en avant (PokerStars Sports par défaut) */
-export const featuredBookmaker = bookmakers.find((b) => b.id === "pokerstars-sports")!;
+/** Bookmaker mis en avant (PMU Sport) */
+export const featuredBookmaker = bookmakers.find((b) => b.id === "pmu-sport")!;
 
 /** Tous les bookmakers mis en avant */
 export const highlightedBookmakers = bookmakers.filter((b) => b.highlight);

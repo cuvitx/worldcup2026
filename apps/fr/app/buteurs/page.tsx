@@ -5,7 +5,7 @@ import Link from "next/link";
 import { scorerOdds, topScorerRanking, scorersByTeam } from "@repo/data/scorers";
 import { players, playersById } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
-import { bookmakers } from "@repo/data/affiliates";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { topScorerCandidates } from "@repo/data/predictions-2026";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
 import { RelatedContent } from "../components/RelatedContent";
@@ -55,7 +55,7 @@ export default function ButeursPage() {
     },
     {
       question: "Qui va gagner le Soulier d'Or de la CDM 2026 ?",
-      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez les bookmakers (~6.50 sur PokerStars Sports) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
+      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez PMU Sport (~6.50) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
     },
     {
       question: "Quel est le record de buts sur une seule édition de la CDM ?",
@@ -71,7 +71,7 @@ export default function ButeursPage() {
     },
     {
       question: "Où parier sur les buteurs de la CDM 2026 ?",
-      answer: "Les meilleurs bookmakers pour parier sur les buteurs sont PokerStars Sports (cotes compétitives), Betsson (large choix de marchés buteurs), PMU Sport (bonus généreux) et Genybet (interface fluide). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un joueur. Comparez toujours les cotes avant de parier. 18+, jouez responsablement."
+      answer: "Le meilleur bookmaker pour parier sur les buteurs est PMU Sport (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un joueur. 18+, jouez responsablement."
     }
   ];
 
@@ -182,7 +182,7 @@ export default function ButeursPage() {
               </h2>
             </div>
             <p className="text-sm text-gray-500">
-              Cotes réelles multi-bookmakers · Buts attendus (modèle ELO) · Fév. 2026
+              Cotes PMU Sport · Buts attendus (modèle ELO) · Fév. 2026
             </p>
           </div>
 
@@ -196,7 +196,7 @@ export default function ButeursPage() {
                 idx === 2 ? "bg-gradient-to-r from-accent/5 to-accent/5" :
                 "bg-white";
               const impliedPct = Math.round(candidate.impliedProbability * 100 * 10) / 10;
-              const bestBookmakerOdds = Math.max(candidate.pokerstarsSports, candidate.betsson, candidate.genybet);
+              const bestBookmakerOdds = candidate.avgOdds;
 
               return (
                 <div key={candidate.playerId} className={`p-6 ${podiumBg}`}>
@@ -259,29 +259,13 @@ export default function ButeursPage() {
                     {/* Bookmaker odds column */}
                     <div className="shrink-0 flex flex-col gap-2 min-w-[130px]">
                       <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-1">
-                        Cotes meilleur buteur
+                        Cote meilleur buteur
                       </p>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.pokerstarsSports === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/5 border-primary/20"}`}>
-                        <span className="text-xs font-semibold text-primary">PokerStars</span>
-                        <span className={`text-sm font-bold ${candidate.pokerstarsSports === bestBookmakerOdds ? "text-accent" : "text-primary"}`}>
-                          {candidate.pokerstarsSports.toFixed(2)}
+                      <div className="flex items-center justify-between rounded-lg px-3 py-2 border bg-accent/10 border-accent/30">
+                        <span className="text-xs font-semibold text-primary">PMU Sport</span>
+                        <span className="text-sm font-bold text-accent">
+                          {candidate.avgOdds.toFixed(2)}
                         </span>
-                      </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.betsson === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-primary/10 border-primary/30"}`}>
-                        <span className="text-xs font-semibold text-accent">Betsson</span>
-                        <span className={`text-sm font-bold ${candidate.betsson === bestBookmakerOdds ? "text-accent" : "text-accent"}`}>
-                          {candidate.betsson.toFixed(2)}
-                        </span>
-                      </div>
-                      <div className={`flex items-center justify-between rounded-lg px-3 py-2 border ${candidate.genybet === bestBookmakerOdds ? "bg-accent/10 border-accent/30" : "bg-field/5 border-field/10"}`}>
-                        <span className="text-xs font-semibold text-field">Genybet</span>
-                        <span className={`text-sm font-bold ${candidate.genybet === bestBookmakerOdds ? "text-accent" : "text-field"}`}>
-                          {candidate.genybet.toFixed(2)}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between rounded-lg px-3 py-2 bg-primary/5 border border-primary/20">
-                        <span className="text-xs font-semibold text-primary">Moy.</span>
-                        <span className="text-sm font-bold text-primary">{candidate.avgOdds.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>
@@ -292,8 +276,8 @@ export default function ButeursPage() {
 
           <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-accent" /> = Meilleure cote du moment · Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
-              Sources : PokerStars Sports, Betsson, Genybet. Juin 2026. 18+.
+              Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
+              Source : PMU Sport. Juin 2026. 18+.
             </p>
           </div>
         </section>
@@ -427,17 +411,14 @@ export default function ButeursPage() {
             Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {bookmakers.slice(0, DISPLAY_LIMITS.BOOKMAKERS_PREVIEW).map((bk) => (
-              <a
-                key={bk.id}
-                href={bk.url}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
-              >
-                {bk.bonus} sur {bk.name}
-              </a>
-            ))}
+            <a
+              href={pmuTrackingUrl("cdm2026")}
+              target="_blank"
+              rel="noopener noreferrer sponsored nofollow"
+              className="inline-block rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
+            >
+              100€ offerts sur PMU Sport
+            </a>
           </div>
           <p className="mt-4 text-xs text-gray-500">
             18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement.

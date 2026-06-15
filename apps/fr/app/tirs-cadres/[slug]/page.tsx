@@ -163,11 +163,11 @@ const faqItems = [
             Trouvez la meilleure cote pour vos paris sur les tirs cadrés de {player.name} lors de la Coupe du Monde 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              PokerStars Sports <ExternalLink className="w-4 h-4" />
+            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
-              Betsson <ExternalLink className="w-4 h-4" />
+            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+              PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
             <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               PMU Sport <ExternalLink className="w-4 h-4" />

@@ -102,10 +102,7 @@ const risques = [
 ];
 
 const bookmakers = [
-  { nom: "PokerStars Sports", avantage: "Cotes boostées sur les combinés CDM, interface fluide", url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
-  { nom: "Betsson", avantage: "Bonus combiné jusqu'à +50%, large choix de marchés", url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
-  { nom: "PMU Sport", avantage: "Combo Boost réguliers, cashout partiel sur combinés", url: pmuTrackingUrl("cdm2026") },
-  { nom: "Genybet", avantage: "Point de vente + en ligne, offre Paris Combo", url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { nom: "PMU Sport", avantage: "Combo Boost réguliers, cashout partiel sur combinés, bookmaker agréé ANJ de confiance", url: pmuTrackingUrl("cdm2026") },
 ];
 
 const faqItems = [
@@ -122,7 +119,7 @@ const faqItems = [
   {
     question: "Qu'est-ce qu'un boost combiné ?",
     answer:
-      "Un boost combiné est une promotion où le bookmaker augmente vos gains si votre combiné est gagnant (ex : +10% pour 3 sélections, +30% pour 5+). PokerStars Sports et Betsson proposent régulièrement ce type de boost pendant les grandes compétitions.",
+      "Un boost combiné est une promotion où le bookmaker augmente vos gains si votre combiné est gagnant (ex : +10% pour 3 sélections, +30% pour 5+). PMU Sport propose régulièrement ce type de boost pendant les grandes compétitions comme la CDM 2026.",
   },
   {
     question: "Vaut-il mieux un combiné ou un system ?",

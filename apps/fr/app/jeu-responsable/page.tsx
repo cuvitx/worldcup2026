@@ -289,20 +289,8 @@ export default function JeuResponsablePage() {
               </h3>
               <ul className="mt-2 space-y-1 text-sm">
                 <li>
-                  <strong>PokerStars Sports :</strong> Limites de mises, auto-exclusion,
-                  réalité augmentée des pertes (Espace Jeu Responsable)
-                </li>
-                <li>
-                  <strong>Betsson :</strong> Limites de dépôts, auto-exclusion
-                  temporaire et définitive, historique de jeu détaillé
-                </li>
-                <li>
                   <strong>PMU Sport :</strong> Limites personnalisables, test
                   d&apos;auto-évaluation, suspension de compte
-                </li>
-                <li>
-                  <strong>Genybet :</strong> Plafonds de mises, alertes de
-                  jeu, auto-exclusion via l&apos;espace client
                 </li>
               </ul>
             </div>

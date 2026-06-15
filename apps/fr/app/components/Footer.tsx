@@ -90,7 +90,7 @@ export function Footer() {
               Partenaires agréés ANJ
             </p>
             <div className="flex items-center gap-2 flex-wrap">
-              {["PokerStars Sports", "Betsson", "PMU Sport", "Genybet"].map((bk) => (
+              {["PMU Sport"].map((bk) => (
                 <span
                   key={bk}
                   className="inline-block rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-gray-300 hover:text-white hover:border-white/20 transition-colors"

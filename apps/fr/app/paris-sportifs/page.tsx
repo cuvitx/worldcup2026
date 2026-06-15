@@ -24,11 +24,11 @@ export default function ParisSportifsPage() {
   const faqItems = [
     {
       question: "Quel est le meilleur site de paris sportifs pour la CDM 2026 ?",
-      answer: "Les meilleurs bookmakers pour la Coupe du Monde 2026 sont PokerStars Sports (interface fluide, cotes compétitives, bonus généreux), Betsson (large choix de marchés, streaming live gratuit) et PMU Sport (opérateur français de confiance, points de vente physiques). Tous sont agréés ANJ (Autorité Nationale des Jeux) et offrent des bonus de bienvenue attractifs pour les nouveaux inscrits. Comparez toujours les cotes avant de parier."
+      answer: "Le meilleur bookmaker pour la Coupe du Monde 2026 est PMU Sport : opérateur français de confiance, agréé ANJ (Autorité Nationale des Jeux), avec une application mobile complète, des statistiques intégrées et un bonus de bienvenue de 100€ sur le premier pari perdant. Comparez toujours les cotes avant de parier."
     },
     {
       question: "Comment parier sur la Coupe du Monde 2026 ?",
-      answer: "Pour parier sur la CDM 2026 : 1) Inscrivez-vous sur un site agréé ANJ (PokerStars Sports, Betsson, PMU Sport...), 2) Validez votre compte avec une pièce d'identité, 3) Déposez de l'argent via carte bancaire ou virement, 4) Choisissez un match et un marché (vainqueur, score exact, buteur...), 5) Placez votre mise et validez. Jouez responsablement, fixez-vous des limites de dépôt et ne misez jamais plus que ce que vous pouvez perdre. 18+."
+      answer: "Pour parier sur la CDM 2026 : 1) Inscrivez-vous sur PMU Sport, site agréé ANJ, 2) Validez votre compte avec une pièce d'identité, 3) Déposez de l'argent via carte bancaire ou virement, 4) Choisissez un match et un marché (vainqueur, score exact, buteur...), 5) Placez votre mise et validez. Jouez responsablement, fixez-vous des limites de dépôt et ne misez jamais plus que ce que vous pouvez perdre. 18+."
     },
     {
       question: "Quels types de paris sont disponibles pour la CDM 2026 ?",
@@ -36,7 +36,7 @@ export default function ParisSportifsPage() {
     },
     {
       question: "Peut-on parier en direct pendant les matchs de la CDM 2026 ?",
-      answer: "Oui, tous les bookmakers français proposent des paris en direct (live betting) sur les matchs de la Coupe du Monde. Les cotes évoluent en temps réel selon les événements du match (buts, cartons, occasions...). PokerStars Sports et Betsson offrent également le streaming vidéo gratuit des matchs pour les clients ayant un solde positif ou ayant parié sur le match. Le cash-out est aussi disponible pour clôturer un pari avant la fin du match."
+      answer: "Oui, PMU Sport propose des paris en direct (live betting) sur les matchs de la Coupe du Monde. Les cotes évoluent en temps réel selon les événements du match (buts, cartons, occasions...). Le cash-out est également disponible sur PMU Sport pour clôturer un pari avant la fin du match."
     },
     {
       question: "Quels sont les favoris pour remporter la CDM 2026 selon les bookmakers ?",
@@ -44,7 +44,7 @@ export default function ParisSportifsPage() {
     },
     {
       question: "Les paris sportifs sur la CDM 2026 sont-ils légaux en France ?",
-      answer: "Oui, les paris sportifs sont totalement légaux en France depuis 2010, à condition de parier sur un site agréé par l'ANJ (Autorité Nationale des Jeux). Seuls les opérateurs détenant une licence française peuvent proposer des paris en ligne. PokerStars Sports, Betsson, PMU Sport et Genybet font partie des bookmakers agréés. Parier sur des sites non agréés est illégal et vous expose à des risques (pas de protection légale, arnaques possibles)."
+      answer: "Oui, les paris sportifs sont totalement légaux en France depuis 2010, à condition de parier sur un site agréé par l'ANJ (Autorité Nationale des Jeux). Seuls les opérateurs détenant une licence française peuvent proposer des paris en ligne. PMU Sport fait partie des bookmakers agréés ANJ. Parier sur des sites non agréés est illégal et vous expose à des risques (pas de protection légale, arnaques possibles)."
     }
   ];
 

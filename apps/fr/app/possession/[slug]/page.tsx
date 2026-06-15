@@ -154,8 +154,8 @@ const faqItems = [
           <h3 className="text-xl font-bold text-primary mb-4">Parier sur la possession</h3>
           <p className="text-gray-600 mb-6">Comparez les cotes possession pour {homeName} vs {awayName}.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PokerStars Sports <ExternalLink className="w-4 h-4" /></a>
-            <a href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Betsson <ExternalLink className="w-4 h-4" /></a>
+            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
+            <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
             <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">PMU Sport <ExternalLink className="w-4 h-4" /></a>
           </div>
           <p className="text-xs text-gray-400 mt-4"></p>

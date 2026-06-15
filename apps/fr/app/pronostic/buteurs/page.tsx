@@ -1,36 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Target, TrendingUp, Star, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Pronostic Meilleur Buteur CDM 2026 — Top 15 Favoris & Cotes",
+  title: "Pronostic Meilleur Buteur CDM 2026 — Top 15 Favoris & Cotes PMU Sport",
   description:
-    "Qui sera le meilleur buteur de la Coupe du Monde 2026 ? Mbappé, Haaland, Vinicius Jr : comparatif cotes Winamax, Betclic, Unibet + stats et dark horses.",
+    "Qui sera le meilleur buteur de la Coupe du Monde 2026 ? Mbappé, Haaland, Vinicius Jr : cotes PMU Sport + stats et dark horses.",
   alternates: { canonical: "https://www.cdm2026.fr/pronostic/buteurs" },
   openGraph: {
     title: "Pronostic Meilleur Buteur CDM 2026",
-    description: "Top 15 favoris, cotes comparées et dark horses pour le Soulier d'Or 2026.",
+    description: "Top 15 favoris, cotes PMU Sport et dark horses pour le Soulier d'Or 2026.",
     url: "https://www.cdm2026.fr/pronostic/buteurs",
   },
 };
 
 const topScorers = [
-  { name: "Kylian Mbappé", team: "🇫🇷 France", winamax: 6.5, betclic: 7.0, unibet: 6.0, selGoals: 48, wcGoals: 4 },
-  { name: "Erling Haaland", team: "🇳🇴 Norvège", winamax: 7.0, betclic: 7.5, unibet: 7.0, selGoals: 35, wcGoals: 0 },
-  { name: "Vinicius Jr", team: "🇧🇷 Brésil", winamax: 9.0, betclic: 8.5, unibet: 9.0, selGoals: 6, wcGoals: 0 },
-  { name: "Harry Kane", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", winamax: 8.0, betclic: 8.0, unibet: 8.5, selGoals: 68, wcGoals: 6 },
-  { name: "Lamine Yamal", team: "🇪🇸 Espagne", winamax: 12.0, betclic: 11.0, unibet: 13.0, selGoals: 5, wcGoals: 0 },
-  { name: "Lionel Messi", team: "🇦🇷 Argentine", winamax: 15.0, betclic: 14.0, unibet: 15.0, selGoals: 109, wcGoals: 13 },
-  { name: "Robert Lewandowski", team: "🇵🇱 Pologne", winamax: 17.0, betclic: 18.0, unibet: 16.0, selGoals: 84, wcGoals: 2 },
-  { name: "Jude Bellingham", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", winamax: 15.0, betclic: 14.0, unibet: 15.0, selGoals: 6, wcGoals: 0 },
-  { name: "Mohamed Salah", team: "🇪🇬 Égypte", winamax: 25.0, betclic: 22.0, unibet: 25.0, selGoals: 55, wcGoals: 2 },
-  { name: "Victor Osimhen", team: "🇳🇬 Nigeria", winamax: 20.0, betclic: 20.0, unibet: 22.0, selGoals: 22, wcGoals: 0 },
-  { name: "Alexander Isak", team: "🇸🇪 Suède", winamax: 22.0, betclic: 25.0, unibet: 22.0, selGoals: 14, wcGoals: 0 },
-  { name: "Julián Álvarez", team: "🇦🇷 Argentine", winamax: 18.0, betclic: 17.0, unibet: 18.0, selGoals: 9, wcGoals: 1 },
-  { name: "Bukayo Saka", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", winamax: 20.0, betclic: 20.0, unibet: 22.0, selGoals: 12, wcGoals: 0 },
-  { name: "Álvaro Morata", team: "🇪🇸 Espagne", winamax: 25.0, betclic: 25.0, unibet: 28.0, selGoals: 36, wcGoals: 3 },
-  { name: "Richarlison", team: "🇧🇷 Brésil", winamax: 25.0, betclic: 28.0, unibet: 25.0, selGoals: 20, wcGoals: 3 },
+  { name: "Kylian Mbappé", team: "🇫🇷 France", pmusport: 6.5, selGoals: 48, wcGoals: 4 },
+  { name: "Erling Haaland", team: "🇳🇴 Norvège", pmusport: 7.0, selGoals: 35, wcGoals: 0 },
+  { name: "Vinicius Jr", team: "🇧🇷 Brésil", pmusport: 9.0, selGoals: 6, wcGoals: 0 },
+  { name: "Harry Kane", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", pmusport: 8.0, selGoals: 68, wcGoals: 6 },
+  { name: "Lamine Yamal", team: "🇪🇸 Espagne", pmusport: 12.0, selGoals: 5, wcGoals: 0 },
+  { name: "Lionel Messi", team: "🇦🇷 Argentine", pmusport: 15.0, selGoals: 109, wcGoals: 13 },
+  { name: "Robert Lewandowski", team: "🇵🇱 Pologne", pmusport: 17.0, selGoals: 84, wcGoals: 2 },
+  { name: "Jude Bellingham", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", pmusport: 15.0, selGoals: 6, wcGoals: 0 },
+  { name: "Mohamed Salah", team: "🇪🇬 Égypte", pmusport: 25.0, selGoals: 55, wcGoals: 2 },
+  { name: "Victor Osimhen", team: "🇳🇬 Nigeria", pmusport: 20.0, selGoals: 22, wcGoals: 0 },
+  { name: "Alexander Isak", team: "🇸🇪 Suède", pmusport: 22.0, selGoals: 14, wcGoals: 0 },
+  { name: "Julián Álvarez", team: "🇦🇷 Argentine", pmusport: 18.0, selGoals: 9, wcGoals: 1 },
+  { name: "Bukayo Saka", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", pmusport: 20.0, selGoals: 12, wcGoals: 0 },
+  { name: "Álvaro Morata", team: "🇪🇸 Espagne", pmusport: 25.0, selGoals: 36, wcGoals: 3 },
+  { name: "Richarlison", team: "🇧🇷 Brésil", pmusport: 25.0, selGoals: 20, wcGoals: 3 },
 ];
 
 const darkHorses = [
@@ -51,7 +52,7 @@ const faqItems = [
   { question: "Qui est le favori pour le Soulier d'Or CDM 2026 ?", answer: "Kylian Mbappé et Erling Haaland se partagent le statut de favori avec des cotes entre 6.0 et 7.5 selon les bookmakers. Mbappé a l'avantage de l'expérience en Coupe du Monde (4 buts en 2022, 1 en 2018)." },
   { question: "Combien de buts marque en moyenne le meilleur buteur d'une CDM ?", answer: "Depuis 1998, le meilleur buteur d'une Coupe du Monde inscrit en moyenne 6 buts. Le record est de 6 buts partagé par plusieurs joueurs. Avec le format 48 équipes et plus de matchs, ce nombre pourrait augmenter en 2026." },
   { question: "Le meilleur buteur vient-il toujours d'une grande nation ?", answer: "Pas nécessairement. James Rodríguez (Colombie) a été Soulier d'Or en 2014. En 2022, Mbappé (France) a terminé meilleur buteur alors que la France a perdu la finale. L'équipe finaliste fournit souvent le meilleur buteur." },
-  { question: "Comment parier sur le meilleur buteur CDM 2026 ?", answer: "Les paris sur le meilleur buteur sont disponibles en ante-post chez tous les bookmakers agréés ANJ. Vous pouvez parier dès maintenant à des cotes avantageuses. Comparez les cotes entre Winamax, Betclic et Unibet pour trouver la meilleure value." },
+  { question: "Comment parier sur le meilleur buteur CDM 2026 ?", answer: "Les paris sur le meilleur buteur sont disponibles en ante-post chez PMU Sport, bookmaker agréé ANJ. Vous pouvez parier dès maintenant à des cotes avantageuses. Vérifiez les cotes sur PMU Sport avant de placer votre mise." },
 ];
 
 export default function PronosticButeursPage() {
@@ -86,7 +87,7 @@ export default function PronosticButeursPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <TrendingUp className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Top 15 des favoris — Cotes comparées</h2>
+          <h2 className="text-2xl font-bold text-primary">Top 15 des favoris — Cotes PMU Sport</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -95,9 +96,7 @@ export default function PronosticButeursPage() {
                 <th className="text-left p-3">#</th>
                 <th className="text-left p-3">Joueur</th>
                 <th className="text-left p-3">Équipe</th>
-                <th className="text-center p-3">Winamax</th>
-                <th className="text-center p-3">Betclic</th>
-                <th className="text-center p-3">Unibet</th>
+                <th className="text-center p-3">PMU Sport</th>
                 <th className="text-center p-3">Buts sélection</th>
                 <th className="text-center p-3">Buts CDM</th>
               </tr>
@@ -108,9 +107,7 @@ export default function PronosticButeursPage() {
                   <td className="p-3 font-bold text-accent">{i + 1}</td>
                   <td className="p-3 font-semibold">{p.name}</td>
                   <td className="p-3">{p.team}</td>
-                  <td className="text-center p-3">{p.winamax.toFixed(1)}</td>
-                  <td className="text-center p-3">{p.betclic.toFixed(1)}</td>
-                  <td className="text-center p-3">{p.unibet.toFixed(1)}</td>
+                  <td className="text-center p-3">{p.pmusport.toFixed(1)}</td>
                   <td className="text-center p-3">{p.selGoals}</td>
                   <td className="text-center p-3">{p.wcGoals}</td>
                 </tr>
@@ -168,14 +165,14 @@ export default function PronosticButeursPage() {
 
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <Link
-          href="https://www.winamax.fr/paris-sportifs"
+        <a
+          href={pmuTrackingUrl("cdm2026")}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
         >
-          Parier sur le meilleur buteur CDM 2026 <ArrowRight className="inline w-4 h-4 ml-1" />
-        </Link>
+          Parier sur le meilleur buteur CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
+        </a>
       </section>
 
       {/* FAQ */}

@@ -7,7 +7,7 @@ import { teams, teamsBySlug } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
 import { playersByTeamId } from "@repo/data/players";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { bookmakers, estimatedOutrightOdds } from "@repo/data/affiliates";
+import { estimatedOutrightOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 import { Calendar, Check, CircleDot, ExternalLink, ShieldCheck, Star, TrendingUp, Trophy } from "lucide-react";
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
   return {
     title: `Parier sur ${team.name} — CDM 2026 : Cotes, Pronostics et Bonus`,
-    description: `Parier sur ${team.name} à la Coupe du Monde 2026 : meilleures cotes, pronostics et bonus bookmakers. Analyse complète Groupe ${team.group}.`,
+    description: `Parier sur ${team.name} à la Coupe du Monde 2026 : meilleures cotes PMU Sport, pronostics et bonus. Analyse complète Groupe ${team.group}.`,
     openGraph: {
       title: `${team.flag} Parier sur ${team.name} — CDM 2026`,
       description: `Cotes, pronostics et bonus pour parier sur ${team.name} à la Coupe du Monde 2026.`,
@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/parier/${team.slug}` },
   };
 }
-/** Generate indicative odds based on FIFA ranking */
-function getIndicativeOdds(fifaRanking: number): { pokerstarssports: string; betsson: string; pmusport: string } {
+/** Generate indicative PMU odds based on FIFA ranking */
+function getIndicativeOdds(fifaRanking: number): string {
   let base: number;
   if (fifaRanking <= 3) base = 5.0;
   else if (fifaRanking <= 6) base = 7.0;
@@ -43,11 +43,7 @@ function getIndicativeOdds(fifaRanking: number): { pokerstarssports: string; bet
   else if (fifaRanking <= 40) base = 80.0;
   else if (fifaRanking <= 60) base = 150.0;
   else base = 500.0;
-  return {
-    pokerstarssports: (base * 0.95).toFixed(2),
-    betsson: base.toFixed(2),
-    pmusport: (base * 1.05).toFixed(2),
-  };
+  return base.toFixed(2);
 }
 export default async function ParierEquipePage({ params }: PageProps) {
   const { slug } = await params;
@@ -60,7 +56,7 @@ export default async function ParierEquipePage({ params }: PageProps) {
   );
   const groupMatches = teamMatches.filter((m) => m.stage === "group");
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
-  const odds = getIndicativeOdds(team.fifaRanking);
+  const pmuOdds = getIndicativeOdds(team.fifaRanking);
   // Key players: pick top 3 forwards/midfielders by caps
   const keyPlayers = teamPlayers
     .filter((p) => p.position === "FW" || p.position === "MF")
@@ -69,11 +65,11 @@ export default async function ParierEquipePage({ params }: PageProps) {
 const faqItems = [
     {
       question: `Comment parier sur ${team.name} pour la CDM 2026 ?`,
-      answer: `Inscrivez-vous sur un bookmaker agréé ANJ (PokerStars Sports, Betsson, PMU Sport), profitez du bonus de bienvenue, puis recherchez "Coupe du Monde 2026" et sélectionnez ${team.name} dans les paris vainqueur, qualification de groupe ou matchs individuels.`,
+      answer: `Inscrivez-vous sur PMU Sport, bookmaker agréé ANJ, profitez du bonus de bienvenue, puis recherchez "Coupe du Monde 2026" et sélectionnez ${team.name} dans les paris vainqueur, qualification de groupe ou matchs individuels.`,
     },
     {
       question: `Quelle est la cote de ${team.name} pour gagner la CDM 2026 ?`,
-      answer: `La cote indicative de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${odds.betsson} chez Betsson. Cette cote évolue selon les résultats et la forme de l'équipe.`,
+      answer: `La cote indicative de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${pmuOdds} chez PMU Sport. Cette cote évolue selon les résultats et la forme de l'équipe.`,
     },
     {
       question: `${team.name} peut-elle se qualifier en phase à élimination directe ?`,
@@ -116,27 +112,19 @@ const faqItems = [
                 <Trophy className="h-6 w-6 text-accent" />
                 Cote victoire finale {team.name}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="rounded-lg bg-primary/5 p-4 text-center">
-                  <p className="text-sm text-gray-500 mb-1">PokerStars Sports</p>
-                  <p className="text-3xl font-extrabold text-primary">{odds.pokerstarssports}</p>
-                </div>
-                <div className="rounded-lg bg-primary/5 p-4 text-center">
-                  <p className="text-sm text-gray-500 mb-1">Betsson</p>
-                  <p className="text-3xl font-extrabold text-primary">{odds.betsson}</p>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 max-w-xs">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-sm text-gray-500 mb-1">PMU Sport</p>
-                  <p className="text-3xl font-extrabold text-primary">{odds.pmusport}</p>
+                  <p className="text-3xl font-extrabold text-primary">{pmuOdds}</p>
                 </div>
               </div>
               {prediction && (
                 <p className="mt-4 text-sm text-accent">
-                  Probabilité implicite : {Math.round((1 / parseFloat(odds.betsson)) * 100)}% · Notre estimation : {Math.round(prediction.winnerProb * 100)}%
+                  Probabilité implicite : {Math.round((1 / parseFloat(pmuOdds)) * 100)}% · Notre estimation : {Math.round(prediction.winnerProb * 100)}%
                 </p>
               )}
               <p className="mt-2 text-xs text-gray-400">
-                Cotes indicatives basées sur le classement FIFA. Consultez les bookmakers pour les cotes en temps réel.
+                Cotes indicatives basées sur le classement FIFA. Consultez PMU Sport pour les cotes en temps réel.
               </p>
             </section>
             {/* Calendrier des matchs */}
@@ -182,7 +170,7 @@ const faqItems = [
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <TrendingUp className="h-6 w-6 text-accent" />
-                Meilleures cotes {team.name} CDM 2026
+                Cotes {team.name} CDM 2026
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
@@ -195,25 +183,21 @@ const faqItems = [
                     </tr>
                   </thead>
                   <tbody>
-                    {bookmakers.slice(0, 3).map((bk, i) => (
-                      <tr key={bk.id} className="border-b border-gray-100">
-                        <td className="py-3 pr-4 font-medium text-gray-900">{bk.name}</td>
-                        <td className="py-3 pr-4 font-bold text-primary">
-                          {i === 0 ? odds.pokerstarssports : i === 1 ? odds.betsson : odds.pmusport}
-                        </td>
-                        <td className="py-3 pr-4 text-accent font-semibold">{bk.bonus}</td>
-                        <td className="py-3">
-                          <a
-                            href={bk.url}
-                            target="_blank"
-                            rel="noopener noreferrer sponsored nofollow"
-                            className="inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
-                          >
-                            Parier
-                          </a>
-                        </td>
-                      </tr>
-                    ))}
+                    <tr className="border-b border-gray-100">
+                      <td className="py-3 pr-4 font-medium text-gray-900">PMU Sport</td>
+                      <td className="py-3 pr-4 font-bold text-primary">{pmuOdds}</td>
+                      <td className="py-3 pr-4 text-accent font-semibold">100€ offerts</td>
+                      <td className="py-3">
+                        <a
+                          href={pmuTrackingUrl("cdm2026")}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored nofollow"
+                          className="inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
+                        >
+                          Parier
+                        </a>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -278,17 +262,14 @@ const faqItems = [
                 Parier sur {team.name} — Jusqu&apos;à 100€ offerts
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                {bookmakers.slice(0, 3).map((bk) => (
-                  <a
-                    key={bk.id}
-                    href={bk.url}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
-                  >
-                    {bk.name} — {bk.bonus}
-                  </a>
-                ))}
+                <a
+                  href={pmuTrackingUrl("cdm2026")}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
+                >
+                  PMU Sport — 100€ offerts
+                </a>
               </div>
               <p className="text-white/70 text-xs mt-3">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
@@ -337,20 +318,17 @@ const faqItems = [
             </div>
             {/* Bookmaker sidebar */}
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Meilleurs bookmakers</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Bookmaker partenaire</h3>
               <div className="space-y-3">
-                {bookmakers.slice(0, 4).map((bk) => (
-                  <a
-                    key={bk.id}
-                    href={bk.url}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
-                  >
-                    <p className="font-semibold text-gray-900 text-sm">{bk.name}</p>
-                    <p className="text-accent text-xs font-bold">{bk.bonus} {bk.bonusDetail}</p>
-                  </a>
-                ))}
+                <a
+                  href={pmuTrackingUrl("cdm2026")}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
+                >
+                  <p className="font-semibold text-gray-900 text-sm">PMU Sport</p>
+                  <p className="text-accent text-xs font-bold">100€ offerts en freebets sans condition</p>
+                </a>
               </div>
               <p className="text-xs text-gray-400 mt-3">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>

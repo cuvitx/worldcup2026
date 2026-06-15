@@ -17,10 +17,7 @@ export const metadata: Metadata = {
 };
 
 const apps = [
-  { name: "PokerStars Sports", note: "4.8/5", points: "Interface fluide, cotes live compétitives, cashout rapide.", url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
-  { name: "Betsson", note: "4.7/5", points: "Nombreux marchés live, streaming intégré, notifications.", url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
-  { name: "PMU Sport", note: "4.6/5", points: "Stats en direct, cashout partiel disponible, interface claire.", url: pmuTrackingUrl("cdm2026") },
-  { name: "Genybet", note: "4.4/5", points: "Fiable, offre solide, bonus fréquents pour les grands événements.", url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" },
+  { name: "PMU Sport", note: "4.6/5", points: "Stats en direct, cashout partiel disponible, interface claire. Bookmaker agréé ANJ de confiance.", url: pmuTrackingUrl("cdm2026") },
 ];
 
 const strategies = [
@@ -40,7 +37,7 @@ const cashoutTips = [
 
 const faqItems = [
   { question: "Qu'est-ce que le live betting ?", answer: "Le live betting (ou paris en direct) permet de parier pendant qu'un match est en cours. Les cotes évoluent en temps réel selon le score, la possession, les occasions et le temps restant. C'est le mode de paris le plus populaire pour les grands événements comme la CDM." },
-  { question: "Quelle est la meilleure app pour parier en live sur la CDM 2026 ?", answer: "PokerStars Sports et Betsson sont les meilleures apps françaises pour le live betting. PokerStars Sports excelle sur la rapidité des cotes et le cashout, tandis que Betsson propose le streaming live de certains matchs directement dans l'app. Les deux sont agréées ANJ." },
+  { question: "Quelle est la meilleure app pour parier en live sur la CDM 2026 ?", answer: "PMU Sport est notre recommandation pour le live betting sur la CDM 2026. L'application propose les statistiques en direct, le cashout partiel disponible et une interface claire. PMU Sport est agréé ANJ." },
   { question: "Qu'est-ce que le cashout ?", answer: "Le cashout permet de clôturer un pari avant la fin du match pour sécuriser un gain (si votre pari est en bonne voie) ou limiter une perte (si le match tourne mal). Le montant proposé dépend des cotes en temps réel. Tous les grands bookmakers français proposent cette option." },
   { question: "Les paris live sont-ils plus rentables que les paris pré-match ?", answer: "Les paris live offrent plus d'opportunités mais requièrent une bonne lecture du jeu. L'avantage : vous voyez le match se dérouler et pouvez repérer des tendances que les cotes n'ont pas encore intégrées. L'inconvénient : les cotes live incluent une marge plus élevée du bookmaker." },
 ];
@@ -131,9 +128,9 @@ export default function ParisLivePage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <Link href="https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
+        <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
           Commencer les paris live CDM 2026 <ArrowRight className="inline w-4 h-4 ml-1" />
-        </Link>
+        </a>
       </section>
 
       <FAQSection title="Questions fréquentes — Paris live CDM 2026" items={faqItems} />

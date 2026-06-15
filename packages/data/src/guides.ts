@@ -28,7 +28,7 @@ export const guides: Guide[] = [
     intro: "La Coupe du Monde 2026 sera le plus grand événement sportif de l'annee avec 48 équipes, 104 matchs et des milliers de marchés de paris. Ce guide vous explique comment parier sur la CDM 2026, des premiers pas jusqu'aux stratégies avancées.",
     category: "cdm2026",
     relatedGuideIds: ["meilleurs-sites-paris-sportifs", "stratégie-paris-direct", "parier-buteurs"],
-    relatedBookmakerIds: ["betclic", "winamax", "parionssport"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Étape 1 : Choisir un bookmaker agréé",
@@ -97,7 +97,7 @@ export const guides: Guide[] = [
     intro: "Avec plus d'une dizaine de bookmakers agréés en France, il n'est pas toujours facile de choisir. Nous avons teste et compare les meilleurs sites de paris sportifs pour vous aider a trouver celui qui correspond a votre profil, avec un focus sur la Coupe du Monde 2026.",
     category: "bookmaker",
     relatedGuideIds: ["comment-parier-cdm-2026", "comment-retirer-gains", "guide-parieur-débutant"],
-    relatedBookmakerIds: ["betclic", "winamax", "parionssport", "unibet", "zebet"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Notre classement 2026",
@@ -162,7 +162,7 @@ export const guides: Guide[] = [
     intro: "Les paris sur les buteurs sont parmi les plus populaires et les plus rentables de la Coupe du Monde. Meilleur buteur du tournoi, premier buteur d'un match, buteur a tout moment : decouvrez les différents marchés et nos stratégies pour maximiser vos gains.",
     category: "stratégie",
     relatedGuideIds: ["comment-parier-cdm-2026", "stratégie-paris-direct", "paris-combines-cdm-2026"],
-    relatedBookmakerIds: ["betclic", "winamax", "unibet"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Les différents marchés de buteurs",
@@ -223,7 +223,7 @@ export const guides: Guide[] = [
     intro: "Les paris en direct representent plus de 60% des mises pendant les grandes competitions. Pendant la CDM 2026, chaque match sera une opportunite de parier en live. Ce guide vous donne les stratégies pour tirer le meilleur parti du live betting.",
     category: "stratégie",
     relatedGuideIds: ["comment-parier-cdm-2026", "parier-buteurs", "paris-combines-cdm-2026"],
-    relatedBookmakerIds: ["betclic", "unibet"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Les avantages du pari en direct par rapport au pre-match",
@@ -292,7 +292,7 @@ export const guides: Guide[] = [
     intro: "Les paris combines (ou accumulateurs) multiplient les cotes de plusieurs sélections pour offrir des gains potentiels importants. Pendant la CDM 2026, avec parfois 4 matchs le meme jour, les combinaisons sont tres attractives. Mais attention aux pieges.",
     category: "stratégie",
     relatedGuideIds: ["comment-parier-cdm-2026", "stratégie-paris-direct", "parier-buteurs"],
-    relatedBookmakerIds: ["winamax", "betclic"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Comment fonctionnent les paris combines",
@@ -361,7 +361,7 @@ export const guides: Guide[] = [
     intro: "Gagner un pari, c'est bien. Retirer ses gains rapidement et sans friction, c'est mieux. Ce guide vous explique comment retirer vos gains sur les principaux bookmakers francais, les délais a prevoir et les astuces pour accelerer le processus.",
     category: "débutant",
     relatedGuideIds: ["meilleurs-sites-paris-sportifs", "guide-parieur-débutant", "comment-parier-cdm-2026"],
-    relatedBookmakerIds: ["betclic", "winamax", "parionssport", "unibet", "zebet"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Verification d'identité : le préalable indispensable",
@@ -422,7 +422,7 @@ export const guides: Guide[] = [
     intro: "Vous n'avez jamais parie sur un match de foot ? Ce guide est fait pour vous. Nous allons tout vous expliquer, du vocabulaire de base aux stratégies simples, pour que vous puissiez profiter de la Coupe du Monde 2026 en toute confiance.",
     category: "débutant",
     relatedGuideIds: ["comment-parier-cdm-2026", "meilleurs-sites-paris-sportifs", "comment-retirer-gains"],
-    relatedBookmakerIds: ["parionssport", "betclic"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Le vocabulaire essentiel du parieur sportif",
@@ -491,7 +491,7 @@ export const guides: Guide[] = [
     intro: "Les paris sur les corners sont un marché de niche de plus en plus populaire. Moins influence par le hasard que les buts, le nombre de corners depend du style de jeu des équipes. Voici comment en profiter pendant la CDM 2026.",
     category: "stratégie",
     relatedGuideIds: ["stratégie-paris-direct", "parier-buteurs", "paris-combines-cdm-2026"],
-    relatedBookmakerIds: ["unibet", "betclic"],
+    relatedBookmakerIds: ["pmusport"],
     sections: [
       {
         title: "Comprendre le marché des corners en detail",

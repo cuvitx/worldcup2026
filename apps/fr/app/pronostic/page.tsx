@@ -416,7 +416,7 @@ export default function PronosticHubPage() {
                 href: "/comparateur-cotes",
                 icon: "",
                 title: "Comparateur de cotes",
-                desc: "Comparez PokerStars Sports, Betsson, PMU Sport...",
+                desc: "Meilleures cotes PMU Sport en temps réel",
                 gradient: "from-accent to-accent/70",
               },
               {

@@ -4,7 +4,7 @@ import {
   top10Favorites,
 } from "@repo/data/predictions-2026";
 import {
-  bookmakers,
+  pmuTrackingUrl,
 } from "@repo/data/affiliates";
 
 export function OddsTable() {
@@ -12,10 +12,10 @@ export function OddsTable() {
     <section id="cotes" className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Cotes vainqueur CDM 2026 — Multi-bookmakers
+          Cotes vainqueur CDM 2026 — PMU Sport
         </h2>
         <p className="text-sm text-gray-600 mb-1">
-          Cotes décimales des principaux bookmakers partenaires. Mises à jour : <span className="font-semibold text-gray-700">juin 2026</span>.
+          Cotes décimales PMU Sport. Mises à jour : <span className="font-semibold text-gray-700">juin 2026</span>.
         </p>
         <p className="text-xs text-gray-600 mb-6">
           ↑ Tendance haussière vs. cotes d&apos;ouverture (déc. 2025) · ↓ Tendance baissière · → Stable
@@ -26,11 +26,8 @@ export function OddsTable() {
             <thead>
               <tr className="bg-gray-50 text-xs uppercase text-gray-500text-gray-700">
                 <th className="text-left px-3 sm:px-4 py-3 font-bold">Équipe</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-primary hidden sm:table-cell">PokerStars</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-accent hidden lg:table-cell">Betsson</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-primary hidden lg:table-cell">PMU Sport</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-accent hidden lg:table-cell">Genybet</th>
-                <th className="text-center px-2 sm:px-4 py-3 font-bold text-accent whitespace-nowrap">Cote</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold whitespace-nowrap text-primary">Cote PMU Sport</th>
+                <th className="text-center px-2 sm:px-4 py-3 font-bold text-accent whitespace-nowrap">Moy.</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-primary whitespace-nowrap">Proba.</th>
                 <th className="text-center px-2 sm:px-4 py-3 font-bold text-gray-600 whitespace-nowrap hidden sm:table-cell">Trend</th>
               </tr>
@@ -47,7 +44,6 @@ export function OddsTable() {
                     ? "text-red-500"
                     : "text-gray-600";
                 const impliedPct = Math.round(fav.impliedProbability * 100 * 10) / 10;
-                const bestOdds = Math.max(fav.pokerstarsSports, fav.betsson, fav.pmuSport, fav.genybet);
 
                 return (
                   <tr
@@ -71,28 +67,10 @@ export function OddsTable() {
                         </Link>
                       </div>
                     </td>
-                    {/* PokerStars Sports */}
-                    <td className="px-2 sm:px-4 py-3 text-center hidden sm:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.pokerstarsSports === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
-                        {fav.pokerstarsSports.toFixed(2)}
-                      </span>
-                    </td>
-                    {/* Betsson */}
-                    <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.betsson === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
-                        {fav.betsson.toFixed(2)}
-                      </span>
-                    </td>
                     {/* PMU Sport */}
-                    <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.pmuSport === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
+                    <td className="px-2 sm:px-4 py-3 text-center">
+                      <span className="inline-block px-2 py-1 rounded font-bold text-sm bg-accent/10 text-accent border border-accent/30">
                         {fav.pmuSport.toFixed(2)}
-                      </span>
-                    </td>
-                    {/* Genybet */}
-                    <td className="px-2 sm:px-4 py-3 text-center hidden lg:table-cell">
-                      <span className={`inline-block px-2 py-1 rounded font-bold text-sm ${fav.genybet === bestOdds ? "bg-accent/10 text-accent border border-accent/30" : "text-gray-700"}`}>
-                        {fav.genybet.toFixed(2)}
                       </span>
                     </td>
                     {/* Moyenne */}
@@ -117,46 +95,34 @@ export function OddsTable() {
         {/* Légende + note */}
         <div className="mt-4 flex flex-wrap gap-4 items-start justify-between">
           <div className="flex flex-wrap gap-3 text-xs text-gray-600">
-            <span><span className="inline-block w-2.5 h-2.5 rounded-full bg-accent" /> = Meilleure cote du moment</span>
             <span className="text-accent font-semibold">↑ Tendance haussière</span>
             <span className="text-red-500 font-semibold">↓ Tendance baissière</span>
             <span>→ Stable</span>
           </div>
           <p className="text-xs text-gray-600 max-w-xs text-right">
-            Sources : PokerStars Sports, Betsson, PMU Sport, Genybet. Cotes décimales. Jeu responsable — 18+.
+            Source : PMU Sport. Cotes décimales. Jeu responsable — 18+.
           </p>
         </div>
 
-        {/* Bookmaker CTAs */}
-        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {bookmakers.slice(0, 3).map((bm) => (
-            <a
-              key={bm.id}
-              href={bm.url}
-              target="_blank"
-              rel="noopener noreferrer sponsored nofollow"
-              className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-md ${
-                bm.highlight
-                  ? "border-primary/20 bg-primary/5"
-                  : "border-gray-200 bg-white"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                {bm.logo && <img src={bm.logo} alt={bm.name} className="w-8 h-8 rounded-md object-contain shrink-0" loading="lazy" />}
-                <div>
-                <p className="font-bold text-gray-900">{bm.name}</p>
-                <p className="text-sm text-primary font-semibold">{bm.bonus}</p>
-                <p className="text-xs text-gray-600">{bm.bonusDetail}</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
-                  Voir →
-                </span>
-                <p className="text-[10px] text-gray-500 mt-1">{"".repeat(bm.rating)}</p>
-              </div>
-            </a>
-          ))}
+        {/* Bookmaker CTA */}
+        <div className="mt-6">
+          <a
+            href={pmuTrackingUrl("cdm2026")}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            className="flex items-center justify-between rounded-xl border border-primary/20 bg-primary/5 p-4 transition-all hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div>
+              <p className="font-bold text-gray-900">PMU Sport</p>
+              <p className="text-sm text-primary font-semibold">100€ offerts</p>
+              <p className="text-xs text-gray-600">en freebets sans condition</p>
+            </div>
+            <div className="text-right">
+              <span className="inline-flex items-center gap-1 rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-white">
+                Voir →
+              </span>
+            </div>
+          </a>
         </div>
       </div>
     </section>

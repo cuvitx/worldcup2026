@@ -31,10 +31,7 @@ const pieges = [
 ];
 
 const comparatif = [
-  { bookmaker: "PokerStars Sports", cashout: "Total + Partiel", live: true, auto: true, note: "Cashout fiable, bien intégré à l'app" },
-  { bookmaker: "Betsson", cashout: "Total + Partiel", live: true, auto: false, note: "Bon cashout, disponible sur la plupart des marchés" },
-  { bookmaker: "PMU Sport", cashout: "Total", live: true, auto: false, note: "Cashout total uniquement, pas de partiel" },
-  { bookmaker: "Genybet", cashout: "Total", live: true, auto: false, note: "Cashout basique mais fonctionnel" },
+  { bookmaker: "PMU Sport", cashout: "Total + Partiel", live: true, auto: false, note: "Cashout disponible en live, interface claire, bookmaker agréé ANJ" },
 ];
 
 export default function CashoutGuidePage() {

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { bookmakers, estimatedOutrightOdds } from "@repo/data/affiliates";
+import { estimatedOutrightOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 import { AlertTriangle, ArrowUpDown, BarChart3, Check, Gem, Target, TrendingUp, Trophy, X } from "lucide-react";
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
   return {
     title: `Cote ${team.name} Championne du Monde 2026 — Analyse & Value Bet`,
-    description: `Cote ${team.name} pour gagner la Coupe du Monde 2026 : comparatif bookmakers, évolution des cotes et analyse value bet. Groupe ${team.group}.`,
+    description: `Cote ${team.name} pour gagner la Coupe du Monde 2026 : cotes PMU Sport, évolution et analyse value bet. Groupe ${team.group}.`,
     openGraph: {
       title: `${team.flag} Cote ${team.name} Championne du Monde 2026`,
       description: `Analyse complète de la cote ${team.name} pour remporter la CDM 2026.`,
@@ -30,22 +30,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-champion/${team.slug}` },
   };
 }
-/** Indicative odds per bookmaker based on FIFA ranking */
-function getOdds(fifaRanking: number): { pokerstarssports: number; betsson: number; pmusport: number } {
-  let base: number;
-  if (fifaRanking <= 3) base = 5.0;
-  else if (fifaRanking <= 6) base = 7.0;
-  else if (fifaRanking <= 10) base = 12.0;
-  else if (fifaRanking <= 15) base = 20.0;
-  else if (fifaRanking <= 25) base = 40.0;
-  else if (fifaRanking <= 40) base = 80.0;
-  else if (fifaRanking <= 60) base = 150.0;
-  else base = 500.0;
-  return {
-    pokerstarssports: Math.round(base * 0.95 * 100) / 100,
-    betsson: base,
-    pmusport: Math.round(base * 1.05 * 100) / 100,
-  };
+/** Indicative odds based on FIFA ranking — PMU Sport only */
+function getOdds(fifaRanking: number): number {
+  if (fifaRanking <= 3) return 5.0;
+  if (fifaRanking <= 6) return 7.0;
+  if (fifaRanking <= 10) return 12.0;
+  if (fifaRanking <= 15) return 20.0;
+  if (fifaRanking <= 25) return 40.0;
+  if (fifaRanking <= 40) return 80.0;
+  if (fifaRanking <= 60) return 150.0;
+  return 500.0;
 }
 /** Generate fictional past odds (higher) */
 function getPastOdds(currentBase: number): string {
@@ -67,10 +61,10 @@ export default async function CoteChampionPage({ params }: PageProps) {
   const team = teamsBySlug[slug];
   if (!team) notFound();
   const prediction = predictionsByTeamId[team.id];
-  const odds = getOdds(team.fifaRanking);
-  const pastOdds = getPastOdds(odds.betsson);
+  const pmuOdds = getOdds(team.fifaRanking);
+  const pastOdds = getPastOdds(pmuOdds);
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
-  const impliedProb = Math.round((1 / odds.betsson) * 100 * 10) / 10;
+  const impliedProb = Math.round((1 / pmuOdds) * 100 * 10) / 10;
   const estimatedProb = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : null;
   const isValueBet = estimatedProb !== null && estimatedProb > impliedProb;
   const topFavorites = getTopFavorites(team.slug);
@@ -80,7 +74,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
   const faqItems = [
     {
       question: `Quelle est la cote de ${team.name} pour gagner la CDM 2026 ?`,
-      answer: `La cote de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${odds.betsson.toFixed(2)} chez Betsson, ${odds.pokerstarssports.toFixed(2)} chez PokerStars Sports et ${odds.pmusport.toFixed(2)} chez PMU Sport.`,
+      answer: `La cote de ${team.name} pour remporter la Coupe du Monde 2026 est d'environ ${pmuOdds.toFixed(2)} chez PMU Sport.`,
     },
     {
       question: `${team.name} est-elle un value bet pour la CDM 2026 ?`,
@@ -90,7 +84,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
     },
     {
       question: `Comment évolue la cote de ${team.name} ?`,
-      answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${odds.betsson.toFixed(2)}. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
+      answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${pmuOdds.toFixed(2)} chez PMU Sport. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
     },
   ];
   return (
@@ -122,25 +116,19 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 <Trophy className="h-6 w-6 text-accent" />
                 Cote actuelle — {team.name} vainqueur CDM 2026
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {[
-                  { name: "PokerStars Sports", odds: odds.pokerstarssports, bk: bookmakers[1] },
-                  { name: "Betsson", odds: odds.betsson, bk: bookmakers[0] },
-                  { name: "PMU Sport", odds: odds.pmusport, bk: bookmakers[3] },
-                ].map((item) => (
-                  <div key={item.name} className="rounded-lg bg-primary/5 p-4 text-center">
-                    <p className="text-sm text-gray-500 mb-1">{item.name}</p>
-                    <p className="text-3xl font-extrabold text-primary">{item.odds.toFixed(2)}</p>
-                    <a
-                      href={item.bk?.url ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer sponsored nofollow"
-                      className="mt-2 inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
-                    >
-                      Voir la cote
-                    </a>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 max-w-xs">
+                <div className="rounded-lg bg-primary/5 p-4 text-center">
+                  <p className="text-sm text-gray-500 mb-1">PMU Sport</p>
+                  <p className="text-3xl font-extrabold text-primary">{pmuOdds.toFixed(2)}</p>
+                  <a
+                    href={pmuTrackingUrl("cdm2026")}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored nofollow"
+                    className="mt-2 inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
+                  >
+                    Voir la cote
+                  </a>
+                </div>
               </div>
             </section>
             {/* Évolution de la cote */}
@@ -156,13 +144,13 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </div>
                 <ArrowUpDown className="h-5 w-5 text-gray-400" />
                 <div className="text-center">
-                  <p className="text-xs text-gray-400">Actuellement</p>
-                  <p className="text-2xl font-bold text-primary">{odds.betsson.toFixed(2)}</p>
+                  <p className="text-xs text-gray-400">Actuellement (PMU Sport)</p>
+                  <p className="text-2xl font-bold text-primary">{pmuOdds.toFixed(2)}</p>
                 </div>
               </div>
               <p className="mt-4 text-sm text-gray-600">
-                La cote de {team.name} {parseFloat(pastOdds) > odds.betsson ? "a baissé" : "a augmenté"} depuis janvier,
-                {parseFloat(pastOdds) > odds.betsson
+                La cote de {team.name} {parseFloat(pastOdds) > pmuOdds ? "a baissé" : "a augmenté"} depuis janvier,
+                {parseFloat(pastOdds) > pmuOdds
                   ? " ce qui indique que les bookmakers la considèrent comme plus compétitive."
                   : " ce qui suggère une confiance moindre des bookmakers."}
               </p>
@@ -259,7 +247,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                     <tr className="border-b border-gray-200">
                       <th className="py-3 pr-4 font-semibold text-gray-700">Équipe</th>
                       <th className="py-3 pr-4 font-semibold text-gray-700">FIFA</th>
-                      <th className="py-3 pr-4 font-semibold text-gray-700">Cote</th>
+                      <th className="py-3 pr-4 font-semibold text-gray-700">Cote PMU</th>
                       <th className="py-3 font-semibold text-gray-700">Prob.</th>
                     </tr>
                   </thead>
@@ -269,7 +257,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                         {team.flag} {team.name}
                       </td>
                       <td className="py-3 pr-4">#{team.fifaRanking}</td>
-                      <td className="py-3 pr-4 font-bold text-primary">{odds.betsson.toFixed(2)}</td>
+                      <td className="py-3 pr-4 font-bold text-primary">{pmuOdds.toFixed(2)}</td>
                       <td className="py-3 font-bold text-accent">{estimatedProb ?? impliedProb}%</td>
                     </tr>
                     {topFavorites.map(({ team: t, prediction: pred }) => {
@@ -282,7 +270,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                             </Link>
                           </td>
                           <td className="py-3 pr-4">#{t.fifaRanking}</td>
-                          <td className="py-3 pr-4 font-bold text-primary">{tOdds.betsson.toFixed(2)}</td>
+                          <td className="py-3 pr-4 font-bold text-primary">{tOdds.toFixed(2)}</td>
                           <td className="py-3">{pred ? Math.round(pred.winnerProb * 100) : "—"}%</td>
                         </tr>
                       );
@@ -330,17 +318,14 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 Parier sur {team.name} championne du monde
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                {bookmakers.slice(0, 3).map((bk) => (
-                  <a
-                    key={bk.id}
-                    href={bk.url}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
-                  >
-                    {bk.name} — {bk.bonus}
-                  </a>
-                ))}
+                <a
+                  href={pmuTrackingUrl("cdm2026")}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
+                >
+                  PMU Sport — 100€ offerts
+                </a>
               </div>
               <p className="text-white/70 text-xs mt-3">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
@@ -382,20 +367,17 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </ul>
             </div>
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Bookmakers</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Bookmaker partenaire</h3>
               <div className="space-y-3">
-                {bookmakers.slice(0, 4).map((bk) => (
-                  <a
-                    key={bk.id}
-                    href={bk.url}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
-                  >
-                    <p className="font-semibold text-gray-900 text-sm">{bk.name}</p>
-                    <p className="text-accent text-xs font-bold">{bk.bonus} {bk.bonusDetail}</p>
-                  </a>
-                ))}
+                <a
+                  href={pmuTrackingUrl("cdm2026")}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
+                >
+                  <p className="font-semibold text-gray-900 text-sm">PMU Sport</p>
+                  <p className="text-accent text-xs font-bold">100€ offerts en freebets sans condition</p>
+                </a>
               </div>
               <p className="text-xs text-gray-400 mt-3">
                 18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>

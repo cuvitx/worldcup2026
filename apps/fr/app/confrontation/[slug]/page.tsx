@@ -5,7 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
 import { teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
-import { bookmakers } from "@repo/data/affiliates";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link2, Swords, Trophy } from "lucide-react";
 import type { Team } from "@repo/data/types";
 /* ─── Top 30 confrontations marquantes ─────────────────────────────────────── */
@@ -109,7 +109,7 @@ const breadcrumbSchema = [
     },
     {
       question: `Où parier sur ${team1.name} vs ${team2.name} ?`,
-      answer: `Les meilleurs bookmakers pour parier sur ce duel sont PokerStars Sports, Betsson et PMU Sport, tous agréés par l'ANJ. Comparez les cotes avant de miser.`,
+      answer: `Le meilleur bookmaker pour parier sur ce duel est PMU Sport, agréé par l'ANJ. Retrouvez les cotes en temps réel sur PMU Sport avant de miser.`,
     },
   ];
   return (
@@ -283,17 +283,14 @@ const breadcrumbSchema = [
               <h3 className="text-lg font-bold">Parier sur {team1.name} vs {team2.name}</h3>
               <p className="text-sm mt-2 text-white/80">Comparez les meilleures cotes chez les bookmakers agréés ANJ.</p>
               <div className="mt-4 space-y-2">
-                {bookmakers.slice(0, 3).map((bk) => (
-                  <a
-                    key={bk.id}
-                    href={bk.url}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="flex items-center justify-center gap-2 rounded-lg bg-white text-accent font-bold px-4 py-2.5 text-sm hover:bg-gray-100 transition-colors"
-                  >
-                    {bk.name} <ExternalLink className="h-4 w-4" />
-                  </a>
-                ))}
+                <a
+                  href={pmuTrackingUrl("cdm2026")}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-white text-accent font-bold px-4 py-2.5 text-sm hover:bg-gray-100 transition-colors"
+                >
+                  PMU Sport <ExternalLink className="h-4 w-4" />
+                </a>
               </div>
             </div>
             {/* Fiches équipes */}

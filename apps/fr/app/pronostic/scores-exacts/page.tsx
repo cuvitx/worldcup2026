@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Hash, BarChart3, Lightbulb, ArrowRight } from "lucide-react";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 
 export const metadata: Metadata = {
   title: "Pronostic Score Exact CDM 2026 — Guide & Scores Probables",
@@ -137,9 +138,9 @@ export default function PronosticScoresExactsPage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <Link href="https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026" target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          Parier score exact CDM 2026 <ArrowRight className="inline w-4 h-4 ml-1" />
-        </Link>
+        <a href={pmuTrackingUrl("cdm2026")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
+          Parier score exact CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
+        </a>
       </section>
 
       <FAQSection title="Questions fréquentes — Score exact CDM 2026" items={faqItems} />

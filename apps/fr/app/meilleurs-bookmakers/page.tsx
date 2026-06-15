@@ -5,13 +5,13 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Star, Smartphone, Zap, Gift, Shield, ExternalLink, Trophy, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Meilleurs Bookmakers CDM 2026 | Comparatif Sites de Paris Sportifs",
+  title: "Meilleurs Bookmakers CDM 2026 | PMU Sport — Paris Sportifs",
   description:
-    "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026 : PokerStars Sports, Betsson, PMU Sport, Genybet. Bonus, cotes, avis et notes.",
+    "PMU Sport : le meilleur site de paris sportifs agréé ANJ pour la Coupe du Monde 2026. Bonus, cotes, application mobile et avis détaillé.",
   openGraph: {
-    title: "Meilleurs Bookmakers CDM 2026 | Comparatif Sites de Paris Sportifs",
+    title: "Meilleurs Bookmakers CDM 2026 | PMU Sport",
     description:
-      "Comparatif des meilleurs sites de paris sportifs pour la Coupe du Monde 2026. Bonus, cotes, app mobile, live betting et notes détaillées.",
+      "PMU Sport : bonus, cotes, app mobile et live betting pour la Coupe du Monde 2026.",
     url: "https://www.cdm2026.fr/meilleurs-bookmakers",
   },
   alternates: { canonical: "https://www.cdm2026.fr/meilleurs-bookmakers" },
@@ -32,30 +32,6 @@ interface Bookmaker {
 
 const bookmakers: Bookmaker[] = [
   {
-    name: "PokerStars Sports",
-    slug: "pokerstars-sports",
-    bonus: "100€ offerts",
-    bonusDetail: "en freebets sur votre 1er pari",
-    cotesMoyennes: "Excellentes (93-95%)",
-    appMobile: "iOS & Android, très fluide",
-    liveBetting: "Streaming + cash-out",
-    note: 9.2,
-    url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    avantages: ["Meilleures cotes du marché", "Interface intuitive", "Freebets immédiats", "Cotes boostées quotidiennes"],
-  },
-  {
-    name: "Betsson",
-    slug: "betsson",
-    bonus: "100€ offerts",
-    bonusDetail: "sur votre 1er pari",
-    cotesMoyennes: "Très bonnes (92-94%)",
-    appMobile: "iOS & Android, rapide",
-    liveBetting: "Streaming live gratuit",
-    note: 9.0,
-    url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    avantages: ["Opérateur international fiable", "Streaming gratuit", "Large choix de marchés", "Programme fidélité"],
-  },
-  {
     name: "PMU Sport",
     slug: "pmu-sport",
     bonus: "100€ offerts",
@@ -66,18 +42,6 @@ const bookmakers: Bookmaker[] = [
     note: 8.7,
     url: pmuTrackingUrl("cdm2026"),
     avantages: ["Marque de confiance", "Cash-out partiel", "Statistiques intégrées", "Points de vente physiques"],
-  },
-  {
-    name: "Genybet",
-    slug: "genybet",
-    bonus: "150€ offerts",
-    bonusDetail: "sur votre 1er pari sportif",
-    cotesMoyennes: "Correctes (90-92%)",
-    appMobile: "iOS & Android + hippique",
-    liveBetting: "Live betting complet",
-    note: 8.5,
-    url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    avantages: ["Meilleur bonus du marché (150€)", "Paris sportifs & hippiques", "Cotes boostées événements", "Interface moderne"],
   },
 ];
 
@@ -133,17 +97,17 @@ const faqItems = [
   {
     question: "Quel est le meilleur bookmaker pour la CDM 2026 ?",
     answer:
-      "PokerStars Sports est notre choix n°1 grâce à ses cotes parmi les plus élevées du marché français, son interface fluide et ses freebets immédiats. Betsson est une excellente alternative avec son streaming gratuit et son large choix de marchés.",
+      "PMU Sport est notre choix recommandé pour la Coupe du Monde 2026 : marque de confiance agréée ANJ, application mobile complète, cash-out partiel disponible et statistiques intégrées. Un opérateur fiable pour suivre tous les matchs de la CDM 2026.",
   },
   {
-    question: "Les bookmakers listés sont-ils légaux en France ?",
+    question: "PMU Sport est-il légal en France ?",
     answer:
-      "Oui, tous les bookmakers présentés sur cette page (PokerStars Sports, Betsson, PMU Sport, Genybet) sont agréés par l'ANJ (Autorité Nationale des Jeux) et sont parfaitement légaux en France.",
+      "Oui, PMU Sport est agréé par l'ANJ (Autorité Nationale des Jeux) et est parfaitement légal en France. C'est l'un des opérateurs historiques du marché français des paris sportifs.",
   },
   {
-    question: "Peut-on cumuler les bonus de plusieurs bookmakers ?",
+    question: "Quel bonus propose PMU Sport pour la CDM 2026 ?",
     answer:
-      "Oui, chaque bookmaker propose son propre bonus de bienvenue. Vous pouvez vous inscrire sur plusieurs sites et profiter de chaque offre. C'est une stratégie courante pour maximiser vos freebets avant la CDM 2026.",
+      "PMU Sport propose 100€ de freebets sur votre premier pari perdant. Aucun code promo n'est nécessaire. Le bonus est automatiquement activé lors de votre inscription.",
   },
   {
     question: "Comment comparer les cotes entre bookmakers ?",
@@ -172,7 +136,7 @@ export default function MeilleursBookmakersPage() {
             Meilleurs Bookmakers CDM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Comparatif complet des 5 meilleurs sites de paris sportifs agréés ANJ pour parier sur la Coupe du Monde 2026. Bonus, cotes, applications et avis détaillés.
+            PMU Sport, le bookmaker agréé ANJ recommandé pour parier sur la Coupe du Monde 2026. Bonus, cotes, application mobile et avis détaillé.
           </p>
         </div>
       </section>
@@ -182,7 +146,7 @@ export default function MeilleursBookmakersPage() {
         {/* Introduction */}
         <section className="prose  max-w-none mb-12">
           <p className="text-lg text-gray-700  leading-relaxed">
-            La Coupe du Monde 2026 s&apos;annonce comme l&apos;événement sportif le plus parié de l&apos;histoire avec ses 104 matchs répartis entre les États-Unis, le Canada et le Mexique. Pour en profiter pleinement, choisir le bon bookmaker est essentiel. Nous avons analysé en profondeur les 5 principaux sites de paris sportifs agréés en France selon des critères objectifs : qualité des cotes, bonus de bienvenue, application mobile, offre de paris en direct et fiabilité.
+            La Coupe du Monde 2026 s&apos;annonce comme l&apos;événement sportif le plus parié de l&apos;histoire avec ses 104 matchs répartis entre les États-Unis, le Canada et le Mexique. Pour en profiter pleinement, choisir le bon bookmaker est essentiel. PMU Sport est notre bookmaker recommandé : opérateur historique agréé ANJ, application mobile complète, cash-out et statistiques intégrées.
           </p>
         </section>
 
@@ -317,7 +281,7 @@ export default function MeilleursBookmakersPage() {
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
               <h3 className="font-bold text-gray-900  mb-2">Les cotes</h3>
-              <p>Les cotes déterminent vos gains potentiels. Un bookmaker avec des cotes supérieures de 2-3% vous rapportera significativement plus sur le long terme. PokerStars Sports et Betsson se distinguent sur ce critère.</p>
+              <p>Les cotes déterminent vos gains potentiels. Un bookmaker avec des cotes supérieures de 2-3% vous rapportera significativement plus sur le long terme. PMU Sport propose des cotes compétitives sur les marchés principaux de la CDM 2026.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900  mb-2">Le bonus de bienvenue</h3>

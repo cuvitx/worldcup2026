@@ -21,28 +21,18 @@ export interface MatchOdds {
   }[];
 }
 
-const bookmakerUrls: Record<string, string> = {
-  "PokerStars Sports": "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  Betsson: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-  "PMU Sport": pmuTrackingUrl("cdm2026"),
-  Genybet: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-};
+const PMU_URL = pmuTrackingUrl("cdm2026");
 
 function makeOdds(home: number, draw: number, away: number) {
-  // Create slight variations per bookmaker
-  const variations = [
-    { bk: "PokerStars Sports", h: 0, d: 0.02, a: -0.02 },
-    { bk: "Betsson", h: 0.03, d: -0.01, a: 0.01 },
-    { bk: "PMU Sport", h: -0.02, d: 0.03, a: 0.02 },
-    { bk: "Genybet", h: 0.05, d: -0.03, a: -0.01 },
+  return [
+    {
+      bookmaker: "PMU Sport",
+      home,
+      draw,
+      away,
+      url: PMU_URL,
+    },
   ];
-  return variations.map((v) => ({
-    bookmaker: v.bk,
-    home: Math.round((home + v.h) * 100) / 100,
-    draw: Math.round((draw + v.d) * 100) / 100,
-    away: Math.round((away + v.a) * 100) / 100,
-    url: bookmakerUrls[v.bk]!,
-  }));
 }
 
 export const mockOdds: MatchOdds[] = [

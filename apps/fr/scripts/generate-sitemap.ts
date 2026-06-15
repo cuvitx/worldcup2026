@@ -37,7 +37,7 @@ const CONFRONTATION_SLUGS = [
 const ECRANS_GEANTS_SLUGS = ["paris","lyon","marseille","toulouse","bordeaux","nice","nantes","strasbourg","montpellier","lille","rennes","saint-etienne","grenoble","dijon","toulon","angers","brest","metz","reims","le-havre"];
 const TOP_50 = ["mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne","griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford","alvarez","martinez-lautaro","isak","vlahovic","morata","richarlison","gakpo","thuram","kim-min-jae","hakimi","valverde","tchouameni","camavinga","wirtz","musiala","szczesny","alisson","courtois","van-dijk","dias","hojlund","palmer","nunez","diaz-luis","dembele","son","kulusevski","raphinha","bruno-fernandes","bernardo-silva"];
 const REFEREES = ["facundo-tello","jesus-valenzuela","wilton-sampaio","raphael-claus","cesar-ramos","fernando-rapallini","andres-matonte","piero-maza","mario-escobar","ivan-barton","clement-turpin","francois-letexier","szymon-marciniak","daniele-orsato","antonio-mateu-lahoz","felix-brych","daniel-siebert","michael-oliver","anthony-taylor","slavko-vincic","istvan-kovacs","halil-umut-meler","abdulrahman-al-jassim","mustapha-ghorbal","victor-gomes","bakary-gassama","salima-mukansanga","maguette-ndiaye","ma-ning","yoshimi-yamashita","chris-beath","matthew-conger","ismail-elfath","kralovec-pavel","nicholas-mohammed","said-martinez"];
-const BONUS = ["winamax","betclic","unibet","parionssport"];
+const BONUS = ["pmu-sport"];
 
 interface Entry { url: string; lastmod: string; prio: number; freq: string; }
 const entries: Entry[] = [];

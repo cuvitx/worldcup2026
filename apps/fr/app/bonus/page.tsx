@@ -5,9 +5,9 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres Bookmakers",
+  title: "Bonus Paris Sportifs CDM 2026 | Code Promo & Offre PMU Sport",
   description:
-    "Tous les bonus et codes promo des bookmakers pour la Coupe du Monde 2026. PokerStars Sports, Betsson, PMU Sport, Genybet : jusqu'à 150€ offerts.",
+    "Bonus et code promo PMU Sport pour la Coupe du Monde 2026. Jusqu'à 100€ offerts sur votre premier pari. Bookmaker agréé ANJ.",
   openGraph: {
     title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres",
     description:
@@ -31,28 +31,6 @@ interface BonusOffer {
 
 const offers: BonusOffer[] = [
   {
-    name: "PokerStars Sports",
-    slug: "pokerstars-sports",
-    bonus: "100€ offerts",
-    bonusDetail: "en freebets sur votre 1er pari",
-    codePromo: "Aucun code nécessaire",
-    conditions: "1er dépôt min. 10€, pari simple ou combiné",
-    note: 9.2,
-    url: "https://www.pokerstarssports.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    highlights: ["Freebets immédiats", "Aucun code requis", "Cotes boostées CDM 2026"],
-  },
-  {
-    name: "Betsson",
-    slug: "betsson",
-    bonus: "100€ offerts",
-    bonusDetail: "sur votre 1er pari",
-    codePromo: "Aucun code nécessaire",
-    conditions: "1er dépôt min. 10€, freebets utilisables 7 jours",
-    note: 9.0,
-    url: "https://www.betsson.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    highlights: ["Freebets sans conditions", "Valables 7 jours", "Large choix de marchés"],
-  },
-  {
     name: "PMU Sport",
     slug: "pmu-sport",
     bonus: "100€ offerts",
@@ -62,17 +40,6 @@ const offers: BonusOffer[] = [
     note: 8.7,
     url: pmuTrackingUrl("cdm2026"),
     highlights: ["Remboursement si pari perdu", "Marque de confiance", "Statistiques détaillées"],
-  },
-  {
-    name: "Genybet",
-    slug: "genybet",
-    bonus: "150€ offerts",
-    bonusDetail: "sur votre 1er pari sportif",
-    codePromo: "Aucun code nécessaire",
-    conditions: "1er pari jusqu'à 150€ remboursé en freebets",
-    note: 8.5,
-    url: "https://www.genybet.fr/?utm_source=mondial2026&utm_medium=affiliate&utm_campaign=cdm2026",
-    highlights: ["Meilleur bonus du marché", "Paris sportifs & hippiques", "Cotes boostées événements"],
   },
 ];
 
@@ -97,15 +64,15 @@ export default function BonusHubPage() {
         {/* Introduction */}
         <section className="prose  max-w-none mb-12">
           <p className="text-lg text-gray-700  leading-relaxed">
-            La Coupe du Monde 2026 est l&apos;occasion idéale pour profiter des bonus de bienvenue des bookmakers. En vous inscrivant sur plusieurs sites, vous pouvez cumuler jusqu&apos;à <strong>390€ de freebets</strong> au total. Voici notre sélection des meilleures offres du moment, toutes vérifiées et issues de bookmakers agréés par l&apos;ANJ.
+            La Coupe du Monde 2026 est l&apos;occasion idéale pour profiter du bonus de bienvenue de PMU Sport. Jusqu&apos;à <strong>100€ de freebets</strong> sur votre premier pari perdant. Une offre vérifiée, issue d&apos;un bookmaker agréé par l&apos;ANJ.
           </p>
         </section>
 
-        {/* Cumul banner */}
+        {/* Bonus banner */}
         <div className="rounded-2xl bg-accent/10 border border-accent/20 p-6 mb-10 text-center">
-          <p className="text-sm text-gray-600  mb-1">Cumul des bonus disponibles</p>
-          <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 450€</p>
-          <p className="text-sm text-gray-500 mt-1">en vous inscrivant sur les 4 bookmakers</p>
+          <p className="text-sm text-gray-600  mb-1">Bonus disponible avec PMU Sport</p>
+          <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 100€</p>
+          <p className="text-sm text-gray-500 mt-1">en freebets sur votre premier pari perdant</p>
         </div>
 
         {/* Offers grid */}
@@ -173,8 +140,8 @@ export default function BonusHubPage() {
           <h2 className="text-2xl font-bold text-gray-900  mb-4">Conseils pour bien utiliser vos bonus</h2>
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
-              <h3 className="font-bold text-gray-900  mb-2">Cumulez les offres</h3>
-              <p>Inscrivez-vous sur les 4 bookmakers pour maximiser vos freebets. Chaque site propose son propre bonus de bienvenue, et il n&apos;y a aucune restriction à s&apos;inscrire sur plusieurs plateformes.</p>
+              <h3 className="font-bold text-gray-900  mb-2">Profitez du bonus PMU Sport</h3>
+              <p>Inscrivez-vous sur PMU Sport pour profiter de 100€ de freebets sur votre premier pari perdant. PMU Sport est l&apos;un des opérateurs les plus fiables du marché français, agréé ANJ.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900  mb-2">Lisez les conditions</h3>
@@ -212,24 +179,24 @@ export default function BonusHubPage() {
         title="Questions sur les bonus CDM 2026"
         items={[
           {
-            question: "Peut-on cumuler les bonus de plusieurs bookmakers ?",
-            answer: "Oui, chaque bookmaker propose son propre bonus de bienvenue. Vous pouvez vous inscrire sur PokerStars Sports, Betsson, PMU Sport et Genybet pour cumuler jusqu'à 450€ de freebets.",
+            question: "Comment fonctionne le bonus PMU Sport ?",
+            answer: "Le bonus PMU Sport rembourse votre premier pari perdant en freebets, jusqu'à 100€. Il est automatiquement activé lors de votre inscription. Aucun code promo n'est nécessaire.",
           },
           {
-            question: "Les bonus sont-ils valables pour la CDM 2026 ?",
-            answer: "Oui, les bonus de bienvenue sont utilisables sur tous les événements sportifs, y compris la Coupe du Monde 2026. Certains bookmakers proposeront des offres spéciales supplémentaires pendant le tournoi.",
+            question: "Le bonus PMU Sport est-il valable pour la CDM 2026 ?",
+            answer: "Oui, le bonus de bienvenue PMU Sport est utilisable sur tous les événements sportifs, y compris la Coupe du Monde 2026. PMU Sport proposera également des offres spéciales pendant le tournoi.",
           },
           {
-            question: "Faut-il un code promo pour obtenir le bonus ?",
-            answer: "Non, aucun code promo n'est nécessaire sur les 4 bookmakers présentés. Le bonus est automatiquement activé lors de votre inscription et premier dépôt.",
+            question: "Faut-il un code promo pour obtenir le bonus PMU Sport ?",
+            answer: "Non, aucun code promo n'est nécessaire. Le bonus est automatiquement activé lors de votre inscription et de votre premier pari.",
           },
           {
-            question: "Combien de temps ai-je pour utiliser mes freebets ?",
-            answer: "La durée varie selon les bookmakers : 7 jours chez Betsson, 14 jours chez PokerStars Sports et PMU Sport, 7 jours chez Genybet. Consultez les conditions de chaque offre pour plus de détails.",
+            question: "Combien de temps ai-je pour utiliser mes freebets PMU Sport ?",
+            answer: "Les freebets PMU Sport sont valables 14 jours après attribution. Consultez les conditions de l'offre sur le site PMU Sport pour plus de détails.",
           },
           {
             question: "Que se passe-t-il si mon premier pari est gagnant ?",
-            answer: "Si votre premier pari est gagnant, vous remportez vos gains normalement. Le bonus (remboursement en freebets) ne s'active que si votre premier pari est perdant. C'est donc un filet de sécurité sans risque.",
+            answer: "Si votre premier pari est gagnant, vous remportez vos gains normalement. Le remboursement en freebets ne s'active que si votre premier pari est perdant. C'est donc un filet de sécurité sans risque.",
           },
         ]}
       />
