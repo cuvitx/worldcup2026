@@ -9,6 +9,7 @@ import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
 import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-react"
+import { GABanner } from "../../components/GABanner";
 
 export const revalidate = 86400;
 export const dynamicParams = false;
@@ -346,6 +347,12 @@ export default async function StadiumPage({ params }: PageProps) {
                   </Link>
                 </li>
               </ul>
+            </div>
+
+            {/* PMU Banner */}
+            <div className="mt-6">
+              <GABanner variant="300x250" tracking="stade" />
+              <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
             </div>
 
             {/* Other stadiums */}

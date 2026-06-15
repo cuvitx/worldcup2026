@@ -5,6 +5,7 @@ import { RelatedLinks } from "../components/RelatedLinks";
 import { teams } from "@repo/data/teams";
 import Flag from "@repo/ui/flag";
 import { TableOfContents } from "@repo/ui";
+import { GABanner } from "../components/GABanner";
 
 export const metadata: Metadata = {
   title: "Classement FIFA 2026 - Ranking des 48 équipes qualifiées | CDM 2026",
@@ -206,6 +207,15 @@ export default function ClassementFifaPage() {
               </div>
             )}
           </div>
+
+          {/* PMU Banner */}
+          <section className="py-6 sm:py-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <GABanner variant="1080x192" tracking="classement-fifa" className="hidden sm:flex" />
+              <GABanner variant="370x90" tracking="classement-fifa" className="flex sm:hidden" />
+              <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+            </div>
+          </section>
 
           {/* Analyse par confédération */}
           <div className="mb-12">

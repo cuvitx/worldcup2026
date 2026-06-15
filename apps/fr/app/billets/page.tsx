@@ -12,6 +12,7 @@ import { AntiScamSection } from "./_components/AntiScamSection";
 import { BilletsFinalCTA } from "./_components/BilletsFinalCTA";
 import { BilletsToc } from "./_components/BilletsToc";
 import { RelatedLinks } from "../components/RelatedLinks";
+import { GABanner } from "../components/GABanner";
 
 export const metadata: Metadata = {
   title: "Billets CDM 2026 — Prix, dates et comment acheter | Coupe du Monde",
@@ -52,7 +53,17 @@ export default function BilletsPage() {
       <SalePhasesSection />
       <TicketCategoriesSection />
       <AntiScamSection />
-      <FAQSection 
+
+      {/* PMU Banner */}
+      <section className="py-6 sm:py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <GABanner variant="1080x192" tracking="billets" className="hidden sm:flex" />
+          <GABanner variant="370x90" tracking="billets" className="flex sm:hidden" />
+          <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+        </div>
+      </section>
+
+      <FAQSection
         title=" Questions fréquentes — Billets CDM 2026"
         items={faqItems} 
       />

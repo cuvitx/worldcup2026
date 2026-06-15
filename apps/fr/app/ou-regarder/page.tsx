@@ -11,7 +11,8 @@ import { TimeZoneSection } from "./TimeZoneSection";
 import { FAQSection } from "@repo/ui/faq-section";
 import { TableOfContents } from "@repo/ui";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { Globe } from "lucide-react"
+import { Globe } from "lucide-react";
+import { GABanner } from "../components/GABanner";
 export const metadata: Metadata = {
   title: "Où regarder la Coupe du Monde 2026 | TV, streaming, horaires",
   description:
@@ -214,6 +215,15 @@ export default function OuRegarderPage() {
                 du service que vous utilisez.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* PMU Banner */}
+        <section className="py-6 sm:py-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <GABanner variant="1080x192" tracking="ou-regarder" className="hidden sm:flex" />
+            <GABanner variant="370x90" tracking="ou-regarder" className="flex sm:hidden" />
+            <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise a conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
           </div>
         </section>
 

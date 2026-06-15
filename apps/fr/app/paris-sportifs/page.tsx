@@ -7,6 +7,7 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { TableOfContents } from "@repo/ui";
 import { BookmakerCTA } from "../components/BookmakerCTA";
+import { GABanner } from "../components/GABanner";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -129,6 +130,15 @@ export default function ParisSportifsPage() {
                 </Link>
               );
             })}
+          </div>
+        </section>
+
+        {/* PMU Banner */}
+        <section className="py-6 sm:py-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <GABanner variant="1080x192" tracking="paris-sportifs" className="hidden sm:flex" />
+            <GABanner variant="370x90" tracking="paris-sportifs" className="flex sm:hidden" />
+            <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
           </div>
         </section>
 

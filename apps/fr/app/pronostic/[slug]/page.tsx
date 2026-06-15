@@ -15,6 +15,7 @@ import { MatchPredictions } from "./_components/MatchPredictions";
 import { KeyPlayers } from "./_components/KeyPlayers";
 import { AffiliateSection } from "./_components/AffiliateSection";
 import { PronosticSidebar } from "./_components/PronosticSidebar";
+import { GABanner } from "../../components/GABanner";
 
 export const revalidate = 300;
 export const dynamicParams = false;
@@ -85,6 +86,15 @@ export default async function PronosticTeamPage({ params }: PageProps) {
             <MatchPredictions teamName={team.name} teamId={team.id} teamGroup={team.group} teamMatches={teamMatches} />
             <KeyPlayers teamName={team.name} players={teamPlayers} />
             <AffiliateSection teamName={team.name} />
+
+            {/* PMU Banner */}
+            <section className="py-6 sm:py-8">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <GABanner variant="1080x192" tracking="pronostic" className="hidden sm:flex" />
+                <GABanner variant="370x90" tracking="pronostic" className="flex sm:hidden" />
+                <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+              </div>
+            </section>
           </div>
           <PronosticSidebar team={team} prediction={prediction} groupTeams={groupTeams} />
         </div>
