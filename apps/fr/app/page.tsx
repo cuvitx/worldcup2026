@@ -19,6 +19,7 @@ import { UpcomingMatches } from "./components/home/UpcomingMatches";
 import { GroupsOverview } from "./components/home/GroupsOverview";
 import { RecentArticles } from "./components/home/RecentArticles";
 import { FavoriteTeams } from "./components/home/FavoriteTeams";
+import { InlineBettingCTA } from "./components/InlineBettingCTA";
 
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
@@ -163,6 +164,13 @@ export default function HomePage() {
 
       {/* 2. PROCHAINS MATCHS */}
       <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />
+
+      {/* BETTING CTA */}
+      <section className="py-8 sm:py-10">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <InlineBettingCTA tracking="homepage" subtitle="Pronostiquez sur les 104 matchs de la CDM 2026" />
+        </div>
+      </section>
 
       {/* 3. GROUPES */}
       <GroupsOverview groups={groups} teamsById={teamsById} />
