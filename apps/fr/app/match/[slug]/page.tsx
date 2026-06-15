@@ -14,6 +14,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
+import { GABanner } from "../../components/GABanner";
 import {
   MatchHeroAdaptive,
   TeamComparison,
@@ -166,14 +167,8 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             </div>
           )}
-          <a
-            href={pmuTrackingUrl("match-cta")}
-            target="_blank"
-            rel="noopener noreferrer sponsored nofollow"
-            className="inline-block rounded-xl bg-accent px-8 py-3 text-base font-bold text-white hover:brightness-110 transition-all"
-          >
-            100€ offerts sur PMU Sport →
-          </a>
+          <GABanner variant="large" tracking="match" className="hidden sm:flex" />
+          <GABanner variant="medium" tracking="match" className="flex sm:hidden" />
           <p className="mt-2 text-[10px] text-white/50">18+ | Offre soumise à conditions</p>
         </div>
       </div>

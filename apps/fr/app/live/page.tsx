@@ -265,7 +265,7 @@ function TournamentActiveContent() {
       {/* Betting CTA */}
       <section className="bg-white py-6">
         <div className="mx-auto max-w-3xl px-4">
-          <InlineBettingCTA tracking="live" title="Pariez en direct" subtitle="100€ offerts en freebets sur PMU Sport" />
+          <InlineBettingCTA tracking="live" />
         </div>
       </section>
 

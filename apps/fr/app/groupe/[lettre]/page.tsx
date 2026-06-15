@@ -8,8 +8,8 @@ import { matchesByGroup } from "@repo/data/matches";
 import { playersByTeamId } from "@repo/data/players";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
 import type { Player, Match } from "@repo/data/types";
+import { GABanner } from "../../components/GABanner";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -569,20 +569,9 @@ export default async function GroupPage({ params }: PageProps) {
               </Link>
             </div>
 
-            {/* PMU CTA */}
-            <div className="rounded-xl bg-gradient-to-b from-primary to-accent p-5 text-white text-center">
-              <p className="text-lg font-bold mb-1">100€ offerts</p>
-              <p className="text-sm text-white/70 mb-4">en freebets sur PMU Sport</p>
-              <a
-                href={pmuTrackingUrl(`groupe-${group.letter.toLowerCase()}`)}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                className="inline-block rounded-full bg-white px-5 py-2.5 text-sm font-bold text-primary hover:scale-105 transition-transform"
-              >
-                Parier sur PMU Sport &rarr;
-              </a>
-              <p className="text-[9px] text-white/40 mt-3">18+ | Offre soumise à conditions</p>
-            </div>
+            {/* PMU Visual Banner */}
+            <GABanner variant="medium" tracking={`groupe-${group.letter.toLowerCase()}`} />
+            <p className="text-[9px] text-gray-400 text-center mt-1">18+ | Offre soumise à conditions</p>
           </div>
         </div>
       </div>

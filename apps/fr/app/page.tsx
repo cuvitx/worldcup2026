@@ -168,7 +168,7 @@ export default function HomePage() {
       {/* BETTING CTA */}
       <section className="py-8 sm:py-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <InlineBettingCTA tracking="homepage" subtitle="Pronostiquez sur les 104 matchs de la CDM 2026" />
+          <InlineBettingCTA tracking="homepage" />
         </div>
       </section>
 

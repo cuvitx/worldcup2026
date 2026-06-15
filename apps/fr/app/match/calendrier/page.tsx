@@ -129,7 +129,7 @@ export default async function CalendrierPage() {
       />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
-        <InlineBettingCTA tracking="calendrier" subtitle="Pariez sur les 104 matchs de la CDM 2026" />
+        <InlineBettingCTA tracking="calendrier" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
