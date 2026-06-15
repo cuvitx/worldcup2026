@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 /**
  * GA (Gambling Affiliation) banner — loads a PMU Play visual creative.
- * The script injects the banner (image + tracking) at its position.
+ * Uses an iframe so the GA script can freely use document.write().
  */
 
 /** Available banner script IDs from GA backoffice */
@@ -21,6 +19,15 @@ const GA_SCRIPTS = {
   "1080x192": "erBtbOD1NpCsXxVY4-DRg3DplRb7MGRy0FkjsvvXK3E_GA7331V2",
 } as const;
 
+/** Pixel dimensions for each variant */
+const GA_SIZES: Record<keyof typeof GA_SCRIPTS, { w: number; h: number }> = {
+  "728x90": { w: 728, h: 90 },
+  "300x250": { w: 300, h: 250 },
+  "370x90": { w: 370, h: 90 },
+  "1380x300": { w: 1380, h: 300 },
+  "1080x192": { w: 1080, h: 192 },
+};
+
 interface GABannerProps {
   /** Which banner size to display */
   variant: keyof typeof GA_SCRIPTS;
@@ -31,43 +38,26 @@ interface GABannerProps {
 }
 
 export function GABanner({ variant, tracking = "", className = "" }: GABannerProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const loadedRef = useRef(false);
+  const scriptId = GA_SCRIPTS[variant];
+  const { w, h } = GA_SIZES[variant];
+  const src = `https://www.gambling-affiliation.com/cpm/v=${scriptId}&aff_var_1=${encodeURIComponent(tracking)}`;
 
-  useEffect(() => {
-    if (!containerRef.current || loadedRef.current) return;
-    loadedRef.current = true;
-
-    const scriptId = GA_SCRIPTS[variant];
-    const src = `https://www.gambling-affiliation.com/cpm/v=${scriptId}&aff_var_1=${encodeURIComponent(tracking)}`;
-
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.charset = "utf-8";
-    script.src = src;
-    containerRef.current.appendChild(script);
-
-    return () => {
-      loadedRef.current = false;
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
-      }
-    };
-  }, [variant, tracking]);
+  // The GA script uses document.write() — only works inside an iframe
+  const srcDoc = `<!DOCTYPE html>
+<html><head><style>*{margin:0;padding:0;}body{display:flex;justify-content:center;align-items:center;min-height:100%;background:transparent;overflow:hidden;}</style></head>
+<body><script type="text/javascript" charset="utf-8" src="${src}"><\/script></body></html>`;
 
   return (
     <div className={`flex justify-center ${className}`}>
-      <div ref={containerRef} />
-      <noscript>
-        <a
-          href={`https://www.gambling-affiliation.com/cpc/v=ak0CEPFp.xNc0Zux4eAz9mltNCb6fU43LYUUbJ-hUbE_GA7331V2&aff_var_1=${tracking}`}
-          target="_blank"
-          rel="noopener noreferrer sponsored nofollow"
-          className="inline-block rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white"
-        >
-          100€ offerts sur PMU Sport &rarr;
-        </a>
-      </noscript>
+      <iframe
+        srcDoc={srcDoc}
+        width={w}
+        height={h}
+        style={{ border: "none", maxWidth: "100%", overflow: "hidden", background: "transparent" }}
+        scrolling="no"
+        title={`PMU Sport ${variant}`}
+        sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-same-origin"
+      />
     </div>
   );
 }
