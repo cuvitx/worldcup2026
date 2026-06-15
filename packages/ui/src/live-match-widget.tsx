@@ -76,6 +76,10 @@ interface LiveMatchWidgetProps {
   locale?: "fr" | "en" | "es";
   /** When provided (from a centralized LiveDataProvider), skips internal polling */
   liveFixtures?: ApiFixtureLike[];
+  /** API-Football team ID for home team (for home/away swap detection) */
+  homeApiTeamId?: number;
+  /** API-Football team ID for away team (for home/away swap detection) */
+  awayApiTeamId?: number;
 }
 
 const STATUS_MAP: Record<string, LiveMatchData["status"]> = {
@@ -125,6 +129,8 @@ export function LiveMatchWidget({
   apiEndpoint = "/api/live",
   locale,
   liveFixtures,
+  homeApiTeamId,
+  awayApiTeamId,
 }: LiveMatchWidgetProps) {
   const hasExternalData = !!liveFixtures;
   const t = translations[locale ?? "fr"];
@@ -151,10 +157,31 @@ export function LiveMatchWidget({
     }
   }, [matchDate, matchTime]);
 
+  /** Detect if our home team is the API's away team (swapped order) */
+  const isSwapped = useCallback(
+    (apiFixture: { teams: { home: { id?: number }; away: { id?: number } } }) => {
+      if (!homeApiTeamId || homeApiTeamId === 0) return false;
+      return apiFixture.teams.away?.id === homeApiTeamId;
+    },
+    [homeApiTeamId]
+  );
+
+  /** Get scores from an API fixture, correcting for home/away swap */
+  const getScores = useCallback(
+    (fixture: { teams: { home: { id?: number }; away: { id?: number } }; goals: { home: number | null; away: number | null } }) => {
+      const swapped = isSwapped(fixture);
+      return {
+        homeScore: swapped ? fixture.goals.away : fixture.goals.home,
+        awayScore: swapped ? fixture.goals.home : fixture.goals.away,
+      };
+    },
+    [isSwapped]
+  );
+
   const findMatchInFixtures = useCallback(
     (fixtures: Array<{
       fixture: { id: number; date: string; status: { short: string; elapsed: number | null } };
-      teams: { home: { name: string }; away: { name: string } };
+      teams: { home: { name: string; id?: number }; away: { name: string; id?: number } };
       goals: { home: number | null; away: number | null };
     }>) => {
       // Match by kickoff timestamp with 2-minute tolerance (timezone-agnostic)
@@ -181,14 +208,15 @@ export function LiveMatchWidget({
     const match = findMatchInFixtures(liveFixtures);
     if (!match) return;
 
+    const scores = getScores(match);
     setData({
-      homeScore: match.goals.home,
-      awayScore: match.goals.away,
+      homeScore: scores.homeScore,
+      awayScore: scores.awayScore,
       status: STATUS_MAP[match.fixture.status.short] ?? "upcoming",
       elapsed: match.fixture.status.elapsed,
       events: [],
     });
-  }, [liveFixtures, findMatchInFixtures]);
+  }, [liveFixtures, findMatchInFixtures, getScores]);
 
   // Internal polling — only when NO external provider
   const fetchLive = useCallback(async () => {
@@ -203,9 +231,10 @@ export function LiveMatchWidget({
       const match = findMatchInFixtures(fixtures);
       if (!match) return;
 
+      const scores = getScores(match);
       setData({
-        homeScore: match.goals.home,
-        awayScore: match.goals.away,
+        homeScore: scores.homeScore,
+        awayScore: scores.awayScore,
         status: STATUS_MAP[match.fixture.status.short] ?? "upcoming",
         elapsed: match.fixture.status.elapsed,
         events: [],
@@ -213,7 +242,7 @@ export function LiveMatchWidget({
     } catch {
       // Silently fail
     }
-  }, [apiEndpoint, findMatchInFixtures, hasExternalData]);
+  }, [apiEndpoint, findMatchInFixtures, hasExternalData, getScores]);
 
   // Fetch final score for completed matches (one-time)
   useEffect(() => {
@@ -233,9 +262,10 @@ export function LiveMatchWidget({
         const match = findMatchInFixtures(fixtures);
         if (!match) return;
 
+        const scores = getScores(match);
         setData({
-          homeScore: match.goals.home,
-          awayScore: match.goals.away,
+          homeScore: scores.homeScore,
+          awayScore: scores.awayScore,
           status: STATUS_MAP[match.fixture.status.short] ?? "finished",
           elapsed: null,
           events: [],
@@ -246,7 +276,7 @@ export function LiveMatchWidget({
     };
 
     fetchResult();
-  }, [matchDate, matchTime, findMatchInFixtures]);
+  }, [matchDate, matchTime, findMatchInFixtures, getScores]);
 
   // Poll only when match could be live AND no external provider
   useEffect(() => {

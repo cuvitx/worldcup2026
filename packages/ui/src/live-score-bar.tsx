@@ -225,29 +225,36 @@ export const LiveScoreBar = memo(function LiveScoreBar({
       const data = await res.json();
 
       if (Array.isArray(data) && data.length > 0) {
-        const liveMatches: LiveMatch[] = data.map(
-          (f: {
-            fixture: { id: number; status: { short: string; elapsed: number | null } };
-            teams: { home: { name: string }; away: { name: string } };
-            goals: { home: number | null; away: number | null };
-          }) => ({
-            id: String(f.fixture.id),
-            homeTeam: f.teams.home.name,
-            awayTeam: f.teams.away.name,
-            homeScore: f.goals.home,
-            awayScore: f.goals.away,
-            status: mapApiStatus(f.fixture.status.short),
-            elapsed: f.fixture.status.elapsed,
-            time: "",
-            slug: "",
+        setMatches((prev) =>
+          prev.map((m) => {
+            if (!m.time || !matchDate) return m;
+            const kickoff = new Date(`${matchDate}T${m.time}:00+02:00`).getTime();
+            const fixture = data.find(
+              (f: { fixture: { date: string } }) =>
+                Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
+            ) as {
+              fixture: { status: { short: string; elapsed: number | null } };
+              teams: { home: { id?: number }; away: { id?: number } };
+              goals: { home: number | null; away: number | null };
+            } | undefined;
+            if (!fixture) return m;
+            // Detect home/away swap
+            const swapped = m.homeApiTeamId != null && m.homeApiTeamId > 0
+              && fixture.teams?.away?.id === m.homeApiTeamId;
+            return {
+              ...m,
+              homeScore: swapped ? fixture.goals.away : fixture.goals.home,
+              awayScore: swapped ? fixture.goals.home : fixture.goals.away,
+              status: mapApiStatus(fixture.fixture.status.short),
+              elapsed: fixture.fixture.status.elapsed,
+            };
           })
         );
-        setMatches((prev) => mergeLiveData(prev, liveMatches));
       }
     } catch {
       // Silently fail — keep showing static data
     }
-  }, [apiEndpoint, hasExternalData]);
+  }, [apiEndpoint, hasExternalData, matchDate]);
 
   useEffect(() => {
     if (hasExternalData) return; // Skip: data comes from provider
@@ -292,17 +299,3 @@ function mapApiStatus(short: string): LiveMatch["status"] {
   return "upcoming";
 }
 
-function mergeLiveData(staticMatches: LiveMatch[], liveMatches: LiveMatch[]): LiveMatch[] {
-  const liveById = new Map(liveMatches.map((m) => [m.id, m]));
-  return staticMatches.map((m) => {
-    const live = liveById.get(m.id);
-    if (!live) return m;
-    return {
-      ...m,
-      homeScore: live.homeScore,
-      awayScore: live.awayScore,
-      status: live.status,
-      elapsed: live.elapsed,
-    };
-  });
-}
