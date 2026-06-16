@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { GABanner } from "./GABanner";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 
 const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/mentions-legales", "/jeu-responsable"];
 const SHOW_DELAY_MS = 20000;
+
+const PMU_IMAGE = "https://static.gambling-affiliation.com/uploads/ads/67239.jpg";
 
 export function StickyCTA() {
   const [visible, setVisible] = useState(false);
@@ -39,8 +40,8 @@ export function StickyCTA() {
       />
       {/* Popup */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div className="relative rounded-2xl bg-white shadow-2xl overflow-visible sm:scale-[1.8] transition-transform">
-          {/* Close button — outside top-right corner */}
+        <div className="relative overflow-visible">
+          {/* Close button */}
           <button
             onClick={(e) => { e.stopPropagation(); dismiss(); }}
             className="absolute -top-3 -right-3 z-[10000] flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-white hover:bg-black transition-colors shadow-lg"
@@ -51,18 +52,22 @@ export function StickyCTA() {
             </svg>
           </button>
 
-          {/* Entire popup is a clickable affiliate link */}
+          {/* HD image with affiliate link */}
           <a
             href={pmuTrackingUrl("popup")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="block rounded-2xl overflow-hidden"
+            className="block rounded-2xl overflow-hidden shadow-2xl"
           >
-            <GABanner variant="300x250" tracking="popup" />
+            <img
+              src={PMU_IMAGE}
+              alt="PMU Play — Jusqu'à 100€ en cash"
+              className="block w-[min(500px,85vw)] h-auto rounded-2xl"
+            />
           </a>
 
           {/* Legal */}
-          <p className="px-3 py-2 text-[10px] text-gray-400 text-center">
+          <p className="mt-2 text-[10px] text-white/70 text-center">
             18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a>
           </p>
         </div>
