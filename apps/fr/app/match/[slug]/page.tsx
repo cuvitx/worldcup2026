@@ -247,10 +247,12 @@ export default async function MatchPage({ params }: PageProps) {
   const matchPhase = getMatchPhase(match.date, match.time);
   const isCompleted = matchPhase === "completed";
 
-  // AI-enriched data: skip during build (no API keys), fetch at runtime via ISR
+  // Skip all external API calls during static build to avoid rate limit exhaustion
+  const isBuild = process.env.NEXT_PHASE === "phase-production-build";
+
+  // AI-enriched data: needs Gemini key
   let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
-  const isBuild = process.env.NEXT_PHASE === "phase-production-build" || !process.env.GEMINI_API_KEY;
-  if (!isBuild) {
+  if (!isBuild && process.env.GEMINI_API_KEY) {
     try {
       enriched = await generateFullMatchPreview(slug, "fr", {
         includeExpert: matchPhase === "upcoming",
