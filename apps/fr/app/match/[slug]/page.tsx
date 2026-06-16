@@ -14,7 +14,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
-import { PmuCTA } from "../../components/PmuCTA";
+import { MatchBettingCard } from "../../components/MatchBettingCard";
 import {
   MatchHeroAdaptive,
   TeamComparison,
@@ -147,28 +147,20 @@ export default async function MatchPage({ params }: PageProps) {
         dateFormatted={dateFormatted}
       />
 
-      {/* Betting CTA */}
+      {/* Betting Card */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
-        {matchOdds && home && away && (
-          <div className="rounded-2xl bg-gradient-to-r from-[#022149] to-[#0a3d7a] px-6 py-4 text-white text-center mb-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-1">Parier sur ce match</p>
-            <div className="flex justify-center gap-4 mt-2">
-              <div className="flex flex-col items-center">
-                <span className="text-xs text-white/60">{home.flag} {home.name}</span>
-                <span className="text-xl font-bold text-accent">{matchOdds.home}</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-xs text-white/60">Nul</span>
-                <span className="text-xl font-bold text-white/90">{matchOdds.draw}</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-xs text-white/60">{away.flag} {away.name}</span>
-                <span className="text-xl font-bold text-accent">{matchOdds.away}</span>
-              </div>
-            </div>
-          </div>
-        )}
-        <PmuCTA tracking="match" teamName={home && away ? `${home.name} - ${away.name}` : undefined} />
+        <div className="max-w-xl mx-auto lg:max-w-2xl">
+          <MatchBettingCard
+            homeName={home?.name ?? "Équipe A"}
+            homeFlag={home?.flag ?? ""}
+            awayName={away?.name ?? "Équipe B"}
+            awayFlag={away?.flag ?? ""}
+            homeOdds={matchOdds?.home}
+            drawOdds={matchOdds?.draw}
+            awayOdds={matchOdds?.away}
+            tracking="match"
+          />
+        </div>
       </div>
 
       {/* Main Content */}
