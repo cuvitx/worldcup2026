@@ -40,7 +40,7 @@ export function MatchSidebar({
   const tvInfo = getTVInfo(match.slug);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-w-0">
       {stadium && (
         <Card hover padding="md">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">

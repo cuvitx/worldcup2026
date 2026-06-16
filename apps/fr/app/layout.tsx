@@ -146,7 +146,7 @@ export default function RootLayout({
         <Header />
         <LiveScoreBarWrapper />
         <LiveTicker />
-        <main id="main-content" className="flex-1"><AutoBreadcrumb /><SiloTabs />{children}</main>
+        <main id="main-content" className="flex-1 overflow-hidden"><AutoBreadcrumb /><SiloTabs />{children}</main>
         <AutoRelatedContent />
         <div className="py-6 sm:py-8"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><PmuBanner tracking="global-footer" /></div></div>
         <Footer />

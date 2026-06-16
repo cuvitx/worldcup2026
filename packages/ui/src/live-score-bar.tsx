@@ -268,7 +268,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
   const hasLive = matches.some((m) => m.status === "live" || m.status === "halftime");
 
   return (
-    <div className="border-b border-white/5 bg-primary">
+    <div className="border-b border-white/5 bg-primary overflow-hidden">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center gap-2 overflow-x-auto py-2 scrollbar-hide">
           <span className="shrink-0 flex items-center gap-1.5 rounded-full px-3 h-7 text-[11px] font-semibold uppercase tracking-wider text-white/70">
