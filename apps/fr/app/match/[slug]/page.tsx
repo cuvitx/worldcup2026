@@ -33,6 +33,7 @@ import {
   MatchPlayerRatings,
   UpcomingPronosticsGrid,
   MatchCommentary,
+  MatchVotingWidget,
 } from "./_components";
 import type { CommentaryPlay } from "./_components";
 import { MatchContextBar } from "../../components/MatchContextBar";
@@ -479,6 +480,16 @@ export default async function MatchPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
             {home && away && <TeamComparison home={home} away={away} />}
+
+            {home && away && (
+              <MatchVotingWidget
+                slug={match.slug}
+                homeName={home.name}
+                homeFlag={home.flag}
+                awayName={away.name}
+                awayFlag={away.flag}
+              />
+            )}
 
             {events.length > 0 && home && away && (
               <MatchEventsTimeline

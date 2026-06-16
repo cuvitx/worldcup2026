@@ -10,3 +10,4 @@ export { MatchPlayerRatings } from "./MatchPlayerRatings";
 export { UpcomingPronosticsGrid } from "./UpcomingPronosticsGrid";
 export { MatchCommentary } from "./MatchCommentary";
 export type { CommentaryPlay } from "./MatchCommentary";
+export { MatchVotingWidget } from "./MatchVotingWidget";

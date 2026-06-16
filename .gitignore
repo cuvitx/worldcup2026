@@ -18,6 +18,9 @@ coverage
 # Turbo
 .turbo
 
+# Local votes data
+.data
+
 # Vercel
 .vercel
 
