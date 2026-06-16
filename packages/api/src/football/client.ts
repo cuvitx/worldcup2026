@@ -48,11 +48,9 @@ async function rateLimitedCachedFetch<T>(
 }
 
 async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
-  // Skip all API calls during build to avoid rate limit exhaustion
-  if (process.env.NEXT_PHASE === "phase-production-build") {
-    return [];
-  }
-
+  // Note: build-time API calls are now allowed for completed matches.
+  // The rateLimitedCachedFetch wrapper + Redis cache prevent unnecessary API calls.
+  // The page.tsx layer controls WHICH matches fetch data during build.
   if (!API_FOOTBALL.key) {
     console.warn(`[api-football] No API key configured, skipping: ${endpoint}`);
     return [];

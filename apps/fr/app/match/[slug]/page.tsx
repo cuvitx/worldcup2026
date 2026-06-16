@@ -248,7 +248,9 @@ export default async function MatchPage({ params }: PageProps) {
   const matchPhase = getMatchPhase(match.date, match.time);
   const isCompleted = matchPhase === "completed";
 
-  // Skip all external API calls during static build to avoid rate limit exhaustion
+  // Skip most external API calls during static build to avoid rate limit exhaustion.
+  // Exception: completed matches fetch events/lineups/stats at build time so that
+  // deploy doesn't wipe ISR-regenerated data (the results are stable & Redis-cached).
   const isBuild = process.env.NEXT_PHASE === "phase-production-build";
 
   // AI-enriched data: needs Gemini key
@@ -263,13 +265,16 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
-  // Fetch match events, lineups, statistics and player ratings for live/completed matches
+  // Fetch match events, lineups, statistics and player ratings for live/completed matches.
+  // During build, only fetch for completed matches (stable data, Redis-cached) so that
+  // the build output includes events/lineups/stats and doesn't regress on deploy.
   let events: ApiFixtureEvent[] = [];
   let lineups: ApiLineup[] = [];
   let statistics: ApiFixtureStatistic[] = [];
   let fixturePlayers: ApiFixturePlayer[] = [];
 
-  if (!isBuild && (matchPhase === "live" || matchPhase === "completed")) {
+  const canFetchMatchData = isBuild ? matchPhase === "completed" : true;
+  if (canFetchMatchData && (matchPhase === "live" || matchPhase === "completed")) {
     const fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
       const [ev, lu, st, pl] = await Promise.all([
@@ -312,8 +317,9 @@ export default async function MatchPage({ params }: PageProps) {
   }
 
   // Fetch ESPN play-by-play commentary for completed matches
+  // Allow during build for completed matches (stable data, avoids ISR regression on deploy)
   let commentaryPlays: CommentaryPlay[] = [];
-  if (!isBuild && matchPhase === "completed" && home && away) {
+  if (canFetchMatchData && matchPhase === "completed" && home && away) {
     try {
       const espnHomeTeam = getEspnTeamName(match.homeTeamId);
       const espnAwayTeam = getEspnTeamName(match.awayTeamId);

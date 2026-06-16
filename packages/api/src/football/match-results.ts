@@ -75,8 +75,9 @@ export async function getMatchResults(): Promise<MatchResult[]> {
  * Returns null if no match found or during build.
  */
 export async function resolveApiFixtureId(match: Match): Promise<number | null> {
-  if (process.env.NEXT_PHASE === "phase-production-build") return null;
-
+  // Note: build guard removed — completed matches now resolve fixture IDs at build time
+  // so that events/lineups/stats are baked into the initial build output.
+  // The caller (page.tsx) controls which matches are allowed to fetch during build.
   let fixtures: ApiFixture[];
   try {
     fixtures = await cachedFetch<ApiFixture[]>(
