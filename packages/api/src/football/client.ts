@@ -47,14 +47,24 @@ async function rateLimitedCachedFetch<T>(
   return cachedFetch(cacheKey, ttlSeconds, fetcher);
 }
 
+// Serialize API calls to stay within per-minute rate limit (Pro plan: 30 req/min)
+// Uses a promise chain so concurrent callers wait in line instead of racing.
+let apiQueue: Promise<void> = Promise.resolve();
+const MIN_INTERVAL_MS = 2200; // ~27 req/min, stays under 30/min limit
+
+function throttle(): Promise<void> {
+  const prev = apiQueue;
+  apiQueue = prev.then(() => new Promise((r) => setTimeout(r, MIN_INTERVAL_MS)));
+  return prev;
+}
+
 async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
-  // Note: build-time API calls are now allowed for completed matches.
-  // The rateLimitedCachedFetch wrapper + Redis cache prevent unnecessary API calls.
-  // The page.tsx layer controls WHICH matches fetch data during build.
   if (!API_FOOTBALL.key) {
     console.warn(`[api-football] No API key configured, skipping: ${endpoint}`);
     return [];
   }
+
+  await throttle();
 
   const url = new URL(`${API_FOOTBALL.baseUrl}/${endpoint}`);
   for (const [key, value] of Object.entries(params)) {
