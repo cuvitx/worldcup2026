@@ -266,15 +266,13 @@ export default async function MatchPage({ params }: PageProps) {
   }
 
   // Fetch match events, lineups, statistics and player ratings for live/completed matches.
-  // During build, only fetch for completed matches (stable data, Redis-cached) so that
-  // the build output includes events/lineups/stats and doesn't regress on deploy.
+  // Skipped during build — ISR + post-deploy warm-up handles enrichment at runtime.
   let events: ApiFixtureEvent[] = [];
   let lineups: ApiLineup[] = [];
   let statistics: ApiFixtureStatistic[] = [];
   let fixturePlayers: ApiFixturePlayer[] = [];
 
-  const canFetchMatchData = isBuild ? matchPhase === "completed" : true;
-  if (canFetchMatchData && (matchPhase === "live" || matchPhase === "completed")) {
+  if (!isBuild && (matchPhase === "live" || matchPhase === "completed")) {
     const fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
       const [ev, lu, st, pl] = await Promise.all([
@@ -319,7 +317,7 @@ export default async function MatchPage({ params }: PageProps) {
   // Fetch ESPN play-by-play commentary for live AND completed matches
   // ESPN provides real-time commentary during live matches
   let commentaryPlays: CommentaryPlay[] = [];
-  if (canFetchMatchData && (matchPhase === "live" || matchPhase === "completed") && home && away) {
+  if (!isBuild && (matchPhase === "live" || matchPhase === "completed") && home && away) {
     try {
       const espnHomeTeam = getEspnTeamName(match.homeTeamId);
       const espnAwayTeam = getEspnTeamName(match.awayTeamId);

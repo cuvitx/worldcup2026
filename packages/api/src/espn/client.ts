@@ -40,8 +40,8 @@ export async function resolveEspnEventId(
   homeTeamName: string,
   awayTeamName: string,
 ): Promise<string | null> {
-  // Note: build guard removed — completed matches resolve ESPN event IDs at build time
-  // so that commentary is baked into the initial build output (data is stable & cached).
+  if (process.env.NEXT_PHASE === "phase-production-build") return null;
+
   const homeLower = homeTeamName.toLowerCase();
   const awayLower = awayTeamName.toLowerCase();
 
