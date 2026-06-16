@@ -10,11 +10,13 @@ export {
   getLineup,
   getLiveFixtures,
   getFixtureEvents,
+  getFixtureStatistics,
   getWorldCupFixtures,
   getFixturesByDate,
 } from "./football/client";
+export type { ApiFixtureStatistic } from "./football/client";
 export { enrichTeamFromApi, mapInjuries } from "./football/mappers";
-export { enrichMatchesWithResults, getMatchResults } from "./football/match-results";
+export { enrichMatchesWithResults, getMatchResults, resolveApiFixtureId } from "./football/match-results";
 
 // Weather
 export { getWeatherForecast } from "./weather/client";

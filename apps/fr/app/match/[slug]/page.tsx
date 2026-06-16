@@ -8,12 +8,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { matches, matchesBySlug } from "@repo/data/matches";
-import { enrichMatchesWithResults } from "@repo/api/football/match-results";
+import { enrichMatchesWithResults, resolveApiFixtureId } from "@repo/api/football/match-results";
+import { getFixtureEvents, getLineup, getFixtureStatistics } from "@repo/api/football";
+import type { ApiFixtureEvent, ApiLineup, ApiFixtureStatistic } from "@repo/api/football";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
+import { teamApiIds } from "@repo/data/api-football-ids";
+import { FAQSection } from "@repo/ui/faq-section";
 import { MatchBettingCard } from "../../components/MatchBettingCard";
 import {
   MatchHeroAdaptive,
@@ -21,6 +25,10 @@ import {
   PredictionCard,
   MatchSidebar,
   SameDayMatches,
+  MatchEventsTimeline,
+  MatchLineups,
+  MatchStatistics,
+  UpcomingPronosticsGrid,
 } from "./_components";
 import { MatchContextBar } from "../../components/MatchContextBar";
 import { BarChart3, Sparkles, Swords, TrendingUp, Trophy } from "lucide-react"
@@ -82,6 +90,71 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function buildMatchFAQ(
+  homeName: string,
+  awayName: string,
+  dateFormatted: string,
+  time: string,
+  stadium: { name: string; city?: string; capacity?: number; slug?: string } | undefined,
+  stage: string,
+  prediction: { team1WinProb: number; drawProb: number; team2WinProb: number } | undefined,
+  odds: { home: string; draw: string; away: string } | null,
+  slug: string,
+  group: string | undefined,
+): Array<{ question: string; answer: string }> {
+  const items: Array<{ question: string; answer: string }> = [];
+
+  items.push({
+    question: `Quand a lieu ${homeName} vs ${awayName} ?`,
+    answer: `Le match ${homeName} vs ${awayName} se joue le ${dateFormatted} à ${time} (heure de Paris), dans le cadre de la ${stage} de la Coupe du Monde 2026${stadium ? ` au ${stadium.name}${stadium.city ? ` (${stadium.city})` : ""}` : ""}.`,
+  });
+
+  items.push({
+    question: `Où regarder ${homeName} vs ${awayName} en direct ?`,
+    answer: `Les matchs de la Coupe du Monde 2026 sont diffusés en France sur TF1, beIN Sports et M6. Consultez notre page dédiée pour connaître la chaîne qui diffuse ${homeName} vs ${awayName}.`,
+  });
+
+  if (prediction) {
+    const homeWin = Math.round(prediction.team1WinProb * 100);
+    const draw = Math.round(prediction.drawProb * 100);
+    const awayWin = Math.round(prediction.team2WinProb * 100);
+    const favorite = homeWin >= awayWin ? homeName : awayName;
+    const favPct = Math.max(homeWin, awayWin);
+    items.push({
+      question: `Quel est le pronostic pour ${homeName} vs ${awayName} ?`,
+      answer: `Selon notre modèle, ${favorite} est favori avec ${favPct}% de chances de victoire. Le nul est estimé à ${draw}%. Retrouvez l'analyse complète sur notre page pronostic de ce match.`,
+    });
+  }
+
+  if (odds) {
+    items.push({
+      question: `Quelles sont les cotes de ${homeName} vs ${awayName} ?`,
+      answer: `Les cotes estimées pour ce match sont : victoire ${homeName} à ${odds.home}, match nul à ${odds.draw}, victoire ${awayName} à ${odds.away}. Pariez avec jusqu'à 100€ offerts chez PMU Play.`,
+    });
+  }
+
+  if (stadium) {
+    items.push({
+      question: `Dans quel stade se joue ${homeName} vs ${awayName} ?`,
+      answer: `Le match se dispute au ${stadium.name}${stadium.city ? `, situé à ${stadium.city}` : ""}${stadium.capacity ? `. Le stade peut accueillir ${stadium.capacity.toLocaleString("fr-FR")} spectateurs` : ""}.`,
+    });
+  }
+
+  items.push({
+    question: `Quelle est la composition de ${homeName} pour ce match ?`,
+    answer: `Les compositions officielles sont généralement annoncées environ 1 heure avant le coup d'envoi. Consultez cette page le jour du match pour retrouver les équipes de départ de ${homeName} et ${awayName}.`,
+  });
+
+  if (group) {
+    items.push({
+      question: `${homeName} et ${awayName} sont-ils dans le même groupe ?`,
+      answer: `Oui, ${homeName} et ${awayName} s'affrontent dans le Groupe ${group} de la Coupe du Monde 2026. Chaque groupe est composé de 4 équipes, les deux premières se qualifiant pour les huitièmes de finale.`,
+    });
+  }
+
+  return items;
+}
+
 export default async function MatchPage({ params }: PageProps) {
   const { slug } = await params;
   const staticMatch = matchesBySlug[slug];
@@ -115,6 +188,25 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
+  // Fetch match events, lineups, and statistics for live/completed matches
+  let events: ApiFixtureEvent[] = [];
+  let lineups: ApiLineup[] = [];
+  let statistics: ApiFixtureStatistic[] = [];
+
+  if (!isBuild && (matchPhase === "live" || matchPhase === "completed")) {
+    const fixtureId = await resolveApiFixtureId(match);
+    if (fixtureId) {
+      const [ev, lu, st] = await Promise.all([
+        getFixtureEvents(fixtureId).catch(() => [] as ApiFixtureEvent[]),
+        getLineup(fixtureId).catch(() => [] as ApiLineup[]),
+        getFixtureStatistics(fixtureId).catch(() => [] as ApiFixtureStatistic[]),
+      ]);
+      events = ev;
+      lineups = lu;
+      statistics = st;
+    }
+  }
+
   const sameDayMatches = matches.filter(
     (m) => m.date === match.date && m.slug !== match.slug
   );
@@ -139,6 +231,18 @@ export default async function MatchPage({ params }: PageProps) {
   let nextAway: typeof away = undefined;
   let nextOdds: typeof matchOdds = null;
 
+
+  // Upcoming pronostics for the grid (completed match pages)
+  let upcomingPronostics: Array<{
+    slug: string;
+    date: string;
+    time: string;
+    homeName: string;
+    homeFlag: string;
+    awayName: string;
+    awayFlag: string;
+    prediction?: { team1WinProb: number; drawProb: number; team2WinProb: number };
+  }> = [];
 
   if (isCompleted) {
     const now = new Date();
@@ -165,6 +269,27 @@ export default async function MatchPage({ params }: PageProps) {
         ? estimatedMatchOdds(nextPred.team1WinProb, nextPred.drawProb, nextPred.team2WinProb)
         : null;
     }
+
+    // Build pronostics grid data (4 upcoming matches)
+    upcomingPronostics = upcoming.slice(0, 4).map((m) => {
+      const h = teamsById[m.homeTeamId];
+      const a = teamsById[m.awayTeamId];
+      const pred = matchPredictionByPair[`${m.homeTeamId}:${m.awayTeamId}`];
+      return {
+        slug: m.slug,
+        date: m.date,
+        time: m.time,
+        homeName: h?.name ?? "TBD",
+        homeFlag: h?.flag ?? "",
+        awayName: a?.name ?? "TBD",
+        awayFlag: a?.flag ?? "",
+        prediction: pred ? {
+          team1WinProb: Math.round(pred.team1WinProb * 100),
+          drawProb: Math.round(pred.drawProb * 100),
+          team2WinProb: Math.round(pred.team2WinProb * 100),
+        } : undefined,
+      };
+    });
   }
 
   return (
@@ -217,6 +342,33 @@ export default async function MatchPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {home && away && <TeamComparison home={home} away={away} />}
 
+            {events.length > 0 && home && away && (
+              <MatchEventsTimeline
+                events={events}
+                homeTeamId={teamApiIds[match.homeTeamId] ?? 0}
+                homeName={home.name}
+                awayName={away.name}
+              />
+            )}
+
+            {lineups.length === 2 && home && away && (
+              <MatchLineups
+                lineups={lineups}
+                homeName={home.name}
+                homeFlag={home.flag}
+                awayName={away.name}
+                awayFlag={away.flag}
+              />
+            )}
+
+            {statistics.length === 2 && home && away && (
+              <MatchStatistics
+                statistics={statistics}
+                homeName={home.name}
+                awayName={away.name}
+              />
+            )}
+
             {enriched?.preview && (
               <AiMatchPreview
                 preview={enriched.preview.preview}
@@ -263,6 +415,16 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       </div>
 
+      {/* FAQ Section */}
+      {home && away && (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FAQSection
+            title={`Questions fréquentes — ${home.name} vs ${away.name}`}
+            items={buildMatchFAQ(home.name, away.name, dateFormatted, match.time, stadium, stage, prediction, matchOdds, match.slug, match.group)}
+          />
+        </div>
+      )}
+
       {/* Same-day matches */}
       {sameDayMatches.length > 0 && (
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-8">
@@ -271,6 +433,13 @@ export default async function MatchPage({ params }: PageProps) {
             teamsById={teamsById}
             currentDate={match.date}
           />
+        </div>
+      )}
+
+      {/* Upcoming pronostics grid (completed matches only) */}
+      {isCompleted && upcomingPronostics.length > 0 && (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8">
+          <UpcomingPronosticsGrid matches={upcomingPronostics} />
         </div>
       )}
 

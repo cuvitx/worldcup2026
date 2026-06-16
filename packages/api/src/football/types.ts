@@ -75,3 +75,11 @@ export interface ApiFixtureEvent {
   type: string; // "Goal", "Card", "subst"
   detail: string; // "Normal Goal", "Yellow Card", etc.
 }
+
+export interface ApiFixtureStatistic {
+  team: { id: number; name: string; logo: string };
+  statistics: Array<{
+    type: string; // "Ball Possession", "Total Shots", "Shots on Goal", "Corner Kicks", "Fouls", "Offsides", "Yellow Cards", "Red Cards"
+    value: number | string | null;
+  }>;
+}

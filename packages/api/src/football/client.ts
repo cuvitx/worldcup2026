@@ -13,9 +13,10 @@ import type {
   ApiInjury,
   ApiLineup,
   ApiFixtureEvent,
+  ApiFixtureStatistic,
 } from "./types";
 
-export type { ApiLineup, ApiFixture };
+export type { ApiLineup, ApiFixture, ApiFixtureEvent, ApiFixtureStatistic };
 
 const RATE_LIMIT_KEY = "api-football";
 const RATE_LIMIT_CONFIG = {
@@ -182,6 +183,19 @@ export async function getWorldCupFixtures(): Promise<ApiFixture[]> {
       apiFetch<ApiFixture>("fixtures", {
         league: String(API_FOOTBALL.worldCupLeagueId),
         season: String(API_FOOTBALL.season),
+      }),
+    []
+  );
+}
+
+/** Get statistics for a specific fixture */
+export async function getFixtureStatistics(fixtureId: number): Promise<ApiFixtureStatistic[]> {
+  return rateLimitedCachedFetch(
+    `football:stats:${fixtureId}`,
+    CACHE_TTL.INJURIES, // 1h — stats don't change after match ends
+    () =>
+      apiFetch<ApiFixtureStatistic>("fixtures/statistics", {
+        fixture: String(fixtureId),
       }),
     []
   );

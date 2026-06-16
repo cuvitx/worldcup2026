@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
 import { matches } from "@repo/data/matches";
+import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { getISOCode } from "@repo/data/country-codes";
@@ -66,9 +67,20 @@ export default async function TeamPage({ params }: PageProps) {
 
   const prediction = predictionsByTeamId[team.id];
   const teamPlayers = playersByTeamId[team.id] ?? [];
-  const teamMatches = matches.filter(
+  const teamMatchesStatic = matches.filter(
     (m) => m.homeTeamId === team.id || m.awayTeamId === team.id
   );
+
+  // Enrich team matches with real scores
+  const teamMatches = await enrichMatchesWithResults(teamMatchesStatic);
+
+  // Build resultsMap for PremiumMatchCalendar
+  const resultsMap: Record<string, { homeScore: number; awayScore: number; status: string }> = {};
+  for (const m of teamMatches) {
+    if (m.status === "finished" && m.homeScore != null && m.awayScore != null) {
+      resultsMap[m.slug] = { homeScore: m.homeScore, awayScore: m.awayScore, status: "finished" };
+    }
+  }
 
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;
@@ -108,10 +120,11 @@ export default async function TeamPage({ params }: PageProps) {
 
       {/* Match Calendar */}
       {teamMatches.length > 0 && (
-        <PremiumMatchCalendar 
+        <PremiumMatchCalendar
           teamId={team.id}
           teamName={team.name}
           teamMatches={teamMatches}
+          resultsMap={resultsMap}
         />
       )}
 

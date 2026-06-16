@@ -66,6 +66,52 @@ export async function getMatchResults(): Promise<Map<number, MatchResult>> {
 
 
 /**
+ * Resolve the API-Football fixture ID for a static match.
+ * Reuses the cached World Cup fixtures to avoid extra API calls.
+ * Returns null if no match found or during build.
+ */
+export async function resolveApiFixtureId(match: Match): Promise<number | null> {
+  if (process.env.NEXT_PHASE === "phase-production-build") return null;
+
+  let fixtures: ApiFixture[];
+  try {
+    fixtures = await cachedFetch<ApiFixture[]>(
+      "football:wc-results",
+      1800,
+      () => getWorldCupFixtures()
+    );
+  } catch {
+    return null;
+  }
+
+  if (fixtures.length === 0) return null;
+
+  // Strategy 1: Match by kickoff timestamp (same logic as enrichMatchesWithResults)
+  const kickoff = Math.round(
+    new Date(`${match.date}T${match.time}:00+02:00`).getTime() / 60000
+  );
+
+  for (const f of fixtures) {
+    const fKickoff = Math.round(new Date(f.fixture.date).getTime() / 60000);
+    if (fKickoff === kickoff) return f.fixture.id;
+  }
+
+  // Strategy 2: Match by team API IDs (fallback for timezone edge cases)
+  const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
+  const ourAwayApiId = teamApiIds[match.awayTeamId] ?? 0;
+
+  if (ourHomeApiId > 0 && ourAwayApiId > 0) {
+    for (const f of fixtures) {
+      const homeMatch = f.teams.home.id === ourHomeApiId || f.teams.away.id === ourHomeApiId;
+      const awayMatch = f.teams.home.id === ourAwayApiId || f.teams.away.id === ourAwayApiId;
+      if (homeMatch && awayMatch) return f.fixture.id;
+    }
+  }
+
+  return null;
+}
+
+/**
  * Enrich an array of static matches with real API results.
  * - Skips entirely during build (avoids rate limiting)
  * - At runtime, only fetches if at least one match needs enrichment

@@ -3,7 +3,7 @@ import type { matches as matchesType } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { matchPredictionByPair } from "@repo/data/predictions";
-import { estimatedMatchOdds } from "@repo/data/affiliates";
+import { estimatedMatchOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 
 type Match = (typeof matchesType)[number];
 
@@ -11,9 +11,11 @@ interface PremiumMatchCalendarProps {
   teamId: string;
   teamName: string;
   teamMatches: Match[];
+  resultsMap?: Record<string, { homeScore: number; awayScore: number; status: string }>;
 }
 
-export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumMatchCalendarProps) {
+export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap }: PremiumMatchCalendarProps) {
+  const pmuUrl = pmuTrackingUrl("equipe-calendar");
   return (
     <section id="calendrier" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -37,6 +39,10 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
               : undefined;
 
             const teamWinOdds = isHome ? odds?.home : odds?.away;
+            const hasAllOdds = odds && odds.home !== "—" && odds.draw !== "—" && odds.away !== "—";
+
+            const result = resultsMap?.[match.slug];
+            const isFinished = result?.status === "finished";
 
             const dateObj = new Date(`${match.date}T${match.time ?? "00:00"}+02:00`);
             const dateStr = dateObj.toLocaleDateString("fr-FR", {
@@ -52,10 +58,9 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
             });
 
             return (
-              <Link
+              <div
                 key={match.id}
-                href={`/pronostic-match/${match.slug}`}
-                className="block rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30"
+                className="group rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-primary/30"
               >
                 <div className="flex items-center gap-4 px-5 py-4">
                   <div className="shrink-0 text-center hidden sm:block w-20">
@@ -98,18 +103,60 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches }: PremiumM
                   </div>
 
                   <div className="shrink-0 text-right">
-                    {teamWinOdds && teamWinOdds !== "—" && (
+                    {isFinished ? (
                       <div>
-                        <p className="text-lg font-extrabold text-accent">{teamWinOdds}</p>
-                        <p className="text-xs text-gray-500">victoire</p>
+                        <p className="text-xl font-extrabold text-gray-900">
+                          {result.homeScore} - {result.awayScore}
+                        </p>
+                        <p className="text-[11px] text-gray-400">Terminé</p>
                       </div>
+                    ) : (
+                      <>
+                        {teamWinOdds && teamWinOdds !== "—" && (
+                          <div>
+                            <p className="text-lg font-extrabold text-accent">{teamWinOdds}</p>
+                            <p className="text-xs text-gray-500">victoire</p>
+                          </div>
+                        )}
+                        {hasAllOdds && (
+                          <div className="flex items-center gap-1.5 mt-2">
+                            <a
+                              href={pmuUrl}
+                              target="_blank"
+                              rel="noopener noreferrer sponsored nofollow"
+                              className="inline-flex items-center rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2 py-0.5 text-[10px] font-bold text-[#d4af37] hover:bg-[#d4af37]/10 transition-colors"
+                            >
+                              1&nbsp;{odds.home}
+                            </a>
+                            <a
+                              href={pmuUrl}
+                              target="_blank"
+                              rel="noopener noreferrer sponsored nofollow"
+                              className="inline-flex items-center rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2 py-0.5 text-[10px] font-bold text-[#d4af37] hover:bg-[#d4af37]/10 transition-colors"
+                            >
+                              N&nbsp;{odds.draw}
+                            </a>
+                            <a
+                              href={pmuUrl}
+                              target="_blank"
+                              rel="noopener noreferrer sponsored nofollow"
+                              className="inline-flex items-center rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2 py-0.5 text-[10px] font-bold text-[#d4af37] hover:bg-[#d4af37]/10 transition-colors"
+                            >
+                              2&nbsp;{odds.away}
+                            </a>
+                          </div>
+                        )}
+                      </>
                     )}
-                    <span className="mt-1 inline-flex text-xs text-primary font-medium">
+                    <Link
+                      href={`/pronostic-match/${match.slug}`}
+                      className="mt-1 inline-flex text-xs text-primary font-medium group-hover:underline"
+                    >
                       Pronostic →
-                    </span>
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
