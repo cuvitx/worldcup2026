@@ -39,7 +39,7 @@ export interface MatchResult {
 export async function getMatchResults(): Promise<Map<number, MatchResult>> {
   const fixtures = await cachedFetch<ApiFixture[]>(
     "football:wc-results",
-    CACHE_TTL.ODDS, // 5 min
+    1800, // 30 min — scores update via client-side live polling, ISR doesn't need frequent fetches
     () => getWorldCupFixtures()
   );
 

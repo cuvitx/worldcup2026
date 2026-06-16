@@ -36,6 +36,7 @@ async function rateLimitedCachedFetch<T>(
 }
 
 async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {}): Promise<T[]> {
+  if (process.env.NEXT_PHASE === "phase-production-build") return [];
   if (!ODDS_API.key) {
     console.warn("[odds-api] No API key configured, skipping");
     return [];
@@ -63,7 +64,7 @@ async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {
 
 /** Get match odds (1X2) for World Cup fixtures */
 export async function getMatchOdds(): Promise<MatchOdds[]> {
-  return rateLimitedCachedFetch("odds:match-odds", CACHE_TTL.ODDS, async () => {
+  return rateLimitedCachedFetch("odds:match-odds", CACHE_TTL.INJURIES, async () => { // 1hr — odds don't change every 5min
     const data = await oddsFetch<OddsApiResponse>(
       `sports/${ODDS_API.sport}/odds`,
       {
@@ -79,7 +80,7 @@ export async function getMatchOdds(): Promise<MatchOdds[]> {
 
 /** Get outright (tournament winner) odds */
 export async function getOutrightOdds(): Promise<OutrightOdds[]> {
-  return rateLimitedCachedFetch("odds:outright", CACHE_TTL.ODDS, async () => {
+  return rateLimitedCachedFetch("odds:outright", CACHE_TTL.INJURIES, async () => { // 1hr
     const data = await oddsFetch<OddsApiResponse>(
       `sports/${ODDS_API.sport}/odds`,
       {
