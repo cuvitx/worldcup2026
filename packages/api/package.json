@@ -11,6 +11,7 @@
     "./weather": "./src/weather/client.ts",
     "./odds": "./src/odds/client.ts",
     "./factors": "./src/factors/index.ts",
+    "./espn": "./src/espn/index.ts",
     "./cache": "./src/cache.ts",
     "./config": "./src/config.ts"
   },

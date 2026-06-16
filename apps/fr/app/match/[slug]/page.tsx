@@ -17,6 +17,8 @@ import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
 import { teamApiIds } from "@repo/data/api-football-ids";
+import { getEspnTeamName } from "@repo/data/espn-team-names";
+import { resolveEspnEventId, getEspnPlayByPlay } from "@repo/api/espn";
 import { FAQSection } from "@repo/ui/faq-section";
 import { MatchBettingCard } from "../../components/MatchBettingCard";
 import {
@@ -30,7 +32,9 @@ import {
   MatchStatistics,
   MatchPlayerRatings,
   UpcomingPronosticsGrid,
+  MatchCommentary,
 } from "./_components";
+import type { CommentaryPlay } from "./_components";
 import { MatchContextBar } from "../../components/MatchContextBar";
 import { BarChart3, Sparkles, Swords, TrendingUp, Trophy } from "lucide-react"
 
@@ -289,6 +293,41 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
+  // Fetch ESPN play-by-play commentary for completed matches
+  let commentaryPlays: CommentaryPlay[] = [];
+  if (!isBuild && matchPhase === "completed" && home && away) {
+    try {
+      const espnHomeTeam = getEspnTeamName(match.homeTeamId);
+      const espnAwayTeam = getEspnTeamName(match.awayTeamId);
+      const espnEventId = await resolveEspnEventId(match.date, espnHomeTeam, espnAwayTeam);
+      if (espnEventId) {
+        const rawPlays = await getEspnPlayByPlay(espnEventId);
+        commentaryPlays = rawPlays.map((p) => {
+          let type: CommentaryPlay["type"] = "other";
+          if (p.scoringPlay) type = "goal";
+          else if (p.redCard) type = "red-card";
+          else if (p.yellowCard) type = "yellow-card";
+          else if (p.substitution) type = "substitution";
+          else if (p.type?.id === "106" || p.type?.text === "Shot On Target") type = "shot";
+          else if (p.type?.id === "80") type = "kickoff";
+          else if (p.type?.id === "83") type = "fulltime";
+
+          return {
+            id: p.id,
+            minute: p.clock?.displayValue ?? "",
+            text: p.text || p.shortText || "",
+            type,
+            homeScore: p.homeScore ?? 0,
+            awayScore: p.awayScore ?? 0,
+            period: p.period?.number ?? 1,
+          };
+        }).filter((p) => p.text.length > 0);
+      }
+    } catch {
+      // ESPN API unavailable — commentary section simply won't render
+    }
+  }
+
   const sameDayMatches = matches.filter(
     (m) => m.date === match.date && m.slug !== match.slug
   );
@@ -457,6 +496,14 @@ export default async function MatchPage({ params }: PageProps) {
             {statistics.length === 2 && home && away && (
               <MatchStatistics
                 statistics={statistics}
+                homeName={home.name}
+                awayName={away.name}
+              />
+            )}
+
+            {commentaryPlays.length > 0 && home && away && (
+              <MatchCommentary
+                plays={commentaryPlays}
                 homeName={home.name}
                 awayName={away.name}
               />

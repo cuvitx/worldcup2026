@@ -39,6 +39,7 @@ export { newsArticles, newsCategories, newsBySlug, newsByCategory } from "./news
 export type { TeamHistoryEntry } from "./team-history";
 export { teamWorldCupHistory } from "./team-history";
 export { teamSlugToISO, getFlagPath, getISOCode } from "./country-codes";
+export { espnTeamNames, getEspnTeamName } from "./espn-team-names";
 export { getTVInfo, type TVInfo } from "./tv-schedule";
 export type { FavoriteOdds, GroupTeamPrediction, GroupPrediction, TopScorerCandidate, YoungPlayerCandidate } from "./predictions-2026";
 export { top10Favorites, favoritesByTeamId, groupPredictions, groupPredictionsByGroup, topScorerCandidates, topScorerById, youngPlayerCandidates, youngPlayerById, predictionsMeta } from "./predictions-2026";

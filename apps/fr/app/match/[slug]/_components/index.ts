@@ -8,3 +8,5 @@ export { MatchLineups } from "./MatchLineups";
 export { MatchStatistics } from "./MatchStatistics";
 export { MatchPlayerRatings } from "./MatchPlayerRatings";
 export { UpcomingPronosticsGrid } from "./UpcomingPronosticsGrid";
+export { MatchCommentary } from "./MatchCommentary";
+export type { CommentaryPlay } from "./MatchCommentary";

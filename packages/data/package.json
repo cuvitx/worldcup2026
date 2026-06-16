@@ -34,7 +34,8 @@
     "./predictions-2026": "./src/predictions-2026.ts",
     "./constants": "./src/constants.ts",
     "./bookmakers": "./src/bookmakers.ts",
-    "./tv-schedule": "./src/tv-schedule.ts"
+    "./tv-schedule": "./src/tv-schedule.ts",
+    "./espn-team-names": "./src/espn-team-names.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

@@ -19,6 +19,10 @@ export type { ApiFixtureStatistic, ApiFixturePlayer } from "./football/client";
 export { enrichTeamFromApi, mapInjuries } from "./football/mappers";
 export { enrichMatchesWithResults, getMatchResults, resolveApiFixtureId } from "./football/match-results";
 
+// ESPN commentary
+export { getEspnScoreboard, resolveEspnEventId, getEspnPlayByPlay } from "./espn/client";
+export type { EspnEvent, EspnKeyEvent, EspnPlay } from "./espn/types";
+
 // Weather
 export { getWeatherForecast } from "./weather/client";
 export { getWeatherImpact } from "./weather/match-weather";
