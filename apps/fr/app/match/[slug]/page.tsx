@@ -54,7 +54,7 @@ const AiExpertInsight = dynamic(
   }
 );
 
-export const revalidate = 300;
+export const revalidate = 30;
 export const dynamicParams = false;
 
 interface PageProps {
