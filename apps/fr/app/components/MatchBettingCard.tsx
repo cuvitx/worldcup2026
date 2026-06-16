@@ -52,12 +52,13 @@ export function MatchBettingCard({
 
       {/* Top bar — Logo + Partenaire */}
       <div className="relative flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3 sm:px-6">
-        <p
-          className="font-black text-xl sm:text-2xl italic tracking-tight"
-          style={{ color: "#d4af37", textShadow: "0 2px 4px rgba(0,0,0,0.4)" }}
-        >
-          PMU PLAY
-        </p>
+        <img
+          src="/partners/pmu-play.webp"
+          alt="PMU Play"
+          width={120}
+          height={36}
+          className="h-8 w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
+        />
         <span className="whitespace-nowrap rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#d4af37]">
           Partenaire
         </span>

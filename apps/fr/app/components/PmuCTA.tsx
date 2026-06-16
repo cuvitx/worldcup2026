@@ -24,6 +24,13 @@ export function PmuCTA({ tracking = "cta", teamName }: PmuCTAProps) {
       <div className="px-5 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
         {/* Left — Text */}
         <div className="flex-1 text-center sm:text-left">
+          <img
+            src="/partners/pmu-play.webp"
+            alt="PMU Play"
+            width={120}
+            height={36}
+            className="h-7 w-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] mb-2 mx-auto sm:mx-0"
+          />
           <p className="text-[#d4af37] font-bold text-sm sm:text-base uppercase tracking-wide">
             {heading}
           </p>
