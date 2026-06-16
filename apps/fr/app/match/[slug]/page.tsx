@@ -147,8 +147,8 @@ export default async function MatchPage({ params }: PageProps) {
         dateFormatted={dateFormatted}
       />
 
-      {/* Betting Card */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
+      {/* Betting Card — overlaps hero for seamless dark-to-dark flow */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 mb-6">
         <div className="max-w-xl mx-auto lg:max-w-2xl">
           <MatchBettingCard
             homeName={home?.name ?? "Équipe A"}

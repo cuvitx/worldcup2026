@@ -72,7 +72,7 @@ export function MatchHeroAdaptive({
   // Use hasScore alone so we don't wait for clientPhase to catch up
   if (hasScore && match.status === "finished") {
     return (
-      <section className="hero-animated text-white py-14 sm:py-20">
+      <section className="hero-animated text-white pt-14 pb-20 sm:pt-20 sm:pb-24">
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
             {stage}{match.group ? ` - Groupe ${match.group}` : ""}
@@ -124,7 +124,7 @@ export function MatchHeroAdaptive({
   // Live match or completed without score — use LiveMatchWidget
   if (isLive || isCompleted) {
     return (
-      <section className="hero-animated py-12 sm:py-16">
+      <section className="hero-animated pt-12 pb-20 sm:pt-16 sm:pb-24">
         <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6">
           <p className="mb-4 text-center text-sm text-secondary font-medium uppercase tracking-wide">
             {stage}
@@ -171,7 +171,7 @@ export function MatchHeroAdaptive({
   }
 
   return (
-    <section className="hero-animated text-white py-14 sm:py-20">
+    <section className="hero-animated text-white pt-14 pb-20 sm:pt-20 sm:pb-24">
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         {/* Badge pill */}
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 sm:px-5 py-2 backdrop-blur-md max-w-full">
