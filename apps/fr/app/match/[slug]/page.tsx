@@ -325,7 +325,7 @@ export default async function MatchPage({ params }: PageProps) {
       const espnAwayTeam = getEspnTeamName(match.awayTeamId);
       const espnEventId = await resolveEspnEventId(match.date, espnHomeTeam, espnAwayTeam);
       if (espnEventId) {
-        const rawPlays = await getEspnPlayByPlay(espnEventId);
+        const rawPlays = await getEspnPlayByPlay(espnEventId, matchPhase === "live");
         commentaryPlays = rawPlays.map((p) => {
           let type: CommentaryPlay["type"] = "other";
           if (p.scoringPlay) type = "goal";

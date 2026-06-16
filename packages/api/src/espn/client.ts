@@ -86,10 +86,10 @@ export async function resolveEspnEventId(
  * Returns all plays across all pages, sorted chronologically.
  * Only fetches priority plays (goals, cards, shots, subs) to keep payload small.
  */
-export async function getEspnPlayByPlay(eventId: string): Promise<EspnPlay[]> {
+export async function getEspnPlayByPlay(eventId: string, live = false): Promise<EspnPlay[]> {
   return cachedFetch<EspnPlay[]>(
     `espn:plays:${eventId}`,
-    CACHE_TTL.INJURIES, // 1h cache for finished matches
+    live ? CACHE_TTL.LIVE_SCORES : CACHE_TTL.INJURIES, // 60s live, 1h finished
     async () => {
       const allPlays: EspnPlay[] = [];
       let page = 1;
