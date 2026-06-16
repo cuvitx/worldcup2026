@@ -31,30 +31,29 @@ export interface MatchResult {
   status: NonNullable<Match["status"]>;
   apiHomeTeamId: number;
   apiAwayTeamId: number;
+  /** Kickoff timestamp rounded to minute (for fallback matching) */
+  kickoffMin: number;
 }
 
 /**
  * Fetch all World Cup fixture results from API-Football.
- * Returns a map of kickoff timestamp (rounded to minute) → result.
- * Cached for 5 minutes (same as ISR revalidation).
+ * Returns an array of results with team IDs for matching.
+ * Multiple matches can share the same kickoff time (e.g. group stage day 3).
  */
-export async function getMatchResults(): Promise<Map<number, MatchResult>> {
+export async function getMatchResults(): Promise<MatchResult[]> {
   const fixtures = await cachedFetch<ApiFixture[]>(
     "football:wc-results",
     1800, // 30 min — scores update via client-side live polling, ISR doesn't need frequent fetches
     () => getWorldCupFixtures()
   );
 
-  const results = new Map<number, MatchResult>();
+  const results: MatchResult[] = [];
 
   for (const f of fixtures) {
     const status = API_STATUS_MAP[f.fixture.status.short];
     if (!status || (status === "scheduled" && f.goals.home == null)) continue;
 
-    // Key by kickoff timestamp rounded to nearest minute (timezone-safe)
-    const kickoff = Math.round(new Date(f.fixture.date).getTime() / 60000);
-
-    results.set(kickoff, {
+    results.push({
       homeScore: f.goals.home ?? 0,
       awayScore: f.goals.away ?? 0,
       halfTimeHome: f.score?.halftime?.home ?? null,
@@ -62,6 +61,7 @@ export async function getMatchResults(): Promise<Map<number, MatchResult>> {
       status,
       apiHomeTeamId: f.teams.home.id,
       apiAwayTeamId: f.teams.away.id,
+      kickoffMin: Math.round(new Date(f.fixture.date).getTime() / 60000),
     });
   }
 
@@ -90,7 +90,19 @@ export async function resolveApiFixtureId(match: Match): Promise<number | null> 
 
   if (fixtures.length === 0) return null;
 
-  // Strategy 1: Match by kickoff timestamp (same logic as enrichMatchesWithResults)
+  const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
+  const ourAwayApiId = teamApiIds[match.awayTeamId] ?? 0;
+
+  // Strategy 1: Match by team API IDs (most reliable — avoids same-kickoff collisions)
+  if (ourHomeApiId > 0 && ourAwayApiId > 0) {
+    for (const f of fixtures) {
+      const homeMatch = f.teams.home.id === ourHomeApiId || f.teams.away.id === ourHomeApiId;
+      const awayMatch = f.teams.home.id === ourAwayApiId || f.teams.away.id === ourAwayApiId;
+      if (homeMatch && awayMatch) return f.fixture.id;
+    }
+  }
+
+  // Strategy 2: Match by kickoff timestamp (fallback when team IDs unavailable)
   const kickoff = Math.round(
     new Date(`${match.date}T${match.time}:00+02:00`).getTime() / 60000
   );
@@ -98,18 +110,6 @@ export async function resolveApiFixtureId(match: Match): Promise<number | null> 
   for (const f of fixtures) {
     const fKickoff = Math.round(new Date(f.fixture.date).getTime() / 60000);
     if (fKickoff === kickoff) return f.fixture.id;
-  }
-
-  // Strategy 2: Match by team API IDs (fallback for timezone edge cases)
-  const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
-  const ourAwayApiId = teamApiIds[match.awayTeamId] ?? 0;
-
-  if (ourHomeApiId > 0 && ourAwayApiId > 0) {
-    for (const f of fixtures) {
-      const homeMatch = f.teams.home.id === ourHomeApiId || f.teams.away.id === ourHomeApiId;
-      const awayMatch = f.teams.home.id === ourAwayApiId || f.teams.away.id === ourAwayApiId;
-      if (homeMatch && awayMatch) return f.fixture.id;
-    }
   }
 
   return null;
@@ -143,7 +143,7 @@ export async function enrichMatchesWithResults(
   );
   if (!needsEnrichment) return matches;
 
-  let results: Map<number, MatchResult>;
+  let results: MatchResult[];
   try {
     results = await getMatchResults();
   } catch {
@@ -151,22 +151,39 @@ export async function enrichMatchesWithResults(
     return matches;
   }
 
-  if (results.size === 0) return matches;
+  if (results.length === 0) return matches;
 
   return matches.map((match) => {
     // If already has score in static data, keep it
     if (match.status === "finished" && match.homeScore != null) return match;
 
-    // Match by kickoff timestamp (rounded to minute) — timezone & language safe
-    const kickoff = Math.round(
-      new Date(`${match.date}T${match.time}:00+02:00`).getTime() / 60000
-    );
+    const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
+    const ourAwayApiId = teamApiIds[match.awayTeamId] ?? 0;
 
-    const result = results.get(kickoff);
-    if (!result) return match;
+    // Strategy 1: Match by team API IDs (handles simultaneous kickoffs)
+    let result: MatchResult | undefined;
+    if (ourHomeApiId > 0 && ourAwayApiId > 0) {
+      result = results.find((r) => {
+        const hasHome = r.apiHomeTeamId === ourHomeApiId || r.apiAwayTeamId === ourHomeApiId;
+        const hasAway = r.apiHomeTeamId === ourAwayApiId || r.apiAwayTeamId === ourAwayApiId;
+        return hasHome && hasAway;
+      });
+    }
+
+    // Strategy 2: Fallback to kickoff timestamp (when team IDs unavailable)
+    // Only use if exactly one result matches (avoids simultaneous-match collisions)
+    if (!result) {
+      const kickoff = Math.round(
+        new Date(`${match.date}T${match.time}:00+02:00`).getTime() / 60000
+      );
+      const timeMatches = results.filter((r) => r.kickoffMin === kickoff);
+      if (timeMatches.length === 1) {
+        result = timeMatches[0];
+      }
+      if (!result) return match;
+    }
 
     // Check if home/away are swapped between our data and the API
-    const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
     const swapped = ourHomeApiId > 0 && ourHomeApiId === result.apiAwayTeamId;
 
     return {
