@@ -24,19 +24,19 @@ export const teamApiIds: Record<string, number> = {
   "bresil": 6,
   "maroc": 31,
   "ecosse": 1108,
-  "haiti": 5555,
+  "haiti": 2386,
 
   // Groupe D
   "etats-unis": 2384,
-  "paraguay": 29,
+  "paraguay": 2380,
   "australie": 20,
   "barrage-uefa-c": 0, // TBD
 
   // Groupe E
   "allemagne": 25,
-  "equateur": 2309,
-  "cote-divoire": 2287,
-  "curacao": 5531,
+  "equateur": 2382,
+  "cote-divoire": 1501,
+  "curacao": 5530,
 
   // Groupe F
   "pays-bas": 1118,
@@ -47,38 +47,38 @@ export const teamApiIds: Record<string, number> = {
   // Groupe G
   "belgique": 1,
   "iran": 22,
-  "egypte": 13,
+  "egypte": 32,
   "nouvelle-zelande": 4673,
 
   // Groupe H
   "espagne": 9,
   "uruguay": 7,
   "arabie-saoudite": 23,
-  "cap-vert": 5563,
+  "cap-vert": 1533,
 
   // Groupe I
   "france": 2,
-  "senegal": 28,
-  "norvege": 1107,
+  "senegal": 13,
+  "norvege": 1090,
   "barrage-interconf-2": 0, // TBD
 
   // Groupe J
   "argentine": 26,
   "autriche": 775,
   "algerie": 1532,
-  "jordanie": 1558,
+  "jordanie": 1548,
 
   // Groupe K
   "portugal": 27,
-  "colombie": 2315,
-  "ouzbekistan": 1555,
+  "colombie": 8,
+  "ouzbekistan": 1568,
   "barrage-interconf-1": 0, // TBD
 
   // Groupe L
   "angleterre": 10,
   "croatie": 3,
-  "ghana": 1533,
-  "panama": 5538,
+  "ghana": 1504,
+  "panama": 11,
 };
 
 /** Mapping stadium slug → API-Football venue ID */
