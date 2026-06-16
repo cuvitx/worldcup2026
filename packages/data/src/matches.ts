@@ -61,6 +61,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "B",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished",
   },
   // Group D: USA vs Paraguay — SoFi Stadium, Los Angeles — 03:00 CEST
   {
@@ -74,6 +77,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "D",
     matchday: 1,
+    homeScore: 4,
+    awayScore: 1,
+    status: "finished",
   },
 
   // ---- June 13, 2026 ----
@@ -89,6 +95,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "B",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished",
   },
   // Group C: Brazil vs Morocco — MetLife Stadium, New York/New Jersey — 00:00 CEST (+1 day)
   {
@@ -102,6 +111,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "C",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished",
   },
   // Group C: Haiti vs Scotland — Gillette Stadium, Boston — 03:00 CEST
   {
@@ -115,6 +127,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "C",
     matchday: 1,
+    homeScore: 0,
+    awayScore: 1,
+    status: "finished",
   },
   // Group D: Australia vs UEFA Playoff C — BC Place, Vancouver — 06:00 CEST
   {
@@ -128,6 +143,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "D",
     matchday: 1,
+    homeScore: 2,
+    awayScore: 0,
+    status: "finished",
   },
 
   // ---- June 14, 2026 ----
@@ -143,6 +161,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "E",
     matchday: 1,
+    homeScore: 7,
+    awayScore: 1,
+    status: "finished",
   },
   // Group F: Netherlands vs Japan — AT&T Stadium, Dallas — 22:00 CEST
   {
@@ -156,6 +177,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "F",
     matchday: 1,
+    homeScore: 2,
+    awayScore: 2,
+    status: "finished",
   },
   // Group E: Ivory Coast vs Ecuador — Lincoln Financial Field, Philadelphia — 01:00 CEST (+1 day)
   {
@@ -169,6 +193,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "E",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 0,
+    status: "finished",
   },
   // Group F: Tunisia vs UEFA Playoff B — Estadio BBVA, Monterrey — 04:00 CEST
   {
@@ -182,6 +209,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "F",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 5,
+    status: "finished",
   },
 
   // ---- June 15, 2026 ----
@@ -197,6 +227,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "H",
     matchday: 1,
+    homeScore: 0,
+    awayScore: 0,
+    status: "finished",
   },
   // Group G: Belgium vs Egypt — Lumen Field, Seattle — 00:00 CEST (+1 day)
   {
@@ -210,6 +243,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "G",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished",
   },
   // Group H: Saudi Arabia vs Uruguay — Hard Rock Stadium, Miami — 00:00 CEST (+1 day)
   {
@@ -223,6 +259,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "H",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished",
   },
   // Group G: Iran vs New Zealand — SoFi Stadium, Los Angeles — 03:00 CEST
   {
@@ -236,6 +275,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "G",
     matchday: 1,
+    homeScore: 2,
+    awayScore: 2,
+    status: "finished",
   },
 
   // ---- June 16, 2026 ----
