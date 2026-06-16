@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 
 interface MatchBettingCardProps {
@@ -9,6 +10,8 @@ interface MatchBettingCardProps {
   drawOdds?: string;
   awayOdds?: string;
   tracking?: string;
+  /** When set, shows a "Prochain match" label linking to this match page */
+  nextMatchSlug?: string;
 }
 
 /**
@@ -24,6 +27,7 @@ export function MatchBettingCard({
   drawOdds,
   awayOdds,
   tracking = "match",
+  nextMatchSlug,
 }: MatchBettingCardProps) {
   const hasOdds = homeOdds && drawOdds && awayOdds;
   const url = pmuTrackingUrl(tracking);
@@ -65,6 +69,20 @@ export function MatchBettingCard({
       </div>
 
       <div className="relative">
+        {/* Next match label */}
+        {nextMatchSlug && (
+          <Link
+            href={`/match/${nextMatchSlug}`}
+            className="flex items-center gap-2 px-5 py-2.5 sm:px-6 border-b border-white/5 hover:bg-white/5 transition-colors"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ffd700] animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37]">
+              Prochain match : {homeFlag} {homeName} vs {awayName} {awayFlag}
+            </span>
+            <span className="text-white/40 text-xs ml-auto">&rarr;</span>
+          </Link>
+        )}
+
         {/* Bonus banner — full-width gold bar with shine animation */}
         <a
           href={url}

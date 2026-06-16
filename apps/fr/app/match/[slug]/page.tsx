@@ -133,6 +133,40 @@ export default async function MatchPage({ params }: PageProps) {
     ? estimatedMatchOdds(prediction.team1WinProb, prediction.drawProb, prediction.team2WinProb)
     : null;
 
+  // When match is completed, find the next upcoming match to promote instead
+  let nextMatch: (typeof matches)[number] | undefined = undefined;
+  let nextHome: typeof home = undefined;
+  let nextAway: typeof away = undefined;
+  let nextOdds: typeof matchOdds = null;
+
+
+  if (isCompleted) {
+    const now = new Date();
+    const upcoming = matches
+      .filter((m) => {
+        const kickoff = new Date(`${m.date}T${m.time || "00:00"}:00+02:00`);
+        return kickoff > now && m.homeTeamId && m.awayTeamId;
+      })
+      .sort((a, b) => {
+        const da = new Date(`${a.date}T${a.time || "00:00"}:00+02:00`);
+        const db = new Date(`${b.date}T${b.time || "00:00"}:00+02:00`);
+        return da.getTime() - db.getTime();
+      });
+
+    const first = upcoming[0];
+    if (first) {
+      nextMatch = first;
+      nextHome = teamsById[first.homeTeamId];
+      nextAway = teamsById[first.awayTeamId];
+      const nextPred = nextHome && nextAway
+        ? matchPredictionByPair[`${first.homeTeamId}:${first.awayTeamId}`]
+        : undefined;
+      nextOdds = nextPred
+        ? estimatedMatchOdds(nextPred.team1WinProb, nextPred.drawProb, nextPred.team2WinProb)
+        : null;
+    }
+  }
+
   return (
     <>
 {/* Breadcrumb */}
@@ -150,16 +184,30 @@ export default async function MatchPage({ params }: PageProps) {
       {/* Betting Card — overlaps hero for seamless dark-to-dark flow */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 mb-6">
         <div className="max-w-xl mx-auto lg:max-w-2xl">
-          <MatchBettingCard
-            homeName={home?.name ?? "Équipe A"}
-            homeFlag={home?.flag ?? ""}
-            awayName={away?.name ?? "Équipe B"}
-            awayFlag={away?.flag ?? ""}
-            homeOdds={matchOdds?.home}
-            drawOdds={matchOdds?.draw}
-            awayOdds={matchOdds?.away}
-            tracking="match"
-          />
+          {isCompleted && nextMatch && nextHome && nextAway ? (
+            <MatchBettingCard
+              homeName={nextHome.name}
+              homeFlag={nextHome.flag}
+              awayName={nextAway.name}
+              awayFlag={nextAway.flag}
+              homeOdds={nextOdds?.home}
+              drawOdds={nextOdds?.draw}
+              awayOdds={nextOdds?.away}
+              tracking="next-match"
+              nextMatchSlug={nextMatch.slug}
+            />
+          ) : (
+            <MatchBettingCard
+              homeName={home?.name ?? "Équipe A"}
+              homeFlag={home?.flag ?? ""}
+              awayName={away?.name ?? "Équipe B"}
+              awayFlag={away?.flag ?? ""}
+              homeOdds={matchOdds?.home}
+              drawOdds={matchOdds?.draw}
+              awayOdds={matchOdds?.away}
+              tracking="match"
+            />
+          )}
         </div>
       </div>
 
