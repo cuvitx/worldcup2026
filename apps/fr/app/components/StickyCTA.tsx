@@ -62,7 +62,7 @@ export function StickyCTA() {
             <img
               src={PMU_IMAGE}
               alt="PMU Play — Jusqu'à 100€ en cash"
-              className="block w-[min(500px,85vw)] h-auto rounded-2xl"
+              className="block w-[85vw] sm:w-[700px] h-auto rounded-2xl"
             />
           </a>
 
