@@ -32,6 +32,8 @@ export async function getEspnScoreboard(date: string): Promise<EspnEvent[]> {
 /**
  * Resolve ESPN event ID for a match by date and team names.
  * Matches on competitor display names (fuzzy: contains check).
+ * Also checks the previous day (ESPN uses UTC dates, our data uses Paris time,
+ * so late-night US matches fall on the next day in Paris).
  */
 export async function resolveEspnEventId(
   date: string,
@@ -41,30 +43,43 @@ export async function resolveEspnEventId(
   // Skip during build
   if (process.env.NEXT_PHASE === "phase-production-build") return null;
 
-  let events: EspnEvent[];
-  try {
-    events = await getEspnScoreboard(date);
-  } catch {
+  const homeLower = homeTeamName.toLowerCase();
+  const awayLower = awayTeamName.toLowerCase();
+
+  function matchInEvents(events: EspnEvent[]): string | null {
+    for (const ev of events) {
+      const comp = ev.competitions[0];
+      if (!comp) continue;
+      const teams = comp.competitors.map((c) => c.team.displayName.toLowerCase());
+      if (
+        teams.some((t) => t.includes(homeLower) || homeLower.includes(t)) &&
+        teams.some((t) => t.includes(awayLower) || awayLower.includes(t))
+      ) {
+        return ev.id;
+      }
+    }
     return null;
   }
 
-  if (events.length === 0) return null;
-
-  // Try exact match on short names first
-  for (const ev of events) {
-    const comp = ev.competitions[0];
-    if (!comp) continue;
-    const teams = comp.competitors.map((c) => c.team.displayName.toLowerCase());
-    // Check if both our team names are present (order may differ)
-    if (
-      teams.some((t) => t.includes(homeTeamName.toLowerCase()) || homeTeamName.toLowerCase().includes(t)) &&
-      teams.some((t) => t.includes(awayTeamName.toLowerCase()) || awayTeamName.toLowerCase().includes(t))
-    ) {
-      return ev.id;
-    }
+  // Try the given date first
+  try {
+    const events = await getEspnScoreboard(date);
+    const found = matchInEvents(events);
+    if (found) return found;
+  } catch {
+    // continue to fallback
   }
 
-  return null;
+  // Fallback: check the previous day (UTC vs Paris timezone offset)
+  try {
+    const prev = new Date(date + "T00:00:00Z");
+    prev.setUTCDate(prev.getUTCDate() - 1);
+    const prevDate = prev.toISOString().slice(0, 10);
+    const prevEvents = await getEspnScoreboard(prevDate);
+    return matchInEvents(prevEvents);
+  } catch {
+    return null;
+  }
 }
 
 /**
