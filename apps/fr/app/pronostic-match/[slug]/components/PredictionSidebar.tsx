@@ -176,24 +176,27 @@ export function PredictionSidebar({
       )}
 
       {/* Sidebar CTA */}
-      <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">
-          Parier sur ce match
-        </h3>
-        <p className="mb-3 text-sm text-gray-600">
-          {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
-        </p>
-        <a
-          href={featuredBookmaker.url}
-          target="_blank"
-          rel="noopener noreferrer sponsored nofollow"
-          className="block w-full rounded-xl bg-accent px-4 py-3.5 text-center text-sm font-bold text-white hover:bg-accent/80 transition-colors"
-        >
-          Parier sur {featuredBookmaker.name} &rarr;
-        </a>
-        <p className="mt-2 text-xs text-gray-500 text-center">
-          18+ | Pariez responsablement
-        </p>
+      <div className="rounded-xl overflow-hidden border border-[#d4af37]/25 text-white" style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}>
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-white mb-2">
+            Parier sur ce match
+          </h3>
+          <p className="mb-3 text-sm text-white/70">
+            {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
+          </p>
+          <a
+            href={featuredBookmaker.url}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            className="block w-full rounded-xl px-4 py-3.5 text-center text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition"
+            style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
+          >
+            Parier sur PMU Play &rarr;
+          </a>
+          <p className="mt-2 text-xs text-white/50 text-center">
+            18+ | Pariez responsablement
+          </p>
+        </div>
       </div>
 
       {/* Autres pronostics */}

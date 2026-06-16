@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
-import { Flag, TrendingUp, ArrowRight, ExternalLink, Eye, Cpu } from "lucide-react";
+import { Flag, TrendingUp, ArrowRight, Eye, Cpu } from "lucide-react";
+import { PmuCTA } from "../../components/PmuCTA";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
 function getOffsideStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 4 + awayId.charCodeAt(0) * 2 + homeId.length;
   const homeOffsides = +(1.5 + (seed % 20) / 10).toFixed(1);
@@ -129,7 +129,7 @@ const faqItems = [
                 <th className="text-left p-3">Marché</th>
                 <th className="text-center p-3">PokerStars Sports</th>
                 <th className="text-center p-3">Betsson</th>
-                <th className="text-center p-3">PMU Sport</th>
+                <th className="text-center p-3">PMU Play</th>
               </tr>
             </thead>
             <tbody>
@@ -157,17 +157,8 @@ const faqItems = [
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker.</p>
       </section>
       {/* CTA */}
-      <section className="max-w-3xl mx-auto px-4 py-10 text-center">
-        <div className="bg-white rounded-2xl border border-gray-200 p-8">
-          <h3 className="text-xl font-bold text-primary mb-4">Parier sur les hors-jeu</h3>
-          <p className="text-gray-600 mb-6">Comparez les cotes hors-jeu pour {homeName} vs {awayName}.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">100€ offerts sur PMU Sport <ExternalLink className="w-4 h-4" /></a>
-            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Parier sur PMU Sport <ExternalLink className="w-4 h-4" /></a>
-            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">Voir les cotes PMU Sport <ExternalLink className="w-4 h-4" /></a>
-          </div>
-          <p className="text-xs text-gray-400 mt-4"></p>
-        </div>
+      <section className="max-w-3xl mx-auto px-4 py-10">
+        <PmuCTA tracking="stats" heading="Parier sur les hors-jeu" subheading={`Comparez les cotes hors-jeu pour ${homeName} vs ${awayName}.`} />
       </section>
       {/* Related */}
       <section className="max-w-5xl mx-auto px-4 py-10">

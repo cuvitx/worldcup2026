@@ -449,7 +449,8 @@ export default async function ScoreExactPage({ params }: PageProps) {
                 href={bk1.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center bg-accent text-white rounded-xl py-3.5 font-bold hover:opacity-90 transition-opacity"
+                className="block w-full text-center rounded-xl py-3.5 font-bold text-[#0c3b2e] hover:brightness-110 transition"
+                style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
               >
                 Miser sur ce score chez {bk1.name}
               </a>
@@ -472,7 +473,8 @@ export default async function ScoreExactPage({ params }: PageProps) {
                 href={bk2.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center bg-accent text-white rounded-xl py-3.5 font-bold hover:opacity-90 transition-opacity"
+                className="block w-full text-center rounded-xl py-3.5 font-bold text-[#0c3b2e] hover:brightness-110 transition"
+                style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
               >
                 Profiter de la cote chez {bk2.name}
               </a>
@@ -498,7 +500,8 @@ export default async function ScoreExactPage({ params }: PageProps) {
                 href={bk3.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="block w-full text-center bg-accent text-white rounded-xl py-3.5 font-bold hover:opacity-90 transition-opacity"
+                className="block w-full text-center rounded-xl py-3.5 font-bold text-[#0c3b2e] hover:brightness-110 transition"
+                style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
               >
                 Voir l&apos;offre {bk3.name}
               </a>

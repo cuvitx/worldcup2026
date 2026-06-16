@@ -122,12 +122,12 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
       {/* Betting CTA — high-intent placement */}
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-4">
-        <div className="rounded-2xl bg-gradient-to-r from-[#022149] to-[#0a3d7a] px-5 py-4 text-white flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="rounded-2xl px-5 py-4 text-white flex flex-col sm:flex-row sm:items-center gap-4 border border-[#d4af37]/25" style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-base">Parier sur ce match</p>
             {odds && (
               <p className="text-sm text-white/70 mt-0.5">
-                Cotes estimées : <span className="text-accent font-semibold">{homeName} {odds.home}</span> · Nul {odds.draw} · <span className="text-accent font-semibold">{awayName} {odds.away}</span>
+                Cotes estimées : <span className="text-[#ffd700] font-semibold">{homeName} {odds.home}</span> · Nul {odds.draw} · <span className="text-[#ffd700] font-semibold">{awayName} {odds.away}</span>
               </p>
             )}
             <p className="text-[10px] text-white/40 mt-1">18+ | Offre soumise à conditions</p>
@@ -136,9 +136,10 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             href={pmuTrackingUrl("match-cta")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="shrink-0 inline-block rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white hover:brightness-110 transition-all text-center"
+            className="shrink-0 inline-block rounded-xl px-6 py-3 text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition-all text-center"
+            style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
-            100€ offerts sur PMU Sport →
+            100€ offerts sur PMU Play →
           </a>
         </div>
       </div>
