@@ -201,8 +201,8 @@ export function SiloTabs() {
   const currentPath = pathname.replace(/\/$/, "");
 
   return (
-    <nav aria-label="Navigation du silo" className="px-4 py-3 overflow-x-clip">
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide sm:justify-center">
+    <nav aria-label="Navigation du silo" className="px-4 py-3 overflow-hidden">
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide sm:justify-center -mx-4 px-4">
         {tabs.map((tab) => {
           const isActive = currentPath === tab.href.replace(/\/$/, "");
           return (

@@ -131,7 +131,7 @@ export function LiveTicker() {
               </span>
             </span>
           )}
-          <span className="whitespace-nowrap">
+          <span className="truncate min-w-0">
             <span role="img" aria-label={homeTeam.name}>{homeTeam.flag}</span>{" "}
             <span className="font-semibold">{homeName}</span>
             {" "}vs{" "}

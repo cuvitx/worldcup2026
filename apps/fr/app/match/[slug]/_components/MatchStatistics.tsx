@@ -90,12 +90,12 @@ function StatRow({
   return (
     <div className="flex flex-col gap-1.5">
       {/* Labels & values */}
-      <div className="flex items-center justify-between">
-        <span className="font-bold text-gray-900 text-sm">{homeDisplay}</span>
-        <span className="text-xs text-gray-500 uppercase tracking-wide">
+      <div className="flex items-center justify-between gap-2">
+        <span className="font-bold text-gray-900 text-sm shrink-0">{homeDisplay}</span>
+        <span className="text-xs text-gray-500 uppercase tracking-wide truncate min-w-0">
           {label}
         </span>
-        <span className="font-bold text-gray-900 text-sm">{awayDisplay}</span>
+        <span className="font-bold text-gray-900 text-sm shrink-0">{awayDisplay}</span>
       </div>
 
       {/* Comparison bar */}

@@ -134,11 +134,6 @@ export default function RootLayout({
             __html: `if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js")})}`,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if(location.search.includes("debug-overflow")){setTimeout(function(){var vw=document.documentElement.clientWidth;var found=[];document.querySelectorAll("*").forEach(function(el){var r=el.getBoundingClientRect();if(r.right>vw+2||r.left<-2){el.style.outline="3px solid red";el.style.outlineOffset="-3px";found.push(Math.round(r.right-vw)+"px "+el.tagName+"."+el.className.split(" ").slice(0,3).join("."))}});var d=document.createElement("div");d.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99999;background:red;color:white;padding:12px;font:14px monospace;max-height:40vh;overflow:auto";d.innerHTML="<b>Overflow: "+found.length+" elements</b><br>docScroll: "+document.documentElement.scrollWidth+"x"+vw+"<br><br>"+found.join("<br>");document.body.prepend(d)},3000)}`
-          }}
-        />
         <OrganizationSchema url={domains.fr} name="CDM 2026 - Coupe du Monde" />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Aller au contenu</a>
         <LiveDataProvider>

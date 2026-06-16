@@ -144,12 +144,12 @@ export function MatchCommentary({
       </div>
 
       {/* Score bar */}
-      <div className="px-5 py-3 bg-gray-50 border-b border-gray-100 flex items-center justify-center gap-4 text-sm">
-        <span className="font-semibold text-gray-900">{homeName}</span>
-        <span className="font-bold text-lg tabular-nums text-gray-800">
+      <div className="px-5 py-3 bg-gray-50 border-b border-gray-100 flex items-center justify-center gap-3 text-sm min-w-0">
+        <span className="font-semibold text-gray-900 truncate min-w-0">{homeName}</span>
+        <span className="font-bold text-lg tabular-nums text-gray-800 shrink-0">
           {plays[plays.length - 1]?.homeScore ?? 0} - {plays[plays.length - 1]?.awayScore ?? 0}
         </span>
-        <span className="font-semibold text-gray-900">{awayName}</span>
+        <span className="font-semibold text-gray-900 truncate min-w-0">{awayName}</span>
       </div>
 
       {/* Timeline */}

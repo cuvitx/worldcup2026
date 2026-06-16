@@ -61,12 +61,12 @@ function InjuryList({ team, injuries, t }: { team: string; injuries: Injury[]; t
       <p className="font-semibold text-gray-700 mb-2">{team}</p>
       <ul className="space-y-1.5">
         {injuries.map((inj) => (
-          <li key={inj.player} className="flex items-center gap-2 text-sm">
-            <span className={`rounded px-1.5 py-0.5 text-xs font-medium ${typeColors[inj.type] ?? "bg-gray-100 text-gray-600"}`}>
+          <li key={inj.player} className="flex items-center gap-2 text-sm min-w-0">
+            <span className={`shrink-0 rounded px-1.5 py-0.5 text-xs font-medium ${typeColors[inj.type] ?? "bg-gray-100 text-gray-600"}`}>
               {inj.type === "Missing Fixture" ? t.absent : inj.type}
             </span>
-            <span className="font-medium text-gray-800">{inj.player}</span>
-            <span className="text-gray-500">— {inj.reason}</span>
+            <span className="font-medium text-gray-800 truncate min-w-0">{inj.player}</span>
+            <span className="text-gray-500 truncate min-w-0">— {inj.reason}</span>
           </li>
         ))}
       </ul>
