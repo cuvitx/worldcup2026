@@ -138,13 +138,15 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Aller au contenu</a>
         <LiveDataProvider>
         <BadgeSystem>
+        <div className="w-full max-w-[100vw] overflow-x-hidden">
         <Header />
         <LiveScoreBarWrapper />
         <LiveTicker />
-        <main id="main-content" className="flex-1 overflow-x-clip"><AutoBreadcrumb /><SiloTabs />{children}</main>
+        <main id="main-content" className="flex-1"><AutoBreadcrumb /><SiloTabs />{children}</main>
         <AutoRelatedContent />
         <div className="py-6 sm:py-8"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><PmuBanner tracking="global-footer" /></div></div>
         <Footer />
+        </div>
         <BackToTop />
         <StickyCTA />
         <AffiliateTracker />
