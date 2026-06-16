@@ -50,7 +50,7 @@ function getEventLabel(
       return { primary: playerName, secondary: null, tag: "(pen.)" };
     }
     if (detail === "Missed Penalty") {
-      return { primary: playerName, secondary: null, tag: "pen. manqu\u00E9" };
+      return { primary: playerName, secondary: null, tag: "pen. manqué" };
     }
     return { primary: playerName, secondary: assistName, tag: null };
   }
@@ -197,7 +197,7 @@ export function MatchEventsTimeline({
           &#x1F551;
         </span>
         <h3 className="font-bold text-lg text-gray-900">
-          \u00C9v\u00E9nements du match
+          Événements du match
         </h3>
       </div>
 
