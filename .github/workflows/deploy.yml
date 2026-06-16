@@ -26,6 +26,5 @@ jobs:
           timeout: 60s
           command_timeout: 25m
           script: |
-            sudo rm -rf /srv/cdm2026/repo/apps/fr/.next
             sudo find /srv/cdm2026/releases/ -maxdepth 1 -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true
             /srv/cdm2026/deploy.sh
