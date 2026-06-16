@@ -41,11 +41,11 @@ export function StickyCTA() {
       />
       {/* Popup */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div className="relative overflow-visible">
-          {/* Close button */}
+        <div className="relative w-[85vw] max-w-[700px]">
+          {/* Close button — inside the container, top-right corner */}
           <button
             onClick={(e) => { e.stopPropagation(); dismiss(); }}
-            className="absolute -top-3 -right-3 z-[10000] flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-white hover:bg-black transition-colors shadow-lg"
+            className="absolute top-2 right-2 z-[10000] flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black transition-colors shadow-lg backdrop-blur-sm"
             aria-label="Fermer"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -64,13 +64,13 @@ export function StickyCTA() {
             <img
               src={PMU_IMAGE_MOBILE}
               alt="PMU Play — Jusqu'à 100€ en cash"
-              className="block sm:hidden w-[85vw] h-auto rounded-2xl"
+              className="block sm:hidden w-full h-auto rounded-2xl"
             />
             {/* Desktop */}
             <img
               src={PMU_IMAGE_DESKTOP}
               alt="PMU Play — Jusqu'à 100€ en cash"
-              className="hidden sm:block w-[700px] h-auto rounded-2xl"
+              className="hidden sm:block w-full h-auto rounded-2xl"
             />
           </a>
 

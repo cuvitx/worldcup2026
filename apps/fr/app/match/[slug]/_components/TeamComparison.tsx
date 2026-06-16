@@ -36,15 +36,15 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
             <p className="text-xs text-gray-500 text-center mb-2 font-medium">
               {row.label}
             </p>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex items-center gap-2">
+            <div className="grid grid-cols-2 gap-2 overflow-hidden">
+              <div className="flex items-center gap-2 min-w-0">
                 <span className="text-sm shrink-0">{home.flag}</span>
-                <span className="text-sm font-bold text-gray-900 break-words">
+                <span className="text-sm font-bold text-gray-900 truncate">
                   {row.v1}
                 </span>
               </div>
-              <div className="flex items-center justify-end gap-2">
-                <span className="text-sm font-bold text-gray-900 break-words text-right">
+              <div className="flex items-center justify-end gap-2 min-w-0">
+                <span className="text-sm font-bold text-gray-900 truncate text-right">
                   {row.v2}
                 </span>
                 <span className="text-sm shrink-0">{away.flag}</span>
