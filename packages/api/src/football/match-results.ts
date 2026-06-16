@@ -78,12 +78,18 @@ export async function enrichMatchesWithResults(
   _teamNameMap?: Record<string, string> // kept for backward compat, no longer used
 ): Promise<Match[]> {
   // Skip during build — static scores are sufficient, avoids rate limit exhaustion
-  const isBuild = process.env.NEXT_PHASE === "phase-production-build";
-  if (isBuild) return matches;
+  if (process.env.NEXT_PHASE === "phase-production-build") return matches;
 
-  // Only call API if at least one match actually needs enrichment
+  // Only call API if at least one match is today/yesterday AND doesn't have a score yet.
+  // No point fetching for matches 10 days in the future.
+  const now = new Date();
+  const todayStr = now.toISOString().slice(0, 10);
+  const yesterday = new Date(now.getTime() - 86400000).toISOString().slice(0, 10);
+
   const needsEnrichment = matches.some(
-    (m) => !(m.status === "finished" && m.homeScore != null)
+    (m) =>
+      (m.date === todayStr || m.date === yesterday) &&
+      !(m.status === "finished" && m.homeScore != null)
   );
   if (!needsEnrichment) return matches;
 
