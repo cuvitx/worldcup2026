@@ -84,7 +84,7 @@ export function TimeZoneSection({ timeZones, typicalSchedule }: TimeZoneSectionP
           <p className="font-semibold"> Bon à savoir</p>
           <p className="mt-1">
             Les matchs de la France seront programmés en priorité sur des créneaux accessibles pour le public européen.
-            TF1 diffusera tous les matchs des Bleus en clair, y compris ceux à l&apos;heure tardive.
+            M6 diffusera tous les matchs des Bleus en clair, y compris ceux à l&apos;heure tardive.
           </p>
         </div>
       </section>

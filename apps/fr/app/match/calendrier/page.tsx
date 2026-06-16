@@ -23,7 +23,7 @@ const faqCalendrierItems = [
   {
     question: "Quelle chaîne diffuse la CDM 2026 en France ?",
     answer:
-      "En France, les droits de diffusion de la Coupe du Monde 2026 sont partagés entre TF1 et M6 pour les matchs en clair (dont tous les matchs de l'équipe de France), et beIN Sports pour une couverture intégrale. Les matchs peuvent également être suivis en streaming via les applications de ces chaînes.",
+      "En France, M6 diffuse 54 matchs de la Coupe du Monde 2026 en clair (dont tous les matchs de l'équipe de France, les quarts, demi-finales et la finale). beIN Sports propose une couverture intégrale des 104 matchs. Les matchs peuvent être suivis en streaming via M6+ (gratuit) et beIN CONNECT.",
   },
   {
     question: "Où se déroulent les matchs de l'équipe de France ?",

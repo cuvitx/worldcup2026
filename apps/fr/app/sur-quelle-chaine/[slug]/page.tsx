@@ -19,21 +19,14 @@ function hashSlug(slug: string): number {
   }
   return Math.abs(h);
 }
-function getFrenchChannel(slug: string, homeTeamId: string, awayTeamId: string, stage: string): { name: string; type: string; free: boolean } {
-  const isFranceMatch = homeTeamId === "france" || awayTeamId === "france";
-  const isBigStage = ["semi-final", "final", "third-place"].includes(stage);
-  if (isFranceMatch || isBigStage) {
-    return { name: "TF1", type: "Gratuit (TNT)", free: true };
+function getFrenchChannel(slug: string, _homeTeamId: string, _awayTeamId: string, _stage: string): { name: string; type: string; free: boolean } {
+  // Use the canonical TV schedule data (M6 has exclusive free-to-air rights, NOT TF1)
+  const { getTVInfo } = require("@repo/data/tv-schedule") as { getTVInfo: (slug: string) => { channels: string[] } };
+  const tvInfo = getTVInfo(slug);
+  const hasFreeChannel = tvInfo.channels.some((ch: string) => ch === "M6");
+  if (hasFreeChannel) {
+    return { name: "M6", type: "Gratuit (TNT)", free: true };
   }
-  const isQuarter = stage === "quarter-final";
-  if (isQuarter) {
-    return hashSlug(slug) % 2 === 0
-      ? { name: "TF1", type: "Gratuit (TNT)", free: true }
-      : { name: "M6", type: "Gratuit (TNT)", free: true };
-  }
-  const h = hashSlug(slug) % 3;
-  if (h === 0) return { name: "TF1", type: "Gratuit (TNT)", free: true };
-  if (h === 1) return { name: "M6", type: "Gratuit (TNT)", free: true };
   return { name: "beIN Sports", type: "Abonnement (~15 €/mois)", free: false };
 }
 function getInternationalChannels(slug: string) {
@@ -69,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const homeName = home?.name ?? "À déterminer";
   const awayName = away?.name ?? "À déterminer";
   const title = `Sur quelle chaîne regarder ${homeName} vs ${awayName} ? Programme TV CDM 2026`;
-  const description = `Découvrez sur quelle chaîne regarder ${homeName} - ${awayName} en direct (TF1, M6, beIN Sports). Horaires, streaming et diffusion internationale pour la Coupe du Monde 2026.`;
+  const description = `Découvrez sur quelle chaîne regarder ${homeName} - ${awayName} en direct (M6, beIN Sports). Horaires, streaming et diffusion internationale pour la Coupe du Monde 2026.`;
   return {
     title,
     description,
@@ -119,8 +112,8 @@ const faqItems = [
     {
       question: `Sur quelle chaîne voir ${homeName} vs ${awayName} gratuitement ?`,
       answer: frenchChannel.free
-        ? `Le match ${homeName} - ${awayName} sera diffusé gratuitement sur ${frenchChannel.name} (TNT). Vous pouvez aussi le regarder en streaming gratuit sur ${frenchChannel.name === "TF1" ? "TF1+" : "6play"}.`
-        : `Ce match sera diffusé sur beIN Sports (abonnement requis). Retrouvez certains matchs gratuits sur TF1 et M6.`,
+        ? `Le match ${homeName} - ${awayName} sera diffusé gratuitement sur ${frenchChannel.name} (TNT). Vous pouvez aussi le regarder en streaming gratuit sur M6+.`
+        : `Ce match sera diffusé sur beIN Sports (abonnement requis). Retrouvez 54 matchs gratuits sur M6.`,
     },
     {
       question: `À quelle heure est ${homeName} - ${awayName} ?`,
@@ -128,7 +121,7 @@ const faqItems = [
     },
     {
       question: "Comment regarder la CDM 2026 en streaming ?",
-      answer: "Plusieurs options : TF1+ et 6play (gratuit, sélection de matchs), beIN Connect (intégralité, ~15€/mois), Molotov TV et myCANAL pour accéder aux chaînes en direct.",
+      answer: "Plusieurs options : M6+ (gratuit, 54 matchs), beIN CONNECT (intégralité, ~15€/mois), Molotov TV et myCANAL pour accéder aux chaînes en direct.",
     },
     {
       question: `Où se joue ${homeName} vs ${awayName} ?`,
@@ -226,7 +219,7 @@ const faqItems = [
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
                   { name: "beIN Connect", desc: "104 matchs en direct et replay", price: "~15 €/mois", free: false },
-                  { name: "Molotov TV", desc: "Accès aux chaînes TNT (TF1, M6)", price: "Gratuit (base)", free: true },
+                  { name: "Molotov TV", desc: "Accès aux chaînes TNT (M6)", price: "Gratuit (base)", free: true },
                   { name: "myCANAL", desc: "Via option beIN Sports", price: "Inclus avec abonnement", free: false },
                 ].map((s) => (
                   <div key={s.name} className="rounded-lg border border-gray-200 p-4 text-center">

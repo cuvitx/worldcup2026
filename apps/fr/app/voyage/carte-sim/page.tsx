@@ -98,7 +98,7 @@ const faqItems = [
   {
     question: "Faut-il un VPN aux USA ?",
     answer:
-      "Un VPN n'est pas nécessaire pour la sécurité, mais il peut être utile pour accéder à vos services de streaming français (TF1+, M6+) qui sont géo-bloqués aux USA. NordVPN et ExpressVPN fonctionnent bien depuis les USA.",
+      "Un VPN n'est pas nécessaire pour la sécurité, mais il peut être utile pour accéder à vos services de streaming français (M6+, beIN CONNECT) qui sont géo-bloqués aux USA. NordVPN et ExpressVPN fonctionnent bien depuis les USA.",
   },
 ];
 

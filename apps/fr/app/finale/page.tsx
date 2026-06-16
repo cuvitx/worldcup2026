@@ -56,7 +56,7 @@ const faqItems = [
   {
     question: "Comment regarder la finale en France ?",
     answer:
-      "La finale sera diffusée en clair sur TF1 et en streaming sur TF1+. BeIN Sports et éventuellement M6 devraient aussi proposer la retransmission. Le coup d'envoi à 22h heure de Paris est un créneau idéal pour le public français.",
+      "La finale sera diffusée en clair sur M6 et en streaming sur M6+. beIN Sports propose également la retransmission pour ses abonnés. Le coup d'envoi à 22h heure de Paris est un créneau idéal pour le public français.",
   },
 ];
 

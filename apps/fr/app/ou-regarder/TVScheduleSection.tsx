@@ -22,7 +22,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
          Programme TV — Matchs clés en France
       </h2>
       <p className="text-gray-600 mb-4 text-sm">
-        Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la 🇫🇷 France sont sur TF1 (gratuit).
+        Heures indiquées en <strong>heure française (CEST, UTC+2)</strong>. Les matchs de la France sont sur M6 (gratuit).
       </p>
 
       {/* Mobile: cards */}
@@ -45,7 +45,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
             <div className="flex flex-wrap gap-1 mb-2">
               {m.tvFR.map((ch) => (
                 <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                  ch === "TF1" || ch === "M6"
+                  ch === "M6"
                     ? "bg-field/10 text-field"
                     : "bg-primary/10 text-primary"
                 }`}>{ch}</span>
@@ -94,7 +94,7 @@ export function TVScheduleSection({ featuredMatches }: TVScheduleSectionProps) {
                   <div className="flex flex-wrap gap-1">
                     {m.tvFR.map((ch) => (
                       <span key={ch} className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
-                        ch === "TF1" || ch === "M6"
+                        ch === "M6"
                           ? "bg-field/10 text-field"
                           : "bg-primary/10 text-primary"
                       }`}>{ch}</span>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Où regarder la CDM 2026 — TV & Streaming par pays",
     description:
-      "TF1, M6, beIN Sports, BBC, Fox Sports… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
+      "M6, beIN Sports, BBC, Fox Sports… Tout ce qu'il faut savoir pour ne rater aucun match du Mondial 2026.",
     url: "https://www.cdm2026.fr/ou-regarder",
   },
   alternates: { canonical: "https://www.cdm2026.fr/ou-regarder" },
@@ -30,18 +30,10 @@ export const metadata: Metadata = {
 
 const tvFranceDetailed = [
   {
-    name: "TF1",
-    type: "Gratuit (TNT)",
-    matches: "Matchs de la France + finale + demi-finales",
-    details: "Chaîne historique du foot français. Diffuse tous les matchs des Bleus, les demi-finales et la finale en clair. Droits en cours de finalisation.",
-    logo: "/images/logos/tf1.png",
-    free: true,
-  },
-  {
     name: "M6",
     type: "Gratuit (TNT)",
-    matches: "54 matchs",
-    details: "Co-diffusion avec TF1 sur certains matchs clés (ouverture, quarts). Large couverture de la phase de groupes et des 8es de finale.",
+    matches: "54 matchs (tous les matchs de la France + grandes affiches + finale)",
+    details: "Diffuseur exclusif en clair pour 2026 et 2030. 34 matchs de poules + 20 matchs à élimination directe dont tous les matchs des Bleus, les quarts, demi-finales et la finale.",
     logo: "/images/logos/m6.png",
     free: true,
   },
@@ -57,9 +49,8 @@ const tvFranceDetailed = [
 
 const streamingFrance = {
   gratuit: [
-    { name: "TF1+", url: "https://www.tf1.fr/", desc: "Streaming gratuit des matchs TF1 (France, demi-finales, finale). App iOS, Android, Smart TV." },
-    { name: "M6+", url: "https://www.6play.fr/", desc: "Streaming gratuit des 54 matchs M6. Disponible sur mobile et navigateur." },
-    { name: "Molotov", url: "https://www.molotov.tv/", desc: "Accès gratuit aux chaînes TNT (TF1, M6). Replay et start-over disponibles." },
+    { name: "M6+", url: "https://www.6play.fr/", desc: "Streaming gratuit des 54 matchs M6 (France, grandes affiches, demi-finales, finale). App iOS, Android, Smart TV." },
+    { name: "Molotov", url: "https://www.molotov.tv/", desc: "Accès gratuit aux chaînes TNT dont M6. Replay et start-over disponibles." },
   ],
   payant: [
     { name: "myCANAL", url: "https://www.canalplus.com/", desc: "Pour les abonnés beIN Sports via Canal+. Tous les 104 matchs en streaming.", price: "~35 €/mois (pack sport)" },
@@ -118,13 +109,13 @@ const internationalBroadcasters = [
 ];
 
 const featuredMatches = [
-  { id: "m01", date: "Jeu 11 juin 2026", timeFR: "21h00", match: "Mexique 🇲🇽 vs 🇿🇦 Afrique du Sud", stage: "Phase de groupes — Gr. A", stadium: "Estadio Azteca, Mexico", tvFR: ["TF1", "M6", "beIN Sports 1"], isFrance: false, note: " Match d'ouverture", free: true },
-  { id: "m17", date: "Mar 16 juin 2026", timeFR: "21h00", match: "France 🇫🇷 vs 🇸🇳 Sénégal", stage: "Phase de groupes — Gr. I", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Premier match des Bleus", free: true },
-  { id: "m43", date: "Lun 22 juin 2026", timeFR: "21h00", match: "France 🇫🇷 vs Barrage Interconf. 2", stage: "Phase de groupes — Gr. I", stadium: "Lincoln Financial Field, Philadelphia", tvFR: ["TF1", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Bleus J2", free: true },
-  { id: "m66", date: "Ven 26 juin 2026", timeFR: "21h00", match: "Norvège 🇳🇴 vs 🇫🇷 France", stage: "Phase de groupes — Gr. I", stadium: "Gillette Stadium, Boston", tvFR: ["TF1", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Bleus J3 (décisif !)", free: true },
-  { id: "sf1", date: "Mar 15 juil. 2026", timeFR: "21h00", match: "Demi-finale 1", stage: "Demi-finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: " Demi-finale", free: true },
-  { id: "sf2", date: "Mer 16 juil. 2026", timeFR: "21h00", match: "Demi-finale 2", stage: "Demi-finale", stadium: "AT&T Stadium, Dallas", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: " Demi-finale", free: true },
-  { id: "final", date: "Dim 19 juil. 2026", timeFR: "21h00", match: "Finale — Coupe du Monde 2026", stage: "Finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["TF1", "beIN Sports 1"], isFrance: false, note: " Grand final du Mondial", free: true },
+  { id: "m01", date: "Jeu 11 juin 2026", timeFR: "21h00", match: "Mexique 🇲🇽 vs 🇿🇦 Afrique du Sud", stage: "Phase de groupes — Gr. A", stadium: "Estadio Azteca, Mexico", tvFR: ["M6", "beIN Sports 1"], isFrance: false, note: " Match d'ouverture", free: true },
+  { id: "m17", date: "Mar 16 juin 2026", timeFR: "21h00", match: "France 🇫🇷 vs 🇸🇳 Sénégal", stage: "Phase de groupes — Gr. I", stadium: "MetLife Stadium, New York/NJ", tvFR: ["M6", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Premier match des Bleus", free: true },
+  { id: "m43", date: "Lun 22 juin 2026", timeFR: "21h00", match: "France 🇫🇷 vs Barrage Interconf. 2", stage: "Phase de groupes — Gr. I", stadium: "Lincoln Financial Field, Philadelphia", tvFR: ["M6", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Bleus J2", free: true },
+  { id: "m66", date: "Ven 26 juin 2026", timeFR: "21h00", match: "Norvège 🇳🇴 vs 🇫🇷 France", stage: "Phase de groupes — Gr. I", stadium: "Gillette Stadium, Boston", tvFR: ["M6", "beIN Sports 1"], isFrance: true, note: "🇫🇷 Bleus J3 (décisif !)", free: true },
+  { id: "sf1", date: "Mar 15 juil. 2026", timeFR: "21h00", match: "Demi-finale 1", stage: "Demi-finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["M6", "beIN Sports 1"], isFrance: false, note: " Demi-finale", free: true },
+  { id: "sf2", date: "Mer 16 juil. 2026", timeFR: "21h00", match: "Demi-finale 2", stage: "Demi-finale", stadium: "AT&T Stadium, Dallas", tvFR: ["M6", "beIN Sports 1"], isFrance: false, note: " Demi-finale", free: true },
+  { id: "final", date: "Dim 19 juil. 2026", timeFR: "21h00", match: "Finale — Coupe du Monde 2026", stage: "Finale", stadium: "MetLife Stadium, New York/NJ", tvFR: ["M6", "beIN Sports 1"], isFrance: false, note: " Grand final du Mondial", free: true },
 ];
 
 const timeZones = [
@@ -143,12 +134,12 @@ const typicalSchedule = [
 ];
 
 const faqItems = [
-  { question: "Peut-on regarder la CDM 2026 gratuitement en France ?", answer: "Oui ! TF1 diffusera les matchs de la France, les demi-finales et la finale en clair. M6 proposera 54 matchs en clair. En streaming gratuit : TF1+, M6+ (6play) et Molotov permettent de suivre ces matchs sans abonnement." },
-  { question: "Combien de matchs sont diffusés sur chaque chaîne en France ?", answer: "beIN Sports diffuse l'intégralité des 104 matchs (abonnement requis). M6 propose 54 matchs en clair. TF1 couvre les matchs de la France, les demi-finales et la finale. Certains matchs clés sont en co-diffusion TF1/M6." },
+  { question: "Peut-on regarder la CDM 2026 gratuitement en France ?", answer: "Oui ! M6 diffuse 54 matchs en clair dont tous les matchs de la France, les quarts, demi-finales et la finale. En streaming gratuit : M6+ et Molotov permettent de suivre ces matchs sans abonnement. TF1 ne diffuse aucun match de cette édition." },
+  { question: "Combien de matchs sont diffusés sur chaque chaîne en France ?", answer: "beIN Sports diffuse l'intégralité des 104 matchs (abonnement requis). M6 propose 54 matchs en clair (34 en phase de groupes + 20 en phase finale). TF1 n'a pas les droits pour cette édition." },
   { question: "Quel est le décalage horaire entre la France et les États-Unis ?", answer: "En été (heure CEST, UTC+2), le décalage est de -6h avec la côte Est (New York), -7h avec le centre (Dallas, Chicago), et -9h avec la côte Ouest (Los Angeles). Un match à 19h locale à New York est diffusé à 1h du matin en France." },
-  { question: "Comment regarder tous les matchs de la CDM 2026 ?", answer: "Pour voir les 104 matchs, un abonnement beIN Sports (~15 €/mois) est nécessaire. Accessible via beIN Connect, myCANAL ou Amazon Prime Video (pass beIN). Sans abonnement, TF1 et M6 couvrent une large sélection en clair." },
-  { question: "Comment regarder la CDM 2026 depuis l'étranger ?", answer: "Si vous êtes à l'étranger, les plateformes françaises (TF1+, M6+) sont géo-bloquées. Un VPN permet de simuler une connexion depuis la France. Choisissez un VPN fiable (NordVPN, ExpressVPN, CyberGhost), connectez-vous à un serveur français, puis accédez normalement aux plateformes de streaming." },
-  { question: "Peut-on regarder la CDM 2026 sur téléphone ?", answer: "Oui. TF1+, M6+, beIN Connect, myCANAL et Molotov proposent tous des applications mobiles iOS et Android. Les matchs gratuits sur TF1+ et M6+ ne nécessitent aucun abonnement." },
+  { question: "Comment regarder tous les matchs de la CDM 2026 ?", answer: "Pour voir les 104 matchs, un abonnement beIN Sports (~15 €/mois) est nécessaire. Accessible via beIN CONNECT, myCANAL ou Amazon Prime Video (pass beIN). Sans abonnement, M6 couvre 54 matchs en clair." },
+  { question: "Comment regarder la CDM 2026 depuis l'étranger ?", answer: "Si vous êtes à l'étranger, la plateforme M6+ est géo-bloquée. Un VPN permet de simuler une connexion depuis la France. Choisissez un VPN fiable (NordVPN, ExpressVPN, CyberGhost), connectez-vous à un serveur français, puis accédez normalement aux plateformes de streaming." },
+  { question: "Peut-on regarder la CDM 2026 sur téléphone ?", answer: "Oui. M6+, beIN CONNECT, myCANAL et Molotov proposent tous des applications mobiles iOS et Android. Les 54 matchs gratuits sur M6+ ne nécessitent aucun abonnement." },
   { question: "La CDM 2026 est-elle diffusée gratuitement dans d'autres pays ?", answer: "Oui ! Au Royaume-Uni (BBC iPlayer + ITVX), en Allemagne (ARD/ZDF Mediathek), en Espagne (RTVE Play), en Italie (RaiPlay), au Brésil (Globoplay) et au Mexique (Televisa/TV Azteca) — la Coupe du Monde est diffusée gratuitement sur les chaînes publiques." },
   { question: "Quelles chaînes diffusent la CDM 2026 aux États-Unis ?", answer: "Fox Sports (en anglais) et Telemundo (en espagnol) détiennent les droits TV aux États-Unis. Le streaming est disponible sur Peacock (NBC) et Tubi (Fox). Telemundo est accessible gratuitement." },
   { question: "Existe-t-il des fan zones en France pour la CDM 2026 ?", answer: "Les fan zones officielles sont annoncées par les municipalités et la FFF. Paris, Lyon, Marseille, Bordeaux et Lille proposeront très probablement des écrans géants. Les bars sportifs retransmettront également tous les matchs." },
@@ -188,7 +179,7 @@ export default function OuRegarderPage() {
           </h2>
           <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow md:p-8">
             <p className="text-gray-600 mb-6">
-              Les plateformes de streaming françaises (TF1+, M6+, myCANAL) sont <strong className="text-gray-900">géo-bloquées</strong> à
+              Les plateformes de streaming françaises (M6+, myCANAL) sont <strong className="text-gray-900">géo-bloquées</strong> à
               l&apos;étranger. Un VPN (Virtual Private Network) vous permet de simuler une connexion depuis la France
               pour accéder aux flux en direct.
             </p>
@@ -196,7 +187,7 @@ export default function OuRegarderPage() {
               {[
                 { step: "1", title: "Choisir un VPN", desc: "Optez pour un VPN fiable avec des serveurs en France : NordVPN, ExpressVPN, CyberGhost ou Surfshark." },
                 { step: "2", title: "Se connecter à un serveur 🇫🇷", desc: "Lancez le VPN et sélectionnez un serveur situé en France (Paris, Lyon…)." },
-                { step: "3", title: "Regarder les matchs", desc: "Accédez à TF1+, M6+ ou beIN Connect normalement. Le streaming fonctionne comme si vous étiez en France." },
+                { step: "3", title: "Regarder les matchs", desc: "Accédez à M6+ ou beIN CONNECT normalement. Le streaming fonctionne comme si vous étiez en France." },
               ].map((s) => (
                 <div key={s.step} className="rounded-xl bg-gray-50 p-5">
                   <div className="w-10 h-10 rounded-full bg-primaryprimary text-white flex items-center justify-center font-extrabold text-lg mb-3">

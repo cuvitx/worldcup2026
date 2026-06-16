@@ -13,7 +13,7 @@ import { domains } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
   title: "Programme TV Coupe du Monde 2026 — Calendrier des diffusions",
   description:
-    "Programme TV complet de la Coupe du Monde 2026 : chaînes, horaires et streaming pour tous les matchs. TF1, beIN Sports, M6 — ne manquez aucun match.",
+    "Programme TV complet de la Coupe du Monde 2026 : chaînes, horaires et streaming pour tous les matchs. M6, beIN Sports — ne manquez aucun match.",
   alternates: { canonical: `${domains.fr}/programme-tv` },
 };
 
@@ -22,7 +22,6 @@ export const metadata: Metadata = {
 // ---------------------------------------------------------------------------
 
 const channelColors: Record<string, string> = {
-  TF1: "bg-blue-600 text-white",
   M6: "bg-orange-500 text-white",
   "beIN Sports": "bg-red-800 text-white",
 };
@@ -156,7 +155,7 @@ export default function ProgrammeTVPage() {
           <p className="mt-3 max-w-2xl text-gray-300 text-sm sm:text-base leading-relaxed">
             Retrouvez le programme TV complet de la Coupe du Monde 2026 avec
             les horaires (heure de Paris), les cha{"î"}nes de diffusion et les
-            plateformes de streaming pour chacun des 104 matchs. TF1, M6 et
+            plateformes de streaming pour chacun des 104 matchs. M6 et
             beIN Sports se partagent les droits de diffusion en France.
           </p>
         </div>
@@ -340,7 +339,7 @@ export default function ProgrammeTVPage() {
         <p className="text-xs text-gray-400 mt-4 italic">
           * Programme indicatif, sous r{"\u00e9"}serve de modifications. Horaires en
           heure fran{"\u00e7"}aise (CEST, UTC+2). Les matchs de la France sont diffus{"\u00e9"}s
-          en clair sur TF1.
+          en clair sur M6.
         </p>
       </div>
 
@@ -352,16 +351,16 @@ export default function ProgrammeTVPage() {
           </h2>
           <p>
             En France, les droits TV de la Coupe du Monde 2026 sont partag{"\u00e9"}s
-            entre <strong>TF1</strong>, <strong>M6</strong> et{" "}
-            <strong>beIN Sports</strong>. TF1 diffuse tous les matchs de
-            l&apos;{"\u00e9"}quipe de France ainsi que le match d&apos;ouverture et la finale.
-            M6 propose une s{"\u00e9"}lection de matchs {"\u00e0"} forte affiche (Br{"\u00e9"}sil, Argentine,
-            Espagne, Angleterre). beIN Sports assure la couverture int{"\u00e9"}grale des
+            entre <strong>M6</strong> et{" "}
+            <strong>beIN Sports</strong>. M6 est le diffuseur exclusif en clair
+            avec 54 matchs dont tous les matchs de
+            l&apos;{"\u00e9"}quipe de France, le match d&apos;ouverture, les demi-finales et la finale.
+            beIN Sports assure la couverture int{"\u00e9"}grale des
             104 matchs du tournoi.
           </p>
           <p>
             En streaming, les matchs en clair sont disponibles gratuitement sur{" "}
-            <strong>MYTF1</strong> et <strong>6play</strong>. L&apos;int{"\u00e9"}gralit{"\u00e9"} du
+            <strong>M6+</strong>. L&apos;int{"\u00e9"}gralit{"\u00e9"} du
             tournoi est accessible sur <strong>beIN CONNECT</strong>, la
             plateforme de streaming de beIN Sports.
           </p>

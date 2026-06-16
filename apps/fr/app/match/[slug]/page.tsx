@@ -189,7 +189,7 @@ function buildMatchFAQ(
   // Common questions (pre + post)
   items.push({
     question: `Où regarder ${homeName} vs ${awayName} en direct ?`,
-    answer: `Les matchs de la Coupe du Monde 2026 sont diffusés en France sur TF1, beIN Sports et M6. Consultez notre page dédiée pour connaître la chaîne qui diffuse ${homeName} vs ${awayName}.`,
+    answer: `Les matchs de la Coupe du Monde 2026 sont diffusés en France sur M6 (54 matchs en clair) et beIN Sports (intégralité). Consultez notre page dédiée pour connaître la chaîne qui diffuse ${homeName} vs ${awayName}.`,
   });
 
   if (prediction) {
