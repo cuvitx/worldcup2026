@@ -176,6 +176,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/buteurs", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/paris-sportifs", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/pronostic", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
+    entry("/programme-tv", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
   );
 
   // =====================================================================

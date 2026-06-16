@@ -4,10 +4,12 @@ import { Newsletter } from "@repo/ui/newsletter";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Team } from "@repo/data/types";
 import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
-import { matches } from "@repo/data/matches";
+import { matches, matchesByGroup } from "@repo/data/matches";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
+import { groupsByLetter } from "@repo/data/groups";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { getISOCode } from "@repo/data/country-codes";
@@ -22,6 +24,7 @@ import { PremiumFAQ, generateFAQSchema } from "./_components/PremiumFAQ";
 import { PremiumPronostic } from "./_components/PremiumPronostic";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
+import { GroupStandings } from "./_components/GroupStandings";
 import { TeamQuickNav } from "../../components/TeamQuickNav";
 import { PmuCTA } from "../../components/PmuCTA";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
@@ -82,6 +85,12 @@ export default async function TeamPage({ params }: PageProps) {
     }
   }
 
+  // Group standings data
+  const groupData = groupsByLetter[team.group];
+  const groupTeams = groupData ? groupData.teams.map((tid) => teamsById[tid]).filter(Boolean) as Team[] : [];
+  const groupMatchesRaw = matchesByGroup[team.group] ?? [];
+  const groupMatches = await enrichMatchesWithResults(groupMatchesRaw);
+
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;
   const content = teamContent[team.slug];
@@ -125,6 +134,16 @@ export default async function TeamPage({ params }: PageProps) {
           teamName={team.name}
           teamMatches={teamMatches}
           resultsMap={resultsMap}
+        />
+      )}
+
+      {/* Group Standings */}
+      {groupTeams.length > 0 && (
+        <GroupStandings
+          group={team.group}
+          groupTeams={groupTeams}
+          groupMatches={groupMatches}
+          currentTeamId={team.id}
         />
       )}
 

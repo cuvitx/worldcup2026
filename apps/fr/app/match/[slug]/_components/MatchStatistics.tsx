@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import type { ApiFixtureStatistic } from "@repo/api/football";
 
 interface MatchStatisticsProps {
@@ -15,9 +19,15 @@ const STAT_LABELS: Record<string, string> = {
   Offsides: "Hors-jeu",
   "Yellow Cards": "Cartons jaunes",
   "Red Cards": "Cartons rouges",
+  "Blocked Shots": "Tirs bloqués",
+  "Total passes": "Passes totales",
+  "Passes %": "% passes réussies",
+  "Goalkeeper Saves": "Arrêts gardien",
+  "Passes accurate": "Passes réussies",
+  expected_goals: "xG (buts attendus)",
 };
 
-const STAT_ORDER = [
+const CORE_STAT_ORDER = [
   "Ball Possession",
   "Total Shots",
   "Shots on Goal",
@@ -26,6 +36,15 @@ const STAT_ORDER = [
   "Offsides",
   "Yellow Cards",
   "Red Cards",
+];
+
+const EXTENDED_STAT_ORDER = [
+  "Blocked Shots",
+  "Total passes",
+  "Passes %",
+  "Goalkeeper Saves",
+  "Passes accurate",
+  "expected_goals",
 ];
 
 function parseValue(value: number | string | null): number | null {
@@ -106,6 +125,8 @@ export function MatchStatistics({
   homeName,
   awayName,
 }: MatchStatisticsProps) {
+  const [showExtended, setShowExtended] = useState(false);
+
   if (statistics.length !== 2) return null;
 
   const home = statistics[0]!;
@@ -120,13 +141,18 @@ export function MatchStatistics({
   );
 
   // Filter to only stats present in data (at least one side non-null)
-  const visibleStats = STAT_ORDER.filter((key) => {
-    const hv = homeMap.get(key) ?? null;
-    const av = awayMap.get(key) ?? null;
-    return hv !== null || av !== null;
-  });
+  const filterVisible = (keys: string[]) =>
+    keys.filter((key) => {
+      const hv = homeMap.get(key) ?? null;
+      const av = awayMap.get(key) ?? null;
+      return hv !== null || av !== null;
+    });
 
-  if (visibleStats.length === 0) return null;
+  const visibleCoreStats = filterVisible(CORE_STAT_ORDER);
+  const visibleExtendedStats = filterVisible(EXTENDED_STAT_ORDER);
+  const totalCount = visibleCoreStats.length + visibleExtendedStats.length;
+
+  if (visibleCoreStats.length === 0) return null;
 
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
@@ -147,9 +173,9 @@ export function MatchStatistics({
         </span>
       </div>
 
-      {/* Stats rows */}
-      <div className="flex flex-col gap-4 px-5 pb-5">
-        {visibleStats.map((key) => (
+      {/* Core stats rows */}
+      <div className="flex flex-col gap-4 px-5 pb-2">
+        {visibleCoreStats.map((key) => (
           <StatRow
             key={key}
             label={STAT_LABELS[key] ?? key}
@@ -158,6 +184,36 @@ export function MatchStatistics({
           />
         ))}
       </div>
+
+      {/* Toggle button */}
+      {visibleExtendedStats.length > 0 && (
+        <button
+          onClick={() => setShowExtended(!showExtended)}
+          className="w-full flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+        >
+          {showExtended ? "Moins de stats" : `Voir toutes les stats (${totalCount})`}
+          {showExtended ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+        </button>
+      )}
+
+      {/* Extended stats rows */}
+      {showExtended && visibleExtendedStats.length > 0 && (
+        <div className="flex flex-col gap-4 px-5 pb-5">
+          {visibleExtendedStats.map((key) => (
+            <StatRow
+              key={key}
+              label={STAT_LABELS[key] ?? key}
+              homeRaw={homeMap.get(key) ?? null}
+              awayRaw={awayMap.get(key) ?? null}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Bottom padding when no extended stats or toggle not shown */}
+      {(visibleExtendedStats.length === 0 || !showExtended) && (
+        <div className="pb-3" />
+      )}
     </div>
   );
 }
