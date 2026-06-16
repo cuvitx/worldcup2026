@@ -134,6 +134,11 @@ export default function RootLayout({
             __html: `if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js")})}`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(location.search.includes("debug-overflow")){document.addEventListener("DOMContentLoaded",function(){var vw=document.documentElement.clientWidth;document.querySelectorAll("*").forEach(function(el){var r=el.getBoundingClientRect();if(r.right>vw+2){el.style.outline="3px solid red";el.dataset.overflowBy=Math.round(r.right-vw)+"px";console.log("OVERFLOW",Math.round(r.right-vw)+"px",el.tagName,el.className.slice(0,100))}})})}`
+          }}
+        />
         <OrganizationSchema url={domains.fr} name="CDM 2026 - Coupe du Monde" />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Aller au contenu</a>
         <LiveDataProvider>
