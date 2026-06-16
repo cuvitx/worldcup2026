@@ -8,8 +8,8 @@ const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/mentions-legales", "/jeu-responsable"];
 const SHOW_DELAY_MS = 20000;
 
-const PMU_IMAGE_DESKTOP = "https://static.gambling-affiliation.com/uploads/ads/67239.jpg";
-const PMU_IMAGE_MOBILE = "https://static.gambling-affiliation.com/uploads/ads/67240.jpg";
+const PMU_IMAGE_DESKTOP = "/partners/pmu-popup-desktop.jpg";
+const PMU_IMAGE_MOBILE = "/partners/pmu-popup-mobile.jpg";
 
 export function StickyCTA() {
   const [visible, setVisible] = useState(false);
