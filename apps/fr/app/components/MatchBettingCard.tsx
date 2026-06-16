@@ -12,8 +12,8 @@ interface MatchBettingCardProps {
 }
 
 /**
- * Premium PMU betting card — combines odds display + CTA in one integrated widget.
- * Inspired by top affiliate sites with PMU branding (green/gold).
+ * Premium PMU betting card — dark gradient, gold accents, glow effects,
+ * shine animation on hover. Each odds box is a clickable affiliate link.
  */
 export function MatchBettingCard({
   homeName,
@@ -26,8 +26,8 @@ export function MatchBettingCard({
   tracking = "match",
 }: MatchBettingCardProps) {
   const hasOdds = homeOdds && drawOdds && awayOdds;
+  const url = pmuTrackingUrl(tracking);
 
-  // Determine the favorite (lowest odds)
   let favorite: "home" | "draw" | "away" | null = null;
   if (hasOdds) {
     const h = parseFloat(homeOdds);
@@ -40,84 +40,120 @@ export function MatchBettingCard({
   }
 
   return (
-    <div className="rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-lg">
-      {/* Header — PMU branding */}
-      <div className="bg-gradient-to-r from-[#0a3d0a] via-[#145214] to-[#0d470d] px-5 py-4 sm:px-6 flex items-center justify-between">
-        <div>
-          <p className="text-[#d4af37] font-extrabold text-lg sm:text-xl tracking-tight">PMU PLAY</p>
-          <p className="text-white/80 text-xs font-medium mt-0.5">BONUS DE BIENVENUE</p>
-          <p className="text-white font-bold text-base sm:text-lg">
-            Jusqu&apos;à <span className="text-[#ffd700]">100&nbsp;€</span> offerts
-          </p>
-        </div>
-        <div className="flex flex-col items-end gap-2">
-          <span className="text-[10px] font-semibold text-[#0a3d0a] bg-white/90 px-2.5 py-0.5 rounded-full uppercase tracking-wide">
-            Partenaire
-          </span>
+    <div
+      className="relative overflow-hidden rounded-2xl border border-[#d4af37]/25 text-white shadow-xl"
+      style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}
+    >
+      {/* Background glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#d4af37]/15 blur-3xl"
+      />
+
+      {/* Top bar — Logo + Partenaire */}
+      <div className="relative flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3 sm:px-6">
+        <p
+          className="font-black text-xl sm:text-2xl italic tracking-tight"
+          style={{ color: "#d4af37", textShadow: "0 2px 4px rgba(0,0,0,0.4)" }}
+        >
+          PMU PLAY
+        </p>
+        <span className="whitespace-nowrap rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#d4af37]">
+          Partenaire
+        </span>
+      </div>
+
+      <div className="relative">
+        {/* Bonus banner — full-width gold bar with shine animation */}
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer sponsored nofollow"
+          className="group relative flex items-center justify-between gap-3 overflow-hidden px-5 py-3 text-[#0c3b2e] transition hover:brightness-110 sm:px-6"
+          style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
+        >
+          {/* Shine sweep on hover */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
+          />
+          <div className="relative">
+            <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#0c3b2e]/70">
+              Bonus de bienvenue
+            </div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg font-black leading-none sm:text-xl">Jusqu&apos;à 100&nbsp;€</span>
+              <span className="text-[11px] font-bold leading-none">offerts</span>
+            </div>
+          </div>
+          <div className="relative inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[#0c3b2e] px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#d4af37] shadow-lg">
+            J&apos;en profite <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+
+        {/* Odds section */}
+        {hasOdds && (
+          <div className="px-4 pb-1 pt-4 sm:px-5">
+            <div className="mb-2 flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
+                Cotes 1&middot;N&middot;2 &middot; Coupe du Monde 2026
+              </span>
+              <span className="text-[10px] text-white/40">Temps r&eacute;glementaire</span>
+            </div>
+            <div className="flex gap-2 sm:gap-3">
+              <OddsBox
+                label="Victoire"
+                team={`${homeFlag} ${homeName}`}
+                odds={homeOdds}
+                isFavorite={favorite === "home"}
+                href={url}
+              />
+              <OddsBox
+                label="Nul"
+                team="Match nul"
+                odds={drawOdds}
+                isFavorite={favorite === "draw"}
+                href={url}
+              />
+              <OddsBox
+                label="Victoire"
+                team={`${awayFlag} ${awayName}`}
+                odds={awayOdds}
+                isFavorite={favorite === "away"}
+                href={url}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Big CTA button with shine */}
+        <div className="relative p-4">
           <a
-            href={pmuTrackingUrl(tracking)}
+            href={url}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="inline-flex items-center gap-1.5 bg-[#d4af37] hover:bg-[#e5c453] text-[#0a3d0a] font-bold text-sm px-4 py-2 rounded-lg transition-colors shadow"
+            className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl px-4 py-3 text-sm font-black uppercase tracking-wider text-[#0c3b2e] shadow-lg transition hover:shadow-[#d4af37]/30"
+            style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
-            J&apos;en profite
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
+            />
+            <span className="relative sm:hidden">Parier &middot; 100&nbsp;€ offerts</span>
+            <span className="relative hidden sm:inline">Parier maintenant sur PMU Play</span>
+            <span className="relative" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>
 
-      {/* Odds section */}
-      {hasOdds && (
-        <div className="px-5 py-4 sm:px-6">
-          <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
-            Cotes 1&middot;N&middot;2 &middot; Coupe du Monde 2026
-            <span className="float-right font-normal normal-case">Temps r&eacute;glementaire</span>
-          </p>
-          <div className="grid grid-cols-3 gap-2 sm:gap-3">
-            {/* Home */}
-            <OddsBox
-              label={`Victoire`}
-              team={`${homeFlag} ${homeName}`}
-              odds={homeOdds}
-              isFavorite={favorite === "home"}
-            />
-            {/* Draw */}
-            <OddsBox
-              label="Nul"
-              team="Match nul"
-              odds={drawOdds}
-              isFavorite={favorite === "draw"}
-            />
-            {/* Away */}
-            <OddsBox
-              label={`Victoire`}
-              team={`${awayFlag} ${awayName}`}
-              odds={awayOdds}
-              isFavorite={favorite === "away"}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Big CTA button */}
-      <div className="px-5 pb-4 sm:px-6">
-        <a
-          href={pmuTrackingUrl(tracking)}
-          target="_blank"
-          rel="noopener noreferrer sponsored nofollow"
-          className="block w-full text-center bg-[#c5a028] hover:bg-[#d4af37] text-[#0a3d0a] font-bold text-sm sm:text-base py-3 rounded-xl transition-colors shadow-md"
-        >
-          PARIER MAINTENANT SUR PMU PLAY &rarr;
-        </a>
-      </div>
-
       {/* Legal */}
-      <div className="bg-gray-50 px-5 py-2.5 sm:px-6 border-t border-gray-100">
-        <p className="text-[10px] text-gray-400 leading-relaxed">
+      <div className="relative border-t border-white/5 bg-black/25 px-4 py-2.5 sm:px-5">
+        <p className="text-center text-[10px] leading-snug text-white/30">
           Les jeux d&apos;argent et de hasard sont interdits aux mineurs. Jouer comporte des risques : endettement, d&eacute;pendance...{" "}
-          <a href="tel:0974751313" className="underline">Appelez le 09 74 75 13 13</a> (appel non surtax&eacute;).
+          <a href="tel:0974751313" className="underline text-white/40 hover:text-white/60">
+            Appelez le 09 74 75 13 13
+          </a>{" "}
+          (appel non surtax&eacute;).
         </p>
       </div>
     </div>
@@ -129,28 +165,37 @@ function OddsBox({
   team,
   odds,
   isFavorite,
+  href,
 }: {
   label: string;
   team: string;
   odds: string;
   isFavorite: boolean;
+  href: string;
 }) {
   return (
-    <div className={`relative rounded-xl border-2 px-3 py-3 text-center transition-colors ${
-      isFavorite ? "border-[#c5a028] bg-[#fdfaf0]" : "border-gray-200 bg-white"
-    }`}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer sponsored nofollow"
+      className={`group relative flex flex-1 flex-col items-center justify-center gap-0.5 rounded-xl border px-2 py-3 transition sm:py-3.5 ${
+        isFavorite
+          ? "border-[#d4af37] bg-[#d4af37]/[0.08] shadow-[0_0_0_1px_rgba(212,175,55,0.35),0_8px_24px_-12px_rgba(212,175,55,0.4)]"
+          : "border-white/15 bg-white/[0.03] hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.06]"
+      }`}
+    >
       {isFavorite && (
-        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold text-white bg-[#c5a028] px-2 py-0.5 rounded-full uppercase">
+        <span className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-[#d4af37] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-[#0c3b2e] shadow">
           Favori
         </span>
       )}
-      <p className="text-[10px] font-semibold text-gray-400 uppercase">{label}</p>
-      <p className="text-xs text-gray-600 mt-0.5 truncate">{team}</p>
-      <p className={`text-2xl sm:text-3xl font-extrabold mt-1 ${
-        isFavorite ? "text-[#0a3d0a]" : "text-gray-800"
+      <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/50">{label}</span>
+      <span className="truncate text-xs font-semibold text-white/90">{team}</span>
+      <span className={`text-xl font-black tabular-nums sm:text-2xl ${
+        isFavorite ? "text-[#ffd700]" : "text-[#d4af37]"
       }`}>
         {odds}
-      </p>
-    </div>
+      </span>
+    </a>
   );
 }
