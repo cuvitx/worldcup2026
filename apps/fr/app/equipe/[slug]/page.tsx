@@ -21,9 +21,8 @@ import { PremiumFAQ, generateFAQSchema } from "./_components/PremiumFAQ";
 import { PremiumPronostic } from "./_components/PremiumPronostic";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
-import { PremiumFinalCTA } from "./_components/PremiumFinalCTA";
 import { TeamQuickNav } from "../../components/TeamQuickNav";
-import { GABanner } from "../../components/GABanner";
+import { PmuCTA } from "../../components/PmuCTA";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
 
 export const revalidate = 3600;
@@ -137,12 +136,10 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Match Pronostic Links */}
       <PremiumMatchPronosticLinks team={team} teamMatches={teamMatches} />
 
-      {/* PMU Banner */}
+      {/* PMU CTA */}
       <section className="py-6 sm:py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <GABanner variant="1080x192" tracking="equipe" className="hidden sm:flex" />
-          <GABanner variant="370x90" tracking="equipe" className="flex sm:hidden" />
-          <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+          <PmuCTA tracking={`equipe-${team.slug}`} teamName={team.name} />
         </div>
       </section>
 
@@ -228,7 +225,11 @@ export default async function TeamPage({ params }: PageProps) {
       
 
       {/* Final CTA */}
-      <PremiumFinalCTA team={team} />
+      <section className="py-6 sm:py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <PmuCTA tracking={`equipe-${team.slug}`} teamName={team.name} />
+        </div>
+      </section>
 
       {/* ANJ Banner */}
 

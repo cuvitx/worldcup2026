@@ -17,7 +17,7 @@ const PLAYER_PHOTO_SLUGS = new Set([
 ]);
 import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
 import { CircleDot, Sparkles, Users } from "lucide-react"
-import { GABanner } from "../../components/GABanner";
+import { PmuBanner } from "../../components/PmuBanner";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -288,7 +288,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
             {/* PMU Banner */}
             <div className="mt-6">
-              <GABanner variant="300x250" tracking="joueur" />
+              <PmuBanner tracking="joueur" compact />
               <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
             </div>
           </div>

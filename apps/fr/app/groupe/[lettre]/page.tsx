@@ -9,7 +9,7 @@ import { playersByTeamId } from "@repo/data/players";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import type { Player, Match } from "@repo/data/types";
-import { GABanner } from "../../components/GABanner";
+import { PmuBanner } from "../../components/PmuBanner";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -570,7 +570,7 @@ export default async function GroupPage({ params }: PageProps) {
             </div>
 
             {/* PMU Visual Banner */}
-            <GABanner variant="300x250" tracking={`groupe-${group.letter.toLowerCase()}`} />
+            <PmuBanner tracking="groupe" compact />
             <p className="text-[9px] text-gray-400 text-center mt-1">18+ | Offre soumise à conditions</p>
           </div>
         </div>

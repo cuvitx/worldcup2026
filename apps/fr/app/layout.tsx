@@ -14,7 +14,7 @@ import { AutoRelatedContent } from "./components/AutoRelatedContent";
 import { SiloTabs } from "./components/SiloTabs";
 import { AutoBreadcrumb } from "./components/AutoBreadcrumb";
 import { AffiliateTracker } from "./components/AffiliateTracker";
-import { InlineBettingCTA } from "./components/InlineBettingCTA";
+import { PmuBanner } from "./components/PmuBanner";
 import { LiveDataProvider } from "./providers/LiveDataProvider";
 import "./globals.css";
 
@@ -136,7 +136,7 @@ export default function RootLayout({
         <LiveTicker />
         <main id="main-content" className="flex-1 overflow-x-clip"><AutoBreadcrumb /><SiloTabs />{children}</main>
         <AutoRelatedContent />
-        <div className="py-6 sm:py-8"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><InlineBettingCTA tracking="global-footer" /></div></div>
+        <div className="py-6 sm:py-8"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><PmuBanner tracking="global-footer" /></div></div>
         <Footer />
         <BackToTop />
         <StickyCTA />

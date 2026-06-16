@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
-import { GABanner } from "../../components/GABanner";
+import { PmuCTA } from "../../components/PmuCTA";
 
 export const revalidate = 300;
 export const dynamicParams = false;
@@ -245,14 +245,8 @@ export default async function H2HPage({ params }: PageProps) {
               )}
             </section>
 
-            {/* PMU Banner */}
-            <section className="py-6 sm:py-8">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <GABanner variant="1080x192" tracking="h2h" className="hidden sm:flex" />
-                <GABanner variant="370x90" tracking="h2h" className="flex sm:hidden" />
-                <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
-              </div>
-            </section>
+            {/* PMU CTA */}
+            <PmuCTA tracking="h2h" heading="Pariez sur ce duel avec PMU Play" />
           </div>
 
           {/* Sidebar */}

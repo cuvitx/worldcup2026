@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { mockOdds, allGroups, type MatchOdds } from "./mock-odds";
-import { GABanner } from "../components/GABanner";
+import { PmuBanner } from "../components/PmuBanner";
 
 function getBestOdds(match: MatchOdds) {
   const best = { home: 0, draw: 0, away: 0 };
@@ -195,9 +195,7 @@ export default function ComparateurCotesPage() {
         {/* PMU Banner */}
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <GABanner variant="1080x192" tracking="comparateur-cotes" className="hidden sm:flex" />
-            <GABanner variant="370x90" tracking="comparateur-cotes" className="flex sm:hidden" />
-            <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+            <PmuBanner tracking="comparateur-cotes" />
           </div>
         </section>
 

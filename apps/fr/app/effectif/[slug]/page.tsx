@@ -8,7 +8,7 @@ import { playersByTeamId } from "@repo/data/players";
 import { matches } from "@repo/data/matches";
 import { bookmakers } from "@repo/data/affiliates";
 import { ClipboardList, ExternalLink, ShieldAlert, Star, UserX, Users } from "lucide-react";
-import { BookmakerCTA } from "../../components/BookmakerCTA";
+import { PmuCTA } from "../../components/PmuCTA";
 import { BetOfTheDay } from "../../components/BetOfTheDay";
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -139,7 +139,7 @@ const faqItems = [
               </section>
             )}
             {/* CTA Banner */}
-            <BookmakerCTA variant="banner" />
+            <PmuCTA tracking="effectif" />
             {/* Players by position */}
             {sortedPositions.map((pos) => {
               const posPlayers = grouped[pos]!.sort((a, b) => (a.number ?? 99) - (b.number ?? 99));
@@ -218,7 +218,7 @@ const faqItems = [
                     </span>
                   </Link>
                   <div className="mt-4">
-                    <BookmakerCTA variant="inline" />
+                    <PmuCTA tracking="effectif" />
                   </div>
                 </section>
               );

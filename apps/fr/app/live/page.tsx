@@ -5,7 +5,7 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { Countdown } from "@repo/ui/countdown";
 import { EVENT_DATES } from "@repo/data/constants";
-import { InlineBettingCTA } from "../components/InlineBettingCTA";
+import { PmuBanner } from "../components/PmuBanner";
 import {
   getTournamentPhase,
   getTodaysMatches,
@@ -265,7 +265,7 @@ function TournamentActiveContent() {
       {/* Betting CTA */}
       <section className="bg-white py-6">
         <div className="mx-auto max-w-3xl px-4">
-          <InlineBettingCTA tracking="live" />
+          <PmuBanner tracking="live" />
         </div>
       </section>
 

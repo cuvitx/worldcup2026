@@ -7,7 +7,7 @@ import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import CalendarViewWrapper from "./CalendarViewWrapper";
 import { FileText } from "lucide-react";
 import { RelatedLinks } from "../../components/RelatedLinks";
-import { InlineBettingCTA } from "../../components/InlineBettingCTA";
+import { PmuBanner } from "../../components/PmuBanner";
 
 const faqCalendrierItems = [
   {
@@ -129,7 +129,7 @@ export default async function CalendrierPage() {
       />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
-        <InlineBettingCTA tracking="calendrier" />
+        <PmuBanner tracking="calendrier" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">

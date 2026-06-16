@@ -1,6 +1,6 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { GABanner } from "../components/GABanner";
+import { PmuBanner } from "../components/PmuBanner";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cities } from "@repo/data/cities";
@@ -100,9 +100,7 @@ export default function CitiesPage() {
       {/* PMU Banner */}
       <section className="py-6 sm:py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <GABanner variant="1080x192" tracking="villes" className="hidden sm:flex" />
-          <GABanner variant="370x90" tracking="villes" className="flex sm:hidden" />
-          <p className="text-[10px] text-gray-400 text-center mt-2">18+ | Offre soumise à conditions | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+          <PmuBanner tracking="villes" />
         </div>
       </section>
 
