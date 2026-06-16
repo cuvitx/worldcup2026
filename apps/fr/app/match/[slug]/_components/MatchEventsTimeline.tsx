@@ -113,7 +113,7 @@ function EventContent({
           <p className="text-xs text-gray-500 leading-tight mt-0.5">
             {isSub ? (
               <>
-                <span className="text-red-400">\u2198</span> {label.secondary}
+                <span className="text-red-400">{"↘"}</span> {label.secondary}
               </>
             ) : isOwnGoal ? null : (
               <>Pass. {label.secondary}</>

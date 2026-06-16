@@ -278,9 +278,24 @@ export default async function MatchPage({ params }: PageProps) {
         getFixturePlayers(fixtureId).catch(() => [] as ApiFixturePlayer[]),
       ]);
       events = ev;
-      lineups = lu;
-      statistics = st;
-      fixturePlayers = pl;
+
+      // Reorder API data so index [0] = our home team, [1] = away team
+      const homeApiId = teamApiIds[match.homeTeamId];
+      if (homeApiId) {
+        const reorder = <T extends { team: { id: number } }>(arr: T[]): T[] => {
+          if (arr.length === 2 && arr[0]!.team.id !== homeApiId) {
+            return [arr[1]!, arr[0]!];
+          }
+          return arr;
+        };
+        lineups = reorder(lu);
+        statistics = reorder(st);
+        fixturePlayers = reorder(pl);
+      } else {
+        lineups = lu;
+        statistics = st;
+        fixturePlayers = pl;
+      }
     }
   }
 

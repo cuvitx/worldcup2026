@@ -1,5 +1,5 @@
 import type { ApiFixturePlayer } from "@repo/api/football";
-import { Star } from "lucide-react";
+import { Star, User } from "lucide-react";
 
 interface MatchPlayerRatingsProps {
   players: ApiFixturePlayer[];
@@ -89,14 +89,24 @@ function ManOfTheMatch({
       <div className="relative flex items-start gap-4">
         {/* Player photo */}
         <div className="shrink-0">
-          <div className="relative">
-            <img
-              src={player.photo}
-              alt={player.name}
-              width={64}
-              height={64}
-              className="h-16 w-16 rounded-full border-2 border-amber-200 object-cover bg-gray-100"
-            />
+          <div className="relative h-16 w-16">
+            <div className="h-16 w-16 rounded-full border-2 border-amber-200 bg-gray-100 overflow-hidden">
+              {player.photo ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={player.photo}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="h-full w-full flex items-center justify-center bg-gray-200">
+                  <User className="h-7 w-7 text-gray-400" />
+                </div>
+              )}
+            </div>
             <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 shadow-sm">
               <Star className="h-3.5 w-3.5 text-white" fill="currentColor" />
             </div>
