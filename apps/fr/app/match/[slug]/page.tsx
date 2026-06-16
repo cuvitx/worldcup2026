@@ -14,7 +14,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
-import { GABanner } from "../../components/GABanner";
+import { PmuCTA } from "../../components/PmuCTA";
 import {
   MatchHeroAdaptive,
   TeamComparison,
@@ -149,10 +149,10 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Betting CTA */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
-        <div className="rounded-2xl bg-gradient-to-r from-[#022149] to-[#0a3d7a] px-6 py-5 text-white text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-1">Parier sur ce match</p>
-          {matchOdds && home && away && (
-            <div className="flex justify-center gap-4 mb-4 mt-2">
+        {matchOdds && home && away && (
+          <div className="rounded-2xl bg-gradient-to-r from-[#022149] to-[#0a3d7a] px-6 py-4 text-white text-center mb-4">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-1">Parier sur ce match</p>
+            <div className="flex justify-center gap-4 mt-2">
               <div className="flex flex-col items-center">
                 <span className="text-xs text-white/60">{home.flag} {home.name}</span>
                 <span className="text-xl font-bold text-accent">{matchOdds.home}</span>
@@ -166,11 +166,9 @@ export default async function MatchPage({ params }: PageProps) {
                 <span className="text-xl font-bold text-accent">{matchOdds.away}</span>
               </div>
             </div>
-          )}
-          <GABanner variant="728x90" tracking="match" className="hidden sm:flex" />
-          <GABanner variant="370x90" tracking="match" className="flex sm:hidden" />
-          <p className="mt-2 text-[10px] text-white/50">18+ | Offre soumise à conditions</p>
-        </div>
+          </div>
+        )}
+        <PmuCTA tracking="match" teamName={home && away ? `${home.name} - ${away.name}` : undefined} />
       </div>
 
       {/* Main Content */}
