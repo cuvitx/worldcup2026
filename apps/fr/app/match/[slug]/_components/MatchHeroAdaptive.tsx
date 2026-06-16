@@ -22,6 +22,8 @@ interface MatchHeroAdaptiveProps {
     slug: string;
     homeScore?: number;
     awayScore?: number;
+    halfTimeHome?: number;
+    halfTimeAway?: number;
     status?: "scheduled" | "live" | "finished";
     homeTeamId: string;
     awayTeamId: string;
@@ -112,7 +114,13 @@ export function MatchHeroAdaptive({
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300">
+          {match.halfTimeHome != null && match.halfTimeAway != null && (
+            <p className="text-sm text-gray-400 mt-1">
+              MT : {match.halfTimeHome} - {match.halfTimeAway}
+            </p>
+          )}
+
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300 mt-4">
             <span>{dateFormatted}</span>
             {stadium && <span>{stadium.name}</span>}
           </div>

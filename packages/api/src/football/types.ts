@@ -83,3 +83,20 @@ export interface ApiFixtureStatistic {
     value: number | string | null;
   }>;
 }
+
+export interface ApiFixturePlayer {
+  team: { id: number; name: string; logo: string };
+  players: Array<{
+    player: { id: number; name: string; photo: string };
+    statistics: Array<{
+      games: { minutes: number | null; number: number; position: string; rating: string | null; captain: boolean };
+      shots: { total: number | null; on: number | null };
+      goals: { total: number | null; assists: number | null };
+      passes: { total: number | null; key: number | null; accuracy: string | null };
+      tackles: { total: number | null; blocks: number | null; interceptions: number | null };
+      duels: { total: number | null; won: number | null };
+      fouls: { committed: number | null; drawn: number | null };
+      cards: { yellow: number; red: number };
+    }>;
+  }>;
+}

@@ -6,4 +6,5 @@ export { SameDayMatches } from "./SameDayMatches";
 export { MatchEventsTimeline } from "./MatchEventsTimeline";
 export { MatchLineups } from "./MatchLineups";
 export { MatchStatistics } from "./MatchStatistics";
+export { MatchPlayerRatings } from "./MatchPlayerRatings";
 export { UpcomingPronosticsGrid } from "./UpcomingPronosticsGrid";

@@ -33,7 +33,8 @@
     "./country-codes": "./src/country-codes.ts",
     "./predictions-2026": "./src/predictions-2026.ts",
     "./constants": "./src/constants.ts",
-    "./bookmakers": "./src/bookmakers.ts"
+    "./bookmakers": "./src/bookmakers.ts",
+    "./tv-schedule": "./src/tv-schedule.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

@@ -69,6 +69,13 @@ export const metadata: Metadata = {
     "max-image-preview": "large" as const,
     "max-snippet": -1,
     "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large" as const,
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: [

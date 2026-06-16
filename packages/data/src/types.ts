@@ -34,6 +34,8 @@ export interface Match {
   matchday?: number;
   homeScore?: number;
   awayScore?: number;
+  halfTimeHome?: number;
+  halfTimeAway?: number;
   status?: "scheduled" | "live" | "finished";
 }
 

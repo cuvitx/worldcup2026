@@ -9,8 +9,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { enrichMatchesWithResults, resolveApiFixtureId } from "@repo/api/football/match-results";
-import { getFixtureEvents, getLineup, getFixtureStatistics } from "@repo/api/football";
-import type { ApiFixtureEvent, ApiLineup, ApiFixtureStatistic } from "@repo/api/football";
+import { getFixtureEvents, getLineup, getFixtureStatistics, getFixturePlayers } from "@repo/api/football";
+import type { ApiFixtureEvent, ApiLineup, ApiFixtureStatistic, ApiFixturePlayer } from "@repo/api/football";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
@@ -28,6 +28,7 @@ import {
   MatchEventsTimeline,
   MatchLineups,
   MatchStatistics,
+  MatchPlayerRatings,
   UpcomingPronosticsGrid,
 } from "./_components";
 import { MatchContextBar } from "../../components/MatchContextBar";
@@ -71,13 +72,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const homeName = home?.name ?? "A determiner";
   const awayName = away?.name ?? "A determiner";
 
+  const hasScore = match.homeScore != null && match.awayScore != null;
+  const dateStr = new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+
+  const title = hasScore
+    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName} — Résultat ${stage} | CDM 2026`
+    : `${homeName} vs ${awayName} - ${stage} | CDM 2026`;
+
+  const description = hasScore
+    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName}, résultat ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade a confirmer"}. Résultat, résumé, compositions et statistiques.`
+    : `${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade a confirmer"}. Pronostics, cotes et composition.`;
+
+  const ogTitle = hasScore
+    ? `${home?.flag ?? ""} ${homeName} ${match.homeScore}-${match.awayScore} ${awayName} ${away?.flag ?? ""} — CDM 2026`
+    : `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — CDM 2026`;
+
+  const ogDescription = hasScore
+    ? `Résultat ${stage} - CDM 2026 | ${homeName} ${match.homeScore}-${match.awayScore} ${awayName}`
+    : `${stage} - CDM 2026 | ${match.date} ${match.time} (heure de Paris)`;
+
   return {
-    title: `${homeName} vs ${awayName} - ${stage} | CDM 2026`,
-    description: `${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026. Le ${new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })} au ${stadium?.name ?? "stade a confirmer"}. Pronostics, cotes et composition.`,
+    title,
+    description,
     alternates: getAlternates("match", slug, "fr"),
     openGraph: {
-      title: `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — CDM 2026`,
-      description: `${stage} - CDM 2026 | ${match.date} ${match.time} (heure de Paris)`,
+      title: ogTitle,
+      description: ogDescription,
+      locale: "fr_FR",
+      siteName: "CDM 2026",
       images: [
         {
           url: `${domains.fr}/images/og-default.png`,
@@ -86,6 +108,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           alt: `${homeName} vs ${awayName} - CDM 2026`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
     },
   };
 }
@@ -101,14 +128,60 @@ function buildMatchFAQ(
   odds: { home: string; draw: string; away: string } | null,
   slug: string,
   group: string | undefined,
+  postMatch?: {
+    homeScore: number;
+    awayScore: number;
+    goalEvents: Array<{ minute: string; player: string; team: string; detail: string }>;
+    hasLineups: boolean;
+  },
 ): Array<{ question: string; answer: string }> {
   const items: Array<{ question: string; answer: string }> = [];
+  const isFinished = postMatch != null;
 
-  items.push({
-    question: `Quand a lieu ${homeName} vs ${awayName} ?`,
-    answer: `Le match ${homeName} vs ${awayName} se joue le ${dateFormatted} à ${time} (heure de Paris), dans le cadre de la ${stage} de la Coupe du Monde 2026${stadium ? ` au ${stadium.name}${stadium.city ? ` (${stadium.city})` : ""}` : ""}.`,
-  });
+  if (isFinished) {
+    // Post-match FAQ — result-focused for featured snippets
+    const { homeScore, awayScore, goalEvents } = postMatch;
+    const resultText = homeScore === awayScore
+      ? `match nul ${homeScore}-${awayScore}`
+      : homeScore > awayScore
+        ? `victoire de ${homeName} ${homeScore}-${awayScore}`
+        : `victoire de ${awayName} ${awayScore}-${homeScore}`;
 
+    items.push({
+      question: `Quel est le résultat de ${homeName} vs ${awayName} ?`,
+      answer: `Le match ${homeName} vs ${awayName} s'est terminé sur un score de ${homeScore}-${awayScore} (${resultText}), le ${dateFormatted}${stadium ? ` au ${stadium.name}` : ""}, dans le cadre de la ${stage} de la Coupe du Monde 2026.`,
+    });
+
+    if (goalEvents.length > 0) {
+      const scorersList = goalEvents
+        .map((g) => `${g.player} (${g.minute}', ${g.team}${g.detail === "Own Goal" ? ", csc" : g.detail === "Penalty" ? ", pen." : ""})`)
+        .join(", ");
+      items.push({
+        question: `Qui a marqué lors de ${homeName} vs ${awayName} ?`,
+        answer: `Les buteurs de ce match sont : ${scorersList}.`,
+      });
+    }
+
+    if (postMatch.hasLineups) {
+      items.push({
+        question: `Quelle était la composition de ${homeName} et ${awayName} ?`,
+        answer: `Les compositions officielles de ${homeName} et ${awayName} sont disponibles sur cette page. Consultez la section "Compositions" ci-dessus pour voir les titulaires, remplaçants et notes des joueurs.`,
+      });
+    }
+  } else {
+    // Pre-match FAQ
+    items.push({
+      question: `Quand a lieu ${homeName} vs ${awayName} ?`,
+      answer: `Le match ${homeName} vs ${awayName} se joue le ${dateFormatted} à ${time} (heure de Paris), dans le cadre de la ${stage} de la Coupe du Monde 2026${stadium ? ` au ${stadium.name}${stadium.city ? ` (${stadium.city})` : ""}` : ""}.`,
+    });
+
+    items.push({
+      question: `Quelle est la composition de ${homeName} pour ce match ?`,
+      answer: `Les compositions officielles sont généralement annoncées environ 1 heure avant le coup d'envoi. Consultez cette page le jour du match pour retrouver les équipes de départ de ${homeName} et ${awayName}.`,
+    });
+  }
+
+  // Common questions (pre + post)
   items.push({
     question: `Où regarder ${homeName} vs ${awayName} en direct ?`,
     answer: `Les matchs de la Coupe du Monde 2026 sont diffusés en France sur TF1, beIN Sports et M6. Consultez notre page dédiée pour connaître la chaîne qui diffuse ${homeName} vs ${awayName}.`,
@@ -126,7 +199,7 @@ function buildMatchFAQ(
     });
   }
 
-  if (odds) {
+  if (odds && !isFinished) {
     items.push({
       question: `Quelles sont les cotes de ${homeName} vs ${awayName} ?`,
       answer: `Les cotes estimées pour ce match sont : victoire ${homeName} à ${odds.home}, match nul à ${odds.draw}, victoire ${awayName} à ${odds.away}. Pariez avec jusqu'à 100€ offerts chez PMU Play.`,
@@ -139,11 +212,6 @@ function buildMatchFAQ(
       answer: `Le match se dispute au ${stadium.name}${stadium.city ? `, situé à ${stadium.city}` : ""}${stadium.capacity ? `. Le stade peut accueillir ${stadium.capacity.toLocaleString("fr-FR")} spectateurs` : ""}.`,
     });
   }
-
-  items.push({
-    question: `Quelle est la composition de ${homeName} pour ce match ?`,
-    answer: `Les compositions officielles sont généralement annoncées environ 1 heure avant le coup d'envoi. Consultez cette page le jour du match pour retrouver les équipes de départ de ${homeName} et ${awayName}.`,
-  });
 
   if (group) {
     items.push({
@@ -188,22 +256,36 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
-  // Fetch match events, lineups, and statistics for live/completed matches
+  // Fetch match events, lineups, statistics and player ratings for live/completed matches
   let events: ApiFixtureEvent[] = [];
   let lineups: ApiLineup[] = [];
   let statistics: ApiFixtureStatistic[] = [];
+  let fixturePlayers: ApiFixturePlayer[] = [];
 
   if (!isBuild && (matchPhase === "live" || matchPhase === "completed")) {
     const fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
-      const [ev, lu, st] = await Promise.all([
+      const [ev, lu, st, pl] = await Promise.all([
         getFixtureEvents(fixtureId).catch(() => [] as ApiFixtureEvent[]),
         getLineup(fixtureId).catch(() => [] as ApiLineup[]),
         getFixtureStatistics(fixtureId).catch(() => [] as ApiFixtureStatistic[]),
+        getFixturePlayers(fixtureId).catch(() => [] as ApiFixturePlayer[]),
       ]);
       events = ev;
       lineups = lu;
       statistics = st;
+      fixturePlayers = pl;
+    }
+  }
+
+  // Build player ratings map for lineups (playerId -> rating string)
+  const playerRatingsMap = new Map<number, string>();
+  for (const teamData of fixturePlayers) {
+    for (const p of teamData.players) {
+      const rating = p.statistics[0]?.games?.rating;
+      if (rating) {
+        playerRatingsMap.set(p.player.id, rating);
+      }
     }
   }
 
@@ -358,6 +440,17 @@ export default async function MatchPage({ params }: PageProps) {
                 homeFlag={home.flag}
                 awayName={away.name}
                 awayFlag={away.flag}
+                playerRatings={playerRatingsMap.size > 0 ? playerRatingsMap : undefined}
+              />
+            )}
+
+            {fixturePlayers.length >= 2 && home && away && (
+              <MatchPlayerRatings
+                players={fixturePlayers}
+                homeName={home.name}
+                homeFlag={home.flag}
+                awayName={away.name}
+                awayFlag={away.flag}
               />
             )}
 
@@ -420,7 +513,21 @@ export default async function MatchPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FAQSection
             title={`Questions fréquentes — ${home.name} vs ${away.name}`}
-            items={buildMatchFAQ(home.name, away.name, dateFormatted, match.time, stadium, stage, prediction, matchOdds, match.slug, match.group)}
+            items={buildMatchFAQ(home.name, away.name, dateFormatted, match.time, stadium, stage, prediction, matchOdds, match.slug, match.group,
+              isCompleted && match.homeScore != null && match.awayScore != null ? {
+                homeScore: match.homeScore,
+                awayScore: match.awayScore,
+                goalEvents: events
+                  .filter((e) => e.type === "Goal")
+                  .map((e) => ({
+                    minute: `${e.time.elapsed}${e.time.extra ? `+${e.time.extra}` : ""}`,
+                    player: e.player.name,
+                    team: e.team.name,
+                    detail: e.detail,
+                  })),
+                hasLineups: lineups.length === 2,
+              } : undefined,
+            )}
           />
         </div>
       )}

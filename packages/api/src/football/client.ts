@@ -14,9 +14,10 @@ import type {
   ApiLineup,
   ApiFixtureEvent,
   ApiFixtureStatistic,
+  ApiFixturePlayer,
 } from "./types";
 
-export type { ApiLineup, ApiFixture, ApiFixtureEvent, ApiFixtureStatistic };
+export type { ApiLineup, ApiFixture, ApiFixtureEvent, ApiFixtureStatistic, ApiFixturePlayer };
 
 const RATE_LIMIT_KEY = "api-football";
 const RATE_LIMIT_CONFIG = {
@@ -211,6 +212,19 @@ export async function getFixturesByDate(date: string): Promise<ApiFixture[]> {
         league: String(API_FOOTBALL.worldCupLeagueId),
         season: String(API_FOOTBALL.season),
         date,
+      }),
+    []
+  );
+}
+
+/** Get player ratings/statistics for a specific fixture */
+export async function getFixturePlayers(fixtureId: number): Promise<ApiFixturePlayer[]> {
+  return rateLimitedCachedFetch(
+    `football:players:${fixtureId}`,
+    CACHE_TTL.INJURIES, // 1h cache
+    () =>
+      apiFetch<ApiFixturePlayer>("fixtures/players", {
+        fixture: String(fixtureId),
       }),
     []
   );

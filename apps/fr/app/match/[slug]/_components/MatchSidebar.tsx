@@ -8,12 +8,14 @@ import type { Team } from "@repo/data/types";
 import type { Stadium } from "@repo/data/types";
 import type { City } from "@repo/data/types";
 import type { generateFullMatchPreview } from "@repo/ai/generators";
+import { getTVInfo } from "@repo/data/tv-schedule";
 
 interface MatchSidebarProps {
   stadium: Stadium | undefined;
   city: City | null;
   stage: string;
   match: {
+    slug: string;
     group?: string;
     matchday?: number;
     date: string;
@@ -35,6 +37,8 @@ export function MatchSidebar({
   away,
   enriched,
 }: MatchSidebarProps) {
+  const tvInfo = getTVInfo(match.slug);
+
   return (
     <div className="space-y-6">
       {stadium && (
@@ -62,6 +66,25 @@ export function MatchSidebar({
           )}
         </Card>
       )}
+
+      <Card hover padding="md">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          Diffusion TV
+        </h3>
+        <div className="space-y-3">
+          <div className="flex items-center gap-2 text-sm">
+            <span className="text-gray-400 shrink-0">📺</span>
+            <div>
+              <p className="font-medium text-gray-900">
+                {tvInfo.channels.join(", ")}
+              </p>
+              <p className="text-xs text-gray-500">
+                Streaming : {tvInfo.streaming.join(", ")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </Card>
 
       <Card hover padding="md">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">

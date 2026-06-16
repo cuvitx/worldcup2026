@@ -26,6 +26,8 @@ const API_STATUS_MAP: Record<string, Match["status"]> = {
 export interface MatchResult {
   homeScore: number;
   awayScore: number;
+  halfTimeHome: number | null;
+  halfTimeAway: number | null;
   status: NonNullable<Match["status"]>;
   apiHomeTeamId: number;
   apiAwayTeamId: number;
@@ -55,6 +57,8 @@ export async function getMatchResults(): Promise<Map<number, MatchResult>> {
     results.set(kickoff, {
       homeScore: f.goals.home ?? 0,
       awayScore: f.goals.away ?? 0,
+      halfTimeHome: f.score?.halftime?.home ?? null,
+      halfTimeAway: f.score?.halftime?.away ?? null,
       status,
       apiHomeTeamId: f.teams.home.id,
       apiAwayTeamId: f.teams.away.id,
@@ -169,6 +173,8 @@ export async function enrichMatchesWithResults(
       ...match,
       homeScore: swapped ? result.awayScore : result.homeScore,
       awayScore: swapped ? result.homeScore : result.awayScore,
+      halfTimeHome: (swapped ? result.halfTimeAway : result.halfTimeHome) ?? undefined,
+      halfTimeAway: (swapped ? result.halfTimeHome : result.halfTimeAway) ?? undefined,
       status: result.status,
     };
   });

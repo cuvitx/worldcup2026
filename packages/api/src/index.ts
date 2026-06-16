@@ -11,10 +11,11 @@ export {
   getLiveFixtures,
   getFixtureEvents,
   getFixtureStatistics,
+  getFixturePlayers,
   getWorldCupFixtures,
   getFixturesByDate,
 } from "./football/client";
-export type { ApiFixtureStatistic } from "./football/client";
+export type { ApiFixtureStatistic, ApiFixturePlayer } from "./football/client";
 export { enrichTeamFromApi, mapInjuries } from "./football/mappers";
 export { enrichMatchesWithResults, getMatchResults, resolveApiFixtureId } from "./football/match-results";
 
