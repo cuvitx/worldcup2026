@@ -10,7 +10,8 @@ const GA_IMAGES: Record<string, { src: string; w: number; h: number }> = {
   "1380x300": { src: "https://static.gambling-affiliation.com/uploads/ads/67238.jpg", w: 1380, h: 300 },
   "1080x192": { src: "https://static.gambling-affiliation.com/uploads/ads/67238.jpg", w: 1380, h: 300 },
   "728x90":   { src: "https://static.gambling-affiliation.com/uploads/ads/67238.jpg", w: 1380, h: 300 },
-  "370x90":   { src: "https://static.gambling-affiliation.com/uploads/ads/67238.jpg", w: 1380, h: 300 },
+  // Mobile — use the 1080x1080 square "PMU Play" (more visible than thin horizontal)
+  "370x90":   { src: "https://static.gambling-affiliation.com/uploads/ads/66790.jpg", w: 1080, h: 1080 },
   // Square/sidebar — use the 1080x1080 "PMU Play"
   "300x250":  { src: "https://static.gambling-affiliation.com/uploads/ads/66790.jpg", w: 1080, h: 1080 },
 };
