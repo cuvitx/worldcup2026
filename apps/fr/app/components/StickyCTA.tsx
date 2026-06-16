@@ -8,7 +8,8 @@ const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/mentions-legales", "/jeu-responsable"];
 const SHOW_DELAY_MS = 20000;
 
-const PMU_IMAGE = "https://static.gambling-affiliation.com/uploads/ads/67239.jpg";
+const PMU_IMAGE_DESKTOP = "https://static.gambling-affiliation.com/uploads/ads/67239.jpg";
+const PMU_IMAGE_MOBILE = "https://static.gambling-affiliation.com/uploads/ads/67240.jpg";
 
 export function StickyCTA() {
   const [visible, setVisible] = useState(false);
@@ -59,10 +60,17 @@ export function StickyCTA() {
             rel="noopener noreferrer sponsored nofollow"
             className="block rounded-2xl overflow-hidden shadow-2xl"
           >
+            {/* Mobile */}
             <img
-              src={PMU_IMAGE}
+              src={PMU_IMAGE_MOBILE}
               alt="PMU Play — Jusqu'à 100€ en cash"
-              className="block w-[85vw] sm:w-[700px] h-auto rounded-2xl"
+              className="block sm:hidden w-[85vw] h-auto rounded-2xl"
+            />
+            {/* Desktop */}
+            <img
+              src={PMU_IMAGE_DESKTOP}
+              alt="PMU Play — Jusqu'à 100€ en cash"
+              className="hidden sm:block w-[700px] h-auto rounded-2xl"
             />
           </a>
 
