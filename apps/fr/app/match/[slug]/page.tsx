@@ -316,10 +316,10 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
-  // Fetch ESPN play-by-play commentary for completed matches
-  // Allow during build for completed matches (stable data, avoids ISR regression on deploy)
+  // Fetch ESPN play-by-play commentary for live AND completed matches
+  // ESPN provides real-time commentary during live matches
   let commentaryPlays: CommentaryPlay[] = [];
-  if (canFetchMatchData && matchPhase === "completed" && home && away) {
+  if (canFetchMatchData && (matchPhase === "live" || matchPhase === "completed") && home && away) {
     try {
       const espnHomeTeam = getEspnTeamName(match.homeTeamId);
       const espnAwayTeam = getEspnTeamName(match.awayTeamId);
