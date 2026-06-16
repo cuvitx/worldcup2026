@@ -75,11 +75,11 @@ export function MatchBettingCard({
             href={`/match/${nextMatchSlug}`}
             className="flex items-center gap-2 px-5 py-2.5 sm:px-6 border-b border-white/5 hover:bg-white/5 transition-colors"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#ffd700] animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37]">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ffd700] animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37] truncate min-w-0">
               Prochain match : {homeFlag} {homeName} vs {awayName} {awayFlag}
             </span>
-            <span className="text-white/40 text-xs ml-auto">&rarr;</span>
+            <span className="text-white/40 text-xs shrink-0">&rarr;</span>
           </Link>
         )}
 
@@ -209,7 +209,7 @@ function OddsBox({
         </span>
       )}
       <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/50">{label}</span>
-      <span className="truncate text-xs font-semibold text-white/90">{team}</span>
+      <span className="truncate min-w-0 max-w-full text-xs font-semibold text-white/90">{team}</span>
       <span className={`text-xl font-black tabular-nums sm:text-2xl ${
         isFavorite ? "text-[#ffd700]" : "text-[#d4af37]"
       }`}>

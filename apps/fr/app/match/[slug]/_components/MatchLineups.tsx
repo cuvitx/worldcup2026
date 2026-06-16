@@ -70,7 +70,7 @@ function TeamColumn({
               <span className="tabular-nums text-gray-400 w-6 text-right text-sm">
                 {entry.player.number}
               </span>
-              <span className="font-medium text-sm text-gray-900 truncate">
+              <span className="font-medium text-sm text-gray-900 truncate min-w-0 flex-1">
                 {entry.player.name}
               </span>
               {rating && (
@@ -103,7 +103,7 @@ function TeamColumn({
                   <span className="tabular-nums w-6 text-right">
                     {entry.player.number}
                   </span>
-                  <span className="truncate">{entry.player.name}</span>
+                  <span className="truncate min-w-0 flex-1">{entry.player.name}</span>
                   {rating && (
                     <span className={`ml-auto shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${ratingColor(parseFloat(rating))}`}>
                       {rating}

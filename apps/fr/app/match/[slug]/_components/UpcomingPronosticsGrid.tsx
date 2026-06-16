@@ -58,16 +58,16 @@ export function UpcomingPronosticsGrid({
               key={match.slug}
               className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all px-4 py-4"
             >
-              <div className="text-sm font-semibold text-gray-900 flex items-center gap-1.5">
-                <span role="img" aria-label={match.homeName}>
+              <div className="text-sm font-semibold text-gray-900 flex items-center gap-1.5 min-w-0">
+                <span className="shrink-0" role="img" aria-label={match.homeName}>
                   {match.homeFlag}
                 </span>
-                <span className="truncate">{match.homeName}</span>
-                <span className="text-gray-400 mx-1">vs</span>
-                <span role="img" aria-label={match.awayName}>
+                <span className="truncate min-w-0">{match.homeName}</span>
+                <span className="text-gray-400 shrink-0">vs</span>
+                <span className="shrink-0" role="img" aria-label={match.awayName}>
                   {match.awayFlag}
                 </span>
-                <span className="truncate">{match.awayName}</span>
+                <span className="truncate min-w-0">{match.awayName}</span>
               </div>
 
               <p className="text-xs text-gray-500 mt-1.5">{dateLabel}</p>
