@@ -293,6 +293,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "I",
     matchday: 1,
+    homeScore: 3,
+    awayScore: 1,
+    status: "finished",
   },
   // Group I: Intercontinental Playoff 2 vs Norway — Gillette Stadium, Boston — 00:00 CEST (+1 day)
   {
