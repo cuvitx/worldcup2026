@@ -62,7 +62,7 @@ const POS_LABELS_FR: Record<string, string> = {
 
 /** Build formation rows from API lineup data. */
 function buildFormationRows(lineup: ApiLineup): { name: string; number: number; pos: string }[][] {
-  const formation = lineup.formation; // e.g. "4-3-3"
+  const formation = lineup.formation ?? "4-4-2"; // e.g. "4-3-3"
   const rowSizes = formation.split("-").map(Number);
   const players = lineup.startXI.map((p) => p.player);
 
