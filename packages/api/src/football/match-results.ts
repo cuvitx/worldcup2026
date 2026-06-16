@@ -67,7 +67,9 @@ export async function getMatchResults(): Promise<Map<number, MatchResult>> {
 
 /**
  * Enrich an array of static matches with real API results.
- * Matches by kickoff timestamp (timezone-safe, language-independent).
+ * - Skips entirely during build (avoids rate limiting)
+ * - At runtime, only fetches if at least one match needs enrichment
+ *   (i.e. not already finished with a score in static data)
  * Detects home/away swaps between our data and the API using team IDs.
  * Falls back to static data if API is unavailable.
  */
@@ -75,6 +77,16 @@ export async function enrichMatchesWithResults(
   matches: Match[],
   _teamNameMap?: Record<string, string> // kept for backward compat, no longer used
 ): Promise<Match[]> {
+  // Skip during build — static scores are sufficient, avoids rate limit exhaustion
+  const isBuild = process.env.NEXT_PHASE === "phase-production-build";
+  if (isBuild) return matches;
+
+  // Only call API if at least one match actually needs enrichment
+  const needsEnrichment = matches.some(
+    (m) => !(m.status === "finished" && m.homeScore != null)
+  );
+  if (!needsEnrichment) return matches;
+
   let results: Map<number, MatchResult>;
   try {
     results = await getMatchResults();

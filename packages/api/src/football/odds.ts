@@ -44,6 +44,7 @@ export interface MatchOddsResult {
  * Cached for 30 minutes (odds don't change rapidly).
  */
 async function fetchAllOdds(): Promise<OddsFixture[]> {
+  if (process.env.NEXT_PHASE === "phase-production-build") return [];
   if (!API_FOOTBALL.key) {
     console.warn("[api-football] No API key configured, skipping: odds");
     return [];
