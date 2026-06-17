@@ -24,8 +24,9 @@ export interface DailyBet {
 }
 
 function pickBetOfTheDay(): DailyBet {
-  // Sort matches by date
+  // Sort matches by date — exclude finished and barrage matches
   const sorted = [...matches]
+    .filter((m) => m.status !== "finished")
     .filter((m) => !m.homeTeamId.startsWith("barrage-") && !m.homeTeamId.startsWith("intercontinental-"))
     .filter((m) => !m.awayTeamId.startsWith("barrage-") && !m.awayTeamId.startsWith("intercontinental-"))
     .sort((a, b) => a.date.localeCompare(b.date));
