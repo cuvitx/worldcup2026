@@ -28,6 +28,7 @@ const RATE_LIMIT_CONFIG = {
 /**
  * Wrapper around cachedFetch that respects rate limits.
  * If rate limited, returns cached data if available, otherwise returns fallback.
+ * Never caches empty arrays to avoid persisting rate-limit errors.
  */
 async function rateLimitedCachedFetch<T>(
   cacheKey: string,
@@ -44,7 +45,17 @@ async function rateLimitedCachedFetch<T>(
     return cached ?? fallback;
   }
 
-  return cachedFetch(cacheKey, ttlSeconds, fetcher);
+  // Fetch fresh data
+  const data = await fetcher();
+
+  // Only cache non-empty results — empty arrays from rate-limit errors
+  // or missing data should not be persisted (especially with long TTLs)
+  if (Array.isArray(data) && data.length === 0) {
+    return cached ?? fallback;
+  }
+
+  await cacheSet(cacheKey, data, ttlSeconds);
+  return data;
 }
 
 async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
