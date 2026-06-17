@@ -7,6 +7,7 @@ import { teams, teamsBySlug } from "@repo/data/teams";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 import { AlertTriangle, ArrowUpDown, BarChart3, Check, Gem, Target, TrendingUp, Trophy, X } from "lucide-react";
+import { PmuBanner } from "../../components/PmuBanner";
 export const revalidate = 3600;
 export const dynamicParams = false;
 interface PageProps {
@@ -116,19 +117,22 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 <Trophy className="h-6 w-6 text-accent" />
                 Cote actuelle — {team.name} vainqueur CDM 2026
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 max-w-xs">
-                <div className="rounded-lg bg-primary/5 p-4 text-center">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 flex items-center gap-5 max-w-md">
+                <div className="flex-1">
                   <p className="text-sm text-gray-500 mb-1">PMU Sport</p>
-                  <p className="text-3xl font-extrabold text-primary">{pmuOdds.toFixed(2)}</p>
-                  <a
-                    href={pmuTrackingUrl("cote-champion")}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="mt-2 inline-block bg-accent text-white rounded-xl py-2 px-4 text-xs font-bold hover:opacity-90 transition-opacity"
-                  >
-                    Voir la cote
-                  </a>
+                  <p className="text-4xl font-extrabold text-primary tabular-nums">{pmuOdds.toFixed(2)}</p>
                 </div>
+                <a
+                  href={pmuTrackingUrl(`cote-champion-${slug}`)}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="group relative shrink-0 inline-flex items-center gap-2 overflow-hidden rounded-xl px-5 py-3 text-sm font-black uppercase tracking-wider text-[#0c3b2e] shadow-lg transition"
+                  style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
+                >
+                  <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]" aria-hidden="true" />
+                  <span className="relative">Parier</span>
+                  <span className="relative" aria-hidden="true">&rarr;</span>
+                </a>
               </div>
             </section>
             {/* Évolution de la cote */}
@@ -313,24 +317,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
               )}
             </section>
             {/* CTA */}
-            <section className="bg-accent rounded-xl py-3.5 px-6 text-center">
-              <p className="text-white font-bold text-lg mb-2">
-                Parier sur {team.name} championne du monde
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a
-                  href={pmuTrackingUrl("cote-champion")}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored nofollow"
-                  className="inline-block bg-white text-accent rounded-lg py-2 px-5 text-sm font-bold hover:opacity-90 transition-opacity"
-                >
-                  PMU Sport — 100€ offerts
-                </a>
-              </div>
-              <p className="text-white/70 text-xs mt-3">
-                18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
-              </p>
-            </section>
+            <PmuBanner tracking={`cote-champion-${slug}`} />
             {/* FAQ */}
             <FAQSection items={faqItems} title={`Questions fréquentes — Cote ${team.name}`} />
           </div>
@@ -366,23 +353,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Bookmaker partenaire</h3>
-              <div className="space-y-3">
-                <a
-                  href={pmuTrackingUrl("cote-champion")}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored nofollow"
-                  className="block rounded-lg border border-gray-200 p-3 hover:bg-gray-50 transition-colors"
-                >
-                  <p className="font-semibold text-gray-900 text-sm">PMU Sport</p>
-                  <p className="text-accent text-xs font-bold">100€ offerts en freebets sans condition</p>
-                </a>
-              </div>
-              <p className="text-xs text-gray-400 mt-3">
-                18+ | Jeu responsable | <a href="https://www.anj.fr" target="_blank" rel="noopener noreferrer" className="underline">ANJ.fr</a>
-              </p>
-            </div>
+            <PmuBanner tracking={`cote-champion-${slug}-sidebar`} compact />
           </aside>
         </div>
       </div>
