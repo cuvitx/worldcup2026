@@ -493,6 +493,9 @@ export default async function MatchPage({ params }: PageProps) {
                 awayName={away.name}
                 awayFlag={away.flag}
                 isFinished={isCompleted}
+                odds={matchOdds}
+                predictedScore={prediction?.predictedScore}
+                pmuUrl={pmuTrackingUrl(`match-${match.slug}`)}
               />
             )}
 
