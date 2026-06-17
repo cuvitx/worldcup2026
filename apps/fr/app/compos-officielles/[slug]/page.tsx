@@ -10,7 +10,7 @@ import type { ApiLineup } from "@repo/api/football";
 import { notFound } from "next/navigation";
 import { Users, ArrowRight, ShieldAlert, UserX, ClipboardList } from "lucide-react";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 300; // 5min — lineups can appear 1h before kickoff
 
 interface PageProps {
