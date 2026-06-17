@@ -124,8 +124,9 @@ export async function getInjuries(apiTeamId: number): Promise<ApiInjury[]> {
 }
 
 /** Get lineup for a specific fixture */
-export async function getLineup(fixtureId: number): Promise<ApiLineup[]> {
+export async function getLineup(fixtureId: number, finished = false): Promise<ApiLineup[]> {
   const cacheKey = `football:lineup:${fixtureId}`;
+  const ttl = finished ? CACHE_TTL.TEAM_STATS : CACHE_TTL.INJURIES;
   const cached = await cacheGet<ApiLineup[]>(cacheKey);
   if (cached !== null && cached.length > 0) return cached;
 
@@ -140,7 +141,7 @@ export async function getLineup(fixtureId: number): Promise<ApiLineup[]> {
   // Only cache non-empty results — empty results (lineup not yet announced)
   // should be re-fetched on next page revalidation
   if (data.length > 0) {
-    await cacheSet(cacheKey, data, CACHE_TTL.INJURIES);
+    await cacheSet(cacheKey, data, ttl);
   }
 
   return data;
@@ -161,10 +162,10 @@ export async function getLiveFixtures(): Promise<ApiFixture[]> {
 }
 
 /** Get fixture events (goals, cards, substitutions) */
-export async function getFixtureEvents(fixtureId: number): Promise<ApiFixtureEvent[]> {
+export async function getFixtureEvents(fixtureId: number, finished = false): Promise<ApiFixtureEvent[]> {
   return rateLimitedCachedFetch(
     `football:events:${fixtureId}`,
-    CACHE_TTL.LIVE_SCORES,
+    finished ? CACHE_TTL.TEAM_STATS : CACHE_TTL.LIVE_SCORES,
     () =>
       apiFetch<ApiFixtureEvent>("fixtures/events", {
         fixture: String(fixtureId),
@@ -188,10 +189,10 @@ export async function getWorldCupFixtures(): Promise<ApiFixture[]> {
 }
 
 /** Get statistics for a specific fixture */
-export async function getFixtureStatistics(fixtureId: number): Promise<ApiFixtureStatistic[]> {
+export async function getFixtureStatistics(fixtureId: number, finished = false): Promise<ApiFixtureStatistic[]> {
   return rateLimitedCachedFetch(
     `football:stats:${fixtureId}`,
-    CACHE_TTL.INJURIES, // 1h — stats don't change after match ends
+    finished ? CACHE_TTL.TEAM_STATS : CACHE_TTL.INJURIES,
     () =>
       apiFetch<ApiFixtureStatistic>("fixtures/statistics", {
         fixture: String(fixtureId),
@@ -216,10 +217,10 @@ export async function getFixturesByDate(date: string): Promise<ApiFixture[]> {
 }
 
 /** Get player ratings/statistics for a specific fixture */
-export async function getFixturePlayers(fixtureId: number): Promise<ApiFixturePlayer[]> {
+export async function getFixturePlayers(fixtureId: number, finished = false): Promise<ApiFixturePlayer[]> {
   return rateLimitedCachedFetch(
     `football:players:${fixtureId}`,
-    CACHE_TTL.INJURIES, // 1h cache
+    finished ? CACHE_TTL.TEAM_STATS : CACHE_TTL.INJURIES,
     () =>
       apiFetch<ApiFixturePlayer>("fixtures/players", {
         fixture: String(fixtureId),

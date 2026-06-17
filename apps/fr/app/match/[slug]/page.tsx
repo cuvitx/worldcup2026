@@ -275,10 +275,10 @@ export default async function MatchPage({ params }: PageProps) {
     const fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
       const [ev, lu, st, pl] = await Promise.all([
-        getFixtureEvents(fixtureId).catch(() => [] as ApiFixtureEvent[]),
-        getLineup(fixtureId).catch(() => [] as ApiLineup[]),
-        getFixtureStatistics(fixtureId).catch(() => [] as ApiFixtureStatistic[]),
-        getFixturePlayers(fixtureId).catch(() => [] as ApiFixturePlayer[]),
+        getFixtureEvents(fixtureId, isCompleted).catch(() => [] as ApiFixtureEvent[]),
+        getLineup(fixtureId, isCompleted).catch(() => [] as ApiLineup[]),
+        getFixtureStatistics(fixtureId, isCompleted).catch(() => [] as ApiFixtureStatistic[]),
+        getFixturePlayers(fixtureId, isCompleted).catch(() => [] as ApiFixturePlayer[]),
       ]);
       events = ev;
 
