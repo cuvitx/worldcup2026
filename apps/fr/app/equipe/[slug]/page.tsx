@@ -28,7 +28,7 @@ import { GroupStandings } from "./_components/GroupStandings";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

@@ -12,7 +12,7 @@ import type { Team, Match, Stadium } from "@repo/data/types";
 import { BarChart3, CircleDot, Dice5, Landmark, Lock, Pin, Search, Star, Target } from "lucide-react"
 
 // ─── Static generation ───
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return matches.map((m) => ({ slug: m.slug }));

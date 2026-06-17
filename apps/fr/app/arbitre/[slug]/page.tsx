@@ -8,7 +8,7 @@ import { stageLabels } from "@repo/data/constants";
 import { notFound } from "next/navigation";
 import { Scale, ArrowRight, AlertTriangle, BarChart3, Flag, TrendingUp } from "lucide-react";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

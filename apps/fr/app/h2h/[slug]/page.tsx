@@ -9,7 +9,7 @@ import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictio
 import { PmuCTA } from "../../components/PmuCTA";
 
 export const revalidate = 300;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

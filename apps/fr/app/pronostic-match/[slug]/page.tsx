@@ -24,7 +24,7 @@ import {
 } from "./_components";
 
 export const revalidate = 300;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

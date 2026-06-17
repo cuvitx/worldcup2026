@@ -11,7 +11,7 @@ import { ClipboardList, ExternalLink, ShieldAlert, Star, UserX, Users } from "lu
 import { PmuCTA } from "../../components/PmuCTA";
 import { BetOfTheDay } from "../../components/BetOfTheDay";
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

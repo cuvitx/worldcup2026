@@ -18,7 +18,7 @@ import { PronosticSidebar } from "./_components/PronosticSidebar";
 import { PmuCTA } from "../../components/PmuCTA";
 
 export const revalidate = 300;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

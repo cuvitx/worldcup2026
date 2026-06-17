@@ -12,7 +12,7 @@ import { cityEnrichmentData } from "./city-enrichment";
 import { BookOpen, Building2, Globe, Ticket, Tv } from "lucide-react"
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

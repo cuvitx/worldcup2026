@@ -6,7 +6,7 @@ import { domains } from "@repo/data/route-mapping";
 import { AlertTriangle, ArrowRight, BarChart3, Calendar, CircleDot, Flag, Scale, Shield, TrendingUp, User } from "lucide-react";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 /* ── Referee data ── */
 interface Referee {

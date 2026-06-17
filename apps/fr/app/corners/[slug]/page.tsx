@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/corners/${slug}` },
   };
 }
-export const dynamicParams = false;
+export const dynamicParams = true;
 export default async function CornersPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];

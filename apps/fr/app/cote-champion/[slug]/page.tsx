@@ -9,7 +9,7 @@ import { estimatedOutrightOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 import { AlertTriangle, ArrowUpDown, BarChart3, Check, Gem, Target, TrendingUp, Trophy, X } from "lucide-react";
 import { PmuBanner } from "../../components/PmuBanner";
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

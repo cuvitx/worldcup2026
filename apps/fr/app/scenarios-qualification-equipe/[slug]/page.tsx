@@ -11,7 +11,7 @@ import { getISOCode } from "@repo/data/country-codes";
 import { AlertTriangle, ArrowRight, BarChart3, CheckCircle2, Lightbulb, Medal, Target, TrendingDown, TrendingUp, Trophy, Users, X, XCircle } from "lucide-react";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

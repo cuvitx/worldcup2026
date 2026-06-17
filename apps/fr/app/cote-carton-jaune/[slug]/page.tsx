@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-carton-jaune/${slug}` },
   };
 }
-export const dynamicParams = false;
+export const dynamicParams = true;
 export default async function CoteCartonJaunePage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];

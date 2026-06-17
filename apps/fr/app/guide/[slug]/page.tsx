@@ -10,7 +10,7 @@ import { AuthorBox } from "@repo/ui/author-box";
 import { FileText } from "lucide-react"
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

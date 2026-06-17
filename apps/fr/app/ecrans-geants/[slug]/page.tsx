@@ -5,7 +5,7 @@ import { domains } from "@repo/data/route-mapping";
 import { Monitor, MapPin, Clock, Users, Beer, Sun, ArrowRight } from "lucide-react";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

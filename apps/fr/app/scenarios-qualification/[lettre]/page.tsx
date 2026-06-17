@@ -7,7 +7,7 @@ import { matchesByGroup } from "@repo/data/matches";
 import { notFound } from "next/navigation";
 import { ArrowRight, Target, TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ lettre: string }>;

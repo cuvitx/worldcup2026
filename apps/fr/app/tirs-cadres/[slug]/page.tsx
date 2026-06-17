@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/tirs-cadres/${slug}` },
   };
 }
-export const dynamicParams = false;
+export const dynamicParams = true;
 export default async function TirsCadresPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];

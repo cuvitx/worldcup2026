@@ -5,7 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { AlarmClock, ArrowRight, Bus, Car, Clock, Lock, MapPin, Plane, ShieldCheck, Smartphone, Thermometer } from "lucide-react";
 import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export async function generateStaticParams() {
   return stadiums.map((s) => ({ slug: s.slug }));
 }

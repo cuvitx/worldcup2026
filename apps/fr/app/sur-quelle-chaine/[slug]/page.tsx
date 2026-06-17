@@ -10,7 +10,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { stageLabels } from "@repo/data/constants";
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 // ─── Deterministic channel assignment ─────────────────────────────────────────
 function hashSlug(slug: string): number {
   let h = 0;

@@ -12,7 +12,7 @@ import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-rea
 import { PmuBanner } from "../../components/PmuBanner";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

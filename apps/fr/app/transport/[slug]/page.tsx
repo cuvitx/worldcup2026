@@ -5,7 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, Bus, Car, DollarSign, Plane, Train } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
 import { stadiumsById } from "@repo/data/stadiums";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export async function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
 }

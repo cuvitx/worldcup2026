@@ -18,7 +18,7 @@ import { QualificationOdds } from "./_components/QualificationOdds";
 import { GroupSidebar } from "./_components/GroupSidebar";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ lettre: string }>;

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { ArrowRight, CalendarDays, Check, Clock, Lightbulb, MapPin, Music, PartyPopper, Tv, Users, UtensilsCrossed } from "lucide-react";
 import { cities, citiesBySlug } from "@repo/data/cities";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export async function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
 }

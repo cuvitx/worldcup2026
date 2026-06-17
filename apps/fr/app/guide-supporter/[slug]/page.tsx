@@ -10,7 +10,7 @@ import { matchesByStadium } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stageLabels } from "@repo/data/constants";
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface GuideData {
   transport: { metro: string; parking: string; temps: string };

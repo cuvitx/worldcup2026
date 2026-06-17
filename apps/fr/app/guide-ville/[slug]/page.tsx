@@ -11,7 +11,7 @@ import { MatchInfoSection } from "./_components/MatchInfoSection";
 import { SecuritySection } from "./_components/SecuritySection";
 import { CityFaqSection } from "./_components/CityFaqSection";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));

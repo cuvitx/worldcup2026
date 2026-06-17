@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `https://www.cdm2026.fr/cote-buteur/${slug}` },
   };
 }
-export const dynamicParams = false;
+export const dynamicParams = true;
 export default async function CoteButeurPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];

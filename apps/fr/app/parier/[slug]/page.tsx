@@ -10,7 +10,7 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 import { Calendar, Check, CircleDot, ExternalLink, ShieldCheck, Star, TrendingUp, Trophy } from "lucide-react";
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

@@ -20,7 +20,7 @@ import { CircleDot, Sparkles, Users } from "lucide-react"
 import { PmuBanner } from "../../components/PmuBanner";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

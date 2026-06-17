@@ -7,7 +7,7 @@ import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-r
 import { guides, guidesById } from "@repo/data/guides";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;

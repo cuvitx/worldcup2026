@@ -7,7 +7,7 @@ import { Shield, AlertTriangle, Phone, Moon, HeartPulse, MapPin } from "lucide-r
 import Link from "next/link";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
