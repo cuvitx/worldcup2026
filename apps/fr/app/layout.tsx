@@ -18,6 +18,9 @@ import { PmuBanner } from "./components/PmuBanner";
 import { LiveDataProvider } from "./providers/LiveDataProvider";
 import "./globals.css";
 
+// Revalidate layout every 5 min so LiveScoreBar shows today's matches
+export const revalidate = 300;
+
 /* ── Inter — tous les poids brand book (400, 500, 600, 700, 800) ── */
 const inter = Inter({
   subsets: ["latin"],

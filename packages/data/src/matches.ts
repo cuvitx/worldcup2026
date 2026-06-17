@@ -309,6 +309,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "I",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 4,
+    status: "finished",
   },
   // Group J: Argentina vs Algeria — Arrowhead Stadium, Kansas City — 03:00 CEST
   {
@@ -322,6 +325,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "J",
     matchday: 1,
+    homeScore: 3,
+    awayScore: 0,
+    status: "finished",
   },
   // Group J: Austria vs Jordan — Levi's Stadium, San Francisco — 06:00 CEST
   {
@@ -335,6 +341,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "J",
     matchday: 1,
+    homeScore: 3,
+    awayScore: 1,
+    status: "finished",
   },
 
   // ---- June 17, 2026 ----
