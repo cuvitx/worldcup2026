@@ -24,7 +24,6 @@ import { MatchBettingCard } from "../../components/MatchBettingCard";
 import {
   MatchHeroAdaptive,
   TeamComparison,
-  PredictionCard,
   MatchSidebar,
   SameDayMatches,
   MatchEventsTimeline,
@@ -566,15 +565,6 @@ export default async function MatchPage({ params }: PageProps) {
               />
             )}
 
-            {home && away && (
-              <PredictionCard
-                home={home}
-                away={away}
-                prediction={prediction}
-                isCompleted={isCompleted}
-                matchSlug={match.slug}
-              />
-            )}
           </div>
 
           {/* Sidebar */}
