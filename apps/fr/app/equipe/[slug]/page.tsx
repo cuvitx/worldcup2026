@@ -26,7 +26,6 @@ import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
 import { GroupStandings } from "./_components/GroupStandings";
 import { TeamQuickNav } from "../../components/TeamQuickNav";
-import { PmuCTA } from "../../components/PmuCTA";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
 
 export const revalidate = 3600;
@@ -168,13 +167,6 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Match Pronostic Links */}
       <PremiumMatchPronosticLinks team={team} teamMatches={teamMatches} />
 
-      {/* PMU CTA */}
-      <section className="py-6 sm:py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <PmuCTA tracking={`equipe-${team.slug}`} teamName={team.name} />
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <PremiumFAQ 
         team={team}
@@ -255,13 +247,6 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Quick Nav & Sidebar */}
       <TeamQuickNav teamSlug={team.slug} />
       
-
-      {/* Final CTA */}
-      <section className="py-6 sm:py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <PmuCTA tracking={`equipe-${team.slug}`} teamName={team.name} />
-        </div>
-      </section>
 
       {/* ANJ Banner */}
 
