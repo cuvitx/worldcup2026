@@ -25,7 +25,6 @@ import { PremiumPronostic } from "./_components/PremiumPronostic";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
 import { GroupStandings } from "./_components/GroupStandings";
-import { TeamQuickNav } from "../../components/TeamQuickNav";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
 
 export const revalidate = 3600;
@@ -244,9 +243,6 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Newsletter */}
       <Newsletter variant="banner" />
 
-      {/* Quick Nav & Sidebar */}
-      <TeamQuickNav teamSlug={team.slug} />
-      
 
       {/* ANJ Banner */}
 
