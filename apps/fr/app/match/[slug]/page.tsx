@@ -492,6 +492,7 @@ export default async function MatchPage({ params }: PageProps) {
                 homeFlag={home.flag}
                 awayName={away.name}
                 awayFlag={away.flag}
+                isFinished={isCompleted}
               />
             )}
 

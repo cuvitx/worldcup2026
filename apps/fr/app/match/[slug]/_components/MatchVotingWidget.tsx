@@ -18,6 +18,7 @@ interface MatchVotingWidgetProps {
   homeFlag: string;
   awayName: string;
   awayFlag: string;
+  isFinished?: boolean;
 }
 
 const STORAGE_KEY_PREFIX = "cdm2026-vote-";
@@ -28,6 +29,7 @@ export function MatchVotingWidget({
   homeFlag,
   awayName,
   awayFlag,
+  isFinished = false,
 }: MatchVotingWidgetProps) {
   const [voted, setVoted] = useState<VoteChoice | null>(null);
   const [counts, setCounts] = useState<VoteCounts | null>(null);
@@ -50,8 +52,8 @@ export function MatchVotingWidget({
       .then((data: VoteCounts | null) => {
         if (data) setCounts(data);
         setLoading(false);
-        // Trigger bar animation if user already voted
-        if (saved) {
+        // Trigger bar animation if results should show
+        if (saved || isFinished) {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => setAnimate(true));
           });
@@ -112,8 +114,11 @@ export function MatchVotingWidget({
     [submitting, voted, slug, storageKey],
   );
 
-  // Compute percentages
+  // Hide widget for finished matches with no votes
   const total = counts?.total ?? 0;
+  if (isFinished && !loading && total === 0) return null;
+
+  // Compute percentages
   const pct = (n: number) => (total > 0 ? Math.round((n / total) * 100) : 0);
 
   const options: Array<{
@@ -180,7 +185,7 @@ export function MatchVotingWidget({
     }
   }
 
-  const showResults = voted !== null;
+  const showResults = isFinished || voted !== null;
 
   return (
     <section className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
@@ -189,7 +194,11 @@ export function MatchVotingWidget({
         <div className="flex items-center gap-2">
           <BarChart3 className="h-5 w-5 text-gray-400" />
           <h2 className="font-bold text-lg text-gray-900">
-            {showResults ? "L'avis de la communauté" : "Qui va gagner ?"}
+            {isFinished
+              ? "Les pronostics de la communauté"
+              : showResults
+                ? "L'avis de la communauté"
+                : "Qui va gagner ?"}
           </h2>
         </div>
         {showResults && total > 0 && (
