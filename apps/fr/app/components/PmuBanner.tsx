@@ -1,4 +1,5 @@
 import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { GaTrackingPixel } from "./GaTrackingPixel";
 
 interface PmuBannerProps {
   tracking?: string;
@@ -27,6 +28,7 @@ export function PmuBanner({
             "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)",
         }}
       >
+        <GaTrackingPixel variant="300x250" tracking={tracking} />
         {/* Glow */}
         <div
           aria-hidden="true"
@@ -88,6 +90,7 @@ export function PmuBanner({
           "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)",
       }}
     >
+      <GaTrackingPixel variant="728x90" tracking={tracking} />
       {/* Glow */}
       <div
         aria-hidden="true"

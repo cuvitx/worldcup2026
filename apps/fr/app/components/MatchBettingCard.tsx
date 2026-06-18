@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { GaTrackingPixel } from "./GaTrackingPixel";
 
 interface MatchBettingCardProps {
   homeName: string;
@@ -48,6 +49,7 @@ export function MatchBettingCard({
       className="relative overflow-hidden rounded-2xl border border-[#d4af37]/25 text-white shadow-xl max-w-full"
       style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}
     >
+      <GaTrackingPixel variant="728x90" tracking={tracking} />
       {/* Background glow */}
       <div
         aria-hidden="true"

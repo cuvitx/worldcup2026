@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { GaTrackingPixel } from "../../../components/GaTrackingPixel";
 
 interface VoteCounts {
   home: number;
@@ -259,7 +260,8 @@ export function MatchVotingWidget({
       {/* PMU CTA */}
       {pmuUrl && (
         <>
-          <div className="mx-6 mb-4 rounded-xl border border-gray-200 bg-gray-50 overflow-hidden">
+          <div className="relative mx-6 mb-4 rounded-xl border border-gray-200 bg-gray-50 overflow-hidden">
+            <GaTrackingPixel variant="370x90" tracking={`match-vote-${slug}`} />
             <a
               href={pmuUrl}
               target="_blank"

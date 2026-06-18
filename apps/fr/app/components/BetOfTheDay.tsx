@@ -9,6 +9,7 @@ import { teamsById } from "@repo/data/teams";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { stageLabels } from "@repo/data/constants";
 import { bookmakers } from "@repo/data/affiliates";
+import { GaTrackingPixel } from "./GaTrackingPixel";
 
 export interface DailyBet {
   matchLabel: string;
@@ -128,7 +129,8 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
   if (compact) {
     return (
-      <div className="rounded-xl border border-secondary/30 p-4 shadow-lg shadow-blue-900/20" style={{ background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)" }}>
+      <div className="relative rounded-xl border border-secondary/30 p-4 shadow-lg shadow-blue-900/20" style={{ background: "linear-gradient(160deg, var(--color-primary) 0%, var(--color-deep) 50%, var(--color-primary) 100%)" }}>
+        <GaTrackingPixel variant="300x250" tracking={`pari-du-jour-${display.matchSlug}`} />
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
             <span className="animate-pulse inline-block w-2 h-2 rounded-full bg-secondary" />
@@ -165,6 +167,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
   return (
     <div className="relative rounded-2xl overflow-hidden">
+      <GaTrackingPixel variant="728x90" tracking={`pari-du-jour-${display.matchSlug}`} />
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-deep to-gray-dark" />
       <div className="absolute top-0 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
 
