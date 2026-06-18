@@ -56,7 +56,7 @@ interface LiveMatchData {
  */
 interface ApiFixtureLike {
   fixture: { id: number; date: string; status: { short: string; elapsed: number | null } };
-  teams: { home: { name: string }; away: { name: string } };
+  teams: { home: { name: string; id?: number }; away: { name: string; id?: number } };
   goals: { home: number | null; away: number | null };
 }
 
@@ -184,21 +184,31 @@ export function LiveMatchWidget({
       teams: { home: { name: string; id?: number }; away: { name: string; id?: number } };
       goals: { home: number | null; away: number | null };
     }>) => {
-      // Match by kickoff timestamp with 2-minute tolerance (timezone-agnostic)
+      // Strategy 1: Match by API-Football team IDs (most reliable)
+      if (homeApiTeamId && homeApiTeamId > 0 && awayApiTeamId && awayApiTeamId > 0) {
+        const byId = fixtures.find(
+          (f) =>
+            (f.teams.home.id === homeApiTeamId && f.teams.away.id === awayApiTeamId) ||
+            (f.teams.home.id === awayApiTeamId && f.teams.away.id === homeApiTeamId)
+        );
+        if (byId) return byId;
+      }
+
+      // Strategy 2: Match by kickoff timestamp with 2-minute tolerance (timezone-agnostic)
       const kickoff = new Date(`${matchDate}T${matchTime}:00+02:00`).getTime();
       const byTime = fixtures.find(
         (f) => Math.abs(new Date(f.fixture.date).getTime() - kickoff) < 120000
       );
       if (byTime) return byTime;
 
-      // Fallback: fuzzy match on team names (first word)
+      // Strategy 3: Fuzzy match on team names (first word)
       return fixtures.find(
         (f) =>
           f.teams.home.name.toLowerCase().includes(homeTeam.toLowerCase().split(" ")[0] ?? "") ||
           f.teams.away.name.toLowerCase().includes(awayTeam.toLowerCase().split(" ")[0] ?? "")
       );
     },
-    [matchDate, matchTime, homeTeam, awayTeam]
+    [matchDate, matchTime, homeTeam, awayTeam, homeApiTeamId, awayApiTeamId]
   );
 
   // When external live data is provided (from centralized provider), use it directly

@@ -12,13 +12,15 @@ export const teamApiIds: Record<string, number> = {
   "mexique": 16,
   "afrique-du-sud": 1531,
   "coree-du-sud": 17,
-  "barrage-uefa-d": 0, // TBD après barrage
+  "tchequie": 770, // Czech Republic (barrage UEFA D)
+  "barrage-uefa-d": 770,
 
   // Groupe B
   "canada": 5529,
   "suisse": 15,  // Switzerland
   "qatar": 1569,
-  "barrage-uefa-a": 0, // TBD
+  "bosnie-herzegovine": 1113, // Bosnia & Herzegovina (barrage UEFA A)
+  "barrage-uefa-a": 1113,
 
   // Groupe C
   "bresil": 6,
@@ -30,7 +32,8 @@ export const teamApiIds: Record<string, number> = {
   "etats-unis": 2384,
   "paraguay": 2380,
   "australie": 20,
-  "barrage-uefa-c": 0, // TBD
+  "turquie": 777, // Türkiye (barrage UEFA C)
+  "barrage-uefa-c": 777,
 
   // Groupe E
   "allemagne": 25,
@@ -42,7 +45,8 @@ export const teamApiIds: Record<string, number> = {
   "pays-bas": 1118,
   "japon": 12,
   "tunisie": 28,
-  "barrage-uefa-b": 0, // TBD
+  "suede": 5, // Sweden (barrage UEFA B)
+  "barrage-uefa-b": 5,
 
   // Groupe G
   "belgique": 1,
@@ -60,7 +64,8 @@ export const teamApiIds: Record<string, number> = {
   "france": 2,
   "senegal": 13,
   "norvege": 1090,
-  "barrage-interconf-2": 0, // TBD
+  "irak": 1567, // Iraq (barrage intercontinental 2)
+  "barrage-interconf-2": 1567,
 
   // Groupe J
   "argentine": 26,
@@ -72,7 +77,8 @@ export const teamApiIds: Record<string, number> = {
   "portugal": 27,
   "colombie": 8,
   "ouzbekistan": 1568,
-  "barrage-interconf-1": 0, // TBD
+  "rd-congo": 1508, // Congo DR (barrage intercontinental 1)
+  "barrage-interconf-1": 1508,
 
   // Groupe L
   "angleterre": 10,
