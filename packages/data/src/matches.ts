@@ -359,6 +359,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "K",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group L: England vs Croatia — AT&T Stadium, Dallas — 22:00 CEST
   {
@@ -372,6 +375,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "L",
     matchday: 1,
+    homeScore: 4,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group L: Ghana vs Panama — BMO Field, Toronto — 01:00 CEST (+1 day)
   {
@@ -385,6 +391,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "L",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group K: Uzbekistan vs Colombia — Estadio Azteca, Mexico City — 04:00 CEST
   {
@@ -398,6 +407,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "K",
     matchday: 1,
+    homeScore: 1,
+    awayScore: 3,
+    status: "finished" as const,
   },
 
   // ============================================================
@@ -417,6 +429,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "A",
     matchday: 2,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group B: Switzerland vs UEFA Playoff A — SoFi Stadium, Los Angeles — 21:00 CEST
   {
