@@ -5,8 +5,8 @@
 export const API_FOOTBALL = {
   baseUrl: "https://v3.football.api-sports.io",
   key: process.env.API_FOOTBALL_KEY ?? "",
-  /** Pro plan: 7500 requests/day */
-  rateLimitPerDay: 7500,
+  /** Ultra plan: 75000 requests/day */
+  rateLimitPerDay: 75000,
   /** World Cup 2026 league ID in API-Football */
   worldCupLeagueId: 1,
   /** World Cup 2026 season */
