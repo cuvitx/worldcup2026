@@ -445,6 +445,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "B",
     matchday: 2,
+    homeScore: 4,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group B: Canada vs Qatar — BC Place, Vancouver — 00:00 CEST (+1 day)
   {
