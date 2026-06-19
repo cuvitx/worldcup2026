@@ -1,5 +1,5 @@
 import { getAlternates } from "@repo/data/route-mapping";
-import { localizeTeam } from "@repo/data/i18n";
+import { localizeTeam, localizeCity } from "@repo/data/i18n";
 import { stageLabelsI18n } from "@repo/data/constants";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -40,6 +40,7 @@ export default async function CityPage({ params }: PageProps) {
   const { slug } = await params;
   const city = citiesBySlug[slug];
   if (!city) notFound();
+  const loc = localizeCity(city, "de");
 
   const cityStadiums = city.stadiumIds
     .map((id) => stadiumsById[id])
@@ -69,7 +70,7 @@ export default async function CityPage({ params }: PageProps) {
                 Ueber {city.name}
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                {city.description}
+                {loc.description}
               </p>
             </section>
 

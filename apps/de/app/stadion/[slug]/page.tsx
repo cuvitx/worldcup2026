@@ -1,5 +1,5 @@
 import { getAlternates } from "@repo/data/route-mapping";
-import { localizeTeam } from "@repo/data/i18n";
+import { localizeTeam, localizeStadium } from "@repo/data/i18n";
 import { stageLabelsI18n } from "@repo/data/constants";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -41,6 +41,7 @@ export default async function StadiumPage({ params }: PageProps) {
   const stadium = stadiumsBySlug[slug];
   if (!stadium) notFound();
 
+  const loc = localizeStadium(stadium, "de");
   const city = citiesById[stadium.cityId];
   const stadiumMatches = matchesByStadium[stadium.id] ?? [];
 
@@ -74,7 +75,7 @@ export default async function StadiumPage({ params }: PageProps) {
                 Beschreibung
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                {stadium.description}
+                {loc.description}
               </p>
             </section>
 

@@ -103,7 +103,7 @@ export default async function TeamPage({ params }: PageProps) {
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">
-                    {team.bestResult}
+                    {loc.bestResult}
                   </p>
                   <p className="text-sm text-gray-500">Bestes Ergebnis</p>
                 </div>
@@ -115,6 +115,18 @@ export default async function TeamPage({ params }: PageProps) {
                 </div>
               </div>
             </section>
+
+            {/* Description */}
+            {loc.description && (
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Über {loc.name}
+                </h2>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {loc.description}
+                </p>
+              </section>
+            )}
 
             {/* Group */}
             {groupTeams.length > 0 && (
@@ -289,7 +301,7 @@ export default async function TeamPage({ params }: PageProps) {
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Bestes Ergebnis</dt>
-                  <dd className="font-medium">{team.bestResult}</dd>
+                  <dd className="font-medium">{loc.bestResult}</dd>
                 </div>
                 {team.isHost && (
                   <div className="flex justify-between">
