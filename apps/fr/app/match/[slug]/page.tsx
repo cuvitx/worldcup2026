@@ -84,8 +84,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : `${homeName} vs ${awayName} - ${stage} | CDM 2026`;
 
   const description = hasScore
-    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName}, résultat ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade a confirmer"}. Résultat, résumé, compositions et statistiques.`
-    : `${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade a confirmer"}. Pronostics, cotes et composition.`;
+    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName}, résultat ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade à confirmer"}. Résultat, résumé, compositions et statistiques.`
+    : `${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade à confirmer"}. Pronostics, cotes et composition.`;
 
   const ogTitle = hasScore
     ? `${home?.flag ?? ""} ${homeName} ${match.homeScore}-${match.awayScore} ${awayName} ${away?.flag ?? ""} — CDM 2026`
@@ -106,7 +106,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "CDM 2026",
       images: [
         {
-          url: `${domains.fr}/images/og-default.png`,
+          url: `${domains.fr}/og-default.jpg`,
           width: 1200,
           height: 630,
           alt: `${homeName} vs ${awayName} - CDM 2026`,
@@ -707,7 +707,9 @@ export default async function MatchPage({ params }: PageProps) {
             "@type": "SportsEvent",
             name: `${home?.name ?? "TBD"} vs ${away?.name ?? "TBD"} - Coupe du Monde 2026`,
             description: `${home?.name ?? "TBD"} contre ${away?.name ?? "TBD"}, ${stage} de la Coupe du Monde FIFA 2026.`,
-            eventStatus: "https://schema.org/EventScheduled",
+            eventStatus: isCompleted
+              ? "https://schema.org/EventCompleted"
+              : "https://schema.org/EventScheduled",
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
             startDate: `${match.date}T${match.time || "00:00"}:00+02:00`,
             location: stadium

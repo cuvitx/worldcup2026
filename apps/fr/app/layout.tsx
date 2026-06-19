@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { domains, getHomeAlternates } from "@repo/data/route-mapping";
 import { OrganizationSchema } from "@repo/ui/organization-schema";
+import { WebSiteSchema } from "@repo/ui/website-schema";
 import { LiveScoreBarWrapper } from "./components/LiveScoreBarWrapper";
 import { LiveTicker } from "./components/LiveTicker";
 import { BackToTop } from "@repo/ui/back-to-top";
@@ -138,6 +139,7 @@ export default function RootLayout({
           }}
         />
         <OrganizationSchema url={domains.fr} name="CDM 2026 - Coupe du Monde" />
+        <WebSiteSchema url={domains.fr} name="CDM 2026" description="Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 equipes, calendrier des 104 matchs." />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Aller au contenu</a>
         <LiveDataProvider>
         <BadgeSystem>

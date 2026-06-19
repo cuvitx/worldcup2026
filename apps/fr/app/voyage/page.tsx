@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileCheck, PlaneTakeoff, ShieldCheck, Smartphone, Hotel, Shield, Wifi, Wine, Clock, Heart, User, Luggage } from "lucide-react";
+import { FileCheck, PlaneTakeoff, ShieldCheck, Smartphone, Hotel, Shield, Wifi, Wine, Clock, Heart, User, Luggage, Mic } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Guide voyage CDM 2026 — Préparer son séjour USA, Mexique, Canada",
   description: "Tout pour préparer votre voyage à la Coupe du Monde 2026 : visa, vols, hébergement, budget, sécurité, carte SIM, décalage horaire.",
+  alternates: { canonical: "https://www.cdm2026.fr/voyage" },
 };
 
 const sections = [
@@ -35,6 +36,7 @@ const sections = [
       { href: "/voyage/alcool-stades", label: "Alcool stades", icon: Wine, desc: "Règles alcool dans les stades" },
       { href: "/voyage/pourboires", label: "Pourboires", icon: Heart, desc: "Usage des tips aux USA" },
       { href: "/voyage/supporter-francais", label: "Supporter français", icon: User, desc: "Guide pour les fans français" },
+      { href: "/chants-supporters", label: "Chants de supporters", icon: Mic, desc: "Top 10 des hymnes légendaires" },
     ],
   },
 ];

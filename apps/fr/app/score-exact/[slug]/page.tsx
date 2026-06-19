@@ -9,6 +9,7 @@ import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { bookmakers } from "@repo/data/affiliates";
 import type { Team, Match, Stadium } from "@repo/data/types";
+import { getMatchPhase } from "@repo/data/tournament-state";
 import { BarChart3, CircleDot, Dice5, Landmark, Lock, Pin, Search, Star, Target } from "lucide-react"
 
 // ─── Static generation ───
@@ -293,10 +294,14 @@ export default async function ScoreExactPage({ params }: PageProps) {
   ];
 
   // JSON-LD SportsEvent
+  const matchCompleted = match.status === "finished" || getMatchPhase(match.date, match.time) === "completed";
   const sportsEventSchema = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${home.name} vs ${away.name} – Coupe du Monde 2026`,
+    eventStatus: matchCompleted
+      ? "https://schema.org/EventCompleted"
+      : "https://schema.org/EventScheduled",
     startDate: `${match.date}T${match.time}:00+02:00`,
     location: stadium
       ? {

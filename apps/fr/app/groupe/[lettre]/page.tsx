@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Groupe ${group.letter} - Coupe du Monde 2026 | ${teamNames}`,
-    description: `Analyse complete du Groupe ${group.letter} de la Coupe du Monde 2026 : ${teamNames}. Calendrier, pronostics, cotes et chances de qualification.`,
+    description: `Analyse complète du Groupe ${group.letter} de la Coupe du Monde 2026 : ${teamNames}. Calendrier, pronostics, cotes et chances de qualification.`,
     alternates: getAlternates("group", lettre, "fr"),
     openGraph: {
       title: `Groupe ${group.letter} - CDM 2026`,

@@ -208,8 +208,14 @@ return (
             Confrontations mythiques <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/buteurs"
+            href="/records"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
+          >
+            Records de la CDM
+          </Link>
+          <Link
+            href="/buteurs"
+            className="inline-flex items-center gap-2 border border-gray-300 text-gray-900 rounded-xl py-3.5 px-6 font-semibold hover:bg-gray-50 transition-colors"
           >
             Meilleurs buteurs CDM
           </Link>

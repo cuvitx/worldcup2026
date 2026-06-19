@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug } from "@repo/data/teams";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
+import { matches } from "@repo/data/matches";
+import { getMatchPhase } from "@repo/data/tournament-state";
 import { PmuCTA } from "../../components/PmuCTA";
 
 export const revalidate = 300;
@@ -50,11 +52,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { team1, team2 } = parsed;
   return {
     title: `${team1.name} vs ${team2.name} - Historique, Stats & Pronostic CDM 2026`,
-    description: `${team1.name} contre ${team2.name} : historique des confrontations, statistiques comparees, pronostic et cotes pour la Coupe du Monde 2026.`,
+    description: `${team1.name} contre ${team2.name} : historique des confrontations, statistiques comparées, pronostic et cotes pour la Coupe du Monde 2026.`,
     alternates: getAlternates("h2h", slug, "fr"),
     openGraph: {
       title: `${team1.flag} ${team1.name} vs ${team2.name} ${team2.flag}`,
-      description: `Analyse complete ${team1.name} - ${team2.name}. Historique, stats et pronostic CDM 2026.`,
+      description: `Analyse complète ${team1.name} - ${team2.name}. Historique, stats et pronostic CDM 2026.`,
     },
   };
 }
@@ -288,15 +290,27 @@ export default async function H2HPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SportsEvent",
-            name: `${team1.name} vs ${team2.name} - Coupe du Monde 2026`,
-            eventStatus: "https://schema.org/EventScheduled",
-            sport: "Football",
-            homeTeam: { "@type": "SportsTeam", name: team1.name },
-            awayTeam: { "@type": "SportsTeam", name: team2.name },
-          }),
+          __html: JSON.stringify((() => {
+            const h2hMatch = matches.find(
+              (m) =>
+                (m.homeTeamId === team1.id && m.awayTeamId === team2.id) ||
+                (m.homeTeamId === team2.id && m.awayTeamId === team1.id),
+            );
+            const isMatchCompleted = h2hMatch
+              ? h2hMatch.status === "finished" || getMatchPhase(h2hMatch.date, h2hMatch.time) === "completed"
+              : false;
+            return {
+              "@context": "https://schema.org",
+              "@type": "SportsEvent",
+              name: `${team1.name} vs ${team2.name} - Coupe du Monde 2026`,
+              eventStatus: isMatchCompleted
+                ? "https://schema.org/EventCompleted"
+                : "https://schema.org/EventScheduled",
+              sport: "Football",
+              homeTeam: { "@type": "SportsTeam", name: team1.name },
+              awayTeam: { "@type": "SportsTeam", name: team2.name },
+            };
+          })()),
         }}
       />
 </>

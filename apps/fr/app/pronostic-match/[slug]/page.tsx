@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Pronostic ${homeName} vs ${awayName} | Cotes & Prediction CDM 2026`,
-    description: `Pronostic ${homeName} vs ${awayName} Coupe du Monde 2026 : cotes estimees, score predit, analyse du match et historique des confrontations.`,
+    description: `Pronostic ${homeName} vs ${awayName} Coupe du Monde 2026 : cotes estimées, score prédit, analyse du match et historique des confrontations.`,
     alternates: getAlternates("predictionMatch", slug, "fr"),
     openGraph: {
       title: `${home?.flag ?? ""} Pronostic ${homeName} vs ${awayName} ${away?.flag ?? ""} | CDM 2026`,
@@ -118,10 +118,9 @@ export default async function PronosticMatchPage({ params }: PageProps) {
     <>
 
       <MatchHero home={home} away={away} match={match} stadium={stadium} city={city} stage={stage} homeName={homeName} awayName={awayName} dateFormatted={dateFormatted} />
-      <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
 
-      {/* Betting CTA — high-intent placement */}
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-4">
+      {/* Betting CTA — above fold, right after hero */}
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4">
         <div className="rounded-2xl px-5 py-4 text-white flex flex-col sm:flex-row sm:items-center gap-4 border border-[#d4af37]/25" style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-base">Parier sur ce match</p>
@@ -133,7 +132,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             <p className="text-[10px] text-white/40 mt-1">18+ | Offre soumise à conditions</p>
           </div>
           <a
-            href={pmuTrackingUrl("match-cta")}
+            href={pmuTrackingUrl("match-hero-cta")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             className="shrink-0 inline-block rounded-xl px-6 py-3 text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition-all text-center"
@@ -143,6 +142,8 @@ export default async function PronosticMatchPage({ params }: PageProps) {
           </a>
         </div>
       </div>
+
+      <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
 
       <MatchTabsClient>
         <PredictionTab prediction={prediction} outcomes={outcomes} maxProb={maxProb} home={home} away={away} homeName={homeName} awayName={awayName} match={match} predHome={predHome} predAway={predAway} h2h={h2h} stage={stage} dateFormatted={dateFormatted} stadium={stadium} city={city} enriched={enriched} odds={odds} featuredBookmaker={featuredBookmaker} relatedMatches={relatedMatches} />

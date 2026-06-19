@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: getAlternates("prediction", slug, "fr"),
     openGraph: {
       title: `${team.flag} Pronostic ${team.name} - CDM 2026`,
-      description: `Cotes et pronostics ${team.name} pour la Coupe du Monde 2026. Analyse complete, probabilites et predictions.`,
+      description: `Cotes et pronostics ${team.name} pour la Coupe du Monde 2026. Analyse complète, probabilités et prédictions.`,
     },
   };
 }

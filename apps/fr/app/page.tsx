@@ -6,6 +6,8 @@ import { stadiums, stadiumsById } from "@repo/data/stadiums";
 import { getHomeAlternates } from "@repo/data/route-mapping";
 import { newsArticles } from "@repo/data/news";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
+import { getNextMatch } from "@repo/data/tournament-state";
+import { matchPredictionByPair, estimatedMatchOdds } from "@repo/data";
 import { Newsletter } from "@repo/ui/newsletter";
 import { SocialProof } from "@repo/ui/social-proof";
 import { StadiumCarousel } from "./components/StadiumCarousel";
@@ -20,6 +22,7 @@ import { GroupsOverview } from "./components/home/GroupsOverview";
 import { RecentArticles } from "./components/home/RecentArticles";
 import { FavoriteTeams } from "./components/home/FavoriteTeams";
 import { PmuBanner } from "./components/PmuBanner";
+import { BetOfTheDay } from "./components/home/BetOfTheDay";
 
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
@@ -122,6 +125,18 @@ export default function HomePage() {
 
   const recentArticles = newsArticles.slice(0, DISPLAY_LIMITS.RECENT_ARTICLES);
 
+  // Bet of the day: next upcoming match with prediction data
+  const nextMatch = getNextMatch();
+  const betOfTheDayMatch = nextMatch;
+  const betHomeTeam = betOfTheDayMatch ? teamsById[betOfTheDayMatch.homeTeamId] : null;
+  const betAwayTeam = betOfTheDayMatch ? teamsById[betOfTheDayMatch.awayTeamId] : null;
+  const betPrediction = betOfTheDayMatch
+    ? matchPredictionByPair[`${betOfTheDayMatch.homeTeamId}:${betOfTheDayMatch.awayTeamId}`] ?? null
+    : null;
+  const betOdds = betPrediction
+    ? estimatedMatchOdds(betPrediction.team1WinProb, betPrediction.drawProb, betPrediction.team2WinProb)
+    : { home: "—", draw: "—", away: "—" };
+
   return (
     <>
       {/* JSON-LD */}
@@ -164,6 +179,17 @@ export default function HomePage() {
 
       {/* 2. PROCHAINS MATCHS */}
       <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />
+
+      {/* PARI DU JOUR */}
+      {betOfTheDayMatch && betHomeTeam && betAwayTeam && (
+        <BetOfTheDay
+          match={betOfTheDayMatch}
+          homeTeam={betHomeTeam}
+          awayTeam={betAwayTeam}
+          prediction={betPrediction}
+          odds={betOdds}
+        />
+      )}
 
       {/* BETTING CTA — Habillage CDM */}
       <section className="py-6 sm:py-8">
@@ -213,6 +239,8 @@ export default function HomePage() {
               { href: "/histoire", icon: "", label: "Histoire de la CDM" },
               { href: "/comparateur-joueurs", icon: "", label: "Comparer joueurs" },
               { href: "/tableau", icon: "", label: "Tableau final" },
+              { href: "/trophee", icon: "", label: "Le Trophée FIFA" },
+              { href: "/chants-supporters", icon: "", label: "Chants supporters" },
             ].map((item) => (
               <Link
                 key={item.href}

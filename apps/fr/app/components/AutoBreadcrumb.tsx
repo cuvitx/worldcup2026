@@ -156,6 +156,8 @@ const SEGMENT_LABELS: Record<string, string> = {
   "regarder-cdm-au-travail": "Regarder au travail",
   "simulateur-bracket": "Simulateur bracket",
   "tableau-final-virtuel": "Tableau final",
+  horaires: "Horaires",
+  resultats: "Résultats",
 };
 
 /* ── Parent hub routes for dynamic segments ── */

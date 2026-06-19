@@ -122,6 +122,11 @@ export default async function CalendrierPage() {
         </div>
       </section>
 
+      {/* CTA affilié — bannière haute visibilité */}
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pt-6">
+        <PmuBanner tracking="calendrier-top" />
+      </div>
+
       <CalendarViewWrapper
         matches={matchData}
         teamsById={teamData}

@@ -171,8 +171,8 @@ export const megaMenus: Record<string, MegaMenuDef> = {
           { href: "/carte-stades", label: "Carte des stades", icon: MapPin },
           { href: "/villes", label: "Toutes les villes", icon: Building2 },
           { href: "/hebergement", label: "Hébergement", icon: Hotel },
-          { href: "/securite", label: "Transport", icon: Bus },
-          { href: "/ou-regarder", label: "Météo", icon: CloudSun },
+          { href: "/securite", label: "Météo", icon: CloudSun },
+          { href: "/ou-regarder", label: "Transport", icon: Bus },
         ],
       },
       {

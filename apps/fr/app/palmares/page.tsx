@@ -68,14 +68,26 @@ export default function PalmaresPage() {
  <RelatedLinks
  links={[
  {
+ href: "/trophee",
+ title: "Le Trophée FIFA",
+ description: "6.175 kg d'or 18 carats : histoire, design et anecdotes du trophée le plus convoité.",
+ icon: ""
+ },
+ {
+ href: "/records",
+ title: "Records de la CDM",
+ description: "Klose, Pelé, Fontaine... Tous les records historiques de la Coupe du Monde.",
+ icon: ""
+ },
+ {
  href: "/histoire",
- title: " Histoire de la CDM",
+ title: "Histoire de la CDM",
  description: "Timeline complète des 22 éditions depuis 1930 avec faits marquants et anecdotes.",
  icon: ""
  },
  {
  href: "/statistiques",
- title: " Statistiques détaillées",
+ title: "Statistiques détaillées",
  description: "Records, performances et analyses statistiques de toutes les Coupes du Monde.",
  icon: ""
  },

@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const iso = getISOCode(slug);
   const ogImages = iso
     ? [{ url: `https://flagcdn.com/w320/${iso}.png`, width: 320, height: 213, alt: `Drapeau de ${team.name}` }]
-    : [{ url: "https://www.cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
+    : [{ url: "https://www.cdm2026.fr/og-default.jpg", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
     title: `${team.name} CDM 2026 — Effectif, Calendrier & Pronostics`,

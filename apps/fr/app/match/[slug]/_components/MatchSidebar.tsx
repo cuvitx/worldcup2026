@@ -9,6 +9,7 @@ import type { Stadium } from "@repo/data/types";
 import type { City } from "@repo/data/types";
 import type { generateFullMatchPreview } from "@repo/ai/generators";
 import { getTVInfo } from "@repo/data/tv-schedule";
+import { PmuBanner } from "../../../components/PmuBanner";
 
 interface MatchSidebarProps {
   stadium: Stadium | undefined;
@@ -146,6 +147,9 @@ export function MatchSidebar({
           </p>
         </div>
       )}
+
+      {/* CTA affilié — Parier sur ce match */}
+      <PmuBanner tracking={`match-${match.slug}-sidebar`} compact />
     </div>
   );
 }

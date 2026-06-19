@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const hasPhoto = PLAYER_PHOTO_SLUGS.has(slug);
   const ogImages = hasPhoto
     ? [{ url: `https://www.cdm2026.fr/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — CDM 2026` }]
-    : [{ url: "https://www.cdm2026.fr/images/og-default.png", width: 1200, height: 630, alt: "CDM 2026" }];
+    : [{ url: "https://www.cdm2026.fr/og-default.jpg", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
     title: `${player.name} - ${teamName} | Fiche joueur CDM 2026`,

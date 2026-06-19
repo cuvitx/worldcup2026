@@ -5,6 +5,7 @@ import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import type { Team, Match, MatchPrediction, Stadium, City, Bookmaker } from "@repo/data";
 import type { MatchPreviewData } from "@repo/ai/generators";
 import { teamsById } from "@repo/data/teams";
+import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { BetOfTheDay } from "../../../components/BetOfTheDay";
 
 interface PredictionSidebarProps {
@@ -185,7 +186,7 @@ export function PredictionSidebar({
             {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
           </p>
           <a
-            href={featuredBookmaker.url}
+            href={pmuTrackingUrl("match-sidebar")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             className="block w-full rounded-xl px-4 py-3.5 text-center text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition"

@@ -1,4 +1,5 @@
 import type { Match, Team, Stadium } from "@repo/data";
+import { getMatchPhase } from "@repo/data/tournament-state";
 
 interface MatchStructuredDataProps {
   match: Match;
@@ -19,11 +20,14 @@ export function MatchStructuredData({
   stadium,
   stage,
 }: MatchStructuredDataProps) {
+  const isCompleted = match.status === "finished" || getMatchPhase(match.date, match.time) === "completed";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${homeName} vs ${awayName} - Coupe du Monde 2026`,
-    eventStatus: "https://schema.org/EventScheduled",
+    eventStatus: isCompleted
+      ? "https://schema.org/EventCompleted"
+      : "https://schema.org/EventScheduled",
     startDate: `${match.date}T${match.time || "00:00"}:00+02:00`,
     location: stadium
       ? {

@@ -37,6 +37,11 @@ export function MatchHero({
           </span>
         </div>
 
+        {/* H1 sémantique sr-only pour SEO */}
+        <h1 className="sr-only">
+          Pronostic {homeName} vs {awayName}
+        </h1>
+
         {/* Teams face-off */}
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 md:gap-8 max-w-2xl mx-auto px-2">
           {/* Home team */}

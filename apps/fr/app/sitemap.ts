@@ -169,6 +169,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/", { changeFrequency: "daily", priority: 1, lastModified: now }),
     entry("/match/calendrier", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/match/aujourdhui", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
+    entry("/resultats", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/live", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/tableau", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/comparateur-cotes", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
@@ -280,6 +281,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   for (const slug of voyagePages) {
     entries.push(entry(`/voyage/${slug}`, { priority: 0.7 }));
+  }
+
+  // =====================================================================
+  // 4b. Knockout stage overview pages (priority 0.8, daily)
+  // =====================================================================
+  const knockoutOverviewPages = [
+    "/16emes-de-finale",
+    "/8emes-de-finale",
+    "/quarts-de-finale",
+    "/demi-finales",
+    "/finale",
+    "/meilleurs-troisiemes",
+  ];
+  for (const path of knockoutOverviewPages) {
+    entries.push(entry(path, { priority: 0.8, changeFrequency: "daily" }));
+  }
+
+  // =====================================================================
+  // 4c. Informational content pages (priority 0.6, weekly)
+  // =====================================================================
+  const informationalPages = [
+    "/format",
+    "/reglement",
+    "/classement-fifa",
+    "/maillots",
+    "/records",
+    "/wall-of-fame",
+    "/selections-listes",
+    "/barrages",
+    "/chants-supporters",
+    "/mascotte",
+    "/pays-hotes",
+    "/blessures",
+    "/confrontations-historiques",
+    "/budget",
+    "/regarder-cdm-au-travail",
+    "/simulateur-bracket",
+    "/calendrier/imprimer",
+    "/trophee",
+  ];
+  for (const path of informationalPages) {
+    entries.push(entry(path, { priority: 0.6, changeFrequency: "weekly" }));
   }
 
   // =====================================================================
