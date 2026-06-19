@@ -22,10 +22,12 @@ const MAX_RESULTS = 8;
 
 const typeLabels: Record<Lang, Record<SearchResultType, string>> = {
   fr: { team: "Equipe", player: "Joueur", stadium: "Stade", city: "Ville" },
+  de: { team: "Mannschaft", player: "Spieler", stadium: "Stadion", city: "Stadt" },
 };
 
 const placeholders: Record<Lang, string> = {
   fr: "Rechercher...",
+  de: "Suchen...",
 };
 
 /**

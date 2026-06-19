@@ -5,6 +5,7 @@ const translations = {
   fr: { title: "Cotes des bookmakers", draw: "Nul", disclaimer: "Cotes indicatives issues des bookmakers. Meilleures cotes en vert. 18+. Jouez responsablement." },
   en: { title: "Bookmaker odds", draw: "Draw", disclaimer: "Indicative bookmaker odds. Best odds in green. 18+. Gamble responsibly." },
   es: { title: "Cuotas de casas de apuestas", draw: "Empate", disclaimer: "Cuotas indicativas de casas de apuestas. Mejores cuotas en verde. 18+. Juegue responsablemente." },
+  de: { title: "Buchmacher-Quoten", draw: "Unentschieden", disclaimer: "Indikative Buchmacher-Quoten. Beste Quoten in Grün. 18+. Spielen Sie verantwortungsbewusst." },
 };
 
 /**
@@ -24,7 +25,7 @@ interface OddsCompareProps {
   }>;
   homeTeam: string;
   awayTeam: string;
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
 }
 
 /**

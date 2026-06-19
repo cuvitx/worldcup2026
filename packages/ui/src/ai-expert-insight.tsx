@@ -9,6 +9,7 @@ const translations = {
   fr: { title: "Analyse Expert", badge: "Claude IA", scorePredicted: "Score predit", tacticalAnalysis: "Analyse tactique", valueBets: "Value Bets detectes", edgeDetected: "Edge detecte", model: "Modele", market: "Marche", seeLess: "Voir moins", seeReasoning: "Voir le raisonnement", disclaimer: "Analyse generee par IA. Ne constitue pas un conseil de paris. 18+. Jouez responsablement." },
   en: { title: "Expert Analysis", badge: "Claude AI", scorePredicted: "Predicted score", tacticalAnalysis: "Tactical analysis", valueBets: "Value Bets detected", edgeDetected: "Edge detected", model: "Model", market: "Market", seeLess: "See less", seeReasoning: "See reasoning", disclaimer: "AI-generated analysis. Not betting advice. 18+. Gamble responsibly." },
   es: { title: "Analisis Experto", badge: "Claude IA", scorePredicted: "Marcador previsto", tacticalAnalysis: "Analisis tactico", valueBets: "Value Bets detectados", edgeDetected: "Edge detectado", model: "Modelo", market: "Mercado", seeLess: "Ver menos", seeReasoning: "Ver razonamiento", disclaimer: "Analisis generado por IA. No constituye consejo de apuestas. 18+. Juegue responsablemente." },
+  de: { title: "Expertenanalyse", badge: "Claude KI", scorePredicted: "Prognostiziertes Ergebnis", tacticalAnalysis: "Taktische Analyse", valueBets: "Value Bets erkannt", edgeDetected: "Edge erkannt", model: "Modell", market: "Markt", seeLess: "Weniger anzeigen", seeReasoning: "Begründung anzeigen", disclaimer: "KI-generierte Analyse. Keine Wettberatung. 18+. Spielen Sie verantwortungsbewusst." },
 };
 
 /**
@@ -46,7 +47,7 @@ interface AiExpertInsightProps {
   matchAnalysis: string;
   scorePrediction: string;
   keyInsight: string;
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
 }
 
 // ─── SVG Components ──────────────────────────────────────────────────────────

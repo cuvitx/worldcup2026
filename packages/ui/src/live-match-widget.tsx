@@ -14,6 +14,7 @@ const translations = {
   fr: { halftime: "MI-TEMPS", live: "EN DIRECT", finished: "TERMINE", dateLocale: "fr-FR", timezone: "Europe/Paris" },
   en: { halftime: "HALF TIME", live: "LIVE", finished: "FINISHED", dateLocale: "en-US", timezone: "America/New_York" },
   es: { halftime: "DESCANSO", live: "EN VIVO", finished: "FINALIZADO", dateLocale: "es-ES", timezone: "Europe/Madrid" },
+  de: { halftime: "HALBZEIT", live: "LIVE", finished: "ENDE", dateLocale: "de-DE", timezone: "Europe/Berlin" },
 };
 
 /**
@@ -73,7 +74,7 @@ interface LiveMatchWidgetProps {
   fixtureId?: string;
   /** API endpoint for live data */
   apiEndpoint?: string;
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
   /** When provided (from a centralized LiveDataProvider), skips internal polling */
   liveFixtures?: ApiFixtureLike[];
   /** API-Football team ID for home team (for home/away swap detection) */

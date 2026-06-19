@@ -5,6 +5,7 @@ const translations = {
   fr: { title: "Analyse du match", verified: "Sources verifiees", factors: "Facteurs decisifs", prediction: "Prediction", bettingAngle: "Angle de pari" },
   en: { title: "Match analysis", verified: "Verified sources", factors: "Key factors", prediction: "Prediction", bettingAngle: "Betting angle" },
   es: { title: "Analisis del partido", verified: "Fuentes verificadas", factors: "Factores clave", prediction: "Prediccion", bettingAngle: "Angulo de apuesta" },
+  de: { title: "Spielanalyse", verified: "Verifizierte Quellen", factors: "Entscheidende Faktoren", prediction: "Prognose", bettingAngle: "Wettempfehlung" },
 };
 
 /**
@@ -23,7 +24,7 @@ interface AiMatchPreviewProps {
   prediction: string;
   bettingAngle: string;
   grounded: boolean;
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
 }
 
 /**

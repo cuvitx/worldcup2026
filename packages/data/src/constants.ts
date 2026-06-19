@@ -39,6 +39,56 @@ export const stageLabels: Record<string, string> = {
   final: "Finale",
 };
 
+/* ─── Stage labels i18n ─── */
+import type { Lang } from "./route-mapping";
+
+export const stageLabelsI18n: Record<Lang, Record<string, string>> = {
+  fr: stageLabels,
+  de: {
+    group: "Gruppenphase",
+    "round-of-32": "Zwischenrunde",
+    "round-of-16": "Achtelfinale",
+    "quarter-final": "Viertelfinale",
+    "semi-final": "Halbfinale",
+    "third-place": "Spiel um Platz 3",
+    final: "Finale",
+  },
+};
+
+/* ─── Position labels i18n ─── */
+export const positionLabelsI18n: Record<Lang, Record<string, string>> = {
+  fr: {
+    GK: "Gardien",
+    DF: "Défenseur",
+    MF: "Milieu",
+    FW: "Attaquant",
+  },
+  de: {
+    GK: "Torwart",
+    DF: "Verteidiger",
+    MF: "Mittelfeldspieler",
+    FW: "Stürmer",
+  },
+};
+
+/* ─── Match status labels i18n ─── */
+export const matchStatusLabelsI18n: Record<Lang, Record<string, string>> = {
+  fr: {
+    scheduled: "Programmé",
+    live: "En cours",
+    finished: "Terminé",
+    postponed: "Reporté",
+    cancelled: "Annulé",
+  },
+  de: {
+    scheduled: "Geplant",
+    live: "Live",
+    finished: "Beendet",
+    postponed: "Verschoben",
+    cancelled: "Abgesagt",
+  },
+};
+
 /* ─── Display limits ─── */
 export const DISPLAY_LIMITS = {
   UPCOMING_MATCHES_HOME: 3,

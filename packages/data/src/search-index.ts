@@ -21,6 +21,13 @@ const typeLabels: Record<Lang, Record<SearchItem["type"], string>> = {
     stadium: "Stade",
     city: "Ville",
   },
+  de: {
+    team: "Mannschaft",
+    match: "Spiel",
+    player: "Spieler",
+    stadium: "Stadion",
+    city: "Stadt",
+  },
 };
 
 export { typeLabels as searchTypeLabels };
@@ -35,10 +42,20 @@ const stageLabels: Record<Lang, Record<string, string>> = {
     "third-place": "Match pour la 3e place",
     final: "Finale",
   },
+  de: {
+    group: "Gruppenphase",
+    "round-of-32": "Zwischenrunde",
+    "round-of-16": "Achtelfinale",
+    "quarter-final": "Viertelfinale",
+    "semi-final": "Halbfinale",
+    "third-place": "Spiel um Platz 3",
+    final: "Finale",
+  },
 };
 
 const positionLabels: Record<Lang, Record<string, string>> = {
   fr: { GK: "Gardien", DF: "Defenseur", MF: "Milieu", FW: "Attaquant" },
+  de: { GK: "Torwart", DF: "Verteidiger", MF: "Mittelfeldspieler", FW: "Stürmer" },
 };
 
 export function buildSearchIndex(lang: Lang): SearchItem[] {

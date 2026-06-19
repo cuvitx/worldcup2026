@@ -35,7 +35,9 @@
     "./constants": "./src/constants.ts",
     "./bookmakers": "./src/bookmakers.ts",
     "./tv-schedule": "./src/tv-schedule.ts",
-    "./espn-team-names": "./src/espn-team-names.ts"
+    "./espn-team-names": "./src/espn-team-names.ts",
+    "./i18n": "./src/i18n.ts",
+    "./translations/register-de": "./src/translations/register-de.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

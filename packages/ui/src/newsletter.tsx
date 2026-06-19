@@ -20,7 +20,7 @@ type Status = "idle" | "loading" | "success" | "error" | "duplicate";
 export interface NewsletterProps {
   /** 'banner' = full-width section, 'card' = compact widget, 'footer' = minimal (footer) */
   variant?: "banner" | "card" | "footer";
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
   /** Extra Brevo tags, e.g. ["alerts-france"] */
   tags?: string[];
   className?: string;
@@ -82,6 +82,24 @@ const t = {
     noSpam: "Sin spam",
     weekly: "1×/semana",
     seeExample: "Ver un ejemplo",
+  },
+  de: {
+    title: "WM 2026 Newsletter",
+    subtitle: "Erhalten Sie unsere Prognosen und Analysen direkt in Ihr Postfach.",
+    bannerTitle: "Erhalten Sie unsere Prognosen per E-Mail",
+    bannerSubtitle: "Wochenprogramm · Exklusive Prognosen · Spielbenachrichtigungen · Beste Quoten",
+    placeholder: "Ihre E-Mail-Adresse",
+    button: "Abonnieren",
+    bannerButton: "Abonnieren →",
+    success: "Erfolgreich abonniert!",
+    successDetail: "Sie erhalten unsere wöchentlichen Prognosen.",
+    duplicate: "Bereits abonniert!",
+    error: "Ungültige E-Mail.",
+    apiError: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+    free: "Kostenlos",
+    noSpam: "Kein Spam",
+    weekly: "1×/Woche",
+    seeExample: "Beispiel ansehen",
   },
 };
 

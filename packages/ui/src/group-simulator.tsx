@@ -44,7 +44,7 @@ interface MatchInput {
 interface GroupSimulatorProps {
   teams: TeamInput[];
   matches: MatchInput[];
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
 }
 
 /**
@@ -119,6 +119,23 @@ const labels = {
     qualified: "Clasificado",
     reset: "Reiniciar",
     match: "Partido",
+  },
+  de: {
+    title: "Gruppensimulator",
+    subtitle: "Geben Sie Ergebnisse ein, um die Gruppentabelle zu simulieren",
+    team: "Team",
+    pts: "Pkt",
+    w: "S",
+    d: "U",
+    l: "N",
+    gf: "T",
+    ga: "GT",
+    gd: "TD",
+    played: "Sp",
+    vs: "vs",
+    qualified: "Qualifiziert",
+    reset: "Zurücksetzen",
+    match: "Spiel",
   },
 };
 

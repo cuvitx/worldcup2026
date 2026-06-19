@@ -30,10 +30,19 @@ const translations = {
     learnMore: "Política de privacidad",
     learnMoreLink: "/politica-de-privacidad",
   },
+  de: {
+    title: "Wir respektieren Ihre Privatsphäre",
+    message:
+      "Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern und den Datenverkehr zu analysieren. Sie können deren Verwendung akzeptieren oder ablehnen.",
+    accept: "Akzeptieren",
+    decline: "Ablehnen",
+    learnMore: "Datenschutzrichtlinie",
+    learnMoreLink: "/datenschutz",
+  },
 };
 
 interface CookieConsentProps {
-  lang: "fr" | "en" | "es";
+  lang: "fr" | "en" | "es" | "de";
 }
 
 export function CookieConsent({ lang }: CookieConsentProps) {

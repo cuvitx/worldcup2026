@@ -12,6 +12,7 @@ const translations = {
   fr: { halftime: "MI-T", finished: "FIN", upcoming: "A VENIR", today: "MATCHS", live: "LIVE" },
   en: { halftime: "HT", finished: "FT", upcoming: "SOON", today: "MATCHS", live: "LIVE" },
   es: { halftime: "DT", finished: "FIN", upcoming: "PROX", today: "PARTIDOS", live: "LIVE" },
+  de: { halftime: "HZ", finished: "ENDE", upcoming: "DEMNÄCHST", today: "SPIELE", live: "LIVE" },
 };
 
 export interface LiveMatch {
@@ -50,7 +51,7 @@ interface LiveScoreBarProps {
   matchDate?: string;
   apiEndpoint?: string;
   pollInterval?: number;
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
   /** When provided (from a centralized LiveDataProvider), skips internal polling */
   liveFixtures?: ApiFixtureLike[];
 }

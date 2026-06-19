@@ -29,7 +29,7 @@ export interface SearchItem {
  * @param onNavigate - Callback fired when user selects a result (receives href)
  */
 interface SearchDialogProps {
-  lang: "fr" | "en" | "es";
+  lang: "fr" | "en" | "es" | "de";
   data: SearchItem[];
   onNavigate: (href: string) => void;
 }
@@ -76,6 +76,19 @@ const translations = {
       player: "Jugadores",
       stadium: "Estadios",
       city: "Ciudades",
+    } as Record<string, string>,
+  },
+  de: {
+    placeholder: "Mannschaft, Spiel, Spieler suchen...",
+    noResults: "Keine Ergebnisse",
+    close: "Schließen",
+    searchLabel: "Suchen",
+    typeLabels: {
+      team: "Mannschaften",
+      match: "Spiele",
+      player: "Spieler",
+      stadium: "Stadien",
+      city: "Städte",
     } as Record<string, string>,
   },
 };
@@ -416,15 +429,15 @@ export function SearchDialog({ lang, data, onNavigate }: SearchDialogProps) {
                 <span className="flex items-center gap-1">
                   <kbd className="rounded border border-gray-200 bg-gray-50 px-1 py-0.5 font-mono text-[10px]">&uarr;</kbd>
                   <kbd className="rounded border border-gray-200 bg-gray-50 px-1 py-0.5 font-mono text-[10px]">&darr;</kbd>
-                  {lang === "fr" ? "naviguer" : lang === "es" ? "navegar" : "navigate"}
+                  {lang === "fr" ? "naviguer" : lang === "es" ? "navegar" : lang === "de" ? "navigieren" : "navigate"}
                 </span>
                 <span className="flex items-center gap-1">
                   <kbd className="rounded border border-gray-200 bg-gray-50 px-1 py-0.5 font-mono text-[10px]">&crarr;</kbd>
-                  {lang === "fr" ? "ouvrir" : lang === "es" ? "abrir" : "open"}
+                  {lang === "fr" ? "ouvrir" : lang === "es" ? "abrir" : lang === "de" ? "öffnen" : "open"}
                 </span>
                 <span className="flex items-center gap-1">
                   <kbd className="rounded border border-gray-200 bg-gray-50 px-1 py-0.5 font-mono text-[10px]">Esc</kbd>
-                  {lang === "fr" ? "fermer" : lang === "es" ? "cerrar" : "close"}
+                  {lang === "fr" ? "fermer" : lang === "es" ? "cerrar" : lang === "de" ? "schließen" : "close"}
                 </span>
               </div>
             )}

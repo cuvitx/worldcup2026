@@ -5,6 +5,7 @@ const translations = {
   fr: { title: "Meteo du match", humidity: "Humidite", wind: "Vent" },
   en: { title: "Match weather", humidity: "Humidity", wind: "Wind" },
   es: { title: "Clima del partido", humidity: "Humedad", wind: "Viento" },
+  de: { title: "Spielwetter", humidity: "Luftfeuchtigkeit", wind: "Wind" },
 };
 
 /**
@@ -21,7 +22,7 @@ interface WeatherWidgetProps {
   condition: string;
   humidity: number;
   windSpeed: number;
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
 }
 
 /**

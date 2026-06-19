@@ -5,6 +5,7 @@ const translations = {
   fr: { title: "Blessures & Absences", noInjuries: "Aucune blessure signalee", absent: "Absent" },
   en: { title: "Injuries & Absences", noInjuries: "No injuries reported", absent: "Out" },
   es: { title: "Lesiones & Ausencias", noInjuries: "Sin lesiones reportadas", absent: "Ausente" },
+  de: { title: "Verletzungen & Ausfälle", noInjuries: "Keine Verletzungen gemeldet", absent: "Fehlt" },
 };
 
 /**
@@ -34,7 +35,7 @@ interface InjuriesWidgetProps {
   awayTeam: string;
   homeInjuries: Injury[];
   awayInjuries: Injury[];
-  locale?: "fr" | "en" | "es";
+  locale?: "fr" | "en" | "es" | "de";
 }
 
 /**
