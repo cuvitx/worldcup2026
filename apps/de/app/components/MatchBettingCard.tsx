@@ -11,12 +11,12 @@ interface MatchBettingCardProps {
   drawOdds?: string;
   awayOdds?: string;
   tracking?: string;
-  /** When set, shows a "Prochain match" label linking to this match page */
+  /** When set, shows a "Nächstes Spiel" label linking to this match page */
   nextMatchSlug?: string;
 }
 
 /**
- * Premium PMU betting card — dark gradient, gold accents, glow effects,
+ * Premium Betano betting card — dark gradient, gold accents, glow effects,
  * shine animation on hover. Each odds box is a clickable affiliate link.
  */
 export function MatchBettingCard({
@@ -56,17 +56,17 @@ export function MatchBettingCard({
         className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#d4af37]/15 blur-3xl"
       />
 
-      {/* Top bar — Logo + Partenaire */}
+      {/* Top bar — Logo + Partner */}
       <div className="relative flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3 sm:px-6">
         <img
           src="/partners/pmu-play.webp"
-          alt="PMU Play"
+          alt="Betano"
           width={120}
           height={36}
           className="h-8 w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
         />
         <span className="whitespace-nowrap rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#d4af37]">
-          Partenaire
+          Partner
         </span>
       </div>
 
@@ -79,7 +79,7 @@ export function MatchBettingCard({
           >
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ffd700] animate-pulse" />
             <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37] truncate min-w-0">
-              Prochain match : {homeFlag} {homeName} vs {awayName} {awayFlag}
+              N&auml;chstes Spiel: {homeFlag} {homeName} vs {awayName} {awayFlag}
             </span>
             <span className="text-white/40 text-xs shrink-0">&rarr;</span>
           </Link>
@@ -100,15 +100,15 @@ export function MatchBettingCard({
           />
           <div className="relative">
             <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#0c3b2e]/70">
-              Bonus de bienvenue
+              Willkommensbonus
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-lg font-black leading-none sm:text-xl">Jusqu&apos;à 100&nbsp;€</span>
-              <span className="text-[11px] font-bold leading-none">offerts</span>
+              <span className="text-lg font-black leading-none sm:text-xl">Jetzt bei Betano</span>
+              <span className="text-[11px] font-bold leading-none">wetten</span>
             </div>
           </div>
           <div className="relative inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[#0c3b2e] px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#d4af37] shadow-lg">
-            J&apos;en profite <span aria-hidden="true">&rarr;</span>
+            Jetzt sichern <span aria-hidden="true">&rarr;</span>
           </div>
         </a>
 
@@ -117,27 +117,27 @@ export function MatchBettingCard({
           <div className="px-4 pb-1 pt-4 sm:px-5">
             <div className="mb-2 flex items-center justify-between">
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
-                Cotes 1&middot;N&middot;2 &middot; WM 2026
+                Quoten 1&middot;X&middot;2 &middot; WM 2026
               </span>
-              <span className="text-[10px] text-white/40">Temps r&eacute;glementaire</span>
+              <span className="text-[10px] text-white/40">Regul&auml;re Spielzeit</span>
             </div>
             <div className="flex gap-2 sm:gap-3">
               <OddsBox
-                label="Victoire"
+                label="Sieg"
                 team={`${homeFlag} ${homeName}`}
                 odds={homeOdds}
                 isFavorite={favorite === "home"}
                 href={url}
               />
               <OddsBox
-                label="Nul"
-                team="Match nul"
+                label="Unentschieden"
+                team="Remis"
                 odds={drawOdds}
                 isFavorite={favorite === "draw"}
                 href={url}
               />
               <OddsBox
-                label="Victoire"
+                label="Sieg"
                 team={`${awayFlag} ${awayName}`}
                 odds={awayOdds}
                 isFavorite={favorite === "away"}
@@ -160,8 +160,8 @@ export function MatchBettingCard({
               aria-hidden="true"
               className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
             />
-            <span className="relative sm:hidden">Parier &middot; 100&nbsp;€ offerts</span>
-            <span className="relative hidden sm:inline">Parier maintenant sur PMU Play</span>
+            <span className="relative sm:hidden">Jetzt wetten</span>
+            <span className="relative hidden sm:inline">Jetzt bei Betano wetten</span>
             <span className="relative" aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -170,11 +170,11 @@ export function MatchBettingCard({
       {/* Legal */}
       <div className="relative border-t border-white/5 bg-black/25 px-4 py-2.5 sm:px-5">
         <p className="text-center text-[10px] leading-snug text-white/30">
-          Les jeux d&apos;argent et de hasard sont interdits aux mineurs. Jouer comporte des risques : endettement, d&eacute;pendance...{" "}
-          <a href="tel:0974751313" className="underline text-white/40 hover:text-white/60">
-            Appelez le 09 74 75 13 13
+          Gl&uuml;cksspiel kann s&uuml;chtig machen. Spielen Sie verantwortungsvoll.{" "}
+          <a href="tel:08001372700" className="underline text-white/40 hover:text-white/60">
+            Hilfe: 0800 1 37 27 00
           </a>{" "}
-          (appel non surtax&eacute;).
+          (BZgA, kostenlos).
         </p>
       </div>
     </div>
@@ -207,7 +207,7 @@ function OddsBox({
     >
       {isFavorite && (
         <span className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-[#d4af37] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-[#0c3b2e] shadow">
-          Favori
+          Favorit
         </span>
       )}
       <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/50">{label}</span>

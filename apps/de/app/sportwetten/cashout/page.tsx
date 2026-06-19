@@ -31,7 +31,7 @@ const pieges = [
 ];
 
 const comparatif = [
-  { bookmaker: "PMU Sport", cashout: "Total + Partiel", live: true, auto: false, note: "Cashout disponible en live, interface claire, bookmaker agréé ANJ" },
+  { bookmaker: "Betano", cashout: "Total + Partiel", live: true, auto: false, note: "Cashout disponible en live, interface claire, bookmaker agréé ANJ" },
 ];
 
 export default function CashoutGuidePage() {
@@ -46,7 +46,7 @@ export default function CashoutGuidePage() {
     },
     {
       question: "Quand est-il judicieux de cashouter ?",
-      answer: "Cashoutez quand : (1) un joueur clé est blessé et votre pari est en danger, (2) vous avez un combiné à 5 sélections et les 4 premières sont gagnées, (3) la situation du match change radicalement (carton rouge, penalty). Évitez de cashouter par peur.",
+      answer: "Cashoutez quand : (1) un Spieler clé est blessé et votre pari est en danger, (2) vous avez un combiné à 5 sélections et les 4 premières sont gagnées, (3) la situation du match change radicalement (carton rouge, penalty). Évitez de cashouter par peur.",
     },
   ];
 
@@ -158,7 +158,7 @@ export default function CashoutGuidePage() {
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur joueurs-info-service.fr (ANJ).
+          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
         </p>
       </div>
     </>

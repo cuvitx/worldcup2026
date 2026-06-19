@@ -28,8 +28,8 @@ const STAGE_LABELS: Record<string, string> = {
   group: "Gruppenphase",
   "round-of-32": "32\u00e8mes de finale",
   "round-of-16": "8\u00e8mes de finale",
-  "quarter-final": "Quart de finale",
-  "semi-final": "Demi-finale",
+  "quarter-final": "Viertelfinale",
+  "semi-final": "Halbfinale",
   "third-place": "Match pour la 3e place",
   final: "Finale",
 };
@@ -213,7 +213,7 @@ export default async function HorairesPage() {
                           Score
                         </th>
                         <th className="py-2 px-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider hidden md:table-cell">
-                          Stade
+                          Stadion
                         </th>
                         <th className="py-2 px-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider w-32 hidden lg:table-cell">
                           Phase
@@ -385,7 +385,7 @@ export default async function HorairesPage() {
                 </h3>
                 <p className="text-gray-600">
                   Les matchs jou\u00e9s en soir\u00e9e aux \u00c9tats-Unis ou sur la c\u00f4te
-                  Pacifique ont lieu au milieu de la nuit en France. Pr\u00e9voyez
+                  Pacifique ont lieu au Mittelfeldspieler de la nuit en France. Pr\u00e9voyez
                   votre nuit blanche pour les matchs \u00e0 03h ou 04h !
                 </p>
               </div>

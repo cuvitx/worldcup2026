@@ -21,7 +21,7 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
       v1: String(home.wcAppearances),
       v2: String(away.wcAppearances),
     },
-    { label: "Meilleur résultat", v1: home.bestResult, v2: away.bestResult },
+    { label: "Bestes Ergebnis", v1: home.bestResult, v2: away.bestResult },
   ];
 
   return (

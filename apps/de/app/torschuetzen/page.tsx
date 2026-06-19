@@ -36,7 +36,7 @@ const historicalScorers = [
 export const metadata: Metadata = {
   title: "Torschützen CDM 2026 | Top 20 historique (Klose 16, Messi 13, Mbappé 12) + Cotes 2026",
   description:
-    "Meilleurs buteurs de la WM : Klose 16, Ronaldo 15, Müller 14. Rangliste historique 1930-2022 et cotes Soulier d'Or CDM 2026.",
+    "Beste Torschützen de la WM : Klose 16, Ronaldo 15, Müller 14. Rangliste historique 1930-2022 et cotes Soulier d'Or CDM 2026.",
   alternates: getStaticAlternates("scorers", "de"),
   openGraph: {
     title: "Top 20 buteurs historiques CDM + Cotes 2026",
@@ -55,7 +55,7 @@ export default function TorschützenPage() {
     },
     {
       question: "Qui va gagner le Soulier d'Or de la CDM 2026 ?",
-      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez PMU Sport (~6.50) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'équipe de France. À 27 ans en 2026, il sera à son pic de forme."
+      answer: "Les grands favoris pour le Soulier d'Or 2026 sont Kylian Mbappé (France, déjà 12 buts en CDM), Erling Haaland (Norvège), Harry Kane (Angleterre) et Lautaro Martínez (Argentine). Mbappé a les meilleures cotes chez Betano (~6.50) grâce à son jeune âge, son excellent ratio buts/match et la qualité de l'Mannschaft de France. À 27 ans en 2026, il sera à son pic de forme."
     },
     {
       question: "Quel est le record de buts sur une seule édition de la CDM ?",
@@ -63,15 +63,15 @@ export default function TorschützenPage() {
     },
     {
       question: "Comment sont calculés les buts attendus pour la CDM 2026 ?",
-      answer: "Les buts attendus (expected goals) sont calculés via un modèle statistique qui combine le classement ELO de l'équipe, le ratio buts/sélection du joueur, le nombre de matchs attendus en fonction des probabilités de qualification, et la forme récente. Par exemple, un attaquant d'une équipe favorite avec un bon ratio en sélection aura un nombre de buts attendus plus élevé car son équipe ira probablement loin dans le tournoi."
+      answer: "Les buts attendus (expected goals) sont calculés via un modèle statistique qui combine le classement ELO de l'Mannschaft, le ratio buts/sélection du Spieler, le nombre de matchs attendus en fonction des probabilités de qualification, et la forme récente. Par exemple, un Stürmer d'une Mannschaft favorite avec un bon ratio en sélection aura un nombre de buts attendus plus élevé car son Mannschaft ira probablement loin dans le tournoi."
     },
     {
       question: "Mbappé peut-il battre le record de Klose ?",
-      answer: "Oui, c'est mathématiquement possible. Kylian Mbappé a déjà marqué 12 buts en WM à 25 ans (8 en 2022, 4 en 2018). S'il marque 5 buts ou plus en 2026, il égalera ou dépassera Klose. Avec une espérance de vie sportive jusqu'en 2030 (CDM suivante), il pourrait même viser les 20+ buts en carrière s'il reste au sommet. Sa vitesse, son efficacité et la qualité de l'équipe de France en font un candidat crédible."
+      answer: "Oui, c'est mathématiquement possible. Kylian Mbappé a déjà marqué 12 buts en WM à 25 ans (8 en 2022, 4 en 2018). S'il marque 5 buts ou plus en 2026, il égalera ou dépassera Klose. Avec une espérance de vie sportive jusqu'en 2030 (CDM suivante), il pourrait même viser les 20+ buts en carrière s'il reste au sommet. Sa vitesse, son efficacité et la qualité de l'Mannschaft de France en font un candidat crédible."
     },
     {
       question: "Où parier sur les buteurs de la CDM 2026 ?",
-      answer: "Le meilleur bookmaker pour parier sur les buteurs est PMU Sport (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un joueur. 18+, jouez responsablement."
+      answer: "Le meilleur bookmaker pour parier sur les buteurs est Betano (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un Spieler. 18+, jouez responsablement."
     }
   ];
 
@@ -81,7 +81,7 @@ export default function TorschützenPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Cotes buteurs CDM 2026</h1>
           <p className="mt-2 text-gray-300">
-            {scorerOdds.length} attaquants et milieux offensifs analyses. Cotes buteur, buts attendus et probabilites pour chaque joueur.
+            {scorerOdds.length} Stürmers et Mittelfeldspielerx offensifs analyses. Cotes buteur, buts attendus et probabilites pour chaque Spieler.
           </p>
         </div>
       </section>
@@ -182,7 +182,7 @@ export default function TorschützenPage() {
               </h2>
             </div>
             <p className="text-sm text-gray-500">
-              Cotes PMU Sport · Buts attendus (modèle ELO) · Fév. 2026
+              Cotes Betano · Buts attendus (modèle ELO) · Fév. 2026
             </p>
           </div>
 
@@ -262,7 +262,7 @@ export default function TorschützenPage() {
                         Cote meilleur buteur
                       </p>
                       <div className="flex items-center justify-between rounded-lg px-3 py-2 border bg-accent/10 border-accent/30">
-                        <span className="text-xs font-semibold text-primary">PMU Sport</span>
+                        <span className="text-xs font-semibold text-primary">Betano</span>
                         <span className="text-sm font-bold text-accent">
                           {candidate.avgOdds.toFixed(2)}
                         </span>
@@ -277,7 +277,7 @@ export default function TorschützenPage() {
           <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
               Buts attendus : modèle ELO × ratio buts/sélection × matchs attendus ·
-              Source : PMU Sport. Juin 2026. 18+.
+              Source : Betano. Juin 2026. 18+.
             </p>
           </div>
         </section>
@@ -286,7 +286,7 @@ export default function TorschützenPage() {
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Favoris pour le Soulier d&apos;Or</h2>
           <p className="mb-6 text-sm text-gray-600">
-            Les 30 joueurs les plus susceptibles de terminer meilleur buteur de la WM 2026.
+            Les 30 Spielers les plus susceptibles de terminer meilleur buteur de la WM 2026.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -294,7 +294,7 @@ export default function TorschützenPage() {
                 <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">#</th>
                   <th className="pb-3 font-medium text-gray-500">Spieler</th>
-                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
+                  <th className="pb-3 font-medium text-gray-500">Mannschaft</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Buts attendus</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Cote buteur</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Cote top buteur</th>
@@ -337,7 +337,7 @@ export default function TorschützenPage() {
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Tous les buteurs potentiels</h2>
           <p className="mb-6 text-sm text-gray-600">
-            Tous les attaquants et milieux offensifs avec leurs cotes buteur estimees.
+            Tous les Stürmers et Mittelfeldspielerx offensifs avec leurs cotes buteur estimees.
           </p>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {scorerOdds.slice(0, 90).map((so) => {
@@ -368,7 +368,7 @@ export default function TorschützenPage() {
 
         {/* By Team */}
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Torschützen par équipe</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Torschützen par Mannschaft</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {teams
               .sort((a, b) => a.fifaRanking - b.fifaRanking)
@@ -406,7 +406,7 @@ export default function TorschützenPage() {
 
         {/* CTA */}
         <section className="rounded-lg bg-primary/5 border border-primary/20 p-6 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Parier sur les buteurs CDM 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Wetten auf les buteurs CDM 2026</h2>
           <p className="mb-4 text-sm text-gray-600">
             Comparez les cotes buteurs sur les meilleurs sites de paris sportifs agréés en France.
           </p>
@@ -417,7 +417,7 @@ export default function TorschützenPage() {
               rel="noopener noreferrer sponsored nofollow"
               className="inline-block rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
             >
-              100€ offerts sur PMU Sport
+              Willkommensbonus sur Betano
             </a>
           </div>
           <p className="mt-4 text-xs text-gray-500">
@@ -427,7 +427,7 @@ export default function TorschützenPage() {
 
         <RelatedContent
           items={[
-            { href: '/prognose/vainqueur', emoji: '', title: 'Prognose vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
+            { href: '/prognose/sieger', emoji: '', title: 'Prognose vainqueur CDM 2026', description: 'Qui remportera le trophée ?' },
             { href: '/gruppen', emoji: '', title: 'Tous les groupes', description: 'Les 12 groupes et classements' },
             { href: '/simulateur', emoji: '', title: 'Simulateur de bracket', description: 'Créez votre bracket complet' },
             { href: '/comparateur-cotes', emoji: '', title: 'Comparateur de cotes', description: 'Meilleures cotes bookmakers' },

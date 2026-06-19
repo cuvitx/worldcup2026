@@ -117,7 +117,7 @@ export default function PrognoseHubPage() {
           {/* Stats rapides */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {[
-              { value: `${totalTeams}`, label: "équipes analysées" },
+              { value: `${totalTeams}`, label: "Mannschafts analysées" },
               { value: `${totalMatches}`, label: "matchs couverts" },
               { value: `${totalGroups}`, label: "groupes" },
               { value: "100K", label: "simulations" },
@@ -176,8 +176,8 @@ export default function PrognoseHubPage() {
                 Top 5 favoris selon notre modèle ELO
               </p>
             </div>
-            <Link href="/prognose/vainqueur" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
-              Analyse complète →
+            <Link href="/prognose/sieger" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
+              Vollständige Analyse →
             </Link>
           </div>
 
@@ -221,10 +221,10 @@ export default function PrognoseHubPage() {
 
           <div className="text-center">
             <Link
-              href="/prognose/vainqueur"
+              href="/prognose/sieger"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white hover:-translate-y-0.5 transition-all"
             >
-              Voir le pronostic vainqueur complet (Top 10 + dark horses)
+              Prognose anzeigen vainqueur complet (Top 10 + dark horses)
             </Link>
           </div>
         </div>
@@ -260,7 +260,7 @@ export default function PrognoseHubPage() {
               return (
                 <Link
                   key={group.slug}
-                  href={`/pronostic-groupe/${group.slug}`}
+                  href={`/prognose-gruppe/${group.slug}`}
                   className="group rounded-xl border border-gray-200 bg-white overflow-hidden hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   {/* Header */}
@@ -377,7 +377,7 @@ export default function PrognoseHubPage() {
                   </p>
                   <div className="mt-3 flex items-center justify-between">
                     <span className="text-xs text-primary font-semibold group-hover:underline">
-                      Voir le pronostic →
+                      Prognose anzeigen →
                     </span>
                     <span className="text-[10px] text-gray-400">Analyse IA + ELO</span>
                   </div>
@@ -391,7 +391,7 @@ export default function PrognoseHubPage() {
               href="/pronostic"
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-8 py-3 font-semibold text-gray-700 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Voir tous les pronostics matchs
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Alle anzeigen pronostics matchs
             </Link>
           </div>
         </div>
@@ -406,7 +406,7 @@ export default function PrognoseHubPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               {
-                href: "/prognose/vainqueur",
+                href: "/prognose/sieger",
                 icon: "",
                 title: "Prognose vainqueur",
                 desc: "Top 10 favoris avec cotes et dark horses",
@@ -416,7 +416,7 @@ export default function PrognoseHubPage() {
                 href: "/comparateur-cotes",
                 icon: "",
                 title: "Comparateur de cotes",
-                desc: "Meilleures cotes PMU Sport en temps réel",
+                desc: "Meilleures cotes Betano en temps réel",
                 gradient: "from-accent to-accent/70",
               },
               {
@@ -461,15 +461,15 @@ export default function PrognoseHubPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Tous nos pronostics</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { href: "/prognose/vainqueur", icon: "🏆", title: "Prognose vainqueur CDM 2026", description: "Qui va gagner la WM 2026 ?" },
-              { href: "/prognose/btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Prognoses sur les deux équipes qui marquent" },
+              { href: "/prognose/sieger", icon: "🏆", title: "Prognose vainqueur CDM 2026", description: "Qui va gagner la WM 2026 ?" },
+              { href: "/prognose/btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Prognoses sur les deux Mannschafts qui marquent" },
               { href: "/prognose/over-under", icon: "📊", title: "Over/Under", description: "Prognoses sur le nombre de buts" },
-              { href: "/prognose/cartons", icon: "🟨", title: "Prognose cartons", description: "Prévisions sur les cartons jaunes et rouges" },
-              { href: "/prognose/clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles équipes garderont leur cage inviolée" },
-              { href: "/prognose/finalistes", icon: "🥇", title: "Prognose finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
-              { href: "/prognose/torschuetzen", icon: "👟", title: "Meilleurs buteurs", description: "Qui sera le meilleur buteur du tournoi ?" },
-              { href: "/prognose/scores-exacts", icon: "🎯", title: "Scores exacts", description: "Prognoses de scores exacts match par match" },
-              { href: "/prognose/tirs-au-but", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
+              { href: "/prognose/karten", icon: "🟨", title: "Prognose cartons", description: "Prévisions sur les cartons jaunes et rouges" },
+              { href: "/prognose/clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles Mannschafts garderont leur cage inviolée" },
+              { href: "/prognose/finalisten", icon: "🥇", title: "Prognose finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
+              { href: "/prognose/torschuetzen", icon: "👟", title: "Beste Torschützen", description: "Qui sera le meilleur buteur du tournoi ?" },
+              { href: "/prognose/genaue-ergebnisse", icon: "🎯", title: "Scores exacts", description: "Prognoses de scores exacts match par match" },
+              { href: "/prognose/elfmeterschiessen", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
               { href: "/sportwetten/corners", icon: "🚩", title: "Prognose corners", description: "Prognoses sur le nombre de corners" },
               { href: "/pronostics/grille", icon: "📋", title: "Grille de pronostics", description: "Remplissez votre grille de pronostics CDM" },
               { href: "/pronostics/leaderboard", icon: "🏅", title: "Rangliste pronostiqueurs", description: "Le classement des meilleurs pronostiqueurs" },
@@ -496,7 +496,7 @@ export default function PrognoseHubPage() {
           <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
             Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
             Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}
-            <Link href="/verantwortungsvolles-spielen" className="underline hover:text-primary">Jeu responsable — 18+</Link>
+            <Link href="/verantwortungsvolles-spielen" className="underline hover:text-primary">Verantwortungsvolles Spielen — 18+</Link>
           </p>
         </div>
       </section>

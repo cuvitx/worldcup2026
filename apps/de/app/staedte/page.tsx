@@ -8,7 +8,7 @@ import { stadiums } from "@repo/data/stadiums";
 export const metadata: Metadata = {
   title: "Les 16 villes hôtes de la WM 2026 | Guide & Infos",
   description:
-    "Découvrez les 16 villes hôtes de la WM 2026 aux États-Unis, au Canada et au Mexique. Population, stades, fuseaux horaires.",
+    "Découvrez les 16 villes hôtes de la WM 2026 aux États-Unis, au Canada et au Mexique. Einwohner, stades, fuseaux horaires.",
   alternates: getStaticAlternates("cities", "de"),
   openGraph: {
     title: "Les 16 villes hôtes de la WM 2026",
@@ -73,13 +73,13 @@ export default function CitiesPage() {
                       </div>
                       <div className="mt-4 grid grid-cols-2 gap-3">
                         <div className="rounded-lg bg-gray-50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500">Population</p>
+                          <p className="text-xs text-gray-500">Einwohner</p>
                           <p className="text-sm font-bold text-gray-900">
                             {(city.population / 1_000_000).toFixed(1)}M
                           </p>
                         </div>
                         <div className="rounded-lg bg-gray-50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500">Stades</p>
+                          <p className="text-xs text-gray-500">Stadions</p>
                           <p className="text-sm font-bold text-gray-900">
                             {cityStadiums.length}
                           </p>
@@ -105,11 +105,11 @@ export default function CitiesPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/stadien", title: "Les 16 stades", description: "Capacité, photos et matchs de chaque stade", icon: "" },
+        <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
+          { href: "/stadien", title: "Les 16 stades", description: "Kapazität, photos et matchs de chaque stade", icon: "" },
           { href: "/carte-stades", title: "Carte des stades", description: "Carte interactive des 16 stades", icon: "" },
           { href: "/pays-hotes", title: "Pays hôtes", description: "USA, Canada et Mexique : guide complet", icon: "" },
-          { href: "/billets", title: "Billets", description: "Comment acheter vos billets CDM 2026", icon: "" },
+          { href: "/Tickets", title: "Tickets", description: "Comment acheter vos Tickets CDM 2026", icon: "" },
           { href: "/ou-regarder", title: "Où regarder", description: "Chaînes TV et streaming CDM 2026", icon: "" },
         ]} />
       </div>

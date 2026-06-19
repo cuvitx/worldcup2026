@@ -18,10 +18,10 @@ function countResults(history: WcEdition[]) {
 
 function summaryLine(stats: ReturnType<typeof countResults>) {
   const parts: string[] = [];
-  parts.push(`${stats.participations} participation${stats.participations > 1 ? "s" : ""}`);
-  if (stats.titles > 0) parts.push(`${stats.titles} titre${stats.titles > 1 ? "s" : ""}`);
-  if (stats.finals > 0) parts.push(`${stats.finals} finale${stats.finals > 1 ? "s" : ""} perdue${stats.finals > 1 ? "s" : ""}`);
-  if (stats.semis > 0) parts.push(`${stats.semis} demi-finale${stats.semis > 1 ? "s" : ""}`);
+  parts.push(`${stats.participations} Teilnahme${stats.participations > 1 ? "n" : ""}`);
+  if (stats.titles > 0) parts.push(`${stats.titles} Titel`);
+  if (stats.finals > 0) parts.push(`${stats.finals} verlorene${stats.finals > 1 ? "" : "s"} Finale`);
+  if (stats.semis > 0) parts.push(`${stats.semis} Halbfinale`);
   return parts.join(", ") + ".";
 }
 
@@ -34,20 +34,20 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
       <section className="bg-white py-12 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Historique en WM
+            WM-Geschichte
           </h2>
           <div className="grid sm:grid-cols-3 gap-4 mb-6">
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
               <p className="text-3xl font-extrabold text-gray-900">{team.wcAppearances}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Participations</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Teilnahmen</p>
             </div>
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
               <p className="text-lg font-extrabold text-accent">{team.bestResult}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Meilleur résultat</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Bestes Ergebnis</p>
             </div>
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
               <p className="text-3xl font-extrabold text-gray-900">#{team.fifaRanking}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">Rangliste FIFA</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mt-1">FIFA-Rangliste</p>
             </div>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-5">
@@ -64,7 +64,7 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
     <section className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Historique en WM (1930–2022)
+          WM-Geschichte (1930–2022)
         </h2>
         <p className="text-sm text-gray-500 mb-6">
           {summaryLine(stats)}
@@ -74,9 +74,9 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
           <table className="w-full text-sm min-w-[480px]">
             <thead>
               <tr className="bg-gray-50 text-xs uppercase text-gray-700">
-                <th className="text-left px-4 py-3 font-bold">Année</th>
-                <th className="text-left px-4 py-3 font-bold">Résultat</th>
-                <th className="text-left px-4 py-3 font-bold hidden sm:table-cell">Note</th>
+                <th className="text-left px-4 py-3 font-bold">Jahr</th>
+                <th className="text-left px-4 py-3 font-bold">Ergebnis</th>
+                <th className="text-left px-4 py-3 font-bold hidden sm:table-cell">Anmerkung</th>
               </tr>
             </thead>
             <tbody>

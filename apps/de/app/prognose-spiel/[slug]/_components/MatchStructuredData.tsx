@@ -44,7 +44,7 @@ export function MatchStructuredData({
     awayTeam: away ? { "@type": "SportsTeam", name: away.name } : undefined,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     sport: "Football",
-    description: `Prognose et cotes pour ${homeName} vs ${awayName}, ${stage} de la WM 2026.`,
+    description: `Prognose und Quoten fuer ${homeName} vs ${awayName}, ${stage} der WM 2026.`,
   };
 
   return (

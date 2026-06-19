@@ -90,13 +90,13 @@ export function GroupStandings({
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
           <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="font-bold text-lg text-gray-900">
-              Rangliste Groupe {group}
+              Tabelle Gruppe {group}
             </h2>
             <Link
               href={`/gruppe/${group.toLowerCase()}`}
               className="text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
             >
-              Voir le groupe &rarr;
+              Zur Gruppe &rarr;
             </Link>
           </div>
 
@@ -105,15 +105,15 @@ export function GroupStandings({
               <thead>
                 <tr className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
                   <th className="px-4 py-3 text-left font-semibold w-8">#</th>
-                  <th className="px-2 py-3 text-left font-semibold">Équipe</th>
-                  <th className="px-2 py-3 text-center font-semibold">J</th>
-                  <th className="px-2 py-3 text-center font-semibold">V</th>
+                  <th className="px-2 py-3 text-left font-semibold">Mannschaft</th>
+                  <th className="px-2 py-3 text-center font-semibold">Sp</th>
+                  <th className="px-2 py-3 text-center font-semibold">S</th>
+                  <th className="px-2 py-3 text-center font-semibold">U</th>
                   <th className="px-2 py-3 text-center font-semibold">N</th>
-                  <th className="px-2 py-3 text-center font-semibold">D</th>
-                  <th className="px-2 py-3 text-center font-semibold hidden sm:table-cell">BP</th>
-                  <th className="px-2 py-3 text-center font-semibold hidden sm:table-cell">BC</th>
+                  <th className="px-2 py-3 text-center font-semibold hidden sm:table-cell">T+</th>
+                  <th className="px-2 py-3 text-center font-semibold hidden sm:table-cell">T-</th>
                   <th className="px-2 py-3 text-center font-semibold">Diff</th>
-                  <th className="px-3 py-3 text-center font-semibold">Pts</th>
+                  <th className="px-3 py-3 text-center font-semibold">Pkt</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -176,7 +176,7 @@ export function GroupStandings({
             <div className="px-5 py-2.5 border-t border-gray-100 bg-gray-50/50">
               <p className="text-[11px] text-gray-400">
                 <span className="inline-block w-2 h-2 rounded-sm bg-emerald-400 mr-1 align-middle" />
-                Qualifié pour les huitièmes de finale
+                Qualifiziert für das Achtelfinale
               </p>
             </div>
           )}

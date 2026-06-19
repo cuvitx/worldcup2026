@@ -29,7 +29,7 @@ export function StadiumImage({
     <div className={`relative overflow-hidden ${containerClassName}`}>
       <Image
         src={`/images/stadiums/${slug}.jpg`}
-        alt={`Stade ${name}, ${city}`}
+        alt={`Stadion ${name}, ${city}`}
         fill
         loading="lazy"
         className={`object-cover ${className}`}

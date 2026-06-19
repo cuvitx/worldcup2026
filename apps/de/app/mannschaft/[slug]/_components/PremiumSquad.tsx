@@ -4,10 +4,10 @@ import type { playersByTeamId } from "@repo/data/players";
 type Player = NonNullable<(typeof playersByTeamId)[string]>[number];
 
 const positionLabels: Record<string, string> = {
-  GK: "Gardiens",
-  DF: "Défenseurs",
-  MF: "Milieux",
-  FW: "Attaquants",
+  GK: "Torhüter",
+  DF: "Verteidiger",
+  MF: "Mittelfeldspieler",
+  FW: "Stürmer",
 };
 
 const positionOrder = ["GK", "DF", "MF", "FW"];
@@ -25,13 +25,13 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
   }
 
   return (
-    <section id="effectif" className="bg-white py-12 border-t border-gray-100">
+    <section id="kader" className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Effectif officiel — {players.length} joueurs
+          Offizieller Kader — {players.length} Spieler
         </h2>
         <p className="text-sm text-gray-500 mb-6">
-          Effectif officiel de {teamName} à la CDM 2026. Mis à jour en juin 2026.
+          Offizieller Kader von {teamName} für die WM 2026. Aktualisiert im Juni 2026.
         </p>
 
         <div className="space-y-6">
@@ -62,9 +62,9 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
                         <p className="text-xs text-gray-500">{player.club}</p>
                       </div>
                       <div className="shrink-0 text-right">
-                        <p className="text-xs font-bold text-gray-700">{player.caps} sél.</p>
+                        <p className="text-xs font-bold text-gray-700">{player.caps} Sp.</p>
                         {player.goals > 0 && (
-                          <p className="text-xs text-primary">{player.goals} buts</p>
+                          <p className="text-xs text-primary">{player.goals} Tore</p>
                         )}
                       </div>
                     </Link>
@@ -78,7 +78,7 @@ export function PremiumSquad({ players, teamSlug, teamName }: PremiumSquadProps)
         {players.length === 0 && (
           <div className="text-center py-8">
             <p className="text-gray-500">
-              L&apos;effectif n&apos;est pas encore disponible.
+              Der Kader ist noch nicht verfügbar.
             </p>
           </div>
         )}

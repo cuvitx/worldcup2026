@@ -2,36 +2,36 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
-  title: "Contact — Contactez l'équipe CDM 2026",
+  title: "Kontakt — Kontaktieren Sie das Team WM 2026",
   description:
-    "Contactez l'équipe CDM 2026 pour toute question, suggestion ou demande de partenariat. FAQ et informations utiles.",
+    "Kontaktieren Sie das Team WM 2026 bei Fragen, Vorschlägen oder Partnerschaftsanfragen. FAQ und nützliche Informationen.",
   alternates: getStaticAlternates("contact", "de"),
   openGraph: {
-    title: "Contact - CDM 2026",
-    description: "Contactez l'équipe CDM 2026 pour toute question ou partenariat.",
+    title: "Kontakt - WM 2026",
+    description: "Kontaktieren Sie das Team WM 2026 bei Fragen oder Partnerschaftsanfragen.",
   },
 };
 
 const faqs = [
   {
-    question: "Vos pronostics sont-ils gratuits ?",
+    question: "Sind Ihre Prognosen kostenlos?",
     answer:
-      "Oui, tous nos pronostics et analyses sont entièrement gratuits. Nous nous finançons via des liens d'affiliation vers des bookmakers agréés ANJ.",
+      "Ja, alle unsere Prognosen und Analysen sind vollständig kostenlos. Wir finanzieren uns über Affiliate-Links zu lizenzierten Wettanbietern.",
   },
   {
-    question: "Êtes-vous affiliés à la FIFA ?",
+    question: "Sind Sie mit der FIFA verbunden?",
     answer:
-      "Non, CDM 2026 est un site d'information indépendant. Nous ne sommes affiliés ni à la FIFA ni à aucune fédération de football.",
+      "Nein, WM 2026 ist eine unabhängige Informationswebsite. Wir sind weder mit der FIFA noch mit einem Fußballverband verbunden.",
   },
   {
-    question: "Comment sont calculés vos pronostics ?",
+    question: "Wie werden Ihre Prognosen berechnet?",
     answer:
-      "Nos pronostics s'appuient sur des modèles statistiques combinant classement ELO, forme récente, historique des confrontations et cotes des bookmakers. Consultez notre page Méthodologie pour en savoir plus.",
+      "Unsere Prognosen basieren auf statistischen Modellen, die ELO-Ranking, aktuelle Form, Direktvergleiche und Wettquoten kombinieren. Besuchen Sie unsere Methodik-Seite für weitere Informationen.",
   },
   {
-    question: "Puis-je reprendre vos contenus sur mon site ?",
+    question: "Darf ich Ihre Inhalte auf meiner Website verwenden?",
     answer:
-      "Nos contenus sont protégés par le droit d'auteur. Pour toute demande de reproduction ou de partenariat éditorial, contactez-nous par email.",
+      "Unsere Inhalte sind urheberrechtlich geschützt. Für Reproduktionsanfragen oder redaktionelle Partnerschaften kontaktieren Sie uns bitte per E-Mail.",
   },
 ];
 
@@ -42,12 +42,12 @@ export default function ContactPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Nous contacter</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Kontakt aufnehmen</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Contact</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Kontakt</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Une question, une suggestion ou une demande de partenariat ?
-            N&apos;hésitez pas à nous contacter.
+            Eine Frage, ein Vorschlag oder eine Partnerschaftsanfrage?
+            Zögern Sie nicht, uns zu kontaktieren.
           </p>
         </div>
       </section>
@@ -57,12 +57,12 @@ export default function ContactPage() {
           {/* Contact form-like section */}
           <section>
             <h2 className="mb-4 text-2xl font-bold text-gray-900">
-              Nous écrire
+              Schreiben Sie uns
             </h2>
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
               <p className="mb-4">
-                Pour toute question relative au site, à nos contenus, à nos
-                analyses ou à une demande de partenariat, envoyez-nous un email :
+                Bei Fragen zur Website, zu unseren Inhalten, unseren
+                Analysen oder für Partnerschaftsanfragen senden Sie uns eine E-Mail:
               </p>
               <a
                 href="mailto:contact@wm2026guide.de?subject=Contact%20CDM%202026"
@@ -74,7 +74,7 @@ export default function ContactPage() {
                 contact@wm2026guide.de
               </a>
               <p className="mt-4 text-sm text-gray-500">
-                Nous nous efforçons de répondre sous 48 heures.
+                Wir bemühen uns, innerhalb von 48 Stunden zu antworten.
               </p>
             </div>
           </section>
@@ -82,7 +82,7 @@ export default function ContactPage() {
           {/* FAQ */}
           <section>
             <h2 className="mb-6 text-2xl font-bold text-gray-900">
-              Questions fréquentes
+              Häufig gestellte Fragen
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -99,68 +99,67 @@ export default function ContactPage() {
             </div>
           </section>
 
-          {/* À propos */}
+          {/* Über uns */}
           <section>
             <h2 className="mb-3 text-2xl font-bold text-gray-900">
-              À propos du site
+              Über die Website
             </h2>
             <p>
-              CDM 2026 est un site d&apos;information indépendant dédié à la
-              WM FIFA 2026. Nous proposons des pronostics, des
-              analyses statistiques, des comparaisons de cotes et des guides
-              pratiques pour les supporters.
+              WM 2026 ist eine unabhängige Informationswebsite zur
+              FIFA WM 2026. Wir bieten Prognosen,
+              statistische Analysen, Quotenvergleiche und praktische
+              Ratgeber für Fußballfans.
             </p>
             <p className="mt-2">
-              Ce site n&apos;est pas affilié à la FIFA ni à aucun opérateur de
-              paris sportifs. Nos contenus sont à caractère informatif et ne
-              constituent pas des conseils de paris.
+              Diese Website ist weder mit der FIFA noch mit einem
+              Sportwettenanbieter verbunden. Unsere Inhalte dienen ausschließlich
+              der Information und stellen keine Wettberatung dar.
             </p>
           </section>
 
-          {/* Jeu responsable */}
+          {/* Verantwortungsvolles Spielen */}
           <section className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              Jeu responsable
+              Verantwortungsvolles Spielen
             </h2>
             <p>
-              Si vous pariez, faites-le de manière responsable. Les jeux
-              d&apos;argent comportent des risques de pertes financières et
-              d&apos;addiction.
+              Wenn Sie wetten, tun Sie dies verantwortungsvoll. Glücksspiel
+              birgt Risiken finanzieller Verluste und Suchtgefahr.
             </p>
             <p className="mt-3">
               <Link
                 href="/verantwortungsvolles-spielen"
                 className="font-medium text-primary hover:underline"
               >
-                Consulter notre page Jeu responsable →
+                Unsere Seite zum verantwortungsvollen Spielen ansehen →
               </Link>
             </p>
           </section>
 
-          {/* Liens utiles */}
+          {/* Nützliche Links */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              Liens utiles
+              Nützliche Links
             </h2>
             <ul className="space-y-2">
               <li>
                 <Link href="/ueber-uns" className="text-primary hover:underline">
-                  À propos
+                  Über uns
                 </Link>
               </li>
               <li>
                 <Link href="/impressum" className="text-primary hover:underline">
-                  Mentions légales
+                  Impressum
                 </Link>
               </li>
               <li>
                 <Link href="/methodologie" className="text-primary hover:underline">
-                  Méthodologie
+                  Methodik
                 </Link>
               </li>
               <li>
                 <Link href="/faq" className="text-primary hover:underline">
-                  FAQ complète
+                  Vollständige FAQ
                 </Link>
               </li>
             </ul>

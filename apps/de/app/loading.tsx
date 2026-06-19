@@ -57,7 +57,7 @@ export default function Loading() {
         <div className="flex flex-col items-center justify-center py-8 gap-3">
           <BouncingBall />
           <p className="text-sm text-gray-400 font-medium animate-pulse">
-            Chargement en cours…
+            Wird geladen…
           </p>
         </div>
       </div>
@@ -115,7 +115,7 @@ function BouncingBall() {
       <span
         className="text-4xl select-none"
         style={{ animation: "ball-bounce 0.9s infinite" }}
-        aria-label="Chargement"
+        aria-label="Laden"
         role="status"
       >
         

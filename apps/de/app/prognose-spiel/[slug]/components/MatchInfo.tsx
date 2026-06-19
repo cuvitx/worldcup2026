@@ -18,19 +18,19 @@ export function MatchInfo({
 }: MatchInfoProps) {
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Informations du match</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielinformationen</h2>
       <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div className="rounded-lg bg-gray-50 p-4">
-          <dt className="text-gray-500 mb-1">Date</dt>
+          <dt className="text-gray-500 mb-1">Datum</dt>
           <dd className="font-semibold">{dateFormatted}</dd>
         </div>
         <div className="rounded-lg bg-gray-50 p-4">
-          <dt className="text-gray-500 mb-1">Heure (UTC)</dt>
+          <dt className="text-gray-500 mb-1">Uhrzeit (UTC)</dt>
           <dd className="font-semibold">{match.time}</dd>
         </div>
         {stadium && (
           <div className="rounded-lg bg-gray-50 p-4">
-            <dt className="text-gray-500 mb-1">Stade</dt>
+            <dt className="text-gray-500 mb-1">Stadion</dt>
             <dd>
               <Link
                 href={`/stadion/${stadium.slug}`}
@@ -39,14 +39,14 @@ export function MatchInfo({
                 {stadium.name}
               </Link>
               <p className="text-xs text-gray-500 mt-0.5">
-                {stadium.capacity.toLocaleString("de-DE")} places
+                {stadium.capacity.toLocaleString("de-DE")} Plaetze
               </p>
             </dd>
           </div>
         )}
         {city && (
           <div className="rounded-lg bg-gray-50 p-4">
-            <dt className="text-gray-500 mb-1">Ville</dt>
+            <dt className="text-gray-500 mb-1">Stadt</dt>
             <dd>
               <Link
                 href={`/stadt/${city.slug}`}
@@ -66,21 +66,21 @@ export function MatchInfo({
         </div>
         {match.group && (
           <div className="rounded-lg bg-gray-50 p-4">
-            <dt className="text-gray-500 mb-1">Groupe</dt>
+            <dt className="text-gray-500 mb-1">Gruppe</dt>
             <dd>
               <Link
                 href={`/gruppe/${match.group.toLowerCase()}`}
                 className="font-semibold text-primary hover:underline"
               >
-                Groupe {match.group}
+                Gruppe {match.group}
               </Link>
             </dd>
           </div>
         )}
         {match.matchday && (
           <div className="rounded-lg bg-gray-50 p-4">
-            <dt className="text-gray-500 mb-1">Journee</dt>
-            <dd className="font-semibold">Journee {match.matchday}</dd>
+            <dt className="text-gray-500 mb-1">Spieltag</dt>
+            <dd className="font-semibold">Spieltag {match.matchday}</dd>
           </div>
         )}
       </dl>

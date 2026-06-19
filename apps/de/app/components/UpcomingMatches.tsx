@@ -23,13 +23,13 @@ export function UpcomingMatches() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-gray-900">
-            Premiers matchs du tournoi
+            Nächste Spiele des Turniers
           </h2>
           <Link
             href="/spiel/spielplan"
             className="text-sm font-medium text-primary hover:underline"
           >
-            Voir le spielplan complet &rarr;
+            Vollständigen Spielplan anzeigen &rarr;
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">

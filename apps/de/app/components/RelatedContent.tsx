@@ -14,7 +14,7 @@ interface RelatedContentProps {
   title?: string;
 }
 
-export function RelatedContent({ items, title = 'À explorer aussi' }: RelatedContentProps) {
+export function RelatedContent({ items, title = 'Auch interessant' }: RelatedContentProps) {
   if (!items.length) return null;
 
   return (

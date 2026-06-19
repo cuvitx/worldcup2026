@@ -29,8 +29,8 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
         <span>{eloMax}</span>
       </div>
       <p className="mt-3 text-sm text-gray-600">
-        Le rating ELO mesure la force relative de chaque équipe. Plus le score est eleve, plus l&apos;équipe est consideree comme favorite. {teamName} se situe dans le{" "}
-        {eloPercent > 75 ? "top tier mondial" : eloPercent > 50 ? "haut du classement" : eloPercent > 25 ? "milieu de tableau" : "bas du classement"}.
+        Le rating ELO mesure la force relative de chaque Mannschaft. Plus le score est eleve, plus l&apos;Mannschaft est consideree comme favorite. {teamName} se situe dans le{" "}
+        {eloPercent > 75 ? "top tier mondial" : eloPercent > 50 ? "haut du classement" : eloPercent > 25 ? "Mittelfeldspieler de tableau" : "bas du classement"}.
       </p>
     </section>
   );

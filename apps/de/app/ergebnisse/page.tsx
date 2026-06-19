@@ -10,38 +10,38 @@ import { PmuBanner } from "../components/PmuBanner";
 
 const faqItems = [
   {
-    question: "Comment sont calculés les scores affichés ?",
+    question: "Wie werden die angezeigten Ergebnisse berechnet?",
     answer:
-      "Les scores sont mis à jour automatiquement via l'API officielle Football-Data. Pendant les matchs, les scores sont actualisés toutes les minutes. Une fois le match terminé, le score final est figé dans notre base de données.",
+      "Die Ergebnisse werden automatisch über die offizielle Football-Data-API aktualisiert. Während der Spiele werden die Ergebnisse jede Minute aktualisiert. Nach Spielende wird das Endergebnis in unserer Datenbank festgehalten.",
   },
   {
-    question: "Quand les résultats sont-ils disponibles ?",
+    question: "Wann sind die Ergebnisse verfügbar?",
     answer:
-      "Les résultats sont disponibles dès le coup de sifflet final de chaque match. La page est actualisée automatiquement toutes les 5 minutes pour refléter les derniers scores.",
+      "Die Ergebnisse sind ab dem Schlusspfiff jedes Spiels verfügbar. Die Seite wird automatisch alle 5 Minuten aktualisiert, um die neuesten Ergebnisse anzuzeigen.",
   },
   {
-    question: "Combien de matchs comporte la WM 2026 ?",
+    question: "Wie viele Spiele umfasst die WM 2026?",
     answer:
-      "La WM 2026 comprend 104 matchs au total : 72 matchs de phase de groupes (12 groupes de 4 équipes) et 32 matchs à élimination directe. Le tournoi se déroule du 11 juin au 19 juillet 2026 aux États-Unis, au Mexique et au Canada.",
+      "Die WM 2026 umfasst insgesamt 104 Spiele: 72 Gruppenspiele (12 Gruppen mit je 4 Mannschaften) und 32 K.o.-Spiele. Das Turnier findet vom 11. Juni bis 19. Juli 2026 in den USA, Mexiko und Kanada statt.",
   },
   {
-    question: "Puis-je voir le détail de chaque match ?",
+    question: "Kann ich die Details jedes Spiels sehen?",
     answer:
-      "Oui, cliquez sur n'importe quel résultat pour accéder à la page détaillée du match avec les statistiques complètes, les compositions, les buteurs et les temps forts de la rencontre.",
+      "Ja, klicken Sie auf ein beliebiges Ergebnis, um zur detaillierten Spielseite mit vollständigen Statistiken, Aufstellungen, Torschützen und Highlights zu gelangen.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Ergebnisse des matchs - WM 2026",
+  title: "Spielergebnisse - WM 2026",
   description:
-    "Tous les résultats et scores des matchs de la WM 2026. Retrouvez les scores finaux, buteurs et résumés de chaque rencontre du Mondial.",
+    "Alle Ergebnisse und Spielstände der WM 2026. Endergebnisse, Torschützen und Zusammenfassungen jedes Spiels der Weltmeisterschaft.",
   alternates: {
     canonical: "/ergebnisse",
   },
   openGraph: {
-    title: "Ergebnisse des matchs - WM 2026",
+    title: "Spielergebnisse - WM 2026",
     description:
-      "Scores et résultats de tous les matchs de la CDM 2026. Gruppenphase et phase finale.",
+      "Ergebnisse und Spielstände aller Spiele der WM 2026. Gruppenphase und Finalrunde.",
   },
 };
 
@@ -106,8 +106,8 @@ export default async function ResultatsPage() {
           </h1>
           <p className="mt-2 text-gray-300">
             {finishedMatches.length > 0
-              ? `${finishedMatches.length} match${finishedMatches.length > 1 ? "s" : ""} terminé${finishedMatches.length > 1 ? "s" : ""}`
-              : "Aucun match terminé pour le moment"}
+              ? `${finishedMatches.length} Spiel${finishedMatches.length > 1 ? "e" : ""} beendet`
+              : "Noch keine Spiele beendet"}
           </p>
         </div>
       </section>
@@ -121,17 +121,17 @@ export default async function ResultatsPage() {
         {finishedMatches.length === 0 ? (
           <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-8 text-center">
             <p className="text-lg text-gray-600">
-              Aucun match terminé pour le moment.
+              Noch keine Spiele beendet.
             </p>
             <p className="mt-2 text-sm text-gray-500">
-              La WM 2026 débute le 11 juin 2026.
+              Die WM 2026 beginnt am 11. Juni 2026.
             </p>
             <div className="mt-6">
               <Link
                 href="/spiel/spielplan"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-white font-medium hover:bg-primary/90 transition-colors"
               >
-                Voir le spielplan complet
+                Kompletten Spielplan anzeigen
               </Link>
             </div>
           </div>
@@ -176,12 +176,12 @@ export default async function ResultatsPage() {
                             <span
                               className="text-base sm:text-lg shrink-0"
                               role="img"
-                              aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}
+                              aria-label={`Flagge von ${home?.name ?? "Unbekannt"}`}
                             >
                               {home?.flag ?? "\uD83C\uDFF3\uFE0F"}
                             </span>
                             <span className="font-medium truncate text-sm sm:text-base">
-                              {home?.name ?? "A déterminer"}
+                              {home?.name ?? "Noch offen"}
                             </span>
                           </div>
 
@@ -199,12 +199,12 @@ export default async function ResultatsPage() {
                           {/* Away team */}
                           <div className="flex items-center gap-1.5 sm:gap-2 flex-1 min-w-0 justify-end">
                             <span className="font-medium truncate text-right text-sm sm:text-base">
-                              {away?.name ?? "A déterminer"}
+                              {away?.name ?? "Noch offen"}
                             </span>
                             <span
                               className="text-base sm:text-lg shrink-0"
                               role="img"
-                              aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}
+                              aria-label={`Flagge von ${away?.name ?? "Unbekannt"}`}
                             >
                               {away?.flag ?? "\uD83C\uDFF3\uFE0F"}
                             </span>
@@ -246,23 +246,23 @@ export default async function ResultatsPage() {
           links={[
             {
               href: "/spiel/spielplan",
-              title: "Spielplan complet",
+              title: "Kompletter Spielplan",
               description:
-                "Consultez le programme des 104 matchs de la CDM 2026.",
+                "Sehen Sie das Programm aller 104 Spiele der WM 2026.",
               icon: "",
             },
             {
               href: "/gruppen",
-              title: "Les 12 groupes",
+              title: "Die 12 Gruppen",
               description:
-                "Ranglistes et compositions de la phase de groupes.",
+                "Tabellen und Zusammensetzung der Gruppenphase.",
               icon: "",
             },
             {
               href: "/torschuetzen",
-              title: "Rangliste buteurs",
+              title: "Torschützenliste",
               description:
-                "Meilleurs buteurs et statistiques du tournoi.",
+                "Beste Torschützen und Turnierstatistiken.",
               icon: "",
             },
           ]}
@@ -273,7 +273,7 @@ export default async function ResultatsPage() {
       <section className="bg-gray-50 py-12 border-t border-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Questions fréquentes — Ergebnisse CDM 2026
+            Häufig gestellte Fragen — Ergebnisse WM 2026
           </h2>
           <div className="space-y-3">
             {faqItems.map((item, i) => (

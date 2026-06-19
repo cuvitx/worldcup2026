@@ -17,7 +17,7 @@ interface RecentArticlesProps {
 
 const categoryColors: Record<string, string> = {
   stades: "bg-accent/10 text-accent",
-  billets: "bg-field/10 text-field",
+  Tickets: "bg-field/10 text-field",
   equipes: "bg-primary/10 text-primary",
   paris: "bg-primary/10 text-primary",
   transferts: "bg-accent/15 text-accent",
@@ -25,10 +25,10 @@ const categoryColors: Record<string, string> = {
 
 const categoryLabels: Record<string, string> = {
   stades: "Stadien",
-  billets: "Billets",
+  Tickets: "Tickets",
   equipes: "Mannschaften",
-  paris: "Paris",
-  transferts: "Transferts",
+  paris: "Wetten",
+  transferts: "Transfers",
 };
 
 export function RecentArticles({ recentArticles }: RecentArticlesProps) {
@@ -37,9 +37,9 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
-            Actualités
+            Aktuelles
           </p>
-          <SectionHeading title="Articles récents" linkHref="/actualites" linkLabel="Alle actus →" />
+          <SectionHeading title="Neueste Artikel" linkHref="/actualites" linkLabel="Alle Artikel →" />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
@@ -57,7 +57,7 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
 
                 {i === 0 && (
                   <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-primary text-white px-2.5 py-1 rounded-full">
-                    À la une
+                    Aktuell
                   </span>
                 )}
               </div>
@@ -89,7 +89,7 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
                     })}
                   </p>
                   <span className="text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Lire →
+                    Lesen →
                   </span>
                 </div>
               </div>

@@ -30,7 +30,7 @@ export default function ComparateurCotesPage() {
     },
     {
       question: "Quel bookmaker propose les meilleures cotes pour la CDM 2026 ?",
-      answer: "Les bookmakers avec les meilleures cotes pour la WM 2026 varient selon les matchs et les marchés. En général, PokerStars Sports et Betsson proposent des cotes très compétitives sur les grands matchs. PMU Sport a également amélioré ses cotes ces dernières années. Notre comparateur met en surbrillance en vert la meilleure cote pour chaque issue (victoire domicile, match nul, victoire extérieur), ce qui vous permet de maximiser vos gains potentiels."
+      answer: "Les bookmakers avec les meilleures cotes pour la WM 2026 varient selon les matchs et les marchés. En général, PokerStars Sports et Betsson proposent des cotes très compétitives sur les grands matchs. Betano a également amélioré ses cotes ces dernières années. Notre comparateur met en surbrillance en vert la meilleure cote pour chaque issue (victoire domicile, match nul, victoire extérieur), ce qui vous permet de maximiser vos gains potentiels."
     },
     {
       question: "Les cotes affichées sont-elles en temps réel ?",
@@ -38,7 +38,7 @@ export default function ComparateurCotesPage() {
     },
     {
       question: "Qu'est-ce qu'un pari 1N2 ?",
-      answer: "Le pari 1N2 est le type de pari le plus simple et le plus populaire en football. '1' représente la victoire de l'équipe à domicile, 'N' (Nul) représente le match nul après 90 minutes de jeu, et '2' représente la victoire de l'équipe à l'extérieur. Par exemple, pour France vs Brésil : 1 = victoire de la France, N = match nul, 2 = victoire du Brésil. En phase à élimination directe de la CDM, il n'y a pas de match nul définitif (prolongations et tirs au but si besoin)."
+      answer: "Le pari 1N2 est le type de pari le plus simple et le plus populaire en football. '1' représente la victoire de l'Mannschaft à domicile, 'N' (Nul) représente le match nul après 90 minutes de jeu, et '2' représente la victoire de l'Mannschaft à l'extérieur. Par exemple, pour France vs Brésil : 1 = victoire de la France, N = match nul, 2 = victoire du Brésil. En phase à élimination directe de la CDM, il n'y a pas de match nul définitif (prolongations et tirs au but si besoin)."
     },
     {
       question: "Comment maximiser mes gains avec le comparateur de cotes ?",

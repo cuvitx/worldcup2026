@@ -146,7 +146,7 @@ export default function BankrollCdmPage() {
         </section>
 
         <div className="text-center">
-          <Link href="/sportwetten/lexique" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
+          <Link href="/sportwetten/glossar" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
             Lexique paris sportifs <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -154,7 +154,7 @@ export default function BankrollCdmPage() {
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur joueurs-info-service.fr (ANJ).
+          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
         </p>
       </div>
     </>

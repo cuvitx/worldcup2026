@@ -17,19 +17,19 @@ export const metadata: Metadata = {
 };
 
 const apps = [
-  { name: "PMU Sport", note: "4.6/5", points: "Stats en direct, cashout partiel disponible, interface claire. Bookmaker agréé ANJ de confiance.", url: pmuTrackingUrl("paris-sportifs") },
+  { name: "Betano", note: "4.6/5", points: "Stats en direct, cashout partiel disponible, interface claire. Bookmaker agréé ANJ de confiance.", url: pmuTrackingUrl("paris-sportifs") },
 ];
 
 const strategies = [
-  { title: "Le pari sur le prochain but", icon: "goal", desc: "Après un but marqué tôt, les cotes se réajustent. Si le favori mène 1-0, pariez sur 'prochain but' pour l'outsider à une cote intéressante — les équipes menées prennent des risques." },
-  { title: "Over 0.5 buts 2ème mi-temps", icon: "half", desc: "Si le score est 0-0 à la pause entre deux bonnes équipes, Over 0.5 buts en 2ème mi-temps offre souvent une cote à 1.30-1.50 très sûre. Les coachs ajustent leurs tactiques." },
+  { title: "Le pari sur le prochain but", icon: "goal", desc: "Après un but marqué tôt, les cotes se réajustent. Si le favori mène 1-0, pariez sur 'prochain but' pour l'outsider à une cote intéressante — les Mannschafts menées prennent des risques." },
+  { title: "Over 0.5 buts 2ème mi-temps", icon: "half", desc: "Si le score est 0-0 à la pause entre deux bonnes Mannschafts, Over 0.5 buts en 2ème mi-temps offre souvent une cote à 1.30-1.50 très sûre. Les coachs ajustent leurs tactiques." },
   { title: "Le lay du favori après 1-0", icon: "lay", desc: "Quand le favori mène 1-0, ses cotes chutent. Si vous aviez parié sur lui pré-match, c'est le moment idéal pour cashout ou hedger votre position." },
   { title: "Paris sur les cartons 2ème période", icon: "card", desc: "70% des cartons sont distribués en 2ème mi-temps. Attendez la pause pour évaluer la tension du match avant de parier sur Over cartons." },
   { title: "Le corner tardif", icon: "corner", desc: "Les 15 dernières minutes concentrent un pic de corners. Si le match est serré, pariez sur 'prochain corner dans les 5 min' à des cotes avantageuses." },
 ];
 
 const cashoutTips = [
-  "Cashout à 70-80% du gain potentiel si votre équipe mène mais subit la pression.",
+  "Cashout à 70-80% du gain potentiel si votre Mannschaft mène mais subit la pression.",
   "Ne jamais cashout un pari sûr à plus de 90% de chance de réussite — laissez courir.",
   "Utilisez le cashout partiel pour sécuriser une partie de vos gains tout en gardant de l'exposition.",
   "Évitez le cashout émotionnel après un but contre : attendez 5 minutes que les cotes se stabilisent.",
@@ -37,7 +37,7 @@ const cashoutTips = [
 
 const faqItems = [
   { question: "Qu'est-ce que le live betting ?", answer: "Le live betting (ou paris en direct) permet de parier pendant qu'un match est en cours. Les cotes évoluent en temps réel selon le score, la possession, les occasions et le temps restant. C'est le mode de paris le plus populaire pour les grands événements comme la CDM." },
-  { question: "Quelle est la meilleure app pour parier en live sur la CDM 2026 ?", answer: "PMU Sport est notre recommandation pour le live betting sur la CDM 2026. L'application propose les statistiques en direct, le cashout partiel disponible et une interface claire. PMU Sport est agréé ANJ." },
+  { question: "Quelle est la meilleure app pour parier en live sur la CDM 2026 ?", answer: "Betano est notre recommandation pour le live betting sur la CDM 2026. L'application propose les statistiques en direct, le cashout partiel disponible et une interface claire. Betano est agréé ANJ." },
   { question: "Qu'est-ce que le cashout ?", answer: "Le cashout permet de clôturer un pari avant la fin du match pour sécuriser un gain (si votre pari est en bonne voie) ou limiter une perte (si le match tourne mal). Le montant proposé dépend des cotes en temps réel. Tous les grands bookmakers français proposent cette option." },
   { question: "Les paris live sont-ils plus rentables que les paris pré-match ?", answer: "Les paris live offrent plus d'opportunités mais requièrent une bonne lecture du jeu. L'avantage : vous voyez le match se dérouler et pouvez repérer des tendances que les cotes n'ont pas encore intégrées. L'inconvénient : les cotes live incluent une marge plus élevée du bookmaker." },
 ];
@@ -60,7 +60,7 @@ export default function ParisLivePage() {
         </div>
         <div className="bg-primary/5 rounded-xl p-6">
           <p className="text-gray-700 leading-relaxed mb-4">
-            Le live betting transforme chaque match en une expérience immersive. Contrairement aux paris pré-match, vous disposez d&apos;informations en temps réel : forme des équipes, blessures, tempo du jeu, domination territoriale. Ces données permettent de prendre des décisions éclairées.
+            Le live betting transforme chaque match en une expérience immersive. Contrairement aux paris pré-match, vous disposez d&apos;informations en temps réel : forme des Mannschafts, blessures, tempo du jeu, domination territoriale. Ces données permettent de prendre des décisions éclairées.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             Pour commencer, ouvrez un compte sur un bookmaker agréé ANJ, déposez via carte bancaire ou virement, et rendez-vous dans la section &quot;En direct&quot; pendant un match. Les marchés disponibles incluent : prochain but, score exact live, Over/Under ajusté, corners, cartons et bien plus.
@@ -129,12 +129,12 @@ export default function ParisLivePage() {
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <a href={pmuTrackingUrl("paris-sportifs")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          100€ offerts — Commencer les paris live CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Commencer les paris live CDM 2026 sur Betano <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
-        <p className="text-xs text-gray-400 mt-3">18+ | Offre soumise à conditions</p>
+        <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
-      <FAQSection title="Questions fréquentes — Paris live CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen — Paris live CDM 2026" items={faqItems} />
 
     </>
   );

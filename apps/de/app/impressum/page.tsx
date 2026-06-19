@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 export const metadata: Metadata = {
-  title: "Mentions légales | CDM 2026",
+  title: "Impressum | WM 2026",
   description:
-    "Mentions légales du site CDM 2026 : éditeur, hébergeur, protection des données personnelles, politique cookies et conditions d'utilisation.",
+    "Impressum der Website WM 2026: Herausgeber, Hosting, Datenschutz, Cookie-Richtlinien und Nutzungsbedingungen.",
   alternates: getStaticAlternates("legal", "de"),
   openGraph: {
-    title: "Mentions légales - CDM 2026",
-    description: "Informations légales du site CDM 2026.",
+    title: "Impressum - WM 2026",
+    description: "Rechtliche Informationen der Website WM 2026.",
   },
 };
 
@@ -19,11 +19,11 @@ export default function MentionsLegalesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Informations légales</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Rechtliche Informationen</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Mentions légales</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Impressum</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Informations légales relatives au site wm2026guide.de
+            Rechtliche Informationen zur Website wm2026guide.de
           </p>
         </div>
       </section>
@@ -32,20 +32,20 @@ export default function MentionsLegalesPage() {
         <div className="space-y-8 text-gray-700 leading-relaxed">
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              1. Éditeur du site
+              1. Herausgeber der Website
             </h2>
             <p>
-              Le site <strong>wm2026guide.de</strong> (ci-après « le
-              Site ) est édité à titre personnel dans le cadre d&apos;un projet
-              d&apos;information sportive.
+              Die Website <strong>wm2026guide.de</strong> (nachfolgend &bdquo;die
+              Website&ldquo;) wird privat im Rahmen eines
+              Sportinformationsprojekts betrieben.
             </p>
             <ul className="mt-3 space-y-1 text-sm">
               <li>
-                <strong>Responsable de la publication :</strong> L&apos;éditeur
-                du site
+                <strong>Verantwortlich für den Inhalt:</strong> Der Herausgeber
+                der Website
               </li>
               <li>
-                <strong>Contact :</strong>{" "}
+                <strong>Kontakt:</strong>{" "}
                 <a
                   href="mailto:contact@wm2026guide.de"
                   className="text-primary hover:underline"
@@ -58,16 +58,16 @@ export default function MentionsLegalesPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              2. Hébergeur
+              2. Hosting
             </h2>
-            <p>Le Site est hébergé par :</p>
+            <p>Die Website wird gehostet von:</p>
             <ul className="mt-3 space-y-1 text-sm">
               <li>
                 <strong>Vercel Inc.</strong>
               </li>
-              <li>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</li>
+              <li>440 N Barranca Ave #4133, Covina, CA 91723, USA</li>
               <li>
-                Site web :{" "}
+                Website:{" "}
                 <a
                   href="https://vercel.com"
                   target="_blank"
@@ -82,40 +82,37 @@ export default function MentionsLegalesPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              3. Propriété intellectuelle
+              3. Geistiges Eigentum
             </h2>
             <p>
-              Ce site n&apos;est pas affilié à la FIFA ni à aucune organisation
-              officielle de la WM. Les noms d&apos;équipes, logos et
-              marques mentionnés appartiennent à leurs propriétaires respectifs.
+              Diese Website ist weder mit der FIFA noch mit einer offiziellen
+              WM-Organisation verbunden. Die genannten Mannschaftsnamen, Logos und
+              Marken gehören ihren jeweiligen Eigentümern.
             </p>
             <p className="mt-2">
-              L&apos;ensemble des contenus (textes, analyses, pronostics, mise
-              en page) est protégé par le droit d&apos;auteur. Toute
-              reproduction, même partielle, est interdite sans autorisation
-              préalable.
+              Sämtliche Inhalte (Texte, Analysen, Prognosen, Layout)
+              sind urheberrechtlich geschützt. Jede Vervielfältigung,
+              auch auszugsweise, ist ohne vorherige Genehmigung untersagt.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              4. Protection des données personnelles (CNIL / RGPD)
+              4. Datenschutz (DSGVO)
             </h2>
             <p>
-              Conformément au Règlement Général sur la Protection des Données
-              (RGPD) et à la loi « Informatique et Libertés  du 6 janvier
-              1978, vous disposez d&apos;un droit d&apos;accès, de
-              rectification, de suppression et d&apos;opposition concernant vos
-              données personnelles.
+              Gemäß der Datenschutz-Grundverordnung (DSGVO) haben
+              Sie das Recht auf Auskunft, Berichtigung, Löschung
+              und Widerspruch bezüglich Ihrer personenbezogenen Daten.
             </p>
             <p className="mt-2">
-              Le Site ne collecte aucune donnée personnelle directement. Aucun
-              formulaire d&apos;inscription ou de paiement n&apos;est proposé.
-              Les seules données pouvant être collectées le sont via des cookies
-              tiers (voir section ci-dessous).
+              Die Website erhebt keine personenbezogenen Daten direkt. Es werden
+              keine Registrierungs- oder Zahlungsformulare angeboten.
+              Die einzigen möglicherweise erhobenen Daten stammen von
+              Drittanbieter-Cookies (siehe Abschnitt unten).
             </p>
             <p className="mt-2">
-              Pour exercer vos droits, contactez-nous à l&apos;adresse :{" "}
+              Um Ihre Rechte auszuüben, kontaktieren Sie uns unter:{" "}
               <a
                 href="mailto:contact@wm2026guide.de"
                 className="text-primary hover:underline"
@@ -130,81 +127,80 @@ export default function MentionsLegalesPage() {
               5. Cookies
             </h2>
             <p>
-              Le Site utilise des cookies pour améliorer l&apos;expérience
-              utilisateur et mesurer l&apos;audience. Les cookies utilisés sont :
+              Die Website verwendet Cookies, um das Nutzererlebnis zu verbessern
+              und die Besucherzahlen zu messen. Folgende Cookies werden verwendet:
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-6 text-sm">
               <li>
-                <strong>Cookies essentiels :</strong> nécessaires au
-                fonctionnement du site (préférences, consentement cookies)
+                <strong>Essenzielle Cookies:</strong> notwendig für den
+                Betrieb der Website (Einstellungen, Cookie-Zustimmung)
               </li>
               <li>
-                <strong>Cookies analytiques :</strong> mesure d&apos;audience
-                anonymisée pour améliorer nos contenus
+                <strong>Analytische Cookies:</strong> anonymisierte
+                Besuchermessung zur Verbesserung unserer Inhalte
               </li>
               <li>
-                <strong>Cookies tiers :</strong> nos partenaires publicitaires et
-                d&apos;affiliation peuvent déposer des cookies
+                <strong>Drittanbieter-Cookies:</strong> unsere Werbe- und
+                Affiliate-Partner können Cookies setzen
               </li>
             </ul>
             <p className="mt-3">
-              Vous pouvez configurer votre navigateur pour refuser les cookies ou
-              gérer vos préférences via la bannière de consentement affichée lors
-              de votre première visite.
+              Sie können Ihren Browser so konfigurieren, dass Cookies abgelehnt werden,
+              oder Ihre Einstellungen über das Cookie-Banner bei Ihrem ersten Besuch verwalten.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              6. Liens d&apos;affiliation
+              6. Affiliate-Links
             </h2>
             <p>
-              Ce site peut contenir des liens d&apos;affiliation vers des
-              opérateurs de paris sportifs agréés par l&apos;Autorité Nationale
-              des Jeux (ANJ). Nous pouvons percevoir une commission si vous vous
-              inscrivez via ces liens. Cela n&apos;affecte pas le coût pour vous
-              et n&apos;influence pas nos analyses ou pronostics.
+              Diese Website kann Affiliate-Links zu lizenzierten
+              Sportwettenanbietern enthalten. Wir können eine Provision erhalten,
+              wenn Sie sich über diese Links registrieren. Dies hat keine
+              Auswirkungen auf die Kosten für Sie und beeinflusst nicht unsere
+              Analysen oder Prognosen.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              7. Clause de non-responsabilité — Paris sportifs
+              7. Haftungsausschluss — Sportwetten
             </h2>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              8. Limitation de responsabilité
+              8. Haftungsbeschränkung
             </h2>
             <p>
-              L&apos;éditeur s&apos;efforce de fournir des informations fiables
-              et à jour, mais ne garantit pas l&apos;exactitude, la complétude
-              ou l&apos;actualité des contenus publiés. L&apos;utilisation du
-              site se fait aux risques et périls de l&apos;utilisateur.
+              Der Herausgeber bemüht sich, zuverlässige und aktuelle
+              Informationen bereitzustellen, übernimmt jedoch keine Gewähr für die
+              Richtigkeit, Vollständigkeit oder Aktualität der veröffentlichten
+              Inhalte. Die Nutzung der Website erfolgt auf eigene Gefahr.
             </p>
             <p className="mt-2">
-              L&apos;éditeur ne saurait être tenu responsable des dommages
-              directs ou indirects résultant de l&apos;accès au site ou de
-              l&apos;utilisation des informations qu&apos;il contient.
+              Der Herausgeber haftet nicht für direkte oder indirekte Schäden,
+              die aus dem Zugriff auf die Website oder der Nutzung der darin
+              enthaltenen Informationen entstehen.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              9. Droit applicable
+              9. Anwendbares Recht
             </h2>
             <p>
-              Les présentes mentions légales sont régies par le droit français.
-              Tout litige relatif à l&apos;utilisation du site sera soumis aux
-              juridictions françaises compétentes.
+              Dieses Impressum unterliegt deutschem Recht.
+              Für alle Streitigkeiten im Zusammenhang mit der Nutzung der Website
+              sind die zuständigen deutschen Gerichte zuständig.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Contact</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Kontakt</h2>
             <p>
-              Pour toute question concernant ces mentions légales :{" "}
+              Bei Fragen zu diesem Impressum:{" "}
               <a
                 href="mailto:contact@wm2026guide.de"
                 className="text-primary hover:underline"

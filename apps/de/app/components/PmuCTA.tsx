@@ -8,9 +8,9 @@ interface PmuCTAProps {
 }
 
 /**
- * Premium PMU CTA — same visual DNA as MatchBettingCard
+ * Premium Betano CTA — same visual DNA as MatchBettingCard
  * (dark emerald gradient, gold accents, glow, shine sweep)
- * but without odds. Used on contextual pages (pronostic, equipe, h2h, etc.)
+ * but without odds. Used on contextual pages (prognose, mannschaft, h2h, etc.)
  */
 export function PmuCTA({
   tracking = "cta",
@@ -23,11 +23,11 @@ export function PmuCTA({
   const displayHeading =
     heading ??
     (teamName
-      ? `Pariez sur ${teamName} avec PMU Play`
-      : "Pariez sur la WM avec PMU Play");
+      ? `Auf ${teamName} wetten mit Betano`
+      : "Auf die WM wetten mit Betano");
 
   const displaySubheading =
-    subheading ?? "1er pari remboursé en cash | Offre de bienvenue";
+    subheading ?? "Willkommensbonus | Es gelten die AGB";
 
   return (
     <div
@@ -43,17 +43,17 @@ export function PmuCTA({
         className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#d4af37]/15 blur-3xl"
       />
 
-      {/* Top bar — Logo + Partenaire */}
+      {/* Top bar — Logo + Partner */}
       <div className="relative flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3 sm:px-6">
         <img
           src="/partners/pmu-play.webp"
-          alt="PMU Play"
+          alt="Betano"
           width={120}
           height={36}
           className="h-8 w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
         />
         <span className="whitespace-nowrap rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#d4af37]">
-          Partenaire
+          Partner
         </span>
       </div>
 
@@ -76,19 +76,19 @@ export function PmuCTA({
           />
           <div className="relative">
             <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#0c3b2e]/70">
-              Bonus de bienvenue
+              Willkommensbonus
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-lg font-black leading-none sm:text-xl">
-                Jusqu&apos;à 100&nbsp;&euro;
+                Jetzt bei Betano
               </span>
               <span className="text-[11px] font-bold leading-none">
-                offerts en cash
+                wetten
               </span>
             </div>
           </div>
           <div className="relative inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[#0c3b2e] px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#d4af37] shadow-lg">
-            J&apos;en profite <span aria-hidden="true">&rarr;</span>
+            Jetzt sichern <span aria-hidden="true">&rarr;</span>
           </div>
         </a>
 
@@ -116,7 +116,7 @@ export function PmuCTA({
               aria-hidden="true"
               className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
             />
-            <span className="relative">Parier maintenant sur PMU Play</span>
+            <span className="relative">Jetzt bei Betano wetten</span>
             <span className="relative" aria-hidden="true">
               &rarr;
             </span>
@@ -127,15 +127,14 @@ export function PmuCTA({
       {/* Legal */}
       <div className="relative border-t border-white/5 bg-black/25 px-4 py-2.5 sm:px-5">
         <p className="text-center text-[10px] leading-snug text-white/30">
-          Les jeux d&apos;argent et de hasard sont interdits aux mineurs. Jouer
-          comporte des risques : endettement, d&eacute;pendance...{" "}
+          Gl&uuml;cksspiel kann s&uuml;chtig machen. Spielen Sie verantwortungsvoll.{" "}
           <a
-            href="tel:0974751313"
+            href="tel:08001372700"
             className="underline text-white/40 hover:text-white/60"
           >
-            Appelez le 09 74 75 13 13
+            Hilfe: 0800 1 37 27 00
           </a>{" "}
-          (appel non surtax&eacute;).
+          (BZgA, kostenlos).
         </p>
       </div>
     </div>

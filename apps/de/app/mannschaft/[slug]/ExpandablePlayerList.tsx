@@ -16,10 +16,10 @@ interface Player {
 }
 
 const positionLabels: Record<string, string> = {
-  GK: "Gardien",
-  DF: "Défenseur",
-  MF: "Milieu",
-  FW: "Attaquant",
+  GK: "Torwart",
+  DF: "Verteidiger",
+  MF: "Mittelfeldspieler",
+  FW: "Stürmer",
 };
 
 const INITIAL_COUNT = 6;
@@ -84,7 +84,7 @@ export default function ExpandablePlayerList({ players }: { players: Player[] })
         >
           {expanded
             ? "Masquer l\u2019effectif"
-            : `Alle anzeigen l\u2019effectif (${players.length} joueurs)`}
+            : `Alle anzeigen l\u2019effectif (${players.length} Spielers)`}
         </button>
       )}
     </div>

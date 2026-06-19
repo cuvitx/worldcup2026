@@ -44,7 +44,7 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Statue de la Liberté & Ellis Island", description: "Icône mondiale, réservez vos billets à l'avance — ferry depuis Battery Park" },
+      { title: "Statue de la Liberté & Ellis Island", description: "Icône mondiale, réservez vos Tickets à l'avance — ferry depuis Battery Park" },
       { title: "Central Park", description: "800 hectares de verdure en plein cœur de Manhattan — vélo, jogging ou simple flânerie" },
       { title: "Broadway", description: "Le spectacle vivant à son apogée — des comédies musicales aux grandes pièces de théâtre" },
     ],

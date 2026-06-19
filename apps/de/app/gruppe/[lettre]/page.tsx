@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const teamNames = groupTeams.map((t) => t.name).join(", ");
 
   return {
-    title: `Groupe ${group.letter} - WM 2026 | ${teamNames}`,
-    description: `Analyse complète du Groupe ${group.letter} de la WM 2026 : ${teamNames}. Spielplan, pronostics, cotes et chances de qualification.`,
+    title: `Gruppe ${group.letter} - WM 2026 | ${teamNames}`,
+    description: `Komplette Analyse der Gruppe ${group.letter} der WM 2026: ${teamNames}. Spielplan, Prognosen, Quoten und Qualifikationschancen.`,
     alternates: getAlternates("group", lettre, "de"),
     openGraph: {
-      title: `Groupe ${group.letter} - CDM 2026`,
-      description: `${teamNames} - Analyse, pronostics et cotes du Groupe ${group.letter}.`,
+      title: `Gruppe ${group.letter} - WM 2026`,
+      description: `${teamNames} - Analyse, Prognosen und Quoten der Gruppe ${group.letter}.`,
     },
   };
 }
@@ -113,16 +113,16 @@ export default async function GroupPage({ params }: PageProps) {
     return 0;
   });
 
-  // Récupérer les joueurs vedettes du groupe (top 3-5 joueurs)
+  // Top-Spieler der Gruppe abrufen (Top 3-5 Spieler)
   const allGroupPlayers: Player[] = [];
   for (const team of groupTeams) {
     const teamPlayers = playersByTeamId[team.id] ?? [];
     allGroupPlayers.push(...teamPlayers);
   }
 
-  // Trier les joueurs par popularité/impact (goals + caps comme heuristique)
+  // Spieler nach Popularität/Einfluss sortieren (Tore + Einsätze als Heuristik)
   const topPlayers = allGroupPlayers
-    .filter((p) => p.position !== "GK") // Exclure les gardiens pour plus de spectacle
+    .filter((p) => p.position !== "GK") // Torhüter ausschließen für mehr Spektakel
     .sort((a, b) => {
       const scoreA = a.goals * 2 + a.caps / 10;
       const scoreB = b.goals * 2 + b.caps / 10;
@@ -130,18 +130,18 @@ export default async function GroupPage({ params }: PageProps) {
     })
     .slice(0, 5);
 
-  // Récupérer les prédictions pour les équipes du groupe
+  // Prognosen für die Mannschaften der Gruppe abrufen
   const teamPredictionsData = groupTeams.map((team) => ({
     team,
     prediction: predictionsByTeamId[team.id],
   })).filter((item) => item.prediction != null);
 
-  // Trier les équipes par probabilité de qualification
+  // Mannschaften nach Qualifikationswahrscheinlichkeit sortieren
   const sortedByQualification = [...teamPredictionsData].sort(
     (a, b) => (b.prediction?.groupStageProb ?? 0) - (a.prediction?.groupStageProb ?? 0)
   );
 
-  // Générer un texte d'analyse enrichi basé sur les équipes du groupe
+  // Erweiterten Analysetext basierend auf den Gruppenmannschaften generieren
   const rankedTeams = [...groupTeams].sort((a, b) => a.fifaRanking - b.fifaRanking);
   const favorite = rankedTeams[0];
   const outsider = rankedTeams[rankedTeams.length - 1];
@@ -165,16 +165,16 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Teams Table */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Mannschaften du Groupe {group.letter}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Mannschaften der Gruppe {group.letter}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
                     <tr className="border-b border-gray-200 text-gray-500">
-                      <th className="pb-3 font-medium">Équipe</th>
+                      <th className="pb-3 font-medium">Mannschaft</th>
                       <th className="pb-3 font-medium text-center">FIFA</th>
-                      <th className="pb-3 font-medium text-center hidden sm:table-cell">Conf.</th>
-                      <th className="pb-3 font-medium text-center"><span className="hidden sm:inline">Participations </span>CDM</th>
-                      <th className="pb-3 font-medium hidden sm:table-cell">Meilleur résultat</th>
+                      <th className="pb-3 font-medium text-center hidden sm:table-cell">Konf.</th>
+                      <th className="pb-3 font-medium text-center"><span className="hidden sm:inline">Teilnahmen </span>WM</th>
+                      <th className="pb-3 font-medium hidden sm:table-cell">Bestes Ergebnis</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
@@ -185,11 +185,11 @@ export default async function GroupPage({ params }: PageProps) {
                             href={`/mannschaft/${team.slug}`}
                             className="flex items-center gap-2 font-medium hover:text-primary"
                           >
-                            <span className="text-xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+                            <span className="text-xl" role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
                             {team.name}
                             {team.isHost && (
                               <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs text-primary">
-                                Hote
+                                Gastgeber
                               </span>
                             )}
                           </Link>
@@ -210,22 +210,22 @@ export default async function GroupPage({ params }: PageProps) {
               <section className="rounded-lg bg-white p-4 sm:p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-4.5L16.5 16.5m0 0L12 12m4.5 4.5V7.5" /></svg>
-                  Rangliste du Groupe {group.letter}
+                  Tabelle der Gruppe {group.letter}
                 </h2>
                 <div className="overflow-x-auto -mx-4 sm:mx-0">
                   <table className="w-full text-sm min-w-[480px]">
                     <thead>
                       <tr className="border-b-2 border-gray-200 text-gray-500 text-xs uppercase tracking-wider">
                         <th className="pb-2 pl-4 sm:pl-0 text-left font-semibold w-8">#</th>
-                        <th className="pb-2 text-left font-semibold">Équipe</th>
-                        <th className="pb-2 text-center font-semibold">MJ</th>
-                        <th className="pb-2 text-center font-semibold">V</th>
+                        <th className="pb-2 text-left font-semibold">Mannschaft</th>
+                        <th className="pb-2 text-center font-semibold">Sp</th>
+                        <th className="pb-2 text-center font-semibold">S</th>
+                        <th className="pb-2 text-center font-semibold">U</th>
                         <th className="pb-2 text-center font-semibold">N</th>
-                        <th className="pb-2 text-center font-semibold">D</th>
-                        <th className="pb-2 text-center font-semibold">BP</th>
-                        <th className="pb-2 text-center font-semibold">BC</th>
+                        <th className="pb-2 text-center font-semibold">T</th>
+                        <th className="pb-2 text-center font-semibold">GT</th>
                         <th className="pb-2 text-center font-semibold">Diff</th>
-                        <th className="pb-2 pr-4 sm:pr-0 text-center font-semibold">Pts</th>
+                        <th className="pb-2 pr-4 sm:pr-0 text-center font-semibold">Pkt</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -267,20 +267,20 @@ export default async function GroupPage({ params }: PageProps) {
                 </div>
                 <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
                   <span className="w-3 h-3 rounded-sm bg-accent/20 shrink-0" />
-                  Zone de qualification (top 2)
+                  Qualifikationszone (Top 2)
                 </div>
               </section>
             )}
 
             {/* Group Analysis - Enriched */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse du Groupe {group.letter}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse der Gruppe {group.letter}</h2>
               <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
                 <p>
-                  Le Groupe {group.letter} de la WM 2026 reunit{" "}
+                  Die Gruppe {group.letter} der WM 2026 vereint{" "}
                   {groupTeams.map((t, i) => (
                     <span key={t.id}>
-                      {i > 0 && (i === groupTeams.length - 1 ? " et " : ", ")}
+                      {i > 0 && (i === groupTeams.length - 1 ? " und " : ", ")}
                       <Link href={`/mannschaft/${t.slug}`} className="text-primary hover:underline font-medium">
                         {t.name}
                       </Link>
@@ -289,44 +289,44 @@ export default async function GroupPage({ params }: PageProps) {
                   ))}.
                 </p>
 
-                {/* Forces en présence */}
+                {/* Kräfteverhältnisse */}
                 <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                  <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-1.5"><svg className="h-4 w-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg> Forces en présence</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-1.5"><svg className="h-4 w-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg> Kräfteverhältnisse</h3>
                   <p>
-                    <strong className="text-primary">{favorite?.name}</strong> (#{favorite?.fifaRanking} FIFA) part grand favori de ce groupe avec {favorite?.wcAppearances} participations en Coupe du monde. 
+                    <strong className="text-primary">{favorite?.name}</strong> (#{favorite?.fifaRanking} FIFA) geht als grosser Favorit in diese Gruppe mit {favorite?.wcAppearances} WM-Teilnahmen.
                     {rankedTeams[1] && (
-                      <> <strong>{rankedTeams[1].name}</strong> (#{rankedTeams[1].fifaRanking}) devrait être le principal concurrent pour la première place.</>
+                      <> <strong>{rankedTeams[1].name}</strong> (#{rankedTeams[1].fifaRanking}) dürfte der Hauptkonkurrent um den ersten Platz sein.</>
                     )}
-                    {" "}Le combat pour la qualification s'annonce intense entre toutes les équipes présentes.
+                    {" "}Der Kampf um die Qualifikation verspricht zwischen allen teilnehmenden Mannschaften intensiv zu werden.
                   </p>
                 </div>
 
                 {/* Outsiders */}
                 {outsider && outsider.fifaRanking > 50 && (
                   <div className="mt-4 p-4 bg-primary/5 rounded-lg border border-primary/20">
-                    <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-1.5"><svg className="h-4 w-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.64 0 8.577 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.64 0-8.577-3.007-9.963-7.178Z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg> L&apos;outsider à surveiller</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-1.5"><svg className="h-4 w-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.64 0 8.577 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.64 0-8.577-3.007-9.963-7.178Z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg> Der Aussenseiter im Blick</h3>
                     <p>
-                      <strong className="text-primary">{outsider.name}</strong> (#{outsider.fifaRanking} FIFA) arrive en tant qu'outsider, mais ne sous-estimez pas cette équipe qui a su se qualifier pour la phase finale. 
-                      Avec {outsider.wcAppearances} participation{outsider.wcAppearances > 1 ? "s" : ""} en Coupe du monde, {outsider.name} pourrait créer la surprise.
+                      <strong className="text-primary">{outsider.name}</strong> (#{outsider.fifaRanking} FIFA) kommt als Aussenseiter, aber unterschätzen Sie diese Mannschaft nicht, die sich für die Endrunde qualifiziert hat.
+                      Mit {outsider.wcAppearances} WM-Teilnahme{outsider.wcAppearances > 1 ? "n" : ""} könnte {outsider.name} für eine Überraschung sorgen.
                     </p>
                   </div>
                 )}
 
                 <p className="mt-4">
-                  Les deux premiers du groupe se qualifient directement pour les
-                  huitièmes de finale, tandis que les meilleurs troisièmes peuvent
-                  également se qualifier. Chaque match sera crucial dans cette phase de groupes
-                  où la moindre erreur peut être fatale.
+                  Die zwei Erstplatzierten der Gruppe qualifizieren sich direkt für das
+                  Achtelfinale, während die besten Gruppendritten sich ebenfalls
+                  qualifizieren können. Jedes Spiel wird in dieser Gruppenphase entscheidend sein,
+                  in der der kleinste Fehler fatal sein kann.
                 </p>
               </div>
             </section>
 
-            {/* Spielers à suivre */}
+            {/* Spieler im Fokus */}
             {topPlayers.length > 0 && (
               <section className="py-8 px-6 bg-gray-50 rounded-lg">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2"><svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg> Spielers à suivre — Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2"><svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg> Spieler im Fokus — Gruppe {group.letter}</h2>
                 <p className="text-sm text-gray-600 mb-6">
-                  Les stars qui feront vibrer ce groupe lors de la WM 2026
+                  Die Stars, die diese Gruppe bei der WM 2026 prägen werden
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {topPlayers.map((player) => {
@@ -334,10 +334,10 @@ export default async function GroupPage({ params }: PageProps) {
                     if (!playerTeam) return null;
                     
                     const positionLabel = {
-                      FW: "Attaquant",
-                      MF: "Milieu",
-                      DF: "Défenseur",
-                      GK: "Gardien",
+                      FW: "Stürmer",
+                      MF: "Mittelfeld",
+                      DF: "Verteidiger",
+                      GK: "Torwart",
                     }[player.position] ?? player.position;
 
                     return (
@@ -346,7 +346,7 @@ export default async function GroupPage({ params }: PageProps) {
                         className="rounded-lg bg-white p-4 shadow-sm border border-gray-200 hover:shadow-md hover:border-primary/30 transition-all"
                       >
                         <div className="flex items-start gap-3 mb-2">
-                          <span className="text-2xl" role="img" aria-label={`Drapeau de ${playerTeam.name}`}>
+                          <span className="text-2xl" role="img" aria-label={`Flagge von ${playerTeam.name}`}>
                             {playerTeam.flag}
                           </span>
                           <div className="flex-1 min-w-0">
@@ -371,10 +371,10 @@ export default async function GroupPage({ params }: PageProps) {
                         </p>
                         <div className="flex items-center gap-3 text-xs text-gray-500">
                           <span className="flex items-center gap-1">
-                            <span className="font-semibold text-accent">{player.goals}</span> buts
+                            <span className="font-semibold text-accent">{player.goals}</span> Tore
                           </span>
                           <span className="flex items-center gap-1">
-                            <span className="font-semibold text-primary">{player.caps}</span> sél.
+                            <span className="font-semibold text-primary">{player.caps}</span> Eins.
                           </span>
                         </div>
                       </div>
@@ -384,16 +384,16 @@ export default async function GroupPage({ params }: PageProps) {
               </section>
             )}
 
-            {/* Prognose du groupe */}
+            {/* Prognose der Gruppe */}
             {sortedByQualification.length > 0 && (
               <section className="hero-animated rounded-lg p-6 shadow-lg">
                 <div>
                   <h2 className="text-3xl font-black text-white mb-2 flex items-center gap-2">
                     <svg className="h-6 w-6 text-accent shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" /></svg>
-                    Notre pronostic pour le Groupe {group.letter}
+                    Unsere Prognose für Gruppe {group.letter}
                   </h2>
                   <p className="text-gray-200 text-sm mb-6">
-                    Basé sur les côtes, le classement FIFA et l'historique des équipes
+                    Basierend auf den Quoten, der FIFA-Rangliste und der Historie der Mannschaften
                   </p>
 
                   <div className="space-y-4">
@@ -409,7 +409,7 @@ export default async function GroupPage({ params }: PageProps) {
                               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/20 text-accent font-bold text-sm">
                                 {index + 1}
                               </span>
-                              <span className="text-xl" role="img" aria-label={`Drapeau de ${item.team.name}`}>
+                              <span className="text-xl" role="img" aria-label={`Flagge von ${item.team.name}`}>
                                 {item.team.flag}
                               </span>
                               <Link
@@ -424,7 +424,7 @@ export default async function GroupPage({ params }: PageProps) {
                                 {qualifProb}%
                               </div>
                               <div className="text-xs text-gray-300">
-                                de qualification
+                                Qualifikation
                               </div>
                             </div>
                           </div>
@@ -440,7 +440,7 @@ export default async function GroupPage({ params }: PageProps) {
 
                     {sortedByQualification.length > 2 && (
                       <div className="pt-2 border-t border-white/10">
-                        <p className="text-sm text-gray-300 mb-2">Mannschaften en lice pour la 3e place :</p>
+                        <p className="text-sm text-gray-300 mb-2">Mannschaften im Kampf um den 3. Platz:</p>
                         <div className="flex flex-wrap gap-2">
                           {sortedByQualification.slice(2).map((item) => {
                             const qualifProb = Math.round((item.prediction?.groupStageProb ?? 0) * 100);
@@ -449,7 +449,7 @@ export default async function GroupPage({ params }: PageProps) {
                                 key={item.team.id}
                                 className="rounded-full bg-white/10 px-3 py-1.5 text-sm border border-white/20 flex items-center gap-2"
                               >
-                                <span role="img" aria-label={`Drapeau de ${item.team.name}`}>
+                                <span role="img" aria-label={`Flagge von ${item.team.name}`}>
                                   {item.team.flag}
                                 </span>
                                 <span className="text-white font-medium">{item.team.name}</span>
@@ -463,7 +463,7 @@ export default async function GroupPage({ params }: PageProps) {
                   </div>
 
                   <p className="mt-4 text-xs text-gray-400 italic">
-                    Les meilleurs troisièmes peuvent également se qualifier pour les huitièmes de finale
+                    Die besten Gruppendritten können sich ebenfalls für das Achtelfinale qualifizieren
                   </p>
                 </div>
               </section>
@@ -472,7 +472,7 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Group Matches */}
             {groupMatches.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><svg className="h-6 w-6 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg> Spielplan du Groupe {group.letter}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><svg className="h-6 w-6 text-primary shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg> Spielplan der Gruppe {group.letter}</h2>
                 <div className="space-y-3">
                   {groupMatches.map((match) => {
                     const home = teamsById[match.homeTeamId];
@@ -485,7 +485,7 @@ export default async function GroupPage({ params }: PageProps) {
                         className={`flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 rounded-lg border p-3 transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0 ${isFinished ? "border-gray-200 bg-gray-50/50" : "border-gray-200"}`}
                       >
                         <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? ""}</span>
+                          <span className="text-base shrink-0" role="img" aria-label={`Flagge von ${home?.name ?? "Unbekannt"}`}>{home?.flag ?? ""}</span>
                           <span className="font-medium shrink-0 text-sm">{home?.name ?? "TBD"}</span>
                           {isFinished ? (
                             <span className="text-sm font-bold text-gray-900 shrink-0 tabular-nums">{match.homeScore} - {match.awayScore}</span>
@@ -493,10 +493,10 @@ export default async function GroupPage({ params }: PageProps) {
                             <span className="text-xs text-gray-500 shrink-0">vs</span>
                           )}
                           <span className="font-medium shrink-0 text-right text-sm">{away?.name ?? "TBD"}</span>
-                          <span className="text-base shrink-0" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? ""}</span>
+                          <span className="text-base shrink-0" role="img" aria-label={`Flagge von ${away?.name ?? "Unbekannt"}`}>{away?.flag ?? ""}</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs text-gray-500 sm:ml-auto sm:shrink-0">
-                          {isFinished && <span className="text-xs font-medium text-gray-400">Terminé</span>}
+                          {isFinished && <span className="text-xs font-medium text-gray-400">Beendet</span>}
                           <span>{match.date.slice(5)}</span>
                           <span>·</span>
                           <span>{match.time}</span>
@@ -510,7 +510,7 @@ export default async function GroupPage({ params }: PageProps) {
 
             {/* Head to Head Links */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Confrontations directes</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Direktvergleiche</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {groupTeams.flatMap((team1, i) =>
                   groupTeams.slice(i + 1).map((team2) => (
@@ -519,11 +519,11 @@ export default async function GroupPage({ params }: PageProps) {
                       href={`/h2h/${team1.slug}-vs-${team2.slug}`}
                       className="flex items-center justify-center gap-2 sm:gap-3 rounded-lg border border-gray-200 p-3 sm:p-4 text-center transition-colors hover:border-primary/30 hover:bg-primary/5 min-w-0"
                     >
-                      <span className="text-lg sm:text-xl shrink-0" role="img" aria-label={`Drapeau de ${team1.name}`}>{team1.flag}</span>
+                      <span className="text-lg sm:text-xl shrink-0" role="img" aria-label={`Flagge von ${team1.name}`}>{team1.flag}</span>
                       <span className="font-semibold text-sm sm:text-base">{team1.name}</span>
                       <span className="text-gray-500 text-sm shrink-0">vs</span>
                       <span className="font-semibold text-sm sm:text-base">{team2.name}</span>
-                      <span className="text-lg sm:text-xl shrink-0" role="img" aria-label={`Drapeau de ${team2.name}`}>{team2.flag}</span>
+                      <span className="text-lg sm:text-xl shrink-0" role="img" aria-label={`Flagge von ${team2.name}`}>{team2.flag}</span>
                     </Link>
                   ))
                 )}
@@ -535,7 +535,7 @@ export default async function GroupPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Group Navigation */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Tous les groupes</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Alle Gruppen</h3>
               <div className="grid grid-cols-4 gap-2">
                 {groups.map((g) => (
                   <Link
@@ -556,22 +556,22 @@ export default async function GroupPage({ params }: PageProps) {
             {/* Prognose Groupe CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Prognoses Groupe {group.letter}
+                Prognose Gruppe {group.letter}
               </h3>
               <p className="text-sm text-gray-600 mb-3">
-                Qui se qualifiera dans le Groupe {group.letter} ? Découvrez notre analyse complète et les cotes.
+                Wer qualifiziert sich in Gruppe {group.letter}? Entdecken Sie unsere komplette Analyse und die Quoten.
               </p>
               <Link
-                href={`/pronostic-groupe/${lettre}`}
+                href={`/prognose-gruppe/${lettre}`}
                 className="inline-block rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent/80 transition-colors"
               >
-                Voir le pronostic Groupe {group.letter} &rarr;
+                Zur Prognose Gruppe {group.letter} &rarr;
               </Link>
             </div>
 
             {/* PMU Visual Banner */}
             <PmuBanner tracking="groupe" compact />
-            <p className="text-[9px] text-gray-400 text-center mt-1">18+ | Offre soumise à conditions</p>
+            <p className="text-[9px] text-gray-400 text-center mt-1">18+ | Es gelten die AGB</p>
           </div>
         </div>
       </div>
@@ -583,8 +583,8 @@ export default async function GroupPage({ params }: PageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SportsEvent",
-            name: `WM 2026 - Groupe ${group.letter}`,
-            sport: "Football",
+            name: `WM 2026 - Gruppe ${group.letter}`,
+            sport: "Fussball",
             competitor: groupTeams.map((t) => ({
               "@type": "SportsTeam",
               name: t.name,

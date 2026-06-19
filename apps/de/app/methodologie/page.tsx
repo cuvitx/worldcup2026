@@ -3,16 +3,16 @@ import Link from "next/link";
 import { domains } from "@repo/data/route-mapping";
 import { Bot } from "lucide-react"
 export const metadata: Metadata = {
-  title: "Notre méthodologie | Comment nous calculons nos pronostics CDM 2026",
+  title: "Unsere Methodik | So berechnen wir unsere Prognosen WM 2026",
   description:
-    "Découvrez notre méthodologie de pronostics pour la WM 2026 : modèle ELO, pipeline IA triple-tier, facteurs d'analyse et transparence sur nos prédictions.",
+    "Entdecken Sie unsere Prognosemethodik für die WM 2026: ELO-Modell, dreistufige KI-Pipeline, Analysefaktoren und Transparenz bei unseren Vorhersagen.",
   alternates: {
     canonical: "https://www.wm2026guide.de/methodologie",
   },
   openGraph: {
-    title: "Notre méthodologie | Prognoses CDM 2026",
+    title: "Unsere Methodik | Prognosen WM 2026",
     description:
-      "Modèle ELO, intelligence artificielle et analyse statistique : comment nous calculons nos pronostics pour la WM 2026.",
+      "ELO-Modell, Künstliche Intelligenz und statistische Analyse: So berechnen wir unsere Prognosen für die WM 2026.",
   },
 };
 
@@ -24,12 +24,12 @@ export default function MethodologiePage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Transparence</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Transparenz</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Notre méthodologie</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Unsere Methodik</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Comment nous calculons nos pronostics pour la WM 2026 :
-            modèle ELO, intelligence artificielle et analyse multi-facteurs.
+            So berechnen wir unsere Prognosen für die WM 2026:
+            ELO-Modell, Künstliche Intelligenz und Multi-Faktor-Analyse.
           </p>
         </div>
       </section>
@@ -38,18 +38,18 @@ export default function MethodologiePage() {
         {/* ELO Rating System */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Le modèle ELO
+            Das ELO-Modell
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Le système de classement ELO, initialement conçu pour les échecs par
-            Arpad Elo, est adapté au football international pour évaluer la force
-            relative de chaque équipe. Chaque nation possède un{" "}
-            <strong>rating ELO</strong> qui évolue après chaque match en
-            fonction du résultat et de la force de l&apos;adversaire.
+            Das ELO-Ranking-System, ursprünglich von Arpad Elo für Schach entwickelt,
+            wird für den internationalen Fußball angepasst, um die relative Stärke
+            jeder Mannschaft zu bewerten. Jede Nation besitzt ein{" "}
+            <strong>ELO-Rating</strong>, das sich nach jedem Spiel basierend auf
+            dem Ergebnis und der Stärke des Gegners verändert.
           </p>
 
           <div className="rounded-lg bg-gray-50 p-5 mb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Formule simplifiée</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Vereinfachte Formel</h3>
             <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200">
               <p>
                 R<sub>new</sub> = R<sub>old</sub> + K × (S - E)
@@ -57,33 +57,33 @@ export default function MethodologiePage() {
             </div>
             <ul className="mt-3 space-y-1 text-sm text-gray-600">
               <li>
-                <strong>R</strong> = Rating ELO de l&apos;équipe
+                <strong>R</strong> = ELO-Rating der Mannschaft
               </li>
               <li>
-                <strong>K</strong> = Facteur K (poids du match : 60 pour la CDM,
-                50 pour les qualifications, 30 pour les amicaux)
+                <strong>K</strong> = K-Faktor (Spielgewichtung: 60 für die WM,
+                50 für Qualifikationsspiele, 30 für Freundschaftsspiele)
               </li>
               <li>
-                <strong>S</strong> = Score réel (1 = victoire, 0.5 = nul, 0 =
-                défaite)
+                <strong>S</strong> = Tatsächliches Ergebnis (1 = Sieg, 0.5 = Unentschieden, 0 =
+                Niederlage)
               </li>
               <li>
-                <strong>E</strong> = Score attendu (Expected Score)
+                <strong>E</strong> = Erwartetes Ergebnis (Expected Score)
               </li>
             </ul>
           </div>
 
           <div className="rounded-lg bg-gray-50 p-5">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Score attendu (Expected Score)</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Erwartetes Ergebnis (Expected Score)</h3>
             <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200">
               <p>
-                E = 1 / (1 + 10<sup>(R<sub>adversaire</sub> - R<sub>équipe</sub>) / 400</sup>)
+                E = 1 / (1 + 10<sup>(R<sub>Gegner</sub> - R<sub>Mannschaft</sub>) / 400</sup>)
               </p>
             </div>
             <p className="mt-3 text-sm text-gray-600">
-              Cette formule calcule la probabilité de victoire en fonction de la
-              différence de rating entre les deux équipes. Plus l&apos;écart est
-              grand, plus le favori a de chances de l&apos;emporter.
+              Diese Formel berechnet die Siegwahrscheinlichkeit basierend auf der
+              Rating-Differenz zwischen beiden Mannschaften. Je größer der Abstand,
+              desto höher die Gewinnchancen des Favoriten.
             </p>
           </div>
         </section>
@@ -91,11 +91,11 @@ export default function MethodologiePage() {
         {/* AI Pipeline */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            <Bot className="h-5 w-5 inline-block" /> Pipeline IA triple-tier
+            <Bot className="h-5 w-5 inline-block" /> Dreistufige KI-Pipeline
           </h2>
           <p className="text-gray-700 leading-relaxed mb-6">
-            Nos pronostics sont enrichis par un pipeline d&apos;intelligence
-            artificielle à trois niveaux, chacun spécialisé dans un rôle précis.
+            Unsere Prognosen werden durch eine dreistufige Pipeline mit Künstlicher
+            Intelligenz angereichert, wobei jede Stufe auf eine bestimmte Rolle spezialisiert ist.
           </p>
 
           <div className="grid gap-4 md:grid-cols-3">
@@ -106,14 +106,14 @@ export default function MethodologiePage() {
                   1
                 </span>
                 <div>
-                  <p className="font-bold text-primary">Expert</p>
+                  <p className="font-bold text-primary">Experte</p>
                   <p className="text-xs text-primary/70">Claude (Anthropic)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700">
-                Analyse tactique approfondie, évaluation des forces et
-                faiblesses, prédictions de score, identification des value bets
-                et insights stratégiques.
+                Tiefgehende taktische Analyse, Bewertung von Stärken und
+                Schwächen, Ergebnisprognosen, Identifikation von Value Bets
+                und strategische Einblicke.
               </p>
             </div>
 
@@ -124,14 +124,14 @@ export default function MethodologiePage() {
                   2
                 </span>
                 <div>
-                  <p className="font-bold text-primary">Factuel</p>
+                  <p className="font-bold text-primary">Faktencheck</p>
                   <p className="text-xs text-primary/70">Gemini (Google)</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700">
-                Fact-checking en temps réel, vérification des données, récupération
-                des dernières actualités (blessures, suspensions, forme récente,
-                météo).
+                Echtzeit-Faktenprüfung, Datenverifizierung, Erfassung
+                aktueller Nachrichten (Verletzungen, Sperren, aktuelle Form,
+                Wetter).
               </p>
             </div>
 
@@ -147,16 +147,16 @@ export default function MethodologiePage() {
                 </div>
               </div>
               <p className="text-sm text-gray-700">
-                Orchestration des meta-données, structuration du contenu,
-                génération SEO et synthèse des résultats des deux autres tiers.
+                Orchestrierung der Metadaten, Strukturierung der Inhalte,
+                SEO-Generierung und Zusammenfassung der Ergebnisse der beiden anderen Stufen.
               </p>
             </div>
           </div>
 
           <div className="mt-6 rounded-lg bg-gray-50 p-4">
             <p className="text-sm text-gray-600 text-center">
-              <strong>Flux :</strong> Données brutes → Gemini (fact-check) →
-              Claude (analyse experte) → GPT (structuration) → Prognose final
+              <strong>Ablauf:</strong> Rohdaten → Gemini (Faktencheck) →
+              Claude (Expertenanalyse) → GPT (Strukturierung) → Endgültige Prognose
             </p>
           </div>
         </section>
@@ -164,54 +164,54 @@ export default function MethodologiePage() {
         {/* Factors */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-             Facteurs d&apos;analyse
+             Analysefaktoren
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Nos pronostics intègrent de multiples facteurs pour maximiser la
-            précision des prédictions :
+            Unsere Prognosen berücksichtigen zahlreiche Faktoren, um die
+            Genauigkeit der Vorhersagen zu maximieren:
           </p>
 
           <div className="grid gap-3 sm:grid-cols-2">
             {[
               {
                 icon: "",
-                title: "Rating ELO",
-                desc: "Force relative de chaque équipe basée sur l'historique des résultats",
+                title: "ELO-Rating",
+                desc: "Relative Stärke jeder Mannschaft basierend auf der Ergebnishistorie",
               },
               {
                 icon: "",
-                title: "Confrontations directes (H2H)",
-                desc: "Historique des résultats entre les deux équipes",
+                title: "Direktvergleich (H2H)",
+                desc: "Ergebnishistorie zwischen beiden Mannschaften",
               },
               {
                 icon: "",
-                title: "Altitude",
-                desc: "Impact de l'altitude du stade sur la performance (ex: Mexico à 2 240m)",
+                title: "Höhenlage",
+                desc: "Einfluss der Stadionhöhe auf die Leistung (z.B. Mexiko-Stadt auf 2.240m)",
               },
               {
                 icon: "",
-                title: "Météo",
-                desc: "Température, humidité et conditions météo le jour du match",
+                title: "Wetter",
+                desc: "Temperatur, Luftfeuchtigkeit und Wetterbedingungen am Spieltag",
               },
               {
                 icon: "",
-                title: "Fatigue voyage",
-                desc: "Distance parcourue, décalage horaire et temps de récupération",
+                title: "Reisemüdigkeit",
+                desc: "Zurückgelegte Entfernung, Zeitverschiebung und Erholungszeit",
               },
               {
                 icon: "",
-                title: "Blessures & suspensions",
-                desc: "Spielers clés absents et impact sur la composition",
+                title: "Verletzungen & Sperren",
+                desc: "Fehlende Schlüsselspieler und Auswirkungen auf die Aufstellung",
               },
               {
                 icon: "",
-                title: "Forme récente",
-                desc: "Ergebnisse des 5 derniers matchs et dynamique de l'équipe",
+                title: "Aktuelle Form",
+                desc: "Ergebnisse der letzten 5 Spiele und Dynamik der Mannschaft",
               },
               {
                 icon: "",
-                title: "Avantage domicile",
-                desc: "Bonus pour les pays hôtes (USA, Canada, Mexique)",
+                title: "Heimvorteil",
+                desc: "Bonus für die Gastgeberländer (USA, Kanada, Mexiko)",
               },
             ].map((factor) => (
               <div
@@ -231,32 +231,31 @@ export default function MethodologiePage() {
         {/* How predictions work */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Comment sont calculées les probabilités
+            So werden die Wahrscheinlichkeiten berechnet
           </h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Pour chaque match, nous combinons le modèle ELO avec les facteurs
-              contextuels pour obtenir un rating ajusté. Les probabilités de
-              victoire, nul et défaite sont ensuite calculées via la formule
-              Expected Score.
+              Für jedes Spiel kombinieren wir das ELO-Modell mit den kontextuellen
+              Faktoren, um ein angepasstes Rating zu erhalten. Die Wahrscheinlichkeiten für
+              Sieg, Unentschieden und Niederlage werden dann über die Expected-Score-Formel
+              berechnet.
             </p>
             <p>
-              Pour les pronostics de tournoi (chances de passer les groupes, de
-              gagner la CDM), nous effectuons une{" "}
-              <strong>simulation Monte-Carlo</strong> de 100 000 tournois
-              complets. Chaque match est simulé en utilisant les probabilités
-              ajustées, ce qui nous donne des estimations robustes pour chaque
-              phase.
+              Für Turnierprognosen (Chancen auf das Weiterkommen in der Gruppenphase,
+              WM-Titelgewinn) führen wir eine{" "}
+              <strong>Monte-Carlo-Simulation</strong> mit 100.000 vollständigen
+              Turnieren durch. Jedes Spiel wird anhand der angepassten Wahrscheinlichkeiten
+              simuliert, was uns robuste Schätzungen für jede Phase liefert.
             </p>
             <p>
-              Les cotes estimées sont dérivées des probabilités selon la formule :
+              Die geschätzten Quoten werden aus den Wahrscheinlichkeiten nach folgender Formel abgeleitet:
             </p>
             <div className="rounded-lg bg-gray-50 p-4">
               <div className="font-mono text-sm bg-white rounded p-3 border border-gray-200 text-center">
-                Cote = 1 / Probabilité
+                Quote = 1 / Wahrscheinlichkeit
               </div>
               <p className="mt-2 text-sm text-gray-500 text-center">
-                Exemple : 40% de chances → cote de 2.50
+                Beispiel: 40% Chance → Quote von 2,50
               </p>
             </div>
           </div>
@@ -265,29 +264,29 @@ export default function MethodologiePage() {
         {/* Transparency */}
         <section className="rounded-lg border-2 border-primary/30 bg-primary/5 p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Transparence & limites
+            Transparenz & Grenzen
           </h2>
           <div className="space-y-3 text-gray-700 leading-relaxed">
             <p>
               <strong>
-                Nos pronostics sont des estimations basées sur des modèles
-                statistiques. Ils ne garantissent pas les résultats.
+                Unsere Prognosen sind Schätzungen, die auf statistischen Modellen
+                basieren. Sie garantieren keine Ergebnisse.
               </strong>
             </p>
             <p>
-              Le football est un sport imprévisible. Aucun modèle ne peut
-              prédire avec certitude l&apos;issue d&apos;un match. Nos analyses
-              visent à fournir un éclairage statistique pour aider à la
-              compréhension, pas à encourager les paris.
+              Fußball ist ein unberechenbarer Sport. Kein Modell kann den
+              Ausgang eines Spiels mit Sicherheit vorhersagen. Unsere Analysen
+              sollen statistische Einblicke zum besseren Verständnis liefern,
+              nicht zum Wetten ermutigen.
             </p>
             <p>
-              Si vous choisissez de parier, faites-le de manière responsable.
-              Consultez notre page{" "}
+              Wenn Sie sich zum Wetten entschließen, tun Sie dies verantwortungsvoll.
+              Besuchen Sie unsere Seite{" "}
               <Link
                 href="/verantwortungsvolles-spielen"
                 className="text-primary hover:underline font-medium"
               >
-                Jeu responsable
+                Verantwortungsvolles Spielen
               </Link>
               .
             </p>
@@ -297,30 +296,30 @@ export default function MethodologiePage() {
         {/* CTA */}
         <section className="rounded-lg bg-primary text-white p-6 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            Découvrez nos pronostics en action
+            Entdecken Sie unsere Prognosen in Aktion
           </h2>
           <p className="text-gray-300 mb-4">
-            Consultez les pronostics détaillés pour chaque match de la Coupe du
-            Monde 2026.
+            Sehen Sie sich die detaillierten Prognosen für jedes Spiel der
+            Weltmeisterschaft 2026 an.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/spiel/spielplan"
               className="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white hover:bg-primary/90"
             >
-              Spielplan des matchs
+              Spielplan
             </Link>
             <Link
               href="/mannschaft"
               className="rounded-lg bg-white/10 px-5 py-2 text-sm font-semibold hover:bg-white/20"
             >
-              Les 48 équipes
+              Die 48 Mannschaften
             </Link>
             <Link
               href="/guides"
               className="rounded-lg bg-white/10 px-5 py-2 text-sm font-semibold hover:bg-white/20"
             >
-              Nos guides
+              Unsere Guides
             </Link>
           </div>
         </section>
@@ -334,16 +333,16 @@ export default function MethodologiePage() {
             "@context": "https://schema.org",
             "@type": "Article",
             headline:
-              "Notre méthodologie | Comment nous calculons nos pronostics CDM 2026",
+              "Unsere Methodik | So berechnen wir unsere Prognosen WM 2026",
             description:
-              "Découvrez notre méthodologie de pronostics pour la WM 2026 : modèle ELO, pipeline IA triple-tier et analyse multi-facteurs.",
+              "Entdecken Sie unsere Prognosemethodik für die WM 2026: ELO-Modell, dreistufige KI-Pipeline und Multi-Faktor-Analyse.",
             author: {
               "@type": "Organization",
-              name: "Équipe CDM 2026",
+              name: "Team WM 2026",
             },
             publisher: {
               "@type": "Organization",
-              name: "CDM 2026",
+              name: "WM 2026",
             },
             url: `${domains.de}/methodologie`,
           }),

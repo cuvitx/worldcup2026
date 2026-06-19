@@ -8,24 +8,21 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center min-h-[80vh] px-4 py-16 text-center bg-gray-50">
-      {/* Ballon animé + carton rouge */}
+      {/* Animierter Ball + Rote Karte */}
       <div className="relative mb-8 flex items-end justify-center gap-6 h-36">
-        {/* Ballon avec animation CSS custom : rebond + rotation */}
         <div className="flex flex-col items-center" aria-hidden="true">
           <span
             className="text-7xl select-none"
             style={{ animation: "ball-kick 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           >
-            
+
           </span>
-          {/* Ombre portée qui pulse */}
           <div
             className="w-12 h-2 rounded-full bg-black/10 blur-sm mt-1"
             style={{ animation: "ball-shadow 1.1s cubic-bezier(.36,.07,.19,.97) infinite" }}
           />
         </div>
 
-        {/* Carton rouge qui tremble */}
         <div
           className="relative flex-shrink-0 w-16 h-24 rounded-lg shadow-2xl mb-1"
           style={{ animation: "card-wave 1.4s ease-in-out infinite" }}
@@ -39,32 +36,31 @@ export default function NotFound() {
         </div>
       </div>
 
-      {/* Badge arbitre */}
+      {/* Schiedsrichter-Badge */}
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6">
-         Carton Rouge — Expulsion immédiate
+         Rote Karte — Platzverweis
       </div>
 
-      {/* Titre */}
+      {/* Titel */}
       <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-        Cette page a pris{" "}
-        <span className="text-primary">un carton rouge</span>&nbsp;!
+        Diese Seite hat{" "}
+        <span className="text-primary">die Rote Karte</span> bekommen!
       </h1>
 
-      {/* Sous-titre */}
+      {/* Untertitel */}
       <p className="text-gray-500 text-lg max-w-md mb-3">
-        L&apos;arbitre a expulsé cette URL du terrain. Elle ne joue plus pour
-        cette équipe.
+        Der Schiedsrichter hat diese URL vom Platz gestellt. Sie spielt nicht mehr mit.
       </p>
       <p className="text-gray-400 text-sm mb-10 font-mono">
-        Erreur 404 — Page introuvable
+        Fehler 404 — Seite nicht gefunden
       </p>
 
-      {/* Séparateur terrain */}
+      {/* Feldtrenner */}
       <div className="w-full max-w-sm h-1 rounded-full bg-gradient-to-r from-transparent via-accent/40 to-transparent mb-10" />
 
-      {/* Liens utiles */}
+      {/* Nützliche Links */}
       <p className="text-sm text-gray-400 font-medium uppercase tracking-wider mb-5">
-        Retour sur le terrain
+        Zurück aufs Spielfeld
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
         <Link
@@ -79,14 +75,14 @@ export default function NotFound() {
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
-          Groupes
+          Gruppen
         </Link>
         <Link
-          href="/simulateur"
+          href="/turnierbaum"
           className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm shadow-sm hover:border-primary/30 hover:text-primary transition-all hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="text-2xl"></span>
-          Simulateur
+          Turnierbaum
         </Link>
         <Link
           href="/spiel/spielplan"
@@ -97,15 +93,15 @@ export default function NotFound() {
         </Link>
       </div>
 
-      {/* CTA principal */}
+      {/* Haupt-CTA */}
       <Link
         href="/"
         className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-bold text-white hover:bg-primary/90 transition-all hover:-translate-y-0.5 text-sm"
       >
-        ← Retour à l&apos;accueil
+        ← Zurück zur Startseite
       </Link>
 
-      {/* Animations CSS custom */}
+      {/* Custom CSS Animationen */}
       <style>{`
         @keyframes ball-kick {
           0%   { transform: translateY(0)    rotate(0deg)   scale(1); }

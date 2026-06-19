@@ -63,12 +63,12 @@ export async function GET(req: NextRequest) {
           <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
               <div style={{ fontSize: 64 }}>{home?.flag || "🏳️"}</div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: WHITE, marginTop: 12 }}>{home?.name || "Équipe 1"}</div>
+              <div style={{ fontSize: 36, fontWeight: 700, color: WHITE, marginTop: 12 }}>{home?.name || "Mannschaft 1"}</div>
             </div>
             <div style={{ fontSize: 48, fontWeight: 800, color: ACCENT }}>VS</div>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
               <div style={{ fontSize: 64 }}>{away?.flag || "🏳️"}</div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: WHITE, marginTop: 12 }}>{away?.name || "Équipe 2"}</div>
+              <div style={{ fontSize: 36, fontWeight: 700, color: WHITE, marginTop: 12 }}>{away?.name || "Mannschaft 2"}</div>
             </div>
           </div>
           {match?.date && <div style={{ fontSize: 24, color: LIGHT, marginTop: 32 }}>{match.date}</div>}
@@ -79,7 +79,7 @@ export async function GET(req: NextRequest) {
       break;
     }
 
-    case "joueur": {
+    case "Spieler": {
       const player = findPlayer(slug);
       content = (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", background: BG, padding: "60px" }}>

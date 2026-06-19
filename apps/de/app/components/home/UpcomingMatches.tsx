@@ -37,13 +37,13 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
             Gruppenphase
           </p>
-          <SectionHeading title="Prochains matchs" linkHref="/spiel/spielplan" linkLabel="Spielplan complet →" />
+          <SectionHeading title="Nächste Spiele" linkHref="/spiel/spielplan" linkLabel="Kompletter Spielplan →" />
         </div>
 
         <div className="flex flex-col gap-3">
           {upcomingMatches.length === 0 ? (
             <p className="text-center text-gray-500 py-8">
-              Aucun match à venir.
+              Keine kommenden Spiele.
             </p>
           ) : (
             upcomingMatches.map((match) => {

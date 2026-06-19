@@ -18,9 +18,9 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
-            12 groupes · 48 équipes
+            12 Gruppen · 48 Mannschaften
           </p>
-          <SectionHeading title="Groupes en un coup d'œil" linkHref="/gruppen" linkLabel="Voir tous les groupes →" />
+          <SectionHeading title="Gruppen auf einen Blick" linkHref="/gruppen" linkLabel="Alle Gruppen anzeigen →" />
         </div>
 
         <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
@@ -42,10 +42,10 @@ export function GroupsOverview({ groups, teamsById }: GroupsOverviewProps) {
               >
                 <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-primary to-deep">
                   <span className="text-xs font-black text-accent">
-                    GROUPE {group.letter}
+                    GRUPPE {group.letter}
                   </span>
                   <span className="text-[10px] text-gray-500 group-hover:text-accent transition-colors">
-                    {groupTeams.length} éq.
+                    {groupTeams.length} Teams
                   </span>
                 </div>
 

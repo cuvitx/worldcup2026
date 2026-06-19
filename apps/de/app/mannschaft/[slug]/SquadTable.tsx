@@ -17,10 +17,10 @@ interface Player {
 
 const POSITION_ORDER: Record<string, number> = { GK: 0, DF: 1, MF: 2, FW: 3 };
 const POSITION_LABELS: Record<string, string> = {
-  GK: "Gardien",
-  DF: "Défenseur",
-  MF: "Milieu",
-  FW: "Attaquant",
+  GK: "Torwart",
+  DF: "Verteidiger",
+  MF: "Mittelfeldspieler",
+  FW: "Stürmer",
 };
 const POSITION_COLORS: Record<string, string> = {
   GK: "bg-primary/10 text-primary",

@@ -2,7 +2,7 @@ import { EXTERNAL_URLS } from "@repo/data/constants";
 import Link from "next/link";
 import { Ticket } from "lucide-react"
 
-export function BilletsCtaFinal() {
+export function TicketsCtaFinal() {
   return (
     <section className="bg-white py-10 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -300,7 +300,7 @@ export function MatchPlayerRatings({
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="px-5 py-4 border-b border-gray-100">
-        <h2 className="font-bold text-lg text-gray-900">Notes des joueurs</h2>
+        <h2 className="font-bold text-lg text-gray-900">Notes des Spielers</h2>
       </div>
 
       {/* Man of the Match */}

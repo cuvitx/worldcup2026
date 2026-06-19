@@ -16,7 +16,7 @@ const NAV_ITEMS: { href: string; label: string; icon: ReactNode }[] = [
   },
   {
     href: "/spiel/spielplan",
-    label: "Matchs",
+    label: "Spiele",
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
@@ -24,7 +24,7 @@ const NAV_ITEMS: { href: string; label: string; icon: ReactNode }[] = [
     ),
   },
   {
-    href: "/prognose/vainqueur",
+    href: "/prognose/sieger",
     label: "Prognoses",
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -43,7 +43,7 @@ const NAV_ITEMS: { href: string; label: string; icon: ReactNode }[] = [
   },
   {
     href: "/recherche",
-    label: "Recherche",
+    label: "Suche",
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -62,7 +62,7 @@ export function BottomNav() {
 
   return (
     <nav
-      aria-label="Navigation principale mobile"
+      aria-label="Mobile Hauptnavigation"
       className="sm:hidden fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md bg-white/90 border-t border-gray-200 safe-area-inset-bottom"
     >
       <ul className="flex items-stretch h-16">

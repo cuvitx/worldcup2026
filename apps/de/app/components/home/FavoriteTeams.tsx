@@ -21,9 +21,9 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent mb-1.5">
-            Cotes Vainqueur
+            Sieger-Quoten
           </p>
-          <SectionHeading title="Mannschaften favorites" subtitle="Top 5 FIFA · Prognoses & chances de titre" linkHref="/prognose/vainqueur" linkLabel="Tous les pronostics →" />
+          <SectionHeading title="Favorisierte Mannschaften" subtitle="Top 5 FIFA · Prognosen & Titelchancen" linkHref="/prognose/sieger" linkLabel="Alle Prognosen →" />
         </div>
 
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
@@ -33,7 +33,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
             const winPct = pred ? Math.round(pred.winnerProb * 100) : null;
             const outrightOdds = favData ? favData.avgOdds.toFixed(2) : pred ? estimatedOutrightOdds(pred.winnerProb) : null;
             const trendIcon = favData?.trend === "up" ? " ↑" : favData?.trend === "down" ? " ↓" : null;
-            const medals = ["1er", "2e", "3e"];
+            const medals = ["1.", "2.", "3."];
 
             return (
               <Link
@@ -68,7 +68,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                 {winPct !== null && winPct > 0 && (
                   <div className="w-full mt-1.5 mb-2">
                     <div className="flex justify-between text-[9px] text-gray-500 mb-1">
-                      <span>Chances</span>
+                      <span>Chancen</span>
                       <span className="font-bold text-primary">
                         {winPct < 1 ? "<1" : winPct}%
                       </span>
@@ -85,7 +85,7 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                 {outrightOdds && (
                   <div className="mt-1 w-full rounded-xl border border-accent/30 bg-accent/5 px-3 py-2">
                     <p className="text-[9px] text-gray-500 mb-0.5">
-                      {favData ? "Cote moy. marché" : "Cote vainqueur"}
+                      {favData ? "Durchschn. Marktquote" : "Sieger-Quote"}
                     </p>
                     <p className="text-lg font-black text-accent">
                       {outrightOdds}
@@ -97,14 +97,14 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
                     </p>
                     {favData && (
                       <p className="text-[9px] text-gray-500 mt-0.5">
-                        Proba : {Math.round(favData.impliedProbability * 100)}%
+                        Wahrsch.: {Math.round(favData.impliedProbability * 100)}%
                       </p>
                     )}
                   </div>
                 )}
 
                 <p className="text-[9px] text-gray-500 mt-2">
-                  Groupe {team.group}
+                  Gruppe {team.group}
                 </p>
               </Link>
             );
@@ -112,8 +112,8 @@ export function FavoriteTeams({ topTeams }: FavoriteTeamsProps) {
         </div>
 
         <p className="mt-4 text-center text-[10px] text-gray-500">
-          * Cotes indicatives basées sur nos modèles. Vérifiez sur les bookmakers agréés.
-          Pariez responsablement. 18+
+          * Indikative Quoten basierend auf unseren Modellen. Überprüfen Sie bei zugelassenen Wettanbietern.
+          Spielen Sie verantwortungsbewusst. 18+
         </p>
       </div>
     </section>

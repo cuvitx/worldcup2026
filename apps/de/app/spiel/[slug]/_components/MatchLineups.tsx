@@ -18,11 +18,11 @@ function ratingColor(rating: number): string {
 
 const POS_ORDER: Record<string, number> = { G: 0, D: 1, M: 2, F: 3 };
 
-const POS_LABEL_FR: Record<string, string> = {
-  G: "G",
-  D: "D",
-  M: "M",
-  F: "A",
+const POS_LABEL_DE: Record<string, string> = {
+  G: "TW",
+  D: "AW",
+  M: "MF",
+  F: "ST",
 };
 
 function sortByPosition<
@@ -58,9 +58,9 @@ function TeamColumn({
         </span>
       </div>
 
-      {/* Titulaires */}
+      {/* Startelf */}
       <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-2">
-        Titulaires
+        Startelf
       </p>
       <ul className="space-y-1.5 mb-5">
         {starters.map((entry) => {
@@ -79,18 +79,18 @@ function TeamColumn({
                 </span>
               )}
               <span className={`text-[10px] uppercase text-gray-400 ${rating ? "" : "ml-auto"} shrink-0`}>
-                {POS_LABEL_FR[entry.player.pos] ?? entry.player.pos}
+                {POS_LABEL_DE[entry.player.pos] ?? entry.player.pos}
               </span>
             </li>
           );
         })}
       </ul>
 
-      {/* Remplacants */}
+      {/* Ersatzspieler */}
       {subs.length > 0 && (
         <>
           <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-2">
-            Remplacants
+            Ersatzspieler
           </p>
           <ul className="space-y-1 mb-5">
             {subs.map((entry) => {
@@ -110,7 +110,7 @@ function TeamColumn({
                     </span>
                   )}
                   <span className={`text-[10px] uppercase text-gray-400 ${rating ? "" : "ml-auto"} shrink-0`}>
-                    {POS_LABEL_FR[entry.player.pos] ?? entry.player.pos}
+                    {POS_LABEL_DE[entry.player.pos] ?? entry.player.pos}
                   </span>
                 </li>
               );
@@ -119,11 +119,11 @@ function TeamColumn({
         </>
       )}
 
-      {/* Entraineur */}
+      {/* Trainer */}
       {lineup.coach && (
         <div className="pt-3 border-t border-gray-100">
           <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1">
-            Entraineur
+            Trainer
           </p>
           <p className="text-sm text-gray-700 italic">{lineup.coach.name}</p>
         </div>
@@ -149,7 +149,7 @@ export function MatchLineups({
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="px-5 py-4 border-b border-gray-100">
-        <h2 className="font-bold text-lg text-gray-900">Compositions</h2>
+        <h2 className="font-bold text-lg text-gray-900">Aufstellungen</h2>
       </div>
 
       {/* Two-column layout */}

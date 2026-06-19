@@ -9,9 +9,9 @@ import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { PmuBanner } from "../components/PmuBanner";
 export const metadata: Metadata = {
-  title: "Les 16 stades de la WM 2026 | Capacité, Ville & Matchs",
+  title: "Les 16 stades de la WM 2026 | Kapazität, Ville & Matchs",
   description:
-    "Guide complet des 16 stades de la WM 2026. Capacité, ville, pays, matchs programmés et informations pratiques.",
+    "Guide complet des 16 stades de la WM 2026. Kapazität, ville, pays, matchs programmés et informations pratiques.",
   alternates: getStaticAlternates("stadiums", "de"),
   openGraph: {
     title: "Les 16 stades de la WM 2026",
@@ -50,8 +50,8 @@ export default function StadiumsPage() {
       answer: "Le Mexique accueillera des matchs dans 3 stades iconiques : l'Estadio Azteca (Mexico, 87 000 places), l'Estadio BBVA (Monterrey, 53 500 places) et l'Estadio Akron (Guadalajara, 46 000 places). L'Estadio Azteca est particulièrement mythique : c'est le seul stade au monde à avoir accueilli deux finales de WM (1970 et 1986). Il accueillera le match d'ouverture de la CDM 2026."
     },
     {
-      question: "Comment acheter des billets pour les matchs dans les stades ?",
-      answer: "La vente des billets pour la WM 2026 s'effectue exclusivement via le site officiel de la FIFA (FIFA.com/tickets). Les premières phases de vente ouvriront début 2026 par tirage au sort, suivies de ventes en premier arrivé, premier servi. Les prix varient selon le stade, la catégorie de match et l'emplacement des sièges. Il est fortement recommandé de s'inscrire à l'avance sur le portail FIFA pour être informé des ouvertures de vente."
+      question: "Comment acheter des Tickets pour les matchs dans les stades ?",
+      answer: "La vente des Tickets pour la WM 2026 s'effectue exclusivement via le site officiel de la FIFA (FIFA.com/tickets). Les premières phases de vente ouvriront début 2026 par tirage au sort, suivies de ventes en premier arrivé, premier servi. Les prix varient selon le stade, la catégorie de match et l'emplacement des sièges. Il est fortement recommandé de s'inscrire à l'avance sur le portail FIFA pour être informé des ouvertures de vente."
     }
   ];
 

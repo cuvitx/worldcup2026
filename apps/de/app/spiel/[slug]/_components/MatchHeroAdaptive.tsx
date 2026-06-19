@@ -90,7 +90,7 @@ export function MatchHeroAdaptive({
                   {home.name}
                 </Link>
               ) : (
-                <p className="text-base sm:text-xl font-extrabold">À déterminer</p>
+                <p className="text-base sm:text-xl font-extrabold">Noch offen</p>
               )}
             </div>
 
@@ -109,7 +109,7 @@ export function MatchHeroAdaptive({
                   {away.name}
                 </Link>
               ) : (
-                <p className="text-base sm:text-xl font-extrabold">À déterminer</p>
+                <p className="text-base sm:text-xl font-extrabold">Noch offen</p>
               )}
             </div>
           </div>
@@ -141,9 +141,9 @@ export function MatchHeroAdaptive({
           <LiveMatchWidget
             matchDate={match.date}
             matchTime={match.time}
-            homeTeam={home?.name ?? "A determiner"}
-            awayTeam={away?.name ?? "A determiner"}
-            stadium={stadium?.name ?? "Stade a confirmer"}
+            homeTeam={home?.name ?? "Noch offen"}
+            awayTeam={away?.name ?? "Noch offen"}
+            stadium={stadium?.name ?? "Stadion a confirmer"}
             locale="de"
             liveFixtures={allFixtures.length > 0 ? allFixtures : undefined}
             homeApiTeamId={teamApiIds[match.homeTeamId] ?? 0}
@@ -202,7 +202,7 @@ export function MatchHeroAdaptive({
                 {home.name}
               </Link>
             ) : (
-              <p className="text-base sm:text-2xl font-extrabold text-center leading-tight">À déterminer</p>
+              <p className="text-base sm:text-2xl font-extrabold text-center leading-tight">Noch offen</p>
             )}
             {home && (
               <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] sm:text-xs text-gray-300">
@@ -224,7 +224,7 @@ export function MatchHeroAdaptive({
                 {away.name}
               </Link>
             ) : (
-              <p className="text-base sm:text-2xl font-extrabold text-center leading-tight">À déterminer</p>
+              <p className="text-base sm:text-2xl font-extrabold text-center leading-tight">Noch offen</p>
             )}
             {away && (
               <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] sm:text-xs text-gray-300">

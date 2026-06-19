@@ -10,8 +10,8 @@ interface Tab {
 
 const TABS: Tab[] = [
   { id: "pronostic", label: "Prognose", icon: "" },
-  { id: "cotes", label: "Cotes", icon: "" },
-  { id: "stats", label: "Stats", icon: "" },
+  { id: "cotes", label: "Quoten", icon: "" },
+  { id: "stats", label: "Statistiken", icon: "" },
   { id: "h2h", label: "H2H", icon: "" },
   { id: "infos", label: "Infos", icon: "" },
 ];
@@ -31,7 +31,7 @@ export function MatchTabsClient({ children }: MatchTabsClientProps) {
       {/* Tab bar */}
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div role="tablist" aria-label="Sections du match" className="flex overflow-x-auto scrollbar-hide gap-0.5">
+          <div role="tablist" aria-label="Spielbereiche" className="flex overflow-x-auto scrollbar-hide gap-0.5">
             {TABS.map((tab) => (
               <button
                 key={tab.id}

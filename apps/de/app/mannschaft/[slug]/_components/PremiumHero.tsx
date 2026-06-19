@@ -20,17 +20,17 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
             {/* Badge pill */}
             <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md text-xs font-semibold uppercase tracking-widest text-secondary">
               <span>{team.confederation}</span>
-              {team.isHost && <span>Pays hôte</span>}
+              {team.isHost && <span>Gastgeberland</span>}
             </div>
             
             {/* Title with flag */}
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-2 sm:mb-3">
-              {team.flag} {team.name} — CDM 2026
+              {team.flag} {team.name} — WM 2026
             </h1>
             
             {/* Subtitle */}
             <p className="text-base sm:text-xl md:text-2xl font-light text-white/70 mb-4">
-              Groupe {team.group} · FIFA #{team.fifaRanking} · {team.bestResult}
+              Gruppe {team.group} · FIFA #{team.fifaRanking} · {team.bestResult}
             </p>
             
             {/* Description — hidden on mobile */}
@@ -44,12 +44,12 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
               <div className="sm:hidden flex items-center gap-6">
                 <div className="text-center">
                   <p className="text-lg font-extrabold text-secondary">{winnerOdds}</p>
-                  <p className="text-[10px] text-white/60">Cote</p>
+                  <p className="text-[10px] text-white/60">Quote</p>
                 </div>
                 <div className="w-px h-8 bg-white/20" />
                 <div className="text-center">
                   <p className="text-lg font-extrabold text-secondary">{winPct}%</p>
-                  <p className="text-[10px] text-white/60">Victoire</p>
+                  <p className="text-[10px] text-white/60">Sieg</p>
                 </div>
                 <div className="w-px h-8 bg-white/20" />
                 <div className="text-center">
@@ -60,11 +60,11 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
               {/* Desktop: glassmorphism cards */}
               <div className="hidden sm:block rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 hover:bg-white/15 transition-all text-center">
                 <p className="text-2xl font-extrabold text-secondary">{winnerOdds}</p>
-                <p className="text-xs text-white/80 mt-0.5">Cote titre</p>
+                <p className="text-xs text-white/80 mt-0.5">Titelquote</p>
               </div>
               <div className="hidden sm:block rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 hover:bg-white/15 transition-all text-center">
                 <p className="text-2xl font-extrabold text-secondary">{winPct}%</p>
-                <p className="text-xs text-white/80 mt-0.5">% victoire</p>
+                <p className="text-xs text-white/80 mt-0.5">% Sieg</p>
               </div>
               <div className="hidden sm:block rounded-xl border border-white/10 bg-white/10 backdrop-blur-sm p-4 hover:bg-white/15 transition-all text-center">
                 <p className="text-2xl font-extrabold text-white">#{team.fifaRanking}</p>
@@ -78,19 +78,19 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
                 href="#spielplan" 
                 className="rounded-xl bg-accent text-white px-5 py-2.5 font-bold text-sm text-center hover:bg-accent/80 transition-all hover:-translate-y-0.5"
               >
-                Voir les matchs
+                Spiele anzeigen
               </a>
               <a 
-                href="#effectif" 
+                href="#kader"
                 className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 font-semibold text-sm text-center hover:bg-white/20 transition-all backdrop-blur-sm"
               >
-                Découvrir l&apos;effectif
+                Kader entdecken
               </a>
               <Link
-                href="/prognose/vainqueur"
+                href="/prognose/sieger"
                 className="rounded-lg border border-secondary/40 bg-secondary/15 px-5 py-2.5 font-semibold text-secondary text-sm text-center hover:bg-secondary/25 transition-all"
               >
-                Prognose vainqueur
+                Siegerprognose
               </Link>
             </div>
           </div>
@@ -103,15 +103,15 @@ export function PremiumHero({ team, prediction, winnerOdds, winPct }: PremiumHer
               <p className="text-secondary font-semibold text-sm mb-4">{team.bestResult}</p>
               <div className="space-y-2 text-sm text-white/70">
                 <div className="flex justify-between gap-4">
-                  <span>Confédération</span>
+                  <span>Konföderation</span>
                   <span className="font-semibold text-white">{team.confederation}</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span>Groupe</span>
+                  <span>Gruppe</span>
                   <span className="font-semibold text-white">{team.group}</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span>Participations</span>
+                  <span>Teilnahmen</span>
                   <span className="font-semibold text-white">{team.wcAppearances}</span>
                 </div>
                 {prediction && (

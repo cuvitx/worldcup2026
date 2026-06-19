@@ -15,16 +15,16 @@ import {
 import { LiveMatchWidget } from "@repo/ui/live-match-widget";
 
 export const metadata: Metadata = {
-  title: "Ergebnisse en direct - WM 2026",
+  title: "Live-Ergebnisse - WM 2026",
   description:
-    "Suivez les résultats en direct de la WM 2026. Scores, buteurs, événements minute par minute.",
+    "Verfolgen Sie die Live-Ergebnisse der WM 2026. Spielstände, Torschützen, Ereignisse Minute für Minute.",
   alternates: {
     canonical: "https://www.wm2026guide.de/live",
   },
   openGraph: {
-    title: "Ergebnisse en direct - WM 2026",
+    title: "Live-Ergebnisse - WM 2026",
     description:
-      "Scores en direct, buteurs et événements minute par minute pour tous les matchs de la WM 2026.",
+      "Live-Spielstände, Torschützen und Ereignisse Minute für Minute für alle Spiele der WM 2026.",
     type: "website",
   },
 };
@@ -83,7 +83,7 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Ergebnisse en direct",
+      name: "Live-Ergebnisse",
       item: "https://www.wm2026guide.de/live",
     },
   ],
@@ -105,11 +105,11 @@ export default function LivePage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">En direct</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Live</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Ergebnisse en direct</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Live-Ergebnisse</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Scores, buteurs et événements minute par minute
+            Spielstände, Torschützen und Ereignisse Minute für Minute
           </p>
         </div>
       </section>
@@ -134,19 +134,19 @@ function PreTournamentContent() {
           <div className="rounded-2xl border border-gray-200 bg-white px-6 py-5 text-center shadow-sm">
             <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-1.5 text-gray-700 font-semibold text-sm mb-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
-              <span>En attente du coup d&apos;envoi</span>
+              <span>Warten auf den Anpfiff</span>
             </div>
             <p className="text-gray-900 text-base font-medium">
-              Les résultats en direct seront disponibles dès le 11 juin 2026
+              Die Live-Ergebnisse sind ab dem 11. Juni 2026 verfügbar
             </p>
             <p className="text-gray-500 text-sm mt-1 mb-4">
-              Scores actualisés en temps réel, événements et compositions d&apos;équipe
+              Ergebnisse in Echtzeit, Ereignisse und Mannschaftsaufstellungen
             </p>
             <Link
               href="/spiel/spielplan"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
             >
-              Voir le spielplan complet
+              Kompletten Spielplan anzeigen
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Link>
           </div>
@@ -155,7 +155,7 @@ function PreTournamentContent() {
 
       <section className="bg-gray-50/50 py-8">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Prochains matchs</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Nächste Spiele</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {nextMatches.map((match) => {
               const home = teamsById[match.homeTeamId];
@@ -237,7 +237,7 @@ function TournamentActiveContent() {
         <section className="bg-gray-50/50 py-8">
           <div className="mx-auto max-w-4xl px-4">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Ergebnisse d&apos;hier — {formatDateShort(yesterdayMatches[0]!.date)}
+              Ergebnisse von gestern — {formatDateShort(yesterdayMatches[0]!.date)}
             </h2>
             <div className="grid gap-6 sm:grid-cols-2">
               {yesterdayMatches.map((match) => {
@@ -273,7 +273,7 @@ function TournamentActiveContent() {
       {todaysMatches.length === 0 && yesterdayMatches.length === 0 && (
         <section className="bg-white py-8">
           <div className="mx-auto max-w-3xl px-4 text-center">
-            <p className="text-gray-500 text-lg">Pas de match prévu aujourd&apos;hui</p>
+            <p className="text-gray-500 text-lg">Keine Spiele heute geplant</p>
           </div>
         </section>
       )}
@@ -282,7 +282,7 @@ function TournamentActiveContent() {
       {nextMatches.length > 0 && (
         <section className="bg-white py-8">
           <div className="mx-auto max-w-4xl px-4">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Prochains matchs</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Nächste Spiele</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {nextMatches.map((match) => {
                 const home = teamsById[match.homeTeamId];
@@ -320,7 +320,7 @@ function TournamentActiveContent() {
                 href="/spiel/spielplan"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
               >
-                Voir le spielplan complet
+                Spielplan anzeigen complet
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
             </div>

@@ -13,7 +13,7 @@ export function PricesByPhase() {
     <section id="prix" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-           Prix des billets par phase
+           Prix des Tickets par phase
         </h2>
         <p className="text-sm text-gray-500 mb-6">
           Tarifs officiels FIFA en USD (convertibles en EUR selon taux de change). Gruppenphase à la finale.

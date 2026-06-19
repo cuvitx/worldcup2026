@@ -21,7 +21,7 @@ export function ComparedStatsCard({
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        Statistiques comparées
+        Statistiken im Vergleich
       </h2>
       <div className="space-y-4">
         <StatDuelRow
@@ -32,7 +32,7 @@ export function ComparedStatsCard({
           awayName={awayName}
         />
         <StatDuelRow
-          label="Finale (%)"
+          label="Endspiel (%)"
           home={Math.round(predHome.finalProb * 100)}
           away={Math.round(predAway.finalProb * 100)}
           homeName={homeName}
@@ -40,7 +40,7 @@ export function ComparedStatsCard({
           suffix="%"
         />
         <StatDuelRow
-          label="Champion (%)"
+          label="Weltmeister (%)"
           home={Math.round(predHome.winnerProb * 100)}
           away={Math.round(predAway.winnerProb * 100)}
           homeName={homeName}

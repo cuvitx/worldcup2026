@@ -9,15 +9,15 @@ export function HeroSection() {
         {/* Badge event */}
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
-            WM 2026 · {EVENT_DATES.RANGE_FR.replace(" 2026", "")}
+            WM 2026 · 11. Juni – 19. Juli
           </span>
         </div>
 
-        {/* Drapeaux pays hôtes */}
+        {/* Flaggen Gastgeberländer */}
         <div className="mb-6 flex items-center justify-center gap-4 text-4xl sm:text-5xl">
-          <span title="États-Unis">🇺🇸</span>
-          <span title="Mexique">🇲🇽</span>
-          <span title="Canada">🇨🇦</span>
+          <span title="USA">🇺🇸</span>
+          <span title="Mexiko">🇲🇽</span>
+          <span title="Kanada">🇨🇦</span>
         </div>
 
         {/* Headline */}
@@ -26,29 +26,29 @@ export function HeroSection() {
             WM 2026
           </span>
           <span className="block text-secondary mt-2" style={{ letterSpacing: "-0.02em" }}>
-            Le guide ultime du Mondial
+            Der ultimative WM-Leitfaden
           </span>
         </h1>
 
         <p className="mx-auto mb-10 max-w-xl text-base text-gray-300 leading-relaxed sm:text-lg">
-          Prognoses, analyses et cotes pour les{" "}
-          <span className="font-semibold text-white">104 matchs</span> —{" "}
-          <span className="font-semibold text-white">48 équipes</span> —{" "}
-          <span className="font-semibold text-white">16 stades</span>
+          Prognosen, Analysen und Quoten für{" "}
+          <span className="font-semibold text-white">104 Spiele</span> —{" "}
+          <span className="font-semibold text-white">48 Mannschaften</span> —{" "}
+          <span className="font-semibold text-white">16 Stadien</span>
           <br />
           <span className="text-sm text-gray-300">
-            Du 11 juin au 19 juillet 2026
+            Vom 11. Juni bis 19. Juli 2026
           </span>
         </p>
 
         {/* CTAs */}
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           <Link
-            href="/prognose/vainqueur"
+            href="/prognose/sieger"
             className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/80 w-full sm:w-auto"
           >
             <span className="text-base"></span>
-            Mes pronostics
+            Meine Prognosen
             <span className="opacity-70 group-hover:translate-x-0.5 transition-transform">→</span>
           </Link>
           <Link
@@ -56,7 +56,7 @@ export function HeroSection() {
             className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 w-full sm:w-auto"
           >
             <span className="text-base"></span>
-            Créer mon bracket
+            Meinen Turnierbaum erstellen
             <span className="opacity-70 group-hover:translate-x-0.5 transition-transform">→</span>
           </Link>
         </div>

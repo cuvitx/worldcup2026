@@ -36,7 +36,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
       {/* Radar Chart */}
       {teamRatings[team.slug] && (
         <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Profil de l&apos;équipe</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Profil de l&apos;Mannschaft</h2>
           <RadarChartLazy rating={teamRatings[team.slug]!} color="#3b82f6" />
         </section>
       )}
@@ -60,7 +60,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Historique en WM</h2>
             <div className="grid grid-cols-2 gap-4 mb-6">
               <StatCard value={history?.participations ?? team.wcAppearances} label="Participations" />
-              <StatCard value={history?.bestResult ?? team.bestResult} label="Meilleur résultat" />
+              <StatCard value={history?.bestResult ?? team.bestResult} label="Bestes Ergebnis" />
             </div>
             {history && history.yearsParticipated.length > 0 && (
               <div className="mb-6">
@@ -80,7 +80,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                     <thead>
                       <tr className="bg-gray-50 text-xs uppercase text-gray-500text-left">
                         <th className="px-3 py-2 font-semibold text-gray-600">Année</th>
-                        <th className="px-3 py-2 font-semibold text-gray-600">Stade</th>
+                        <th className="px-3 py-2 font-semibold text-gray-600">Stadion</th>
                         <th className="px-3 py-2 font-semibold text-gray-600 hidden sm:table-cell">Détail</th>
                       </tr>
                     </thead>
@@ -101,14 +101,14 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
         );
       })()}
 
-      {/* Palmarès CDM */}
+      {/* Erfolge CDM */}
       {teamWorldCupHistory[team.id] && (() => {
         const history = teamWorldCupHistory[team.id]!;
         const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
         return titles.length > 0 ? (
           <section className="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
-              <span></span> Palmarès en WM
+              <span></span> Erfolge en WM
             </h2>
             <div className="flex flex-wrap gap-4 mb-4">
               {titles.map((title) => (
@@ -210,8 +210,8 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
               { label: "Gruppenphase", value: prediction.groupStageProb },
               { label: "32e de finale", value: prediction.roundOf32Prob },
               { label: "8e de finale", value: prediction.roundOf16Prob },
-              { label: "Quart de finale", value: prediction.quarterFinalProb },
-              { label: "Demi-finale", value: prediction.semiFinalProb },
+              { label: "Viertelfinale", value: prediction.quarterFinalProb },
+              { label: "Halbfinale", value: prediction.semiFinalProb },
               { label: "Finale", value: prediction.finalProb },
             ].map((stage) => (
               <div key={stage.label} className="rounded bg-gray-50 p-2 text-center">
@@ -223,11 +223,11 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
         </section>
       )}
 
-      {/* Effectif probable */}
+      {/* Kader probable */}
       {teamPlayers.length > 0 && (
         <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-1">Effectif probable</h2>
-          <p className="mb-4 text-sm text-gray-500">{teamPlayers.length} joueurs sélectionnés</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-1">Kader probable</h2>
+          <p className="mb-4 text-sm text-gray-500">{teamPlayers.length} Spielers sélectionnés</p>
           <SquadTable players={teamPlayers} />
         </section>
       )}
@@ -253,7 +253,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                   <span className="text-sm text-gray-500 w-20 shrink-0">{match.date.slice(5)}</span>
                   <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? ""}</span>
                   <div className="flex-1">
-                    <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}</p>
+                    <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "Noch offen"}</p>
                     <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.time}</p>
                   </div>
                 </Link>

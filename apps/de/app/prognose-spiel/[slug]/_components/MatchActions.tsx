@@ -20,7 +20,7 @@ export function MatchActions({
           <ShareButtons
             url={`https://www.wm2026guide.de/prognose-spiel/${matchSlug}`}
             text={predictionText}
-            label="Partager ce pronostic"
+            label="Diese Prognose teilen"
           />
         </div>
       </div>

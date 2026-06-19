@@ -83,7 +83,7 @@ export function UpcomingPronosticsGrid({
                   href={`/prognose-spiel/${match.slug}`}
                   className="text-sm font-semibold text-primary hover:text-primary/80"
                 >
-                  Voir le pronostic →
+                  Prognose anzeigen →
                 </Link>
               </div>
 
@@ -95,7 +95,7 @@ export function UpcomingPronosticsGrid({
                     rel="noopener noreferrer sponsored nofollow"
                     className="text-xs font-bold text-[#d4af37] hover:text-[#b8941f]"
                   >
-                    Parier sur PMU Play →
+                    Wetten auf Betano →
                   </a>
                 </div>
               )}

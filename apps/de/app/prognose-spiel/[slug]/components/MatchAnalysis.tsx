@@ -33,35 +33,35 @@ export function MatchAnalysis({
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        Analyse du match : {homeName} vs {awayName}
+        Spielanalyse: {homeName} vs {awayName}
       </h2>
       <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
         <p>
-          Ce match de {stage.toLowerCase()}
-          {match.group ? ` du Groupe ${match.group}` : ""} opposera{" "}
-          <strong>{homeName}</strong> (#{home.fifaRanking} FIFA) a{" "}
-          <strong>{awayName}</strong> (#{away.fifaRanking} FIFA) le{" "}
+          Dieses Spiel der {stage}
+          {match.group ? ` in Gruppe ${match.group}` : ""} bringt{" "}
+          <strong>{homeName}</strong> (#{home.fifaRanking} FIFA) gegen{" "}
+          <strong>{awayName}</strong> (#{away.fifaRanking} FIFA) am{" "}
           {dateFormatted}
-          {stadium ? ` au ${stadium.name}` : ""}.
+          {stadium ? ` im ${stadium.name}` : ""} zusammen.
         </p>
         <p>
-          Selon notre modele de prediction,{" "}
+          Laut unserem Prognosemodell{" "}
           {prediction.team1WinProb > prediction.team2WinProb
-            ? `${homeName} est favori avec ${Math.round(prediction.team1WinProb * 100)}% de chances de victoire`
+            ? `ist ${homeName} Favorit mit ${Math.round(prediction.team1WinProb * 100)}% Siegwahrscheinlichkeit`
             : prediction.team2WinProb > prediction.team1WinProb
-              ? `${awayName} est favori avec ${Math.round(prediction.team2WinProb * 100)}% de chances de victoire`
-              : "les deux équipes se neutralisent selon nos estimations"}
-          . Le score le plus probable est de{" "}
+              ? `ist ${awayName} Favorit mit ${Math.round(prediction.team2WinProb * 100)}% Siegwahrscheinlichkeit`
+              : "neutralisieren sich beide Mannschaften laut unseren Schaetzungen"}
+          . Das wahrscheinlichste Ergebnis ist{" "}
           <strong>{prediction.predictedScore}</strong>.
         </p>
         {predHome && predAway && (
           <p>
-            En termes de rating ELO, {homeName} affiche un score de{" "}
-            <strong>{predHome.eloRating}</strong> contre{" "}
-            <strong>{predAway.eloRating}</strong> pour {awayName},
-            soit un ecart de{" "}
-            {Math.abs(predHome.eloRating - predAway.eloRating)} points
-            en faveur de{" "}
+            Im ELO-Rating hat {homeName} einen Wert von{" "}
+            <strong>{predHome.eloRating}</strong> gegenueber{" "}
+            <strong>{predAway.eloRating}</strong> fuer {awayName},
+            ein Unterschied von{" "}
+            {Math.abs(predHome.eloRating - predAway.eloRating)} Punkten
+            zugunsten von{" "}
             {predHome.eloRating >= predAway.eloRating
               ? homeName
               : awayName}
@@ -70,46 +70,46 @@ export function MatchAnalysis({
         )}
         {home.fifaRanking < away.fifaRanking ? (
           <p>
-            Au classement FIFA, {homeName} occupe la{" "}
+            In der FIFA-Weltrangliste belegt {homeName} den{" "}
             {home.fifaRanking}
-            <sup>e</sup> place mondiale, soit{" "}
-            {away.fifaRanking - home.fifaRanking} rangs au-dessus de{" "}
+            . Platz, also{" "}
+            {away.fifaRanking - home.fifaRanking} Plaetze vor{" "}
             {awayName} ({away.fifaRanking}
-            <sup>e</sup>). Cet avantage au classement se reflete dans
-            les probabilites de notre modele.
+            . Platz). Dieser Ranglistenvorteil spiegelt sich
+            in den Wahrscheinlichkeiten unseres Modells wider.
           </p>
         ) : home.fifaRanking > away.fifaRanking ? (
           <p>
-            Au classement FIFA, {awayName} occupe la{" "}
+            In der FIFA-Weltrangliste belegt {awayName} den{" "}
             {away.fifaRanking}
-            <sup>e</sup> place mondiale, soit{" "}
-            {home.fifaRanking - away.fifaRanking} rangs au-dessus de{" "}
+            . Platz, also{" "}
+            {home.fifaRanking - away.fifaRanking} Plaetze vor{" "}
             {homeName} ({home.fifaRanking}
-            <sup>e</sup>). Malgre cela, l&apos;avantage du terrain pourrait
-            jouer un faveur de {homeName}.
+            . Platz). Trotzdem koennte der Heimvorteil
+            fuer {homeName} sprechen.
           </p>
         ) : null}
         {match.stage === "group" && match.group && (
           <p>
-            Ce match se déroule dans le cadre du{" "}
+            Dieses Spiel findet im Rahmen der{" "}
             <Link
               href={`/gruppe/${match.group.toLowerCase()}`}
               className="text-primary hover:underline"
             >
-              Groupe {match.group}
+              Gruppe {match.group}
             </Link>{" "}
-            de la WM 2026. Le résultat de cette rencontre
-            sera determinant pour la qualification aux 32es de finale.
+            der WM 2026 statt. Das Ergebnis dieser Begegnung
+            wird entscheidend fuer die Qualifikation zum Achtelfinale sein.
           </p>
         )}
         {h2h && h2h.totalMatches > 0 && (
           <p>
-            Historiquement, ces deux équipes se sont affrontees{" "}
-            {h2h.totalMatches} fois avec un bilan de {h2h.team1Wins}{" "}
-            victoire{h2h.team1Wins > 1 ? "s" : ""} pour {homeName},{" "}
-            {h2h.draws} nul{h2h.draws > 1 ? "s" : ""} et{" "}
-            {h2h.team2Wins} victoire{h2h.team2Wins > 1 ? "s" : ""}{" "}
-            pour {awayName}.
+            Historisch gesehen haben sich diese beiden Mannschaften{" "}
+            {h2h.totalMatches} Mal getroffen, mit einer Bilanz von {h2h.team1Wins}{" "}
+            Sieg{h2h.team1Wins > 1 ? "en" : ""} fuer {homeName},{" "}
+            {h2h.draws} Unentschieden und{" "}
+            {h2h.team2Wins} Sieg{h2h.team2Wins > 1 ? "en" : ""}{" "}
+            fuer {awayName}.
           </p>
         )}
       </div>

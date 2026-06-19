@@ -15,10 +15,10 @@ function getTimeLeft() {
 }
 
 const units = [
-  { key: "days", label: "jours" },
-  { key: "hours", label: "heures" },
-  { key: "minutes", label: "min" },
-  { key: "seconds", label: "sec" },
+  { key: "days", label: "Tage" },
+  { key: "hours", label: "Stunden" },
+  { key: "minutes", label: "Min" },
+  { key: "seconds", label: "Sek" },
 ] as const;
 
 export function HeroCountdown() {
@@ -36,9 +36,9 @@ export function HeroCountdown() {
       {/* Match info */}
       <div className="flex items-center gap-3 text-sm">
         <span className="text-xl">🇲🇽</span>
-        <span className="font-bold text-white">Mexique</span>
+        <span className="font-bold text-white">Mexiko</span>
         <span className="font-black text-secondary text-xs">VS</span>
-        <span className="font-bold text-white">Afrique du Sud</span>
+        <span className="font-bold text-white">Südafrika</span>
         <span className="text-xl">🇿🇦</span>
       </div>
 
@@ -61,7 +61,7 @@ export function HeroCountdown() {
 
       {/* Sub info */}
       <p className="text-[11px] text-gray-300">
-        Match d&apos;ouverture · 11 juin 2026 · Estadio Azteca, Mexico
+        Eröffnungsspiel · 11. Juni 2026 · Estadio Azteca, Mexiko-Stadt
       </p>
     </div>
   );

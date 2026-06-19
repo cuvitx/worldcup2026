@@ -69,13 +69,13 @@ const examples: Example[] = [
 
 const handicapTypes = [
   { value: "0", desc: "Élimine le nul. Si nul → remboursé (push)." },
-  { value: "-0.5", desc: "Élimine le nul. L'équipe doit gagner pour que le pari passe." },
-  { value: "-1.0", desc: "L'équipe doit gagner de 2+. Si victoire de 1 → push." },
-  { value: "-1.5", desc: "L'équipe doit gagner de 2+. Pas de push possible." },
-  { value: "-2.0", desc: "L'équipe doit gagner de 3+. Si victoire de 2 → push." },
-  { value: "+0.5", desc: "L'équipe peut perdre de 0. Match nul ou victoire = pari gagné." },
-  { value: "+1.0", desc: "L'équipe peut perdre de 1 (push) ou moins." },
-  { value: "+1.5", desc: "L'équipe peut perdre de 1 but et le pari est gagné." },
+  { value: "-0.5", desc: "Élimine le nul. L'Mannschaft doit gagner pour que le pari passe." },
+  { value: "-1.0", desc: "L'Mannschaft doit gagner de 2+. Si victoire de 1 → push." },
+  { value: "-1.5", desc: "L'Mannschaft doit gagner de 2+. Pas de push possible." },
+  { value: "-2.0", desc: "L'Mannschaft doit gagner de 3+. Si victoire de 2 → push." },
+  { value: "+0.5", desc: "L'Mannschaft peut perdre de 0. Unentschieden ou victoire = pari gagné." },
+  { value: "+1.0", desc: "L'Mannschaft peut perdre de 1 (push) ou moins." },
+  { value: "+1.5", desc: "L'Mannschaft peut perdre de 1 but et le pari est gagné." },
 ];
 
 export default function ParisHandicapPage() {
@@ -86,11 +86,11 @@ export default function ParisHandicapPage() {
     },
     {
       question: "Quand utiliser le handicap -0.5 ?",
-      answer: "Le handicap -0.5 est idéal quand vous pensez qu'une équipe va gagner mais que la cote 1X2 est trop basse. Il élimine le nul : victoire = gagné, nul ou défaite = perdu. C'est l'équivalent d'un pari 'victoire' classique mais souvent avec de meilleures cotes.",
+      answer: "Le handicap -0.5 est idéal quand vous pensez qu'une Mannschaft va gagner mais que la cote 1X2 est trop basse. Il élimine le nul : victoire = gagné, nul ou défaite = perdu. C'est l'équivalent d'un pari 'victoire' classique mais souvent avec de meilleures cotes.",
     },
     {
       question: "Le handicap asiatique est-il rentable sur la CDM 2026 ?",
-      answer: "Le handicap asiatique est particulièrement intéressant en CDM car les écarts de niveau entre les 48 équipes sont importants. Un favori à -1.5 à 2.10 offre souvent plus de value qu'une victoire simple à 1.25.",
+      answer: "Le handicap asiatique est particulièrement intéressant en CDM car les écarts de niveau entre les 48 Mannschafts sont importants. Un favori à -1.5 à 2.10 offre souvent plus de value qu'une victoire simple à 1.25.",
     },
   ];
 
@@ -180,7 +180,7 @@ export default function ParisHandicapPage() {
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur joueurs-info-service.fr (ANJ).
+          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
         </p>
       </div>
     </>

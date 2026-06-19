@@ -9,28 +9,28 @@ import { HowToBuy } from "./_components/HowToBuy";
 import { SalePhasesSection } from "./_components/SalePhasesSection";
 import { TicketCategoriesSection } from "./_components/TicketCategoriesSection";
 import { AntiScamSection } from "./_components/AntiScamSection";
-import { BilletsFinalCTA } from "./_components/BilletsFinalCTA";
-import { BilletsToc } from "./_components/BilletsToc";
+import { TicketsFinalCTA } from "./_components/TicketsFinalCTA";
+import { TicketsToc } from "./_components/TicketsToc";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { PmuBanner } from "../components/PmuBanner";
 
 export const metadata: Metadata = {
-  title: "Billets CDM 2026 — Prix, dates et comment acheter | WM",
+  title: "Tickets WM 2026 — Preise, Termine und Kaufanleitung | WM",
   description:
-    "Billets CDM 2026 : prix officiels (60$–1500$+), dates de vente, arnaques à éviter. Guide complet pour acheter sur FIFA.com en toute sécurité.",
+    "Tickets WM 2026: offizielle Preise (60$-1500$+), Verkaufstermine, Betrug vermeiden. Vollständiger Guide zum sicheren Kauf auf FIFA.com.",
   openGraph: {
-    title: "Billets CDM 2026 — Prix, dates et comment acheter",
+    title: "Tickets WM 2026 — Preise, Termine und Kaufanleitung",
     description:
-      "Guide complet billets FIFA World Cup 2026 : tarifs officiels, spielplan des ventes, catégories Cat 1-4 et hospitalité. Tout pour assister à la CDM 2026.",
-    url: "https://www.wm2026guide.de/billets",
+      "Vollständiger Ticket-Guide FIFA WM 2026: offizielle Preise, Verkaufsphasen, Kategorien Cat 1-4 und Hospitality. Alles für die WM 2026.",
+    url: "https://www.wm2026guide.de/Tickets",
   },
-  alternates: { canonical: "https://www.wm2026guide.de/billets" },
+  alternates: { canonical: "https://www.wm2026guide.de/Tickets" },
 };
 
-export default function BilletsPage() {
+export default function TicketsPage() {
   return (
     <>
-<BilletsToc />
+<TicketsToc />
 
       <HeroSection />
 
@@ -38,11 +38,11 @@ export default function BilletsPage() {
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-start gap-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent shrink-0 mt-0.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
           <p className="text-sm text-accent">
-            <strong>Important :</strong> Achetez uniquement sur{" "}
+            <strong>Wichtig:</strong> Kaufen Sie nur auf{" "}
             <a href="https://www.fifa.com/en/tournaments/mens/worldcup/26/tickets" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
               fifa.com/tickets
             </a>{" "}
-            — c&apos;est le seul canal officiel. Tout billet acheté sur un autre site peut être annulé.
+            — das ist der einzige offizielle Kanal. Tickets, die auf anderen Seiten gekauft werden, können annulliert werden.
           </p>
         </div>
       </div>
@@ -57,37 +57,37 @@ export default function BilletsPage() {
       {/* PMU Banner */}
       <section className="py-6 sm:py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <PmuBanner tracking="billets" />
+          <PmuBanner tracking="Tickets" />
         </div>
       </section>
 
       <FAQSection
-        title=" Questions fréquentes — Billets CDM 2026"
-        items={faqItems} 
+        title=" Häufige Fragen — Tickets WM 2026"
+        items={faqItems}
       />
       <RelatedLinks
         links={[
           {
             href: "/stadien",
-            title: " Les 16 stades de la CDM 2026",
-            description: "Découvrez les stades qui accueilleront les matchs : capacités, villes hôtes et événements prévus.",
+            title: " Die 16 Stadien der WM 2026",
+            description: "Entdecken Sie die Stadien, die die Spiele austragen werden: Kapazitäten, Austragungsorte und geplante Veranstaltungen.",
             icon: ""
           },
           {
             href: "/spiel/spielplan",
-            title: " Spielplan complet des matchs",
-            description: "104 matchs du 11 juin au 19 juillet 2026. Consultez les dates, horaires et stades.",
+            title: " Vollständiger Spielplan",
+            description: "104 Spiele vom 11. Juni bis 19. Juli 2026. Alle Termine, Anstoßzeiten und Stadien.",
             icon: ""
           },
           {
             href: "/ou-regarder",
-            title: " Où regarder les matchs",
-            description: "Chaînes TV, streaming gratuit et payant pour suivre la WM 2026.",
+            title: " Wo die Spiele anschauen",
+            description: "TV-Sender, kostenloser und kostenpflichtiger Streaming für die WM 2026.",
             icon: ""
           }
         ]}
       />
-      <BilletsFinalCTA />
+      <TicketsFinalCTA />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { EXTERNAL_URLS } from "@repo/data/constants";
 import { Ticket } from "lucide-react"
 
-export function BilletsHero() {
+export function TicketsHero() {
   return (
     <section className="hero-animated text-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -10,7 +10,7 @@ export function BilletsHero() {
             <Ticket className="h-5 w-5 inline-block" /> Guide officiel
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
-            <Ticket className="h-5 w-5 inline-block" /> Billets CDM 2026 : prix, dates & arnaques à éviter
+            <Ticket className="h-5 w-5 inline-block" /> Tickets CDM 2026 : prix, dates & arnaques à éviter
           </h1>
           <p className="text-lg text-gray-300 mb-6 leading-relaxed">
             De 60 $ la phase de groupes à 1 500 $+ pour la finale. Tout pour

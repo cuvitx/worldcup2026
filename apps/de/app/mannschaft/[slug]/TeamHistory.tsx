@@ -34,7 +34,7 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Historique en WM</h2>
         <div className="grid grid-cols-2 gap-4 mb-6">
           <StatCard value={history?.participations ?? team.wcAppearances} label="Participations" />
-          <StatCard value={history?.bestResult ?? team.bestResult} label="Meilleur résultat" />
+          <StatCard value={history?.bestResult ?? team.bestResult} label="Bestes Ergebnis" />
         </div>
 
         {history && history.yearsParticipated.length > 0 && (
@@ -58,7 +58,7 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
                 <thead>
                   <tr className="bg-gray-50 text-xs uppercase text-gray-500text-left">
                     <th className="px-3 py-2 font-semibold text-gray-600">Année</th>
-                    <th className="px-3 py-2 font-semibold text-gray-600">Stade</th>
+                    <th className="px-3 py-2 font-semibold text-gray-600">Stadion</th>
                     <th className="px-3 py-2 font-semibold text-gray-600 hidden sm:table-cell">Détail</th>
                   </tr>
                 </thead>
@@ -77,13 +77,13 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
         )}
       </section>
 
-      {/* Palmarès CDM */}
+      {/* Erfolge CDM */}
       {history && (() => {
         const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
         return titles.length > 0 ? (
           <section className="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
-              <span></span> Palmarès en WM
+              <span></span> Erfolge en WM
             </h2>
             <div className="flex flex-wrap gap-4 mb-4">
               {titles.map((title) => (

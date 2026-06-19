@@ -50,7 +50,7 @@ function getProximityLinks(
     return [
       {
         href: `/mannschaften`,
-        label: `Équipe de ${name}`,
+        label: `Mannschaft de ${name}`,
         description: "Découvrir l'effectif complet de sa sélection",
       },
       {
@@ -72,7 +72,7 @@ function getProximityLinks(
     return [
       {
         href: `/stadion/${slug}`,
-        label: `Stade de ${name}`,
+        label: `Stadion de ${name}`,
         description: "Explorer le stade et ses caractéristiques",
       },
       {
@@ -99,8 +99,8 @@ function getProximityLinks(
       },
       {
         href: `/effectif/${slug}`,
-        label: `Effectif complet`,
-        description: "Découvrir les joueurs sélectionnés",
+        label: `Kader complet`,
+        description: "Découvrir les Spielers sélectionnés",
       },
       {
         href: `/parier/${slug}`,
@@ -110,7 +110,7 @@ function getProximityLinks(
     ];
   }
 
-  // Stade page
+  // Stadion page
   if (currentPath.startsWith("/stadion/") && slug) {
     return [
       {
@@ -119,8 +119,8 @@ function getProximityLinks(
         description: "Explorer tous les stades sur la carte interactive",
       },
       {
-        href: `/billets`,
-        label: "Acheter des billets",
+        href: `/Tickets`,
+        label: "Acheter des Tickets",
         description: "Réserver ses places pour la WM",
       },
       {
@@ -134,7 +134,7 @@ function getProximityLinks(
   // Default
   return [
     {
-      href: "/prognose/vainqueur",
+      href: "/prognose/sieger",
       label: "Accéder au pronostic vainqueur",
       description: "Découvrir notre analyse des favoris du tournoi",
     },

@@ -15,8 +15,8 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
     { label: "Gruppenphase", key: "groupStageProb" as const, value: prediction.groupStageProb },
     { label: "32e de finale", key: "roundOf32Prob" as const, value: prediction.roundOf32Prob },
     { label: "8e de finale", key: "roundOf16Prob" as const, value: prediction.roundOf16Prob },
-    { label: "Quart de finale", key: "quarterFinalProb" as const, value: prediction.quarterFinalProb },
-    { label: "Demi-finale", key: "semiFinalProb" as const, value: prediction.semiFinalProb },
+    { label: "Viertelfinale", key: "quarterFinalProb" as const, value: prediction.quarterFinalProb },
+    { label: "Halbfinale", key: "semiFinalProb" as const, value: prediction.semiFinalProb },
     { label: "Finale", key: "finalProb" as const, value: prediction.finalProb },
     { label: "Vainqueur", key: "winnerProb" as const, value: prediction.winnerProb },
   ];
@@ -47,7 +47,7 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
         <span className="inline-block h-3 w-3 rounded-full bg-primary" />
         <span>Tour intermediaire</span>
         <span className="ml-2 inline-block h-3 w-3 rounded-full bg-accent" />
-        <span>Victoire finale</span>
+        <span>Sieg finale</span>
       </div>
     </section>
   );

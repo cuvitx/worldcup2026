@@ -45,7 +45,7 @@ export default async function BookmakerPage({ params }: PageProps) {
     app: "Application",
     live: "Paris en direct",
     support: "Support client",
-    withdrawal: "Retrait",
+    withdrawal: "Auszahlung",
   };
 
   const relatedGuides = bk.sections.length > 0

@@ -41,16 +41,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const home = teamsById[match.homeTeamId];
   const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "A determiner";
-  const awayName = away?.name ?? "A determiner";
+  const homeName = home?.name ?? "Noch offen";
+  const awayName = away?.name ?? "Noch offen";
 
   return {
-    title: `Prognose ${homeName} vs ${awayName} | Cotes & Prediction CDM 2026`,
-    description: `Prognose ${homeName} vs ${awayName} WM 2026 : cotes estimées, score prédit, analyse du match et historique des confrontations.`,
+    title: `Prognose ${homeName} vs ${awayName} | Quoten & Vorhersage WM 2026`,
+    description: `Prognose ${homeName} vs ${awayName} WM 2026: geschätzte Quoten, vorhergesagtes Ergebnis, Spielanalyse und Direktvergleich.`,
     alternates: getAlternates("predictionMatch", slug, "de"),
     openGraph: {
-      title: `${home?.flag ?? ""} Prognose ${homeName} vs ${awayName} ${away?.flag ?? ""} | CDM 2026`,
-      description: `Cotes, prediction et analyse du match ${homeName} - ${awayName}. WM 2026.`,
+      title: `${home?.flag ?? ""} Prognose ${homeName} vs ${awayName} ${away?.flag ?? ""} | WM 2026`,
+      description: `Quoten, Prognose und Spielanalyse ${homeName} - ${awayName}. WM 2026.`,
     },
   };
 }
@@ -95,13 +95,13 @@ export default async function PrognoseMatchPage({ params }: PageProps) {
     month: "long",
     year: "numeric",
   });
-  const homeName = home?.name ?? "A determiner";
-  const awayName = away?.name ?? "A determiner";
+  const homeName = home?.name ?? "Noch offen";
+  const awayName = away?.name ?? "Noch offen";
   const outcomes = prediction
     ? [
-        { key: "1", label: `Victoire ${homeName}`, prob: prediction.team1WinProb },
-        { key: "N", label: "Match nul", prob: prediction.drawProb },
-        { key: "2", label: `Victoire ${awayName}`, prob: prediction.team2WinProb },
+        { key: "1", label: `Sieg ${homeName}`, prob: prediction.team1WinProb },
+        { key: "N", label: "Unentschieden", prob: prediction.drawProb },
+        { key: "2", label: `Sieg ${awayName}`, prob: prediction.team2WinProb },
       ]
     : [];
   const maxProb = Math.max(...outcomes.map((o) => o.prob));
@@ -123,13 +123,13 @@ export default async function PrognoseMatchPage({ params }: PageProps) {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4">
         <div className="rounded-2xl px-5 py-4 text-white flex flex-col sm:flex-row sm:items-center gap-4 border border-[#d4af37]/25" style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}>
           <div className="flex-1 min-w-0">
-            <p className="font-bold text-base">Parier sur ce match</p>
+            <p className="font-bold text-base">Auf dieses Spiel wetten</p>
             {odds && (
               <p className="text-sm text-white/70 mt-0.5">
-                Cotes estimées : <span className="text-[#ffd700] font-semibold">{homeName} {odds.home}</span> · Nul {odds.draw} · <span className="text-[#ffd700] font-semibold">{awayName} {odds.away}</span>
+                Geschätzte Quoten: <span className="text-[#ffd700] font-semibold">{homeName} {odds.home}</span> · Unentschieden {odds.draw} · <span className="text-[#ffd700] font-semibold">{awayName} {odds.away}</span>
               </p>
             )}
-            <p className="text-[10px] text-white/40 mt-1">18+ | Offre soumise à conditions</p>
+            <p className="text-[10px] text-white/40 mt-1">18+ | Es gelten die AGB</p>
           </div>
           <a
             href={pmuTrackingUrl("match-hero-cta")}
@@ -138,12 +138,12 @@ export default async function PrognoseMatchPage({ params }: PageProps) {
             className="shrink-0 inline-block rounded-xl px-6 py-3 text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition-all text-center"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
-            100€ offerts sur PMU Play →
+            Jetzt bei Betano wetten →
           </a>
         </div>
       </div>
 
-      <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Mon pronostic pour ${homeName} vs ${awayName} : ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gagne ! #CDM2026 #WorldCup2026`} />
+      <MatchActions matchSlug={match.slug} homeName={homeName} awayName={awayName} predictionText={`Meine Prognose für ${homeName} vs ${awayName}: ${prediction && prediction.team1WinProb > prediction.team2WinProb ? homeName : awayName} gewinnt! #WM2026 #WorldCup2026`} />
 
       <MatchTabsClient>
         <PredictionTab prediction={prediction} outcomes={outcomes} maxProb={maxProb} home={home} away={away} homeName={homeName} awayName={awayName} match={match} predHome={predHome} predAway={predAway} h2h={h2h} stage={stage} dateFormatted={dateFormatted} stadium={stadium} city={city} enriched={enriched} odds={odds} featuredBookmaker={featuredBookmaker} relatedMatches={relatedMatches} />

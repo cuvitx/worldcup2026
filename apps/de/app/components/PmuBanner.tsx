@@ -8,7 +8,7 @@ interface PmuBannerProps {
 }
 
 /**
- * Compact PMU banner — same premium visual DNA (dark gradient, gold accents)
+ * Compact Betano banner — premium visual DNA (dark gradient, gold accents)
  * in a single-row layout. Used in footer, info pages, and sidebars.
  * `compact` mode stacks vertically for sidebar usage.
  */
@@ -43,17 +43,17 @@ export function PmuBanner({
         >
           <img
             src="/partners/pmu-play.webp"
-            alt="PMU Play"
+            alt="Betano"
             width={100}
             height={30}
             className="h-6 w-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
           />
           <div className="text-center">
             <p className="text-[#d4af37] font-bold text-xs uppercase tracking-wide">
-              Bonus de bienvenue
+              Willkommensbonus
             </p>
             <p className="text-white font-extrabold text-lg mt-0.5">
-              100&nbsp;&euro; <span className="text-[#ffd700]">offerts</span>
+              Jetzt <span className="text-[#ffd700]">wetten</span>
             </p>
           </div>
           <span className="relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2 text-xs font-black uppercase tracking-wider text-[#0c3b2e] shadow transition"
@@ -67,7 +67,7 @@ export function PmuBanner({
               aria-hidden="true"
               className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
             />
-            <span className="relative">J&apos;en profite</span>
+            <span className="relative">Jetzt sichern</span>
             <span className="relative" aria-hidden="true">&rarr;</span>
           </span>
         </a>
@@ -75,7 +75,7 @@ export function PmuBanner({
         {/* Legal */}
         <div className="border-t border-white/5 bg-black/25 px-3 py-1.5">
           <p className="text-center text-[9px] leading-snug text-white/30">
-            18+ | <a href="tel:0974751313" className="underline">09 74 75 13 13</a> | Jeu responsable
+            18+ | <a href="tel:08001372700" className="underline">0800 1 37 27 00</a> | Verantwortungsvolles Spielen
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@ export function PmuBanner({
       >
         <img
           src="/partners/pmu-play.webp"
-          alt="PMU Play"
+          alt="Betano"
           width={120}
           height={36}
           className="h-7 w-auto shrink-0 drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
@@ -113,10 +113,10 @@ export function PmuBanner({
 
         <div className="flex-1 text-center sm:text-left">
           <p className="text-[#d4af37] font-bold text-xs sm:text-sm uppercase tracking-wide">
-            Bonus de bienvenue
+            Willkommensbonus
           </p>
           <p className="text-white font-extrabold text-xl sm:text-2xl mt-0.5">
-            Jusqu&apos;à <span className="text-[#ffd700]">100&nbsp;&euro;</span> offerts en cash
+            Jetzt bei <span className="text-[#ffd700]">Betano</span> wetten
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export function PmuBanner({
             aria-hidden="true"
             className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
           />
-          <span className="relative">Parier maintenant</span>
+          <span className="relative">Jetzt wetten</span>
           <span className="relative" aria-hidden="true">&rarr;</span>
         </span>
       </a>
@@ -140,11 +140,11 @@ export function PmuBanner({
       {/* Legal */}
       <div className="relative border-t border-white/5 bg-black/25 px-4 py-2 sm:px-5">
         <p className="text-center text-[10px] leading-snug text-white/30">
-          18+ | Offre soumise à conditions |{" "}
-          <a href="tel:0974751313" className="underline text-white/40 hover:text-white/60">
-            09 74 75 13 13
+          18+ | Es gelten die AGB |{" "}
+          <a href="tel:08001372700" className="underline text-white/40 hover:text-white/60">
+            0800 1 37 27 00
           </a>{" "}
-          | Jeu responsable
+          | Verantwortungsvolles Spielen
         </p>
       </div>
     </div>

@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: getAlternates("h2h", slug, "de"),
     openGraph: {
       title: `${team1.flag} ${team1.name} vs ${team2.name} ${team2.flag}`,
-      description: `Analyse complète ${team1.name} - ${team2.name}. Historique, stats et pronostic CDM 2026.`,
+      description: `Vollständige Analyse ${team1.name} - ${team2.name}. Historique, stats et pronostic CDM 2026.`,
     },
   };
 }
@@ -98,7 +98,7 @@ export default async function H2HPage({ params }: PageProps) {
           </div>
           {sameGroup && (
             <p className="mt-4 text-center text-gray-300">
-              Ces deux équipes sont dans le{" "}
+              Ces deux Mannschafts sont dans le{" "}
               <Link href={`/gruppe/${team1.group.toLowerCase()}`} className="underline">
                 Groupe {team1.group}
               </Link>
@@ -144,7 +144,7 @@ export default async function H2HPage({ params }: PageProps) {
                   {[
                     { label: "Confédération", v1: team1.confederation, v2: team2.confederation },
                     { label: "Gruppe CDM 2026", v1: team1.group, v2: team2.group },
-                    { label: "Meilleur résultat", v1: team1.bestResult, v2: team2.bestResult },
+                    { label: "Bestes Ergebnis", v1: team1.bestResult, v2: team2.bestResult },
                   ].map((row) => (
                     <React.Fragment key={row.label}>
                       <div className="text-right font-medium">{row.v1}</div>
@@ -158,13 +158,13 @@ export default async function H2HPage({ params }: PageProps) {
 
             {/* Historical H2H */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Historique des confrontations</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Konfrontationshistorie</h2>
               {h2h && h2h.totalMatches > 0 ? (
                 <>
                   <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
                     <div className="rounded-lg bg-primary/5 p-2 text-center sm:p-4">
                       <p className="text-xl font-bold text-primary sm:text-3xl">{h2h.team1Wins}</p>
-                      <p className="text-xs text-gray-500">Victoires {team1.name}</p>
+                      <p className="text-xs text-gray-500">Siegs {team1.name}</p>
                     </div>
                     <div className="rounded-lg bg-gray-50 p-2 text-center sm:p-4">
                       <p className="text-xl font-bold text-gray-600 sm:text-3xl">{h2h.draws}</p>
@@ -172,7 +172,7 @@ export default async function H2HPage({ params }: PageProps) {
                     </div>
                     <div className="rounded-lg bg-primary/5 p-2 text-center sm:p-4">
                       <p className="text-xl font-bold text-primary sm:text-3xl">{h2h.team2Wins}</p>
-                      <p className="text-xs text-gray-500">Victoires {team2.name}</p>
+                      <p className="text-xs text-gray-500">Siegs {team2.name}</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">
@@ -187,7 +187,7 @@ export default async function H2HPage({ params }: PageProps) {
                   </div>
                   {h2h.lastMatch && (
                     <p className="text-sm text-gray-600">
-                      <span className="font-medium">Dernier match :</span> {h2h.lastMatch}
+                      <span className="font-medium">Letztes Spiel :</span> {h2h.lastMatch}
                       {h2h.lastMatchDate && ` (${new Date(h2h.lastMatchDate).toLocaleDateString("de-DE", { year: "numeric", month: "long", day: "numeric" })})`}
                     </p>
                   )}
@@ -248,14 +248,14 @@ export default async function H2HPage({ params }: PageProps) {
             </section>
 
             {/* PMU CTA */}
-            <PmuCTA tracking="h2h" heading="Pariez sur ce duel avec PMU Play" />
+            <PmuCTA tracking="h2h" heading="Wetten auf ce duel avec Betano" />
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Team Links */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiches équipes</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiches Mannschafts</h3>
               <div className="space-y-3">
                 <Link
                   href={`/mannschaft/${team1.slug}`}

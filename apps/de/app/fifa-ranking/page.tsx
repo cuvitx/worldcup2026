@@ -8,11 +8,11 @@ import { TableOfContents } from "@repo/ui";
 import { PmuBanner } from "../components/PmuBanner";
 
 export const metadata: Metadata = {
-  title: "Rangliste FIFA 2026 - Ranking des 48 équipes qualifiées | CDM 2026",
+  title: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts qualifiées | CDM 2026",
   description:
-    "Rangliste FIFA complet des 48 équipes qualifiées pour la WM 2026. Découvrez le ranking officiel, les mouvements et l'évolution des sélections.",
+    "Rangliste FIFA complet des 48 Mannschafts qualifiées pour la WM 2026. Découvrez le ranking officiel, les mouvements et l'évolution des sélections.",
   openGraph: {
-    title: "Rangliste FIFA 2026 - Ranking des 48 équipes",
+    title: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts",
     description:
       "Rangliste FIFA officiel des 48 sélections qualifiées pour la CDM 2026, avec historique et analyse.",
     url: "https://www.wm2026guide.de/fifa-ranking",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Préparer les équipes triées par classement FIFA
+// Préparer les Mannschafts triées par classement FIFA
 const teamsRanked = [...teams]
   .filter((t) => t.fifaRanking > 0)
   .sort((a, b) => a.fifaRanking - b.fifaRanking);
@@ -40,11 +40,11 @@ const faqItems = [
   },
   {
     question: "Le classement FIFA influence-t-il le tirage au sort ?",
-    answer: "Oui, le classement FIFA est utilisé pour déterminer les têtes de série lors du tirage au sort de la WM. Les 12 équipes les mieux classées sont généralement réparties dans les différents chapeaux, ce qui influence les groupes et donc les parcours potentiels des sélections."
+    answer: "Oui, le classement FIFA est utilisé pour déterminer les têtes de série lors du tirage au sort de la WM. Les 12 Mannschafts les mieux classées sont généralement réparties dans les différents chapeaux, ce qui influence les groupes et donc les parcours potentiels des sélections."
   },
   {
-    question: "Quelle est l'équipe la moins bien classée qualifiée pour la CDM 2026 ?",
-    answer: "Parmi les équipes déjà qualifiées (hors barrages), l'Afrique du Sud est l'équipe la moins bien classée au ranking FIFA (#60). Les six places de barrages restantes pourraient accueillir des équipes avec un classement moins favorable."
+    question: "Quelle est l'Mannschaft la moins bien classée qualifiée pour la CDM 2026 ?",
+    answer: "Parmi les Mannschafts déjà qualifiées (hors barrages), l'Afrique du Sud est l'Mannschaft la moins bien classée au ranking FIFA (#60). Les six places de barrages restantes pourraient accueillir des Mannschafts avec un classement moins favorable."
   },
   {
     question: "À quelle fréquence le classement FIFA est-il mis à jour ?",
@@ -52,7 +52,7 @@ const faqItems = [
   },
   {
     question: "Le classement FIFA est-il fiable pour prédire les résultats ?",
-    answer: "Le classement FIFA est un bon indicateur de la force relative des équipes, mais il ne prédit pas toujours les résultats d'un match donné. Des facteurs comme la forme du moment, les blessures, l'avantage du terrain et les tactiques peuvent inverser les pronostics. Néanmoins, statistiquement, les équipes mieux classées ont plus de chances de réussite."
+    answer: "Le classement FIFA est un bon indicateur de la force relative des Mannschafts, mais il ne prédit pas toujours les résultats d'un match donné. Des facteurs comme la forme du moment, les blessures, l'avantage du terrain et les tactiques peuvent inverser les pronostics. Néanmoins, statistiquement, les Mannschafts mieux classées ont plus de chances de réussite."
   }
 ];
 
@@ -66,7 +66,7 @@ export default function RanglisteFifaPage() {
             Ranking FIFA 2026
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Rangliste FIFA des 48 équipes
+            Rangliste FIFA des 48 Mannschafts
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
             Découvrez le classement FIFA complet des sélections qualifiées pour la WM 2026.
@@ -102,7 +102,7 @@ export default function RanglisteFifaPage() {
             </p>
             <p className="text-gray-700 leading-relaxed">
               Pour la WM 2026, le classement FIFA a joué un rôle décisif dans la composition des chapeaux lors du tirage au sort.
-              Les 12 équipes les mieux classées ont été réparties comme têtes de série dans les 12 groupes, 
+              Les 12 Mannschafts les mieux classées ont été réparties comme têtes de série dans les 12 groupes, 
               influençant directement les parcours et les confrontations potentielles.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function RanglisteFifaPage() {
                         Rang FIFA
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                        Équipe
+                        Mannschaft
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                         Confédération
@@ -287,8 +287,8 @@ export default function RanglisteFifaPage() {
           {/* Navigation */}
           <div className="mt-12 grid sm:grid-cols-3 gap-4">
             {[
-              { href: "/mannschaft", label: "Alle équipes", desc: "48 sélections qualifiées" },
-              { href: "/gruppen", label: "Composition des groupes", desc: "12 groupes de 4 équipes" },
+              { href: "/mannschaft", label: "Alle Mannschafts", desc: "48 sélections qualifiées" },
+              { href: "/gruppen", label: "Composition des groupes", desc: "12 groupes de 4 Mannschafts" },
               { href: "/statistiques", label: "Statistiques CDM", desc: "Records et analyses" },
             ].map(({ href, label, desc }) => (
               <Link
@@ -314,12 +314,12 @@ export default function RanglisteFifaPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/mannschaft", title: "48 équipes qualifiées", description: "Fiches complètes des équipes de la CDM 2026", icon: "" },
+        <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
+          { href: "/mannschaft", title: "48 Mannschafts qualifiées", description: "Fiches complètes des Mannschafts de la CDM 2026", icon: "" },
           { href: "/gruppen", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "" },
-          { href: "/prognose/vainqueur", title: "Prognose vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
+          { href: "/prognose/sieger", title: "Prognose vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
           { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "" },
-          { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre équipe", icon: "" },
+          { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre Mannschaft", icon: "" },
         ]} />
       </div>
 
@@ -332,12 +332,12 @@ export default function RanglisteFifaPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Rangliste FIFA 2026 - Ranking des 48 équipes qualifiées",
-            description: "Rangliste FIFA complet des 48 équipes qualifiées pour la WM 2026.",
+            name: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts qualifiées",
+            description: "Rangliste FIFA complet des 48 Mannschafts qualifiées pour la WM 2026.",
             url: "https://www.wm2026guide.de/fifa-ranking",
             mainEntity: {
               "@type": "ItemList",
-              name: "Rangliste FIFA des équipes qualifiées CDM 2026",
+              name: "Rangliste FIFA des Mannschafts qualifiées CDM 2026",
               numberOfItems: teamsRanked.length,
               itemListElement: teamsRanked.slice(0, 20).map((team, idx) => ({
                 "@type": "ListItem",

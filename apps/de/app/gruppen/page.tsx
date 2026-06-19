@@ -11,13 +11,13 @@ import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import type { Match } from "@repo/data/types";
 import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
-  title: "Les 12 groupes de la WM 2026 | Rangliste & Prognoses",
+  title: "Die 12 Gruppen der WM 2026 | Tabelle & Prognosen",
   description:
-    "Tous les groupes de la WM 2026 (A à L). Rangliste, équipes qualifiées, spielplan des matchs et pronostics pour chaque groupe.",
+    "Alle Gruppen der WM 2026 (A bis L). Tabelle, qualifizierte Mannschaften, Spielplan und Prognosen für jede Gruppe.",
   alternates: getStaticAlternates("teams", "de"),
   openGraph: {
-    title: "Les 12 groupes - WM 2026",
-    description: "Groupes A à L de la CDM 2026 avec classement et pronostics.",
+    title: "Die 12 Gruppen - WM 2026",
+    description: "Gruppen A bis L der WM 2026 mit Tabelle und Prognosen.",
   },
 };
 
@@ -42,24 +42,24 @@ export default async function GroupsPage() {
   }
   const faqItems = [
     {
-      question: "Combien de groupes y a-t-il dans la WM 2026 ?",
-      answer: "La WM 2026 compte 12 groupes (de A à L). Chaque groupe est composé de 4 équipes, soit un total de 48 équipes participantes. C'est la première fois que le format passe de 32 à 48 équipes."
+      question: "Wie viele Gruppen gibt es bei der WM 2026?",
+      answer: "Die WM 2026 umfasst 12 Gruppen (A bis L). Jede Gruppe besteht aus 4 Mannschaften, insgesamt 48 teilnehmende Mannschaften. Es ist das erste Mal, dass das Format von 32 auf 48 Mannschaften erweitert wird."
     },
     {
-      question: "Combien d'équipes se qualifient par groupe ?",
-      answer: "Les 2 premières équipes de chaque groupe se qualifient automatiquement pour les huitièmes de finale, soit 24 équipes. En plus de ces 24 équipes, les 8 meilleurs troisièmes parmi l'ensemble des 12 groupes se qualifient également, portant le total à 32 équipes qualifiées pour la phase à élimination directe."
+      question: "Wie viele Mannschaften qualifizieren sich pro Gruppe?",
+      answer: "Die 2 erstplatzierten Mannschaften jeder Gruppe qualifizieren sich automatisch für das Achtelfinale, also 24 Mannschaften. Zusätzlich qualifizieren sich die 8 besten Gruppendritten aus allen 12 Gruppen, sodass insgesamt 32 Mannschaften in die K.-o.-Runde einziehen."
     },
     {
-      question: "Comment sont déterminés les meilleurs troisièmes ?",
-      answer: "Les 8 meilleurs troisièmes sont classés selon les critères FIFA : nombre de points, puis différence de buts, puis nombre de buts marqués, puis fair-play, puis tirage au sort en dernier recours. Seuls les 8 meilleurs troisièmes sur les 12 groupes se qualifient."
+      question: "Wie werden die besten Gruppendritten ermittelt?",
+      answer: "Die 8 besten Gruppendritten werden nach FIFA-Kriterien gerankt: Punktzahl, dann Tordifferenz, dann Anzahl geschossener Tore, dann Fair Play, dann Losentscheid als letztes Mittel. Nur die 8 besten Gruppendritten von 12 Gruppen qualifizieren sich."
     },
     {
-      question: "Quels sont les groupes les plus relevés de la CDM 2026 ?",
-      answer: "Les groupes les plus difficiles sont généralement ceux qui comportent plusieurs équipes du top 15 mondial. Le Groupe G (Espagne, Pays-Bas) et le Groupe H (Portugal, Danemark) sont considérés comme des « groupes de la mort  avec plusieurs favoris. La composition des groupes dépend du tirage au sort effectué fin 2025."
+      question: "Welche sind die stärksten Gruppen der WM 2026?",
+      answer: "Die schwierigsten Gruppen sind in der Regel jene mit mehreren Mannschaften aus den Top 15 der Weltrangliste. Gruppe G (Spanien, Niederlande) und Gruppe H (Portugal, Dänemark) gelten als Todesgruppen mit mehreren Favoriten. Die Gruppenzusammensetzung wurde Ende 2025 ausgelost."
     },
     {
-      question: "Quand se joue la phase de groupes de la CDM 2026 ?",
-      answer: "La phase de groupes se déroule du 11 juin au 27 juin 2026. Chaque équipe joue 3 matchs de poule (un contre chaque adversaire de son groupe). Les matchs sont répartis sur les 16 stades des trois pays hôtes : États-Unis, Canada et Mexique."
+      question: "Wann findet die Gruppenphase der WM 2026 statt?",
+      answer: "Die Gruppenphase läuft vom 11. Juni bis 27. Juni 2026. Jede Mannschaft spielt 3 Gruppenspiele (je eines gegen jeden Gruppengegner). Die Spiele verteilen sich auf 16 Stadien in den drei Gastgeberländern: USA, Kanada und Mexiko."
     }
   ];
 
@@ -67,8 +67,8 @@ export default async function GroupsPage() {
     <>
 <HeroSection
         badge="Gruppenphase"
-        title="Les 12 groupes de la CDM 2026"
-        subtitle="48 équipes réparties en 12 groupes de 4. Les 2 premiers de chaque groupe et les 8 meilleurs 3e sont qualifiés."
+        title="Die 12 Gruppen der WM 2026"
+        subtitle="48 Mannschaften aufgeteilt in 12 Gruppen zu je 4. Die 2 Erstplatzierten jeder Gruppe und die 8 besten Dritten sind qualifiziert."
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
@@ -125,10 +125,10 @@ export default async function GroupsPage() {
                 {/* Header */}
                 <div className="hero-animated px-4 py-3 flex items-center justify-between">
                   <h2 className="text-xl sm:text-2xl font-bold text-accent">
-                    Groupe {group.letter}
+                    Gruppe {group.letter}
                   </h2>
                   <span className="text-xs text-white/70 group-hover:text-white transition-colors">
-                    Voir détails →
+                    Details ansehen →
                   </span>
                 </div>
 
@@ -160,7 +160,7 @@ export default async function GroupsPage() {
                         </span>
                         {hasResults && standing ? (
                           <span className="text-xs font-bold text-[#022149] tabular-nums">
-                            {standing.pts} pts
+                            {standing.pts} Pkt
                           </span>
                         ) : (
                           <>
@@ -189,9 +189,9 @@ export default async function GroupsPage() {
         <div className="mt-8 flex items-center gap-4 text-xs text-gray-500">
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-3 h-3 rounded bg-accent/10 border border-accent/30" />
-            Qualifié (top 2)
+            Qualifiziert (Top 2)
           </span>
-          <span>% = chances de sortie de groupe</span>
+          <span>% = Chancen auf Gruppenqualifikation</span>
         </div>
       </div>
 
@@ -201,27 +201,27 @@ export default async function GroupsPage() {
           links={[
             {
               href: "/mannschaft",
-              title: "Alle équipes",
-              description: "Découvrez les 48 équipes qualifiées avec stats et pronostics.",
+              title: "Alle Mannschaften",
+              description: "Entdecken Sie die 48 qualifizierten Mannschaften mit Statistiken und Prognosen.",
               icon: ""
             },
             {
               href: "/spiel/spielplan",
-              title: " Spielplan des matchs",
-              description: "Tous les matchs de la phase de groupes avec dates et horaires.",
+              title: "Spielplan",
+              description: "Alle Spiele der Gruppenphase mit Daten und Uhrzeiten.",
               icon: ""
             },
             {
-              href: "/prognose/vainqueur",
-              title: "Prognose vainqueur",
-              description: "Nos prédictions et cotes pour le vainqueur de la CDM 2026.",
+              href: "/prognose/sieger",
+              title: "Prognose Sieger",
+              description: "Unsere Vorhersagen und Quoten für den Sieger der WM 2026.",
               icon: ""
             }
           ]}
         />
       </div>
 
-      <FAQSection title="Questions fréquentes sur les groupes" items={faqItems} />
+      <FAQSection title="Häufige Fragen zu den Gruppen" items={faqItems} />
     </>
   );
 }

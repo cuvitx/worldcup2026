@@ -7,7 +7,7 @@ interface AffiliateSectionProps {
 export function AffiliateSection({ teamName }: AffiliateSectionProps) {
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">Parier sur {teamName}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-2">Wetten auf {teamName}</h2>
       <p className="mb-6 text-sm text-gray-600">
         Comparez les meilleurs sites de paris sportifs agreees en France pour parier sur {teamName}à la WM 2026.
       </p>
@@ -37,7 +37,7 @@ export function AffiliateSection({ teamName }: AffiliateSectionProps) {
                   rel="noopener noreferrer sponsored nofollow"
                   className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${isFeatured ? "bg-accent hover:bg-accent/90" : "bg-primary hover:bg-primary/90"}`}
                 >
-                  Parier sur {teamName}
+                  Wetten auf {teamName}
                 </a>
               </div>
             </div>

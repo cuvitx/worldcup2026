@@ -283,7 +283,7 @@ export default async function GuidePage({ params }: PageProps) {
                 </ul>
                 <div className="mt-3">
                   <Link href="/guides" className="text-sm font-medium text-primary hover:underline">
-                    Voir tous les guides →
+                    Alle anzeigen guides →
                   </Link>
                 </div>
               </div>

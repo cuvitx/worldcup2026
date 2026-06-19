@@ -191,13 +191,13 @@ export default async function ArticlePage({ params }: Props) {
         <div className="mt-10 rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-white">
           <h3 className="text-xl font-bold mb-2">Restez informé sur la CDM 2026</h3>
           <p className="text-sm text-white/80 mb-4">
-            Recevez les dernières analyses, pronostics et actualités directement.
+            Recevez les dernières analyses, pronostics et Nachrichten directement.
           </p>
           <Link
             href="/actualites"
             className="inline-block rounded-lg bg-white text-primary font-bold px-6 py-2 hover:bg-gray-100 transition"
           >
-            Alle anzeigenes les actualités →
+            Alle anzeigenes les Nachrichten →
           </Link>
         </div>
 

@@ -19,7 +19,7 @@ export function H2HSection({
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        Historique des confrontations
+        Direktvergleich
       </h2>
       {h2h && h2h.totalMatches > 0 ? (
         <>
@@ -29,21 +29,21 @@ export function H2HSection({
                 {h2h.team1Wins}
               </p>
               <p className="text-xs text-gray-500">
-                Victoires {homeName}
+                Siege {homeName}
               </p>
             </div>
             <div className="rounded-lg bg-gray-50 p-4 text-center">
               <p className="text-3xl font-bold text-gray-600">
                 {h2h.draws}
               </p>
-              <p className="text-xs text-gray-500">Nuls</p>
+              <p className="text-xs text-gray-500">Unentschieden</p>
             </div>
             <div className="rounded-lg bg-primary/5 p-4 text-center">
               <p className="text-3xl font-bold text-primary">
                 {h2h.team2Wins}
               </p>
               <p className="text-xs text-gray-500">
-                Victoires {awayName}
+                Siege {awayName}
               </p>
             </div>
           </div>
@@ -52,18 +52,18 @@ export function H2HSection({
               <p className="text-xl font-bold text-primary">
                 {h2h.totalMatches}
               </p>
-              <p className="text-xs text-gray-500">Matchs joues</p>
+              <p className="text-xs text-gray-500">Gespielte Spiele</p>
             </div>
             <div className="rounded-lg bg-gray-50 p-3 text-center">
               <p className="text-xl font-bold text-primary">
                 {h2h.team1Goals} - {h2h.team2Goals}
               </p>
-              <p className="text-xs text-gray-500">Buts marques</p>
+              <p className="text-xs text-gray-500">Erzielte Tore</p>
             </div>
           </div>
           {h2h.lastMatch && (
             <p className="text-sm text-gray-600 mb-4">
-              <span className="font-medium">Dernier match :</span>{" "}
+              <span className="font-medium">Letztes Spiel:</span>{" "}
               {h2h.lastMatch}
               {h2h.lastMatchDate &&
                 ` (${new Date(h2h.lastMatchDate).toLocaleDateString(
@@ -81,7 +81,7 @@ export function H2HSection({
               href={`/h2h/${home.slug}-vs-${away.slug}`}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all"
             >
-              Historique complet
+              Vollstaendiger Direktvergleich
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Link>
           </div>
@@ -89,16 +89,16 @@ export function H2HSection({
       ) : (
         <div>
           <p className="text-gray-600 mb-4">
-            {homeName} et {awayName} ne se sont jamais affrontés. La
-            WM 2026 sera leur première confrontation
-            historique.
+            {homeName} und {awayName} sind noch nie gegeneinander angetreten. Die
+            WM 2026 wird ihre erste historische Begegnung
+            sein.
           </p>
           <div className="text-center">
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all"
             >
-              Voir la confrontation
+              Direktvergleich ansehen
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Link>
           </div>

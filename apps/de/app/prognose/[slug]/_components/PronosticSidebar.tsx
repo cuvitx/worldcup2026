@@ -21,7 +21,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
           <div className="flex justify-between"><dt className="text-gray-500">Groupe</dt><dd className="font-medium"><Link href={`/gruppe/${team.group.toLowerCase()}`} className="text-primary hover:underline">Gruppe {team.group}</Link></dd></div>
           <div className="flex justify-between"><dt className="text-gray-500">Confederation</dt><dd className="font-medium">{team.confederation}</dd></div>
           <div className="flex justify-between"><dt className="text-gray-500">Participations CDM</dt><dd className="font-medium">{team.wcAppearances}</dd></div>
-          <div className="flex justify-between"><dt className="text-gray-500">Meilleur résultat</dt><dd className="font-medium text-right max-w-[55%]">{team.bestResult}</dd></div>
+          <div className="flex justify-between"><dt className="text-gray-500">Bestes Ergebnis</dt><dd className="font-medium text-right max-w-[55%]">{team.bestResult}</dd></div>
           {prediction && (
             <>
               <div className="border-t border-gray-100 pt-3 flex justify-between"><dt className="text-gray-500">Rating ELO</dt><dd className="font-bold text-primary">{prediction.eloRating}</dd></div>
@@ -30,7 +30,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
           )}
         </dl>
         <div className="mt-4">
-          <Link href={`/mannschaft/${team.slug}`} className="block w-full text-center rounded-lg bg-primary py-2 text-sm font-medium text-white hover:bg-primary/90 transition-colors">Voir la fiche complète &rarr;</Link>
+          <Link href={`/mannschaft/${team.slug}`} className="block w-full text-center rounded-lg bg-primary py-2 text-sm font-medium text-white hover:bg-primary/90 transition-colors">Profil anzeigen complète &rarr;</Link>
         </div>
       </div>
 
@@ -47,13 +47,13 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
             </li>
           ))}
         </ul>
-        <div className="mt-3"><Link href={`/gruppe/${team.group.toLowerCase()}`} className="text-sm text-primary hover:underline">Voir le Groupe {team.group} &rarr;</Link></div>
+        <div className="mt-3"><Link href={`/gruppe/${team.group.toLowerCase()}`} className="text-sm text-primary hover:underline">Zeige Groupe {team.group} &rarr;</Link></div>
       </div>
 
       {/* H2H Links */}
       {groupTeams.length > 0 && (
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Confrontations directes</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Direktvergleich</h3>
           <ul className="space-y-2">
             {groupTeams.map((t) => (
               <li key={t.id}>
@@ -68,7 +68,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
 
       {/* Sidebar CTA */}
       <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">Parier sur {team.name}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Wetten auf {team.name}</h3>
         {prediction ? (
           <div className="space-y-3 mb-4">
             <div className="flex justify-between text-sm"><span className="text-gray-600">Cote vainqueur</span><span className="font-bold text-accent">{estimatedOutrightOdds(prediction.winnerProb)}</span></div>

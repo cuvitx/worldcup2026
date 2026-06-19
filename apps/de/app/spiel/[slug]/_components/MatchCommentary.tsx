@@ -43,47 +43,47 @@ const TYPE_BG: Record<CommentaryPlay["type"], string> = {
   other: "bg-white border-gray-100",
 };
 
-// Translate common English terms in ESPN commentary to French
+// Translate common English terms in ESPN commentary to German
 function translateCommentary(text: string): string {
   return text
-    .replace(/^Goal!/g, "But !")
-    .replace(/^Goal -/g, "But -")
-    .replace(/^Attempt saved\./g, "Tir arrêté.")
-    .replace(/^Attempt missed\./g, "Tir non cadré.")
-    .replace(/^Attempt blocked\./g, "Tir bloqué.")
-    .replace(/^Corner,/g, "Corner,")
-    .replace(/^Foul by/g, "Faute de")
-    .replace(/^Offside,/g, "Hors-jeu,")
-    .replace(/^Substitution,/g, "Remplacement,")
-    .replace(/^Second Half begins/g, "Début de la seconde période")
-    .replace(/^First Half ends/g, "Fin de la première période")
-    .replace(/^Second Half ends/g, "Fin de la seconde période")
-    .replace(/^Match ends/g, "Fin du match")
-    .replace(/is shown the yellow card/g, "reçoit un carton jaune")
-    .replace(/is shown the red card/g, "reçoit un carton rouge")
-    .replace(/right footed shot/g, "frappe du pied droit")
-    .replace(/left footed shot/g, "frappe du pied gauche")
-    .replace(/header/g, "tête")
-    .replace(/from the centre of the box/g, "du centre de la surface")
-    .replace(/from outside the box/g, "de l'extérieur de la surface")
-    .replace(/from the left side of the box/g, "du côté gauche de la surface")
-    .replace(/from the right side of the box/g, "du côté droit de la surface")
-    .replace(/to the bottom left corner/g, "en bas à gauche")
-    .replace(/to the bottom right corner/g, "en bas à droite")
-    .replace(/to the top left corner/g, "en haut à gauche")
-    .replace(/to the top right corner/g, "en haut à droite")
-    .replace(/to the centre of the goal/g, "au centre du but")
-    .replace(/is saved in the/g, "est arrêté dans le")
-    .replace(/Assisted by/g, "Passe décisive de")
-    .replace(/replaces/g, "remplace")
-    .replace(/for a bad foul/g, "pour une faute grossière")
-    .replace(/wins a free kick/g, "obtient un coup franc")
-    .replace(/in the defensive half/g, "dans la moitié défensive")
-    .replace(/in the attacking half/g, "dans la moitié offensive")
-    .replace(/Penalty saved!/g, "Penalty arrêté !")
-    .replace(/Penalty conceded/g, "Penalty concédé")
-    .replace(/Own Goal/g, "But contre son camp")
-    .replace(/Hand ball/g, "Main");
+    .replace(/^Goal!/g, "Tor!")
+    .replace(/^Goal -/g, "Tor -")
+    .replace(/^Attempt saved\./g, "Schuss gehalten.")
+    .replace(/^Attempt missed\./g, "Schuss vorbei.")
+    .replace(/^Attempt blocked\./g, "Schuss geblockt.")
+    .replace(/^Corner,/g, "Ecke,")
+    .replace(/^Foul by/g, "Foul von")
+    .replace(/^Offside,/g, "Abseits,")
+    .replace(/^Substitution,/g, "Auswechslung,")
+    .replace(/^Second Half begins/g, "Beginn der zweiten Halbzeit")
+    .replace(/^First Half ends/g, "Ende der ersten Halbzeit")
+    .replace(/^Second Half ends/g, "Ende der zweiten Halbzeit")
+    .replace(/^Match ends/g, "Spielende")
+    .replace(/is shown the yellow card/g, "sieht die Gelbe Karte")
+    .replace(/is shown the red card/g, "sieht die Rote Karte")
+    .replace(/right footed shot/g, "Schuss mit rechts")
+    .replace(/left footed shot/g, "Schuss mit links")
+    .replace(/header/g, "Kopfball")
+    .replace(/from the centre of the box/g, "aus der Mitte des Strafraums")
+    .replace(/from outside the box/g, "von ausserhalb des Strafraums")
+    .replace(/from the left side of the box/g, "von der linken Seite des Strafraums")
+    .replace(/from the right side of the box/g, "von der rechten Seite des Strafraums")
+    .replace(/to the bottom left corner/g, "in die linke untere Ecke")
+    .replace(/to the bottom right corner/g, "in die rechte untere Ecke")
+    .replace(/to the top left corner/g, "in die linke obere Ecke")
+    .replace(/to the top right corner/g, "in die rechte obere Ecke")
+    .replace(/to the centre of the goal/g, "in die Tormitte")
+    .replace(/is saved in the/g, "wird gehalten im")
+    .replace(/Assisted by/g, "Vorlage von")
+    .replace(/replaces/g, "ersetzt")
+    .replace(/for a bad foul/g, "fur ein grobes Foul")
+    .replace(/wins a free kick/g, "bekommt einen Freistoss")
+    .replace(/in the defensive half/g, "in der eigenen Halfte")
+    .replace(/in the attacking half/g, "in der gegnerischen Halfte")
+    .replace(/Penalty saved!/g, "Elfmeter gehalten!")
+    .replace(/Penalty conceded/g, "Elfmeter verursacht")
+    .replace(/Own Goal/g, "Eigentor")
+    .replace(/Hand ball/g, "Handspiel");
 }
 
 export function MatchCommentary({
@@ -124,11 +124,11 @@ export function MatchCommentary({
   }
 
   const periodLabels: Record<number, string> = {
-    1: "1ère mi-temps",
-    2: "2ème mi-temps",
-    3: "Prolongations 1",
-    4: "Prolongations 2",
-    5: "Tirs au but",
+    1: "1. Halbzeit",
+    2: "2. Halbzeit",
+    3: "Verlangerung 1",
+    4: "Verlangerung 2",
+    5: "Elfmeterschiessen",
   };
 
   return (
@@ -136,10 +136,10 @@ export function MatchCommentary({
       {/* Header */}
       <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
         <h2 className="font-bold text-lg text-gray-900">
-          Fil du match
+          Spielverlauf
         </h2>
         <span className="text-xs text-gray-400 font-medium">
-          {plays.length} événements
+          {plays.length} Ereignisse
         </span>
       </div>
 
@@ -159,7 +159,7 @@ export function MatchCommentary({
             {/* Period label */}
             <div className="px-5 py-2 bg-gray-50/80 sticky top-0 z-10">
               <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
-                {periodLabels[period] ?? `Période ${period}`}
+                {periodLabels[period] ?? `Spielabschnitt ${period}`}
               </span>
             </div>
 
@@ -207,8 +207,8 @@ export function MatchCommentary({
           className="w-full flex items-center justify-center gap-1.5 py-3 border-t border-gray-100 text-sm font-medium text-emerald-600 hover:text-emerald-700 hover:bg-gray-50/50 transition-colors"
         >
           {expanded
-            ? "Voir les événements clés"
-            : `Voir le fil complet (${plays.length} événements)`}
+            ? "Nur wichtige Ereignisse anzeigen"
+            : `Vollstandigen Spielverlauf anzeigen (${plays.length} Ereignisse)`}
           {expanded ? (
             <ChevronUp className="h-4 w-4" />
           ) : (

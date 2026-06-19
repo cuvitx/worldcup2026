@@ -61,7 +61,7 @@ function detectSilo(pathname: string): SiloMatch | null {
       ],
     },
     {
-      silo: "joueur",
+      silo: "Spieler",
       prefixes: [
         "/spieler/", "/tirs-cadres/", "/passes-decisives/", "/tacles/",
         "/cote-carton-jaune/", "/cote-buteur/", "/torschuetze/",
@@ -69,7 +69,7 @@ function detectSilo(pathname: string): SiloMatch | null {
     },
     {
       silo: "groupe",
-      prefixes: ["/gruppe/", "/pronostic-groupe/", "/scenarios-qualification/"],
+      prefixes: ["/gruppe/", "/prognose-gruppe/", "/scenarios-qualification/"],
     },
   ];
 
@@ -90,11 +90,11 @@ function detectSilo(pathname: string): SiloMatch | null {
 
   // Prognoses silo (static pages)
   const pronosticsPages = [
-    "/prognose/vainqueur", "/prognose/btts", "/prognose/over-under",
-    "/prognose/cartons", "/pronostic-corners", "/prognose/clean-sheet",
-    "/prognose/finalistes", "/prognose/tirs-au-but", "/prognose/scores-exacts",
-    "/prognose/torschuetzen", "/sportwetten", "/sportwetten/combines", "/sportwetten/handicap",
-    "/sportwetten/live", "/sportwetten/mi-temps", "/sportwetten/corners", "/sportwetten/value-bets", "/comparateur-cotes",
+    "/prognose/sieger", "/prognose/btts", "/prognose/over-under",
+    "/prognose/karten", "/prognose/ecken", "/prognose/clean-sheet",
+    "/prognose/finalisten", "/prognose/elfmeterschiessen", "/prognose/genaue-ergebnisse",
+    "/prognose/torschuetzen", "/sportwetten", "/sportwetten/kombiwetten", "/sportwetten/handicap",
+    "/sportwetten/live", "/sportwetten/halbzeit", "/sportwetten/corners", "/sportwetten/value-bets", "/comparateur-cotes",
   ];
   if (pronosticsPages.includes(p)) return { silo: "pronostics", slug: null };
 
@@ -114,75 +114,75 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
   switch (silo) {
     case "equipe":
       return [
-        { label: "Équipe", href: `/mannschaft/${slug}` },
+        { label: "Mannschaft", href: `/mannschaft/${slug}` },
         { label: "Prognose", href: `/prognose/${slug}` },
-        { label: "Effectif", href: `/effectif/${slug}` },
-        { label: "Parier", href: `/parier/${slug}` },
-        { label: "Cote champion", href: `/cote-champion/${slug}` },
+        { label: "Kader", href: `/effectif/${slug}` },
+        { label: "Wetten", href: `/parier/${slug}` },
+        { label: "Meisterquote", href: `/cote-champion/${slug}` },
       ];
     case "match":
       return [
-        { label: "Match", href: `/spiel/${slug}` },
+        { label: "Spiel", href: `/spiel/${slug}` },
         { label: "Prognose", href: `/prognose-spiel/${slug}` },
-        { label: "Score exact", href: `/score-exact/${slug}` },
-        { label: "Compos", href: `/compos-officielles/${slug}` },
-        { label: "Chaîne TV", href: `/sur-quelle-chaine/${slug}` },
-        { label: "Corners", href: `/corners/${slug}` },
+        { label: "Genaues Ergebnis", href: `/score-exact/${slug}` },
+        { label: "Aufstellung", href: `/compos-officielles/${slug}` },
+        { label: "TV", href: `/sur-quelle-chaine/${slug}` },
+        { label: "Ecken", href: `/corners/${slug}` },
         { label: "H2H", href: `/hors-jeu/${slug}` },
       ];
     case "stade-ville":
       return [
         { label: "Stadion", href: `/stadion/${slug}` },
         { label: "Stadt", href: `/stadt/${slug}` },
-        { label: "Fan zone", href: `/fan-zone/${slug}` },
-        { label: "Hébergement", href: `/hebergement/${slug}` },
-        { label: "Météo", href: `/meteo/${slug}` },
+        { label: "Fanzone", href: `/fan-zone/${slug}` },
+        { label: "Unterkunft", href: `/hebergement/${slug}` },
+        { label: "Wetter", href: `/meteo/${slug}` },
         { label: "Transport", href: `/transport/${slug}` },
-        { label: "Guide supporter", href: `/guide-supporter/${slug}` },
-        { label: "Sécurité", href: `/securite/${slug}` },
+        { label: "Fan-Guide", href: `/guide-supporter/${slug}` },
+        { label: "Sicherheit", href: `/securite/${slug}` },
       ];
-    case "joueur": {
+    case "Spieler": {
       const base = [{ label: "Spieler", href: `/spieler/${slug}` }];
       if (slug && TOP_50_SLUGS.has(slug)) {
         base.push(
-          { label: "Tirs cadrés", href: `/tirs-cadres/${slug}` },
-          { label: "Passes", href: `/passes-decisives/${slug}` },
-          { label: "Tacles", href: `/tacles/${slug}` },
-          { label: "Cote carton", href: `/cote-carton-jaune/${slug}` },
-          { label: "Cote buteur", href: `/cote-buteur/${slug}` },
+          { label: "Torschüsse", href: `/tirs-cadres/${slug}` },
+          { label: "Vorlagen", href: `/passes-decisives/${slug}` },
+          { label: "Zweikämpfe", href: `/tacles/${slug}` },
+          { label: "Kartenquote", href: `/cote-carton-jaune/${slug}` },
+          { label: "Torschützenquote", href: `/cote-buteur/${slug}` },
         );
       }
       return base;
     }
     case "groupe":
       return [
-        { label: "Groupe", href: `/gruppe/${slug}` },
-        { label: "Prognose groupe", href: `/pronostic-groupe/${slug}` },
-        { label: "Scénarios qualification", href: `/scenarios-qualification/${slug}` },
+        { label: "Gruppe", href: `/gruppe/${slug}` },
+        { label: "Gruppenprognose", href: `/prognose-gruppe/${slug}` },
+        { label: "Qualifikationsszenarien", href: `/scenarios-qualification/${slug}` },
       ];
     case "pronostics":
       return [
-        { label: "Vainqueur", href: "/prognose/vainqueur" },
+        { label: "Sieger", href: "/prognose/sieger" },
         { label: "BTTS", href: "/prognose/btts" },
         { label: "Over/Under", href: "/prognose/over-under" },
-        { label: "Cartons", href: "/prognose/cartons" },
-        { label: "Corners", href: "/sportwetten/corners" },
-        { label: "Clean Sheet", href: "/prognose/clean-sheet" },
+        { label: "Karten", href: "/prognose/karten" },
+        { label: "Ecken", href: "/sportwetten/corners" },
+        { label: "Zu Null", href: "/prognose/clean-sheet" },
         { label: "Torschützen", href: "/prognose/torschuetzen" },
-        { label: "Scores exacts", href: "/prognose/scores-exacts" },
-        { label: "Paris sportifs", href: "/sportwetten" },
-        { label: "Comparateur", href: "/comparateur-cotes" },
+        { label: "Genaue Ergebnisse", href: "/prognose/genaue-ergebnisse" },
+        { label: "Sportwetten", href: "/sportwetten" },
+        { label: "Quotenvergleich", href: "/comparateur-cotes" },
       ];
     case "guide-voyage":
       return [
         { label: "ESTA", href: "/voyage/esta-visa-usa" },
-        { label: "Visa Mexique", href: "/voyage/visa-mexique" },
-        { label: "Canada", href: "/voyage/formalites-canada" },
-        { label: "Décalage", href: "/voyage/decalage-horaire" },
-        { label: "Vols", href: "/vols" },
+        { label: "Visum Mexiko", href: "/voyage/visa-mexique" },
+        { label: "Kanada", href: "/voyage/formalites-canada" },
+        { label: "Zeitverschiebung", href: "/voyage/decalage-horaire" },
+        { label: "Flüge", href: "/vols" },
         { label: "Budget", href: "/budget" },
-        { label: "Assurance", href: "/voyage/assurance" },
-        { label: "Carte SIM", href: "/voyage/carte-sim" },
+        { label: "Versicherung", href: "/voyage/assurance" },
+        { label: "SIM-Karte", href: "/voyage/carte-sim" },
       ];
     default:
       return [];
@@ -201,7 +201,7 @@ export function SiloTabs() {
   const currentPath = pathname.replace(/\/$/, "");
 
   return (
-    <nav aria-label="Navigation du silo" className="px-4 py-3 overflow-hidden">
+    <nav aria-label="Bereichsnavigation" className="px-4 py-3 overflow-hidden">
       <div className="flex gap-2 overflow-x-auto scrollbar-hide sm:justify-center -mx-4 px-4">
         {tabs.map((tab) => {
           const isActive = currentPath === tab.href.replace(/\/$/, "");

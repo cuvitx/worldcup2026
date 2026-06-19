@@ -25,7 +25,7 @@ export function PredictionOutcomes({
           Prognose 1-N-2
         </h2>
         <p className="text-xs text-gray-500 mt-0.5">
-          {homeName} vs {awayName} · Probabilités estimées
+          {homeName} vs {awayName} · Geschaetzte Wahrscheinlichkeiten
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export function PredictionOutcomes({
               >
                 {isHighlighted && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-white shadow-sm whitespace-nowrap">
-                    Favori
+                    Favorit
                   </span>
                 )}
 

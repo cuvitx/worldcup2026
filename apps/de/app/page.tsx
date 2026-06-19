@@ -25,14 +25,14 @@ import { PmuBanner } from "./components/PmuBanner";
 import { BetOfTheDay } from "./components/home/BetOfTheDay";
 
 export const metadata: Metadata = {
-  title: "WM 2026 | Prognoses, Cotes & Guide Complet",
+  title: "WM 2026 | Prognosen, Quoten & Kompletter Leitfaden",
   description:
-    "CDM 2026 : pronostics, cotes & analyses des 48 équipes. Spielplan des 104 matchs, simulateur de bracket. Préparez vos paris — accès gratuit.",
+    "WM 2026: Prognosen, Quoten & Analysen der 48 Mannschaften. Spielplan der 104 Spiele, Turnierbaum-Simulator. Sportwetten vorbereiten — kostenloser Zugang.",
   alternates: getHomeAlternates(),
   openGraph: {
-    title: "WM 2026 | Prognoses, Cotes & Guide Complet",
+    title: "WM 2026 | Prognosen, Quoten & Kompletter Leitfaden",
     description:
-      "Prognoses, cotes, analyses des 48 équipes et spielplan des 104 matchs de la CDM 2026.",
+      "Prognosen, Quoten, Analysen der 48 Mannschaften und Spielplan der 104 Spiele der WM 2026.",
     url: "https://www.wm2026guide.de",
   },
 };
@@ -41,24 +41,24 @@ export const metadata: Metadata = {
 
 const faqHomepageItems = [
   {
-    question: "Quand commence la CDM 2026 ?",
+    question: "Wann beginnt die WM 2026?",
     answer:
-      "La WM 2026 débute le 11 juin 2026 avec le match d'ouverture au stade Azteca de Mexico. La finale est prévue le 19 juillet 2026 au MetLife Stadium de New York/New Jersey.",
+      "Die WM 2026 beginnt am 11. Juni 2026 mit dem Eröffnungsspiel im Estadio Azteca in Mexiko-Stadt. Das Finale ist für den 19. Juli 2026 im MetLife Stadium in New York/New Jersey geplant.",
   },
   {
-    question: "Combien d'équipes participent à la CDM 2026 ?",
+    question: "Wie viele Mannschaften nehmen an der WM 2026 teil?",
     answer:
-      "La WM 2026 accueille pour la première fois 48 équipes, contre 32 lors des éditions précédentes. Le tournoi se compose de 12 groupes de 4 équipes, puis de phases à élimination directe pour un total de 104 matchs.",
+      "Die WM 2026 empfängt erstmals 48 Mannschaften, statt 32 bei früheren Ausgaben. Das Turnier besteht aus 12 Gruppen mit je 4 Mannschaften, gefolgt von K.o.-Runden für insgesamt 104 Spiele.",
   },
   {
-    question: "Où se déroule la CDM 2026 ?",
+    question: "Wo findet die WM 2026 statt?",
     answer:
-      "La WM 2026 est organisée conjointement par trois pays : les États-Unis (11 villes hôtes), le Canada (2 villes) et le Mexique (3 villes). Les 16 stades sont répartis dans des métropoles comme New York, Los Angeles, Dallas, Mexico, Toronto et Vancouver.",
+      "Die WM 2026 wird gemeinsam von drei Ländern ausgerichtet: den USA (11 Austragungsorte), Kanada (2 Städte) und Mexiko (3 Städte). Die 16 Stadien sind auf Metropolen wie New York, Los Angeles, Dallas, Mexiko-Stadt, Toronto und Vancouver verteilt.",
   },
   {
-    question: "Quelle chaîne diffuse la CDM 2026 en France ?",
+    question: "Wo wird die WM 2026 in Deutschland übertragen?",
     answer:
-      "En France, les droits TV de la WM 2026 sont détenus par M6 pour les matchs en clair (54 matchs dont tous ceux de l'équipe de France), et par beIN Sports pour l'intégralité des 104 matchs. TF1 ne diffuse aucun match de cette édition.",
+      "In Deutschland übertragen ARD und ZDF die WM 2026 im Free-TV. MagentaTV zeigt alle 104 Spiele live. Weitere Übertragungsrechte liegen bei RTL und weiteren Sendern.",
   },
 ];
 
@@ -66,9 +66,9 @@ const homepageJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "CDM 2026 - WM",
+    name: "WM 2026 Guide",
     url: "https://www.wm2026guide.de",
-    description: "Guide complet de la WM 2026 : pronostics, cotes, analyses des 48 équipes.",
+    description: "Kompletter Leitfaden zur WM 2026: Prognosen, Quoten, Analysen der 48 Mannschaften.",
     inLanguage: "de",
     potentialAction: {
       "@type": "SearchAction",
@@ -85,9 +85,9 @@ const homepageJsonLd = [
     name: "WM FIFA 2026",
     startDate: "2026-06-11",
     endDate: "2026-07-19",
-    location: { "@type": "Place", name: "États-Unis, Canada, Mexique" },
-    sport: "Football",
-    description: "Première WM FIFA à 48 équipes. 104 matchs dans 16 stades.",
+    location: { "@type": "Place", name: "USA, Kanada, Mexiko" },
+    sport: "Fußball",
+    description: "Erste FIFA WM mit 48 Mannschaften. 104 Spiele in 16 Stadien.",
     organizer: {
       "@type": "Organization",
       name: "FIFA",
@@ -99,7 +99,7 @@ const homepageJsonLd = [
     offers: {
       "@type": "Offer",
       url: "https://www.fifa.com/tickets",
-      name: "Billets WM 2026",
+      name: "Tickets WM 2026",
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
     },
@@ -158,9 +158,9 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { value: "48", label: "Mannschaften", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>) },
-              { value: "104", label: "Matchs", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>) },
+              { value: "104", label: "Spiele", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>) },
               { value: "16", label: "Stadien", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 3v6"/><path d="M15 3v6"/></svg>) },
-              { value: "3", label: "Pays hôtes", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>) },
+              { value: "3", label: "Gastgeberländer", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>) },
             ].map((stat) => (
               <div key={stat.label} className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-4 hover:bg-white/10 transition-all">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
@@ -209,9 +209,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
-              🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
+              🇺🇸 🇨🇦 🇲🇽 Nordamerika
             </p>
-            <SectionHeading title="Stades CDM 2026" subtitle="16 stades répartis dans 3 pays hôtes" linkHref="/stadien" linkLabel="Tous les stades →" />
+            <SectionHeading title="Stadien WM 2026" subtitle="16 Stadien in 3 Gastgeberländern" linkHref="/stadien" linkLabel="Alle Stadien →" />
           </div>
 
           <StadiumCarousel stadiums={stadiums} />
@@ -224,23 +224,23 @@ export default function HomePage() {
       {/* Quick Links - Explore */}
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Explorer la CDM 2026" subtitle="Tout ce qu'il faut savoir pour suivre le mondial" />
+          <SectionHeading title="Die WM 2026 entdecken" subtitle="Alles Wissenswerte rund um die Weltmeisterschaft" />
           <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-8">
             {[
-              { href: "/fifa-ranking", icon: "", label: "Rangliste FIFA" },
-              { href: "/spieler-liste", icon: "", label: "Spielers clés" },
-              { href: "/staedte", icon: "", label: "Villes hôtes" },
-              { href: "/pays-hotes", icon: "", label: "Pays hôtes" },
-              { href: "/format", icon: "", label: "Format du tournoi" },
-              { href: "/ou-regarder", icon: "", label: "Où regarder" },
-              { href: "/billets", icon: "", label: "Billets" },
-              { href: "/h2h", icon: "", label: "Face-à-face (H2H)" },
-              { href: "/mascotte", icon: "", label: "Mascotte" },
-              { href: "/histoire", icon: "", label: "Histoire de la CDM" },
-              { href: "/comparateur-joueurs", icon: "", label: "Comparer joueurs" },
-              { href: "/turnierbaum", icon: "", label: "Tableau final" },
-              { href: "/trophee", icon: "", label: "Le Trophée FIFA" },
-              { href: "/chants-supporters", icon: "", label: "Chants supporters" },
+              { href: "/fifa-ranking", icon: "", label: "FIFA-Rangliste" },
+              { href: "/spieler-liste", icon: "", label: "Schlüsselspieler" },
+              { href: "/staedte", icon: "", label: "Austragungsorte" },
+              { href: "/pays-hotes", icon: "", label: "Gastgeberländer" },
+              { href: "/format", icon: "", label: "Turnierformat" },
+              { href: "/ou-regarder", icon: "", label: "Wo schauen" },
+              { href: "/Tickets", icon: "", label: "Tickets" },
+              { href: "/h2h", icon: "", label: "Direktvergleich (H2H)" },
+              { href: "/mascotte", icon: "", label: "Maskottchen" },
+              { href: "/histoire", icon: "", label: "WM-Geschichte" },
+              { href: "/comparateur-Spielers", icon: "", label: "Spieler vergleichen" },
+              { href: "/turnierbaum", icon: "", label: "Turnierbaum" },
+              { href: "/trophee", icon: "", label: "FIFA-Trophäe" },
+              { href: "/chants-supporters", icon: "", label: "Fan-Gesänge" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -256,7 +256,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <FAQSection title="Questions fréquentes — CDM 2026" items={faqHomepageItems} />
+      <FAQSection title="Häufig gestellte Fragen — WM 2026" items={faqHomepageItems} />
 
       {/* SOCIAL PROOF + NEWSLETTER */}
       {/* SocialProof removed */}

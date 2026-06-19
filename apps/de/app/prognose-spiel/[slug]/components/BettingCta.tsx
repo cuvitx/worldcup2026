@@ -11,7 +11,7 @@ export function BettingCta({
   bookmakers,
   matchLabel,
 }: BettingCtaProps) {
-  const title = matchLabel ? `Parier sur ${matchLabel}` : "Parier sur ce match";
+  const title = matchLabel ? `Auf ${matchLabel} wetten` : "Auf dieses Spiel wetten";
 
   return (
     <section className="hero-animated rounded-2xl p-6 text-white overflow-clip">
@@ -34,11 +34,11 @@ export function BettingCta({
               <p className="text-sm text-white/70">{featuredBookmaker.bonus} — {featuredBookmaker.bonusDetail}</p>
             </div>
             <span className="text-[10px] font-bold uppercase tracking-wider bg-accent/20 text-accent border border-accent/30 rounded-full px-2 py-0.5 shrink-0">
-              Recommandé
+              Empfohlen
             </span>
           </div>
           <div className="rounded-xl bg-accent text-white text-center py-2.5 font-bold text-sm hover:bg-accent/80 transition-all">
-            {featuredBookmaker.bonus} → Parier maintenant
+            {featuredBookmaker.bonus} → Jetzt wetten
           </div>
         </a>
 
@@ -60,14 +60,14 @@ export function BettingCta({
                   <span className="text-xs text-white/70 hidden sm:inline">{bk.bonus}</span>
                 </div>
                 <span className="text-xs font-semibold text-accent shrink-0">
-                  Voir l&apos;offre →
+                  Angebot ansehen →
                 </span>
               </a>
             ))}
         </div>
 
         <p className="mt-3 text-[10px] text-white/70">
-          Cotes estimées, susceptibles d&apos;évoluer. Pariez responsablement. 18+
+          Geschaetzte Quoten, Aenderungen vorbehalten. Verantwortungsvolles Spielen. 18+
         </p>
       </div>
     </section>

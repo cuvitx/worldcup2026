@@ -235,7 +235,7 @@ export default async function CityPage({ params }: PageProps) {
                   <p className="text-2xl font-bold text-primary">
                     {(city.population / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-sm text-gray-500">Population metro</p>
+                  <p className="text-sm text-gray-500">Einwohner metro</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">{city.timezone.split("/").pop()?.replace(/_/g, " ")}</p>
@@ -258,7 +258,7 @@ export default async function CityPage({ params }: PageProps) {
                   <dd className="font-medium">{city.state}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Population</dt>
+                  <dt className="text-gray-500">Einwohner</dt>
                   <dd className="font-medium">{city.population.toLocaleString("de-DE")}</dd>
                 </div>
                 <div className="flex justify-between">
@@ -310,8 +310,8 @@ export default async function CityPage({ params }: PageProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/billets" className="text-primary hover:underline">
-                    <Ticket className="h-5 w-5 inline-block" /> Acheter des billets
+                  <Link href="/Tickets" className="text-primary hover:underline">
+                    <Ticket className="h-5 w-5 inline-block" /> Acheter des Tickets
                   </Link>
                 </li>
                 <li>

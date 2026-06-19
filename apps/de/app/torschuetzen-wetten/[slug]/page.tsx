@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote ${player.name} Buteur CDM 2026 — Prognose et Analyse`,
-    description: `Cotes buteur de ${player.name} pour la WM 2026 : marquer un but, meilleur buteur. Cotes PMU Sport.`,
+    description: `Cotes buteur de ${player.name} pour la WM 2026 : marquer un but, meilleur buteur. Cotes Betano.`,
     alternates: { canonical: `https://www.wm2026guide.de/cote-buteur/${slug}` },
   };
 }
@@ -47,9 +47,9 @@ export default async function CoteButeurPage({ params }: PageProps) {
   const team = teamsById[player.teamId];
   const odds = getScorerOdds(slug);
 const faqItems = [
-    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. PMU Sport propose une cote autour de ${odds.pmusportAnytime} pour au moins 1 but dans le tournoi.` },
-    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `La cote meilleur buteur chez PMU Sport est de ${odds.pmusportTopScorer}.` },
-    { question: "Comment parier sur un buteur de la WM ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Retrouvez tous ces marchés sur PMU Sport." },
+    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Betano propose une cote autour de ${odds.pmusportAnytime} pour au moins 1 but dans le tournoi.` },
+    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `La cote meilleur buteur chez Betano est de ${odds.pmusportTopScorer}.` },
+    { question: "Comment parier sur un buteur de la WM ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Retrouvez tous ces marchés sur Betano." },
     { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur du tournoi » et « meilleur buteur ». Les tirs au but ne comptent généralement pas." },
   ];
   const comparisons = TOP_50_SLUGS.filter((s) => s !== slug && playersBySlug[s]).slice(0, 4);
@@ -87,12 +87,12 @@ const faqItems = [
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{player.caps}</div>
-            <div className="text-sm text-accent mt-1">Sélections</div>
+            <div className="text-sm text-accent mt-1">Aufgebots</div>
           </div>
         </div>
         {/* Tableau cotes : Marquer au moins 1 but */}
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
-          <TrendingUp className="w-6 h-6 text-accent" /> Cotes PMU Sport : Marquer au moins 1 but dans le tournoi
+          <TrendingUp className="w-6 h-6 text-accent" /> Cotes Betano : Marquer au moins 1 but dans le tournoi
         </h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
@@ -104,14 +104,14 @@ const faqItems = [
             </thead>
             <tbody className="divide-y divide-gray-100">
               <tr>
-                <td className="p-3">PMU Sport</td>
+                <td className="p-3">Betano</td>
                 <td className="text-center p-3 font-bold text-accent">{odds.pmusportAnytime}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        {/* Tableau cotes : Meilleur buteur */}
-        <h2 className="text-xl font-bold text-primary mb-4">Cotes PMU Sport : Meilleur buteur du tournoi</h2>
+        {/* Tableau cotes : Torschützenkönig */}
+        <h2 className="text-xl font-bold text-primary mb-4">Cotes Betano : Torschützenkönig du tournoi</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -122,14 +122,14 @@ const faqItems = [
             </thead>
             <tbody className="divide-y divide-gray-100">
               <tr>
-                <td className="p-3">PMU Sport</td>
+                <td className="p-3">Betano</td>
                 <td className="text-center p-3 font-bold text-accent">{odds.pmusportTopScorer}</td>
               </tr>
             </tbody>
           </table>
         </div>
         {/* Tableau cotes : Buteur prochain match */}
-        <h2 className="text-xl font-bold text-primary mb-4">Cotes PMU Sport : Buteur dans le prochain match</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Cotes Betano : Buteur dans le prochain match</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -140,13 +140,13 @@ const faqItems = [
             </thead>
             <tbody className="divide-y divide-gray-100">
               <tr>
-                <td className="p-3">PMU Sport</td>
+                <td className="p-3">Betano</td>
                 <td className="text-center p-3 font-bold text-accent">{odds.pmusportNextMatch}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur PMU Sport avant de parier.</p>
+        <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur Betano avant de parier.</p>
         <div className="mt-6">
           <a
             href={pmuTrackingUrl("cote-buteur")}
@@ -154,7 +154,7 @@ const faqItems = [
             rel="noopener noreferrer sponsored nofollow"
             className="inline-block bg-accent text-white rounded-xl py-3 px-6 font-semibold hover:opacity-90 transition-opacity"
           >
-            100€ offerts — Parier sur {player.name} chez PMU Sport →
+            Willkommensbonus — Wetten auf {player.name} chez Betano →
           </a>
         </div>
       </section>
@@ -180,7 +180,7 @@ const faqItems = [
           </Link>
         </div>
       </section>
-      <FAQSection title={`Questions fréquentes — Cote ${player.name} Buteur`} items={faqItems} />
+      <FAQSection title={`Häufig gestellte Fragen — Cote ${player.name} Buteur`} items={faqItems} />
     </>
   );
 }

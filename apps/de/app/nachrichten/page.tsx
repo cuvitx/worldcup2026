@@ -4,14 +4,14 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { getAllArticles } from "../../lib/mdx";
 
 export const metadata: Metadata = {
-  title: "Actualités WM 2026 - Dernières News CDM 2026",
+  title: "Nachrichten WM 2026 - Dernières News CDM 2026",
   description:
-    "Alle actualités de la WM 2026 : stades, qualifications, billets, équipes, paris sportifs. Restez informé sur le Mondial.",
+    "Alle Nachrichten de la WM 2026 : stades, qualifications, Tickets, Mannschafts, paris sportifs. Restez informé sur le Mondial.",
   alternates: {
     canonical: "https://www.wm2026guide.de/actualites",
   },
   openGraph: {
-    title: "Actualités WM 2026",
+    title: "Nachrichten WM 2026",
     description: "Dernières news et infos sur la CDM 2026.",
   },
 };
@@ -30,30 +30,30 @@ export default function ActualitesPage() {
   const faqItems = [
     {
       question: "Quand commence la WM 2026 ?",
-      answer: "La WM 2026 débute le jeudi 11 juin 2026 avec le match d'ouverture à l'Estadio Azteca de Mexico City (Mexique). Le tournoi se termine le dimanche 19 juillet 2026 avec la finale au MetLife Stadium de New York/New Jersey. La compétition s'étale sur 39 jours avec 104 matchs au total, contre 64 matchs pour les éditions précédentes à 32 équipes."
+      answer: "La WM 2026 débute le jeudi 11 juin 2026 avec le match d'ouverture à l'Estadio Azteca de Mexico City (Mexique). Le tournoi se termine le dimanche 19 juillet 2026 avec la finale au MetLife Stadium de New York/New Jersey. La compétition s'étale sur 39 jours avec 104 matchs au total, contre 64 matchs pour les éditions précédentes à 32 Mannschafts."
     },
     {
       question: "Où se déroule la WM 2026 ?",
       answer: "La WM 2026 se déroule dans 3 pays : États-Unis (11 stades), Canada (2 stades) et Mexique (3 stades). C'est la première fois qu'une CDM est organisée sur 3 nations et la première en Amérique du Nord depuis 1994. Les 16 villes hôtes incluent New York, Los Angeles, Mexico City, Toronto, Vancouver, Dallas, Miami et bien d'autres. La finale aura lieu au MetLife Stadium (New York/NJ)."
     },
     {
-      question: "Combien d'équipes participeront à la CDM 2026 ?",
-      answer: "48 équipes participeront à la WM 2026, contre 32 lors des éditions précédentes. Cette expansion historique permet d'inclure davantage de nations et augmente le nombre de matchs à 104 (contre 64 auparavant). Les 48 équipes seront réparties en 12 groupes de 4, avec 32 équipes se qualifiant pour la phase à élimination directe (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes)."
+      question: "Combien d'Mannschafts participeront à la CDM 2026 ?",
+      answer: "48 Mannschafts participeront à la WM 2026, contre 32 lors des éditions précédentes. Cette expansion historique permet d'inclure davantage de nations et augmente le nombre de matchs à 104 (contre 64 auparavant). Les 48 Mannschafts seront réparties en 12 groupes de 4, avec 32 Mannschafts se qualifiant pour la phase à élimination directe (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes)."
     },
     {
       question: "La France est-elle qualifiée pour la CDM 2026 ?",
-      answer: "Oui, la France s'est qualifiée pour la WM 2026 en terminant première de son groupe lors des éliminatoires européens. Les Bleus, vice-champions du monde 2022 et champions du monde 2018, font partie des grands favoris du tournoi. Sous la direction de Didier Deschamps, l'équipe dispose d'un effectif exceptionnel avec Kylian Mbappé, Antoine Griezmann, Aurélien Tchouaméni et de nombreux jeunes talents."
+      answer: "Oui, la France s'est qualifiée pour la WM 2026 en terminant première de son groupe lors des éliminatoires européens. Les Bleus, vice-champions du monde 2022 et champions du monde 2018, font partie des grands favoris du tournoi. Sous la direction de Didier Deschamps, l'Mannschaft dispose d'un effectif exceptionnel avec Kylian Mbappé, Antoine Griezmann, Aurélien Tchouaméni et de nombreux jeunes talents."
     },
     {
       question: "Quand a eu lieu le tirage au sort des groupes de la CDM 2026 ?",
-      answer: "Le tirage au sort de la phase de groupes de la WM 2026 a eu lieu en décembre 2025. Il a déterminé la composition des 12 groupes de 4 équipes et définira le spielplan des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 équipes européennes par groupe, etc.)."
+      answer: "Le tirage au sort de la phase de groupes de la WM 2026 a eu lieu en décembre 2025. Il a déterminé la composition des 12 groupes de 4 Mannschafts et définira le spielplan des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 Mannschafts européennes par groupe, etc.)."
     }
   ];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Actualités WM 2026",
+    name: "Nachrichten WM 2026",
     url: "https://www.wm2026guide.de/actualites",
     mainEntity: {
       "@type": "ItemList",
@@ -80,7 +80,7 @@ export default function ActualitesPage() {
 
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">Actualités WM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">Nachrichten WM 2026</h1>
           <p className="text-gray-300 max-w-2xl">
             Analyses, guides et articles sur la WM 2026.
           </p>
@@ -159,7 +159,7 @@ export default function ActualitesPage() {
         )}
       </div>
 
-      <FAQSection title="Questions fréquentes sur la CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen sur la CDM 2026" items={faqItems} />
     </div>
   );
 }

@@ -30,12 +30,12 @@ function getRecommendation(prediction: MatchPrediction): {
   const { team1WinProb, drawProb, team2WinProb } = prediction;
 
   if (team1WinProb >= team2WinProb && team1WinProb >= drawProb) {
-    return { label: "1", detail: "Victoire domicile", type: "1" };
+    return { label: "1", detail: "Heimsieg", type: "1" };
   }
   if (team2WinProb >= team1WinProb && team2WinProb >= drawProb) {
-    return { label: "2", detail: "Victoire extérieur", type: "2" };
+    return { label: "2", detail: "Auswärtssieg", type: "2" };
   }
-  return { label: "N", detail: "Match nul", type: "N" };
+  return { label: "N", detail: "Unentschieden", type: "N" };
 }
 
 export function BetOfTheDay({
@@ -57,19 +57,19 @@ export function BetOfTheDay({
 
   const stageLabel =
     match.stage === "group"
-      ? `Groupe ${match.group}`
+      ? `Gruppe ${match.group}`
       : match.stage === "round-of-32"
-        ? "32es de finale"
+        ? "Sechzehntelfinale"
         : match.stage === "round-of-16"
-          ? "8es de finale"
+          ? "Achtelfinale"
           : match.stage === "quarter-final"
-            ? "Quart de finale"
+            ? "Viertelfinale"
             : match.stage === "semi-final"
-              ? "Demi-finale"
+              ? "Halbfinale"
               : match.stage === "final"
                 ? "Finale"
                 : match.stage === "third-place"
-                  ? "Petite finale"
+                  ? "Spiel um Platz 3"
                   : "";
 
   return (
@@ -108,7 +108,7 @@ export function BetOfTheDay({
               </div>
               <div>
                 <h2 className="text-lg sm:text-xl font-black text-white tracking-tight">
-                  Pari du jour
+                  Wette des Tages
                 </h2>
                 <p className="text-xs text-[#d4af37] font-semibold uppercase tracking-wider">
                   {stageLabel} &bull; {formatDate(match.date)}
@@ -194,17 +194,17 @@ export function BetOfTheDay({
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-bold text-white truncate">
-                      Notre prono : {reco.detail}
+                      Unsere Prognose: {reco.detail}
                     </p>
                     <p className="text-xs text-white/50">
-                      Score prédit :{" "}
+                      Prognostiziertes Ergebnis:{" "}
                       <span className="text-white/80 font-semibold">
                         {prediction.predictedScore}
                       </span>
                       {bestOdd !== "—" && (
                         <>
                           {" "}
-                          &bull; Cote{" "}
+                          &bull; Quote{" "}
                           <span className="text-[#ffd700] font-bold">
                             {bestOdd}
                           </span>
@@ -231,7 +231,7 @@ export function BetOfTheDay({
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
                 />
-                <span className="relative">Parier sur PMU</span>
+                <span className="relative">Bei Betano wetten</span>
                 <span className="relative" aria-hidden="true">
                   &rarr;
                 </span>
@@ -244,7 +244,7 @@ export function BetOfTheDay({
                 href={`/prognose-spiel/${match.slug}`}
                 className="text-xs text-white/40 hover:text-white/70 transition-colors underline underline-offset-2"
               >
-                Voir l&apos;analyse compl&egrave;te du match &rarr;
+                Vollständige Spielanalyse ansehen &rarr;
               </Link>
             </div>
           </div>
@@ -252,14 +252,14 @@ export function BetOfTheDay({
           {/* Legal footer */}
           <div className="relative border-t border-white/5 bg-black/30 px-4 py-2 sm:px-6">
             <p className="text-center text-[10px] leading-snug text-white/25">
-              18+ | Offre soumise &agrave; conditions |{" "}
+              18+ | Es gelten die AGB |{" "}
               <a
-                href="tel:0974751313"
+                href="tel:0800137270"
                 className="underline text-white/35 hover:text-white/50"
               >
-                09 74 75 13 13
+                0800 1 37 27 00
               </a>{" "}
-              | Jeu responsable
+              | Verantwortungsvolles Spielen
             </p>
           </div>
         </div>

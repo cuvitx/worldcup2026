@@ -7,7 +7,7 @@ import { Shield, BarChart3, Trophy, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Prognose Clean Sheet CDM 2026 — Meilleures Défenses & Cotes",
   description:
-    "Quelles équipes garderont leur cage inviolée ? Top défenses, stats d'encaissement et cotes clean sheet pour la WM 2026.",
+    "Quelles Mannschafts garderont leur cage inviolée ? Top défenses, stats d'encaissement et cotes clean sheet pour la WM 2026.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/clean-sheet" },
   openGraph: {
     title: "Clean Sheet CDM 2026 — Meilleures Défenses",
@@ -35,10 +35,10 @@ const csStats = [
 ];
 
 const faqItems = [
-  { question: "Qu'est-ce qu'un pari clean sheet ?", answer: "Un pari clean sheet consiste à parier qu'une équipe ne concédera aucun but pendant les 90 minutes réglementaires (hors prolongations). Si le score est 0-0 ou si votre équipe gagne sans encaisser, le pari est gagnant." },
-  { question: "Quelle équipe a le meilleur bilan clean sheet en CDM ?", answer: "Historiquement, les grandes nations européennes dominent : l'Italie, l'Allemagne et la France ont les meilleurs bilans. En 2022, le Maroc a impressionné avec 4 clean sheets, ne concédant qu'un seul but (contre-son-camp) en 5 matchs avant la demi-finale." },
-  { question: "Les clean sheets sont-elles plus fréquentes en phase de groupes ?", answer: "Non, c'est l'inverse. Les matchs à élimination directe produisent plus de clean sheets car les équipes jouent de manière plus prudente. En moyenne, 50% des matchs de phase finale comportent au moins un clean sheet, contre 42% en phase de groupes." },
-  { question: "Le gardien a-t-il une importance dans le pari clean sheet ?", answer: "Absolument. Un gardien de classe mondiale comme Donnarumma, Maignan ou Martínez peut faire la différence. Analysez les stats du gardien titulaire, son nombre d'arrêts par match et sa fiabilité sur penalty." },
+  { question: "Qu'est-ce qu'un pari clean sheet ?", answer: "Un pari clean sheet consiste à parier qu'une Mannschaft ne concédera aucun but pendant les 90 minutes réglementaires (hors prolongations). Si le score est 0-0 ou si votre Mannschaft gagne sans encaisser, le pari est gagnant." },
+  { question: "Quelle Mannschaft a le meilleur bilan clean sheet en CDM ?", answer: "Historiquement, les grandes nations européennes dominent : l'Italie, l'Allemagne et la France ont les meilleurs bilans. En 2022, le Maroc a impressionné avec 4 clean sheets, ne concédant qu'un seul but (contre-son-camp) en 5 matchs avant la demi-finale." },
+  { question: "Les clean sheets sont-elles plus fréquentes en phase de groupes ?", answer: "Non, c'est l'inverse. Les matchs à élimination directe produisent plus de clean sheets car les Mannschafts jouent de manière plus prudente. En moyenne, 50% des matchs de phase finale comportent au moins un clean sheet, contre 42% en phase de groupes." },
+  { question: "Le Torwart a-t-il une importance dans le pari clean sheet ?", answer: "Absolument. Un Torwart de classe mondiale comme Donnarumma, Maignan ou Martínez peut faire la différence. Analysez les stats du Torwart titulaire, son nombre d'arrêts par match et sa fiabilité sur penalty." },
 ];
 
 export default function PrognoseCleanSheetPage() {
@@ -58,17 +58,17 @@ export default function PrognoseCleanSheetPage() {
           <h2 className="text-2xl font-bold text-primary">Top défenses — Cotes clean sheet</h2>
         </div>
         <p className="text-gray-700 mb-6">
-          Le clean sheet est un marché souvent sous-estimé par les parieurs. Les grandes défenses gardent leur cage inviolée dans 40 à 55% de leurs matchs internationaux. Avec le format 48 équipes, les favoris affronteront des équipes plus faibles en poules, augmentant les opportunités de clean sheet.
+          Le clean sheet est un marché souvent sous-estimé par les parieurs. Les grandes défenses gardent leur cage inviolée dans 40 à 55% de leurs matchs internationaux. Avec le format 48 Mannschafts, les favoris affronteront des Mannschafts plus faibles en poules, augmentant les opportunités de clean sheet.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">#</th>
-                <th className="text-left p-3">Équipe</th>
+                <th className="text-left p-3">Mannschaft</th>
                 <th className="text-center p-3">Taux CS</th>
                 <th className="text-center p-3">Buts enc./match</th>
-                <th className="text-left p-3">Gardien</th>
+                <th className="text-left p-3">Torwart</th>
                 <th className="text-center p-3">Cote CS 1er match</th>
               </tr>
             </thead>
@@ -101,7 +101,7 @@ export default function PrognoseCleanSheetPage() {
                 <th className="text-left p-3">Édition</th>
                 <th className="text-center p-3">Total CS</th>
                 <th className="text-center p-3">% matchs avec CS</th>
-                <th className="text-left p-3">Meilleure équipe</th>
+                <th className="text-left p-3">Meilleure Mannschaft</th>
               </tr>
             </thead>
             <tbody>
@@ -130,19 +130,19 @@ export default function PrognoseCleanSheetPage() {
           </div>
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-primary mb-2">En phase finale</h3>
-            <p className="text-sm text-gray-700">Les matchs à élimination directe sont souvent plus fermés. Pariez sur le clean sheet d&apos;une équipe avec un gardien solide lors des 8èmes de finale, où les écarts de niveau restent importants.</p>
+            <p className="text-sm text-gray-700">Les matchs à élimination directe sont souvent plus fermés. Wetten auf le clean sheet d&apos;une Mannschaft avec un Torwart solide lors des 8èmes de finale, où les écarts de niveau restent importants.</p>
           </div>
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <Link href={pmuTrackingUrl("prono-special")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          100€ offerts — Parier Clean Sheet CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Parier Clean Sheet CDM 2026 sur Betano <ArrowRight className="inline w-4 h-4 ml-1" />
         </Link>
-        <p className="text-xs text-gray-400 mt-3">18+ | Offre soumise à conditions</p>
+        <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
-      <FAQSection title="Questions fréquentes — Clean Sheet CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen — Clean Sheet CDM 2026" items={faqItems} />
 
     </>
   );

@@ -4,13 +4,13 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Swords, Calendar, ArrowRight, Info, Trophy } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "16èmes de finale WM 2026 - Tableau & Dates | CDM 2026",
+  title: "Sechzehntelfinale WM 2026 - Spielplan & Termine | WM 2026",
   description:
-    "16èmes de finale de la WM 2026 : format, dates du 28 juin au 2 juillet, tableau des matchs et nouveau bracket à 48 équipes.",
+    "Sechzehntelfinale der WM 2026: Format, Termine vom 28. Juni bis 2. Juli, Spielübersicht und neues Bracket mit 48 Mannschaften.",
   openGraph: {
-    title: "16èmes de finale CDM 2026 - Tableau complet",
+    title: "Sechzehntelfinale WM 2026 - Vollständige Übersicht",
     description:
-      "Découvrez le format des 16èmes de finale de la WM 2026. Dates, matchs possibles et bracket.",
+      "Entdecken Sie das Format des Sechzehntelfinales der WM 2026. Termine, mögliche Spiele und Bracket.",
     url: "https://www.wm2026guide.de/16emes-de-finale",
   },
   alternates: {
@@ -20,24 +20,24 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "Combien de matchs y a-t-il en 16èmes de finale de la CDM 2026 ?",
+    question: "Wie viele Spiele gibt es im Sechzehntelfinale der WM 2026?",
     answer:
-      "Il y a 16 matchs en 16èmes de finale (Round of 32). C'est un tour inédit dans l'histoire de la WM, rendu nécessaire par le passage à 48 équipes. Les 32 équipes qualifiées s'affrontent en matchs à élimination directe.",
+      "Es gibt 16 Spiele im Sechzehntelfinale (Runde der 32). Dies ist eine neue Runde in der WM-Geschichte, die durch die Erweiterung auf 48 Mannschaften notwendig wurde. Die 32 qualifizierten Mannschaften treten in K.-o.-Spielen gegeneinander an.",
   },
   {
-    question: "Comment sont déterminés les matchs de 16èmes de finale ?",
+    question: "Wie werden die Sechzehntelfinale-Paarungen bestimmt?",
     answer:
-      "Les 1ers et 2èmes de chaque groupe (24 équipes) ainsi que les 8 meilleurs 3èmes se qualifient. Le bracket est prédéfini par la FIFA : les 1ers de groupe affrontent les meilleurs 3èmes ou les 2èmes d'un autre groupe selon un tableau croisé.",
+      "Die Erst- und Zweitplatzierten jeder Gruppe (24 Mannschaften) sowie die 8 besten Gruppendritten qualifizieren sich. Das Bracket wird von der FIFA vorgegeben: Gruppensieger treffen auf die besten Dritten oder Zweite einer anderen Gruppe gemäß einer Kreuzungstabelle.",
   },
   {
-    question: "Quand se jouent les 16èmes de finale de la CDM 2026 ?",
+    question: "Wann findet das Sechzehntelfinale der WM 2026 statt?",
     answer:
-      "Les 16èmes de finale se déroulent du 28 juin au 2 juillet 2026, juste après la fin de la phase de groupes. Les 16 matchs sont répartis sur 5 jours.",
+      "Das Sechzehntelfinale findet vom 28. Juni bis 2. Juli 2026 statt, direkt nach Ende der Gruppenphase. Die 16 Spiele werden auf 5 Tage verteilt.",
   },
   {
-    question: "Y a-t-il des prolongations en 16èmes de finale ?",
+    question: "Gibt es Verlängerung im Sechzehntelfinale?",
     answer:
-      "Oui. À partir des 16èmes de finale, en cas d'égalité à l'issue du temps réglementaire (90 minutes), les équipes disputent une prolongation de 30 minutes (2 × 15 min). Si le score reste nul, une séance de tirs au but détermine le vainqueur.",
+      "Ja. Ab dem Sechzehntelfinale gibt es bei Gleichstand nach der regulären Spielzeit (90 Minuten) eine Verlängerung von 30 Minuten (2 × 15 Min.). Steht es dann immer noch unentschieden, entscheidet ein Elfmeterschießen.",
   },
 ];
 
@@ -51,21 +51,21 @@ export default function SeiziemesDeFinale() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <Swords className="h-4 w-4 text-accent" />
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
-              Phases éliminatoires
+              K.-o.-Phase
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-accent">16èmes de finale</span> CDM 2026
+            <span className="text-accent">Sechzehntelfinale</span> WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            Round of 32 — Un tour inédit pour la première WM à 48 équipes.
-            Du 28 juin au 2 juillet 2026.
+            Runde der 32 — Eine neue Runde bei der ersten WM mit 48 Mannschaften.
+            Vom 28. Juni bis 2. Juli 2026.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { val: "16", label: "Matchs" },
+              { val: "16", label: "Spiele" },
               { val: "32", label: "Mannschaften" },
-              { val: "5", label: "Jours" },
+              { val: "5", label: "Tage" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-3xl font-black text-accent">{s.val}</p>
@@ -82,53 +82,53 @@ export default function SeiziemesDeFinale() {
           <div className="flex items-center gap-3 mb-4">
             <Info className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Comment ça marche ?
+              Wie funktioniert es?
             </h2>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Avec 48 équipes réparties en 12 groupes de 4, la phase de groupes qualifie
-              <strong> 32 équipes</strong> pour les 16èmes de finale : les 12 premiers, les 12 deuxièmes
-              et les 8 meilleurs troisièmes.
+              Mit 48 Mannschaften in 12 Gruppen zu je 4 qualifizieren sich in der Gruppenphase
+              <strong> 32 Mannschaften</strong> für das Sechzehntelfinale: die 12 Gruppensieger, die 12 Zweiten
+              und die 8 besten Gruppendritten.
             </p>
             <p>
-              Ce tour, absent des précédentes Coupes du Monde à 32 équipes, constitue le
-              premier round à élimination directe. Il se joue en matchs secs avec prolongation
-              et tirs au but si nécessaire.
+              Diese Runde, die es bei den bisherigen Weltmeisterschaften mit 32 Mannschaften nicht gab,
+              ist die erste K.-o.-Runde. Sie wird in Einzelspielen mit Verlängerung
+              und Elfmeterschießen bei Bedarf ausgetragen.
             </p>
             <p>
-              Le bracket est prédéterminé par la FIFA. Les premiers de groupe bénéficient
-              d&apos;un tirage plus favorable en affrontant des troisièmes qualifiés, tandis que
-              les deuxièmes se croisent avec d&apos;autres deuxièmes ou premiers selon la grille
-              officielle.
+              Das Bracket wird von der FIFA vorab festgelegt. Gruppensieger haben einen
+              günstigeren Weg, da sie auf qualifizierte Gruppendritte treffen, während
+              die Zweiten gemäß dem offiziellen Spielschema auf andere Zweite oder Erste
+              treffen.
             </p>
           </div>
         </section>
 
-        {/* Dates */}
+        {/* Termine */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Spielplan prévu
+              Voraussichtlicher Spielplan
             </h2>
           </div>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
-                  <th className="px-4 py-3 text-left">Date</th>
-                  <th className="px-4 py-3 text-left">Matchs</th>
-                  <th className="px-4 py-3 text-left">Horaires (heure locale)</th>
+                  <th className="px-4 py-3 text-left">Datum</th>
+                  <th className="px-4 py-3 text-left">Spiele</th>
+                  <th className="px-4 py-3 text-left">Anstoßzeiten (Ortszeit)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 {[
-                  { date: "28 juin 2026", matchs: "Matchs 1-4", heures: "13h / 16h / 19h / 22h" },
-                  { date: "29 juin 2026", matchs: "Matchs 5-8", heures: "13h / 16h / 19h / 22h" },
-                  { date: "30 juin 2026", matchs: "Matchs 9-12", heures: "13h / 16h / 19h / 22h" },
-                  { date: "1er juillet 2026", matchs: "Matchs 13-14", heures: "19h / 22h" },
-                  { date: "2 juillet 2026", matchs: "Matchs 15-16", heures: "19h / 22h" },
+                  { date: "28. Juni 2026", matchs: "Spiele 1-4", heures: "13:00 / 16:00 / 19:00 / 22:00" },
+                  { date: "29. Juni 2026", matchs: "Spiele 5-8", heures: "13:00 / 16:00 / 19:00 / 22:00" },
+                  { date: "30. Juni 2026", matchs: "Spiele 9-12", heures: "13:00 / 16:00 / 19:00 / 22:00" },
+                  { date: "1. Juli 2026", matchs: "Spiele 13-14", heures: "19:00 / 22:00" },
+                  { date: "2. Juli 2026", matchs: "Spiele 15-16", heures: "19:00 / 22:00" },
                 ].map((r) => (
                   <tr key={r.date} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-gray-900">{r.date}</td>
@@ -141,28 +141,28 @@ export default function SeiziemesDeFinale() {
           </div>
         </section>
 
-        {/* Tableau */}
+        {/* Bracket */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Trophy className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Tableau des matchs
+              Spielübersicht
             </h2>
           </div>
           <div className="rounded-xl border-2 border-dashed border-accent/40 bg-accent/5 p-8 text-center">
             <Swords className="h-12 w-12 text-accent mx-auto mb-4 opacity-60" />
             <p className="text-lg font-semibold text-gray-900 mb-2">
-              Tableau à venir
+              Spielplan folgt
             </p>
             <p className="text-gray-500 max-w-md mx-auto mb-6">
-              Le tableau complet des 16èmes de finale sera dévoilé après le tirage au sort
-              et confirmé à l&apos;issue de la phase de groupes.
+              Die vollständige Übersicht des Sechzehntelfinales wird nach der Auslosung
+              bekannt gegeben und nach Abschluss der Gruppenphase bestätigt.
             </p>
             <Link
               href="/simulateur"
               className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
             >
-              Simuler le bracket
+              Bracket simulieren
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

@@ -31,7 +31,7 @@ export function DesktopBracket() {
 
         {/* Semi-finals */}
         <div className="space-y-3 shrink-0 pt-[252px]">
-          <div className="text-center mb-4"><span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white ${roundColors["semi-final"]!.badge}`}>Demi-finales</span></div>
+          <div className="text-center mb-4"><span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white ${roundColors["semi-final"]!.badge}`}>Halbfinales</span></div>
           {sfMatches.map((m, i) => (
             <div key={m.matchId} className="mb-[412px]"><MatchCard matchId={m.matchId} homeTeamId={m.homeTeamId} awayTeamId={m.awayTeamId} winnerId={sfWinners[i] ?? null} stage="semi-final" /></div>
           ))}

@@ -15,7 +15,7 @@ export function CommentAcheter() {
     },
     {
       step: 3, icon: "", title: "Choisir ses matchs",
-      desc: "Parcourez le spielplan sur fifa.com/tickets. Sélectionnez votre groupe de matchs (ticket package) ou des matchs individuels selon disponibilité.",
+      desc: "Parcourez le spielplan sur fifa.com/tickets. Aufgebotnez votre groupe de matchs (ticket package) ou des matchs individuels selon disponibilité.",
       tip: "Packages multi-matchs souvent disponibles à prix réduit.",
     },
     {
@@ -30,7 +30,7 @@ export function CommentAcheter() {
     },
     {
       step: 6, icon: "", title: "Accéder au stade",
-      desc: "Vos billets sont dans l'application FIFA+. QR code à présenter à l'entrée avec une pièce d'identité valide correspondant au compte. Les billets papier ne sont pas disponibles.",
+      desc: "Vos Tickets sont dans l'application FIFA+. QR code à présenter à l'entrée avec une pièce d'identité valide correspondant au compte. Les Tickets papier ne sont pas disponibles.",
       tip: "Téléchargez l'app FIFA+ avant le jour du match.",
     },
   ];

@@ -64,7 +64,7 @@ const valueBets = [
     probaImplicite: 12.5,
     probaEstimee: 17,
     reasoning:
-      "Osimhen peut porter une équipe seul. Le vivier de talents nigérian est immense, et le format à 48 équipes ouvre des opportunités en phase à élimination directe.",
+      "Osimhen peut porter une Mannschaft seul. Le vivier de talents nigérian est immense, et le format à 48 Mannschafts ouvre des opportunités en phase à élimination directe.",
   },
   {
     label: "Moins de 2.5 buts en finale",
@@ -72,7 +72,7 @@ const valueBets = [
     probaImplicite: 54.1,
     probaEstimee: 65,
     reasoning:
-      "Les finales de CDM sont historiquement fermées. Sur les 10 dernières, 7 ont affiché moins de 3 buts. La tension du match pousse les équipes à la prudence.",
+      "Les finales de CDM sont historiquement fermées. Sur les 10 dernières, 7 ont affiché moins de 3 buts. La tension du match pousse les Mannschafts à la prudence.",
   },
   {
     label: "Turquie — Sortir des poules",
@@ -80,18 +80,18 @@ const valueBets = [
     probaImplicite: 45.5,
     probaEstimee: 55,
     reasoning:
-      "Demi-finaliste de l'Euro 2024, la Turquie possède Arda Güler et Çalhanoglu. Le format élargi à 48 équipes facilite la qualification en huitièmes.",
+      "Demi-finaliste de l'Euro 2024, la Turquie possède Arda Güler et Çalhanoglu. Le format élargi à 48 Mannschafts facilite la qualification en huitièmes.",
   },
   {
-    label: "Pays-Bas — Meilleur buteur néerlandais 3+ buts",
+    label: "Pays-Bas — Torschützenkönig néerlandais 3+ buts",
     cote: 2.5,
     probaImplicite: 40,
     probaEstimee: 52,
     reasoning:
-      "Les Pays-Bas jouent un football offensif. Avec le format allongé (7 matchs possibles), un attaquant néerlandais en forme a largement le temps d'inscrire 3 buts ou plus.",
+      "Les Pays-Bas jouent un football offensif. Avec le format allongé (7 matchs possibles), un Stürmer néerlandais en forme a largement le temps d'inscrire 3 buts ou plus.",
   },
   {
-    label: "Match nul au 1er tour — USA vs adversaire du Pot 3",
+    label: "Unentschieden au 1er tour — USA vs adversaire du Pot 3",
     cote: 3.4,
     probaImplicite: 29.4,
     probaEstimee: 38,
@@ -104,7 +104,7 @@ const faqItems = [
   {
     question: "Qu'est-ce qu'un value bet exactement ?",
     answer:
-      "Un value bet est un pari dont la cote proposée par le bookmaker est supérieure à ce qu'elle devrait être selon la probabilité réelle de l'événement. Si vous estimez qu'une équipe a 10 % de chances de gagner (cote juste = 10.0) mais que le bookmaker propose 15.0, c'est un value bet.",
+      "Un value bet est un pari dont la cote proposée par le bookmaker est supérieure à ce qu'elle devrait être selon la probabilité réelle de l'événement. Si vous estimez qu'une Mannschaft a 10 % de chances de gagner (cote juste = 10.0) mais que le bookmaker propose 15.0, c'est un value bet.",
   },
   {
     question: "Comment savoir si un pari est un value bet ?",
@@ -166,7 +166,7 @@ export default function ValueBetsPage() {
           professionnels.
         </p>
         <p className="text-gray-700">
-          La WM 2026, avec son format élargi à 48 équipes et ses
+          La WM 2026, avec son format élargi à 48 Mannschafts et ses
           nombreuses incertitudes, offre un terrain particulièrement fertile pour
           dénicher des value bets. Les bookmakers doivent coter des centaines de
           marchés, et les erreurs d&apos;appréciation sont inévitables.
@@ -229,7 +229,7 @@ export default function ValueBetsPage() {
           {[
             {
               title: "Analysez les données, pas les émotions",
-              desc: "Utilisez les classements FIFA, les résultats récents, les statistiques de performance (xG, possession) plutôt que votre ressenti ou la popularité d'une équipe.",
+              desc: "Utilisez les classements FIFA, les résultats récents, les statistiques de performance (xG, possession) plutôt que votre ressenti ou la popularité d'une Mannschaft.",
             },
             {
               title: "Comparez les cotes de plusieurs bookmakers",
@@ -240,12 +240,12 @@ export default function ValueBetsPage() {
               desc: "Le grand public surestime les grandes nations et sous-estime les outsiders. Les cotes des favoris sont souvent trop basses, celles des outsiders trop hautes.",
             },
             {
-              title: "Exploitez le format 48 équipes",
+              title: "Exploitez le format 48 Mannschafts",
               desc: "Le nouveau format multiplie les matchs et les incertitudes. Les bookmakers ont moins de données historiques pour coter les confrontations inédites.",
             },
             {
               title: "Surveillez la forme récente",
-              desc: "Les cotes ante-post sont fixées des mois à l'avance. Une équipe en pleine progression peut offrir de la valeur si sa cote n'a pas encore bougé.",
+              desc: "Les cotes ante-post sont fixées des mois à l'avance. Une Mannschaft en pleine progression peut offrir de la valeur si sa cote n'a pas encore bougé.",
             },
             {
               title: "Tenez compte du contexte",
@@ -312,15 +312,15 @@ export default function ValueBetsPage() {
           rel="noopener noreferrer sponsored nofollow"
           className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
         >
-          100€ offerts — Voir les cotes CDM 2026 sur PMU Sport{" "}
+          Willkommensbonus — Zeige cotes CDM 2026 sur Betano{" "}
           <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
-        <p className="text-xs text-gray-400 mt-3">18+ | Offre soumise à conditions</p>
+        <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
       {/* FAQ */}
       <FAQSection
-        title="Questions fréquentes — Value bets CDM 2026"
+        title="Häufig gestellte Fragen — Value bets CDM 2026"
         items={faqItems}
       />
 

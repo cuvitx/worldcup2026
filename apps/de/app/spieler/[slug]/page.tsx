@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
-    title: `${player.name} - ${teamName} | Fiche joueur CDM 2026`,
+    title: `${player.name} - ${teamName} | Fiche Spieler CDM 2026`,
     description: `Fiche de ${player.name} (${teamName}) pour la WM 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
     alternates: getAlternates("player", slug, "de"),
     openGraph: {
@@ -56,10 +56,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const positionLabels: Record<string, string> = {
-  GK: "Gardien",
+  GK: "Torwart",
   DF: "Defenseur",
-  MF: "Milieu",
-  FW: "Attaquant",
+  MF: "Mittelfeldspieler",
+  FW: "Stürmer",
 };
 
 export default async function PlayerPage({ params }: PageProps) {
@@ -242,7 +242,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
             {team && (
               <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipe</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Mannschaft</h3>
                 <Link
                   href={`/mannschaft/${team.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30"
@@ -263,17 +263,17 @@ export default async function PlayerPage({ params }: PageProps) {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/spieler-liste" className="text-primary hover:underline">
-                    <CircleDot className="h-5 w-5 inline-block" /> Tous les joueurs clés
+                    <CircleDot className="h-5 w-5 inline-block" /> Tous les Spielers clés
                   </Link>
                 </li>
                 <li>
                   <Link href="/torschuetzen" className="text-primary hover:underline">
-                     Meilleurs buteurs
+                     Beste Torschützen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparateur-joueurs" className="text-primary hover:underline">
-                    <Users className="h-5 w-5 inline-block" /> Comparateur de joueurs
+                  <Link href="/comparateur-Spielers" className="text-primary hover:underline">
+                    <Users className="h-5 w-5 inline-block" /> Comparateur de Spielers
                   </Link>
                 </li>
                 {team && (
@@ -288,8 +288,8 @@ export default async function PlayerPage({ params }: PageProps) {
 
             {/* PMU Banner */}
             <div className="mt-6">
-              <PmuBanner tracking="joueur" compact />
-              <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/verantwortungsvolles-spielen" className="underline">Jeu responsable</a></p>
+              <PmuBanner tracking="Spieler" compact />
+              <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/verantwortungsvolles-spielen" className="underline">Verantwortungsvolles Spielen</a></p>
             </div>
           </div>
         </div>

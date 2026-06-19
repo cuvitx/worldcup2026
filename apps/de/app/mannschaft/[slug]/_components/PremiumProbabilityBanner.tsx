@@ -9,13 +9,13 @@ interface PremiumProbabilityBannerProps {
 
 export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbabilityBannerProps) {
   const stages = [
-    { label: "Sortir des groupes", value: prediction.groupStageProb },
+    { label: "Gruppenphase überstehen", value: prediction.groupStageProb },
     { label: "Top 32", value: prediction.roundOf32Prob },
     { label: "Top 16", value: prediction.roundOf16Prob },
-    { label: "Quarts de finale", value: prediction.quarterFinalProb },
-    { label: "Demi-finales", value: prediction.semiFinalProb },
+    { label: "Viertelfinale", value: prediction.quarterFinalProb },
+    { label: "Halbfinale", value: prediction.semiFinalProb },
     { label: "Finale", value: prediction.finalProb },
-    { label: "Vainqueur", value: prediction.winnerProb },
+    { label: "Weltmeister", value: prediction.winnerProb },
   ];
 
   const winnerPct = Math.round(prediction.winnerProb * 100);
@@ -33,14 +33,14 @@ export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbab
                 </svg>
               </div>
               <h3 className="text-lg font-bold">
-                Probabilités {teamName}
+                Wahrscheinlichkeiten {teamName}
               </h3>
             </div>
             <p className="text-sm text-gray-300 mb-6">
-              Parcours estimé lors de la WM 2026, basé sur notre modèle ELO.
+              Geschätzter Turnierverlauf bei der WM 2026, basierend auf unserem ELO-Modell.
             </p>
             <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-5 text-center">
-              <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Chance de victoire</p>
+              <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Siegchance</p>
               <p className="text-5xl font-extrabold text-accent">{winnerPct}%</p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export function PremiumProbabilityBanner({ prediction, teamName }: PremiumProbab
           <div className="lg:w-2/3 space-y-3">
             {stages.map((item) => {
               const pct = Math.round(item.value * 100);
-              const isWinner = item.label === "Vainqueur";
+              const isWinner = item.label === "Weltmeister";
               return (
                 <div key={item.label} className="flex items-center gap-3">
                   <span className="text-xs text-gray-300 w-36 sm:w-44 shrink-0 text-right font-medium">

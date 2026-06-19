@@ -42,11 +42,11 @@ export function StickyCTA() {
       {/* Popup */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
         <div className="relative w-[85vw] max-w-[700px]">
-          {/* Close button — inside the container, top-right corner */}
+          {/* Close button */}
           <button
             onClick={(e) => { e.stopPropagation(); dismiss(); }}
             className="absolute top-2 right-2 z-[10000] flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black transition-colors shadow-lg backdrop-blur-sm"
-            aria-label="Fermer"
+            aria-label="Schließen"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -63,20 +63,20 @@ export function StickyCTA() {
             {/* Mobile */}
             <img
               src={PMU_IMAGE_MOBILE}
-              alt="PMU Play — Jusqu'à 100€ en cash"
+              alt="Betano — Jetzt wetten"
               className="block sm:hidden w-full h-auto rounded-2xl"
             />
             {/* Desktop */}
             <img
               src={PMU_IMAGE_DESKTOP}
-              alt="PMU Play — Jusqu'à 100€ en cash"
+              alt="Betano — Jetzt wetten"
               className="hidden sm:block w-full h-auto rounded-2xl"
             />
           </a>
 
           {/* Legal */}
           <p className="mt-2 text-[10px] text-white/70 text-center">
-            18+ | Offre soumise à conditions | <a href="/verantwortungsvolles-spielen" className="underline">Jeu responsable</a>
+            18+ | Es gelten die AGB | <a href="/verantwortungsvolles-spielen" className="underline">Verantwortungsvolles Spielen</a>
           </p>
         </div>
       </div>

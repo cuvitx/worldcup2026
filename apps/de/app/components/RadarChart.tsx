@@ -83,7 +83,7 @@ export default function RadarChart({ rating, color = "var(--color-gold)", classN
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       className={`w-full max-w-[320px] mx-auto ${className ?? ""}`}
       role="img"
-      aria-label="Radar chart des notes de l'équipe"
+      aria-label="Radar chart des notes de l'Mannschaft"
     >
       {gridRings}
       {axisLines}

@@ -22,7 +22,7 @@ export function H2HTab({ home, away, h2h, homeName, awayName }: H2HTabProps) {
         />
       ) : (
         <div className="text-center py-12 text-gray-500">
-          Historique non disponible pour ce match.
+          Bilanz fuer dieses Spiel nicht verfuegbar.
         </div>
       )}
     </div>

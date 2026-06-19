@@ -1,10 +1,10 @@
 export function AntiArnaques() {
   const tips = [
     { type: "danger" as const, title: "Sites non officiels", desc: "Méfiez-vous de TOUS les sites autres que fifa.com/tickets. Des centaines de faux sites existent." },
-    { type: "danger" as const, title: "Réseaux sociaux", desc: "Les ventes de billets sur Facebook, Instagram, Twitter sont quasiment toutes des arnaques ou billets volés." },
-    { type: "danger" as const, title: "Revendeurs non officiels", desc: "StubHub, Viagogo et similaires ne sont PAS partenaires officiels FIFA. Les billets peuvent être invalidés." },
+    { type: "danger" as const, title: "Réseaux sociaux", desc: "Les ventes de Tickets sur Facebook, Instagram, Twitter sont quasiment toutes des arnaques ou Tickets volés." },
+    { type: "danger" as const, title: "Revendeurs non officiels", desc: "StubHub, Viagogo et similaires ne sont PAS partenaires officiels FIFA. Les Tickets peuvent être invalidés." },
     { type: "safe" as const, title: "Canal officiel unique", desc: "fifa.com/tickets est le SEUL endroit où acheter. Bookmarkez cette URL exacte." },
-    { type: "safe" as const, title: "Revente officielle FIFA", desc: "Si vous devez revendre, utilisez la plateforme officielle de transfert FIFA. Les billets restent valides." },
+    { type: "safe" as const, title: "Revente officielle FIFA", desc: "Si vous devez revendre, utilisez la plateforme officielle de transfert FIFA. Les Tickets restent valides." },
     { type: "safe" as const, title: "Vérifiez l'URL", desc: "Assurez-vous que l'URL commence par fifa.com/tickets avec HTTPS. Pas de tirets, variantes ou sous-domaines suspects." },
   ];
 

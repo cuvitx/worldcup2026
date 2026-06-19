@@ -126,19 +126,19 @@ export default function CommunityVote({
 
   const options = [
     { key: "1" as const, choice: "home" as VoteChoice, label: homeName, pct: pctHome, color: "bg-primary", colorLight: "bg-primary/20", text: "text-primary" },
-    { key: "N" as const, choice: "draw" as VoteChoice, label: "Match nul", pct: pctDraw, color: "bg-gray-400", colorLight: "bg-gray-400/20", text: "text-gray-400" },
+    { key: "N" as const, choice: "draw" as VoteChoice, label: "Unentschieden", pct: pctDraw, color: "bg-gray-400", colorLight: "bg-gray-400/20", text: "text-gray-400" },
     { key: "2" as const, choice: "away" as VoteChoice, label: awayName, pct: pctAway, color: "bg-accent", colorLight: "bg-accent/20", text: "text-accent" },
   ];
 
   return (
     <section className="rounded-2xl border border-gray-200 bg-white p-6">
       <h2 className="text-2xl font-bold text-gray-900 mb-1">
-        L&apos;avis de la communauté
+        Meinung der Community
       </h2>
       <p className="mb-5 text-sm text-gray-500">
         {showResults
-          ? `${total.toLocaleString("de-DE")} votes`
-          : "Quel est votre pronostic pour ce match ?"}
+          ? `${total.toLocaleString("de-DE")} Stimmen`
+          : "Was ist Ihre Prognose für dieses Spiel?"}
       </p>
 
       {!showResults ? (

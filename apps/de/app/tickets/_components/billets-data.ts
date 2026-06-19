@@ -39,7 +39,7 @@ export const ticketPhases = [
     color: "orange",
   },
   {
-    phase: "Demi-finales",
+    phase: "Halbfinales",
     icon: "flame",
     dates: "14 – 15 juillet 2026",
     catPrices: [
@@ -86,14 +86,14 @@ export const salePhases = [
     period: "Avril – Juin 2026",
     status: "À venir",
     statusColor: "blue",
-    desc: "Billets restants mis en vente progressivement. Remises possibles sur matchs de groupes peu demandés.",
+    desc: "Tickets restants mis en vente progressivement. Remises possibles sur matchs de groupes peu demandés.",
   },
   {
     phase: "Vente pendant le tournoi",
     period: "Juin – Juillet 2026",
     status: "À venir",
     statusColor: "blue",
-    desc: "Billets récupérés (no-shows, retours) remis en vente avant chaque match. Disponibilité très limitée.",
+    desc: "Tickets récupérés (no-shows, retours) remis en vente avant chaque match. Disponibilité très limitée.",
   },
 ];
 
@@ -130,12 +130,12 @@ export const ticketCategories = [
 
 export const faqItems = [
   {
-    question: "Où acheter des billets officiels pour la CDM 2026 ?",
+    question: "Où acheter des Tickets officiels pour la CDM 2026 ?",
     answer:
-      "Les seuls billets officiels sont vendus sur FIFA.com (fifa.com/tickets). Tout autre site est soit une arnaque soit de la revente non officielle. Créez un compte FIFA+ gratuitement pour accéder aux ventes.",
+      "Les seuls Tickets officiels sont vendus sur FIFA.com (fifa.com/tickets). Tout autre site est soit une arnaque soit de la revente non officielle. Créez un compte FIFA+ gratuitement pour accéder aux ventes.",
   },
   {
-    question: "Combien coûtent les billets pour la WM 2026 ?",
+    question: "Combien coûtent les Tickets pour la WM 2026 ?",
     answer:
       "Les prix varient selon la phase et la catégorie : phase de groupes de 60 à 350 USD (Cat 1-3), huitièmes de 100 à 600 USD, demi-finales de 200 à 1 500 USD, finale de 300 à 2 500 USD (hors hospitalité). Les prix sont en USD pour tous les pays hôtes.",
   },
@@ -145,14 +145,14 @@ export const faqItems = [
       "Pour les matchs à forte demande (finales, demi-finales, matchs des grandes nations), la FIFA organise un tirage au sort parmi les demandes. Vous soumettez votre demande dans un délai défini, puis la FIFA tire au sort les heureux gagnants qui peuvent procéder au paiement.",
   },
   {
-    question: "Peut-on revendre ses billets CDM 2026 officiellement ?",
+    question: "Peut-on revendre ses Tickets CDM 2026 officiellement ?",
     answer:
-      "Oui, la FIFA propose une plateforme officielle de transfert de billets sur FIFA.com. C'est la seule méthode de revente autorisée. La revente non officielle est interdite par les conditions générales et peut entraîner l'annulation du billet.",
+      "Oui, la FIFA propose une plateforme officielle de transfert de Tickets sur FIFA.com. C'est la seule méthode de revente autorisée. La revente non officielle est interdite par les conditions générales et peut entraîner l'annulation du billet.",
   },
   {
-    question: "Les billets CDM 2026 sont-ils nominatifs ?",
+    question: "Les Tickets CDM 2026 sont-ils nominatifs ?",
     answer:
-      "Oui, les billets sont nominatifs et liés à un compte FIFA+. Lors de l'entrée au stade, une pièce d'identité peut être demandée. Les transferts officiels via FIFA.com permettent de changer le nom du détenteur.",
+      "Oui, les Tickets sont nominatifs et liés à un compte FIFA+. Lors de l'entrée au stade, une pièce d'identité peut être demandée. Les transferts officiels via FIFA.com permettent de changer le nom du détenteur.",
   },
   {
     question: "Quels stades accueillent les matchs à fort intérêt ?",
@@ -160,14 +160,14 @@ export const faqItems = [
       "La finale aura lieu au MetLife Stadium (New York/NJ, 82 500 places). Les demi-finales au Rose Bowl (Pasadena) et au Azteca (Mexico). Les matchs de France à MetLife (New York), Lincoln Financial Field (Philadelphia) et Gillette Stadium (Boston).",
   },
   {
-    question: "Y a-t-il des packages billets + hôtel + transport ?",
+    question: "Y a-t-il des packages Tickets + hôtel + transport ?",
     answer:
       "Oui, la FIFA propose des packages officiels via ses agences de voyages partenaires (Tours Operators Program). Ces packages incluent billet, hôtel et parfois les transferts. Ils sont plus chers mais facilitent l'organisation.",
   },
   {
-    question: "Comment éviter les arnaques de billets CDM 2026 ?",
+    question: "Comment éviter les arnaques de Tickets CDM 2026 ?",
     answer:
-      "N'achetez que sur FIFA.com ou via les agences officielles TOP partenaires de la FIFA. Méfiez-vous des sites tiers, réseaux sociaux et particuliers. Les billets achetés hors circuits officiels peuvent être annulés par la FIFA.",
+      "N'achetez que sur FIFA.com ou via les agences officielles TOP partenaires de la FIFA. Méfiez-vous des sites tiers, réseaux sociaux et particuliers. Les Tickets achetés hors circuits officiels peuvent être annulés par la FIFA.",
   },
   {
     question: "Les enfants ont-ils besoin d'un billet CDM 2026 ?",
@@ -175,9 +175,9 @@ export const faqItems = [
       "Les enfants de moins de 2 ans (sans siège attribué) peuvent entrer gratuitement. Les enfants de 3 à 16 ans bénéficient de tarifs réduits dans certaines catégories pour les matchs de groupes. Vérifiez les détails sur FIFA.com.",
   },
   {
-    question: "Quand ouvrent les prochaines ventes de billets CDM 2026 ?",
+    question: "Quand ouvrent les prochaines ventes de Tickets CDM 2026 ?",
     answer:
-      "La Phase 3 de vente générale devrait ouvrir au printemps 2026. Inscrivez-vous à la newsletter FIFA pour être notifié en priorité. Des billets de dernière minute sont aussi disponibles juste avant les matchs sur FIFA.com.",
+      "La Phase 3 de vente générale devrait ouvrir au printemps 2026. Inscrivez-vous à la newsletter FIFA pour être notifié en priorité. Des Tickets de dernière minute sont aussi disponibles juste avant les matchs sur FIFA.com.",
   },
   {
     question: "La CDM 2026 est-elle dans plusieurs villes différentes ?",
@@ -187,6 +187,6 @@ export const faqItems = [
   {
     question: "Faut-il un visa pour assister à la CDM 2026 ?",
     answer:
-      "Cela dépend de votre nationalité et du pays hôte où vous vous rendez. Les ressortissants français voyageant aux États-Unis doivent obtenir une autorisation ESTA (14 USD, valable 2 ans) s'ils voyagent sans visa. Pour le Canada et le Mexique, d'autres conditions s'appliquent. La FIFA et les gouvernements des pays hôtes ont mis en place des facilités d'entrée spéciales pour les détenteurs de billets officiels CDM 2026. Vérifiez les conditions actuelles sur le site de l'ambassade du pays concerné et sur fifa.com.",
+      "Cela dépend de votre nationalité et du pays hôte où vous vous rendez. Les ressortissants français voyageant aux États-Unis doivent obtenir une autorisation ESTA (14 USD, valable 2 ans) s'ils voyagent sans visa. Pour le Canada et le Mexique, d'autres conditions s'appliquent. La FIFA et les gouvernements des pays hôtes ont mis en place des facilités d'entrée spéciales pour les détenteurs de Tickets officiels CDM 2026. Vérifiez les conditions actuelles sur le site de l'ambassade du pays concerné et sur fifa.com.",
   },
 ];

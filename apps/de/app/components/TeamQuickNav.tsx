@@ -9,13 +9,13 @@ interface TeamQuickNavProps {
 }
 
 const navItems = (slug: string) => [
-  { label: "Equipe", href: `/mannschaft/${slug}` },
+  { label: "Mannschaft", href: `/mannschaft/${slug}` },
   { label: "Prognose", href: `/prognose/${slug}` },
-  { label: "Groupe", href: `/gruppe/${getGroupSlug(slug)}` },
-  { label: "Matchs", href: `/mannschaft/${slug}/matchs` },
-  { label: "Spielers", href: `/mannschaft/${slug}/spieler-liste` },
-  { label: "Cotes", href: `/mannschaft/${slug}/cotes` },
-  { label: "Scenarios", href: `/scenarios-qualification-equipe/${slug}` },
+  { label: "Gruppe", href: `/gruppe/${getGroupSlug(slug)}` },
+  { label: "Spiele", href: `/mannschaft/${slug}/matchs` },
+  { label: "Spieler", href: `/mannschaft/${slug}/spieler-liste` },
+  { label: "Quoten", href: `/mannschaft/${slug}/cotes` },
+  { label: "Szenarien", href: `/scenarios-qualification-equipe/${slug}` },
 ];
 
 function getGroupSlug(teamSlug: string): string {
@@ -28,7 +28,7 @@ export function TeamQuickNav({ teamSlug }: TeamQuickNavProps) {
   const items = navItems(teamSlug);
 
   return (
-    <nav className="flex gap-2 overflow-x-auto pb-1" aria-label="Navigation rapide equipe">
+    <nav className="flex gap-2 overflow-x-auto pb-1" aria-label="Schnellnavigation Mannschaft">
       {items.map((item) => {
         const isActive = pathname === item.href;
         return (

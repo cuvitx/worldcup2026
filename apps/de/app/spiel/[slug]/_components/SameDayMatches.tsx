@@ -23,7 +23,7 @@ export function SameDayMatches({
     return (
       <Card hover padding="md">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Autres matchs du {currentDate.slice(5)}
+          Weitere Spiele am {currentDate.slice(5)}
         </h3>
         <div className="space-y-2">
           {sameDayMatches.slice(0, 5).map((m) => {
@@ -54,7 +54,7 @@ export function SameDayMatches({
   return (
     <section className="border-t border-gray-200 py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading title="Matchs de la même journée" />
+        <SectionHeading title="Spiele am selben Tag" />
         <div className="space-y-3 max-w-2xl mx-auto">
           {sameDayMatches.map((m) => {
             const mHome = teamsById[m.homeTeamId];

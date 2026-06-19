@@ -6,13 +6,13 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 import { ConfederationFilter } from "./confederation-filter";
 import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
-  title: "Les 48 équipes de la WM 2026 | Rangliste, Stats & Prognoses",
+  title: "Les 48 Mannschafts de la WM 2026 | Rangliste, Stats & Prognoses",
   description:
-    "Liste complète des 48 équipes qualifiées pour la WM 2026. Rangliste FIFA, groupe, historique et pronostics pour chaque sélection.",
+    "Liste complète des 48 Mannschafts qualifiées pour la WM 2026. Rangliste FIFA, groupe, historique et pronostics pour chaque sélection.",
   alternates: getStaticAlternates("teams", "de"),
   openGraph: {
-    title: "48 équipes - WM 2026",
-    description: "Alle équipes qualifiées pour la CDM 2026 aux États-Unis, Canada et Mexique.",
+    title: "48 Mannschafts - WM 2026",
+    description: "Alle Mannschafts qualifiées pour la CDM 2026 aux États-Unis, Canada et Mexique.",
   },
 };
 
@@ -23,7 +23,7 @@ export default function TeamsPage() {
     <>
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Les 48 équipes de la CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Les 48 Mannschafts de la CDM 2026</h1>
           <p className="mt-2 text-gray-300">
             Rangliste FIFA, groupe, pronostics et fiche complète de chaque sélection qualifiée.
           </p>
@@ -36,13 +36,13 @@ export default function TeamsPage() {
 
         {/* Ranking Table */}
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200 mb-10 mt-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Rangliste FIFA des 48 équipes</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Rangliste FIFA des 48 Mannschafts</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 text-left">
                   <th className="pb-3 font-medium text-gray-500">#</th>
-                  <th className="pb-3 font-medium text-gray-500">Équipe</th>
+                  <th className="pb-3 font-medium text-gray-500">Mannschaft</th>
                   <th className="pb-3 font-medium text-gray-500 hidden sm:table-cell">Conf.</th>
                   <th className="pb-3 font-medium text-gray-500">Gr.</th>
                   <th className="pb-3 font-medium text-gray-500 text-right hidden sm:table-cell">Chances</th>
@@ -106,7 +106,7 @@ export default function TeamsPage() {
               icon: ""
             },
             {
-              href: "/prognose/vainqueur",
+              href: "/prognose/sieger",
               title: "Qui va gagner ?",
               description: "Nos pronostics et cotes pour le vainqueur de la CDM 2026.",
               icon: ""

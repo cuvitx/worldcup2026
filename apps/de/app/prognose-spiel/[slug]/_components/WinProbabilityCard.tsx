@@ -18,7 +18,7 @@ export function WinProbabilityCard({
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        Probabilités de victoire
+        Siegwahrscheinlichkeiten
       </h2>
       <div className="flex items-center justify-around mb-6">
         <div className="text-center">
@@ -29,7 +29,7 @@ export function WinProbabilityCard({
           </p>
         </div>
         <div className="text-center px-4">
-          <p className="text-xs text-gray-500 font-medium">Nul</p>
+          <p className="text-xs text-gray-500 font-medium">Unentschieden</p>
           <p className="text-xl font-bold text-gray-600 mt-1">
             {Math.round(prediction.drawProb * 100)}%
           </p>
@@ -52,7 +52,7 @@ export function WinProbabilityCard({
         <div
           className="h-full bg-gray-400 transition-all duration-700"
           style={{ width: `${Math.round(prediction.drawProb * 100)}%` }}
-          title={`Nul: ${Math.round(prediction.drawProb * 100)}%`}
+          title={`Unentschieden: ${Math.round(prediction.drawProb * 100)}%`}
         />
         <div
           className="h-full bg-accent rounded-r-full transition-all duration-700"
@@ -62,7 +62,7 @@ export function WinProbabilityCard({
       </div>
       <div className="flex justify-between text-[10px] text-gray-500 mt-1">
         <span>{homeName}</span>
-        <span>Nul</span>
+        <span>Unentschieden</span>
         <span>{awayName}</span>
       </div>
     </div>

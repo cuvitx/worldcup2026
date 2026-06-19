@@ -23,24 +23,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsBySlug[slug];
   if (!team) return {};
   return {
-    title: `Effectif ${team.name} — Liste des 26 joueurs CDM 2026`,
-    description: `Effectif complet de ${team.name} pour la WM 2026 : liste des 26 joueurs, postes, clubs et sélections par poste.`,
+    title: `Kader ${team.name} — Liste des 26 Spielers CDM 2026`,
+    description: `Kader complet de ${team.name} pour la WM 2026 : liste des 26 Spielers, postes, clubs et sélections par poste.`,
     openGraph: {
-      title: `${team.flag} Effectif ${team.name} — CDM 2026`,
-      description: `Liste des 26 joueurs de ${team.name} pour la WM 2026.`,
+      title: `${team.flag} Kader ${team.name} — CDM 2026`,
+      description: `Liste des 26 Spielers de ${team.name} pour la WM 2026.`,
       url: `${domains.de}/effectif/${team.slug}`,
       },
     alternates: { canonical: `https://www.wm2026guide.de/effectif/${team.slug}` },
   };
 }
 const positionLabels: Record<string, string> = {
-  GK: "Gardien",
-  DF: "Défenseur",
-  MF: "Milieu",
-  FW: "Attaquant",
+  GK: "Torwart",
+  DF: "Verteidiger",
+  MF: "Mittelfeldspieler",
+  FW: "Stürmer",
 };
 const positionOrder: Record<string, number> = { GK: 0, DF: 1, MF: 2, FW: 3 };
-export default async function EffectifPage({ params }: PageProps) {
+export default async function KaderPage({ params }: PageProps) {
   const { slug } = await params;
   const team = teamsBySlug[slug];
   if (!team) notFound();
@@ -66,22 +66,22 @@ export default async function EffectifPage({ params }: PageProps) {
   const nextMatch = teamMatches.find((m) => m.date >= today);
 const faqItems = [
     {
-      question: `Combien de joueurs ${team.name} peut-elle emmener à la CDM 2026 ?`,
-      answer: "Chaque sélection peut convoquer 26 joueurs pour la WM 2026, dont 3 gardiens obligatoires.",
+      question: `Combien de Spielers ${team.name} peut-elle emmener à la CDM 2026 ?`,
+      answer: "Chaque sélection peut convoquer 26 Spielers pour la WM 2026, dont 3 Torwarts obligatoires.",
     },
     {
       question: `Quand a été annoncée la liste définitive de ${team.name} ?`,
-      answer: `La liste définitive des 26 joueurs de ${team.name} a été annoncée par le sélectionneur en mai 2026, avant le début du tournoi le 11 juin 2026.`,
+      answer: `La liste définitive des 26 Spielers de ${team.name} a été annoncée par le sélectionneur en mai 2026, avant le début du tournoi le 11 juin 2026.`,
     },
     {
-      question: `Qui sont les joueurs stars de ${team.name} ?`,
+      question: `Qui sont les Spielers stars de ${team.name} ?`,
       answer: stars.length > 0
-        ? `Les joueurs les plus expérimentés de ${team.name} sont : ${stars.map((s) => `${s.name} (${s.caps} sél.)`).join(", ")}.`
-        : `La liste des joueurs de ${team.name} est celle retenue pour la WM 2026.`,
+        ? `Les Spielers les plus expérimentés de ${team.name} sont : ${stars.map((s) => `${s.name} (${s.caps} sél.)`).join(", ")}.`
+        : `La liste des Spielers de ${team.name} est celle retenue pour la WM 2026.`,
     },
     {
-      question: `Un joueur blessé peut-il être remplacé ?`,
-      answer: "Oui, la FIFA autorise le remplacement de joueurs blessés jusqu'à 24h avant le premier match de l'équipe, sous réserve de validation médicale.",
+      question: `Un Spieler blessé peut-il être remplacé ?`,
+      answer: "Oui, la FIFA autorise le remplacement de Spielers blessés jusqu'à 24h avant le premier match de l'Mannschaft, sous réserve de validation médicale.",
     },
   ];
   return (
@@ -95,10 +95,10 @@ const faqItems = [
             </span>
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">
-                Effectif {team.name} — Liste des 26 joueurs CDM 2026
+                Kader {team.name} — Liste des 26 Spielers CDM 2026
               </h1>
               <p className="mt-2 text-lg text-gray-300">
-                Groupe {team.group} · FIFA #{team.fifaRanking} · {allPlayers.length} joueurs répertoriés
+                Groupe {team.group} · FIFA #{team.fifaRanking} · {allPlayers.length} Spielers répertoriés
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@ const faqItems = [
         {/* Disclaimer */}
         <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 mb-8">
           <p className="text-sm text-gray-700 font-medium">
-            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 joueurs sélectionnés pour la WM 2026.
+            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 Spielers sélectionnés pour la WM 2026.
           </p>
         </div>
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
@@ -191,14 +191,14 @@ const faqItems = [
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">
-                  La liste des joueurs de {team.name} n'est pas encore disponible.
+                  La liste des Spielers de {team.name} n'est pas encore disponible.
                 </p>
               </section>
             )}
             {/* CTA Affilié multi-bookmakers */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                Parier sur {team.name}
+                Wetten auf {team.name}
               </h2>
               <p className="mb-5 text-sm text-gray-600">
                 Comparez les meilleurs sites de paris sportifs agréés en France pour parier sur {team.name} à la WM 2026.
@@ -235,7 +235,7 @@ const faqItems = [
                             isFeatured ? "bg-accent hover:bg-accent/80" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
-                          Parier sur {team.name}
+                          Wetten auf {team.name}
                         </a>
                       </div>
                     </div>
@@ -245,19 +245,19 @@ const faqItems = [
               <p className="mt-4 text-center text-[10px] leading-snug text-gray-400">
                 Les jeux d&apos;argent et de hasard sont interdits aux mineurs. Jouer comporte des risques : endettement, dépendance...{" "}
                 <a href="tel:0974751313" className="underline hover:text-gray-500">
-                  Appelez le 09 74 75 13 13
+                  Appelez le 0800 1 37 27 00
                 </a>{" "}
                 (appel non surtaxé).
               </p>
             </section>
-            {/* Prochain match */}
+            {/* Nächstes Spiel */}
             {nextMatch && (() => {
               const home = teamsById[nextMatch.homeTeamId];
               const away = teamsById[nextMatch.awayTeamId];
               return (
                 <section className="rounded-xl bg-primary/5 border border-primary/20 p-4 sm:p-6">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Prochain match {team.name}
+                    Nächstes Spiel {team.name}
                   </h2>
                   <Link
                     href={`/prognose-spiel/${nextMatch.slug}`}
@@ -311,7 +311,7 @@ const faqItems = [
             </div>
             <BetOfTheDay compact />
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Parier sur {team.name}</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Wetten auf {team.name}</h3>
               <div className="space-y-3">
                 {bookmakers.slice(0, 3).map((bk) => (
                   <a
@@ -331,7 +331,7 @@ const faqItems = [
               </div>
               <p className="mt-3 text-[10px] text-gray-400 text-center leading-snug">
                 18+ | Jouer comporte des risques.{" "}
-                <a href="tel:0974751313" className="underline hover:text-gray-500">09 74 75 13 13</a>
+                <a href="tel:0974751313" className="underline hover:text-gray-500">0800 1 37 27 00</a>
               </p>
             </div>
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
@@ -344,7 +344,7 @@ const faqItems = [
                 </li>
                 <li>
                   <Link href={`/parier/${team.slug}`} className="text-primary hover:underline">
-                    Parier sur {team.name}
+                    Wetten auf {team.name}
                   </Link>
                 </li>
                 <li>
@@ -367,7 +367,7 @@ const faqItems = [
           </aside>
         </div>
         {/* FAQ — full width, centered */}
-        <FAQSection items={faqItems} title={`Questions fréquentes — Effectif ${team.name}`} />
+        <FAQSection items={faqItems} title={`Häufig gestellte Fragen — Kader ${team.name}`} />
       </div>
     </>
   );

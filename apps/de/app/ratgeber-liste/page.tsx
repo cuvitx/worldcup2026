@@ -146,7 +146,7 @@ export default function GuidesPage() {
               { href: "/voyage/alcool-stades", icon: "🍺", title: "Alcool dans les stades", description: "Réglementation sur l'alcool dans les stades" },
               { href: "/securite", icon: "🔒", title: "Sécurité", description: "Conseils de sécurité pour votre voyage" },
               { href: "/hebergement", icon: "🏨", title: "Hébergement", description: "Où dormir pendant la CDM 2026" },
-              { href: "/billets", icon: "🎟️", title: "Billets", description: "Comment acheter vos billets pour la CDM" },
+              { href: "/Tickets", icon: "🎟️", title: "Tickets", description: "Comment acheter vos Tickets pour la CDM" },
               { href: "/ou-regarder", icon: "📺", title: "Où regarder les matchs", description: "TV, streaming et bars pour suivre la CDM" },
               { href: "/regarder-cdm-au-travail", icon: "💼", title: "Regarder au travail", description: "Suivre les matchs depuis le bureau" },
               { href: "/guide/glossaire", icon: "📖", title: "Glossaire football", description: "Tous les termes du football expliqués" },

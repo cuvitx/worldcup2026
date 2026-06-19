@@ -19,14 +19,14 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
     <section className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Prognose {team.name} — Cotes &amp; Analyse
+          Prognose {team.name} — Quoten &amp; Analyse
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Bookmaker odds */}
+          {/* Wettquoten */}
           <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Cotes vainqueur CDM 2026 — {team.name}
+              Siegerquoten WM 2026 — {team.name}
             </h3>
             <div className="space-y-2">
               {bookmakers.map((bm) => {
@@ -56,7 +56,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
               })}
             </div>
             <p className="mt-3 text-xs text-gray-400">
-              * Cotes indicatives. Vérifiez en temps réel sur chaque site. 18+ · Jeu responsable.
+              * Richtquoten. Prüfen Sie die aktuellen Quoten auf jeder Seite. 18+ · Verantwortungsvolles Spielen.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
             {strengths.length > 0 && (
               <div className="rounded-xl border border-accent/30 bg-accent/10 p-5">
                 <h3 className="text-lg font-semibold text-accent mb-3">
-                  Forces
+                  Stärken
                 </h3>
                 <ul className="space-y-1.5">
                   {strengths.map((point, i) => (
@@ -81,7 +81,7 @@ export function PremiumPronostic({ team, prediction, content }: PremiumPronostic
             {weaknesses.length > 0 && (
               <div className="rounded-xl border border-red-200 bg-red-50 p-5">
                 <h3 className="text-lg font-semibold text-red-700 mb-3">
-                  Points de vigilance
+                  Schwachstellen
                 </h3>
                 <ul className="space-y-1.5">
                   {weaknesses.map((point, i) => (

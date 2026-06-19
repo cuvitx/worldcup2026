@@ -7,16 +7,16 @@ import { teamsById } from "@repo/data/teams";
 import { H2HSelector } from "./h2h-selector";
 
 export const metadata: Metadata = {
-  title: "Confrontations H2H — Comparer deux équipes | CDM 2026",
+  title: "Confrontations H2H — Comparer deux Mannschafts | CDM 2026",
   description:
-    "Comparez deux équipes de la WM 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
+    "Comparez deux Mannschafts de la WM 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
   alternates: {
     canonical: "https://www.wm2026guide.de/h2h",
   },
   openGraph: {
     title: "Confrontations H2H — CDM 2026",
     description:
-      "Historique et stats face-à-face de toutes les équipes qualifiées pour la WM 2026.",
+      "Historique et stats face-à-face de toutes les Mannschafts qualifiées pour la WM 2026.",
   },
 };
 
@@ -77,7 +77,7 @@ export default function H2HIndexPage() {
             Confrontations H2H
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Comparez n&apos;importe quelles équipes de la WM 2026 :
+            Comparez n&apos;importe quelles Mannschafts de la WM 2026 :
             historique, stats, classement FIFA et pronostic.
           </p>
         </div>
@@ -164,10 +164,10 @@ export default function H2HIndexPage() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Alle équipes
+            Alle Mannschafts
           </h2>
           <p className="mb-4 text-sm text-gray-500">
-            Cliquez sur une équipe pour voir toutes ses confrontations possibles.
+            Cliquez sur une Mannschaft pour voir toutes ses confrontations possibles.
           </p>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {teams
@@ -188,11 +188,11 @@ export default function H2HIndexPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <RelatedLinks variant="compact" title="Pages liées" links={[
-          { href: "/mannschaft", title: "Les 48 équipes", description: "Fiches complètes de chaque sélection", icon: "" },
+        <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
+          { href: "/mannschaft", title: "Les 48 Mannschafts", description: "Fiches complètes de chaque sélection", icon: "" },
           { href: "/spiel/spielplan", title: "Spielplan des matchs", description: "Tous les matchs de la CDM 2026", icon: "" },
-          { href: "/fifa-ranking", title: "Rangliste FIFA", description: "Ranking mondial des 48 équipes", icon: "" },
-          { href: "/comparateur-joueurs", title: "Comparateur joueurs", description: "Comparez les stars du mondial", icon: "" },
+          { href: "/fifa-ranking", title: "Rangliste FIFA", description: "Ranking mondial des 48 Mannschafts", icon: "" },
+          { href: "/comparateur-Spielers", title: "Comparateur Spielers", description: "Comparez les stars du mondial", icon: "" },
           { href: "/statistiques", title: "Statistiques", description: "Chiffres et stats de la CDM 2026", icon: "" },
         ]} />
       </div>

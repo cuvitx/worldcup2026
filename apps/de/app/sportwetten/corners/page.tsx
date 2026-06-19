@@ -7,11 +7,11 @@ import { CornerDownRight, ArrowRight, AlertTriangle, TrendingUp, BarChart3, Exte
 export const metadata: Metadata = {
   title: "Paris Corners CDM 2026 — Over/Under, Stats & Stratégies",
   description:
-    "Paris corners WM 2026 : over/under 9.5, stats historiques, équipes offensives et cotes comparées. Guide et stratégies.",
+    "Paris corners WM 2026 : over/under 9.5, stats historiques, Mannschafts offensives et cotes comparées. Guide et stratégies.",
   openGraph: {
     title: "Paris Corners CDM 2026 — Guide & Stratégies",
     description:
-      "Over/under corners, stats historiques CDM, top 5 équipes les plus cornereuses et meilleures cotes bookmakers.",
+      "Over/under corners, stats historiques CDM, top 5 Mannschafts les plus cornereuses et meilleures cotes bookmakers.",
     url: "https://www.wm2026guide.de/sportwetten/corners",
   },
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/corners" },
@@ -40,24 +40,24 @@ const cotesCorners = [
   { marche: "Under 9.5 corners", pmusport: "1.92" },
   { marche: "Over 11.5 corners", pmusport: "2.45" },
   { marche: "Under 11.5 corners", pmusport: "1.52" },
-  { marche: "1er corner — Équipe A", pmusport: "1.82" },
-  { marche: "Dernier corner — Équipe B", pmusport: "2.15" },
+  { marche: "1er corner — Mannschaft A", pmusport: "1.82" },
+  { marche: "Dernier corner — Mannschaft B", pmusport: "2.15" },
 ];
 
 const bookmakers = [
-  { nom: "PMU Sport", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli, bookmaker agréé ANJ", url: pmuTrackingUrl("paris-sportifs") },
+  { nom: "Betano", desc: "Corners en live, cashout disponible, stats intégrées dans l'appli, bookmaker agréé ANJ", url: pmuTrackingUrl("paris-sportifs") },
 ];
 
 const strategies = [
   {
     titre: "Pressing haut = plus de corners",
     contenu:
-      "Les équipes qui pratiquent un pressing haut forcent l'adversaire à dégager en touche ou en corner. Repérez les équipes au PPDA (Passes Per Defensive Action) bas : Espagne, Allemagne, Argentine. Ces matchs dépassent souvent les 10.5 corners.",
+      "Les Mannschafts qui pratiquent un pressing haut forcent l'adversaire à dégager en touche ou en corner. Repérez les Mannschafts au PPDA (Passes Per Defensive Action) bas : Espagne, Allemagne, Argentine. Ces matchs dépassent souvent les 10.5 corners.",
   },
   {
     titre: "Mannschaften défensives = under corners",
     contenu:
-      "Lorsque deux équipes défensives se rencontrent (blocs bas, peu de possession dans le dernier tiers), le total corners reste souvent sous 9.5. Exemples typiques : matchs Iran, Arabie Saoudite, Australie en phase de groupes.",
+      "Lorsque deux Mannschafts défensives se rencontrent (blocs bas, peu de possession dans le dernier tiers), le total corners reste souvent sous 9.5. Exemples typiques : matchs Iran, Arabie Saoudite, Australie en phase de groupes.",
   },
   {
     titre: "Analyser la météo et le terrain",
@@ -65,9 +65,9 @@ const strategies = [
       "La CDM 2026 se joue en été aux USA, Canada et Mexique. La chaleur fatigue les défenses en 2e mi-temps, provoquant davantage de corners dans les 30 dernières minutes. Ciblez le marché « corners 2e mi-temps over ».",
   },
   {
-    titre: "1er corner : l'équipe qui domine",
+    titre: "1er corner : l'Mannschaft qui domine",
     contenu:
-      "Dans 68 % des matchs CDM, l'équipe favorite obtient le 1er corner. Combinez ce pari avec un « victoire 1e mi-temps » pour un mini-combiné à cote attractive (~3.20).",
+      "Dans 68 % des matchs CDM, l'Mannschaft favorite obtient le 1er corner. Combinez ce pari avec un « victoire 1e mi-temps » pour un mini-combiné à cote attractive (~3.20).",
   },
 ];
 
@@ -85,12 +85,12 @@ const faqItems = [
   {
     question: "Comment analyser les corners avant un match ?",
     answer:
-      "Vérifiez le style de jeu des deux équipes (pressing haut vs bloc bas), les stats de corners des qualifications, la forme récente et la météo. Les équipes offensives avec des ailiers percutants génèrent naturellement plus de corners.",
+      "Vérifiez le style de jeu des deux Mannschafts (pressing haut vs bloc bas), les stats de corners des qualifications, la forme récente et la météo. Les Mannschafts offensives avec des ailiers percutants génèrent naturellement plus de corners.",
   },
   {
     question: "Peut-on parier sur les corners en live ?",
     answer:
-      "Oui, PMU Sport propose les marchés corners en live. C'est même une stratégie populaire : observer les 15 premières minutes pour évaluer le rythme du match avant de miser sur le total corners.",
+      "Oui, Betano propose les marchés corners en live. C'est même une stratégie populaire : observer les 15 premières minutes pour évaluer le rythme du match avant de miser sur le total corners.",
   },
 ];
 
@@ -127,13 +127,13 @@ return (
             <p>
               Les paris corners constituent un marché en pleine expansion sur les compétitions internationales.
               Contrairement aux paris classiques (1X2, buts), les corners offrent une approche statistique
-              où l'analyse des styles de jeu prime sur la forme pure des équipes. En WM,
+              où l'analyse des styles de jeu prime sur la forme pure des Mannschafts. En WM,
               chaque match génère en moyenne <strong>9 à 11 corners</strong>, ce qui rend les lignes
               over/under 9.5 et 11.5 particulièrement intéressantes.
             </p>
             <p>
               Les marchés disponibles incluent le <strong>total corners du match</strong>, le nombre de
-              corners par équipe, le <strong>1er corner</strong> (quelle équipe l'obtient), le <strong>dernier
+              corners par Mannschaft, le <strong>1er corner</strong> (quelle Mannschaft l'obtient), le <strong>dernier
               corner</strong>, et les corners par mi-temps. Chacun de ces marchés nécessite une analyse
               différente — et c'est là que réside la valeur pour les parieurs avertis.
             </p>
@@ -172,13 +172,13 @@ return (
           </p>
         </section>
 
-        {/* Top 5 équipes */}
+        {/* Top 5 Mannschafts */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-            <TrendingUp className="h-7 w-7 text-accent" /> Top 5 équipes les plus &ldquo;cornereuses&rdquo;
+            <TrendingUp className="h-7 w-7 text-accent" /> Top 5 Mannschafts les plus &ldquo;cornereuses&rdquo;
           </h2>
           <p className="text-sm text-gray-600 mb-4">
-            Ces équipes génèrent le plus de corners par match en compétitions internationales récentes.
+            Ces Mannschafts génèrent le plus de corners par match en compétitions internationales récentes.
             Ciblez leurs matchs pour vos paris over corners.
           </p>
           <div className="space-y-3">
@@ -214,7 +214,7 @@ return (
               <thead>
                 <tr className="border-b-2 border-accent/30 text-left">
                   <th className="py-3 px-4 text-primary font-semibold">Marché</th>
-                  <th className="py-3 px-4 text-primary font-semibold">PMU Sport</th>
+                  <th className="py-3 px-4 text-primary font-semibold">Betano</th>
                 </tr>
               </thead>
               <tbody>
@@ -263,7 +263,7 @@ return (
             href="/sportwetten/corners"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
           >
-            Voir les pronostics corners <ArrowRight className="h-4 w-4" />
+            Zeige pronostics corners <ArrowRight className="h-4 w-4" />
           </Link>
         </section>
 
@@ -286,7 +286,7 @@ return (
                 </h3>
                 <p className="text-sm text-gray-600 mt-1">{b.desc}</p>
                 <span className="inline-block mt-3 bg-accent text-white rounded-xl py-3.5 px-4 text-sm font-semibold text-center w-full">
-                  100€ offerts sur {b.nom}
+                  Willkommensbonus sur {b.nom}
                 </span>
               </a>
             ))}
@@ -302,7 +302,7 @@ return (
             Comparateur de cotes <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/sportwetten/combines"
+            href="/sportwetten/kombiwetten"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
           >
             Paris combinés CDM 2026
@@ -313,8 +313,8 @@ return (
         <p className="text-xs text-gray-400 text-center">
           <AlertTriangle className="inline h-3 w-3 mr-1" />
           Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur{" "}
-          <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener noreferrer" className="underline">
-            joueurs-info-service.fr
+          <a href="https://www.bzga.de" target="_blank" rel="noopener noreferrer" className="underline">
+            bzga.de
           </a>{" "}
           (ANJ).
         </p>

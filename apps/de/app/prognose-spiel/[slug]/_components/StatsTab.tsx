@@ -35,7 +35,7 @@ export function StatsTab({
           />
         ) : (
           <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow text-center">
-            Statistiques non disponibles pour ce match.
+            Statistiken fuer dieses Spiel nicht verfuegbar.
           </div>
         )}
 

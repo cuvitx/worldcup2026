@@ -4,13 +4,13 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Target, ArrowRight, TrendingUp, AlertTriangle, Users, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Stratégie paris phase de groupes CDM 2026 — 48 équipes, 12 groupes",
+  title: "Stratégie paris phase de groupes CDM 2026 — 48 Mannschafts, 12 groupes",
   description:
-    "Comment parier sur la phase de groupes de la CDM 2026 à 48 équipes : 12 groupes, meilleurs 3e, matchs du 3e jour, nouvelles dynamiques et stratégies.",
+    "Comment parier sur la phase de groupes de la CDM 2026 à 48 Mannschafts : 12 groupes, meilleurs 3e, matchs du 3e jour, nouvelles dynamiques et stratégies.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/strategie" },
   openGraph: {
     title: "Stratégie paris — Gruppenphase CDM 2026",
-    description: "Exploitez le nouveau format 48 équipes pour vos paris : 12 groupes, meilleurs 3e, matchs inutiles.",
+    description: "Exploitez le nouveau format 48 Mannschafts pour vos paris : 12 groupes, meilleurs 3e, matchs inutiles.",
     url: "https://www.wm2026guide.de/sportwetten/strategie",
   },
 };
@@ -19,35 +19,35 @@ const strategies = [
   {
     icon: Users,
     title: "12 groupes = plus d'opportunités",
-    content: "Avec 12 groupes au lieu de 8, le volume de matchs de phase de groupes explose (36 → 48 matchs). Plus de matchs = plus de value à trouver, notamment dans les groupes avec des équipes moins médiatisées où les bookmakers ont moins de données.",
+    content: "Avec 12 groupes au lieu de 8, le volume de matchs de phase de groupes explose (36 → 48 matchs). Plus de matchs = plus de value à trouver, notamment dans les groupes avec des Mannschafts moins médiatisées où les bookmakers ont moins de données.",
   },
   {
     icon: TrendingUp,
     title: "Les meilleurs 3e : la clé",
-    content: "Seulement 8 des 12 troisièmes se qualifient. Cela crée une incertitude permanente : une équipe 3e avec +1 de différence de buts peut se qualifier, une autre avec 0 non. Les cotes en live bougent énormément lors du 3e match de groupe — c'est là que la value se trouve.",
+    content: "Seulement 8 des 12 troisièmes se qualifient. Cela crée une incertitude permanente : une Mannschaft 3e avec +1 de différence de buts peut se qualifier, une autre avec 0 non. Les cotes en live bougent énormément lors du 3e match de groupe — c'est là que la value se trouve.",
   },
   {
     icon: AlertTriangle,
     title: "Attention aux matchs 'inutiles' du J3",
-    content: "Quand deux équipes sont déjà qualifiées avant le 3e match, le match peut devenir 'inutile'. Les sélectionneurs font tourner, la motivation baisse. Pariez sur des scores faibles (under 2.5) ou des nuls dans ces configurations. Mais attention : parfois la 1re place est cruciale pour le tableau.",
+    content: "Quand deux Mannschafts sont déjà qualifiées avant le 3e match, le match peut devenir 'inutile'. Les sélectionneurs font tourner, la motivation baisse. Wetten auf des scores faibles (under 2.5) ou des nuls dans ces configurations. Mais attention : parfois la 1re place est cruciale pour le tableau.",
   },
   {
     icon: Lightbulb,
-    title: "Les petites équipes en J1",
-    content: "Historiquement, les 'petites' équipes surperforment lors de leur premier match de CDM (effet euphorie, motivation maximale, tactique ultra-défensive). Recherchez les handicaps asiatiques et les under sur ces matchs J1.",
+    title: "Les petites Mannschafts en J1",
+    content: "Historiquement, les 'petites' Mannschafts surperforment lors de leur premier match de CDM (effet euphorie, motivation maximale, tactique ultra-défensive). Recherchez les handicaps asiatiques et les under sur ces matchs J1.",
   },
   {
     icon: Target,
     title: "Live betting sur le J3",
-    content: "Le 3e jour de chaque groupe est un terrain de jeu idéal pour le live betting. Les scénarios changent en temps réel selon les résultats de l'autre match simultané. Surveillez les situations où une équipe apprend qu'elle est éliminée en cours de match — l'effondrement est fréquent.",
+    content: "Le 3e jour de chaque groupe est un terrain de jeu idéal pour le live betting. Les scénarios changent en temps réel selon les résultats de l'autre match simultané. Surveillez les situations où une Mannschaft apprend qu'elle est éliminée en cours de match — l'effondrement est fréquent.",
   },
 ];
 
 export default function StrategieParisGroupesPage() {
   const faqItems = [
     {
-      question: "Le format 48 équipes change-t-il vraiment les paris ?",
-      answer: "Oui, fondamentalement. Plus de groupes signifie plus de matchs, plus de scénarios croisés entre groupes (meilleurs 3e), et des bookmakers moins affûtés sur les petites sélections. La value est plus facile à trouver qu'avec 32 équipes.",
+      question: "Le format 48 Mannschafts change-t-il vraiment les paris ?",
+      answer: "Oui, fondamentalement. Plus de groupes signifie plus de matchs, plus de scénarios croisés entre groupes (meilleurs 3e), et des bookmakers moins affûtés sur les petites sélections. La value est plus facile à trouver qu'avec 32 Mannschafts.",
     },
     {
       question: "Faut-il parier sur les favoris en phase de groupes ?",
@@ -55,7 +55,7 @@ export default function StrategieParisGroupesPage() {
     },
     {
       question: "Comment identifier un match 'inutile' ?",
-      answer: "Analysez les scénarios de qualification avant le J3 : si les deux équipes sont qualifiées indépendamment des résultats, le match sera probablement à faible intensité. Vérifiez aussi l'enjeu de la 1re place pour le tableau des phases finales.",
+      answer: "Analysez les scénarios de qualification avant le J3 : si les deux Mannschafts sont qualifiées indépendamment des résultats, le match sera probablement à faible intensité. Vérifiez aussi l'enjeu de la 1re place pour le tableau des phases finales.",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function StrategieParisGroupesPage() {
             Paris sur la phase de groupes CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            48 équipes, 12 groupes, de nouvelles dynamiques : comment exploiter le format inédit
+            48 Mannschafts, 12 groupes, de nouvelles dynamiques : comment exploiter le format inédit
             de la CDM 2026 pour vos paris sportifs.
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function StrategieParisGroupesPage() {
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur joueurs-info-service.fr (ANJ).
+          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
         </p>
       </div>
     </>

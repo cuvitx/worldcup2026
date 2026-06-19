@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Tableau final CDM 2026 | Bracket et phase a elimination directe",
   description:
-    "Tableau final de la WM 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Prognoses et équipes favorites pour chaque tour.",
+    "Tableau final de la WM 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Prognoses et Mannschafts favorites pour chaque tour.",
   alternates: getStaticAlternates("bracket", "de"),
   openGraph: {
     title: "Tableau final - WM 2026",
@@ -23,11 +23,11 @@ export default function BracketPage() {
   const faqItems = [
     {
       question: "Comment fonctionne le tableau final de la WM 2026 ?",
-      answer: "Le tableau final (bracket) de la CDM 2026 commence après la phase de groupes avec 32 équipes qualifiées (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes). La phase à élimination directe comprend : 32e de finale (16 matchs), 16e de finale (8 matchs), quarts de finale (4 matchs), demi-finales (2 matchs), petite finale (match pour la 3e place) et grande finale. Chaque match à élimination directe se joue en un seul match ; en cas d'égalité après 90 minutes, il y a prolongation (2×15 min) puis tirs au but si nécessaire."
+      answer: "Le tableau final (bracket) de la CDM 2026 commence après la phase de groupes avec 32 Mannschafts qualifiées (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes). La phase à élimination directe comprend : 32e de finale (16 matchs), 16e de finale (8 matchs), quarts de finale (4 matchs), demi-finales (2 matchs), petite finale (match pour la 3e place) et grande finale. Chaque match à élimination directe se joue en un seul match ; en cas d'égalité après 90 minutes, il y a prolongation (2×15 min) puis tirs au but si nécessaire."
     },
     {
       question: "Quand commencent les huitièmes de finale de la CDM 2026 ?",
-      answer: "Les 32e de finale (équivalent des huitièmes de finale dans l'ancien format à 32 équipes) débutent le 28 juin 2026, soit le lendemain de la fin de la phase de groupes. Les 16 matchs des 32e se déroulent du 28 juin au 2 juillet. Les 16e de finale ont lieu du 4 au 7 juillet, les quarts du 9 au 11 juillet, les demi-finales les 14-15 juillet, la petite finale le 18 juillet et la grande finale le 19 juillet 2026 au MetLife Stadium de New York."
+      answer: "Les 32e de finale (équivalent des huitièmes de finale dans l'ancien format à 32 Mannschafts) débutent le 28 juin 2026, soit le lendemain de la fin de la phase de groupes. Les 16 matchs des 32e se déroulent du 28 juin au 2 juillet. Les 16e de finale ont lieu du 4 au 7 juillet, les quarts du 9 au 11 juillet, les demi-finales les 14-15 juillet, la petite finale le 18 juillet et la grande finale le 19 juillet 2026 au MetLife Stadium de New York."
     },
     {
       question: "Quel est le favori pour remporter la CDM 2026 selon le bracket ?",
@@ -35,11 +35,11 @@ export default function BracketPage() {
     },
     {
       question: "Comment sont déterminés les appariements du tableau final ?",
-      answer: "Les appariements du tableau final sont déterminés par le classement de la phase de groupes. Les premiers de groupe affrontent les deuxièmes ou troisièmes d'autres groupes selon un schéma prédéfini par la FIFA. Ce schéma est conçu pour éviter que deux équipes du même groupe se retrouvent avant les quarts de finale. Les matchs sont également répartis géographiquement entre les 16 stades pour limiter les déplacements et favoriser l'équité sportive."
+      answer: "Les appariements du tableau final sont déterminés par le classement de la phase de groupes. Les premiers de groupe affrontent les deuxièmes ou troisièmes d'autres groupes selon un schéma prédéfini par la FIFA. Ce schéma est conçu pour éviter que deux Mannschafts du même groupe se retrouvent avant les quarts de finale. Les matchs sont également répartis géographiquement entre les 16 stades pour limiter les déplacements et favoriser l'équité sportive."
     },
     {
       question: "Peut-on parier sur le tableau final de la CDM 2026 ?",
-      answer: "Oui, PMU Sport propose des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une équipe en quarts/demi/finale, et bien sûr le vainqueur final du tournoi. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
+      answer: "Oui, Betano propose des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une Mannschaft en quarts/demi/finale, et bien sûr le vainqueur final du tournoi. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
     }
   ];
 

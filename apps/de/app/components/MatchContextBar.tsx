@@ -12,8 +12,8 @@ const stageLabels: Record<string, string> = {
   group: "Gruppenphase",
   "round-of-32": "32es de finale",
   "round-of-16": "16es de finale",
-  "quarter-final": "Quart de finale",
-  "semi-final": "Demi-finale",
+  "quarter-final": "Viertelfinale",
+  "semi-final": "Halbfinale",
   "third-place": "3e place",
   final: "Finale",
 };

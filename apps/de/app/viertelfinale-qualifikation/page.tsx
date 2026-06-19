@@ -21,8 +21,8 @@ const faqItems = [
     answer: "Les huitièmes de finale se déroulent du 3 au 6 juillet 2026, soit 8 matchs répartis sur 4 jours.",
   },
   {
-    question: "Combien d'équipes participent aux huitièmes de finale ?",
-    answer: "16 équipes s'affrontent en huitièmes de finale (Round of 16). Ce sont les vainqueurs des 16 matchs de 16èmes de finale.",
+    question: "Combien d'Mannschafts participent aux huitièmes de finale ?",
+    answer: "16 Mannschafts s'affrontent en huitièmes de finale (Round of 16). Ce sont les vainqueurs des 16 matchs de 16èmes de finale.",
   },
   {
     question: "Comment est structuré le bracket des huitièmes ?",
@@ -46,7 +46,7 @@ export default function HuitiemesDeFinale() {
             <span className="text-accent">Huitièmes de finale</span> CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            Round of 16 — Du 3 au 6 juillet 2026. Les 16 meilleures équipes
+            Round of 16 — Du 3 au 6 juillet 2026. Les 16 meilleures Mannschafts
             s&apos;affrontent pour une place en quarts.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
@@ -82,7 +82,7 @@ export default function HuitiemesDeFinale() {
               mémorables du tournoi.
             </p>
             <p>
-              Le bracket est structuré en deux moitiés distinctes. Les équipes situées dans la
+              Le bracket est structuré en deux moitiés distinctes. Les Mannschafts situées dans la
               même moitié ne peuvent se rencontrer qu&apos;en finale, ce qui crée des « tableaux
               de la mort » quand les favoris se retrouvent du même côté.
             </p>

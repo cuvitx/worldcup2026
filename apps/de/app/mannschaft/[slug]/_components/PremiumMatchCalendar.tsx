@@ -20,10 +20,10 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
     <section id="spielplan" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Spielplan des matchs — {teamName}
+          Spielplan — {teamName}
         </h2>
         <p className="text-sm text-gray-500 mb-6">
-          Groupe {teamsById[teamId]?.group} · CDM 2026 · Heure locale (Paris)
+          Gruppe {teamsById[teamId]?.group} · WM 2026 · Ortszeit (Berlin)
         </p>
 
         <div className="space-y-3">
@@ -54,7 +54,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
             const timeStr = dateObj.toLocaleTimeString("de-DE", {
               hour: "2-digit",
               minute: "2-digit",
-              timeZone: "Europe/Paris",
+              timeZone: "Europe/Berlin",
             });
 
             return (
@@ -68,7 +68,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
                       {dateObj.toLocaleDateString("de-DE", { weekday: "short" })}
                     </p>
                     <p className="text-lg font-extrabold text-gray-900">
-                      {dateObj.getDate()}/{dateObj.getMonth() + 1}
+                      {dateObj.getDate()}.{dateObj.getMonth() + 1}.
                     </p>
                     <p className="text-xs text-primary">{timeStr}</p>
                   </div>
@@ -88,7 +88,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
                     <div className="flex items-center gap-2 flex-wrap">
                       {match.group && (
                         <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">
-                          Groupe {match.group}
+                          Gruppe {match.group}
                         </span>
                       )}
                       {stadium && (
@@ -108,14 +108,14 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
                         <p className="text-xl font-extrabold text-gray-900">
                           {result.homeScore} - {result.awayScore}
                         </p>
-                        <p className="text-[11px] text-gray-400">Terminé</p>
+                        <p className="text-[11px] text-gray-400">Beendet</p>
                       </div>
                     ) : (
                       <>
                         {teamWinOdds && teamWinOdds !== "—" && (
                           <div>
                             <p className="text-lg font-extrabold text-accent">{teamWinOdds}</p>
-                            <p className="text-xs text-gray-500">victoire</p>
+                            <p className="text-xs text-gray-500">Sieg</p>
                           </div>
                         )}
                         {hasAllOdds && (
@@ -163,7 +163,7 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
 
         <div className="mt-4 text-center">
           <Link href="/spiel/spielplan" className="text-sm text-primary hover:underline font-medium">
-            Voir le spielplan complet des 104 matchs →
+            Vollständigen Spielplan aller 104 Spiele anzeigen →
           </Link>
         </div>
       </div>

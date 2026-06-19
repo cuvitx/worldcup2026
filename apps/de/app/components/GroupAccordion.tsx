@@ -32,7 +32,7 @@ export function GroupAccordion({ groups }: GroupAccordionProps) {
             onClick={() => setIsExpanded(true)}
             className="mt-4 w-full rounded-lg border border-gray-200 bg-white py-3 text-center font-semibold text-primary transition-colors hover:bg-primary/5 min-h-[44px]"
           >
-            Voir les {groups.length - 4} autres groupes ↓
+            Alle {groups.length - 4} weiteren Gruppen anzeigen ↓
           </button>
         )}
         {isExpanded && (
@@ -40,7 +40,7 @@ export function GroupAccordion({ groups }: GroupAccordionProps) {
             onClick={() => setIsExpanded(false)}
             className="mt-4 w-full rounded-lg border border-gray-200 bg-white py-3 text-center font-semibold text-gray-500 transition-colors hover:bg-gray-50 min-h-[44px]"
           >
-            Réduire ↑
+            Weniger anzeigen ↑
           </button>
         )}
       </div>

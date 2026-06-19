@@ -7,7 +7,7 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 export const metadata: Metadata = {
   title: "Prognose Over/Under Buts CDM 2026 — Guide +2.5 / -2.5",
   description:
-    "Guide Over/Under buts pour la CDM 2026. Stats historiques par édition, analyse par groupe, impact du format 48 équipes et top matchs +2.5/-2.5.",
+    "Guide Over/Under buts pour la CDM 2026. Stats historiques par édition, analyse par groupe, impact du format 48 Mannschafts et top matchs +2.5/-2.5.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/over-under" },
   openGraph: {
     title: "Over/Under Buts CDM 2026 — Guide Complet",
@@ -27,10 +27,10 @@ const historicalAvg = [
 ];
 
 const groupAnalysis = [
-  { group: "Gruppe A", tendency: "Offensif", avgGoals: 3.0, reason: "🇺🇸 USA (hôte) poussé par le public + équipes moyennes", recommendation: "Over 2.5" },
-  { group: "Gruppe B", tendency: "Équilibré", avgGoals: 2.4, reason: "Confrontation serrée entre équipes européennes", recommendation: "Under 2.5" },
+  { group: "Gruppe A", tendency: "Offensif", avgGoals: 3.0, reason: "🇺🇸 USA (hôte) poussé par le public + Mannschafts moyennes", recommendation: "Over 2.5" },
+  { group: "Gruppe B", tendency: "Équilibré", avgGoals: 2.4, reason: "Confrontation serrée entre Mannschafts européennes", recommendation: "Under 2.5" },
   { group: "Gruppe E", tendency: "Offensif", avgGoals: 2.8, reason: "🇧🇷 Brésil offensif contre des défenses perméables", recommendation: "Over 2.5" },
-  { group: "Gruppe G", tendency: "Défensif", avgGoals: 1.9, reason: "Blocs bas attendus, équipes tactiques", recommendation: "Under 2.5" },
+  { group: "Gruppe G", tendency: "Défensif", avgGoals: 1.9, reason: "Blocs bas attendus, Mannschafts tactiques", recommendation: "Under 2.5" },
   { group: "Gruppe I", tendency: "Offensif", avgGoals: 3.1, reason: "🇩🇪 Allemagne + matchs déséquilibrés", recommendation: "Over 2.5" },
   { group: "Gruppe K", tendency: "Défensif", avgGoals: 2.0, reason: "Mannschaften africaines/asiatiques souvent compactes en CDM", recommendation: "Under 2.5" },
 ];
@@ -52,8 +52,8 @@ const topUnder = [
 const faqItems = [
   { question: "Que signifie Over 2.5 et Under 2.5 ?", answer: "Over 2.5 signifie que vous pariez sur 3 buts ou plus dans le match. Under 2.5 signifie 2 buts ou moins. Le '.5' élimine la possibilité de match nul sur ce marché : votre pari est forcément gagnant ou perdant." },
   { question: "Quel est le pourcentage de matchs Over 2.5 en WM ?", answer: "En moyenne, environ 46-48% des matchs de CDM se terminent avec 3 buts ou plus (Over 2.5). Ce pourcentage varie selon les éditions : 51% en 2014 (record) contre 39% en 2010 (plus défensif)." },
-  { question: "Le format 48 équipes favorise-t-il le Over ?", answer: "Oui, le format 48 équipes devrait augmenter la moyenne de buts, surtout en phase de groupes. Plus d'écarts de niveau entre les équipes signifie davantage de matchs déséquilibrés avec des scores larges. La moyenne pourrait dépasser 2.8 buts/match." },
-  { question: "Vaut-il mieux parier Over en poules ou en élimination ?", answer: "Statistiquement, la phase de groupes offre plus de buts (2.6 buts/match en moyenne) que la phase à élimination directe (2.1 buts/match). Les matchs de poules sont moins tactiques et les équipes prennent plus de risques." },
+  { question: "Le format 48 Mannschafts favorise-t-il le Over ?", answer: "Oui, le format 48 Mannschafts devrait augmenter la moyenne de buts, surtout en phase de groupes. Plus d'écarts de niveau entre les Mannschafts signifie davantage de matchs déséquilibrés avec des scores larges. La moyenne pourrait dépasser 2.8 buts/match." },
+  { question: "Vaut-il mieux parier Over en poules ou en élimination ?", answer: "Statistiquement, la phase de groupes offre plus de buts (2.6 buts/match en moyenne) que la phase à élimination directe (2.1 buts/match). Les matchs de poules sont moins tactiques et les Mannschafts prennent plus de risques." },
 ];
 
 export default function PrognoseOverUnderPage() {
@@ -99,14 +99,14 @@ export default function PrognoseOverUnderPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Zap className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Impact du format 48 équipes sur les buts</h2>
+          <h2 className="text-2xl font-bold text-primary">Impact du format 48 Mannschafts sur les buts</h2>
         </div>
         <div className="bg-primary/5 rounded-xl p-6">
           <p className="text-gray-700 leading-relaxed mb-4">
-            Le passage de 32 à 48 équipes est le changement majeur de cette édition. Plus d&apos;équipes signifie un écart de niveau plus important, surtout en phase de groupes. Les petites nations auront du mal à contenir les géants, ce qui pourrait produire des scores fleuve.
+            Le passage de 32 à 48 Mannschafts est le changement majeur de cette édition. Plus d&apos;Mannschafts signifie un écart de niveau plus important, surtout en phase de groupes. Les petites nations auront du mal à contenir les géants, ce qui pourrait produire des scores fleuve.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Notre estimation : la moyenne de buts par match en phase de groupes pourrait atteindre 2.8 à 3.0, contre 2.5 en format 32 équipes. En revanche, la phase à élimination directe devrait rester autour de 2.0-2.2 buts/match.
+            Notre estimation : la moyenne de buts par match en phase de groupes pourrait atteindre 2.8 à 3.0, contre 2.5 en format 32 Mannschafts. En revanche, la phase à élimination directe devrait rester autour de 2.0-2.2 buts/match.
           </p>
           <p className="text-gray-700 leading-relaxed">
             Pour les parieurs, cela signifie une opportunité claire : Over 2.5 en phase de groupes sur les matchs déséquilibrés, Under 2.5 dès les 16èmes de finale.
@@ -165,12 +165,12 @@ export default function PrognoseOverUnderPage() {
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <a href={pmuTrackingUrl("prono-special")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          100€ offerts — Parier Over/Under CDM 2026 sur PMU Sport <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Parier Over/Under CDM 2026 sur Betano <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
-        <p className="text-xs text-gray-400 mt-3">18+ | Offre soumise à conditions</p>
+        <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
-      <FAQSection title="Questions fréquentes — Over/Under CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen — Over/Under CDM 2026" items={faqItems} />
 
     </>
   );

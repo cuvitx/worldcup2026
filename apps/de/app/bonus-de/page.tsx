@@ -5,9 +5,9 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Bonus Paris Sportifs CDM 2026 | Code Promo & Offre PMU Sport",
+  title: "Bonus Paris Sportifs CDM 2026 | Code Promo & Offre Betano",
   description:
-    "Bonus et code promo PMU Sport pour la WM 2026. Jusqu'à 100€ offerts sur votre premier pari. Bookmaker agréé ANJ.",
+    "Bonus et code promo Betano pour la WM 2026. Jusqu'à Willkommensbonus sur votre premier pari. Bookmaker agréé ANJ.",
   openGraph: {
     title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres",
     description:
@@ -31,9 +31,9 @@ interface BonusOffer {
 
 const offers: BonusOffer[] = [
   {
-    name: "PMU Sport",
+    name: "Betano",
     slug: "pmu-sport",
-    bonus: "100€ offerts",
+    bonus: "Willkommensbonus",
     bonusDetail: "en freebets sans condition",
     codePromo: "Aucun code nécessaire",
     conditions: "1er pari perdant remboursé, min. 1€",
@@ -54,7 +54,7 @@ export default function BonusHubPage() {
             Bonus & Codes Promo CDM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Profitez des meilleures offres de bienvenue des bookmakers agréés ANJ pour parier sur la WM 2026. Jusqu&apos;à 100€ offerts sur chaque site.
+            Profitez des meilleures offres de bienvenue des bookmakers agréés ANJ pour parier sur la WM 2026. Jusqu&apos;à Willkommensbonus sur chaque site.
           </p>
         </div>
       </section>
@@ -64,13 +64,13 @@ export default function BonusHubPage() {
         {/* Introduction */}
         <section className="prose  max-w-none mb-12">
           <p className="text-lg text-gray-700  leading-relaxed">
-            La WM 2026 est l&apos;occasion idéale pour profiter du bonus de bienvenue de PMU Sport. Jusqu&apos;à <strong>100€ de freebets</strong> sur votre premier pari perdant. Une offre vérifiée, issue d&apos;un bookmaker agréé par l&apos;ANJ.
+            La WM 2026 est l&apos;occasion idéale pour profiter du bonus de bienvenue de Betano. Jusqu&apos;à <strong>100€ de freebets</strong> sur votre premier pari perdant. Une offre vérifiée, issue d&apos;un bookmaker agréé par l&apos;ANJ.
           </p>
         </section>
 
         {/* Bonus banner */}
         <div className="rounded-2xl bg-accent/10 border border-accent/20 p-6 mb-10 text-center">
-          <p className="text-sm text-gray-600  mb-1">Bonus disponible avec PMU Sport</p>
+          <p className="text-sm text-gray-600  mb-1">Bonus disponible avec Betano</p>
           <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 100€</p>
           <p className="text-sm text-gray-500 mt-1">en freebets sur votre premier pari perdant</p>
         </div>
@@ -129,7 +129,7 @@ export default function BonusHubPage() {
                 rel="noopener noreferrer sponsored nofollow"
                 className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors w-full"
               >
-                Obtenir 100€ offerts sur PMU Sport <ArrowRight className="w-4 h-4" />
+                Obtenir Willkommensbonus sur Betano <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           ))}
@@ -140,8 +140,8 @@ export default function BonusHubPage() {
           <h2 className="text-2xl font-bold text-gray-900  mb-4">Conseils pour bien utiliser vos bonus</h2>
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
-              <h3 className="font-bold text-gray-900  mb-2">Profitez du bonus PMU Sport</h3>
-              <p>Inscrivez-vous sur PMU Sport pour profiter de 100€ de freebets sur votre premier pari perdant. PMU Sport est l&apos;un des opérateurs les plus fiables du marché français, agréé ANJ.</p>
+              <h3 className="font-bold text-gray-900  mb-2">Profitez du bonus Betano</h3>
+              <p>Inscrivez-vous sur Betano pour profiter de 100€ de freebets sur votre premier pari perdant. Betano est l&apos;un des opérateurs les plus fiables du marché français, agréé ANJ.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900  mb-2">Lisez les conditions</h3>
@@ -179,20 +179,20 @@ export default function BonusHubPage() {
         title="Questions sur les bonus CDM 2026"
         items={[
           {
-            question: "Comment fonctionne le bonus PMU Sport ?",
-            answer: "Le bonus PMU Sport rembourse votre premier pari perdant en freebets, jusqu'à 100€. Il est automatiquement activé lors de votre inscription. Aucun code promo n'est nécessaire.",
+            question: "Comment fonctionne le bonus Betano ?",
+            answer: "Le bonus Betano rembourse votre premier pari perdant en freebets, jusqu'à 100€. Il est automatiquement activé lors de votre inscription. Aucun code promo n'est nécessaire.",
           },
           {
-            question: "Le bonus PMU Sport est-il valable pour la CDM 2026 ?",
-            answer: "Oui, le bonus de bienvenue PMU Sport est utilisable sur tous les événements sportifs, y compris la WM 2026. PMU Sport proposera également des offres spéciales pendant le tournoi.",
+            question: "Le bonus Betano est-il valable pour la CDM 2026 ?",
+            answer: "Oui, le bonus de bienvenue Betano est utilisable sur tous les événements sportifs, y compris la WM 2026. Betano proposera également des offres spéciales pendant le tournoi.",
           },
           {
-            question: "Faut-il un code promo pour obtenir le bonus PMU Sport ?",
+            question: "Faut-il un code promo pour obtenir le bonus Betano ?",
             answer: "Non, aucun code promo n'est nécessaire. Le bonus est automatiquement activé lors de votre inscription et de votre premier pari.",
           },
           {
-            question: "Combien de temps ai-je pour utiliser mes freebets PMU Sport ?",
-            answer: "Les freebets PMU Sport sont valables 14 jours après attribution. Consultez les conditions de l'offre sur le site PMU Sport pour plus de détails.",
+            question: "Combien de temps ai-je pour utiliser mes freebets Betano ?",
+            answer: "Les freebets Betano sont valables 14 jours après attribution. Consultez les conditions de l'offre sur le site Betano pour plus de détails.",
           },
           {
             question: "Que se passe-t-il si mon premier pari est gagnant ?",

@@ -22,16 +22,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
   return {
     title: `Cote ${team.name} Championne du Monde 2026 — Analyse & Value Bet`,
-    description: `Cote ${team.name} pour gagner la WM 2026 : cotes PMU Sport, évolution et analyse value bet. Groupe ${team.group}.`,
+    description: `Cote ${team.name} pour gagner la WM 2026 : cotes Betano, évolution et analyse value bet. Groupe ${team.group}.`,
     openGraph: {
       title: `${team.flag} Cote ${team.name} Championne du Monde 2026`,
-      description: `Analyse complète de la cote ${team.name} pour remporter la CDM 2026.`,
+      description: `Vollständige Analyse de la cote ${team.name} pour remporter la CDM 2026.`,
       url: `${domains.de}/cote-champion/${team.slug}`,
     },
     alternates: { canonical: `https://www.wm2026guide.de/cote-champion/${team.slug}` },
   };
 }
-/** Indicative odds based on FIFA ranking — PMU Sport only */
+/** Indicative odds based on FIFA ranking — Betano only */
 function getOdds(fifaRanking: number): number {
   if (fifaRanking <= 3) return 5.0;
   if (fifaRanking <= 6) return 7.0;
@@ -75,7 +75,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
   const faqItems = [
     {
       question: `Quelle est la cote de ${team.name} pour gagner la CDM 2026 ?`,
-      answer: `La cote de ${team.name} pour remporter la WM 2026 est d'environ ${pmuOdds.toFixed(2)} chez PMU Sport.`,
+      answer: `La cote de ${team.name} pour remporter la WM 2026 est d'environ ${pmuOdds.toFixed(2)} chez Betano.`,
     },
     {
       question: `${team.name} est-elle un value bet pour la CDM 2026 ?`,
@@ -85,7 +85,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
     },
     {
       question: `Comment évolue la cote de ${team.name} ?`,
-      answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${pmuOdds.toFixed(2)} chez PMU Sport. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
+      answer: `La cote de ${team.name} était à ${pastOdds} en janvier 2026 et se situe maintenant autour de ${pmuOdds.toFixed(2)} chez Betano. Les cotes évoluent en fonction des résultats, blessures et matchs amicaux.`,
     },
   ];
   return (
@@ -119,7 +119,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
               </h2>
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 flex items-center gap-5 max-w-md">
                 <div className="flex-1">
-                  <p className="text-sm text-gray-500 mb-1">PMU Sport</p>
+                  <p className="text-sm text-gray-500 mb-1">Betano</p>
                   <p className="text-4xl font-extrabold text-primary tabular-nums">{pmuOdds.toFixed(2)}</p>
                 </div>
                 <a
@@ -148,7 +148,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </div>
                 <ArrowUpDown className="h-5 w-5 text-gray-400" />
                 <div className="text-center">
-                  <p className="text-xs text-gray-400">Actuellement (PMU Sport)</p>
+                  <p className="text-xs text-gray-400">Actuellement (Betano)</p>
                   <p className="text-2xl font-bold text-primary">{pmuOdds.toFixed(2)}</p>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   <ul className="space-y-1 text-sm text-gray-600">
                     {isTopTier ? (
                       <>
-                        <li>• Effectif de classe mondiale</li>
+                        <li>• Kader de classe mondiale</li>
                         <li>• Expérience des grands tournois</li>
                         <li>• Profondeur de banc exceptionnelle</li>
                       </>
@@ -202,14 +202,14 @@ export default async function CoteChampionPage({ params }: PageProps) {
                     ) : isMidTier ? (
                       <>
                         <li>• Manque de profondeur de banc</li>
-                        <li>• Dépendance à un ou deux joueurs clés</li>
+                        <li>• Dépendance à un ou deux Spielers clés</li>
                         <li>• Expérience limitée en phases finales</li>
                       </>
                     ) : (
                       <>
                         <li>• Écart de niveau avec les favoris</li>
                         <li>• Peu d&apos;expérience en WM</li>
-                        <li>• Effectif moins profond</li>
+                        <li>• Kader moins profond</li>
                       </>
                     )}
                   </ul>
@@ -232,7 +232,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                       <p className="font-bold text-primary">{Math.round(prediction.finalProb * 100)}%</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-gray-500">Victoire</p>
+                      <p className="text-gray-500">Sieg</p>
                       <p className="font-bold text-accent">{Math.round(prediction.winnerProb * 100)}%</p>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 <table className="w-full text-left text-sm">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="py-3 pr-4 font-semibold text-gray-700">Équipe</th>
+                      <th className="py-3 pr-4 font-semibold text-gray-700">Mannschaft</th>
                       <th className="py-3 pr-4 font-semibold text-gray-700">FIFA</th>
                       <th className="py-3 pr-4 font-semibold text-gray-700">Cote PMU</th>
                       <th className="py-3 font-semibold text-gray-700">Prob.</th>
@@ -319,7 +319,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
             {/* CTA */}
             <PmuBanner tracking={`cote-champion-${slug}`} />
             {/* FAQ */}
-            <FAQSection items={faqItems} title={`Questions fréquentes — Cote ${team.name}`} />
+            <FAQSection items={faqItems} title={`Häufig gestellte Fragen — Cote ${team.name}`} />
           </div>
           {/* Sidebar */}
           <aside className="space-y-6">
@@ -333,7 +333,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </li>
                 <li>
                   <Link href={`/parier/${team.slug}`} className="text-primary hover:underline">
-                    Parier sur {team.name}
+                    Wetten auf {team.name}
                   </Link>
                 </li>
                 <li>
@@ -343,7 +343,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                 </li>
                 <li>
                   <Link href={`/effectif/${team.slug}`} className="text-primary hover:underline">
-                    Effectif {team.name}
+                    Kader {team.name}
                   </Link>
                 </li>
                 <li>

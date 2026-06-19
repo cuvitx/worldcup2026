@@ -32,12 +32,12 @@ export function MatchHero({
         <div className="flex justify-center mb-6 px-2">
           <span className="inline-flex flex-wrap items-center justify-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-widest text-white backdrop-blur-sm text-center max-w-full">
             {stage}
-            {match.group ? ` — Groupe ${match.group}` : ""}
-            {match.matchday ? ` · Journée ${match.matchday}` : ""}
+            {match.group ? ` — Gruppe ${match.group}` : ""}
+            {match.matchday ? ` · Spieltag ${match.matchday}` : ""}
           </span>
         </div>
 
-        {/* H1 sémantique sr-only pour SEO */}
+        {/* H1 semantisch sr-only fuer SEO */}
         <h1 className="sr-only">
           Prognose {homeName} vs {awayName}
         </h1>
@@ -50,7 +50,7 @@ export function MatchHero({
               <span
                 className="text-5xl sm:text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
                 role="img"
-                aria-label={`Drapeau de ${homeName}`}
+                aria-label={`Flagge von ${homeName}`}
               >
                 {home?.flag ?? ""}
               </span>
@@ -63,7 +63,7 @@ export function MatchHero({
                 {home.name}
               </Link>
             ) : (
-              <p className="text-base sm:text-xl md:text-2xl font-extrabold">À déterminer</p>
+              <p className="text-base sm:text-xl md:text-2xl font-extrabold">Noch offen</p>
             )}
             {home && (
               <span className="text-xs font-medium text-gray-300 bg-white/8 rounded-full px-2.5 py-0.5">
@@ -91,7 +91,7 @@ export function MatchHero({
               <span
                 className="text-5xl sm:text-7xl md:text-8xl block transition-transform hover:scale-110 duration-200"
                 role="img"
-                aria-label={`Drapeau de ${awayName}`}
+                aria-label={`Flagge von ${awayName}`}
               >
                 {away?.flag ?? ""}
               </span>
@@ -104,7 +104,7 @@ export function MatchHero({
                 {away.name}
               </Link>
             ) : (
-              <p className="text-base sm:text-xl md:text-2xl font-extrabold">À déterminer</p>
+              <p className="text-base sm:text-xl md:text-2xl font-extrabold">Noch offen</p>
             )}
             {away && (
               <span className="text-xs font-medium text-gray-300 bg-white/8 rounded-full px-2.5 py-0.5">
@@ -142,7 +142,7 @@ export function MatchHero({
           {stadium && (
             <span className="flex items-center gap-1.5">
               <span className="text-xs"></span>
-              {stadium.capacity.toLocaleString("de-DE")} places
+              {stadium.capacity.toLocaleString("de-DE")} Plaetze
             </span>
           )}
         </div>

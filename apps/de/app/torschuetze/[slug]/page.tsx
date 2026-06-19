@@ -49,7 +49,7 @@ export default async function ButeurPage({ params }: PageProps) {
   const teammates = (team ? playersByTeamId[team.id] ?? [] : [])
     .filter((p) => p.id !== player.id && (p.position === "FW" || p.position === "MF"));
 
-  const positionLabel = player.position === "FW" ? "Attaquant" : "Milieu";
+  const positionLabel = player.position === "FW" ? "Stürmer" : "Mittelfeldspieler";
   const goalsPerCap = player.caps > 0 ? (player.goals / player.caps).toFixed(3) : "0";
 
   // Find rank in top scorer ranking
@@ -108,7 +108,7 @@ export default async function ButeurPage({ params }: PageProps) {
               </div>
               {scorer && (
                 <p className="mt-4 text-sm text-gray-600">
-                  Avec un ratio de {goalsPerCap} but par match en sélection et une équipe susceptible de jouer
+                  Avec un ratio de {goalsPerCap} but par match en sélection et une Mannschaft susceptible de jouer
                   plusieurs tours, {player.name} a une esperance de <strong>{scorer.expectedGoals} buts</strong> durant
                   la WM 2026 selon notre modele de Poisson.
                 </p>
@@ -148,7 +148,7 @@ export default async function ButeurPage({ params }: PageProps) {
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
                       <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500 bg-accent/5">
-                        <td className="py-3 font-bold">Meilleur buteur CDM 2026</td>
+                        <td className="py-3 font-bold">Torschützenkönig CDM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
                         <td className="py-3 text-right font-extrabold text-accent">{scorer.topScorerOdds}</td>
                       </tr>
@@ -174,7 +174,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   <p>
                     {team.name} est classee #{team.fifaRanking} au classement FIFA et a{" "}
                     {(teamPred.winnerProb * 100).toFixed(1)}% de chances de remporter le tournoi selon notre modele ELO.
-                    Plus l&apos;équipe avance dans la compétition, plus {player.name} aura de matchs pour marquer.
+                    Plus l&apos;Mannschaft avance dans la compétition, plus {player.name} aura de matchs pour marquer.
                   </p>
                 )}
                 {scorer && scorer.expectedGoals >= 2 && (
@@ -187,7 +187,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 {scorer && scorer.expectedGoals < 2 && scorer.expectedGoals >= 0.5 && (
                   <p>
                     Avec {scorer.expectedGoals} buts attendus, {player.name} a un profil de buteur occasionnel durant
-                    le tournoi. La cote de {scorer.anytimeScorerOdds} peut representer de la valeur si le joueur est en
+                    le tournoi. La cote de {scorer.anytimeScorerOdds} peut representer de la valeur si le Spieler est en
                     forme au moment du tournoi.
                   </p>
                 )}
@@ -213,7 +213,7 @@ export default async function ButeurPage({ params }: PageProps) {
                       >
                         <div>
                           <p className="font-semibold">{tm.name}</p>
-                          <p className="text-xs text-gray-500">{tm.position === "FW" ? "Attaquant" : "Milieu"} &middot; {tm.club}</p>
+                          <p className="text-xs text-gray-500">{tm.position === "FW" ? "Stürmer" : "Mittelfeldspieler"} &middot; {tm.club}</p>
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-bold text-primary">{tmScorer?.expectedGoals ?? "—"} buts att.</p>
@@ -229,7 +229,7 @@ export default async function ButeurPage({ params }: PageProps) {
             {/* Affiliate CTA */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Parier sur {player.name} buteur
+                Wetten auf {player.name} buteur
               </h2>
               <p className="mb-6 text-sm text-gray-600">
                 Comparez les meilleurs sites de paris sportifs pour parier sur {player.name} buteurà la CDM 2026.
@@ -334,7 +334,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   href={`/spieler/${player.slug}`}
                   className="block w-full text-center rounded-lg bg-primary py-2 text-sm font-medium text-white hover:bg-primary/90 transition-colors"
                 >
-                  Fiche complete du joueur &rarr;
+                  Fiche complete du Spieler &rarr;
                 </Link>
                 {team && (
                   <Link
@@ -350,7 +350,7 @@ export default async function ButeurPage({ params }: PageProps) {
             {/* Sidebar CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Parier sur {player.name}
+                Wetten auf {player.name}
               </h3>
               {scorer && (
                 <div className="space-y-3 mb-4">

@@ -77,9 +77,9 @@ export function Section2026() {
             <div>
               <div className="font-semibold text-white mb-1">Gruppenphase</div>
               <ul className="space-y-1 text-xs">
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12 groupes de 4 équipes</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12 groupes de 4 Mannschafts</li>
                 <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Les 2 premiers + 8 meilleurs 3es qualifiés</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 32 équipes au tour suivant</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 32 Mannschafts au tour suivant</li>
               </ul>
             </div>
             <div>
@@ -87,7 +87,7 @@ export function Section2026() {
               <ul className="space-y-1 text-xs">
                 <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Huitièmes de finale</li>
                 <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Quarts de finale</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Demi-finales</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Halbfinales</li>
                 <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Finale : 19 juillet 2026, MetLife Stadium (New York)</li>
               </ul>
             </div>
@@ -122,7 +122,7 @@ export function Section2026() {
         {/* CTA */}
         <div className="flex flex-wrap justify-center gap-3">
           <Link
-            href="/prognose/vainqueur"
+            href="/prognose/sieger"
             className="inline-flex items-center gap-2 rounded-full bg-white text-primary font-bold px-6 py-3 hover:bg-gray-100 transition-colors shadow-lg"
           >
              Prognose vainqueur 2026

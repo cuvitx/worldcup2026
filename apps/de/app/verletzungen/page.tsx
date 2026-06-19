@@ -6,11 +6,11 @@ import { HeartPulse, AlertTriangle, Clock, ArrowRight, ShieldCheck } from "lucid
 export const metadata: Metadata = {
   title: "Blessures CDM 2026 — Spielers blessés, incertains et forfaits",
   description:
-    "Suivi des blessures avant la WM 2026 : joueurs aptes, incertains ou forfaits par équipe. Tableau mis à jour régulièrement.",
+    "Suivi des blessures avant la WM 2026 : Spielers aptes, incertains ou forfaits par Mannschaft. Tableau mis à jour régulièrement.",
   alternates: { canonical: "https://www.wm2026guide.de/blessures" },
   openGraph: {
-    title: "Blessures CDM 2026 — Suivi des joueurs",
-    description: "Qui sera apte pour la CDM 2026 ? Suivi des blessures par équipe.",
+    title: "Blessures CDM 2026 — Suivi des Spielers",
+    description: "Qui sera apte pour la CDM 2026 ? Suivi des blessures par Mannschaft.",
     url: "https://www.wm2026guide.de/blessures",
   },
 };
@@ -27,16 +27,16 @@ interface PlayerInjury {
 }
 
 const injuries: PlayerInjury[] = [
-  { player: "Thibaut Courtois", team: "Belgique", position: "Gardien", injury: "Genou (LCA)", status: "Incertain", returnDate: "Avril 2026" },
-  { player: "Neymar Jr", team: "Brésil", position: "Attaquant", injury: "Genou (LCA)", status: "Incertain", returnDate: "Mars 2026" },
-  { player: "Gavi", team: "Espagne", position: "Milieu", injury: "Genou (LCA)", status: "Incertain", returnDate: "Retour progressif" },
-  { player: "Diogo Jota", team: "Portugal", position: "Attaquant", injury: "Genou", status: "Apte", returnDate: "Rétabli" },
-  { player: "Lucas Hernandez", team: "France", position: "Défenseur", injury: "Genou (LCA)", status: "Incertain", returnDate: "Mai 2026" },
-  { player: "Presnel Kimpembe", team: "France", position: "Défenseur", injury: "Tendon d'Achille", status: "Forfait", returnDate: "Indéterminé" },
-  { player: "N'Golo Kanté", team: "France", position: "Milieu", injury: "Ischio-jambiers", status: "Apte", returnDate: "Rétabli" },
+  { player: "Thibaut Courtois", team: "Belgique", position: "Torwart", injury: "Genou (LCA)", status: "Incertain", returnDate: "Avril 2026" },
+  { player: "Neymar Jr", team: "Brésil", position: "Stürmer", injury: "Genou (LCA)", status: "Incertain", returnDate: "Mars 2026" },
+  { player: "Gavi", team: "Espagne", position: "Mittelfeldspieler", injury: "Genou (LCA)", status: "Incertain", returnDate: "Retour progressif" },
+  { player: "Diogo Jota", team: "Portugal", position: "Stürmer", injury: "Genou", status: "Apte", returnDate: "Rétabli" },
+  { player: "Lucas Hernandez", team: "France", position: "Verteidiger", injury: "Genou (LCA)", status: "Incertain", returnDate: "Mai 2026" },
+  { player: "Presnel Kimpembe", team: "France", position: "Verteidiger", injury: "Tendon d'Achille", status: "Forfait", returnDate: "Indéterminé" },
+  { player: "N'Golo Kanté", team: "France", position: "Mittelfeldspieler", injury: "Ischio-jambiers", status: "Apte", returnDate: "Rétabli" },
   { player: "Leroy Sané", team: "Allemagne", position: "Ailier", injury: "Genou", status: "Incertain", returnDate: "Février 2026" },
-  { player: "Sergio Ramos", team: "Espagne", position: "Défenseur", injury: "Non retenu", status: "Forfait", returnDate: "N/A" },
-  { player: "Giorgio Chiellini", team: "Italie", position: "Défenseur", injury: "Retraite internationale", status: "Forfait", returnDate: "N/A" },
+  { player: "Sergio Ramos", team: "Espagne", position: "Verteidiger", injury: "Non retenu", status: "Forfait", returnDate: "N/A" },
+  { player: "Giorgio Chiellini", team: "Italie", position: "Verteidiger", injury: "Auszahlunge internationale", status: "Forfait", returnDate: "N/A" },
 ];
 
 const statusConfig: Record<Status, { bg: string; text: string; icon: typeof ShieldCheck }> = {
@@ -48,12 +48,12 @@ const statusConfig: Record<Status, { bg: string; text: string; icon: typeof Shie
 export default function BlessuresPage() {
   const faqItems = [
     {
-      question: "Quand les listes officielles des 26 joueurs ont-elles été publiées ?",
-      answer: "Les sélectionneurs ont communiqué leur liste de 26 joueurs à la FIFA en mai 2026, quelques semaines avant le début du tournoi le 11 juin 2026.",
+      question: "Quand les listes officielles des 26 Spielers ont-elles été publiées ?",
+      answer: "Les sélectionneurs ont communiqué leur liste de 26 Spielers à la FIFA en mai 2026, quelques semaines avant le début du tournoi le 11 juin 2026.",
     },
     {
-      question: "Un joueur blessé peut-il être remplacé après l'annonce de la liste ?",
-      answer: "Oui, la FIFA autorise le remplacement d'un joueur blessé jusqu'à 24 heures avant le premier match de l'équipe, sans restriction de poste. Après le début du tournoi, les remplacements sont soumis à des règles plus strictes.",
+      question: "Un Spieler blessé peut-il être remplacé après l'annonce de la liste ?",
+      answer: "Oui, la FIFA autorise le remplacement d'un Spieler blessé jusqu'à 24 heures avant le premier match de l'Mannschaft, sans restriction de poste. Après le début du tournoi, les remplacements sont soumis à des règles plus strictes.",
     },
     {
       question: "Ces informations sont-elles à jour ?",
@@ -77,7 +77,7 @@ export default function BlessuresPage() {
             Blessures CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Suivi des joueurs blessés, incertains et forfaits pour la WM 2026.
+            Suivi des Spielers blessés, incertains et forfaits pour la WM 2026.
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function BlessuresPage() {
           <div className="flex items-center gap-3 mb-6">
             <HeartPulse className="h-7 w-7 text-accent" />
             <h2 className="text-2xl font-bold text-primary">
-              Tableau des blessures par joueur
+              Tableau des blessures par Spieler
             </h2>
           </div>
           <div className="overflow-x-auto">
@@ -110,7 +110,7 @@ export default function BlessuresPage() {
               <thead>
                 <tr className="bg-primary text-white">
                   <th className="py-3 px-4 text-left rounded-tl-lg">Spieler</th>
-                  <th className="py-3 px-4 text-left">Équipe</th>
+                  <th className="py-3 px-4 text-left">Mannschaft</th>
                   <th className="py-3 px-4 text-left">Poste</th>
                   <th className="py-3 px-4 text-left">Blessure</th>
                   <th className="py-3 px-4 text-center">Statut</th>
@@ -155,7 +155,7 @@ export default function BlessuresPage() {
             href="/selections-listes"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
           >
-            Voir les listes des 26 <ArrowRight className="h-4 w-4" />
+            Zeige listes des 26 <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 

@@ -17,45 +17,45 @@ interface PremiumFAQProps {
 function generateFAQItems(team: Team, prediction?: Prediction, winnerOdds?: string): FAQItem[] {
   const items: FAQItem[] = [];
 
-  // Question 1: Groupe
+  // Frage 1: Gruppe
   items.push({
-    question: `Dans quel groupe est ${team.name} à la CDM 2026 ?`,
-    answer: `${team.name} est placée dans le Groupe ${team.group} de la WM 2026. L'équipe affrontera ses adversaires lors de la phase de groupes qui se déroule du 11 au 27 juin 2026.`,
+    question: `In welcher Gruppe spielt ${team.name} bei der WM 2026?`,
+    answer: `${team.name} wurde in die Gruppe ${team.group} der WM 2026 eingeteilt. Die Mannschaft trifft in der Gruppenphase vom 11. bis 27. Juni 2026 auf ihre Gegner.`,
   });
 
-  // Question 2: Historique
+  // Frage 2: Geschichte
   items.push({
-    question: `Quel est le parcours historique de ${team.name} en WM ?`,
-    answer: `${team.name} a participé à ${team.wcAppearances} ${team.wcAppearances > 1 ? 'éditions' : 'édition'} de la WM. Son meilleur résultat est : ${team.bestResult}. ${team.description.split('.')[0]}.`,
+    question: `Wie ist die WM-Geschichte von ${team.name}?`,
+    answer: `${team.name} hat an ${team.wcAppearances} WM-Endrunde${team.wcAppearances > 1 ? 'n' : ''} teilgenommen. Das beste Ergebnis ist: ${team.bestResult}. ${team.description.split('.')[0]}.`,
   });
 
-  // Question 3: Chances de victoire (if prediction exists)
+  // Frage 3: Siegchancen
   if (prediction && winnerOdds) {
     const winPct = Math.round(prediction.winnerProb * 100 * 10) / 10;
     items.push({
-      question: `Quelles sont les chances de ${team.name} de gagner la CDM 2026 ?`,
-      answer: `Selon notre modèle ELO et les cotes des bookmakers, ${team.name} affiche une probabilité de victoire d'environ ${winPct}%, avec un rating ELO de ${prediction.eloRating}. Les cotes vainqueur tournent autour de ${winnerOdds} selon les bookmakers.`,
+      question: `Wie stehen die Chancen von ${team.name}, die WM 2026 zu gewinnen?`,
+      answer: `Laut unserem ELO-Modell und den Wettquoten hat ${team.name} eine Siegwahrscheinlichkeit von etwa ${winPct}%, mit einem ELO-Rating von ${prediction.eloRating}. Die Siegerquoten liegen bei etwa ${winnerOdds} laut den Wettanbietern.`,
     });
   }
 
-  // Question 4: Ranking FIFA
+  // Frage 4: FIFA-Rangliste
   items.push({
-    question: `Quel est le classement FIFA de ${team.name} ?`,
-    answer: `${team.name} occupe la ${team.fifaRanking}ᵉ place au classement FIFA (juin 2026). L'équipe représente la confédération ${team.confederation}.`,
+    question: `Welchen Platz belegt ${team.name} in der FIFA-Rangliste?`,
+    answer: `${team.name} belegt den ${team.fifaRanking}. Platz in der FIFA-Rangliste (Juni 2026). Die Mannschaft vertritt die Konföderation ${team.confederation}.`,
   });
 
-  // Question 5: Host status
+  // Frage 5: Gastgeberstatus
   if (team.isHost) {
     items.push({
-      question: `${team.name} est-elle pays hôte de la CDM 2026 ?`,
-      answer: `Oui, ${team.name} est l'un des trois pays hôtes de la WM 2026, organisée conjointement par les États-Unis, le Canada et le Mexique. C'est la première fois que trois pays co-organisent un Mondial.`,
+      question: `Ist ${team.name} Gastgeberland der WM 2026?`,
+      answer: `Ja, ${team.name} ist eines der drei Gastgeberländer der WM 2026, die gemeinsam von den USA, Kanada und Mexiko ausgerichtet wird. Es ist das erste Mal, dass drei Länder gemeinsam eine WM veranstalten.`,
     });
   }
 
-  // Question 6: Confederation
+  // Frage 6: Konföderation
   items.push({
-    question: `Quelle confédération représente ${team.name} ?`,
-    answer: `${team.name} représente la confédération ${team.confederation}. L'équipe a validé sa qualification lors des éliminatoires de sa zone continentale.`,
+    question: `Welche Konföderation vertritt ${team.name}?`,
+    answer: `${team.name} vertritt die Konföderation ${team.confederation}. Die Mannschaft hat sich über die Qualifikation ihrer Kontinentalzone qualifiziert.`,
   });
 
   return items;
@@ -68,7 +68,7 @@ export function PremiumFAQ({ team, prediction, winnerOdds }: PremiumFAQProps) {
     <section className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-4xl px-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Questions fréquentes — {team.name} CDM 2026
+          Häufig gestellte Fragen — {team.name} WM 2026
         </h2>
         <div className="space-y-3">
           {faqItems.map((item, i) => (

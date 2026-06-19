@@ -17,7 +17,7 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
     <section className="bg-white py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Prognoses des matchs — {team.name}
+          Spielprognosen — {team.name}
         </h2>
 
         <div className="grid sm:grid-cols-3 gap-4">
@@ -52,7 +52,7 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
                 {/* CTA */}
                 <div className="text-center pt-3 border-t border-gray-100">
                   <span className="text-xs font-semibold text-accent group-hover:underline">
-                    Voir le pronostic →
+                    Prognose anzeigen →
                   </span>
                 </div>
               </Link>

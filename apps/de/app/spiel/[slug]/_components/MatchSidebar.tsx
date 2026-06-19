@@ -148,7 +148,7 @@ export function MatchSidebar({
         </div>
       )}
 
-      {/* CTA affilié — Parier sur ce match */}
+      {/* CTA affilié — Auf dieses Spiel wetten */}
       <PmuBanner tracking={`match-${match.slug}-sidebar`} compact />
     </div>
   );

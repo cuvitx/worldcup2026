@@ -46,7 +46,7 @@ export function TeamHeader({ team }: TeamHeaderProps) {
               href={`/prognose/${team.slug}`}
               className="inline-block rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent/80"
             >
-              Voir le pronostic &rarr;
+              Prognose anzeigen &rarr;
             </Link>
           </div>
         </div>

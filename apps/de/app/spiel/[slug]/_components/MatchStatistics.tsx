@@ -11,20 +11,20 @@ interface MatchStatisticsProps {
 }
 
 const STAT_LABELS: Record<string, string> = {
-  "Ball Possession": "Possession",
-  "Total Shots": "Tirs",
-  "Shots on Goal": "Tirs cadrés",
-  "Corner Kicks": "Corners",
-  Fouls: "Fautes",
-  Offsides: "Hors-jeu",
-  "Yellow Cards": "Cartons jaunes",
-  "Red Cards": "Cartons rouges",
-  "Blocked Shots": "Tirs bloqués",
-  "Total passes": "Passes totales",
-  "Passes %": "% passes réussies",
-  "Goalkeeper Saves": "Arrêts gardien",
-  "Passes accurate": "Passes réussies",
-  expected_goals: "xG (buts attendus)",
+  "Ball Possession": "Ballbesitz",
+  "Total Shots": "Schusse",
+  "Shots on Goal": "Schusse aufs Tor",
+  "Corner Kicks": "Ecken",
+  Fouls: "Fouls",
+  Offsides: "Abseits",
+  "Yellow Cards": "Gelbe Karten",
+  "Red Cards": "Rote Karten",
+  "Blocked Shots": "Geblockte Schusse",
+  "Total passes": "Passe gesamt",
+  "Passes %": "% erfolgreiche Passe",
+  "Goalkeeper Saves": "Paraden",
+  "Passes accurate": "Erfolgreiche Passe",
+  expected_goals: "xG (erwartete Tore)",
 };
 
 const CORE_STAT_ORDER = [
@@ -159,7 +159,7 @@ export function MatchStatistics({
       {/* Header */}
       <div className="px-5 py-4 border-b border-gray-100">
         <h3 className="font-bold text-lg text-gray-900">
-          Statistiques du match
+          Spielstatistiken
         </h3>
       </div>
 
@@ -191,7 +191,7 @@ export function MatchStatistics({
           onClick={() => setShowExtended(!showExtended)}
           className="w-full flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
         >
-          {showExtended ? "Moins de stats" : `Alle anzeigenes les stats (${totalCount})`}
+          {showExtended ? "Weniger Statistiken" : `Alle Statistiken anzeigen (${totalCount})`}
           {showExtended ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
         </button>
       )}

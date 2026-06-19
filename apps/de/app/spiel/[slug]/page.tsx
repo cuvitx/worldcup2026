@@ -73,27 +73,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
   const stage = stageLabels[match.stage] ?? match.stage;
-  const homeName = home?.name ?? "A determiner";
-  const awayName = away?.name ?? "A determiner";
+  const homeName = home?.name ?? "Noch offen";
+  const awayName = away?.name ?? "Noch offen";
 
   const hasScore = match.homeScore != null && match.awayScore != null;
   const dateStr = new Date(match.date).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
 
   const title = hasScore
-    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName} — Résultat ${stage} | CDM 2026`
-    : `${homeName} vs ${awayName} - ${stage} | CDM 2026`;
+    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName} — Ergebnis ${stage} | WM 2026`
+    : `${homeName} vs ${awayName} - ${stage} | WM 2026`;
 
   const description = hasScore
-    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName}, résultat ${stage} de la WM 2026. Le ${dateStr} au ${stadium?.name ?? "stade à confirmer"}. Résultat, résumé, compositions et statistiques.`
-    : `${homeName} vs ${awayName}, ${stage} de la WM 2026. Le ${dateStr} au ${stadium?.name ?? "stade à confirmer"}. Prognoses, cotes et composition.`;
+    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName}, Ergebnis ${stage} der WM 2026. Am ${dateStr} im ${stadium?.name ?? "Stadion wird noch bekannt gegeben"}. Ergebnis, Zusammenfassung, Aufstellungen und Statistiken.`
+    : `${homeName} vs ${awayName}, ${stage} der WM 2026. Am ${dateStr} im ${stadium?.name ?? "Stadion wird noch bekannt gegeben"}. Prognosen, Quoten und Aufstellung.`;
 
   const ogTitle = hasScore
-    ? `${home?.flag ?? ""} ${homeName} ${match.homeScore}-${match.awayScore} ${awayName} ${away?.flag ?? ""} — CDM 2026`
-    : `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — CDM 2026`;
+    ? `${home?.flag ?? ""} ${homeName} ${match.homeScore}-${match.awayScore} ${awayName} ${away?.flag ?? ""} — WM 2026`
+    : `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""} — WM 2026`;
 
   const ogDescription = hasScore
-    ? `Résultat ${stage} - CDM 2026 | ${homeName} ${match.homeScore}-${match.awayScore} ${awayName}`
-    : `${stage} - CDM 2026 | ${match.date} ${match.time} (heure de Paris)`;
+    ? `Ergebnis ${stage} - WM 2026 | ${homeName} ${match.homeScore}-${match.awayScore} ${awayName}`
+    : `${stage} - WM 2026 | ${match.date} ${match.time} (Pariser Zeit)`;
 
   return {
     title,
@@ -102,14 +102,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: ogTitle,
       description: ogDescription,
-      locale: "fr_FR",
-      siteName: "CDM 2026",
+      locale: "de_DE",
+      siteName: "WM 2026",
       images: [
         {
           url: `${domains.de}/og-default.jpg`,
           width: 1200,
           height: 630,
-          alt: `${homeName} vs ${awayName} - CDM 2026`,
+          alt: `${homeName} vs ${awayName} - WM 2026`,
         },
       ],
     },
@@ -146,49 +146,49 @@ function buildMatchFAQ(
     // Post-match FAQ — result-focused for featured snippets
     const { homeScore, awayScore, goalEvents } = postMatch;
     const resultText = homeScore === awayScore
-      ? `match nul ${homeScore}-${awayScore}`
+      ? `Unentschieden ${homeScore}-${awayScore}`
       : homeScore > awayScore
-        ? `victoire de ${homeName} ${homeScore}-${awayScore}`
-        : `victoire de ${awayName} ${awayScore}-${homeScore}`;
+        ? `Sieg von ${homeName} ${homeScore}-${awayScore}`
+        : `Sieg von ${awayName} ${awayScore}-${homeScore}`;
 
     items.push({
-      question: `Quel est le résultat de ${homeName} vs ${awayName} ?`,
-      answer: `Le match ${homeName} vs ${awayName} s'est terminé sur un score de ${homeScore}-${awayScore} (${resultText}), le ${dateFormatted}${stadium ? ` au ${stadium.name}` : ""}, dans le cadre de la ${stage} de la WM 2026.`,
+      question: `Was ist das Ergebnis von ${homeName} vs ${awayName}?`,
+      answer: `Das Spiel ${homeName} vs ${awayName} endete ${homeScore}-${awayScore} (${resultText}), am ${dateFormatted}${stadium ? ` im ${stadium.name}` : ""}, im Rahmen der ${stage} der WM 2026.`,
     });
 
     if (goalEvents.length > 0) {
       const scorersList = goalEvents
-        .map((g) => `${g.player} (${g.minute}', ${g.team}${g.detail === "Own Goal" ? ", csc" : g.detail === "Penalty" ? ", pen." : ""})`)
+        .map((g) => `${g.player} (${g.minute}', ${g.team}${g.detail === "Own Goal" ? ", Eigentor" : g.detail === "Penalty" ? ", Elfm." : ""})`)
         .join(", ");
       items.push({
-        question: `Qui a marqué lors de ${homeName} vs ${awayName} ?`,
-        answer: `Les buteurs de ce match sont : ${scorersList}.`,
+        question: `Wer hat bei ${homeName} vs ${awayName} getroffen?`,
+        answer: `Die Torschutzen in diesem Spiel waren: ${scorersList}.`,
       });
     }
 
     if (postMatch.hasLineups) {
       items.push({
-        question: `Quelle était la composition de ${homeName} et ${awayName} ?`,
-        answer: `Les compositions officielles de ${homeName} et ${awayName} sont disponibles sur cette page. Consultez la section "Compositions" ci-dessus pour voir les titulaires, remplaçants et notes des joueurs.`,
+        question: `Wie war die Aufstellung von ${homeName} und ${awayName}?`,
+        answer: `Die offiziellen Aufstellungen von ${homeName} und ${awayName} sind auf dieser Seite verfugbar. Sehen Sie sich den Abschnitt "Aufstellungen" oben an, um die Startelf, Ersatzspieler und Spielerbewertungen zu sehen.`,
       });
     }
   } else {
     // Pre-match FAQ
     items.push({
-      question: `Quand a lieu ${homeName} vs ${awayName} ?`,
-      answer: `Le match ${homeName} vs ${awayName} se joue le ${dateFormatted} à ${time} (heure de Paris), dans le cadre de la ${stage} de la WM 2026${stadium ? ` au ${stadium.name}${stadium.city ? ` (${stadium.city})` : ""}` : ""}.`,
+      question: `Wann findet ${homeName} vs ${awayName} statt?`,
+      answer: `Das Spiel ${homeName} vs ${awayName} findet am ${dateFormatted} um ${time} Uhr (Pariser Zeit) statt, im Rahmen der ${stage} der WM 2026${stadium ? ` im ${stadium.name}${stadium.city ? ` (${stadium.city})` : ""}` : ""}.`,
     });
 
     items.push({
-      question: `Quelle est la composition de ${homeName} pour ce match ?`,
-      answer: `Les compositions officielles sont généralement annoncées environ 1 heure avant le coup d'envoi. Consultez cette page le jour du match pour retrouver les équipes de départ de ${homeName} et ${awayName}.`,
+      question: `Wie ist die Aufstellung von ${homeName} fur dieses Spiel?`,
+      answer: `Die offiziellen Aufstellungen werden in der Regel etwa 1 Stunde vor Anpfiff bekannt gegeben. Besuchen Sie diese Seite am Spieltag, um die Startaufstellungen von ${homeName} und ${awayName} zu sehen.`,
     });
   }
 
   // Common questions (pre + post)
   items.push({
-    question: `Où regarder ${homeName} vs ${awayName} en direct ?`,
-    answer: `Les matchs de la WM 2026 sont diffusés en France sur M6 (54 matchs en clair) et beIN Sports (intégralité). Consultez notre page dédiée pour connaître la chaîne qui diffuse ${homeName} vs ${awayName}.`,
+    question: `Wo kann man ${homeName} vs ${awayName} live sehen?`,
+    answer: `Die Spiele der WM 2026 werden in Deutschland auf ARD, ZDF und MagentaTV ubertragen. Besuchen Sie unsere spezielle Seite, um zu erfahren, welcher Sender ${homeName} vs ${awayName} ubertragt.`,
   });
 
   if (prediction) {
@@ -198,29 +198,29 @@ function buildMatchFAQ(
     const favorite = homeWin >= awayWin ? homeName : awayName;
     const favPct = Math.max(homeWin, awayWin);
     items.push({
-      question: `Quel est le pronostic pour ${homeName} vs ${awayName} ?`,
-      answer: `Selon notre modèle, ${favorite} est favori avec ${favPct}% de chances de victoire. Le nul est estimé à ${draw}%. Retrouvez l'analyse complète sur notre page pronostic de ce match.`,
+      question: `Was ist die Prognose fur ${homeName} vs ${awayName}?`,
+      answer: `Laut unserem Modell ist ${favorite} mit ${favPct}% Siegchance der Favorit. Ein Unentschieden wird auf ${draw}% geschatzt. Die vollstandige Analyse finden Sie auf unserer Prognoseseite fur dieses Spiel.`,
     });
   }
 
   if (odds && !isFinished) {
     items.push({
-      question: `Quelles sont les cotes de ${homeName} vs ${awayName} ?`,
-      answer: `Les cotes estimées pour ce match sont : victoire ${homeName} à ${odds.home}, match nul à ${odds.draw}, victoire ${awayName} à ${odds.away}. Pariez avec jusqu'à 100€ offerts chez PMU Play.`,
+      question: `Wie sind die Quoten fur ${homeName} vs ${awayName}?`,
+      answer: `Die geschatzten Quoten fur dieses Spiel sind: Sieg ${homeName} bei ${odds.home}, Unentschieden bei ${odds.draw}, Sieg ${awayName} bei ${odds.away}. Jetzt bei Betano wetten.`,
     });
   }
 
   if (stadium) {
     items.push({
-      question: `Dans quel stade se joue ${homeName} vs ${awayName} ?`,
-      answer: `Le match se dispute au ${stadium.name}${stadium.city ? `, situé à ${stadium.city}` : ""}${stadium.capacity ? `. Le stade peut accueillir ${stadium.capacity.toLocaleString("de-DE")} spectateurs` : ""}.`,
+      question: `In welchem Stadion findet ${homeName} vs ${awayName} statt?`,
+      answer: `Das Spiel findet im ${stadium.name} statt${stadium.city ? `, in ${stadium.city}` : ""}${stadium.capacity ? `. Das Stadion fasst ${stadium.capacity.toLocaleString("de-DE")} Zuschauer` : ""}.`,
     });
   }
 
   if (group) {
     items.push({
-      question: `${homeName} et ${awayName} sont-ils dans le même groupe ?`,
-      answer: `Oui, ${homeName} et ${awayName} s'affrontent dans le Groupe ${group} de la WM 2026. Chaque groupe est composé de 4 équipes, les deux premières se qualifiant pour les huitièmes de finale.`,
+      question: `Sind ${homeName} und ${awayName} in derselben Gruppe?`,
+      answer: `Ja, ${homeName} und ${awayName} treffen in Gruppe ${group} der WM 2026 aufeinander. Jede Gruppe besteht aus 4 Mannschaften, die beiden Erstplatzierten qualifizieren sich fur das Achtelfinale.`,
     });
   }
 
@@ -465,9 +465,9 @@ export default async function MatchPage({ params }: PageProps) {
             />
           ) : (
             <MatchBettingCard
-              homeName={home?.name ?? "Équipe A"}
+              homeName={home?.name ?? "Mannschaft A"}
               homeFlag={home?.flag ?? ""}
-              awayName={away?.name ?? "Équipe B"}
+              awayName={away?.name ?? "Mannschaft B"}
               awayFlag={away?.flag ?? ""}
               homeOdds={matchOdds?.home}
               drawOdds={matchOdds?.draw}
@@ -585,7 +585,7 @@ export default async function MatchPage({ params }: PageProps) {
       {home && away && (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FAQSection
-            title={`Questions fréquentes — ${home.name} vs ${away.name}`}
+            title={`Haufig gestellte Fragen — ${home.name} vs ${away.name}`}
             items={buildMatchFAQ(home.name, away.name, dateFormatted, match.time, stadium, stage, prediction, matchOdds, match.slug, match.group,
               isCompleted && match.homeScore != null && match.awayScore != null ? {
                 homeScore: match.homeScore,
@@ -625,7 +625,7 @@ export default async function MatchPage({ params }: PageProps) {
 
       {/* Contextual internal links */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">À explorer aussi</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">Entdecken Sie auch</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {home && away && (
             <Link
@@ -634,8 +634,8 @@ export default async function MatchPage({ params }: PageProps) {
             >
               <span className="text-2xl shrink-0"><Swords className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900 truncate">Face-à-face {home.name} vs {away.name}</p>
-                <p className="text-xs text-gray-500">Historique des confrontations</p>
+                <p className="text-sm font-semibold text-gray-900 truncate">Direktvergleich {home.name} vs {away.name}</p>
+                <p className="text-xs text-gray-500">Bisherige Begegnungen</p>
               </div>
             </Link>
           )}
@@ -647,7 +647,7 @@ export default async function MatchPage({ params }: PageProps) {
               <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-gray-900">Prognose {home.name}</p>
-                <p className="text-xs text-gray-500">Analyse et prédictions CDM 2026</p>
+                <p className="text-xs text-gray-500">Analyse und Vorhersagen WM 2026</p>
               </div>
             </Link>
           )}
@@ -659,19 +659,19 @@ export default async function MatchPage({ params }: PageProps) {
               <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-gray-900">Prognose {away.name}</p>
-                <p className="text-xs text-gray-500">Analyse et prédictions CDM 2026</p>
+                <p className="text-xs text-gray-500">Analyse und Vorhersagen WM 2026</p>
               </div>
             </Link>
           )}
           {match.group && (
             <Link
-              href={`/pronostic-groupe/${match.group.toLowerCase()}`}
+              href={`/prognose-gruppe/${match.group.toLowerCase()}`}
               className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
             >
               <span className="text-2xl"><BarChart3 className="h-5 w-5 inline-block" /></span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-gray-900">Prognose Groupe {match.group}</p>
-                <p className="text-xs text-gray-500">Rangliste prédit et qualifiés</p>
+                <p className="text-sm font-semibold text-gray-900">Prognose Gruppe {match.group}</p>
+                <p className="text-xs text-gray-500">Vorhergesagte Tabelle und Qualifizierte</p>
               </div>
             </Link>
           )}
@@ -681,8 +681,8 @@ export default async function MatchPage({ params }: PageProps) {
           >
             <span className="text-2xl"><Trophy className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900">Rangliste FIFA</p>
-              <p className="text-xs text-gray-500">Ranking mondial des 48 équipes</p>
+              <p className="text-sm font-semibold text-gray-900">FIFA-Rangliste</p>
+              <p className="text-xs text-gray-500">Weltrangliste der 48 Mannschaften</p>
             </div>
           </Link>
           <Link
@@ -691,8 +691,8 @@ export default async function MatchPage({ params }: PageProps) {
           >
             <span className="text-2xl"><TrendingUp className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900">Comparateur de cotes</p>
-              <p className="text-xs text-gray-500">Meilleurs bookmakers pour ce match</p>
+              <p className="text-sm font-semibold text-gray-900">Quotenvergleich</p>
+              <p className="text-xs text-gray-500">Beste Wettanbieter fur dieses Spiel</p>
             </div>
           </Link>
         </div>
@@ -706,7 +706,7 @@ export default async function MatchPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `${home?.name ?? "TBD"} vs ${away?.name ?? "TBD"} - WM 2026`,
-            description: `${home?.name ?? "TBD"} contre ${away?.name ?? "TBD"}, ${stage} de la WM FIFA 2026.`,
+            description: `${home?.name ?? "TBD"} gegen ${away?.name ?? "TBD"}, ${stage} der FIFA WM 2026.`,
             eventStatus: isCompleted
               ? "https://schema.org/EventCompleted"
               : "https://schema.org/EventScheduled",
@@ -733,7 +733,7 @@ export default async function MatchPage({ params }: PageProps) {
             },
             offers: {
               "@type": "Offer",
-              url: `https://www.wm2026guide.de/billets`,
+              url: `https://www.wm2026guide.de/Tickets`,
               availability: "https://schema.org/InStock",
               priceCurrency: "USD",
               price: "0",

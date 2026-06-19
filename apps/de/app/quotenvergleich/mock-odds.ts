@@ -26,7 +26,7 @@ const PMU_URL = pmuTrackingUrl("comparateur-cotes");
 function makeOdds(home: number, draw: number, away: number) {
   return [
     {
-      bookmaker: "PMU Sport",
+      bookmaker: "Betano",
       home,
       draw,
       away,

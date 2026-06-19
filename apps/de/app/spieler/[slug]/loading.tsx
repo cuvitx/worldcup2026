@@ -2,7 +2,7 @@ export default function Loading() {
   return (
     <div className="flex flex-1 flex-col min-h-[70vh] bg-gray-50">
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
-        {/* Hero joueur */}
+        {/* Hero Spieler */}
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-6 mb-8">
           <div className="flex items-center gap-6">
             <div className="w-24 h-24 bg-gray-200 rounded-full animate-pulse flex-shrink-0" />

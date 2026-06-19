@@ -52,10 +52,10 @@ export function OddsTable({ odds, homeName, awayName, realOdds, matchSlug }: Odd
       {/* Header */}
       <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-gray-100 bg-gray-50">
         <h2 className="text-2xl font-bold text-gray-900">
-          Comparateur de cotes
+          Quotenvergleich
         </h2>
         <span className="text-[10px] sm:text-xs text-gray-500">
-          {hasRealOdds ? "Cotes réelles" : "Cotes estimées"}
+          {hasRealOdds ? "Echte Quoten" : "Geschaetzte Quoten"}
         </span>
       </div>
 
@@ -74,7 +74,7 @@ export function OddsTable({ odds, homeName, awayName, realOdds, matchSlug }: Odd
             {hasRealOdds ? "Ø" : "AI"}
           </span>
           <span className="text-xs sm:text-sm font-bold text-primary truncate">
-            {hasRealOdds ? "Moyenne" : "Estimation"}
+            {hasRealOdds ? "Durchschnitt" : "Schaetzung"}
           </span>
         </div>
         <OddsCell value={avgOdds.home} isBest={false} />
@@ -103,10 +103,10 @@ export function OddsTable({ odds, homeName, awayName, realOdds, matchSlug }: Odd
           rel="noopener noreferrer sponsored nofollow"
           className="flex items-center justify-center gap-2 w-full rounded-xl bg-accent py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
         >
-          Parier sur PMU Sport — 100€ offerts
+          Jetzt bei Betano wetten — Willkommensbonus
         </a>
         <p className="mt-2 text-[10px] text-gray-400 text-center">
-          18+ | Pariez responsablement | Les cotes peuvent varier
+          18+ | Verantwortungsvolles Spielen | Quoten koennen variieren
         </p>
       </div>
     </section>

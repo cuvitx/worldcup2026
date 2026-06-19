@@ -25,7 +25,7 @@ export function RelatedMatchesSection({
             href: `/mannschaft/${home.slug}`,
             emoji: home.flag,
             title: home.name,
-            description: `Fiche équipe · FIFA #${home.fifaRanking}`,
+            description: `Mannschaftsprofil · FIFA #${home.fifaRanking}`,
           },
         ]
       : []),
@@ -35,7 +35,7 @@ export function RelatedMatchesSection({
             href: `/mannschaft/${away.slug}`,
             emoji: away.flag,
             title: away.name,
-            description: `Fiche équipe · FIFA #${away.fifaRanking}`,
+            description: `Mannschaftsprofil · FIFA #${away.fifaRanking}`,
           },
         ]
       : []),
@@ -49,7 +49,7 @@ export function RelatedMatchesSection({
           href: `/prognose-spiel/${m.slug}`,
           emoji: "",
           title: `${mHome?.name ?? "TBD"} - ${mAway?.name ?? "TBD"}`,
-          description: `Même jour · ${stageLabels[m.stage] ?? m.stage}`,
+          description: `Gleicher Tag · ${stageLabels[m.stage] ?? m.stage}`,
         };
       }),
   ];

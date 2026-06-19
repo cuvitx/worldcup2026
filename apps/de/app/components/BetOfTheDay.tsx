@@ -82,12 +82,12 @@ function pickBetOfTheDay(): DailyBet {
   let betType: string;
   let odds: string;
   if (favoriProb > 0.55) {
-    betType = `Match nul ou victoire ${favoriName}`;
+    betType = `Unentschieden ou victoire ${favoriName}`;
     // Double chance odds ≈ 1 / (1 - loserProb)
     const loserProb = isFavoriHome ? awayProb : homeProb;
     odds = Math.max(1.1, 1 / (1 - loserProb)).toFixed(2);
   } else {
-    betType = `Victoire ${favoriName}`;
+    betType = `Sieg ${favoriName}`;
     odds = (1 / favoriProb).toFixed(2);
   }
 
@@ -158,9 +158,9 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
           className="block w-full text-center rounded-xl px-4 py-2.5 text-xs font-bold text-[#0c3b2e] hover:brightness-110 transition"
           style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
         >
-          Parier sur {display.bookmaker} →
+          Wetten auf {display.bookmaker} →
         </a>
-        <p className="mt-2 text-center text-[9px] text-gray-400">18+ · Jeu responsable</p>
+        <p className="mt-2 text-center text-[9px] text-gray-400">18+ · Verantwortungsvolles Spielen</p>
       </div>
     );
   }
@@ -179,7 +179,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             </span>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-secondary">Pari du jour</p>
-              <p className="text-[10px] text-gray-300">Sélection automatique CDM 2026</p>
+              <p className="text-[10px] text-gray-300">Aufgebot automatique CDM 2026</p>
             </div>
           </div>
           <span className={`text-xs font-semibold ${conf.color}`}>{conf.label}</span>
@@ -221,7 +221,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
             className="flex-1 flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-bold text-[#0c3b2e] hover:-translate-y-0.5 transition-all text-sm"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
-            Parier sur {display.bookmaker}
+            Wetten auf {display.bookmaker}
             <span className="text-secondary font-extrabold">{display.odds}</span>
           </a>
           {display.matchSlug && (
@@ -229,13 +229,13 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
               href={`/prognose-spiel/${display.matchSlug}`}
               className="flex items-center justify-center gap-1 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 font-semibold text-white hover:bg-white/15 transition-all text-sm"
             >
-              Analyse complète →
+              Vollständige Analyse →
             </Link>
           )}
         </div>
 
         <p className="mt-3 text-center text-[10px] text-gray-400">
-          18+ · Jeu responsable
+          18+ · Verantwortungsvolles Spielen
         </p>
       </div>
     </div>

@@ -6,13 +6,13 @@ import { TableOfContents } from "@repo/ui";
 import { AlertTriangle, ArrowRight, Check, Target, Trophy, Users } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Format WM 2026 - 48 équipes, 12 groupes, Bracket | CDM 2026",
+  title: "Format WM 2026 - 48 Mannschafts, 12 groupes, Bracket | CDM 2026",
   description:
-    "Format révolutionnaire de la CDM 2026 : 48 équipes, 12 groupes de 4, phases éliminatoires, meilleurs 3e qualifiés. Comparez avec l'ancien format 32 équipes.",
+    "Format révolutionnaire de la CDM 2026 : 48 Mannschafts, 12 groupes de 4, phases éliminatoires, meilleurs 3e qualifiés. Comparez avec l'ancien format 32 Mannschafts.",
   openGraph: {
-    title: "Format CDM 2026 - Nouveau système à 48 équipes",
+    title: "Format CDM 2026 - Nouveau système à 48 Mannschafts",
     description:
-      "Découvrez le nouveau format de la WM 2026 : 48 équipes, 12 groupes, 104 matchs. Phases, qualifications et bracket.",
+      "Découvrez le nouveau format de la WM 2026 : 48 Mannschafts, 12 groupes, 104 matchs. Phases, qualifications et bracket.",
     url: "https://www.wm2026guide.de/format",
   },
   alternates: {
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "Pourquoi la FIFA est-elle passée de 32 à 48 équipes ?",
-    answer: "La FIFA a décidé d'élargir la WM à 48 équipes pour plusieurs raisons : augmenter la représentativité mondiale du football (plus de places pour l'Afrique, l'Asie et l'Amérique du Nord), générer des revenus supplémentaires grâce à plus de matchs (104 au lieu de 64), et offrir à davantage de nations l'opportunité de participer au plus grand événement sportif mondial."
+    question: "Pourquoi la FIFA est-elle passée de 32 à 48 Mannschafts ?",
+    answer: "La FIFA a décidé d'élargir la WM à 48 Mannschafts pour plusieurs raisons : augmenter la représentativité mondiale du football (plus de places pour l'Afrique, l'Asie et l'Amérique du Nord), générer des revenus supplémentaires grâce à plus de matchs (104 au lieu de 64), et offrir à davantage de nations l'opportunité de participer au plus grand événement sportif mondial."
   },
   {
     question: "Comment sont répartis les 48 places entre les confédérations ?",
@@ -31,19 +31,19 @@ const faqItems = [
   },
   {
     question: "Combien de matchs doit jouer le champion du monde 2026 ?",
-    answer: "Le champion du monde 2026 devra jouer 7 matchs au total : 3 matchs de phase de groupes, puis 4 matchs à élimination directe (huitièmes, quarts, demi-finale et finale). C'est le même nombre de matchs qu'avec l'ancien format 32 équipes, mais le parcours est différent avec 12 groupes au lieu de 8."
+    answer: "Le champion du monde 2026 devra jouer 7 matchs au total : 3 matchs de phase de groupes, puis 4 matchs à élimination directe (huitièmes, quarts, demi-finale et finale). C'est le même nombre de matchs qu'avec l'ancien format 32 Mannschafts, mais le parcours est différent avec 12 groupes au lieu de 8."
   },
   {
     question: "Qu'est-ce qui change pour les 3e de groupe ?",
-    answer: "Avec le format 48 équipes, seuls les 8 meilleurs 3e de groupe (sur 12) se qualifient pour les huitièmes de finale, en plus des 24 premiers et deuxièmes. Un classement des 12 troisièmes est établi selon les critères : points, différence de buts, buts marqués et fair-play. Cette règle crée de l'incertitude jusqu'au dernier match de chaque groupe."
+    answer: "Avec le format 48 Mannschafts, seuls les 8 meilleurs 3e de groupe (sur 12) se qualifient pour les huitièmes de finale, en plus des 24 premiers et deuxièmes. Un classement des 12 troisièmes est établi selon les critères : points, différence de buts, buts marqués et fair-play. Cette règle crée de l'incertitude jusqu'au dernier match de chaque groupe."
   },
   {
     question: "Y aura-t-il plus de matchs nuls avec 12 groupes ?",
-    answer: "Potentiellement oui. Avec 12 groupes de 4 équipes au lieu de 8, certaines équipes pourraient jouer de manière plus prudente pour décrocher une place de 3e qualifié. Cependant, la règle des meilleurs 3e (seulement 8 sur 12 se qualifient) incite à marquer des buts pour améliorer la différence, ce qui devrait limiter les matchs trop défensifs."
+    answer: "Potentiellement oui. Avec 12 groupes de 4 Mannschafts au lieu de 8, certaines Mannschafts pourraient jouer de manière plus prudente pour décrocher une place de 3e qualifié. Cependant, la règle des meilleurs 3e (seulement 8 sur 12 se qualifient) incite à marquer des buts pour améliorer la différence, ce qui devrait limiter les matchs trop défensifs."
   },
   {
-    question: "Le format 48 équipes est-il définitif pour les prochaines éditions ?",
-    answer: "Oui, la FIFA a confirmé que le format 48 équipes sera maintenu pour les éditions futures, notamment pour la WM 2030 (co-organisée par le Maroc, l'Espagne, le Portugal, l'Uruguay, l'Argentine et le Paraguay). Ce format est considéré comme un succès commercial et sportif par l'instance mondiale."
+    question: "Le format 48 Mannschafts est-il définitif pour les prochaines éditions ?",
+    answer: "Oui, la FIFA a confirmé que le format 48 Mannschafts sera maintenu pour les éditions futures, notamment pour la WM 2030 (co-organisée par le Maroc, l'Espagne, le Portugal, l'Uruguay, l'Argentine et le Paraguay). Ce format est considéré comme un succès commercial et sportif par l'instance mondiale."
   }
 ];
 
@@ -60,7 +60,7 @@ export default function FormatPage() {
             Format WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            48 équipes, 12 groupes, 104 matchs : découvrez le nouveau format révolutionnaire
+            48 Mannschafts, 12 groupes, 104 matchs : découvrez le nouveau format révolutionnaire
             de la première WM élargie de l'histoire.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
@@ -87,14 +87,14 @@ export default function FormatPage() {
               Une révolution dans l'histoire du Mondial
             </h2>
             <p className="text-gray-700 mb-3 leading-relaxed">
-              La WM 2026 marque un tournant historique avec l'introduction d'un nouveau format à <strong>48 équipes</strong>,
+              La WM 2026 marque un tournant historique avec l'introduction d'un nouveau format à <strong>48 Mannschafts</strong>,
               contre 32 lors des éditions précédentes (1998-2022). Ce changement radical, voté par le Conseil de la FIFA en janvier 2017,
               vise à rendre le tournoi plus inclusif en permettant à davantage de nations de participer à la plus grande compétition sportive mondiale.
             </p>
             <p className="text-gray-700 mb-3 leading-relaxed">
-              Le format retenu divise les 48 équipes en <strong>12 groupes de 4 équipes</strong> chacun. Les deux premiers de chaque groupe
+              Le format retenu divise les 48 Mannschafts en <strong>12 groupes de 4 Mannschafts</strong> chacun. Les deux premiers de chaque groupe
               se qualifient automatiquement pour les huitièmes de finale, accompagnés des <strong>8 meilleurs troisièmes</strong>.
-              Au total, 32 équipes accèdent à la phase à élimination directe, contre 16 dans l'ancien format.
+              Au total, 32 Mannschafts accèdent à la phase à élimination directe, contre 16 dans l'ancien format.
             </p>
             <p className="text-gray-700 leading-relaxed">
               Cette nouvelle configuration porte le nombre total de matchs à <strong>104</strong> (contre 64 auparavant),
@@ -121,9 +121,9 @@ export default function FormatPage() {
                   </div>
                   <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <div className="text-center mb-3">
-                      <p className="text-3xl font-extrabold text-accent">48 équipes</p>
+                      <p className="text-3xl font-extrabold text-accent">48 Mannschafts</p>
                       <p className="text-sm text-gray-600 mt-1">
-                        12 groupes de 4 équipes
+                        12 groupes de 4 Mannschafts
                       </p>
                     </div>
                     <div className="grid grid-cols-3 gap-2 text-xs">
@@ -134,7 +134,7 @@ export default function FormatPage() {
                       ))}
                     </div>
                     <p className="text-sm text-gray-700 mt-4 text-center">
-                      Chaque équipe joue <strong>3 matchs</strong> (contre les 3 autres de son groupe)
+                      Chaque Mannschaft joue <strong>3 matchs</strong> (contre les 3 autres de son groupe)
                     </p>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function FormatPage() {
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-gray-200 text-center">
-                      <p className="text-3xl font-extrabold text-accent">32 équipes qualifiées</p>
+                      <p className="text-3xl font-extrabold text-accent">32 Mannschafts qualifiées</p>
                       <p className="text-sm text-gray-600 mt-1">
                         pour les huitièmes de finale
                       </p>
@@ -228,7 +228,7 @@ export default function FormatPage() {
           {/* Comparaison ancien vs nouveau format */}
           <div className="mb-12">
             <h2 id="comparaison" className="text-2xl font-bold text-gray-900 mb-6">
-              Ancien format (32 équipes) vs Nouveau format (48 équipes)
+              Ancien format (32 Mannschafts) vs Nouveau format (48 Mannschafts)
             </h2>
 
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
@@ -249,12 +249,12 @@ export default function FormatPage() {
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {[
-                      { critere: "Nombre d'équipes", ancien: "32", nouveau: "48" },
+                      { critere: "Nombre d'Mannschafts", ancien: "32", nouveau: "48" },
                       { critere: "Nombre de groupes", ancien: "8 groupes de 4", nouveau: "12 groupes de 4" },
-                      { critere: "Qualifiés 8e de finale", ancien: "16 équipes (1er + 2e)", nouveau: "32 équipes (1er + 2e + 8 meilleurs 3e)" },
+                      { critere: "Qualifiés 8e de finale", ancien: "16 Mannschafts (1er + 2e)", nouveau: "32 Mannschafts (1er + 2e + 8 meilleurs 3e)" },
                       { critere: "Nombre total de matchs", ancien: "64 matchs", nouveau: "104 matchs" },
-                      { critere: "Matchs par équipe (min)", ancien: "3 matchs", nouveau: "3 matchs" },
-                      { critere: "Matchs par équipe (max)", ancien: "7 matchs (champion)", nouveau: "7 matchs (champion)" },
+                      { critere: "Matchs par Mannschaft (min)", ancien: "3 matchs", nouveau: "3 matchs" },
+                      { critere: "Matchs par Mannschaft (max)", ancien: "7 matchs (champion)", nouveau: "7 matchs (champion)" },
                       { critere: "Durée du tournoi", ancien: "~32 jours", nouveau: "~39 jours" },
                       { critere: "Places UEFA (Europe)", ancien: "13", nouveau: "16" },
                       { critere: "Places CAF (Afrique)", ancien: "5", nouveau: "9" },
@@ -294,8 +294,8 @@ export default function FormatPage() {
               <ol className="space-y-3">
                 {[
                   "Points obtenus dans le groupe",
-                  "Différence de buts dans le groupe",
-                  "Buts marqués dans le groupe",
+                  "Tordifferenz dans le groupe",
+                  "Tore geschossen dans le groupe",
                   "Points de fair-play (cartons jaunes = -1, rouge indirect = -3, rouge direct = -4)",
                   "Tirage au sort FIFA (en dernier recours)"
                 ].map((criterion, idx) => (
@@ -332,7 +332,7 @@ export default function FormatPage() {
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span>Plus de nations représentées (+50% d'équipes)</span>
+                    <span>Plus de nations représentées (+50% d'Mannschafts)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
@@ -348,7 +348,7 @@ export default function FormatPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span>Expérience unique pour plus de joueurs</span>
+                    <span>Expérience unique pour plus de Spielers</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
@@ -365,11 +365,11 @@ export default function FormatPage() {
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-red-600 mt-0.5">•</span>
-                    <span>Dilution du niveau sportif (équipes plus faibles)</span>
+                    <span>Dilution du niveau sportif (Mannschafts plus faibles)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600 mt-0.5">•</span>
-                    <span>Tournoi plus long (fatigue des joueurs)</span>
+                    <span>Tournoi plus long (fatigue des Spielers)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600 mt-0.5">•</span>
@@ -396,8 +396,8 @@ export default function FormatPage() {
           <div className="mt-12 grid sm:grid-cols-3 gap-4">
             {[
               { href: "/reglement", label: "Règlement complet", desc: "Alle règles FIFA" },
-              { href: "/gruppen", label: "Gruppenphase", desc: "12 groupes de 4 équipes" },
-              { href: "/turnierbaum", label: "Tableau éliminatoire", desc: "Bracket interactif 32 équipes" },
+              { href: "/gruppen", label: "Gruppenphase", desc: "12 groupes de 4 Mannschafts" },
+              { href: "/turnierbaum", label: "Tableau éliminatoire", desc: "Bracket interactif 32 Mannschafts" },
             ].map(({ href, label, desc }) => (
               <Link
                 key={href}
@@ -422,7 +422,7 @@ export default function FormatPage() {
         ]} />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Pages liées" links={[
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Verwandte Seiten" links={[
           { href: "/gruppen", title: "Les 12 groupes", description: "Composition de chaque groupe", icon: "" },
           { href: "/spiel/spielplan", title: "Spielplan des matchs", description: "Les 104 matchs de la CDM 2026", icon: "" },
           { href: "/simulateur", title: "Simulateur", description: "Simulez le tableau final", icon: "" },
@@ -438,8 +438,8 @@ export default function FormatPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Format WM 2026 - 48 équipes, 12 groupes",
-            description: "Format révolutionnaire de la CDM 2026 : 48 équipes, 12 groupes de 4, phases éliminatoires et bracket complet.",
+            name: "Format WM 2026 - 48 Mannschafts, 12 groupes",
+            description: "Format révolutionnaire de la CDM 2026 : 48 Mannschafts, 12 groupes de 4, phases éliminatoires et bracket complet.",
             url: "https://www.wm2026guide.de/format",
           }),
         }}

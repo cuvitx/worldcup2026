@@ -25,7 +25,7 @@ export function PredictionCard({
       <Card>
         <SectionHeading title={isCompleted ? "Resultat & Analyse" : "Prognose"} />
         <p className="text-gray-600">
-          Les pronostics détaillés seront disponibles prochainement.
+          Detaillierte Prognosen werden in Kurze verfugbar sein.
         </p>
       </Card>
     );
@@ -52,7 +52,7 @@ export function PredictionCard({
           <p className="text-lg sm:text-xl font-bold text-gray-600">
             {Math.round(prediction.drawProb * 100)}%
           </p>
-          <p className="text-[10px] sm:text-xs text-gray-500">Nul</p>
+          <p className="text-[10px] sm:text-xs text-gray-500">Unentschieden</p>
           <p className="text-xs sm:text-sm font-medium text-primary mt-1">{odds.draw}</p>
         </div>
         <div className="rounded-lg bg-field/10 p-2 sm:p-3 text-center">

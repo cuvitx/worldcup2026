@@ -39,9 +39,9 @@ const faqItems = [
       "Le MetLife Stadium a une capacité de 82 500 places en configuration football. Pour la finale de la CDM 2026, la FIFA pourrait ajuster la configuration pour atteindre environ 80 000 places avec les installations médias et VIP.",
   },
   {
-    question: "Combien coûtent les billets pour la finale ?",
+    question: "Combien coûtent les Tickets pour la finale ?",
     answer:
-      "Les prix des billets pour la finale CDM 2026 ne sont pas encore officiellement annoncés. Pour référence, les billets de la finale 2022 au Qatar allaient de 604$ (catégorie 3) à 1 607$ (catégorie 1). On peut s'attendre à des tarifs similaires ou supérieurs pour 2026.",
+      "Les prix des Tickets pour la finale CDM 2026 ne sont pas encore officiellement annoncés. Pour référence, les Tickets de la finale 2022 au Qatar allaient de 604$ (catégorie 3) à 1 607$ (catégorie 1). On peut s'attendre à des tarifs similaires ou supérieurs pour 2026.",
   },
   {
     question: "Quelle est la dernière finale de WM jouée aux États-Unis ?",
@@ -123,7 +123,7 @@ export default function FinalePage() {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
               {[
-                { val: "82 500", label: "Capacité" },
+                { val: "82 500", label: "Kapazität" },
                 { val: "2010", label: "Inauguration" },
                 { val: "1,7 Md$", label: "Coût construction" },
                 { val: "Ouvert", label: "Toit" },
@@ -155,7 +155,7 @@ export default function FinalePage() {
             <p>
               En 2026, le contexte est radicalement différent. Le football (soccer) a explosé
               aux États-Unis avec la MLS, l&apos;arrivée de stars internationales comme Messi
-              à l&apos;Inter Miami, et une équipe nationale ambitieuse. L&apos;engouement pour
+              à l&apos;Inter Miami, et une Mannschaft nationale ambitieuse. L&apos;engouement pour
               cette WM devrait être sans précédent dans le pays.
             </p>
             <p>
@@ -231,7 +231,7 @@ export default function FinalePage() {
               <table className="w-full text-sm">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-4 py-2 text-left text-gray-600">Équipe</th>
+                    <th className="px-4 py-2 text-left text-gray-600">Mannschaft</th>
                     <th className="px-4 py-2 text-left text-gray-600">Cote indicative</th>
                     <th className="px-4 py-2 text-left text-gray-600">Probabilité implicite</th>
                   </tr>
@@ -259,7 +259,7 @@ export default function FinalePage() {
               Jouez de manière responsable. 18+.
               {" "}
               <Link href="/verantwortungsvolles-spielen" className="underline hover:text-primary">
-                En savoir plus
+                Mehr erfahren
               </Link>
             </p>
           </div>
@@ -282,7 +282,7 @@ export default function FinalePage() {
               pour le hat-trick. L&apos;Argentine l&apos;emporte aux tirs au but. Le sacre de Messi.
             </p>
             <p>
-              <strong>1998 : France 3-0 Brésil</strong> — Au Stade de France, les Bleus de Zidane
+              <strong>1998 : France 3-0 Brésil</strong> — Au Stadion de France, les Bleus de Zidane
               écrasent le Brésil de Ronaldo dans une finale marquée par le mystère autour du malaise
               du Fenomeno avant le match. Zidane inscrit un doublé de la tête, Petit clôt le festival
               dans les arrêts de jeu. La France remporte sa première étoile.
@@ -295,7 +295,7 @@ export default function FinalePage() {
             </p>
             <p>
               La finale 2026 écrira-t-elle un nouveau chapitre dans cette histoire glorieuse ?
-              Avec le nouveau format à 48 équipes et un tournoi plus long, les finalistes arriveront
+              Avec le nouveau format à 48 Mannschafts et un tournoi plus long, les finalistes arriveront
               au MetLife Stadium après 7 matchs intenses. La fatigue, la pression et la magie
               du moment feront le reste.
             </p>
@@ -321,10 +321,10 @@ export default function FinalePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/prognose/vainqueur"
+                href="/prognose/sieger"
                 className="inline-flex items-center gap-2 bg-white/10 text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-white/20 transition-colors"
               >
-                Voir les pronostics
+                Zeige pronostics
               </Link>
             </div>
           </div>

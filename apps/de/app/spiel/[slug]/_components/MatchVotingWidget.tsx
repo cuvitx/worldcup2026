@@ -238,11 +238,11 @@ export function MatchVotingWidget({
           </div>
         )}
 
-        {/* Score prédit */}
+        {/* Vorhergesagtes Ergebnis */}
         {predictedScore && (
           <div className="mt-4 flex items-center justify-center">
             <div className="flex flex-col items-center gap-0.5 rounded-xl border-2 border-gray-200 bg-gray-50 px-8 py-3 w-full">
-              <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">Score prédit</span>
+              <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">Vorhergesagtes Ergebnis</span>
               <span className="text-2xl font-black text-gray-900 tabular-nums">{predictedScore}</span>
             </div>
           </div>
@@ -270,13 +270,13 @@ export function MatchVotingWidget({
             >
               <img
                 src="/partners/pmu-play.webp"
-                alt="PMU Sport"
+                alt="Betano"
                 width={80}
                 height={24}
                 className="h-5 w-auto shrink-0"
               />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-gray-900">PMU Sport</p>
+                <p className="text-sm font-bold text-gray-900">Betano</p>
                 <p className="text-xs text-gray-500">100&euro; offerts en freebets sans condition</p>
               </div>
               <span className="shrink-0 inline-flex items-center gap-1 rounded-full bg-emerald-600 px-4 py-2 text-xs font-bold text-white transition-colors group-hover:bg-emerald-700">
@@ -286,9 +286,9 @@ export function MatchVotingWidget({
           </div>
           <div className="px-6 pb-4">
             <p className="text-[10px] text-gray-400 leading-snug">
-              Cotes estimées, susceptibles d&apos;évoluer. 18+ |{" "}
-              <a href="tel:0974751313" className="underline hover:text-gray-500">09 74 75 13 13</a>{" "}
-              | Jeu responsable
+              Geschätzte Quoten, susceptibles d&apos;évoluer. 18+ |{" "}
+              <a href="tel:0974751313" className="underline hover:text-gray-500">0800 1 37 27 00</a>{" "}
+              | Verantwortungsvolles Spielen
             </p>
           </div>
         </>

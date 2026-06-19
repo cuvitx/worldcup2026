@@ -41,7 +41,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
               <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? ""}</span>
               <div className="flex-1">
                 <p className="font-semibold">
-                  {isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}
+                  {isHome ? "vs" : "@"} {opponent?.name ?? "Noch offen"}
                 </p>
                 <p className="text-xs text-gray-500">
                   J{match.matchday} &middot; {match.time}

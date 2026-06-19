@@ -32,7 +32,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{opponent?.flag ?? ""}</span>
                   <div>
-                    <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "A determiner"}</p>
+                    <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "Noch offen"}</p>
                     <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.date} &middot; {match.time}</p>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                 </div>
               )}
               <div className="mt-3 flex gap-2">
-                <Link href={`/spiel/${match.slug}`} className="text-xs text-primary hover:underline">Voir le match &rarr;</Link>
+                <Link href={`/spiel/${match.slug}`} className="text-xs text-primary hover:underline">Spiel anzeigen &rarr;</Link>
                 {opponent && <Link href={`/h2h/${teams.find(t => t.id === teamId)?.slug}-vs-${opponent.slug}`} className="text-xs text-primary hover:underline">Historique H2H &rarr;</Link>}
               </div>
             </div>

@@ -45,16 +45,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const iso = getISOCode(slug);
   const ogImages = iso
-    ? [{ url: `https://flagcdn.com/w320/${iso}.png`, width: 320, height: 213, alt: `Drapeau de ${team.name}` }]
-    : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "CDM 2026" }];
+    ? [{ url: `https://flagcdn.com/w320/${iso}.png`, width: 320, height: 213, alt: `Flagge von ${team.name}` }]
+    : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "WM 2026" }];
 
   return {
-    title: `${team.name} CDM 2026 — Effectif, Spielplan & Prognoses`,
-    description: `${team.name} CDM 2026 : effectif complet, spielplan Groupe ${team.group}, pronostics vainqueur. ${team.bestResult}. ${team.description.substring(0, 120)}...`,
+    title: `${team.name} WM 2026 — Kader, Spielplan & Prognosen`,
+    description: `${team.name} WM 2026: vollständiger Kader, Spielplan Gruppe ${team.group}, Siegerprognosen. ${team.bestResult}. ${team.description.substring(0, 120)}...`,
     alternates: getAlternates("team", slug, "de"),
     openGraph: {
-      title: `${team.flag} ${team.name} CDM 2026 — Effectif & Prognoses`,
-      description: `${team.name} à la CDM 2026 : effectif complet, spielplan Groupe ${team.group}, cotes vainqueur, analyse. Rangliste FIFA #${team.fifaRanking}.`,
+      title: `${team.flag} ${team.name} WM 2026 — Kader & Prognosen`,
+      description: `${team.name} bei der WM 2026: vollständiger Kader, Spielplan Gruppe ${team.group}, Siegerquoten, Analyse. FIFA-Rangliste #${team.fifaRanking}.`,
       url: `${domains.de}/mannschaft/${team.slug}`,
       images: ogImages,
     },
@@ -145,7 +145,7 @@ export default async function TeamPage({ params }: PageProps) {
         />
       )}
 
-      {/* Squad / Effectif */}
+      {/* Kader */}
       {teamPlayers.length > 0 && (
         <PremiumSquad 
           players={teamPlayers}
@@ -175,7 +175,7 @@ export default async function TeamPage({ params }: PageProps) {
 
       {/* Related internal links */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">À explorer aussi</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">Weitere Themen</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Link
             href={`/gruppe/${team.group.toLowerCase()}`}
@@ -184,7 +184,7 @@ export default async function TeamPage({ params }: PageProps) {
             <span className="text-2xl"><ClipboardList className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold text-gray-900">Gruppe {team.group}</p>
-              <p className="text-xs text-gray-500">Rangliste, matchs et pronostics du groupe</p>
+              <p className="text-xs text-gray-500">Tabelle, Spiele und Prognosen der Gruppe</p>
             </div>
           </Link>
           <Link
@@ -194,17 +194,17 @@ export default async function TeamPage({ params }: PageProps) {
             <span className="text-2xl"><Sparkles className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold text-gray-900">Prognose {team.name}</p>
-              <p className="text-xs text-gray-500">Analyse détaillée et cotes vainqueur</p>
+              <p className="text-xs text-gray-500">Detaillierte Analyse und Siegerquoten</p>
             </div>
           </Link>
           <Link
-            href={`/pronostic-groupe/${team.group.toLowerCase()}`}
+            href={`/prognose-gruppe/${team.group.toLowerCase()}`}
             className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><BarChart3 className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900">Prognose Groupe {team.group}</p>
-              <p className="text-xs text-gray-500">Qui se qualifie ? Notre prédiction</p>
+              <p className="text-sm font-semibold text-gray-900">Prognose Gruppe {team.group}</p>
+              <p className="text-xs text-gray-500">Wer qualifiziert sich? Unsere Prognose</p>
             </div>
           </Link>
           <Link
@@ -213,28 +213,28 @@ export default async function TeamPage({ params }: PageProps) {
           >
             <span className="text-2xl"><Trophy className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900">Rangliste FIFA</p>
-              <p className="text-xs text-gray-500">{team.name} est #{team.fifaRanking} mondial</p>
+              <p className="text-sm font-semibold text-gray-900">FIFA-Rangliste</p>
+              <p className="text-xs text-gray-500">{team.name} ist #{team.fifaRanking} weltweit</p>
             </div>
           </Link>
           <Link
-            href="/prognose/vainqueur"
+            href="/prognose/sieger"
             className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Medal className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900">Prognose vainqueur CDM 2026</p>
-              <p className="text-xs text-gray-500">Favoris et cotes pour le titre</p>
+              <p className="text-sm font-semibold text-gray-900">Siegerprognose WM 2026</p>
+              <p className="text-xs text-gray-500">Favoriten und Quoten für den Titel</p>
             </div>
           </Link>
           <Link
-            href="/comparateur-joueurs"
+            href="/comparateur-Spielers"
             className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><Users className="h-5 w-5 inline-block" /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-gray-900">Comparateur de joueurs</p>
-              <p className="text-xs text-gray-500">Comparez les stars de la CDM 2026</p>
+              <p className="text-sm font-semibold text-gray-900">Spielervergleich</p>
+              <p className="text-xs text-gray-500">Vergleichen Sie die Stars der WM 2026</p>
             </div>
           </Link>
         </div>

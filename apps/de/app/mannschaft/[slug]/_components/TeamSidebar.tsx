@@ -36,7 +36,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
         };
         const form = mockForms[team.slug] ?? ["V", "N", "D", "V", "N"];
         const colors: Record<string, string> = { V: "bg-accent", N: "bg-gray-400", D: "bg-red-500" };
-        const labels: Record<string, string> = { V: "Victoire", N: "Nul", D: "Défaite" };
+        const labels: Record<string, string> = { V: "Sieg", N: "Nul", D: "Niederlage" };
         return (
           <Card hover padding="md">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Forme récente</h3>
@@ -74,7 +74,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
               <thead>
                 <tr className="bg-gray-50 text-xs uppercase text-gray-500 text-gray-500 text-xs">
                   <th className="py-2 px-2 text-left">#</th>
-                  <th className="py-2 px-2 text-left">Équipe</th>
+                  <th className="py-2 px-2 text-left">Mannschaft</th>
                   <th className="py-2 px-2 text-center">Pts</th>
                   <th className="py-2 px-2 text-center">+/-</th>
                 </tr>
@@ -115,7 +115,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
           <DataRow label="Rangliste FIFA" value={`#${team.fifaRanking}`} />
           <DataRow label="Groupe" value={team.group} />
           <DataRow label="Participations CDM" value={String(team.wcAppearances)} />
-          <DataRow label="Meilleur résultat" value={team.bestResult} />
+          <DataRow label="Bestes Ergebnis" value={team.bestResult} />
         </dl>
       </Card>
 
@@ -188,16 +188,16 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
 
       {/* Betting CTA */}
       <div className="rounded-lg bg-primary p-6 shadow-md text-white">
-        <h3 className="text-lg font-semibold text-white mb-3">Parier sur {team.name} championne</h3>
+        <h3 className="text-lg font-semibold text-white mb-3">Wetten auf {team.name} championne</h3>
         <p className="mb-4 text-sm text-white/70">Comparez les meilleurs sites agréés pour parier sur {team.name} à la WM 2026.</p>
         <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white text-center hover:bg-accent/80 transition-colors">
-          {featuredBookmaker.name} - {featuredBookmaker.bonus} → Parier sur {team.name}
+          {featuredBookmaker.name} - {featuredBookmaker.bonus} → Wetten auf {team.name}
         </a>
         <div className="mt-4 space-y-2">
           {bookmakers.filter((bk) => bk.id !== featuredBookmaker.id).map((bk) => (
             <a key={bk.id} href={bk.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="flex items-center justify-between rounded-lg bg-white/10 px-4 py-3 hover:bg-white/15 transition-colors text-sm">
               <span className="flex items-center gap-3 font-semibold">{bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={24} height={24} className="h-6 w-6 rounded object-contain" />}<span>{bk.name}</span> <span className="text-white/60">{bk.bonus}</span></span>
-              <span className="text-accent font-semibold whitespace-nowrap">Parier sur {team.name} →</span>
+              <span className="text-accent font-semibold whitespace-nowrap">Wetten auf {team.name} →</span>
             </a>
           ))}
         </div>
