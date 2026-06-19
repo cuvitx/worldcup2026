@@ -1,11 +1,23 @@
 import { getAlternates } from "@repo/data/route-mapping";
-import { localizeTeam } from "@repo/data/i18n";
-import { positionLabelsI18n } from "@repo/data/constants";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { players, playersBySlug, playersByTeamId } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
+// Set of player slugs that have a photo in /public/images/players/
+const PLAYER_PHOTO_SLUGS = new Set([
+  "achraf-hakimi", "alisson-becker", "aurelien-tchouameni", "bukayo-saka",
+  "cole-palmer", "cristiano-ronaldo", "eduardo-camavinga", "erling-haaland",
+  "federico-valverde", "florian-wirtz", "gavi", "harry-kane", "jamal-musiala",
+  "jude-bellingham", "kevin-de-bruyne", "kylian-mbappe", "lamine-yamal",
+  "lionel-messi", "luka-modric", "manuel-neuer", "mohamed-salah", "pedri",
+  "phil-foden", "robert-lewandowski", "rodri", "son-heung-min",
+  "thibaut-courtois", "trent-alexander-arnold", "victor-osimhen", "vinicius-jr",
+]);
+import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
+import { CircleDot, Sparkles, Users } from "lucide-react"
+import { PmuBanner } from "../../components/PmuBanner";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -18,25 +30,37 @@ export async function generateStaticParams() {
   return players.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) return {};
 
   const team = teamsById[player.teamId];
-  const teamLoc = team ? localizeTeam(team, "de") : null;
-  const teamName = teamLoc?.name ?? player.teamId;
+  const teamName = team?.name ?? player.teamId;
+
+  const hasPhoto = PLAYER_PHOTO_SLUGS.has(slug);
+  const ogImages = hasPhoto
+    ? [{ url: `https://www.wm2026guide.de/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — CDM 2026` }]
+    : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "CDM 2026" }];
 
   return {
-    title: `${player.name} -- ${teamName} | Spielerprofil WM 2026`,
-    description: `${player.name} (${teamName}) bei der WM 2026. ${player.caps} Laenderspiele, ${player.goals} Tore. Verein: ${player.club}.`,
+    title: `${player.name} - ${teamName} | Fiche joueur CDM 2026`,
+    description: `Fiche de ${player.name} (${teamName}) pour la WM 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
     alternates: getAlternates("player", slug, "de"),
+    openGraph: {
+      title: `${player.name} - ${teamName} CDM 2026`,
+      description: `${player.position} | ${player.club} | ${player.caps} selections | ${player.goals} buts`,
+      images: ogImages,
+    },
   };
 }
 
-const positionLabels = positionLabelsI18n.de;
+const positionLabels: Record<string, string> = {
+  GK: "Gardien",
+  DF: "Defenseur",
+  MF: "Milieu",
+  FW: "Attaquant",
+};
 
 export default async function PlayerPage({ params }: PageProps) {
   const { slug } = await params;
@@ -44,29 +68,50 @@ export default async function PlayerPage({ params }: PageProps) {
   if (!player) notFound();
 
   const team = teamsById[player.teamId];
-  const teamLoc = team ? localizeTeam(team, "de") : null;
   const teammates = (playersByTeamId[player.teamId] ?? []).filter(
     (p) => p.id !== player.id
   );
 
   return (
     <>
-      <section className="hero-animated text-white py-12 sm:py-16">
+<section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            {/* Player photo or initials fallback */}
+            {(() => {
+              const imgPath = getPlayerImagePath(player.slug);
+              const initials = getPlayerInitials(player.name);
+              const avatarColor = getAvatarColor(player.name);
+              return imgPath ? (
+                <div className="relative h-20 w-20 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-full border-2 border-white/30 shadow-lg">
+                  <Image
+                    src={imgPath}
+                    alt={player.name}
+                    fill
+                    className="object-cover object-top"
+                    priority
+                    sizes="(max-width: 640px) 80px, 112px"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`flex h-20 w-20 sm:h-28 sm:w-28 shrink-0 items-center justify-center rounded-full border-2 border-white/30 shadow-lg text-2xl sm:text-3xl font-extrabold ${avatarColor}`}
+                >
+                  {initials}
+                </div>
+              );
+            })()}
             {team && (
-              <span className="text-3xl sm:text-5xl">{team.flag}</span>
+              <span className="text-2xl sm:text-4xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
             )}
             <div>
               <p className="text-sm text-white/70 uppercase tracking-wide">
                 {positionLabels[player.position] ?? player.position}
                 {player.number ? ` | #${player.number}` : ""}
               </p>
-              <h1 className="text-2xl font-extrabold sm:text-4xl">
-                {player.name}
-              </h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">{player.name}</h1>
               <p className="mt-1 text-white/80">
-                {teamLoc?.name ?? player.teamId} &middot; {player.club}
+                {team?.name ?? player.teamId} &middot; {player.club}
               </p>
             </div>
           </div>
@@ -76,62 +121,71 @@ export default async function PlayerPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            {/* Profile */}
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Profil
-              </h2>
-              <p className="text-gray-700 leading-relaxed">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Profil</h2>
+              <p className="text-gray-700 leading-relaxed break-words">
                 {player.description}
               </p>
             </section>
 
-            {/* Stats */}
-            <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Statistiken
+                Statistiques internationales
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.caps}
                   </p>
-                  <p className="text-sm text-gray-500">Laenderspiele</p>
+                  <p className="text-sm text-gray-500">Selections</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.goals}
                   </p>
-                  <p className="text-sm text-gray-500">Tore</p>
+                  <p className="text-sm text-gray-500">Buts</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.age}
                   </p>
-                  <p className="text-sm text-gray-500">Alter</p>
+                  <p className="text-sm text-gray-500">Age</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">
                     {positionLabels[player.position]}
                   </p>
-                  <p className="text-sm text-gray-500">Position</p>
+                  <p className="text-sm text-gray-500">Poste</p>
                 </div>
               </div>
             </section>
 
-            {/* Teammates */}
             {teammates.length > 0 && (
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <section className="rounded-lg bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  Mitspieler
+                  Coequipiers en sélection
                 </h2>
-                <div className="space-y-2">
-                  {teammates.slice(0, 10).map((mate) => (
+                <div className="space-y-3">
+                  {teammates.map((mate) => {
+                    const mateImg = getPlayerImagePath(mate.slug);
+                    const mateInitials = getPlayerInitials(mate.name);
+                    const mateColor = getAvatarColor(mate.name);
+                    return (
                     <Link
                       key={mate.id}
                       href={`/spieler/${mate.slug}`}
                       className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
                     >
+                      {/* Mini avatar */}
+                      {mateImg ? (
+                        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                          <Image src={mateImg} alt={mate.name} fill className="object-cover object-top" sizes="40px" />
+                        </div>
+                      ) : (
+                        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${mateColor}`}>
+                          {mateInitials}
+                        </div>
+                      )}
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold truncate">{mate.name}</p>
                         <p className="text-sm text-gray-500">
@@ -140,76 +194,128 @@ export default async function PlayerPage({ params }: PageProps) {
                       </div>
                       <span className="text-primary shrink-0">&rarr;</span>
                     </Link>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
             )}
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Steckbrief
-              </h3>
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche technique</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Name</dt>
+                  <dt className="text-gray-500">Nom complet</dt>
                   <dd className="font-medium">{player.name}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Alter</dt>
-                  <dd className="font-medium">{player.age} Jahre</dd>
+                  <dt className="text-gray-500">Age</dt>
+                  <dd className="font-medium">{player.age} ans</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Position</dt>
+                  <dt className="text-gray-500">Poste</dt>
                   <dd className="font-medium">
                     {positionLabels[player.position]}
                   </dd>
                 </div>
                 {player.number && (
                   <div className="flex justify-between">
-                    <dt className="text-gray-500">Nummer</dt>
+                    <dt className="text-gray-500">Numero</dt>
                     <dd className="font-medium">#{player.number}</dd>
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Verein</dt>
+                  <dt className="text-gray-500">Club</dt>
                   <dd className="font-medium">{player.club}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Laenderspiele</dt>
+                  <dt className="text-gray-500">Selections</dt>
                   <dd className="font-medium">{player.caps}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Tore</dt>
+                  <dt className="text-gray-500">Buts</dt>
                   <dd className="font-medium">{player.goals}</dd>
                 </div>
               </dl>
             </div>
 
             {team && (
-              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Mannschaft
-                </h3>
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Équipe</h3>
                 <Link
                   href={`/mannschaft/${team.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30"
                 >
-                  <span className="text-2xl">{team.flag}</span>
+                  <span className="text-2xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
                   <div>
-                    <p className="font-semibold">{teamLoc?.name}</p>
+                    <p className="font-semibold">{team.name}</p>
                     <p className="text-sm text-gray-500">
-                      Gruppe {team.group} &middot; #{team.fifaRanking} FIFA
+                      Groupe {team.group} &middot; #{team.fifaRanking} FIFA
                     </p>
                   </div>
                 </Link>
               </div>
             )}
+
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Explorer</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/spieler-liste" className="text-primary hover:underline">
+                    <CircleDot className="h-5 w-5 inline-block" /> Tous les joueurs clés
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/torschuetzen" className="text-primary hover:underline">
+                     Meilleurs buteurs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/comparateur-joueurs" className="text-primary hover:underline">
+                    <Users className="h-5 w-5 inline-block" /> Comparateur de joueurs
+                  </Link>
+                </li>
+                {team && (
+                  <li>
+                    <Link href={`/prognose/${team.slug}`} className="text-primary hover:underline">
+                      <Sparkles className="h-5 w-5 inline-block" /> Prognose {team.name}
+                    </Link>
+                  </li>
+                )}
+              </ul>
+            </div>
+
+            {/* PMU Banner */}
+            <div className="mt-6">
+              <PmuBanner tracking="joueur" compact />
+              <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/verantwortungsvolles-spielen" className="underline">Jeu responsable</a></p>
+            </div>
           </div>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: player.name,
+            jobTitle: "Football Player",
+            memberOf: team
+              ? {
+                  "@type": "SportsTeam",
+                  name: team.name,
+                }
+              : undefined,
+            affiliation: {
+              "@type": "SportsTeam",
+              name: player.club,
+            },
+          }),
+        }}
+      />
     </>
   );
 }

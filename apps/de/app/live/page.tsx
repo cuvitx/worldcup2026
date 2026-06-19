@@ -1,120 +1,332 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getTodaysMatches } from "@repo/data/tournament-state";
+import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
-import { localizeTeam } from "@repo/data/i18n";
-import { getStaticAlternates } from "@repo/data/route-mapping";
-
-export const revalidate = 300;
+import { Countdown } from "@repo/ui/countdown";
+import { EVENT_DATES } from "@repo/data/constants";
+import { PmuBanner } from "../components/PmuBanner";
+import {
+  getTournamentPhase,
+  getTodaysMatches,
+  getMatchesByDate,
+  getMatchPhase,
+} from "@repo/data/tournament-state";
+import { LiveMatchWidget } from "@repo/ui/live-match-widget";
 
 export const metadata: Metadata = {
-  title: "Live-Ergebnisse -- WM 2026",
+  title: "Ergebnisse en direct - WM 2026",
   description:
-    "Live-Ergebnisse und Spielstaende der Fussball-WM 2026. Aktuelle Spiele in Echtzeit verfolgen.",
-  alternates: getStaticAlternates("live", "de"),
+    "Suivez les résultats en direct de la WM 2026. Scores, buteurs, événements minute par minute.",
+  alternates: {
+    canonical: "https://www.wm2026guide.de/live",
+  },
+  openGraph: {
+    title: "Ergebnisse en direct - WM 2026",
+    description:
+      "Scores en direct, buteurs et événements minute par minute pour tous les matchs de la WM 2026.",
+    type: "website",
+  },
+};
+
+// Force dynamic rendering so tournament phase is always current
+export const dynamic = "force-dynamic";
+
+function formatDate(date: string): string {
+  return new Date(date + "T12:00:00Z").toLocaleDateString("de-DE", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function formatTime(time: string): string {
+  // Times are already in Europe/Paris (CEST)
+  return time;
+}
+
+function formatDateShort(date: string): string {
+  return new Date(date + "T12:00:00Z").toLocaleDateString("de-DE", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+}
+
+/** Get the first N upcoming matches */
+function getNextMatches(count: number) {
+  const now = new Date();
+  return matches
+    .filter((m) => new Date(`${m.date}T${m.time}:00+02:00`) > now)
+    .sort((a, b) => `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`))
+    .slice(0, count);
+}
+
+/** Get yesterday's date in ISO format */
+function getYesterdayISO(): string {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Startseite",
+      item: "https://www.wm2026guide.de",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Ergebnisse en direct",
+      item: "https://www.wm2026guide.de/live",
+    },
+  ],
 };
 
 export default function LivePage() {
-  const todaysMatches = getTodaysMatches();
+  const phase = getTournamentPhase();
+  const isPreTournament = phase === "pre-tournament";
 
   return (
     <>
-      <section className="hero-animated text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">
-            Live-Ergebnisse
-          </h1>
-          <p className="mt-2 text-gray-300">
-            WM 2026 -- Aktuelle Spiele und Ergebnisse
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      {/* Hero */}
+      <section className="hero-animated text-white py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
+            <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">En direct</span>
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Ergebnisse en direct</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Scores, buteurs et événements minute par minute
           </p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
-        {todaysMatches.length > 0 ? (
-          <div className="space-y-3">
-            {todaysMatches.map((match) => {
+      {isPreTournament ? <PreTournamentContent /> : <TournamentActiveContent />}
+    </>
+  );
+}
+
+/** Content shown before the tournament starts */
+function PreTournamentContent() {
+  const nextMatches = matches
+    .sort((a, b) => `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`))
+    .slice(0, 4);
+
+  return (
+    <>
+      <Countdown />
+
+      <section className="bg-white py-8">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="rounded-2xl border border-gray-200 bg-white px-6 py-5 text-center shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-1.5 text-gray-700 font-semibold text-sm mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+              <span>En attente du coup d&apos;envoi</span>
+            </div>
+            <p className="text-gray-900 text-base font-medium">
+              Les résultats en direct seront disponibles dès le 11 juin 2026
+            </p>
+            <p className="text-gray-500 text-sm mt-1 mb-4">
+              Scores actualisés en temps réel, événements et compositions d&apos;équipe
+            </p>
+            <Link
+              href="/spiel/spielplan"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              Voir le spielplan complet
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50/50 py-8">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Prochains matchs</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {nextMatches.map((match) => {
               const home = teamsById[match.homeTeamId];
               const away = teamsById[match.awayTeamId];
-              const homeLoc = home ? localizeTeam(home, "de") : null;
-              const awayLoc = away ? localizeTeam(away, "de") : null;
               const stadium = stadiumsById[match.stadiumId];
-              const hasScore =
-                match.homeScore != null && match.awayScore != null;
-
               return (
                 <Link
                   key={match.id}
                   href={`/spiel/${match.slug}`}
-                  className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/5"
+                  className="block rounded-xl border border-gray-200 bg-white p-5 hover:border-primary hover:shadow-md transition-all"
                 >
-                  <span className="text-sm font-semibold text-primary w-14 text-center shrink-0">
-                    {match.time}
-                  </span>
-                  <div className="flex items-center gap-2 flex-1 min-w-0">
-                    <span className="text-lg">{home?.flag ?? ""}</span>
-                    <span className="font-medium truncate">
-                      {homeLoc?.name ?? "TBD"}
-                    </span>
+                  <div className="text-xs text-gray-500 mb-3">
+                    {formatDate(match.date)} · {formatTime(match.time)}
                   </div>
-                  {hasScore ? (
-                    <span className="font-bold text-lg shrink-0">
-                      {match.homeScore} - {match.awayScore}
-                    </span>
-                  ) : (
-                    <span className="text-xs text-gray-500 shrink-0">
-                      vs
-                    </span>
-                  )}
-                  <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                    <span className="font-medium truncate text-right">
-                      {awayLoc?.name ?? "TBD"}
-                    </span>
-                    <span className="text-lg">{away?.flag ?? ""}</span>
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <span className="text-lg">{home?.flag}</span>
+                      <span>{home?.name ?? match.homeTeamId}</span>
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium">VS</span>
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <span>{away?.name ?? match.awayTeamId}</span>
+                      <span className="text-lg">{away?.flag}</span>
+                    </div>
                   </div>
-                  {stadium && (
-                    <span className="text-xs text-gray-500 hidden sm:block shrink-0 w-36 text-right truncate">
-                      {stadium.name}
-                    </span>
-                  )}
+                  <div className="mt-2 text-xs text-gray-500">
+                    {stadium?.name} · {stadium?.city}
+                  </div>
                 </Link>
               );
             })}
           </div>
-        ) : (
-          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-8 text-center">
-            <p className="text-lg text-gray-600">
-              Aktuell keine Live-Spiele.
-            </p>
-            <p className="mt-2 text-sm text-gray-500">
-              Besuche diese Seite waehrend der WM 2026 fuer
-              Live-Ergebnisse.
-            </p>
-          </div>
-        )}
-
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/spiel/heute"
-            className="rounded-lg bg-primary px-6 py-3 text-white font-medium hover:bg-primary/90 transition-colors"
-          >
-            Spiele heute
-          </Link>
-          <Link
-            href="/ergebnisse"
-            className="rounded-lg border border-gray-200 bg-white px-6 py-3 text-gray-900 font-medium hover:bg-gray-50 transition-colors"
-          >
-            Alle Ergebnisse
-          </Link>
-          <Link
-            href="/spiel/spielplan"
-            className="rounded-lg border border-gray-200 bg-white px-6 py-3 text-gray-900 font-medium hover:bg-gray-50 transition-colors"
-          >
-            Spielplan
-          </Link>
         </div>
-      </div>
+      </section>
+    </>
+  );
+}
+
+/** Content shown during the tournament */
+function TournamentActiveContent() {
+  const todaysMatches = getTodaysMatches();
+  const yesterdayMatches = getMatchesByDate(getYesterdayISO());
+  const nextMatches = getNextMatches(4);
+
+  return (
+    <>
+      {/* Today's matches with live widgets */}
+      {todaysMatches.length > 0 && (
+        <section className="bg-white py-8">
+          <div className="mx-auto max-w-4xl px-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Spiele heute — {formatDateShort(todaysMatches[0]!.date)}
+            </h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {todaysMatches.map((match) => {
+                const home = teamsById[match.homeTeamId];
+                const away = teamsById[match.awayTeamId];
+                const stadium = stadiumsById[match.stadiumId];
+                return (
+                  <Link key={match.id} href={`/spiel/${match.slug}`} className="block">
+                    <LiveMatchWidget
+                      matchDate={match.date}
+                      matchTime={match.time}
+                      homeTeam={home?.name ?? match.homeTeamId}
+                      awayTeam={away?.name ?? match.awayTeamId}
+                      stadium={stadium?.name ?? ""}
+                      locale="de"
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Yesterday's results */}
+      {yesterdayMatches.length > 0 && (
+        <section className="bg-gray-50/50 py-8">
+          <div className="mx-auto max-w-4xl px-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Ergebnisse d&apos;hier — {formatDateShort(yesterdayMatches[0]!.date)}
+            </h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {yesterdayMatches.map((match) => {
+                const home = teamsById[match.homeTeamId];
+                const away = teamsById[match.awayTeamId];
+                const stadium = stadiumsById[match.stadiumId];
+                return (
+                  <Link key={match.id} href={`/spiel/${match.slug}`} className="block">
+                    <LiveMatchWidget
+                      matchDate={match.date}
+                      matchTime={match.time}
+                      homeTeam={home?.name ?? match.homeTeamId}
+                      awayTeam={away?.name ?? match.awayTeamId}
+                      stadium={stadium?.name ?? ""}
+                      locale="de"
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Betting CTA */}
+      <section className="bg-white py-6">
+        <div className="mx-auto max-w-3xl px-4">
+          <PmuBanner tracking="live" />
+        </div>
+      </section>
+
+      {/* No matches today/yesterday — show a notice */}
+      {todaysMatches.length === 0 && yesterdayMatches.length === 0 && (
+        <section className="bg-white py-8">
+          <div className="mx-auto max-w-3xl px-4 text-center">
+            <p className="text-gray-500 text-lg">Pas de match prévu aujourd&apos;hui</p>
+          </div>
+        </section>
+      )}
+
+      {/* Upcoming matches */}
+      {nextMatches.length > 0 && (
+        <section className="bg-white py-8">
+          <div className="mx-auto max-w-4xl px-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Prochains matchs</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {nextMatches.map((match) => {
+                const home = teamsById[match.homeTeamId];
+                const away = teamsById[match.awayTeamId];
+                const stadium = stadiumsById[match.stadiumId];
+                return (
+                  <Link
+                    key={match.id}
+                    href={`/spiel/${match.slug}`}
+                    className="block rounded-xl border border-gray-200 bg-white p-5 hover:border-primary hover:shadow-md transition-all"
+                  >
+                    <div className="text-xs text-gray-500 mb-3">
+                      {formatDate(match.date)} · {formatTime(match.time)}
+                    </div>
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2 text-sm font-semibold">
+                        <span className="text-lg">{home?.flag}</span>
+                        <span>{home?.name ?? match.homeTeamId}</span>
+                      </div>
+                      <span className="text-xs text-gray-500 font-medium">VS</span>
+                      <div className="flex items-center gap-2 text-sm font-semibold">
+                        <span>{away?.name ?? match.awayTeamId}</span>
+                        <span className="text-lg">{away?.flag}</span>
+                      </div>
+                    </div>
+                    <div className="mt-2 text-xs text-gray-500">
+                      {stadium?.name} · {stadium?.city}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="mt-6 text-center">
+              <Link
+                href="/spiel/spielplan"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              >
+                Voir le spielplan complet
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

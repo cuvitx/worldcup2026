@@ -1,0 +1,342 @@
+import { domains } from "@repo/data/route-mapping";
+import { getAlternates } from "@repo/data/route-mapping";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { guides, guidesBySlug, guidesById } from "@repo/data/guides";
+import { bookmakerReviewsById } from "@repo/data/bookmaker-reviews";
+import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
+import { AuthorBox } from "@repo/ui/author-box";
+import { FileText } from "lucide-react"
+
+export const revalidate = 86400;
+export const dynamicParams = true;
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return guides.map((g) => ({ slug: g.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = guidesBySlug[slug];
+  if (!guide) return {};
+
+  return {
+    title: guide.metaTitle,
+    description: guide.metaDescription,
+    alternates: getAlternates("guide", slug, "de"),
+    openGraph: {
+      title: guide.metaTitle,
+      description: guide.metaDescription,
+    },
+  };
+}
+
+const sectionIcons = ["", "", "", "", "", "", "", "", "", ""];
+
+export default async function GuidePage({ params }: PageProps) {
+  const { slug } = await params;
+  const guide = guidesBySlug[slug];
+  if (!guide) notFound();
+
+  const relatedGuides = guide.relatedGuideIds
+    .map((id) => guidesById[id])
+    .filter((g): g is NonNullable<typeof g> => g != null);
+
+  const relatedBookmakers = guide.relatedBookmakerIds
+    .map((id) => bookmakerReviewsById[id])
+    .filter((b): b is NonNullable<typeof b> => b != null);
+
+  const categoryLabels: Record<string, string> = {
+    cdm2026: "WM 2026",
+    stratégie: "Strategies",
+    bookmaker: "Bookmakers",
+    debutant: "Debutant",
+  };
+
+  // Insert CTA after every 2 sections
+  const ctaInterval = 2;
+
+  return (
+    <>
+<section className="hero-animated text-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium mb-3">
+            {categoryLabels[guide.category] ?? guide.category}
+          </span>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">{guide.title}</h1>
+          <p className="mt-3 text-lg text-gray-300 max-w-3xl">{guide.intro}</p>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+          {/* Main Content */}
+          <div className="space-y-6 min-w-0">
+            {/* Sections with interleaved CTAs */}
+            {guide.sections.map((section, i) => (
+              <div key={i}>
+                <section id={`section-${i}`} className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">{sectionIcons[i % sectionIcons.length]}</span>
+                    {section.title}
+                  </h2>
+                  <div className="prose prose-sm max-w-none text-gray-700">
+                    <p>{section.content}</p>
+                  </div>
+                </section>
+
+                {/* CTA between sections */}
+                {(i + 1) % ctaInterval === 0 && i < guide.sections.length - 1 && (
+                  <div className="my-6 rounded-xl bg-gradient-to-r from-primary/5 to-primary/5 border border-primary/20 p-5 flex flex-col sm:flex-row items-center gap-4">
+                    <div className="flex-1">
+                      <p className="font-bold text-gray-900"> Prêt à parier ?</p>
+                      <p className="text-sm text-gray-600">{featuredBookmaker.bonus} chez {featuredBookmaker.name}</p>
+                    </div>
+                    <a
+                      href={featuredBookmaker.url}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored nofollow"
+                      className="shrink-0 rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
+                    >
+                      Voir l&apos;offre →
+                    </a>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* Bookmaker CTA block */}
+            <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Meilleurs bookmakers pour la CDM 2026
+              </h2>
+              <p className="mb-6 text-sm text-gray-600">
+                Comparez les meilleurs sites de paris sportifs agréés en France.
+              </p>
+              <div className="space-y-4">
+                {bookmakers.slice(0, 3).map((bk) => {
+                  const isFeatured = bk.id === featuredBookmaker.id;
+                  return (
+                    <div
+                      key={bk.id}
+                      className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-4 transition-shadow hover:shadow-md ${
+                        isFeatured ? "border-primary bg-primary/5" : "border-gray-200 bg-white"
+                      }`}
+                    >
+                      {isFeatured && (
+                        <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-white">
+                          Recommande
+                        </span>
+                      )}
+                      <div className="flex-1 text-center sm:text-left">
+                        <p className="text-lg font-bold text-gray-900">{bk.name}</p>
+                        <p className="text-sm text-gray-500">{"★".repeat(bk.rating)}{"☆".repeat(5 - bk.rating)}</p>
+                      </div>
+                      <div className="flex-1 text-center">
+                        <p className="text-lg font-extrabold text-field">{bk.bonus}</p>
+                        <p className="text-xs text-gray-500">{bk.bonusDetail}</p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <a
+                          href={bk.url}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored nofollow"
+                          className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
+                            isFeatured ? "bg-accent hover:bg-accent/90" : "bg-primary hover:bg-primary/90"
+                          }`}
+                        >
+                          Parier
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="mt-4 text-xs text-gray-500 text-center">
+                18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement.
+              </p>
+            </section>
+
+            {/* Related Guides */}
+            {relatedGuides.length > 0 && (
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides recommandes</h2>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {relatedGuides.map((rg) => (
+                    <Link
+                      key={rg.id}
+                      href={`/guide/${rg.slug}`}
+                      className="rounded-xl border border-gray-200 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
+                    >
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{rg.title}</h3>
+                      <p className="text-xs text-gray-500 line-clamp-2">{rg.metaDescription}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Other Guides */}
+            {guides.filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id)).length > 0 && (
+              <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides liés</h2>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {guides
+                    .filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id))
+                    .slice(0, 4)
+                    .map((g) => (
+                      <Link
+                        key={g.id}
+                        href={`/guide/${g.slug}`}
+                        className="rounded-xl border border-gray-200 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
+                      >
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">{g.title}</h3>
+                        <p className="text-xs text-gray-500 line-clamp-2">{g.metaDescription}</p>
+                      </Link>
+                    ))}
+                </div>
+              </section>
+            )}
+
+            <AuthorBox />
+          </div>
+
+          {/* Sidebar - Sticky TOC + CTA */}
+          <div className="hidden lg:block">
+            <div className="sticky top-8 space-y-6">
+              {/* Table of Contents */}
+              <nav className="rounded-xl bg-white p-5 shadow-sm border border-gray-100">
+                <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider"><FileText className="h-5 w-5 inline-block" /> Sommaire</h3>
+                <ol className="space-y-2">
+                  {guide.sections.map((section, i) => (
+                    <li key={i}>
+                      <a
+                        href={`#section-${i}`}
+                        className="flex items-start gap-2 text-sm text-gray-600 hover:text-primary transition-colors"
+                      >
+                        <span className="shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center mt-0.5">
+                          {i + 1}
+                        </span>
+                        <span className="line-clamp-2">{section.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+
+              {/* CTA */}
+              <div className="rounded-xl bg-primary/5 border border-primary/20 p-5">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Commencer a parier</h3>
+                <p className="mb-4 text-sm text-gray-600">
+                  Profitez des bonus de bienvenue pour la CDM 2026.
+                </p>
+                <a
+                  href={featuredBookmaker.url}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  className="block w-full text-center rounded-xl bg-accent py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
+                >
+                  {featuredBookmaker.bonus} sur {featuredBookmaker.name}
+                </a>
+                <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>
+              </div>
+
+              {/* Related Bookmakers */}
+              {relatedBookmakers.length > 0 && (
+                <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Bookmakers cites</h3>
+                  <ul className="space-y-2">
+                    {relatedBookmakers.map((rb) => (
+                      <li key={rb.id}>
+                        <Link
+                          href={`/wettanbieter/${rb.slug}`}
+                          className="flex items-center justify-between text-sm hover:text-primary transition-colors"
+                        >
+                          <span className="font-medium text-gray-700">{rb.name}</span>
+                          <span className="text-field font-bold">{rb.bonus}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* All guides */}
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Tous nos guides</h3>
+                <ul className="space-y-2">
+                  {guides
+                    .filter((g) => g.id !== guide.id)
+                    .slice(0, 6)
+                    .map((g) => (
+                      <li key={g.id}>
+                        <Link href={`/guide/${g.slug}`} className="text-sm text-primary hover:underline">
+                          {g.title} →
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+                <div className="mt-3">
+                  <Link href="/guides" className="text-sm font-medium text-primary hover:underline">
+                    Voir tous les guides →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Explorer */}
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Explorer</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/torschuetzen" className="text-primary hover:underline">Cotes buteurs CDM 2026 →</Link></li>
+                  <li><Link href="/sportwetten" className="text-primary hover:underline">Paris sportifs CDM 2026 →</Link></li>
+                  <li><Link href="/prognose/france" className="text-primary hover:underline">Prognose France →</Link></li>
+                  <li><Link href="/spiel/spielplan" className="text-primary hover:underline">Spielplan des matchs →</Link></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: guide.title,
+            description: guide.metaDescription,
+            datePublished: "2025-01-15",
+            dateModified: "2025-02-15",
+            author: { "@type": "Organization", name: "CDM 2026", url: "https://www.wm2026guide.de" },
+            publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.wm2026guide.de", logo: { "@type": "ImageObject", url: "https://www.wm2026guide.de/icon-512.png" } },
+            mainEntityOfPage: `${domains.de}/guide/${guide.slug}`,
+            url: `${domains.de}/guide/${guide.slug}`,
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: guide.sections.map((section) => ({
+              "@type": "Question",
+              name: section.title,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: section.content.slice(0, 500),
+              },
+            })),
+          }),
+        }}
+      />
+    </>
+  );
+}

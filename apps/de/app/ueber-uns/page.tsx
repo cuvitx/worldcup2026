@@ -1,96 +1,189 @@
-import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
-
-export const dynamic = "force-static";
-
 export const metadata: Metadata = {
-  title: "Ueber uns -- WM 2026",
+  title: "À propos de CDM 2026 | WM 2026",
   description:
-    "Erfahren Sie mehr ueber wm2026guide.de, das deutschsprachige Informationsportal zur Fussball-WM 2026 in den USA, Kanada und Mexiko.",
-  alternates: getStaticAlternates("about", "de"),
+    "À propos de CDM 2026 : votre guide complet pour la WM 2026. Prognoses, statistiques et analyses pour les 48 équipes.",
+  alternates: {
+    canonical: "https://www.wm2026guide.de/ueber-uns",
+  },
+  openGraph: {
+    title: "À propos de CDM 2026",
+    description: "Votre guide complet pour la WM 2026.",
+  },
 };
 
-export default function UeberUnsPage() {
+export default function AProposPage() {
   return (
     <>
-      <section className="hero-animated text-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Ueber uns</h1>
-          <p className="mt-2 text-gray-300">
-            Das Team hinter wm2026guide.de
+<section className="hero-animated text-white py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">À propos</span>
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">À propos de CDM 2026</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Votre guide complet pour la première WM à 48 équipes.
           </p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-3xl px-4 py-10 sm:py-12">
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-6">
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Unsere Mission
+      <div className="mx-auto max-w-4xl px-4 py-12">
+        <div className="space-y-8 text-gray-700 leading-relaxed">
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Notre mission
             </h2>
             <p>
-              wm2026guide.de ist das deutschsprachige Informationsportal fuer die
-              FIFA Fussball-Weltmeisterschaft 2026. Unser Ziel ist es,
-              deutschsprachigen Fussballfans alle wichtigen Informationen
-              rund um das groesste Sportereignis der Welt zu liefern.
+              CDM 2026 est un site indépendant dédié à la WM FIFA
+              2026 qui se déroulera du 11 juin au 19 juillet 2026 aux
+              États-Unis, au Canada et au Mexique. Notre objectif est de fournir
+              les informations les plus complètes et les analyses les plus
+              pertinentes sur cet événement historique.
             </p>
           </section>
 
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Was wir bieten
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Ce que nous proposons
             </h2>
-            <ul className="list-disc pl-5 space-y-2">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Fiches équipes</h3>
+                <p className="mt-1 text-sm">
+                  Analyses détaillées des 48 équipes qualifiées, avec effectifs,
+                  statistiques et historique en WM.
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Prognoses</h3>
+                <p className="mt-1 text-sm">
+                  Prognoses basés sur les données statistiques et les
+                  classements ELO pour chaque match et confrontation.
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Comparaison de cotes</h3>
+                <p className="mt-1 text-sm">
+                  Comparaison des cotes des principaux bookmakers agréés pour
+                  vous aider à trouver les meilleures valeurs.
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900">Guide pratique</h3>
+                <p className="mt-1 text-sm">
+                  Guides des 16 villes hôtes et des stades, avec informations
+                  pratiques pour les supporters.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Notre équipe d&apos;experts
+            </h2>
+            <p>
+              CDM 2026 est rédigé par une équipe de 3 experts complémentaires :
+              un analyste données sportives, une journaliste sportive expérimentée
+              et un spécialiste des paris sportifs. Chaque article est relu et
+              validé pour garantir la fiabilité de l&apos;information.
+            </p>
+            <p className="mt-2">
+              <Link href="/equipe-editoriale" className="text-primary font-medium hover:underline">
+                Découvrir notre équipe éditoriale →
+              </Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Notre méthodologie
+            </h2>
+            <p>
+              Nos analyses s&apos;appuient sur des données statistiques issues
+              de sources officielles reconnues : classements FIFA, données des
+              confédérations (UEFA, CONMEBOL, CAF, AFC, CONCACAF), et bases
+              statistiques spécialisées. Nos pronostics utilisent un modèle
+              algorithmique combinant les classements ELO, les statistiques
+              avancées (xG, possession, forme récente) et l&apos;historique des
+              confrontations directes.
+            </p>
+            <p className="mt-2">
+              Nous nous efforçons d&apos;être transparents sur notre
+              méthodologie et rappelons que tout pronostic comporte une part
+              d&apos;incertitude. Nos prédictions ne constituent en aucun cas
+              des conseils de paris. Consultez notre{" "}
+              <Link href="/methodologie" className="text-primary hover:underline">
+                page méthodologie
+              </Link>{" "}
+              pour plus de détails.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Indépendance éditoriale
+            </h2>
+            <p>
+              CDM 2026 est un site indépendant, non affilié à la FIFA ni à aucun
+              opérateur de paris sportifs. Nos analyses et pronostics sont
+              réalisés en toute indépendance. Les liens d&apos;affiliation
+              présents sur le site n&apos;influencent pas notre contenu
+              éditorial et sont clairement identifiés conformément à la
+              réglementation ANJ.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              La WM 2026 en chiffres
+            </h2>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                { value: "48", label: "Mannschaften" },
+                { value: "104", label: "Matchs" },
+                { value: "16", label: "Villes hôtes" },
+                { value: "3", label: "Pays hôtes" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-lg bg-gray-50 p-4 text-center"
+                >
+                  <p className="text-2xl font-bold text-primary">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-gray-500">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Liens utiles</h2>
+            <ul className="space-y-2">
               <li>
-                <strong>Spielplan & Ergebnisse:</strong> Alle 104 Spiele mit
-                Datum, Uhrzeit, Stadion und Live-Ergebnissen.
+                <Link href="/equipe-editoriale" className="text-primary hover:underline">
+                  Notre équipe éditoriale
+                </Link>
               </li>
               <li>
-                <strong>Mannschaften & Kader:</strong> Profile aller 48
-                Mannschaften mit vollstaendigem Kader und Statistiken.
+                <Link href="/methodologie" className="text-primary hover:underline">
+                  Notre méthodologie
+                </Link>
               </li>
               <li>
-                <strong>Gruppen & Tabellen:</strong> Alle 12 Gruppen mit
-                Tabellen, Spielplaenen und Analysen.
+                <Link href="/impressum" className="text-primary hover:underline">
+                  Mentions légales
+                </Link>
               </li>
               <li>
-                <strong>Stadien & Staedte:</strong> Informationen zu allen 16
-                Austragungsorten mit praktischen Tipps.
-              </li>
-              <li>
-                <strong>Prognosen:</strong> Datenbasierte Vorhersagen und
-                Analysen zu jedem Spiel und jeder Gruppe.
+                <Link href="/verantwortungsvolles-spielen" className="text-primary hover:underline">
+                  Jeu responsable
+                </Link>
               </li>
             </ul>
           </section>
-
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Redaktion
-            </h2>
-            <p>
-              Unsere Redaktion besteht aus Fussballbegeisterten und
-              Datenanalysten, die es sich zur Aufgabe gemacht haben, die
-              umfassendste und aktuellste WM-2026-Berichterstattung auf
-              Deutsch zu liefern.
-            </p>
-          </section>
-        </div>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/kontakt"
-            className="rounded-lg bg-primary px-6 py-3 text-white font-medium hover:bg-primary/90 transition-colors"
-          >
-            Kontakt aufnehmen
-          </Link>
-          <Link
-            href="/"
-            className="rounded-lg border border-gray-200 bg-white px-6 py-3 text-gray-900 font-medium hover:bg-gray-50 transition-colors"
-          >
-            Zur Startseite
-          </Link>
         </div>
       </div>
     </>

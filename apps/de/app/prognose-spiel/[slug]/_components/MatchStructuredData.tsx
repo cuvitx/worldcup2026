@@ -1,0 +1,56 @@
+import type { Match, Team, Stadium } from "@repo/data";
+import { getMatchPhase } from "@repo/data/tournament-state";
+
+interface MatchStructuredDataProps {
+  match: Match;
+  home: Team | undefined;
+  away: Team | undefined;
+  homeName: string;
+  awayName: string;
+  stadium: Stadium | undefined;
+  stage: string;
+}
+
+export function MatchStructuredData({
+  match,
+  home,
+  away,
+  homeName,
+  awayName,
+  stadium,
+  stage,
+}: MatchStructuredDataProps) {
+  const isCompleted = match.status === "finished" || getMatchPhase(match.date, match.time) === "completed";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: `${homeName} vs ${awayName} - WM 2026`,
+    eventStatus: isCompleted
+      ? "https://schema.org/EventCompleted"
+      : "https://schema.org/EventScheduled",
+    startDate: `${match.date}T${match.time || "00:00"}:00+02:00`,
+    location: stadium
+      ? {
+          "@type": "StadiumOrArena",
+          name: stadium.name,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: stadium.city,
+            addressCountry: stadium.country,
+          },
+        }
+      : undefined,
+    homeTeam: home ? { "@type": "SportsTeam", name: home.name } : undefined,
+    awayTeam: away ? { "@type": "SportsTeam", name: away.name } : undefined,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    sport: "Football",
+    description: `Prognose et cotes pour ${homeName} vs ${awayName}, ${stage} de la WM 2026.`,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}

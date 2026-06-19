@@ -1,28 +1,114 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { groups } from "@repo/data/groups";
 import { teams, teamsById } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
-import { stadiumsById } from "@repo/data/stadiums";
+import { stadiums, stadiumsById } from "@repo/data/stadiums";
 import { getHomeAlternates } from "@repo/data/route-mapping";
-import { localizeTeam, localizeTeams } from "@repo/data/i18n";
-import { getUpcomingMatches } from "@repo/utils";
+import { newsArticles } from "@repo/data/news";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
+import { getNextMatch } from "@repo/data/tournament-state";
+import { matchPredictionByPair, estimatedMatchOdds } from "@repo/data";
+import { Newsletter } from "@repo/ui/newsletter";
+import { SocialProof } from "@repo/ui/social-proof";
+import { StadiumCarousel } from "./components/StadiumCarousel";
+import { SectionHeading } from "@repo/ui/section-heading";
+import { FAQSection } from "@repo/ui/faq-section";
+import { getUpcomingMatches } from "@repo/utils";
 
-export const revalidate = 3600;
+import Link from "next/link";
+import { HeroSection } from "./components/home/HeroSection";
+import { UpcomingMatches } from "./components/home/UpcomingMatches";
+import { GroupsOverview } from "./components/home/GroupsOverview";
+import { RecentArticles } from "./components/home/RecentArticles";
+import { FavoriteTeams } from "./components/home/FavoriteTeams";
+import { PmuBanner } from "./components/PmuBanner";
+import { BetOfTheDay } from "./components/home/BetOfTheDay";
 
 export const metadata: Metadata = {
-  title: "WM 2026 | Spielplan, Gruppen & Prognosen",
+  title: "WM 2026 | Prognoses, Cotes & Guide Complet",
   description:
-    "WM 2026: Spielplan aller 104 Spiele, 48 Mannschaften, 16 Stadien. Gruppen, Ergebnisse und Prognosen -- kostenlos.",
-  alternates: getHomeAlternates("de"),
+    "CDM 2026 : pronostics, cotes & analyses des 48 équipes. Spielplan des 104 matchs, simulateur de bracket. Préparez vos paris — accès gratuit.",
+  alternates: getHomeAlternates(),
   openGraph: {
-    title: "WM 2026 | Spielplan, Gruppen & Prognosen",
+    title: "WM 2026 | Prognoses, Cotes & Guide Complet",
     description:
-      "Alle 104 Spiele der Fussball-WM 2026. Spielplan, Gruppen, Mannschaften und Prognosen.",
+      "Prognoses, cotes, analyses des 48 équipes et spielplan des 104 matchs de la CDM 2026.",
     url: "https://www.wm2026guide.de",
   },
 };
+
+/* ──────────────────────────────── data ──────────────────────────────── */
+
+const faqHomepageItems = [
+  {
+    question: "Quand commence la CDM 2026 ?",
+    answer:
+      "La WM 2026 débute le 11 juin 2026 avec le match d'ouverture au stade Azteca de Mexico. La finale est prévue le 19 juillet 2026 au MetLife Stadium de New York/New Jersey.",
+  },
+  {
+    question: "Combien d'équipes participent à la CDM 2026 ?",
+    answer:
+      "La WM 2026 accueille pour la première fois 48 équipes, contre 32 lors des éditions précédentes. Le tournoi se compose de 12 groupes de 4 équipes, puis de phases à élimination directe pour un total de 104 matchs.",
+  },
+  {
+    question: "Où se déroule la CDM 2026 ?",
+    answer:
+      "La WM 2026 est organisée conjointement par trois pays : les États-Unis (11 villes hôtes), le Canada (2 villes) et le Mexique (3 villes). Les 16 stades sont répartis dans des métropoles comme New York, Los Angeles, Dallas, Mexico, Toronto et Vancouver.",
+  },
+  {
+    question: "Quelle chaîne diffuse la CDM 2026 en France ?",
+    answer:
+      "En France, les droits TV de la WM 2026 sont détenus par M6 pour les matchs en clair (54 matchs dont tous ceux de l'équipe de France), et par beIN Sports pour l'intégralité des 104 matchs. TF1 ne diffuse aucun match de cette édition.",
+  },
+];
+
+const homepageJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "CDM 2026 - WM",
+    url: "https://www.wm2026guide.de",
+    description: "Guide complet de la WM 2026 : pronostics, cotes, analyses des 48 équipes.",
+    inLanguage: "de",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://www.wm2026guide.de/recherche?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: "WM FIFA 2026",
+    startDate: "2026-06-11",
+    endDate: "2026-07-19",
+    location: { "@type": "Place", name: "États-Unis, Canada, Mexique" },
+    sport: "Football",
+    description: "Première WM FIFA à 48 équipes. 104 matchs dans 16 stades.",
+    organizer: {
+      "@type": "Organization",
+      name: "FIFA",
+      url: "https://www.fifa.com",
+    },
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    image: "https://www.wm2026guide.de/og-default.jpg",
+    offers: {
+      "@type": "Offer",
+      url: "https://www.fifa.com/tickets",
+      name: "Billets WM 2026",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+    },
+  },
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PAGE COMPONENT
+   ══════════════════════════════════════════════════════════════════════════ */
 
 export default function HomePage() {
   const upcomingMatches = getUpcomingMatches(matches)
@@ -33,202 +119,148 @@ export default function HomePage() {
     )
     .slice(0, DISPLAY_LIMITS.UPCOMING_MATCHES_HOME);
 
+  const topTeams = teams
+    .filter((t) => t.fifaRanking > 0 && t.fifaRanking <= 5)
+    .sort((a, b) => a.fifaRanking - b.fifaRanking);
+
+  const recentArticles = newsArticles.slice(0, DISPLAY_LIMITS.RECENT_ARTICLES);
+
+  // Bet of the day: next upcoming match with prediction data
+  const nextMatch = getNextMatch();
+  const betOfTheDayMatch = nextMatch;
+  const betHomeTeam = betOfTheDayMatch ? teamsById[betOfTheDayMatch.homeTeamId] : null;
+  const betAwayTeam = betOfTheDayMatch ? teamsById[betOfTheDayMatch.awayTeamId] : null;
+  const betPrediction = betOfTheDayMatch
+    ? matchPredictionByPair[`${betOfTheDayMatch.homeTeamId}:${betOfTheDayMatch.awayTeamId}`] ?? null
+    : null;
+  const betOdds = betPrediction
+    ? estimatedMatchOdds(betPrediction.team1WinProb, betPrediction.drawProb, betPrediction.team2WinProb)
+    : { home: "—", draw: "—", away: "—" };
+
   return (
     <>
-      {/* Hero */}
-      <section className="hero-animated text-white py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            WM 2026 -- Alle 104 Spiele live
-          </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            48 Mannschaften, 16 Stadien, 3 Gastgeberlaender. Spielplan,
-            Gruppenphase, Ergebnisse und Prognosen zur Fussball-Weltmeisterschaft
-            2026 in den USA, Kanada und Mexiko.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/gruppen"
-              className="rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
-            >
-              Alle Gruppen
-            </Link>
-            <Link
-              href="/mannschaften"
-              className="rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white hover:bg-white/20 transition-colors"
-            >
-              48 Mannschaften
-            </Link>
-            <Link
-              href="/spiel/spielplan"
-              className="rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white hover:bg-white/20 transition-colors"
-            >
-              Spielplan
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* JSON-LD */}
+      {homepageJsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
-      {/* Stats */}
-      <section className="relative py-6 sm:py-8 -mt-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* 1. HERO + STATS (single hero-animated) */}
+      <div className="hero-animated">
+      <HeroSection />
+
+      {/* STATS RIBBON */}
+      <section className="relative py-6 sm:py-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { value: "48", label: "Mannschaften" },
-              { value: "104", label: "Spiele" },
-              { value: "16", label: "Stadien" },
-              { value: "3", label: "Gastgeber" },
+              { value: "48", label: "Mannschaften", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>) },
+              { value: "104", label: "Matchs", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>) },
+              { value: "16", label: "Stadien", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 3v6"/><path d="M15 3v6"/></svg>) },
+              { value: "3", label: "Pays hôtes", icon: (<svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>) },
             ].map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl border border-gray-200 bg-white px-5 py-4 text-center shadow-sm"
-              >
-                <p className="text-2xl sm:text-3xl font-black text-primary leading-none">
-                  {stat.value}
-                </p>
-                <p className="text-xs text-gray-500 font-medium mt-1">
-                  {stat.label}
-                </p>
+              <div key={stat.label} className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-4 hover:bg-white/10 transition-all">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
+                  {stat.icon}
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-black text-white leading-none">{stat.value}</p>
+                  <p className="text-xs text-gray-300 font-medium mt-1">{stat.label}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </div>{/* end hero-animated wrapper */}
 
-      {/* Upcoming matches */}
-      {upcomingMatches.length > 0 && (
-        <section className="py-10 sm:py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Naechste Spiele
-            </h2>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {upcomingMatches.map((match) => {
-                const home = teamsById[match.homeTeamId];
-                const away = teamsById[match.awayTeamId];
-                const stadium = stadiumsById[match.stadiumId];
-                const homeLoc = home ? localizeTeam(home, "de") : null;
-                const awayLoc = away ? localizeTeam(away, "de") : null;
-                const dateStr = new Date(match.date).toLocaleDateString(
-                  "de-DE",
-                  { weekday: "short", day: "numeric", month: "short" }
-                );
-                return (
-                  <Link
-                    key={match.id}
-                    href={`/spiel/${match.slug}`}
-                    className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
-                  >
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <span className="text-lg shrink-0">
-                        {home?.flag ?? ""}
-                      </span>
-                      <span className="font-medium truncate text-sm">
-                        {homeLoc?.name ?? "TBD"}
-                      </span>
-                    </div>
-                    <span className="text-xs text-gray-400 shrink-0">vs</span>
-                    <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                      <span className="font-medium truncate text-sm text-right">
-                        {awayLoc?.name ?? "TBD"}
-                      </span>
-                      <span className="text-lg shrink-0">
-                        {away?.flag ?? ""}
-                      </span>
-                    </div>
-                    <div className="text-right shrink-0 ml-2">
-                      <p className="text-xs text-gray-500">{dateStr}</p>
-                      <p className="text-xs text-gray-400">{match.time}</p>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="mt-6 text-center">
-              <Link
-                href="/spiel/spielplan"
-                className="text-primary font-semibold text-sm hover:underline"
-              >
-                Vollstaendiger Spielplan &rarr;
-              </Link>
-            </div>
-          </div>
-        </section>
+      {/* 2. PROCHAINS MATCHS */}
+      <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />
+
+      {/* PARI DU JOUR */}
+      {betOfTheDayMatch && betHomeTeam && betAwayTeam && (
+        <BetOfTheDay
+          match={betOfTheDayMatch}
+          homeTeam={betHomeTeam}
+          awayTeam={betAwayTeam}
+          prediction={betPrediction}
+          odds={betOdds}
+        />
       )}
 
-      {/* Groups overview */}
-      <section className="bg-gray-50 py-10 sm:py-12">
+      {/* BETTING CTA — Habillage CDM */}
+      <section className="py-6 sm:py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Die 12 Gruppen
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {groups.map((group) => {
-              const groupTeams = group.teams
-                .map((id) => teamsById[id])
-                .filter(Boolean);
-              return (
-                <Link
-                  key={group.letter}
-                  href={`/gruppe/${group.slug}`}
-                  className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
-                >
-                  <h3 className="text-lg font-bold text-primary mb-2">
-                    Gruppe {group.letter}
-                  </h3>
-                  <div className="space-y-1.5">
-                    {groupTeams.map((team) => {
-                      if (!team) return null;
-                      const loc = localizeTeam(team, "de");
-                      return (
-                        <div
-                          key={team.id}
-                          className="flex items-center gap-2 text-sm"
-                        >
-                          <span className="text-base">{team.flag}</span>
-                          <span className="text-gray-800">{loc.name}</span>
-                          <span className="ml-auto text-xs text-gray-400">
-                            #{team.fifaRanking}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <PmuBanner tracking="homepage" />
         </div>
       </section>
 
-      {/* Quick links */}
-      <section className="py-10 sm:py-12">
+      {/* 3. GROUPES */}
+      <GroupsOverview groups={groups} teamsById={teamsById} />
+
+      {/* 4. ARTICLES RÉCENTS */}
+      <RecentArticles recentArticles={recentArticles} />
+
+      {/* 5. STADES CDM 2026 */}
+      <section className="bg-gray-50/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            WM 2026 entdecken
-          </h2>
-          <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="mb-8">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
+              🇺🇸 🇨🇦 🇲🇽 Amérique du Nord
+            </p>
+            <SectionHeading title="Stades CDM 2026" subtitle="16 stades répartis dans 3 pays hôtes" linkHref="/stadien" linkLabel="Tous les stades →" />
+          </div>
+
+          <StadiumCarousel stadiums={stadiums} />
+        </div>
+      </section>
+
+      {/* 6. ÉQUIPES FAVORITES */}
+      <FavoriteTeams topTeams={topTeams} />
+
+      {/* Quick Links - Explore */}
+      <section className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading title="Explorer la CDM 2026" subtitle="Tout ce qu'il faut savoir pour suivre le mondial" />
+          <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-8">
             {[
-              { href: "/mannschaften", label: "Alle Mannschaften" },
-              { href: "/gruppen", label: "Alle Gruppen" },
-              { href: "/spiel/spielplan", label: "Spielplan" },
-              { href: "/stadien", label: "Stadien" },
-              { href: "/staedte", label: "Austragungsorte" },
-              { href: "/ergebnisse", label: "Ergebnisse" },
-              { href: "/turnierbaum", label: "Turnierbaum" },
-              { href: "/live", label: "Live-Ergebnisse" },
+              { href: "/fifa-ranking", icon: "", label: "Rangliste FIFA" },
+              { href: "/spieler-liste", icon: "", label: "Spielers clés" },
+              { href: "/staedte", icon: "", label: "Villes hôtes" },
+              { href: "/pays-hotes", icon: "", label: "Pays hôtes" },
+              { href: "/format", icon: "", label: "Format du tournoi" },
+              { href: "/ou-regarder", icon: "", label: "Où regarder" },
+              { href: "/billets", icon: "", label: "Billets" },
+              { href: "/h2h", icon: "", label: "Face-à-face (H2H)" },
+              { href: "/mascotte", icon: "", label: "Mascotte" },
+              { href: "/histoire", icon: "", label: "Histoire de la CDM" },
+              { href: "/comparateur-joueurs", icon: "", label: "Comparer joueurs" },
+              { href: "/turnierbaum", icon: "", label: "Tableau final" },
+              { href: "/trophee", icon: "", label: "Le Trophée FIFA" },
+              { href: "/chants-supporters", icon: "", label: "Chants supporters" },
             ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 hover:shadow-md hover:border-primary/30 transition-all"
+                className="flex items-center gap-2.5 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 hover:shadow-md hover:border-primary/30 transition-all"
               >
+                <span className="text-xl">{item.icon}</span>
                 {item.label}
               </Link>
             ))}
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQSection title="Questions fréquentes — CDM 2026" items={faqHomepageItems} />
+
+      {/* SOCIAL PROOF + NEWSLETTER */}
+      {/* SocialProof removed */}
+      <Newsletter variant="banner" />
     </>
   );
 }

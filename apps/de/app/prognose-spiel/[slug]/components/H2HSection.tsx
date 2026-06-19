@@ -1,0 +1,109 @@
+import Link from "next/link";
+import type { Team, H2HRecord } from "@repo/data";
+
+interface H2HSectionProps {
+  home: Team;
+  away: Team;
+  h2h: H2HRecord | undefined;
+  homeName: string;
+  awayName: string;
+}
+
+export function H2HSection({
+  home,
+  away,
+  h2h,
+  homeName,
+  awayName,
+}: H2HSectionProps) {
+  return (
+    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        Historique des confrontations
+      </h2>
+      {h2h && h2h.totalMatches > 0 ? (
+        <>
+          <div className="grid grid-cols-3 gap-2 mb-6 sm:gap-4">
+            <div className="rounded-lg bg-primary/5 p-4 text-center">
+              <p className="text-3xl font-bold text-primary">
+                {h2h.team1Wins}
+              </p>
+              <p className="text-xs text-gray-500">
+                Victoires {homeName}
+              </p>
+            </div>
+            <div className="rounded-lg bg-gray-50 p-4 text-center">
+              <p className="text-3xl font-bold text-gray-600">
+                {h2h.draws}
+              </p>
+              <p className="text-xs text-gray-500">Nuls</p>
+            </div>
+            <div className="rounded-lg bg-primary/5 p-4 text-center">
+              <p className="text-3xl font-bold text-primary">
+                {h2h.team2Wins}
+              </p>
+              <p className="text-xs text-gray-500">
+                Victoires {awayName}
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="rounded-lg bg-gray-50 p-3 text-center">
+              <p className="text-xl font-bold text-primary">
+                {h2h.totalMatches}
+              </p>
+              <p className="text-xs text-gray-500">Matchs joues</p>
+            </div>
+            <div className="rounded-lg bg-gray-50 p-3 text-center">
+              <p className="text-xl font-bold text-primary">
+                {h2h.team1Goals} - {h2h.team2Goals}
+              </p>
+              <p className="text-xs text-gray-500">Buts marques</p>
+            </div>
+          </div>
+          {h2h.lastMatch && (
+            <p className="text-sm text-gray-600 mb-4">
+              <span className="font-medium">Dernier match :</span>{" "}
+              {h2h.lastMatch}
+              {h2h.lastMatchDate &&
+                ` (${new Date(h2h.lastMatchDate).toLocaleDateString(
+                  "de-DE",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )})`}
+            </p>
+          )}
+          <div className="text-center">
+            <Link
+              href={`/h2h/${home.slug}-vs-${away.slug}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all"
+            >
+              Historique complet
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <div>
+          <p className="text-gray-600 mb-4">
+            {homeName} et {awayName} ne se sont jamais affrontés. La
+            WM 2026 sera leur première confrontation
+            historique.
+          </p>
+          <div className="text-center">
+            <Link
+              href={`/h2h/${home.slug}-vs-${away.slug}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all"
+            >
+              Voir la confrontation
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}

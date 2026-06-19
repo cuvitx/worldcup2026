@@ -1,0 +1,93 @@
+import type { Metadata } from "next";
+import { Newsletter } from "@repo/ui/newsletter";
+import { FAQSection } from "@repo/ui/faq-section";
+import {
+  TopFavorites,
+  OddsTable,
+  WhyTheyCanWin,
+  HostHistory,
+  DarkHorses,
+  HeroSection,
+  ConfederationChart,
+  SimulatorCta,
+  MethodologySection,
+  CtaSection,
+} from "./_components";
+import {
+  faqItems,
+  top10,
+  darkHorses,
+  teamArguments,
+  whyTheyCanWin,
+  cdmHomeStats,
+  homeWins,
+  totalEditions,
+  homeWinPct,
+} from "./_data/vainqueur-data";
+
+export const metadata: Metadata = {
+  title: "Prognose Vainqueur CDM 2026 — Qui va gagner la WM ?",
+  description:
+    "Prognose vainqueur CDM 2026 : Argentine 15%, France 13%, Espagne 12%. Comparez les cotes, découvrez nos favoris et osez parier.",
+  alternates: {
+    canonical: "https://www.wm2026guide.de/prognose/vainqueur",
+  },
+  openGraph: {
+    title: "Prognose Vainqueur CDM 2026 — Qui va gagner ?",
+    description:
+      "Top 10 des favoris CDM 2026, cotes PMU Sport, analyse complète. Découvrez notre pronostic vainqueur.",
+    url: "https://www.wm2026guide.de/prognose/vainqueur",
+  },
+};
+
+export default function PrognoseVainqueurPage() {
+  return (
+    <>
+
+      {/* Hero */}
+      <HeroSection />
+
+      {/* Confederation Chart */}
+      <ConfederationChart top10={top10} />
+
+      {/* Top 10 Favorites */}
+      <TopFavorites top10={top10} teamArguments={teamArguments} />
+
+      {/* Why They Can Win */}
+      <WhyTheyCanWin top10={top10} whyTheyCanWin={whyTheyCanWin} />
+
+      {/* Host History */}
+      <HostHistory
+        cdmHomeStats={cdmHomeStats}
+        homeWins={homeWins}
+        totalEditions={totalEditions}
+        homeWinPct={homeWinPct}
+      />
+
+      {/* Simulator CTA */}
+      <SimulatorCta />
+
+      {/* Odds Table */}
+      <OddsTable />
+
+      {/* Dark Horses */}
+      <DarkHorses darkHorses={darkHorses} />
+
+      {/* Methodology */}
+      <MethodologySection />
+
+      {/* FAQ */}
+      <FAQSection 
+        title="Questions fréquentes — Prognose vainqueur CDM 2026"
+        items={faqItems} 
+      />
+
+      {/* Newsletter CTA */}
+      <Newsletter variant="banner" />
+
+      {/* Final CTA */}
+      <CtaSection />
+
+    </>
+  );
+}
