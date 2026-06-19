@@ -27,4 +27,28 @@ jobs:
           command_timeout: 25m
           script: |
             sudo find /srv/cdm2026/releases/ -maxdepth 1 -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true
+
+            # Auto-provision DE infrastructure if not yet installed
+            REPO_DIR="/srv/cdm2026/repo"
+            cd "$REPO_DIR" && git fetch origin main && git reset --hard origin/main
+            SCRIPT_DIR="${REPO_DIR}/scripts/vps"
+            if [ ! -f /etc/systemd/system/wm2026-de.service ] && [ -f "${SCRIPT_DIR}/wm2026-de.service" ]; then
+              echo "[PROVISION] Installing wm2026-de.service..."
+              sudo cp "${SCRIPT_DIR}/wm2026-de.service" /etc/systemd/system/
+              sudo systemctl daemon-reload
+              sudo systemctl enable wm2026-de
+            fi
+            if [ ! -f /etc/nginx/sites-available/wm2026-de ] && [ -f "${SCRIPT_DIR}/wm2026-de.nginx" ]; then
+              echo "[PROVISION] Installing nginx config for DE..."
+              sudo cp "${SCRIPT_DIR}/wm2026-de.nginx" /etc/nginx/sites-available/wm2026-de
+              sudo ln -sf /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-enabled/
+              sudo nginx -t && sudo systemctl reload nginx
+            fi
+            if [ -f /etc/nginx/sites-available/wm2026-de ] && ! grep -q "ssl_certificate" /etc/nginx/sites-available/wm2026-de 2>/dev/null; then
+              if command -v certbot &>/dev/null; then
+                echo "[PROVISION] Requesting SSL for wm2026guide.de..."
+                sudo certbot --nginx -d wm2026guide.de -d www.wm2026guide.de --non-interactive --agree-tos --redirect 2>&1 || echo "[PROVISION] SSL failed — will retry next deploy."
+              fi
+            fi
+
             /srv/cdm2026/deploy.sh
