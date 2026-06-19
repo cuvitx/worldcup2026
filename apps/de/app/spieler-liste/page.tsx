@@ -3,8 +3,8 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { RelatedLinks } from "../components/RelatedLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { players } from "@repo/data/players";
-import { teams, teamsById } from "@repo/data/teams";
+import { players } from "../../lib/localized-data";
+import { teams, teamsById } from "../../lib/localized-data";
 export const metadata: Metadata = {
   title: "210 Spielers cles der WM 2026 | Kaders & Stats",
   description:
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: getStaticAlternates("players", "de"),
   openGraph: {
     title: "210 Spielers clés der WM 2026",
-    description: "Stats, clubs et sélections des 210 Spielers clés des 48 Mannschafts de la CDM 2026.",
+    description: "Stats, clubs et Aufgebots des 210 Spielers clés des 48 Mannschafts de la CDM 2026.",
   },
 };
 
@@ -20,15 +20,15 @@ export default function PlayersPage() {
   const faqItems = [
     {
       question: "Combien de Spielers composent une Mannschaft pour la WM ?",
-      answer: "Chaque Mannschaft peut convoquer 26 Spielers für die WM 2026 (contre 23 auparavant). Cette règle a été adoptée par la FIFA en 2022 pour permettre plus de rotation et gérer les blessures. Parmi ces 26 Spielers, 3 doivent obligatoirement être Torwarts de but. Le sélectionneur peut faire appel à tous les Spielers de la liste selon les besoins tactiques et la forme physique."
+      answer: "Chaque Mannschaft peut convoquer 26 Spielers für die WM 2026 (contre 23 auparavant). Cette règle a été adoptée par la FIFA en 2022 pour permettre plus de rotation et gérer les blessures. Parmi ces 26 Spielers, 3 doivent obligatoirement être Torwarts de but. Le Trainer peut faire appel à tous les Spielers de la liste selon les besoins tactiques et la forme physique."
     },
     {
       question: "Qui sont les favoris pour le Ballon d'Or de la CDM 2026 ?",
       answer: "Les principaux candidats au Ballon d'Or der WM 2026 sont Kylian Mbappé (France, déjà Ballon d'Or 2022), Erling Haaland (Norvège), Vinícius Júnior (Brésil), Jude Bellingham (Angleterre) et Lamine Yamal (Espagne). Mbappé est le grand favori grce à son statut de meilleur Spieler du monde, ses 12 buts en CDM et la force de l'Mannschaft de France. Le Ballon d'Or est attribué au meilleur Spieler des Turniers, indépendamment du vainqueur final."
     },
     {
-      question: "Quel Spieler a marqué le plus de buts en sélection ?",
-      answer: "Cristiano Ronaldo (Portugal) détient le record absolu avec 130 buts en sélection en 212 matchs. Il devance Lionel Messi (Argentine, 106 buts), Ali Daei (Iran, 109 buts) et Sunil Chhetri (Inde, 94 buts). En France, Olivier Giroud est le Torschützenkönig de l'histoire avec 57 buts, devançant Thierry Henry (51 buts) et Antoine Griezmann (44 buts). Kylian Mbappé (48 buts à 25 ans) devrait devenir le Torschützenkönig français d'ici 2026."
+      question: "Quel Spieler a marqué le plus de buts en Aufgebot ?",
+      answer: "Cristiano Ronaldo (Portugal) détient le record absolu avec 130 buts en Aufgebot en 212 matchs. Il devance Lionel Messi (Argentine, 106 buts), Ali Daei (Iran, 109 buts) et Sunil Chhetri (Inde, 94 buts). En France, Olivier Giroud est le Torschützenkönig de l'histoire avec 57 buts, devançant Thierry Henry (51 buts) et Antoine Griezmann (44 buts). Kylian Mbappé (48 buts à 25 ans) devrait devenir le Torschützenkönig français d'ici 2026."
     },
     {
       question: "Quels sont les Spielers les plus chers de la CDM 2026 ?",
@@ -81,7 +81,7 @@ export default function PlayersPage() {
 
         {/* Top Scorers */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Beste Torschützen en sélection</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Beste Torschützen en Aufgebot</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -163,9 +163,9 @@ export default function PlayersPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
-          { href: "/torschuetzen", title: "Beste Torschützen", description: "Rangliste des buteurs de la CDM 2026", icon: "" },
+          { href: "/torschuetzen", title: "Beste Torschützen", description: "Rangliste des Torschützen de la CDM 2026", icon: "" },
           { href: "/comparateur-Spielers", title: "Comparateur de Spielers", description: "Comparez les stats de 2 Spielers", icon: "" },
-          { href: "/mannschaft", title: "Les 48 Mannschafts", description: "Kaders complets par sélection", icon: "" },
+          { href: "/mannschaft", title: "Les 48 Mannschafts", description: "Kaders complets par Aufgebot", icon: "" },
           { href: "/fifa-ranking", title: "Rangliste FIFA", description: "Ranking mondial des Mannschafts", icon: "" },
         ]} />
       </div>

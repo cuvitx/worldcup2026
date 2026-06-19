@@ -30,11 +30,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 28,
       juilletMin: 22,
       juilletMax: 31,
-      description: "Chaud et humide — prévoir des vêtements légers et un imperméable pour les orages estivaux",
+      description: "Heiß und feucht — leichte Kleidung und einen Regenschirm für sommerliche Gewitter einplanen",
     },
     transport: {
-      aeroport: "JFK International Airport (25 min en AirTrain) — Newark Liberty Airport (NJ Transit direct)",
-      transports: ["Métro MTA (24h/24)", "NJ Transit vers MetLife Stadium", "Bus express fans day-of-match"],
+      aeroport: "JFK International Airport (25 Min. mit AirTrain) — Newark Liberty Airport (NJ Transit direkt)",
+      transports: ["MTA-U-Bahn (24h/Tag)", "NJ Transit zum MetLife Stadium", "Fanbusse am Spieltag"],
     },
     budget: {
       hotelMin: 180,
@@ -44,9 +44,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Statue de la Liberté & Ellis Island", description: "Icône mondiale, réservez vos Tickets à l'avance — ferry depuis Battery Park" },
-      { title: "Central Park", description: "800 hectares de verdure en plein cœur de Manhattan — vélo, jogging ou simple flânerie" },
-      { title: "Broadway", description: "Le spectacle vivant à son apogée — des comédies musicales aux grandes pièces de théâtre" },
+      { title: "Freiheitsstatue & Ellis Island", description: "Weltberühmtes Wahrzeichen, Tickets im Voraus buchen — Fähre ab Battery Park" },
+      { title: "Central Park", description: "800 Hektar Grün mitten in Manhattan — Radfahren, Joggen oder einfach Flanieren" },
+      { title: "Broadway", description: "Live-Unterhaltung auf höchstem Niveau — von Musicals bis zu großen Theaterstücken" },
     ],
   },
   "dallas-fort-worth": {
@@ -55,11 +55,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 37,
       juilletMin: 26,
       juilletMax: 39,
-      description: "Très chaud et sec — toit rétractable de l'AT&T Stadium : une bénédiction ! Hydratez-vous",
+      description: "Sehr heiß und trocken — das Schiebedach des AT&T Stadiums ist ein Segen! Viel trinken",
     },
     transport: {
-      aeroport: "Dallas/Fort Worth International Airport (DFW) — 3e aéroport mondial",
-      transports: ["DART Light Rail (Dallas)", "Uber/Lyft recommandé", "Navettes matchs depuis quartiers clés"],
+      aeroport: "Dallas/Fort Worth International Airport (DFW) — 3. größter Flughafen der Welt",
+      transports: ["DART Light Rail (Dallas)", "Uber/Lyft empfohlen", "Shuttle-Busse ab wichtigen Stadtteilen an Spieltagen"],
     },
     budget: {
       hotelMin: 120,
@@ -69,9 +69,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Stockyards District (Fort Worth)", description: "Rodéo authentique, honky-tonks et défilé de longhorns quotidien — le vrai Texas" },
-      { title: "Deep Ellum (Dallas)", description: "Quartier musical underground — bars, live music et street art à chaque coin de rue" },
-      { title: "Perot Museum of Nature and Science", description: "Musée de sciences ultra-moderne avec des dizaines d'expositions interactives" },
+      { title: "Stockyards District (Fort Worth)", description: "Echtes Rodeo, Honky-Tonks und tägliche Longhorn-Parade — das wahre Texas" },
+      { title: "Deep Ellum (Dallas)", description: "Underground-Musikviertel — Bars, Live-Musik und Street Art an jeder Ecke" },
+      { title: "Perot Museum of Nature and Science", description: "Ultramodernes Wissenschaftsmuseum mit Dutzenden interaktiven Ausstellungen" },
     ],
   },
   "miami": {
@@ -80,11 +80,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 32,
       juilletMin: 26,
       juilletMax: 33,
-      description: "Tropical — chaleur intense avec averses en fin d'après-midi. Evitez de marcher entre 12h et 15h",
+      description: "Tropisch — intensive Hitze mit Schauern am späten Nachmittag. Vermeiden Sie Spaziergänge zwischen 12 und 15 Uhr",
     },
     transport: {
-      aeroport: "Miami International Airport (MIA) — Metrorail Orange Line directe vers downtown",
-      transports: ["Metrorail & Metromover (gratuit en centre-ville)", "Brightline vers Fort Lauderdale", "Bus SunPass"],
+      aeroport: "Miami International Airport (MIA) — Metrorail Orange Line direkt in die Innenstadt",
+      transports: ["Metrorail & Metromover (kostenlos in der Innenstadt)", "Brightline nach Fort Lauderdale", "SunPass-Bus"],
     },
     budget: {
       hotelMin: 150,
@@ -94,9 +94,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "South Beach", description: "Plages mythiques, Art Deco District et Ocean Drive — la quintessence de Miami" },
-      { title: "Wynwood Walls", description: "Musée à ciel ouvert avec les plus grandes fresques de street art au monde" },
-      { title: "Little Havana", description: "Café cubain, cigares roulés à la main et dominos en plein air — un voyage sans quitter les États-Unis" },
+      { title: "South Beach", description: "Legendäre Strände, Art-Deco-Viertel und Ocean Drive — die Quintessenz von Miami" },
+      { title: "Wynwood Walls", description: "Freilichtmuseum mit den größten Street-Art-Wandgemälden der Welt" },
+      { title: "Little Havana", description: "Kubanischer Kaffee, handgerollte Zigarren und Domino im Freien — eine Reise ohne die USA zu verlassen" },
     ],
   },
   "atlanta": {
@@ -105,11 +105,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 31,
       juilletMin: 23,
       juilletMax: 33,
-      description: "Chaud et humide — orages possibles en après-midi. Le toit rétractable du Mercedes-Benz Stadium est votre ami",
+      description: "Heiß und feucht — nachmittags Gewitter möglich. Das Schiebedach des Mercedes-Benz Stadiums ist Ihr Freund",
     },
     transport: {
-      aeroport: "Hartsfield-Jackson Atlanta International (ATL) — 1er aéroport mondial en trafic, MARTA Gold/Red Line directe",
-      transports: ["MARTA (métro & bus)", "Streetcar Atlanta (centre-ville)", "Lyft/Uber très développé"],
+      aeroport: "Hartsfield-Jackson Atlanta International (ATL) — Meistfrequentierter Flughafen der Welt, MARTA Gold/Red Line direkt",
+      transports: ["MARTA (U-Bahn & Bus)", "Streetcar Atlanta (Innenstadt)", "Lyft/Uber sehr verbreitet"],
     },
     budget: {
       hotelMin: 130,
@@ -119,9 +119,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "National Center for Civil and Human Rights", description: "Musée émouvant sur les droits civiques — visiter le bureau de MLK est une expérience bouleversante" },
-      { title: "Georgia Aquarium", description: "Plus grand aquarium du monde occidental — requins baleines et spectacles de dauphins" },
-      { title: "Ponce City Market", description: "Marché gourmet et centre commercial dans une ancienne usine — roof deck avec vue sur Atlanta" },
+      { title: "National Center for Civil and Human Rights", description: "Bewegendes Museum über Bürgerrechte — das Büro von MLK zu besuchen ist ein ergreifendes Erlebnis" },
+      { title: "Georgia Aquarium", description: "Größtes Aquarium der westlichen Welt — Walhaie und Delphinshows" },
+      { title: "Ponce City Market", description: "Gourmetmarkt und Einkaufszentrum in einer ehemaligen Fabrik — Dachterrasse mit Blick auf Atlanta" },
     ],
   },
   "seattle": {
@@ -130,11 +130,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 22,
       juilletMin: 14,
       juilletMax: 25,
-      description: "Agréable en été ! Températures douces et peu de pluie — la meilleure saison pour visiter Seattle",
+      description: "Angenehm im Sommer! Milde Temperaturen und wenig Regen — die beste Jahreszeit für einen Besuch in Seattle",
     },
     transport: {
-      aeroport: "Seattle-Tacoma International Airport (SEA) — Link Light Rail directe vers centre-ville (40 min)",
-      transports: ["Link Light Rail (vers Lumen Field)", "King County Metro Bus", "Water Taxis & ferries Sound Transit"],
+      aeroport: "Seattle-Tacoma International Airport (SEA) — Link Light Rail direkt in die Innenstadt (40 Min.)",
+      transports: ["Link Light Rail (zum Lumen Field)", "King County Metro Bus", "Wassertaxis & Fähren Sound Transit"],
     },
     budget: {
       hotelMin: 140,
@@ -144,9 +144,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Pike Place Market", description: "Le marché public historique de Seattle — les fameux lanceurs de poissons, producteurs locaux et vue sur le Puget Sound" },
-      { title: " Space Needle", description: "Symbole de Seattle depuis 1962 — vue à 360° sur la ville, le Mont Rainier et les Cascades" },
-      { title: "Quartier Capitol Hill", description: "Épicentre de la culture coffee à Seattle — des dizaines de micro-torréfacteurs et une nightlife animée" },
+      { title: "Pike Place Market", description: "Der historische öffentliche Markt von Seattle — die berühmten Fischwerfer, lokale Erzeuger und Blick auf den Puget Sound" },
+      { title: " Space Needle", description: "Wahrzeichen von Seattle seit 1962 — 360°-Aussicht auf die Stadt, den Mount Rainier und die Cascades" },
+      { title: "Viertel Capitol Hill", description: "Epizentrum der Kaffeekultur in Seattle — Dutzende Mikroröstereien und ein lebhaftes Nachtleben" },
     ],
   },
   "houston": {
@@ -155,11 +155,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 34,
       juilletMin: 26,
       juilletMax: 36,
-      description: "Très chaud et très humide — le toit rétractable du NRG Stadium est indispensable. Climatisation partout !",
+      description: "Sehr heiß und sehr feucht — das Schiebedach des NRG Stadiums ist unverzichtbar. Überall Klimaanlage!",
     },
     transport: {
-      aeroport: "George Bush Intercontinental Airport (IAH) — 45 min en voiture. William P. Hobby Airport (HOU) — plus proche du centre",
-      transports: ["METRORail (3 lignes)", "METRO Bus (réseau étendu)", "Voiture fortement recommandée"],
+      aeroport: "George Bush Intercontinental Airport (IAH) — 45 Min. mit dem Auto. William P. Hobby Airport (HOU) — näher am Zentrum",
+      transports: ["METRORail (3 Linien)", "METRO Bus (ausgedehntes Netz)", "Auto dringend empfohlen"],
     },
     budget: {
       hotelMin: 110,
@@ -169,9 +169,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: " Space Center Houston", description: "Centre officiel de la NASA — voir de vraies fusées et vivre l'histoire de la conquête spatiale" },
-      { title: "Museum District", description: "19 musées gratuits ou accessibles — Fine Arts, Natural Science, Holocaust Museum en plein cœur de la ville" },
-      { title: "Bellaire Chinatown", description: "L'une des plus grandes et authentiques communautés asiatiques des États-Unis — gastronomie exceptionnelle" },
+      { title: " Space Center Houston", description: "Offizielles NASA-Zentrum — echte Raketen sehen und die Geschichte der Raumfahrt erleben" },
+      { title: "Museum District", description: "19 kostenlose oder günstige Museen — Fine Arts, Natural Science, Holocaust Museum mitten in der Stadt" },
+      { title: "Bellaire Chinatown", description: "Eine der größten und authentischsten asiatischen Gemeinschaften der USA — außergewöhnliche Gastronomie" },
     ],
   },
   "philadelphia": {
@@ -180,11 +180,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 28,
       juilletMin: 21,
       juilletMax: 31,
-      description: "Chaud et humide — temps idéal pour flâner dans le centre historique tôt le matin avant les matchs",
+      description: "Heiß und feucht — ideales Wetter, um früh morgens durch die historische Altstadt zu bummeln, bevor die Spiele beginnen",
     },
     transport: {
-      aeroport: "Philadelphia International Airport (PHL) — SEPTA Airport Line directe vers Center City (25 min)",
-      transports: ["SEPTA (métro, bus, tramways)", "SEPTA vers le complexe sportif (Broad Street Line)", "Amtrak depuis New York (1h15)"],
+      aeroport: "Philadelphia International Airport (PHL) — SEPTA Airport Line direkt nach Center City (25 Min.)",
+      transports: ["SEPTA (U-Bahn, Bus, Straßenbahn)", "SEPTA zum Sportkomplex (Broad Street Line)", "Amtrak ab New York (1 Std. 15 Min.)"],
     },
     budget: {
       hotelMin: 130,
@@ -194,9 +194,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: " Liberty Bell & Independence Hall", description: "Le berceau de la démocratie américaine — où fut signée la Déclaration d'Indépendance en 1776" },
-      { title: "Reading Terminal Market", description: "Marché couvert historique — cheesesteak, soft pretzels et spécialités amish depuis 1893" },
-      { title: "Art Museum & Rocky Steps", description: "Courez les marches comme Rocky Balboa et profitez d'une vue imprenable sur le Benjamin Franklin Parkway" },
+      { title: " Liberty Bell & Independence Hall", description: "Die Wiege der amerikanischen Demokratie — wo 1776 die Unabhängigkeitserklärung unterzeichnet wurde" },
+      { title: "Reading Terminal Market", description: "Historische Markthalle — Cheesesteak, Soft Pretzels und Amish-Spezialitäten seit 1893" },
+      { title: "Art Museum & Rocky Steps", description: "Laufen Sie die Stufen wie Rocky Balboa hoch und genießen Sie den Blick auf den Benjamin Franklin Parkway" },
     ],
   },
   "kansas-city": {
@@ -205,11 +205,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 31,
       juilletMin: 23,
       juilletMax: 34,
-      description: "Chaud avec orages spectaculaires typiques du Midwest — l'ambiance électrique ne vient pas que du stade !",
+      description: "Heiß mit spektakulären Gewittern, typisch für den Mittleren Westen — die elektrische Atmosphäre kommt nicht nur aus dem Stadion!",
     },
     transport: {
-      aeroport: "Kansas City International Airport (MCI) — rénové en 2023, 30 min en voiture du centre",
-      transports: ["KC Streetcar (downtown, en expansion)", "KC Metro Bus", "Voiture recommandée pour zones périphériques"],
+      aeroport: "Kansas City International Airport (MCI) — 2023 renoviert, 30 Min. mit dem Auto zum Zentrum",
+      transports: ["KC Streetcar (Innenstadt, wird erweitert)", "KC Metro Bus", "Auto empfohlen für Randgebiete"],
     },
     budget: {
       hotelMin: 100,
@@ -219,9 +219,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Kansas City BBQ", description: "Le pèlerinage gastronomique ultime — Joe's KC, Q39 et Arthur Bryant's, temples du brisket et des burnt ends" },
-      { title: "18th & Vine Jazz District", description: "Berceau du jazz Kansas City style — musée du jazz et de la Negro Leagues Baseball au cœur du quartier historique" },
-      { title: "Country Club Plaza", description: "Quartier d'inspiration hispanique avec fontaines et architecture mauresque — shopping et gastronomie de qualité" },
+      { title: "Kansas City BBQ", description: "Die ultimative kulinarische Wallfahrt — Joe's KC, Q39 und Arthur Bryant's, Tempel des Brisket und der Burnt Ends" },
+      { title: "18th & Vine Jazz District", description: "Wiege des Kansas-City-Jazz — Jazzmuseum und Negro Leagues Baseball Museum im historischen Viertel" },
+      { title: "Country Club Plaza", description: "Viertel im hispanischen Stil mit Brunnen und maurischer Architektur — Shopping und hochwertige Gastronomie" },
     ],
   },
   "boston": {
@@ -230,11 +230,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 24,
       juilletMin: 18,
       juilletMax: 28,
-      description: "Agréable — une des meilleures périodes pour visiter Boston. Quelques journées orageuses possible",
+      description: "Angenehm — eine der besten Zeiten für einen Besuch in Boston. Einige Gewittertage möglich",
     },
     transport: {
-      aeroport: "Logan International Airport (BOS) — Silver Line T directe vers South Station (25 min)",
-      transports: ["MBTA « The T » (métro le plus ancien des USA)", "Bus MBTA (réseau étendu)", "Amtrak Acela vers New York (3h30)"],
+      aeroport: "Logan International Airport (BOS) — Silver Line T direkt zur South Station (25 Min.)",
+      transports: ["MBTA 'The T' (älteste U-Bahn der USA)", "MBTA Bus (ausgedehntes Netz)", "Amtrak Acela nach New York (3 Std. 30 Min.)"],
     },
     budget: {
       hotelMin: 150,
@@ -244,9 +244,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Freedom Trail", description: "Circuit pédestre de 4 km reliant 16 sites historiques de la Révolution américaine — gratuit et fascinant" },
-      { title: "Fenway Park", description: "Le plus vieux stade de baseball des États-Unis (1912) — visites guidées disponibles même hors matchs" },
-      { title: "Harvard & MIT (Cambridge)", description: "Traversez la Charles River pour explorer les campus légendaires de deux des plus grandes universités mondiales" },
+      { title: "Freedom Trail", description: "4 km langer Rundweg, der 16 historische Stätten der Amerikanischen Revolution verbindet — kostenlos und faszinierend" },
+      { title: "Fenway Park", description: "Das älteste Baseballstadion der USA (1912) — Führungen auch außerhalb der Spieltage verfügbar" },
+      { title: "Harvard & MIT (Cambridge)", description: "Überqueren Sie den Charles River und erkunden Sie die legendären Campusse zweier der größten Universitäten der Welt" },
     ],
   },
   "san-francisco-bay-area": {
@@ -255,11 +255,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 18,
       juilletMin: 13,
       juilletMax: 20,
-      description: " Surprise ! San Francisco est FROIDE en été (brouillard de Karl) — prévoyez imperméable et couches",
+      description: " Überraschung! San Francisco ist im Sommer KALT (Karl der Nebel) — Regenjacke und Schichten einplanen",
     },
     transport: {
-      aeroport: "San Francisco International Airport (SFO) — BART directe vers downtown SF (30 min)",
-      transports: ["BART (métro Bay Area)", "Muni SF (bus, tramways, câble-cars)", "Ferry vers Oakland et autres villes de la baie"],
+      aeroport: "San Francisco International Airport (SFO) — BART direkt in die Innenstadt von SF (30 Min.)",
+      transports: ["BART (U-Bahn Bay Area)", "Muni SF (Bus, Straßenbahn, Cable Cars)", "Fähre nach Oakland und andere Städte der Bucht"],
     },
     budget: {
       hotelMin: 200,
@@ -269,9 +269,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Golden Gate Bridge", description: "Traverser le pont à pied ou en vélo avec vue sur la baie — gratuit et inoubliable" },
-      { title: "Cable Cars & Fisherman's Wharf", description: "Les tramways historiques sur les collines de SF et le front de mer animé avec la Ghirardelli Square" },
-      { title: "Napa Valley", description: "À 1h de San Francisco — des centaines de domaines viticoles de classe mondiale dans un cadre magnifique" },
+      { title: "Golden Gate Bridge", description: "Die Brücke zu Fuß oder mit dem Fahrrad überqueren mit Blick auf die Bucht — kostenlos und unvergesslich" },
+      { title: "Cable Cars & Fisherman's Wharf", description: "Die historischen Straßenbahnen auf den Hügeln von SF und die lebhafte Uferpromenade mit der Ghirardelli Square" },
+      { title: "Napa Valley", description: "1 Stunde von San Francisco — Hunderte Weingüter von Weltklasse in einer herrlichen Landschaft" },
     ],
   },
   "los-angeles": {
@@ -280,11 +280,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 26,
       juilletMin: 18,
       juilletMax: 28,
-      description: "Parfait ! Soleil quasi-garanti, températures agréables — le brouillard matinal côtier se dissipe rapidement",
+      description: "Perfekt! Fast garantiert Sonnenschein, angenehme Temperaturen — der Küstennebel am Morgen löst sich schnell auf",
     },
     transport: {
-      aeroport: "Los Angeles International Airport (LAX) — futur Automated People Mover vers le métro (2024)",
-      transports: ["Metro Rail (lignes A, B, C, D, E, K)", "Big Blue Bus", "Voiture presque incontournable (trafic légendaire)"],
+      aeroport: "Los Angeles International Airport (LAX) — Automated People Mover zur U-Bahn (ab 2024)",
+      transports: ["Metro Rail (Linien A, B, C, D, E, K)", "Big Blue Bus", "Auto fast unverzichtbar (legendärer Verkehr)"],
     },
     budget: {
       hotelMin: 160,
@@ -294,9 +294,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: " Hollywood & Universal Studios", description: "Marchez sur Hollywood Boulevard, photographiez le panneau HOLLYWOOD et explorez les studios Universal" },
-      { title: "Venice Beach & Santa Monica", description: "Le boardwalk de Venice avec ses artistes de rue, son skatepark et ses body-builders à Muscle Beach" },
-      { title: "Getty Center", description: "Musée d'art de renommée mondiale — collection impressionniste et vue panoramique sur LA — entrée gratuite" },
+      { title: " Hollywood & Universal Studios", description: "Spazieren Sie über den Hollywood Boulevard, fotografieren Sie das HOLLYWOOD-Schild und erkunden Sie die Universal Studios" },
+      { title: "Venice Beach & Santa Monica", description: "Der Boardwalk von Venice mit Straßenkünstlern, Skatepark und Bodybuildern am Muscle Beach" },
+      { title: "Getty Center", description: "Weltbekanntes Kunstmuseum — impressionistische Sammlung und Panoramablick auf LA — Eintritt frei" },
     ],
   },
   "mexico-city": {
@@ -305,11 +305,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 22,
       juilletMin: 11,
       juilletMax: 21,
-      description: "Frais et pluvieux (saison des pluies) — mais les matchs sont à l'abri dans le légendaire Estadio Azteca !",
+      description: "Kühl und regnerisch (Regenzeit) — aber die Spiele finden geschützt im legendären Estadio Azteca statt!",
     },
     transport: {
-      aeroport: "Aeropuerto Internacional Felipe Ángeles (AIFA) — ou Benito Juárez (MEX, ancien) pour les vols intérieurs",
-      transports: ["Metro CDMX (12 lignes, très économique)", "Metrobús BRT (réseau étendu)", "Ecobici (vélos en libre-service)"],
+      aeroport: "Aeropuerto Internacional Felipe Ángeles (AIFA) — oder Benito Juárez (MEX, alt) für Inlandsflüge",
+      transports: ["Metro CDMX (12 Linien, sehr günstig)", "Metrobús BRT (ausgedehntes Netz)", "Ecobici (Leihfahrräder)"],
     },
     budget: {
       hotelMin: 60,
@@ -319,9 +319,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Teotihuacán", description: "À 50 km — montez sur la Pyramide du Soleil pour une vue à couper le souffle sur la Cité des Dieux" },
-      { title: "Frida Kahlo Museum (La Casa Azul)", description: "Plongée dans l'univers de l'artiste mexicaine dans sa maison d'enfance à Coyoacán — réservez longtemps à l'avance" },
-      { title: "Mercado de la Merced & street food", description: "Le plus grand marché de CDMX — tacos, tlayudas, tamales et une explosion de saveurs authentiques" },
+      { title: "Teotihuacán", description: "50 km entfernt — besteigen Sie die Sonnenpyramide für einen atemberaubenden Blick auf die Stadt der Götter" },
+      { title: "Frida Kahlo Museum (La Casa Azul)", description: "Eintauchen in die Welt der mexikanischen Künstlerin in ihrem Elternhaus in Coyoacán — lange im Voraus buchen" },
+      { title: "Mercado de la Merced & Street Food", description: "Der größte Markt von CDMX — Tacos, Tlayudas, Tamales und eine Explosion authentischer Aromen" },
     ],
   },
   "guadalajara": {
@@ -330,11 +330,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 27,
       juilletMin: 15,
       juilletMax: 26,
-      description: "Saison des pluies mais températures agréables — la Perle de l'Occident est magnifique en été",
+      description: "Regenzeit, aber angenehme Temperaturen — die Perle des Westens ist im Sommer wunderschön",
     },
     transport: {
-      aeroport: "Aeropuerto Internacional Miguel Hidalgo y Costilla (GDL) — 20 min du centre en taxi",
-      transports: ["Tren Ligero (tramway urbain)", "Bus Macrobús (BRT)", "Taxi ou Uber recommandé la nuit"],
+      aeroport: "Aeropuerto Internacional Miguel Hidalgo y Costilla (GDL) — 20 Min. vom Zentrum mit dem Taxi",
+      transports: ["Tren Ligero (Stadtbahn)", "Macrobús (BRT)", "Taxi oder Uber nachts empfohlen"],
     },
     budget: {
       hotelMin: 50,
@@ -344,9 +344,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Tequila & Mariachi", description: "Découvrez la ville natale du tequila et du mariachi — visite de la région de Tequila à 1h en train touristique" },
-      { title: "Centro Histórico", description: "Cathédrale baroque, Palais du Gouvernement et ses fresques d'Orozco — le cœur historique de Guadalajara" },
-      { title: "Lago de Chapala", description: "Le plus grand lac naturel du Mexique à 45 min — villages colorés, pêche traditionnelle et couchers de soleil" },
+      { title: "Tequila & Mariachi", description: "Entdecken Sie die Heimatstadt von Tequila und Mariachi — Besuch der Tequila-Region, 1 Stunde mit dem Touristenzug" },
+      { title: "Centro Histórico", description: "Barockkathedrale, Regierungspalast und Orozco-Fresken — das historische Herz von Guadalajara" },
+      { title: "Lago de Chapala", description: "Der größte natürliche See Mexikos, 45 Min. entfernt — bunte Dörfer, traditionelle Fischerei und Sonnenuntergänge" },
     ],
   },
   "monterrey": {
@@ -355,11 +355,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 36,
       juilletMin: 24,
       juilletMax: 37,
-      description: "Très chaud ! La ville encaissée entre les montagnes crée un effet thermique — partez tôt le matin pour les visites",
+      description: "Sehr heiß! Die zwischen Bergen eingebettete Stadt erzeugt einen Hitzestaueffekt — starten Sie früh morgens mit Besichtigungen",
     },
     transport: {
-      aeroport: "Aeropuerto Internacional General Mariano Escobedo (MTY) — 25 min du centre",
-      transports: ["Metro de Monterrey (2 lignes)", "Ecovía BRT", "Taxi ou Uber pour les zones éloignées"],
+      aeroport: "Aeropuerto Internacional General Mariano Escobedo (MTY) — 25 Min. vom Zentrum",
+      transports: ["Metro de Monterrey (2 Linien)", "Ecovía BRT", "Taxi oder Uber für entferntere Gebiete"],
     },
     budget: {
       hotelMin: 55,
@@ -369,9 +369,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "USD",
     },
     activities: [
-      { title: "Parque Nacional Cumbres de Monterrey", description: "Randonnée dans la Sierra Madre — la Cascada Cola de Caballo et le Cañón de Matacanes sont spectaculaires" },
-      { title: "Barrio Antiguo", description: "Quartier historique plein de vie — bars, galeries d'art et culture regio authentique le vendredi soir" },
-      { title: "Cabrito et gastronomie regio", description: "La cuisine de Monterrey est unique au Mexique — cabrito (chevreau rôti), machacado et pan de campo" },
+      { title: "Parque Nacional Cumbres de Monterrey", description: "Wandern in der Sierra Madre — die Cascada Cola de Caballo und der Cañón de Matacanes sind spektakulär" },
+      { title: "Barrio Antiguo", description: "Lebhaftes historisches Viertel — Bars, Kunstgalerien und authentische Regio-Kultur am Freitagabend" },
+      { title: "Cabrito und Regio-Küche", description: "Die Küche von Monterrey ist einzigartig in Mexiko — Cabrito (Zickleinbraten), Machacado und Pan de Campo" },
     ],
   },
   "toronto": {
@@ -380,11 +380,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 24,
       juilletMin: 17,
       juilletMax: 27,
-      description: "Agréable — Toronto est magnifique en été. Quelques pluies possibles mais rarement longues",
+      description: "Angenehm — Toronto ist im Sommer wunderschön. Gelegentlich Regen, aber selten lang anhaltend",
     },
     transport: {
-      aeroport: "Toronto Pearson International Airport (YYZ) — Union Pearson Express (25 min vers Union Station)",
-      transports: ["TTC (métro, tramways, bus)", "GO Transit (trains régionaux)", "Billy Bishop Airport (YTZ) pour vols domestiques"],
+      aeroport: "Toronto Pearson International Airport (YYZ) — Union Pearson Express (25 Min. zur Union Station)",
+      transports: ["TTC (U-Bahn, Straßenbahn, Bus)", "GO Transit (Regionalzüge)", "Billy Bishop Airport (YTZ) für Inlandsflüge"],
     },
     budget: {
       hotelMin: 140,
@@ -394,9 +394,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "CAD",
     },
     activities: [
-      { title: "CN Tower", description: "Promenade sur le toit vitré à 356m d'altitude — vue à 360° sur Toronto, le lac Ontario et les États-Unis" },
-      { title: "Kensington Market & Chinatown", description: "Deux des quartiers les plus multiculturels au monde — street food, marchés vintage et ambiance unique" },
-      { title: "Toronto Islands", description: "Ferry de 15 min depuis le centre — plages, vélos et vue imprenable sur la skyline de Toronto" },
+      { title: "CN Tower", description: "Spaziergang auf dem Glasdach in 356 m Höhe — 360°-Aussicht auf Toronto, den Ontariosee und die USA" },
+      { title: "Kensington Market & Chinatown", description: "Zwei der multikulturellsten Viertel der Welt — Street Food, Vintage-Märkte und einzigartige Atmosphäre" },
+      { title: "Toronto Islands", description: "15-Min.-Fähre vom Zentrum — Strände, Fahrräder und atemberaubender Blick auf die Skyline von Toronto" },
     ],
   },
   "vancouver": {
@@ -405,11 +405,11 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       juinMax: 21,
       juilletMin: 15,
       juilletMax: 24,
-      description: "Le meilleur moment pour visiter ! Enfin sec et ensoleillé — les montagnes enneigées en toile de fond sont sublimes",
+      description: "Die beste Zeit für einen Besuch! Endlich trocken und sonnig — die schneebedeckten Berge als Kulisse sind atemberaubend",
     },
     transport: {
-      aeroport: "Vancouver International Airport (YVR) — Canada Line (SkyTrain) directe vers downtown (25 min)",
-      transports: ["SkyTrain (3 lignes automatiques)", "Translink Bus (réseau dense)", "SeaBus vers North Vancouver"],
+      aeroport: "Vancouver International Airport (YVR) — Canada Line (SkyTrain) direkt in die Innenstadt (25 Min.)",
+      transports: ["SkyTrain (3 automatische Linien)", "Translink Bus (dichtes Netz)", "SeaBus nach North Vancouver"],
     },
     budget: {
       hotelMin: 160,
@@ -419,9 +419,9 @@ export const cityEnrichmentData: Record<string, CityEnrichment> = {
       currency: "CAD",
     },
     activities: [
-      { title: "Stanley Park", description: "400 hectares de forêt tempérée en plein cœur de la ville — promenade en vélo sur le Seawall avec vue sur les montagnes" },
-      { title: "Whistler (option day trip)", description: "À 2h de Vancouver — activités estivales (VTT, randonnée, luge d'été) dans la station la plus réputée d'Amérique du Nord" },
-      { title: "Granville Island & gastronomie", description: "Marché public artisanal, microbrasseries et restaurants de fruits de mer — le cœur gastronomique de Vancouver" },
+      { title: "Stanley Park", description: "400 Hektar Regenwald mitten in der Stadt — Radtour auf der Seawall mit Blick auf die Berge" },
+      { title: "Whistler (Tagesausflug)", description: "2 Stunden von Vancouver — Sommeraktivitäten (Mountainbike, Wandern, Sommerrodeln) im renommiertesten Resort Nordamerikas" },
+      { title: "Granville Island & Gastronomie", description: "Handwerklicher Markt, Mikrobrauereien und Fischrestaurants — das gastronomische Herz von Vancouver" },
     ],
   },
 };

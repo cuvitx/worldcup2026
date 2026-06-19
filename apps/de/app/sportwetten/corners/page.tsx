@@ -57,7 +57,7 @@ const strategies = [
   {
     titre: "Mannschaften défensives = under corners",
     contenu:
-      "Lorsque deux Mannschafts défensives se rencontrent (blocs bas, peu de possession dans le dernier tiers), le total corners reste souvent sous 9.5. Exemples typiques : matchs Iran, Arabie Saoudite, Australie en phase de groupes.",
+      "Lorsque deux Mannschafts défensives se rencontrent (blocs bas, peu de possession dans le dernier tiers), le total corners reste souvent sous 9.5. Exemples typiques : matchs Iran, Arabie Saoudite, Australie en phase de Gruppen.",
   },
   {
     titre: "Analyser la météo et le terrain",
@@ -228,7 +228,7 @@ return (
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-2 italic">
-            Cotes indicatives pour un match type de phase de groupes CDM 2026. Comparez toujours avant de miser.
+            Cotes indicatives pour un match type de phase de Gruppen CDM 2026. Comparez toujours avant de miser.
           </p>
         </section>
 
@@ -250,7 +250,7 @@ return (
           </div>
         </section>
 
-        {/* Lien pronostics par match */}
+        {/* Lien Prognoses par match */}
         <section className="rounded-xl border border-accent/20 bg-accent/5 p-6 text-center">
           <h2 className="text-xl font-bold text-primary mb-2">
             Prognoses corners match par match
@@ -263,7 +263,7 @@ return (
             href="/sportwetten/corners"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
           >
-            Zeige pronostics corners <ArrowRight className="h-4 w-4" />
+            Zeige Prognoses corners <ArrowRight className="h-4 w-4" />
           </Link>
         </section>
 

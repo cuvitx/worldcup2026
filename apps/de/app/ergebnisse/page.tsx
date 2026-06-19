@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../lib/localized-data";
+import { stadiumsById } from "../../lib/localized-data";
 import { stageLabels } from "@repo/data/constants";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { RelatedLinks } from "../components/RelatedLinks";

@@ -13,7 +13,7 @@ export function HeroSection() {
             <Ticket className="h-5 w-5 inline-block" /> Tickets CDM 2026 : prix, dates & arnaques à éviter
           </h1>
           <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-            De 60 $ la phase de groupes à 1 500 $+ pour la finale. Tout pour
+            De 60 $ la phase de Gruppen à 1 500 $+ pour la finale. Tout pour
             acheter au bon prix, au bon moment — sans se faire arnaquer.
           </p>
           <div className="flex flex-wrap gap-3">

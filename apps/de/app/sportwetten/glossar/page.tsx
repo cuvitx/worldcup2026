@@ -4,14 +4,14 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { BookOpen, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Lexique Paris Sportifs — 45+ termes expliqués pour la CDM 2026",
+  title: "Sportwetten-Glossar — 45+ Begriffe erklärt für die WM 2026",
   description:
-    "Glossaire complet des paris sportifs : Accumulator, Asian Handicap, Bankroll, BTTS, Cashout, Cote, Value bet… 45+ définitions avec exemples WM 2026.",
+    "Komplettes Sportwetten-Glossar: Accumulator, Asian Handicap, Bankroll, BTTS, Cashout, Quote, Value Bet… 45+ Definitionen mit Beispielen zur WM 2026.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/glossar" },
   openGraph: {
-    title: "Lexique Paris Sportifs — CDM 2026",
+    title: "Sportwetten-Glossar — WM 2026",
     description:
-      "Glossaire complet : 45+ termes de paris sportifs expliqués avec exemples CDM 2026.",
+      "Komplettes Glossar: 45+ Sportwetten-Begriffe erklärt mit Beispielen zur WM 2026.",
     url: "https://www.wm2026guide.de/sportwetten/glossar",
   },
 };
@@ -26,315 +26,315 @@ const glossary: Term[] = [
   {
     term: "1X2",
     definition:
-      "Le pari le plus classique : vous misez sur la victoire de l'Mannschaft 1 (1), le match nul (X) ou la victoire de l'Mannschaft 2 (2). C'est la base de tout parieur.",
+      "Die klassischste Wette: Sie setzen auf den Sieg von Mannschaft 1 (1), das Unentschieden (X) oder den Sieg von Mannschaft 2 (2). Das ist die Grundlage jedes Wetters.",
     example:
-      "France – Mexique : 1 (victoire France) coté à 1.55, X à 4.20, 2 à 6.50.",
+      "Frankreich – Mexiko: 1 (Sieg Frankreich) mit Quote 1,55, X mit 4,20, 2 mit 6,50.",
   },
   {
     term: "Accumulator (Acca)",
     definition:
-      "Un pari combiné regroupant plusieurs sélections. Toutes doivent être gagnantes pour que le pari soit validé. Les cotes se multiplient, augmentant gains potentiels et risque.",
+      "Eine Kombiwette, die mehrere Auswahlen zusammenfasst. Alle müssen gewinnen, damit die Wette gültig ist. Die Quoten werden multipliziert, was Gewinnpotenzial und Risiko erhöht.",
     example:
-      "Combiné 4 matchs de poules CDM 2026 : France, Brésil, Allemagne et Argentine victorieux → cote totale ~5.80.",
+      "Kombiwette 4 WM-Gruppenspiele 2026: Frankreich, Brasilien, Deutschland und Argentinien siegreich → Gesamtquote ~5,80.",
   },
   {
     term: "Ante-post",
     definition:
-      "Pari placé bien avant le début d'un événement. Les cotes sont souvent plus élevées car l'incertitude est maximale.",
+      "Wette, die lange vor Beginn eines Ereignisses platziert wird. Die Quoten sind oft höher, da die Unsicherheit maximal ist.",
     example:
-      "Wetten auf le Brésil vainqueur de la CDM 2026 dès janvier 2026 à une cote de 5.00.",
+      "Wette auf Brasilien als WM-2026-Sieger ab Januar 2026 mit einer Quote von 5,00.",
   },
   {
     term: "Asian Handicap",
     definition:
-      "Handicap qui élimine le match nul en attribuant un avantage ou un désavantage fractionnaire (0.5, 1.5…). En cas de handicap entier, le push (remboursement) est possible.",
+      "Handicap, das das Unentschieden eliminiert, indem ein gebrochener Vorteil oder Nachteil vergeben wird (0.5, 1.5…). Bei ganzzahligem Handicap ist ein Push (Erstattung) möglich.",
     example:
-      "Japon +1.5 contre l'Espagne : le Japon peut perdre 1-0 et votre pari est gagnant.",
+      "Japan +1.5 gegen Spanien: Japan kann 0:1 verlieren und Ihre Wette ist trotzdem gewonnen.",
   },
   {
     term: "Bankroll",
     definition:
-      "Le budget total que vous consacrez aux paris sportifs. Une bonne gestion de bankroll est la clé pour durer dans le temps et éviter les pertes incontrôlées.",
+      "Das Gesamtbudget, das Sie für Sportwetten bereitstellen. Ein gutes Bankroll-Management ist der Schlüssel, um langfristig dabei zu bleiben und unkontrollierte Verluste zu vermeiden.",
     example:
-      "Vous fixez 300 EUR de bankroll pour toute la CDM 2026 et misez 2% max par pari (6 EUR).",
+      "Sie legen eine Bankroll von 300 EUR für die gesamte WM 2026 fest und setzen max. 2 % pro Wette (6 EUR).",
   },
   {
     term: "Bookmaker",
     definition:
-      "L'opérateur qui propose des cotes et accepte vos paris. En France, seuls les bookmakers agréés ANJ sont autorisés.",
+      "Der Anbieter, der Quoten anbietet und Ihre Wetten annimmt. In Deutschland sind nur von der BZgA anerkannte Wettanbieter zugelassen.",
     example:
-      "Vérifier les cotes de Betano pour France – Brésil en demi-finale avant de placer votre mise.",
+      "Die Quoten von Betano für Frankreich – Brasilien im Halbfinale prüfen, bevor Sie Ihren Einsatz platzieren.",
   },
   {
     term: "BTTS (Both Teams To Score)",
     definition:
-      "Pari sur le fait que les deux Mannschafts marquent au moins un but chacune pendant le match, quel que soit le résultat final.",
+      "Wette darauf, dass beide Mannschaften mindestens ein Tor erzielen, unabhängig vom Endergebnis.",
     example:
-      "Angleterre – Pays-Bas, BTTS Oui à 1.72 : pari gagné si le score est 2-1, 1-1, 3-2, etc.",
+      "England – Niederlande, BTTS Ja mit 1,72: Wette gewonnen bei 2:1, 1:1, 3:2 usw.",
   },
   {
     term: "Cashout",
     definition:
-      "Option proposée par le bookmaker pour encaisser vos gains (ou limiter vos pertes) avant la fin de l'événement. Le montant varie en temps réel.",
+      "Option des Wettanbieters, um Ihre Gewinne einzustreichen (oder Verluste zu begrenzen), bevor das Ereignis beendet ist. Der Betrag ändert sich in Echtzeit.",
     example:
-      "Vous avez misé sur le Brésil vainqueur CDM. En demi-finale, le cashout vous propose 85% du gain potentiel.",
+      "Sie haben auf Brasilien als WM-Sieger gewettet. Im Halbfinale bietet Ihnen der Cashout 85 % des potenziellen Gewinns.",
   },
   {
-    term: "Combiné (Combi)",
+    term: "Kombiwette (Combi)",
     definition:
-      "Synonyme d'accumulator : plusieurs paris regroupés en un seul ticket. Les cotes se multiplient mais le risque aussi, car un seul résultat faux annule tout.",
+      "Synonym für Accumulator: mehrere Wetten auf einem einzigen Wettschein zusammengefasst. Die Quoten werden multipliziert, aber das Risiko ebenfalls, denn ein einziges falsches Ergebnis annulliert alles.",
     example:
-      "Combiné double : Sieg Argentine + BTTS Oui dans Allemagne-Espagne.",
+      "Doppel-Kombi: Sieg Argentinien + BTTS Ja bei Deutschland-Spanien.",
   },
   {
-    term: "Cote",
+    term: "Quote",
     definition:
-      "Le multiplicateur proposé par le bookmaker qui reflète la probabilité estimée d'un résultat. Plus la cote est élevée, moins l'événement est probable selon le bookmaker.",
+      "Der vom Wettanbieter angebotene Multiplikator, der die geschätzte Wahrscheinlichkeit eines Ergebnisses widerspiegelt. Je höher die Quote, desto unwahrscheinlicher das Ereignis laut Wettanbieter.",
     example:
-      "France vainqueur CDM 2026 cotée à 4.50 → pour 10 EUR misés, vous gagnez 45 EUR.",
+      "Frankreich WM-2026-Sieger mit Quote 4,50 → bei 10 EUR Einsatz gewinnen Sie 45 EUR.",
   },
   {
     term: "Double Chance",
     definition:
-      "Pari couvrant deux des trois issues possibles (1X, 12 ou X2). Moins risqué qu'un 1X2 simple mais cotes plus basses.",
+      "Wette, die zwei von drei möglichen Ausgängen abdeckt (1X, 12 oder X2). Weniger riskant als eine einfache 1X2-Wette, aber mit niedrigeren Quoten.",
     example:
-      "Maroc Double Chance (1X) contre le Portugal : vous gagnez si le Maroc gagne OU fait match nul.",
+      "Marokko Doppelte Chance (1X) gegen Portugal: Sie gewinnen, wenn Marokko gewinnt ODER unentschieden spielt.",
   },
   {
     term: "Draw No Bet (DNB)",
     definition:
-      "Pari sur la victoire d'une Mannschaft avec remboursement en cas de match nul. C'est un filet de sécurité qui réduit le risque.",
+      "Wette auf den Sieg einer Mannschaft mit Erstattung bei Unentschieden. Ein Sicherheitsnetz, das das Risiko reduziert.",
     example:
-      "Sénégal DNB contre l'Uruguay : si match nul, votre mise est remboursée.",
+      "Senegal DNB gegen Uruguay: Bei Unentschieden wird Ihr Einsatz erstattet.",
   },
   {
     term: "Each Way",
     definition:
-      "Pari en deux parties : une sur la victoire et une sur une place (top 2, top 3…). Surtout utilisé pour les paris à long terme (vainqueur de compétition).",
+      "Wette in zwei Teilen: einer auf den Sieg und einer auf eine Platzierung (Top 2, Top 3…). Vor allem für Langzeitwetten (Turniersieger) verwendet.",
     example:
-      "Each Way sur la Colombie vainqueur CDM 2026 : même si elle perd en finale, la partie « place » paie.",
+      "Each Way auf Kolumbien als WM-2026-Sieger: Selbst wenn sie im Finale verliert, zahlt der Platzierungsteil aus.",
   },
   {
     term: "Expected Value (EV)",
     definition:
-      "La valeur espérée d'un pari. Un EV positif signifie que le pari est théoriquement rentable à long terme. C'est le Graal du parieur averti.",
+      "Der erwartete Wert einer Wette. Ein positiver EV bedeutet, dass die Wette langfristig theoretisch profitabel ist. Das ist der heilige Gral des erfahrenen Wetters.",
     example:
-      "Si vous estimez la France à 55% de chances et la cote est à 2.00 (50%), l'EV est positif.",
+      "Wenn Sie Frankreich eine 55%ige Chance geben und die Quote bei 2,00 (50 %) liegt, ist der EV positiv.",
   },
   {
     term: "Flat Betting",
     definition:
-      "Stratégie consistant à miser toujours le même montant, quel que soit le match ou votre niveau de confiance. Simple et efficace pour protéger la bankroll.",
+      "Strategie, bei der immer derselbe Betrag gesetzt wird, unabhängig vom Spiel oder Ihrem Vertrauensniveau. Einfach und effektiv zum Schutz der Bankroll.",
     example:
-      "Mise fixe de 5 EUR sur chacun des 104 matchs de la CDM 2026.",
+      "Fester Einsatz von 5 EUR auf jedes der 104 Spiele der WM 2026.",
   },
   {
     term: "Freebet",
     definition:
-      "Paris gratuit offert par le bookmaker. Si le pari est gagnant, vous récupérez les gains mais pas la mise initiale (dans la plupart des cas).",
+      "Gratiswette vom Wettanbieter. Bei Gewinn erhalten Sie den Gewinn, aber nicht den ursprünglichen Einsatz zurück (in den meisten Fällen).",
     example:
-      "Freebet de 10 EUR offert à l'ouverture de compte, utilisé sur Brésil – Argentine en quart de finale.",
+      "Freebet von 10 EUR bei Kontoeröffnung, eingesetzt auf Brasilien – Argentinien im Viertelfinale.",
   },
   {
-    term: "Handicap européen",
+    term: "Europäisches Handicap",
     definition:
-      "Handicap qui modifie le score de départ d'une Mannschaft. Contrairement à l'Asian Handicap, le match nul avec handicap est possible.",
+      "Handicap, das den Startspielstand einer Mannschaft verändert. Im Gegensatz zum Asian Handicap ist ein Unentschieden mit Handicap möglich.",
     example:
-      "Allemagne -1 contre le Costa Rica : l'Allemagne doit gagner par 2 buts d'écart minimum.",
+      "Deutschland -1 gegen Costa Rica: Deutschland muss mit mindestens 2 Toren Unterschied gewinnen.",
   },
   {
-    term: "Handicap (général)",
+    term: "Handicap (allgemein)",
     definition:
-      "Avantage ou désavantage virtuel de buts attribué à une Mannschaft pour équilibrer les chances. Existe en version européenne et asiatique.",
+      "Virtueller Tor-Vorteil oder -Nachteil, der einer Mannschaft zugewiesen wird, um die Chancen auszugleichen. Gibt es in europäischer und asiatischer Version.",
     example:
-      "Arabie Saoudite +2 contre la France : le pari est gagnant si l'écart est inférieur à 2 buts.",
+      "Saudi-Arabien +2 gegen Frankreich: Die Wette ist gewonnen, wenn der Unterschied weniger als 2 Tore beträgt.",
   },
   {
-    term: "Lay (Pari à la)",
+    term: "Lay (Gegenwette)",
     definition:
-      "Parier CONTRE un résultat sur un betting exchange. Vous jouez le rôle du bookmaker en acceptant le risque qu'un événement se produise.",
+      "GEGEN ein Ergebnis wetten an einer Wettbörse. Sie übernehmen die Rolle des Wettanbieters und akzeptieren das Risiko, dass ein Ereignis eintritt.",
     example:
-      "Lay sur l'Italie vainqueur du groupe : vous gagnez si l'Italie ne finit PAS première.",
+      "Lay auf Italien als Gruppensieger: Sie gewinnen, wenn Italien NICHT Erster wird.",
   },
   {
-    term: "Live Betting (Paris en direct)",
+    term: "Live Betting (Live-Wetten)",
     definition:
-      "Paris placés pendant le match en cours. Les cotes évoluent en temps réel selon le score, la possession et les actions de jeu.",
+      "Wetten, die während des laufenden Spiels platziert werden. Die Quoten ändern sich in Echtzeit je nach Spielstand, Ballbesitz und Spielaktionen.",
     example:
-      "France mène 1-0 à la 60e contre le Mexique : parier sur Over 2.5 buts à 1.90 en live.",
+      "Frankreich führt 1:0 in der 60. Minute gegen Mexiko: Live-Wette auf Over 2.5 Tore mit Quote 1,90.",
   },
   {
-    term: "Marge (du bookmaker)",
+    term: "Marge (des Wettanbieters)",
     definition:
-      "La commission intégrée dans les cotes par le bookmaker. Plus la marge est faible, plus les cotes sont favorables au parieur.",
+      "Die vom Wettanbieter in die Quoten eingebaute Provision. Je niedriger die Marge, desto günstiger sind die Quoten für den Wetter.",
     example:
-      "Sur un match CDM, un bookmaker à 3% de marge offre de meilleures cotes qu'un site à 7%.",
+      "Bei einem WM-Spiel bietet ein Wettanbieter mit 3 % Marge bessere Quoten als einer mit 7 %.",
   },
   {
     term: "Matched Betting",
     definition:
-      "Technique exploitant les offres promotionnelles (freebets) des bookmakers pour garantir un profit, en combinant pari et lay sur un exchange.",
+      "Technik, die Werbeangebote (Freebets) der Wettanbieter nutzt, um einen Gewinn zu garantieren, indem Wette und Lay an einer Wettbörse kombiniert werden.",
     example:
-      "Utiliser un freebet de 20 EUR sur un match CDM et couvrir le résultat opposé sur un exchange.",
+      "Einen Freebet von 20 EUR auf ein WM-Spiel nutzen und das gegenteilige Ergebnis an einer Wettbörse abdecken.",
   },
   {
-    term: "Mi-temps / Fin de match (HT/FT)",
+    term: "Halbzeit / Endstand (HT/FT)",
     definition:
-      "Pari sur le résultat à la mi-temps ET au coup de sifflet final. Les cotes sont élevées car il faut prédire deux résultats.",
+      "Wette auf das Ergebnis zur Halbzeit UND beim Schlusspfiff. Die Quoten sind hoch, da zwei Ergebnisse vorhergesagt werden müssen.",
     example:
-      "Brésil/Brésil (mène à la mi-temps et gagne) contre la Suisse à une cote de 2.10.",
+      "Brasilien/Brasilien (führt zur Halbzeit und gewinnt) gegen die Schweiz mit Quote 2,10.",
   },
   {
-    term: "Odds (Cotes)",
+    term: "Odds (Quoten)",
     definition:
-      "Terme anglais pour « cotes ». Elles peuvent être exprimées en format décimal (2.50), fractionnaire (3/2) ou américain (+150).",
+      "Englischer Begriff für Quoten. Sie können im Dezimalformat (2,50), als Bruch (3/2) oder im amerikanischen Format (+150) ausgedrückt werden.",
     example:
-      "Odds décimales de 3.00 sur le Japon = 33% de probabilité implicite = gain de 30 EUR pour 10 EUR misés.",
+      "Dezimalquote von 3,00 auf Japan = 33 % implizite Wahrscheinlichkeit = 30 EUR Gewinn bei 10 EUR Einsatz.",
   },
   {
-    term: "Over/Under (Plus/Moins)",
+    term: "Over/Under (Über/Unter)",
     definition:
-      "Pari sur le nombre total de buts dans un match : au-dessus (Over) ou en dessous (Under) d'un seuil fixé par le bookmaker.",
+      "Wette auf die Gesamtzahl der Tore in einem Spiel: über (Over) oder unter (Under) einem vom Wettanbieter festgelegten Schwellenwert.",
     example:
-      "Over 2.5 buts dans Espagne – Allemagne : gagné si 3 buts ou plus sont marqués au total.",
+      "Over 2.5 Tore bei Spanien – Deutschland: Gewonnen, wenn insgesamt 3 oder mehr Tore fallen.",
   },
   {
     term: "Parlay",
     definition:
-      "Terme américain pour un pari combiné (accumulator). Très populaire aux États-Unis, pays co-organisateur de la CDM 2026.",
+      "Amerikanischer Begriff für eine Kombiwette (Accumulator). Sehr beliebt in den USA, Mitgastgeber der WM 2026.",
     example:
-      "Parlay de 3 legs : USA gagne, Over 2.5 et BTTS Oui → cote combinée ~7.50.",
+      "Parlay mit 3 Auswahlen: USA gewinnt, Over 2.5 und BTTS Ja → Gesamtquote ~7,50.",
   },
   {
     term: "Push",
     definition:
-      "Quand le résultat tombe exactement sur la ligne du handicap ou du total. La mise est remboursée, ni gain ni perte.",
+      "Wenn das Ergebnis genau auf der Handicap- oder Totallinie liegt. Der Einsatz wird erstattet, kein Gewinn und kein Verlust.",
     example:
-      "Over/Under 2 buts, score final 2-0 (2 buts exactement) : push, mise remboursée.",
+      "Over/Under 2 Tore, Endstand 2:0 (genau 2 Tore): Push, Einsatz wird erstattet.",
   },
   {
     term: "Return on Investment (ROI)",
     definition:
-      "Indicateur de rentabilité : (gains nets / total misé) × 100. Un ROI positif signifie que vous êtes bénéficiaire sur la durée.",
+      "Rentabilitätskennzahl: (Nettogewinne / Gesamteinsatz) × 100. Ein positiver ROI bedeutet, dass Sie langfristig profitabel sind.",
     example:
-      "300 EUR misés pendant la CDM, 330 EUR récupérés → ROI = +10%. Excellent sur un tournoi.",
+      "300 EUR während der WM gesetzt, 330 EUR zurückbekommen → ROI = +10 %. Hervorragend für ein Turnier.",
   },
   {
-    term: "Score exact",
+    term: "Genaues Ergebnis",
     definition:
-      "Pari sur le résultat précis du match. Très difficile à prédire, mais les cotes sont très attractives.",
+      "Wette auf das exakte Endergebnis des Spiels. Sehr schwer vorherzusagen, aber die Quoten sind sehr attraktiv.",
     example:
-      "France 2-1 Angleterre en quart de finale coté à 8.50.",
+      "Frankreich 2:1 England im Viertelfinale mit Quote 8,50.",
   },
   {
-    term: "Stake (Mise)",
+    term: "Stake (Einsatz)",
     definition:
-      "Le montant d'argent que vous engagez sur un pari. La gestion du stake est fondamentale pour préserver votre bankroll.",
+      "Der Geldbetrag, den Sie auf eine Wette setzen. Das Einsatzmanagement ist grundlegend für den Erhalt Ihrer Bankroll.",
     example:
-      "Stake de 10 EUR sur la victoire du Brésil à 1.80 → gain potentiel de 18 EUR.",
+      "Einsatz von 10 EUR auf den Sieg Brasiliens mit Quote 1,80 → potenzieller Gewinn von 18 EUR.",
   },
   {
-    term: "Sure Bet (Pari sûr)",
+    term: "Sure Bet (Sichere Wette)",
     definition:
-      "Situation rare où les cotes de différents bookmakers permettent de couvrir tous les résultats et garantir un profit, quelle que soit l'issue.",
+      "Seltene Situation, in der die Quoten verschiedener Wettanbieter es ermöglichen, alle Ergebnisse abzudecken und einen Gewinn zu garantieren, egal wie das Spiel ausgeht.",
     example:
-      "Cote 1X à 2.10 chez le bookmaker A et cote 2 à 2.15 chez le bookmaker B sur un même match CDM.",
+      "Quote 1X mit 2,10 bei Wettanbieter A und Quote 2 mit 2,15 bei Wettanbieter B auf dasselbe WM-Spiel.",
   },
   {
     term: "System Bet",
     definition:
-      "Pari combiné avec filet de sécurité : vous pouvez perdre une ou plusieurs sélections et quand même gagner. Exemples : Trixie, Yankee, Lucky 15.",
+      "Kombiwette mit Sicherheitsnetz: Sie können eine oder mehrere Auswahlen verlieren und trotzdem gewinnen. Beispiele: Trixie, Yankee, Lucky 15.",
     example:
-      "System 2/3 sur trois matchs CDM : si 2 pronostics sur 3 sont bons, le pari est partiellement gagnant.",
+      "System 2/3 auf drei WM-Spiele: Wenn 2 von 3 Tipps richtig sind, ist die Wette teilweise gewonnen.",
   },
   {
     term: "Tipster",
     definition:
-      "Pronostiqueur qui partage ses analyses et ses paris. Certains sont fiables, beaucoup ne le sont pas. Vérifiez toujours l'historique et le ROI.",
+      "Experte, der seine Analysen und Wetten teilt. Manche sind zuverlässig, viele nicht. Überprüfen Sie immer die Bilanz und den ROI.",
     example:
-      "Un tipster annonce Argentine – Croatie : BTTS Oui à 1.85. Vérifiez son track record avant de suivre.",
+      "Ein Tipster gibt Argentinien – Kroatien: BTTS Ja mit 1,85 an. Überprüfen Sie seinen Track Record, bevor Sie folgen.",
   },
   {
     term: "Treble",
     definition:
-      "Pari combiné de trois sélections exactement. Les trois doivent être gagnantes pour que le pari paie.",
+      "Kombiwette mit genau drei Auswahlen. Alle drei müssen gewinnen, damit die Wette auszahlt.",
     example:
-      "Treble : France bat la Belgique + Brésil bat le Japon + Espagne bat l'Allemagne → cote ~4.30.",
+      "Treble: Frankreich schlägt Belgien + Brasilien schlägt Japan + Spanien schlägt Deutschland → Quote ~4,30.",
   },
   {
     term: "Under",
     definition:
-      "Wetten auf un nombre de buts INFÉRIEUR au seuil fixé. Opposé de l'Over. Souvent utilisé sur des matchs défensifs.",
+      "Wette auf eine Toranzahl UNTER dem festgelegten Schwellenwert. Gegenteil von Over. Oft bei defensiven Spielen verwendet.",
     example:
-      "Under 1.5 buts dans Uruguay – Suisse, un match entre deux Mannschafts très défensives, coté à 2.40.",
+      "Under 1.5 Tore bei Uruguay – Schweiz, ein Spiel zwischen zwei sehr defensiven Mannschaften, mit Quote 2,40.",
   },
   {
-    term: "Unit (Unité)",
+    term: "Unit (Einheit)",
     definition:
-      "Mesure standard de mise utilisée pour comparer les performances entre parieurs. 1 unité = généralement 1% de la bankroll.",
+      "Standardisierte Einsatzeinheit zum Vergleich der Leistung zwischen Wettern. 1 Einheit = üblicherweise 1 % der Bankroll.",
     example:
-      "Bankroll 500 EUR → 1 unité = 5 EUR. « Mise 2 unités sur France » = 10 EUR.",
+      "Bankroll 500 EUR → 1 Einheit = 5 EUR. \"2 Einheiten auf Frankreich setzen\" = 10 EUR.",
   },
   {
     term: "Value Bet",
     definition:
-      "Pari où la cote proposée est supérieure à la probabilité réelle estimée. Trouver des value bets régulièrement est la clé de la rentabilité à long terme.",
+      "Wette, bei der die angebotene Quote höher ist als die geschätzte tatsächliche Wahrscheinlichkeit. Regelmäßig Value Bets zu finden ist der Schlüssel zur langfristigen Rentabilität.",
     example:
-      "Vous estimez le Maroc à 35% de chances de battre l'Espagne. Cote à 3.40 (29%) → value bet !",
+      "Sie schätzen Marokkos Siegchance gegen Spanien auf 35 %. Quote bei 3,40 (29 %) → Value Bet!",
   },
   {
     term: "Void",
     definition:
-      "Pari annulé par le bookmaker. La mise est intégralement remboursée. Peut survenir si un match est reporté ou si les conditions du pari ne sont pas remplies.",
+      "Vom Wettanbieter annullierte Wette. Der Einsatz wird vollständig erstattet. Kann eintreten, wenn ein Spiel verschoben wird oder die Wettbedingungen nicht erfüllt sind.",
     example:
-      "Buteur : Mbappé. Il ne joue finalement pas → pari void, mise remboursée.",
+      "Torschütze: Mbappé. Er spielt letztlich nicht → Wette void, Einsatz erstattet.",
   },
   {
     term: "Wager",
     definition:
-      "Synonyme de pari ou mise, surtout utilisé dans le vocabulaire anglo-saxon. Souvent associé aux conditions de rollover des bonus.",
+      "Synonym für Wette oder Einsatz, vor allem im angelsächsischen Sprachgebrauch. Oft mit Rollover-Bedingungen von Boni verbunden.",
     example:
-      "Condition de wager ×3 : vous devez miser 3 fois le montant du bonus avant de pouvoir retirer.",
+      "Wager-Bedingung ×3: Sie müssen den Bonusbetrag 3-mal umsetzen, bevor Sie auszahlen können.",
   },
   {
     term: "Yield",
     definition:
-      "Synonyme de ROI dans le monde des paris. Mesure le bénéfice moyen par unité misée, exprimé en pourcentage.",
+      "Synonym für ROI in der Wettwelt. Misst den durchschnittlichen Gewinn pro eingesetzter Einheit, ausgedrückt in Prozent.",
     example:
-      "Yield de +5% sur 80 paris pendant la CDM 2026 = performance solide et régulière.",
+      "Yield von +5 % bei 80 Wetten während der WM 2026 = solide und konstante Leistung.",
   },
 ];
 
 const faqItems = [
   {
-    question: "Quels sont les termes essentiels à connaître pour parier sur la CDM 2026 ?",
+    question: "Welche Begriffe muss man kennen, um auf die WM 2026 zu wetten?",
     answer:
-      "Les incontournables sont : 1X2, cote, bankroll, Over/Under, BTTS, cashout et value bet. Maîtriser ces 7 termes vous permet de comprendre 90% des paris proposés pendant la WM.",
+      "Die wichtigsten sind: 1X2, Quote, Bankroll, Over/Under, BTTS, Cashout und Value Bet. Wenn Sie diese 7 Begriffe beherrschen, verstehen Sie 90 % der während der WM angebotenen Wetten.",
   },
   {
-    question: "Quelle est la différence entre Asian Handicap et Handicap européen ?",
+    question: "Was ist der Unterschied zwischen Asian Handicap und Europäischem Handicap?",
     answer:
-      "L'Asian Handicap élimine le match nul grâce à des handicaps fractionnaires (±0.5, ±1.5) ou propose un remboursement (push) sur les handicaps entiers. Le Handicap européen conserve la possibilité du nul avec handicap, ce qui donne trois issues possibles.",
+      "Das Asian Handicap eliminiert das Unentschieden durch gebrochene Handicaps (±0.5, ±1.5) oder bietet eine Erstattung (Push) bei ganzzahligen Handicaps. Das Europäische Handicap behält die Möglichkeit eines Unentschiedens mit Handicap bei, was drei mögliche Ausgänge ergibt.",
   },
   {
-    question: "C'est quoi un value bet et comment le repérer ?",
+    question: "Was ist ein Value Bet und wie erkennt man ihn?",
     answer:
-      "Un value bet est un pari dont la cote est supérieure à la probabilité réelle de l'événement. Pour le repérer, estimez la probabilité d'un résultat et comparez-la à la probabilité implicite de la cote (1/cote). Si votre estimation est plus haute, c'est un value bet.",
+      "Ein Value Bet ist eine Wette, deren Quote höher ist als die tatsächliche Wahrscheinlichkeit des Ereignisses. Um ihn zu erkennen, schätzen Sie die Wahrscheinlichkeit eines Ergebnisses und vergleichen Sie sie mit der impliziten Wahrscheinlichkeit der Quote (1/Quote). Wenn Ihre Schätzung höher ist, liegt ein Value Bet vor.",
   },
   {
-    question: "Le cashout est-il toujours avantageux ?",
+    question: "Ist der Cashout immer vorteilhaft?",
     answer:
-      "Non. Le cashout inclut une marge supplémentaire du bookmaker. Il est utile pour sécuriser un gain quand la situation a changé (blessure, carton rouge), mais l'utiliser systématiquement réduit votre rentabilité à long terme.",
+      "Nein. Der Cashout beinhaltet eine zusätzliche Marge des Wettanbieters. Er ist nützlich, um einen Gewinn zu sichern, wenn sich die Situation geändert hat (Verletzung, Rote Karte), aber systematischer Einsatz reduziert Ihre langfristige Rentabilität.",
   },
   {
-    question: "Quelle bankroll prévoir pour parier sur toute la CDM 2026 ?",
+    question: "Welche Bankroll sollte man für die gesamte WM 2026 einplanen?",
     answer:
-      "Un budget de 100 à 500 EUR est raisonnable pour un mois de compétition. L'essentiel est de fixer ce montant AVANT le tournoi, de ne jamais le dépasser, et de miser entre 1% et 3% par pari (flat betting).",
+      "Ein Budget von 100 bis 500 EUR ist für einen Monat Wettbewerb angemessen. Das Wichtigste ist, diesen Betrag VOR dem Turnier festzulegen, ihn nie zu überschreiten und zwischen 1 % und 3 % pro Wette zu setzen (Flat Betting).",
   },
   {
-    question: "C'est quoi un pari combiné (accumulator) et est-ce rentable ?",
+    question: "Was ist eine Kombiwette (Accumulator) und ist sie profitabel?",
     answer:
-      "Un combiné regroupe plusieurs sélections dont les cotes se multiplient. C'est séduisant mais statistiquement moins rentable que les paris simples, car la probabilité de tout réussir baisse drastiquement. Limitez-vous à 2-3 sélections maximum.",
+      "Eine Kombiwette fasst mehrere Auswahlen zusammen, deren Quoten multipliziert werden. Das ist verlockend, aber statistisch weniger profitabel als Einzelwetten, da die Wahrscheinlichkeit, alles richtig zu haben, drastisch sinkt. Beschränken Sie sich auf maximal 2-3 Auswahlen.",
   },
 ];
 
@@ -348,20 +348,20 @@ export default function LexiqueParisPage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
-            Glossaire paris sportifs
+            Sportwetten-Glossar
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Lexique des Paris Sportifs — CDM 2026
+            Sportwetten-Glossar — WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            {glossary.length} termes essentiels expliqués simplement avec des exemples concrets
-            tirés der WM 2026. De A comme Accumulator à Y comme Yield.
+            {glossary.length} wichtige Begriffe einfach erklärt mit konkreten Beispielen
+            aus der WM 2026. Von A wie Accumulator bis Y wie Yield.
           </p>
         </div>
       </section>
 
       {/* Quick nav */}
-      <nav className="mx-auto max-w-5xl px-4 py-6" aria-label="Navigation alphabétique">
+      <nav className="mx-auto max-w-5xl px-4 py-6" aria-label="Alphabetische Navigation">
         <div className="flex flex-wrap justify-center gap-2">
           {alphabet.map((letter) => (
             <a
@@ -393,7 +393,7 @@ export default function LexiqueParisPage() {
                         <h3 className="text-lg font-bold text-[#022149]">{t.term}</h3>
                         <p className="mt-1 text-gray-700 leading-relaxed">{t.definition}</p>
                         <p className="mt-2 text-sm text-gray-500 italic">
-                          <span className="font-semibold text-[#D4AF37]">Exemple CDM 2026 :</span>{" "}
+                          <span className="font-semibold text-[#D4AF37]">Beispiel WM 2026:</span>{" "}
                           {t.example}
                         </p>
                       </div>
@@ -409,10 +409,10 @@ export default function LexiqueParisPage() {
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-4 pb-12">
         <Link
-          href="/comparateur-cotes"
+          href="/quotenvergleich"
           className="flex items-center justify-center gap-2 bg-[#00B865] text-white font-bold rounded-xl py-3.5 px-6 text-center hover:brightness-110 transition"
         >
-          Comparer les cotes CDM 2026
+          WM-2026-Quoten vergleichen
           <ArrowRight className="h-5 w-5" />
         </Link>
       </section>
@@ -428,16 +428,16 @@ export default function LexiqueParisPage() {
       {/* ANJ */}
       <section className="mx-auto max-w-5xl px-4 pb-12 text-center">
         <p className="text-xs text-gray-500">
-          🔞 Les paris sportifs sont interdits aux mineurs. Jouez de manière responsable.
+          🔞 Sportwetten sind für Minderjährige verboten. Spielen Sie verantwortungsvoll.
           <br />
-          Autorité Nationale des Jeux (ANJ) —{" "}
+          Bundeszentrale für gesundheitliche Aufklärung (BZgA) —{" "}
           <a
-            href="https://www.anj.fr"
+            href="https://www.bzga.de"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-[#022149]"
           >
-            www.anj.fr
+            www.bzga.de
           </a>
         </p>
       </section>

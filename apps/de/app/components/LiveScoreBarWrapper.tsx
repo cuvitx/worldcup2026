@@ -1,5 +1,5 @@
 import { getTodaysMatches } from "@repo/data/tournament-state";
-import { teamsById } from "@repo/data";
+import { teamsById } from "../../lib/localized-data";
 import { teamApiIds } from "@repo/data/api-football-ids";
 import type { LiveMatch } from "@repo/ui/live-score-bar";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";

@@ -2,7 +2,7 @@ export default function Loading() {
   return (
     <div className="flex flex-1 flex-col min-h-[70vh] bg-gray-50">
       <div className="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
-        {/* Hero stade */}
+        {/* Hero Stadion */}
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden mb-8">
           <div className="h-56 w-full bg-gray-200 animate-pulse" />
           <div className="p-6">
@@ -16,7 +16,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* Matchs dans ce stade */}
+        {/* Spiele in diesem Stadion */}
         <div className="h-6 w-40 bg-gray-200 rounded-full mb-4 animate-pulse" />
         <div className="space-y-3">
           {Array.from({ length: 4 }).map((_, i) => (

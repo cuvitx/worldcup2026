@@ -4,29 +4,29 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Swords, Calendar, ArrowRight, Target } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Huitièmes de finale WM 2026 - Dates & Format | CDM 2026",
+  title: "Achtelfinale WM 2026 - Termine & Format | WM 2026",
   description:
-    "Huitièmes de finale CDM 2026 : du 3 au 6 juillet 2026. Format, analyse du bracket, matchs à suivre et pronostics pour le round of 16.",
+    "Achtelfinale WM 2026: vom 3. bis 6. Juli 2026. Format, Bracket-Analyse, wichtige Spiele und Prognosen für das Achtelfinale.",
   openGraph: {
-    title: "Huitièmes de finale CDM 2026",
-    description: "Tout sur les huitièmes de finale der WM 2026 : dates, format et analyse.",
-    url: "https://www.wm2026guide.de/8emes-de-finale",
+    title: "Achtelfinale WM 2026",
+    description: "Alles über das Achtelfinale der WM 2026: Termine, Format und Analyse.",
+    url: "https://www.wm2026guide.de/viertelfinale-qualifikation",
   },
-  alternates: { canonical: "https://www.wm2026guide.de/8emes-de-finale" },
+  alternates: { canonical: "https://www.wm2026guide.de/viertelfinale-qualifikation" },
 };
 
 const faqItems = [
   {
-    question: "Quand se jouent les huitièmes de finale de la CDM 2026 ?",
-    answer: "Les huitièmes de finale se déroulent du 3 au 6 juillet 2026, soit 8 matchs répartis sur 4 jours.",
+    question: "Wann findet das Achtelfinale der WM 2026 statt?",
+    answer: "Das Achtelfinale findet vom 3. bis 6. Juli 2026 statt, mit 8 Spielen an 4 Tagen.",
   },
   {
-    question: "Combien d'Mannschafts participent aux huitièmes de finale ?",
-    answer: "16 Mannschafts s'affrontent en huitièmes de finale (Round of 16). Ce sont les vainqueurs des 16 matchs de 16èmes de finale.",
+    question: "Wie viele Mannschaften nehmen am Achtelfinale teil?",
+    answer: "16 Mannschaften treten im Achtelfinale (Round of 16) gegeneinander an. Es handelt sich um die Sieger der 16 Spiele des Sechzehntelfinales.",
   },
   {
-    question: "Comment est structuré le bracket des huitièmes ?",
-    answer: "Le bracket est prédéterminé : chaque moitié du tableau mène à une demi-finale. Les vainqueurs des huitièmes s'affrontent en quarts de finale selon un croisement fixé à l'avance par la FIFA.",
+    question: "Wie ist der Bracket des Achtelfinales strukturiert?",
+    answer: "Der Bracket ist vorbestimmt: Jede Hälfte des Turnierbaums führt zu einem Halbfinale. Die Sieger des Achtelfinales treffen im Viertelfinale aufeinander, gemäß einem von der FIFA festgelegten Schema.",
   },
 ];
 
@@ -39,21 +39,21 @@ export default function HuitiemesDeFinale() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <Swords className="h-4 w-4 text-accent" />
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
-              Phases éliminatoires
+              K.o.-Phase
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            <span className="text-accent">Huitièmes de finale</span> CDM 2026
+            <span className="text-accent">Achtelfinale</span> WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            Round of 16 — Du 3 au 6 juillet 2026. Les 16 meilleures Mannschafts
-            s&apos;affrontent pour une place en quarts.
+            Round of 16 — Vom 3. bis 6. Juli 2026. Die 16 besten Mannschaften
+            kämpfen um einen Platz im Viertelfinale.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             {[
               { val: "8", label: "Matchs" },
               { val: "16", label: "Mannschaften" },
-              { val: "4", label: "Jours" },
+              { val: "4", label: "Tage" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-3xl font-black text-accent">{s.val}</p>
@@ -68,23 +68,23 @@ export default function HuitiemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Target className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900">Format & enjeux</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Format & Bedeutung</h2>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Les huitièmes de finale opposent les 16 vainqueurs des 16èmes de finale.
-              C&apos;est le tour classique de la WM que les fans connaissent bien,
-              mais avec un bracket élargi en amont.
+              Im Achtelfinale treffen die 16 Sieger des Sechzehntelfinales aufeinander.
+              Es ist die klassische K.o.-Runde der WM, die Fans gut kennen,
+              aber mit einem erweiterten Bracket im Vorfeld.
             </p>
             <p>
-              Chaque match se joue en 90 minutes, avec prolongation (2 × 15 min) et tirs au but
-              en cas d&apos;égalité. Historiquement, ce tour produit certains des matchs les plus
-              mémorables des Turniers.
+              Jedes Spiel wird über 90 Minuten ausgetragen, mit Verlängerung (2 x 15 Min.) und Elfmeterschießen
+              bei Gleichstand. Historisch gesehen bringt diese Runde einige der denkwürdigsten
+              Spiele der Turniere hervor.
             </p>
             <p>
-              Le bracket est structuré en deux moitiés distinctes. Les Mannschafts situées dans la
-              même moitié ne peuvent se rencontrer qu&apos;en finale, ce qui crée des « tableaux
-              de la mort » quand les favoris se retrouvent du même côté.
+              Der Bracket ist in zwei Hälften unterteilt. Mannschaften in derselben
+              Hälfte können erst im Finale aufeinandertreffen, was zu sogenannten
+              "Todesgruppen" führt, wenn sich Favoriten auf derselben Seite befinden.
             </p>
           </div>
         </section>
@@ -92,7 +92,7 @@ export default function HuitiemesDeFinale() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="h-6 w-6 text-accent" />
-            <h2 className="text-2xl font-bold text-gray-900">Spielplan prévu</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Geplanter Spielplan</h2>
           </div>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
@@ -104,10 +104,10 @@ export default function HuitiemesDeFinale() {
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 {[
-                  { date: "3 juillet 2026", matchs: "Matchs 1-2" },
-                  { date: "4 juillet 2026", matchs: "Matchs 3-4" },
-                  { date: "5 juillet 2026", matchs: "Matchs 5-6" },
-                  { date: "6 juillet 2026", matchs: "Matchs 7-8" },
+                  { date: "3. Juli 2026", matchs: "Spiele 1-2" },
+                  { date: "4. Juli 2026", matchs: "Spiele 3-4" },
+                  { date: "5. Juli 2026", matchs: "Spiele 5-6" },
+                  { date: "6. Juli 2026", matchs: "Spiele 7-8" },
                 ].map((r) => (
                   <tr key={r.date} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-gray-900">{r.date}</td>
@@ -123,17 +123,17 @@ export default function HuitiemesDeFinale() {
           <div className="rounded-xl border-2 border-dashed border-accent/40 bg-accent/5 p-8 text-center">
             <Swords className="h-12 w-12 text-accent mx-auto mb-4 opacity-60" />
             <p className="text-lg font-semibold text-gray-900 mb-2">
-              Affiches à venir
+              Kommende Begegnungen
             </p>
             <p className="text-gray-500 max-w-md mx-auto mb-6">
-              Les affiches des huitièmes de finale seront connues à l&apos;issue des 16èmes.
-              Simulez dès maintenant les matchs possibles.
+              Die Begegnungen des Achtelfinales stehen nach Abschluss des Sechzehntelfinales fest.
+              Simulieren Sie jetzt die möglichen Spiele.
             </p>
             <Link
               href="/simulateur"
               className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
             >
-              Simuler le bracket
+              Bracket simulieren
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

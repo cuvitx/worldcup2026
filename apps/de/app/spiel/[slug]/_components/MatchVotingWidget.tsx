@@ -134,7 +134,7 @@ export function MatchVotingWidget({
     {
       key: "draw" as VoteChoice,
       badge: "N",
-      label: "Nul",
+      label: "Unentschieden",
       flag: "🤝",
       pct: pctDraw + (adjustment !== 0 && pctDraw > pctHome && pctDraw >= pctAway ? adjustment : 0),
       odd: odds?.draw,
@@ -181,7 +181,7 @@ export function MatchVotingWidget({
           </div>
         ) : !showResults ? (
           /* ── Vote mode: clickable cards ── */
-          <div className="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Votez pour le résultat">
+          <div className="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Stimmen Sie für das Ergebnis ab">
             {options.map((opt) => (
               <button
                 key={opt.key}
@@ -189,7 +189,7 @@ export function MatchVotingWidget({
                 disabled={submitting}
                 role="radio"
                 aria-checked="false"
-                aria-label={`Voter ${opt.key === "draw" ? "match nul" : `victoire ${opt.label}`}`}
+                aria-label={`Abstimmen ${opt.key === "draw" ? "Unentschieden" : `Sieg ${opt.label}`}`}
                 className={`group flex flex-col items-center justify-center gap-1.5 rounded-xl border-2 ${opt.border} ${opt.bg} px-3 py-4 transition-all ${opt.hoverBorder} ${opt.hoverBg} hover:scale-[1.02] hover:shadow-md active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer`}
               >
                 <span className={`text-2xl font-black ${opt.pctColor}`}>?</span>
@@ -251,8 +251,8 @@ export function MatchVotingWidget({
         {/* Vote count */}
         {showResults && total > 0 && (
           <p className="mt-3 text-center text-xs text-gray-400">
-            {total.toLocaleString("de-DE")} vote{total > 1 ? "s" : ""}
-            {justVoted && <span className="ml-2 text-emerald-500 font-medium">Merci pour votre vote !</span>}
+            {total.toLocaleString("de-DE")} Stimme{total > 1 ? "n" : ""}
+            {justVoted && <span className="ml-2 text-emerald-500 font-medium">Danke für Ihre Stimme!</span>}
           </p>
         )}
       </div>
@@ -277,7 +277,7 @@ export function MatchVotingWidget({
               />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold text-gray-900">Betano</p>
-                <p className="text-xs text-gray-500">100&euro; offerts en freebets sans condition</p>
+                <p className="text-xs text-gray-500">100&euro; Freebets ohne Bedingung</p>
               </div>
               <span className="shrink-0 inline-flex items-center gap-1 rounded-full bg-emerald-600 px-4 py-2 text-xs font-bold text-white transition-colors group-hover:bg-emerald-700">
                 Prognose&nbsp;&rarr;
@@ -286,7 +286,7 @@ export function MatchVotingWidget({
           </div>
           <div className="px-6 pb-4">
             <p className="text-[10px] text-gray-400 leading-snug">
-              Geschätzte Quoten, susceptibles d&apos;évoluer. 18+ |{" "}
+              Geschätzte Quoten, können sich ändern. 18+ |{" "}
               <a href="tel:0974751313" className="underline hover:text-gray-500">0800 1 37 27 00</a>{" "}
               | Verantwortungsvolles Spielen
             </p>

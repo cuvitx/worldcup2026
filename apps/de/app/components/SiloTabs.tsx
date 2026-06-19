@@ -21,9 +21,9 @@ interface SiloMatch {
   slug: string | null;
 }
 
-/* Slugs that are pronostic TYPES, not team slugs */
+/* Slugs that are Prognose TYPES, not team slugs */
 const PRONOSTIC_TYPE_SLUGS = new Set([
-  "vainqueur", "btts", "over-under", "buteurs", "cartons", "clean-sheet",
+  "vainqueur", "btts", "over-under", "Torschützen", "cartons", "clean-sheet",
   "scores-exacts", "finalistes", "tirs-au-but",
 ]);
 
@@ -31,11 +31,11 @@ function detectSilo(pathname: string): SiloMatch | null {
   // Remove trailing slash
   const p = pathname.replace(/\/$/, "") || "/";
 
-  // Special case: /prognose/{type} → pronostics silo, not equipe
+  // Special case: /prognose/{type} → Prognoses silo, not team
   if (p.startsWith("/prognose/")) {
     const slug = p.slice("/prognose/".length).split("/")[0];
     if (slug && PRONOSTIC_TYPE_SLUGS.has(slug)) {
-      return { silo: "pronostics", slug: null };
+      return { silo: "Prognoses", slug: null };
     }
   }
 
@@ -43,7 +43,7 @@ function detectSilo(pathname: string): SiloMatch | null {
   const slugSilos: { prefixes: string[]; silo: string }[] = [
     {
       silo: "equipe",
-      prefixes: ["/mannschaft/", "/effectif/", "/parier/", "/cote-champion/", "/prognose/"],
+      prefixes: ["/mannschaft/", "/Kader/", "/parier/", "/cote-champion/", "/prognose/"],
     },
     {
       silo: "match",
@@ -64,7 +64,7 @@ function detectSilo(pathname: string): SiloMatch | null {
       silo: "Spieler",
       prefixes: [
         "/spieler/", "/tirs-cadres/", "/passes-decisives/", "/tacles/",
-        "/cote-carton-jaune/", "/cote-buteur/", "/torschuetze/",
+        "/cote-carton-jaune/", "/cote-Torschütze/", "/torschuetze/",
       ],
     },
     {
@@ -89,20 +89,20 @@ function detectSilo(pathname: string): SiloMatch | null {
   }
 
   // Prognoses silo (static pages)
-  const pronosticsPages = [
+  const PrognosesPages = [
     "/prognose/sieger", "/prognose/btts", "/prognose/over-under",
     "/prognose/karten", "/prognose/ecken", "/prognose/clean-sheet",
     "/prognose/finalisten", "/prognose/elfmeterschiessen", "/prognose/genaue-ergebnisse",
     "/prognose/torschuetzen", "/sportwetten", "/sportwetten/kombiwetten", "/sportwetten/handicap",
     "/sportwetten/live", "/sportwetten/halbzeit", "/sportwetten/corners", "/sportwetten/value-bets", "/comparateur-cotes",
   ];
-  if (pronosticsPages.includes(p)) return { silo: "pronostics", slug: null };
+  if (PrognosesPages.includes(p)) return { silo: "Prognoses", slug: null };
 
-  // Guide voyage silo
+  // Reiseführer-Silo
   const guidePages = [
     "/voyage/esta-visa-usa", "/voyage/visa-mexique", "/voyage/formalites-canada", "/voyage/decalage-horaire",
     "/vols", "/budget", "/voyage/assurance", "/voyage/carte-sim", "/voyage/valise",
-    "/voyage/pourboires", "/voyage/supporter-francais", "/voyage/wifi-stades", "/voyage/alcool-stades",
+    "/voyage/pourboires", "/voyage/supporter-francais", "/voyage/wifi-Stadien", "/voyage/alcool-Stadien",
     "/hebergement",
   ];
   if (guidePages.includes(p) || p.startsWith("/guide")) return { silo: "guide-voyage", slug: null };
@@ -116,7 +116,7 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
       return [
         { label: "Mannschaft", href: `/mannschaft/${slug}` },
         { label: "Prognose", href: `/prognose/${slug}` },
-        { label: "Kader", href: `/effectif/${slug}` },
+        { label: "Kader", href: `/Kader/${slug}` },
         { label: "Wetten", href: `/parier/${slug}` },
         { label: "Meisterquote", href: `/cote-champion/${slug}` },
       ];
@@ -149,7 +149,7 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
           { label: "Vorlagen", href: `/passes-decisives/${slug}` },
           { label: "Zweikämpfe", href: `/tacles/${slug}` },
           { label: "Kartenquote", href: `/cote-carton-jaune/${slug}` },
-          { label: "Torschützenquote", href: `/cote-buteur/${slug}` },
+          { label: "Torschützenquote", href: `/cote-Torschütze/${slug}` },
         );
       }
       return base;
@@ -160,7 +160,7 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
         { label: "Gruppenprognose", href: `/prognose-gruppe/${slug}` },
         { label: "Qualifikationsszenarien", href: `/scenarios-qualification/${slug}` },
       ];
-    case "pronostics":
+    case "Prognoses":
       return [
         { label: "Sieger", href: "/prognose/sieger" },
         { label: "BTTS", href: "/prognose/btts" },

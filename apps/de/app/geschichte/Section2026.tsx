@@ -77,7 +77,7 @@ export function Section2026() {
             <div>
               <div className="font-semibold text-white mb-1">Gruppenphase</div>
               <ul className="space-y-1 text-xs">
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12 groupes de 4 Mannschafts</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12 Gruppen de 4 Mannschafts</li>
                 <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Les 2 premiers + 8 meilleurs 3es qualifiés</li>
                 <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 32 Mannschafts au tour suivant</li>
               </ul>

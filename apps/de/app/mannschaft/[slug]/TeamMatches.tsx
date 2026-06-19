@@ -22,7 +22,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
 
   return (
     <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Matchs de groupe</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Gruppenspiele</h2>
       <div className="space-y-3">
         {teamMatches.map((match) => {
           const opponent = teamsLookup[
@@ -38,7 +38,7 @@ export function TeamMatches({ teamMatches, team, teamsLookup }: TeamMatchesProps
               <span className="text-sm text-gray-500 w-20 shrink-0">
                 {match.date.slice(5)}
               </span>
-              <span className="text-lg" role="img" aria-label={`Drapeau de ${opponent?.name ?? "Inconnu"}`}>{opponent?.flag ?? ""}</span>
+              <span className="text-lg" role="img" aria-label={`Flagge von ${opponent?.name ?? "Unbekannt"}`}>{opponent?.flag ?? ""}</span>
               <div className="flex-1">
                 <p className="font-semibold">
                   {isHome ? "vs" : "@"} {opponent?.name ?? "Noch offen"}

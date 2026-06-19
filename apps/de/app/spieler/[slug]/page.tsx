@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { players, playersBySlug, playersByTeamId } from "@repo/data/players";
-import { teamsById } from "@repo/data/teams";
+import { players, playersBySlug, playersByTeamId } from "../../../lib/localized-data";
+import { teamsById } from "../../../lib/localized-data";
 // Set of player slugs that have a photo in /public/images/players/
 const PLAYER_PHOTO_SLUGS = new Set([
   "achraf-hakimi", "alisson-becker", "aurelien-tchouameni", "bukayo-saka",
@@ -163,7 +163,7 @@ export default async function PlayerPage({ params }: PageProps) {
             {teammates.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  Coequipiers en sélection
+                  Coequipiers en Aufgebot
                 </h2>
                 <div className="space-y-3">
                   {teammates.map((mate) => {
@@ -251,7 +251,7 @@ export default async function PlayerPage({ params }: PageProps) {
                   <div>
                     <p className="font-semibold">{team.name}</p>
                     <p className="text-sm text-gray-500">
-                      Groupe {team.group} &middot; #{team.fifaRanking} FIFA
+                      Gruppe {team.group} &middot; #{team.fifaRanking} FIFA
                     </p>
                   </div>
                 </Link>

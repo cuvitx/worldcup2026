@@ -30,7 +30,7 @@ const faqItems = [
   },
 ];
 
-const stades = [
+const Stadien = [
   {
     nom: "AT&T Stadium",
     ville: "Dallas / Arlington, Texas",
@@ -112,7 +112,7 @@ export default function DemiFinales() {
             <h2 className="text-2xl font-bold text-gray-900">Voraussichtliche Stadien</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {stades.map((s) => (
+            {Stadien.map((s) => (
               <div
                 key={s.nom}
                 className="rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md transition-shadow"

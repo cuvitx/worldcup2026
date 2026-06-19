@@ -9,7 +9,7 @@ interface Tab {
 }
 
 const TABS: Tab[] = [
-  { id: "pronostic", label: "Prognose", icon: "" },
+  { id: "Prognose", label: "Prognose", icon: "" },
   { id: "cotes", label: "Quoten", icon: "" },
   { id: "stats", label: "Statistiken", icon: "" },
   { id: "h2h", label: "H2H", icon: "" },
@@ -18,11 +18,11 @@ const TABS: Tab[] = [
 
 interface MatchTabsClientProps {
   children: React.ReactNode[];
-  // children[0] = pronostic, [1] = cotes, [2] = stats, [3] = h2h, [4] = infos
+  // children[0] = Prognose, [1] = cotes, [2] = stats, [3] = h2h, [4] = infos
 }
 
 export function MatchTabsClient({ children }: MatchTabsClientProps) {
-  const [activeTab, setActiveTab] = useState("pronostic");
+  const [activeTab, setActiveTab] = useState("Prognose");
   const tabIndex = TABS.findIndex((t) => t.id === activeTab);
   const content = children[tabIndex] ?? children[0];
 

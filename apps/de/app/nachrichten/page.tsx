@@ -4,15 +4,15 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { getAllArticles } from "../../lib/mdx";
 
 export const metadata: Metadata = {
-  title: "Nachrichten WM 2026 - Dernières News CDM 2026",
+  title: "Nachrichten WM 2026 - Aktuelle News WM 2026",
   description:
-    "Alle Nachrichten der WM 2026 : stades, qualifications, Tickets, Mannschafts, paris sportifs. Restez informé sur le Mondial.",
+    "Alle Nachrichten der WM 2026: Stadien, Qualifikationen, Tickets, Mannschaften, Sportwetten. Bleiben Sie über die WM informiert.",
   alternates: {
-    canonical: "https://www.wm2026guide.de/actualites",
+    canonical: "https://www.wm2026guide.de/nachrichten",
   },
   openGraph: {
     title: "Nachrichten WM 2026",
-    description: "Dernières news et infos sur la CDM 2026.",
+    description: "Aktuelle News und Infos zur WM 2026.",
   },
 };
 
@@ -29,24 +29,24 @@ export default function ActualitesPage() {
 
   const faqItems = [
     {
-      question: "Quand commence la WM 2026 ?",
-      answer: "La WM 2026 débute le jeudi 11 juin 2026 avec le match d'ouverture à l'Estadio Azteca de Mexico City (Mexique). Le tournoi se termine le dimanche 19 juillet 2026 avec la finale au MetLife Stadium de New York/New Jersey. La compétition s'étale sur 39 jours avec 104 matchs au total, contre 64 matchs pour les éditions précédentes à 32 Mannschafts."
+      question: "Wann beginnt die WM 2026?",
+      answer: "Die WM 2026 beginnt am Donnerstag, den 11. Juni 2026, mit dem Eröffnungsspiel im Estadio Azteca in Mexiko-Stadt (Mexiko). Das Turnier endet am Sonntag, den 19. Juli 2026, mit dem Finale im MetLife Stadium in New York/New Jersey. Der Wettbewerb erstreckt sich über 39 Tage mit insgesamt 104 Spielen, gegenüber 64 Spielen bei früheren Ausgaben mit 32 Mannschaften."
     },
     {
-      question: "Où se déroule la WM 2026 ?",
-      answer: "La WM 2026 se déroule dans 3 pays : États-Unis (11 stades), Canada (2 stades) et Mexique (3 stades). C'est la première fois qu'une CDM est organisée sur 3 nations et la première en Amérique du Nord depuis 1994. Les 16 villes hôtes incluent New York, Los Angeles, Mexico City, Toronto, Vancouver, Dallas, Miami et bien d'autres. La finale aura lieu au MetLife Stadium (New York/NJ)."
+      question: "Wo findet die WM 2026 statt?",
+      answer: "Die WM 2026 findet in 3 Ländern statt: USA (11 Stadien), Kanada (2 Stadien) und Mexiko (3 Stadien). Es ist das erste Mal, dass eine WM in 3 Nationen ausgetragen wird und die erste in Nordamerika seit 1994. Die 16 Gastgeberstädte umfassen New York, Los Angeles, Mexiko-Stadt, Toronto, Vancouver, Dallas, Miami und viele weitere. Das Finale findet im MetLife Stadium (New York/NJ) statt."
     },
     {
-      question: "Combien d'Mannschafts participeront à la CDM 2026 ?",
-      answer: "48 Mannschafts participeront à la WM 2026, contre 32 lors des éditions précédentes. Cette expansion historique permet d'inclure davantage de nations et augmente le nombre de matchs à 104 (contre 64 auparavant). Les 48 Mannschafts seront réparties en 12 groupes de 4, avec 32 Mannschafts se qualifiant pour la phase à élimination directe (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes)."
+      question: "Wie viele Mannschaften nehmen an der WM 2026 teil?",
+      answer: "48 Mannschaften nehmen an der WM 2026 teil, gegenüber 32 bei früheren Ausgaben. Diese historische Erweiterung ermöglicht die Teilnahme von mehr Nationen und erhöht die Spielanzahl auf 104 (statt 64). Die 48 Mannschaften werden in 12 Gruppen zu je 4 eingeteilt, wobei sich 32 Mannschaften für die K.-o.-Phase qualifizieren (die ersten 2 jeder Gruppe + die 8 besten Gruppendritten)."
     },
     {
-      question: "La France est-elle qualifiée pour la CDM 2026 ?",
-      answer: "Oui, la France s'est qualifiée für die WM 2026 en terminant première de son groupe lors des éliminatoires européens. Les Bleus, vice-champions du monde 2022 et champions du monde 2018, font partie des grands favoris des Turniers. Sous la direction de Didier Deschamps, l'Mannschaft dispose d'un effectif exceptionnel avec Kylian Mbappé, Antoine Griezmann, Aurélien Tchouaméni et de nombreux jeunes talents."
+      question: "Hat sich Deutschland für die WM 2026 qualifiziert?",
+      answer: "Ja, Deutschland hat sich für die WM 2026 qualifiziert, indem es die Gruppe in der europäischen Qualifikation als Erster abschloss. Die DFB-Elf, Weltmeister 2014, gehört zu den großen Favoriten des Turniers. Unter der Leitung von Julian Nagelsmann verfügt die Mannschaft über einen außergewöhnlichen Kader mit Florian Wirtz, Jamal Musiala und vielen weiteren Talenten."
     },
     {
-      question: "Quand a eu lieu le tirage au sort des groupes de la CDM 2026 ?",
-      answer: "Le tirage au sort de la phase de groupes der WM 2026 a eu lieu en décembre 2025. Il a déterminé la composition des 12 groupes de 4 Mannschafts et définira le spielplan des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 Mannschafts européennes par groupe, etc.)."
+      question: "Wann fand die Gruppenauslosung der WM 2026 statt?",
+      answer: "Die Gruppenauslosung der WM 2026 fand im Dezember 2025 statt. Sie bestimmte die Zusammensetzung der 12 Gruppen mit je 4 Mannschaften und den Spielplan der Gruppenspiele. Die Auslosung erfolgte nach Lostöpfen basierend auf der FIFA-Weltrangliste und den Regeln zur geografischen Trennung (maximal 2 europäische Mannschaften pro Gruppe usw.)."
     }
   ];
 
@@ -54,7 +54,7 @@ export default function ActualitesPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Nachrichten WM 2026",
-    url: "https://www.wm2026guide.de/actualites",
+    url: "https://www.wm2026guide.de/nachrichten",
     mainEntity: {
       "@type": "ItemList",
       itemListElement: articles.map((article, i) => ({
@@ -64,8 +64,8 @@ export default function ActualitesPage() {
           "@type": "NewsArticle",
           headline: article.title,
           datePublished: article.date,
-          url: `https://www.wm2026guide.de/actualites/${article.slug}`,
-          publisher: { "@type": "Organization", name: "CDM 2026" },
+          url: `https://www.wm2026guide.de/nachrichten/${article.slug}`,
+          publisher: { "@type": "Organization", name: "WM 2026" },
         },
       })),
     },
@@ -82,20 +82,20 @@ export default function ActualitesPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl mb-2">Nachrichten WM 2026</h1>
           <p className="text-gray-300 max-w-2xl">
-            Analyses, guides et articles sur la WM 2026.
+            Analysen, Guides und Artikel zur WM 2026.
           </p>
         </div>
       </section>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {articles.length === 0 ? (
-          <p className="text-center text-gray-500 py-12">Aucun article pour le moment.</p>
+          <p className="text-center text-gray-500 py-12">Noch keine Artikel vorhanden.</p>
         ) : (
           <>
             {/* Featured article */}
             {articles[0] && (
               <Link
-                href={`/actualites/${articles[0].slug}`}
+                href={`/nachrichten/${articles[0].slug}`}
                 className="group block rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all mb-8 overflow-hidden"
               >
                 <div className="grid md:grid-cols-[1fr_1fr] gap-0">
@@ -120,7 +120,7 @@ export default function ActualitesPage() {
                     <p className="text-gray-600 line-clamp-3 mb-4">
                       {articles[0].description}
                     </p>
-                    <span className="text-sm font-bold text-primary">Lire l&apos;article →</span>
+                    <span className="text-sm font-bold text-primary">Artikel lesen →</span>
                   </div>
                 </div>
               </Link>
@@ -131,7 +131,7 @@ export default function ActualitesPage() {
               {articles.slice(1).map((article) => (
                 <Link
                   key={article.slug}
-                  href={`/actualites/${article.slug}`}
+                  href={`/nachrichten/${article.slug}`}
                   className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
                 >
                   {article.imageEmoji && <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>}
@@ -159,7 +159,7 @@ export default function ActualitesPage() {
         )}
       </div>
 
-      <FAQSection title="Häufig gestellte Fragen sur la CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen zur WM 2026" items={faqItems} />
     </div>
   );
 }

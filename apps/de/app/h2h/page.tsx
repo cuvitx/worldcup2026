@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../lib/localized-data";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../lib/localized-data";
 import { H2HSelector } from "./h2h-selector";
 
 export const metadata: Metadata = {
-  title: "Confrontations H2H — Comparer deux Mannschafts | CDM 2026",
+  title: "H2H-Direktvergleich — Zwei Mannschaften vergleichen | WM 2026",
   description:
-    "Comparez deux Mannschafts der WM 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
+    "Vergleichen Sie zwei Mannschaften der WM 2026: Konfrontationshistorie, Statistiken, FIFA-Rangliste und Prognose.",
   alternates: {
     canonical: "https://www.wm2026guide.de/h2h",
   },
   openGraph: {
-    title: "Confrontations H2H — CDM 2026",
+    title: "H2H-Direktvergleich — WM 2026",
     description:
-      "Historique et stats face-à-face de toutes les Mannschafts qualifiées für die WM 2026.",
+      "Historische Daten und Direktvergleich-Statistiken aller qualifizierten Mannschaften für die WM 2026.",
   },
 };
 
@@ -71,14 +71,14 @@ export default function H2HIndexPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Analyse comparative</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Vergleichende Analyse</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            Confrontations H2H
+            H2H-Direktvergleich
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Comparez n&apos;importe quelles Mannschafts der WM 2026 :
-            historique, stats, classement FIFA et pronostic.
+            Vergleichen Sie beliebige Mannschaften der WM 2026:
+            Historische Daten, Statistiken, FIFA-Rangliste und Prognose.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function H2HIndexPage() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Confrontations populaires
+            Beliebte Direktvergleiche
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {popularData.map(
@@ -129,7 +129,7 @@ export default function H2HIndexPage() {
       <section className="border-t border-gray-200 bg-gray-50 py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Matchs de la phase de groupes
+            Spiele der Gruppenphase
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {groupMatchups.map(
@@ -164,10 +164,10 @@ export default function H2HIndexPage() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Alle Mannschafts
+            Alle Mannschaften
           </h2>
           <p className="mb-4 text-sm text-gray-500">
-            Cliquez sur une Mannschaft pour voir toutes ses confrontations possibles.
+            Klicken Sie auf eine Mannschaft, um alle möglichen Direktvergleiche zu sehen.
           </p>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {teams
@@ -189,11 +189,11 @@ export default function H2HIndexPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
-          { href: "/mannschaft", title: "Les 48 Mannschafts", description: "Fiches complètes de chaque sélection", icon: "" },
-          { href: "/spiel/spielplan", title: "Spielplan des matchs", description: "Tous les matchs de la CDM 2026", icon: "" },
-          { href: "/fifa-ranking", title: "Rangliste FIFA", description: "Ranking mondial des 48 Mannschafts", icon: "" },
-          { href: "/comparateur-Spielers", title: "Comparateur Spielers", description: "Comparez les stars du mondial", icon: "" },
-          { href: "/statistiques", title: "Statistiques", description: "Chiffres et stats de la CDM 2026", icon: "" },
+          { href: "/mannschaft", title: "Die 48 Mannschaften", description: "Vollständige Kaderübersicht jeder Mannschaft", icon: "" },
+          { href: "/spiel/spielplan", title: "Spielplan", description: "Alle Spiele der WM 2026", icon: "" },
+          { href: "/fifa-ranking", title: "FIFA-Rangliste", description: "Weltrangliste der 48 Mannschaften", icon: "" },
+          { href: "/comparateur-Spielers", title: "Spielervergleich", description: "Vergleichen Sie die Stars der WM", icon: "" },
+          { href: "/statistiques", title: "Statistiken", description: "Zahlen und Statistiken der WM 2026", icon: "" },
         ]} />
       </div>
     </>

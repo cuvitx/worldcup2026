@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../../lib/localized-data";
 import {
   top10Favorites,
 } from "@repo/data/predictions-2026";

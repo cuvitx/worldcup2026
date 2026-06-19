@@ -77,7 +77,7 @@ export function MatchHeroAdaptive({
       <section className="hero-animated text-white pt-14 pb-20 sm:pt-20 sm:pb-24">
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
-            {stage}{match.group ? ` - Groupe ${match.group}` : ""}
+            {stage}{match.group ? ` - Gruppe ${match.group}` : ""}
           </p>
           <p className="mb-6 text-xs text-gray-400 uppercase tracking-wider">Terminé</p>
 
@@ -136,7 +136,7 @@ export function MatchHeroAdaptive({
         <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6">
           <p className="mb-4 text-center text-sm text-secondary font-medium uppercase tracking-wide">
             {stage}
-            {match.group ? ` - Groupe ${match.group}` : ""}
+            {match.group ? ` - Gruppe ${match.group}` : ""}
           </p>
           <LiveMatchWidget
             matchDate={match.date}
@@ -186,7 +186,7 @@ export function MatchHeroAdaptive({
           <span className="shrink-0 h-1.5 w-1.5 rounded-full bg-secondary" />
           <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-secondary truncate">
             {stage}
-            {match.group ? ` — Groupe ${match.group}` : ""}
+            {match.group ? ` — Gruppe ${match.group}` : ""}
           </span>
         </div>
 

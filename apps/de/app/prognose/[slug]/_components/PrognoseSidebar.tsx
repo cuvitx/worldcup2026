@@ -4,13 +4,13 @@ import type { TeamPrediction } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { featuredBookmaker } from "@repo/data/affiliates";
 
-interface PronosticSidebarProps {
+interface PrognoseSidebarProps {
   team: Team;
   prediction: TeamPrediction | undefined;
   groupTeams: Team[];
 }
 
-export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSidebarProps) {
+export function PrognoseSidebar({ team, prediction, groupTeams }: PrognoseSidebarProps) {
   return (
     <div className="space-y-6">
       {/* Quick Stats Card */}
@@ -36,7 +36,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
 
       {/* Related Teams */}
       <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Mannschaften du Groupe {team.group}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Mannschaften du Gruppe {team.group}</h3>
         <ul className="space-y-2">
           {groupTeams.map((t) => (
             <li key={t.id}>
@@ -47,7 +47,7 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
             </li>
           ))}
         </ul>
-        <div className="mt-3"><Link href={`/gruppe/${team.group.toLowerCase()}`} className="text-sm text-primary hover:underline">Zeige Groupe {team.group} &rarr;</Link></div>
+        <div className="mt-3"><Link href={`/gruppe/${team.group.toLowerCase()}`} className="text-sm text-primary hover:underline">Zeige Gruppe {team.group} &rarr;</Link></div>
       </div>
 
       {/* H2H Links */}
@@ -72,10 +72,10 @@ export function PronosticSidebar({ team, prediction, groupTeams }: PronosticSide
         {prediction ? (
           <div className="space-y-3 mb-4">
             <div className="flex justify-between text-sm"><span className="text-gray-600">Cote vainqueur</span><span className="font-bold text-accent">{estimatedOutrightOdds(prediction.winnerProb)}</span></div>
-            <div className="flex justify-between text-sm"><span className="text-gray-600">Passer les groupes</span><span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span></div>
+            <div className="flex justify-between text-sm"><span className="text-gray-600">Passer les Gruppen</span><span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span></div>
           </div>
         ) : (
-          <p className="text-sm text-gray-500 mb-4">Les pronostics seront disponibles prochainement.</p>
+          <p className="text-sm text-gray-500 mb-4">Les Prognoses seront disponibles prochainement.</p>
         )}
         <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full text-center rounded-xl bg-accent py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors">{featuredBookmaker.bonus} sur {featuredBookmaker.name}</a>
         <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>

@@ -5,13 +5,13 @@ import type { TeamEditorialContent } from "@repo/data/team-content";
 
 type Prediction = NonNullable<(typeof predictionsByTeamId)[string]>;
 
-interface PremiumPronosticProps {
+interface PremiumPrognoseProps {
   team: Team;
   prediction: Prediction | undefined;
   content: TeamEditorialContent | undefined;
 }
 
-export function PremiumPronostic({ team, prediction, content }: PremiumPronosticProps) {
+export function PremiumPrognose({ team, prediction, content }: PremiumPrognoseProps) {
   const strengths = content?.strengths ?? [];
   const weaknesses = content?.weaknesses ?? [];
 

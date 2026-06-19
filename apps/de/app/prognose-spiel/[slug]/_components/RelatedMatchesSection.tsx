@@ -1,6 +1,6 @@
 import type { Match, Team } from "@repo/data";
 import { RelatedContent, type RelatedItem } from "../../../components/RelatedContent";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../../lib/localized-data";
 import { stageLabels } from "@repo/data/constants";
 
 interface RelatedMatchesSectionProps {

@@ -1,16 +1,16 @@
 import Link from "next/link";
 import type { Team } from "@repo/data";
 import type { matches as matchesType } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../../lib/localized-data";
 
 type Match = (typeof matchesType)[number];
 
-interface PremiumMatchPronosticLinksProps {
+interface PremiumMatchPrognoseLinksProps {
   team: Team;
   teamMatches: Match[];
 }
 
-export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPronosticLinksProps) {
+export function PremiumMatchPrognoseLinks({ team, teamMatches }: PremiumMatchPrognoseLinksProps) {
   if (teamMatches.length === 0) return null;
 
   return (

@@ -1,8 +1,8 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import CalendarViewWrapper from "./CalendarViewWrapper";
 import { FileText } from "lucide-react";

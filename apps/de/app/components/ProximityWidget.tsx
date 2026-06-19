@@ -28,18 +28,18 @@ function getProximityLinks(
     return [
       {
         href: `/score-exact/${slug}`,
-        label: "Prognose score exact",
-        description: `Voir l'analyse détaillée de ${t1Cap} - ${t2Cap}`,
+        label: "Genaues Ergebnis",
+        description: `Detaillierte Analyse von ${t1Cap} - ${t2Cap} ansehen`,
       },
       {
         href: `/prognose/torschuetzen`,
-        label: "Torschützen-Quotens du match",
-        description: "Consulter les cotes des buteurs probables",
+        label: "Torschützen-Quoten",
+        description: "Quoten der wahrscheinlichen Torschützen ansehen",
       },
       {
         href: `/comparateur-cotes`,
-        label: "Comparer les cotes",
-        description: "Trouver la meilleure cote chez les bookmakers",
+        label: "Quoten vergleichen",
+        description: "Die besten Quoten bei den Wettanbietern finden",
       },
     ];
   }
@@ -50,40 +50,40 @@ function getProximityLinks(
     return [
       {
         href: `/mannschaften`,
-        label: `Mannschaft de ${name}`,
-        description: "Découvrir l'effectif complet de sa sélection",
+        label: `Mannschaft von ${name}`,
+        description: "Den vollständigen Kader seiner Nationalmannschaft entdecken",
       },
       {
         href: `/prognose/torschuetzen`,
-        label: "Accéder au pronostic buteurs",
-        description: `Consulter les cotes de ${name} et ses rivaux`,
+        label: "Torschützen-Prognose",
+        description: `Quoten von ${name} und seinen Konkurrenten ansehen`,
       },
       {
         href: `/tirs-cadres/${slug}`,
-        label: "Statistiques tirs cadrés",
-        description: "Voir l'analyse de son efficacité devant le but",
+        label: "Torschuss-Statistiken",
+        description: "Analyse seiner Effizienz vor dem Tor ansehen",
       },
     ];
   }
 
-  // Ville page
+  // Stadt page
   if (currentPath.startsWith("/stadt/") && slug) {
     const name = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     return [
       {
         href: `/stadion/${slug}`,
-        label: `Stadion de ${name}`,
-        description: "Explorer le stade et ses caractéristiques",
+        label: `Stadion in ${name}`,
+        description: "Das Stadion und seine Merkmale erkunden",
       },
       {
         href: `/securite/${slug}`,
-        label: `Sécurité à ${name}`,
-        description: "Consulter le guide sécurité pour les supporters",
+        label: `Sicherheit in ${name}`,
+        description: "Sicherheitsratgeber für Fans ansehen",
       },
       {
         href: `/fan-zone/${slug}`,
-        label: `Fan zones ${name}`,
-        description: "Trouver les meilleurs spots pour suivre les matchs",
+        label: `Fanzonen ${name}`,
+        description: "Die besten Orte zum Spiele schauen finden",
       },
     ];
   }
@@ -95,17 +95,17 @@ function getProximityLinks(
       {
         href: `/prognose/${slug}`,
         label: `Prognose ${name}`,
-        description: `Voir l'analyse et les chances de ${name}`,
+        description: `Analyse und Chancen von ${name} ansehen`,
       },
       {
-        href: `/effectif/${slug}`,
-        label: `Kader complet`,
-        description: "Découvrir les Spielers sélectionnés",
+        href: `/Kader/${slug}`,
+        label: `Vollständiger Kader`,
+        description: "Die nominierten Spieler entdecken",
       },
       {
         href: `/parier/${slug}`,
-        label: `Consulter les cotes`,
-        description: `Comparer les cotes pour ${name}`,
+        label: `Quoten ansehen`,
+        description: `Quoten für ${name} vergleichen`,
       },
     ];
   }
@@ -114,19 +114,19 @@ function getProximityLinks(
   if (currentPath.startsWith("/stadion/") && slug) {
     return [
       {
-        href: `/carte-stades`,
-        label: "Carte des stades",
-        description: "Explorer tous les stades sur la carte interactive",
+        href: `/carte-Stadien`,
+        label: "Stadionkarte",
+        description: "Alle Stadien auf der interaktiven Karte erkunden",
       },
       {
         href: `/Tickets`,
-        label: "Acheter des Tickets",
-        description: "Réserver ses places pour la WM",
+        label: "Tickets kaufen",
+        description: "Plätze für die WM reservieren",
       },
       {
         href: `/staedte`,
-        label: "Guide des villes hôtes",
-        description: "Préparer son séjour dans les villes du mondial",
+        label: "Gastgeberstädte",
+        description: "Den Aufenthalt in den WM-Städten planen",
       },
     ];
   }
@@ -135,18 +135,18 @@ function getProximityLinks(
   return [
     {
       href: "/prognose/sieger",
-      label: "Accéder au pronostic vainqueur",
-      description: "Découvrir notre analyse des favoris des Turniers",
+      label: "Siegerprognose ansehen",
+      description: "Unsere Analyse der Turnierfavoriten entdecken",
     },
     {
       href: "/simulateur",
-      label: "Lancer le simulateur",
-      description: "Simuler l'intégralité de la WM",
+      label: "Simulator starten",
+      description: "Die gesamte WM simulieren",
     },
     {
       href: "/meilleurs-bookmakers",
-      label: "Comparer les bookmakers",
-      description: "Trouver le meilleur site pour parier",
+      label: "Wettanbieter vergleichen",
+      description: "Den besten Anbieter zum Wetten finden",
     },
   ];
 }
@@ -162,7 +162,7 @@ export function ProximityWidget({
   return (
     <div className="bg-gray-50 rounded-xl p-6">
       <p className="text-sm font-semibold text-[#022149] mb-4">
-        Les visiteurs ont aussi consulté
+        Besucher haben auch angesehen
       </p>
       <div className="grid gap-3 sm:grid-cols-3">
         {links.map((link) => (

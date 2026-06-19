@@ -29,7 +29,7 @@ export function EstimatedOdds({ teamName, prediction }: EstimatedOddsProps) {
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         {[
-          { label: "Passer les groupes", odds: probToOdds(prediction.groupStageProb) },
+          { label: "Passer les Gruppen", odds: probToOdds(prediction.groupStageProb) },
           { label: "Atteindre les 8e", odds: probToOdds(prediction.roundOf16Prob) },
           { label: "Atteindre la finale", odds: probToOdds(prediction.finalProb) },
         ].map((item) => (

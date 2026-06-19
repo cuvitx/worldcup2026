@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
-import { teamsBySlug } from "@repo/data/teams";
+import { teamsBySlug } from "../../../../lib/localized-data";
 import { h2hByPair } from "@repo/data/h2h";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link2, Swords, Trophy } from "lucide-react";
@@ -38,7 +38,7 @@ function seed(s: string): number {
 /* Generate fictional historical encounters */
 function getHistoricalMatches(slug: string, t1Name: string, t2Name: string) {
   const s = seed(slug);
-  const competitions = ["WM", "Euro / Copa", "Match amical", "Ligue des Nations", "WM"];
+  const competitions = ["WM", "Euro / Copa", "Freundschaftsspiel", "Nations League", "WM"];
   const years = [2022, 2018, 2014, 2010, 2006, 2002, 1998, 1994, 1990, 1986];
   return Array.from({ length: 5 }, (_, i) => {
     const sc1 = (s + i * 3) % 4;
@@ -47,7 +47,7 @@ function getHistoricalMatches(slug: string, t1Name: string, t2Name: string) {
       year: years[i] ?? 2000 - i * 4,
       competition: competitions[i % competitions.length]!,
       score: `${t1Name} ${sc1} - ${sc2} ${t2Name}`,
-      winner: sc1 > sc2 ? t1Name : sc2 > sc1 ? t2Name : "Nul",
+      winner: sc1 > sc2 ? t1Name : sc2 > sc1 ? t2Name : "Unentschieden",
     };
   });
 }
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!parsed) return {};
   const { team1, team2 } = parsed;
   const title = `${team1.name} vs ${team2.name} : Konfrontationshistorie — CDM 2026`;
-  const description = `Historique complet ${team1.name} - ${team2.name} : bilan face à face, résultats, statistiques H2H et pronostic für die WM 2026.`;
+  const description = `Vollständige Historie ${team1.name} - ${team2.name}: Direktvergleich-Bilanz, Ergebnisse, H2H-Statistiken und Prognose für die WM 2026.`;
   return {
     title,
     description,
@@ -89,27 +89,27 @@ export default async function ConfrontationPage({ params }: PageProps) {
   const historicalMatches = getHistoricalMatches(slug, team1.name, team2.name);
 const breadcrumbSchema = [
     { name: "Startseite", url: "/" },
-    { name: "Confrontations", url: "/confrontations-historiques" },
+    { name: "Direktvergleiche", url: "/confrontations-historiques" },
     { name: `${team1.name} vs ${team2.name}`, url: `/h2h/${slug}` },
   ];
   const faqItems = [
     {
-      question: `Quel est le bilan des confrontations entre ${team1.name} et ${team2.name} ?`,
-      answer: `En ${totalMatches} confrontations, ${team1.name} compte ${t1Wins} victoire${t1Wins > 1 ? "s" : ""}, ${team2.name} ${t2Wins} victoire${t2Wins > 1 ? "s" : ""} et ${draws} match${draws > 1 ? "s" : ""} nul${draws > 1 ? "s" : ""}. Score total : ${t1Goals} buts pour ${team1.name} contre ${t2Goals} pour ${team2.name}.`,
+      question: `Wie ist die Bilanz der Begegnungen zwischen ${team1.name} und ${team2.name}?`,
+      answer: `In ${totalMatches} Begegnungen hat ${team1.name} ${t1Wins} Sieg${t1Wins > 1 ? "e" : ""}, ${team2.name} ${t2Wins} Sieg${t2Wins > 1 ? "e" : ""} und ${draws} Unentschieden. Torbilanz: ${t1Goals} Tore für ${team1.name} gegenüber ${t2Goals} für ${team2.name}.`,
     },
     {
-      question: `${team1.name} et ${team2.name} peuvent-elles se rencontrer à la CDM 2026 ?`,
+      question: `Können ${team1.name} und ${team2.name} bei der WM 2026 aufeinandertreffen?`,
       answer: team1.group === team2.group
-        ? `Oui ! Les deux Mannschafts sont dans le même groupe (Groupe ${team1.group}) et s'affronteront en phase de poules.`
-        : `Pas en phase de groupes (groupes différents), mais une rencontre est possible en phase à élimination directe selon les parcours respectifs.`,
+        ? `Ja! Beide Mannschaften sind in derselben Gruppe (Gruppe ${team1.group}) und werden in der Gruppenphase aufeinandertreffen.`
+        : `Nicht in der Gruppenphase (unterschiedliche Gruppen), aber ein Aufeinandertreffen ist in der K.o.-Phase je nach Turnierverlauf möglich.`,
     },
     {
-      question: `Quel est le match le plus mémorable entre ${team1.name} et ${team2.name} ?`,
-      answer: `Parmi les confrontations les plus marquantes, on retient notamment leurs duels en WM qui ont souvent produit des matchs spectaculaires avec des retournements de situation et des buts décisifs.`,
+      question: `Was war das denkwürdigste Spiel zwischen ${team1.name} und ${team2.name}?`,
+      answer: `Zu den bedeutendsten Begegnungen zählen ihre Duelle bei Weltmeisterschaften, die oft spektakuläre Spiele mit Wendungen und entscheidenden Toren hervorgebracht haben.`,
     },
     {
-      question: `Où parier sur ${team1.name} vs ${team2.name} ?`,
-      answer: `Le meilleur bookmaker pour parier sur ce duel est Betano, agréé par l'ANJ. Retrouvez les cotes en temps réel sur Betano avant de miser.`,
+      question: `Wo kann man auf ${team1.name} vs ${team2.name} wetten?`,
+      answer: `Der beste Buchmacher für Wetten auf dieses Duell ist Betano. Prüfen Sie die aktuellen Quoten auf Betano, bevor Sie Ihre Wette platzieren.`,
     },
   ];
   return (
@@ -144,10 +144,10 @@ const breadcrumbSchema = [
             </div>
           </div>
           <h1 className="mt-6 text-center text-2xl font-extrabold sm:text-4xl">
-            Historique {team1.name} vs {team2.name}
+            Historie {team1.name} vs {team2.name}
           </h1>
           <p className="mt-2 text-center text-gray-300 text-lg">
-            Bilan complet des confrontations et analyse face à face
+            Vollständige Bilanz der Begegnungen und Direktvergleich-Analyse
           </p>
         </div>
       </section>
@@ -157,20 +157,20 @@ const breadcrumbSchema = [
             {/* Bilan H2H */}
             <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900  mb-6">
-                <BarChart3 className="h-6 w-6 text-accent" /> Bilan face à face
+                <BarChart3 className="h-6 w-6 text-accent" /> Direktvergleich-Bilanz
               </h2>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{t1Wins}</p>
-                  <p className="text-xs text-accent mt-1">Siegs {team1.name}</p>
+                  <p className="text-xs text-accent mt-1">Siege {team1.name}</p>
                 </div>
                 <div className="rounded-lg bg-gray-50  p-4 text-center">
                   <p className="text-3xl font-extrabold text-gray-600">{draws}</p>
-                  <p className="text-xs text-accent mt-1">Nuls</p>
+                  <p className="text-xs text-accent mt-1">Unentschieden</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{t2Wins}</p>
-                  <p className="text-xs text-accent mt-1">Siegs {team2.name}</p>
+                  <p className="text-xs text-accent mt-1">Siege {team2.name}</p>
                 </div>
               </div>
               {/* Progress bar */}
@@ -188,7 +188,7 @@ const breadcrumbSchema = [
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg bg-gray-50  p-3 text-center">
                   <p className="text-xl font-bold text-primary">{totalMatches}</p>
-                  <p className="text-xs text-accent">Matchs joués</p>
+                  <p className="text-xs text-accent">Gespielte Spiele</p>
                 </div>
                 <div className="rounded-lg bg-gray-50  p-3 text-center">
                   <p className="text-xl font-bold text-primary">{t1Goals} - {t2Goals}</p>
@@ -199,7 +199,7 @@ const breadcrumbSchema = [
             {/* Dernières confrontations */}
             <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900  mb-4">
-                <Calendar className="h-6 w-6 text-accent" /> Dernières confrontations
+                <Calendar className="h-6 w-6 text-accent" /> Letzte Begegnungen
               </h2>
               <div className="space-y-3">
                 {historicalMatches.map((m, i) => (
@@ -224,7 +224,7 @@ const breadcrumbSchema = [
             {/* Statistiques comparées */}
             <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900  mb-4">
-                <Trophy className="h-6 w-6 text-accent" /> Statistiques comparées
+                <Trophy className="h-6 w-6 text-accent" /> Vergleichende Statistiken
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -238,9 +238,9 @@ const breadcrumbSchema = [
                   <tbody className="divide-y divide-gray-100 ">
                     {[
                       { label: "Rangliste FIFA", v1: `#${team1.fifaRanking}`, v2: `#${team2.fifaRanking}` },
-                      { label: "Participations CDM", v1: String(team1.wcAppearances), v2: String(team2.wcAppearances) },
+                      { label: "WM-Teilnahmen", v1: String(team1.wcAppearances), v2: String(team2.wcAppearances) },
                       { label: "Bestes Ergebnis", v1: team1.bestResult, v2: team2.bestResult },
-                      { label: "Confédération", v1: team1.confederation, v2: team2.confederation },
+                      { label: "Konföderation", v1: team1.confederation, v2: team2.confederation },
                       { label: "Gruppe 2026", v1: team1.group, v2: team2.group },
                     ].map((row) => (
                       <tr key={row.label}>
@@ -255,22 +255,22 @@ const breadcrumbSchema = [
             </section>
             {/* Analyse */}
             <section className="rounded-xl border border-gray-200  bg-white  p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900  mb-4">Analyse de la confrontation</h2>
+              <h2 className="text-2xl font-bold text-gray-900  mb-4">Analyse der Konfrontation</h2>
               <div className="text-accent leading-relaxed space-y-4">
                 <p>
-                  L&apos;affrontement entre {team1.name} et {team2.name} est l&apos;un des classiques du football mondial.
-                  En {totalMatches} rencontres, {t1Wins > t2Wins ? team1.name : t2Wins > t1Wins ? team2.name : "aucune des deux Mannschafts"} domine
-                  le bilan avec {Math.max(t1Wins, t2Wins)} victoires.
+                  Das Aufeinandertreffen zwischen {team1.name} und {team2.name} ist ein Klassiker des Weltfussballs.
+                  In {totalMatches} Begegnungen dominiert {t1Wins > t2Wins ? team1.name : t2Wins > t1Wins ? team2.name : "keine der beiden Mannschaften"}
+                  die Bilanz mit {Math.max(t1Wins, t2Wins)} Siegen.
                 </p>
                 <p>
-                  {team1.name} (FIFA #{team1.fifaRanking}) et {team2.name} (FIFA #{team2.fifaRanking}) comptent respectivement {team1.wcAppearances} et {team2.wcAppearances} participations
-                  en WM. {team1.group === team2.group
-                    ? `Les deux nations sont dans le même Groupe ${team1.group} pour l'édition 2026, garantissant un duel en phase de poules.`
-                    : "Placées dans des groupes différents, une confrontation ne pourrait survenir qu'en phase à élimination directe."}
+                  {team1.name} (FIFA #{team1.fifaRanking}) und {team2.name} (FIFA #{team2.fifaRanking}) haben jeweils {team1.wcAppearances} und {team2.wcAppearances} WM-Teilnahmen.{" "}
+                  {team1.group === team2.group
+                    ? `Beide Nationen sind in derselben Gruppe ${team1.group} für die Ausgabe 2026, was ein Duell in der Gruppenphase garantiert.`
+                    : "Da sie in verschiedenen Gruppen sind, könnte eine Konfrontation erst in der K.o.-Phase stattfinden."}
                 </p>
                 <p>
-                  Avec {t1Goals + t2Goals} buts marqués au total ({t1Goals} pour {team1.name}, {t2Goals} pour {team2.name}),
-                  cette confrontation promet généralement du spectacle et des matchs ouverts.
+                  Mit insgesamt {t1Goals + t2Goals} erzielten Toren ({t1Goals} für {team1.name}, {t2Goals} für {team2.name})
+                  verspricht dieser Direktvergleich in der Regel Spektakel und offene Spiele.
                 </p>
               </div>
             </section>
@@ -281,7 +281,7 @@ const breadcrumbSchema = [
             <div className="rounded-xl bg-accent p-6 text-center text-white shadow-lg">
               <Swords className="mx-auto h-10 w-10 mb-3" />
               <h3 className="text-lg font-bold">Wetten auf {team1.name} vs {team2.name}</h3>
-              <p className="text-sm mt-2 text-white/80">Comparez les meilleures cotes chez les bookmakers agréés ANJ.</p>
+              <p className="text-sm mt-2 text-white/80">Vergleichen Sie die besten Quoten bei lizenzierten Buchmachern.</p>
               <div className="mt-4 space-y-2">
                 <a
                   href={pmuTrackingUrl("h2h")}
@@ -295,7 +295,7 @@ const breadcrumbSchema = [
             </div>
             {/* Fiches Mannschafts */}
             <div className="rounded-xl border border-gray-200  bg-white  p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900  mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Fiches Mannschafts</h3>
+              <h3 className="font-bold text-gray-900  mb-3"><ClipboardList className="h-5 w-5 inline-block" /> Mannschaftsprofile</h3>
               <div className="space-y-2">
                 <Link href={`/mannschaft/${team1.slug}`} className="flex items-center justify-between rounded-lg border border-gray-200  p-3 hover:border-accent transition-colors">
                   <span>{team1.flag} {team1.name}</span>
@@ -309,12 +309,12 @@ const breadcrumbSchema = [
             </div>
             {/* Liens utiles */}
             <div className="rounded-xl border border-gray-200  bg-white  p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900  mb-3"><Link2 className="h-5 w-5 inline-block" /> À voir aussi</h3>
+              <h3 className="font-bold text-gray-900  mb-3"><Link2 className="h-5 w-5 inline-block" /> Siehe auch</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline"><Swords className="h-5 w-5 inline-block" /> H2H détaillé + pronostic</Link></li>
-                <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Cote {team1.name} championne</Link></li>
-                <li><Link href={`/cote-champion/${team2.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Cote {team2.name} championne</Link></li>
-                <li><Link href="/confrontations-historiques" className="text-primary hover:underline"><BarChart3 className="h-5 w-5 inline-block" /> Alle confrontations</Link></li>
+                <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline"><Swords className="h-5 w-5 inline-block" /> Detaillierter H2H + Prognose</Link></li>
+                <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Quote {team1.name} Weltmeister</Link></li>
+                <li><Link href={`/cote-champion/${team2.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Quote {team2.name} Weltmeister</Link></li>
+                <li><Link href="/confrontations-historiques" className="text-primary hover:underline"><BarChart3 className="h-5 w-5 inline-block" /> Alle Direktvergleiche</Link></li>
               </ul>
             </div>
           </aside>
@@ -326,7 +326,7 @@ const breadcrumbSchema = [
       </div>
       {/* Autres confrontations */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-        <h2 className="text-2xl font-bold text-gray-900  mb-6">Autres confrontations historiques</h2>
+        <h2 className="text-2xl font-bold text-gray-900  mb-6">Weitere historische Direktvergleiche</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {CONFRONTATIONS.filter((c) => c !== slug).slice(0, 6).map((c) => {
             const p = parseSlug(c);

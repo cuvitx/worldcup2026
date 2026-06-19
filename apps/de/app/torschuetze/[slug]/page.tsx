@@ -2,8 +2,8 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { players, playersBySlug, playersByTeamId } from "@repo/data/players";
-import { teamsById } from "@repo/data/teams";
+import { players, playersBySlug, playersByTeamId } from "../../../lib/localized-data";
+import { teamsById } from "../../../lib/localized-data";
 import { scorerOddsById, topScorerRanking } from "@repo/data/scorers";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { predictionsByTeamId } from "@repo/data/predictions";
@@ -28,17 +28,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsById[player.teamId];
 
   return {
-    title: `Cote buteur ${player.name} CDM 2026 | Stats, buts & pronostic`,
-    description: `Cote buteur ${player.name} (${team?.name}) für die WM 2026. ${player.goals} buts en ${player.caps} sélections, cotes anytime scorer et Soulier d'Or.`,
+    title: `Quote Torschütze ${player.name} WM 2026 | Statistiken, Tore & Prognose`,
+    description: `Quote Torschütze ${player.name} (${team?.name}) für die WM 2026. ${player.goals} Tore in ${player.caps} Länderspielen, Quoten Anytime Scorer und Goldener Schuh.`,
     alternates: getAlternates("scorer", slug, "de"),
     openGraph: {
-      title: `${team?.flag ?? ""} Cote buteur ${player.name} - CDM 2026`,
-      description: `Stats et cotes buteur de ${player.name} pour la CDM 2026.`,
+      title: `${team?.flag ?? ""} Quote Torschütze ${player.name} - WM 2026`,
+      description: `Statistiken und Quoten Torschütze von ${player.name} für die WM 2026.`,
     },
   };
 }
 
-export default async function ButeurPage({ params }: PageProps) {
+export default async function TorschützePage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player || (player.position !== "FW" && player.position !== "MF")) notFound();
@@ -62,19 +62,19 @@ export default async function ButeurPage({ params }: PageProps) {
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag ?? "\u26bd"}</span>
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Flagge von ${team?.name ?? "Unbekannt"}`}>{team?.flag ?? "\u26bd"}</span>
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">
-                Cote buteur {player.name}
+                Quote Torschütze {player.name}
               </h1>
               <p className="mt-2 text-xl text-gray-300">
                 {positionLabel} &middot; {player.club}
                 {player.clubUpdatedAt && (
-                  <span className="ml-2 text-sm text-gray-500">(club au {player.clubUpdatedAt})</span>
+                  <span className="ml-2 text-sm text-gray-500">(Verein Stand {player.clubUpdatedAt})</span>
                 )}
               </p>
               <p className="mt-1 text-gray-500">
-                {team?.name} &middot; {player.caps} selections &middot; {player.goals} buts
+                {team?.name} &middot; {player.caps} Länderspiele &middot; {player.goals} Tore
               </p>
             </div>
           </div>
@@ -87,34 +87,34 @@ export default async function ButeurPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Scoring Stats */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Statistiques de buts</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Torstatistiken</h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{player.goals}</p>
-                  <p className="text-xs text-gray-500 mt-1">Buts en sélection</p>
+                  <p className="text-xs text-gray-500 mt-1">Tore in Länderspielen</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{player.caps}</p>
-                  <p className="text-xs text-gray-500 mt-1">Selections</p>
+                  <p className="text-xs text-gray-500 mt-1">Länderspiele</p>
                 </div>
                 <div className="rounded-lg bg-primary/5 p-4 text-center">
                   <p className="text-3xl font-extrabold text-primary">{goalsPerCap}</p>
-                  <p className="text-xs text-gray-500 mt-1">Buts/match</p>
+                  <p className="text-xs text-gray-500 mt-1">Tore/Spiel</p>
                 </div>
                 <div className="rounded-lg bg-accent/10 p-4 text-center">
                   <p className="text-3xl font-extrabold text-accent">{scorer?.expectedGoals ?? "—"}</p>
-                  <p className="text-xs text-gray-500 mt-1">Buts attendus CDM</p>
+                  <p className="text-xs text-gray-500 mt-1">Erwartete Tore WM</p>
                 </div>
               </div>
               {scorer && (
                 <p className="mt-4 text-sm text-gray-600">
-                  Avec un ratio de {goalsPerCap} but par match en sélection et une Mannschaft susceptible de jouer
-                  plusieurs tours, {player.name} a une esperance de <strong>{scorer.expectedGoals} buts</strong> durant
-                  la WM 2026 selon notre modele de Poisson.
+                  Mit einem Verhältnis von {goalsPerCap} Toren pro Spiel in Länderspielen und einer Mannschaft, die voraussichtlich
+                  mehrere Runden spielen wird, hat {player.name} eine Erwartung von <strong>{scorer.expectedGoals} Toren</strong> bei
+                  der WM 2026 laut unserem Poisson-Modell.
                 </p>
               )}
               {player.lastUpdated && (
-                <p className="mt-2 text-xs text-gray-500">Statistiques au {player.lastUpdated}</p>
+                <p className="mt-2 text-xs text-gray-500">Statistiken Stand {player.lastUpdated}</p>
               )}
             </section>
 
@@ -126,29 +126,29 @@ export default async function ButeurPage({ params }: PageProps) {
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-gray-200 text-left">
-                        <th className="pb-3 font-medium text-gray-500">Marche</th>
-                        <th className="pb-3 font-medium text-gray-500 text-right">Probabilite</th>
-                        <th className="pb-3 font-medium text-gray-500 text-right">Cote estimee</th>
+                        <th className="pb-3 font-medium text-gray-500">Markt</th>
+                        <th className="pb-3 font-medium text-gray-500 text-right">Wahrscheinlichkeit</th>
+                        <th className="pb-3 font-medium text-gray-500 text-right">Geschätzte Quote</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500">
-                        <td className="py-3 font-medium">Buteur a tout moment (1+ but)</td>
+                        <td className="py-3 font-medium">Torschütze jederzeit (1+ Tor)</td>
                         <td className="py-3 text-right">{(scorer.anytimeScorerProb * 100).toFixed(1)}%</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over05GoalsOdds}</td>
                       </tr>
                       <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500">
-                        <td className="py-3 font-medium">2+ buts dans le tournoi</td>
+                        <td className="py-3 font-medium">2+ Tore im Turnier</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over15GoalsOdds}</td>
                       </tr>
                       <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500">
-                        <td className="py-3 font-medium">3+ buts dans le tournoi</td>
+                        <td className="py-3 font-medium">3+ Tore im Turnier</td>
                         <td className="py-3 text-right">—</td>
                         <td className="py-3 text-right font-bold text-field">{scorer.over25GoalsOdds}</td>
                       </tr>
                       <tr className="hover:bg-gray-50 text-xs uppercase text-gray-500 bg-accent/5">
-                        <td className="py-3 font-bold">Torschützenkönig CDM 2026</td>
+                        <td className="py-3 font-bold">Torschützenkönig WM 2026</td>
                         <td className="py-3 text-right">{(scorer.topScorerProb * 100).toFixed(2)}%</td>
                         <td className="py-3 text-right font-extrabold text-accent">{scorer.topScorerOdds}</td>
                       </tr>
@@ -156,44 +156,44 @@ export default async function ButeurPage({ params }: PageProps) {
                   </table>
                 </div>
                 <p className="mt-4 text-xs text-gray-500">
-                  Les cotes sont estimees par notre modele statistique (distribution de Poisson + rating ELO) avec
-                  une marge bookmaker de ~8%. Elles sont indicatives.
+                  Die Quoten werden durch unser statistisches Modell (Poisson-Verteilung + ELO-Rating) mit
+                  einer Wettanbieter-Marge von ca. 8% geschätzt. Sie sind indikativ.
                 </p>
               </section>
             )}
 
             {/* Analysis Text */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse : {player.name} buteur CDM 2026</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyse: {player.name} Torschütze WM 2026</h2>
               <div className="prose prose-sm max-w-none text-gray-700 space-y-3">
                 <p>
-                  {player.name} ({player.age} ans) evolue au poste de {positionLabel.toLowerCase()} pour {player.club} et
-                  compte {player.goals} buts en {player.caps} selections avec {team?.name ?? "sa sélection"}.
+                  {player.name} ({player.age} Jahre) spielt als {positionLabel} bei {player.club} und
+                  hat {player.goals} Tore in {player.caps} Länderspielen für {team?.name ?? "seine Nationalmannschaft"} erzielt.
                 </p>
                 {team && teamPred && (
                   <p>
-                    {team.name} est classee #{team.fifaRanking} au classement FIFA et a{" "}
-                    {(teamPred.winnerProb * 100).toFixed(1)}% de chances de remporter le tournoi selon notre modele ELO.
-                    Plus l&apos;Mannschaft avance dans la compétition, plus {player.name} aura de matchs pour marquer.
+                    {team.name} steht auf Platz #{team.fifaRanking} der FIFA-Rangliste und hat{" "}
+                    {(teamPred.winnerProb * 100).toFixed(1)}% Chancen, das Turnier laut unserem ELO-Modell zu gewinnen.
+                    Je weiter die Mannschaft im Wettbewerb kommt, desto mehr Spiele hat {player.name}, um Tore zu erzielen.
                   </p>
                 )}
                 {scorer && scorer.expectedGoals >= 2 && (
                   <p>
-                    Avec <strong>{scorer.expectedGoals} buts attendus</strong>, {player.name} fait partie des buteurs les plus
-                    dangereux des Turniers. La cote buteur a tout moment de {scorer.anytimeScorerOdds} reflette une probabilite
-                    elevee de marquer au moins un but durant la CDM.
+                    Mit <strong>{scorer.expectedGoals} erwarteten Toren</strong> gehört {player.name} zu den gefährlichsten Torschützen
+                    des Turniers. Die Anytime-Torschütze-Quote von {scorer.anytimeScorerOdds} spiegelt eine hohe Wahrscheinlichkeit wider,
+                    mindestens ein Tor während der WM zu erzielen.
                   </p>
                 )}
                 {scorer && scorer.expectedGoals < 2 && scorer.expectedGoals >= 0.5 && (
                   <p>
-                    Avec {scorer.expectedGoals} buts attendus, {player.name} a un profil de buteur occasionnel durant
-                    le tournoi. La cote de {scorer.anytimeScorerOdds} peut representer de la valeur si le Spieler est en
-                    forme au moment des Turniers.
+                    Mit {scorer.expectedGoals} erwarteten Toren hat {player.name} das Profil eines gelegentlichen Torschützen
+                    während des Turniers. Die Quote von {scorer.anytimeScorerOdds} kann einen Wert darstellen, wenn der Spieler zum
+                    Zeitpunkt des Turniers in guter Form ist.
                   </p>
                 )}
                 <p>
-                  Pour parier sur {player.name} buteur, comparez les cotes sur les differents bookmakers agréés en
-                  France. Les cotes réelles peuvent offrir de la valeur par rapport à nos estimations.
+                  Um auf {player.name} als Torschütze zu wetten, vergleichen Sie die Quoten bei den verschiedenen lizenzierten
+                  Wettanbietern. Die tatsächlichen Quoten können im Vergleich zu unseren Schätzungen einen Wert bieten.
                 </p>
               </div>
             </section>
@@ -201,7 +201,7 @@ export default async function ButeurPage({ params }: PageProps) {
             {/* Teammates */}
             {teammates.length > 0 && (
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Autres buteurs de {team?.name}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Weitere Torschützen von {team?.name}</h2>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {teammates.map((tm) => {
                     const tmScorer = scorerOddsById[tm.id];
@@ -216,8 +216,8 @@ export default async function ButeurPage({ params }: PageProps) {
                           <p className="text-xs text-gray-500">{tm.position === "FW" ? "Stürmer" : "Mittelfeldspieler"} &middot; {tm.club}</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-sm font-bold text-primary">{tmScorer?.expectedGoals ?? "—"} buts att.</p>
-                          <p className="text-xs text-gray-500">Cote {tmScorer?.anytimeScorerOdds ?? "—"}</p>
+                          <p className="text-sm font-bold text-primary">{tmScorer?.expectedGoals ?? "—"} erw. Tore</p>
+                          <p className="text-xs text-gray-500">Quote {tmScorer?.anytimeScorerOdds ?? "—"}</p>
                         </div>
                       </Link>
                     );
@@ -229,10 +229,10 @@ export default async function ButeurPage({ params }: PageProps) {
             {/* Affiliate CTA */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Wetten auf {player.name} buteur
+                Wetten auf {player.name} Torschütze
               </h2>
               <p className="mb-6 text-sm text-gray-600">
-                Comparez les meilleurs sites de paris sportifs pour parier sur {player.name} buteurà la CDM 2026.
+                Vergleichen Sie die besten Sportwetten-Anbieter, um auf {player.name} als Torschütze bei der WM 2026 zu wetten.
               </p>
               <div className="space-y-4">
                 {bookmakers.map((bk) => {
@@ -246,7 +246,7 @@ export default async function ButeurPage({ params }: PageProps) {
                     >
                       {isFeatured && (
                         <span className="absolute -top-3 left-4 rounded-full bg-accentaccent px-3 py-0.5 text-xs font-bold text-black">
-                          Recommandé
+                          Empfohlen
                         </span>
                       )}
                       <div className="flex-1 text-center sm:text-left">
@@ -266,7 +266,7 @@ export default async function ButeurPage({ params }: PageProps) {
                             isFeatured ? "bg-accent hover:bg-accent/80" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
-                          Parier
+                          Wetten
                         </a>
                       </div>
                     </div>
@@ -280,7 +280,7 @@ export default async function ButeurPage({ params }: PageProps) {
           <div className="space-y-6">
             {/* Quick Stats */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche buteur</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Torschützen-Profil</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Position</dt>
@@ -291,40 +291,40 @@ export default async function ButeurPage({ params }: PageProps) {
                   <dd className="font-medium">{player.club}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Age</dt>
-                  <dd className="font-medium">{player.age} ans</dd>
+                  <dt className="text-gray-500">Alter</dt>
+                  <dd className="font-medium">{player.age} Jahre</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Selections</dt>
+                  <dt className="text-gray-500">Länderspiele</dt>
                   <dd className="font-medium">{player.caps}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Buts</dt>
+                  <dt className="text-gray-500">Tore</dt>
                   <dd className="font-bold text-primary">{player.goals}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Ratio buts/match</dt>
+                  <dt className="text-gray-500">Tore/Spiel-Verhältnis</dt>
                   <dd className="font-bold text-primary">{goalsPerCap}</dd>
                 </div>
                 {scorer && (
                   <>
                     <div className="border-t border-gray-100 pt-3 flex justify-between">
-                      <dt className="text-gray-500">Buts attendus CDM</dt>
+                      <dt className="text-gray-500">Erw. Tore WM</dt>
                       <dd className="font-bold text-accent">{scorer.expectedGoals}</dd>
                     </div>
                     <div className="flex justify-between">
-                      <dt className="text-gray-500">Cote buteur</dt>
+                      <dt className="text-gray-500">Quote Torschütze</dt>
                       <dd className="font-bold text-field">{scorer.anytimeScorerOdds}</dd>
                     </div>
                     <div className="flex justify-between">
-                      <dt className="text-gray-500">Cote top buteur</dt>
+                      <dt className="text-gray-500">Quote Torschützenkönig</dt>
                       <dd className="font-bold text-accent">{scorer.topScorerOdds}</dd>
                     </div>
                   </>
                 )}
                 {topRank >= 0 && (
                   <div className="flex justify-between">
-                    <dt className="text-gray-500">Rangliste buteur</dt>
+                    <dt className="text-gray-500">Rangliste Torschütze</dt>
                     <dd className="font-bold text-accent">#{topRank + 1}</dd>
                   </div>
                 )}
@@ -334,14 +334,14 @@ export default async function ButeurPage({ params }: PageProps) {
                   href={`/spieler/${player.slug}`}
                   className="block w-full text-center rounded-lg bg-primary py-2 text-sm font-medium text-white hover:bg-primary/90 transition-colors"
                 >
-                  Fiche complete du Spieler &rarr;
+                  Vollständiges Spielerprofil &rarr;
                 </Link>
                 {team && (
                   <Link
                     href={`/mannschaft/${team.slug}`}
                     className="block w-full text-center rounded-lg border border-primary py-2 text-sm font-medium text-primary hover:bg-primary/5 transition-colors"
                   >
-                    <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span> Fiche {team.name} &rarr;
+                    <span role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span> Profil {team.name} &rarr;
                   </Link>
                 )}
               </div>
@@ -355,11 +355,11 @@ export default async function ButeurPage({ params }: PageProps) {
               {scorer && (
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Cote buteur</span>
+                    <span className="text-gray-600">Quote Torschütze</span>
                     <span className="font-bold text-field">{scorer.anytimeScorerOdds}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Buts attendus</span>
+                    <span className="text-gray-600">Erwartete Tore</span>
                     <span className="font-bold text-accent">{scorer.expectedGoals}</span>
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 rel="noopener noreferrer sponsored nofollow"
                 className="block w-full text-center rounded-xl bg-accent py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
               >
-                {featuredBookmaker.bonus} sur {featuredBookmaker.name}
+                {featuredBookmaker.bonus} bei {featuredBookmaker.name}
               </a>
               <p className="mt-2 text-xs text-gray-500 text-center">
                 {featuredBookmaker.bonusDetail}
@@ -379,16 +379,16 @@ export default async function ButeurPage({ params }: PageProps) {
 
             {/* Guide link */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Guides paris buteurs</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Wett-Ratgeber Torschützen</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/guide/parier-buteurs" className="text-primary hover:underline">
-                    Comment parier sur les buteurs CDM 2026 &rarr;
+                  <Link href="/guide/parier-Torschützen" className="text-primary hover:underline">
+                    So wetten Sie auf die Torschützen der WM 2026 &rarr;
                   </Link>
                 </li>
                 <li>
                   <Link href="/guide/comment-parier-cdm-2026" className="text-primary hover:underline">
-                    Guide complet pour parier sur la CDM &rarr;
+                    Vollständiger Ratgeber zum Wetten auf die WM &rarr;
                   </Link>
                 </li>
               </ul>
@@ -410,7 +410,7 @@ export default async function ButeurPage({ params }: PageProps) {
               "@type": "SportsTeam",
               name: team?.name ?? "",
             },
-            description: `Cote buteur ${player.name} pour la CDM 2026. ${player.goals} buts en ${player.caps} selections.`,
+            description: `Quote Torschütze ${player.name} für die WM 2026. ${player.goals} Tore in ${player.caps} Länderspielen.`,
             url: `https://www.wm2026guide.de/torschuetze/${player.slug}`,
           }),
         }}

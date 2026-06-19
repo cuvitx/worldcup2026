@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroImage } from "../../components/hero-image";
 import { notFound } from "next/navigation";
-import { stadiums, stadiumsBySlug } from "@repo/data/stadiums";
-import { citiesById } from "@repo/data/cities";
+import { stadiums, stadiumsBySlug } from "../../../lib/localized-data";
+import { citiesById } from "../../../lib/localized-data";
 import { matchesByStadium } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../lib/localized-data";
 import { stageLabels } from "@repo/data/constants";
 import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-react"
 import { PmuBanner } from "../../components/PmuBanner";
@@ -179,7 +179,7 @@ export default async function StadiumPage({ params }: PageProps) {
                       </div>
                     </div>
                     <Link
-                      href={`/carte-stades#${stadium.slug}`}
+                      href={`/carte-Stadien#${stadium.slug}`}
                       className="shrink-0 rounded-lg bg-primary hover:bg-primary/80 text-white text-sm font-medium px-4 py-2 transition-colors"
                     >
                       Karte ansehen →
@@ -326,13 +326,13 @@ export default async function StadiumPage({ params }: PageProps) {
               <ul className="space-y-2 text-sm">
                 {city && (
                   <li>
-                    <Link href={`/guide-ville/${city.slug}`} className="text-primary hover:underline">
-                      <BookOpen className="h-5 w-5 inline-block" /> Guide {city.name}
+                    <Link href={`/stadt/${city.slug}`} className="text-primary hover:underline">
+                      <BookOpen className="h-5 w-5 inline-block" /> Stadtführer {city.name}
                     </Link>
                   </li>
                 )}
                 <li>
-                  <Link href="/carte-stades" className="text-primary hover:underline">
+                  <Link href="/carte-Stadien" className="text-primary hover:underline">
                     <MapIcon className="h-5 w-5 inline-block" /> Stadionkarte
                   </Link>
                 </li>
@@ -351,7 +351,7 @@ export default async function StadiumPage({ params }: PageProps) {
 
             {/* PMU Banner */}
             <div className="mt-6">
-              <PmuBanner tracking="stade" compact />
+              <PmuBanner tracking="stadion" compact />
               <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/verantwortungsvolles-spielen" className="underline">Verantwortungsvolles Spielen</a></p>
             </div>
 

@@ -45,7 +45,7 @@ export function MatchSidebar({
       {stadium && (
         <Card hover padding="md">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Lieu du match
+            Spielort
           </h3>
           <Link
             href={`/stadion/${stadium.slug}`}
@@ -53,7 +53,7 @@ export function MatchSidebar({
           >
             <p className="font-semibold">{stadium.name}</p>
             <p className="text-sm text-gray-500">
-              {stadium.capacity.toLocaleString("de-DE")} places &middot;{" "}
+              {stadium.capacity.toLocaleString("de-DE")} Plätze &middot;{" "}
               {stadium.city}
             </p>
           </Link>
@@ -62,7 +62,7 @@ export function MatchSidebar({
               href={`/stadt/${city.slug}`}
               className="mt-2 block text-sm text-primary hover:underline"
             >
-              Guide de {city.name} &rarr;
+              Stadtführer {city.name} &rarr;
             </Link>
           )}
         </Card>
@@ -70,7 +70,7 @@ export function MatchSidebar({
 
       <Card hover padding="md">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Diffusion TV
+          TV-Übertragung
         </h3>
         <div className="space-y-3">
           <div className="flex items-center gap-2 text-sm">
@@ -80,7 +80,7 @@ export function MatchSidebar({
                 {tvInfo.channels.join(", ")}
               </p>
               <p className="text-xs text-gray-500">
-                Streaming : {tvInfo.streaming.join(", ")}
+                Streaming: {tvInfo.streaming.join(", ")}
               </p>
             </div>
           </div>
@@ -89,23 +89,23 @@ export function MatchSidebar({
 
       <Card hover padding="md">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Infos match
+          Spielinfos
         </h3>
         <dl className="space-y-3 text-sm">
           <DataRow label="Phase" value={stage} />
           {match.group && (
-            <DataRow label="Groupe">
+            <DataRow label="Gruppe">
               <Link
                 href={`/gruppe/${match.group.toLowerCase()}`}
                 className="text-primary hover:underline"
               >
-                Groupe {match.group}
+                Gruppe {match.group}
               </Link>
             </DataRow>
           )}
-          {match.matchday && <DataRow label="Journée" value={`J${match.matchday}`} />}
-          <DataRow label="Date" value={dateFormatted} />
-          <DataRow label="Heure (Paris)" value={match.time} />
+          {match.matchday && <DataRow label="Spieltag" value={`${match.matchday}. Spieltag`} />}
+          <DataRow label="Datum" value={dateFormatted} />
+          <DataRow label="Uhrzeit (Berlin)" value={match.time} />
         </dl>
       </Card>
 
@@ -139,11 +139,11 @@ export function MatchSidebar({
       ) : (
         <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Cotes du match
+            Quoten des Spiels
           </h3>
           <p className="text-sm text-gray-600">
-            Les cotes des bookmakers pour ce match seront disponibles
-            prochainement.
+            Die Wettquoten der Buchmacher für dieses Spiel werden in Kürze
+            verfügbar sein.
           </p>
         </div>
       )}

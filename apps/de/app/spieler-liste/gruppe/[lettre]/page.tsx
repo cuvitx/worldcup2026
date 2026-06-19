@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsById } from "@repo/data/teams";
+import { teams, teamsById } from "../../../../lib/localized-data";
 import { groups } from "@repo/data/groups";
-import { players } from "@repo/data/players";
+import { players } from "../../../../lib/localized-data";
 
 interface Props { params: Promise<{ lettre: string }> }
 
@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const group = groups.find((g) => g.slug === lettre);
   if (!group) return {};
   return {
-    title: `Spielers Groupe ${group.letter.toUpperCase()} — CDM 2026`,
-    description: `Tous les Spielers du Groupe ${group.letter.toUpperCase()} der WM 2026. Fiches et statistiques par Mannschaft.`,
+    title: `Spielers Gruppe ${group.letter.toUpperCase()} — CDM 2026`,
+    description: `Tous les Spielers du Gruppe ${group.letter.toUpperCase()} der WM 2026. Fiches et statistiques par Mannschaft.`,
   };
 }
 
@@ -33,7 +33,7 @@ export default async function SpielersGroupePage({ params }: Props) {
       <section className="hero-animated text-white py-12">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold">
-            Spielers Groupe {group.letter.toUpperCase()} — CDM 2026
+            Spielers Gruppe {group.letter.toUpperCase()} — CDM 2026
           </h1>
           <p className="mt-3 text-white/70 text-lg">{groupTeams.length} Mannschafts</p>
         </div>

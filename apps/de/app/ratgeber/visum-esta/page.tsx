@@ -169,19 +169,19 @@ export default function GuideVisaEsta() {
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-900">Où dormir pendant la CDM 2026</h3>
-              <p className="text-sm text-gray-500 mt-1">Guide hébergement villes hôtes</p>
+              <p className="text-sm text-gray-500 mt-1">Guide hébergement Städte hôtes</p>
             </Link>
             <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900"><TrainFront className="h-5 w-5 inline-block" /> Se déplacer entre les stades</h3>
-              <p className="text-sm text-gray-500 mt-1">Transport inter-villes et logistique</p>
+              <h3 className="text-lg font-semibold text-gray-900"><TrainFront className="h-5 w-5 inline-block" /> Se déplacer entre les Stadien</h3>
+              <p className="text-sm text-gray-500 mt-1">Transport inter-Städte et logistique</p>
             </Link>
             <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-900"> Budget CDM 2026</h3>
               <p className="text-sm text-gray-500 mt-1">Combien ça coûte ? Estimation complète</p>
             </Link>
             <Link href="/stadien" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900"> Les stades de la CDM 2026</h3>
-              <p className="text-sm text-gray-500 mt-1">Tous les stades du Mondial</p>
+              <h3 className="text-lg font-semibold text-gray-900"> Les Stadien de la CDM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Tous les Stadien du Mondial</p>
             </Link>
           </div>
         </div>

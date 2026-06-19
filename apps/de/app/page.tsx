@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { groups } from "@repo/data/groups";
-import { teams, teamsById } from "@repo/data/teams";
+import { teams, teamsById } from "../lib/localized-data";
 import { matches } from "@repo/data/matches";
-import { stadiums, stadiumsById } from "@repo/data/stadiums";
+import { stadiums, stadiumsById } from "../lib/localized-data";
 import { getHomeAlternates } from "@repo/data/route-mapping";
 import { newsArticles } from "@repo/data/news";
 import { DISPLAY_LIMITS } from "@repo/data/constants";

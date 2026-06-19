@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../lib/localized-data";
+import { stadiumsById } from "../../lib/localized-data";
 import { getUpcomingMatches } from "@repo/utils";
 
 const upcomingMatches = getUpcomingMatches(matches)
@@ -45,7 +45,7 @@ export function UpcomingMatches() {
               >
                 <div className="mb-3 flex items-center justify-between text-xs text-gray-500">
                   <span>
-                    Groupe {match.group} · Journée {match.matchday}
+                    Gruppe {match.group} · Journée {match.matchday}
                   </span>
                   <span>{formatDate(match.date)}</span>
                 </div>

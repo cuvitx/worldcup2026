@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsById } from "@repo/data/teams";
-import { players } from "@repo/data/players";
+import { teams, teamsById } from "../../../../lib/localized-data";
+import { players } from "../../../../lib/localized-data";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!team) return {};
   return {
     title: `Spielers ${team.name} — CDM 2026 | Liste complète`,
-    description: `Tous les Spielers de ${team.name} sélectionnés für die WM 2026. Fiches détaillées, statistiques et profils.`,
+    description: `Tous les Spielers de ${team.name} Aufgebotnés für die WM 2026. Fiches détaillées, statistiques et profils.`,
     openGraph: { images: [{ url: `/api/og?type=equipe&slug=${slug}`, width: 1200, height: 630 }] },
   };
 }
@@ -44,7 +44,7 @@ export default async function SpielersEquipePage({ params }: Props) {
           <h1 className="text-3xl sm:text-4xl font-extrabold">
             {team.flag} Spielers {team.name} — CDM 2026
           </h1>
-          <p className="mt-3 text-white/70 text-lg">{teamPlayers.length} Spielers sélectionnés</p>
+          <p className="mt-3 text-white/70 text-lg">{teamPlayers.length} Spielers Aufgebotnés</p>
         </div>
       </section>
 

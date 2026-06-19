@@ -184,7 +184,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       {/* Match list */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {filtered.length === 0 ? (
-          <p className="text-center text-gray-500 py-12">Keine Spiele ne correspond aux filtres sélectionnés.</p>
+          <p className="text-center text-gray-500 py-12">Keine Spiele ne correspond aux filtres Aufgebotnés.</p>
         ) : (
           Array.from(matchesByStage.entries()).map(([stage, stageMatches], stageIdx) => {
             const byDate = new Map<string, MatchData[]>();

@@ -1,6 +1,6 @@
 import { groups } from "@repo/data/groups";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../lib/localized-data";
 
 function getPredictedGroupPositions(groupLetter: string) {
   const group = groups.find((g) => g.letter === groupLetter);

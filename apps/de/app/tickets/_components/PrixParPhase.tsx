@@ -13,10 +13,10 @@ export function PrixParPhase() {
     <section id="prix" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-           Prix des Tickets par phase
+           Ticketpreise nach Phase
         </h2>
         <p className="text-sm text-gray-500 mb-6">
-          Tarifs officiels FIFA en USD (convertibles en EUR selon taux de change). Gruppenphase à la finale.
+          Offizielle FIFA-Preise in USD (umrechenbar in EUR je nach Wechselkurs). Von der Gruppenphase bis zum Finale.
         </p>
 
         <div className="space-y-4">
@@ -53,8 +53,8 @@ export function PrixParPhase() {
         </div>
 
         <p className="mt-4 text-xs text-gray-600">
-          * Prix indicatifs basés sur les annonces FIFA 2025. Les prix finaux seront confirmés sur fifa.com/tickets.
-          Taux de change USD/EUR fluctue — prévoir ~0.92 EUR par USD.
+          * Richtpreise basierend auf FIFA-Ankündigungen 2025. Die endgültigen Preise werden auf fifa.com/tickets bestätigt.
+          Der USD/EUR-Wechselkurs schwankt — rechnen Sie mit ca. 0,92 EUR pro USD.
         </p>
       </div>
     </section>

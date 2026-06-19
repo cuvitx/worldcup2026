@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
 
 export const revalidate = 3600; // 1h cache
 

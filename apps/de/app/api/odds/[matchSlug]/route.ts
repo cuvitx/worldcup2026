@@ -1,5 +1,5 @@
 import { matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../../lib/localized-data";
 import { getOddsForMatch } from "@repo/api/odds";
 import { matchSlugSchema } from "@repo/api";
 

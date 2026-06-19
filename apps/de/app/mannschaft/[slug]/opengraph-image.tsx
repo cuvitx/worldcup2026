@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../../lib/localized-data";
 export const alt = "Mannschaft CDM 2026";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

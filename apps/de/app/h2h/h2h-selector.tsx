@@ -27,7 +27,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
       <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 text-center">
-        Choisissez deux Mannschafts
+        Wählen Sie zwei Mannschaften
       </h2>
       <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
         <select
@@ -63,7 +63,7 @@ export function H2HSelector({ teams }: { teams: Team[] }) {
           disabled={!team1 || !team2 || team1 === team2}
           className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
         >
-          Comparer
+          Vergleichen
         </button>
       </div>
     </div>

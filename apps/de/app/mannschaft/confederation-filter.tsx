@@ -71,7 +71,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
             <div className="min-w-0">
               <p className="font-semibold text-gray-900 truncate">{team.name}</p>
               <p className="text-xs text-gray-500">
-                #{team.fifaRanking} FIFA · Groupe {team.group}
+                #{team.fifaRanking} FIFA · Gruppe {team.group}
               </p>
               {team.isHost && (
                 <span className="inline-block mt-1 text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">

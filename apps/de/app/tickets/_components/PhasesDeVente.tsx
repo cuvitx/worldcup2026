@@ -5,7 +5,7 @@ export function PhasesDeVente() {
     <section className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
-           Spielplan des phases de vente
+           Zeitplan der Verkaufsphasen
         </h2>
 
         <div className="space-y-3">

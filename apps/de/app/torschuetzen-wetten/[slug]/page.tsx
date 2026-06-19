@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, TrendingUp, BarChart3, ArrowRight } from "lucide-react";
-import { players } from "@repo/data/players";
-import { teamsById } from "@repo/data/teams";
+import { players } from "../../../lib/localized-data";
+import { teamsById } from "../../../lib/localized-data";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
@@ -34,23 +34,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const player = playersBySlug[slug];
   if (!player) return {};
   return {
-    title: `Cote ${player.name} Buteur CDM 2026 — Prognose et Analyse`,
-    description: `Torschützen-Quoten de ${player.name} für die WM 2026 : ein Tor erzielen, Torschützenkönig. Betano-Quoten.`,
-    alternates: { canonical: `https://www.wm2026guide.de/cote-buteur/${slug}` },
+    title: `Quote ${player.name} Torschütze WM 2026 -- Prognose und Analyse`,
+    description: `Torschützen-Quoten von ${player.name} für die WM 2026: ein Tor erzielen, Torschützenkönig. Betano-Quoten.`,
+    alternates: { canonical: `https://www.wm2026guide.de/cote-Torschütze/${slug}` },
   };
 }
 export const dynamicParams = true;
-export default async function CoteButeurPage({ params }: PageProps) {
+export default async function CoteTorschützePage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
   const team = teamsById[player.teamId];
   const odds = getScorerOdds(slug);
 const faqItems = [
-    { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Betano propose une cote autour de ${odds.pmusportAnytime} pour au moins 1 but dans le tournoi.` },
-    { question: `Quelle est la cote de ${player.name} Torschützenkönig ?`, answer: `La cote Torschützenkönig chez Betano est de ${odds.pmusportTopScorer}.` },
-    { question: "Comment parier sur un buteur de la WM ?", answer: "Plusieurs marchés existent : buteur des Turniers (au moins 1 but), Torschützenkönig, buteur d'un match précis. Retrouvez tous ces marchés sur Betano." },
-    { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur des Turniers » et « Torschützenkönig ». Les tirs au but ne comptent généralement pas." },
+    { question: `Wird ${player.name} bei der WM 2026 ein Tor erzielen?`, answer: `Mit ${odds.goalsInternational} Toren in Länderspielen und einem Durchschnitt von ${odds.goalsPerMatch} Toren/Spiel ist ${player.name} ein ernsthafter Kandidat. Betano bietet eine Quote von etwa ${odds.pmusportAnytime} für mindestens 1 Tor im Turnier.` },
+    { question: `Was ist die Quote für ${player.name} als Torschützenkönig?`, answer: `Die Torschützenkönig-Quote bei Betano beträgt ${odds.pmusportTopScorer}.` },
+    { question: "Wie wettet man auf einen Torschützen der WM?", answer: "Es gibt verschiedene Märkte: Torschütze des Turniers (mindestens 1 Tor), Torschützenkönig, Torschütze eines bestimmten Spiels. Alle diese Märkte finden Sie bei Betano." },
+    { question: "Zählen Tore in der Verlängerung?", answer: "Ja, Tore in der Verlängerung zählen für die Wetten auf Torschütze des Turniers und Torschützenkönig. Elfmeterschießen-Tore zählen in der Regel nicht." },
   ];
   const comparisons = TOP_50_SLUGS.filter((s) => s !== slug && playersBySlug[s]).slice(0, 4);
   return (
@@ -60,7 +60,7 @@ const faqItems = [
         <div className="max-w-5xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl font-extrabold mt-4">
             <Trophy className="inline w-8 h-8 mr-2" />
-            Cote {player.name} Buteur CDM 2026 — Prognose et Analyse
+            Quote {player.name} Torschütze WM 2026 -- Prognose und Analyse
           </h1>
           <p className="text-accent mt-3 text-lg max-w-2xl">
             {player.name} ({team?.name}) • {player.position} • {player.club}
@@ -70,27 +70,27 @@ const faqItems = [
       {/* Stats */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-          <BarChart3 className="w-6 h-6 text-accent" /> Statistiques buteur en sélection
+          <BarChart3 className="w-6 h-6 text-accent" /> Torschützen-Statistiken in Länderspielen
         </h2>
         <div className="grid sm:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{odds.goalsInternational}</div>
-            <div className="text-sm text-accent mt-1">Buts en sélection</div>
+            <div className="text-sm text-accent mt-1">Tore in Länderspielen</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{odds.goalsPerMatch}</div>
-            <div className="text-sm text-accent mt-1">Buts / match</div>
+            <div className="text-sm text-accent mt-1">Tore / Spiel</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{odds.wcPreviousGoals}</div>
-            <div className="text-sm text-accent mt-1">Buts en CDM précédentes</div>
+            <div className="text-sm text-accent mt-1">Tore bei vorherigen WMs</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <div className="text-3xl font-extrabold text-primary">{player.caps}</div>
-            <div className="text-sm text-accent mt-1">Aufgebots</div>
+            <div className="text-sm text-accent mt-1">Länderspiele</div>
           </div>
         </div>
-        {/* Tableau cotes : Marquer au moins 1 but */}
+        {/* Quotentabelle: Mindestens 1 Tor */}
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <TrendingUp className="w-6 h-6 text-accent" /> Betano-Quoten : Mindestens 1 Tor im Turnier
         </h2>
@@ -98,8 +98,8 @@ const faqItems = [
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left p-3 font-semibold">Bookmaker</th>
-                <th className="text-center p-3 font-semibold">Cote</th>
+                <th className="text-left p-3 font-semibold">Wettanbieter</th>
+                <th className="text-center p-3 font-semibold">Quote</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -110,14 +110,14 @@ const faqItems = [
             </tbody>
           </table>
         </div>
-        {/* Tableau cotes : Torschützenkönig */}
+        {/* Quotentabelle: Torschützenkönig */}
         <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten : Torschützenkönig des Turniers</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left p-3 font-semibold">Bookmaker</th>
-                <th className="text-center p-3 font-semibold">Cote</th>
+                <th className="text-left p-3 font-semibold">Wettanbieter</th>
+                <th className="text-center p-3 font-semibold">Quote</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -128,14 +128,14 @@ const faqItems = [
             </tbody>
           </table>
         </div>
-        {/* Tableau cotes : Buteur prochain match */}
+        {/* Quotentabelle: Torschütze nächstes Spiel */}
         <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten : Torschütze im nächsten Spiel</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left p-3 font-semibold">Bookmaker</th>
-                <th className="text-center p-3 font-semibold">Cote</th>
+                <th className="text-left p-3 font-semibold">Wettanbieter</th>
+                <th className="text-center p-3 font-semibold">Quote</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -149,38 +149,38 @@ const faqItems = [
         <p className="text-xs text-gray-400 mt-3">Richtquoten, Änderungen vorbehalten. Prüfen Sie vor dem Wetten bei Betano.</p>
         <div className="mt-6">
           <a
-            href={pmuTrackingUrl("cote-buteur")}
+            href={pmuTrackingUrl("cote-Torschütze")}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             className="inline-block bg-accent text-white rounded-xl py-3 px-6 font-semibold hover:opacity-90 transition-opacity"
           >
-            Willkommensbonus — Wetten auf {player.name} chez Betano →
+            Willkommensbonus -- Wetten auf {player.name} bei Betano →
           </a>
         </div>
       </section>
       {/* Analyse */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">Analyse : style de jeu et potentiel buteur</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4">Analyse: Spielstil und Torschützen-Potenzial</h2>
       </section>
-      {/* Maillage */}
+      {/* Verlinkung */}
       <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold text-primary mb-6">À découvrir aussi</h2>
+        <h2 className="text-2xl font-bold text-primary mb-6">Entdecken Sie auch</h2>
         <div className="grid md:grid-cols-3 gap-4">
           <Link href={`/spieler/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-            <span className="font-semibold text-primary">Fiche {player.name}</span>
+            <span className="font-semibold text-primary">Profil {player.name}</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
           <Link href="/prognose/torschuetzen" className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-            <span className="font-semibold text-primary">Prognose buteurs CDM 2026</span>
+            <span className="font-semibold text-primary">Prognose Torschützen WM 2026</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
           <Link href={`/tirs-cadres/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-            <span className="font-semibold text-primary">Tirs cadrés {player.name}</span>
+            <span className="font-semibold text-primary">Torschüsse {player.name}</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
         </div>
       </section>
-      <FAQSection title={`Häufig gestellte Fragen — Cote ${player.name} Buteur`} items={faqItems} />
+      <FAQSection title={`Häufig gestellte Fragen -- Quote ${player.name} Torschütze`} items={faqItems} />
     </>
   );
 }

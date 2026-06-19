@@ -11,9 +11,9 @@ import { matches, matchesBySlug } from "@repo/data/matches";
 import { enrichMatchesWithResults, resolveApiFixtureId } from "@repo/api/football/match-results";
 import { getFixtureEvents, getLineup, getFixtureStatistics, getFixturePlayers } from "@repo/api/football";
 import type { ApiFixtureEvent, ApiLineup, ApiFixtureStatistic, ApiFixturePlayer } from "@repo/api/football";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
-import { citiesById } from "@repo/data/cities";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
+import { citiesById } from "../../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
 import { teamApiIds } from "@repo/data/api-football-ids";
@@ -30,7 +30,7 @@ import {
   MatchLineups,
   MatchStatistics,
   MatchPlayerRatings,
-  UpcomingPronosticsGrid,
+  UpcomingPrognosesGrid,
   MatchCommentary,
   MatchVotingWidget,
 } from "./_components";
@@ -374,7 +374,7 @@ export default async function MatchPage({ params }: PageProps) {
   let nextOdds: typeof matchOdds = null;
 
 
-  // Upcoming pronostics for the grid (completed match pages)
+  // Upcoming Prognoses for the grid (completed match pages)
   let upcomingPrognoses: Array<{
     slug: string;
     date: string;
@@ -412,7 +412,7 @@ export default async function MatchPage({ params }: PageProps) {
         : null;
     }
 
-    // Build pronostics grid data (4 upcoming matches)
+    // Build Prognoses grid data (4 upcoming matches)
     upcomingPrognoses = upcoming.slice(0, 4).map((m) => {
       const h = teamsById[m.homeTeamId];
       const a = teamsById[m.awayTeamId];
@@ -616,10 +616,10 @@ export default async function MatchPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Upcoming pronostics grid (completed matches only) */}
+      {/* Upcoming Prognoses grid (completed matches only) */}
       {isCompleted && upcomingPrognoses.length > 0 && (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8">
-          <UpcomingPronosticsGrid matches={upcomingPrognoses} />
+          <UpcomingPrognosesGrid matches={upcomingPrognoses} />
         </div>
       )}
 

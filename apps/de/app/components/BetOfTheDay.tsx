@@ -1,11 +1,11 @@
 // ============================================================================
 // BetOfTheDay — Widget "Pari du jour"
-// Auto-sélectionne le prochain match avec le favori le plus net.
+// Auto-Aufgebotne le prochain match avec le favori le plus net.
 // ============================================================================
 
 import Link from "next/link";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { stageLabels } from "@repo/data/constants";
 import { bookmakers } from "@repo/data/affiliates";

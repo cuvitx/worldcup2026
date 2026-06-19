@@ -27,7 +27,7 @@ export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
           <thead className="bg-gray-50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-2 text-left">Mannschaft</th>
-              <th className="px-4 py-2 text-center">Qual. groupes</th>
+              <th className="px-4 py-2 text-center">Qual. Gruppen</th>
               <th className="px-4 py-2 text-center">1/8 de finale</th>
               <th className="px-4 py-2 text-center">1/4 de finale</th>
               <th className="px-4 py-2 text-center">Vainqueur</th>

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
 import { PrintButton } from "./PrintButton";
 export const metadata: Metadata = {
   title: "Spielplan CDM 2026 — Version imprimable",
   description:
-    "Version imprimable du spielplan complet der WM 2026 : les 104 matchs avec dates, horaires, stades et Mannschafts. Format PDF.",
+    "Version imprimable du spielplan complet der WM 2026 : les 104 matchs avec dates, horaires, Stadien et Mannschafts. Format PDF.",
   alternates: { canonical: "https://www.wm2026guide.de/spielplan/imprimer" },
   robots: { index: false, follow: false },
 };
@@ -20,7 +20,7 @@ function stadiumName(id: string): string {
 }
 
 function stageLabel(stage: string, group?: string): string {
-  if (stage === "group" && group) return `Groupe ${group}`;
+  if (stage === "group" && group) return `Gruppe ${group}`;
   const labels: Record<string, string> = {
     round32: "32es de finale",
     round16: "8es de finale",

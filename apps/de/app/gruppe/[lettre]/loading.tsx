@@ -2,7 +2,7 @@ export default function Loading() {
   return (
     <div className="flex flex-1 flex-col min-h-[70vh] bg-gray-50">
       <div className="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
-        {/* Groupe header */}
+        {/* Gruppe header */}
         <div className="mb-8">
           <div className="h-10 w-48 bg-gray-200 rounded-lg mb-3 animate-pulse" />
           <div className="h-4 w-64 bg-gray-200 rounded-full animate-pulse" />

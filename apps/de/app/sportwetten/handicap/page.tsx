@@ -4,13 +4,13 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Scale, ArrowRight, Info, CheckCircle, XCircle, MinusCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Handicap asiatique CDM 2026 — Guide complet avec exemples",
+  title: "Asian Handicap WM 2026 — Kompletter Ratgeber mit Beispielen",
   description:
-    "Guide complet du handicap asiatique für die WM 2026. Explication +0.5, -1.5, quand l'utiliser, exemples concrets avec calculs.",
+    "Kompletter Ratgeber zum Asian Handicap für die WM 2026. Erklärung +0.5, -1.5, wann man es nutzt, konkrete Beispiele mit Berechnungen.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/handicap" },
   openGraph: {
-    title: "Handicap asiatique CDM 2026 — Guide complet",
-    description: "Maîtrisez le handicap asiatique pour vos paris CDM 2026. Exemples concrets.",
+    title: "Asian Handicap WM 2026 — Kompletter Ratgeber",
+    description: "Meistern Sie das Asian Handicap für Ihre WM-2026-Wetten. Konkrete Beispiele.",
     url: "https://www.wm2026guide.de/sportwetten/handicap",
   },
 };
@@ -28,69 +28,69 @@ const examples: Example[] = [
   {
     match: "France vs Australie",
     handicap: "France -1.5",
-    bet: "Cote 2.10",
-    result: "France 3-1",
+    bet: "Quote 2,10",
+    result: "Frankreich 3:1",
     outcome: "won",
-    explanation: "France gagne de 2 buts. Avec le handicap -1.5, le score ajusté est 1.5-1. Pari gagné car 1.5 > 1.",
+    explanation: "Frankreich gewinnt mit 2 Toren Unterschied. Mit Handicap -1.5 ist der angepasste Spielstand 1.5:1. Wette gewonnen, da 1.5 > 1.",
   },
   {
-    match: "Argentine vs Arabie Saoudite",
-    handicap: "Argentine -1.5",
-    bet: "Cote 1.85",
-    result: "Argentine 1-2",
+    match: "Argentinien vs Saudi-Arabien",
+    handicap: "Argentinien -1.5",
+    bet: "Quote 1,85",
+    result: "Argentinien 1:2",
     outcome: "lost",
-    explanation: "Argentine perd ! Score ajusté : -0.5-2. Pari perdu largement. Le handicap amplifie la perte.",
+    explanation: "Argentinien verliert! Angepasster Spielstand: -0.5:2. Wette deutlich verloren. Das Handicap verstärkt den Verlust.",
   },
   {
-    match: "Brésil vs Suisse",
-    handicap: "Brésil -0.5",
-    bet: "Cote 1.70",
-    result: "Brésil 1-0",
+    match: "Brasilien vs Schweiz",
+    handicap: "Brasilien -0.5",
+    bet: "Quote 1,70",
+    result: "Brasilien 1:0",
     outcome: "won",
-    explanation: "Brésil gagne de 1. Score ajusté : 0.5-0. Le handicap -0.5 élimine le nul — victoire = pari gagné.",
+    explanation: "Brasilien gewinnt mit 1 Tor. Angepasster Spielstand: 0.5:0. Das Handicap -0.5 eliminiert das Unentschieden — Sieg = Wette gewonnen.",
   },
   {
-    match: "Espagne vs Japon",
-    handicap: "Japon +1.5",
-    bet: "Cote 1.55",
-    result: "Espagne 1-0",
+    match: "Spanien vs Japan",
+    handicap: "Japan +1.5",
+    bet: "Quote 1,55",
+    result: "Spanien 1:0",
     outcome: "won",
-    explanation: "Japon perd de 1. Avec +1.5, le score ajusté est 0+1.5=1.5 vs 1. Le Japon 'gagne' avec le handicap.",
+    explanation: "Japan verliert mit 1 Tor. Mit +1.5 ist der angepasste Spielstand 0+1.5=1.5 vs 1. Japan 'gewinnt' mit dem Handicap.",
   },
   {
-    match: "Allemagne vs Mexique",
-    handicap: "Allemagne -1.0",
-    bet: "Cote 2.00",
-    result: "Allemagne 1-0",
+    match: "Deutschland vs Mexiko",
+    handicap: "Deutschland -1.0",
+    bet: "Quote 2,00",
+    result: "Deutschland 1:0",
     outcome: "push",
-    explanation: "Allemagne gagne de 1 exactement. Avec -1.0, le score ajusté est 0-0. Remboursement (push).",
+    explanation: "Deutschland gewinnt mit genau 1 Tor. Mit -1.0 ist der angepasste Spielstand 0:0. Erstattung (Push).",
   },
 ];
 
 const handicapTypes = [
-  { value: "0", desc: "Élimine le nul. Si nul → remboursé (push)." },
-  { value: "-0.5", desc: "Élimine le nul. L'Mannschaft doit gagner pour que le pari passe." },
-  { value: "-1.0", desc: "L'Mannschaft doit gagner de 2+. Si victoire de 1 → push." },
-  { value: "-1.5", desc: "L'Mannschaft doit gagner de 2+. Pas de push possible." },
-  { value: "-2.0", desc: "L'Mannschaft doit gagner de 3+. Si victoire de 2 → push." },
-  { value: "+0.5", desc: "L'Mannschaft peut perdre de 0. Unentschieden ou victoire = pari gagné." },
-  { value: "+1.0", desc: "L'Mannschaft peut perdre de 1 (push) ou moins." },
-  { value: "+1.5", desc: "L'Mannschaft peut perdre de 1 but et le pari est gagné." },
+  { value: "0", desc: "Eliminiert das Unentschieden. Bei Unentschieden → Erstattung (Push)." },
+  { value: "-0.5", desc: "Eliminiert das Unentschieden. Die Mannschaft muss gewinnen, damit die Wette zählt." },
+  { value: "-1.0", desc: "Die Mannschaft muss mit 2+ Toren gewinnen. Bei Sieg mit 1 Tor → Push." },
+  { value: "-1.5", desc: "Die Mannschaft muss mit 2+ Toren gewinnen. Kein Push möglich." },
+  { value: "-2.0", desc: "Die Mannschaft muss mit 3+ Toren gewinnen. Bei Sieg mit 2 Toren → Push." },
+  { value: "+0.5", desc: "Die Mannschaft darf nicht verlieren. Unentschieden oder Sieg = Wette gewonnen." },
+  { value: "+1.0", desc: "Die Mannschaft darf mit 1 Tor verlieren (Push) oder weniger." },
+  { value: "+1.5", desc: "Die Mannschaft darf mit 1 Tor verlieren und die Wette ist gewonnen." },
 ];
 
 export default function ParisHandicapPage() {
   const faqItems = [
     {
-      question: "Quelle est la différence entre handicap asiatique et handicap européen ?",
-      answer: "Le handicap asiatique utilise des demi-buts (0.5, 1.5) et offre des remboursements (push) sur les handicaps entiers. Le handicap européen inclut le nul comme résultat possible, ce qui donne 3 issues au lieu de 2. L'asiatique est plus adapté aux paris à 2 issues.",
+      question: "Was ist der Unterschied zwischen Asian Handicap und Europäischem Handicap?",
+      answer: "Das Asian Handicap verwendet halbe Tore (0.5, 1.5) und bietet Erstattungen (Push) bei ganzzahligen Handicaps. Das Europäische Handicap schließt das Unentschieden als mögliches Ergebnis ein, was 3 statt 2 Ausgänge ergibt. Das Asiatische ist besser für Wetten mit 2 Ausgängen geeignet.",
     },
     {
-      question: "Quand utiliser le handicap -0.5 ?",
-      answer: "Le handicap -0.5 est idéal quand vous pensez qu'une Mannschaft va gagner mais que la cote 1X2 est trop basse. Il élimine le nul : victoire = gagné, nul ou défaite = perdu. C'est l'équivalent d'un pari 'victoire' classique mais souvent avec de meilleures cotes.",
+      question: "Wann sollte man Handicap -0.5 verwenden?",
+      answer: "Das Handicap -0.5 ist ideal, wenn Sie denken, dass eine Mannschaft gewinnt, aber die 1X2-Quote zu niedrig ist. Es eliminiert das Unentschieden: Sieg = gewonnen, Unentschieden oder Niederlage = verloren. Es entspricht einer klassischen 'Sieg'-Wette, aber oft mit besseren Quoten.",
     },
     {
-      question: "Le handicap asiatique est-il rentable sur la CDM 2026 ?",
-      answer: "Le handicap asiatique est particulièrement intéressant en CDM car les écarts de niveau entre les 48 Mannschafts sont importants. Un favori à -1.5 à 2.10 offre souvent plus de value qu'une victoire simple à 1.25.",
+      question: "Ist das Asian Handicap bei der WM 2026 profitabel?",
+      answer: "Das Asian Handicap ist bei der WM besonders interessant, da die Leistungsunterschiede zwischen den 48 Mannschaften groß sind. Ein Favorit mit -1.5 bei 2,10 bietet oft mehr Value als ein einfacher Sieg bei 1,25.",
     },
   ];
 
@@ -100,14 +100,14 @@ export default function ParisHandicapPage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
-            Guide paris sportifs
+            Sportwetten-Ratgeber
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Handicap asiatique CDM 2026
+            Asian Handicap WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Le guide complet pour maîtriser le handicap asiatique : +0.5, -1.5, push, exemples concrets
-            et quand l&apos;utiliser pendant la CDM 2026.
+            Der komplette Ratgeber zum Asian Handicap: +0.5, -1.5, Push, konkrete Beispiele
+            und wann man es während der WM 2026 einsetzt.
           </p>
         </div>
       </section>
@@ -117,14 +117,14 @@ export default function ParisHandicapPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Scale className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary">Les différents handicaps</h2>
+            <h2 className="text-2xl font-bold text-primary">Die verschiedenen Handicaps</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-primary text-white">
                   <th className="py-3 px-4 text-left rounded-tl-lg">Handicap</th>
-                  <th className="py-3 px-4 text-left rounded-tr-lg">Signification</th>
+                  <th className="py-3 px-4 text-left rounded-tr-lg">Bedeutung</th>
                 </tr>
               </thead>
               <tbody>
@@ -143,7 +143,7 @@ export default function ParisHandicapPage() {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Info className="h-7 w-7 text-accent" />
-            <h2 className="text-2xl font-bold text-primary">Exemples concrets</h2>
+            <h2 className="text-2xl font-bold text-primary">Konkrete Beispiele</h2>
           </div>
           <div className="space-y-4">
             {examples.map((ex) => {
@@ -159,9 +159,9 @@ export default function ParisHandicapPage() {
                   <div className="flex flex-wrap gap-3 text-xs mb-2">
                     <span className="bg-primary/10 px-2 py-1 rounded font-mono">{ex.handicap}</span>
                     <span className="bg-accent/10 text-accent px-2 py-1 rounded">{ex.bet}</span>
-                    <span className="bg-gray-100 px-2 py-1 rounded">Résultat : {ex.result}</span>
+                    <span className="bg-gray-100 px-2 py-1 rounded">Ergebnis : {ex.result}</span>
                     <span className={`font-bold ${color} uppercase`}>
-                      {ex.outcome === "won" ? "Gagné" : ex.outcome === "lost" ? "Perdu" : "Remboursé"}
+                      {ex.outcome === "won" ? "Gewonnen" : ex.outcome === "lost" ? "Verloren" : "Erstattet"}
                     </span>
                   </div>
                   <p className="text-sm text-gray-600">{ex.explanation}</p>
@@ -173,14 +173,14 @@ export default function ParisHandicapPage() {
 
         <div className="text-center">
           <Link href="/sportwetten/cashout" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-            Guide du cashout <ArrowRight className="h-4 w-4" />
+            Cashout-Ratgeber <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
+          Sportwetten bergen Risiken. Spielen Sie verantwortungsvoll. 18+ | Informationen und Hilfe auf bzga.de (BZgA).
         </p>
       </div>
     </>

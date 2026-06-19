@@ -83,8 +83,8 @@ export default function ExpandablePlayerList({ players }: { players: Player[] })
           className="mt-2 w-full rounded-lg border border-gray-300 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
         >
           {expanded
-            ? "Masquer l\u2019effectif"
-            : `Alle anzeigen l\u2019effectif (${players.length} Spielers)`}
+            ? "Masquer l\u2019Kader"
+            : `Alle anzeigen l\u2019Kader (${players.length} Spielers)`}
         </button>
       )}
     </div>

@@ -4,7 +4,7 @@ import { OddsCompare } from "@repo/ui/odds-compare";
 import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import type { Team, Match, MatchPrediction, Stadium, City, Bookmaker } from "@repo/data";
 import type { MatchPreviewData } from "@repo/ai/generators";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../../lib/localized-data";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { BetOfTheDay } from "../../../components/BetOfTheDay";
 

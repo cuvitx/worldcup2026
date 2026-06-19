@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../lib/localized-data";
 import Flag from "@repo/ui/flag";
 import { TableOfContents } from "@repo/ui";
 import { PmuBanner } from "../components/PmuBanner";
 
 export const metadata: Metadata = {
-  title: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts qualifiées | CDM 2026",
+  title: "FIFA-Rangliste 2026 – Ranking der 48 qualifizierten Mannschaften | WM 2026",
   description:
-    "Rangliste FIFA complet des 48 Mannschafts qualifiées für die WM 2026. Découvrez le ranking officiel, les mouvements et l'évolution des sélections.",
+    "Vollständige FIFA-Rangliste der 48 qualifizierten Mannschaften für die WM 2026. Entdecken Sie das offizielle Ranking, die Bewegungen und die Entwicklung der Nationalmannschaften.",
   openGraph: {
-    title: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts",
+    title: "FIFA-Rangliste 2026 – Ranking der 48 qualifizierten Mannschaften",
     description:
-      "Rangliste FIFA officiel des 48 sélections qualifiées pour la CDM 2026, avec historique et analyse.",
+      "Offizielle FIFA-Rangliste der 48 qualifizierten Mannschaften für die WM 2026, mit Historie und Analyse.",
     url: "https://www.wm2026guide.de/fifa-ranking",
   },
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Préparer les Mannschafts triées par classement FIFA
+// Mannschaften nach FIFA-Rangliste sortiert
 const teamsRanked = [...teams]
   .filter((t) => t.fifaRanking > 0)
   .sort((a, b) => a.fifaRanking - b.fifaRanking);
@@ -31,28 +31,28 @@ const playoffTeams = teams.filter((t) => t.fifaRanking === 0);
 
 const faqItems = [
   {
-    question: "Comment fonctionne le classement FIFA ?",
-    answer: "Le classement FIFA est calculé selon un système basé sur les points obtenus lors des matchs officiels (compétitions, qualifications et amicaux). Les critères incluent le résultat du match, l'importance de la compétition, la force de l'adversaire et la confédération. Les points sont pondérés sur 4 ans avec un poids décroissant pour les matchs les plus anciens. Le classement est mis à jour mensuellement par la FIFA."
+    question: "Wie funktioniert die FIFA-Rangliste?",
+    answer: "Die FIFA-Rangliste wird anhand eines Punktesystems berechnet, das auf den Ergebnissen offizieller Spiele basiert (Wettbewerbe, Qualifikation und Freundschaftsspiele). Berücksichtigt werden das Spielergebnis, die Bedeutung des Wettbewerbs, die Stärke des Gegners und die Konföderation. Die Punkte werden über 4 Jahre gewichtet, wobei ältere Spiele weniger stark einfließen. Die Rangliste wird monatlich von der FIFA aktualisiert."
   },
   {
-    question: "Quel est le pays #1 au classement FIFA en 2026 ?",
-    answer: "L'Argentine occupe la première place du classement FIFA en juin 2026, suivie de la France (#2) et de l'Espagne (#3). Les champions du monde 2022 ont consolidé leur position grâce à leur victoire au Qatar et leurs performances régulières en qualifications."
+    question: "Welches Land ist 2026 auf Platz 1 der FIFA-Rangliste?",
+    answer: "Argentinien belegt im Juni 2026 den ersten Platz der FIFA-Rangliste, gefolgt von Frankreich (#2) und Spanien (#3). Die Weltmeister von 2022 haben ihre Position dank ihres Sieges in Katar und konstanter Leistungen in der Qualifikation gefestigt."
   },
   {
-    question: "Le classement FIFA influence-t-il le tirage au sort ?",
-    answer: "Oui, le classement FIFA est utilisé pour déterminer les têtes de série lors du tirage au sort de la WM. Les 12 Mannschafts les mieux classées sont généralement réparties dans les différents chapeaux, ce qui influence les groupes et donc les parcours potentiels des sélections."
+    question: "Beeinflusst die FIFA-Rangliste die Gruppenauslosung?",
+    answer: "Ja, die FIFA-Rangliste wird verwendet, um die Setzliste bei der WM-Auslosung zu bestimmen. Die 12 bestplatzierten Mannschaften werden in der Regel als Gruppenköpfe gesetzt, was die Gruppenzusammensetzung und damit die möglichen Turnierwege der Nationalmannschaften beeinflusst."
   },
   {
-    question: "Quelle est l'Mannschaft la moins bien classée qualifiée pour la CDM 2026 ?",
-    answer: "Parmi les Mannschafts déjà qualifiées (hors barrages), l'Afrique du Sud est l'Mannschaft la moins bien classée au ranking FIFA (#60). Les six places de barrages restantes pourraient accueillir des Mannschafts avec un classement moins favorable."
+    question: "Welche ist die am niedrigsten platzierte qualifizierte Mannschaft für die WM 2026?",
+    answer: "Unter den bereits qualifizierten Mannschaften (ohne Playoffs) ist Südafrika die am niedrigsten platzierte Mannschaft in der FIFA-Rangliste (#60). Die sechs verbleibenden Playoff-Plätze könnten von Mannschaften mit einem niedrigeren Ranking belegt werden."
   },
   {
-    question: "À quelle fréquence le classement FIFA est-il mis à jour ?",
-    answer: "Le classement FIFA est mis à jour mensuellement, généralement le jeudi suivant les fenêtres internationales. Les mises à jour prennent en compte tous les matchs internationaux disputés, pondérés selon leur importance (WM, qualifications, amicaux, etc.)."
+    question: "Wie oft wird die FIFA-Rangliste aktualisiert?",
+    answer: "Die FIFA-Rangliste wird monatlich aktualisiert, in der Regel am Donnerstag nach den internationalen Länderspielpausen. Die Aktualisierungen berücksichtigen alle ausgetragenen Länderspiele, gewichtet nach ihrer Bedeutung (WM, Qualifikation, Freundschaftsspiele usw.)."
   },
   {
-    question: "Le classement FIFA est-il fiable pour prédire les résultats ?",
-    answer: "Le classement FIFA est un bon indicateur de la force relative des Mannschafts, mais il ne prédit pas toujours les résultats d'un match donné. Des facteurs comme la forme du moment, les blessures, l'avantage du terrain et les tactiques peuvent inverser les pronostics. Néanmoins, statistiquement, les Mannschafts mieux classées ont plus de chances de réussite."
+    question: "Ist die FIFA-Rangliste zuverlässig für Ergebnisprognosen?",
+    answer: "Die FIFA-Rangliste ist ein guter Indikator für die relative Stärke der Mannschaften, sagt aber nicht immer das Ergebnis eines einzelnen Spiels voraus. Faktoren wie die aktuelle Form, Verletzungen, Heimvorteil und Taktik können die Prognosen verändern. Statistisch gesehen haben jedoch besser platzierte Mannschaften größere Erfolgschancen."
   }
 ];
 
@@ -66,18 +66,18 @@ export default function RanglisteFifaPage() {
             Ranking FIFA 2026
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Rangliste FIFA des 48 Mannschafts
+            FIFA-Rangliste der 48 Mannschaften
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            Découvrez le classement FIFA complet des sélections qualifiées für die WM 2026.
-            Ranking officiel, évolution et analyse par confédération.
+            Entdecken Sie die vollständige FIFA-Rangliste der qualifizierten Mannschaften für die WM 2026.
+            Offizielles Ranking, Entwicklung und Analyse nach Konföderation.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { val: "48", label: "Mannschaften qualifiées" },
-              { val: "6", label: "Confédérations" },
-              { val: "ARG", label: "#1 Mondial" },
-              { val: "12", label: "Têtes de série" },
+              { val: "48", label: "Qualifizierte Mannschaften" },
+              { val: "6", label: "Konföderationen" },
+              { val: "ARG", label: "#1 Weltweit" },
+              { val: "12", label: "Gruppenköpfe" },
             ].map(({ val, label }) => (
               <div key={label} className="rounded-xl bg-white/10 px-6 py-3 min-w-[110px]">
                 <div className="text-3xl font-extrabold text-white">{val}</div>
@@ -93,24 +93,24 @@ export default function RanglisteFifaPage() {
           {/* Intro */}
           <div className="mb-10">
             <h2 id="introduction" className="text-2xl font-bold text-gray-900 mb-4">
-              Le classement FIFA : référence mondiale
+              Die FIFA-Rangliste: weltweiter Maßstab
             </h2>
             <p className="text-gray-700 mb-3 leading-relaxed">
-              Le classement mondial de la FIFA est l'indicateur de référence pour évaluer la force des sélections nationales.
-              Mis à jour mensuellement depuis 1993, il prend en compte les résultats des matchs officiels pondérés par leur importance,
-              la force de l'adversaire et la confédération concernée.
+              Die FIFA-Weltrangliste ist der Referenzindikator zur Bewertung der Stärke der Nationalmannschaften.
+              Seit 1993 monatlich aktualisiert, berücksichtigt sie die Ergebnisse offizieller Spiele, gewichtet nach deren Bedeutung,
+              der Stärke des Gegners und der jeweiligen Konföderation.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Pour la WM 2026, le classement FIFA a joué un rôle décisif dans la composition des chapeaux lors du tirage au sort.
-              Les 12 Mannschafts les mieux classées ont été réparties comme têtes de série dans les 12 groupes, 
-              influençant directement les parcours et les confrontations potentielles.
+              Für die WM 2026 spielte die FIFA-Rangliste eine entscheidende Rolle bei der Zusammensetzung der Lostöpfe.
+              Die 12 bestplatzierten Mannschaften wurden als Gruppenköpfe in die 12 Gruppen eingeteilt,
+              was die Turnierwege und möglichen Begegnungen direkt beeinflusste.
             </p>
           </div>
 
-          {/* Tableau classement FIFA */}
+          {/* Tabelle FIFA-Rangliste */}
           <div className="mb-12">
-            <h2 id="classement-complet" className="text-2xl font-bold text-gray-900 mb-6">
-              Rangliste FIFA complet (juin 2026)
+            <h2 id="Rangliste-complet" className="text-2xl font-bold text-gray-900 mb-6">
+              Vollständige FIFA-Rangliste (Juni 2026)
             </h2>
             
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
@@ -125,13 +125,13 @@ export default function RanglisteFifaPage() {
                         Mannschaft
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                        Confédération
+                        Konföderation
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                        Groupe
+                        Gruppe
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                        CDM
+                        WM
                       </th>
                     </tr>
                   </thead>
@@ -151,7 +151,7 @@ export default function RanglisteFifaPage() {
                             </span>
                             {team.fifaRanking <= 12 && (
                               <span className="text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full">
-                                tête de série
+                                Gruppenkopf
                               </span>
                             )}
                           </div>
@@ -175,7 +175,7 @@ export default function RanglisteFifaPage() {
                             href={`/gruppe/${team.group.toLowerCase()}`}
                             className="text-sm font-semibold text-gray-900 hover:text-accent transition-colors"
                           >
-                            Groupe {team.group}
+                            Gruppe {team.group}
                           </Link>
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
@@ -191,10 +191,10 @@ export default function RanglisteFifaPage() {
             {playoffTeams.length > 0 && (
               <div className="mt-6 bg-gray-50 rounded-xl p-5 border border-gray-200">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">
-                  Places de barrages en attente
+                  Ausstehende Playoff-Plätze
                 </h3>
                 <p className="text-sm text-gray-600 mb-3">
-                  {playoffTeams.length} places restent à déterminer via les barrages UEFA et intercontinentaux (mars 2026) :
+                  {playoffTeams.length} Plätze sind noch über die UEFA- und interkontinentalen Playoffs (März 2026) zu vergeben:
                 </p>
                 <ul className="space-y-1.5">
                   {playoffTeams.map((team) => (
@@ -211,14 +211,14 @@ export default function RanglisteFifaPage() {
           {/* PMU Banner */}
           <section className="py-6 sm:py-8">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <PmuBanner tracking="classement-fifa" />
+              <PmuBanner tracking="Rangliste-fifa" />
             </div>
           </section>
 
-          {/* Analyse par confédération */}
+          {/* Analyse nach Konföderation */}
           <div className="mb-12">
             <h2 id="par-confederation" className="text-2xl font-bold text-gray-900 mb-6">
-              Répartition par confédération
+              Verteilung nach Konföderation
             </h2>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -241,11 +241,11 @@ export default function RanglisteFifaPage() {
                         <span className="text-sm font-bold text-gray-900">{confTeams.length}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Meilleur rang</span>
+                        <span className="text-sm text-gray-600">Bester Rang</span>
                         <span className="text-sm font-bold text-accent">#{bestRank || "—"}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Rang moyen</span>
+                        <span className="text-sm text-gray-600">Durchschnittl. Rang</span>
                         <span className="text-sm font-bold text-gray-900">{avgRank}</span>
                       </div>
                     </div>
@@ -258,7 +258,7 @@ export default function RanglisteFifaPage() {
           {/* Top 10 */}
           <div className="mb-12">
             <h2 id="top-10" className="text-2xl font-bold text-gray-900 mb-6">
-              Top 10 mondial FIFA
+              FIFA Top 10 weltweit
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {teamsRanked.slice(0, 10).map((team) => (
@@ -276,7 +276,7 @@ export default function RanglisteFifaPage() {
                       {team.name}
                     </div>
                     <div className="text-xs text-gray-600">
-                      {team.confederation} · Groupe {team.group}
+                      {team.confederation} · Gruppe {team.group}
                     </div>
                   </div>
                 </Link>
@@ -287,9 +287,9 @@ export default function RanglisteFifaPage() {
           {/* Navigation */}
           <div className="mt-12 grid sm:grid-cols-3 gap-4">
             {[
-              { href: "/mannschaft", label: "Alle Mannschafts", desc: "48 sélections qualifiées" },
-              { href: "/gruppen", label: "Composition des groupes", desc: "12 groupes de 4 Mannschafts" },
-              { href: "/statistiques", label: "Statistiques CDM", desc: "Records et analyses" },
+              { href: "/mannschaft", label: "Alle Mannschaften", desc: "48 qualifizierte Mannschaften" },
+              { href: "/gruppen", label: "Gruppenübersicht", desc: "12 Gruppen mit je 4 Mannschaften" },
+              { href: "/statistiques", label: "WM-Statistiken", desc: "Rekorde und Analysen" },
             ].map(({ href, label, desc }) => (
               <Link
                 key={href}
@@ -306,24 +306,24 @@ export default function RanglisteFifaPage() {
         </div>
 
         <TableOfContents items={[
-          { id: "introduction", label: "Introduction", level: 2 },
-          { id: "classement-complet", label: "Rangliste complet", level: 2 },
-          { id: "par-confederation", label: "Par confédération", level: 2 },
-          { id: "top-10", label: "Top 10 mondial", level: 2 },
+          { id: "introduction", label: "Einführung", level: 2 },
+          { id: "Rangliste-complet", label: "Vollständige Rangliste", level: 2 },
+          { id: "par-confederation", label: "Nach Konföderation", level: 2 },
+          { id: "top-10", label: "Top 10 weltweit", level: 2 },
         ]} />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
-          { href: "/mannschaft", title: "48 Mannschafts qualifiées", description: "Fiches complètes des Mannschafts de la CDM 2026", icon: "" },
-          { href: "/gruppen", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "" },
-          { href: "/prognose/sieger", title: "Prognose vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
-          { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés des Turniers", icon: "" },
-          { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre Mannschaft", icon: "" },
+          { href: "/mannschaft", title: "48 qualifizierte Mannschaften", description: "Vollständige Steckbriefe der WM-2026-Mannschaften", icon: "" },
+          { href: "/gruppen", title: "Die 12 Gruppen", description: "Zusammensetzung und Analyse jeder Gruppe", icon: "" },
+          { href: "/prognose/sieger", title: "Siegerprognose", description: "Wer gewinnt die WM 2026?", icon: "" },
+          { href: "/statistiques", title: "Statistiken", description: "Zahlen und Fakten zum Turnier", icon: "" },
+          { href: "/simulateur", title: "Simulator", description: "Simulieren Sie den Weg Ihrer Mannschaft", icon: "" },
         ]} />
       </div>
 
-      <FAQSection title="Questions sur le classement FIFA" items={faqItems} />
+      <FAQSection title="Fragen zur FIFA-Rangliste" items={faqItems} />
 
       {/* Schema.org */}
       <script
@@ -332,12 +332,12 @@ export default function RanglisteFifaPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts qualifiées",
-            description: "Rangliste FIFA complet des 48 Mannschafts qualifiées für die WM 2026.",
+            name: "FIFA-Rangliste 2026 – Ranking der 48 qualifizierten Mannschaften",
+            description: "Vollständige FIFA-Rangliste der 48 qualifizierten Mannschaften für die WM 2026.",
             url: "https://www.wm2026guide.de/fifa-ranking",
             mainEntity: {
               "@type": "ItemList",
-              name: "Rangliste FIFA des Mannschafts qualifiées CDM 2026",
+              name: "FIFA-Rangliste der qualifizierten Mannschaften WM 2026",
               numberOfItems: teamsRanked.length,
               itemListElement: teamsRanked.slice(0, 20).map((team, idx) => ({
                 "@type": "ListItem",

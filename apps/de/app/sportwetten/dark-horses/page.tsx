@@ -26,18 +26,18 @@ const outsiders = [
   {
     team: "🇯🇵 Japon", cote: 50.0, ranking: 18,
     strengths: ["A battu l'Allemagne et l'Espagne en 2022", "Spielers en top clubs européens (Kubo, Mitoma, Kamada)", "Discipline tactique impeccable", "Progression constante depuis 20 ans"],
-    weakness: "Manque de buteur de classe mondiale. Difficultés en phase à élimination directe.",
+    weakness: "Manque de Torschütze de classe mondiale. Difficultés en phase à élimination directe.",
     valueArg: "Capable de battre n'importe qui sur un match. Les huitièmes sont accessibles, les quarts un objectif réaliste."
   },
   {
     team: "🇺🇸 États-Unis", cote: 40.0, ranking: 16,
-    strengths: ["Pays hôte — avantage terrain considérable", "Génération talentueuse : Pulisic, McKennie, Reyna, Musah", "Public passionné, stades de 80 000+ places", "Investissements massifs dans le football US"],
+    strengths: ["Pays hôte — avantage terrain considérable", "Génération talentueuse : Pulisic, McKennie, Reyna, Musah", "Public passionné, Stadien de 80 000+ places", "Investissements massifs dans le football US"],
     weakness: "Expérience limitée au plus haut niveau. Pression de jouer à domicile.",
     valueArg: "L'avantage du pays hôte en CDM est historiquement fort (3 victoires sur 21 éditions). Les USA visent les quarts minimum."
   },
   {
     team: "🇨🇴 Colombie", cote: 45.0, ranking: 15,
-    strengths: ["Finaliste Copa América 2024", "James Rodríguez toujours magique en sélection", "Luis Díaz en forme étincelante", "Style de jeu séduisant et offensif"],
+    strengths: ["Finaliste Copa América 2024", "James Rodríguez toujours magique en Aufgebot", "Luis Díaz en forme étincelante", "Style de jeu séduisant et offensif"],
     weakness: "Irrégularité historique en CDM. Dépendance aux individualités.",
     valueArg: "La Colombie en confiance est l'une des Mannschafts les plus dangereuses du monde. Finaliste Copa 2024, elle arrive en forme."
   },
@@ -64,7 +64,7 @@ const outsiders = [
 const faqItems = [
   { question: "Qu'est-ce qu'un dark horse en football ?", answer: "Un dark horse (ou outsider) est une Mannschaft qui n'est pas considérée comme favorite mais qui possède le potentiel pour créer la surprise. En CDM, c'est typiquement une nation classée entre la 10ème et la 30ème place mondiale, avec des Spielers de talent en clubs européens." },
   { question: "Les dark horses peuvent-ils vraiment gagner la CDM ?", answer: "C'est rare mais possible. La Croatie (finaliste 2018), le Maroc (demi-finaliste 2022) et la Turquie (3ème en 2002) ont prouvé que les outsiders pouvaient aller très loin. Gagner le titre reste extrêmement difficile : seuls 8 pays ont remporté la CDM en 92 ans." },
-  { question: "Comment identifier un bon dark horse ?", answer: "Cherchez : 1) une Mannschaft en progression récente (résultats en hausse), 2) des Spielers clés en forme dans de grands clubs, 3) un groupe de poules abordable, 4) un entraîneur expérimenté, 5) une cote qui ne reflète pas le vrai niveau de l'Mannschaft." },
+  { question: "Comment identifier un bon dark horse ?", answer: "Cherchez : 1) une Mannschaft en progression récente (Ergebnisse en hausse), 2) des Spielers clés en forme dans de grands clubs, 3) un Gruppe de poules abordable, 4) un Trainer expérimenté, 5) une cote qui ne reflète pas le vrai niveau de l'Mannschaft." },
   { question: "Quel est le meilleur dark horse CDM 2026 ?", answer: "Le Maroc est le dark horse le plus crédible : demi-finaliste 2022, défense de classe mondiale, stars en Europe. Les USA bénéficient de l'avantage hôte. La Colombie arrive en forme après sa finale de Copa 2024. Chacun a un argument fort." },
 ];
 

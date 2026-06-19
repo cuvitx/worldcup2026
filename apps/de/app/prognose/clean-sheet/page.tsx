@@ -37,7 +37,7 @@ const csStats = [
 const faqItems = [
   { question: "Qu'est-ce qu'un pari clean sheet ?", answer: "Un pari clean sheet consiste à parier qu'une Mannschaft ne concédera aucun but pendant les 90 minutes réglementaires (hors prolongations). Si le score est 0-0 ou si votre Mannschaft gagne sans encaisser, le pari est gagnant." },
   { question: "Quelle Mannschaft a le meilleur bilan clean sheet en CDM ?", answer: "Historiquement, les grandes nations européennes dominent : l'Italie, l'Allemagne et la France ont les meilleurs bilans. En 2022, le Maroc a impressionné avec 4 clean sheets, ne concédant qu'un seul but (contre-son-camp) en 5 matchs avant la demi-finale." },
-  { question: "Les clean sheets sont-elles plus fréquentes en phase de groupes ?", answer: "Non, c'est l'inverse. Les matchs à élimination directe produisent plus de clean sheets car les Mannschafts jouent de manière plus prudente. En moyenne, 50% des matchs de phase finale comportent au moins un clean sheet, contre 42% en phase de groupes." },
+  { question: "Les clean sheets sont-elles plus fréquentes en phase de Gruppen ?", answer: "Non, c'est l'inverse. Les matchs à élimination directe produisent plus de clean sheets car les Mannschafts jouent de manière plus prudente. En moyenne, 50% des matchs de phase finale comportent au moins un clean sheet, contre 42% en phase de Gruppen." },
   { question: "Le Torwart a-t-il une importance dans le pari clean sheet ?", answer: "Absolument. Un Torwart de classe mondiale comme Donnarumma, Maignan ou Martínez peut faire la différence. Analysez les stats du Torwart titulaire, son nombre d'arrêts par match et sa fiabilité sur penalty." },
 ];
 
@@ -125,7 +125,7 @@ export default function PrognoseCleanSheetPage() {
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-primary mb-2">En phase de groupes</h3>
+            <h3 className="font-bold text-primary mb-2">En phase de Gruppen</h3>
             <p className="text-sm text-gray-700">Ciblez les favoris contre les petites nations. France, Italie et Argentine face à des adversaires modestes offrent les meilleures opportunités de clean sheet à des cotes intéressantes (1.8-2.2).</p>
           </div>
           <div className="border border-gray-200 rounded-xl p-5">

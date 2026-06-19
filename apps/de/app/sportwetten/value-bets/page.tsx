@@ -5,126 +5,126 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { TrendingUp, Calculator, Target, ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Value Bets CDM 2026 — Cotes Sous-Estimées & Paris à Valeur",
+  title: "Value Bets WM 2026 — Unterschätzte Quoten & Wertwetten",
   description:
-    "Guide complet des value bets für die WM 2026. Méthodologie, calcul, et 10 exemples concrets de paris à valeur sur la CDM 2026.",
+    "Kompletter Ratgeber zu Value Bets für die WM 2026. Methodik, Berechnung und 10 konkrete Beispiele für Wertwetten zur WM 2026.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/value-bets" },
   openGraph: {
-    title: "Value Bets CDM 2026 — Guide & Exemples",
+    title: "Value Bets WM 2026 — Ratgeber & Beispiele",
     description:
-      "Identifiez les cotes sous-estimées de la CDM 2026. Formule de calcul, méthodologie et 10 value bets concrets.",
+      "Erkennen Sie unterschätzte Quoten der WM 2026. Berechnungsformel, Methodik und 10 konkrete Value Bets.",
     url: "https://www.wm2026guide.de/sportwetten/value-bets",
   },
 };
 
 const valueBets = [
   {
-    label: "Maroc — Vainqueur CDM",
+    label: "Marokko — WM-Sieger",
     cote: 30.0,
     probaImplicite: 3.3,
     probaEstimee: 5,
     reasoning:
-      "Demi-finaliste 2022, le Maroc dispose d'une génération dorée (Hakimi, Amrabat, En-Nesyri) et d'une défense parmi les meilleures au monde. La cote ne reflète pas leur progression constante.",
+      "Halbfinalist 2022, Marokko verfügt über eine goldene Generation (Hakimi, Amrabat, En-Nesyri) und eine der besten Defensiven der Welt. Die Quote spiegelt ihre stetige Weiterentwicklung nicht wider.",
   },
   {
-    label: "USA — Atteindre les demi-finales",
+    label: "USA — Halbfinale erreichen",
     cote: 6.0,
     probaImplicite: 16.7,
     probaEstimee: 22,
     reasoning:
-      "L'avantage du pays hôte en WM est historiquement considérable. Pulisic, McKennie et Reyna forment un noyau compétitif. Les stades seront acquis à leur cause.",
+      "Der Heimvorteil bei einer WM ist historisch beträchtlich. Pulisic, McKennie und Reyna bilden einen wettbewerbsfähigen Kern. Die Stadien werden auf ihrer Seite sein.",
   },
   {
-    label: "Colombie — Vainqueur CDM",
+    label: "Kolumbien — WM-Sieger",
     cote: 45.0,
     probaImplicite: 2.2,
     probaEstimee: 4,
     reasoning:
-      "Finaliste de la Copa América 2024, la Colombie arrive en pleine confiance. Luis Díaz est en forme étincelante et James Rodríguez reste magique en sélection.",
+      "Finalist der Copa América 2024, Kolumbien kommt voller Selbstvertrauen. Luis Díaz ist in Topform und James Rodríguez bleibt bei Länderspielen magisch.",
   },
   {
-    label: "Japon — Sortir des poules (1er)",
+    label: "Japan — Gruppenphase überstehen (als Erster)",
     cote: 3.5,
     probaImplicite: 28.6,
     probaEstimee: 38,
     reasoning:
-      "Le Japon a battu l'Allemagne et l'Espagne en 2022. Avec Kubo et Mitoma en pleine maturité, terminer premier de leur groupe est un scénario très crédible.",
+      "Japan hat 2022 Deutschland und Spanien geschlagen. Mit Kubo und Mitoma in voller Reife ist ein Gruppensieg ein sehr glaubwürdiges Szenario.",
   },
   {
-    label: "Portugal — Vainqueur CDM",
+    label: "Portugal — WM-Sieger",
     cote: 14.0,
     probaImplicite: 7.1,
     probaEstimee: 10,
     reasoning:
-      "La relève est assurée avec Bernardo Silva, Rafael Leão et Vitinha. Le Portugal combine expérience et jeunesse, et la cote semble sous-évaluer leur profondeur de banc.",
+      "Die Nachfolge ist mit Bernardo Silva, Rafael Leão und Vitinha gesichert. Portugal kombiniert Erfahrung und Jugend, und die Quote scheint ihre Kadertiefe zu unterschätzen.",
   },
   {
-    label: "Nigeria — Atteindre les quarts",
+    label: "Nigeria — Viertelfinale erreichen",
     cote: 8.0,
     probaImplicite: 12.5,
     probaEstimee: 17,
     reasoning:
-      "Osimhen peut porter une Mannschaft seul. Le vivier de talents nigérian est immense, et le format à 48 Mannschafts ouvre des opportunités en phase à élimination directe.",
+      "Osimhen kann eine Mannschaft allein tragen. Der nigerianische Talentpool ist riesig, und das 48-Mannschaften-Format eröffnet Chancen in der K.-o.-Runde.",
   },
   {
-    label: "Moins de 2.5 buts en finale",
+    label: "Under 2.5 Tore im Finale",
     cote: 1.85,
     probaImplicite: 54.1,
     probaEstimee: 65,
     reasoning:
-      "Les finales de CDM sont historiquement fermées. Sur les 10 dernières, 7 ont affiché moins de 3 buts. La tension du match pousse les Mannschafts à la prudence.",
+      "WM-Finales sind historisch torarm. Bei den letzten 10 hatten 7 weniger als 3 Tore. Die Anspannung des Spiels drängt die Mannschaften zur Vorsicht.",
   },
   {
-    label: "Turquie — Sortir des poules",
+    label: "Türkei — Gruppenphase überstehen",
     cote: 2.2,
     probaImplicite: 45.5,
     probaEstimee: 55,
     reasoning:
-      "Demi-finaliste de l'Euro 2024, la Turquie possède Arda Güler et Çalhanoglu. Le format élargi à 48 Mannschafts facilite la qualification en huitièmes.",
+      "Halbfinalist der EM 2024, die Türkei hat Arda Güler und Çalhanoglu. Das erweiterte 48-Mannschaften-Format erleichtert die Qualifikation fürs Achtelfinale.",
   },
   {
-    label: "Pays-Bas — Torschützenkönig néerlandais 3+ buts",
+    label: "Niederlande — Niederländischer Torschützenkönig 3+ Tore",
     cote: 2.5,
     probaImplicite: 40,
     probaEstimee: 52,
     reasoning:
-      "Les Pays-Bas jouent un football offensif. Avec le format allongé (7 matchs possibles), un Stürmer néerlandais en forme a largement le temps d'inscrire 3 buts ou plus.",
+      "Die Niederlande spielen offensiven Fußball. Mit dem erweiterten Format (7 mögliche Spiele) hat ein niederländischer Stürmer in Form reichlich Zeit, 3 oder mehr Tore zu erzielen.",
   },
   {
-    label: "Unentschieden au 1er tour — USA vs adversaire du Pot 3",
+    label: "Unentschieden am 1. Spieltag — USA vs. Gegner aus Topf 3",
     cote: 3.4,
     probaImplicite: 29.4,
     probaEstimee: 38,
     reasoning:
-      "Les matchs d'ouverture des pays hôtes sont souvent tendus. La pression peut paralyser les USA en début de tournoi, rendant le match nul plus probable que la cote ne le suggère.",
+      "Eröffnungsspiele der Gastgeberländer sind oft angespannt. Der Druck kann die USA zu Turnierbeginn lähmen, was ein Unentschieden wahrscheinlicher macht, als die Quote vermuten lässt.",
   },
 ];
 
 const faqItems = [
   {
-    question: "Qu'est-ce qu'un value bet exactement ?",
+    question: "Was ist ein Value Bet genau?",
     answer:
-      "Un value bet est un pari dont la cote proposée par le bookmaker est supérieure à ce qu'elle devrait être selon la probabilité réelle de l'événement. Si vous estimez qu'une Mannschaft a 10 % de chances de gagner (cote juste = 10.0) mais que le bookmaker propose 15.0, c'est un value bet.",
+      "Ein Value Bet ist eine Wette, bei der die vom Wettanbieter angebotene Quote höher ist, als sie laut der tatsächlichen Wahrscheinlichkeit des Ereignisses sein sollte. Wenn Sie schätzen, dass eine Mannschaft 10 % Siegchance hat (faire Quote = 10,0), aber der Wettanbieter 15,0 anbietet, ist das ein Value Bet.",
   },
   {
-    question: "Comment savoir si un pari est un value bet ?",
+    question: "Wie erkennt man, ob eine Wette ein Value Bet ist?",
     answer:
-      "Calculez la probabilité implicite de la cote (1 / cote x 100), puis comparez-la à votre estimation de la probabilité réelle. Si votre estimation est supérieure à la probabilité implicite, vous avez identifié un value bet. La clé est d'avoir une estimation fiable, basée sur des données et pas seulement l'intuition.",
+      "Berechnen Sie die implizite Wahrscheinlichkeit der Quote (1 / Quote x 100), und vergleichen Sie sie mit Ihrer Schätzung der tatsächlichen Wahrscheinlichkeit. Wenn Ihre Schätzung höher ist als die implizite Wahrscheinlichkeit, haben Sie einen Value Bet identifiziert. Der Schlüssel ist eine zuverlässige Schätzung, basierend auf Daten und nicht nur Intuition.",
   },
   {
-    question: "Les value bets garantissent-ils un profit ?",
+    question: "Garantieren Value Bets einen Gewinn?",
     answer:
-      "Non. Un value bet est rentable sur le long terme, pas sur un pari isolé. C'est un concept statistique : en pariant systématiquement sur des value bets, vous devriez être en profit après un grand nombre de paris. Un seul value bet peut tout à fait perdre.",
+      "Nein. Ein Value Bet ist langfristig profitabel, nicht bei einer einzelnen Wette. Es ist ein statistisches Konzept: Wenn Sie systematisch auf Value Bets setzen, sollten Sie nach einer großen Anzahl von Wetten im Plus sein. Ein einzelner Value Bet kann durchaus verlieren.",
   },
   {
-    question: "Pourquoi les bookmakers proposent-ils des value bets ?",
+    question: "Warum bieten Wettanbieter Value Bets an?",
     answer:
-      "Les bookmakers équilibrent leurs cotes en fonction des mises du public, pas uniquement des probabilités réelles. Quand le public surestime un favori, sa cote baisse et celle de l'adversaire monte, créant potentiellement un value bet sur l'outsider.",
+      "Wettanbieter gleichen ihre Quoten basierend auf den Einsätzen der Öffentlichkeit aus, nicht nur auf den tatsächlichen Wahrscheinlichkeiten. Wenn die Öffentlichkeit einen Favoriten überschätzt, sinkt dessen Quote und die des Gegners steigt, was potenziell einen Value Bet auf den Außenseiter erzeugt.",
   },
   {
-    question: "Combien de value bets faut-il jouer pour être rentable ?",
+    question: "Wie viele Value Bets muss man spielen, um profitabel zu sein?",
     answer:
-      "Il faut un échantillon significatif : au moins 50 à 100 paris pour que l'avantage statistique se manifeste. La discipline et la gestion de bankroll sont essentielles. Ne misez jamais plus de 1 à 3 % de votre capital sur un seul pari.",
+      "Es braucht eine signifikante Stichprobe: mindestens 50 bis 100 Wetten, damit sich der statistische Vorteil zeigt. Disziplin und Bankroll-Management sind entscheidend. Setzen Sie niemals mehr als 1 bis 3 % Ihres Kapitals auf eine einzelne Wette.",
   },
 ];
 
@@ -135,11 +135,11 @@ export default function ValueBetsPage() {
       {/* Hero */}
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">
-          Value Bets — CDM 2026
+          Value Bets — WM 2026
         </h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Identifiez les cotes sous-estimées par les bookmakers et maximisez votre
-          rentabilité sur la WM 2026.
+          Erkennen Sie die von Wettanbietern unterschätzten Quoten und maximieren Sie Ihre
+          Rentabilität bei der WM 2026.
         </p>
       </section>
 
@@ -148,28 +148,28 @@ export default function ValueBetsPage() {
         <div className="flex items-center gap-3 mb-6">
           <TrendingUp className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">
-            Qu&apos;est-ce qu&apos;un value bet ?
+            Was ist ein Value Bet?
           </h2>
         </div>
         <p className="text-gray-700 mb-4">
-          Un value bet se produit lorsque la cote proposée par un bookmaker est
-          supérieure à la cote juste calculée à partir de la probabilité réelle
-          d&apos;un événement. En d&apos;autres termes, le bookmaker sous-estime les
-          chances d&apos;un résultat et vous offre un pari mathématiquement
-          avantageux.
+          Ein Value Bet entsteht, wenn die von einem Wettanbieter angebotene Quote
+          höher ist als die faire Quote, die aus der tatsächlichen Wahrscheinlichkeit
+          eines Ereignisses berechnet wird. Anders gesagt: Der Wettanbieter unterschätzt die
+          Chancen eines Ergebnisses und bietet Ihnen eine mathematisch
+          vorteilhafte Wette an.
         </p>
         <p className="text-gray-700 mb-4">
-          Les paris sportifs classiques consistent à deviner le bon résultat. Le
-          value betting, lui, repose sur un principe différent : trouver des paris
-          dont l&apos;espérance de gain est positive sur le long terme, quel que soit le
-          résultat individuel. C&apos;est l&apos;approche utilisée par les parieurs
-          professionnels.
+          Klassische Sportwetten bestehen darin, das richtige Ergebnis zu erraten. Value
+          Betting hingegen basiert auf einem anderen Prinzip: Wetten zu finden,
+          deren Gewinnerwartung langfristig positiv ist, unabhängig vom
+          einzelnen Ergebnis. Das ist der Ansatz, den professionelle Wetter
+          verwenden.
         </p>
         <p className="text-gray-700">
-          La WM 2026, avec son format élargi à 48 Mannschafts et ses
-          nombreuses incertitudes, offre un terrain particulièrement fertile pour
-          dénicher des value bets. Les bookmakers doivent coter des centaines de
-          marchés, et les erreurs d&apos;appréciation sont inévitables.
+          Die WM 2026 mit ihrem erweiterten Format von 48 Mannschaften und
+          zahlreichen Unsicherheiten bietet ein besonders fruchtbares Terrain,
+          um Value Bets aufzuspüren. Die Wettanbieter müssen Hunderte von
+          Märkten quotieren, und Fehleinschätzungen sind unvermeidlich.
         </p>
       </section>
 
@@ -178,41 +178,41 @@ export default function ValueBetsPage() {
         <div className="flex items-center gap-3 mb-6">
           <Calculator className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">
-            Comment calculer un value bet
+            Wie berechnet man einen Value Bet
           </h2>
         </div>
         <div className="bg-primary/5 rounded-xl p-6 mb-6">
-          <h3 className="font-bold text-primary mb-3">La formule</h3>
+          <h3 className="font-bold text-primary mb-3">Die Formel</h3>
           <p className="text-gray-700 mb-3">
-            <strong>Value = (Cote x Probabilité estimée) - 1</strong>
+            <strong>Value = (Quote x Geschätzte Wahrscheinlichkeit) - 1</strong>
           </p>
           <ul className="space-y-2 text-sm text-gray-700">
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
-              Si le résultat est <strong>positif</strong>, vous avez un value bet.
+              Wenn das Ergebnis <strong>positiv</strong> ist, haben Sie einen Value Bet.
             </li>
             <li className="flex items-start gap-2">
               <AlertTriangle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-              Si le résultat est <strong>négatif ou nul</strong>, le pari n&apos;a pas de valeur.
+              Wenn das Ergebnis <strong>negativ oder null</strong> ist, hat die Wette keinen Wert.
             </li>
           </ul>
         </div>
         <div className="bg-accent/5 rounded-xl p-6">
-          <h3 className="font-bold text-accent mb-3">Exemple concret</h3>
+          <h3 className="font-bold text-accent mb-3">Konkretes Beispiel</h3>
           <p className="text-gray-700 mb-2">
-            Le Maroc est coté à <strong>30.0</strong> pour remporter la CDM 2026. La
-            probabilité implicite de cette cote est 1/30 = 3,3 %.
+            Marokko hat eine Quote von <strong>30.0</strong>, die WM 2026 zu gewinnen. Die
+            implizite Wahrscheinlichkeit dieser Quote ist 1/30 = 3,3 %.
           </p>
           <p className="text-gray-700 mb-2">
-            Vous estimez que le Maroc a en réalité <strong>5 %</strong> de chances
-            (demi-finaliste 2022, génération dorée, progression constante).
+            Sie schätzen, dass Marokko tatsächlich <strong>5 %</strong> Chance hat
+            (Halbfinalist 2022, goldene Generation, konstante Weiterentwicklung).
           </p>
           <p className="text-gray-700 font-semibold">
             Value = (30.0 x 0.05) - 1 = 1.50 - 1 = <span className="text-green-700">+0.50</span>
           </p>
           <p className="text-sm text-gray-500 mt-2">
-            Value de 50 % : c&apos;est un excellent value bet. Sur le long terme, ce type
-            de pari est très rentable.
+            Value von 50 %: Das ist ein hervorragender Value Bet. Langfristig ist diese Art
+            von Wette sehr profitabel.
           </p>
         </div>
       </section>
@@ -222,34 +222,34 @@ export default function ValueBetsPage() {
         <div className="flex items-center gap-3 mb-6">
           <Target className="w-7 h-7 text-accent" />
           <h2 className="text-2xl font-bold text-primary">
-            Méthodologie pour identifier les value bets
+            Methodik zur Identifizierung von Value Bets
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {[
             {
-              title: "Analysez les données, pas les émotions",
-              desc: "Utilisez les classements FIFA, les résultats récents, les statistiques de performance (xG, possession) plutôt que votre ressenti ou la popularité d'une Mannschaft.",
+              title: "Analysieren Sie Daten, nicht Emotionen",
+              desc: "Nutzen Sie FIFA-Ranglisten, aktuelle Ergebnisse, Leistungsstatistiken (xG, Ballbesitz) statt Ihrem Bauchgefühl oder der Beliebtheit einer Mannschaft.",
             },
             {
-              title: "Comparez les cotes de plusieurs bookmakers",
-              desc: "Un écart significatif entre bookmakers révèle souvent une surcote. Si un bookmaker propose 3.5 et un autre 2.8 pour le même marché, approfondissez.",
+              title: "Vergleichen Sie Quoten mehrerer Wettanbieter",
+              desc: "Ein signifikanter Unterschied zwischen Wettanbietern offenbart oft eine Überquotierung. Wenn ein Anbieter 3,5 und ein anderer 2,8 für denselben Markt bietet, gehen Sie der Sache nach.",
             },
             {
-              title: "Cherchez les biais du public",
-              desc: "Le grand public surestime les grandes nations et sous-estime les outsiders. Les cotes des favoris sont souvent trop basses, celles des outsiders trop hautes.",
+              title: "Suchen Sie nach Verzerrungen der Öffentlichkeit",
+              desc: "Die breite Öffentlichkeit überschätzt die großen Nationen und unterschätzt die Außenseiter. Die Quoten der Favoriten sind oft zu niedrig, die der Außenseiter zu hoch.",
             },
             {
-              title: "Exploitez le format 48 Mannschafts",
-              desc: "Le nouveau format multiplie les matchs et les incertitudes. Les bookmakers ont moins de données historiques pour coter les confrontations inédites.",
+              title: "Nutzen Sie das 48-Mannschaften-Format",
+              desc: "Das neue Format vervielfacht Spiele und Unsicherheiten. Die Wettanbieter haben weniger historische Daten, um noch nie dagewesene Begegnungen zu quotieren.",
             },
             {
-              title: "Surveillez la forme récente",
-              desc: "Les cotes ante-post sont fixées des mois à l'avance. Une Mannschaft en pleine progression peut offrir de la valeur si sa cote n'a pas encore bougé.",
+              title: "Beobachten Sie die aktuelle Form",
+              desc: "Ante-Post-Quoten werden Monate im Voraus festgelegt. Eine Mannschaft in vollem Aufwärtstrend kann Wert bieten, wenn sich ihre Quote noch nicht verändert hat.",
             },
             {
-              title: "Tenez compte du contexte",
-              desc: "Pays hôte, conditions climatiques, décalage horaire, stade : ces facteurs sont souvent sous-pondérés par les modèles des bookmakers.",
+              title: "Berücksichtigen Sie den Kontext",
+              desc: "Gastgeberland, Wetterbedingungen, Zeitverschiebung, Stadion: Diese Faktoren werden von den Modellen der Wettanbieter oft untergewichtet.",
             },
           ].map((tip) => (
             <div key={tip.title} className="border border-gray-200 rounded-xl p-5">
@@ -266,7 +266,7 @@ export default function ValueBetsPage() {
           10 value bets CDM 2026
         </h2>
         <p className="text-gray-500 mb-8 text-sm">
-          Cotes indicatives au 20/02/2026. Vérifiez les cotes actuelles avant de parier.
+          Richtquoten vom 20.02.2026. Überprüfen Sie die aktuellen Quoten vor dem Wetten.
         </p>
         <div className="space-y-6">
           {valueBets.map((vb) => {
@@ -280,7 +280,7 @@ export default function ValueBetsPage() {
                   <h3 className="text-lg font-bold text-primary">{vb.label}</h3>
                   <div className="flex items-center gap-4">
                     <span className="bg-accent/10 text-accent font-bold px-3 py-1.5 rounded-lg text-sm">
-                      Cote : {vb.cote.toFixed(2)}
+                      Quote: {vb.cote.toFixed(2)}
                     </span>
                     <span className="bg-green-100 text-green-800 font-bold px-3 py-1.5 rounded-lg text-sm">
                       Value : +{value.toFixed(0)} %
@@ -290,10 +290,10 @@ export default function ValueBetsPage() {
                 <div className="p-5">
                   <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-3">
                     <span>
-                      Proba implicite : <strong>{vb.probaImplicite} %</strong>
+                      Implizite Wahrsch.: <strong>{vb.probaImplicite} %</strong>
                     </span>
                     <span>
-                      Proba estimée : <strong>{vb.probaEstimee} %</strong>
+                      Geschätzte Wahrsch.: <strong>{vb.probaEstimee} %</strong>
                     </span>
                   </div>
                   <p className="text-sm text-gray-700">{vb.reasoning}</p>
@@ -312,7 +312,7 @@ export default function ValueBetsPage() {
           rel="noopener noreferrer sponsored nofollow"
           className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
         >
-          Willkommensbonus — Zeige cotes CDM 2026 sur Betano{" "}
+          Willkommensbonus — WM-2026-Quoten bei Betano ansehen{" "}
           <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
         <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
@@ -327,16 +327,16 @@ export default function ValueBetsPage() {
       {/* ANJ */}
       <section className="max-w-3xl mx-auto px-4 py-6 text-center">
         <p className="text-xs text-gray-400">
-          Les paris sportifs sont réservés aux personnes majeures (18+). Jouer
-          comporte des risques : endettement, dépendance, isolement. Appelez le 09
-          74 75 13 13 (appel non surtaxé).{" "}
+          Sportwetten sind Personen ab 18 Jahren vorbehalten. Spielen
+          birgt Risiken: Verschuldung, Abhängigkeit, Isolation. Rufen Sie die
+          0800 1 37 27 00 an (kostenlos).{" "}
           <a
-            href="https://www.anj.fr"
+            href="https://www.bzga.de"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
           >
-            anj.fr
+            bzga.de
           </a>
         </p>
       </section>

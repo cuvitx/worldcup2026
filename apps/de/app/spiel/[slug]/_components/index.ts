@@ -7,7 +7,7 @@ export { MatchEventsTimeline } from "./MatchEventsTimeline";
 export { MatchLineups } from "./MatchLineups";
 export { MatchStatistics } from "./MatchStatistics";
 export { MatchPlayerRatings } from "./MatchPlayerRatings";
-export { UpcomingPronosticsGrid } from "./UpcomingPronosticsGrid";
+export { UpcomingPrognosesGrid } from "./UpcomingPrognosesGrid";
 export { MatchCommentary } from "./MatchCommentary";
 export type { CommentaryPlay } from "./MatchCommentary";
 export { MatchVotingWidget } from "./MatchVotingWidget";

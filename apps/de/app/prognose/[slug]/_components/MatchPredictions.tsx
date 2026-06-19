@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import type { matches as matchesType } from "@repo/data/matches";
 
@@ -18,8 +18,8 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
 
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Prognoses des matchs de groupe</h2>
-      <p className="mb-4 text-sm text-gray-600">Predictions pour les matchs de {teamName} dans le Groupe {teamGroup}.</p>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Prognosen der Gruppenspiele</h2>
+      <p className="mb-4 text-sm text-gray-600">Vorhersagen für die Spiele von {teamName} in Gruppe {teamGroup}.</p>
       <div className="space-y-4">
         {teamMatches.map((match) => {
           const opponent = teams.find((t) => t.id === (match.homeTeamId === teamId ? match.awayTeamId : match.homeTeamId));
@@ -39,16 +39,16 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                 {matchPred && (
                   <div className="text-right">
                     <p className="text-lg font-bold text-primary">{matchPred.predictedScore}</p>
-                    <p className="text-xs text-gray-500">Score predit</p>
+                    <p className="text-xs text-gray-500">Vorhergesagtes Ergebnis</p>
                   </div>
                 )}
               </div>
               {matchPred && (
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { prob: matchPred.team1WinProb, label: teams.find((t) => t.id === match.homeTeamId)?.name ?? "Dom." },
-                    { prob: matchPred.drawProb, label: "Nul" },
-                    { prob: matchPred.team2WinProb, label: teams.find((t) => t.id === match.awayTeamId)?.name ?? "Ext." },
+                    { prob: matchPred.team1WinProb, label: teams.find((t) => t.id === match.homeTeamId)?.name ?? "Heim" },
+                    { prob: matchPred.drawProb, label: "Unentschieden" },
+                    { prob: matchPred.team2WinProb, label: teams.find((t) => t.id === match.awayTeamId)?.name ?? "Ausw." },
                   ].map((item, i) => {
                     const isHighest = i === 0
                       ? item.prob > matchPred.team2WinProb && item.prob > matchPred.drawProb
@@ -66,7 +66,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
               )}
               <div className="mt-3 flex gap-2">
                 <Link href={`/spiel/${match.slug}`} className="text-xs text-primary hover:underline">Spiel anzeigen &rarr;</Link>
-                {opponent && <Link href={`/h2h/${teams.find(t => t.id === teamId)?.slug}-vs-${opponent.slug}`} className="text-xs text-primary hover:underline">Historique H2H &rarr;</Link>}
+                {opponent && <Link href={`/h2h/${teams.find(t => t.id === teamId)?.slug}-vs-${opponent.slug}`} className="text-xs text-primary hover:underline">H2H-Historie &rarr;</Link>}
               </div>
             </div>
           );

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../lib/localized-data";
 
 interface TeamQuickNavProps {
   teamSlug: string;

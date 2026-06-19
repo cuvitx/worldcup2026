@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../lib/localized-data";
 import { matchesByGroup } from "@repo/data/matches";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { groupPredictionsByGroup } from "@repo/data/predictions-2026";
@@ -11,7 +11,7 @@ import { groupPredictionsByGroup } from "@repo/data/predictions-2026";
 import { GroupTeamsTable } from "./_components/GroupTeamsTable";
 import { PredictedRanking } from "./_components/PredictedRanking";
 import { EnrichedPrediction } from "./_components/EnrichedPrediction";
-import { QualificationPronostic } from "./_components/QualificationPronostic";
+import { QualificationPrognose } from "./_components/QualificationPrognose";
 import { ForceAnalysis } from "./_components/ForceAnalysis";
 import { GroupCalendar } from "./_components/GroupCalendar";
 import { QualificationOdds } from "./_components/QualificationOdds";
@@ -39,12 +39,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const teamNames = groupTeams.map((t) => t.name).join(", ");
 
   return {
-    title: `Pronostic Groupe ${group.letter} CDM 2026 | Analyse & Qualification`,
-    description: `Pronostic Groupe ${group.letter} WM 2026 : ${teamNames}. Classement prédit, analyse des forces, cotes qualification et Spielplan complet du groupe.`,
+    title: `Prognose Gruppe ${group.letter} CDM 2026 | Analyse & Qualification`,
+    description: `Prognose Gruppe ${group.letter} WM 2026 : ${teamNames}. Rangliste prédit, analyse des forces, cotes qualification et Spielplan complet du groupe.`,
     alternates: getAlternates("group", lettre, "fr"),
     openGraph: {
-      title: `Pronostic Groupe ${group.letter} - CDM 2026`,
-      description: `${teamNames} — Qui se qualifie ? Analyse et pronostics du Groupe ${group.letter}.`,
+      title: `Prognose Gruppe ${group.letter} - CDM 2026`,
+      description: `${teamNames} — Qui se qualifie ? Analyse et Prognoses du Gruppe ${group.letter}.`,
     },
   };
 }
@@ -67,7 +67,7 @@ function getSortedGroupTeams(group: { teams: string[] }) {
     });
 }
 
-export default async function PronosticGroupPage({ params }: PageProps) {
+export default async function PrognoseGroupPage({ params }: PageProps) {
   const { lettre } = await params;
   const group = groupsBySlug[lettre];
   if (!group) notFound();
@@ -89,8 +89,8 @@ export default async function PronosticGroupPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
             <div>
-              <p className="text-sm font-medium text-primary uppercase tracking-widest mb-1">Pronostic · WM 2026</p>
-              <h1 className="text-3xl font-extrabold sm:text-5xl">Groupe {group.letter}</h1>
+              <p className="text-sm font-medium text-primary uppercase tracking-widest mb-1">Prognose · WM 2026</p>
+              <h1 className="text-3xl font-extrabold sm:text-5xl">Gruppe {group.letter}</h1>
               <p className="mt-3 text-gray-300 text-lg">
                 {allGroupTeams.map((t) => t.flag).join("  ")} &nbsp;
                 {allGroupTeams.map((t) => t.name).join(" · ")}
@@ -106,7 +106,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
             <GroupTeamsTable groupLetter={group.letter} sortedTeams={sortedTeams} />
             <PredictedRanking sortedTeams={sortedTeams} />
             <EnrichedPrediction enrichedSorted={enrichedSorted} />
-            <QualificationPronostic sortedTeams={sortedTeams} />
+            <QualificationPrognose sortedTeams={sortedTeams} />
             <ForceAnalysis sortedTeams={sortedTeams} groupLetter={group.letter} />
             <GroupCalendar groupLetter={group.letter} groupMatches={groupMatches} />
             <QualificationOdds sortedTeams={sortedTeams} />
@@ -121,7 +121,7 @@ export default async function PronosticGroupPage({ params }: PageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SportsEvent",
-            name: `WM 2026 — Groupe ${group.letter}`,
+            name: `WM 2026 — Gruppe ${group.letter}`,
             sport: "Football",
             startDate: groupMatches[0]?.date ?? "2026-06-11",
             competitor: allGroupTeams.map((t) => ({ "@type": "SportsTeam", name: t.name })),

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 /**
- * Affiche l'image d'un stade via next/image (avif/webp + lazy loading).
- * - containerClassName : classes appliquées au wrapper (dimensions, overflow…)
- * - className : classes appliquées à l'image elle-même (transitions, etc.)
+ * Zeigt das Bild eines Stadions via next/image an (avif/webp + Lazy Loading).
+ * - containerClassName: Klassen für den Wrapper (Abmessungen, Overflow...)
+ * - className: Klassen für das Bild selbst (Übergänge usw.)
  */
 export function StadiumImage({
   slug,

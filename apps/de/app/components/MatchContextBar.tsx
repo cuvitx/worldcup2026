@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Calendar, Clock, MapPin, Landmark, Tag } from "lucide-react";
 import { matches } from "@repo/data/matches";
-import { stadiums } from "@repo/data/stadiums";
-import { teams } from "@repo/data/teams";
+import { stadiums } from "../../lib/localized-data";
+import { teams } from "../../lib/localized-data";
 
 interface MatchContextBarProps {
   matchSlug: string;
@@ -43,7 +43,7 @@ export function MatchContextBar({ matchSlug }: MatchContextBarProps) {
 
   const stadium = stadiums.find((s) => s.id === match.stadiumId);
   const phase = stageLabels[match.stage] ?? match.stage;
-  const groupLabel = match.group ? ` — Groupe ${match.group}` : "";
+  const groupLabel = match.group ? ` — Gruppe ${match.group}` : "";
 
   return (
     <div className="rounded-xl bg-gray-50 p-4">

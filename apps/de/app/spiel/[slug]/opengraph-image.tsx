@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
 
 
 export const alt = "Match CDM 2026";

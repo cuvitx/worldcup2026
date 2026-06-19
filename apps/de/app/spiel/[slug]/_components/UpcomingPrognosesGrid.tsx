@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 
-interface UpcomingPronosticsGridProps {
+interface UpcomingPrognosesGridProps {
   matches: Array<{
     slug: string;
     date: string;
@@ -18,9 +18,9 @@ interface UpcomingPronosticsGridProps {
   }>;
 }
 
-export function UpcomingPronosticsGrid({
+export function UpcomingPrognosesGrid({
   matches,
-}: UpcomingPronosticsGridProps) {
+}: UpcomingPrognosesGridProps) {
   if (matches.length === 0) return null;
 
   const displayedMatches = matches.slice(0, 4);
@@ -28,7 +28,7 @@ export function UpcomingPronosticsGrid({
   return (
     <section className="w-full">
       <h2 className="text-xl font-bold text-gray-900 mb-4">
-        ✨ Prochains pronostics
+        ✨ Nächste Prognosen
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -39,15 +39,15 @@ export function UpcomingPronosticsGrid({
             day: "numeric",
             month: "long",
           });
-          const dateLabel = `${formatted} à ${match.time}`;
+          const dateLabel = `${formatted} um ${match.time}`;
 
           let favoriteLabel: string | null = null;
           if (match.prediction) {
             const { team1WinProb, team2WinProb } = match.prediction;
             if (team1WinProb >= team2WinProb) {
-              favoriteLabel = `${match.homeFlag} ${match.homeName} favori à ${Math.round(team1WinProb)}%`;
+              favoriteLabel = `${match.homeFlag} ${match.homeName} Favorit mit ${Math.round(team1WinProb)}%`;
             } else {
-              favoriteLabel = `${match.awayFlag} ${match.awayName} favori à ${Math.round(team2WinProb)}%`;
+              favoriteLabel = `${match.awayFlag} ${match.awayName} Favorit mit ${Math.round(team2WinProb)}%`;
             }
           }
 
@@ -90,7 +90,7 @@ export function UpcomingPronosticsGrid({
               {isLastCard && (
                 <div className="border-t border-gray-100 mt-3 pt-3">
                   <a
-                    href={pmuTrackingUrl("pronostics-grid")}
+                    href={pmuTrackingUrl("Prognoses-grid")}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
                     className="text-xs font-bold text-[#d4af37] hover:text-[#b8941f]"

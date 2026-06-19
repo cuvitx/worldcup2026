@@ -16,7 +16,7 @@ interface RecentArticlesProps {
 }
 
 const categoryColors: Record<string, string> = {
-  stades: "bg-accent/10 text-accent",
+  Stadien: "bg-accent/10 text-accent",
   Tickets: "bg-field/10 text-field",
   equipes: "bg-primary/10 text-primary",
   paris: "bg-primary/10 text-primary",
@@ -24,7 +24,7 @@ const categoryColors: Record<string, string> = {
 };
 
 const categoryLabels: Record<string, string> = {
-  stades: "Stadien",
+  Stadien: "Stadien",
   Tickets: "Tickets",
   equipes: "Mannschaften",
   paris: "Wetten",

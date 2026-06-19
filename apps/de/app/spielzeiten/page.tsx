@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
-import { citiesById } from "@repo/data/cities";
+import { teamsById } from "../../lib/localized-data";
+import { stadiumsById } from "../../lib/localized-data";
+import { citiesById } from "../../lib/localized-data";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { Clock, MapPin, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Horaires des matchs - WM 2026",
+  title: "Spielzeiten - WM 2026",
   description:
-    "Tous les horaires des 104 matchs der WM 2026 en heure fran\u00e7aise (Europe/Paris). Planning complet du 11 juin au 19 juillet 2026 avec fuseaux horaires.",
+    "Alle Spielzeiten der 104 Spiele der WM 2026 in mitteleuropäischer Zeit (MEZ). Kompletter Spielplan vom 11. Juni bis 19. Juli 2026 mit Zeitzonen.",
   alternates: {
-    canonical: "https://www.wm2026guide.de/horaires",
+    canonical: "https://www.wm2026guide.de/spielzeiten",
   },
   openGraph: {
-    title: "Horaires des matchs - WM 2026",
+    title: "Spielzeiten - WM 2026",
     description:
-      "Planning complet des 104 matchs de la CDM 2026 en heure fran\u00e7aise. Fuseaux horaires, stades et villes.",
-    url: "https://www.wm2026guide.de/horaires",
+      "Kompletter Spielplan der 104 Spiele der WM 2026 in MEZ. Zeitzonen, Stadien und Städte.",
+    url: "https://www.wm2026guide.de/spielzeiten",
   },
 };
 
@@ -26,11 +26,11 @@ export const revalidate = 300; // 5min ISR
 
 const STAGE_LABELS: Record<string, string> = {
   group: "Gruppenphase",
-  "round-of-32": "32\u00e8mes de finale",
-  "round-of-16": "8\u00e8mes de finale",
+  "round-of-32": "Sechzehntelfinale",
+  "round-of-16": "Achtelfinale",
   "quarter-final": "Viertelfinale",
   "semi-final": "Halbfinale",
-  "third-place": "Match pour la 3e place",
+  "third-place": "Spiel um Platz 3",
   final: "Finale",
 };
 
@@ -67,19 +67,19 @@ function getStageBadgeStyle(stage: string): string {
 const TIMEZONE_INFO = [
   {
     zone: "Eastern Time (ET)",
-    offset: "UTC\u22124 (heure d'\u00e9t\u00e9)",
+    offset: "UTC\u22124 (Sommerzeit)",
     diffParis: "\u22126h",
-    cities: "New York, Miami, Atlanta, Philadelphie, Boston",
+    cities: "New York, Miami, Atlanta, Philadelphia, Boston",
   },
   {
     zone: "Central Time (CT)",
-    offset: "UTC\u22125 (heure d'\u00e9t\u00e9)",
+    offset: "UTC\u22125 (Sommerzeit)",
     diffParis: "\u22127h",
-    cities: "Houston, Dallas, Kansas City, Mexico, Monterrey, Guadalajara",
+    cities: "Houston, Dallas, Kansas City, Mexiko-Stadt, Monterrey, Guadalajara",
   },
   {
     zone: "Pacific Time (PT)",
-    offset: "UTC\u22127 (heure d'\u00e9t\u00e9)",
+    offset: "UTC\u22127 (Sommerzeit)",
     diffParis: "\u22129h",
     cities: "Los Angeles, San Francisco, Seattle, Vancouver",
   },
@@ -119,15 +119,15 @@ export default async function HorairesPage() {
           <div className="flex items-center gap-3 mb-3">
             <Clock className="w-8 h-8 text-white/80" />
             <p className="text-sm font-medium text-white/80 uppercase tracking-widest">
-              Planning complet
+              Kompletter Spielplan
             </p>
           </div>
           <h1 className="text-2xl font-extrabold sm:text-4xl">
-            Horaires des matchs &mdash; WM 2026
+            Spielzeiten &mdash; WM 2026
           </h1>
           <p className="mt-2 text-gray-300">
-            104 matchs du 11 juin au 19 juillet 2026 &mdash; Heures en heure
-            fran\u00e7aise (Europe/Paris, CEST UTC+2)
+            104 Spiele vom 11. Juni bis 19. Juli 2026 &mdash; Uhrzeiten in
+            mitteleuropäischer Zeit (MESZ, UTC+2)
           </p>
         </div>
       </section>
@@ -138,13 +138,13 @@ export default async function HorairesPage() {
           <div className="flex items-center gap-2 mb-6">
             <Globe className="w-5 h-5 text-primary" />
             <h2 className="text-xl font-bold text-gray-900">
-              Fuseaux horaires des villes h\u00f4tes
+              Zeitzonen der Gastgeberstädte
             </h2>
           </div>
           <p className="text-sm text-gray-600 mb-6">
-            La WM 2026 se d\u00e9roule sur 3 pays et 3 fuseaux horaires
-            diff\u00e9rents. Tous les horaires ci-dessous sont affich\u00e9s en{" "}
-            <strong>heure fran\u00e7aise (Europe/Paris, CEST UTC+2)</strong>.
+            Die WM 2026 findet in 3 Ländern und 3 verschiedenen Zeitzonen
+            statt. Alle unten aufgeführten Uhrzeiten werden in{" "}
+            <strong>mitteleuropäischer Sommerzeit (MESZ, UTC+2)</strong> angezeigt.
           </p>
           <div className="grid gap-4 sm:grid-cols-3">
             {TIMEZONE_INFO.map((tz) => (
@@ -157,7 +157,7 @@ export default async function HorairesPage() {
                 </h3>
                 <p className="text-xs text-gray-500 mt-1">{tz.offset}</p>
                 <p className="text-lg font-bold text-primary mt-2">
-                  {tz.diffParis} vs Paris
+                  {tz.diffParis} vs MEZ
                 </p>
                 <div className="mt-3 flex items-start gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" />
@@ -168,10 +168,10 @@ export default async function HorairesPage() {
           </div>
           <div className="mt-6 rounded-lg bg-blue-50 border border-blue-100 p-4">
             <p className="text-sm text-blue-800">
-              <strong>Exemple :</strong> un match \u00e0 21h00 heure fran\u00e7aise
-              correspond \u00e0 15h00 \u00e0 New York (ET), 14h00 \u00e0 Houston (CT) et 12h00
-              \u00e0 Los Angeles (PT). Les matchs en soir\u00e9e fran\u00e7aise ont lieu en
-              d\u00e9but d&apos;apr\u00e8s-midi en Am\u00e9rique du Nord.
+              <strong>Beispiel:</strong> Ein Spiel um 21:00 Uhr MEZ
+              entspricht 15:00 Uhr in New York (ET), 14:00 Uhr in Houston (CT) und 12:00 Uhr
+              in Los Angeles (PT). Abendspiele in Mitteleuropa finden am
+              frühen Nachmittag in Nordamerika statt.
             </p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default async function HorairesPage() {
       {/* Matches by date */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-8">
-          Planning des matchs par date
+          Spielplan nach Datum
         </h2>
 
         <div className="space-y-8">
@@ -194,7 +194,7 @@ export default async function HorairesPage() {
                     {formatDateFr(date)}
                   </h3>
                   <p className="text-xs text-gray-500">
-                    {dayMatches.length} match{dayMatches.length > 1 ? "s" : ""}
+                    {dayMatches.length} Spiel{dayMatches.length > 1 ? "e" : ""}
                   </p>
                 </div>
 
@@ -204,10 +204,10 @@ export default async function HorairesPage() {
                     <thead>
                       <tr className="border-b border-gray-200">
                         <th className="py-2 px-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider w-20">
-                          Heure
+                          Uhrzeit
                         </th>
                         <th className="py-2 px-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                          Match
+                          Spiel
                         </th>
                         <th className="py-2 px-3 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider w-20 hidden sm:table-cell">
                           Score
@@ -356,45 +356,45 @@ export default async function HorairesPage() {
       <section className="bg-gray-50 py-12 border-t border-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Comprendre les horaires de la CDM 2026
+            Die Spielzeiten der WM 2026 verstehen
           </h2>
           <div className="prose prose-gray max-w-none text-sm leading-relaxed space-y-4">
             <p>
-              La WM 2026 est la premi\u00e8re \u00e9dition organis\u00e9e sur{" "}
-              <strong>3 pays</strong> (\u00c9tats-Unis, Mexique, Canada) et{" "}
-              <strong>3 fuseaux horaires diff\u00e9rents</strong>. Pour les
-              supporters fran\u00e7ais, cela implique un d\u00e9calage horaire
-              significatif : les matchs se jouent principalement{" "}
-              <strong>en soir\u00e9e et la nuit en France</strong>.
+              Die WM 2026 ist die erste Ausgabe, die in{" "}
+              <strong>3 Ländern</strong> (USA, Mexiko, Kanada) und{" "}
+              <strong>3 verschiedenen Zeitzonen</strong> ausgetragen wird. Für
+              europäische Fans bedeutet das eine erhebliche Zeitverschiebung:
+              Die Spiele finden hauptsächlich{" "}
+              <strong>am Abend und in der Nacht in Mitteleuropa</strong> statt.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-white p-4 border border-gray-200">
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  Matchs en prime time fran\u00e7ais (18h-23h)
+                  Spiele zur europäischen Primetime (18-23 Uhr)
                 </h3>
                 <p className="text-gray-600">
-                  Les matchs \u00e0 18h, 19h, 21h et 22h (heure de Paris)
-                  correspondent aux cr\u00e9neaux de d\u00e9but d&apos;apr\u00e8s-midi en
-                  Am\u00e9rique du Nord. Ce sont les horaires les plus confortables
-                  pour les supporters europ\u00e9ens.
+                  Die Spiele um 18, 19, 21 und 22 Uhr (MEZ)
+                  entsprechen den frühen Nachmittagszeiten in
+                  Nordamerika. Das sind die angenehmsten Uhrzeiten
+                  für europäische Fans.
                 </p>
               </div>
               <div className="rounded-lg bg-white p-4 border border-gray-200">
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  Matchs tardifs et nocturnes (00h-06h)
+                  Späte und nächtliche Spiele (00-06 Uhr)
                 </h3>
                 <p className="text-gray-600">
-                  Les matchs jou\u00e9s en soir\u00e9e aux \u00c9tats-Unis ou sur la c\u00f4te
-                  Pacifique ont lieu au Mittelfeldspieler de la nuit en France. Pr\u00e9voyez
-                  votre nuit blanche pour les matchs \u00e0 03h ou 04h !
+                  Spiele, die am Abend in den USA oder an der
+                  Pazifikküste stattfinden, fallen mitten in die Nacht in Europa.
+                  Für Spiele um 03 oder 04 Uhr sollten Sie sich auf eine lange Nacht einstellen!
                 </p>
               </div>
             </div>
             <p>
-              <strong>Conseil :</strong> les matchs de la phase de groupes de
-              la France (Groupe I) se jouent \u00e0{" "}
-              <strong>21h00 et 00h00 heure de Paris</strong>, des horaires
-              id\u00e9aux pour suivre les Bleus en soir\u00e9e.
+              <strong>Tipp:</strong> Die Gruppenspiele Deutschlands werden
+              voraussichtlich zu{" "}
+              <strong>günstigen Abendzeiten (MEZ)</strong> ausgetragen,
+              ideal zum gemeinsamen Verfolgen der DFB-Elf.
             </p>
           </div>
         </div>

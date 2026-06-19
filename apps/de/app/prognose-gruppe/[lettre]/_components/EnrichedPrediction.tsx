@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../../lib/localized-data";
 
 interface EnrichedTeamPrediction {
   teamId: string;
@@ -21,10 +21,10 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
     <section className="rounded-xl bg-white shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-          Pronostic détaillé — Points & Buts attendus
+          Prognose détaillé — Points & Buts attendus
         </h2>
         <p className="text-xs text-gray-400 mt-1">
-          Classement prédit après 3 matchs de groupe · Modèle ELO + cotes bookmakers · Fév. 2026
+          Rangliste prédit après 3 matchs de Gruppe · Modèle ELO + cotes bookmakers · Fév. 2026
         </p>
       </div>
 
@@ -105,7 +105,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
 
       <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
         <p className="text-[11px] text-gray-400">
-          Pts prévus = total après 3 matchs de groupe · +/- buts = différence de buts attendue · Proba qual. = probabilité de se qualifier (1er ou 2e direct + meilleur 3e inclus)
+          Pts prévus = total après 3 matchs de Gruppe · +/- buts = différence de buts attendue · Proba qual. = probabilité de se qualifier (1er ou 2e direct + meilleur 3e inclus)
         </p>
       </div>
     </section>

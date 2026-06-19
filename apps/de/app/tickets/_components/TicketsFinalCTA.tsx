@@ -27,7 +27,7 @@ export function TicketsFinalCTA() {
               href="/stadien"
               className="rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-all"
             >
-               Découvrir les stades
+               Découvrir les Stadien
             </Link>
             <Link
               href="/spiel/spielplan"

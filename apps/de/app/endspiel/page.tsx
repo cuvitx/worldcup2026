@@ -4,59 +4,59 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, Calendar, MapPin, TrendingUp, History, Star, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Finale WM 2026 - MetLife Stadium, 19 juillet | CDM 2026",
+  title: "Finale WM 2026 - MetLife Stadium, 19. Juli | WM 2026",
   description:
-    "La finale de la CDM 2026 au MetLife Stadium (New York) le 19 juillet 2026. Historique des finales, pronostics, cotes, et tout ce qu'il faut savoir sur le match ultime.",
+    "Das Finale der WM 2026 im MetLife Stadium (New York) am 19. Juli 2026. Finalhistorie, Prognosen, Quoten und alles Wissenswerte über das ultimative Spiel.",
   openGraph: {
-    title: "Finale CDM 2026 - MetLife Stadium, New York",
+    title: "Finale WM 2026 - MetLife Stadium, New York",
     description:
-      "Tout sur la finale der WM 2026 : date, stade, historique, pronostics et cotes.",
+      "Alles über das Finale der WM 2026: Datum, Stadion, Historie, Prognosen und Quoten.",
     url: "https://www.wm2026guide.de/finale",
   },
   alternates: { canonical: "https://www.wm2026guide.de/finale" },
 };
 
 const finalesHistorique = [
-  { annee: "2022", lieu: "Lusail (Qatar)", affiche: "Argentine 3-3 France (4-2 t.a.b.)", vainqueur: "🇦🇷 Argentine" },
-  { annee: "2018", lieu: "Moscou (Russie)", affiche: "France 4-2 Croatie", vainqueur: "🇫🇷 France" },
-  { annee: "2014", lieu: "Rio de Janeiro (Brésil)", affiche: "Allemagne 1-0 Argentine (a.p.)", vainqueur: "🇩🇪 Allemagne" },
-  { annee: "2010", lieu: "Johannesburg (Afrique du Sud)", affiche: "Espagne 1-0 Pays-Bas (a.p.)", vainqueur: "🇪🇸 Espagne" },
-  { annee: "2006", lieu: "Berlin (Allemagne)", affiche: "Italie 1-1 France (5-3 t.a.b.)", vainqueur: "🇮🇹 Italie" },
-  { annee: "2002", lieu: "Yokohama (Japon)", affiche: "Brésil 2-0 Allemagne", vainqueur: "🇧🇷 Brésil" },
-  { annee: "1998", lieu: "Saint-Denis (France)", affiche: "France 3-0 Brésil", vainqueur: "🇫🇷 France" },
-  { annee: "1994", lieu: "Pasadena (États-Unis)", affiche: "Brésil 0-0 Italie (3-2 t.a.b.)", vainqueur: "🇧🇷 Brésil" },
+  { annee: "2022", lieu: "Lusail (Katar)", affiche: "Argentinien 3-3 Frankreich (4-2 i.E.)", vainqueur: "🇦🇷 Argentinien" },
+  { annee: "2018", lieu: "Moskau (Russland)", affiche: "Frankreich 4-2 Kroatien", vainqueur: "🇫🇷 Frankreich" },
+  { annee: "2014", lieu: "Rio de Janeiro (Brasilien)", affiche: "Deutschland 1-0 Argentinien (n.V.)", vainqueur: "🇩🇪 Deutschland" },
+  { annee: "2010", lieu: "Johannesburg (Südafrika)", affiche: "Spanien 1-0 Niederlande (n.V.)", vainqueur: "🇪🇸 Spanien" },
+  { annee: "2006", lieu: "Berlin (Deutschland)", affiche: "Italien 1-1 Frankreich (5-3 i.E.)", vainqueur: "🇮🇹 Italien" },
+  { annee: "2002", lieu: "Yokohama (Japan)", affiche: "Brasilien 2-0 Deutschland", vainqueur: "🇧🇷 Brasilien" },
+  { annee: "1998", lieu: "Saint-Denis (Frankreich)", affiche: "Frankreich 3-0 Brasilien", vainqueur: "🇫🇷 Frankreich" },
+  { annee: "1994", lieu: "Pasadena (USA)", affiche: "Brasilien 0-0 Italien (3-2 i.E.)", vainqueur: "🇧🇷 Brasilien" },
 ];
 
 const faqItems = [
   {
-    question: "Quand et où se joue la finale de la CDM 2026 ?",
+    question: "Wann und wo findet das Finale der WM 2026 statt?",
     answer:
-      "La finale der WM 2026 se jouera le 19 juillet 2026 au MetLife Stadium d'East Rutherford, New Jersey (région de New York). Le coup d'envoi est prévu à 16h00 heure locale (22h00 heure de Paris).",
+      "Das Finale der WM 2026 findet am 19. Juli 2026 im MetLife Stadium in East Rutherford, New Jersey (Region New York) statt. Der Anstoß ist für 16:00 Uhr Ortszeit (22:00 Uhr MEZ) geplant.",
   },
   {
-    question: "Combien de places compte le MetLife Stadium ?",
+    question: "Wie viele Plätze hat das MetLife Stadium?",
     answer:
-      "Le MetLife Stadium a une capacité de 82 500 places en configuration football. Pour la finale de la CDM 2026, la FIFA pourrait ajuster la configuration pour atteindre environ 80 000 places avec les installations médias et VIP.",
+      "Das MetLife Stadium hat in der Fußballkonfiguration eine Kapazität von 82.500 Plätzen. Für das WM-Finale 2026 könnte die FIFA die Konfiguration auf etwa 80.000 Plätze anpassen, einschließlich der Medien- und VIP-Einrichtungen.",
   },
   {
-    question: "Combien coûtent les Tickets pour la finale ?",
+    question: "Wie viel kosten die Tickets für das Finale?",
     answer:
-      "Les prix des Tickets pour la finale CDM 2026 ne sont pas encore officiellement annoncés. Pour référence, les Tickets de la finale 2022 au Qatar allaient de 604$ (catégorie 3) à 1 607$ (catégorie 1). On peut s'attendre à des tarifs similaires ou supérieurs pour 2026.",
+      "Die Ticketpreise für das WM-Finale 2026 sind noch nicht offiziell bekannt gegeben. Zur Orientierung: Tickets für das Finale 2022 in Katar lagen zwischen 604$ (Kategorie 3) und 1.607$ (Kategorie 1). Ähnliche oder höhere Preise sind für 2026 zu erwarten.",
   },
   {
-    question: "Quelle est la dernière finale de WM jouée aux États-Unis ?",
+    question: "Wann fand das letzte WM-Finale in den USA statt?",
     answer:
-      "La dernière finale aux États-Unis remonte à 1994, au Rose Bowl de Pasadena (Californie). Le Brésil avait battu l'Italie aux tirs au but (3-2 après un 0-0). En 2026, la finale se déroulera cette fois sur la côte Est, au MetLife Stadium.",
+      "Das letzte Finale in den USA fand 1994 im Rose Bowl in Pasadena (Kalifornien) statt. Brasilien besiegte Italien im Elfmeterschießen (3-2 nach einem 0-0). 2026 wird das Finale diesmal an der Ostküste im MetLife Stadium stattfinden.",
   },
   {
-    question: "Quels sont les favoris pour la finale 2026 ?",
+    question: "Wer sind die Favoriten für das Finale 2026?",
     answer:
-      "Les principaux favoris selon les bookmakers sont le Brésil (cote ~5.50), l'Argentine (cote ~6.00), la France (cote ~6.50), l'Angleterre (cote ~7.00), l'Espagne (cote ~8.00) et l'Allemagne (cote ~10.00). Les cotes évoluent au fil des Turniers.",
+      "Die Hauptfavoriten laut Buchmachern sind Brasilien (Quote ~5,50), Argentinien (Quote ~6,00), Frankreich (Quote ~6,50), England (Quote ~7,00), Spanien (Quote ~8,00) und Deutschland (Quote ~10,00). Die Quoten entwickeln sich im Laufe des Turniers.",
   },
   {
-    question: "Comment regarder la finale en France ?",
+    question: "Wie kann man das Finale in Deutschland sehen?",
     answer:
-      "La finale sera diffusée en clair sur M6 et en streaming sur M6+. beIN Sports propose également la retransmission pour ses abonnés. Le coup d'envoi à 22h heure de Paris est un créneau idéal pour le public français.",
+      "Das Finale wird voraussichtlich im Free-TV auf ARD oder ZDF und im Streaming auf den jeweiligen Mediatheken übertragen. Der Anstoß um 22:00 Uhr MEZ ist ein idealer Zeitpunkt für das deutsche Publikum.",
   },
 ];
 
@@ -70,21 +70,21 @@ export default function FinalePage() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <Trophy className="h-4 w-4 text-accent" />
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
-              Le match ultime
+              Das ultimative Spiel
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl lg:text-6xl mb-4">
-            <span className="text-accent">La Finale</span> der WM 2026
+            <span className="text-accent">Das Finale</span> der WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            MetLife Stadium, New York — 19 juillet 2026.
-            Le plus grand match du football mondial.
+            MetLife Stadium, New York — 19. Juli 2026.
+            Das größte Spiel des Weltfußballs.
           </p>
           <div className="flex flex-wrap justify-center gap-8">
             {[
-              { val: "19 juillet", label: "Date" },
-              { val: "82 500", label: "Places" },
-              { val: "22h00", label: "Heure de Paris" },
+              { val: "19. Juli", label: "Datum" },
+              { val: "82.500", label: "Plätze" },
+              { val: "22:00", label: "Uhrzeit MEZ" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-2xl sm:text-3xl font-black text-accent">{s.val}</p>
@@ -96,37 +96,37 @@ export default function FinalePage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-14">
-        {/* Le MetLife Stadium */}
+        {/* Das MetLife Stadium */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <MapPin className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Le MetLife Stadium : l&apos;écrin de la finale
+              Das MetLife Stadium: Austragungsort des Finales
             </h2>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Situé à East Rutherford, dans le New Jersey, à quelques kilomètres de Manhattan,
-              le MetLife Stadium est l&apos;un des plus grands stades des États-Unis. Inauguré en
-              2010, il accueille habituellement les New York Giants et les New York Jets de la NFL.
+              Das MetLife Stadium liegt in East Rutherford, New Jersey, nur wenige Kilometer von Manhattan entfernt,
+              und ist eines der größten Stadien der USA. Es wurde 2010 eröffnet und ist normalerweise
+              die Heimstätte der New York Giants und der New York Jets aus der NFL.
             </p>
             <p>
-              Avec ses 82 500 places, c&apos;est le stade le plus capacitaire de la NFL.
-              Pour la WM 2026, il accueillera plusieurs matchs de phase de groupes,
-              un huitième de finale, une demi-finale et bien sûr la grande finale le 19 juillet.
+              Mit seinen 82.500 Plätzen ist es das größte Stadion der NFL.
+              Für die WM 2026 wird es mehrere Gruppenspiele, ein Achtelfinale,
+              ein Halbfinale und natürlich das große Finale am 19. Juli beherbergen.
             </p>
             <p>
-              Le stade est facilement accessible depuis Manhattan via le NJ Transit (gare de
-              Secaucus Junction puis navette). Des services de transport spéciaux seront mis en
-              place par la FIFA les jours de match. La proximité avec New York offre un cadre
-              exceptionnel pour l&apos;événement le plus regardé au monde.
+              Das Stadion ist von Manhattan aus bequem mit dem NJ Transit erreichbar (Bahnhof
+              Secaucus Junction und dann Shuttle). An Spieltagen wird die FIFA spezielle Transportdienste
+              einrichten. Die Nähe zu New York bietet einen außergewöhnlichen Rahmen für das
+              meistgesehene Sportereignis der Welt.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
               {[
                 { val: "82 500", label: "Kapazität" },
-                { val: "2010", label: "Inauguration" },
-                { val: "1,7 Md$", label: "Coût construction" },
-                { val: "Ouvert", label: "Toit" },
+                { val: "2010", label: "Eröffnung" },
+                { val: "1,7 Mrd. $", label: "Baukosten" },
+                { val: "Offen", label: "Dach" },
               ].map((s) => (
                 <div key={s.label} className="rounded-lg bg-gray-50 p-3 text-center">
                   <p className="text-lg font-bold text-primary">{s.val}</p>
@@ -137,52 +137,52 @@ export default function FinalePage() {
           </div>
         </section>
 
-        {/* Retour aux USA */}
+        {/* Rückkehr in die USA */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Star className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              La finale revient aux États-Unis après 32 ans
+              Das Finale kehrt nach 32 Jahren in die USA zurück
             </h2>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
-              La dernière fois qu&apos;une finale de WM s&apos;est jouée sur le sol
-              américain, c&apos;était le 17 juillet 1994 au Rose Bowl de Pasadena. Ce jour-là,
-              le Brésil de Romário battait l&apos;Italie de Roberto Baggio aux tirs au but
-              après un match sans but — le premier 0-0 en finale de l&apos;histoire.
+              Das letzte Mal, als ein WM-Finale auf amerikanischem Boden ausgetragen wurde,
+              war am 17. Juli 1994 im Rose Bowl in Pasadena. An jenem Tag besiegte
+              Brasiliens Romário Italiens Roberto Baggio im Elfmeterschießen
+              nach einem torlosen Spiel — dem ersten 0:0 in einem Finale der Geschichte.
             </p>
             <p>
-              En 2026, le contexte est radicalement différent. Le football (soccer) a explosé
-              aux États-Unis avec la MLS, l&apos;arrivée de stars internationales comme Messi
-              à l&apos;Inter Miami, et une Mannschaft nationale ambitieuse. L&apos;engouement pour
-              cette WM devrait être sans précédent dans le pays.
+              2026 ist die Ausgangslage grundlegend anders. Fußball (Soccer) hat in den USA
+              mit der MLS, der Ankunft internationaler Stars wie Messi bei Inter Miami
+              und einer ambitionierten Nationalmannschaft einen Boom erlebt. Die Begeisterung
+              für diese WM dürfte im Land beispiellos sein.
             </p>
             <p>
-              Le choix de New York (métropole mondiale par excellence) pour la finale est un
-              symbole fort. Avec un coup d&apos;envoi à 16h00 heure locale, le match sera
-              diffusé en prime time en Europe (22h00 à Paris, 21h00 à Londres) — un choix
-              stratégique pour maximiser l&apos;audience mondiale.
+              Die Wahl von New York (die Weltmetropole schlechthin) für das Finale ist ein
+              starkes Symbol. Mit einem Anstoß um 16:00 Uhr Ortszeit wird das Spiel
+              zur Primetime in Europa übertragen (22:00 Uhr MEZ, 21:00 Uhr in London) — eine
+              strategische Entscheidung, um das weltweite Publikum zu maximieren.
             </p>
           </div>
         </section>
 
-        {/* Historique des finales */}
+        {/* Historie der Endspiele */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <History className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Historique des finales de WM
+              Historie der WM-Endspiele
             </h2>
           </div>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
-                  <th className="px-4 py-3 text-left">Année</th>
-                  <th className="px-4 py-3 text-left">Lieu</th>
-                  <th className="px-4 py-3 text-left">Affiche</th>
-                  <th className="px-4 py-3 text-left">Vainqueur</th>
+                  <th className="px-4 py-3 text-left">Jahr</th>
+                  <th className="px-4 py-3 text-left">Ort</th>
+                  <th className="px-4 py-3 text-left">Begegnung</th>
+                  <th className="px-4 py-3 text-left">Sieger</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
@@ -198,33 +198,33 @@ export default function FinalePage() {
             </table>
           </div>
           <p className="text-sm text-gray-500 mt-3">
-            Le Brésil détient le record avec 5 titres (1958, 1962, 1970, 1994, 2002),
-            suivi de l&apos;Allemagne et l&apos;Italie (4 chacun), puis l&apos;Argentine (3)
-            et la France (2).
+            Brasilien hält den Rekord mit 5 Titeln (1958, 1962, 1970, 1994, 2002),
+            gefolgt von Deutschland und Italien (je 4), dann Argentinien (3)
+            und Frankreich (2).
           </p>
         </section>
 
-        {/* Prognoses */}
+        {/* Prognosen */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <TrendingUp className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Prognoses et cotes pour la finale
+              Prognosen und Quoten für das Finale
             </h2>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Il est encore tôt pour prédire les finalistes, mais les bookmakers ont déjà
-              leurs favoris pour le titre. L&apos;Argentine de Messi (si le capitaine est
-              présent pour sa dernière danse) et le Brésil, en quête de rachat après 2022,
-              sont en tête des cotes sur la plupart des plateformes.
+              Es ist noch früh, um die Finalisten vorherzusagen, aber die Buchmacher haben bereits
+              ihre Favoriten für den Titel. Argentinien mit Messi (falls der Kapitän für seinen
+              letzten Tanz dabei ist) und Brasilien, das nach 2022 Wiedergutmachung sucht,
+              liegen bei den meisten Plattformen vorne in den Quoten.
             </p>
             <p>
-              La France, double championne du monde (1998, 2018) et finaliste en 2022,
-              fait partie des sérieux prétendants. L&apos;Angleterre de Bellingham et Saka,
-              l&apos;Espagne de Yamal et Pedri, et l&apos;Allemagne à domicile (en tant que
-              co-favoris avec le soutien du public nord-américain) complètent le tableau des
-              candidats crédibles.
+              Frankreich, zweifacher Weltmeister (1998, 2018) und Finalist 2022,
+              gehört zu den ernsthaften Anwärtern. Englands Bellingham und Saka,
+              Spaniens Yamal und Pedri sowie Deutschland (als
+              Mitfavorit mit der Unterstützung des nordamerikanischen Publikums) vervollständigen die
+              Liste der glaubwürdigen Kandidaten.
             </p>
 
             <div className="overflow-x-auto rounded-lg border border-gray-200 mt-4">
@@ -232,18 +232,18 @@ export default function FinalePage() {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-4 py-2 text-left text-gray-600">Mannschaft</th>
-                    <th className="px-4 py-2 text-left text-gray-600">Cote indicative</th>
-                    <th className="px-4 py-2 text-left text-gray-600">Probabilité implicite</th>
+                    <th className="px-4 py-2 text-left text-gray-600">Richtquote</th>
+                    <th className="px-4 py-2 text-left text-gray-600">Implizite Wahrscheinlichkeit</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
                   {[
-                    { equipe: "🇧🇷 Brésil", cote: "5.50", prob: "~18%" },
-                    { equipe: "🇦🇷 Argentine", cote: "6.00", prob: "~17%" },
-                    { equipe: "🇫🇷 France", cote: "6.50", prob: "~15%" },
-                    { equipe: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", cote: "7.00", prob: "~14%" },
-                    { equipe: "🇪🇸 Espagne", cote: "8.00", prob: "~13%" },
-                    { equipe: "🇩🇪 Allemagne", cote: "10.00", prob: "~10%" },
+                    { equipe: "🇧🇷 Brasilien", cote: "5.50", prob: "~18%" },
+                    { equipe: "🇦🇷 Argentinien", cote: "6.00", prob: "~17%" },
+                    { equipe: "🇫🇷 Frankreich", cote: "6.50", prob: "~15%" },
+                    { equipe: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", cote: "7.00", prob: "~14%" },
+                    { equipe: "🇪🇸 Spanien", cote: "8.00", prob: "~13%" },
+                    { equipe: "🇩🇪 Deutschland", cote: "10.00", prob: "~10%" },
                   ].map((e) => (
                     <tr key={e.equipe} className="hover:bg-gray-50">
                       <td className="px-4 py-2 font-medium text-gray-900">{e.equipe}</td>
@@ -255,8 +255,8 @@ export default function FinalePage() {
               </table>
             </div>
             <p className="text-xs text-gray-400 mt-2">
-              Cotes indicatives à titre informatif. Les paris sportifs comportent des risques.
-              Jouez de manière responsable. 18+.
+              Richtquoten nur zu Informationszwecken. Sportwetten bergen Risiken.
+              Spielen Sie verantwortungsbewusst. 18+.
               {" "}
               <Link href="/verantwortungsvolles-spielen" className="underline hover:text-primary">
                 Mehr erfahren
@@ -265,39 +265,39 @@ export default function FinalePage() {
           </div>
         </section>
 
-        {/* Moments légendaires */}
+        {/* Legendäre Momente */}
         <section>
           <div className="flex items-center gap-3 mb-4">
             <Trophy className="h-6 w-6 text-accent" />
             <h2 className="text-2xl font-bold text-gray-900">
-              Les finales légendaires
+              Legendäre Endspiele
             </h2>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6 space-y-4 text-gray-700 leading-relaxed">
             <p>
-              <strong>2022 : Argentine 3-3 France (4-2 t.a.b.)</strong> — Considérée par beaucoup
-              comme la plus grande finale de l&apos;histoire. Messi ouvre le score sur penalty,
-              Di María double la mise. Mbappé réalise l&apos;impossible avec un doublé en 97 secondes
-              pour égaliser à 2-2. Messi marque en prolongation, Mbappé répond encore sur penalty
-              pour le hat-trick. L&apos;Argentine l&apos;emporte aux tirs au but. Le sacre de Messi.
+              <strong>2022: Argentinien 3:3 Frankreich (4:2 i.E.)</strong> — Von vielen als das
+              größte Finale der Geschichte angesehen. Messi eröffnet per Elfmeter,
+              Di María erhöht. Mbappé schafft das Unmögliche mit einem Doppelpack in 97 Sekunden
+              zum 2:2-Ausgleich. Messi trifft in der Verlängerung, Mbappé antwortet erneut per Elfmeter
+              zum Hattrick. Argentinien gewinnt im Elfmeterschießen. Messis Krönung.
             </p>
             <p>
-              <strong>1998 : France 3-0 Brésil</strong> — Au Stadion de France, les Bleus de Zidane
-              écrasent le Brésil de Ronaldo dans une finale marquée par le mystère autour du malaise
-              du Fenomeno avant le match. Zidane inscrit un doublé de la tête, Petit clôt le festival
-              dans les arrêts de jeu. La France remporte sa première étoile.
+              <strong>1998: Frankreich 3:0 Brasilien</strong> — Im Stade de France dominieren Zidanes
+              Bleus Ronaldos Brasilien in einem Finale, das vom Mysterium um den Schwächeanfall
+              des Fenomeno vor dem Spiel geprägt ist. Zidane erzielt einen Doppelpack per Kopf, Petit
+              macht in der Nachspielzeit den Deckel drauf. Frankreich holt seinen ersten Stern.
             </p>
             <p>
-              <strong>1970 : Brésil 4-1 Italie</strong> — Le Brésil de Pelé, Jairzinho, Tostão et
-              Carlos Alberto signe peut-être la performance collective la plus aboutie de l&apos;histoire
-              du football. Le but de Carlos Alberto en fin de match, au bout d&apos;une action
-              collective parfaite, reste l&apos;un des plus beaux gestes du jeu.
+              <strong>1970: Brasilien 4:1 Italien</strong> — Brasiliens Pelé, Jairzinho, Tostão und
+              Carlos Alberto liefern vielleicht die vollkommenste Mannschaftsleistung in der Geschichte
+              des Fußballs. Carlos Albertos Tor gegen Ende des Spiels, am Ende einer
+              perfekten Kombination, bleibt einer der schönsten Momente des Sports.
             </p>
             <p>
-              La finale 2026 écrira-t-elle un nouveau chapitre dans cette histoire glorieuse ?
-              Avec le nouveau format à 48 Mannschafts et un tournoi plus long, les finalistes arriveront
-              au MetLife Stadium après 7 matchs intenses. La fatigue, la pression et la magie
-              du moment feront le reste.
+              Wird das Finale 2026 ein neues Kapitel in dieser ruhmreichen Geschichte schreiben?
+              Mit dem neuen Format mit 48 Mannschaften und einem längeren Turnier werden die Finalisten
+              nach 7 intensiven Spielen im MetLife Stadium ankommen. Erschöpfung, Druck und die Magie
+              des Augenblicks werden den Rest erledigen.
             </p>
           </div>
         </section>
@@ -306,25 +306,25 @@ export default function FinalePage() {
         <section className="text-center">
           <div className="rounded-xl bg-primary p-8 sm:p-10">
             <h2 className="text-2xl font-bold text-white mb-3">
-              Qui soulèvera le trophée le 19 juillet ?
+              Wer hebt den Pokal am 19. Juli?
             </h2>
             <p className="text-gray-300 max-w-xl mx-auto mb-6">
-              Simulez l&apos;intégralité des Turniers et découvrez votre finaliste
-              avec notre simulateur interactif.
+              Simulieren Sie das gesamte Turnier und entdecken Sie Ihren Finalisten
+              mit unserem interaktiven Simulator.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/simulateur"
                 className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
               >
-                Simuler le tournoi
+                Turnier simulieren
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/prognose/sieger"
                 className="inline-flex items-center gap-2 bg-white/10 text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-white/20 transition-colors"
               >
-                Zeige pronostics
+                Prognosen anzeigen
               </Link>
             </div>
           </div>

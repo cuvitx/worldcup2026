@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, ArrowRight, BarChart3, ExternalLink, History, ShieldAlert, Swords, TrendingUp, Trophy, User } from "lucide-react";
-import { players } from "@repo/data/players";
-import { teamsById } from "@repo/data/teams";
+import { players } from "../../../lib/localized-data";
+import { teamsById } from "../../../lib/localized-data";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
@@ -61,7 +61,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
   const stats = getCardStats(slug);
 const faqItems = [
     { question: `Quelle est la cote pour un carton jaune de ${player.name} ?`, answer: `La cote indicative pour un carton jaune de ${player.name} est de ${stats.pmusport} chez Betano. Cette cote varie selon le match et l'adversaire.` },
-    { question: `${player.name} prend-il souvent des cartons jaunes ?`, answer: `${player.name} affiche une moyenne de ${stats.cardsPerMatch} carton jaune par match en sélection, avec ${stats.yellowCards} cartons en ${stats.matchesPlayed} matchs. Son profil est considéré comme ${stats.isRough ? "plutôt rugueux" : "plutôt fair-play"}.` },
+    { question: `${player.name} prend-il souvent des cartons jaunes ?`, answer: `${player.name} affiche une moyenne de ${stats.cardsPerMatch} carton jaune par match en Aufgebot, avec ${stats.yellowCards} cartons en ${stats.matchesPlayed} matchs. Son profil est considéré comme ${stats.isRough ? "plutôt rugueux" : "plutôt fair-play"}.` },
     { question: "Comment sont cotés les paris carton jaune ?", answer: "Le pari \"Spieler reçoit un carton jaune\" est proposé par la plupart des bookmakers sur les matchs der WM 2026. La cote dépend du profil disciplinaire du Spieler, de l'adversaire et de l'enjeu du match." },
     { question: "L'arbitre influence-t-il les cotes carton jaune ?", answer: "Oui, l'arbitre désigné est un facteur clé. Certains arbitres distribuent en moyenne 4-5 cartons par match, d'autres seulement 2-3. Les bookmakers ajustent leurs cotes en conséquence." },
   ];
@@ -79,7 +79,7 @@ const faqItems = [
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <ShieldAlert className="w-7 h-7 text-yellow-500" />
-          <h2 className="text-2xl font-bold text-primary">Stats disciplinaires en sélection</h2>
+          <h2 className="text-2xl font-bold text-primary">Stats disciplinaires en Aufgebot</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">

@@ -1,4 +1,4 @@
-import { teams } from "@repo/data/teams";
+import { teams } from "../../../../lib/localized-data";
 import { teamPredictions } from "@repo/data/predictions";
 
 export const faqItems = [

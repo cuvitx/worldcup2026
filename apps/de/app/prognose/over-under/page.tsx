@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.wm2026guide.de/prognose/over-under" },
   openGraph: {
     title: "Over/Under Buts CDM 2026 — Guide Complet",
-    description: "Moyenne buts/match par CDM, groupes offensifs vs défensifs, top matchs +2.5 et -2.5.",
+    description: "Moyenne buts/match par CDM, Gruppen offensifs vs défensifs, top matchs +2.5 et -2.5.",
     url: "https://www.wm2026guide.de/prognose/over-under",
   },
 };
@@ -46,14 +46,14 @@ const topUnder = [
   { match: "🇫🇷 France vs 🇦🇷 Argentine", cote: 1.90, reason: "Choc tactique, les deux se neutralisent souvent." },
   { match: "🇵🇹 Portugal vs 🇺🇾 Uruguay", cote: 1.85, reason: "Historique de confrontations fermées (0-0 et 2-0 en 2022)." },
   { match: "🇮🇹 Italie vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", cote: 1.80, reason: "Finale Euro 2020 : 1-1 après 120 minutes. Style prudent." },
-  { match: "🇲🇦 Maroc vs 🇭🇷 Croatie", cote: 1.75, reason: "0-0 en phase de groupes CDM 2022. Deux blocs compacts." },
+  { match: "🇲🇦 Maroc vs 🇭🇷 Croatie", cote: 1.75, reason: "0-0 en phase de Gruppen CDM 2022. Deux blocs compacts." },
 ];
 
 const faqItems = [
   { question: "Que signifie Over 2.5 et Under 2.5 ?", answer: "Over 2.5 signifie que vous pariez sur 3 buts ou plus dans le match. Under 2.5 signifie 2 buts ou moins. Le '.5' élimine la possibilité de match nul sur ce marché : votre pari est forcément gagnant ou perdant." },
   { question: "Quel est le pourcentage de matchs Over 2.5 en WM ?", answer: "En moyenne, environ 46-48% des matchs de CDM se terminent avec 3 buts ou plus (Over 2.5). Ce pourcentage varie selon les éditions : 51% en 2014 (record) contre 39% en 2010 (plus défensif)." },
-  { question: "Le format 48 Mannschafts favorise-t-il le Over ?", answer: "Oui, le format 48 Mannschafts devrait augmenter la moyenne de buts, surtout en phase de groupes. Plus d'écarts de niveau entre les Mannschafts signifie davantage de matchs déséquilibrés avec des scores larges. La moyenne pourrait dépasser 2.8 buts/match." },
-  { question: "Vaut-il mieux parier Over en poules ou en élimination ?", answer: "Statistiquement, la phase de groupes offre plus de buts (2.6 buts/match en moyenne) que la phase à élimination directe (2.1 buts/match). Les matchs de poules sont moins tactiques et les Mannschafts prennent plus de risques." },
+  { question: "Le format 48 Mannschafts favorise-t-il le Over ?", answer: "Oui, le format 48 Mannschafts devrait augmenter la moyenne de buts, surtout en phase de Gruppen. Plus d'écarts de niveau entre les Mannschafts signifie davantage de matchs déséquilibrés avec des scores larges. La moyenne pourrait dépasser 2.8 buts/match." },
+  { question: "Vaut-il mieux parier Over en poules ou en élimination ?", answer: "Statistiquement, la phase de Gruppen offre plus de buts (2.6 buts/match en moyenne) que la phase à élimination directe (2.1 buts/match). Les matchs de poules sont moins tactiques et les Mannschafts prennent plus de risques." },
 ];
 
 export default function PrognoseOverUnderPage() {
@@ -103,13 +103,13 @@ export default function PrognoseOverUnderPage() {
         </div>
         <div className="bg-primary/5 rounded-xl p-6">
           <p className="text-gray-700 leading-relaxed mb-4">
-            Le passage de 32 à 48 Mannschafts est le changement majeur de cette édition. Plus d&apos;Mannschafts signifie un écart de niveau plus important, surtout en phase de groupes. Les petites nations auront du mal à contenir les géants, ce qui pourrait produire des scores fleuve.
+            Le passage de 32 à 48 Mannschafts est le changement majeur de cette édition. Plus d&apos;Mannschafts signifie un écart de niveau plus important, surtout en phase de Gruppen. Les petites nations auront du mal à contenir les géants, ce qui pourrait produire des scores fleuve.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Notre estimation : la moyenne de buts par match en phase de groupes pourrait atteindre 2.8 à 3.0, contre 2.5 en format 32 Mannschafts. En revanche, la phase à élimination directe devrait rester autour de 2.0-2.2 buts/match.
+            Notre estimation : la moyenne de buts par match en phase de Gruppen pourrait atteindre 2.8 à 3.0, contre 2.5 en format 32 Mannschafts. En revanche, la phase à élimination directe devrait rester autour de 2.0-2.2 buts/match.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Pour les parieurs, cela signifie une opportunité claire : Over 2.5 en phase de groupes sur les matchs déséquilibrés, Under 2.5 dès les 16èmes de finale.
+            Pour les parieurs, cela signifie une opportunité claire : Over 2.5 en phase de Gruppen sur les matchs déséquilibrés, Under 2.5 dès les 16èmes de finale.
           </p>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function PrognoseOverUnderPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <TrendingUp className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Analyse par groupe — Offensif vs Défensif</h2>
+          <h2 className="text-2xl font-bold text-primary">Analyse par Gruppe — Offensif vs Défensif</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {groupAnalysis.map((g) => (

@@ -33,14 +33,14 @@ export function ForceAnalysis({ sortedTeams, groupLetter }: ForceAnalysisProps) 
             <p className="text-sm text-gray-600 leading-relaxed">
               {team!.description
                 ? team!.description.slice(0, 250) + (team!.description.length > 250 ? "…" : "")
-                : `${team!.name} disputera le Groupe ${groupLetter} avec l'objectif de se qualifier pour les huitièmes de finale.`}
+                : `${team!.name} disputera le Gruppe ${groupLetter} avec l'objectif de se qualifier pour les huitièmes de finale.`}
             </p>
             {pred && (
               <div className="mt-2 flex flex-wrap gap-2 text-xs">
                 <span className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1">Titre : {probToOdds(pred.winnerProb)}</span>
                 <span className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1"><Shirt className="h-5 w-5 inline-block" /> Finale : {Math.round(pred.finalProb * 100)}%</span>
-                <span className="rounded-full bg-field/10 border border-field/20 px-2 py-1">Groupe : {Math.round(pred.groupStageProb * 100)}%</span>
-                <Link href={`/pronostic/${team!.slug}`} className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1 text-primary hover:bg-primary/20 transition-colors">Voir pronostic complet →</Link>
+                <span className="rounded-full bg-field/10 border border-field/20 px-2 py-1">Gruppe : {Math.round(pred.groupStageProb * 100)}%</span>
+                <Link href={`/Prognose/${team!.slug}`} className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1 text-primary hover:bg-primary/20 transition-colors">Voir Prognose complet →</Link>
               </div>
             )}
           </div>

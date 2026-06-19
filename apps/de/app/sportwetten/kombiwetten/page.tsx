@@ -5,12 +5,12 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Layers, ArrowRight, AlertTriangle, CheckCircle, XCircle, Calculator, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Guide des paris combinés CDM 2026 — Combiné, System, Trixie, Yankee",
+  title: "Kombiwetten-Ratgeber WM 2026 — Kombi, System, Trixie, Yankee",
   description:
-    "Paris combinés WM 2026 : combiné, system, Trixie, Yankee. Exemples concrets, calcul de cotes et meilleurs bookmakers.",
+    "Kombiwetten WM 2026: Kombi, System, Trixie, Yankee. Konkrete Beispiele, Quotenberechnung und beste Wettanbieter.",
   openGraph: {
-    title: "Paris combinés CDM 2026 — Le guide complet",
-    description: "Combinés, system, Trixie : boostez vos gains CDM 2026 avec nos exemples et stratégies.",
+    title: "Kombiwetten WM 2026 — Der komplette Ratgeber",
+    description: "Kombiwetten, System, Trixie: Steigern Sie Ihre WM-2026-Gewinne mit unseren Beispielen und Strategien.",
     url: "https://www.wm2026guide.de/sportwetten/kombiwetten",
   },
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/kombiwetten" },
@@ -18,113 +18,113 @@ export const metadata: Metadata = {
 
 const types = [
   {
-    nom: "Combiné classique (Acca)",
-    description: "Alle sélections doivent être gagnantes. Les cotes se multiplient entre elles. Gain potentiel élevé mais risque maximal.",
-    exemple: "3 matchs à 1.80 chacun → cote combinée = 1.80 × 1.80 × 1.80 = 5.83",
+    nom: "Klassische Kombiwette (Acca)",
+    description: "Alle Auswahlen müssen gewinnen. Die Quoten werden miteinander multipliziert. Hohes Gewinnpotenzial, aber maximales Risiko.",
+    exemple: "3 Spiele mit je 1,80 → Gesamtquote = 1,80 × 1,80 × 1,80 = 5,83",
   },
   {
-    nom: "System (ou multi-system)",
-    description: "Combinaison de plusieurs combinés. Vous gagnez même si une ou plusieurs sélections perdent, mais la mise est plus élevée.",
-    exemple: "System 2/3 sur 3 sélections = 3 combinés de 2. Si 2 sur 3 sont bons, vous gagnez au moins un combiné.",
+    nom: "System (oder Multi-System)",
+    description: "Kombination mehrerer Kombiwetten. Sie gewinnen auch, wenn eine oder mehrere Auswahlen verlieren, aber der Einsatz ist höher.",
+    exemple: "System 2/3 auf 3 Auswahlen = 3 Zweier-Kombis. Wenn 2 von 3 richtig sind, gewinnen Sie mindestens eine Kombi.",
   },
   {
     nom: "Trixie",
-    description: "4 paris sur 3 sélections : 3 doubles + 1 triple. Vous gagnez dès que 2 sélections sur 3 sont correctes.",
-    exemple: "Aufgebots A (1.90), B (2.10), C (1.75) → 3 doubles (AB, AC, BC) + 1 triple (ABC). Mise = 4 × mise unitaire.",
+    description: "4 Wetten auf 3 Auswahlen: 3 Zweier + 1 Dreier. Sie gewinnen, sobald 2 von 3 Auswahlen richtig sind.",
+    exemple: "Auswahlen A (1,90), B (2,10), C (1,75) → 3 Zweier (AB, AC, BC) + 1 Dreier (ABC). Einsatz = 4 × Einzeleinsatz.",
   },
   {
     nom: "Yankee",
-    description: "11 paris sur 4 sélections : 6 doubles + 4 triples + 1 quadruple. Rentable dès 2 bonnes sélections.",
-    exemple: "4 sélections → 11 combinaisons. Mise totale = 11 × mise unitaire. Très populaire au UK.",
+    description: "11 Wetten auf 4 Auswahlen: 6 Zweier + 4 Dreier + 1 Vierer. Profitabel ab 2 richtigen Auswahlen.",
+    exemple: "4 Auswahlen → 11 Kombinationen. Gesamteinsatz = 11 × Einzeleinsatz. Sehr beliebt in UK.",
   },
   {
     nom: "Lucky 15 / Lucky 31",
-    description: "Comme le Yankee mais inclut les paris simples. Lucky 15 = 15 paris sur 4 sélections (4 simples + 6 doubles + 4 triples + 1 quadruple).",
-    exemple: "Vous gagnez même avec une seule bonne sélection (le pari simple). Sécurité maximale, mise élevée.",
+    description: "Wie Yankee, aber mit Einzelwetten. Lucky 15 = 15 Wetten auf 4 Auswahlen (4 Einzel + 6 Zweier + 4 Dreier + 1 Vierer).",
+    exemple: "Sie gewinnen sogar mit nur einer richtigen Auswahl (die Einzelwette). Maximale Sicherheit, hoher Einsatz.",
   },
 ];
 
 const exemples = [
   {
-    titre: "Combiné « Favoris phase de groupes »",
-    selections: ["France bat le Groupe (1.45)", "Brésil bat le Groupe (1.60)", "Allemagne bat le Groupe (1.55)"],
-    cote: "1.45 × 1.60 × 1.55 = 3.60",
+    titre: "Kombi \"Favoriten Gruppenphase\"",
+    selections: ["Frankreich gewinnt die Gruppe (1,45)", "Brasilien gewinnt die Gruppe (1,60)", "Deutschland gewinnt die Gruppe (1,55)"],
+    cote: "1,45 × 1,60 × 1,55 = 3,60",
     mise: "10 €",
     gain: "36 €",
-    analyse: "Cotes basses mais combinées = rendement correct. Risque modéré : les trois sont favoris mais un accident est toujours possible.",
+    analyse: "Niedrige Quoten, aber kombiniert = gute Rendite. Moderates Risiko: Alle drei sind Favoriten, aber ein Ausrutscher ist immer möglich.",
   },
   {
-    titre: "Combiné « BTTS (les deux marquent) »",
-    selections: ["France-Argentine BTTS Oui (1.70)", "Brésil-Allemagne BTTS Oui (1.75)", "Espagne-Angleterre BTTS Oui (1.65)"],
-    cote: "1.70 × 1.75 × 1.65 = 4.91",
+    titre: "Kombi \"BTTS (beide treffen)\"",
+    selections: ["Frankreich-Argentinien BTTS Ja (1,70)", "Brasilien-Deutschland BTTS Ja (1,75)", "Spanien-England BTTS Ja (1,65)"],
+    cote: "1,70 × 1,75 × 1,65 = 4,91",
     mise: "10 €",
     gain: "49,10 €",
-    analyse: "Les grosses affiches CDM produisent souvent des buts des deux côtés. Valeur correcte à cote ~4.90.",
+    analyse: "Die großen WM-Duelle produzieren oft Tore auf beiden Seiten. Guter Wert bei Quote ~4,90.",
   },
   {
-    titre: "Combiné « Over 2.5 buts chaleur »",
-    selections: ["Match Houston Over 2.5 (1.85)", "Match Dallas Over 2.5 (1.80)", "Match Miami Over 2.5 (1.90)"],
-    cote: "1.85 × 1.80 × 1.90 = 6.33",
+    titre: "Kombi \"Over 2.5 Tore Hitze\"",
+    selections: ["Spiel Houston Over 2.5 (1,85)", "Spiel Dallas Over 2.5 (1,80)", "Spiel Miami Over 2.5 (1,90)"],
+    cote: "1,85 × 1,80 × 1,90 = 6,33",
     mise: "5 €",
     gain: "31,65 €",
-    analyse: "La chaleur fatigue les défenses en 2e mi-temps. Matchs en stades chauds = plus de buts historiquement.",
+    analyse: "Die Hitze ermüdet die Abwehr in der 2. Halbzeit. Spiele in heißen Stadien = historisch mehr Tore.",
   },
   {
-    titre: "System 2/3 « Vainqueurs J1 »",
-    selections: ["France gagne J1 (1.55)", "Espagne gagne J1 (1.50)", "Argentine gagne J1 (1.60)"],
-    cote: "3 doubles : 2.33 + 2.48 + 2.40 = si 2 sur 3 bons",
+    titre: "System 2/3 \"Sieger 1. Spieltag\"",
+    selections: ["Frankreich gewinnt ST1 (1,55)", "Spanien gewinnt ST1 (1,50)", "Argentinien gewinnt ST1 (1,60)"],
+    cote: "3 Zweier: 2,33 + 2,48 + 2,40 = wenn 2 von 3 richtig",
     mise: "3 × 5 € = 15 €",
-    gain: "~12-13 € (si 2 bons) à 36 € (si 3 bons)",
-    analyse: "Le system protège contre un résultat raté. Moins de gain mais plus de chances de retour sur investissement.",
+    gain: "~12-13 € (bei 2 richtigen) bis 36 € (bei 3 richtigen)",
+    analyse: "Das System schützt gegen ein falsches Ergebnis. Weniger Gewinn, aber höhere Chance auf Return on Investment.",
   },
   {
-    titre: "Combiné « Buteur + résultat »",
-    selections: ["Mbappé marque (1.90)", "France gagne (1.55)", "Over 1.5 buts France (1.35)"],
-    cote: "1.90 × 1.55 × 1.35 = 3.97",
+    titre: "Kombi \"Torschütze + Ergebnis\"",
+    selections: ["Mbappé trifft (1,90)", "Frankreich gewinnt (1,55)", "Over 1.5 Tore Frankreich (1,35)"],
+    cote: "1,90 × 1,55 × 1,35 = 3,97",
     mise: "10 €",
     gain: "39,70 €",
-    analyse: "Combiné cohérent : les trois sélections se renforcent logiquement. Si Mbappé marque et la France gagne, il y a fort à parier qu'il y a 2+ buts.",
+    analyse: "Stimmige Kombiwette: Die drei Auswahlen verstärken sich logisch gegenseitig. Wenn Mbappé trifft und Frankreich gewinnt, gibt es sehr wahrscheinlich 2+ Tore.",
   },
 ];
 
 const avantages = [
-  "Gains potentiellement très élevés avec une mise modeste",
-  "Rendent les petites cotes intéressantes une fois combinées",
-  "Ajoutent de l'excitation en suivant plusieurs matchs",
-  "Certains bookmakers offrent des bonus combinés (+5% à +50% sur les gains)",
+  "Potenziell sehr hohe Gewinne mit einem bescheidenen Einsatz",
+  "Machen niedrige Quoten erst in Kombination interessant",
+  "Mehr Spannung beim Verfolgen mehrerer Spiele",
+  "Manche Wettanbieter bieten Kombi-Boni (+5 % bis +50 % auf den Gewinn)",
 ];
 
 const risques = [
-  "Il suffit d'une seule erreur pour tout perdre (combiné classique)",
-  "La probabilité réelle de gagner un combiné 5+ sélections est très faible (<5%)",
-  "Les bookmakers adorent les combinés : la marge cumulée est en leur faveur",
-  "Tendance à forcer des sélections « pour compléter le combi » sans analyse",
+  "Ein einziger Fehler reicht, um alles zu verlieren (klassische Kombiwette)",
+  "Die tatsächliche Gewinnwahrscheinlichkeit bei 5+ Auswahlen ist sehr gering (<5 %)",
+  "Wettanbieter lieben Kombiwetten: Die kumulierte Marge ist zu ihren Gunsten",
+  "Neigung, Auswahlen \"um die Kombi zu vervollständigen\" ohne Analyse hinzuzufügen",
 ];
 
 const bookmakers = [
-  { nom: "Betano", avantage: "Combo Boost réguliers, cashout partiel sur combinés, bookmaker agréé ANJ de confiance", url: pmuTrackingUrl("paris-sportifs") },
+  { nom: "Betano", avantage: "Regelmäßige Kombi-Boosts, Teil-Cashout bei Kombiwetten, vertrauenswürdiger lizenzierter Wettanbieter", url: pmuTrackingUrl("paris-sportifs") },
 ];
 
 const faqItems = [
   {
-    question: "Combien de sélections maximum dans un combiné ?",
+    question: "Wie viele Auswahlen maximal in einer Kombiwette?",
     answer:
-      "La plupart des bookmakers autorisent jusqu'à 15-20 sélections. Cependant, au-delà de 3-4 sélections, la probabilité de gagner diminue drastiquement. Les parieurs expérimentés recommandent de ne pas dépasser 3-4 sélections pour un rapport risque/gain optimal.",
+      "Die meisten Wettanbieter erlauben bis zu 15-20 Auswahlen. Allerdings sinkt die Gewinnwahrscheinlichkeit ab 3-4 Auswahlen drastisch. Erfahrene Wetter empfehlen, 3-4 Auswahlen nicht zu überschreiten, um ein optimales Risiko-Gewinn-Verhältnis zu erzielen.",
   },
   {
-    question: "Le combiné est-il rentable sur le long terme ?",
+    question: "Ist die Kombiwette langfristig profitabel?",
     answer:
-      "Non, les combinés ont une espérance de gain négative sur le long terme car les marges des bookmakers se cumulent. Un combiné de 5 sélections a une marge cumulée de ~25-30% en faveur du bookmaker. Utilisez-les avec modération pour le plaisir, pas comme stratégie principale.",
+      "Nein, Kombiwetten haben langfristig eine negative Gewinnerwartung, da sich die Margen der Wettanbieter kumulieren. Eine Kombiwette mit 5 Auswahlen hat eine kumulierte Marge von ~25-30 % zugunsten des Wettanbieters. Nutzen Sie sie mit Maß zum Vergnügen, nicht als Hauptstrategie.",
   },
   {
-    question: "Qu'est-ce qu'un boost combiné ?",
+    question: "Was ist ein Kombi-Boost?",
     answer:
-      "Un boost combiné est une promotion où le bookmaker augmente vos gains si votre combiné est gagnant (ex : +10% pour 3 sélections, +30% pour 5+). Betano propose régulièrement ce type de boost pendant les grandes compétitions comme la CDM 2026.",
+      "Ein Kombi-Boost ist eine Aktion, bei der der Wettanbieter Ihren Gewinn erhöht, wenn Ihre Kombiwette gewinnt (z. B.: +10 % bei 3 Auswahlen, +30 % bei 5+). Betano bietet regelmäßig solche Boosts bei großen Wettbewerben wie der WM 2026 an.",
   },
   {
-    question: "Vaut-il mieux un combiné ou un system ?",
+    question: "Ist eine Kombiwette oder ein System besser?",
     answer:
-      "Le system (Trixie, Yankee) est moins risqué car vous pouvez gagner même avec une sélection perdante. En revanche, la mise totale est plus élevée et le gain maximal plus faible. Pour les débutants, le system 2/3 est un bon compromis.",
+      "Das System (Trixie, Yankee) ist weniger riskant, da Sie auch mit einer falschen Auswahl gewinnen können. Allerdings ist der Gesamteinsatz höher und der Maximalgewinn niedriger. Für Anfänger ist das System 2/3 ein guter Kompromiss.",
   },
 ];
 
@@ -135,14 +135,14 @@ return (
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
-            Paris sportifs
+            Sportwetten
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Guide des paris combinés CDM 2026
+            Kombiwetten-Ratgeber WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Combiné, System, Trixie, Yankee : maîtrisez les paris combinés avec nos exemples concrets
-            et nos stratégies für die WM 2026.
+            Kombi, System, Trixie, Yankee: Meistern Sie Kombiwetten mit unseren konkreten Beispielen
+            und Strategien für die WM 2026.
           </p>
         </div>
       </section>

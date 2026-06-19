@@ -46,7 +46,7 @@ export default function CashoutGuidePage() {
     },
     {
       question: "Quand est-il judicieux de cashouter ?",
-      answer: "Cashoutez quand : (1) un Spieler clé est blessé et votre pari est en danger, (2) vous avez un combiné à 5 sélections et les 4 premières sont gagnées, (3) la situation du match change radicalement (carton rouge, penalty). Évitez de cashouter par peur.",
+      answer: "Cashoutez quand : (1) un Spieler clé est blessé et votre pari est en danger, (2) vous avez un combiné à 5 Aufgebots et les 4 premières sont gagnées, (3) la situation du match change radicalement (carton rouge, penalty). Évitez de cashouter par peur.",
     },
   ];
 

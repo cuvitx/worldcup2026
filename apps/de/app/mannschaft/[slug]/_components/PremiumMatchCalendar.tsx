@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { matches as matchesType } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../../lib/localized-data";
+import { stadiumsById } from "../../../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { estimatedMatchOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 

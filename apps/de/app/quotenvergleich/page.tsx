@@ -45,8 +45,8 @@ export default function ComparateurCotesPage() {
       answer: "Pour maximiser vos gains : 1) Comparez systématiquement les cotes de tous les bookmakers avant de parier, 2) Ciblez les cotes surlignées en vert (meilleures du marché), 3) Ouvrez des comptes sur plusieurs bookmakers pour pouvoir choisir la meilleure cote à chaque fois, 4) Profitez des bonus de bienvenue pour augmenter votre capital de départ, 5) Ne pariez jamais plus que ce que vous pouvez perdre et fixez-vous des limites de dépôt. 18+."
     },
     {
-      question: "Peut-on parier sur tous les matchs de la phase de groupes ?",
-      answer: "Oui, tous les bookmakers français proposent des paris sur l'intégralité des 72 matchs de la phase de groupes de la CDM 2026. Notre comparateur couvre tous les matchs groupe par groupe (A à L). Vous pouvez filtrer par groupe pour trouver rapidement les matchs qui vous intéressent. En plus du pari 1N2, des dizaines d'autres marchés sont disponibles : score exact, buteur, nombre de buts, handicap, mi-temps/fin, corners, cartons, etc."
+      question: "Peut-on parier sur tous les matchs de la phase de Gruppen ?",
+      answer: "Oui, tous les bookmakers français proposent des paris sur l'intégralité des 72 matchs de la phase de Gruppen de la CDM 2026. Notre comparateur couvre tous les matchs Gruppe par Gruppe (A à L). Vous pouvez filtrer par Gruppe pour trouver rapidement les matchs qui vous intéressent. En plus du pari 1N2, des dizaines d'autres marchés sont disponibles : score exact, Torschütze, nombre de buts, handicap, mi-temps/fin, corners, cartons, etc."
     }
   ];
 
@@ -78,7 +78,7 @@ export default function ComparateurCotesPage() {
             Comparateur de cotes – WM 2026
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de groupes du Mondial 2026.
+            Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de Gruppen du Mondial 2026.
             Trouvez la meilleure cote pour chaque rencontre.
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function ComparateurCotesPage() {
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            Tous les groupes
+            Tous les Gruppen
           </button>
           {allGroups.map((g) => (
             <button
@@ -108,7 +108,7 @@ export default function ComparateurCotesPage() {
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
-              Groupe {g}
+              Gruppe {g}
             </button>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function ComparateurCotesPage() {
                 <div className="bg-gray-50 px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200">
                   <div className="flex items-center gap-2 flex-wrap min-w-0">
                     <span className="text-xs font-bold bg-primary/10 text-primary px-2 py-0.5 rounded shrink-0">
-                      Groupe {match.group}
+                      Gruppe {match.group}
                     </span>
                     <span className="font-semibold text-gray-900 text-sm break-words min-w-0">
                       {match.homeFlag} {match.homeTeam} vs {match.awayTeam} {match.awayFlag}

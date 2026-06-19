@@ -5,13 +5,13 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Bonus Paris Sportifs CDM 2026 | Code Promo & Offre Betano",
+  title: "Sportwetten Bonus WM 2026 | Aktionscode & Betano Angebot",
   description:
-    "Bonus et code promo Betano für die WM 2026. Jusqu'à Willkommensbonus sur votre premier pari. Bookmaker agréé ANJ.",
+    "Bonus und Aktionscode Betano für die WM 2026. Bis zu Willkommensbonus auf Ihre erste Wette. Lizenzierter Buchmacher.",
   openGraph: {
-    title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres",
+    title: "Sportwetten Bonus WM 2026 | Aktionscodes & Angebote",
     description:
-      "Comparatif des bonus de bienvenue et codes promo pour parier sur la CDM 2026.",
+      "Vergleich der Willkommensboni und Aktionscodes für Wetten auf die WM 2026.",
     url: "https://www.wm2026guide.de/bonus",
   },
   alternates: { canonical: "https://www.wm2026guide.de/bonus" },
@@ -34,12 +34,12 @@ const offers: BonusOffer[] = [
     name: "Betano",
     slug: "pmu-sport",
     bonus: "Willkommensbonus",
-    bonusDetail: "en freebets sans condition",
-    codePromo: "Aucun code nécessaire",
-    conditions: "1er pari perdant remboursé, min. 1€",
+    bonusDetail: "in Freebets ohne Bedingung",
+    codePromo: "Kein Code erforderlich",
+    conditions: "1. verlorene Wette erstattet, min. 1€",
     note: 8.7,
     url: pmuTrackingUrl("bonus"),
-    highlights: ["Remboursement si pari perdu", "Marque de confiance", "Statistiques détaillées"],
+    highlights: ["Erstattung bei verlorener Wette", "Vertrauenswürdige Marke", "Detaillierte Statistiken"],
   },
 ];
 
@@ -51,10 +51,10 @@ export default function BonusHubPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">
-            Bonus & Codes Promo CDM 2026
+            Bonus & Aktionscodes WM 2026
           </h1>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Profitez des meilleures offres de bienvenue des bookmakers agréés ANJ pour parier sur la WM 2026. Jusqu&apos;à Willkommensbonus sur chaque site.
+            Nutzen Sie die besten Willkommensangebote lizenzierter Buchmacher für Wetten auf die WM 2026. Bis zu Willkommensbonus auf jeder Seite.
           </p>
         </div>
       </section>
@@ -64,15 +64,15 @@ export default function BonusHubPage() {
         {/* Introduction */}
         <section className="prose  max-w-none mb-12">
           <p className="text-lg text-gray-700  leading-relaxed">
-            La WM 2026 est l&apos;occasion idéale pour profiter du bonus de bienvenue de Betano. Jusqu&apos;à <strong>100€ de freebets</strong> sur votre premier pari perdant. Une offre vérifiée, issue d&apos;un bookmaker agréé par l&apos;ANJ.
+            Die WM 2026 ist die perfekte Gelegenheit, den Willkommensbonus von Betano zu nutzen. Bis zu <strong>100€ in Freebets</strong> auf Ihre erste verlorene Wette. Ein verifiziertes Angebot eines lizenzierten Buchmachers.
           </p>
         </section>
 
         {/* Bonus banner */}
         <div className="rounded-2xl bg-accent/10 border border-accent/20 p-6 mb-10 text-center">
-          <p className="text-sm text-gray-600  mb-1">Bonus disponible avec Betano</p>
-          <p className="text-4xl font-extrabold text-accent">Jusqu&apos;à 100€</p>
-          <p className="text-sm text-gray-500 mt-1">en freebets sur votre premier pari perdant</p>
+          <p className="text-sm text-gray-600  mb-1">Bonus verfügbar bei Betano</p>
+          <p className="text-4xl font-extrabold text-accent">Bis zu 100€</p>
+          <p className="text-sm text-gray-500 mt-1">in Freebets auf Ihre erste verlorene Wette</p>
         </div>
 
         {/* Offers grid */}
@@ -86,7 +86,7 @@ export default function BonusHubPage() {
             >
               {i === 0 && (
                 <span className="absolute -top-3 left-4 rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-white">
-                  Meilleure offre
+                  Bestes Angebot
                 </span>
               )}
               <div className="flex items-center gap-3 mb-4">
@@ -106,11 +106,11 @@ export default function BonusHubPage() {
               <div className="space-y-2 mb-6 text-sm">
                 <div className="flex items-center gap-2 text-gray-600 ">
                   <Clock className="w-4 h-4 text-primary shrink-0" />
-                  <span>Code promo : <strong>{offer.codePromo}</strong></span>
+                  <span>Aktionscode: <strong>{offer.codePromo}</strong></span>
                 </div>
                 <div className="flex items-start gap-2 text-gray-600 ">
                   <AlertTriangle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                  <span>Conditions : {offer.conditions}</span>
+                  <span>Bedingungen: {offer.conditions}</span>
                 </div>
               </div>
 
@@ -129,74 +129,74 @@ export default function BonusHubPage() {
                 rel="noopener noreferrer sponsored nofollow"
                 className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors w-full"
               >
-                Obtenir Willkommensbonus sur Betano <ArrowRight className="w-4 h-4" />
+                Willkommensbonus bei Betano sichern <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           ))}
         </section>
 
-        {/* Conseils */}
+        {/* Tipps */}
         <section className="rounded-2xl bg-primary/5 border border-primary/10 p-6 sm:p-8 mb-14">
-          <h2 className="text-2xl font-bold text-gray-900  mb-4">Conseils pour bien utiliser vos bonus</h2>
+          <h2 className="text-2xl font-bold text-gray-900  mb-4">Tipps zur optimalen Nutzung Ihrer Boni</h2>
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700 ">
             <div>
-              <h3 className="font-bold text-gray-900  mb-2">Profitez du bonus Betano</h3>
-              <p>Inscrivez-vous sur Betano pour profiter de 100€ de freebets sur votre premier pari perdant. Betano est l&apos;un des opérateurs les plus fiables du marché français, agréé ANJ.</p>
+              <h3 className="font-bold text-gray-900  mb-2">Nutzen Sie den Betano-Bonus</h3>
+              <p>Registrieren Sie sich bei Betano und erhalten Sie 100€ in Freebets auf Ihre erste verlorene Wette. Betano ist einer der zuverlässigsten Anbieter auf dem Markt.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900  mb-2">Lisez les conditions</h3>
-              <p>Chaque bonus a ses conditions : durée de validité des freebets, types de paris éligibles, cote minimum. Prenez le temps de les lire pour éviter les mauvaises surprises.</p>
+              <h3 className="font-bold text-gray-900  mb-2">Lesen Sie die Bedingungen</h3>
+              <p>Jeder Bonus hat seine Bedingungen: Gültigkeitsdauer der Freebets, zulässige Wettarten, Mindestquote. Nehmen Sie sich die Zeit, diese zu lesen, um unangenehme Überraschungen zu vermeiden.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900  mb-2">Utilisez vos freebets à bon escient</h3>
-              <p>Les freebets sont idéaux pour tester des paris à cotes élevées (buteur, score exact) car vous ne risquez pas votre propre argent. Profitez-en sur les matchs de la CDM 2026.</p>
+              <h3 className="font-bold text-gray-900  mb-2">Setzen Sie Ihre Freebets klug ein</h3>
+              <p>Freebets eignen sich ideal zum Testen von Wetten mit hohen Quoten (Torschütze, exaktes Ergebnis), da Sie kein eigenes Geld riskieren. Nutzen Sie sie für die Spiele der WM 2026.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900  mb-2">Fixez vos limites</h3>
-              <p>Même avec des bonus, restez responsable. Définissez un budget maximum et utilisez les outils de jeu responsable (limites de dépôt, auto-exclusion) proposés par chaque bookmaker.</p>
+              <h3 className="font-bold text-gray-900  mb-2">Setzen Sie sich Grenzen</h3>
+              <p>Bleiben Sie auch mit Boni verantwortungsbewusst. Legen Sie ein maximales Budget fest und nutzen Sie die Tools für verantwortungsvolles Spielen (Einzahlungslimits, Selbstausschluss), die jeder Buchmacher anbietet.</p>
             </div>
           </div>
         </section>
 
         {/* Cross-links */}
         <section className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8 mb-10">
-          <h2 className="text-xl font-bold text-gray-900  mb-4">Pages associées</h2>
+          <h2 className="text-xl font-bold text-gray-900  mb-4">Verwandte Seiten</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/meilleurs-bookmakers" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Meilleurs bookmakers
+              Beste Buchmacher
             </Link>
             <Link href="/sportwetten/guide" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Guide des paris
+              Wett-Ratgeber
             </Link>
             <Link href="/methodes-paiement" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Méthodes de paiement
+              Zahlungsmethoden
             </Link>
           </div>
         </section>
       </div>
 
       <FAQSection
-        title="Questions sur les bonus CDM 2026"
+        title="Fragen zum WM 2026 Bonus"
         items={[
           {
-            question: "Comment fonctionne le bonus Betano ?",
-            answer: "Le bonus Betano rembourse votre premier pari perdant en freebets, jusqu'à 100€. Il est automatiquement activé lors de votre inscription. Aucun code promo n'est nécessaire.",
+            question: "Wie funktioniert der Betano-Bonus?",
+            answer: "Der Betano-Bonus erstattet Ihre erste verlorene Wette in Freebets, bis zu 100€. Er wird automatisch bei der Registrierung aktiviert. Es ist kein Aktionscode erforderlich.",
           },
           {
-            question: "Le bonus Betano est-il valable pour la CDM 2026 ?",
-            answer: "Oui, le bonus de bienvenue Betano est utilisable sur tous les événements sportifs, y compris la WM 2026. Betano proposera également des offres spéciales pendant le tournoi.",
+            question: "Gilt der Betano-Bonus für die WM 2026?",
+            answer: "Ja, der Willkommensbonus von Betano ist auf alle Sportereignisse anwendbar, einschließlich der WM 2026. Betano wird während des Turniers auch spezielle Angebote bereitstellen.",
           },
           {
-            question: "Faut-il un code promo pour obtenir le bonus Betano ?",
-            answer: "Non, aucun code promo n'est nécessaire. Le bonus est automatiquement activé lors de votre inscription et de votre premier pari.",
+            question: "Benötige ich einen Aktionscode für den Betano-Bonus?",
+            answer: "Nein, es ist kein Aktionscode erforderlich. Der Bonus wird automatisch bei der Registrierung und Ihrer ersten Wette aktiviert.",
           },
           {
-            question: "Combien de temps ai-je pour utiliser mes freebets Betano ?",
-            answer: "Les freebets Betano sont valables 14 jours après attribution. Consultez les conditions de l'offre sur le site Betano pour plus de détails.",
+            question: "Wie lange habe ich Zeit, meine Betano-Freebets zu nutzen?",
+            answer: "Die Betano-Freebets sind 14 Tage nach Gutschrift gültig. Weitere Details finden Sie in den Angebotsbedingungen auf der Betano-Website.",
           },
           {
-            question: "Que se passe-t-il si mon premier pari est gagnant ?",
-            answer: "Si votre premier pari est gagnant, vous remportez vos gains normalement. Le remboursement en freebets ne s'active que si votre premier pari est perdant. C'est donc un filet de sécurité sans risque.",
+            question: "Was passiert, wenn meine erste Wette gewinnt?",
+            answer: "Wenn Ihre erste Wette gewinnt, erhalten Sie Ihre Gewinne ganz normal. Die Erstattung in Freebets wird nur aktiviert, wenn Ihre erste Wette verloren geht. Es ist also ein risikoloses Sicherheitsnetz.",
           },
         ]}
       />

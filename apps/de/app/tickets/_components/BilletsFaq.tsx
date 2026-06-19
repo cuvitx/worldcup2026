@@ -6,7 +6,7 @@ export function TicketsFaq() {
     <section className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-4xl px-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          <HelpCircle className="h-5 w-5 inline-block" /> Häufig gestellte Fragen — Tickets CDM 2026
+          <HelpCircle className="h-5 w-5 inline-block" /> Häufig gestellte Fragen — Tickets WM 2026
         </h2>
 
         <div className="space-y-3">

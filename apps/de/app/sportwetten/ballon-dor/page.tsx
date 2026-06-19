@@ -24,7 +24,7 @@ const favorites = [
   { name: "Lamine Yamal", team: "🇪🇸 Espagne", cote: 10.0, reason: "Prodige de 18 ans, meilleur jeune Spieler de l'Euro 2024. Si l'Espagne va loin, il sera décisif." },
   { name: "Rodri", team: "🇪🇸 Espagne", cote: 12.0, reason: "Ballon d'Or 2024, le métronome espagnol. Son influence est souvent récompensée par les jurys." },
   { name: "Erling Haaland", team: "🇳🇴 Norvège", cote: 15.0, reason: "Machine à buts, mais la Norvège devra aller loin pour qu'il soit dans la course." },
-  { name: "Harry Kane", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", cote: 14.0, reason: "Buteur prolifique, meilleur capitaine anglais. Manque un titre international pour compléter sa légende." },
+  { name: "Harry Kane", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", cote: 14.0, reason: "Torschütze prolifique, meilleur capitaine anglais. Manque un titre international pour compléter sa légende." },
   { name: "Federico Valverde", team: "🇺🇾 Uruguay", cote: 20.0, reason: "Mittelfeldspieler box-to-box d'exception. Si l'Uruguay crée la surprise, il sera au centre du jeu." },
   { name: "Florian Wirtz", team: "🇩🇪 Allemagne", cote: 18.0, reason: "Talent générationnel du football allemand. L'Allemagne joue à domicile en termes de proximité." },
 ];

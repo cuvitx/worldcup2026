@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getTodaysMatches, getNextMatch } from "@repo/data/tournament-state";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 export const revalidate = 300; // 5 minutes
 

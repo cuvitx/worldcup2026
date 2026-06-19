@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
-import { teams, teamsById } from "@repo/data/teams";
+import { teams, teamsById } from "../../lib/localized-data";
 import { teamPredictions } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { matches } from "@repo/data/matches";
 import { FolderOpen } from "lucide-react"
 export const metadata: Metadata = {
-  title: "Prognoses CDM 2026 — Hub Central | Vainqueur, Groupes & Matchs",
+  title: "Prognosen WM 2026 — Zentrale Übersicht | Sieger, Gruppen & Spiele",
   description:
-    "Tous les pronostics WM 2026 : vainqueur, groupes A à L, analyses match par match et cotes. Modèle ELO + 100K simulations.",
+    "Alle Prognosen WM 2026: Sieger, Gruppen A bis L, Spiel-für-Spiel-Analysen und Quoten. ELO-Modell + 100K Simulationen.",
   alternates: {
-    canonical: "https://www.wm2026guide.de/pronostic",
+    canonical: "https://www.wm2026guide.de/Prognose",
   },
   openGraph: {
-    title: "Prognoses CDM 2026 — Hub Central",
+    title: "Prognosen WM 2026 — Zentrale Übersicht",
     description:
-      "Prognose vainqueur, groupes A-L, matchs clés, cotes et tendances. Tout pour préparer vos paris CDM 2026.",
-    url: "https://www.wm2026guide.de/pronostic",
+      "Sieger-Prognose, Gruppen A-L, Topspiele, Quoten und Trends. Alles zur Vorbereitung Ihrer WM-2026-Wetten.",
+    url: "https://www.wm2026guide.de/Prognose",
   },
 };
 
@@ -53,29 +53,29 @@ const totalGroups = groups.length;
 const TRENDS = [
   {
     icon: "",
-    title: "Argentine favorite",
-    desc: "15% de probabilité de titre — championne en titre",
+    title: "Argentinien Favorit",
+    desc: "15% Titelwahrscheinlichkeit — amtierender Weltmeister",
     color: "from-blue-600/20 to-blue-800/10",
     border: "border-primary/20",
   },
   {
     icon: "",
-    title: "France — Revanche 2022",
-    desc: "Finaliste malheureux, 13% de chance de titre en 2026",
+    title: "Frankreich — Revanche 2022",
+    desc: "Unglücklicher Finalist, 13% Titelchance 2026",
     color: "from-red-600/20 to-blue-800/10",
     border: "border-red-500/20",
   },
   {
     icon: "🇺🇸",
-    title: "Avantage hôtes USA",
-    desc: "+7 pts ELO estimés. Les États-Unis visent les quarts",
+    title: "Heimvorteil USA",
+    desc: "+7 geschätzte ELO-Punkte. Die USA peilen das Viertelfinale an",
     color: "from-indigo-600/20 to-red-800/10",
     border: "border-indigo-500/20",
   },
   {
     icon: "",
-    title: "Maroc — Dark horse",
-    desc: "Demi-finaliste 2022 · 3.2% de chance de titre",
+    title: "Marokko — Geheimfavorit",
+    desc: "Halbfinalist 2022 · 3,2% Titelchance",
     color: "from-accent/20 to-accent/10",
     border: "border-accent/20",
   },
@@ -87,7 +87,7 @@ export default function PrognoseHubPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.wm2026guide.de" },
-      { "@type": "ListItem", position: 2, name: "Prognoses", item: "https://www.wm2026guide.de/pronostic" },
+      { "@type": "ListItem", position: 2, name: "Prognoses", item: "https://www.wm2026guide.de/Prognose" },
     ],
   };
 
@@ -103,24 +103,24 @@ export default function PrognoseHubPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur-sm">
             <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-            CDM 2026 · Hub Prognoses
+            WM 2026 · Prognosen-Hub
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-            Tous les{" "}
-            <span className="gradient-text">Prognoses CDM 2026</span>
+            Alle{" "}
+            <span className="gradient-text">Prognosen WM 2026</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-300/90 mb-6">
-            Vainqueur, groupes A à L, matchs clés — notre modèle ELO + 100 000 simulations
-            pour guider vos pronostics sur la WM 2026.
+            Sieger, Gruppen A bis L, Topspiele — unser ELO-Modell + 100.000 Simulationen
+            als Leitfaden für Ihre WM-2026-Prognosen.
           </p>
 
           {/* Stats rapides */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {[
-              { value: `${totalTeams}`, label: "Mannschafts analysées" },
-              { value: `${totalMatches}`, label: "matchs couverts" },
-              { value: `${totalGroups}`, label: "groupes" },
-              { value: "100K", label: "simulations" },
+              { value: `${totalTeams}`, label: "analysierte Mannschaften" },
+              { value: `${totalMatches}`, label: "erfasste Spiele" },
+              { value: `${totalGroups}`, label: "Gruppen" },
+              { value: "100K", label: "Simulationen" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-2xl font-extrabold text-accent">{s.value}</p>
@@ -131,13 +131,13 @@ export default function PrognoseHubPage() {
 
           <div className="flex flex-wrap justify-center gap-3 text-sm">
             <a href="#vainqueur" className="rounded-xl bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
-              Prognose vainqueur
+              Sieger-Prognose
             </a>
-            <a href="#groupes" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
-              <FolderOpen className="h-5 w-5 inline-block" /> Prognoses groupes
+            <a href="#Gruppen" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
+              <FolderOpen className="h-5 w-5 inline-block" /> Gruppen-Prognosen
             </a>
             <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
-              Prognoses matchs
+              Spiel-Prognosen
             </a>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function PrognoseHubPage() {
       <section className="bg-white py-10 border-b border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
-            Tendances & stats CDM 2026
+            Trends & Statistiken WM 2026
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {TRENDS.map((trend) => (
@@ -170,14 +170,14 @@ export default function PrognoseHubPage() {
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900">
-                Prognose Vainqueur CDM 2026
+                Sieger-Prognose WM 2026
               </h2>
               <p className="text-sm text-gray-500 mt-1">
-                Top 5 favoris selon notre modèle ELO
+                Top 5 Favoriten laut unserem ELO-Modell
               </p>
             </div>
             <Link href="/prognose/sieger" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
-              Vollständige Analyse →
+              Vollständige Analyse anzeigen →
             </Link>
           </div>
 
@@ -203,7 +203,7 @@ export default function PrognoseHubPage() {
                   <p className="font-bold text-sm text-gray-900 group-hover:text-primary transition-colors">
                     {team.name}
                   </p>
-                  <p className="text-xs text-gray-500 mt-0.5">#{index + 1} mondial</p>
+                  <p className="text-xs text-gray-500 mt-0.5">#{index + 1} weltweit</p>
                   <div className="mt-2 flex items-center justify-between text-xs">
                     <span className="text-primary font-bold">{winPct}%</span>
                     <span className="text-accent font-bold">{odds}</span>
@@ -224,22 +224,22 @@ export default function PrognoseHubPage() {
               href="/prognose/sieger"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-bold text-white hover:-translate-y-0.5 transition-all"
             >
-              Prognose anzeigen vainqueur complet (Top 10 + dark horses)
+              Vollständige Sieger-Prognose anzeigen (Top 10 + Geheimfavoriten)
             </Link>
           </div>
         </div>
       </section>
 
       {/* ===== PRONOSTICS PAR GROUPE ===== */}
-      <section id="groupes" className="bg-white py-12 border-t border-gray-100">
+      <section id="Gruppen" className="bg-white py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900">
-                <FolderOpen className="h-5 w-5 inline-block" /> Prognoses par groupe (A → L)
+                <FolderOpen className="h-5 w-5 inline-block" /> Prognosen nach Gruppe (A → L)
               </h2>
               <p className="text-sm text-gray-500 mt-1">
-                Qualifiés et outsiders de chaque groupe de la CDM 2026
+                Qualifizierte und Aussenseiter jeder WM-2026-Gruppe
               </p>
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function PrognoseHubPage() {
                   {/* Header */}
                   <div className="flex items-center justify-between px-4 py-2.5 bg-primary text-white">
                     <span className="text-sm font-extrabold bg-accent/20 text-accent px-2 py-0.5 rounded">
-                      Groupe {group.letter}
+                      Gruppe {group.letter}
                     </span>
                     <span className="text-xs text-gray-400 group-hover:text-accent transition-colors">
                       Prognose →
@@ -316,14 +316,14 @@ export default function PrognoseHubPage() {
           <div className="section-header mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900">
-                Prognoses des matchs clés
+                Prognosen der Topspiele
               </h2>
               <p className="text-sm text-gray-500 mt-1">
-                Analyses détaillées des affiches les plus attendues
+                Detaillierte Analysen der meisterwarteten Begegnungen
               </p>
             </div>
-            <Link href="/pronostic" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
-              Tous les matchs →
+            <Link href="/Prognose" className="ml-auto text-sm font-semibold text-primary hover:underline shrink-0">
+              Alle Spiele →
             </Link>
           </div>
 
@@ -342,7 +342,7 @@ export default function PrognoseHubPage() {
                   <div className="flex items-center gap-2 mb-2">
                     {match.group && (
                       <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-medium">
-                        Groupe {match.group}
+                        Gruppe {match.group}
                       </span>
                     )}
                     {match.stage && match.stage !== "group" && (
@@ -388,10 +388,10 @@ export default function PrognoseHubPage() {
 
           <div className="mt-6 text-center">
             <Link
-              href="/pronostic"
+              href="/Prognose"
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-8 py-3 font-semibold text-gray-700 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Alle anzeigen pronostics matchs
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Alle Spiel-Prognosen anzeigen
             </Link>
           </div>
         </div>
@@ -401,36 +401,36 @@ export default function PrognoseHubPage() {
       <section className="bg-white py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Outils complémentaires
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Ergänzende Tools
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               {
                 href: "/prognose/sieger",
                 icon: "",
-                title: "Prognose vainqueur",
-                desc: "Top 10 favoris avec cotes et dark horses",
+                title: "Sieger-Prognose",
+                desc: "Top 10 Favoriten mit Quoten und Geheimfavoriten",
                 gradient: "from-red-600 to-red-800",
               },
               {
                 href: "/comparateur-cotes",
                 icon: "",
-                title: "Comparateur de cotes",
-                desc: "Meilleures cotes Betano en temps réel",
+                title: "Quotenvergleich",
+                desc: "Beste Betano-Quoten in Echtzeit",
                 gradient: "from-accent to-accent/70",
               },
               {
                 href: "/simulateur",
                 icon: "",
-                title: "Simulateur bracket",
-                desc: "Construisez votre propre tableau de la CDM",
+                title: "Turnierbaum-Simulator",
+                desc: "Erstellen Sie Ihren eigenen WM-Turnierbaum",
                 gradient: "from-blue-600 to-blue-800",
               },
               {
                 href: "/methodologie",
                 icon: "",
-                title: "Notre méthodologie",
-                desc: "ELO, Monte Carlo, calibration des cotes",
+                title: "Unsere Methodik",
+                desc: "ELO, Monte Carlo, Quotenkalibrierung",
                 gradient: "from-purple-600 to-purple-800",
               },
             ].map((item) => (
@@ -446,7 +446,7 @@ export default function PrognoseHubPage() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">{item.title}</h3>
                   <p className="text-xs text-white/70">{item.desc}</p>
                   <p className="mt-3 text-xs font-bold text-white/80 group-hover:gap-2 transition-all">
-                    Accéder →
+                    Aufrufen →
                   </p>
                 </div>
               </Link>
@@ -458,23 +458,23 @@ export default function PrognoseHubPage() {
       {/* ===== TOUS NOS PRONOSTICS ===== */}
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Tous nos pronostics</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Alle unsere Prognosen</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { href: "/prognose/sieger", icon: "🏆", title: "Prognose vainqueur CDM 2026", description: "Qui va gagner la WM 2026 ?" },
-              { href: "/prognose/btts", icon: "⚽", title: "BTTS (Les deux marquent)", description: "Prognoses sur les deux Mannschafts qui marquent" },
-              { href: "/prognose/over-under", icon: "📊", title: "Over/Under", description: "Prognoses sur le nombre de buts" },
-              { href: "/prognose/karten", icon: "🟨", title: "Prognose cartons", description: "Prévisions sur les cartons jaunes et rouges" },
-              { href: "/prognose/clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles Mannschafts garderont leur cage inviolée" },
-              { href: "/prognose/finalisten", icon: "🥇", title: "Prognose finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
-              { href: "/prognose/torschuetzen", icon: "👟", title: "Beste Torschützen", description: "Qui sera le Torschützenkönig des Turniers ?" },
-              { href: "/prognose/genaue-ergebnisse", icon: "🎯", title: "Scores exacts", description: "Prognoses de scores exacts match par match" },
-              { href: "/prognose/elfmeterschiessen", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
-              { href: "/sportwetten/corners", icon: "🚩", title: "Prognose corners", description: "Prognoses sur le nombre de corners" },
-              { href: "/pronostics/grille", icon: "📋", title: "Grille de pronostics", description: "Remplissez votre grille de pronostics CDM" },
-              { href: "/pronostics/leaderboard", icon: "🏅", title: "Rangliste pronostiqueurs", description: "Le classement des meilleurs pronostiqueurs" },
-              { href: "/simulateur", icon: "🎮", title: "Simulateur de tournoi", description: "Simulez le tableau final de la CDM 2026" },
-              { href: "/comparateur-cotes", icon: "📈", title: "Comparateur de cotes", description: "Comparez les cotes des bookmakers" },
+              { href: "/prognose/sieger", icon: "🏆", title: "Sieger-Prognose WM 2026", description: "Wer gewinnt die WM 2026?" },
+              { href: "/prognose/btts", icon: "⚽", title: "BTTS (Beide treffen)", description: "Prognosen, ob beide Mannschaften treffen" },
+              { href: "/prognose/over-under", icon: "📊", title: "Over/Under", description: "Prognosen zur Anzahl der Tore" },
+              { href: "/prognose/karten", icon: "🟨", title: "Karten-Prognose", description: "Vorhersagen zu Gelben und Roten Karten" },
+              { href: "/prognose/clean-sheet", icon: "🧤", title: "Clean Sheet", description: "Welche Mannschaften zu Null spielen werden" },
+              { href: "/prognose/finalisten", icon: "🥇", title: "Finalisten-Prognose", description: "Wer steht im Finale der WM 2026?" },
+              { href: "/prognose/torschuetzen", icon: "👟", title: "Beste Torschützen", description: "Wer wird Torschützenkönig des Turniers?" },
+              { href: "/prognose/genaue-ergebnisse", icon: "🎯", title: "Genaue Ergebnisse", description: "Exakte Ergebnisprognosen Spiel für Spiel" },
+              { href: "/prognose/elfmeterschiessen", icon: "🥅", title: "Elfmeterschiessen", description: "Welche Spiele ins Elfmeterschiessen gehen" },
+              { href: "/sportwetten/corners", icon: "🚩", title: "Ecken-Prognose", description: "Prognosen zur Anzahl der Eckbälle" },
+              { href: "/Prognoses/grille", icon: "📋", title: "Prognose-Raster", description: "Füllen Sie Ihr WM-Prognose-Raster aus" },
+              { href: "/Prognoses/leaderboard", icon: "🏅", title: "Rangliste der Prognostiker", description: "Die Rangliste der besten Prognostiker" },
+              { href: "/simulateur", icon: "🎮", title: "Turnier-Simulator", description: "Simulieren Sie den WM-2026-Turnierbaum" },
+              { href: "/comparateur-cotes", icon: "📈", title: "Quotenvergleich", description: "Vergleichen Sie die Quoten der Buchmacher" },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all">
                 <div className="flex items-start gap-3">
@@ -494,8 +494,8 @@ export default function PrognoseHubPage() {
       <section className="bg-gray-50 py-6 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
-            Nos pronostics sont calculés via un modèle ELO adapté au football international + simulations Monte Carlo (100 000 itérations). 
-            Ils ont une valeur informative et ne constituent pas des conseils de pari. Les paris sportifs comportent des risques.{" "}
+            Unsere Prognosen werden über ein an den internationalen Fussball angepasstes ELO-Modell + Monte-Carlo-Simulationen (100.000 Iterationen) berechnet.
+            Sie dienen nur zu Informationszwecken und stellen keine Wettberatung dar. Sportwetten bergen Risiken.{" "}
             <Link href="/verantwortungsvolles-spielen" className="underline hover:text-primary">Verantwortungsvolles Spielen — 18+</Link>
           </p>
         </div>

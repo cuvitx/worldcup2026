@@ -2,10 +2,10 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug } from "@repo/data/teams";
+import { teams, teamsBySlug } from "../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { groupsByLetter } from "@repo/data/groups";
-import { playersByTeamId } from "@repo/data/players";
+import { playersByTeamId } from "../../../lib/localized-data";
 import { matchesByGroup } from "@repo/data/matches";
 
 import { EloRatingCard } from "./_components/EloRatingCard";
@@ -14,7 +14,7 @@ import { EstimatedOdds } from "./_components/EstimatedOdds";
 import { MatchPredictions } from "./_components/MatchPredictions";
 import { KeyPlayers } from "./_components/KeyPlayers";
 import { AffiliateSection } from "./_components/AffiliateSection";
-import { PronosticSidebar } from "./_components/PronosticSidebar";
+import { PrognoseSidebar } from "./_components/PrognoseSidebar";
 import { PmuCTA } from "../../components/PmuCTA";
 
 export const revalidate = 300;
@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
 
   return {
-    title: `Prognose ${team.name} CDM 2026 | Cotes, Prediction & Analyse`,
-    description: `Prognose ${team.name} WM 2026 : cotes, probabilités de victoire, analyse ELO et prédictions des matchs de groupe.`,
+    title: `Prognose ${team.name} WM 2026 | Quoten, Vorhersage & Analyse`,
+    description: `Prognose ${team.name} WM 2026: Quoten, Siegwahrscheinlichkeiten, ELO-Analyse und Vorhersagen der Gruppenspiele.`,
     alternates: getAlternates("prediction", slug, "de"),
     openGraph: {
-      title: `${team.flag} Prognose ${team.name} - CDM 2026`,
-      description: `Cotes et pronostics ${team.name} für die WM 2026. Vollständige Analyse, probabilités et prédictions.`,
+      title: `${team.flag} Prognose ${team.name} - WM 2026`,
+      description: `Quoten und Prognosen ${team.name} für die WM 2026. Vollständige Analyse, Wahrscheinlichkeiten und Vorhersagen.`,
     },
   };
 }
@@ -67,11 +67,11 @@ export default async function PrognoseTeamPage({ params }: PageProps) {
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">Prognose {team.name}</h1>
-              <p className="mt-2 text-xl text-gray-300">Prognose &amp; Cotes CDM 2026</p>
-              <p className="mt-1 text-gray-500">{team.confederation} &middot; Rangliste FIFA #{team.fifaRanking} &middot; Groupe {team.group}</p>
+              <p className="mt-2 text-xl text-gray-300">Prognose &amp; Quoten WM 2026</p>
+              <p className="mt-1 text-gray-500">{team.confederation} &middot; Rangliste FIFA #{team.fifaRanking} &middot; Gruppe {team.group}</p>
             </div>
           </div>
         </div>
@@ -88,9 +88,9 @@ export default async function PrognoseTeamPage({ params }: PageProps) {
             <AffiliateSection teamName={team.name} />
 
             {/* PMU CTA */}
-            <PmuCTA tracking="pronostic" teamName={team.name} />
+            <PmuCTA tracking="Prognose" teamName={team.name} />
           </div>
-          <PronosticSidebar team={team} prediction={prediction} groupTeams={groupTeams} />
+          <PrognoseSidebar team={team} prediction={prediction} groupTeams={groupTeams} />
         </div>
       </div>
 
@@ -104,7 +104,7 @@ export default async function PrognoseTeamPage({ params }: PageProps) {
             alternateName: team.code,
             sport: "Football",
             memberOf: { "@type": "SportsOrganization", name: "FIFA World Cup 2026" },
-            description: `Prognose et cotes pour ${team.name}à la WM 2026. Rating ELO : ${prediction?.eloRating ?? "N/A"}.`,
+            description: `Prognose und Quoten für ${team.name} bei der WM 2026. ELO-Wertung: ${prediction?.eloRating ?? "N/A"}.`,
             url: `https://www.wm2026guide.de/prognose/${team.slug}`,
           }),
         }}

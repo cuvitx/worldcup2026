@@ -7,11 +7,11 @@ export function generateMetadata(): Metadata {
   return {
     title: "Häufig gestellte Fragen - WM 2026",
     description:
-      "Retrouvez toutes les réponses à vos questions sur la WM 2026 : format des Turniers, Mannschafts qualifiées, paris sportifs, pronostics et plus encore.",
+      "Retrouvez toutes les réponses à vos questions sur la WM 2026 : format des Turniers, Mannschafts qualifiées, paris sportifs, Prognoses et plus encore.",
     alternates: getStaticAlternates("faq", "de"),
     openGraph: {
       title: "FAQ - WM 2026",
-      description: "Réponses à toutes vos questions sur la CDM 2026 : format, Mannschafts, paris et pronostics.",
+      description: "Réponses à toutes vos questions sur la CDM 2026 : format, Mannschafts, paris et Prognoses.",
       url: "https://www.wm2026guide.de/faq",
     },
   };

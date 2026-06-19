@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 
 export function ProbabilitiesTable() {
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-200">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Probabilités par tour</h2>
-      <p className="text-sm text-gray-500 mb-4">Chances de chaque Mannschaft d&#39;atteindre chaque tour, basees sur les classements ELO.</p>
+      <p className="text-sm text-gray-500 mb-4">Chances de chaque Mannschaft d&#39;atteindre chaque tour, basees sur les Ranglistes ELO.</p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 text-left">
               <th className="pb-3 font-medium text-gray-500">Mannschaft</th>
-              <th className="pb-3 font-medium text-gray-500 text-right">Sortie groupes</th>
+              <th className="pb-3 font-medium text-gray-500 text-right">Sortie Gruppen</th>
               <th className="pb-3 font-medium text-gray-500 text-right">16e</th>
               <th className="pb-3 font-medium text-gray-500 text-right">Quarts</th>
               <th className="pb-3 font-medium text-gray-500 text-right">Demis</th>

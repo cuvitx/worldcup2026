@@ -13,15 +13,15 @@ const SEGMENT_LABELS: Record<string, string> = {
   // Hubs
   equipes: "Mannschaften",
   equipe: "Mannschaften",
-  groupes: "Gruppen",
+  Gruppen: "Gruppen",
   gruppe: "Gruppen",
   Spielers: "Spieler",
   Spieler: "Spieler",
-  buteurs: "Torschützen",
-  buteur: "Torschützen",
-  stades: "Stadien",
+  Torschützen: "Torschützen",
+  Torschütze: "Torschützen",
+  Stadien: "Stadien",
   stade: "Stadien",
-  villes: "Städte",
+  Städte: "Städte",
   ville: "Städte",
   match: "Spiele",
   guides: "Ratgeber",
@@ -54,18 +54,18 @@ const SEGMENT_LABELS: Record<string, string> = {
   "ballon-or": "Ballon d'Or",
   meteo: "Wetter",
   // Prognoses
-  pronostic: "Prognoses",
+  Prognose: "Prognoses",
   vainqueur: "Sieger",
   btts: "BTTS",
   "over-under": "Over/Under",
-  buteurs2: "Torschützen",
+  Torschützen2: "Torschützen",
   cartons: "Karten",
   "clean-sheet": "Zu-Null-Spiele",
   "scores-exacts": "Genaue Ergebnisse",
   finalistes: "Finalisten",
   "tirs-au-but": "Elfmeterschießen",
-  "pronostic-match": "Spielprognose",
-  "pronostic-groupe": "Gruppenprognose",
+  "Prognose-match": "Spielprognose",
+  "Prognose-groupe": "Gruppenprognose",
   // Voyage
   voyage: "Reise",
   "esta-visa-usa": "ESTA / Visum USA",
@@ -78,8 +78,8 @@ const SEGMENT_LABELS: Record<string, string> = {
   "decalage-horaire": "Zeitverschiebung",
   pourboires: "Trinkgeld",
   "supporter-francais": "Fan-Ratgeber",
-  "wifi-stades": "WLAN Stadien",
-  "alcool-stades": "Alkohol Stadien",
+  "wifi-Stadien": "WLAN Stadien",
+  "alcool-Stadien": "Alkohol Stadien",
   hebergement: "Unterkunft",
   securite: "Sicherheit",
   // Cotes & bookmakers
@@ -95,7 +95,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   "fan-zones": "Fanzonen",
   "fan-zone": "Fanzonen",
   "ou-regarder": "Wo schauen",
-  "carte-stades": "Stadionkarte",
+  "carte-Stadien": "Stadionkarte",
   "plan-du-site": "Sitemap",
   "jeu-responsable": "Verantwortungsvolles Spielen",
   "mentions-legales": "Impressum",
@@ -103,10 +103,10 @@ const SEGMENT_LABELS: Record<string, string> = {
   "a-propos": "Über uns",
   methodologie: "Methodik",
   "equipe-editoriale": "Redaktion",
-  effectif: "Kader",
+  Kader: "Kader",
   parier: "Wetten",
   "cote-champion": "Meisterquote",
-  "cote-buteur": "Torschützenquote",
+  "cote-Torschütze": "Torschützenquote",
   "cote-carton-jaune": "Kartenquote",
   "score-exact": "Genaues Ergebnis",
   "compos-officielles": "Aufstellungen",
@@ -126,7 +126,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   "scenarios-qualification-equipe": "Mannschaftsszenarien",
   "statistiques-arbitre": "Schiedsrichter-Statistiken",
   spielplan: "Spielplan",
-  pronostics: "Prognoses",
+  Prognoses: "Prognoses",
   grille: "Tippspiel",
   leaderboard: "Leaderboard",
   glossaire: "Glossar",
@@ -138,7 +138,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   "pays-hotes": "Gastgeberländer",
   trophee: "Trophäe",
   "wall-of-fame": "Wall of Fame",
-  "classement-fifa": "Rangliste FIFA",
+  "Rangliste-fifa": "Rangliste FIFA",
   confrontations: "Direktvergleiche",
   "confrontations-historiques": "Historische Direktvergleiche",
   barrages: "Playoffs",
@@ -165,7 +165,7 @@ const PARENT_HUBS: Record<string, { label: string; href: string }> = {
   equipe: { label: "Mannschaften", href: "/mannschaft" },
   gruppe: { label: "Gruppen", href: "/gruppen" },
   Spieler: { label: "Spieler", href: "/spieler-liste" },
-  buteur: { label: "Torschützen", href: "/torschuetzen" },
+  Torschütze: { label: "Torschützen", href: "/torschuetzen" },
   stade: { label: "Stadien", href: "/stadien" },
   ville: { label: "Städte", href: "/staedte" },
   match: { label: "Spiele", href: "/spiel/spielplan" },
@@ -173,10 +173,10 @@ const PARENT_HUBS: Record<string, { label: string; href: string }> = {
   bookmaker: { label: "Wettanbieter", href: "/meilleurs-bookmakers" },
   bonus: { label: "Bonus", href: "/bonus" },
   actualites: { label: "Nachrichten", href: "/actualites" },
-  effectif: { label: "Mannschaften", href: "/mannschaft" },
+  Kader: { label: "Mannschaften", href: "/mannschaft" },
   parier: { label: "Sportwetten", href: "/sportwetten" },
   "cote-champion": { label: "Mannschaften", href: "/mannschaft" },
-  "cote-buteur": { label: "Spielers", href: "/spieler-liste" },
+  "cote-Torschütze": { label: "Spielers", href: "/spieler-liste" },
   "cote-carton-jaune": { label: "Spielers", href: "/spieler-liste" },
   "score-exact": { label: "Spiele", href: "/spiel/spielplan" },
   "compos-officielles": { label: "Spiele", href: "/spiel/spielplan" },
@@ -197,15 +197,15 @@ const PARENT_HUBS: Record<string, { label: string; href: string }> = {
   confrontation: { label: "H2H", href: "/h2h" },
   "ecrans-geants": { label: "Fanzonen", href: "/fan-zones" },
   "matchs-au-stade": { label: "Stadien", href: "/stadien" },
-  "pronostic-match": { label: "Prognoses", href: "/pronostic" },
-  "pronostic-groupe": { label: "Prognoses", href: "/pronostic" },
+  "Prognose-match": { label: "Prognoses", href: "/Prognose" },
+  "Prognose-groupe": { label: "Prognoses", href: "/Prognose" },
   "scenarios-qualification": { label: "Gruppen", href: "/gruppen" },
   "scenarios-qualification-equipe": { label: "Mannschaften", href: "/mannschaft" },
   "statistiques-arbitre": { label: "Schiedsrichter", href: "/arbitres" },
   "acces-stade": { label: "Stadien", href: "/stadien" },
   "guide-ville": { label: "Städte", href: "/staedte" },
   spielplan: { label: "Spiele", href: "/spiel/spielplan" },
-  pronostic: { label: "Prognoses", href: "/pronostic" },
+  Prognose: { label: "Prognoses", href: "/Prognose" },
   h2h: { label: "H2H", href: "/h2h" },
 };
 
@@ -222,13 +222,13 @@ function slugToLabel(slug: string): string {
 }
 
 /* ── Routes where the slug IS the entity and the prefix is an "aspect" ──
-   For /effectif/france → Startseite / France / Kader (not Startseite / Mannschaften / Kader / France)
+   For /Kader/france → Startseite / France / Kader (not Startseite / Mannschaften / Kader / France)
    The slug links to the entity page (/mannschaft/slug), the prefix becomes the current label */
 const ENTITY_ASPECT_ROUTES: Record<string, { entityPrefix: string; entityHub: string; aspectLabel: string }> = {
-  effectif: { entityPrefix: "equipe", entityHub: "/mannschaft", aspectLabel: "Kader" },
+  Kader: { entityPrefix: "equipe", entityHub: "/mannschaft", aspectLabel: "Kader" },
   parier: { entityPrefix: "equipe", entityHub: "/mannschaft", aspectLabel: "Wetten" },
   "cote-champion": { entityPrefix: "equipe", entityHub: "/mannschaft", aspectLabel: "Meisterquote" },
-  "pronostic-match": { entityPrefix: "match", entityHub: "/spiel/spielplan", aspectLabel: "Prognose" },
+  "Prognose-match": { entityPrefix: "match", entityHub: "/spiel/spielplan", aspectLabel: "Prognose" },
   "score-exact": { entityPrefix: "match", entityHub: "/spiel/spielplan", aspectLabel: "Genaues Ergebnis" },
   "compos-officielles": { entityPrefix: "match", entityHub: "/spiel/spielplan", aspectLabel: "Aufstellungen" },
   "sur-quelle-chaine": { entityPrefix: "match", entityHub: "/spiel/spielplan", aspectLabel: "TV-Übertragung" },
@@ -240,9 +240,9 @@ const ENTITY_ASPECT_ROUTES: Record<string, { entityPrefix: string; entityHub: st
   "passes-decisives": { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Vorlagen" },
   tacles: { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Zweikämpfe" },
   "cote-carton-jaune": { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Kartenquote" },
-  "cote-buteur": { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Torschützenquote" },
-  buteur: { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Torschütze" },
-  "pronostic-groupe": { entityPrefix: "groupe", entityHub: "/gruppen", aspectLabel: "Prognose" },
+  "cote-Torschütze": { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Torschützenquote" },
+  Torschütze: { entityPrefix: "Spieler", entityHub: "/spieler-liste", aspectLabel: "Torschütze" },
+  "Prognose-groupe": { entityPrefix: "groupe", entityHub: "/gruppen", aspectLabel: "Prognose" },
   "scenarios-qualification": { entityPrefix: "groupe", entityHub: "/gruppen", aspectLabel: "Szenarien" },
   "fan-zone": { entityPrefix: "ville", entityHub: "/staedte", aspectLabel: "Fanzone" },
   "guide-supporter": { entityPrefix: "ville", entityHub: "/staedte", aspectLabel: "Fan-Guide" },
@@ -269,13 +269,13 @@ export function AutoBreadcrumb() {
   const firstSeg = segments[0]!;
   const slug = segments[1];
 
-  // Pattern 1: Entity-aspect routes (/effectif/france → Startseite / France / Kader)
+  // Pattern 1: Entity-aspect routes (/Kader/france → Startseite / France / Kader)
   if (segments.length === 2 && slug && ENTITY_ASPECT_ROUTES[firstSeg]) {
     const aspect = ENTITY_ASPECT_ROUTES[firstSeg];
     items.push({ label: slugToLabel(slug), href: `/${aspect.entityPrefix}/${slug}` });
     items.push({ label: aspect.aspectLabel });
   }
-  // Pattern 2: Nested silo routes (/sportwetten/corners → Startseite / Paris sportifs / Corners)
+  // Pattern 2: Nested silo routes (/sportwetten/corners → Startseite / Sportwetten / Ecken)
   // Pattern 3: Simple dynamic routes (/mannschaft/france → Startseite / Mannschaften / France)
   else if (segments.length >= 2 && PARENT_HUBS[firstSeg]) {
     const hub = PARENT_HUBS[firstSeg];

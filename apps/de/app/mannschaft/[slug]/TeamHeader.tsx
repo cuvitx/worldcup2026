@@ -20,13 +20,13 @@ export function TeamHeader({ team }: TeamHeaderProps) {
     <>
 {/* Breadcrumbs */}
 {/* Team Header */}
-      <HeroSection title={team.name} subtitle={`${team.confederation} · Rangliste FIFA #${team.fifaRanking} · Groupe ${team.group}`}>
+      <HeroSection title={team.name} subtitle={`${team.confederation} · Rangliste FIFA #${team.fifaRanking} · Gruppe ${team.group}`}>
         <div className="flex flex-wrap items-center gap-6 sm:gap-8 mt-4">
           {getFlagPath(team.slug) ? (
             <div className="relative h-24 w-36 sm:h-32 sm:w-48 overflow-hidden rounded-xl shadow-lg border-2 border-white/20 shrink-0">
               <Image
                 src={getFlagPath(team.slug)!}
-                alt={`Drapeau de ${team.name}`}
+                alt={`Flagge von ${team.name}`}
                 fill
                 className="object-cover"
                 priority
@@ -34,12 +34,12 @@ export function TeamHeader({ team }: TeamHeaderProps) {
               />
             </div>
           ) : (
-            <span className="text-5xl sm:text-8xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+            <span className="text-5xl sm:text-8xl" role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
           )}
           <div className="flex flex-wrap items-center gap-3">
             {team.isHost && (
               <span className="inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
-                Pays hôte
+                Gastgeberland
               </span>
             )}
             <Link

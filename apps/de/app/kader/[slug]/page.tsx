@@ -3,8 +3,8 @@ import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
-import { playersByTeamId } from "@repo/data/players";
+import { teams, teamsBySlug, teamsById } from "../../../lib/localized-data";
+import { playersByTeamId } from "../../../lib/localized-data";
 import { matches } from "@repo/data/matches";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { ClipboardList, ExternalLink, ShieldAlert, Star, UserX, Users } from "lucide-react";
@@ -23,14 +23,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsBySlug[slug];
   if (!team) return {};
   return {
-    title: `Kader ${team.name} — Liste des 26 Spielers CDM 2026`,
-    description: `Kader complet de ${team.name} für die WM 2026 : liste des 26 Spielers, postes, clubs et sélections par poste.`,
+    title: `Kader ${team.name} — Liste der 26 Spieler WM 2026`,
+    description: `Vollständiger Kader von ${team.name} für die WM 2026: Liste der 26 Spieler, Positionen, Vereine und Aufgebot nach Position.`,
     openGraph: {
-      title: `${team.flag} Kader ${team.name} — CDM 2026`,
-      description: `Liste des 26 Spielers de ${team.name} für die WM 2026.`,
-      url: `${domains.de}/effectif/${team.slug}`,
+      title: `${team.flag} Kader ${team.name} — WM 2026`,
+      description: `Liste der 26 Spieler von ${team.name} für die WM 2026.`,
+      url: `${domains.de}/Kader/${team.slug}`,
       },
-    alternates: { canonical: `https://www.wm2026guide.de/effectif/${team.slug}` },
+    alternates: { canonical: `https://www.wm2026guide.de/Kader/${team.slug}` },
   };
 }
 const positionLabels: Record<string, string> = {
@@ -66,22 +66,22 @@ export default async function KaderPage({ params }: PageProps) {
   const nextMatch = teamMatches.find((m) => m.date >= today);
 const faqItems = [
     {
-      question: `Combien de Spielers ${team.name} peut-elle emmener à la CDM 2026 ?`,
-      answer: "Chaque sélection peut convoquer 26 Spielers für die WM 2026, dont 3 Torwarts obligatoires.",
+      question: `Wie viele Spieler darf ${team.name} zur WM 2026 mitnehmen?`,
+      answer: "Jedes Team darf 26 Spieler für die WM 2026 nominieren, darunter 3 Torhüter.",
     },
     {
-      question: `Quand a été annoncée la liste définitive de ${team.name} ?`,
-      answer: `La liste définitive des 26 Spielers de ${team.name} a été annoncée par le sélectionneur en mai 2026, avant le début des Turniers le 11 juin 2026.`,
+      question: `Wann wurde der endgültige Kader von ${team.name} bekanntgegeben?`,
+      answer: `Der endgültige Kader mit 26 Spielern von ${team.name} wurde vom Trainer im Mai 2026 bekanntgegeben, vor dem Turnierstart am 11. Juni 2026.`,
     },
     {
-      question: `Qui sont les Spielers stars de ${team.name} ?`,
+      question: `Wer sind die Starspieler von ${team.name}?`,
       answer: stars.length > 0
-        ? `Les Spielers les plus expérimentés de ${team.name} sont : ${stars.map((s) => `${s.name} (${s.caps} sél.)`).join(", ")}.`
-        : `La liste des Spielers de ${team.name} est celle retenue für die WM 2026.`,
+        ? `Die erfahrensten Spieler von ${team.name} sind: ${stars.map((s) => `${s.name} (${s.caps} Eins.)`).join(", ")}.`
+        : `Die Spielerliste von ${team.name} ist der für die WM 2026 nominierte Kader.`,
     },
     {
-      question: `Un Spieler blessé peut-il être remplacé ?`,
-      answer: "Oui, la FIFA autorise le remplacement de Spielers blessés jusqu'à 24h avant le premier match de l'Mannschaft, sous réserve de validation médicale.",
+      question: `Kann ein verletzter Spieler ersetzt werden?`,
+      answer: "Ja, die FIFA erlaubt den Ersatz verletzter Spieler bis 24 Stunden vor dem ersten Spiel der Mannschaft, vorbehaltlich einer ärztlichen Bestätigung.",
     },
   ];
   return (
@@ -90,15 +90,15 @@ const faqItems = [
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-5xl sm:text-7xl" role="img" aria-label={`Drapeau de ${team.name}`}>
+            <span className="text-5xl sm:text-7xl" role="img" aria-label={`Flagge von ${team.name}`}>
               {team.flag}
             </span>
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">
-                Kader {team.name} — Liste des 26 Spielers CDM 2026
+                Kader {team.name} — Liste der 26 Spieler WM 2026
               </h1>
               <p className="mt-2 text-lg text-gray-300">
-                Groupe {team.group} · FIFA #{team.fifaRanking} · {allPlayers.length} Spielers répertoriés
+                Gruppe {team.group} · FIFA #{team.fifaRanking} · {allPlayers.length} Spieler gelistet
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@ const faqItems = [
         {/* Disclaimer */}
         <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 mb-8">
           <p className="text-sm text-gray-700 font-medium">
-            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 Spielers sélectionnés für die WM 2026.
+            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Offizielle Liste</strong> — die 26 nominierten Spieler für die WM 2026.
           </p>
         </div>
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
@@ -118,7 +118,7 @@ const faqItems = [
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
                 <h2 className="flex items-center gap-2 text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                   <Star className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
-                  Spielers stars
+                  Starspieler
                 </h2>
                 <div className="grid gap-3 sm:grid-cols-3">
                   {stars.map((player) => (
@@ -131,7 +131,7 @@ const faqItems = [
                       <p className="text-sm text-accent font-semibold">{positionLabels[player.position] ?? player.position}</p>
                       <p className="text-sm text-gray-500 mt-1">{player.club}</p>
                       <p className="text-xs text-gray-400 mt-1">
-                        {player.caps} sél. · {player.goals} buts · {player.age} ans
+                        {player.caps} Eins. · {player.goals} Tore · {player.age} Jahre
                       </p>
                     </Link>
                   ))}
@@ -139,7 +139,7 @@ const faqItems = [
               </section>
             )}
             {/* CTA Banner */}
-            <PmuCTA tracking="effectif" />
+            <PmuCTA tracking="Kader" />
             {/* Players by position */}
             {sortedPositions.map((pos) => {
               const posPlayers = grouped[pos]!.sort((a, b) => (a.number ?? 99) - (b.number ?? 99));
@@ -155,10 +155,10 @@ const faqItems = [
                     <table className="w-full text-left text-sm">
                       <thead>
                         <tr className="border-b border-gray-200">
-                          <th className="py-3 pr-3 font-semibold text-gray-700">Nom</th>
-                          <th className="py-3 pr-3 font-semibold text-gray-700">Club</th>
-                          <th className="py-3 pr-3 font-semibold text-gray-700">Âge</th>
-                          <th className="py-3 font-semibold text-gray-700">Sél.</th>
+                          <th className="py-3 pr-3 font-semibold text-gray-700">Name</th>
+                          <th className="py-3 pr-3 font-semibold text-gray-700">Verein</th>
+                          <th className="py-3 pr-3 font-semibold text-gray-700">Alter</th>
+                          <th className="py-3 font-semibold text-gray-700">Eins.</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -191,7 +191,7 @@ const faqItems = [
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">
-                  La liste des Spielers de {team.name} n'est pas encore disponible.
+                  Die Spielerliste von {team.name} ist noch nicht verfügbar.
                 </p>
               </section>
             )}
@@ -201,7 +201,7 @@ const faqItems = [
                 Wetten auf {team.name}
               </h2>
               <p className="mb-5 text-sm text-gray-600">
-                Comparez les meilleurs sites de paris sportifs agréés en France pour parier sur {team.name} à la WM 2026.
+                Vergleichen Sie die besten lizenzierten Wettanbieter, um auf {team.name} bei der WM 2026 zu wetten.
               </p>
               <div className="space-y-4">
                 {bookmakers.map((bk) => {
@@ -215,7 +215,7 @@ const faqItems = [
                     >
                       {isFeatured && (
                         <span className="absolute -top-3 left-4 rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-black">
-                          Recommandé
+                          Empfohlen
                         </span>
                       )}
                       <div className="flex-1 text-center sm:text-left">
@@ -243,11 +243,11 @@ const faqItems = [
                 })}
               </div>
               <p className="mt-4 text-center text-[10px] leading-snug text-gray-400">
-                Les jeux d&apos;argent et de hasard sont interdits aux mineurs. Jouer comporte des risques : endettement, dépendance...{" "}
-                <a href="tel:0974751313" className="underline hover:text-gray-500">
-                  Appelez le 0800 1 37 27 00
+                Glücksspiel ist für Minderjährige verboten. Spielen birgt Risiken: Verschuldung, Abhängigkeit...{" "}
+                <a href="tel:08001372700" className="underline hover:text-gray-500">
+                  Rufen Sie an: 0800 1 37 27 00
                 </a>{" "}
-                (appel non surtaxé).
+                (kostenlos).
               </p>
             </section>
             {/* Nächstes Spiel */}
@@ -273,7 +273,7 @@ const faqItems = [
                     </span>
                   </Link>
                   <div className="mt-4">
-                    <PmuCTA tracking="effectif" />
+                    <PmuCTA tracking="Kader" />
                   </div>
                 </section>
               );
@@ -282,20 +282,20 @@ const faqItems = [
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-lg sm:text-xl font-bold text-gray-900 mb-4">
                 <UserX className="h-5 w-5 text-red-500" />
-                Absents notables / Blessés
+                Namhafte Ausfälle / Verletzte
               </h2>
               <p className="text-sm text-gray-500 italic">
-                Cette section est mise à jour au fil des Turniers, en fonction des blessures et remplacements officiels.
+                Dieser Abschnitt wird im Turnierverlauf aktualisiert, basierend auf offiziellen Verletzungen und Ersatzspielern.
               </p>
               <div className="mt-4 rounded-lg bg-gray-50/30 p-4">
-                <p className="text-sm text-gray-400">Aucun absent notable confirmé pour le moment.</p>
+                <p className="text-sm text-gray-400">Derzeit keine bestätigten namhaften Ausfälle.</p>
               </div>
             </section>
           </div>
           {/* Sidebar */}
           <aside className="space-y-4 sm:space-y-6">
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Résumé effectif</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Kader-Übersicht</h3>
               <div className="space-y-2 text-sm">
                 {sortedPositions.map((pos) => (
                   <div key={pos} className="flex justify-between">
@@ -330,16 +330,16 @@ const faqItems = [
                 ))}
               </div>
               <p className="mt-3 text-[10px] text-gray-400 text-center leading-snug">
-                18+ | Jouer comporte des risques.{" "}
-                <a href="tel:0974751313" className="underline hover:text-gray-500">0800 1 37 27 00</a>
+                18+ | Spielen birgt Risiken.{" "}
+                <a href="tel:08001372700" className="underline hover:text-gray-500">0800 1 37 27 00</a>
               </p>
             </div>
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Nützliche Links</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href={`/mannschaft/${team.slug}`} className="text-primary hover:underline">
-                    Fiche complète {team.name}
+                    Vollständiges Profil {team.name}
                   </Link>
                 </li>
                 <li>
@@ -349,7 +349,7 @@ const faqItems = [
                 </li>
                 <li>
                   <Link href={`/cote-champion/${team.slug}`} className="text-primary hover:underline">
-                    Cote {team.name} championne
+                    Quote {team.name} Weltmeister
                   </Link>
                 </li>
                 <li>
@@ -359,7 +359,7 @@ const faqItems = [
                 </li>
                 <li>
                   <Link href={`/gruppe/${team.group.toLowerCase()}`} className="text-primary hover:underline">
-                    Groupe {team.group}
+                    Gruppe {team.group}
                   </Link>
                 </li>
               </ul>
@@ -367,7 +367,7 @@ const faqItems = [
           </aside>
         </div>
         {/* FAQ — full width, centered */}
-        <FAQSection items={faqItems} title={`Häufig gestellte Fragen — Kader ${team.name}`} />
+        <FAQSection items={faqItems} title={`Häufige Fragen — Kader ${team.name}`} />
       </div>
     </>
   );

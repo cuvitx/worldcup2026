@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Team } from "@repo/data/types";
-import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
-import { playersByTeamId } from "@repo/data/players";
+import { teams, teamsBySlug, teamsById } from "../../../lib/localized-data";
+import { playersByTeamId } from "../../../lib/localized-data";
 import { matches, matchesByGroup } from "@repo/data/matches";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { groupsByLetter } from "@repo/data/groups";
@@ -21,9 +21,9 @@ import { PremiumMatchCalendar } from "./_components/PremiumMatchCalendar";
 import { PremiumSquad } from "./_components/PremiumSquad";
 import { PremiumHistory } from "./_components/PremiumHistory";
 import { PremiumFAQ, generateFAQSchema } from "./_components/PremiumFAQ";
-import { PremiumPronostic } from "./_components/PremiumPronostic";
+import { PremiumPrognose } from "./_components/PremiumPrognose";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
-import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
+import { PremiumMatchPrognoseLinks } from "./_components/PremiumMatchPrognoseLinks";
 import { GroupStandings } from "./_components/GroupStandings";
 import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
 
@@ -155,7 +155,7 @@ export default async function TeamPage({ params }: PageProps) {
       )}
 
       {/* Prognose & Odds */}
-      <PremiumPronostic team={team} prediction={prediction} content={content} />
+      <PremiumPrognose team={team} prediction={prediction} content={content} />
 
       {/* History */}
       <PremiumHistory team={team} />
@@ -164,7 +164,7 @@ export default async function TeamPage({ params }: PageProps) {
       <PremiumAnecdotes team={team} content={content} />
 
       {/* Match Prognose Links */}
-      <PremiumMatchPronosticLinks team={team} teamMatches={teamMatches} />
+      <PremiumMatchPrognoseLinks team={team} teamMatches={teamMatches} />
 
       {/* FAQ Section */}
       <PremiumFAQ 

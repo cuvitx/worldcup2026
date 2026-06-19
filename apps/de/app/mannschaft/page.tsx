@@ -1,18 +1,18 @@
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { ConfederationFilter } from "./confederation-filter";
 import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
-  title: "Les 48 Mannschafts der WM 2026 | Rangliste, Stats & Prognoses",
+  title: "Die 48 Mannschaften der WM 2026 | Rangliste, Stats & Prognosen",
   description:
-    "Liste complète des 48 Mannschafts qualifiées für die WM 2026. Rangliste FIFA, groupe, historique et pronostics pour chaque sélection.",
+    "Vollständige Liste der 48 qualifizierten Mannschaften für die WM 2026. FIFA-Rangliste, Gruppe, Historie und Prognosen für jeden Kader.",
   alternates: getStaticAlternates("teams", "de"),
   openGraph: {
-    title: "48 Mannschafts - WM 2026",
-    description: "Alle Mannschafts qualifiées pour la CDM 2026 aux États-Unis, Canada et Mexique.",
+    title: "48 Mannschaften - WM 2026",
+    description: "Alle 48 qualifizierten Mannschaften für die WM 2026 in den USA, Kanada und Mexiko.",
   },
 };
 
@@ -23,9 +23,9 @@ export default function TeamsPage() {
     <>
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Les 48 Mannschafts de la CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Die 48 Mannschaften der WM 2026</h1>
           <p className="mt-2 text-gray-300">
-            Rangliste FIFA, groupe, pronostics et fiche complète de chaque sélection qualifiée.
+            FIFA-Rangliste, Gruppe, Prognosen und vollständiges Profil jedes qualifizierten Kaders.
           </p>
         </div>
       </section>
@@ -36,7 +36,7 @@ export default function TeamsPage() {
 
         {/* Ranking Table */}
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200 mb-10 mt-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Rangliste FIFA des 48 Mannschafts</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">FIFA-Rangliste der 48 Mannschaften</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -45,7 +45,7 @@ export default function TeamsPage() {
                   <th className="pb-3 font-medium text-gray-500">Mannschaft</th>
                   <th className="pb-3 font-medium text-gray-500 hidden sm:table-cell">Conf.</th>
                   <th className="pb-3 font-medium text-gray-500">Gr.</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right hidden sm:table-cell">Chances</th>
+                  <th className="pb-3 font-medium text-gray-500 text-right hidden sm:table-cell">Chancen</th>
                   <th className="pb-3 font-medium text-gray-500 text-right">Prognose</th>
                 </tr>
               </thead>
@@ -57,9 +57,9 @@ export default function TeamsPage() {
                       <td className="py-3 font-medium text-gray-900">{team.fifaRanking}</td>
                       <td className="py-3">
                         <Link href={`/mannschaft/${team.slug}`} className="flex items-center gap-2 hover:text-primary min-w-0">
-                          <span className="text-lg shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+                          <span className="text-lg shrink-0" role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
                           <span className="font-medium text-gray-900 truncate">{team.name}</span>
-                          {team.isHost && <span className="text-xs text-accent font-semibold">(Hôte)</span>}
+                          {team.isHost && <span className="text-xs text-accent font-semibold">(Gastgeber)</span>}
                         </Link>
                       </td>
                       <td className="py-3 text-gray-500 hidden sm:table-cell">{team.confederation}</td>
@@ -95,20 +95,20 @@ export default function TeamsPage() {
           links={[
             {
               href: "/gruppen",
-              title: " Les 12 groupes",
-              description: "Composition et classements des groupes A à L.",
+              title: " Die 12 Gruppen",
+              description: "Zusammensetzung und Tabellen der Gruppen A bis L.",
               icon: ""
             },
             {
               href: "/spiel/spielplan",
-              title: " Spielplan complet",
-              description: "Tous les matchs avec dates, horaires et stades.",
+              title: " Vollständiger Spielplan",
+              description: "Alle Spiele mit Datum, Uhrzeit und Stadien.",
               icon: ""
             },
             {
               href: "/prognose/sieger",
-              title: "Qui va gagner ?",
-              description: "Nos pronostics et cotes pour le vainqueur de la CDM 2026.",
+              title: "Wer wird Weltmeister?",
+              description: "Unsere Prognosen und Quoten für den Sieger der WM 2026.",
               icon: ""
             }
           ]}

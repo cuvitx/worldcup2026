@@ -24,7 +24,7 @@ const facteurs = [
     stats: [
       "CDM 1994 (USA) : +23% de buts marqués en 2e mi-temps par rapport à la moyenne mondiale",
       "CDM 2014 (Brésil, chaleur tropicale) : 56% des buts en 2e mi-temps",
-      "CDM 2022 (Qatar, stades climatisés) : retour à 52% en 2e MT → la clim a normalisé",
+      "CDM 2022 (Qatar, Stadien climatisés) : retour à 52% en 2e MT → la clim a normalisé",
       "Les Mannschafts européennes souffrent davantage : -12% de distance parcourue au-dessus de 32°C",
     ],
     recommandation: "Privilégiez les paris Over 2.5 buts et les buts en 2e mi-temps pour les matchs joués à Houston, Dallas et Miami, surtout si une Mannschaft nordique (Danemark, Suède, Écosse) affronte une Mannschaft habituée à la chaleur.",
@@ -58,7 +58,7 @@ const facteurs = [
 ];
 
 const statsHistoriques = [
-  { edition: "USA 1994", temp: "28-35°C", buts: "2.71/match", particularite: "Chaleur + grands stades = 2e MT décisive" },
+  { edition: "USA 1994", temp: "28-35°C", buts: "2.71/match", particularite: "Chaleur + grands Stadien = 2e MT décisive" },
   { edition: "Brésil 2014", temp: "22-35°C", buts: "2.67/match", particularite: "7-1, matchs ouverts en chaleur" },
   { edition: "Russie 2018", temp: "18-28°C", buts: "2.64/match", particularite: "Climat tempéré = matchs équilibrés" },
   { edition: "Qatar 2022", temp: "24-32°C (clim)", buts: "2.56/match", particularite: "Stadions climatisés = moins d'impact" },
@@ -83,9 +83,9 @@ const faqItems = [
       "Weather.com, AccuWeather et Windy.com offrent des prévisions à 10-14 jours. Pour les matchs en soirée, vérifiez les prévisions horaires. Les orages tropicaux à Houston/Miami arrivent souvent entre 15h et 18h locales.",
   },
   {
-    question: "Les stades américains sont-ils couverts ?",
+    question: "Les Stadien américains sont-ils couverts ?",
     answer:
-      "Certains oui : NRG Stadium (Houston) et AT&T Stadium (Dallas) sont rétractables/couverts, ce qui annule l'effet pluie mais pas la chaleur (la clim modère mais ne supprime pas). SoFi Stadium (LA) est semi-ouvert. Les autres stades sont à ciel ouvert.",
+      "Certains oui : NRG Stadium (Houston) et AT&T Stadium (Dallas) sont rétractables/couverts, ce qui annule l'effet pluie mais pas la chaleur (la clim modère mais ne supprime pas). SoFi Stadium (LA) est semi-ouvert. Les autres Stadien sont à ciel ouvert.",
   },
 ];
 
@@ -103,7 +103,7 @@ return (
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Chaleur, altitude, pluie : analysez comment les conditions climatiques influencent
-            les matchs et affinez vos pronostics.
+            les matchs et affinez vos Prognoses.
           </p>
         </div>
       </section>

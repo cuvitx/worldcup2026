@@ -4,7 +4,7 @@ import { getStaticAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { matches } from "@repo/data/matches";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";

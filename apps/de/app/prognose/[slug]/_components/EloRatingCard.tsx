@@ -10,10 +10,10 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
 
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Rating ELO de {teamName}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">ELO-Wertung von {teamName}</h2>
       <div className="flex items-end gap-4 mb-4">
         <p className="text-3xl font-extrabold text-primary sm:text-5xl">{eloRating}</p>
-        <p className="text-sm text-gray-500 pb-1">points ELO</p>
+        <p className="text-sm text-gray-500 pb-1">ELO-Punkte</p>
       </div>
       <div className="relative h-4 rounded-full bg-gray-200 overflow-hidden">
         <div
@@ -29,8 +29,8 @@ export function EloRatingCard({ teamName, eloRating }: EloRatingCardProps) {
         <span>{eloMax}</span>
       </div>
       <p className="mt-3 text-sm text-gray-600">
-        Le rating ELO mesure la force relative de chaque Mannschaft. Plus le score est eleve, plus l&apos;Mannschaft est consideree comme favorite. {teamName} se situe dans le{" "}
-        {eloPercent > 75 ? "top tier mondial" : eloPercent > 50 ? "haut du classement" : eloPercent > 25 ? "Mittelfeldspieler de tableau" : "bas du classement"}.
+        Die ELO-Wertung misst die relative Stärke jeder Mannschaft. Je höher die Wertung, desto mehr gilt die Mannschaft als Favorit. {teamName} befindet sich im{" "}
+        {eloPercent > 75 ? "weltweiten Spitzenbereich" : eloPercent > 50 ? "oberen Bereich der Rangliste" : eloPercent > 25 ? "Mittelfeld" : "unteren Bereich der Rangliste"}.
       </p>
     </section>
   );

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
-import { teams, teamsById } from "@repo/data/teams";
+import { teams, teamsById } from "../../../lib/localized-data";
 import { matchesByGroup } from "@repo/data/matches";
-import { playersByTeamId } from "@repo/data/players";
+import { playersByTeamId } from "../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import type { Player, Match } from "@repo/data/types";
@@ -553,7 +553,7 @@ export default async function GroupPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Prognose Groupe CTA */}
+            {/* Prognose Gruppe CTA */}
             <div className="rounded-lg bg-primary/5 border border-primary/20 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Prognose Gruppe {group.letter}

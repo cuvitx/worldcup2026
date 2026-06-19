@@ -41,14 +41,14 @@ const stakingPlans = [
 
 const budgetTiers = [
   { level: "Débutant", budget: "50 – 100 EUR", mise: "1 – 2 EUR", paris: "~30 paris", desc: "Pour découvrir les paris pendant la CDM sans risque." },
-  { level: "Intermédiaire", budget: "200 – 500 EUR", mise: "4 – 10 EUR", paris: "~50 paris", desc: "Pour parier régulièrement sur la phase de groupes et les KO." },
+  { level: "Intermédiaire", budget: "200 – 500 EUR", mise: "4 – 10 EUR", paris: "~50 paris", desc: "Pour parier régulièrement sur la phase de Gruppen et les KO." },
   { level: "Avancé", budget: "500 – 1000 EUR", mise: "10 – 20 EUR", paris: "~60 paris", desc: "Pour une couverture complète des Turniers avec des combinés." },
 ];
 
 const erreurs = [
   "Augmenter les mises après une série de pertes (chasing losses)",
   "Parier plus de 5% de la bankroll sur un seul pari",
-  "Miser tout le budget en première semaine de phase de groupes",
+  "Miser tout le budget en première semaine de phase de Gruppen",
   "Ignorer les phases finales (souvent les plus rentables)",
   "Parier sous l'influence de l'alcool ou de l'émotion",
   "Ne pas tracker ses paris (aucun suivi = aucun apprentissage)",
@@ -65,8 +65,8 @@ export default function BankrollCdmPage() {
       answer: "Le Kelly est puissant mais difficile à appliquer car il nécessite d'estimer précisément les probabilités. Utilisez le quart-Kelly (divisez par 4) pour limiter la variance. Le flat staking à 2% reste la méthode la plus simple et fiable.",
     },
     {
-      question: "Faut-il tout miser sur la phase de groupes ?",
-      answer: "Non ! Gardez au moins 40% de votre bankroll pour les phases éliminatoires. Les groupes offrent plus de matchs mais les KO offrent souvent plus de value car les cotes reflètent davantage la pression et les émotions que la réalité.",
+      question: "Faut-il tout miser sur la phase de Gruppen ?",
+      answer: "Non ! Gardez au moins 40% de votre bankroll pour les phases éliminatoires. Les Gruppen offrent plus de matchs mais les KO offrent souvent plus de value car les cotes reflètent davantage la pression et les émotions que la réalité.",
     },
   ];
 

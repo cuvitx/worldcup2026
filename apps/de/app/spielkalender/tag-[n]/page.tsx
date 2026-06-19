@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { stadiumsById } from "@repo/data/stadiums";
+import { teamsById } from "../../../lib/localized-data";
+import { stadiumsById } from "../../../lib/localized-data";
 import { EVENT_DATES } from "@repo/data/constants";
 import { Clock, Users } from "lucide-react"
 
@@ -40,12 +40,12 @@ function utcToFrParis(time: string): string {
 
 function stageLabel(stage: string, group?: string): string {
   const labels: Record<string, string> = {
-    group: `Gruppenphase${group ? ` — Groupe ${group}` : ""}`,
-    "round-of-32": "Huitièmes de finale",
-    "round-of-16": "8es de finale",
-    "quarter-final": "Quarts de finale",
-    "semi-final": "Halbfinales",
-    "third-place": "Match pour la 3e place",
+    group: `Gruppenphase${group ? ` — Gruppe ${group}` : ""}`,
+    "round-of-32": "Sechzehntelfinale",
+    "round-of-16": "Achtelfinale",
+    "quarter-final": "Viertelfinale",
+    "semi-final": "Halbfinale",
+    "third-place": "Spiel um Platz 3",
     final: "FINALE",
   };
   return labels[stage] ?? stage;
@@ -85,11 +85,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dayMatches = matches.filter((m) => m.date === dateStr);
 
   return {
-    title: `Jour ${dayNum} — ${dateFr} | Matchs CDM 2026`,
-    description: `Programme du jour ${dayNum} der WM 2026 (${dateFr}) : ${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} au programme. Horaires, stades et Mannschafts.`,
+    title: `Tag ${dayNum} — ${dateFr} | Spiele WM 2026`,
+    description: `Programm Tag ${dayNum} der WM 2026 (${dateFr}): ${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} auf dem Programm. Uhrzeiten, Stadien und Mannschaften.`,
     openGraph: {
-      title: `CDM 2026 — Jour ${dayNum} : ${dateFr}`,
-      description: `${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} ce jour-là. Tous les horaires et stades.`,
+      title: `WM 2026 — Tag ${dayNum}: ${dateFr}`,
+      description: `${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} an diesem Tag. Alle Uhrzeiten und Stadien.`,
     },
     alternates: {
       canonical: `${domains.de}/spielplan/jour-${dayNum}`,
@@ -102,19 +102,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // ============================================================
 const faqSpielplanItems = [
   {
-    question: "Quand débute et se termine la WM 2026 ?",
+    question: "Wann beginnt und endet die WM 2026?",
     answer:
-      "La WM 2026 commence le 11 juin 2026 avec le match d'ouverture à l'Estadio Azteca de Mexico. La grande finale est prévue le 19 juillet 2026 au MetLife Stadium de New York/New Jersey, soit 39 jours de compétition au total.",
+      "Die WM 2026 beginnt am 11. Juni 2026 mit dem Eröffnungsspiel im Estadio Azteca in Mexiko-Stadt. Das große Finale findet am 19. Juli 2026 im MetLife Stadium in New York/New Jersey statt, also insgesamt 39 Tage Wettbewerb.",
   },
   {
-    question: "Combien de matchs au total à la CDM 2026 ?",
+    question: "Wie viele Spiele gibt es bei der WM 2026 insgesamt?",
     answer:
-      "La WM 2026 compte 104 matchs au total : 72 matchs de phase de groupes (12 groupes × 6 matchs), puis 32 matchs de phase finale (16 huitièmes + 8 quarts + 4 demi-finales + 1 match pour la 3e place + 1 finale). C'est 24 matchs de plus qu'en 2022.",
+      "Die WM 2026 umfasst insgesamt 104 Spiele: 72 Gruppenspiele (12 Gruppen x 6 Spiele), dann 32 K.-o.-Spiele (16 Achtelfinale + 8 Viertelfinale + 4 Halbfinale + 1 Spiel um Platz 3 + 1 Finale). Das sind 24 Spiele mehr als 2022.",
   },
   {
-    question: "Dans quel fuseau horaire sont affichés les horaires des matchs ?",
+    question: "In welcher Zeitzone werden die Spielzeiten angezeigt?",
     answer:
-      "Les horaires sur ce site sont affichés en heure de Paris (CEST, UTC+2 en été). Les matchs se jouent en heure locale américaine (EDT = UTC-4, CDT = UTC-5, PDT = UTC-7), soit généralement en soirée française (entre 18h et 3h du matin selon le fuseau de la ville hôte).",
+      "Die Uhrzeiten auf dieser Website werden in mitteleuropäischer Sommerzeit (MESZ, UTC+2) angezeigt. Die Spiele finden in amerikanischer Ortszeit statt (EDT = UTC-4, CDT = UTC-5, PDT = UTC-7), also in der Regel am europäischen Abend (zwischen 18 und 3 Uhr nachts je nach Zeitzone der Gastgeberstadt).",
   },
 ];
 
@@ -153,13 +153,13 @@ export default async function JourPage({ params }: PageProps) {
                 WM 2026
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold">
-                Jour {dayNum}
+                Tag {dayNum}
               </h1>
               <p className="mt-2 text-lg text-white/90 capitalize">{dateFr}</p>
               <p className="mt-1 text-sm text-white/80">
                 {dayMatches.length > 0
-                  ? `${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} au programme`
-                  : "Pas de match prévu ce jour"}
+                  ? `${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} auf dem Programm`
+                  : "Keine Spiele an diesem Tag geplant"}
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export default async function JourPage({ params }: PageProps) {
             <div className="flex items-center gap-3 sm:text-right">
               <div className="rounded-2xl bg-white/10 px-5 py-3 text-center">
                 <p className="text-3xl font-extrabold">{dayNum}</p>
-                <p className="text-xs text-white/70">/ {TOTAL_DAYS} jours</p>
+                <p className="text-xs text-white/70">/ {TOTAL_DAYS} Tage</p>
               </div>
             </div>
           </div>
@@ -183,20 +183,20 @@ export default async function JourPage({ params }: PageProps) {
               href={`/spielplan/jour-${dayNum - 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
-              ← Jour {dayNum - 1}
+              ← Tag {dayNum - 1}
             </Link>
           ) : (
             <div />
           )}
           <span className="text-sm text-gray-500">
-            Jour {dayNum} / {TOTAL_DAYS}
+            Tag {dayNum} / {TOTAL_DAYS}
           </span>
           {hasNext ? (
             <Link
               href={`/spielplan/jour-${dayNum + 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
-              Jour {dayNum + 1} →
+              Tag {dayNum + 1} →
             </Link>
           ) : (
             <div />
@@ -208,10 +208,10 @@ export default async function JourPage({ params }: PageProps) {
           <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow text-center">
             <p className="text-4xl mb-4"></p>
             <p className="text-lg font-semibold text-gray-700 mb-2">
-              Journée sans match
+              Spielfreier Tag
             </p>
             <p className="text-sm text-gray-500">
-              Keine Spiele n'est programmé ce {dateFr}.
+              Am {dateFr} sind keine Spiele geplant.
             </p>
             <div className="mt-6 flex justify-center gap-4">
               {hasPrev && (
@@ -219,7 +219,7 @@ export default async function JourPage({ params }: PageProps) {
                   href={`/spielplan/jour-${dayNum - 1}`}
                   className="rounded-lg bg-primary/10 px-4 py-2 text-sm text-primary font-medium hover:bg-primary/20"
                 >
-                  ← Jour précédent
+                  ← Vorheriger Tag
                 </Link>
               )}
               {hasNext && (
@@ -227,7 +227,7 @@ export default async function JourPage({ params }: PageProps) {
                   href={`/spielplan/jour-${dayNum + 1}`}
                   className="rounded-lg bg-primary px-4 py-2 text-sm text-white font-medium hover:bg-primary/90"
                 >
-                  Jour suivant →
+                  Nächster Tag →
                 </Link>
               )}
             </div>
@@ -262,7 +262,7 @@ export default async function JourPage({ params }: PageProps) {
                       <div className="flex items-center gap-3 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
                           <span><Clock className="h-5 w-5 inline-block" /></span>
-                          <span className="font-medium text-gray-800">{frTime} (heure FR)</span>
+                          <span className="font-medium text-gray-800">{frTime} (MEZ)</span>
                           <span className="text-xs text-gray-500">| {match.time} CEST</span>
                         </span>
                       </div>
@@ -272,7 +272,7 @@ export default async function JourPage({ params }: PageProps) {
                     <div className="flex items-center justify-center gap-4 sm:gap-8">
                       {/* Home team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
-                        <span className="text-4xl sm:text-5xl" role="img" aria-label={homeTeam?.name ?? "Mannschaft locale"}>
+                        <span className="text-4xl sm:text-5xl" role="img" aria-label={homeTeam?.name ?? "Heimmannschaft"}>
                           {homeTeam?.flag ?? ""}
                         </span>
                         <div>
@@ -295,7 +295,7 @@ export default async function JourPage({ params }: PageProps) {
 
                       {/* Away team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
-                        <span className="text-4xl sm:text-5xl" role="img" aria-label={awayTeam?.name ?? "Mannschaft visiteur"}>
+                        <span className="text-4xl sm:text-5xl" role="img" aria-label={awayTeam?.name ?? "Auswärtsmannschaft"}>
                           {awayTeam?.flag ?? ""}
                         </span>
                         <div>
@@ -323,7 +323,7 @@ export default async function JourPage({ params }: PageProps) {
                         {stadium.capacity && (
                           <span className="flex items-center gap-1">
                             <span><Users className="h-5 w-5 inline-block" /></span>
-                            <span>{stadium.capacity.toLocaleString("de-DE")} places</span>
+                            <span>{stadium.capacity.toLocaleString("de-DE")} Plätze</span>
                           </span>
                         )}
                       </div>
@@ -342,7 +342,7 @@ export default async function JourPage({ params }: PageProps) {
               href={`/spielplan/jour-${dayNum - 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
-              ← Jour {dayNum - 1}
+              ← Tag {dayNum - 1}
             </Link>
           ) : (
             <div />
@@ -351,14 +351,14 @@ export default async function JourPage({ params }: PageProps) {
             href="/spiel/spielplan"
             className="rounded-lg bg-gray-100 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors"
           >
-            Spielplan complet
+            Kompletter Spielplan
           </Link>
           {hasNext ? (
             <Link
               href={`/spielplan/jour-${dayNum + 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
-              Jour {dayNum + 1} →
+              Tag {dayNum + 1} →
             </Link>
           ) : (
             <div />
@@ -367,7 +367,7 @@ export default async function JourPage({ params }: PageProps) {
 
         {/* Quick jump: all days */}
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow mt-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Navigation rapide</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Schnellnavigation</h2>
           <div className="flex flex-wrap gap-2">
             {Array.from({ length: TOTAL_DAYS }, (_, i) => {
               const d = i + 1;
@@ -379,7 +379,7 @@ export default async function JourPage({ params }: PageProps) {
                 <Link
                   key={d}
                   href={`/spielplan/jour-${d}`}
-                  title={`Jour ${d} — ${cnt} match${cnt !== 1 ? "s" : ""}`}
+                  title={`Tag ${d} — ${cnt} Spiel${cnt !== 1 ? "e" : ""}`}
                   className={`relative flex h-9 w-9 items-center justify-center rounded-lg text-sm font-bold transition-colors ${
                     isActive
                       ? "bg-primary text-white"
@@ -397,7 +397,7 @@ export default async function JourPage({ params }: PageProps) {
             })}
           </div>
           <p className="mt-3 text-xs text-gray-400">
-            Les points verts indiquent les journées avec des matchs.
+            Die grünen Punkte zeigen Tage mit Spielen an.
           </p>
         </div>
       </div>
@@ -409,7 +409,7 @@ export default async function JourPage({ params }: PageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Event",
-            name: `WM 2026 — Jour ${dayNum}`,
+            name: `WM 2026 — Tag ${dayNum}`,
             startDate: dateStr,
             endDate: dateStr,
             location: {
@@ -421,7 +421,7 @@ export default async function JourPage({ params }: PageProps) {
               name: "FIFA",
             },
             url: `${domains.de}/spielplan/jour-${dayNum}`,
-            description: `Programme du jour ${dayNum} der WM 2026 : ${dayMatches.length} match(s).`,
+            description: `Programm Tag ${dayNum} der WM 2026: ${dayMatches.length} Spiel(e).`,
           }),
         }}
       />

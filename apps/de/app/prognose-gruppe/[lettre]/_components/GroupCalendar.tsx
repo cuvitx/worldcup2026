@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { teamsById } from "@repo/data/teams";
+import { teamsById } from "../../../../lib/localized-data";
 import type { matches as matchesType } from "@repo/data/matches";
 
 type Match = (typeof matchesType)[number];
@@ -14,7 +14,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
 
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielplan du Groupe {groupLetter}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielplan du Gruppe {groupLetter}</h2>
       <div className="space-y-2">
         {groupMatches.map((match) => {
           const home = teamsById[match.homeTeamId];
@@ -37,7 +37,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
                 <span className="font-semibold text-xs flex-1 min-w-0 truncate">{away?.name ?? "TBD"}</span>
                 <span className="text-base shrink-0" aria-label={away?.name}>{away?.flag ?? ""}</span>
               </div>
-              <span className="text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity shrink-0">Pronostic →</span>
+              <span className="text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity shrink-0">Prognose →</span>
             </Link>
           );
         })}

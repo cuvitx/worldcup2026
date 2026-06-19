@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
             {team?.fifaRanking && <div style={{ fontSize: 28, color: ACCENT, fontWeight: 700 }}>FIFA #{team.fifaRanking}</div>}
             {team?.group && <div style={{ fontSize: 28, color: LIGHT }}>Gruppe {team.group}</div>}
           </div>
-          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>CDM 2026 — WM FIFA</div>
+          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>WM 2026 — FIFA Weltmeisterschaft</div>
         </div>
       );
       break;
@@ -73,7 +73,7 @@ export async function GET(req: NextRequest) {
           </div>
           {match?.date && <div style={{ fontSize: 24, color: LIGHT, marginTop: 32 }}>{match.date}</div>}
           {match?.stadium && <div style={{ fontSize: 22, color: LIGHT, marginTop: 8 }}>{match.stadium}</div>}
-          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>CDM 2026 — WM FIFA</div>
+          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>WM 2026 — FIFA Weltmeisterschaft</div>
         </div>
       );
       break;
@@ -91,23 +91,23 @@ export async function GET(req: NextRequest) {
             {player?.position && <div style={{ fontSize: 28, color: ACCENT, fontWeight: 700 }}>{player.position}</div>}
             {player?.team && <div style={{ fontSize: 28, color: LIGHT }}>{player.team}</div>}
           </div>
-          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>CDM 2026 — WM FIFA</div>
+          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>WM 2026 — FIFA Weltmeisterschaft</div>
         </div>
       );
       break;
     }
 
-    case "pronostic":
+    case "Prognose":
     case "article": {
       content = (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", background: BG, padding: "60px 80px" }}>
           <div style={{ fontSize: 28, fontWeight: 700, color: ACCENT, textTransform: "uppercase", letterSpacing: 4, marginBottom: 24 }}>
-            {type === "pronostic" ? "Prognose" : "Article"}
+            {type === "Prognose" ? "Prognose" : "Article"}
           </div>
           <div style={{ fontSize: 48, fontWeight: 800, color: WHITE, textAlign: "center", lineHeight: 1.2 }}>
             {title || slug.replace(/-/g, " ")}
           </div>
-          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>CDM 2026 — WM FIFA</div>
+          <div style={{ fontSize: 24, color: LIGHT, marginTop: 40 }}>WM 2026 — FIFA Weltmeisterschaft</div>
         </div>
       );
       break;
@@ -117,9 +117,9 @@ export async function GET(req: NextRequest) {
       content = (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", background: BG, padding: "60px" }}>
           <div style={{ fontSize: 72 }}>🏆</div>
-          <div style={{ fontSize: 56, fontWeight: 800, color: WHITE, marginTop: 16 }}>CDM 2026</div>
-          <div style={{ fontSize: 32, color: ACCENT, marginTop: 12 }}>WM FIFA</div>
-          <div style={{ fontSize: 24, color: LIGHT, marginTop: 32 }}>États-Unis • Mexique • Canada</div>
+          <div style={{ fontSize: 56, fontWeight: 800, color: WHITE, marginTop: 16 }}>WM 2026</div>
+          <div style={{ fontSize: 32, color: ACCENT, marginTop: 12 }}>FIFA Weltmeisterschaft</div>
+          <div style={{ fontSize: 24, color: LIGHT, marginTop: 32 }}>USA • Mexiko • Kanada</div>
         </div>
       );
     }

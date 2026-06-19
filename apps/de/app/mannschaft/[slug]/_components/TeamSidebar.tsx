@@ -7,7 +7,7 @@ import type { TeamPrediction } from "@repo/data/predictions";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { groups } from "@repo/data/groups";
-import { teams } from "@repo/data/teams";
+import { teams } from "../../../../lib/localized-data";
 import type { generateFullTeamAnalysis } from "@repo/ai/generators";
 
 interface TeamSidebarProps {
@@ -20,7 +20,7 @@ interface TeamSidebarProps {
 export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSidebarProps) {
   return (
     <div className="space-y-6">
-      {/* Forme récente */}
+      {/* Aktuelle Form */}
       {(() => {
         const mockForms: Record<string, string[]> = {
           france: ["V", "V", "N", "V", "D"],
@@ -36,22 +36,22 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
         };
         const form = mockForms[team.slug] ?? ["V", "N", "D", "V", "N"];
         const colors: Record<string, string> = { V: "bg-accent", N: "bg-gray-400", D: "bg-red-500" };
-        const labels: Record<string, string> = { V: "Sieg", N: "Nul", D: "Niederlage" };
+        const labels: Record<string, string> = { V: "Sieg", N: "Unentschieden", D: "Niederlage" };
         return (
           <Card hover padding="md">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Forme récente</h3>
-            <p className="text-sm text-gray-500 mb-3">5 derniers matchs</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Aktuelle Form</h3>
+            <p className="text-sm text-gray-500 mb-3">Letzte 5 Spiele</p>
             <div className="flex gap-2">
               {form.map((r, i) => (
                 <span key={i} title={labels[r]} className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold text-white ${colors[r]}`}>{r}</span>
               ))}
             </div>
-            <p className="mt-3 text-xs text-gray-500">Données indicatives (qualifications)</p>
+            <p className="mt-3 text-xs text-gray-500">Richtwerte (Qualifikation)</p>
           </Card>
         );
       })()}
 
-      {/* Mini classement du groupe */}
+      {/* Mini-Tabelle der Gruppe */}
       {(() => {
         const group = groups.find((g) => g.letter === team.group);
         if (!group) return null;
@@ -99,22 +99,22 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
               </tbody>
             </table></div>
             <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
-              <span className="inline-block h-2 w-2 rounded-full bg-accent" />Qualifié (top 2)
+              <span className="inline-block h-2 w-2 rounded-full bg-accent" />Qualifiziert (Top 2)
             </div>
-            <p className="mt-1 text-xs text-gray-500">Rangliste simulé (pré-tournoi)</p>
+            <p className="mt-1 text-xs text-gray-500">Simulierte Tabelle (vor dem Turnier)</p>
           </Card>
         );
       })()}
 
       {/* Quick Stats */}
       <Card hover padding="md">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche technique</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Steckbrief</h3>
         <dl className="space-y-3 text-sm">
-          <DataRow label="Code FIFA" value={team.code} />
-          <DataRow label="Confederation" value={team.confederation} />
-          <DataRow label="Rangliste FIFA" value={`#${team.fifaRanking}`} />
-          <DataRow label="Groupe" value={team.group} />
-          <DataRow label="Participations CDM" value={String(team.wcAppearances)} />
+          <DataRow label="FIFA-Code" value={team.code} />
+          <DataRow label="Konföderation" value={team.confederation} />
+          <DataRow label="FIFA-Rangliste" value={`#${team.fifaRanking}`} />
+          <DataRow label="Gruppe" value={team.group} />
+          <DataRow label="WM-Teilnahmen" value={String(team.wcAppearances)} />
           <DataRow label="Bestes Ergebnis" value={team.bestResult} />
         </dl>
       </Card>
@@ -122,10 +122,10 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       {/* Live Form & Stats */}
       {(enriched?.form || enriched?.goalStats) && (
         <Card hover padding="md">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Forme actuelle</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Aktuelle Form</h3>
           {enriched?.form && (
             <div className="mb-3">
-              <p className="text-sm text-gray-500 mb-1">5 derniers matchs</p>
+              <p className="text-sm text-gray-500 mb-1">Letzte 5 Spiele</p>
               <div className="flex gap-1">
                 {enriched?.form.split("").map((r, i) => (
                   <span key={i} className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${r === "W" ? "bg-accent" : r === "D" ? "bg-accent" : r === "L" ? "bg-red-500" : "bg-gray-300"}`}>
@@ -139,11 +139,11 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
             <div className="grid grid-cols-3 gap-2 text-center text-sm">
               <div className="rounded bg-gray-50 p-2">
                 <p className="text-lg font-bold text-field">{enriched?.goalStats.scored}</p>
-                <p className="text-xs text-gray-500">Buts marques</p>
+                <p className="text-xs text-gray-500">Tore erzielt</p>
               </div>
               <div className="rounded bg-gray-50 p-2">
                 <p className="text-lg font-bold text-red-500">{enriched?.goalStats.conceded}</p>
-                <p className="text-xs text-gray-500">Buts encaisses</p>
+                <p className="text-xs text-gray-500">Gegentore</p>
               </div>
               <div className="rounded bg-gray-50 p-2">
                 <p className="text-lg font-bold text-primary">{enriched?.goalStats.cleanSheets}</p>
@@ -157,11 +157,11 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       {/* Injuries */}
       {(enriched?.injuries?.length ?? 0) > 0 && (
         <Card hover padding="md">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Blessures</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Verletzungen</h3>
           <ul className="space-y-2">
             {enriched?.injuries?.map((inj) => (
               <li key={inj.player} className="flex items-center gap-2 text-sm">
-                <span className="rounded bg-red-100 px-1.5 py-0.5 text-xs font-medium text-red-700">{inj.type === "Missing Fixture" ? "Absent" : inj.type}</span>
+                <span className="rounded bg-red-100 px-1.5 py-0.5 text-xs font-medium text-red-700">{inj.type === "Missing Fixture" ? "Ausfall" : inj.type}</span>
                 <span className="font-medium">{inj.player}</span>
                 <span className="text-gray-500">— {inj.reason}</span>
               </li>
@@ -177,19 +177,19 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
           <div className="space-y-3">
             <dl className="space-y-3 text-sm">
               <DataRow label="Rating ELO"><span className="font-bold text-primary">{prediction.eloRating}</span></DataRow>
-              <DataRow label="Passer les groupes"><span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span></DataRow>
-              <DataRow label="Gagner la CDM"><span className="font-bold text-accent">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span></DataRow>
+              <DataRow label="Gruppenphase überstehen"><span className="font-bold text-field">{Math.round(prediction.groupStageProb * 100)}%</span></DataRow>
+              <DataRow label="WM gewinnen"><span className="font-bold text-accent">{prediction.winnerProb >= 0.01 ? `${(prediction.winnerProb * 100).toFixed(1)}%` : `${(prediction.winnerProb * 100).toFixed(2)}%`}</span></DataRow>
             </dl>
           </div>
         ) : (
-          <p className="text-sm text-gray-500">Les pronostics seront disponibles prochainement.</p>
+          <p className="text-sm text-gray-500">Die Prognosen werden in Kürze verfügbar sein.</p>
         )}
       </div>
 
       {/* Betting CTA */}
       <div className="rounded-lg bg-primary p-6 shadow-md text-white">
-        <h3 className="text-lg font-semibold text-white mb-3">Wetten auf {team.name} championne</h3>
-        <p className="mb-4 text-sm text-white/70">Comparez les meilleurs sites agréés pour parier sur {team.name} à la WM 2026.</p>
+        <h3 className="text-lg font-semibold text-white mb-3">Auf {team.name} als Weltmeister wetten</h3>
+        <p className="mb-4 text-sm text-white/70">Vergleichen Sie die besten lizenzierten Wettanbieter, um auf {team.name} bei der WM 2026 zu wetten.</p>
         <a href={featuredBookmaker.url} target="_blank" rel="noopener noreferrer sponsored nofollow" className="block w-full rounded-xl bg-accent px-6 py-3.5 text-sm font-bold text-white text-center hover:bg-accent/80 transition-colors">
           {featuredBookmaker.name} - {featuredBookmaker.bonus} → Wetten auf {team.name}
         </a>
@@ -201,17 +201,17 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
             </a>
           ))}
         </div>
-        <p className="mt-4 text-xs text-white/50">18+. Pariez responsablement.</p>
+        <p className="mt-4 text-xs text-white/50">18+. Verantwortungsvolles Spielen.</p>
       </div>
 
       {/* Related Teams */}
       <Card hover padding="md">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Mannschaften du groupe {team.group}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Mannschaften der Gruppe {team.group}</h3>
         <ul className="space-y-2">
           {groupTeams.map((t) => (
             <li key={t.id}>
               <Link href={`/mannschaft/${t.slug}`} className="flex items-center gap-2 text-sm hover:text-primary">
-                <span role="img" aria-label={`Drapeau de ${t.name}`}>{t.flag}</span><span>{t.name}</span>
+                <span role="img" aria-label={`Flagge von ${t.name}`}>{t.flag}</span><span>{t.name}</span>
               </Link>
             </li>
           ))}
