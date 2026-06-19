@@ -52,3 +52,15 @@ jobs:
             fi
 
             /srv/cdm2026/deploy.sh
+
+            # Ensure DE service is running after deploy
+            if systemctl list-unit-files wm2026-de.service &>/dev/null; then
+              sudo systemctl restart wm2026-de || true
+              sleep 2
+              if systemctl is-active --quiet wm2026-de; then
+                echo "[DE] wm2026-de is running."
+              else
+                echo "[DE] WARNING: wm2026-de failed to start"
+                sudo journalctl -u wm2026-de --no-pager -n 20
+              fi
+            fi
