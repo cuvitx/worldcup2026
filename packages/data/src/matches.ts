@@ -461,6 +461,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "B",
     matchday: 2,
+    homeScore: 6,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group A: Mexico vs South Korea — Estadio Akron, Guadalajara — 03:00 CEST
   {
@@ -474,6 +477,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "A",
     matchday: 2,
+    homeScore: 1,
+    awayScore: 0,
+    status: "finished" as const,
   },
 
   // ---- June 19, 2026 ----
