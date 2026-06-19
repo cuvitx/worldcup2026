@@ -30,6 +30,42 @@ git reset --hard origin/main
 COMMIT=$(git rev-parse --short HEAD)
 echo "Commit: ${COMMIT}"
 
+# === Step 1b: Auto-provision DE infrastructure (if needed) ===
+if echo "$APPS" | grep -q "de"; then
+  SCRIPT_DIR="${REPO_DIR}/scripts/vps"
+
+  # Install systemd service for DE if not present
+  if [ ! -f /etc/systemd/system/wm2026-de.service ]; then
+    echo "  [PROVISION] Installing wm2026-de.service..."
+    cp "${SCRIPT_DIR}/wm2026-de.service" /etc/systemd/system/
+    systemctl daemon-reload
+    systemctl enable wm2026-de
+    echo "  [PROVISION] wm2026-de.service installed and enabled."
+  fi
+
+  # Install nginx config for DE if not present
+  if [ ! -f /etc/nginx/sites-available/wm2026-de ]; then
+    echo "  [PROVISION] Installing nginx config for wm2026guide.de..."
+    cp "${SCRIPT_DIR}/wm2026-de.nginx" /etc/nginx/sites-available/wm2026-de
+    ln -sf /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-enabled/
+    if nginx -t 2>/dev/null; then
+      systemctl reload nginx
+      echo "  [PROVISION] nginx config installed and reloaded."
+    else
+      echo "  [PROVISION] WARNING: nginx config test failed — check manually."
+      rm -f /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-enabled/wm2026-de
+    fi
+  fi
+
+  # Attempt SSL certificate if not yet provisioned
+  if [ -f /etc/nginx/sites-available/wm2026-de ] && ! grep -q "ssl_certificate" /etc/nginx/sites-available/wm2026-de 2>/dev/null; then
+    if command -v certbot &>/dev/null; then
+      echo "  [PROVISION] Requesting SSL certificate for wm2026guide.de..."
+      certbot --nginx -d wm2026guide.de -d www.wm2026guide.de --non-interactive --agree-tos --redirect 2>&1 || echo "  [PROVISION] SSL failed (DNS may not have propagated yet) — will retry next deploy."
+    fi
+  fi
+fi
+
 # === Step 2: Install dependencies ===
 echo "[2/7] Installing dependencies..."
 set -a; source /etc/cdm2026.env 2>/dev/null || true; set +a
