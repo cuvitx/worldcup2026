@@ -1,12 +1,69 @@
-import Image from "next/image";
 import { getStaticAlternates } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
-import { guides, guidesByCategory } from "@repo/data/guides";
 import { TableOfContents } from "@repo/ui";
 import { PmuCTA } from "../components/PmuCTA";
+
+const germanBookmakers = [
+  {
+    id: "betano",
+    name: "Betano",
+    slug: "betano",
+    logo: null,
+    tagline: "Einer der beliebtesten Sportwetten-Anbieter Deutschlands",
+    bonus: "100% Willkommensbonus",
+    bonusDetail: "bis zu 80€ auf die erste Einzahlung",
+    ratings: { bonus: 5, odds: 4, app: 5, live: 5, support: 4, withdrawal: 4 },
+  },
+  {
+    id: "bet-at-home",
+    name: "Bet-at-Home",
+    slug: "bet-at-home",
+    logo: null,
+    tagline: "Der österreichisch-deutsche Wettanbieter",
+    bonus: "100% Einzahlungsbonus",
+    bonusDetail: "bis zu 100€ für Neukunden",
+    ratings: { bonus: 4, odds: 4, app: 4, live: 4, support: 4, withdrawal: 4 },
+  },
+  {
+    id: "bwin",
+    name: "Bwin",
+    slug: "bwin",
+    logo: null,
+    tagline: "Internationaler Wettanbieter mit deutscher Lizenz",
+    bonus: "100€ Joker-Wette",
+    bonusDetail: "Erste Wette ohne Risiko bis 100€",
+    ratings: { bonus: 4, odds: 5, app: 4, live: 5, support: 4, withdrawal: 4 },
+  },
+  {
+    id: "tipico",
+    name: "Tipico",
+    slug: "tipico",
+    logo: null,
+    tagline: "Deutschlands bekanntester Wettanbieter",
+    bonus: "100% bis 100€",
+    bonusDetail: "Willkommensbonus auf die erste Einzahlung",
+    ratings: { bonus: 4, odds: 4, app: 5, live: 4, support: 5, withdrawal: 5 },
+  },
+];
+
+const germanGuidesByCategory: Record<string, { id: string; slug: string; title: string; metaDescription: string }[]> = {
+  cdm2026: [
+    { id: "wm-wetten", slug: "wm-2026-wetten", title: "So wetten Sie auf die WM 2026", metaDescription: "Kompletter Ratgeber für Sportwetten auf die WM 2026" },
+    { id: "beste-wm-wetten", slug: "beste-wm-wetten", title: "Die besten WM-Wetten", metaDescription: "Die profitabelsten Wettmärkte bei der WM 2026" },
+  ],
+  "stratégie": [
+    { id: "live-wetten", slug: "live-wetten-strategie", title: "Live-Wetten Strategie", metaDescription: "Techniken und Tipps für erfolgreiche Live-Wetten" },
+    { id: "torschuetzen-wetten", slug: "torschuetzen-wetten", title: "Torschützen-Wetten", metaDescription: "So wetten Sie erfolgreich auf Torschützen" },
+  ],
+  bookmaker: [
+    { id: "beste-wettanbieter", slug: "beste-wettanbieter-2026", title: "Die besten Wettanbieter 2026", metaDescription: "Vergleich der Top-Sportwetten-Anbieter mit deutscher Lizenz" },
+  ],
+  debutant: [
+    { id: "einsteiger-guide", slug: "sportwetten-einsteiger", title: "Sportwetten für Einsteiger", metaDescription: "Der komplette Leitfaden für Sportwetten-Anfänger" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "Sportwetten WM 2026 | Beste Wettanbieter & Ratgeber",
@@ -74,15 +131,15 @@ export default function ParisSportifsPage() {
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 id="bookmakers" className="text-2xl font-bold text-gray-900 mb-2">Beste Sportwetten-Anbieter 2026</h2>
           <p className="mb-6 text-sm text-gray-600">
-            Unsere ausführlichen Bewertungen der {bookmakerReviews.length} besten Wettanbieter für Wetten auf die WM 2026.
+            Unsere ausführlichen Bewertungen der {germanBookmakers.length} besten Wettanbieter für Wetten auf die WM 2026.
           </p>
           <div className="space-y-4">
-            {bookmakerReviews.map((bk, i) => {
+            {germanBookmakers.map((bk, i) => {
               const avgRating = Object.values(bk.ratings).reduce((a, b) => a + b, 0) / 6;
               return (
                 <Link
                   key={bk.id}
-                  href={`/wettanbieter/${bk.slug}`}
+                  href="#"
                   className={`relative flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 p-5 transition-all hover:shadow-md ${
                     i === 0 ? "border-accent bg-accent/5" : "border-gray-200 hover:border-primary/30"
                   }`}
@@ -94,7 +151,6 @@ export default function ParisSportifsPage() {
                   )}
                   <div className="flex-1 text-center sm:text-left">
                     <div className="flex items-center justify-center sm:justify-start gap-3">
-                      {bk.logo && <Image src={bk.logo} alt={`Logo ${bk.name}`} width={40} height={40} className="h-10 w-10 rounded-lg object-contain" />}
                       <p className="text-xl font-bold">{bk.name}</p>
                     </div>
                     <p className="text-sm text-gray-500">{bk.tagline}</p>
@@ -139,7 +195,7 @@ export default function ParisSportifsPage() {
 
         {/* Guides by category */}
         {categories.map((cat) => {
-          const catGuides = guidesByCategory[cat];
+          const catGuides = germanGuidesByCategory[cat];
           if (!catGuides || catGuides.length === 0) return null;
           return (
             <section key={cat} className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
@@ -148,7 +204,7 @@ export default function ParisSportifsPage() {
                 {catGuides.map((guide) => (
                   <Link
                     key={guide.id}
-                    href={`/guide/${guide.slug}`}
+                    href="#"
                     className="block rounded-xl border border-gray-200 p-4 sm:p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">{guide.title}</h3>
