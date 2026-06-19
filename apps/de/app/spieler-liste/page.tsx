@@ -6,49 +6,49 @@ import Link from "next/link";
 import { players } from "../../lib/localized-data";
 import { teams, teamsById } from "../../lib/localized-data";
 export const metadata: Metadata = {
-  title: "210 Spielers cles der WM 2026 | Kaders & Stats",
+  title: "210 Schlüsselspieler der WM 2026 | Kader & Statistiken",
   description:
-    "Les 210 Spielers cles des 48 Mannschafts der WM 2026. Statistiques, clubs, selections et buts pour chaque Spieler.",
+    "Die 210 Schlüsselspieler der 48 Mannschaften der WM 2026. Statistiken, Vereine, Länderspiele und Tore für jeden Spieler.",
   alternates: getStaticAlternates("players", "de"),
   openGraph: {
-    title: "210 Spielers clés der WM 2026",
-    description: "Stats, clubs et Aufgebots des 210 Spielers clés des 48 Mannschafts de la CDM 2026.",
+    title: "210 Schlüsselspieler der WM 2026",
+    description: "Statistiken, Vereine und Kader der 210 Schlüsselspieler der 48 Mannschaften der WM 2026.",
   },
 };
 
 export default function PlayersPage() {
   const faqItems = [
     {
-      question: "Combien de Spielers composent une Mannschaft pour la WM ?",
-      answer: "Chaque Mannschaft peut convoquer 26 Spielers für die WM 2026 (contre 23 auparavant). Cette règle a été adoptée par la FIFA en 2022 pour permettre plus de rotation et gérer les blessures. Parmi ces 26 Spielers, 3 doivent obligatoirement être Torwarts de but. Le Trainer peut faire appel à tous les Spielers de la liste selon les besoins tactiques et la forme physique."
+      question: "Wie viele Spieler umfasst ein WM-Kader?",
+      answer: "Jede Mannschaft kann 26 Spieler für die WM 2026 nominieren (zuvor 23). Diese Regel wurde von der FIFA 2022 eingeführt, um mehr Rotation zu ermöglichen und Verletzungen besser zu managen. Von diesen 26 Spielern müssen 3 Torhüter sein. Der Trainer kann je nach taktischen Bedürfnissen und körperlicher Verfassung auf alle Spieler der Liste zurückgreifen."
     },
     {
-      question: "Qui sont les favoris pour le Ballon d'Or de la CDM 2026 ?",
-      answer: "Les principaux candidats au Ballon d'Or der WM 2026 sont Kylian Mbappé (France, déjà Ballon d'Or 2022), Erling Haaland (Norvège), Vinícius Júnior (Brésil), Jude Bellingham (Angleterre) et Lamine Yamal (Espagne). Mbappé est le grand favori grce à son statut de meilleur Spieler du monde, ses 12 buts en CDM et la force de l'Mannschaft de France. Le Ballon d'Or est attribué au meilleur Spieler des Turniers, indépendamment du vainqueur final."
+      question: "Wer sind die Favoriten für den Goldenen Ball der WM 2026?",
+      answer: "Die Hauptkandidaten für den Goldenen Ball der WM 2026 sind Kylian Mbappé (Frankreich, bereits Goldener Ball 2022), Erling Haaland (Norwegen), Vinícius Júnior (Brasilien), Jude Bellingham (England) und Lamine Yamal (Spanien). Mbappé ist der große Favorit dank seines Status als bester Spieler der Welt, seinen 12 WM-Toren und der Stärke der französischen Mannschaft. Der Goldene Ball wird dem besten Spieler des Turniers verliehen, unabhängig vom Endsieger."
     },
     {
-      question: "Quel Spieler a marqué le plus de buts en Aufgebot ?",
-      answer: "Cristiano Ronaldo (Portugal) détient le record absolu avec 130 buts en Aufgebot en 212 matchs. Il devance Lionel Messi (Argentine, 106 buts), Ali Daei (Iran, 109 buts) et Sunil Chhetri (Inde, 94 buts). En France, Olivier Giroud est le Torschützenkönig de l'histoire avec 57 buts, devançant Thierry Henry (51 buts) et Antoine Griezmann (44 buts). Kylian Mbappé (48 buts à 25 ans) devrait devenir le Torschützenkönig français d'ici 2026."
+      question: "Welcher Spieler hat die meisten Länderspieltore erzielt?",
+      answer: "Cristiano Ronaldo (Portugal) hält den absoluten Rekord mit 130 Länderspieltoren in 212 Spielen. Er liegt vor Lionel Messi (Argentinien, 106 Tore), Ali Daei (Iran, 109 Tore) und Sunil Chhetri (Indien, 94 Tore). In Deutschland ist Miroslav Klose der Rekordtorschütze mit 71 Toren, vor Gerd Müller (68 Tore) und Lukas Podolski (49 Tore). Kylian Mbappé (48 Tore mit 25 Jahren) dürfte bis 2026 zum französischen Rekordtorschützen aufsteigen."
     },
     {
-      question: "Quels sont les Spielers les plus chers de la CDM 2026 ?",
-      answer: "Les Spielers les plus chers en valeur marchande pour la CDM 2026 sont : Kylian Mbappé (France, ~180M€), Erling Haaland (Norvège, ~175M€), Vinícius Júnior (Brésil, ~150M€), Jude Bellingham (Angleterre, ~150M€) et Jamal Musiala (Allemagne, ~130M€). Ces valorisations reflètent l'ge, le talent, les performances récentes et le potentiel commercial. Mbappé reste le Spieler le plus bankable du monde."
+      question: "Welche sind die teuersten Spieler der WM 2026?",
+      answer: "Die teuersten Spieler nach Marktwert bei der WM 2026 sind: Kylian Mbappé (Frankreich, ~180 Mio. €), Erling Haaland (Norwegen, ~175 Mio. €), Vinícius Júnior (Brasilien, ~150 Mio. €), Jude Bellingham (England, ~150 Mio. €) und Jamal Musiala (Deutschland, ~130 Mio. €). Diese Bewertungen spiegeln Alter, Talent, aktuelle Leistung und kommerzielles Potenzial wider. Mbappé bleibt der wertvollste Spieler der Welt."
     },
     {
-      question: "Quel ge ont les Spielers de la CDM 2026 ?",
-      answer: "L'ge moyen des Spielers en WM tourne généralement autour de 27-28 ans, soit le pic de performance physique et technique. Les plus jeunes ont 18-19 ans (comme Lamine Yamal, Espagne), tandis que les plus expérimentés peuvent aller jusqu'à 37-40 ans (comme Cristiano Ronaldo, s'il se qualifie). La FIFA n'impose aucune limite d'ge pour la CDM senior, contrairement aux JO qui ont une règle des -23 ans."
+      question: "Wie alt sind die Spieler der WM 2026?",
+      answer: "Das Durchschnittsalter der WM-Spieler liegt in der Regel bei 27-28 Jahren, dem Höhepunkt der physischen und technischen Leistungsfähigkeit. Die jüngsten Spieler sind 18-19 Jahre alt (wie Lamine Yamal, Spanien), während die erfahrensten bis zu 37-40 Jahre alt sein können (wie Cristiano Ronaldo, falls er sich qualifiziert). Die FIFA setzt keine Altersgrenze für die WM der Herren, im Gegensatz zu den Olympischen Spielen mit der U23-Regel."
     },
     {
-      question: "Combien de remplacements sont autorisés en WM ?",
-      answer: "5 remplacements sont autorisés en WM 2026, sur un maximum de 3 fenêtres de remplacement (mi-temps non comptée). Cette règle, introduite pendant la COVID-19, a été maintenue par la FIFA pour préserver la santé des Spielers et permettre plus de rotation. En cas de prolongation, un 6e remplacement supplémentaire est autorisé. Les Torwarts peuvent également être remplacés en cas de blessure, même si les 5 changements ont été effectués."
+      question: "Wie viele Auswechslungen sind bei der WM erlaubt?",
+      answer: "Bei der WM 2026 sind 5 Auswechslungen erlaubt, in maximal 3 Auswechselfenstern (Halbzeit nicht mitgezählt). Diese Regel, die während COVID-19 eingeführt wurde, wurde von der FIFA beibehalten, um die Gesundheit der Spieler zu schützen und mehr Rotation zu ermöglichen. Bei einer Verlängerung ist eine zusätzliche 6. Auswechslung erlaubt. Torhüter können auch bei Verletzung ausgewechselt werden, selbst wenn alle 5 Wechsel bereits vorgenommen wurden."
     }
   ];
 
   const positionLabels: Record<string, string> = {
-    GK: "Torwarts",
-    DF: "Defenseurs",
-    MF: "Mittelfeldspielerx",
-    FW: "Stürmers",
+    GK: "Torhüter",
+    DF: "Verteidiger",
+    MF: "Mittelfeldspieler",
+    FW: "Stürmer",
   };
   const positions = ["FW", "MF", "DF", "GK"] as const;
 
@@ -59,17 +59,17 @@ export default function PlayersPage() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Kaders</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Spielers cles de la CDM 2026</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Schlüsselspieler der WM 2026</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            {players.length} Spielers cles des 48 selections. Stürmers, Mittelfeldspielerx, defenseurs et Torwarts.
+            {players.length} Schlüsselspieler der 48 Mannschaften. Stürmer, Mittelfeldspieler, Verteidiger und Torhüter.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-8">
-        {/* Annuaires */}
+        {/* Verzeichnis */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Parcourir par Mannschaft</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Nach Mannschaft durchsuchen</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
             {teams.filter(t => players.some(p => p.teamId === t.id)).map((t) => (
               <Link key={t.slug} href={`/spieler-liste/mannschaft/${t.slug}`} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-colors text-sm font-medium text-gray-900">
@@ -81,7 +81,7 @@ export default function PlayersPage() {
 
         {/* Top Scorers */}
         <section className="rounded-lg bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Beste Torschützen en Aufgebot</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Beste Torschützen in der Nationalmannschaft</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -89,8 +89,8 @@ export default function PlayersPage() {
                   <th className="pb-3 font-medium text-gray-500">Spieler</th>
                   <th className="pb-3 font-medium text-gray-500">Mannschaft</th>
                   <th className="pb-3 font-medium text-gray-500">Club</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Buts</th>
-                  <th className="pb-3 font-medium text-gray-500 text-right">Sel.</th>
+                  <th className="pb-3 font-medium text-gray-500 text-right">Tore</th>
+                  <th className="pb-3 font-medium text-gray-500 text-right">Eins.</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -109,7 +109,7 @@ export default function PlayersPage() {
                         <td className="py-3">
                           {team && (
                             <Link href={`/mannschaft/${team.slug}`} className="flex items-center gap-1 hover:text-primary">
-                              <span role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+                              <span role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
                               <span className="text-gray-600">{team.name}</span>
                             </Link>
                           )}
@@ -145,12 +145,12 @@ export default function PlayersPage() {
                       <div>
                         <p className="font-semibold">{player.name}</p>
                         <p className="text-xs text-gray-500">
-                          <span role="img" aria-label={`Drapeau de ${team?.name ?? "Inconnu"}`}>{team?.flag}</span> {team?.name} &middot; {player.club}
+                          <span role="img" aria-label={`Flagge von ${team?.name ?? "Unbekannt"}`}>{team?.flag}</span> {team?.name} &middot; {player.club}
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-medium text-primary">{player.goals} buts</p>
-                        <p className="text-xs text-gray-500">{player.caps} sel.</p>
+                        <p className="text-sm font-medium text-primary">{player.goals} Tore</p>
+                        <p className="text-xs text-gray-500">{player.caps} Eins.</p>
                       </div>
                     </Link>
                   );
@@ -163,14 +163,14 @@ export default function PlayersPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
-          { href: "/torschuetzen", title: "Beste Torschützen", description: "Rangliste des Torschützen de la CDM 2026", icon: "" },
-          { href: "/comparateur-Spielers", title: "Comparateur de Spielers", description: "Comparez les stats de 2 Spielers", icon: "" },
-          { href: "/mannschaft", title: "Les 48 Mannschafts", description: "Kaders complets par Aufgebot", icon: "" },
-          { href: "/fifa-ranking", title: "Rangliste FIFA", description: "Ranking mondial des Mannschafts", icon: "" },
+          { href: "/torschuetzen", title: "Beste Torschützen", description: "Torschützenliste der WM 2026", icon: "" },
+          { href: "/comparateur-Spielers", title: "Spielervergleich", description: "Vergleichen Sie die Statistiken von 2 Spielern", icon: "" },
+          { href: "/mannschaft", title: "Die 48 Mannschaften", description: "Vollständige Kader pro Nationalmannschaft", icon: "" },
+          { href: "/fifa-ranking", title: "FIFA-Rangliste", description: "Weltrangliste der Mannschaften", icon: "" },
         ]} />
       </div>
 
-      <FAQSection title="Questions sur les Spielers de la CDM 2026" items={faqItems} />
+      <FAQSection title="Fragen zu den Spielern der WM 2026" items={faqItems} />
     </>
   );
 }

@@ -5,7 +5,7 @@ import { Printer } from "lucide-react"
 
 export function PrintButton() {
   useEffect(() => {
-    // Auto-focus pour accessibility
+    // Auto-Focus für Barrierefreiheit
     const btn = document.getElementById("print-btn");
     if (btn) {
       btn.focus();
@@ -22,7 +22,7 @@ export function PrintButton() {
       onClick={handlePrint}
       className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
     >
-      <Printer className="h-5 w-5 inline-block" /> Imprimer
+      <Printer className="h-5 w-5 inline-block" /> Drucken
     </button>
   );
 }

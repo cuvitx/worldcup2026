@@ -4,12 +4,12 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { CloudRain, Thermometer, Mountain, ArrowRight, BarChart3, Target, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Impact de la météo sur les paris CDM 2026 — Chaleur, altitude, pluie",
+  title: "Einfluss des Wetters auf Wetten WM 2026 — Hitze, Höhenlage, Regen",
   description:
-    "Analysez l'impact de la météo sur les matchs et paris CDM 2026 : chaleur à Houston/Dallas, altitude à Mexico (2240m), pluie, stats historiques et recommandations over/under.",
+    "Analysieren Sie den Einfluss des Wetters auf die Spiele und Wetten der WM 2026: Hitze in Houston/Dallas, Höhenlage in Mexiko-Stadt (2240 m), Regen, historische Statistiken und Over/Under-Empfehlungen.",
   openGraph: {
-    title: "Météo & paris CDM 2026 — Analyse des conditions",
-    description: "Chaleur, altitude, pluie : comment la météo influence les matchs et les paris sportifs.",
+    title: "Wetter & Wetten WM 2026 — Analyse der Bedingungen",
+    description: "Hitze, Höhenlage, Regen: Wie das Wetter die Spiele und Sportwetten beeinflusst.",
     url: "https://www.wm2026guide.de/sportwetten/wetter",
   },
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/wetter" },
@@ -18,74 +18,74 @@ export const metadata: Metadata = {
 const facteurs = [
   {
     icon: Thermometer,
-    titre: "Chaleur extrême (Houston, Dallas, Miami)",
+    titre: "Extreme Hitze (Houston, Dallas, Miami)",
     description:
-      "En juin-juillet, Houston et Dallas atteignent régulièrement 35-40°C avec une humidité élevée (70-90% à Houston). Ces conditions provoquent une fatigue musculaire accélérée, surtout en 2e mi-temps.",
+      "Im Juni und Juli erreichen Houston und Dallas regelmäßig 35-40 °C bei hoher Luftfeuchtigkeit (70-90 % in Houston). Diese Bedingungen führen zu beschleunigter Muskelermüdung, besonders in der 2. Halbzeit.",
     stats: [
-      "CDM 1994 (USA) : +23% de buts marqués en 2e mi-temps par rapport à la moyenne mondiale",
-      "CDM 2014 (Brésil, chaleur tropicale) : 56% des buts en 2e mi-temps",
-      "CDM 2022 (Qatar, Stadien climatisés) : retour à 52% en 2e MT → la clim a normalisé",
-      "Les Mannschafts européennes souffrent davantage : -12% de distance parcourue au-dessus de 32°C",
+      "WM 1994 (USA): +23 % mehr Tore in der 2. Halbzeit im Vergleich zum Weltdurchschnitt",
+      "WM 2014 (Brasilien, tropische Hitze): 56 % der Tore in der 2. Halbzeit",
+      "WM 2022 (Katar, klimatisierte Stadien): Rückkehr auf 52 % in der 2. HZ → Klimaanlagen normalisierten das",
+      "Europäische Mannschaften leiden stärker: -12 % Laufdistanz über 32 °C",
     ],
-    recommandation: "Privilégiez les paris Over 2.5 buts et les buts en 2e mi-temps pour les matchs joués à Houston, Dallas et Miami, surtout si une Mannschaft nordique (Danemark, Suède, Écosse) affronte une Mannschaft habituée à la chaleur.",
+    recommandation: "Bevorzugen Sie Over 2.5 Tore und Tore in der 2. Halbzeit bei Spielen in Houston, Dallas und Miami, besonders wenn eine nordische Mannschaft (Dänemark, Schweden, Schottland) auf eine hitzegewohnte Mannschaft trifft.",
   },
   {
     icon: Mountain,
-    titre: "Altitude à Mexico (2 240 m)",
+    titre: "Höhenlage in Mexiko-Stadt (2.240 m)",
     description:
-      "L'Estadio Azteca est situé à 2 240 mètres d'altitude. L'air raréfié provoque une fatigue plus rapide (baisse d'oxygène de ~20%), des ballons qui voyagent plus vite et plus loin, et des frappes qui dévient davantage.",
+      "Das Estadio Azteca liegt auf 2.240 Metern Höhe. Die dünne Luft verursacht schnellere Ermüdung (ca. 20 % weniger Sauerstoff), Bälle fliegen schneller und weiter, und Schüsse werden unberechenbarer.",
     stats: [
-      "Les Mannschafts non-acclimatées perdent 8-15% de capacité aérobique en altitude",
-      "CDM 1970 (Mexico) : moyenne de 2.97 buts/match (la plus haute depuis 1966)",
-      "CDM 1986 (Mexico) : 2.54 buts/match avec des matchs très ouverts en fin de rencontre",
-      "Les Torwarts sont plus vulnérables : ballons plus rapides, trajectoires imprévisibles",
+      "Nicht akklimatisierte Mannschaften verlieren 8-15 % ihrer aeroben Kapazität in der Höhe",
+      "WM 1970 (Mexiko): Durchschnitt von 2.97 Toren/Spiel (der höchste seit 1966)",
+      "WM 1986 (Mexiko): 2.54 Tore/Spiel mit offenen Spielen gegen Ende",
+      "Torhüter sind anfälliger: schnellere Bälle, unvorhersehbare Flugbahnen",
     ],
-    recommandation: "Pour les matchs à Mexico : Over corners, Over buts en 2e mi-temps, et BTTS (les deux Mannschafts marquent). Les frappes de loin sont plus dangereuses. Attention aux Mannschafts d'Amérique du Sud habituées à l'altitude (Colombie, Équateur, Bolivie).",
+    recommandation: "Für Spiele in Mexiko-Stadt: Over Ecken, Over Tore in der 2. Halbzeit und BTTS (beide Mannschaften treffen). Fernschüsse sind gefährlicher. Achten Sie auf südamerikanische Mannschaften, die an die Höhe gewöhnt sind (Kolumbien, Ecuador, Bolivien).",
   },
   {
     icon: CloudRain,
-    titre: "Pluie et terrain gras",
+    titre: "Regen und nasser Rasen",
     description:
-      "Houston et Miami sont en saison des pluies en juin-juillet (averses tropicales courtes mais intenses). Mexico connaît aussi des pluies en fin de journée. Un terrain mouillé ralentit le jeu, favorise les glissades et rend les passes longues aléatoires.",
+      "Houston und Miami befinden sich im Juni und Juli in der Regenzeit (kurze, aber heftige tropische Schauer). Auch Mexiko-Stadt erlebt Regen am späten Nachmittag. Ein nasser Rasen verlangsamt das Spiel, begünstigt Ausrutscher und macht lange Pässe unberechenbar.",
     stats: [
-      "Les matchs sous la pluie affichent en moyenne 15% de fautes en plus",
-      "Les buts sur coup de pied arrêté augmentent de ~20% sur terrain gras",
-      "La moyenne de buts baisse légèrement sous forte pluie (-0.2 but/match)",
-      "Les corners aboutissent plus souvent : Torwarts moins à l'aise sur les sorties aériennes",
+      "Spiele bei Regen weisen durchschnittlich 15 % mehr Fouls auf",
+      "Tore nach Standardsituationen steigen bei nassem Rasen um ca. 20 %",
+      "Der Tordurchschnitt sinkt bei starkem Regen leicht (-0.2 Tore/Spiel)",
+      "Ecken sind häufiger erfolgreich: Torhüter sind bei Flanken unsicherer",
     ],
-    recommandation: "En cas de pluie annoncée : Under 2.5 buts, Over fautes, Over corners. Les paris sur les buts de la tête / coup de pied arrêté prennent de la valeur. Vérifiez la météo 24h avant le match.",
+    recommandation: "Bei angekündigtem Regen: Under 2.5 Tore, Over Fouls, Over Ecken. Wetten auf Kopfballtore/Standardsituationen gewinnen an Wert. Prüfen Sie das Wetter 24 Stunden vor dem Spiel.",
   },
 ];
 
 const statsHistoriques = [
-  { edition: "USA 1994", temp: "28-35°C", buts: "2.71/match", particularite: "Chaleur + grands Stadien = 2e MT décisive" },
-  { edition: "Brésil 2014", temp: "22-35°C", buts: "2.67/match", particularite: "7-1, matchs ouverts en chaleur" },
-  { edition: "Russie 2018", temp: "18-28°C", buts: "2.64/match", particularite: "Climat tempéré = matchs équilibrés" },
-  { edition: "Qatar 2022", temp: "24-32°C (clim)", buts: "2.56/match", particularite: "Stadions climatisés = moins d'impact" },
-  { edition: "Mexico 1970", temp: "20-28°C + altitude", buts: "2.97/match", particularite: "Record de buts, altitude facteur clé" },
-  { edition: "Mexico 1986", temp: "18-26°C + altitude", buts: "2.54/match", particularite: "Matchs ouverts en fin de rencontre" },
+  { edition: "USA 1994", temp: "28-35 °C", buts: "2.71/Spiel", particularite: "Hitze + große Stadien = entscheidende 2. HZ" },
+  { edition: "Brasilien 2014", temp: "22-35 °C", buts: "2.67/Spiel", particularite: "7:1, offene Spiele bei Hitze" },
+  { edition: "Russland 2018", temp: "18-28 °C", buts: "2.64/Spiel", particularite: "Gemäßigtes Klima = ausgeglichene Spiele" },
+  { edition: "Katar 2022", temp: "24-32 °C (Klima)", buts: "2.56/Spiel", particularite: "Klimatisierte Stadien = weniger Einfluss" },
+  { edition: "Mexiko 1970", temp: "20-28 °C + Höhe", buts: "2.97/Spiel", particularite: "Torrekord, Höhenlage als Schlüsselfaktor" },
+  { edition: "Mexiko 1986", temp: "18-26 °C + Höhe", buts: "2.54/Spiel", particularite: "Offene Spiele gegen Spielende" },
 ];
 
 const faqItems = [
   {
-    question: "La chaleur favorise-t-elle les Over ou les Under ?",
+    question: "Begünstigt die Hitze eher Over oder Under?",
     answer:
-      "Statistiquement, la chaleur extrême favorise les Over buts en 2e mi-temps. Les Spielers fatiguent, les défenses se relâchent et les espaces s'ouvrent. Sur l'ensemble du match, l'impact est moins clair car la 1re mi-temps peut être verrouillée (économie d'énergie).",
+      "Statistisch gesehen begünstigt extreme Hitze Over Tore in der 2. Halbzeit. Die Spieler ermüden, die Abwehrreihen werden nachlässiger und die Räume öffnen sich. Über das gesamte Spiel betrachtet ist der Einfluss weniger eindeutig, da die 1. Halbzeit defensiv geprägt sein kann (Kräftesparen).",
   },
   {
-    question: "L'altitude de Mexico impacte-t-elle vraiment les matchs ?",
+    question: "Beeinflusst die Höhenlage von Mexiko-Stadt wirklich die Spiele?",
     answer:
-      "Oui, significativement. À 2 240m, l'oxygène disponible baisse de ~20%. Les Mannschafts non-acclimatées souffrent dès la 60e minute. Les ballons voyagent plus vite et les tirs de loin sont plus dangereux. Les CDM 1970 et 1986 à Mexico ont produit parmi les moyennes de buts les plus élevées.",
+      "Ja, erheblich. Auf 2.240 m sinkt der verfügbare Sauerstoff um ca. 20 %. Nicht akklimatisierte Mannschaften leiden ab der 60. Minute. Bälle fliegen schneller und Fernschüsse sind gefährlicher. Die WM-Ausgaben 1970 und 1986 in Mexiko produzierten die höchsten Tordurchschnitte.",
   },
   {
-    question: "Où trouver les prévisions météo fiables pour les matchs ?",
+    question: "Wo findet man zuverlässige Wettervorhersagen für die Spiele?",
     answer:
-      "Weather.com, AccuWeather et Windy.com offrent des prévisions à 10-14 jours. Pour les matchs en soirée, vérifiez les prévisions horaires. Les orages tropicaux à Houston/Miami arrivent souvent entre 15h et 18h locales.",
+      "Weather.com, AccuWeather und Windy.com bieten Vorhersagen für 10-14 Tage. Für Abendspiele prüfen Sie die stündlichen Vorhersagen. Tropische Gewitter in Houston/Miami treten oft zwischen 15 und 18 Uhr Ortszeit auf.",
   },
   {
-    question: "Les Stadien américains sont-ils couverts ?",
+    question: "Sind die amerikanischen Stadien überdacht?",
     answer:
-      "Certains oui : NRG Stadium (Houston) et AT&T Stadium (Dallas) sont rétractables/couverts, ce qui annule l'effet pluie mais pas la chaleur (la clim modère mais ne supprime pas). SoFi Stadium (LA) est semi-ouvert. Les autres Stadien sont à ciel ouvert.",
+      "Einige ja: NRG Stadium (Houston) und AT&T Stadium (Dallas) haben ein Schiebedach/sind überdacht, was den Regeneffekt aufhebt, aber nicht die Hitze (die Klimaanlage mildert, beseitigt sie aber nicht). SoFi Stadium (LA) ist halboffen. Die anderen Stadien sind unter freiem Himmel.",
   },
 ];
 
@@ -96,20 +96,20 @@ return (
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
-            Paris sportifs
+            Sportwetten
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Impact de la météo sur les paris CDM 2026
+            Einfluss des Wetters auf Wetten WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Chaleur, altitude, pluie : analysez comment les conditions climatiques influencent
-            les matchs et affinez vos Prognoses.
+            Hitze, Höhenlage, Regen: Analysieren Sie, wie die klimatischen Bedingungen
+            die Spiele beeinflussen, und verfeinern Sie Ihre Prognosen.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
-        {/* Facteurs */}
+        {/* Faktoren */}
         {facteurs.map((f) => (
           <section key={f.titre}>
             <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
@@ -119,7 +119,7 @@ return (
               <p className="text-gray-700 leading-relaxed">{f.description}</p>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-accent" /> Stats historiques
+                  <BarChart3 className="h-5 w-5 text-accent" /> Historische Statistiken
                 </h3>
                 <ul className="space-y-1">
                   {f.stats.map((s, i) => (
@@ -131,7 +131,7 @@ return (
               </div>
               <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
                 <h3 className="font-semibold text-accent mb-1 flex items-center gap-2">
-                  <Target className="h-5 w-5" /> Recommandation paris
+                  <Target className="h-5 w-5" /> Wettempfehlung
                 </h3>
                 <p className="text-sm text-gray-700">{f.recommandation}</p>
               </div>
@@ -139,19 +139,19 @@ return (
           </section>
         ))}
 
-        {/* Tableau historique */}
+        {/* Historische Tabelle */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
-            <BarChart3 className="h-7 w-7 text-accent" /> Stats historiques par édition
+            <BarChart3 className="h-7 w-7 text-accent" /> Historische Statistiken nach Ausgabe
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="py-3 px-4 font-semibold text-gray-900">Édition</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">Température</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">Buts/match</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">Particularité</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Ausgabe</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Temperatur</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Tore/Spiel</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Besonderheit</th>
                 </tr>
               </thead>
               <tbody>
@@ -174,24 +174,24 @@ return (
             href="/comparateur-cotes"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
           >
-            Comparateur de cotes <ArrowRight className="h-4 w-4" />
+            Quotenvergleich <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/sportwetten/kombiwetten"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
           >
-            Guide paris combinés
+            Ratgeber Kombiwetten
           </Link>
         </div>
 
-        {/* ANJ */}
+        {/* BZgA */}
         <p className="text-xs text-gray-400 text-center">
           <AlertTriangle className="inline h-3 w-3 mr-1" />
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur{" "}
+          Sportwetten sind mit Risiken verbunden. Spielen Sie verantwortungsvoll. 18+ | Informationen und Hilfe auf{" "}
           <a href="https://www.bzga.de" target="_blank" rel="noopener noreferrer" className="underline">
             bzga.de
           </a>{" "}
-          (ANJ).
+          (BZgA).
         </p>
 
         <FAQSection items={faqItems} />

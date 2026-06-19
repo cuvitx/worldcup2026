@@ -5,41 +5,41 @@ import { Clock, Target, TrendingUp, ArrowRight } from "lucide-react";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
 
 export const metadata: Metadata = {
-  title: "Prognose Tirs au But CDM 2026 — Prolongation & Penalties",
+  title: "Prognose Elfmeterschießen WM 2026 — Verlängerung & Elfmeter",
   description:
-    "Guide paris prolongation et tirs au but CDM 2026. Stats historiques, bilans par Mannschaft et stratégies pour parier sur les penalties.",
+    "Wettratgeber für Verlängerung und Elfmeterschießen WM 2026. Historische Statistiken, Bilanzen nach Mannschaft und Strategien für Elfmeterwetten.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/elfmeterschiessen" },
   openGraph: {
-    title: "Tirs au But CDM 2026 — Stats & Paris",
-    description: "Bilans historiques, Mannschafts spécialistes et stratégies pour les paris penalties CDM 2026.",
+    title: "Elfmeterschießen WM 2026 — Statistiken & Wetten",
+    description: "Historische Bilanzen, Elfmeter-Spezialisten und Strategien für Elfmeterwetten bei der WM 2026.",
     url: "https://www.wm2026guide.de/prognose/elfmeterschiessen",
   },
 };
 
 const historicalStats = [
-  { edition: "Qatar 2022", shootouts: 4, pctKO: "25%", notable: "Argentine bat France en finale (4-2 TAB)" },
-  { edition: "Russie 2018", shootouts: 4, pctKO: "25%", notable: "Croatie qualifiée 2 fois aux TAB" },
-  { edition: "Brésil 2014", shootouts: 4, pctKO: "25%", notable: "Argentine qualifiée 2 fois aux TAB" },
-  { edition: "Afrique du Sud 2010", shootouts: 2, pctKO: "12.5%", notable: "Uruguay bat Ghana aux TAB (quart)" },
-  { edition: "Allemagne 2006", shootouts: 4, pctKO: "25%", notable: "Italie bat France en finale (5-3 TAB)" },
+  { edition: "Katar 2022", shootouts: 4, pctKO: "25%", notable: "Argentinien besiegt Frankreich im Finale (4:2 n.E.)" },
+  { edition: "Russland 2018", shootouts: 4, pctKO: "25%", notable: "Kroatien 2x im Elfmeterschießen weiter" },
+  { edition: "Brasilien 2014", shootouts: 4, pctKO: "25%", notable: "Argentinien 2x im Elfmeterschießen weiter" },
+  { edition: "Südafrika 2010", shootouts: 2, pctKO: "12.5%", notable: "Uruguay besiegt Ghana im Elfmeterschießen (Viertelfinale)" },
+  { edition: "Deutschland 2006", shootouts: 4, pctKO: "25%", notable: "Italien besiegt Frankreich im Finale (5:3 n.E.)" },
 ];
 
 const teamRecords = [
-  { team: "🇩🇪 Allemagne", played: 4, won: 4, lost: 0, pct: "100%", level: "Excellent" },
-  { team: "🇦🇷 Argentine", played: 6, won: 4, lost: 2, pct: "67%", level: "Bon" },
-  { team: "🇧🇷 Brésil", played: 4, won: 2, lost: 2, pct: "50%", level: "Moyen" },
-  { team: "🇫🇷 France", played: 4, won: 2, lost: 2, pct: "50%", level: "Moyen" },
-  { team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", played: 7, won: 2, lost: 5, pct: "29%", level: "Mauvais" },
-  { team: "🇪🇸 Espagne", played: 4, won: 1, lost: 3, pct: "25%", level: "Mauvais" },
-  { team: "🇮🇹 Italie", played: 5, won: 3, lost: 2, pct: "60%", level: "Bon" },
-  { team: "🇭🇷 Croatie", played: 4, won: 3, lost: 1, pct: "75%", level: "Très bon" },
+  { team: "🇩🇪 Deutschland", played: 4, won: 4, lost: 0, pct: "100%", level: "Ausgezeichnet" },
+  { team: "🇦🇷 Argentinien", played: 6, won: 4, lost: 2, pct: "67%", level: "Gut" },
+  { team: "🇧🇷 Brasilien", played: 4, won: 2, lost: 2, pct: "50%", level: "Mittel" },
+  { team: "🇫🇷 Frankreich", played: 4, won: 2, lost: 2, pct: "50%", level: "Mittel" },
+  { team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", played: 7, won: 2, lost: 5, pct: "29%", level: "Schwach" },
+  { team: "🇪🇸 Spanien", played: 4, won: 1, lost: 3, pct: "25%", level: "Schwach" },
+  { team: "🇮🇹 Italien", played: 5, won: 3, lost: 2, pct: "60%", level: "Gut" },
+  { team: "🇭🇷 Kroatien", played: 4, won: 3, lost: 1, pct: "75%", level: "Sehr gut" },
 ];
 
 const faqItems = [
-  { question: "À partir de quel tour peut-il y avoir des tirs au but en CDM 2026 ?", answer: "Les tirs au but ne sont possibles qu'à partir des 16èmes de finale (phase à élimination directe). En phase de Gruppen, les matchs peuvent se terminer sur un match nul. Dès les 16èmes, si le score est nul après 90 minutes, il y a 30 minutes de prolongation puis des tirs au but si nécessaire." },
-  { question: "Comment parier sur les tirs au but ?", answer: "Les bookmakers proposent plusieurs marchés : 'Le match ira-t-il aux tirs au but ?' (Oui/Non, cotes 5.0-8.0), 'Vainqueur aux tirs au but' (Mannschaft A ou B), et 'Score exact aux TAB'. Ces marchés ne sont disponibles que pour les matchs à élimination directe." },
-  { question: "L'Angleterre est-elle vraiment mauvaise aux penalties ?", answer: "Historiquement oui, avec seulement 29% de victoires aux TAB en CDM. Mais la tendance s'améliore : victoire aux TAB contre la Colombie en 2018. Le travail psychologique des coachs anglais modernes pourrait inverser la malédiction en 2026." },
-  { question: "Le Torwart est-il décisif aux tirs au but ?", answer: "Absolument. Un Torwart spécialiste des penalties comme Emiliano Martínez (Argentine) ou Diogo Costa (Portugal) peut transformer un match. Martínez a été décisif en finale 2022 et en Copa América 2024. Le facteur Torwart est le critère n°1 pour les paris TAB." },
+  { question: "Ab welcher Runde kann es bei der WM 2026 ein Elfmeterschießen geben?", answer: "Ein Elfmeterschießen ist erst ab dem Sechzehntelfinale (K.o.-Phase) möglich. In der Gruppenphase können Spiele unentschieden enden. Ab dem Sechzehntelfinale gibt es bei Gleichstand nach 90 Minuten 30 Minuten Verlängerung und dann bei Bedarf ein Elfmeterschießen." },
+  { question: "Wie wettet man auf ein Elfmeterschießen?", answer: "Die Buchmacher bieten mehrere Märkte an: 'Geht das Spiel ins Elfmeterschießen?' (Ja/Nein, Quoten 5,0-8,0), 'Sieger im Elfmeterschießen' (Mannschaft A oder B) und 'Genaues Ergebnis im Elfmeterschießen'. Diese Märkte sind nur für K.o.-Spiele verfügbar." },
+  { question: "Ist England wirklich schlecht im Elfmeterschießen?", answer: "Historisch ja, mit nur 29% Siegen im WM-Elfmeterschießen. Aber der Trend verbessert sich: Sieg im Elfmeterschießen gegen Kolumbien 2018. Die psychologische Arbeit der modernen englischen Trainer könnte den Fluch 2026 brechen." },
+  { question: "Ist der Torwart beim Elfmeterschießen entscheidend?", answer: "Absolut. Ein auf Elfmeter spezialisierter Torwart wie Emiliano Martínez (Argentinien) oder Diogo Costa (Portugal) kann ein Spiel entscheiden. Martínez war im Finale 2022 und bei der Copa América 2024 entscheidend. Der Torwart-Faktor ist das Kriterium Nr. 1 für Elfmeterwetten." },
 ];
 
 export default function PrognoseTirsAuButPage() {
@@ -47,28 +47,28 @@ export default function PrognoseTirsAuButPage() {
     <>
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Prolongation & Tirs au But — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Verlängerung & Elfmeterschießen — WM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Les tirs au but, moment de tension ultime. Analysez les bilans historiques et identifiez les Mannschafts les mieux (et les moins bien) préparées.
+          Das Elfmeterschießen, der Moment der ultimativen Spannung. Analysieren Sie die historischen Bilanzen und identifizieren Sie die am besten (und am schlechtesten) vorbereiteten Mannschaften.
         </p>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Clock className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Historique des tirs au but en CDM</h2>
+          <h2 className="text-2xl font-bold text-primary">Geschichte des Elfmeterschießens bei der WM</h2>
         </div>
         <p className="text-gray-700 mb-6">
-          En moyenne, 25% des matchs à élimination directe se terminent aux tirs au but. C&apos;est un marché de niche mais très rentable quand on identifie les bons matchs. Les confrontations entre Mannschafts de niveau similaire avec des défenses solides sont les candidates idéales.
+          Im Durchschnitt enden 25% der K.o.-Spiele im Elfmeterschießen. Es ist ein Nischenmarkt, aber sehr profitabel, wenn man die richtigen Spiele identifiziert. Begegnungen zwischen Mannschaften auf ähnlichem Niveau mit soliden Abwehrreihen sind die idealen Kandidaten.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-primary text-white">
-                <th className="text-left p-3">Édition</th>
-                <th className="text-center p-3">Séances TAB</th>
-                <th className="text-center p-3">% matchs KO</th>
-                <th className="text-left p-3">Fait notable</th>
+                <th className="text-left p-3">Ausgabe</th>
+                <th className="text-center p-3">Elfmeterschießen</th>
+                <th className="text-center p-3">% K.o.-Spiele</th>
+                <th className="text-left p-3">Bemerkenswertes</th>
               </tr>
             </thead>
             <tbody>
@@ -88,17 +88,17 @@ export default function PrognoseTirsAuButPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Target className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Bilan par Mannschaft aux tirs au but</h2>
+          <h2 className="text-2xl font-bold text-primary">Elfmeterbilanz nach Mannschaft</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-primary text-white">
                 <th className="text-left p-3">Mannschaft</th>
-                <th className="text-center p-3">Séances</th>
-                <th className="text-center p-3">Siegs</th>
-                <th className="text-center p-3">Niederlages</th>
-                <th className="text-center p-3">% victoire</th>
+                <th className="text-center p-3">Elfm.</th>
+                <th className="text-center p-3">Siege</th>
+                <th className="text-center p-3">Niederlagen</th>
+                <th className="text-center p-3">% Siege</th>
                 <th className="text-left p-3">Niveau</th>
               </tr>
             </thead>
@@ -111,7 +111,7 @@ export default function PrognoseTirsAuButPage() {
                   <td className="text-center p-3 text-red-500">{t.lost}</td>
                   <td className="text-center p-3 font-bold">{t.pct}</td>
                   <td className="p-3">
-                    <span className={`text-xs font-bold px-2 py-1 rounded ${t.level === "Excellent" || t.level === "Très bon" ? "bg-accent/10 text-accent" : t.level === "Bon" ? "bg-blue-100 text-blue-600" : t.level === "Moyen" ? "bg-gray-100 text-gray-600" : "bg-red-100 text-red-600"}`}>
+                    <span className={`text-xs font-bold px-2 py-1 rounded ${t.level === "Ausgezeichnet" || t.level === "Sehr gut" ? "bg-accent/10 text-accent" : t.level === "Gut" ? "bg-blue-100 text-blue-600" : t.level === "Mittel" ? "bg-gray-100 text-gray-600" : "bg-red-100 text-red-600"}`}>
                       {t.level}
                     </span>
                   </td>
@@ -125,28 +125,28 @@ export default function PrognoseTirsAuButPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <TrendingUp className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Matchs à surveiller pour les TAB</h2>
+          <h2 className="text-2xl font-bold text-primary">Spiele mit Elfmeterpotenzial</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-primary mb-2">Quarts de finale potentiels</h3>
-            <p className="text-sm text-gray-700">Les quarts de finale sont le tour avec le plus de TAB historiquement. Des matchs comme France vs Angleterre, Argentine vs Brésil ou Espagne vs Allemagne pourraient se jouer aux penalties.</p>
+            <h3 className="font-bold text-primary mb-2">Mögliche Viertelfinalspiele</h3>
+            <p className="text-sm text-gray-700">Das Viertelfinale ist historisch die Runde mit den meisten Elfmeterschießen. Spiele wie Frankreich vs. England, Argentinien vs. Brasilien oder Spanien vs. Deutschland könnten im Elfmeterschießen entschieden werden.</p>
           </div>
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-primary mb-2">Le facteur Emiliano Martínez</h3>
-            <p className="text-sm text-gray-700">Le Torwart argentin est le meilleur spécialiste des TAB au monde. Son bilan : 3 séances gagnées sur 3 (CDM 2022, Copa 2021 et 2024). Un avantage décisif pour l&apos;Argentine.</p>
+            <h3 className="font-bold text-primary mb-2">Der Faktor Emiliano Martínez</h3>
+            <p className="text-sm text-gray-700">Der argentinische Torwart ist der beste Elfmeter-Spezialist der Welt. Seine Bilanz: 3 von 3 Elfmeterschießen gewonnen (WM 2022, Copa 2021 und 2024). Ein entscheidender Vorteil für Argentinien.</p>
           </div>
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <a href={pmuTrackingUrl("prono-special")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          Willkommensbonus — Wetten auf les TAB CDM 2026 sur Betano <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Elfmeterwetten WM 2026 bei Betano <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
         <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
-      <FAQSection title="Häufig gestellte Fragen — Tirs au but CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen — Elfmeterschießen WM 2026" items={faqItems} />
 
     </>
   );

@@ -77,22 +77,22 @@ export default function SquadTable({ players }: { players: Player[] }) {
         <thead>
           <tr className="bg-gray-50 text-xs uppercase text-gray-500border-b border-gray-200">
             <th className={thClass} onClick={() => handleSort("position")}>
-              Poste <SortIcon col="position" />
+              Position <SortIcon col="position" />
             </th>
             <th className={thClass} onClick={() => handleSort("name")}>
               Spieler <SortIcon col="name" />
             </th>
             <th className={thClass} onClick={() => handleSort("age")}>
-              Âge <SortIcon col="age" />
+              Alter <SortIcon col="age" />
             </th>
             <th className={thClass} onClick={() => handleSort("club")}>
-              Club <SortIcon col="club" />
+              Verein <SortIcon col="club" />
             </th>
             <th className={thClass + " text-center"} onClick={() => handleSort("caps")}>
-              Sél. <SortIcon col="caps" />
+              Spiele <SortIcon col="caps" />
             </th>
             <th className={thClass + " text-center"} onClick={() => handleSort("goals")}>
-              Buts <SortIcon col="goals" />
+              Tore <SortIcon col="goals" />
             </th>
           </tr>
         </thead>
@@ -121,7 +121,7 @@ export default function SquadTable({ players }: { players: Player[] }) {
                   {player.name}
                 </Link>
               </td>
-              <td className="px-3 py-2.5 text-gray-600">{player.age} ans</td>
+              <td className="px-3 py-2.5 text-gray-600">{player.age} J.</td>
               <td className="px-3 py-2.5 text-gray-600 max-w-[140px] truncate">
                 {player.club}
               </td>

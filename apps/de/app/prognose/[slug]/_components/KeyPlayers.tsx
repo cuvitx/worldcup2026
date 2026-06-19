@@ -4,7 +4,7 @@ import type { playersByTeamId } from "@repo/data/players";
 type Player = NonNullable<(typeof playersByTeamId)[string]>[number];
 
 const positionLabels: Record<string, string> = {
-  GK: "Torwart", DF: "Defenseur", MF: "Mittelfeldspieler", FW: "Stürmer",
+  GK: "Torwart", DF: "Verteidiger", MF: "Mittelfeldspieler", FW: "Stürmer",
 };
 
 interface KeyPlayersProps {
@@ -17,8 +17,8 @@ export function KeyPlayers({ teamName, players }: KeyPlayersProps) {
 
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielers cles de {teamName}</h2>
-      <p className="mb-4 text-sm text-gray-600">Les Spielers qui feront la difference pour {teamName} lors der WM 2026.</p>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Schlüsselspieler von {teamName}</h2>
+      <p className="mb-4 text-sm text-gray-600">Die Spieler, die bei der WM 2026 den Unterschied für {teamName} machen werden.</p>
       <div className="space-y-3">
         {players.map((player) => (
           <Link
@@ -31,7 +31,7 @@ export function KeyPlayers({ teamName, players }: KeyPlayersProps) {
               <p className="text-sm text-gray-500 truncate">{positionLabels[player.position]} &middot; {player.club}</p>
             </div>
             <div className="text-right">
-              <p className="text-sm font-medium text-primary">{player.caps} sel. / {player.goals} buts</p>
+              <p className="text-sm font-medium text-primary">{player.caps} Eins. / {player.goals} Tore</p>
             </div>
           </Link>
         ))}

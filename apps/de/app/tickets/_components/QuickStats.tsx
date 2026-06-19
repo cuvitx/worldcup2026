@@ -4,10 +4,10 @@ export function QuickStats() {
       <div className="mx-auto max-w-7xl px-4 py-6">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
-            { value: "104", label: "Matchs CDM 2026", icon: "" },
-            { value: "16", label: "Stadions dans 3 pays", icon: "" },
-            { value: "5M+", label: "Tickets disponibles", icon: "" },
-            { value: "19/07", label: "Date de la finale", icon: "" },
+            { value: "104", label: "Spiele WM 2026", icon: "" },
+            { value: "16", label: "Stadien in 3 Ländern", icon: "" },
+            { value: "5M+", label: "Verfügbare Tickets", icon: "" },
+            { value: "19/07", label: "Datum des Finales", icon: "" },
           ].map((stat) => (
             <div key={stat.label} className="text-center py-2">
               <p className="text-2xl mb-1">{stat.icon}</p>

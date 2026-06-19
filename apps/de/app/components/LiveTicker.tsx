@@ -83,22 +83,22 @@ export function LiveTicker() {
 
   // Abbreviate long team names for ticker display
   const abbreviations: Record<string, string> = {
-    "Afrique du Sud": "Afr. du Sud",
-    "Corée du Sud": "Corée S.",
-    "Arabie saoudite": "Arabie S.",
-    "Nouvelle-Zélande": "Nvl-Zélande",
-    "République tchèque": "Rép. tchèque",
-    "Trinité-et-Tobago": "Trinité-Tob.",
-    "Bosnie-Herzégovine": "Bosnie-H.",
-    "République dominicaine": "Rép. dom.",
-    "Barrage UEFA A": "Barrage A",
-    "Barrage UEFA B": "Barrage B",
-    "Barrage UEFA C": "Barrage C",
-    "Barrage UEFA D": "Barrage D",
-    "Barrage intercontinental 1": "Barrage IC1",
-    "Barrage intercontinental 2": "Barrage IC2",
-    "Côte d'Ivoire": "Côte d'Iv.",
-    "États-Unis": "USA",
+    "Südafrika": "Südafrika",
+    "Südkorea": "Südkorea",
+    "Saudi-Arabien": "Saudi-Ar.",
+    "Neuseeland": "Neuseeland",
+    "Tschechien": "Tschechien",
+    "Trinidad und Tobago": "Trinidad-T.",
+    "Bosnien-Herzegowina": "Bosnien-H.",
+    "Dominikanische Republik": "Dom. Rep.",
+    "Playoff UEFA A": "Playoff A",
+    "Playoff UEFA B": "Playoff B",
+    "Playoff UEFA C": "Playoff C",
+    "Playoff UEFA D": "Playoff D",
+    "Interkontinental-Playoff 1": "Playoff IK1",
+    "Interkontinental-Playoff 2": "Playoff IK2",
+    "Elfenbeinküste": "Elfenbeink.",
+    "Vereinigte Staaten": "USA",
   };
   const abbreviate = (name: string) => abbreviations[name] ?? (name.length > 10 ? name.slice(0, 8) + "…" : name);
   const homeName = abbreviate(homeTeam.name);
@@ -110,7 +110,7 @@ export function LiveTicker() {
   };
 
   const countdownText = countdown
-    ? `dans ${countdown.days > 0 ? `${countdown.days}j ${countdown.hours}h` : `${countdown.hours}h${String(countdown.minutes).padStart(2, "0")}`}`
+    ? `in ${countdown.days > 0 ? `${countdown.days}T ${countdown.hours}Std` : `${countdown.hours}Std${String(countdown.minutes).padStart(2, "0")}`}`
     : "";
 
   return (
@@ -127,7 +127,7 @@ export function LiveTicker() {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
               </span>
               <span className="font-bold text-primary uppercase text-xs tracking-wide">
-                En direct
+                Live
               </span>
             </span>
           )}
@@ -148,7 +148,7 @@ export function LiveTicker() {
           type="button"
           onClick={handleDismiss}
           className="ml-2 shrink-0 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-200/50 transition-colors"
-          aria-label="Fermer le ticker"
+          aria-label="Ticker schließen"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

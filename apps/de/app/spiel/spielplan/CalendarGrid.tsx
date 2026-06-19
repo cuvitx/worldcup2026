@@ -36,11 +36,11 @@ interface Props {
 }
 
 const MONTHS = [
-  { year: 2026, month: 6, label: "Juin 2026" },
-  { year: 2026, month: 7, label: "Juillet 2026" },
+  { year: 2026, month: 6, label: "Juni 2026" },
+  { year: 2026, month: 7, label: "Juli 2026" },
 ];
 
-const DAY_NAMES = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+const DAY_NAMES = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
 
 function getPhaseColor(stage: string): string {
   if (stage === "group") return "bg-accent/10 text-accent";

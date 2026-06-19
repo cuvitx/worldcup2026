@@ -77,8 +77,8 @@ export function EditionCard({ edition, side }: EditionCardProps) {
           >
             <span></span>
             <span>
-              <strong>{edition.topScorer}</strong> — {edition.topScorerGoals} but
-              {edition.topScorerGoals > 1 ? "s" : ""}
+              <strong>{edition.topScorer}</strong> -- {edition.topScorerGoals} Tor
+              {edition.topScorerGoals > 1 ? "e" : ""}
             </span>
           </div>
 

@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const group = groups.find((g) => g.slug === lettre);
   if (!group) return {};
   return {
-    title: `Spielers Gruppe ${group.letter.toUpperCase()} — CDM 2026`,
-    description: `Tous les Spielers du Gruppe ${group.letter.toUpperCase()} der WM 2026. Fiches et statistiques par Mannschaft.`,
+    title: `Spieler Gruppe ${group.letter.toUpperCase()} -- WM 2026`,
+    description: `Alle Spieler der Gruppe ${group.letter.toUpperCase()} bei der WM 2026. Steckbriefe und Statistiken nach Mannschaft.`,
   };
 }
 
@@ -33,9 +33,9 @@ export default async function SpielersGroupePage({ params }: Props) {
       <section className="hero-animated text-white py-12">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold">
-            Spielers Gruppe {group.letter.toUpperCase()} — CDM 2026
+            Spieler Gruppe {group.letter.toUpperCase()} -- WM 2026
           </h1>
-          <p className="mt-3 text-white/70 text-lg">{groupTeams.length} Mannschafts</p>
+          <p className="mt-3 text-white/70 text-lg">{groupTeams.length} Mannschaften</p>
         </div>
       </section>
 
@@ -54,7 +54,7 @@ export default async function SpielersGroupePage({ params }: Props) {
                   <Link key={p.slug} href={`/spieler/${p.slug}`} className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-colors">
                     <div>
                       <div className="font-semibold text-gray-900">{p.name}</div>
-                      <div className="text-sm text-gray-500">{p.club} · {p.age} ans</div>
+                      <div className="text-sm text-gray-500">{p.club} · {p.age} J.</div>
                     </div>
                   </Link>
                 ))}

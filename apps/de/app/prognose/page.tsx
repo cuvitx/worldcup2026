@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Top 5 par winnerProb
+// Top 5 nach winnerProb
 const teamsById2 = Object.fromEntries(teams.map((t) => [t.id, t]));
 const top5 = [...teamPredictions]
   .sort((a, b) => b.winnerProb - a.winnerProb)
@@ -29,7 +29,7 @@ const top5 = [...teamPredictions]
   .map((pred) => ({ pred, team: teamsById2[pred.teamId] }))
   .filter((x) => x.team != null);
 
-// Matchs "chauds" (à définir via une liste ou par winnerProb)
+// Top-Spiele (über eine Liste oder nach winnerProb definiert)
 const HOT_SLUGS = [
   "france-vs-maroc",
   "bresil-vs-argentine",
@@ -87,7 +87,7 @@ export default function PrognoseHubPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.wm2026guide.de" },
-      { "@type": "ListItem", position: 2, name: "Prognoses", item: "https://www.wm2026guide.de/Prognose" },
+      { "@type": "ListItem", position: 2, name: "Prognosen", item: "https://www.wm2026guide.de/Prognose" },
     ],
   };
 
@@ -114,7 +114,7 @@ export default function PrognoseHubPage() {
             als Leitfaden für Ihre WM-2026-Prognosen.
           </p>
 
-          {/* Stats rapides */}
+          {/* Schnellstatistiken */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {[
               { value: `${totalTeams}`, label: "analysierte Mannschaften" },
@@ -130,20 +130,20 @@ export default function PrognoseHubPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 text-sm">
-            <a href="#vainqueur" className="rounded-xl bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
+            <a href="#sieger" className="rounded-xl bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent/80 transition-all">
               Sieger-Prognose
             </a>
             <a href="#Gruppen" className="rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 font-semibold text-accent hover:bg-accent/20 transition-all">
               <FolderOpen className="h-5 w-5 inline-block" /> Gruppen-Prognosen
             </a>
-            <a href="#matchs" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
+            <a href="#spiele" className="rounded-lg border border-white/15 bg-white/8 px-5 py-2.5 font-semibold text-white hover:bg-white/15 transition-all">
               Spiel-Prognosen
             </a>
           </div>
         </div>
       </section>
 
-      {/* ===== TENDANCES ===== */}
+      {/* ===== TRENDS ===== */}
       <section className="bg-white py-10 border-b border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
@@ -164,8 +164,8 @@ export default function PrognoseHubPage() {
         </div>
       </section>
 
-      {/* ===== PRONOSTIC VAINQUEUR ===== */}
-      <section id="vainqueur" className="bg-gray-50 py-12">
+      {/* ===== SIEGER-PROGNOSE ===== */}
+      <section id="sieger" className="bg-gray-50 py-12">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
@@ -196,7 +196,7 @@ export default function PrognoseHubPage() {
                 >
                   {index === 0 && (
                     <span className="absolute top-2 right-2 text-[9px] bg-accent text-white px-1.5 py-0.5 rounded font-bold">
-                      FAVORI
+                      FAVORIT
                     </span>
                   )}
                   <span className="text-3xl block mb-2">{team.flag}</span>
@@ -230,7 +230,7 @@ export default function PrognoseHubPage() {
         </div>
       </section>
 
-      {/* ===== PRONOSTICS PAR GROUPE ===== */}
+      {/* ===== PROGNOSEN NACH GRUPPE ===== */}
       <section id="Gruppen" className="bg-white py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
@@ -294,12 +294,12 @@ export default function PrognoseHubPage() {
                         </div>
                       );
                     })}
-                    {/* Placeholders pour barrages */}
+                    {/* Platzhalter für Playoffs */}
                     {group.teams.filter((id) => id.startsWith("barrage")).map((id) => (
                       <div key={id} className="flex items-center gap-2 text-xs text-gray-300">
                         <span className="w-4 text-center font-bold">?</span>
                         <span className="text-base shrink-0"></span>
-                        <span className="flex-1 font-medium truncate">Barrage</span>
+                        <span className="flex-1 font-medium truncate">Playoff</span>
                       </div>
                     ))}
                   </div>
@@ -310,8 +310,8 @@ export default function PrognoseHubPage() {
         </div>
       </section>
 
-      {/* ===== PRONOSTICS MATCHS ===== */}
-      <section id="matchs" className="bg-gray-50 py-12 border-t border-gray-100">
+      {/* ===== SPIEL-PROGNOSEN ===== */}
+      <section id="spiele" className="bg-gray-50 py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-header mb-6">
             <div>
@@ -397,7 +397,7 @@ export default function PrognoseHubPage() {
         </div>
       </section>
 
-      {/* ===== LIENS RAPIDES ===== */}
+      {/* ===== SCHNELLLINKS ===== */}
       <section className="bg-white py-12 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
@@ -455,7 +455,7 @@ export default function PrognoseHubPage() {
         </div>
       </section>
 
-      {/* ===== TOUS NOS PRONOSTICS ===== */}
+      {/* ===== ALLE PROGNOSEN ===== */}
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Alle unsere Prognosen</h2>
@@ -490,7 +490,7 @@ export default function PrognoseHubPage() {
         </div>
       </section>
 
-      {/* ===== DISCLAIMER ===== */}
+      {/* ===== HAFTUNGSAUSSCHLUSS ===== */}
       <section className="bg-gray-50 py-6 border-t border-gray-100">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">

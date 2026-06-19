@@ -40,16 +40,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const hasPhoto = PLAYER_PHOTO_SLUGS.has(slug);
   const ogImages = hasPhoto
-    ? [{ url: `https://www.wm2026guide.de/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — CDM 2026` }]
-    : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "CDM 2026" }];
+    ? [{ url: `https://www.wm2026guide.de/images/players/${slug}.jpg`, width: 800, height: 600, alt: `${player.name} — WM 2026` }]
+    : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "WM 2026" }];
 
   return {
-    title: `${player.name} - ${teamName} | Fiche Spieler CDM 2026`,
-    description: `Fiche de ${player.name} (${teamName}) für die WM 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
+    title: `${player.name} - ${teamName} | Spielerprofil WM 2026`,
+    description: `Profil von ${player.name} (${teamName}) fur die WM 2026. ${player.caps} Landerspiele, ${player.goals} Tore. ${player.description}`,
     alternates: getAlternates("player", slug, "de"),
     openGraph: {
-      title: `${player.name} - ${teamName} CDM 2026`,
-      description: `${player.position} | ${player.club} | ${player.caps} selections | ${player.goals} buts`,
+      title: `${player.name} - ${teamName} WM 2026`,
+      description: `${player.position} | ${player.club} | ${player.caps} Landerspiele | ${player.goals} Tore`,
       images: ogImages,
     },
   };
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 const positionLabels: Record<string, string> = {
   GK: "Torwart",
-  DF: "Defenseur",
+  DF: "Verteidiger",
   MF: "Mittelfeldspieler",
   FW: "Stürmer",
 };
@@ -102,7 +102,7 @@ export default async function PlayerPage({ params }: PageProps) {
               );
             })()}
             {team && (
-              <span className="text-2xl sm:text-4xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+              <span className="text-2xl sm:text-4xl" role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
             )}
             <div>
               <p className="text-sm text-white/70 uppercase tracking-wide">
@@ -130,32 +130,32 @@ export default async function PlayerPage({ params }: PageProps) {
 
             <section className="rounded-lg bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Statistiques internationales
+                Internationale Statistiken
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.caps}
                   </p>
-                  <p className="text-sm text-gray-500">Selections</p>
+                  <p className="text-sm text-gray-500">Landerspiele</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.goals}
                   </p>
-                  <p className="text-sm text-gray-500">Buts</p>
+                  <p className="text-sm text-gray-500">Tore</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-3xl font-bold text-primary">
                     {player.age}
                   </p>
-                  <p className="text-sm text-gray-500">Age</p>
+                  <p className="text-sm text-gray-500">Alter</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
                   <p className="text-lg font-bold text-primary">
                     {positionLabels[player.position]}
                   </p>
-                  <p className="text-sm text-gray-500">Poste</p>
+                  <p className="text-sm text-gray-500">Position</p>
                 </div>
               </div>
             </section>
@@ -163,7 +163,7 @@ export default async function PlayerPage({ params }: PageProps) {
             {teammates.length > 0 && (
               <section className="rounded-lg bg-white p-6 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  Coequipiers en Aufgebot
+                  Mitspieler im Kader
                 </h2>
                 <div className="space-y-3">
                   {teammates.map((mate) => {
@@ -203,38 +203,38 @@ export default async function PlayerPage({ params }: PageProps) {
 
           <div className="space-y-6">
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Fiche technique</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Steckbrief</h3>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Nom complet</dt>
+                  <dt className="text-gray-500">Vollstandiger Name</dt>
                   <dd className="font-medium">{player.name}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Age</dt>
-                  <dd className="font-medium">{player.age} ans</dd>
+                  <dt className="text-gray-500">Alter</dt>
+                  <dd className="font-medium">{player.age} Jahre</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Poste</dt>
+                  <dt className="text-gray-500">Position</dt>
                   <dd className="font-medium">
                     {positionLabels[player.position]}
                   </dd>
                 </div>
                 {player.number && (
                   <div className="flex justify-between">
-                    <dt className="text-gray-500">Numero</dt>
+                    <dt className="text-gray-500">Ruckennummer</dt>
                     <dd className="font-medium">#{player.number}</dd>
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Club</dt>
+                  <dt className="text-gray-500">Verein</dt>
                   <dd className="font-medium">{player.club}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Selections</dt>
+                  <dt className="text-gray-500">Landerspiele</dt>
                   <dd className="font-medium">{player.caps}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Buts</dt>
+                  <dt className="text-gray-500">Tore</dt>
                   <dd className="font-medium">{player.goals}</dd>
                 </div>
               </dl>
@@ -247,7 +247,7 @@ export default async function PlayerPage({ params }: PageProps) {
                   href={`/mannschaft/${team.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-primary/30"
                 >
-                  <span className="text-2xl" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+                  <span className="text-2xl" role="img" aria-label={`Flagge von ${team.name}`}>{team.flag}</span>
                   <div>
                     <p className="font-semibold">{team.name}</p>
                     <p className="text-sm text-gray-500">
@@ -259,11 +259,11 @@ export default async function PlayerPage({ params }: PageProps) {
             )}
 
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Explorer</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Entdecken</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/spieler-liste" className="text-primary hover:underline">
-                    <CircleDot className="h-5 w-5 inline-block" /> Tous les Spielers clés
+                    <CircleDot className="h-5 w-5 inline-block" /> Alle Schlusselspieler
                   </Link>
                 </li>
                 <li>
@@ -273,7 +273,7 @@ export default async function PlayerPage({ params }: PageProps) {
                 </li>
                 <li>
                   <Link href="/comparateur-Spielers" className="text-primary hover:underline">
-                    <Users className="h-5 w-5 inline-block" /> Comparateur de Spielers
+                    <Users className="h-5 w-5 inline-block" /> Spielervergleich
                   </Link>
                 </li>
                 {team && (

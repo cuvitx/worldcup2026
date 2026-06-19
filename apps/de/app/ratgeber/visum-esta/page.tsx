@@ -3,15 +3,15 @@ import Link from "next/link";
 import { TableOfContents } from "@repo/ui";
 import { ShieldCheck, TrainFront } from "lucide-react"
 export const metadata: Metadata = {
-  title: "Visa ESTA pour les USA — Tout savoir pour la CDM 2026",
+  title: "Visum ESTA für die USA — Alles Wissenswerte zur WM 2026",
   description:
-    "Guide complet sur le Visa ESTA pour assister à la WM 2026 aux États-Unis. Procédure, délais, coût, conseils et FAQ.",
+    "Kompletter Ratgeber zum Visum ESTA für die WM 2026 in den USA. Verfahren, Fristen, Kosten, Tipps und FAQ.",
   alternates: {
     canonical: "https://www.wm2026guide.de/guide/guide-visa-esta",
   },
   openGraph: {
-    title: "Visa ESTA pour les USA — Guide CDM 2026",
-    description: "Tout savoir sur l'ESTA pour voyager aux USA pendant la WM 2026.",
+    title: "Visum ESTA für die USA — Ratgeber WM 2026",
+    description: "Alles Wissenswerte zum ESTA für die Reise in die USA während der WM 2026.",
     type: "article",
     publishedTime: "2026-02-19",
   },
@@ -21,12 +21,12 @@ export default function GuideVisaEsta() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Visa ESTA pour les USA : tout savoir pour la CDM 2026",
+    headline: "Visum ESTA für die USA: Alles Wissenswerte zur WM 2026",
     description: metadata.description,
     datePublished: "2026-02-19",
     dateModified: "2026-02-19",
-    author: { "@type": "Organization", name: "CDM 2026" },
-    publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.wm2026guide.de" },
+    author: { "@type": "Organization", name: "WM 2026" },
+    publisher: { "@type": "Organization", name: "WM 2026", url: "https://www.wm2026guide.de" },
     mainEntityOfPage: "https://www.wm2026guide.de/guide/guide-visa-esta",
     image: "https://www.wm2026guide.de/og-default.jpg",
   };
@@ -37,28 +37,28 @@ export default function GuideVisaEsta() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Qu'est-ce que l'ESTA ?",
-        acceptedAnswer: { "@type": "Answer", text: "L'ESTA (Electronic System for Travel Authorization) est une autorisation électronique de voyage pour les ressortissants des pays participants au Programme d'Exemption de Visa (VWP). Elle permet de séjourner aux USA jusqu'à 90 jours pour le tourisme ou les affaires." },
+        name: "Was ist das ESTA?",
+        acceptedAnswer: { "@type": "Answer", text: "Das ESTA (Electronic System for Travel Authorization) ist eine elektronische Reisegenehmigung für Staatsangehörige der am Visa Waiver Program (VWP) teilnehmenden Länder. Es erlaubt einen Aufenthalt in den USA von bis zu 90 Tagen für Tourismus oder Geschäftsreisen." },
       },
       {
         "@type": "Question",
-        name: "Combien coûte l'ESTA en 2026 ?",
-        acceptedAnswer: { "@type": "Answer", text: "L'ESTA coûte 21 USD (environ 19 €). Méfiez-vous des sites intermédiaires qui facturent bien plus cher. Seul le site officiel esta.cbp.dhs.gov est recommandé." },
+        name: "Wie viel kostet das ESTA 2026?",
+        acceptedAnswer: { "@type": "Answer", text: "Das ESTA kostet 21 USD (ca. 19 EUR). Vorsicht vor Vermittlerseiten, die deutlich mehr berechnen. Nur die offizielle Website esta.cbp.dhs.gov ist empfohlen." },
       },
       {
         "@type": "Question",
-        name: "Combien de temps faut-il pour obtenir l'ESTA ?",
-        acceptedAnswer: { "@type": "Answer", text: "La réponse est généralement immédiate ou sous 72 heures. En période de forte demande (comme avant la CDM 2026), prévoyez au moins 2 semaines de marge." },
+        name: "Wie lange dauert es, das ESTA zu erhalten?",
+        acceptedAnswer: { "@type": "Answer", text: "Die Antwort erfolgt in der Regel sofort oder innerhalb von 72 Stunden. In Zeiten hoher Nachfrage (wie vor der WM 2026) sollten Sie mindestens 2 Wochen Puffer einplanen." },
       },
       {
         "@type": "Question",
-        name: "L'ESTA est-elle valable pour le Mexique et le Canada aussi ?",
-        acceptedAnswer: { "@type": "Answer", text: "Non, l'ESTA n'est valable que pour les États-Unis. Pour le Mexique, les ressortissants français n'ont pas besoin de visa pour un séjour touristique de moins de 180 jours. Pour le Canada, une AVE (Autorisation de Voyage Électronique) est nécessaire." },
+        name: "Gilt das ESTA auch für Mexiko und Kanada?",
+        acceptedAnswer: { "@type": "Answer", text: "Nein, das ESTA gilt nur für die USA. Für Mexiko benötigen EU-Bürger kein Visum bei einem touristischen Aufenthalt von weniger als 180 Tagen. Für Kanada ist eine eTA (Electronic Travel Authorization) erforderlich." },
       },
       {
         "@type": "Question",
-        name: "Puis-je assister à des matchs dans les 3 pays avec un seul document ?",
-        acceptedAnswer: { "@type": "Answer", text: "Non, vous aurez besoin de l'ESTA pour les USA, de l'AVE pour le Canada, et votre passeport suffira pour le Mexique (pour les Français). Préparez les trois documents si vous comptez voyager entre les pays." },
+        name: "Kann ich mit einem einzigen Dokument Spiele in allen 3 Ländern besuchen?",
+        acceptedAnswer: { "@type": "Answer", text: "Nein, Sie benötigen das ESTA für die USA, die eTA für Kanada, und Ihr Reisepass genügt für Mexiko (für EU-Bürger). Bereiten Sie alle drei Dokumente vor, wenn Sie zwischen den Ländern reisen möchten." },
       },
     ],
   };
@@ -70,128 +70,128 @@ export default function GuideVisaEsta() {
 
       <div className="mx-auto max-w-5xl px-4 py-10 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
         <div>
-        <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500">
+        <nav aria-label="Brotkrümelnavigation" className="mb-6 text-sm text-gray-500">
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="text-primary hover:underline">Startseite</Link></li>
             <li>/</li>
-            <li><Link href="/guides" className="text-primary hover:underline">Guides</Link></li>
+            <li><Link href="/guides" className="text-primary hover:underline">Ratgeber</Link></li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">Visa ESTA</li>
+            <li className="text-gray-900 font-medium">Visum ESTA</li>
           </ol>
         </nav>
 
         <article className="prose prose-lg max-w-none">
           <div className="mb-4 flex items-center gap-3">
-            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Guide pratique</span>
-            <time className="text-sm text-gray-500" dateTime="2026-02-19">19 février 2026</time>
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Praktischer Ratgeber</span>
+            <time className="text-sm text-gray-500" dateTime="2026-02-19">19. Februar 2026</time>
           </div>
 
           <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-6">
-            <ShieldCheck className="h-5 w-5 inline-block" /> Visa ESTA pour les USA : tout savoir pour la CDM 2026
+            <ShieldCheck className="h-5 w-5 inline-block" /> Visum ESTA für die USA: Alles Wissenswerte zur WM 2026
           </h1>
 
           <p className="text-lg text-gray-600 font-medium mb-8 not-prose">
-            La majorité des matchs der WM 2026 se joueront aux États-Unis. Pour les ressortissants français et européens, l&apos;ESTA est le document indispensable. Voici tout ce qu&apos;il faut savoir.
+            Die Mehrheit der WM-2026-Spiele wird in den USA ausgetragen. Für deutsche und europäische Staatsangehörige ist das ESTA das unverzichtbare Dokument. Hier erfahren Sie alles Wichtige.
           </p>
 
-          <h2 id="esta-definition">Qu&apos;est-ce que l&apos;ESTA ?</h2>
+          <h2 id="esta-definition">Was ist das ESTA?</h2>
           <p>
-            L&apos;ESTA (Electronic System for Travel Authorization) est une <strong>autorisation électronique de voyage</strong> obligatoire pour entrer aux États-Unis sans visa. Elle concerne les ressortissants des 41 pays participants au Programme d&apos;Exemption de Visa (Visa Waiver Program), dont la France, la Belgique, la Suisse et la plupart des pays européens.
+            Das ESTA (Electronic System for Travel Authorization) ist eine <strong>elektronische Reisegenehmigung</strong>, die für die visumfreie Einreise in die USA erforderlich ist. Es betrifft Staatsangehörige der 41 am Visa Waiver Program teilnehmenden Länder, darunter Deutschland, Österreich, die Schweiz und die meisten europäischen Länder.
           </p>
           <p>
-            L&apos;ESTA permet un séjour de <strong>90 jours maximum</strong> pour le tourisme ou les affaires. Elle est valable <strong>2 ans</strong> ou jusqu&apos;à expiration du passeport (la date la plus proche).
-          </p>
-
-          <h2 id="demande-esta">Comment faire sa demande ESTA ?</h2>
-          <h3>Étape 1 : Préparer les documents</h3>
-          <p>
-            Vous aurez besoin de votre <strong>passeport biométrique ou électronique</strong> en cours de validité, d&apos;une adresse e-mail, d&apos;une carte bancaire pour le paiement et de vos coordonnées d&apos;hébergement aux USA (hôtel ou adresse d&apos;un proche).
+            Das ESTA erlaubt einen Aufenthalt von <strong>maximal 90 Tagen</strong> für Tourismus oder Geschäftsreisen. Es ist <strong>2 Jahre</strong> gültig oder bis zum Ablauf des Reisepasses (je nachdem, was zuerst eintritt).
           </p>
 
-          <h3>Étape 2 : Remplir le formulaire en ligne</h3>
+          <h2 id="demande-esta">Wie stellt man den ESTA-Antrag?</h2>
+          <h3>Schritt 1: Dokumente vorbereiten</h3>
           <p>
-            Rendez-vous sur le <strong>site officiel</strong> : <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer">esta.cbp.dhs.gov</a>. Attention aux sites intermédiaires qui facturent des frais supplémentaires ! Le formulaire prend environ 15 minutes à remplir. Les questions portent sur votre identité, votre voyage et des questions de sécurité standard.
+            Sie benötigen Ihren <strong>biometrischen oder elektronischen Reisepass</strong> mit aktueller Gültigkeit, eine E-Mail-Adresse, eine Kreditkarte für die Zahlung und Ihre Unterkunftsadresse in den USA (Hotel oder Adresse eines Bekannten).
           </p>
 
-          <h3>Étape 3 : Payer et attendre la réponse</h3>
+          <h3>Schritt 2: Online-Formular ausfüllen</h3>
           <p>
-            Le coût est de <strong>21 USD</strong> (environ 19 €). La réponse est généralement <strong>immédiate</strong>, mais peut prendre jusqu&apos;à 72 heures. Trois réponses possibles : Autorisation approuvée, Voyage non autorisé, ou Autorisation en attente.
+            Besuchen Sie die <strong>offizielle Website</strong>: <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer">esta.cbp.dhs.gov</a>. Vorsicht vor Vermittlerseiten, die zusätzliche Gebühren berechnen! Das Formular dauert etwa 15 Minuten. Die Fragen betreffen Ihre Identität, Ihre Reise und Standard-Sicherheitsfragen.
           </p>
 
-          <h2 id="delais">Délais et timing recommandés</h2>
+          <h3>Schritt 3: Bezahlen und auf die Antwort warten</h3>
           <p>
-            En période de WM, le volume de demandes ESTA va exploser. Nous recommandons de faire votre demande <strong>au minimum 3 mois avant votre départ</strong>. Si vous avez déjà un ESTA valide, vérifiez sa date d&apos;expiration dès maintenant.
+            Die Kosten betragen <strong>21 USD</strong> (ca. 19 EUR). Die Antwort erfolgt in der Regel <strong>sofort</strong>, kann aber bis zu 72 Stunden dauern. Drei mögliche Antworten: Genehmigung erteilt, Reise nicht genehmigt oder Genehmigung ausstehend.
+          </p>
+
+          <h2 id="delais">Fristen und empfohlener Zeitplan</h2>
+          <p>
+            Während der WM wird das Volumen der ESTA-Anträge stark ansteigen. Wir empfehlen, Ihren Antrag <strong>mindestens 3 Monate vor Ihrer Abreise</strong> zu stellen. Wenn Sie bereits ein gültiges ESTA haben, überprüfen Sie jetzt das Ablaufdatum.
           </p>
 
           <div className="not-prose my-8 rounded-xl bg-accent/10 border border-accent/30 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 text-accent mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Attention aux arnaques</h3>
+            <h3 className="text-lg font-semibold text-gray-900 text-accent mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Achtung vor Betrug</h3>
             <p className="text-sm text-accent">
-              De nombreux sites frauduleux proposent des « ESTA express  à des prix exorbitants (50-100 €). Le seul site officiel est <strong>esta.cbp.dhs.gov</strong>. Ne payez jamais plus de 21 USD.
+              Zahlreiche betrügerische Websites bieten „ESTA Express" zu überhöhten Preisen (50-100 EUR) an. Die einzige offizielle Website ist <strong>esta.cbp.dhs.gov</strong>. Bezahlen Sie nie mehr als 21 USD.
             </p>
           </div>
 
-          <h2 id="mexique-canada">Et pour le Mexique et le Canada ?</h2>
-          <h3>Mexique</h3>
+          <h2 id="mexique-canada">Und für Mexiko und Kanada?</h2>
+          <h3>Mexiko</h3>
           <p>
-            Bonne nouvelle pour les Français : <strong>aucun visa n&apos;est nécessaire</strong> pour un séjour touristique de moins de 180 jours au Mexique. Un passeport valide suffit. Vous recevrez un formulaire migratoire (FMM) à votre arrivée. Les matchs auront lieu à Mexico (Estadio Azteca), Guadalajara et Monterrey.
+            Gute Nachricht für Deutsche: <strong>Kein Visum erforderlich</strong> für einen touristischen Aufenthalt von weniger als 180 Tagen in Mexiko. Ein gültiger Reisepass genügt. Sie erhalten bei Ankunft ein Migrationsformular (FMM). Die Spiele finden in Mexiko-Stadt (Estadio Azteca), Guadalajara und Monterrey statt.
           </p>
 
-          <h3>Canada</h3>
+          <h3>Kanada</h3>
           <p>
-            Pour le Canada, les ressortissants français ont besoin d&apos;une <strong>AVE (Autorisation de Voyage Électronique)</strong>, l&apos;équivalent canadien de l&apos;ESTA. Le coût est de 7 CAD (environ 5 €), et la demande se fait en ligne sur le site officiel du gouvernement canadien. Les matchs canadiens se joueront à Toronto et Vancouver.
+            Für Kanada benötigen deutsche Staatsangehörige eine <strong>eTA (Electronic Travel Authorization)</strong>, das kanadische Äquivalent zum ESTA. Die Kosten betragen 7 CAD (ca. 5 EUR), und der Antrag wird online auf der offiziellen Website der kanadischen Regierung gestellt. Die kanadischen Spiele finden in Toronto und Vancouver statt.
           </p>
 
-          <h2 id="conseils">Conseils pratiques pour les supporters</h2>
+          <h2 id="conseils">Praktische Tipps für Fans</h2>
           <ul>
-            <li><strong>Passeport valide 6 mois après la date de retour</strong> : vérifiez dès maintenant la validité de votre passeport</li>
-            <li><strong>Assurance voyage</strong> : indispensable aux USA où les frais médicaux sont exorbitants. Budget 50-100 € pour la durée du séjour</li>
-            <li><strong>Photocopies</strong> : gardez des copies numériques de tous vos documents dans votre téléphone et votre e-mail</li>
-            <li><strong>Douanes</strong> : déclarez tout ce qui doit l&apos;être. Les contrôles à l&apos;entrée aux USA sont stricts</li>
+            <li><strong>Reisepass noch 6 Monate nach Rückkehrdatum gültig</strong>: Überprüfen Sie jetzt die Gültigkeit Ihres Reisepasses</li>
+            <li><strong>Reiseversicherung</strong>: In den USA unverzichtbar, da die medizinischen Kosten extrem hoch sind. Budget 50-100 EUR für die Aufenthaltsdauer</li>
+            <li><strong>Kopien</strong>: Bewahren Sie digitale Kopien aller Dokumente auf Ihrem Telefon und in Ihrer E-Mail auf</li>
+            <li><strong>Zoll</strong>: Deklarieren Sie alles, was deklariert werden muss. Die Einreisekontrollen in den USA sind streng</li>
           </ul>
 
-          <h2 id="faq">FAQ — Visa ESTA CDM 2026</h2>
+          <h2 id="faq">FAQ — Visum ESTA WM 2026</h2>
 
-          <h3>Puis-je entrer aux USA avec un passeport périmé et un ESTA valide ?</h3>
-          <p>Non. Votre passeport doit être valide pendant toute la durée de votre séjour, et idéalement 6 mois après votre date de retour.</p>
+          <h3>Kann ich mit einem abgelaufenen Reisepass und einem gültigen ESTA in die USA einreisen?</h3>
+          <p>Nein. Ihr Reisepass muss während Ihres gesamten Aufenthalts gültig sein, idealerweise noch 6 Monate nach Ihrem Rückkehrdatum.</p>
 
-          <h3>Mon ESTA a été refusé, que faire ?</h3>
-          <p>En cas de refus, vous devez faire une demande de visa classique (B1/B2) auprès de l&apos;ambassade des États-Unis. Prévoyez un délai de 2-3 mois pour le rendez-vous et le traitement.</p>
+          <h3>Mein ESTA wurde abgelehnt, was tun?</h3>
+          <p>Bei Ablehnung müssen Sie ein reguläres Visum (B1/B2) bei der US-Botschaft beantragen. Planen Sie 2-3 Monate für den Termin und die Bearbeitung ein.</p>
 
-          <h3>L&apos;ESTA suffit-elle pour travailler aux USA ?</h3>
-          <p>Non. L&apos;ESTA est strictement réservée au tourisme et aux voyages d&apos;affaires courts. Toute activité rémunérée nécessite un visa de travail.</p>
+          <h3>Darf ich mit dem ESTA in den USA arbeiten?</h3>
+          <p>Nein. Das ESTA ist ausschließlich für Tourismus und kurze Geschäftsreisen bestimmt. Jede bezahlte Tätigkeit erfordert ein Arbeitsvisum.</p>
 
-          <h3>Puis-je modifier mon ESTA après validation ?</h3>
-          <p>Certaines informations (adresse aux USA, numéro de vol) peuvent être modifiées. Pour toute modification de données d&apos;identité, une nouvelle demande est nécessaire.</p>
+          <h3>Kann ich mein ESTA nach der Genehmigung ändern?</h3>
+          <p>Einige Informationen (Adresse in den USA, Flugnummer) können geändert werden. Bei Änderungen der Identitätsdaten ist ein neuer Antrag erforderlich.</p>
         </article>
 
         <div className="mt-12 border-t border-gray-200 pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides liés</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Verwandte Ratgeber</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900">Où dormir pendant la CDM 2026</h3>
-              <p className="text-sm text-gray-500 mt-1">Guide hébergement Städte hôtes</p>
+              <h3 className="text-lg font-semibold text-gray-900">Wo übernachten während der WM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Unterkunfts-Ratgeber für die Gastgeberstädte</p>
             </Link>
             <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900"><TrainFront className="h-5 w-5 inline-block" /> Se déplacer entre les Stadien</h3>
-              <p className="text-sm text-gray-500 mt-1">Transport inter-Städte et logistique</p>
+              <h3 className="text-lg font-semibold text-gray-900"><TrainFront className="h-5 w-5 inline-block" /> Fortbewegung zwischen den Stadien</h3>
+              <p className="text-sm text-gray-500 mt-1">Transport zwischen den Städten und Logistik</p>
             </Link>
             <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900"> Budget CDM 2026</h3>
-              <p className="text-sm text-gray-500 mt-1">Combien ça coûte ? Estimation complète</p>
+              <h3 className="text-lg font-semibold text-gray-900"> Budget WM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Was kostet es? Vollständige Schätzung</p>
             </Link>
             <Link href="/stadien" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-gray-900"> Les Stadien de la CDM 2026</h3>
-              <p className="text-sm text-gray-500 mt-1">Tous les Stadien du Mondial</p>
+              <h3 className="text-lg font-semibold text-gray-900"> Die Stadien der WM 2026</h3>
+              <p className="text-sm text-gray-500 mt-1">Alle Stadien der Weltmeisterschaft</p>
             </Link>
           </div>
         </div>
         </div>
         <TableOfContents items={[
-          { id: "esta-definition", label: "Qu'est-ce que l'ESTA ?", level: 2 },
-          { id: "demande-esta", label: "Faire sa demande", level: 2 },
-          { id: "delais", label: "Délais recommandés", level: 2 },
-          { id: "mexique-canada", label: "Mexique & Canada", level: 2 },
-          { id: "conseils", label: "Conseils pratiques", level: 2 },
+          { id: "esta-definition", label: "Was ist das ESTA?", level: 2 },
+          { id: "demande-esta", label: "Antrag stellen", level: 2 },
+          { id: "delais", label: "Empfohlene Fristen", level: 2 },
+          { id: "mexique-canada", label: "Mexiko & Kanada", level: 2 },
+          { id: "conseils", label: "Praktische Tipps", level: 2 },
           { id: "faq", label: "FAQ", level: 2 },
         ]} />
       </div>

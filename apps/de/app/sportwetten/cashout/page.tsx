@@ -4,49 +4,49 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Banknote, ArrowRight, AlertTriangle, CheckCircle, XCircle, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Guide du Cashout paris sportifs CDM 2026 — Quand et comment l'utiliser",
+  title: "Cash-out-Ratgeber Sportwetten WM 2026 — Wann und wie nutzen",
   description:
-    "Guide complet du cashout en paris sportifs pour la CDM 2026. Comment ça marche, quand l'utiliser, pièges à éviter, comparatif par bookmaker.",
+    "Kompletter Cash-out-Ratgeber für Sportwetten zur WM 2026. Funktionsweise, wann nutzen, Fallen vermeiden, Vergleich nach Wettanbieter.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/cashout" },
   openGraph: {
-    title: "Guide du Cashout — Paris sportifs CDM 2026",
-    description: "Maîtrisez le cashout pour sécuriser vos gains pendant la CDM 2026.",
+    title: "Cash-out-Ratgeber — Sportwetten WM 2026",
+    description: "Meistern Sie den Cash-out, um Ihre Gewinne während der WM 2026 abzusichern.",
     url: "https://www.wm2026guide.de/sportwetten/cashout",
   },
 };
 
 const avantages = [
-  "Sécuriser un gain partiel avant la fin du match",
-  "Limiter les pertes quand le match tourne mal",
-  "Gérer le risque sur les combinés longs",
-  "Réagir en temps réel aux événements du match (carton rouge, blessure)",
+  "Teilgewinn vor Spielende absichern",
+  "Verluste begrenzen, wenn das Spiel sich wendet",
+  "Risiko bei langen Kombiwetten steuern",
+  "In Echtzeit auf Spielereignisse reagieren (Rote Karte, Verletzung)",
 ];
 
 const pieges = [
-  "Le cashout est toujours calculé en faveur du bookmaker (marge intégrée)",
-  "Sur le long terme, accepter le cashout réduit votre rentabilité",
-  "Le cashout partiel est souvent plus intéressant que le total",
-  "Certains bookmakers désactivent le cashout dans les moments critiques",
-  "Ne pas cashouter par peur — analysez rationnellement chaque situation",
+  "Der Cash-out wird immer zugunsten des Wettanbieters berechnet (eingebaute Marge)",
+  "Langfristig reduziert die Nutzung des Cash-outs Ihre Rentabilität",
+  "Ein Teil-Cash-out ist oft interessanter als ein vollständiger",
+  "Einige Wettanbieter deaktivieren den Cash-out in kritischen Momenten",
+  "Nicht aus Angst cashouten — analysieren Sie jede Situation rational",
 ];
 
 const comparatif = [
-  { bookmaker: "Betano", cashout: "Total + Partiel", live: true, auto: false, note: "Cashout disponible en live, interface claire, bookmaker agréé ANJ" },
+  { bookmaker: "Betano", cashout: "Voll + Teil", live: true, auto: false, note: "Cash-out live verfügbar, übersichtliche Oberfläche, lizenzierter Wettanbieter" },
 ];
 
 export default function CashoutGuidePage() {
   const faqItems = [
     {
-      question: "Qu'est-ce que le cashout en paris sportifs ?",
-      answer: "Le cashout permet de clôturer un pari avant la fin de l'événement. Si votre pari est en bonne voie, le bookmaker vous propose un montant inférieur au gain potentiel mais garanti. Si votre pari tourne mal, vous récupérez une partie de votre mise.",
+      question: "Was ist der Cash-out bei Sportwetten?",
+      answer: "Der Cash-out ermöglicht es, eine Wette vor dem Ende des Ereignisses zu schließen. Wenn Ihre Wette auf gutem Weg ist, bietet Ihnen der Wettanbieter einen Betrag an, der unter dem potenziellen Gewinn, aber garantiert ist. Wenn Ihre Wette schlecht läuft, erhalten Sie einen Teil Ihres Einsatzes zurück.",
     },
     {
-      question: "Le cashout est-il rentable sur le long terme ?",
-      answer: "Statistiquement, non. Le cashout inclut une marge en faveur du bookmaker (5-10% en moyenne). Sur le long terme, vous gagnez plus en laissant vos paris vivre. Utilisez-le de manière sélective pour des situations spécifiques.",
+      question: "Ist der Cash-out langfristig rentabel?",
+      answer: "Statistisch gesehen nein. Der Cash-out enthält eine Marge zugunsten des Wettanbieters (durchschnittlich 5-10 %). Langfristig gewinnen Sie mehr, wenn Sie Ihre Wetten laufen lassen. Nutzen Sie ihn selektiv für bestimmte Situationen.",
     },
     {
-      question: "Quand est-il judicieux de cashouter ?",
-      answer: "Cashoutez quand : (1) un Spieler clé est blessé et votre pari est en danger, (2) vous avez un combiné à 5 Aufgebots et les 4 premières sont gagnées, (3) la situation du match change radicalement (carton rouge, penalty). Évitez de cashouter par peur.",
+      question: "Wann ist es sinnvoll zu cashouten?",
+      answer: "Cashouten Sie, wenn: (1) ein Schlüsselspieler verletzt ist und Ihre Wette in Gefahr ist, (2) Sie eine 5er-Kombiwette haben und die ersten 4 gewonnen sind, (3) sich die Spielsituation drastisch ändert (Rote Karte, Elfmeter). Vermeiden Sie es, aus Angst zu cashouten.",
     },
   ];
 
@@ -56,42 +56,42 @@ export default function CashoutGuidePage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
-            Guide paris sportifs
+            Sportwetten-Ratgeber
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Guide du Cashout CDM 2026
+            Cash-out-Ratgeber WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Sécurisez vos gains ou limitez vos pertes : maîtrisez le cashout pendant la WM 2026.
+            Sichern Sie Ihre Gewinne oder begrenzen Sie Ihre Verluste: Meistern Sie den Cash-out während der WM 2026.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-14">
-        {/* Comment ça marche */}
+        {/* Funktionsweise */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
-            <Banknote className="h-7 w-7 text-accent" /> Comment fonctionne le cashout
+            <Banknote className="h-7 w-7 text-accent" /> So funktioniert der Cash-out
           </h2>
           <div className="prose max-w-none">
             <p>
-              Le cashout est une fonctionnalité proposée par la plupart des bookmakers qui vous permet
-              de <strong>clôturer un pari en cours</strong> avant que l&apos;événement ne se termine.
-              Le montant proposé varie en temps réel selon l&apos;évolution du match.
+              Der Cash-out ist eine Funktion, die von den meisten Wettanbietern angeboten wird und es Ihnen ermöglicht,
+              eine <strong>laufende Wette zu schließen</strong>, bevor das Ereignis beendet ist.
+              Der angebotene Betrag variiert in Echtzeit je nach Spielverlauf.
             </p>
             <p>
-              <strong>Exemple :</strong> Vous pariez 10 EUR sur France vainqueur à 2.00 (gain potentiel : 20 EUR).
-              À la 70e minute, la France mène 1-0. Le bookmaker vous propose un cashout de 16 EUR.
-              Vous pouvez accepter 16 EUR garantis ou attendre les 20 minutes restantes pour potentiellement
-              gagner 20 EUR — ou tout perdre si l&apos;adversaire égalise.
+              <strong>Beispiel:</strong> Sie wetten 10 EUR auf Sieg Frankreich zu einer Quote von 2.00 (potenzieller Gewinn: 20 EUR).
+              In der 70. Minute führt Frankreich 1:0. Der Wettanbieter bietet Ihnen einen Cash-out von 16 EUR an.
+              Sie können 16 EUR garantiert annehmen oder die verbleibenden 20 Minuten abwarten, um potenziell
+              20 EUR zu gewinnen — oder alles zu verlieren, falls der Gegner ausgleicht.
             </p>
           </div>
         </section>
 
-        {/* Avantages */}
+        {/* Vorteile */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
-            <CheckCircle className="h-7 w-7 text-green-500" /> Avantages
+            <CheckCircle className="h-7 w-7 text-green-500" /> Vorteile
           </h2>
           <ul className="space-y-2">
             {avantages.map((a) => (
@@ -103,10 +103,10 @@ export default function CashoutGuidePage() {
           </ul>
         </section>
 
-        {/* Pièges */}
+        {/* Fallen */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
-            <AlertTriangle className="h-7 w-7 text-yellow-500" /> Pièges à éviter
+            <AlertTriangle className="h-7 w-7 text-yellow-500" /> Fallen, die Sie vermeiden sollten
           </h2>
           <ul className="space-y-2">
             {pieges.map((p) => (
@@ -118,20 +118,20 @@ export default function CashoutGuidePage() {
           </ul>
         </section>
 
-        {/* Comparatif bookmakers */}
+        {/* Wettanbieter-Vergleich */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
-            <Clock className="h-7 w-7 text-accent" /> Comparatif cashout par bookmaker
+            <Clock className="h-7 w-7 text-accent" /> Cash-out-Vergleich nach Wettanbieter
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-primary text-white">
-                  <th className="py-3 px-4 text-left rounded-tl-lg">Bookmaker</th>
-                  <th className="py-3 px-4 text-left">Type</th>
+                  <th className="py-3 px-4 text-left rounded-tl-lg">Wettanbieter</th>
+                  <th className="py-3 px-4 text-left">Art</th>
                   <th className="py-3 px-4 text-center">Live</th>
                   <th className="py-3 px-4 text-center">Auto</th>
-                  <th className="py-3 px-4 text-left rounded-tr-lg">Note</th>
+                  <th className="py-3 px-4 text-left rounded-tr-lg">Hinweis</th>
                 </tr>
               </thead>
               <tbody>
@@ -151,14 +151,14 @@ export default function CashoutGuidePage() {
 
         <div className="text-center">
           <Link href="/sportwetten/bankroll" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-            Gestion de bankroll CDM <ArrowRight className="h-4 w-4" />
+            Bankroll-Management WM <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
+          Sportwetten sind mit Risiken verbunden. Spielen Sie verantwortungsvoll. 18+ | Informationen und Hilfe auf bzga.de (BZgA).
         </p>
       </div>
     </>

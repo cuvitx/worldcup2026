@@ -155,7 +155,7 @@ export function MatchHeroAdaptive({
                 href={`/mannschaft/${home.slug}`}
                 className="text-sm hover:text-secondary transition-colors"
               >
-                <span role="img" aria-label={`Drapeau de ${home.name}`}>
+                <span role="img" aria-label={`Flagge von ${home.name}`}>
                   {home.flag}
                 </span>{" "}
                 {home.name}
@@ -166,7 +166,7 @@ export function MatchHeroAdaptive({
                 href={`/mannschaft/${away.slug}`}
                 className="text-sm hover:text-secondary transition-colors"
               >
-                <span role="img" aria-label={`Drapeau de ${away.name}`}>
+                <span role="img" aria-label={`Flagge von ${away.name}`}>
                   {away.flag}
                 </span>{" "}
                 {away.name}
@@ -194,7 +194,7 @@ export function MatchHeroAdaptive({
         <div className="flex items-center justify-center gap-4 sm:gap-12 mb-6">
           {/* Home */}
           <div className="flex flex-col items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[180px] sm:max-w-none">
-            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Flagge von ${home?.name ?? "Unbekannt"}`}>
               {home?.flag ?? ""}
             </span>
             {home ? (
@@ -216,7 +216,7 @@ export function MatchHeroAdaptive({
 
           {/* Away */}
           <div className="flex flex-col items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[180px] sm:max-w-none">
-            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>
+            <span className="text-4xl sm:text-7xl" role="img" aria-label={`Flagge von ${away?.name ?? "Unbekannt"}`}>
               {away?.flag ?? ""}
             </span>
             {away ? (

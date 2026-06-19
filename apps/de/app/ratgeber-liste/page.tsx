@@ -4,21 +4,21 @@ import Link from "next/link";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 export const metadata: Metadata = {
-  title: "Guides paris sportifs CDM 2026 | Strategies & conseils",
+  title: "Sportwetten-Ratgeber WM 2026 | Strategien & Tipps",
   description:
-    "Tous nos guides de paris sportifs für die WM 2026. Strategies, conseils, guides debutants et analyses de bookmakers.",
+    "Alle unsere Sportwetten-Ratgeber für die WM 2026. Strategien, Tipps, Einsteiger-Ratgeber und Wettanbieter-Analysen.",
   alternates: getStaticAlternates("guides", "de"),
   openGraph: {
-    title: "Guides paris sportifs - CDM 2026",
-    description: "Guides complets pour parier sur la WM 2026.",
+    title: "Sportwetten-Ratgeber - WM 2026",
+    description: "Umfassende Ratgeber für Wetten auf die WM 2026.",
   },
 };
 
 const guidesJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Guides paris sportifs CDM 2026",
-  description: "Tous nos guides de paris sportifs für die WM 2026.",
+  name: "Sportwetten-Ratgeber WM 2026",
+  description: "Alle unsere Sportwetten-Ratgeber für die WM 2026.",
   url: "https://www.wm2026guide.de/guides",
   mainEntity: {
     "@type": "ItemList",
@@ -41,15 +41,15 @@ const categoryEmojis: Record<string, string> = {
 export default function GuidesPage() {
   const categoryLabels: Record<string, string> = {
     cdm2026: "WM 2026",
-    stratégie: "Strategies de paris",
-    bookmaker: "Bookmakers & comparatifs",
-    debutant: "Guides debutant",
+    stratégie: "Wettstrategien",
+    bookmaker: "Wettanbieter & Vergleiche",
+    debutant: "Einsteiger-Ratgeber",
   };
   const categoryDescriptions: Record<string, string> = {
-    cdm2026: "Tout ce qu'il faut savoir pour parier sur la CDM 2026.",
-    stratégie: "Strategies avancées pour maximiser vos gains.",
-    bookmaker: "Comparatifs et analyses des meilleurs bookmakers.",
-    debutant: "Les bases des paris sportifs pour bien debuter.",
+    cdm2026: "Alles Wissenswerte für Wetten auf die WM 2026.",
+    stratégie: "Fortgeschrittene Strategien zur Gewinnmaximierung.",
+    bookmaker: "Vergleiche und Analysen der besten Wettanbieter.",
+    debutant: "Die Grundlagen der Sportwetten für einen guten Einstieg.",
   };
 
   const categories = ["cdm2026", "stratégie", "bookmaker", "debutant"] as const;
@@ -63,11 +63,11 @@ export default function GuidesPage() {
 <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Paris sportifs</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Sportwetten</span>
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Guides paris sportifs CDM 2026</h1>
+          <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">Sportwetten-Ratgeber WM 2026</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            {guides.length} guides complets pour parier sur la WM 2026. Strategies, conseils debutants et analyses de bookmakers.
+            {guides.length} umfassende Ratgeber für Wetten auf die WM 2026. Strategien, Einsteiger-Tipps und Wettanbieter-Analysen.
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function GuidesPage() {
                     <div className="text-3xl mb-3">{emoji}</div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2 transition-colors">{guide.title}</h3>
                     <p className="text-sm text-gray-500 line-clamp-2 mb-3">{guide.intro}</p>
-                    <p className="text-sm font-bold text-primary">Lire →</p>
+                    <p className="text-sm font-bold text-primary">Lesen →</p>
                   </Link>
                 ))}
               </div>
@@ -104,10 +104,10 @@ export default function GuidesPage() {
         {/* Bookmaker reviews */}
         <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
-            <span className="text-2xl"></span> Avis bookmakers
+            <span className="text-2xl"></span> Wettanbieter-Bewertungen
           </h2>
           <p className="mb-4 text-sm text-gray-500">
-            Tests et avis détaillés des meilleurs bookmakers agréés en France.
+            Ausführliche Tests und Bewertungen der besten lizenzierten Wettanbieter.
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {bookmakerReviews.map((bk) => (
@@ -126,31 +126,31 @@ export default function GuidesPage() {
           </div>
         </section>
 
-        {/* Guides pratiques */}
+        {/* Praktische Ratgeber */}
         <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Guides pratiques</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Praktische Ratgeber</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { href: "/voyage/esta-visa-usa", icon: "🛂", title: "ESTA pour les USA", description: "Obtenir votre autorisation de voyage pour les États-Unis" },
-              { href: "/voyage/visa-mexique", icon: "🇲🇽", title: "Visa Mexique", description: "Formalités pour entrer au Mexique" },
-              { href: "/voyage/formalites-canada", icon: "🇨🇦", title: "Formalités Canada", description: "AVE et documents pour le Canada" },
-              { href: "/voyage/decalage-horaire", icon: "🕐", title: "Décalage horaire", description: "Horaires des matchs depuis la France" },
-              { href: "/vols", icon: "✈️", title: "Vols", description: "Trouver les meilleurs vols vers les USA/Canada/Mexique" },
-              { href: "/budget", icon: "💵", title: "Budget voyage CDM", description: "Estimer votre budget pour la CDM 2026" },
-              { href: "/voyage/assurance", icon: "🛡️", title: "Assurance voyage", description: "Quelle assurance choisir pour les USA" },
-              { href: "/voyage/carte-sim", icon: "📱", title: "Carte SIM USA", description: "Rester connecté aux États-Unis" },
-              { href: "/voyage/valise", icon: "🧳", title: "Que mettre dans sa valise", description: "Checklist pour ne rien oublier" },
-              { href: "/voyage/pourboires", icon: "💵", title: "Pourboires aux USA", description: "Guide des pourboires aux États-Unis" },
-              { href: "/voyage/supporter-francais", icon: "🇫🇷", title: "Supporter français aux USA", description: "Conseils pour les supporters français" },
-              { href: "/voyage/wifi-Stadien", icon: "📶", title: "WiFi dans les Stadien", description: "Connexion internet dans les Stadien CDM" },
-              { href: "/voyage/alcool-Stadien", icon: "🍺", title: "Alcool dans les Stadien", description: "Réglementation sur l'alcool dans les Stadien" },
-              { href: "/securite", icon: "🔒", title: "Sécurité", description: "Conseils de sécurité pour votre voyage" },
-              { href: "/hebergement", icon: "🏨", title: "Hébergement", description: "Où dormir pendant la CDM 2026" },
-              { href: "/Tickets", icon: "🎟️", title: "Tickets", description: "Comment acheter vos Tickets pour la CDM" },
-              { href: "/ou-regarder", icon: "📺", title: "Où regarder les matchs", description: "TV, streaming et bars pour suivre la CDM" },
-              { href: "/regarder-cdm-au-travail", icon: "💼", title: "Regarder au travail", description: "Suivre les matchs depuis le bureau" },
-              { href: "/guide/glossaire", icon: "📖", title: "Glossaire football", description: "Tous les termes du football expliqués" },
-              { href: "/voyage/vols-budget", icon: "🧮", title: "Calculateur de budget", description: "Calculez votre budget CDM personnalisé" },
+              { href: "/voyage/esta-visa-usa", icon: "🛂", title: "ESTA für die USA", description: "Ihre Reisegenehmigung für die USA erhalten" },
+              { href: "/voyage/visa-mexique", icon: "🇲🇽", title: "Visum Mexiko", description: "Einreiseformalitäten für Mexiko" },
+              { href: "/voyage/formalites-canada", icon: "🇨🇦", title: "Formalitäten Kanada", description: "eTA und Dokumente für Kanada" },
+              { href: "/voyage/decalage-horaire", icon: "🕐", title: "Zeitverschiebung", description: "Spielzeiten aus deutscher Sicht" },
+              { href: "/vols", icon: "✈️", title: "Flüge", description: "Die besten Flüge in die USA/Kanada/Mexiko finden" },
+              { href: "/budget", icon: "💵", title: "Reisebudget WM", description: "Ihr Budget für die WM 2026 berechnen" },
+              { href: "/voyage/assurance", icon: "🛡️", title: "Reiseversicherung", description: "Welche Versicherung für die USA wählen" },
+              { href: "/voyage/carte-sim", icon: "📱", title: "SIM-Karte USA", description: "In den USA verbunden bleiben" },
+              { href: "/voyage/valise", icon: "🧳", title: "Was in den Koffer packen", description: "Checkliste, damit nichts vergessen wird" },
+              { href: "/voyage/pourboires", icon: "💵", title: "Trinkgeld in den USA", description: "Trinkgeld-Ratgeber für die USA" },
+              { href: "/voyage/supporter-francais", icon: "🇩🇪", title: "Deutsche Fans in den USA", description: "Tipps für deutsche Fans" },
+              { href: "/voyage/wifi-Stadien", icon: "📶", title: "WLAN in den Stadien", description: "Internetverbindung in den WM-Stadien" },
+              { href: "/voyage/alcool-Stadien", icon: "🍺", title: "Alkohol in den Stadien", description: "Alkoholregelungen in den Stadien" },
+              { href: "/securite", icon: "🔒", title: "Sicherheit", description: "Sicherheitstipps für Ihre Reise" },
+              { href: "/hebergement", icon: "🏨", title: "Unterkunft", description: "Wo übernachten während der WM 2026" },
+              { href: "/Tickets", icon: "🎟️", title: "Tickets", description: "So kaufen Sie Ihre WM-Tickets" },
+              { href: "/ou-regarder", icon: "📺", title: "Wo die Spiele schauen", description: "TV, Streaming und Bars für die WM" },
+              { href: "/regarder-cdm-au-travail", icon: "💼", title: "Bei der Arbeit schauen", description: "Spiele vom Büro aus verfolgen" },
+              { href: "/guide/glossaire", icon: "📖", title: "Fußball-Glossar", description: "Alle Fußballbegriffe erklärt" },
+              { href: "/voyage/vols-budget", icon: "🧮", title: "Budgetrechner", description: "Berechnen Sie Ihr persönliches WM-Budget" },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all">
                 <div className="flex items-start gap-3">
@@ -167,16 +167,16 @@ export default function GuidesPage() {
 
         {/* Cross-links */}
         <section className="rounded-xl bg-primary/5 p-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Voir aussi</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Siehe auch</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/sportwetten" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Paris sportifs CDM 2026
+              Sportwetten WM 2026
             </Link>
             <Link href="/torschuetzen" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Torschützen-Quotens
+              Torschützen-Quoten
             </Link>
             <Link href="/prognose/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Prognose France
+              Prognose Frankreich
             </Link>
           </div>
         </section>

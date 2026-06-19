@@ -4,10 +4,10 @@ import { teamsById } from "../../../lib/localized-data";
 import { stadiumsById } from "../../../lib/localized-data";
 import { PrintButton } from "./PrintButton";
 export const metadata: Metadata = {
-  title: "Spielplan CDM 2026 — Version imprimable",
+  title: "Spielplan WM 2026 — Druckversion",
   description:
-    "Version imprimable du spielplan complet der WM 2026 : les 104 matchs avec dates, horaires, Stadien et Mannschafts. Format PDF.",
-  alternates: { canonical: "https://www.wm2026guide.de/spielplan/imprimer" },
+    "Druckversion des vollständigen Spielplans der WM 2026: alle 104 Spiele mit Daten, Uhrzeiten, Stadien und Mannschaften. PDF-Format.",
+  alternates: { canonical: "https://www.wm2026guide.de/spielkalender/drucken" },
   robots: { index: false, follow: false },
 };
 
@@ -22,11 +22,11 @@ function stadiumName(id: string): string {
 function stageLabel(stage: string, group?: string): string {
   if (stage === "group" && group) return `Gruppe ${group}`;
   const labels: Record<string, string> = {
-    round32: "32es de finale",
-    round16: "8es de finale",
+    round32: "Sechzehntelfinale",
+    round16: "Achtelfinale",
     quarter: "Viertelfinale",
     semi: "Halbfinale",
-    "third-place": "Petite finale",
+    "third-place": "Spiel um Platz 3",
     final: "Finale",
   };
   return labels[stage] ?? stage;
@@ -67,7 +67,7 @@ export default function SpielplanImprimerPage() {
           href="/spiel/spielplan"
           className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-100"
         >
-          ← Retour au spielplan
+          ← Zurück zum Spielplan
         </a>
       </div>
 
@@ -75,7 +75,7 @@ export default function SpielplanImprimerPage() {
          Spielplan WM 2026
       </h1>
       <p className="text-sm text-gray-500 mb-6">
-        104 matchs · 11 juin – 19 juillet 2026 · USA / Mexique / Canada
+        104 Spiele · 11. Juni – 19. Juli 2026 · USA / Mexiko / Kanada
       </p>
 
       {sortedDates.map((date) => {
@@ -94,9 +94,9 @@ export default function SpielplanImprimerPage() {
             <div className="overflow-x-auto"><table>
               <thead>
                 <tr>
-                  <th className="w-16">Heure</th>
-                  <th>Match</th>
-                  <th className="w-32">Phase</th>
+                  <th className="w-16">Uhrzeit</th>
+                  <th>Spiel</th>
+                  <th className="w-32">Runde</th>
                   <th className="hidden sm:table-cell">Stadion</th>
                 </tr>
               </thead>

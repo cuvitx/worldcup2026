@@ -4,7 +4,7 @@ import { teamsById } from "../../../lib/localized-data";
 import { stadiumsById } from "../../../lib/localized-data";
 
 
-export const alt = "Match CDM 2026";
+export const alt = "Spiel WM 2026";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,7 +35,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           {stadium?.name ?? ""} • {new Date(match.date).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })}
         </div>
         <div style={{ fontSize: "16px", color: "#d4af37", fontWeight: "bold", marginTop: "20px", letterSpacing: "2px" }}>
-          COUPE DU MONDE 2026
+          WELTMEISTERSCHAFT 2026
         </div>
       </div>
     ),

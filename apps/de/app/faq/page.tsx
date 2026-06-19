@@ -7,11 +7,11 @@ export function generateMetadata(): Metadata {
   return {
     title: "Häufig gestellte Fragen - WM 2026",
     description:
-      "Retrouvez toutes les réponses à vos questions sur la WM 2026 : format des Turniers, Mannschafts qualifiées, paris sportifs, Prognoses et plus encore.",
+      "Alle Antworten auf Ihre Fragen zur WM 2026: Turnierformat, qualifizierte Mannschaften, Sportwetten, Prognosen und mehr.",
     alternates: getStaticAlternates("faq", "de"),
     openGraph: {
       title: "FAQ - WM 2026",
-      description: "Réponses à toutes vos questions sur la CDM 2026 : format, Mannschafts, paris et Prognoses.",
+      description: "Antworten auf alle Ihre Fragen zur WM 2026: Format, Mannschaften, Wetten und Prognosen.",
       url: "https://www.wm2026guide.de/faq",
     },
   };
@@ -29,7 +29,7 @@ export default function FaqPage() {
 
   const itemsByCategory = categories.map((cat) => ({
     key: cat,
-    label: faqCategories[cat].fr,
+    label: (faqCategories[cat] as { de?: string; fr: string }).de ?? (faqCategories[cat] as { fr: string }).fr,
     emoji: categoryEmojis[cat] || "",
     items: faqItems.filter((item) => item.category === cat),
   }));
@@ -39,10 +39,10 @@ export default function FaqPage() {
     "@type": "FAQPage",
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
-      name: item.question.fr,
+      name: item.question.de ?? item.question.fr,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer.fr,
+        text: item.answer.de ?? item.answer.fr,
       },
     })),
   };
@@ -59,7 +59,7 @@ export default function FaqPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-extrabold sm:text-4xl">Häufig gestellte Fragen</h1>
           <p className="mt-2 text-gray-300">
-            Tout ce que vous devez savoir sur la WM FIFA 2026
+            Alles, was Sie über die FIFA WM 2026 wissen müssen
           </p>
         </div>
       </section>
@@ -98,7 +98,7 @@ export default function FaqPage() {
                   className="group rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
                 >
                   <summary className="cursor-pointer px-6 py-4 font-medium text-gray-900 hover:text-primary transition-colors list-none flex items-center justify-between gap-4">
-                    <h3 className="text-lg font-semibold text-gray-900">{item.question.fr}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">{item.question.de ?? item.question.fr}</h3>
                     <span className="faq-icon shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -108,7 +108,7 @@ export default function FaqPage() {
                   <div className="faq-content">
                     <div>
                       <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
-                        {item.answer.fr}
+                        {item.answer.de ?? item.answer.fr}
                       </div>
                     </div>
                   </div>

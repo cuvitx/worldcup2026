@@ -9,7 +9,7 @@ export function AffiliateSection({ teamName }: AffiliateSectionProps) {
     <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-2">Wetten auf {teamName}</h2>
       <p className="mb-6 text-sm text-gray-600">
-        Comparez les meilleurs sites de paris sportifs agreees en France pour parier sur {teamName}à la WM 2026.
+        Vergleichen Sie die besten lizenzierten Sportwetten-Anbieter fur Wetten auf {teamName} bei der WM 2026.
       </p>
       <div className="space-y-4">
         {bookmakers.map((bk) => {
@@ -21,7 +21,7 @@ export function AffiliateSection({ teamName }: AffiliateSectionProps) {
                 isFeatured ? "border-primary bg-primary/5" : "border-gray-200 bg-white"
               }`}
             >
-              {isFeatured && <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-white">Recommande</span>}
+              {isFeatured && <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-white">Empfohlen</span>}
               <div className="flex-1 text-center sm:text-left">
                 <p className="text-lg font-bold">{bk.name}</p>
                 <p className="text-sm text-gray-500">{"★".repeat(bk.rating)}{"☆".repeat(5 - bk.rating)}</p>

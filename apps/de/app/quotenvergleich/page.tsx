@@ -63,7 +63,7 @@ export default function ComparateurCotesPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.wm2026guide.de/" },
-              { "@type": "ListItem", position: 2, name: "Quotenvergleich", item: "https://www.wm2026guide.de/comparateur-cotes" },
+              { "@type": "ListItem", position: 2, name: "Quotenvergleich", item: "https://www.wm2026guide.de/quotenvergleich" },
             ],
           }),
         }}

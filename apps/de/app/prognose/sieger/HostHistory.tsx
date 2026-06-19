@@ -20,11 +20,11 @@ interface HostHistoryProps {
 
 export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct }: HostHistoryProps) {
   return (
-    <section id="historique" className="bg-gray-50 py-12 border-t border-gray-100">
+    <section id="geschichte" className="bg-gray-50 py-12 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Geschichte: Wer hat zu Hause gewonnen?" subtitle="Kann das Gastgeberland wirklich den Unterschied machen? Rückblick auf 22 Ausgaben." />
 
-        {/* Stats globales */}
+        {/* Gesamtstatistiken */}
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <Card hover padding="md" className="text-center">
             <p className="text-4xl font-extrabold text-primary mb-1">{homeWins}</p>
@@ -43,7 +43,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
           </div>
         </div>
 
-        {/* Pays hôtes vainqueurs */}
+        {/* Siegreiche Gastgeberländer */}
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3">
             Die 6 Weltmeister im eigenen Land
@@ -67,7 +67,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
           </div>
         </div>
 
-        {/* Timeline complète (compacte) */}
+        {/* Vollständige Zeitleiste (kompakt) */}
         <details className="group">
           <summary className="cursor-pointer flex items-center gap-2 text-sm font-semibold text-primary hover:underline list-none mb-4">
             <svg className="w-4 h-4 group-open:rotate-90 transition-transform duration-200 inline-block" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" /></svg>
@@ -113,7 +113,7 @@ export function HostHistory({ cdmHomeStats, homeWins, totalEditions, homeWinPct 
           </div>
         </details>
 
-        {/* Impact pour 2026 */}
+        {/* Auswirkungen für 2026 */}
         <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5">
           <h3 className="text-lg font-semibold text-gray-900 text-primary mb-2">
             <Telescope className="h-5 w-5 inline-block" /> Auswirkungen für 2026: USA, Kanada, Mexiko

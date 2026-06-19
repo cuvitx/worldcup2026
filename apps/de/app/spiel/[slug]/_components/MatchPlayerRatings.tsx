@@ -72,12 +72,12 @@ function ManOfTheMatch({
   const tackles = stats.tackles?.total ?? 0;
 
   const highlights: string[] = [];
-  if (goals > 0) highlights.push(`${goals} but${goals > 1 ? "s" : ""}`);
-  if (assists > 0) highlights.push(`${assists} passe${assists > 1 ? "s" : ""} dec.`);
-  if (keyPasses > 0) highlights.push(`${keyPasses} passe${keyPasses > 1 ? "s" : ""} cle${keyPasses > 1 ? "s" : ""}`);
-  if (passesTotal > 0) highlights.push(`${passesTotal} passes`);
-  if (duelsWon > 0) highlights.push(`${duelsWon} duels gagnes`);
-  if (tackles > 0) highlights.push(`${tackles} tacle${tackles > 1 ? "s" : ""}`);
+  if (goals > 0) highlights.push(`${goals} Tor${goals > 1 ? "e" : ""}`);
+  if (assists > 0) highlights.push(`${assists} Vorlage${assists > 1 ? "n" : ""}`);
+  if (keyPasses > 0) highlights.push(`${keyPasses} Schlusselpass${keyPasses > 1 ? "e" : ""}`);
+  if (passesTotal > 0) highlights.push(`${passesTotal} Passe`);
+  if (duelsWon > 0) highlights.push(`${duelsWon} Zweikampfe gew.`);
+  if (tackles > 0) highlights.push(`${tackles} Tackle${tackles > 1 ? "s" : ""}`);
 
   return (
     <div className="relative overflow-hidden rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-5">
@@ -117,7 +117,7 @@ function ManOfTheMatch({
           <div className="flex items-center gap-2 mb-0.5">
             <Star className="h-4 w-4 text-amber-500 shrink-0" fill="currentColor" />
             <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-              Homme du match
+              Spieler des Spiels
             </span>
           </div>
           <p className="text-lg font-bold text-gray-900 truncate">{player.name}</p>
@@ -182,7 +182,7 @@ function TeamRatings({
       {starters.length > 0 && (
         <>
           <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-2">
-            Titulaires
+            Startelf
           </p>
           <ul className="space-y-1.5 mb-5">
             {starters.map((entry) => {
@@ -217,7 +217,7 @@ function TeamRatings({
       {subs.length > 0 && (
         <>
           <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-2">
-            Remplacants
+            Einwechslungen
           </p>
           <ul className="space-y-1 mb-2">
             {subs.map((entry) => {
@@ -300,7 +300,7 @@ export function MatchPlayerRatings({
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="px-5 py-4 border-b border-gray-100">
-        <h2 className="font-bold text-lg text-gray-900">Notes des Spielers</h2>
+        <h2 className="font-bold text-lg text-gray-900">Spielerbewertungen</h2>
       </div>
 
       {/* Man of the Match */}

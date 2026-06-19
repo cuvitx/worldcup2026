@@ -65,7 +65,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
             href={`/mannschaft/${team.slug}`}
             className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
           >
-            <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-200 shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>
+            <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-200 shrink-0" role="img" aria-label={`Flagge von ${team.name}`}>
               {team.flag}
             </span>
             <div className="min-w-0">

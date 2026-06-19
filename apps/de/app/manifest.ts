@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "CDM 2026 - WM",
-    short_name: "CDM 2026",
+    name: "WM 2026 - Weltmeisterschaft",
+    short_name: "WM 2026",
     description:
-      "Prognoses, statistiques et guide complet der WM 2026",
+      "Prognosen, Statistiken und kompletter Ratgeber zur WM 2026",
     start_url: "/",
     display: "standalone",
     background_color: "#022149",

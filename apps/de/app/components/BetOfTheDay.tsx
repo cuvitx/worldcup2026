@@ -1,6 +1,6 @@
 // ============================================================================
-// BetOfTheDay — Widget "Pari du jour"
-// Auto-Aufgebotne le prochain match avec le favori le plus net.
+// BetOfTheDay — Widget "Wette des Tages"
+// Wählt automatisch das nächste Spiel mit dem klarsten Favoriten.
 // ============================================================================
 
 import Link from "next/link";
@@ -82,7 +82,7 @@ function pickBetOfTheDay(): DailyBet {
   let betType: string;
   let odds: string;
   if (favoriProb > 0.55) {
-    betType = `Unentschieden ou victoire ${favoriName}`;
+    betType = `Unentschieden oder Sieg ${favoriName}`;
     // Double chance odds ≈ 1 / (1 - loserProb)
     const loserProb = isFavoriHome ? awayProb : homeProb;
     odds = Math.max(1.1, 1 / (1 - loserProb)).toFixed(2);
@@ -104,18 +104,18 @@ function pickBetOfTheDay(): DailyBet {
     bookmaker: mainBookmaker.name,
     bookmakerUrl: mainBookmaker.url,
     confidence,
-    dateLabel: `${stageLabels[match.stage] ?? match.stage} CDM 2026`,
+    dateLabel: `${stageLabels[match.stage] ?? match.stage} WM 2026`,
   };
 }
 
 const todaysBet = pickBetOfTheDay();
 
 const CONFIDENCE_LABELS: Record<number, { label: string; color: string }> = {
-  1: { label: "Risqué", color: "text-red-400" },
-  2: { label: "Incertain", color: "text-primary" },
-  3: { label: "Modéré", color: "text-secondary" },
-  4: { label: "Confiant", color: "text-secondary" },
-  5: { label: "Très confiant", color: "text-accent" },
+  1: { label: "Riskant", color: "text-red-400" },
+  2: { label: "Unsicher", color: "text-primary" },
+  3: { label: "Moderat", color: "text-secondary" },
+  4: { label: "Zuversichtlich", color: "text-secondary" },
+  5: { label: "Sehr zuversichtlich", color: "text-accent" },
 };
 
 interface BetOfTheDayProps {
@@ -135,7 +135,7 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
           <div className="flex items-center gap-1.5">
             <span className="animate-pulse inline-block w-2 h-2 rounded-full bg-secondary" />
             <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">
-              Pari du jour
+              Wette des Tages
             </span>
           </div>
           <span className={`text-[10px] font-semibold ${conf.color}`}>{conf.label}</span>
@@ -178,8 +178,8 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
             </span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-secondary">Pari du jour</p>
-              <p className="text-[10px] text-gray-300">Aufgebot automatique CDM 2026</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-secondary">Wette des Tages</p>
+              <p className="text-[10px] text-gray-300">Automatische Auswahl WM 2026</p>
             </div>
           </div>
           <span className={`text-xs font-semibold ${conf.color}`}>{conf.label}</span>
@@ -203,11 +203,11 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         <div className="rounded-xl bg-white/5 border border-white/10 p-5 mb-4">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Type de pari</p>
+              <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Wettart</p>
               <p className="text-sm sm:text-base font-bold text-white break-words">{display.betType}</p>
             </div>
             <div className="text-right shrink-0">
-              <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Cote</p>
+              <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Quote</p>
               <p className="text-2xl sm:text-3xl font-extrabold text-secondary">{display.odds}</p>
             </div>
           </div>

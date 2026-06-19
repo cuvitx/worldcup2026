@@ -286,10 +286,10 @@ function InlineAffiliateCTA() {
 
         <div className="flex-1 text-center sm:text-left">
           <p className="text-[#d4af37] font-bold text-xs sm:text-sm uppercase tracking-wide">
-            Wetten auf les matchs de la CDM 2026
+            Wetten auf die Spiele der WM 2026
           </p>
           <p className="text-white font-extrabold text-xl sm:text-2xl mt-0.5">
-            Jusqu&apos;à <span className="text-[#ffd700]">100&nbsp;&euro;</span> Willkommensbonus
+            Bis zu <span className="text-[#ffd700]">100&nbsp;&euro;</span> Willkommensbonus
           </p>
         </div>
 

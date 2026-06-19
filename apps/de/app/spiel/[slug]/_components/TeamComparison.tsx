@@ -15,9 +15,9 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
       v1: `#${home.fifaRanking}`,
       v2: `#${away.fifaRanking}`,
     },
-    { label: "Confédération", v1: home.confederation, v2: away.confederation },
+    { label: "Konfoderation", v1: home.confederation, v2: away.confederation },
     {
-      label: "Participations CDM",
+      label: "WM-Teilnahmen",
       v1: String(home.wcAppearances),
       v2: String(away.wcAppearances),
     },
@@ -26,7 +26,7 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
 
   return (
     <Card>
-      <SectionHeading title="Comparaison" />
+      <SectionHeading title="Vergleich" />
       <div className="space-y-3">
         {comparisonRows.map((row) => (
           <div
@@ -58,7 +58,7 @@ export function TeamComparison({ home, away }: TeamComparisonProps) {
           href={`/h2h/${home.slug}-vs-${away.slug}`}
           className="text-sm font-medium text-primary hover:underline"
         >
-          Voir l&apos;historique complet des confrontations &rarr;
+          Komplette Bilanz der Direktduelle ansehen &rarr;
         </Link>
       </div>
     </Card>

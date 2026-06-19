@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const team = teams.find((t) => t.slug === slug);
   if (!team) return {};
   return {
-    title: `Spielers ${team.name} — CDM 2026 | Liste complète`,
-    description: `Tous les Spielers de ${team.name} Aufgebotnés für die WM 2026. Fiches détaillées, statistiques et profils.`,
+    title: `Spieler ${team.name} -- WM 2026 | Komplette Liste`,
+    description: `Alle Spieler von ${team.name} im Kader fur die WM 2026. Ausfuhrliche Steckbriefe, Statistiken und Profile.`,
     openGraph: { images: [{ url: `/api/og?type=equipe&slug=${slug}`, width: 1200, height: 630 }] },
   };
 }
@@ -42,9 +42,9 @@ export default async function SpielersEquipePage({ params }: Props) {
       <section className="hero-animated text-white py-12">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold">
-            {team.flag} Spielers {team.name} — CDM 2026
+            {team.flag} Spieler {team.name} -- WM 2026
           </h1>
-          <p className="mt-3 text-white/70 text-lg">{teamPlayers.length} Spielers Aufgebotnés</p>
+          <p className="mt-3 text-white/70 text-lg">{teamPlayers.length} Spieler im Kader</p>
         </div>
       </section>
 
@@ -60,7 +60,7 @@ export default async function SpielersEquipePage({ params }: Props) {
                   <Link key={p.slug} href={`/spieler/${p.slug}`} className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-colors">
                     <div>
                       <div className="font-semibold text-gray-900">{p.name}</div>
-                      <div className="text-sm text-gray-500">{p.club} · {p.age} ans</div>
+                      <div className="text-sm text-gray-500">{p.club} · {p.age} J.</div>
                     </div>
                   </Link>
                 ))}
@@ -69,7 +69,7 @@ export default async function SpielersEquipePage({ params }: Props) {
           );
         })}
         <div className="mt-8 text-center">
-          <Link href={`/mannschaft/${slug}`} className="text-primary hover:underline font-medium">← Fiche complète {team.name}</Link>
+          <Link href={`/mannschaft/${slug}`} className="text-primary hover:underline font-medium">← Vollstandiges Profil {team.name}</Link>
         </div>
       </div>
     </>

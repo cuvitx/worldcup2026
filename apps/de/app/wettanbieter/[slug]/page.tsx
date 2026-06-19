@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!bk) return {};
 
   return {
-    title: `Avis ${bk.name} 2026 | Bonus, cotes & test complet`,
-    description: `Avis ${bk.name} für die WM 2026. ${bk.bonus} ${bk.bonusDetail}. Test complet : cotes, application, paris en direct, retrait et service client.`,
+    title: `Bewertung ${bk.name} 2026 | Bonus, Quoten & vollständiger Test`,
+    description: `Bewertung ${bk.name} für die WM 2026. ${bk.bonus} ${bk.bonusDetail}. Vollständiger Test: Quoten, App, Live-Wetten, Auszahlung und Kundenservice.`,
     alternates: getAlternates("bookmaker", slug, "de"),
     openGraph: {
-      title: `Avis ${bk.name} - Paris sportifs CDM 2026`,
-      description: `Test et avis complet de ${bk.name}. ${bk.bonus} de bonus pour la CDM 2026.`,
+      title: `Bewertung ${bk.name} - Sportwetten WM 2026`,
+      description: `Test und vollständige Bewertung von ${bk.name}. ${bk.bonus} Bonus für die WM 2026.`,
     },
   };
 }
@@ -41,10 +41,10 @@ export default async function BookmakerPage({ params }: PageProps) {
   const avgRating = Object.values(bk.ratings).reduce((a, b) => a + b, 0) / 6;
   const ratingLabels: Record<string, string> = {
     bonus: "Bonus",
-    odds: "Cotes",
-    app: "Application",
-    live: "Paris en direct",
-    support: "Support client",
+    odds: "Quoten",
+    app: "App",
+    live: "Live-Wetten",
+    support: "Kundenservice",
     withdrawal: "Auszahlung",
   };
 
@@ -62,10 +62,10 @@ export default async function BookmakerPage({ params }: PageProps) {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="flex-1">
-              <h1 className="text-2xl font-extrabold sm:text-4xl">Avis {bk.name} 2026</h1>
+              <h1 className="text-2xl font-extrabold sm:text-4xl">Bewertung {bk.name} 2026</h1>
               <p className="mt-2 text-xl text-gray-300">{bk.tagline}</p>
               <p className="mt-1 text-gray-500">
-                Fonde en {bk.foundedYear} &middot; Licence {bk.license}
+                Gegründet {bk.foundedYear} &middot; Lizenz {bk.license}
               </p>
               <div className="flex items-center gap-2 mt-3">
                 <span className="text-2xl text-accent">{"★".repeat(Math.round(avgRating))}</span>
@@ -81,7 +81,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                 rel="noopener noreferrer sponsored nofollow"
                 className="mt-3 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
-                Ouvrir un compte
+                Konto eröffnen
               </a>
             </div>
           </div>
@@ -92,15 +92,15 @@ export default async function BookmakerPage({ params }: PageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Description */}
+            {/* Beschreibung */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Presentation de {bk.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Vorstellung von {bk.name}</h2>
               <p className="text-gray-700">{bk.description}</p>
             </section>
 
-            {/* Ratings */}
+            {/* Bewertungen */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Notes détaillées</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Detaillierte Bewertungen</h2>
               <div className="space-y-3">
                 {Object.entries(bk.ratings).map(([key, value]) => (
                   <div key={key}>
@@ -118,18 +118,18 @@ export default async function BookmakerPage({ params }: PageProps) {
                 ))}
               </div>
               <div className="mt-4 rounded-lg bg-accent/10 border border-accent/30 p-4 text-center">
-                <p className="text-sm text-gray-500">Note globale</p>
+                <p className="text-sm text-gray-500">Gesamtbewertung</p>
                 <p className="text-2xl font-extrabold text-accent sm:text-4xl">{avgRating.toFixed(1)}/5</p>
               </div>
             </section>
 
-            {/* Pros & Cons */}
+            {/* Vor- & Nachteile */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Avantages et inconvenients</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Vorteile und Nachteile</h2>
               <p className="mb-4 text-sm text-gray-600">{bk.prosConsIntro}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg bg-field/5 border border-field/20 p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 text-field mb-3">Avantages</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 text-field mb-3">Vorteile</h3>
                   <ul className="space-y-2">
                     {bk.pros.map((pro, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
@@ -140,7 +140,7 @@ export default async function BookmakerPage({ params }: PageProps) {
                   </ul>
                 </div>
                 <div className="rounded-lg bg-red-50 border border-red-200 p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 text-red-600 mb-3">Inconvenients</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 text-red-600 mb-3">Nachteile</h3>
                   <ul className="space-y-2">
                     {bk.cons.map((con, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
@@ -164,14 +164,14 @@ export default async function BookmakerPage({ params }: PageProps) {
             {/* CTA */}
             <section className="rounded-lg bg-accent/5 border-2 border-accent p-6 text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-2 text-accent">{bk.bonus}</h2>
-              <p className="mb-4 text-gray-600">{bk.bonusDetail} sur {bk.name}</p>
+              <p className="mb-4 text-gray-600">{bk.bonusDetail} bei {bk.name}</p>
               <a
                 href={bk.url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 className="inline-block rounded-xl bg-accent px-8 py-3.5 text-lg font-bold text-white hover:bg-accent/90 transition-colors"
               >
-                S&apos;inscrire sur {bk.name}
+                Bei {bk.name} registrieren
               </a>
             </section>
           </div>
@@ -187,35 +187,35 @@ export default async function BookmakerPage({ params }: PageProps) {
                   <dd className="font-bold text-field">{bk.bonus}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Depot minimum</dt>
+                  <dt className="text-gray-500">Mindesteinzahlung</dt>
                   <dd className="font-medium">{bk.minDeposit}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Delai retrait</dt>
+                  <dt className="text-gray-500">Auszahlungsdauer</dt>
                   <dd className="font-medium text-right max-w-[60%]">{bk.withdrawalTime}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Application</dt>
-                  <dd className="font-medium">{bk.appAvailable ? "iOS & Android" : "Non"}</dd>
+                  <dt className="text-gray-500">App</dt>
+                  <dd className="font-medium">{bk.appAvailable ? "iOS & Android" : "Nein"}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Live streaming</dt>
-                  <dd className="font-medium">{bk.liveStreaming ? "Oui" : "Non"}</dd>
+                  <dt className="text-gray-500">Live-Streaming</dt>
+                  <dd className="font-medium">{bk.liveStreaming ? "Ja" : "Nein"}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Cash out</dt>
-                  <dd className="font-medium">{bk.cashOut ? "Oui" : "Non"}</dd>
+                  <dt className="text-gray-500">Cash-out</dt>
+                  <dd className="font-medium">{bk.cashOut ? "Ja" : "Nein"}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Licence</dt>
+                  <dt className="text-gray-500">Lizenz</dt>
                   <dd className="font-medium">{bk.license}</dd>
                 </div>
               </dl>
             </div>
 
-            {/* Payment methods */}
+            {/* Zahlungsmethoden */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Moyens de paiement</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Zahlungsmethoden</h3>
               <div className="flex flex-wrap gap-2">
                 {bk.paymentMethods.map((method) => (
                   <span key={method} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
@@ -225,10 +225,10 @@ export default async function BookmakerPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Related Guides */}
+            {/* Verwandte Ratgeber */}
             {relatedGuides.length > 0 && (
               <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Guides utiles</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Nützliche Ratgeber</h3>
                 <ul className="space-y-2">
                   {relatedGuides.map((guide) => (
                     <li key={guide.id}>
@@ -241,9 +241,9 @@ export default async function BookmakerPage({ params }: PageProps) {
               </div>
             )}
 
-            {/* Other bookmakers */}
+            {/* Weitere Wettanbieter */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Autres bookmakers</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Weitere Wettanbieter</h3>
               <ul className="space-y-2">
                 {otherBookmakers.map((other) => (
                   <li key={other.id}>
@@ -275,7 +275,7 @@ export default async function BookmakerPage({ params }: PageProps) {
             },
             author: {
               "@type": "Organization",
-              name: "CDM 2026",
+              name: "WM 2026",
             },
             reviewRating: {
               "@type": "Rating",
@@ -283,7 +283,7 @@ export default async function BookmakerPage({ params }: PageProps) {
               bestRating: 5,
               worstRating: 1,
             },
-            description: `Avis ${bk.name} pour la CDM 2026. ${bk.bonus} de bonus.`,
+            description: `Bewertung ${bk.name} für die WM 2026. ${bk.bonus} Bonus.`,
             url: `${domains.de}/wettanbieter/${bk.slug}`,
           }),
         }}

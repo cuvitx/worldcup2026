@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const parsed = parseSlug(slug);
   if (!parsed) return {};
   const { team1, team2 } = parsed;
-  const title = `${team1.name} vs ${team2.name} : Konfrontationshistorie — CDM 2026`;
+  const title = `${team1.name} vs ${team2.name} : Direktvergleich -- WM 2026`;
   const description = `Vollständige Historie ${team1.name} - ${team2.name}: Direktvergleich-Bilanz, Ergebnisse, H2H-Statistiken und Prognose für die WM 2026.`;
   return {
     title,
@@ -120,7 +120,7 @@ const breadcrumbSchema = [
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SportsEvent",
-            name: `${team1.name} vs ${team2.name} — Historique`,
+            name: `${team1.name} vs ${team2.name} -- Direktvergleich`,
             sport: "Football",
             homeTeam: { "@type": "SportsTeam", name: team1.name },
             awayTeam: { "@type": "SportsTeam", name: team2.name },

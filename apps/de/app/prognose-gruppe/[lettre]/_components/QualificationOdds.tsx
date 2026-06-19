@@ -18,19 +18,19 @@ interface QualificationOddsProps {
 export function QualificationOdds({ sortedTeams }: QualificationOddsProps) {
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4"> Cotes de qualification (estimées)</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4"> Qualifikationsquoten (geschatzt)</h2>
       <p className="text-xs text-gray-400 mb-4">
-        Cotes calculées à partir des probabilités ELO avec marge bookmaker (8%). À titre indicatif.
+        Quoten berechnet auf Basis der ELO-Wahrscheinlichkeiten mit Wettanbieter-Marge (8 %). Indikativ.
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
               <th className="px-4 py-2 text-left">Mannschaft</th>
-              <th className="px-4 py-2 text-center">Qual. Gruppen</th>
-              <th className="px-4 py-2 text-center">1/8 de finale</th>
-              <th className="px-4 py-2 text-center">1/4 de finale</th>
-              <th className="px-4 py-2 text-center">Vainqueur</th>
+              <th className="px-4 py-2 text-center">Qual. Gruppe</th>
+              <th className="px-4 py-2 text-center">Achtelfinale</th>
+              <th className="px-4 py-2 text-center">Viertelfinale</th>
+              <th className="px-4 py-2 text-center">Sieger</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">

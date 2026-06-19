@@ -64,7 +64,7 @@ export function PredictionCard({
         </div>
       </div>
       <div className="rounded-lg bg-primary/5 p-3 text-center mb-4">
-        <p className="text-sm text-gray-500">Score predit</p>
+        <p className="text-sm text-gray-500">Vorhergesagtes Ergebnis</p>
         <p className="text-2xl font-extrabold text-primary">
           {prediction.predictedScore}
         </p>
@@ -88,7 +88,7 @@ export function PredictionCard({
         </div>
       </div>
       <p className="mt-2 text-xs text-gray-500">
-        Cotes estimees, susceptibles d&apos;evoluer. 18+
+        Geschatzte Quoten, Anderungen vorbehalten. 18+
       </p>
     </Card>
   );

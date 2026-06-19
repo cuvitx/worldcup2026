@@ -9,11 +9,11 @@ export async function GET() {
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//CDM2026//WM 2026//FR",
+    "PRODID:-//WM2026//WM 2026//DE",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "X-WR-CALNAME:WM 2026",
-    "X-WR-TIMEZONE:Europe/Paris",
+    "X-WR-TIMEZONE:Europe/Berlin",
   ];
 
   for (const match of matches) {
@@ -40,8 +40,8 @@ export async function GET() {
     const description = `WM 2026 - ${homeName} vs ${awayName}\\nhttps://www.wm2026guide.de/spiel/${match.slug}`;
 
     lines.push("BEGIN:VEVENT");
-    lines.push(`DTSTART;TZID=Europe/Paris:${dateClean}T${timeClean}`);
-    lines.push(`DTEND;TZID=Europe/Paris:${dateClean}T${endH}${endM}00`);
+    lines.push(`DTSTART;TZID=Europe/Berlin:${dateClean}T${timeClean}`);
+    lines.push(`DTEND;TZID=Europe/Berlin:${dateClean}T${endH}${endM}00`);
     lines.push(`UID:${uid}`);
     lines.push(`SUMMARY:${escapeIcal(summary)}`);
     if (location) lines.push(`LOCATION:${escapeIcal(location)}`);
@@ -49,7 +49,7 @@ export async function GET() {
     lines.push("BEGIN:VALARM");
     lines.push("TRIGGER:-PT30M");
     lines.push("ACTION:DISPLAY");
-    lines.push(`DESCRIPTION:${escapeIcal(summary)} dans 30 minutes`);
+    lines.push(`DESCRIPTION:${escapeIcal(summary)} in 30 Minuten`);
     lines.push("END:VALARM");
     lines.push("END:VEVENT");
   }
@@ -61,7 +61,7 @@ export async function GET() {
   return new NextResponse(ics, {
     headers: {
       "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": 'attachment; filename="cdm2026-spielplan.ics"',
+      "Content-Disposition": 'attachment; filename="wm2026-spielplan.ics"',
       "Cache-Control": "public, max-age=3600",
     },
   });

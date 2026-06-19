@@ -173,7 +173,7 @@ export default function ValueBetsPage() {
         </p>
       </section>
 
-      {/* Calcul */}
+      {/* Berechnung */}
       <section className="max-w-4xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Calculator className="w-7 h-7 text-accent" />
@@ -217,7 +217,7 @@ export default function ValueBetsPage() {
         </div>
       </section>
 
-      {/* Méthodologie */}
+      {/* Methodik */}
       <section className="max-w-4xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Target className="w-7 h-7 text-accent" />
@@ -260,10 +260,10 @@ export default function ValueBetsPage() {
         </div>
       </section>
 
-      {/* Value Bets CDM 2026 */}
+      {/* Value Bets WM 2026 */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-2">
-          10 value bets CDM 2026
+          10 Value Bets WM 2026
         </h2>
         <p className="text-gray-500 mb-8 text-sm">
           Richtquoten vom 20.02.2026. Überprüfen Sie die aktuellen Quoten vor dem Wetten.
@@ -283,7 +283,7 @@ export default function ValueBetsPage() {
                       Quote: {vb.cote.toFixed(2)}
                     </span>
                     <span className="bg-green-100 text-green-800 font-bold px-3 py-1.5 rounded-lg text-sm">
-                      Value : +{value.toFixed(0)} %
+                      Value: +{value.toFixed(0)} %
                     </span>
                   </div>
                 </div>
@@ -320,11 +320,11 @@ export default function ValueBetsPage() {
 
       {/* FAQ */}
       <FAQSection
-        title="Häufig gestellte Fragen — Value bets CDM 2026"
+        title="Häufig gestellte Fragen — Value Bets WM 2026"
         items={faqItems}
       />
 
-      {/* ANJ */}
+      {/* BZgA */}
       <section className="max-w-3xl mx-auto px-4 py-6 text-center">
         <p className="text-xs text-gray-400">
           Sportwetten sind Personen ab 18 Jahren vorbehalten. Spielen

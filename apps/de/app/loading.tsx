@@ -1,7 +1,7 @@
 export default function Loading() {
   return (
     <div className="flex flex-1 flex-col min-h-[70vh] bg-gray-50">
-      {/* Barre de progression en haut */}
+      {/* Fortschrittsbalken oben */}
       <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-gray-200 overflow-hidden">
         <div className="h-full w-1/3 bg-primary rounded-full animate-[loading-bar_1.5s_ease-in-out_infinite]" />
       </div>
@@ -30,7 +30,7 @@ export default function Loading() {
         </div>
       </div>
 
-      {/* Spacer pour compenser la navbar fixe */}
+      {/* Spacer zum Ausgleich der fixen Navbar */}
       <div className="h-14" />
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
@@ -46,14 +46,14 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* Grille de cartes skeleton */}
+        {/* Skeleton-Kartengitter */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
           {Array.from({ length: 6 }).map((_, i) => (
             <SkeletonCard key={i} delay={i * 0.1} />
           ))}
         </div>
 
-        {/* Ballon centré en bas */}
+        {/* Zentrierter Ball unten */}
         <div className="flex flex-col items-center justify-center py-8 gap-3">
           <BouncingBall />
           <p className="text-sm text-gray-400 font-medium animate-pulse">

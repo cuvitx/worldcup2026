@@ -13,19 +13,19 @@ const formatProb = (p: number) =>
 export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesProps) {
   const stages = [
     { label: "Gruppenphase", key: "groupStageProb" as const, value: prediction.groupStageProb },
-    { label: "32e de finale", key: "roundOf32Prob" as const, value: prediction.roundOf32Prob },
-    { label: "8e de finale", key: "roundOf16Prob" as const, value: prediction.roundOf16Prob },
+    { label: "Sechzehntelfinale", key: "roundOf32Prob" as const, value: prediction.roundOf32Prob },
+    { label: "Achtelfinale", key: "roundOf16Prob" as const, value: prediction.roundOf16Prob },
     { label: "Viertelfinale", key: "quarterFinalProb" as const, value: prediction.quarterFinalProb },
     { label: "Halbfinale", key: "semiFinalProb" as const, value: prediction.semiFinalProb },
     { label: "Finale", key: "finalProb" as const, value: prediction.finalProb },
-    { label: "Vainqueur", key: "winnerProb" as const, value: prediction.winnerProb },
+    { label: "Sieger", key: "winnerProb" as const, value: prediction.winnerProb },
   ];
 
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Probabilites par tour - {teamName}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Wahrscheinlichkeiten pro Runde — {teamName}</h2>
       <p className="mb-4 text-sm text-gray-600">
-        Probabilites estimees de {teamName} d&apos;atteindre chaque tour der WM 2026, basees sur le modele ELO.
+        Geschätzte Wahrscheinlichkeiten für {teamName}, jede Runde der WM 2026 zu erreichen, basierend auf dem ELO-Modell.
       </p>
       <div className="space-y-3">
         {stages.map((stage) => (
@@ -45,9 +45,9 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
       </div>
       <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
         <span className="inline-block h-3 w-3 rounded-full bg-primary" />
-        <span>Tour intermediaire</span>
+        <span>Zwischenrunde</span>
         <span className="ml-2 inline-block h-3 w-3 rounded-full bg-accent" />
-        <span>Sieg finale</span>
+        <span>Turniersieg</span>
       </div>
     </section>
   );

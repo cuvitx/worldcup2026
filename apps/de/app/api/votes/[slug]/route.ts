@@ -47,7 +47,7 @@ export async function POST(
   // Rate limit: 5 requests per minute per IP
   if (!rateLimit(ip, 5)) {
     return Response.json(
-      { error: "rate_limit", message: "Trop de requêtes. Réessayez dans une minute." },
+      { error: "rate_limit", message: "Zu viele Anfragen. Versuchen Sie es in einer Minute erneut." },
       { status: 429 },
     );
   }
@@ -77,7 +77,7 @@ export async function POST(
 
   if (alreadyVoted) {
     return Response.json(
-      { error: "already_voted", message: "Vous avez déjà voté pour ce match.", ...counts, total },
+      { error: "already_voted", message: "Sie haben bereits für dieses Spiel abgestimmt.", ...counts, total },
       { status: 409 },
     );
   }
