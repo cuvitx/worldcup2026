@@ -53,7 +53,7 @@ const AiExpertInsight = dynamic(
   }
 );
 
-export const revalidate = 30;
+export const revalidate = 300; // 5min — was 30s, caused 60K+ API calls/day
 export const dynamicParams = true;
 
 interface PageProps {
