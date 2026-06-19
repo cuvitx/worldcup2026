@@ -6,8 +6,8 @@
 
 export interface FaqItem {
   id: string;
-  question: { fr: string; en: string; es: string };
-  answer: { fr: string; en: string; es: string };
+  question: { fr: string; en: string; es: string; de?: string };
+  answer: { fr: string; en: string; es: string; de?: string };
   category: "tournament" | "betting" | "predictions" | "teams" | "travel" | "history" | "watching";
 }
 
@@ -16,36 +16,43 @@ export const faqCategories = {
     fr: "Le tournoi",
     en: "The Tournament",
     es: "El torneo",
+    de: "Das Turnier",
   },
   betting: {
     fr: "Paris sportifs",
     en: "Sports Betting",
     es: "Apuestas deportivas",
+    de: "Sportwetten",
   },
   predictions: {
     fr: "Pronostics",
     en: "Predictions",
     es: "Pronósticos",
+    de: "Prognosen",
   },
   teams: {
     fr: "Équipes",
     en: "Teams",
     es: "Equipos",
+    de: "Mannschaften",
   },
   travel: {
     fr: "Voyage et billets",
     en: "Travel & Tickets",
     es: "Viaje y entradas",
+    de: "Reise & Tickets",
   },
   history: {
     fr: "Historique",
     en: "History",
     es: "Historia",
+    de: "Geschichte",
   },
   watching: {
     fr: "Regarder les matchs",
     en: "Watching Matches",
     es: "Ver los partidos",
+    de: "Spiele schauen",
   },
 } as const;
 

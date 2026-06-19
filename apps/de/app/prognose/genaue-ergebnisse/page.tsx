@@ -30,11 +30,11 @@ const historicalScores = [
 ];
 
 const bigMatchScores = [
-  { match: "🇫🇷 France vs 🇧🇷 Brésil", score1: "1-0", cote1: 7.5, score2: "2-1", cote2: 8.0, score3: "1-1", cote3: 6.5 },
-  { match: "🇦🇷 Argentine vs 🇩🇪 Allemagne", score1: "2-1", cote1: 8.5, score2: "1-1", cote2: 6.0, score3: "1-0", cote3: 7.0 },
-  { match: "🇪🇸 Espagne vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", score1: "2-1", cote1: 9.0, score2: "1-0", cote2: 7.5, score3: "1-1", cote3: 6.0 },
-  { match: "🇵🇹 Portugal vs 🇫🇷 France", score1: "1-2", cote1: 9.5, score2: "0-1", cote2: 8.0, score3: "1-1", cote3: 6.5 },
-  { match: "🇧🇷 Brésil vs 🇦🇷 Argentine", score1: "1-2", cote1: 9.0, score2: "2-2", cote2: 14.0, score3: "1-1", cote3: 6.5 },
+  { match: "🇫🇷 Frankreich vs 🇧🇷 Brasilien", score1: "1-0", cote1: 7.5, score2: "2-1", cote2: 8.0, score3: "1-1", cote3: 6.5 },
+  { match: "🇦🇷 Argentinien vs 🇩🇪 Deutschland", score1: "2-1", cote1: 8.5, score2: "1-1", cote2: 6.0, score3: "1-0", cote3: 7.0 },
+  { match: "🇪🇸 Spanien vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", score1: "2-1", cote1: 9.0, score2: "1-0", cote2: 7.5, score3: "1-1", cote3: 6.0 },
+  { match: "🇵🇹 Portugal vs 🇫🇷 Frankreich", score1: "1-2", cote1: 9.5, score2: "0-1", cote2: 8.0, score3: "1-1", cote3: 6.5 },
+  { match: "🇧🇷 Brasilien vs 🇦🇷 Argentinien", score1: "1-2", cote1: 9.0, score2: "2-2", cote2: 14.0, score3: "1-1", cote3: 6.5 },
 ];
 
 const tips = [
