@@ -32,11 +32,11 @@ jobs:
             REPO_DIR="/srv/cdm2026/repo"
             cd "$REPO_DIR" && git fetch origin main && git reset --hard origin/main
             SCRIPT_DIR="${REPO_DIR}/scripts/vps"
-            if [ ! -f /etc/systemd/system/wm2026-de.service ] && [ -f "${SCRIPT_DIR}/wm2026-de.service" ]; then
-              echo "[PROVISION] Installing wm2026-de.service..."
+            # Always sync latest service file (handles updates like ExecStart path fixes)
+            if [ -f "${SCRIPT_DIR}/wm2026-de.service" ]; then
               sudo cp "${SCRIPT_DIR}/wm2026-de.service" /etc/systemd/system/
               sudo systemctl daemon-reload
-              sudo systemctl enable wm2026-de
+              sudo systemctl enable wm2026-de 2>/dev/null || true
             fi
             if [ ! -f /etc/nginx/sites-available/wm2026-de ] && [ -f "${SCRIPT_DIR}/wm2026-de.nginx" ]; then
               echo "[PROVISION] Installing nginx config for DE..."
