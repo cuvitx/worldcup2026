@@ -42,7 +42,7 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
               <div className="flex items-center gap-3">
                 <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${RANK_BADGE[idx]}`}>{RANK_LABEL[idx]}</span>
                 <span className="text-2xl" aria-label={team!.name}>{team!.flag}</span>
-                <Link href={`/equipe/${team!.slug}`} className="font-bold text-lg hover:text-primary transition-colors">{team!.name}</Link>
+                <Link href={`/mannschaft/${team!.slug}`} className="font-bold text-lg hover:text-primary transition-colors">{team!.name}</Link>
                 {qual && (
                   <span className="ml-auto rounded-full bg-accent/15 px-2 py-0.5 text-xs font-semibold text-accent">Qualifiziert</span>
                 )}

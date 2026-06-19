@@ -11,6 +11,8 @@ interface FlagProps {
   flag: string;
   name: string;
   className?: string;
+  /** Language for i18n (default: "fr") */
+  lang?: "fr" | "de";
 }
 
 /**
@@ -28,9 +30,9 @@ interface FlagProps {
  * <Flag flag="🇧🇷" name="Brésil" className="text-3xl" />
  * ```
  */
-export default function Flag({ flag, name, className }: FlagProps) {
+export default function Flag({ flag, name, className, lang = "fr" }: FlagProps) {
   return (
-    <span role="img" aria-label={`Drapeau de ${name}`} className={className}>
+    <span role="img" aria-label={lang === "de" ? `Flagge von ${name}` : `Drapeau de ${name}`} className={className}>
       {flag}
     </span>
   );

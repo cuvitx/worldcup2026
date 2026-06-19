@@ -25,7 +25,7 @@ export function SimulatorCta() {
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
-            href="/simulateur"
+            href="/turnierbaum"
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3.5 font-bold text-white hover:-translate-y-1 transition-all text-base"
           >
              Bracket-Simulator starten

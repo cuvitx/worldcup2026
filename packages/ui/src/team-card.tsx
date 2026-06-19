@@ -10,6 +10,8 @@ import type { Team } from "@repo/data/types";
 interface TeamCardProps {
   team: Team;
   compact?: boolean;
+  /** Language for i18n (default: "fr") */
+  lang?: "fr" | "de";
 }
 
 /**
@@ -30,23 +32,23 @@ interface TeamCardProps {
  * />
  * ```
  */
-export function TeamCard({ team, compact = false }: TeamCardProps) {
+export function TeamCard({ team, compact = false, lang = "fr" }: TeamCardProps) {
   if (compact) {
     return (
       <Link
-        href={`/equipe/${team.slug}`}
+        href={lang === "de" ? `/mannschaft/${team.slug}` : `/equipe/${team.slug}`}
         className="flex items-center gap-2.5 rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/30 hover:shadow-sm hover:bg-gray-50"
       >
-        <span className="text-2xl shrink-0" role="img" aria-label={`Drapeau de ${team.name}`}>{team.flag}</span>
+        <span className="text-2xl shrink-0" role="img" aria-label={lang === "de" ? `Flagge von ${team.name}` : `Drapeau de ${team.name}`}>{team.flag}</span>
         <div className="min-w-0 flex-1">
           <p className="text-sm font-semibold text-gray-900 break-words">{team.name}</p>
           <p className="text-xs text-gray-500">
-            Groupe {team.group} · #{team.fifaRanking || "–"} FIFA
+            {lang === "de" ? "Gruppe" : "Groupe"} {team.group} · #{team.fifaRanking || "–"} FIFA
           </p>
         </div>
         {team.isHost && (
           <span className="shrink-0 rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-bold text-accent uppercase">
-            Hôte
+            {lang === "de" ? "Gastgeber" : "Hôte"}
           </span>
         )}
       </Link>
@@ -55,7 +57,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
 
   return (
     <Link
-      href={`/equipe/${team.slug}`}
+      href={lang === "de" ? `/mannschaft/${team.slug}` : `/equipe/${team.slug}`}
       className="group relative flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5"
     >
       {/* Ranking badge */}
@@ -68,7 +70,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
       <span
         className="text-4xl shrink-0 transition-transform group-hover:scale-110 duration-200"
         role="img"
-        aria-label={`Drapeau de ${team.name}`}
+        aria-label={lang === "de" ? `Flagge von ${team.name}` : `Drapeau de ${team.name}`}
       >
         {team.flag}
       </span>
@@ -76,12 +78,12 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
       <div className="min-w-0 flex-1">
         <h3 className="text-lg font-semibold text-gray-900 break-words">{team.name}</h3>
         <p className="mt-0.5 text-sm text-gray-500">
-          Groupe {team.group} · {team.confederation}
+          {lang === "de" ? "Gruppe" : "Groupe"} {team.group} · {team.confederation}
           {team.fifaRanking > 0 ? ` · #${team.fifaRanking} FIFA` : ""}
         </p>
         {team.isHost && (
           <span className="mt-1 inline-block rounded-full bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
-            Pays hôte
+            {lang === "de" ? "Gastgeberland" : "Pays hôte"}
           </span>
         )}
       </div>

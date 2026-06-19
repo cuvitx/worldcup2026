@@ -686,7 +686,7 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
           </Link>
           <Link
-            href="/comparateur-cotes"
+            href="/quotenvergleich"
             className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 hover:shadow-md hover:border-primary/30 transition-all"
           >
             <span className="text-2xl"><TrendingUp className="h-5 w-5 inline-block" /></span>

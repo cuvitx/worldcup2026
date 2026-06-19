@@ -88,7 +88,7 @@ export default function RootLayout({
         style={{ background: "var(--color-bg)", color: "var(--color-text)" } as React.CSSProperties}
         suppressHydrationWarning
       >
-        <OrganizationSchema url={domains.de} name="WM 2026 — Fussball-Weltmeisterschaft" />
+        <OrganizationSchema lang="de" url={domains.de} name="WM 2026 — Fussball-Weltmeisterschaft" />
         <WebSiteSchema url={domains.de} name="WM 2026" description="Kompletter Guide zur Fussball-WM 2026: Prognosen, Quoten, Analysen aller 48 Mannschaften." />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Zum Inhalt springen</a>
         <Header />

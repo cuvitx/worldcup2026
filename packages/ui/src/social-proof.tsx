@@ -15,17 +15,23 @@ interface Counter {
   emoji: string;
 }
 
-const COUNTERS: Counter[] = [
+const COUNTERS_FR: Counter[] = [
   { value: 48, label: 'équipes qualifiées', emoji: '' },
   { value: 104, label: 'matchs à pronostiquer', emoji: '' },
   { value: 202, label: 'questions au quiz', emoji: '🧩' },
 ];
 
-function formatNumber(n: number): string {
-  return n.toLocaleString('fr-FR');
+const COUNTERS_DE: Counter[] = [
+  { value: 48, label: 'qualifizierte Teams', emoji: '' },
+  { value: 104, label: 'Spiele zum Tippen', emoji: '' },
+  { value: 202, label: 'Quizfragen', emoji: '🧩' },
+];
+
+function formatNumber(n: number, lang: "fr" | "de" = "fr"): string {
+  return n.toLocaleString(lang === "de" ? "de-DE" : "fr-FR");
 }
 
-function AnimatedCounter({ target, started }: { target: number; started: boolean }) {
+function AnimatedCounter({ target, started, lang = "fr" }: { target: number; started: boolean; lang?: "fr" | "de" }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -51,7 +57,7 @@ function AnimatedCounter({ target, started }: { target: number; started: boolean
     return () => clearInterval(timer);
   }, [started, target]);
 
-  return <span>{formatNumber(current)}</span>;
+  return <span>{formatNumber(current, lang)}</span>;
 }
 
 /**
@@ -64,7 +70,7 @@ function AnimatedCounter({ target, started }: { target: number; started: boolean
  * <SocialProof />
  * ```
  */
-export function SocialProof() {
+export function SocialProof({ lang = "fr" }: { lang?: "fr" | "de" } = {}) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -93,11 +99,11 @@ export function SocialProof() {
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          {COUNTERS.map((c) => (
+          {(lang === "de" ? COUNTERS_DE : COUNTERS_FR).map((c) => (
             <div key={c.label} className="flex flex-col items-center gap-2">
               <span className="text-3xl">{c.emoji}</span>
               <span className="text-3xl sm:text-4xl font-black text-white tabular-nums">
-                <AnimatedCounter target={c.value} started={visible} />
+                <AnimatedCounter target={c.value} started={visible} lang={lang} />
               </span>
               <span className="text-sm text-gray-300 font-medium">
                 {c.label}

@@ -192,7 +192,7 @@ export default function H2HIndexPage() {
           { href: "/mannschaft", title: "Die 48 Mannschaften", description: "Vollständige Kaderübersicht jeder Mannschaft", icon: "" },
           { href: "/spiel/spielplan", title: "Spielplan", description: "Alle Spiele der WM 2026", icon: "" },
           { href: "/fifa-ranking", title: "FIFA-Rangliste", description: "Weltrangliste der 48 Mannschaften", icon: "" },
-          { href: "/comparateur-Spielers", title: "Spielervergleich", description: "Vergleichen Sie die Stars der WM", icon: "" },
+          { href: "/quotenvergleich", title: "Spielervergleich", description: "Vergleichen Sie die Stars der WM", icon: "" },
           { href: "/statistiques", title: "Statistiken", description: "Zahlen und Statistiken der WM 2026", icon: "" },
         ]} />
       </div>

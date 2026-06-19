@@ -296,7 +296,7 @@ return (
         {/* Sekundäre CTAs */}
         <div className='flex flex-wrap justify-center gap-4'>
           <Link
-            href='/comparateur-cotes'
+            href='/quotenvergleich'
             className='inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors'
           >
             Quotenvergleich <ArrowRight className='h-4 w-4' />

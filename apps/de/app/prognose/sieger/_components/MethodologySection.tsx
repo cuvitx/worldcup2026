@@ -47,7 +47,7 @@ export function MethodologySection() {
             ))}
           </div>
           <Link
-            href="/methodologie"
+            href="/ueber-uns"
             className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
           >
             Unsere vollständige Methodik lesen →

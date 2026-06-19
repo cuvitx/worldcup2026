@@ -6,7 +6,7 @@ export function CtaSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
-            href="/comparateur-cotes"
+            href="/quotenvergleich"
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-semibold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-md"
           >
             Alle Quoten vergleichen
@@ -18,7 +18,7 @@ export function CtaSection() {
             🇩🇪 Prognose Deutschland
           </Link>
           <Link
-            href="/simulateur"
+            href="/turnierbaum"
             className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-6 py-3 font-semibold text-primary hover:bg-primary/20 transition-all"
           >
             Bracket-Simulator

@@ -18,13 +18,13 @@ export interface BadgeDef {
  * List of all available badges with their metadata
  */
 export const BADGE_DEFS: BadgeDef[] = [
-  { id: "first-prono", emoji: "🎯", name: "Premier Pronostic", description: "Soumettre son 1er pronostic", category: "pronostic" },
-  { id: "streak7", emoji: "🔥", name: "Streak x7", description: "7 jours consécutifs de visite", category: "engagement" },
-  { id: "expert-cdm", emoji: "🧠", name: "Expert CDM", description: "Score quiz > 80%", category: "quiz" },
-  { id: "oracle", emoji: "🔮", name: "Oracle", description: "3 pronostics corrects d'affilée", category: "pronostic" },
-  { id: "globe-trotter", emoji: "🌍", name: "Globe Trotter", description: "Visiter toutes les pages stades", category: "exploration" },
-  { id: "champion", emoji: "🏆", name: "Champion", description: "Terminer le simulateur", category: "engagement" },
-  { id: "assidu", emoji: "📅", name: "Assidu", description: "Visiter le site 30 jours", category: "engagement" },
+  { id: "first-prono", emoji: "🎯", name: "Erste Prognose", description: "Erste Prognose abgeben", category: "pronostic" },
+  { id: "streak7", emoji: "🔥", name: "Streak x7", description: "7 Tage in Folge besucht", category: "engagement" },
+  { id: "expert-cdm", emoji: "🧠", name: "WM-Experte", description: "Quiz-Score > 80%", category: "quiz" },
+  { id: "oracle", emoji: "🔮", name: "Oracle", description: "3 richtige Prognosen in Folge", category: "pronostic" },
+  { id: "globe-trotter", emoji: "🌍", name: "Globe Trotter", description: "Alle Stadion-Seiten besuchen", category: "exploration" },
+  { id: "champion", emoji: "🏆", name: "Champion", description: "Den Turnierbaum abschließen", category: "engagement" },
+  { id: "assidu", emoji: "📅", name: "Treuer Fan", description: "Die Seite 30 Tage besuchen", category: "engagement" },
 ];
 
 /**

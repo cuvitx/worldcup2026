@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Quotenvergleich -- WM 2026",
     description: "Die besten Quoten der Wettanbieter für die WM 2026.",
   },
-  alternates: { canonical: "https://www.wm2026guide.de/comparateur-cotes" },
+  alternates: { canonical: "https://www.wm2026guide.de/quotenvergleich" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

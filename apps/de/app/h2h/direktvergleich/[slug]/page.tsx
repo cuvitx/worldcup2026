@@ -89,7 +89,7 @@ export default async function ConfrontationPage({ params }: PageProps) {
   const historicalMatches = getHistoricalMatches(slug, team1.name, team2.name);
 const breadcrumbSchema = [
     { name: "Startseite", url: "/" },
-    { name: "Direktvergleiche", url: "/confrontations-historiques" },
+    { name: "Direktvergleiche", url: "/h2h" },
     { name: `${team1.name} vs ${team2.name}`, url: `/h2h/${slug}` },
   ];
   const faqItems = [
@@ -312,9 +312,9 @@ const breadcrumbSchema = [
               <h3 className="font-bold text-gray-900  mb-3"><Link2 className="h-5 w-5 inline-block" /> Siehe auch</h3>
               <ul className="space-y-2 text-sm">
                 <li><Link href={`/h2h/${slug}`} className="text-primary hover:underline"><Swords className="h-5 w-5 inline-block" /> Detaillierter H2H + Prognose</Link></li>
-                <li><Link href={`/cote-champion/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Quote {team1.name} Weltmeister</Link></li>
-                <li><Link href={`/cote-champion/${team2.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Quote {team2.name} Weltmeister</Link></li>
-                <li><Link href="/confrontations-historiques" className="text-primary hover:underline"><BarChart3 className="h-5 w-5 inline-block" /> Alle Direktvergleiche</Link></li>
+                <li><Link href={`/meister-wetten/${team1.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Quote {team1.name} Weltmeister</Link></li>
+                <li><Link href={`/meister-wetten/${team2.slug}`} className="text-primary hover:underline"><Trophy className="h-5 w-5 inline-block" /> Quote {team2.name} Weltmeister</Link></li>
+                <li><Link href="/h2h" className="text-primary hover:underline"><BarChart3 className="h-5 w-5 inline-block" /> Alle Direktvergleiche</Link></li>
               </ul>
             </div>
           </aside>

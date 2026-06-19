@@ -273,8 +273,8 @@ export default function ParisSportifsPage() {
               { href: "/sportwetten/glossar", icon: "📚", title: "Wett-Glossar", description: "Alle Sportwetten-Begriffe erklärt" },
               { href: "/sportwetten/wetter", icon: "🌦️", title: "Wetter-Einfluss auf Wetten", description: "Wie das Wetter die Ergebnisse beeinflusst" },
               { href: "/methodes-paiement", icon: "💳", title: "Zahlungsmethoden", description: "Ein- und Auszahlungen bei Wettanbietern" },
-              { href: "/meilleurs-bookmakers", icon: "🏆", title: "Beste Wettanbieter", description: "Vergleich der besten Sportwetten-Anbieter" },
-              { href: "/comparateur-cotes", icon: "📈", title: "Quotenvergleich", description: "Quoten der Wettanbieter in Echtzeit vergleichen" },
+              { href: "/sportwetten", icon: "🏆", title: "Beste Wettanbieter", description: "Vergleich der besten Sportwetten-Anbieter" },
+              { href: "/quotenvergleich", icon: "📈", title: "Quotenvergleich", description: "Quoten der Wettanbieter in Echtzeit vergleichen" },
               { href: "/bonus", icon: "🎁", title: "Wettanbieter-Bonus", description: "Alle Boni und Willkommensangebote" },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all">

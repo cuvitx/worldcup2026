@@ -59,7 +59,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                   <td className="px-4 py-3 text-center text-xl">{medal}</td>
                   <td className="px-4 py-3">
                     {team ? (
-                      <Link href={`/equipe/${team.slug}`} className="flex items-center gap-2 font-medium hover:text-primary transition-colors">
+                      <Link href={`/mannschaft/${team.slug}`} className="flex items-center gap-2 font-medium hover:text-primary transition-colors">
                         <span className="text-xl">{team.flag}</span>
                         <span>{team.name}</span>
                       </Link>

@@ -6,6 +6,8 @@ interface ShareButtonsProps {
   url: string;
   text: string;
   label?: string;
+  /** Language for i18n (default: "fr") */
+  lang?: "fr" | "de";
 }
 
 const socialLinks = (url: string, text: string) => [
@@ -47,7 +49,9 @@ const socialLinks = (url: string, text: string) => [
   },
 ];
 
-export function ShareButtons({ url, text, label = "Partager ce pronostic" }: ShareButtonsProps) {
+export function ShareButtons({ url, text, label, lang = "fr" }: ShareButtonsProps) {
+  const defaultLabel = lang === "de" ? "Diese Prognose teilen" : "Partager ce pronostic";
+  const resolvedLabel = label ?? defaultLabel;
   const [copied, setCopied] = useState(false);
   const [canShare, setCanShare] = useState(false);
 
@@ -80,7 +84,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
 
   return (
     <div className="flex items-center justify-center sm:justify-between gap-3 py-2 flex-wrap">
-      <span className="hidden sm:block text-sm font-medium text-gray-600">{label}</span>
+      <span className="hidden sm:block text-sm font-medium text-gray-600">{resolvedLabel}</span>
       <div className="flex items-center gap-2">
         {socialLinks(url, text).map((s) => (
           <a
@@ -90,7 +94,7 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
             rel="noopener noreferrer"
             style={{ width: 36, height: 36, minWidth: 36, minHeight: 36 }}
             className="inline-flex items-center justify-center shrink-0 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
-            aria-label={`Partager sur ${s.name}`}
+            aria-label={lang === "de" ? `Auf ${s.name} teilen` : `Partager sur ${s.name}`}
           >
             {s.icon}
           </a>
@@ -98,17 +102,17 @@ export function ShareButtons({ url, text, label = "Partager ce pronostic" }: Sha
         <button
           onClick={handleShare}
           className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-accent/80 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 min-h-[44px]"
-          aria-label="Partager"
+          aria-label={lang === "de" ? "Teilen" : "Partager"}
         >
           {copied ? (
             <>
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Copié !
+              {lang === "de" ? "Kopiert!" : "Copié !"}
             </>
           ) : (
             <>
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              Partager
+              {lang === "de" ? "Teilen" : "Partager"}
             </>
           )}
         </button>

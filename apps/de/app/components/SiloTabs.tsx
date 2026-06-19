@@ -43,7 +43,7 @@ function detectSilo(pathname: string): SiloMatch | null {
   const slugSilos: { prefixes: string[]; silo: string }[] = [
     {
       silo: "equipe",
-      prefixes: ["/mannschaft/", "/Kader/", "/parier/", "/cote-champion/", "/prognose/"],
+      prefixes: ["/mannschaft/", "/Kader/", "/sportwetten/", "/meister-wetten/", "/prognose/"],
     },
     {
       silo: "match",
@@ -94,7 +94,7 @@ function detectSilo(pathname: string): SiloMatch | null {
     "/prognose/karten", "/prognose/ecken", "/prognose/clean-sheet",
     "/prognose/finalisten", "/prognose/elfmeterschiessen", "/prognose/genaue-ergebnisse",
     "/prognose/torschuetzen", "/sportwetten", "/sportwetten/kombiwetten", "/sportwetten/handicap",
-    "/sportwetten/live", "/sportwetten/halbzeit", "/sportwetten/corners", "/sportwetten/value-bets", "/comparateur-cotes",
+    "/sportwetten/live", "/sportwetten/halbzeit", "/sportwetten/corners", "/sportwetten/value-bets", "/quotenvergleich",
   ];
   if (PrognosesPages.includes(p)) return { silo: "Prognoses", slug: null };
 
@@ -117,8 +117,8 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
         { label: "Mannschaft", href: `/mannschaft/${slug}` },
         { label: "Prognose", href: `/prognose/${slug}` },
         { label: "Kader", href: `/Kader/${slug}` },
-        { label: "Wetten", href: `/parier/${slug}` },
-        { label: "Meisterquote", href: `/cote-champion/${slug}` },
+        { label: "Wetten", href: `/sportwetten/${slug}` },
+        { label: "Meisterquote", href: `/meister-wetten/${slug}` },
       ];
     case "match":
       return [
@@ -171,7 +171,7 @@ function getTabsForSilo(silo: string, slug: string | null): Tab[] {
         { label: "Torschützen", href: "/prognose/torschuetzen" },
         { label: "Genaue Ergebnisse", href: "/prognose/genaue-ergebnisse" },
         { label: "Sportwetten", href: "/sportwetten" },
-        { label: "Quotenvergleich", href: "/comparateur-cotes" },
+        { label: "Quotenvergleich", href: "/quotenvergleich" },
       ];
     case "guide-voyage":
       return [

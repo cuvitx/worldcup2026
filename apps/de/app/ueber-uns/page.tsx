@@ -114,7 +114,7 @@ export default function AProposPage() {
               darauf hin, dass jede Prognose mit Unsicherheiten verbunden ist.
               Unsere Vorhersagen stellen in keinem Fall eine Wettberatung dar.
               Besuchen Sie unsere{" "}
-              <Link href="/methodologie" className="text-primary hover:underline">
+              <Link href="/ueber-uns" className="text-primary hover:underline">
                 Methodik-Seite
               </Link>{" "}
               für weitere Details.
@@ -167,7 +167,7 @@ export default function AProposPage() {
                 </Link>
               </li>
               <li>
-                <Link href="/methodologie" className="text-primary hover:underline">
+                <Link href="/ueber-uns" className="text-primary hover:underline">
                   Unsere Methodik
                 </Link>
               </li>

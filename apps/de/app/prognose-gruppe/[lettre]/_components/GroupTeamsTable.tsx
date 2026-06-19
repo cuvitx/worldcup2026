@@ -40,7 +40,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
             {sortedTeams.map(({ team, pred }, idx) => (
               <tr key={team!.id} className="hover:bg-gray-50 transition-colors">
                 <td className="px-4 py-3">
-                  <Link href={`/equipe/${team!.slug}`} className="flex items-center gap-2 font-medium hover:text-primary transition-colors">
+                  <Link href={`/mannschaft/${team!.slug}`} className="flex items-center gap-2 font-medium hover:text-primary transition-colors">
                     <span className="text-xl" aria-label={team!.name}>{team!.flag}</span>
                     <span>{team!.name}</span>
                     {team!.isHost && (

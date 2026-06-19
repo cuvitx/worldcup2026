@@ -153,7 +153,7 @@ export default function ContactPage() {
                 </Link>
               </li>
               <li>
-                <Link href="/methodologie" className="text-primary hover:underline">
+                <Link href="/ueber-uns" className="text-primary hover:underline">
                   Methodik
                 </Link>
               </li>

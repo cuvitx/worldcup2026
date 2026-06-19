@@ -220,7 +220,7 @@ export default function GuideParisPage() {
           <p className="text-sm text-gray-600  mb-4">Vergleichen Sie die Wettanbieter und nutzen Sie die Willkommensboni zum Starten.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/meilleurs-bookmakers"
+              href="/sportwetten"
               className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-accent/90 transition-colors"
             >
               Wettanbieter ansehen <ArrowRight className="w-4 h-4" />

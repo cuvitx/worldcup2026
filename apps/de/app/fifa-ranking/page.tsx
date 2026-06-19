@@ -161,7 +161,7 @@ export default function RanglisteFifaPage() {
                             href={`/mannschaft/${team.slug}`}
                             className="flex items-center gap-2 hover:text-accent transition-colors group"
                           >
-                            <Flag flag={team.flag} name={team.name} className="w-6 h-4" />
+                            <Flag lang="de" flag={team.flag} name={team.name} className="w-6 h-4" />
                             <span className="font-medium text-gray-900 group-hover:underline">
                               {team.name}
                             </span>
@@ -270,7 +270,7 @@ export default function RanglisteFifaPage() {
                   <div className="flex-shrink-0">
                     <div className="text-3xl font-extrabold text-accent">#{team.fifaRanking}</div>
                   </div>
-                  <Flag flag={team.flag} name={team.name} className="w-10 h-7 flex-shrink-0" />
+                  <Flag lang="de" flag={team.flag} name={team.name} className="w-10 h-7 flex-shrink-0" />
                   <div className="flex-1">
                     <div className="font-bold text-gray-900 group-hover:text-accent transition-colors">
                       {team.name}
@@ -319,7 +319,7 @@ export default function RanglisteFifaPage() {
           { href: "/gruppen", title: "Die 12 Gruppen", description: "Zusammensetzung und Analyse jeder Gruppe", icon: "" },
           { href: "/prognose/sieger", title: "Siegerprognose", description: "Wer gewinnt die WM 2026?", icon: "" },
           { href: "/statistiques", title: "Statistiken", description: "Zahlen und Fakten zum Turnier", icon: "" },
-          { href: "/simulateur", title: "Simulator", description: "Simulieren Sie den Weg Ihrer Mannschaft", icon: "" },
+          { href: "/turnierbaum", title: "Simulator", description: "Simulieren Sie den Weg Ihrer Mannschaft", icon: "" },
         ]} />
       </div>
 

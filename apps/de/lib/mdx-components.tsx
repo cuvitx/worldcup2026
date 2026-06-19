@@ -57,7 +57,7 @@ function TeamCard({
 }) {
   return (
     <Link
-      href={`/equipes/${slug}`}
+      href={`/mannschaft/${slug}`}
       className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200  bg-white  px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
     >
       {emoji && <span>{emoji}</span>}
@@ -76,7 +76,7 @@ function MatchCard({
 }) {
   return (
     <Link
-      href={`/calendrier/${slug}`}
+      href={`/spiel/${slug}`}
       className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200  bg-white  px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
     >
       ⚽ <span className="text-primary ">{label}</span>
@@ -96,7 +96,7 @@ function StadiumCard({
 }) {
   return (
     <Link
-      href={`/stades/${slug}`}
+      href={`/stadion/${slug}`}
       className="my-2 inline-flex items-center gap-2 rounded-lg border border-gray-200  bg-white  px-4 py-2 text-sm font-medium hover:shadow-md transition not-prose"
     >
       {emoji ?? "🏟️"} <span className="text-primary ">{name}</span>
@@ -115,13 +115,13 @@ function BettingCta({
   return (
     <div className="my-6 rounded-xl bg-gradient-to-r from-primary to-primary/80 p-6 text-center text-white not-prose">
       <p className="text-lg font-bold mb-3">
-        {label ?? "Pariez sur la Coupe du Monde 2026"}
+        {label ?? "Wetten auf die WM 2026"}
       </p>
       <a
-        href={href ?? "/paris-sportifs"}
+        href={href ?? "/sportwetten"}
         className="inline-block rounded-lg bg-white text-primary font-bold px-6 py-2 hover:bg-gray-100 transition"
       >
-        Voir les cotes →
+        Quoten ansehen →
       </a>
     </div>
   );

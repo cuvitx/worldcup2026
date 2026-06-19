@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${team.flag} Quote ${team.name} Weltmeister 2026`,
       description: `Vollständige Analyse der Quote von ${team.name} für den WM-Sieg 2026.`,
-      url: `${domains.de}/cote-champion/${team.slug}`,
+      url: `${domains.de}/meister-wetten/${team.slug}`,
     },
-    alternates: { canonical: `https://www.wm2026guide.de/cote-champion/${team.slug}` },
+    alternates: { canonical: `https://www.wm2026guide.de/meister-wetten/${team.slug}` },
   };
 }
 /** Indicative odds based on FIFA ranking — Betano only */
@@ -269,7 +269,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                       return (
                         <tr key={t.id} className="border-b border-gray-100">
                           <td className="py-3 pr-4">
-                            <Link href={`/cote-champion/${t.slug}`} className="text-primary hover:underline">
+                            <Link href={`/meister-wetten/${t.slug}`} className="text-primary hover:underline">
                               {t.flag} {t.name}
                             </Link>
                           </td>
@@ -332,7 +332,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/parier/${team.slug}`} className="text-primary hover:underline">
+                  <Link href={`/sportwetten/${team.slug}`} className="text-primary hover:underline">
                     Wetten auf {team.name}
                   </Link>
                 </li>

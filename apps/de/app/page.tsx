@@ -74,7 +74,7 @@ const homepageJsonLd = [
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://www.wm2026guide.de/recherche?q={search_term_string}",
+        urlTemplate: "https://www.wm2026guide.de/suche?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -237,7 +237,7 @@ export default function HomePage() {
               { href: "/h2h", icon: "", label: "Direktvergleich (H2H)" },
               { href: "/mascotte", icon: "", label: "Maskottchen" },
               { href: "/histoire", icon: "", label: "WM-Geschichte" },
-              { href: "/comparateur-Spielers", icon: "", label: "Spieler vergleichen" },
+              { href: "/quotenvergleich", icon: "", label: "Spieler vergleichen" },
               { href: "/turnierbaum", icon: "", label: "Turnierbaum" },
               { href: "/trophee", icon: "", label: "FIFA-Trophäe" },
               { href: "/chants-supporters", icon: "", label: "Fan-Gesänge" },

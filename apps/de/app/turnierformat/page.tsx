@@ -425,7 +425,7 @@ export default function FormatPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><RelatedLinks variant="compact" title="Verwandte Seiten" links={[
           { href: "/gruppen", title: "Die 12 Gruppen", description: "Zusammensetzung jeder Gruppe", icon: "" },
           { href: "/spiel/spielplan", title: "Spielplan", description: "Die 104 Spiele der WM 2026", icon: "" },
-          { href: "/simulateur", title: "Simulator", description: "Simulieren Sie den Turnierbaum", icon: "" },
+          { href: "/turnierbaum", title: "Simulator", description: "Simulieren Sie den Turnierbaum", icon: "" },
           { href: "/turnierbaum", title: "Turnierbaum", description: "Bracket der K.-o.-Runden", icon: "" },
           { href: "/reglement", title: "Reglement", description: "Offizielle Regeln der WM 2026", icon: "" },
         ]} /></div>

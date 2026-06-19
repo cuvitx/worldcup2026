@@ -272,7 +272,7 @@ export default async function PlayerPage({ params }: PageProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparateur-Spielers" className="text-primary hover:underline">
+                  <Link href="/quotenvergleich" className="text-primary hover:underline">
                     <Users className="h-5 w-5 inline-block" /> Spielervergleich
                   </Link>
                 </li>

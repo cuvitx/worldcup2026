@@ -314,7 +314,7 @@ export default function FinalePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/simulateur"
+                href="/turnierbaum"
                 className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
               >
                 Turnier simulieren

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Halbfinale WM 2026",
     description: "Das Halbfinale der WM 2026: Termine, Stadien und Analyse.",
-    url: "https://www.wm2026guide.de/demi-finales",
+    url: "https://www.wm2026guide.de/halbfinale",
   },
-  alternates: { canonical: "https://www.wm2026guide.de/demi-finales" },
+  alternates: { canonical: "https://www.wm2026guide.de/halbfinale" },
 };
 
 const faqItems = [
@@ -140,7 +140,7 @@ export default function DemiFinales() {
               Wer schafft es unter die letzten Vier?
             </p>
             <Link
-              href="/simulateur"
+              href="/turnierbaum"
               className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
             >
               Bracket simulieren

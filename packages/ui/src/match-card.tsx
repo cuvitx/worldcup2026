@@ -54,10 +54,12 @@ interface MatchCardProps {
   isHot?: boolean;
   isTop?: boolean;
   compact?: boolean;
+  /** Language for i18n (default: "fr") */
+  lang?: "fr" | "de";
 }
 
-function formatDate(date: string) {
-  return new Date(date + "T00:00:00+02:00").toLocaleDateString("fr-FR", {
+function formatDate(date: string, lang: "fr" | "de" = "fr") {
+  return new Date(date + "T00:00:00+02:00").toLocaleDateString(lang === "de" ? "de-DE" : "fr-FR", {
     day: "numeric",
     month: "short",
     timeZone: "Europe/Paris",
@@ -119,6 +121,7 @@ export function MatchCard({
   isHot,
   isTop,
   compact = false,
+  lang = "fr",
 }: MatchCardProps) {
   const isLive     = status === "live";
   const isFinished = status === "finished";
@@ -126,7 +129,7 @@ export function MatchCard({
 
   return (
     <Link
-      href={`/pronostic-match/${slug}`}
+      href={lang === "de" ? `/prognose-spiel/${slug}` : `/pronostic-match/${slug}`}
       className={`match-card ${statusClass(status)} block`}
     >
       {/* ── Top bar : meta + badges ── */}
@@ -139,9 +142,9 @@ export function MatchCard({
           {stage && stage !== "group"
             ? stage
             : group
-            ? `Groupe ${group}${matchday ? ` · J${matchday}` : ""}`
+            ? `${lang === "de" ? "Gruppe" : "Groupe"} ${group}${matchday ? ` · ${lang === "de" ? `ST${matchday}` : `J${matchday}`}` : ""}`
             : matchday
-            ? `Journée ${matchday}`
+            ? `${lang === "de" ? "Spieltag" : "Journée"} ${matchday}`
             : ""}
         </span>
 
@@ -166,7 +169,7 @@ export function MatchCard({
           {/* Date/heure */}
           {!isLive && (
             <span className="text-xs font-medium text-[#8a8a9a]">
-              {formatDate(date)}
+              {formatDate(date, lang)}
               {time && <span className="ml-1 opacity-75">{time}</span>}
             </span>
           )}
@@ -191,7 +194,7 @@ export function MatchCard({
           <span
             className={compact ? "text-xl" : "text-2xl"}
             role="img"
-            aria-label={`Drapeau ${homeName}`}
+            aria-label={lang === "de" ? `Flagge ${homeName}` : `Drapeau ${homeName}`}
           >
             {homeFlag}
           </span>
@@ -244,7 +247,7 @@ export function MatchCard({
           <span
             className={compact ? "text-xl" : "text-2xl"}
             role="img"
-            aria-label={`Drapeau ${awayName}`}
+            aria-label={lang === "de" ? `Flagge ${awayName}` : `Drapeau ${awayName}`}
           >
             {awayFlag}
           </span>
@@ -273,7 +276,7 @@ export function MatchCard({
           <OddPill label="1" value={odds.home} />
           <OddPill label="N" value={odds.draw} />
           <OddPill label="2" value={odds.away} />
-          <span className="ml-auto text-xs text-[#8a8a9a]">Pronostic →</span>
+          <span className="ml-auto text-xs text-[#8a8a9a]">{lang === "de" ? "Prognose →" : "Pronostic →"}</span>
         </div>
       )}
     </Link>

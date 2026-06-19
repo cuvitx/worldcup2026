@@ -22,21 +22,21 @@ function buildDictionary(): EntityEntry[] {
   // Priority 0: teams
   for (const t of teams) {
     if (t.name.length >= MIN_NAME_LENGTH) {
-      entries.push({ name: t.name, href: `/equipe/${t.slug}`, priority: 0 });
+      entries.push({ name: t.name, href: `/mannschaft/${t.slug}`, priority: 0 });
     }
   }
 
   // Priority 1: stadiums
   for (const s of stadiums) {
     if (s.name.length >= MIN_NAME_LENGTH) {
-      entries.push({ name: s.name, href: `/stade/${s.slug}`, priority: 1 });
+      entries.push({ name: s.name, href: `/stadion/${s.slug}`, priority: 1 });
     }
   }
 
   // Priority 2: cities
   for (const c of cities) {
     if (c.name.length >= MIN_NAME_LENGTH) {
-      entries.push({ name: c.name, href: `/ville/${c.slug}`, priority: 2 });
+      entries.push({ name: c.name, href: `/stadt/${c.slug}`, priority: 2 });
     }
   }
 
@@ -44,7 +44,7 @@ function buildDictionary(): EntityEntry[] {
   const top50 = players.slice(0, 50);
   for (const p of top50) {
     if (p.name.length >= MIN_NAME_LENGTH) {
-      entries.push({ name: p.name, href: `/joueur/${p.slug}`, priority: 3 });
+      entries.push({ name: p.name, href: `/spieler/${p.slug}`, priority: 3 });
     }
   }
 

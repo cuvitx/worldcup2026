@@ -8,7 +8,7 @@ import Link from "next/link";
  * <AuthorBox />
  * ```
  */
-export function AuthorBox() {
+export function AuthorBox({ lang = "fr" }: { lang?: "fr" | "de" } = {}) {
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
       <div className="flex items-start gap-4">
@@ -16,17 +16,17 @@ export function AuthorBox() {
           EC
         </div>
         <div>
-          <p className="font-bold text-gray-900">Équipe CDM 2026</p>
+          <p className="font-bold text-gray-900">{lang === "de" ? "WM 2026 Team" : "Équipe CDM 2026"}</p>
           <p className="mt-1 text-sm text-gray-600 leading-relaxed">
-            Notre équipe combine analyse statistique (modèle ELO), intelligence
-            artificielle et expertise football pour produire les pronostics les
-            plus fiables de la Coupe du Monde 2026.
+            {lang === "de"
+              ? "Unser Team kombiniert statistische Analyse (ELO-Modell), künstliche Intelligenz und Fußball-Expertise, um die zuverlässigsten Prognosen für die WM 2026 zu erstellen."
+              : "Notre équipe combine analyse statistique (modèle ELO), intelligence artificielle et expertise football pour produire les pronostics les plus fiables de la Coupe du Monde 2026."}
           </p>
           <Link
-            href="/methodologie"
+            href={lang === "de" ? "/ueber-uns" : "/methodologie"}
             className="mt-2 inline-block text-sm font-medium text-primary hover:underline"
           >
-            Découvrir notre méthodologie &rarr;
+            {lang === "de" ? "Unsere Methodik entdecken \u2192" : "Découvrir notre méthodologie \u2192"}
           </Link>
         </div>
       </div>

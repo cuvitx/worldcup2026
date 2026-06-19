@@ -39,14 +39,14 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
             Aktuelles
           </p>
-          <SectionHeading title="Neueste Artikel" linkHref="/actualites" linkLabel="Alle Artikel →" />
+          <SectionHeading title="Neueste Artikel" linkHref="/nachrichten" linkLabel="Alle Artikel →" />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
           {recentArticles.map((article, i) => (
             <Link
               key={article.id}
-              href={`/actualites/${article.slug}`}
+              href={`/nachrichten/${article.slug}`}
               className="group relative flex flex-col rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">

@@ -429,8 +429,8 @@ export default function TorschützenPage() {
           items={[
             { href: '/prognose/sieger', emoji: '', title: 'Prognose Sieger WM 2026', description: 'Wer holt die Trophäe?' },
             { href: '/gruppen', emoji: '', title: 'Alle Gruppen', description: 'Die 12 Gruppen und Ranglisten' },
-            { href: '/simulateur', emoji: '', title: 'Turnierbaum-Simulator', description: 'Erstellen Sie Ihren kompletten Turnierbaum' },
-            { href: '/comparateur-cotes', emoji: '', title: 'Quotenvergleich', description: 'Beste Quoten der Wettanbieter' },
+            { href: '/turnierbaum', emoji: '', title: 'Turnierbaum-Simulator', description: 'Erstellen Sie Ihren kompletten Turnierbaum' },
+            { href: '/quotenvergleich', emoji: '', title: 'Quotenvergleich', description: 'Beste Quoten der Wettanbieter' },
           ]}
         />
       </div>

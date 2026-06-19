@@ -12,9 +12,12 @@
 export function OrganizationSchema({
   url,
   name,
+  lang = "fr",
 }: {
   url: string;
   name: string;
+  /** Language for i18n (default: "fr") */
+  lang?: "fr" | "de";
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -23,7 +26,9 @@ export function OrganizationSchema({
     url,
     logo: `${url}/images/logo-navbar.png`,
     description:
-      "Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 équipes, calendrier des 104 matchs.",
+      lang === "de"
+        ? "Der komplette WM 2026 Guide: Prognosen, Quoten, Analysen und Tipps"
+        : "Guide complet de la Coupe du Monde 2026 : pronostics, cotes, analyses des 48 équipes, calendrier des 104 matchs.",
     sameAs: [
       "https://www.cdm2026.fr",
     ],

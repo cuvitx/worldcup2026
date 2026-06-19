@@ -343,12 +343,12 @@ const faqItems = [
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/parier/${team.slug}`} className="text-primary hover:underline">
+                  <Link href={`/sportwetten/${team.slug}`} className="text-primary hover:underline">
                     Wetten auf {team.name}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/cote-champion/${team.slug}`} className="text-primary hover:underline">
+                  <Link href={`/meister-wetten/${team.slug}`} className="text-primary hover:underline">
                     Quote {team.name} Weltmeister
                   </Link>
                 </li>

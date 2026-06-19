@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Entdecken Sie unsere Prognosemethodik für die WM 2026: ELO-Modell, dreistufige KI-Pipeline, Analysefaktoren und Transparenz bei unseren Vorhersagen.",
   alternates: {
-    canonical: "https://www.wm2026guide.de/methodologie",
+    canonical: "https://www.wm2026guide.de/ueber-uns",
   },
   openGraph: {
     title: "Unsere Methodik | Prognosen WM 2026",
@@ -344,7 +344,7 @@ export default function MethodologiePage() {
               "@type": "Organization",
               name: "WM 2026",
             },
-            url: `${domains.de}/methodologie`,
+            url: `${domains.de}/ueber-uns`,
           }),
         }}
       />

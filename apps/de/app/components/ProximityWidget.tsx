@@ -37,7 +37,7 @@ function getProximityLinks(
         description: "Quoten der wahrscheinlichen Torschützen ansehen",
       },
       {
-        href: `/comparateur-cotes`,
+        href: `/quotenvergleich`,
         label: "Quoten vergleichen",
         description: "Die besten Quoten bei den Wettanbietern finden",
       },
@@ -103,7 +103,7 @@ function getProximityLinks(
         description: "Die nominierten Spieler entdecken",
       },
       {
-        href: `/parier/${slug}`,
+        href: `/sportwetten/${slug}`,
         label: `Quoten ansehen`,
         description: `Quoten für ${name} vergleichen`,
       },
@@ -139,12 +139,12 @@ function getProximityLinks(
       description: "Unsere Analyse der Turnierfavoriten entdecken",
     },
     {
-      href: "/simulateur",
+      href: "/turnierbaum",
       label: "Simulator starten",
       description: "Die gesamte WM simulieren",
     },
     {
-      href: "/meilleurs-bookmakers",
+      href: "/sportwetten",
       label: "Wettanbieter vergleichen",
       description: "Den besten Anbieter zum Wetten finden",
     },

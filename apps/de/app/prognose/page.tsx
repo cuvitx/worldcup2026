@@ -413,21 +413,21 @@ export default function PrognoseHubPage() {
                 gradient: "from-red-600 to-red-800",
               },
               {
-                href: "/comparateur-cotes",
+                href: "/quotenvergleich",
                 icon: "",
                 title: "Quotenvergleich",
                 desc: "Beste Betano-Quoten in Echtzeit",
                 gradient: "from-accent to-accent/70",
               },
               {
-                href: "/simulateur",
+                href: "/turnierbaum",
                 icon: "",
                 title: "Turnierbaum-Simulator",
                 desc: "Erstellen Sie Ihren eigenen WM-Turnierbaum",
                 gradient: "from-blue-600 to-blue-800",
               },
               {
-                href: "/methodologie",
+                href: "/ueber-uns",
                 icon: "",
                 title: "Unsere Methodik",
                 desc: "ELO, Monte Carlo, Quotenkalibrierung",
@@ -473,8 +473,8 @@ export default function PrognoseHubPage() {
               { href: "/sportwetten/corners", icon: "🚩", title: "Ecken-Prognose", description: "Prognosen zur Anzahl der Eckbälle" },
               { href: "/Prognoses/grille", icon: "📋", title: "Prognose-Raster", description: "Füllen Sie Ihr WM-Prognose-Raster aus" },
               { href: "/Prognoses/leaderboard", icon: "🏅", title: "Rangliste der Prognostiker", description: "Die Rangliste der besten Prognostiker" },
-              { href: "/simulateur", icon: "🎮", title: "Turnier-Simulator", description: "Simulieren Sie den WM-2026-Turnierbaum" },
-              { href: "/comparateur-cotes", icon: "📈", title: "Quotenvergleich", description: "Vergleichen Sie die Quoten der Buchmacher" },
+              { href: "/turnierbaum", icon: "🎮", title: "Turnier-Simulator", description: "Simulieren Sie den WM-2026-Turnierbaum" },
+              { href: "/quotenvergleich", icon: "📈", title: "Quotenvergleich", description: "Vergleichen Sie die Quoten der Buchmacher" },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md hover:border-primary/30 transition-all">
                 <div className="flex items-start gap-3">

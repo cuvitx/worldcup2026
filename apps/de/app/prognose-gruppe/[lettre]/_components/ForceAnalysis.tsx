@@ -27,7 +27,7 @@ export function ForceAnalysis({ sortedTeams, groupLetter }: ForceAnalysisProps) 
           <div key={team!.id} className="border-l-4 border-primary/20 pl-4">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-xl">{team!.flag}</span>
-              <Link href={`/equipe/${team!.slug}`} className="font-bold hover:text-primary transition-colors">{team!.name}</Link>
+              <Link href={`/mannschaft/${team!.slug}`} className="font-bold hover:text-primary transition-colors">{team!.name}</Link>
               <span className="text-xs text-gray-400">(#{team!.fifaRanking > 0 ? team!.fifaRanking : "—"} FIFA{pred ? `, ELO ${pred.eloRating}` : ""})</span>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">

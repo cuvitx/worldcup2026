@@ -16,7 +16,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
       <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
         <h3 className="text-lg font-semibold text-gray-900 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Nützliche Links</h3>
         <div className="space-y-2">
-          <Link href={`/groupe/${lettre}`} className="flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium transition-all hover:border-primary/30 hover:text-primary hover:bg-primary/5">
+          <Link href={`/gruppe/${lettre}`} className="flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium transition-all hover:border-primary/30 hover:text-primary hover:bg-primary/5">
             Gruppe {groupLetter} — Statistiken
           </Link>
           {sortedTeams.slice(0, 4).map(({ team }) => (
@@ -45,7 +45,7 @@ export function GroupSidebar({ groupLetter, lettre, sortedTeams }: GroupSidebarP
       <div className="rounded-xl bg-gradient-to-br from-primary to-primary/80 p-6 text-white shadow-sm">
         <h3 className="text-lg font-semibold text-gray-900 mb-2"><Dice5 className="h-5 w-5 inline-block" /> Auf Gruppe {groupLetter} wetten</h3>
         <p className="text-sm text-white/80 mb-4">Vergleichen Sie die besten Quoten für die Qualifikation in dieser Gruppe.</p>
-        <Link href="/comparateur-cotes" className="block rounded-lg bg-white text-primary font-bold text-center py-2.5 text-sm hover:bg-gray-50 transition-colors">Quoten vergleichen →</Link>
+        <Link href="/quotenvergleich" className="block rounded-lg bg-white text-primary font-bold text-center py-2.5 text-sm hover:bg-gray-50 transition-colors">Quoten vergleichen →</Link>
       </div>
 
       {/* Prognose vainqueur */}

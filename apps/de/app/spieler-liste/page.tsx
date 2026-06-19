@@ -164,7 +164,7 @@ export default function PlayersPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
           { href: "/torschuetzen", title: "Beste Torschützen", description: "Torschützenliste der WM 2026", icon: "" },
-          { href: "/comparateur-Spielers", title: "Spielervergleich", description: "Vergleichen Sie die Statistiken von 2 Spielern", icon: "" },
+          { href: "/quotenvergleich", title: "Spielervergleich", description: "Vergleichen Sie die Statistiken von 2 Spielern", icon: "" },
           { href: "/mannschaft", title: "Die 48 Mannschaften", description: "Vollständige Kader pro Nationalmannschaft", icon: "" },
           { href: "/fifa-ranking", title: "FIFA-Rangliste", description: "Weltrangliste der Mannschaften", icon: "" },
         ]} />

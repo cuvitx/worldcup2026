@@ -203,7 +203,7 @@ export default async function GuidePage({ params }: PageProps) {
               </section>
             )}
 
-            <AuthorBox />
+            <AuthorBox lang="de" />
           </div>
 
           {/* Sidebar - Sticky TOC + CTA */}

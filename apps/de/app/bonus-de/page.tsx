@@ -162,7 +162,7 @@ export default function BonusHubPage() {
         <section className="rounded-2xl bg-white  border border-gray-200  p-6 sm:p-8 mb-10">
           <h2 className="text-xl font-bold text-gray-900  mb-4">Verwandte Seiten</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/meilleurs-bookmakers" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
+            <Link href="/sportwetten" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Beste Buchmacher
             </Link>
             <Link href="/sportwetten/guide" className="rounded-lg bg-primary/5 px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
