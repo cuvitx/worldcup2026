@@ -483,14 +483,14 @@ export const matches: Match[] = [
   },
 
   // ---- June 19, 2026 ----
-  // Group D: USA vs Australia — Lumen Field, Seattle — 18:00 CEST
+  // Group D: USA vs Australia — Lumen Field, Seattle — 21:00 CEST (19:00 UTC)
   {
     id: "m29",
     slug: "etats-unis-vs-australie",
     homeTeamId: "etats-unis",
     awayTeamId: "australie",
     date: "2026-06-19",
-    time: "18:00",
+    time: "21:00",
     stadiumId: "lumen-field",
     stage: "group",
     group: "D",
@@ -516,20 +516,20 @@ export const matches: Match[] = [
     homeTeamId: "bresil",
     awayTeamId: "haiti",
     date: "2026-06-20",
-    time: "03:00",
+    time: "02:30",
     stadiumId: "lincoln-financial-field",
     stage: "group",
     group: "C",
     matchday: 2,
   },
-  // Group D: UEFA Playoff C vs Paraguay — Levi's Stadium, San Francisco — 06:00 CEST
+  // Group D: Türkiye vs Paraguay — Levi's Stadium, San Francisco — 05:00 CEST (03:00 UTC)
   {
     id: "m32",
     slug: "barrage-uefa-c-vs-paraguay",
     homeTeamId: "turquie",
     awayTeamId: "paraguay",
     date: "2026-06-20",
-    time: "06:00",
+    time: "05:00",
     stadiumId: "levis-stadium",
     stage: "group",
     group: "D",
@@ -645,14 +645,14 @@ export const matches: Match[] = [
   },
 
   // ---- June 22, 2026 ----
-  // Group I: France vs Intercontinental Playoff 2 — Lincoln Financial Field, Philadelphia — 21:00 CEST
+  // Group I: France vs Iraq — Lincoln Financial Field, Philadelphia — 23:00 CEST (21:00 UTC)
   {
     id: "m41",
     slug: "france-vs-barrage-interconf-2",
     homeTeamId: "france",
     awayTeamId: "irak",
     date: "2026-06-22",
-    time: "21:00",
+    time: "23:00",
     stadiumId: "lincoln-financial-field",
     stage: "group",
     group: "I",
@@ -671,27 +671,27 @@ export const matches: Match[] = [
     group: "J",
     matchday: 2,
   },
-  // Group I: Norway vs Senegal — BMO Field, Toronto — 00:00 CEST (+1 day)
+  // Group I: Norway vs Senegal — BMO Field, Toronto — 02:00 CEST (00:00 UTC)
   {
     id: "m43",
     slug: "norvege-vs-senegal",
     homeTeamId: "norvege",
     awayTeamId: "senegal",
     date: "2026-06-23",
-    time: "00:00",
+    time: "02:00",
     stadiumId: "bmo-field",
     stage: "group",
     group: "I",
     matchday: 2,
   },
-  // Group J: Jordan vs Algeria — Levi's Stadium, San Francisco — 06:00 CEST
+  // Group J: Jordan vs Algeria — Levi's Stadium, San Francisco — 05:00 CEST (03:00 UTC)
   {
     id: "m44",
     slug: "jordanie-vs-algerie",
     homeTeamId: "jordanie",
     awayTeamId: "algerie",
     date: "2026-06-23",
-    time: "06:00",
+    time: "05:00",
     stadiumId: "levis-stadium",
     stage: "group",
     group: "J",
@@ -712,27 +712,27 @@ export const matches: Match[] = [
     group: "K",
     matchday: 2,
   },
-  // Group L: England vs Ghana — Gillette Stadium, Boston — 00:00 CEST (+1 day)
+  // Group L: England vs Ghana — Gillette Stadium, Boston — 22:00 CEST (20:00 UTC)
   {
     id: "m46",
     slug: "angleterre-vs-ghana",
     homeTeamId: "angleterre",
     awayTeamId: "ghana",
-    date: "2026-06-24",
-    time: "00:00",
+    date: "2026-06-23",
+    time: "22:00",
     stadiumId: "gillette-stadium",
     stage: "group",
     group: "L",
     matchday: 2,
   },
-  // Group L: Panama vs Croatia — Lincoln Financial Field, Philadelphia — 03:00 CEST
+  // Group L: Panama vs Croatia — Lincoln Financial Field, Philadelphia — 01:00 CEST (23:00 UTC)
   {
     id: "m47",
     slug: "panama-vs-croatie",
     homeTeamId: "panama",
     awayTeamId: "croatie",
     date: "2026-06-24",
-    time: "03:00",
+    time: "01:00",
     stadiumId: "lincoln-financial-field",
     stage: "group",
     group: "L",
@@ -836,26 +836,26 @@ export const matches: Match[] = [
     group: "C",
     matchday: 3,
   },
-  // Group D (simultaneous): UEFA Playoff C vs USA — SoFi Stadium, Los Angeles — 04:00 CEST
+  // Group D (simultaneous): Türkiye vs USA — SoFi Stadium, Los Angeles — 04:00 CEST (02:00 UTC Jun 26)
   {
     id: "m55",
     slug: "barrage-uefa-c-vs-etats-unis",
     homeTeamId: "turquie",
     awayTeamId: "etats-unis",
-    date: "2026-06-25",
+    date: "2026-06-26",
     time: "04:00",
     stadiumId: "sofi-stadium",
     stage: "group",
     group: "D",
     matchday: 3,
   },
-  // Group D (simultaneous): Paraguay vs Australia — Levi's Stadium — 04:00 CEST
+  // Group D (simultaneous): Paraguay vs Australia — Levi's Stadium — 04:00 CEST (02:00 UTC Jun 26)
   {
     id: "m56",
     slug: "paraguay-vs-australie",
     homeTeamId: "paraguay",
     awayTeamId: "australie",
-    date: "2026-06-25",
+    date: "2026-06-26",
     time: "04:00",
     stadiumId: "levis-stadium",
     stage: "group",
@@ -944,14 +944,14 @@ export const matches: Match[] = [
     group: "G",
     matchday: 3,
   },
-  // Group H (simultaneous): Cape Verde vs Saudi Arabia — NRG Stadium, Houston — 23:00 CEST
+  // Group H (simultaneous): Cape Verde vs Saudi Arabia — NRG Stadium, Houston — 02:00 CEST (00:00 UTC Jun 27)
   {
     id: "m63",
     slug: "cap-vert-vs-arabie-saoudite",
     homeTeamId: "cap-vert",
     awayTeamId: "arabie-saoudite",
-    date: "2026-06-26",
-    time: "23:00",
+    date: "2026-06-27",
+    time: "02:00",
     stadiumId: "nrg-stadium",
     stage: "group",
     group: "H",
