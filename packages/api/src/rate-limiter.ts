@@ -89,3 +89,14 @@ export function getRemainingRequests(key: string, config: RateLimitConfig): numb
   if (!entry || Date.now() >= entry.resetAt) return config.maxRequests;
   return Math.max(0, config.maxRequests - entry.count);
 }
+
+/**
+ * Force-exhaust a rate limiter when the upstream API reports it's rate-limited.
+ * This prevents wasting calls when our local counter is out of sync with the API's.
+ */
+export function forceExhaust(key: string, config: RateLimitConfig): void {
+  loadFromDisk();
+  counters.set(key, { count: config.maxRequests, resetAt: nextMidnightUTC() });
+  saveToDisk();
+  console.warn(`[rate-limiter] Force-exhausted "${key}" — upstream API reported rate limit. No more calls until midnight UTC.`);
+}

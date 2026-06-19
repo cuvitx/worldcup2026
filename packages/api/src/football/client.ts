@@ -5,7 +5,7 @@
 
 import { API_FOOTBALL } from "../config";
 import { cachedFetch, cacheGet, cacheSet, CACHE_TTL } from "../cache";
-import { checkRateLimit, getRemainingRequests } from "../rate-limiter";
+import { checkRateLimit, getRemainingRequests, forceExhaust } from "../rate-limiter";
 import type {
   ApiResponse,
   ApiTeamStats,
@@ -93,6 +93,13 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string>): Pr
 
   if (json.errors && Object.keys(json.errors).length > 0) {
     console.warn(`[api-football] API errors:`, json.errors);
+
+    // Detect upstream rate limit — force-exhaust our local counter to stop further calls
+    const errMsg = Object.values(json.errors).join(" ").toLowerCase();
+    if (errMsg.includes("limit") || errMsg.includes("quota")) {
+      forceExhaust(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
+    }
+
     return [];
   }
 
