@@ -467,7 +467,7 @@ export default function PrognoseHubPage() {
               { href: "/prognose/karten", icon: "🟨", title: "Prognose cartons", description: "Prévisions sur les cartons jaunes et rouges" },
               { href: "/prognose/clean-sheet", icon: "🧤", title: "Clean sheet", description: "Quelles Mannschafts garderont leur cage inviolée" },
               { href: "/prognose/finalisten", icon: "🥇", title: "Prognose finalistes", description: "Qui sera en finale de la CDM 2026 ?" },
-              { href: "/prognose/torschuetzen", icon: "👟", title: "Beste Torschützen", description: "Qui sera le meilleur buteur du tournoi ?" },
+              { href: "/prognose/torschuetzen", icon: "👟", title: "Beste Torschützen", description: "Qui sera le Torschützenkönig des Turniers ?" },
               { href: "/prognose/genaue-ergebnisse", icon: "🎯", title: "Scores exacts", description: "Prognoses de scores exacts match par match" },
               { href: "/prognose/elfmeterschiessen", icon: "🥅", title: "Tirs au but", description: "Quels matchs iront aux tirs au but ?" },
               { href: "/sportwetten/corners", icon: "🚩", title: "Prognose corners", description: "Prognoses sur le nombre de corners" },

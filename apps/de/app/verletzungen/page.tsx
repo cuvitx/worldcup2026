@@ -49,11 +49,11 @@ export default function BlessuresPage() {
   const faqItems = [
     {
       question: "Quand les listes officielles des 26 Spielers ont-elles été publiées ?",
-      answer: "Les sélectionneurs ont communiqué leur liste de 26 Spielers à la FIFA en mai 2026, quelques semaines avant le début du tournoi le 11 juin 2026.",
+      answer: "Les sélectionneurs ont communiqué leur liste de 26 Spielers à la FIFA en mai 2026, quelques semaines avant le début des Turniers le 11 juin 2026.",
     },
     {
       question: "Un Spieler blessé peut-il être remplacé après l'annonce de la liste ?",
-      answer: "Oui, la FIFA autorise le remplacement d'un Spieler blessé jusqu'à 24 heures avant le premier match de l'Mannschaft, sans restriction de poste. Après le début du tournoi, les remplacements sont soumis à des règles plus strictes.",
+      answer: "Oui, la FIFA autorise le remplacement d'un Spieler blessé jusqu'à 24 heures avant le premier match de l'Mannschaft, sans restriction de poste. Après le début des Turniers, les remplacements sont soumis à des règles plus strictes.",
     },
     {
       question: "Ces informations sont-elles à jour ?",
@@ -77,7 +77,7 @@ export default function BlessuresPage() {
             Blessures CDM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            Suivi des Spielers blessés, incertains et forfaits pour la WM 2026.
+            Suivi des Spielers blessés, incertains et forfaits für die WM 2026.
           </p>
         </div>
       </section>

@@ -6,9 +6,9 @@ import { predictionsByTeamId } from "@repo/data/predictions";
 import { ConfederationFilter } from "./confederation-filter";
 import { RelatedLinks } from "../components/RelatedLinks";
 export const metadata: Metadata = {
-  title: "Les 48 Mannschafts de la WM 2026 | Rangliste, Stats & Prognoses",
+  title: "Les 48 Mannschafts der WM 2026 | Rangliste, Stats & Prognoses",
   description:
-    "Liste complète des 48 Mannschafts qualifiées pour la WM 2026. Rangliste FIFA, groupe, historique et pronostics pour chaque sélection.",
+    "Liste complète des 48 Mannschafts qualifiées für die WM 2026. Rangliste FIFA, groupe, historique et pronostics pour chaque sélection.",
   alternates: getStaticAlternates("teams", "de"),
   openGraph: {
     title: "48 Mannschafts - WM 2026",

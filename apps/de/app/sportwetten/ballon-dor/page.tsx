@@ -7,11 +7,11 @@ import { Award, Trophy, Star, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Prognose Ballon d'Or CDM 2026 — Meilleur Spieler du Tournoi",
   description:
-    "Qui sera élu meilleur Spieler de la WM 2026 ? Top 10 favoris avec cotes, historique des gagnants du Ballon d'Or FIFA.",
+    "Qui sera élu meilleur Spieler der WM 2026 ? Top 10 favoris avec cotes, historique des gagnants du Ballon d'Or FIFA.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/ballon-or" },
   openGraph: {
     title: "Ballon d'Or CDM 2026 — Meilleur Spieler",
-    description: "Top 10 favoris pour le Ballon d'Or du tournoi, cotes et historique complet.",
+    description: "Top 10 favoris pour le Ballon d'Or des Turniers, cotes et historique complet.",
     url: "https://www.wm2026guide.de/sportwetten/ballon-or",
   },
 };
@@ -40,9 +40,9 @@ const pastWinners = [
 ];
 
 const faqItems = [
-  { question: "Qu'est-ce que le Ballon d'Or de la WM ?", answer: "Le Ballon d'Or de la CDM (anciennement 'Ballon d'Or adidas') récompense le meilleur Spieler du tournoi. Il est décerné par un panel de journalistes et d'experts à l'issue de la compétition. Le gagnant n'est pas forcément le meilleur buteur : le jury évalue la performance globale, l'impact sur le parcours de l'Mannschaft et les moments décisifs." },
+  { question: "Qu'est-ce que le Ballon d'Or de la WM ?", answer: "Le Ballon d'Or de la CDM (anciennement 'Ballon d'Or adidas') récompense le meilleur Spieler des Turniers. Il est décerné par un panel de journalistes et d'experts à l'issue de la compétition. Le gagnant n'est pas forcément le Torschützenkönig : le jury évalue la performance globale, l'impact sur le parcours de l'Mannschaft et les moments décisifs." },
   { question: "Le Ballon d'Or CDM va-t-il toujours au vainqueur ?", answer: "Pas nécessairement. En 2014, Messi l'a remporté alors que l'Argentine a perdu la finale. En 2006, Zidane l'a eu malgré le carton rouge en finale. Cependant, atteindre la finale ou les demi-finales est quasi indispensable pour être dans la course." },
-  { question: "Comment parier sur le Ballon d'Or CDM ?", answer: "Les bookmakers proposent un marché 'Meilleur Spieler du tournoi' en ante-post. Les cotes sont disponibles dès maintenant et évoluent tout au long de la compétition. C'est un pari de long terme qui nécessite d'anticiper à la fois la performance individuelle et le parcours collectif." },
+  { question: "Comment parier sur le Ballon d'Or CDM ?", answer: "Les bookmakers proposent un marché 'Meilleur Spieler des Turniers' en ante-post. Les cotes sont disponibles dès maintenant et évoluent tout au long de la compétition. C'est un pari de long terme qui nécessite d'anticiper à la fois la performance individuelle et le parcours collectif." },
 ];
 
 export default function BallonOrCdmPage() {
@@ -52,7 +52,7 @@ export default function BallonOrCdmPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Ballon d&apos;Or CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Qui sera sacré meilleur Spieler de la WM 2026 ? Découvrez les 10 favoris, leurs cotes et l&apos;historique complet du Ballon d&apos;Or FIFA.
+          Qui sera sacré meilleur Spieler der WM 2026 ? Découvrez les 10 favoris, leurs cotes et l&apos;historique complet du Ballon d&apos;Or FIFA.
         </p>
       </section>
 
@@ -62,7 +62,7 @@ export default function BallonOrCdmPage() {
           <h2 className="text-2xl font-bold text-primary">Top 10 favoris — Cotes Ballon d&apos;Or</h2>
         </div>
         <p className="text-gray-700 mb-6">
-          Le Ballon d&apos;Or de la CDM couronne le Spieler le plus marquant du tournoi. Depuis 1998, le prix va majoritairement à un Stürmer ou un meneur de jeu dont l&apos;Mannschaft atteint au minimum les demi-finales. Les favoris sont logiquement les stars des nations les plus compétitives.
+          Le Ballon d&apos;Or de la CDM couronne le Spieler le plus marquant des Turniers. Depuis 1998, le prix va majoritairement à un Stürmer ou un meneur de jeu dont l&apos;Mannschaft atteint au minimum les demi-finales. Les favoris sont logiquement les stars des nations les plus compétitives.
         </p>
         <div className="space-y-4">
           {favorites.map((f, i) => (

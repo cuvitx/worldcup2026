@@ -9,12 +9,12 @@ import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { PmuBanner } from "../components/PmuBanner";
 export const metadata: Metadata = {
-  title: "Les 16 stades de la WM 2026 | Kapazität, Ville & Matchs",
+  title: "Les 16 stades der WM 2026 | Kapazität, Ville & Matchs",
   description:
-    "Guide complet des 16 stades de la WM 2026. Kapazität, ville, pays, matchs programmés et informations pratiques.",
+    "Guide complet des 16 stades der WM 2026. Kapazität, ville, pays, matchs programmés et informations pratiques.",
   alternates: getStaticAlternates("stadiums", "de"),
   openGraph: {
-    title: "Les 16 stades de la WM 2026",
+    title: "Les 16 stades der WM 2026",
     description: "Guide des 16 stades de la CDM 2026 : capacité, ville et matchs.",
   },
 };
@@ -31,15 +31,15 @@ export default function StadiumsPage() {
   const faqItems = [
     {
       question: "Combien de stades accueilleront la WM 2026 ?",
-      answer: "La WM 2026 se déroulera dans 16 stades répartis sur 3 pays : 11 stades aux États-Unis, 3 au Mexique et 2 au Canada. C'est la première fois qu'une WM est organisée sur 3 pays différents. Les 104 matchs du tournoi (contre 64 pour les éditions précédentes) seront répartis entre ces 16 enceintes."
+      answer: "La WM 2026 se déroulera dans 16 stades répartis sur 3 pays : 11 stades aux États-Unis, 3 au Mexique et 2 au Canada. C'est la première fois qu'une WM est organisée sur 3 pays différents. Les 104 matchs des Turniers (contre 64 pour les éditions précédentes) seront répartis entre ces 16 enceintes."
     },
     {
       question: "Quel est le plus grand stade de la CDM 2026 ?",
-      answer: "Le MetLife Stadium de New York/New Jersey est le plus grand stade de la CDM 2026 avec une capacité de 82 500 places. Il accueillera la finale du tournoi le 19 juillet 2026. Ce stade ultramoderne, domicile des Giants et des Jets (NFL), dispose d'un toit rétractable et de technologies de pointe. C'est l'un des stades les plus emblématiques des États-Unis."
+      answer: "Le MetLife Stadium de New York/New Jersey est le plus grand stade de la CDM 2026 avec une capacité de 82 500 places. Il accueillera la finale des Turniers le 19 juillet 2026. Ce stade ultramoderne, domicile des Giants et des Jets (NFL), dispose d'un toit rétractable et de technologies de pointe. C'est l'un des stades les plus emblématiques des États-Unis."
     },
     {
-      question: "Où se jouera la finale de la WM 2026 ?",
-      answer: "La finale de la WM 2026 aura lieu au MetLife Stadium de East Rutherford, dans l'État du New Jersey (région de New York), le dimanche 19 juillet 2026. Ce stade de 82 500 places a été choisi pour son emplacement stratégique (proche de New York), sa capacité exceptionnelle et ses infrastructures modernes. Les demi-finales se joueront également dans deux grandes enceintes américaines."
+      question: "Où se jouera la finale der WM 2026 ?",
+      answer: "La finale der WM 2026 aura lieu au MetLife Stadium de East Rutherford, dans l'État du New Jersey (région de New York), le dimanche 19 juillet 2026. Ce stade de 82 500 places a été choisi pour son emplacement stratégique (proche de New York), sa capacité exceptionnelle et ses infrastructures modernes. Les demi-finales se joueront également dans deux grandes enceintes américaines."
     },
     {
       question: "Combien de stades ont un toit rétractable ?",
@@ -51,7 +51,7 @@ export default function StadiumsPage() {
     },
     {
       question: "Comment acheter des Tickets pour les matchs dans les stades ?",
-      answer: "La vente des Tickets pour la WM 2026 s'effectue exclusivement via le site officiel de la FIFA (FIFA.com/tickets). Les premières phases de vente ouvriront début 2026 par tirage au sort, suivies de ventes en premier arrivé, premier servi. Les prix varient selon le stade, la catégorie de match et l'emplacement des sièges. Il est fortement recommandé de s'inscrire à l'avance sur le portail FIFA pour être informé des ouvertures de vente."
+      answer: "La vente des Tickets für die WM 2026 s'effectue exclusivement via le site officiel de la FIFA (FIFA.com/tickets). Les premières phases de vente ouvriront début 2026 par tirage au sort, suivies de ventes en premier arrivé, premier servi. Les prix varient selon le stade, la catégorie de match et l'emplacement des sièges. Il est fortement recommandé de s'inscrire à l'avance sur le portail FIFA pour être informé des ouvertures de vente."
     }
   ];
 

@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return {};
   return {
     title: `Kader ${team.name} — Liste des 26 Spielers CDM 2026`,
-    description: `Kader complet de ${team.name} pour la WM 2026 : liste des 26 Spielers, postes, clubs et sélections par poste.`,
+    description: `Kader complet de ${team.name} für die WM 2026 : liste des 26 Spielers, postes, clubs et sélections par poste.`,
     openGraph: {
       title: `${team.flag} Kader ${team.name} — CDM 2026`,
-      description: `Liste des 26 Spielers de ${team.name} pour la WM 2026.`,
+      description: `Liste des 26 Spielers de ${team.name} für die WM 2026.`,
       url: `${domains.de}/effectif/${team.slug}`,
       },
     alternates: { canonical: `https://www.wm2026guide.de/effectif/${team.slug}` },
@@ -67,17 +67,17 @@ export default async function KaderPage({ params }: PageProps) {
 const faqItems = [
     {
       question: `Combien de Spielers ${team.name} peut-elle emmener à la CDM 2026 ?`,
-      answer: "Chaque sélection peut convoquer 26 Spielers pour la WM 2026, dont 3 Torwarts obligatoires.",
+      answer: "Chaque sélection peut convoquer 26 Spielers für die WM 2026, dont 3 Torwarts obligatoires.",
     },
     {
       question: `Quand a été annoncée la liste définitive de ${team.name} ?`,
-      answer: `La liste définitive des 26 Spielers de ${team.name} a été annoncée par le sélectionneur en mai 2026, avant le début du tournoi le 11 juin 2026.`,
+      answer: `La liste définitive des 26 Spielers de ${team.name} a été annoncée par le sélectionneur en mai 2026, avant le début des Turniers le 11 juin 2026.`,
     },
     {
       question: `Qui sont les Spielers stars de ${team.name} ?`,
       answer: stars.length > 0
         ? `Les Spielers les plus expérimentés de ${team.name} sont : ${stars.map((s) => `${s.name} (${s.caps} sél.)`).join(", ")}.`
-        : `La liste des Spielers de ${team.name} est celle retenue pour la WM 2026.`,
+        : `La liste des Spielers de ${team.name} est celle retenue für die WM 2026.`,
     },
     {
       question: `Un Spieler blessé peut-il être remplacé ?`,
@@ -108,7 +108,7 @@ const faqItems = [
         {/* Disclaimer */}
         <div className="rounded-lg bg-accent/10 border border-accent/30 p-4 mb-8">
           <p className="text-sm text-gray-700 font-medium">
-            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 Spielers sélectionnés pour la WM 2026.
+            <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 Spielers sélectionnés für die WM 2026.
           </p>
         </div>
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
@@ -285,7 +285,7 @@ const faqItems = [
                 Absents notables / Blessés
               </h2>
               <p className="text-sm text-gray-500 italic">
-                Cette section est mise à jour au fil du tournoi, en fonction des blessures et remplacements officiels.
+                Cette section est mise à jour au fil des Turniers, en fonction des blessures et remplacements officiels.
               </p>
               <div className="mt-4 rounded-lg bg-gray-50/30 p-4">
                 <p className="text-sm text-gray-400">Aucun absent notable confirmé pour le moment.</p>

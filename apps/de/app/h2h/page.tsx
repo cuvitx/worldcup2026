@@ -9,14 +9,14 @@ import { H2HSelector } from "./h2h-selector";
 export const metadata: Metadata = {
   title: "Confrontations H2H — Comparer deux Mannschafts | CDM 2026",
   description:
-    "Comparez deux Mannschafts de la WM 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
+    "Comparez deux Mannschafts der WM 2026 : historique des confrontations, statistiques, classement FIFA et pronostic.",
   alternates: {
     canonical: "https://www.wm2026guide.de/h2h",
   },
   openGraph: {
     title: "Confrontations H2H — CDM 2026",
     description:
-      "Historique et stats face-à-face de toutes les Mannschafts qualifiées pour la WM 2026.",
+      "Historique et stats face-à-face de toutes les Mannschafts qualifiées für die WM 2026.",
   },
 };
 
@@ -77,7 +77,7 @@ export default function H2HIndexPage() {
             Confrontations H2H
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Comparez n&apos;importe quelles Mannschafts de la WM 2026 :
+            Comparez n&apos;importe quelles Mannschafts der WM 2026 :
             historique, stats, classement FIFA et pronostic.
           </p>
         </div>

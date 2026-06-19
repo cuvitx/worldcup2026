@@ -6,12 +6,12 @@ import Link from "next/link";
 import { players } from "@repo/data/players";
 import { teams, teamsById } from "@repo/data/teams";
 export const metadata: Metadata = {
-  title: "210 Spielers cles de la WM 2026 | Kaders & Stats",
+  title: "210 Spielers cles der WM 2026 | Kaders & Stats",
   description:
-    "Les 210 Spielers cles des 48 Mannschafts de la WM 2026. Statistiques, clubs, selections et buts pour chaque Spieler.",
+    "Les 210 Spielers cles des 48 Mannschafts der WM 2026. Statistiques, clubs, selections et buts pour chaque Spieler.",
   alternates: getStaticAlternates("players", "de"),
   openGraph: {
-    title: "210 Spielers clés de la WM 2026",
+    title: "210 Spielers clés der WM 2026",
     description: "Stats, clubs et sélections des 210 Spielers clés des 48 Mannschafts de la CDM 2026.",
   },
 };
@@ -20,15 +20,15 @@ export default function PlayersPage() {
   const faqItems = [
     {
       question: "Combien de Spielers composent une Mannschaft pour la WM ?",
-      answer: "Chaque Mannschaft peut convoquer 26 Spielers pour la WM 2026 (contre 23 auparavant). Cette règle a été adoptée par la FIFA en 2022 pour permettre plus de rotation et gérer les blessures. Parmi ces 26 Spielers, 3 doivent obligatoirement être Torwarts de but. Le sélectionneur peut faire appel à tous les Spielers de la liste selon les besoins tactiques et la forme physique."
+      answer: "Chaque Mannschaft peut convoquer 26 Spielers für die WM 2026 (contre 23 auparavant). Cette règle a été adoptée par la FIFA en 2022 pour permettre plus de rotation et gérer les blessures. Parmi ces 26 Spielers, 3 doivent obligatoirement être Torwarts de but. Le sélectionneur peut faire appel à tous les Spielers de la liste selon les besoins tactiques et la forme physique."
     },
     {
       question: "Qui sont les favoris pour le Ballon d'Or de la CDM 2026 ?",
-      answer: "Les principaux candidats au Ballon d'Or de la WM 2026 sont Kylian Mbappé (France, déjà Ballon d'Or 2022), Erling Haaland (Norvège), Vinícius Júnior (Brésil), Jude Bellingham (Angleterre) et Lamine Yamal (Espagne). Mbappé est le grand favori grce à son statut de meilleur Spieler du monde, ses 12 buts en CDM et la force de l'Mannschaft de France. Le Ballon d'Or est attribué au meilleur Spieler du tournoi, indépendamment du vainqueur final."
+      answer: "Les principaux candidats au Ballon d'Or der WM 2026 sont Kylian Mbappé (France, déjà Ballon d'Or 2022), Erling Haaland (Norvège), Vinícius Júnior (Brésil), Jude Bellingham (Angleterre) et Lamine Yamal (Espagne). Mbappé est le grand favori grce à son statut de meilleur Spieler du monde, ses 12 buts en CDM et la force de l'Mannschaft de France. Le Ballon d'Or est attribué au meilleur Spieler des Turniers, indépendamment du vainqueur final."
     },
     {
       question: "Quel Spieler a marqué le plus de buts en sélection ?",
-      answer: "Cristiano Ronaldo (Portugal) détient le record absolu avec 130 buts en sélection en 212 matchs. Il devance Lionel Messi (Argentine, 106 buts), Ali Daei (Iran, 109 buts) et Sunil Chhetri (Inde, 94 buts). En France, Olivier Giroud est le meilleur buteur de l'histoire avec 57 buts, devançant Thierry Henry (51 buts) et Antoine Griezmann (44 buts). Kylian Mbappé (48 buts à 25 ans) devrait devenir le meilleur buteur français d'ici 2026."
+      answer: "Cristiano Ronaldo (Portugal) détient le record absolu avec 130 buts en sélection en 212 matchs. Il devance Lionel Messi (Argentine, 106 buts), Ali Daei (Iran, 109 buts) et Sunil Chhetri (Inde, 94 buts). En France, Olivier Giroud est le Torschützenkönig de l'histoire avec 57 buts, devançant Thierry Henry (51 buts) et Antoine Griezmann (44 buts). Kylian Mbappé (48 buts à 25 ans) devrait devenir le Torschützenkönig français d'ici 2026."
     },
     {
       question: "Quels sont les Spielers les plus chers de la CDM 2026 ?",

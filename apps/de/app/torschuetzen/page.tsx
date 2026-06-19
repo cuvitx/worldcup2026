@@ -50,7 +50,7 @@ export default function TorschützenPage() {
 
   const faqItems = [
     {
-      question: "Qui est le meilleur buteur de l'histoire de la WM ?",
+      question: "Qui est le Torschützenkönig de l'histoire de la WM ?",
       answer: "Miroslav Klose (Allemagne) détient le record avec 16 buts marqués en WM, répartis sur 4 éditions (2002, 2006, 2010, 2014). Il devance Ronaldo Nazário (Brésil, 15 buts) et Gerd Müller (Allemagne, 14 buts). Klose a été champion du monde en 2014 et a toujours été d'une constance remarquable dans les grands tournois."
     },
     {
@@ -71,7 +71,7 @@ export default function TorschützenPage() {
     },
     {
       question: "Où parier sur les buteurs de la CDM 2026 ?",
-      answer: "Le meilleur bookmaker pour parier sur les buteurs est Betano (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (meilleur buteur du tournoi), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un Spieler. 18+, jouez responsablement."
+      answer: "Le meilleur bookmaker pour parier sur les buteurs est Betano (bonus généreux). Les marchés disponibles incluent le Soulier d'Or (Torschützenkönig des Turniers), buteur d'un match (anytime scorer), premier buteur, et nombre de buts d'un Spieler. 18+, jouez responsablement."
     }
   ];
 
@@ -79,9 +79,9 @@ export default function TorschützenPage() {
     <>
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Cotes buteurs CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Torschützen-Quotens CDM 2026</h1>
           <p className="mt-2 text-gray-300">
-            {scorerOdds.length} Stürmers et Mittelfeldspielerx offensifs analyses. Cotes buteur, buts attendus et probabilites pour chaque Spieler.
+            {scorerOdds.length} Stürmers et Mittelfeldspielerx offensifs analyses. Torschützen-Quoten, buts attendus et probabilites pour chaque Spieler.
           </p>
         </div>
       </section>
@@ -182,7 +182,7 @@ export default function TorschützenPage() {
               </h2>
             </div>
             <p className="text-sm text-gray-500">
-              Cotes Betano · Buts attendus (modèle ELO) · Fév. 2026
+              Betano-Quoten · Buts attendus (modèle ELO) · Fév. 2026
             </p>
           </div>
 
@@ -259,7 +259,7 @@ export default function TorschützenPage() {
                     {/* Bookmaker odds column */}
                     <div className="shrink-0 flex flex-col gap-2 min-w-[130px]">
                       <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-1">
-                        Cote meilleur buteur
+                        Cote Torschützenkönig
                       </p>
                       <div className="flex items-center justify-between rounded-lg px-3 py-2 border bg-accent/10 border-accent/30">
                         <span className="text-xs font-semibold text-primary">Betano</span>
@@ -286,7 +286,7 @@ export default function TorschützenPage() {
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Favoris pour le Soulier d&apos;Or</h2>
           <p className="mb-6 text-sm text-gray-600">
-            Les 30 Spielers les plus susceptibles de terminer meilleur buteur de la WM 2026.
+            Les 30 Spielers les plus susceptibles de terminer Torschützenkönig der WM 2026.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">

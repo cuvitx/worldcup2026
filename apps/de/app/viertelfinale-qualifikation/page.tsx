@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Huitièmes de finale CDM 2026 : du 3 au 6 juillet 2026. Format, analyse du bracket, matchs à suivre et pronostics pour le round of 16.",
   openGraph: {
     title: "Huitièmes de finale CDM 2026",
-    description: "Tout sur les huitièmes de finale de la WM 2026 : dates, format et analyse.",
+    description: "Tout sur les huitièmes de finale der WM 2026 : dates, format et analyse.",
     url: "https://www.wm2026guide.de/8emes-de-finale",
   },
   alternates: { canonical: "https://www.wm2026guide.de/8emes-de-finale" },
@@ -79,7 +79,7 @@ export default function HuitiemesDeFinale() {
             <p>
               Chaque match se joue en 90 minutes, avec prolongation (2 × 15 min) et tirs au but
               en cas d&apos;égalité. Historiquement, ce tour produit certains des matchs les plus
-              mémorables du tournoi.
+              mémorables des Turniers.
             </p>
             <p>
               Le bracket est structuré en deux moitiés distinctes. Les Mannschafts situées dans la

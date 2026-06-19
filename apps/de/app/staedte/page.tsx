@@ -6,12 +6,12 @@ import Link from "next/link";
 import { cities } from "@repo/data/cities";
 import { stadiums } from "@repo/data/stadiums";
 export const metadata: Metadata = {
-  title: "Les 16 villes hôtes de la WM 2026 | Guide & Infos",
+  title: "Les 16 villes hôtes der WM 2026 | Guide & Infos",
   description:
-    "Découvrez les 16 villes hôtes de la WM 2026 aux États-Unis, au Canada et au Mexique. Einwohner, stades, fuseaux horaires.",
+    "Découvrez les 16 villes hôtes der WM 2026 aux États-Unis, au Canada et au Mexique. Einwohner, stades, fuseaux horaires.",
   alternates: getStaticAlternates("cities", "de"),
   openGraph: {
-    title: "Les 16 villes hôtes de la WM 2026",
+    title: "Les 16 villes hôtes der WM 2026",
     description: "Découvrez les 16 villes hôtes de la CDM 2026 aux USA, Canada et Mexique.",
   },
 };

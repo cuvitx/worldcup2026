@@ -7,7 +7,7 @@ import { TrendingUp, Calculator, Target, ArrowRight, CheckCircle, AlertTriangle 
 export const metadata: Metadata = {
   title: "Value Bets CDM 2026 — Cotes Sous-Estimées & Paris à Valeur",
   description:
-    "Guide complet des value bets pour la WM 2026. Méthodologie, calcul, et 10 exemples concrets de paris à valeur sur la CDM 2026.",
+    "Guide complet des value bets für die WM 2026. Méthodologie, calcul, et 10 exemples concrets de paris à valeur sur la CDM 2026.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/value-bets" },
   openGraph: {
     title: "Value Bets CDM 2026 — Guide & Exemples",

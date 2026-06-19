@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${city.name} - Ville hôte WM 2026 | Guide complet`,
-    description: `Guide complet de ${city.name} pour la WM 2026. Hôtels, transports, stades et activités. ${city.description}`,
+    description: `Guide complet de ${city.name} für die WM 2026. Hôtels, transports, stades et activités. ${city.description}`,
     alternates: getAlternates("city", slug, "de"),
   };
 }
@@ -287,7 +287,7 @@ export default async function CityPage({ params }: PageProps) {
             <div className="rounded-xl bg-primary/5 border border-primary/20 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Hôtels à {city.name}</h3>
               <p className="text-sm text-gray-600">
-                Trouvez les meilleurs hôtels près des stades pour la WM 2026.
+                Trouvez les meilleurs hôtels près des stades für die WM 2026.
               </p>
             </div>
 

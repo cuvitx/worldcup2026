@@ -292,7 +292,7 @@ export default async function GuidePage({ params }: PageProps) {
               <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
                 <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Explorer</h3>
                 <ul className="space-y-2 text-sm">
-                  <li><Link href="/torschuetzen" className="text-primary hover:underline">Cotes buteurs CDM 2026 →</Link></li>
+                  <li><Link href="/torschuetzen" className="text-primary hover:underline">Torschützen-Quotens CDM 2026 →</Link></li>
                   <li><Link href="/sportwetten" className="text-primary hover:underline">Paris sportifs CDM 2026 →</Link></li>
                   <li><Link href="/prognose/france" className="text-primary hover:underline">Prognose France →</Link></li>
                   <li><Link href="/spiel/spielplan" className="text-primary hover:underline">Spielplan des matchs →</Link></li>

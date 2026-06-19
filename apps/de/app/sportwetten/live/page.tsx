@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/live" },
   openGraph: {
     title: "Paris Live CDM 2026 — Guide Complet",
-    description: "Stratégies live betting, meilleures apps et cashout pour la WM 2026.",
+    description: "Stratégies live betting, meilleures apps et cashout für die WM 2026.",
     url: "https://www.wm2026guide.de/sportwetten/live",
   },
 };
@@ -49,7 +49,7 @@ export default function ParisLivePage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Live — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Guide complet pour parier en direct pendant les matchs de la WM 2026. Stratégies, apps et cashout.
+          Guide complet pour parier en direct pendant les matchs der WM 2026. Stratégies, apps et cashout.
         </p>
       </section>
 

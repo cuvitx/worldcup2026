@@ -142,7 +142,7 @@ return (
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Combiné, System, Trixie, Yankee : maîtrisez les paris combinés avec nos exemples concrets
-            et nos stratégies pour la WM 2026.
+            et nos stratégies für die WM 2026.
           </p>
         </div>
       </section>

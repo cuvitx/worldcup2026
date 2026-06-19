@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${player.name} - ${teamName} | Fiche Spieler CDM 2026`,
-    description: `Fiche de ${player.name} (${teamName}) pour la WM 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
+    description: `Fiche de ${player.name} (${teamName}) für die WM 2026. ${player.caps} selections, ${player.goals} buts. ${player.description}`,
     alternates: getAlternates("player", slug, "de"),
     openGraph: {
       title: `${player.name} - ${teamName} CDM 2026`,

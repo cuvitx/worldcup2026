@@ -18,7 +18,7 @@ export function KeyPlayers({ teamName, players }: KeyPlayersProps) {
   return (
     <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielers cles de {teamName}</h2>
-      <p className="mb-4 text-sm text-gray-600">Les Spielers qui feront la difference pour {teamName} lors de la WM 2026.</p>
+      <p className="mb-4 text-sm text-gray-600">Les Spielers qui feront la difference pour {teamName} lors der WM 2026.</p>
       <div className="space-y-3">
         {players.map((player) => (
           <Link

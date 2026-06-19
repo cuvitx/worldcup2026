@@ -135,7 +135,7 @@ export const faqItems = [
       "Les seuls Tickets officiels sont vendus sur FIFA.com (fifa.com/tickets). Tout autre site est soit une arnaque soit de la revente non officielle. Créez un compte FIFA+ gratuitement pour accéder aux ventes.",
   },
   {
-    question: "Combien coûtent les Tickets pour la WM 2026 ?",
+    question: "Combien coûtent les Tickets für die WM 2026 ?",
     answer:
       "Les prix varient selon la phase et la catégorie : phase de groupes de 60 à 350 USD (Cat 1-3), huitièmes de 100 à 600 USD, demi-finales de 200 à 1 500 USD, finale de 300 à 2 500 USD (hors hospitalité). Les prix sont en USD pour tous les pays hôtes.",
   },

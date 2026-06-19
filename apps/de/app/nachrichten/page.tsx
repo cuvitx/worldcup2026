@@ -6,7 +6,7 @@ import { getAllArticles } from "../../lib/mdx";
 export const metadata: Metadata = {
   title: "Nachrichten WM 2026 - Dernières News CDM 2026",
   description:
-    "Alle Nachrichten de la WM 2026 : stades, qualifications, Tickets, Mannschafts, paris sportifs. Restez informé sur le Mondial.",
+    "Alle Nachrichten der WM 2026 : stades, qualifications, Tickets, Mannschafts, paris sportifs. Restez informé sur le Mondial.",
   alternates: {
     canonical: "https://www.wm2026guide.de/actualites",
   },
@@ -42,11 +42,11 @@ export default function ActualitesPage() {
     },
     {
       question: "La France est-elle qualifiée pour la CDM 2026 ?",
-      answer: "Oui, la France s'est qualifiée pour la WM 2026 en terminant première de son groupe lors des éliminatoires européens. Les Bleus, vice-champions du monde 2022 et champions du monde 2018, font partie des grands favoris du tournoi. Sous la direction de Didier Deschamps, l'Mannschaft dispose d'un effectif exceptionnel avec Kylian Mbappé, Antoine Griezmann, Aurélien Tchouaméni et de nombreux jeunes talents."
+      answer: "Oui, la France s'est qualifiée für die WM 2026 en terminant première de son groupe lors des éliminatoires européens. Les Bleus, vice-champions du monde 2022 et champions du monde 2018, font partie des grands favoris des Turniers. Sous la direction de Didier Deschamps, l'Mannschaft dispose d'un effectif exceptionnel avec Kylian Mbappé, Antoine Griezmann, Aurélien Tchouaméni et de nombreux jeunes talents."
     },
     {
       question: "Quand a eu lieu le tirage au sort des groupes de la CDM 2026 ?",
-      answer: "Le tirage au sort de la phase de groupes de la WM 2026 a eu lieu en décembre 2025. Il a déterminé la composition des 12 groupes de 4 Mannschafts et définira le spielplan des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 Mannschafts européennes par groupe, etc.)."
+      answer: "Le tirage au sort de la phase de groupes der WM 2026 a eu lieu en décembre 2025. Il a déterminé la composition des 12 groupes de 4 Mannschafts et définira le spielplan des matchs de poule. Le tirage respectera les chapeaux basés sur le classement FIFA et les règles de séparation géographique (maximum 2 Mannschafts européennes par groupe, etc.)."
     }
   ];
 

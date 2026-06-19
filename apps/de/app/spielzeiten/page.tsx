@@ -10,7 +10,7 @@ import { Clock, MapPin, Globe } from "lucide-react";
 export const metadata: Metadata = {
   title: "Horaires des matchs - WM 2026",
   description:
-    "Tous les horaires des 104 matchs de la WM 2026 en heure fran\u00e7aise (Europe/Paris). Planning complet du 11 juin au 19 juillet 2026 avec fuseaux horaires.",
+    "Tous les horaires des 104 matchs der WM 2026 en heure fran\u00e7aise (Europe/Paris). Planning complet du 11 juin au 19 juillet 2026 avec fuseaux horaires.",
   alternates: {
     canonical: "https://www.wm2026guide.de/horaires",
   },

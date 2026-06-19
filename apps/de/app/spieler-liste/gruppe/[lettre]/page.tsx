@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!group) return {};
   return {
     title: `Spielers Groupe ${group.letter.toUpperCase()} — CDM 2026`,
-    description: `Tous les Spielers du Groupe ${group.letter.toUpperCase()} de la WM 2026. Fiches et statistiques par Mannschaft.`,
+    description: `Tous les Spielers du Groupe ${group.letter.toUpperCase()} der WM 2026. Fiches et statistiques par Mannschaft.`,
   };
 }
 

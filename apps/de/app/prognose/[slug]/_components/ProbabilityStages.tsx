@@ -25,7 +25,7 @@ export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesPro
     <section className="rounded-lg bg-white p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Probabilites par tour - {teamName}</h2>
       <p className="mb-4 text-sm text-gray-600">
-        Probabilites estimees de {teamName} d&apos;atteindre chaque tour de la WM 2026, basees sur le modele ELO.
+        Probabilites estimees de {teamName} d&apos;atteindre chaque tour der WM 2026, basees sur le modele ELO.
       </p>
       <div className="space-y-3">
         {stages.map((stage) => (

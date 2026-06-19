@@ -91,7 +91,7 @@ export default function GuideVisaEsta() {
           </h1>
 
           <p className="text-lg text-gray-600 font-medium mb-8 not-prose">
-            La majorité des matchs de la WM 2026 se joueront aux États-Unis. Pour les ressortissants français et européens, l&apos;ESTA est le document indispensable. Voici tout ce qu&apos;il faut savoir.
+            La majorité des matchs der WM 2026 se joueront aux États-Unis. Pour les ressortissants français et européens, l&apos;ESTA est le document indispensable. Voici tout ce qu&apos;il faut savoir.
           </p>
 
           <h2 id="esta-definition">Qu&apos;est-ce que l&apos;ESTA ?</h2>

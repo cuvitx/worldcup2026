@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Finale CDM 2026 - MetLife Stadium, New York",
     description:
-      "Tout sur la finale de la WM 2026 : date, stade, historique, pronostics et cotes.",
+      "Tout sur la finale der WM 2026 : date, stade, historique, pronostics et cotes.",
     url: "https://www.wm2026guide.de/finale",
   },
   alternates: { canonical: "https://www.wm2026guide.de/finale" },
@@ -31,7 +31,7 @@ const faqItems = [
   {
     question: "Quand et où se joue la finale de la CDM 2026 ?",
     answer:
-      "La finale de la WM 2026 se jouera le 19 juillet 2026 au MetLife Stadium d'East Rutherford, New Jersey (région de New York). Le coup d'envoi est prévu à 16h00 heure locale (22h00 heure de Paris).",
+      "La finale der WM 2026 se jouera le 19 juillet 2026 au MetLife Stadium d'East Rutherford, New Jersey (région de New York). Le coup d'envoi est prévu à 16h00 heure locale (22h00 heure de Paris).",
   },
   {
     question: "Combien de places compte le MetLife Stadium ?",
@@ -51,7 +51,7 @@ const faqItems = [
   {
     question: "Quels sont les favoris pour la finale 2026 ?",
     answer:
-      "Les principaux favoris selon les bookmakers sont le Brésil (cote ~5.50), l'Argentine (cote ~6.00), la France (cote ~6.50), l'Angleterre (cote ~7.00), l'Espagne (cote ~8.00) et l'Allemagne (cote ~10.00). Les cotes évoluent au fil du tournoi.",
+      "Les principaux favoris selon les bookmakers sont le Brésil (cote ~5.50), l'Argentine (cote ~6.00), la France (cote ~6.50), l'Angleterre (cote ~7.00), l'Espagne (cote ~8.00) et l'Allemagne (cote ~10.00). Les cotes évoluent au fil des Turniers.",
   },
   {
     question: "Comment regarder la finale en France ?",
@@ -74,7 +74,7 @@ export default function FinalePage() {
             </span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl lg:text-6xl mb-4">
-            <span className="text-accent">La Finale</span> de la WM 2026
+            <span className="text-accent">La Finale</span> der WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
             MetLife Stadium, New York — 19 juillet 2026.
@@ -309,7 +309,7 @@ export default function FinalePage() {
               Qui soulèvera le trophée le 19 juillet ?
             </h2>
             <p className="text-gray-300 max-w-xl mx-auto mb-6">
-              Simulez l&apos;intégralité du tournoi et découvrez votre finaliste
+              Simulez l&apos;intégralité des Turniers et découvrez votre finaliste
               avec notre simulateur interactif.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

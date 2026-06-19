@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote carton jaune ${player.name} — CDM 2026 | Betano`,
-    description: `Statistiques disciplinaires de ${player.name}, cotes carton jaune Betano pour la WM 2026. Profil, historique et analyse.`,
+    description: `Statistiques disciplinaires de ${player.name}, cotes carton jaune Betano für die WM 2026. Profil, historique et analyse.`,
     alternates: { canonical: `https://www.wm2026guide.de/cote-carton-jaune/${slug}` },
   };
 }
@@ -62,7 +62,7 @@ export default async function CoteCartonJaunePage({ params }: PageProps) {
 const faqItems = [
     { question: `Quelle est la cote pour un carton jaune de ${player.name} ?`, answer: `La cote indicative pour un carton jaune de ${player.name} est de ${stats.pmusport} chez Betano. Cette cote varie selon le match et l'adversaire.` },
     { question: `${player.name} prend-il souvent des cartons jaunes ?`, answer: `${player.name} affiche une moyenne de ${stats.cardsPerMatch} carton jaune par match en sélection, avec ${stats.yellowCards} cartons en ${stats.matchesPlayed} matchs. Son profil est considéré comme ${stats.isRough ? "plutôt rugueux" : "plutôt fair-play"}.` },
-    { question: "Comment sont cotés les paris carton jaune ?", answer: "Le pari \"Spieler reçoit un carton jaune\" est proposé par la plupart des bookmakers sur les matchs de la WM 2026. La cote dépend du profil disciplinaire du Spieler, de l'adversaire et de l'enjeu du match." },
+    { question: "Comment sont cotés les paris carton jaune ?", answer: "Le pari \"Spieler reçoit un carton jaune\" est proposé par la plupart des bookmakers sur les matchs der WM 2026. La cote dépend du profil disciplinaire du Spieler, de l'adversaire et de l'enjeu du match." },
     { question: "L'arbitre influence-t-il les cotes carton jaune ?", answer: "Oui, l'arbitre désigné est un facteur clé. Certains arbitres distribuent en moyenne 4-5 cartons par match, d'autres seulement 2-3. Les bookmakers ajustent leurs cotes en conséquence." },
   ];
   return (
@@ -115,7 +115,7 @@ const faqItems = [
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <TrendingUp className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Cotes &quot;Reçoit un carton jaune&quot;</h2>
+          <h2 className="text-2xl font-bold text-primary">Cotes &quot;Erhält eine Gelbe Karte&quot;</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -137,7 +137,7 @@ const faqItems = [
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur le site du bookmaker avant de parier.</p>
+        <p className="text-xs text-gray-400 mt-3">Richtquoten, Änderungen vorbehalten. Prüfen Sie vor dem Wetten beim Wettanbieter.</p>
       </section>
       {/* Historique CDM */}
       <section className="max-w-5xl mx-auto px-4 py-10">
@@ -163,7 +163,7 @@ const faqItems = [
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-4">
           <BarChart3 className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl font-bold text-primary">Comparaison avec la moyenne du tournoi</h2>
+          <h2 className="text-2xl font-bold text-primary">Comparaison avec la moyenne des Turniers</h2>
         </div>
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6">
           <p className="text-gray-700">
@@ -173,7 +173,7 @@ const faqItems = [
             ) : (
               <span className="font-bold text-green-600">en dessous</span>
             )}{" "}
-            de la moyenne estimée du tournoi ({stats.tournamentAvgCards} carton/match). Ses {stats.foulsPerMatch} fautes/match sont{" "}
+            de la moyenne estimée des Turniers ({stats.tournamentAvgCards} carton/match). Ses {stats.foulsPerMatch} fautes/match sont{" "}
             {stats.foulsPerMatch > stats.tournamentAvgFouls ? "supérieures" : "inférieures"} à la moyenne ({stats.tournamentAvgFouls}/match).
           </p>
         </div>
@@ -204,7 +204,7 @@ const faqItems = [
         <div className="bg-white rounded-2xl border border-gray-200 p-8">
           <h3 className="text-xl font-bold text-primary mb-4">Comparer les cotes carton jaune</h3>
           <p className="text-gray-600 mb-6">
-            Trouvez la meilleure cote pour parier sur un carton jaune de {player.name} lors de la WM 2026.
+            Trouvez la meilleure cote pour parier sur un carton jaune de {player.name} lors der WM 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href={pmuTrackingUrl("cote-carton")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">

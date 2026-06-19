@@ -7,7 +7,7 @@ import { Gift, ArrowRight, Star, Clock, CheckCircle, AlertTriangle } from "lucid
 export const metadata: Metadata = {
   title: "Bonus Paris Sportifs CDM 2026 | Code Promo & Offre Betano",
   description:
-    "Bonus et code promo Betano pour la WM 2026. Jusqu'à Willkommensbonus sur votre premier pari. Bookmaker agréé ANJ.",
+    "Bonus et code promo Betano für die WM 2026. Jusqu'à Willkommensbonus sur votre premier pari. Bookmaker agréé ANJ.",
   openGraph: {
     title: "Bonus Paris Sportifs CDM 2026 | Codes Promo & Offres",
     description:

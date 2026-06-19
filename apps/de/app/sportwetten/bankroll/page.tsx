@@ -42,7 +42,7 @@ const stakingPlans = [
 const budgetTiers = [
   { level: "Débutant", budget: "50 – 100 EUR", mise: "1 – 2 EUR", paris: "~30 paris", desc: "Pour découvrir les paris pendant la CDM sans risque." },
   { level: "Intermédiaire", budget: "200 – 500 EUR", mise: "4 – 10 EUR", paris: "~50 paris", desc: "Pour parier régulièrement sur la phase de groupes et les KO." },
-  { level: "Avancé", budget: "500 – 1000 EUR", mise: "10 – 20 EUR", paris: "~60 paris", desc: "Pour une couverture complète du tournoi avec des combinés." },
+  { level: "Avancé", budget: "500 – 1000 EUR", mise: "10 – 20 EUR", paris: "~60 paris", desc: "Pour une couverture complète des Turniers avec des combinés." },
 ];
 
 const erreurs = [
@@ -58,7 +58,7 @@ export default function BankrollCdmPage() {
   const faqItems = [
     {
       question: "Quel budget prévoir pour parier sur la CDM 2026 ?",
-      answer: "Un budget raisonnable se situe entre 100 et 500 EUR pour l'ensemble du tournoi (1 mois). Fixez ce montant AVANT le début de la compétition et ne le dépassez jamais. C'est un budget loisir, pas un investissement.",
+      answer: "Un budget raisonnable se situe entre 100 et 500 EUR pour l'ensemble des Turniers (1 mois). Fixez ce montant AVANT le début de la compétition et ne le dépassez jamais. C'est un budget loisir, pas un investissement.",
     },
     {
       question: "Le Kelly criterion est-il adapté aux paris CDM ?",

@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Tableau final CDM 2026 | Bracket et phase a elimination directe",
   description:
-    "Tableau final de la WM 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Prognoses et Mannschafts favorites pour chaque tour.",
+    "Tableau final der WM 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Prognoses et Mannschafts favorites pour chaque tour.",
   alternates: getStaticAlternates("bracket", "de"),
   openGraph: {
     title: "Tableau final - WM 2026",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function BracketPage() {
   const faqItems = [
     {
-      question: "Comment fonctionne le tableau final de la WM 2026 ?",
+      question: "Comment fonctionne le tableau final der WM 2026 ?",
       answer: "Le tableau final (bracket) de la CDM 2026 commence après la phase de groupes avec 32 Mannschafts qualifiées (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes). La phase à élimination directe comprend : 32e de finale (16 matchs), 16e de finale (8 matchs), quarts de finale (4 matchs), demi-finales (2 matchs), petite finale (match pour la 3e place) et grande finale. Chaque match à élimination directe se joue en un seul match ; en cas d'égalité après 90 minutes, il y a prolongation (2×15 min) puis tirs au but si nécessaire."
     },
     {
@@ -39,7 +39,7 @@ export default function BracketPage() {
     },
     {
       question: "Peut-on parier sur le tableau final de la CDM 2026 ?",
-      answer: "Oui, Betano propose des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une Mannschaft en quarts/demi/finale, et bien sûr le vainqueur final du tournoi. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
+      answer: "Oui, Betano propose des paris sur le tableau final : vainqueur de chaque match à élimination directe, score exact, qualification d'une Mannschaft en quarts/demi/finale, et bien sûr le vainqueur final des Turniers. Les cotes évoluent en fonction des résultats de la phase de groupes. Les paris combinés permettent de parier sur plusieurs matchs simultanément pour des gains potentiels plus élevés. 18+, jouez responsablement."
     }
   ];
 

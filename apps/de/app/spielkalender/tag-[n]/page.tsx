@@ -86,7 +86,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Jour ${dayNum} — ${dateFr} | Matchs CDM 2026`,
-    description: `Programme du jour ${dayNum} de la WM 2026 (${dateFr}) : ${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} au programme. Horaires, stades et Mannschafts.`,
+    description: `Programme du jour ${dayNum} der WM 2026 (${dateFr}) : ${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} au programme. Horaires, stades et Mannschafts.`,
     openGraph: {
       title: `CDM 2026 — Jour ${dayNum} : ${dateFr}`,
       description: `${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""} ce jour-là. Tous les horaires et stades.`,
@@ -421,7 +421,7 @@ export default async function JourPage({ params }: PageProps) {
               name: "FIFA",
             },
             url: `${domains.de}/spielplan/jour-${dayNum}`,
-            description: `Programme du jour ${dayNum} de la WM 2026 : ${dayMatches.length} match(s).`,
+            description: `Programme du jour ${dayNum} der WM 2026 : ${dayMatches.length} match(s).`,
           }),
         }}
       />

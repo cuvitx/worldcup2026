@@ -75,7 +75,7 @@ export default function DarkHorsesPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Dark Horses — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Quelles Mannschafts peuvent bousculer la hiérarchie ? Analyse des 7 outsiders les plus dangereux de la WM 2026.
+          Quelles Mannschafts peuvent bousculer la hiérarchie ? Analyse des 7 outsiders les plus dangereux der WM 2026.
         </p>
       </section>
 

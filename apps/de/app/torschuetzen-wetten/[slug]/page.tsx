@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!player) return {};
   return {
     title: `Cote ${player.name} Buteur CDM 2026 — Prognose et Analyse`,
-    description: `Cotes buteur de ${player.name} pour la WM 2026 : marquer un but, meilleur buteur. Cotes Betano.`,
+    description: `Torschützen-Quoten de ${player.name} für die WM 2026 : ein Tor erzielen, Torschützenkönig. Betano-Quoten.`,
     alternates: { canonical: `https://www.wm2026guide.de/cote-buteur/${slug}` },
   };
 }
@@ -48,9 +48,9 @@ export default async function CoteButeurPage({ params }: PageProps) {
   const odds = getScorerOdds(slug);
 const faqItems = [
     { question: `${player.name} va-t-il marquer pendant la CDM 2026 ?`, answer: `Avec ${odds.goalsInternational} buts en sélection et une moyenne de ${odds.goalsPerMatch} but/match, ${player.name} est un candidat sérieux. Betano propose une cote autour de ${odds.pmusportAnytime} pour au moins 1 but dans le tournoi.` },
-    { question: `Quelle est la cote de ${player.name} meilleur buteur ?`, answer: `La cote meilleur buteur chez Betano est de ${odds.pmusportTopScorer}.` },
-    { question: "Comment parier sur un buteur de la WM ?", answer: "Plusieurs marchés existent : buteur du tournoi (au moins 1 but), meilleur buteur, buteur d'un match précis. Retrouvez tous ces marchés sur Betano." },
-    { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur du tournoi » et « meilleur buteur ». Les tirs au but ne comptent généralement pas." },
+    { question: `Quelle est la cote de ${player.name} Torschützenkönig ?`, answer: `La cote Torschützenkönig chez Betano est de ${odds.pmusportTopScorer}.` },
+    { question: "Comment parier sur un buteur de la WM ?", answer: "Plusieurs marchés existent : buteur des Turniers (au moins 1 but), Torschützenkönig, buteur d'un match précis. Retrouvez tous ces marchés sur Betano." },
+    { question: "Les buts en prolongation comptent-ils ?", answer: "Oui, les buts inscrits en prolongation comptent pour les paris « buteur des Turniers » et « Torschützenkönig ». Les tirs au but ne comptent généralement pas." },
   ];
   const comparisons = TOP_50_SLUGS.filter((s) => s !== slug && playersBySlug[s]).slice(0, 4);
   return (
@@ -92,7 +92,7 @@ const faqItems = [
         </div>
         {/* Tableau cotes : Marquer au moins 1 but */}
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
-          <TrendingUp className="w-6 h-6 text-accent" /> Cotes Betano : Marquer au moins 1 but dans le tournoi
+          <TrendingUp className="w-6 h-6 text-accent" /> Betano-Quoten : Mindestens 1 Tor im Turnier
         </h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
@@ -111,7 +111,7 @@ const faqItems = [
           </table>
         </div>
         {/* Tableau cotes : Torschützenkönig */}
-        <h2 className="text-xl font-bold text-primary mb-4">Cotes Betano : Torschützenkönig du tournoi</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten : Torschützenkönig des Turniers</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -129,7 +129,7 @@ const faqItems = [
           </table>
         </div>
         {/* Tableau cotes : Buteur prochain match */}
-        <h2 className="text-xl font-bold text-primary mb-4">Cotes Betano : Buteur dans le prochain match</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten : Torschütze im nächsten Spiel</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -146,7 +146,7 @@ const faqItems = [
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur Betano avant de parier.</p>
+        <p className="text-xs text-gray-400 mt-3">Richtquoten, Änderungen vorbehalten. Prüfen Sie vor dem Wetten bei Betano.</p>
         <div className="mt-6">
           <a
             href={pmuTrackingUrl("cote-buteur")}

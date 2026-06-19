@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!parsed) return {};
   const { team1, team2 } = parsed;
   const title = `${team1.name} vs ${team2.name} : Konfrontationshistorie — CDM 2026`;
-  const description = `Historique complet ${team1.name} - ${team2.name} : bilan face à face, résultats, statistiques H2H et pronostic pour la WM 2026.`;
+  const description = `Historique complet ${team1.name} - ${team2.name} : bilan face à face, résultats, statistiques H2H et pronostic für die WM 2026.`;
   return {
     title,
     description,

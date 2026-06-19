@@ -111,7 +111,7 @@ return (
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Over/under 9.5 &amp; 11.5, total corners, 1er corner, dernier corner : exploitez les
-            stats historiques et nos stratégies pour parier sur les corners de la WM 2026.
+            stats historiques et nos stratégies pour parier sur les corners der WM 2026.
           </p>
         </div>
       </section>

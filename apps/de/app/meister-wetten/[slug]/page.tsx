@@ -111,7 +111,7 @@ export default async function CoteChampionPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
-            {/* Cotes actuelles */}
+            {/* Aktuelle Quoten */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 <Trophy className="h-6 w-6 text-accent" />

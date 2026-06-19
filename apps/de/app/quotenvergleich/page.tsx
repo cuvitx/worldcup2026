@@ -30,7 +30,7 @@ export default function ComparateurCotesPage() {
     },
     {
       question: "Quel bookmaker propose les meilleures cotes pour la CDM 2026 ?",
-      answer: "Les bookmakers avec les meilleures cotes pour la WM 2026 varient selon les matchs et les marchés. En général, PokerStars Sports et Betsson proposent des cotes très compétitives sur les grands matchs. Betano a également amélioré ses cotes ces dernières années. Notre comparateur met en surbrillance en vert la meilleure cote pour chaque issue (victoire domicile, match nul, victoire extérieur), ce qui vous permet de maximiser vos gains potentiels."
+      answer: "Les bookmakers avec les meilleures cotes für die WM 2026 varient selon les matchs et les marchés. En général, PokerStars Sports et Betsson proposent des cotes très compétitives sur les grands matchs. Betano a également amélioré ses cotes ces dernières années. Notre comparateur met en surbrillance en vert la meilleure cote pour chaque issue (victoire domicile, match nul, victoire extérieur), ce qui vous permet de maximiser vos gains potentiels."
     },
     {
       question: "Les cotes affichées sont-elles en temps réel ?",

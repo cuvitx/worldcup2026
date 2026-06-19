@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "CDM 2026 - WM",
     short_name: "CDM 2026",
     description:
-      "Prognoses, statistiques et guide complet de la WM 2026",
+      "Prognoses, statistiques et guide complet der WM 2026",
     start_url: "/",
     display: "standalone",
     background_color: "#022149",

@@ -24,7 +24,7 @@ export function QualificationPronostic({ sortedTeams }: QualificationPronosticPr
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Pronostic qualification</h2>
       <p className="text-gray-600 mb-5 text-sm leading-relaxed">
-        Dans le format de la WM 2026 (48 Mannschafts, 12 groupes de 4),{" "}
+        Dans le format der WM 2026 (48 Mannschafts, 12 groupes de 4),{" "}
         <strong>les 2 premiers de chaque groupe</strong> sont directement qualifiés pour les huitièmes de finale.{" "}
         <strong>8 meilleurs troisièmes</strong> (sur 12) se qualifient également.
       </p>

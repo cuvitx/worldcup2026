@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: getAlternates("prediction", slug, "de"),
     openGraph: {
       title: `${team.flag} Prognose ${team.name} - CDM 2026`,
-      description: `Cotes et pronostics ${team.name} pour la WM 2026. Vollständige Analyse, probabilités et prédictions.`,
+      description: `Cotes et pronostics ${team.name} für die WM 2026. Vollständige Analyse, probabilités et prédictions.`,
     },
   };
 }

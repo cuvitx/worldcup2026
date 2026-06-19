@@ -33,7 +33,7 @@ function getProximityLinks(
       },
       {
         href: `/prognose/torschuetzen`,
-        label: "Cotes buteurs du match",
+        label: "Torschützen-Quotens du match",
         description: "Consulter les cotes des buteurs probables",
       },
       {
@@ -136,7 +136,7 @@ function getProximityLinks(
     {
       href: "/prognose/sieger",
       label: "Accéder au pronostic vainqueur",
-      description: "Découvrir notre analyse des favoris du tournoi",
+      description: "Découvrir notre analyse des favoris des Turniers",
     },
     {
       href: "/simulateur",

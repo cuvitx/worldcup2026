@@ -63,7 +63,7 @@ export default function PrognoseOverUnderPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Over/Under Buts — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Combien de buts par match ? Analysez les tendances historiques et identifiez les matchs Over 2.5 et Under 2.5 de la WM 2026.
+          Combien de buts par match ? Analysez les tendances historiques et identifiez les matchs Over 2.5 et Under 2.5 der WM 2026.
         </p>
       </section>
 

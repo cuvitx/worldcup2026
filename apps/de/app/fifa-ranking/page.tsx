@@ -10,7 +10,7 @@ import { PmuBanner } from "../components/PmuBanner";
 export const metadata: Metadata = {
   title: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts qualifiées | CDM 2026",
   description:
-    "Rangliste FIFA complet des 48 Mannschafts qualifiées pour la WM 2026. Découvrez le ranking officiel, les mouvements et l'évolution des sélections.",
+    "Rangliste FIFA complet des 48 Mannschafts qualifiées für die WM 2026. Découvrez le ranking officiel, les mouvements et l'évolution des sélections.",
   openGraph: {
     title: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts",
     description:
@@ -69,7 +69,7 @@ export default function RanglisteFifaPage() {
             Rangliste FIFA des 48 Mannschafts
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto mb-6">
-            Découvrez le classement FIFA complet des sélections qualifiées pour la WM 2026.
+            Découvrez le classement FIFA complet des sélections qualifiées für die WM 2026.
             Ranking officiel, évolution et analyse par confédération.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
@@ -318,7 +318,7 @@ export default function RanglisteFifaPage() {
           { href: "/mannschaft", title: "48 Mannschafts qualifiées", description: "Fiches complètes des Mannschafts de la CDM 2026", icon: "" },
           { href: "/gruppen", title: "Les 12 groupes", description: "Composition et analyse de chaque groupe", icon: "" },
           { href: "/prognose/sieger", title: "Prognose vainqueur", description: "Qui va gagner la CDM 2026 ?", icon: "" },
-          { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés du tournoi", icon: "" },
+          { href: "/statistiques", title: "Statistiques", description: "Stats et chiffres clés des Turniers", icon: "" },
           { href: "/simulateur", title: "Simulateur", description: "Simulez le parcours de votre Mannschaft", icon: "" },
         ]} />
       </div>
@@ -333,7 +333,7 @@ export default function RanglisteFifaPage() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Rangliste FIFA 2026 - Ranking des 48 Mannschafts qualifiées",
-            description: "Rangliste FIFA complet des 48 Mannschafts qualifiées pour la WM 2026.",
+            description: "Rangliste FIFA complet des 48 Mannschafts qualifiées für die WM 2026.",
             url: "https://www.wm2026guide.de/fifa-ranking",
             mainEntity: {
               "@type": "ItemList",

@@ -6,7 +6,7 @@ import { Scale, ArrowRight, Info, CheckCircle, XCircle, MinusCircle } from "luci
 export const metadata: Metadata = {
   title: "Handicap asiatique CDM 2026 — Guide complet avec exemples",
   description:
-    "Guide complet du handicap asiatique pour la WM 2026. Explication +0.5, -1.5, quand l'utiliser, exemples concrets avec calculs.",
+    "Guide complet du handicap asiatique für die WM 2026. Explication +0.5, -1.5, quand l'utiliser, exemples concrets avec calculs.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/handicap" },
   openGraph: {
     title: "Handicap asiatique CDM 2026 — Guide complet",

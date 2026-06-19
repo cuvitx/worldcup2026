@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Avis ${bk.name} 2026 | Bonus, cotes & test complet`,
-    description: `Avis ${bk.name} pour la WM 2026. ${bk.bonus} ${bk.bonusDetail}. Test complet : cotes, application, paris en direct, retrait et service client.`,
+    description: `Avis ${bk.name} für die WM 2026. ${bk.bonus} ${bk.bonusDetail}. Test complet : cotes, application, paris en direct, retrait et service client.`,
     alternates: getAlternates("bookmaker", slug, "de"),
     openGraph: {
       title: `Avis ${bk.name} - Paris sportifs CDM 2026`,

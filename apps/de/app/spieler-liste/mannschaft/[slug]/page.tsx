@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!team) return {};
   return {
     title: `Spielers ${team.name} — CDM 2026 | Liste complète`,
-    description: `Tous les Spielers de ${team.name} sélectionnés pour la WM 2026. Fiches détaillées, statistiques et profils.`,
+    description: `Tous les Spielers de ${team.name} sélectionnés für die WM 2026. Fiches détaillées, statistiques et profils.`,
     openGraph: { images: [{ url: `/api/og?type=equipe&slug=${slug}`, width: 1200, height: 630 }] },
   };
 }

@@ -6,7 +6,7 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 export const metadata: Metadata = {
   title: "Guides paris sportifs CDM 2026 | Strategies & conseils",
   description:
-    "Tous nos guides de paris sportifs pour la WM 2026. Strategies, conseils, guides debutants et analyses de bookmakers.",
+    "Tous nos guides de paris sportifs für die WM 2026. Strategies, conseils, guides debutants et analyses de bookmakers.",
   alternates: getStaticAlternates("guides", "de"),
   openGraph: {
     title: "Guides paris sportifs - CDM 2026",
@@ -18,7 +18,7 @@ const guidesJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Guides paris sportifs CDM 2026",
-  description: "Tous nos guides de paris sportifs pour la WM 2026.",
+  description: "Tous nos guides de paris sportifs für die WM 2026.",
   url: "https://www.wm2026guide.de/guides",
   mainEntity: {
     "@type": "ItemList",
@@ -173,7 +173,7 @@ export default function GuidesPage() {
               Paris sportifs CDM 2026
             </Link>
             <Link href="/torschuetzen" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
-              Cotes buteurs
+              Torschützen-Quotens
             </Link>
             <Link href="/prognose/france" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-primary border border-primary/20 hover:bg-primary hover:text-white transition-colors">
               Prognose France

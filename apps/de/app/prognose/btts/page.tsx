@@ -58,7 +58,7 @@ export default function PrognoseBttsPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Les Deux Mannschaften Marquent — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Vollständige Analyse du marché BTTS pour la WM 2026. Identifiez les matchs où les deux Mannschafts vont marquer.
+          Vollständige Analyse du marché BTTS für die WM 2026. Identifiez les matchs où les deux Mannschafts vont marquer.
         </p>
       </section>
 

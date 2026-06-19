@@ -7,7 +7,7 @@ import { Shield, BarChart3, Trophy, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Prognose Clean Sheet CDM 2026 — Meilleures Défenses & Cotes",
   description:
-    "Quelles Mannschafts garderont leur cage inviolée ? Top défenses, stats d'encaissement et cotes clean sheet pour la WM 2026.",
+    "Quelles Mannschafts garderont leur cage inviolée ? Top défenses, stats d'encaissement et cotes clean sheet für die WM 2026.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/clean-sheet" },
   openGraph: {
     title: "Clean Sheet CDM 2026 — Meilleures Défenses",
@@ -48,7 +48,7 @@ export default function PrognoseCleanSheetPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Clean Sheet — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Quelles défenses seront les plus imperméables ? Analysez les meilleures défenses et pariez sur les clean sheets de la WM 2026.
+          Quelles défenses seront les plus imperméables ? Analysez les meilleures défenses et pariez sur les clean sheets der WM 2026.
         </p>
       </section>
 

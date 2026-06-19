@@ -7,7 +7,7 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 export const metadata: Metadata = {
   title: "Prognose Finalistes CDM 2026 — Qui sera en finale ?",
   description:
-    "Qui sera en finale de la WM 2026 ? Cotes finalistes, analyse des tableaux possibles et parcours des favoris.",
+    "Qui sera en finale der WM 2026 ? Cotes finalistes, analyse des tableaux possibles et parcours des favoris.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/finalisten" },
   openGraph: {
     title: "Prognose Finalistes CDM 2026",
@@ -47,7 +47,7 @@ export default function PrognoseFinalistesPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Qui sera en finale ? — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Analysez les cotes, les tableaux possibles et le parcours des favoris vers la finale de la WM 2026.
+          Analysez les cotes, les tableaux possibles et le parcours des favoris vers la finale der WM 2026.
         </p>
       </section>
 

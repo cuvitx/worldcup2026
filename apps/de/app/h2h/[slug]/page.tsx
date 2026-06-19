@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { team1, team2 } = parsed;
   return {
     title: `${team1.name} vs ${team2.name} - Historique, Stats & Prognose CDM 2026`,
-    description: `${team1.name} contre ${team2.name} : historique des confrontations, statistiques comparées, pronostic et cotes pour la WM 2026.`,
+    description: `${team1.name} contre ${team2.name} : historique des confrontations, statistiques comparées, pronostic et cotes für die WM 2026.`,
     alternates: getAlternates("h2h", slug, "de"),
     openGraph: {
       title: `${team1.flag} ${team1.name} vs ${team2.name} ${team2.flag}`,

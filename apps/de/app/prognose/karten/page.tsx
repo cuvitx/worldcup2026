@@ -57,7 +57,7 @@ export default function PrognoseCartonsPage() {
       <section className="hero-animated text-center py-16 px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Paris Cartons — CDM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Cartons jaunes, cartons rouges : tout savoir pour parier sur les sanctions de la WM 2026. Stats, arbitres et Spielers à surveiller.
+          Cartons jaunes, cartons rouges : tout savoir pour parier sur les sanctions der WM 2026. Stats, arbitres et Spielers à surveiller.
         </p>
       </section>
 

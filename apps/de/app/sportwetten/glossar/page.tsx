@@ -355,7 +355,7 @@ export default function LexiqueParisPage() {
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             {glossary.length} termes essentiels expliqués simplement avec des exemples concrets
-            tirés de la WM 2026. De A comme Accumulator à Y comme Yield.
+            tirés der WM 2026. De A comme Accumulator à Y comme Yield.
           </p>
         </div>
       </section>

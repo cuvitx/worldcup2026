@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Cote buteur ${player.name} CDM 2026 | Stats, buts & pronostic`,
-    description: `Cote buteur ${player.name} (${team?.name}) pour la WM 2026. ${player.goals} buts en ${player.caps} sélections, cotes anytime scorer et Soulier d'Or.`,
+    description: `Cote buteur ${player.name} (${team?.name}) für die WM 2026. ${player.goals} buts en ${player.caps} sélections, cotes anytime scorer et Soulier d'Or.`,
     alternates: getAlternates("scorer", slug, "de"),
     openGraph: {
       title: `${team?.flag ?? ""} Cote buteur ${player.name} - CDM 2026`,
@@ -121,7 +121,7 @@ export default async function ButeurPage({ params }: PageProps) {
             {/* Odds Table */}
             {scorer && (
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Cotes buteur - {player.name}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Torschützen-Quoten - {player.name}</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
@@ -180,7 +180,7 @@ export default async function ButeurPage({ params }: PageProps) {
                 {scorer && scorer.expectedGoals >= 2 && (
                   <p>
                     Avec <strong>{scorer.expectedGoals} buts attendus</strong>, {player.name} fait partie des buteurs les plus
-                    dangereux du tournoi. La cote buteur a tout moment de {scorer.anytimeScorerOdds} reflette une probabilite
+                    dangereux des Turniers. La cote buteur a tout moment de {scorer.anytimeScorerOdds} reflette une probabilite
                     elevee de marquer au moins un but durant la CDM.
                   </p>
                 )}
@@ -188,7 +188,7 @@ export default async function ButeurPage({ params }: PageProps) {
                   <p>
                     Avec {scorer.expectedGoals} buts attendus, {player.name} a un profil de buteur occasionnel durant
                     le tournoi. La cote de {scorer.anytimeScorerOdds} peut representer de la valeur si le Spieler est en
-                    forme au moment du tournoi.
+                    forme au moment des Turniers.
                   </p>
                 )}
                 <p>

@@ -5,9 +5,9 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Target, TrendingUp, Star, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Prognose Meilleur Buteur CDM 2026 — Top 15 Favoris & Cotes Betano",
+  title: "Prognose Meilleur Buteur CDM 2026 — Top 15 Favoris & Betano-Quoten",
   description:
-    "Qui sera le meilleur buteur de la WM 2026 ? Mbappé, Haaland, Vinicius Jr : cotes Betano + stats et dark horses.",
+    "Qui sera le Torschützenkönig der WM 2026 ? Mbappé, Haaland, Vinicius Jr : cotes Betano + stats et dark horses.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/torschuetzen" },
   openGraph: {
     title: "Prognose Meilleur Buteur CDM 2026",
@@ -50,9 +50,9 @@ const youngScorers = [
 
 const faqItems = [
   { question: "Qui est le favori pour le Soulier d'Or CDM 2026 ?", answer: "Kylian Mbappé et Erling Haaland se partagent le statut de favori avec des cotes entre 6.0 et 7.5 selon les bookmakers. Mbappé a l'avantage de l'expérience en WM (4 buts en 2022, 1 en 2018)." },
-  { question: "Combien de buts marque en moyenne le meilleur buteur d'une CDM ?", answer: "Depuis 1998, le meilleur buteur d'une WM inscrit en moyenne 6 buts. Le record est de 6 buts partagé par plusieurs Spielers. Avec le format 48 Mannschafts et plus de matchs, ce nombre pourrait augmenter en 2026." },
-  { question: "Le meilleur buteur vient-il toujours d'une grande nation ?", answer: "Pas nécessairement. James Rodríguez (Colombie) a été Soulier d'Or en 2014. En 2022, Mbappé (France) a terminé meilleur buteur alors que la France a perdu la finale. L'Mannschaft finaliste fournit souvent le meilleur buteur." },
-  { question: "Comment parier sur le meilleur buteur CDM 2026 ?", answer: "Les paris sur le meilleur buteur sont disponibles en ante-post chez Betano, bookmaker agréé ANJ. Vous pouvez parier dès maintenant à des cotes avantageuses. Vérifiez les cotes sur Betano avant de placer votre mise." },
+  { question: "Combien de buts marque en moyenne le Torschützenkönig d'une CDM ?", answer: "Depuis 1998, le Torschützenkönig d'une WM inscrit en moyenne 6 buts. Le record est de 6 buts partagé par plusieurs Spielers. Avec le format 48 Mannschafts et plus de matchs, ce nombre pourrait augmenter en 2026." },
+  { question: "Le Torschützenkönig vient-il toujours d'une grande nation ?", answer: "Pas nécessairement. James Rodríguez (Colombie) a été Soulier d'Or en 2014. En 2022, Mbappé (France) a terminé Torschützenkönig alors que la France a perdu la finale. L'Mannschaft finaliste fournit souvent le Torschützenkönig." },
+  { question: "Comment parier sur le Torschützenkönig CDM 2026 ?", answer: "Les paris sur le Torschützenkönig sont disponibles en ante-post chez Betano, bookmaker agréé ANJ. Vous pouvez parier dès maintenant à des cotes avantageuses. Vérifiez les cotes sur Betano avant de placer votre mise." },
 ];
 
 export default function PrognoseTorschützenPage() {
@@ -65,7 +65,7 @@ export default function PrognoseTorschützenPage() {
           Prognose Meilleur Buteur CDM 2026
         </h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Qui remportera le Soulier d&apos;Or ? Comparez les cotes des 15 favoris et identifiez les value bets pour le titre de meilleur buteur de la WM 2026.
+          Qui remportera le Soulier d&apos;Or ? Comparez les cotes des 15 favoris et identifiez les value bets pour le titre de Torschützenkönig der WM 2026.
         </p>
       </section>
 
@@ -76,10 +76,10 @@ export default function PrognoseTorschützenPage() {
           <h2 className="text-2xl font-bold text-primary">Le Soulier d&apos;Or en jeu</h2>
         </div>
         <p className="text-gray-700 leading-relaxed mb-4">
-          Le titre de meilleur buteur de la WM est l&apos;un des paris les plus populaires du tournoi. Avec le passage à 48 Mannschafts et davantage de matchs, les Stürmers auront plus d&apos;opportunités de briller. Le format élargi augmente le nombre de rencontres, ce qui pourrait favoriser les buteurs des grandes nations qualifiées loin en phase finale.
+          Le titre de Torschützenkönig de la WM est l&apos;un des paris les plus populaires des Turniers. Avec le passage à 48 Mannschafts et davantage de matchs, les Stürmers auront plus d&apos;opportunités de briller. Le format élargi augmente le nombre de rencontres, ce qui pourrait favoriser les buteurs des grandes nations qualifiées loin en phase finale.
         </p>
         <p className="text-gray-700 leading-relaxed">
-          En 2022, Kylian Mbappé avait terminé meilleur buteur avec 8 buts, dont un triplé historique en finale. L&apos;histoire montre que le Soulier d&apos;Or revient souvent à un Spieler dont l&apos;Mannschaft atteint au minimum les demi-finales.
+          En 2022, Kylian Mbappé avait terminé Torschützenkönig avec 8 buts, dont un triplé historique en finale. L&apos;histoire montre que le Soulier d&apos;Or revient souvent à un Spieler dont l&apos;Mannschaft atteint au minimum les demi-finales.
         </p>
       </section>
 
@@ -87,7 +87,7 @@ export default function PrognoseTorschützenPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <TrendingUp className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Top 15 des favoris — Cotes Betano</h2>
+          <h2 className="text-2xl font-bold text-primary">Top 15 des favoris — Betano-Quoten</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -171,7 +171,7 @@ export default function PrognoseTorschützenPage() {
           rel="noopener noreferrer sponsored nofollow"
           className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
         >
-          Willkommensbonus — Wetten auf le meilleur buteur CDM 2026 <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Wetten auf le Torschützenkönig CDM 2026 <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
         <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>

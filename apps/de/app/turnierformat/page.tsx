@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Format CDM 2026 - Nouveau système à 48 Mannschafts",
     description:
-      "Découvrez le nouveau format de la WM 2026 : 48 Mannschafts, 12 groupes, 104 matchs. Phases, qualifications et bracket.",
+      "Découvrez le nouveau format der WM 2026 : 48 Mannschafts, 12 groupes, 104 matchs. Phases, qualifications et bracket.",
     url: "https://www.wm2026guide.de/format",
   },
   alternates: {
@@ -98,7 +98,7 @@ export default function FormatPage() {
             </p>
             <p className="text-gray-700 leading-relaxed">
               Cette nouvelle configuration porte le nombre total de matchs à <strong>104</strong> (contre 64 auparavant),
-              allongeant la durée du tournoi à 39 jours (11 juin - 19 juillet 2026). Le champion du monde devra toujours jouer 7 matchs
+              allongeant la durée des Turniers à 39 jours (11 juin - 19 juillet 2026). Le champion du monde devra toujours jouer 7 matchs
               pour soulever le trophée, mais le parcours sera différent avec un premier tour élargi.
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function FormatPage() {
                       { critere: "Nombre total de matchs", ancien: "64 matchs", nouveau: "104 matchs" },
                       { critere: "Matchs par Mannschaft (min)", ancien: "3 matchs", nouveau: "3 matchs" },
                       { critere: "Matchs par Mannschaft (max)", ancien: "7 matchs (champion)", nouveau: "7 matchs (champion)" },
-                      { critere: "Durée du tournoi", ancien: "~32 jours", nouveau: "~39 jours" },
+                      { critere: "Durée des Turniers", ancien: "~32 jours", nouveau: "~39 jours" },
                       { critere: "Places UEFA (Europe)", ancien: "13", nouveau: "16" },
                       { critere: "Places CAF (Afrique)", ancien: "5", nouveau: "9" },
                       { critere: "Places AFC (Asie)", ancien: "4,5", nouveau: "8" },

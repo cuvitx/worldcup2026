@@ -7,7 +7,7 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 export const metadata: Metadata = {
   title: "Prognose Score Exact CDM 2026 — Guide & Scores Probables",
   description:
-    "Guide complet des paris score exact pour la WM 2026. Scores les plus fréquents en CDM, scores probables des gros matchs, stratégies et tips.",
+    "Guide complet des paris score exact für die WM 2026. Scores les plus fréquents en CDM, scores probables des gros matchs, stratégies et tips.",
   alternates: { canonical: "https://www.wm2026guide.de/prognose/genaue-ergebnisse" },
   openGraph: {
     title: "Prognose Score Exact CDM 2026",
@@ -60,7 +60,7 @@ export default function PrognoseScoresExactsPage() {
           Paris Score Exact — CDM 2026
         </h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Guide complet pour parier sur le score exact des matchs de la WM 2026. Historique, scores probables et stratégies gagnantes.
+          Guide complet pour parier sur le score exact des matchs der WM 2026. Historique, scores probables et stratégies gagnantes.
         </p>
       </section>
 
