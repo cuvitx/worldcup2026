@@ -51,7 +51,11 @@ jobs:
               fi
             fi
 
-            /srv/cdm2026/deploy.sh
+            # Sync deploy.sh from repo to VPS (ensures latest version with DE support)
+            sudo cp "${REPO_DIR}/scripts/deploy.sh" /srv/cdm2026/deploy.sh
+            sudo chmod +x /srv/cdm2026/deploy.sh
+
+            APPS="fr de" /srv/cdm2026/deploy.sh
 
             # Ensure DE service is running after deploy
             if systemctl list-unit-files wm2026-de.service &>/dev/null; then
