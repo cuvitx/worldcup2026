@@ -53,9 +53,9 @@ export default async function GuidePage({ params }: PageProps) {
 
   const categoryLabels: Record<string, string> = {
     cdm2026: "WM 2026",
-    stratégie: "Strategies",
-    bookmaker: "Bookmakers",
-    debutant: "Debutant",
+    stratégie: "Strategien",
+    bookmaker: "Wettanbieter",
+    debutant: "Einsteiger",
   };
 
   // Insert CTA after every 2 sections
@@ -94,8 +94,8 @@ export default async function GuidePage({ params }: PageProps) {
                 {(i + 1) % ctaInterval === 0 && i < guide.sections.length - 1 && (
                   <div className="my-6 rounded-xl bg-gradient-to-r from-primary/5 to-primary/5 border border-primary/20 p-5 flex flex-col sm:flex-row items-center gap-4">
                     <div className="flex-1">
-                      <p className="font-bold text-gray-900"> Prêt à parier ?</p>
-                      <p className="text-sm text-gray-600">{featuredBookmaker.bonus} chez {featuredBookmaker.name}</p>
+                      <p className="font-bold text-gray-900"> Bereit zu wetten?</p>
+                      <p className="text-sm text-gray-600">{featuredBookmaker.bonus} bei {featuredBookmaker.name}</p>
                     </div>
                     <a
                       href={featuredBookmaker.url}
@@ -103,7 +103,7 @@ export default async function GuidePage({ params }: PageProps) {
                       rel="noopener noreferrer sponsored nofollow"
                       className="shrink-0 rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
                     >
-                      Voir l&apos;offre →
+                      Angebot ansehen →
                     </a>
                   </div>
                 )}
@@ -113,10 +113,10 @@ export default async function GuidePage({ params }: PageProps) {
             {/* Bookmaker CTA block */}
             <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Meilleurs bookmakers pour la CDM 2026
+                Beste Wettanbieter für die WM 2026
               </h2>
               <p className="mb-6 text-sm text-gray-600">
-                Comparez les meilleurs sites de paris sportifs agréés en France.
+                Vergleichen Sie die besten lizenzierten Sportwetten-Anbieter.
               </p>
               <div className="space-y-4">
                 {bookmakers.slice(0, 3).map((bk) => {
@@ -130,7 +130,7 @@ export default async function GuidePage({ params }: PageProps) {
                     >
                       {isFeatured && (
                         <span className="absolute -top-3 left-4 rounded-full bg-primary px-3 py-0.5 text-xs font-bold text-white">
-                          Recommande
+                          Empfohlen
                         </span>
                       )}
                       <div className="flex-1 text-center sm:text-left">
@@ -150,7 +150,7 @@ export default async function GuidePage({ params }: PageProps) {
                             isFeatured ? "bg-accent hover:bg-accent/90" : "bg-primary hover:bg-primary/90"
                           }`}
                         >
-                          Parier
+                          Wetten
                         </a>
                       </div>
                     </div>
@@ -158,14 +158,14 @@ export default async function GuidePage({ params }: PageProps) {
                 })}
               </div>
               <p className="mt-4 text-xs text-gray-500 text-center">
-                18+. Les jeux d&apos;argent comportent des risques. Jouez responsablement.
+                18+. Glücksspiel birgt Risiken. Spielen Sie verantwortungsvoll.
               </p>
             </section>
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides recommandes</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Empfohlene Ratgeber</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {relatedGuides.map((rg) => (
                     <Link
@@ -184,7 +184,7 @@ export default async function GuidePage({ params }: PageProps) {
             {/* Other Guides */}
             {guides.filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id)).length > 0 && (
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Guides liés</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Verwandte Ratgeber</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {guides
                     .filter((g) => g.id !== guide.id && !guide.relatedGuideIds.includes(g.id))
@@ -211,7 +211,7 @@ export default async function GuidePage({ params }: PageProps) {
             <div className="sticky top-8 space-y-6">
               {/* Table of Contents */}
               <nav className="rounded-xl bg-white p-5 shadow-sm border border-gray-100">
-                <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider"><FileText className="h-5 w-5 inline-block" /> Sommaire</h3>
+                <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider"><FileText className="h-5 w-5 inline-block" /> Inhaltsverzeichnis</h3>
                 <ol className="space-y-2">
                   {guide.sections.map((section, i) => (
                     <li key={i}>
@@ -231,9 +231,9 @@ export default async function GuidePage({ params }: PageProps) {
 
               {/* CTA */}
               <div className="rounded-xl bg-primary/5 border border-primary/20 p-5">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Commencer a parier</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Jetzt wetten</h3>
                 <p className="mb-4 text-sm text-gray-600">
-                  Profitez des bonus de bienvenue pour la CDM 2026.
+                  Nutzen Sie die Willkommensboni für die WM 2026.
                 </p>
                 <a
                   href={featuredBookmaker.url}
@@ -241,7 +241,7 @@ export default async function GuidePage({ params }: PageProps) {
                   rel="noopener noreferrer sponsored nofollow"
                   className="block w-full text-center rounded-xl bg-accent py-3.5 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
                 >
-                  {featuredBookmaker.bonus} sur {featuredBookmaker.name}
+                  {featuredBookmaker.bonus} bei {featuredBookmaker.name}
                 </a>
                 <p className="mt-2 text-xs text-gray-500 text-center">{featuredBookmaker.bonusDetail}</p>
               </div>
@@ -249,7 +249,7 @@ export default async function GuidePage({ params }: PageProps) {
               {/* Related Bookmakers */}
               {relatedBookmakers.length > 0 && (
                 <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Bookmakers cites</h3>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Erwähnte Wettanbieter</h3>
                   <ul className="space-y-2">
                     {relatedBookmakers.map((rb) => (
                       <li key={rb.id}>
@@ -268,7 +268,7 @@ export default async function GuidePage({ params }: PageProps) {
 
               {/* All guides */}
               <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Tous nos guides</h3>
+                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Alle Ratgeber</h3>
                 <ul className="space-y-2">
                   {guides
                     .filter((g) => g.id !== guide.id)
@@ -283,19 +283,19 @@ export default async function GuidePage({ params }: PageProps) {
                 </ul>
                 <div className="mt-3">
                   <Link href="/guides" className="text-sm font-medium text-primary hover:underline">
-                    Alle anzeigen guides →
+                    Alle Ratgeber anzeigen →
                   </Link>
                 </div>
               </div>
 
               {/* Explorer */}
               <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Explorer</h3>
+                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Entdecken</h3>
                 <ul className="space-y-2 text-sm">
-                  <li><Link href="/torschuetzen" className="text-primary hover:underline">Torschützen-Quotens CDM 2026 →</Link></li>
-                  <li><Link href="/sportwetten" className="text-primary hover:underline">Paris sportifs CDM 2026 →</Link></li>
-                  <li><Link href="/prognose/france" className="text-primary hover:underline">Prognose France →</Link></li>
-                  <li><Link href="/spiel/spielplan" className="text-primary hover:underline">Spielplan des matchs →</Link></li>
+                  <li><Link href="/torschuetzen" className="text-primary hover:underline">Torschützen-Quoten WM 2026 →</Link></li>
+                  <li><Link href="/sportwetten" className="text-primary hover:underline">Sportwetten WM 2026 →</Link></li>
+                  <li><Link href="/prognose/france" className="text-primary hover:underline">Prognose Frankreich →</Link></li>
+                  <li><Link href="/spiel/spielplan" className="text-primary hover:underline">Spielplan →</Link></li>
                 </ul>
               </div>
             </div>
@@ -313,8 +313,8 @@ export default async function GuidePage({ params }: PageProps) {
             description: guide.metaDescription,
             datePublished: "2025-01-15",
             dateModified: "2025-02-15",
-            author: { "@type": "Organization", name: "CDM 2026", url: "https://www.wm2026guide.de" },
-            publisher: { "@type": "Organization", name: "CDM 2026", url: "https://www.wm2026guide.de", logo: { "@type": "ImageObject", url: "https://www.wm2026guide.de/icon-512.png" } },
+            author: { "@type": "Organization", name: "WM 2026", url: "https://www.wm2026guide.de" },
+            publisher: { "@type": "Organization", name: "WM 2026", url: "https://www.wm2026guide.de", logo: { "@type": "ImageObject", url: "https://www.wm2026guide.de/icon-512.png" } },
             mainEntityOfPage: `${domains.de}/guide/${guide.slug}`,
             url: `${domains.de}/guide/${guide.slug}`,
           }),

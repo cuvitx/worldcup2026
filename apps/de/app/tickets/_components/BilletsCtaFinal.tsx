@@ -8,11 +8,11 @@ export function TicketsCtaFinal() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gradient-to-br from-primary to-primary-dark text-white p-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            <Ticket className="h-5 w-5 inline-block" /> Prêt à vivre la CDM 2026 en direct ?
+            <Ticket className="h-5 w-5 inline-block" /> Bereit, die WM 2026 live zu erleben?
           </h2>
           <p className="text-gray-300 mb-6 max-w-lg mx-auto text-sm">
-            Ne manquez pas l&apos;événement sportif du siècle. Inscrivez-vous sur FIFA.com
-            et soyez prêt pour les prochaines phases de vente.
+            Verpassen Sie nicht das Sportereignis des Jahrhunderts. Registrieren Sie sich auf FIFA.com
+            und seien Sie bereit für die nächsten Verkaufsphasen.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
@@ -21,19 +21,19 @@ export function TicketsCtaFinal() {
               rel="noopener noreferrer"
               className="rounded-xl bg-accent px-8 py-3.5 font-bold text-white hover:bg-accent/80 hover:-translate-y-0.5 transition-all shadow-lg"
             >
-              Acheter sur FIFA.com →
+              Auf FIFA.com kaufen →
             </a>
             <Link
               href="/stadien"
               className="rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-all"
             >
-               Découvrir les Stadien
+               Stadien entdecken
             </Link>
             <Link
               href="/spiel/spielplan"
               className="rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-all"
             >
-               Spielplan des matchs
+               Spielplan anzeigen
             </Link>
           </div>
         </div>

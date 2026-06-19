@@ -39,12 +39,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const teamNames = groupTeams.map((t) => t.name).join(", ");
 
   return {
-    title: `Prognose Gruppe ${group.letter} CDM 2026 | Analyse & Qualification`,
-    description: `Prognose Gruppe ${group.letter} WM 2026 : ${teamNames}. Rangliste prédit, analyse des forces, cotes qualification et Spielplan complet du groupe.`,
-    alternates: getAlternates("group", lettre, "fr"),
+    title: `Prognose Gruppe ${group.letter} WM 2026 | Analyse & Qualifikation`,
+    description: `Prognose Gruppe ${group.letter} WM 2026: ${teamNames}. Vorhergesagte Rangliste, Stärkenanalyse, Qualifikationsquoten und vollständiger Spielplan der Gruppe.`,
+    alternates: getAlternates("group", lettre, "de"),
     openGraph: {
-      title: `Prognose Gruppe ${group.letter} - CDM 2026`,
-      description: `${teamNames} — Qui se qualifie ? Analyse et Prognoses du Gruppe ${group.letter}.`,
+      title: `Prognose Gruppe ${group.letter} - WM 2026`,
+      description: `${teamNames} — Wer qualifiziert sich? Analyse und Prognosen der Gruppe ${group.letter}.`,
     },
   };
 }

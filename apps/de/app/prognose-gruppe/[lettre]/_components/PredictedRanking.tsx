@@ -12,7 +12,7 @@ interface SortedTeam {
   id: string;
 }
 
-const RANK_LABEL = ["1er", "2e", "3e", "4e"];
+const RANK_LABEL = ["1.", "2.", "3.", "4."];
 const RANK_COLOR = [
   "border-primary bg-primary/5",
   "border-gray-400 bg-gray-50/40",
@@ -33,7 +33,7 @@ interface PredictedRankingProps {
 export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-5">Rangliste prédit</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-5">Vorhergesagte Rangliste</h2>
       <div className="space-y-3">
         {sortedTeams.map(({ team, pred }, idx) => {
           const qual = idx < 2;
@@ -44,13 +44,13 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
                 <span className="text-2xl" aria-label={team!.name}>{team!.flag}</span>
                 <Link href={`/equipe/${team!.slug}`} className="font-bold text-lg hover:text-primary transition-colors">{team!.name}</Link>
                 {qual && (
-                  <span className="ml-auto rounded-full bg-accent/15 px-2 py-0.5 text-xs font-semibold text-accent">Qualifié</span>
+                  <span className="ml-auto rounded-full bg-accent/15 px-2 py-0.5 text-xs font-semibold text-accent">Qualifiziert</span>
                 )}
                 {idx === 2 && (
-                  <span className="ml-auto rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">Meilleur 3e possible</span>
+                  <span className="ml-auto rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">Möglicher bester Dritter</span>
                 )}
                 {idx === 3 && (
-                  <span className="ml-auto rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé</span>
+                  <span className="ml-auto rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Ausgeschieden</span>
                 )}
               </div>
               <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-gray-600">
@@ -65,11 +65,11 @@ export function PredictedRanking({ sortedTeams }: PredictedRankingProps) {
                       <span className="font-semibold">{pred.eloRating}</span>
                     </div>
                     <div>
-                      <span className="block text-gray-400 uppercase">Proba groupe</span>
+                      <span className="block text-gray-400 uppercase">Gruppenprob.</span>
                       <span className="font-semibold">{Math.round(pred.groupStageProb * 100)}%</span>
                     </div>
                     <div>
-                      <span className="block text-gray-400 uppercase">Cote victoire</span>
+                      <span className="block text-gray-400 uppercase">Siegquote</span>
                       <span className="font-semibold">{probToOdds(pred.winnerProb)}</span>
                     </div>
                   </>

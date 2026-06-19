@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Comparateur cotes WM 2026 | Meilleures cotes CDM",
+  title: "Quotenvergleich WM 2026 | Beste Quoten WM",
   description:
-    "Comparez les cotes de PokerStars Sports, Betsson, Betano et Genybet pour tous les matchs de la phase de Gruppen der WM 2026. Trouvez la meilleure cote.",
+    "Vergleichen Sie die Quoten von PokerStars Sports, Betsson, Betano und Genybet für alle Gruppenspiele der WM 2026. Finden Sie die beste Quote.",
   openGraph: {
-    title: "Comparateur de cotes – WM 2026",
-    description: "Les meilleures cotes des bookmakers français pour le Mondial 2026.",
+    title: "Quotenvergleich -- WM 2026",
+    description: "Die besten Quoten der Wettanbieter für die WM 2026.",
   },
   alternates: { canonical: "https://www.wm2026guide.de/comparateur-cotes" },
 };

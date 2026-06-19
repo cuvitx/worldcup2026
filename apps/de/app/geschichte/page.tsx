@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     title: "Geschichte der WM - Timeline 1930 bis 2026",
     description:
       "Erleben Sie alle Weltmeisterschaften seit 1930 neu: Gastgeberländer, Champions, Rekorde und historische Anekdoten.",
-    url: "https://www.wm2026guide.de/histoire",
+    url: "https://www.wm2026guide.de/geschichte",
   },
   alternates: {
-    canonical: "https://www.wm2026guide.de/histoire",
+    canonical: "https://www.wm2026guide.de/geschichte",
   },
 };
 

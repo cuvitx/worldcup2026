@@ -5,44 +5,44 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Award, Trophy, Star, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Prognose Ballon d'Or CDM 2026 — Meilleur Spieler du Tournoi",
+  title: "Prognose Ballon d'Or WM 2026 — Bester Spieler des Turniers",
   description:
-    "Qui sera élu meilleur Spieler der WM 2026 ? Top 10 favoris avec cotes, historique des gagnants du Ballon d'Or FIFA.",
+    "Wer wird bester Spieler der WM 2026? Top 10 Favoriten mit Quoten, Historie der Gewinner des FIFA Ballon d'Or.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/ballon-or" },
   openGraph: {
-    title: "Ballon d'Or CDM 2026 — Meilleur Spieler",
-    description: "Top 10 favoris pour le Ballon d'Or des Turniers, cotes et historique complet.",
+    title: "Ballon d'Or WM 2026 — Bester Spieler",
+    description: "Top 10 Favoriten für den Ballon d'Or des Turniers, Quoten und komplette Historie.",
     url: "https://www.wm2026guide.de/sportwetten/ballon-or",
   },
 };
 
 const favorites = [
-  { name: "Kylian Mbappé", team: "🇫🇷 France", cote: 5.5, reason: "Torschützenkönig 2022, capable de porter la France seul. Vitesse et décisivité hors normes." },
-  { name: "Lionel Messi", team: "🇦🇷 Argentine", cote: 7.0, reason: "Vainqueur en 2022, pourrait écrire sa dernière page de légende. Le facteur émotionnel joue en sa faveur." },
-  { name: "Vinicius Jr", team: "🇧🇷 Brésil", cote: 8.0, reason: "Élu meilleur Spieler du monde, le Brésil repose sur ses épaules. Profil de Spieler décisif en tournoi." },
-  { name: "Jude Bellingham", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", cote: 9.0, reason: "Mittelfeldspieler complet, capable de marquer et de créer. Son Euro 2024 a montré son potentiel en compétition." },
-  { name: "Lamine Yamal", team: "🇪🇸 Espagne", cote: 10.0, reason: "Prodige de 18 ans, meilleur jeune Spieler de l'Euro 2024. Si l'Espagne va loin, il sera décisif." },
-  { name: "Rodri", team: "🇪🇸 Espagne", cote: 12.0, reason: "Ballon d'Or 2024, le métronome espagnol. Son influence est souvent récompensée par les jurys." },
-  { name: "Erling Haaland", team: "🇳🇴 Norvège", cote: 15.0, reason: "Machine à buts, mais la Norvège devra aller loin pour qu'il soit dans la course." },
-  { name: "Harry Kane", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre", cote: 14.0, reason: "Torschütze prolifique, meilleur capitaine anglais. Manque un titre international pour compléter sa légende." },
-  { name: "Federico Valverde", team: "🇺🇾 Uruguay", cote: 20.0, reason: "Mittelfeldspieler box-to-box d'exception. Si l'Uruguay crée la surprise, il sera au centre du jeu." },
-  { name: "Florian Wirtz", team: "🇩🇪 Allemagne", cote: 18.0, reason: "Talent générationnel du football allemand. L'Allemagne joue à domicile en termes de proximité." },
+  { name: "Kylian Mbappé", team: "🇫🇷 Frankreich", cote: 5.5, reason: "Torschützenkönig 2022, kann Frankreich allein tragen. Geschwindigkeit und Entscheidungsstärke außerhalb der Norm." },
+  { name: "Lionel Messi", team: "🇦🇷 Argentinien", cote: 7.0, reason: "Gewinner 2022, könnte sein letztes Kapitel als Legende schreiben. Der emotionale Faktor spricht für ihn." },
+  { name: "Vinicius Jr", team: "🇧🇷 Brasilien", cote: 8.0, reason: "Zum besten Spieler der Welt gewählt, Brasilien ruht auf seinen Schultern. Profil eines entscheidenden Turnierspielers." },
+  { name: "Jude Bellingham", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", cote: 9.0, reason: "Kompletter Mittelfeldspieler, torgefährlich und kreativ. Seine EM 2024 hat sein Potenzial bei Wettbewerben gezeigt." },
+  { name: "Lamine Yamal", team: "🇪🇸 Spanien", cote: 10.0, reason: "18-jähriges Wunderkind, bester junger Spieler der EM 2024. Wenn Spanien weit kommt, wird er entscheidend sein." },
+  { name: "Rodri", team: "🇪🇸 Spanien", cote: 12.0, reason: "Ballon d'Or 2024, das spanische Metronom. Sein Einfluss wird von den Jurys oft belohnt." },
+  { name: "Erling Haaland", team: "🇳🇴 Norwegen", cote: 15.0, reason: "Tormaschine, aber Norwegen muss weit kommen, damit er im Rennen ist." },
+  { name: "Harry Kane", team: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", cote: 14.0, reason: "Produktiver Torschütze, bester englischer Kapitän. Ihm fehlt ein internationaler Titel, um seine Legende zu vollenden." },
+  { name: "Federico Valverde", team: "🇺🇾 Uruguay", cote: 20.0, reason: "Außergewöhnlicher Box-to-Box-Mittelfeldspieler. Wenn Uruguay für eine Überraschung sorgt, steht er im Mittelpunkt." },
+  { name: "Florian Wirtz", team: "🇩🇪 Deutschland", cote: 18.0, reason: "Generationstalent des deutschen Fußballs. Deutschland spielt in unmittelbarer Nähe quasi zu Hause." },
 ];
 
 const pastWinners = [
-  { year: "2022", player: "Lionel Messi", team: "🇦🇷 Argentine", note: "7 buts, MVP incontesté. Sacré à 35 ans." },
-  { year: "2018", player: "Luka Modric", team: "🇭🇷 Croatie", note: "Meneur de jeu de la surprise croate, finaliste." },
-  { year: "2014", player: "Lionel Messi", team: "🇦🇷 Argentine", note: "4 buts, finaliste malheureux. Prix contesté." },
-  { year: "2010", player: "Diego Forlán", team: "🇺🇾 Uruguay", note: "5 buts, 4ème place. Choix surprise du jury." },
-  { year: "2006", player: "Zinédine Zidane", team: "🇫🇷 France", note: "3 buts, finaliste. Malgré le carton rouge en finale." },
-  { year: "2002", player: "Oliver Kahn", team: "🇩🇪 Allemagne", note: "Torwart finaliste, seul portier à remporter le prix." },
-  { year: "1998", player: "Ronaldo", team: "🇧🇷 Brésil", note: "4 buts malgré la finale perdue. Talent pur." },
+  { year: "2022", player: "Lionel Messi", team: "🇦🇷 Argentinien", note: "7 Tore, unbestrittener MVP. Gekrönt mit 35 Jahren." },
+  { year: "2018", player: "Luka Modric", team: "🇭🇷 Kroatien", note: "Spielmacher der kroatischen Überraschung, Finalist." },
+  { year: "2014", player: "Lionel Messi", team: "🇦🇷 Argentinien", note: "4 Tore, unglücklicher Finalist. Umstrittene Auszeichnung." },
+  { year: "2010", player: "Diego Forlán", team: "🇺🇾 Uruguay", note: "5 Tore, 4. Platz. Überraschungswahl der Jury." },
+  { year: "2006", player: "Zinédine Zidane", team: "🇫🇷 Frankreich", note: "3 Tore, Finalist. Trotz der Roten Karte im Finale." },
+  { year: "2002", player: "Oliver Kahn", team: "🇩🇪 Deutschland", note: "Torwart-Finalist, einziger Torhüter, der den Preis gewann." },
+  { year: "1998", player: "Ronaldo", team: "🇧🇷 Brasilien", note: "4 Tore trotz des verlorenen Finales. Reines Talent." },
 ];
 
 const faqItems = [
-  { question: "Qu'est-ce que le Ballon d'Or de la WM ?", answer: "Le Ballon d'Or de la CDM (anciennement 'Ballon d'Or adidas') récompense le meilleur Spieler des Turniers. Il est décerné par un panel de journalistes et d'experts à l'issue de la compétition. Le gagnant n'est pas forcément le Torschützenkönig : le jury évalue la performance globale, l'impact sur le parcours de l'Mannschaft et les moments décisifs." },
-  { question: "Le Ballon d'Or CDM va-t-il toujours au vainqueur ?", answer: "Pas nécessairement. En 2014, Messi l'a remporté alors que l'Argentine a perdu la finale. En 2006, Zidane l'a eu malgré le carton rouge en finale. Cependant, atteindre la finale ou les demi-finales est quasi indispensable pour être dans la course." },
-  { question: "Comment parier sur le Ballon d'Or CDM ?", answer: "Les bookmakers proposent un marché 'Meilleur Spieler des Turniers' en ante-post. Les cotes sont disponibles dès maintenant et évoluent tout au long de la compétition. C'est un pari de long terme qui nécessite d'anticiper à la fois la performance individuelle et le parcours collectif." },
+  { question: "Was ist der Ballon d'Or der WM?", answer: "Der Ballon d'Or der WM (früher 'Ballon d'Or adidas') zeichnet den besten Spieler des Turniers aus. Er wird von einer Jury aus Journalisten und Experten am Ende des Wettbewerbs verliehen. Der Gewinner ist nicht zwingend der Torschützenkönig: Die Jury bewertet die Gesamtleistung, den Einfluss auf den Turnierverlauf der Mannschaft und die entscheidenden Momente." },
+  { question: "Geht der WM-Ballon d'Or immer an den Sieger?", answer: "Nicht unbedingt. 2014 gewann ihn Messi, obwohl Argentinien das Finale verlor. 2006 erhielt ihn Zidane trotz der Roten Karte im Finale. Allerdings ist es quasi unerlässlich, mindestens das Halbfinale zu erreichen, um im Rennen zu sein." },
+  { question: "Wie wettet man auf den WM-Ballon d'Or?", answer: "Wettanbieter bieten einen Markt 'Bester Spieler des Turniers' als Ante-Post-Wette an. Die Quoten sind bereits jetzt verfügbar und entwickeln sich während des gesamten Wettbewerbs weiter. Es ist eine Langzeitwette, die erfordert, sowohl die individuelle Leistung als auch den Mannschaftsverlauf vorherzusagen." },
 ];
 
 export default function BallonOrCdmPage() {
@@ -50,19 +50,19 @@ export default function BallonOrCdmPage() {
     <>
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Ballon d&apos;Or CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Ballon d&apos;Or WM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Qui sera sacré meilleur Spieler der WM 2026 ? Découvrez les 10 favoris, leurs cotes et l&apos;historique complet du Ballon d&apos;Or FIFA.
+          Wer wird zum besten Spieler der WM 2026 gekrönt? Entdecken Sie die 10 Favoriten, ihre Quoten und die komplette Historie des FIFA Ballon d&apos;Or.
         </p>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Award className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Top 10 favoris — Cotes Ballon d&apos;Or</h2>
+          <h2 className="text-2xl font-bold text-primary">Top 10 Favoriten — Ballon-d&apos;Or-Quoten</h2>
         </div>
         <p className="text-gray-700 mb-6">
-          Le Ballon d&apos;Or de la CDM couronne le Spieler le plus marquant des Turniers. Depuis 1998, le prix va majoritairement à un Stürmer ou un meneur de jeu dont l&apos;Mannschaft atteint au minimum les demi-finales. Les favoris sont logiquement les stars des nations les plus compétitives.
+          Der Ballon d&apos;Or der WM krönt den herausragendsten Spieler des Turniers. Seit 1998 geht der Preis überwiegend an einen Stürmer oder Spielmacher, dessen Mannschaft mindestens das Halbfinale erreicht. Favoriten sind logischerweise die Stars der wettbewerbsfähigsten Nationen.
         </p>
         <div className="space-y-4">
           {favorites.map((f, i) => (
@@ -80,19 +80,19 @@ export default function BallonOrCdmPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-gray-500 mt-3">Cotes indicatives, susceptibles d&apos;évoluer. 18+</p>
+        <p className="text-xs text-gray-500 mt-3">Richtquoten, können sich ändern. 18+</p>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Trophy className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Historique des gagnants</h2>
+          <h2 className="text-2xl font-bold text-primary">Historie der Gewinner</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-primary text-white">
-                <th className="text-left p-3">Année</th>
+                <th className="text-left p-3">Jahr</th>
                 <th className="text-left p-3">Spieler</th>
                 <th className="text-left p-3">Mannschaft</th>
                 <th className="text-left p-3">Note</th>
@@ -115,28 +115,28 @@ export default function BallonOrCdmPage() {
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Star className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Analyse — Qui peut surprendre ?</h2>
+          <h2 className="text-2xl font-bold text-primary">Analyse — Wer kann überraschen?</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-primary mb-2">Le facteur &quot;Dernière danse&quot;</h3>
-            <p className="text-sm text-gray-700">Messi, Ronaldo et Modric joueront probablement leur dernière CDM. Le jury est souvent sensible à ces narrations. Si l&apos;un d&apos;eux mène son Mannschaft en finale, le prix sera difficile à lui refuser.</p>
+            <h3 className="font-bold text-primary mb-2">Der Faktor &quot;Letzter Tanz&quot;</h3>
+            <p className="text-sm text-gray-700">Messi, Ronaldo und Modric spielen wahrscheinlich ihre letzte WM. Die Jury ist oft empfänglich für solche Erzählungen. Wenn einer von ihnen seine Mannschaft ins Finale führt, wird es schwer sein, ihm den Preis zu verweigern.</p>
           </div>
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-primary mb-2">L&apos;émergence d&apos;un inconnu</h3>
-            <p className="text-sm text-gray-700">En 2010, Forlán n&apos;était pas favori. La CDM est un catalyseur de talents. Un Spieler de Colombie, du Maroc ou du Japon pourrait émerger si son Mannschaft réalise un parcours historique.</p>
+            <h3 className="font-bold text-primary mb-2">Das Auftauchen eines Unbekannten</h3>
+            <p className="text-sm text-gray-700">2010 war Forlán kein Favorit. Die WM ist ein Talentbeschleuniger. Ein Spieler aus Kolumbien, Marokko oder Japan könnte auftauchen, wenn seine Mannschaft einen historischen Lauf hinlegt.</p>
           </div>
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <a href={pmuTrackingUrl("paris-sportifs")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          Willkommensbonus — Wetten auf le Ballon d&apos;Or CDM 2026 sur Betano <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Auf den Ballon d&apos;Or der WM 2026 bei Betano wetten <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
         <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
-      <FAQSection title="Häufig gestellte Fragen — Ballon d'Or CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen — Ballon d'Or WM 2026" items={faqItems} />
 
     </>
   );

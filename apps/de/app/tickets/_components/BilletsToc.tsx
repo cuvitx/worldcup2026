@@ -3,11 +3,11 @@
 import { TableOfContents } from "@repo/ui";
 
 const tocItems = [
-  { id: "prix", label: "Prix par phase", level: 2 },
-  { id: "comment-acheter", label: "Comment acheter", level: 2 },
-  { id: "phases-vente", label: "Phases de vente", level: 2 },
-  { id: "categories", label: "Catégories de Tickets", level: 2 },
-  { id: "anti-arnaques", label: "Éviter les arnaques", level: 2 },
+  { id: "prix", label: "Preise nach Phase", level: 2 },
+  { id: "comment-acheter", label: "So kaufen Sie", level: 2 },
+  { id: "phases-vente", label: "Verkaufsphasen", level: 2 },
+  { id: "categories", label: "Ticketkategorien", level: 2 },
+  { id: "anti-arnaques", label: "Betrug vermeiden", level: 2 },
 ];
 
 export function TicketsToc() {

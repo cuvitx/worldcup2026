@@ -16,24 +16,24 @@ export function Section2026() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/20 rounded-full px-4 py-1.5 text-sm font-medium mb-4">
             <span></span>
-            <span>Édition historique</span>
+            <span>Historische Ausgabe</span>
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            2026 : La Plus Grande CDM de l&apos;Histoire
+            2026: Die grösste WM der Geschichte
           </h2>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
-            La WM 2026 brisera tous les records avec un format révolutionnaire
-            et une dimension jamais atteinte.
+            Die WM 2026 wird alle Rekorde brechen mit einem revolutionären Format
+            und einer nie dagewesenen Dimension.
           </p>
         </div>
 
         {/* Stats clés */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           {[
-            { val: "48", label: "Mannschaften", icon: "", desc: "vs 32 auparavant (+50%)" },
-            { val: "104", label: "Matchs", icon: "", desc: "vs 64 en 2022" },
-            { val: "3", label: "Pays hôtes", icon: "", desc: "USA · Canada · Mexique" },
-            { val: "16", label: "Städte", icon: "", desc: "sur 3 continents" },
+            { val: "48", label: "Mannschaften", icon: "", desc: "vs. 32 zuvor (+50%)" },
+            { val: "104", label: "Spiele", icon: "", desc: "vs. 64 in 2022" },
+            { val: "3", label: "Gastgeberländer", icon: "", desc: "USA · Kanada · Mexiko" },
+            { val: "16", label: "Städte", icon: "", desc: "auf 3 Kontinenten" },
           ].map(({ val, label, icon, desc }) => (
             <div
               key={label}
@@ -50,9 +50,9 @@ export function Section2026() {
         {/* 3 pays hôtes */}
         <div className="grid sm:grid-cols-3 gap-4 mb-8">
           {[
-            { flag: "🇺🇸", country: "États-Unis", cities: "New York, Los Angeles, Dallas, San Francisco, Seattle, Boston, Miami, Atlanta, Houston, Kansas City, Philadelphia", matches: "78 matchs", color: "from-blue-600/30 to-red-500/30" },
-            { flag: "🇨🇦", country: "Canada", cities: "Toronto, Vancouver", matches: "13 matchs", color: "from-red-600/30 to-red-700/30" },
-            { flag: "🇲🇽", country: "Mexique", cities: "Mexico City, Guadalajara, Monterrey", matches: "13 matchs", color: "from-accent/30 to-red-500/30" },
+            { flag: "🇺🇸", country: "Vereinigte Staaten", cities: "New York, Los Angeles, Dallas, San Francisco, Seattle, Boston, Miami, Atlanta, Houston, Kansas City, Philadelphia", matches: "78 Spiele", color: "from-blue-600/30 to-red-500/30" },
+            { flag: "🇨🇦", country: "Kanada", cities: "Toronto, Vancouver", matches: "13 Spiele", color: "from-red-600/30 to-red-700/30" },
+            { flag: "🇲🇽", country: "Mexiko", cities: "Mexiko-Stadt, Guadalajara, Monterrey", matches: "13 Spiele", color: "from-accent/30 to-red-500/30" },
           ].map((p) => (
             <div
               key={p.country}
@@ -71,24 +71,24 @@ export function Section2026() {
         {/* Nouveau format */}
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-            <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Nouveau format révolutionnaire
+            <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Revolutionäres neues Format
           </h3>
           <div className="grid sm:grid-cols-2 gap-4 text-sm text-white/80">
             <div>
               <div className="font-semibold text-white mb-1">Gruppenphase</div>
               <ul className="space-y-1 text-xs">
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12 Gruppen de 4 Mannschafts</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Les 2 premiers + 8 meilleurs 3es qualifiés</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 32 Mannschafts au tour suivant</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12 Gruppen zu je 4 Mannschaften</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Die 2 Erstplatzierten + 8 beste Gruppendritte qualifiziert</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 32 Mannschaften in der nächsten Runde</li>
               </ul>
             </div>
             <div>
-              <div className="font-semibold text-white mb-1">Phases finales</div>
+              <div className="font-semibold text-white mb-1">K.-o.-Runden</div>
               <ul className="space-y-1 text-xs">
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Huitièmes de finale</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Quarts de finale</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Halbfinales</li>
-                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Finale : 19 juillet 2026, MetLife Stadium (New York)</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Achtelfinale</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Viertelfinale</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Halbfinale</li>
+                <li><svg className="w-4 h-4 inline-block text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Finale: 19. Juli 2026, MetLife Stadium (New York)</li>
               </ul>
             </div>
           </div>
@@ -96,16 +96,16 @@ export function Section2026() {
 
         {/* Favoris 2026 */}
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 text-center mb-4"> Favoris pour 2026</h3>
+          <h3 className="text-lg font-semibold text-gray-900 text-center mb-4"> Favoriten für 2026</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              { flag: "🇧🇷", country: "Brésil", cote: "5e titre ?" },
-              { flag: "🇦🇷", country: "Argentine", cote: "Tenant du titre" },
-              { flag: "🇫🇷", country: "France", cote: "3e titre ?" },
-              { flag: "🇩🇪", country: "Allemagne", cote: "5e titre ?" },
-              { flag: "🇵🇹", country: "Portugal", cote: "1er titre ?" },
-              { flag: "🇪🇸", country: "Espagne", cote: "2e titre ?" },
-              { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", country: "Angleterre", cote: "2e titre ?" },
+              { flag: "🇧🇷", country: "Brasilien", cote: "5. Titel?" },
+              { flag: "🇦🇷", country: "Argentinien", cote: "Titelverteidiger" },
+              { flag: "🇫🇷", country: "Frankreich", cote: "3. Titel?" },
+              { flag: "🇩🇪", country: "Deutschland", cote: "5. Titel?" },
+              { flag: "🇵🇹", country: "Portugal", cote: "1. Titel?" },
+              { flag: "🇪🇸", country: "Spanien", cote: "2. Titel?" },
+              { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", country: "England", cote: "2. Titel?" },
             ].map(({ flag, country, cote }) => (
               <div
                 key={country}
@@ -125,19 +125,19 @@ export function Section2026() {
             href="/prognose/sieger"
             className="inline-flex items-center gap-2 rounded-full bg-white text-primary font-bold px-6 py-3 hover:bg-gray-100 transition-colors shadow-lg"
           >
-             Prognose vainqueur 2026
+             Siegerprognose 2026
           </Link>
           <Link
             href="/simulateur"
             className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 text-white font-bold px-6 py-3 hover:bg-white/10 transition-colors"
           >
-             Simuler le Mondial
+             WM simulieren
           </Link>
           <Link
             href="/statistiques"
             className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 text-white font-bold px-6 py-3 hover:bg-white/10 transition-colors"
           >
-             Statistiques historiques
+             Historische Statistiken
           </Link>
         </div>
       </div>

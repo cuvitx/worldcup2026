@@ -5,67 +5,67 @@ import { pmuTrackingUrl } from "@repo/data/affiliates";
 import { Flame, TrendingUp, Star, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Dark Horses CDM 2026 — Mannschaften Surprises & Outsiders",
+  title: "Dark Horses WM 2026 — Überraschungsmannschaften & Außenseiter",
   description:
-    "Quelles Mannschafts peuvent créer la surprise à la CDM 2026 ? Analyse du Maroc, Japon, USA, Colombie, Nigeria et Suisse. Cotes value et arguments.",
+    "Welche Mannschaften können bei der WM 2026 für eine Überraschung sorgen? Analyse von Marokko, Japan, USA, Kolumbien, Nigeria und Schweiz. Value-Quoten und Argumente.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/dark-horses" },
   openGraph: {
-    title: "Dark Horses CDM 2026 — Mannschaften Surprises",
-    description: "Maroc, Japon, USA, Colombie, Nigeria, Suisse : les outsiders de la CDM 2026.",
+    title: "Dark Horses WM 2026 — Überraschungsmannschaften",
+    description: "Marokko, Japan, USA, Kolumbien, Nigeria, Schweiz: Die Außenseiter der WM 2026.",
     url: "https://www.wm2026guide.de/sportwetten/dark-horses",
   },
 };
 
 const outsiders = [
   {
-    team: "🇲🇦 Maroc", cote: 30.0, ranking: 14,
-    strengths: ["Demi-finaliste 2022 — expérience des grands matchs", "Défense exceptionnelle (1 seul but concédé en 5 matchs en 2022)", "Génération dorée : Hakimi, Amrabat, En-Nesyri, Ziyech", "Soutien populaire massif"],
-    weakness: "Profondeur de banc limitée, dépendance à quelques Spielers clés.",
-    valueArg: "Cote à 30.0 pour un demi-finaliste récent. Value claire si le tirage est favorable."
+    team: "🇲🇦 Marokko", cote: 30.0, ranking: 14,
+    strengths: ["Halbfinalist 2022 — Erfahrung bei großen Spielen", "Außergewöhnliche Defensive (nur 1 Gegentor in 5 Spielen 2022)", "Goldene Generation: Hakimi, Amrabat, En-Nesyri, Ziyech", "Massive Fanunterstützung"],
+    weakness: "Begrenzte Kadertiefe, Abhängigkeit von einigen Schlüsselspielern.",
+    valueArg: "Quote 30,0 für einen aktuellen Halbfinalisten. Klarer Value bei günstiger Auslosung."
   },
   {
-    team: "🇯🇵 Japon", cote: 50.0, ranking: 18,
-    strengths: ["A battu l'Allemagne et l'Espagne en 2022", "Spielers en top clubs européens (Kubo, Mitoma, Kamada)", "Discipline tactique impeccable", "Progression constante depuis 20 ans"],
-    weakness: "Manque de Torschütze de classe mondiale. Difficultés en phase à élimination directe.",
-    valueArg: "Capable de battre n'importe qui sur un match. Les huitièmes sont accessibles, les quarts un objectif réaliste."
+    team: "🇯🇵 Japan", cote: 50.0, ranking: 18,
+    strengths: ["Hat 2022 Deutschland und Spanien geschlagen", "Spieler in europäischen Topklubs (Kubo, Mitoma, Kamada)", "Tadellose taktische Disziplin", "Konstante Weiterentwicklung seit 20 Jahren"],
+    weakness: "Kein Weltklasse-Torschütze. Schwierigkeiten in der K.-o.-Runde.",
+    valueArg: "In der Lage, jeden in einem Einzelspiel zu schlagen. Das Achtelfinale ist erreichbar, das Viertelfinale ein realistisches Ziel."
   },
   {
-    team: "🇺🇸 États-Unis", cote: 40.0, ranking: 16,
-    strengths: ["Pays hôte — avantage terrain considérable", "Génération talentueuse : Pulisic, McKennie, Reyna, Musah", "Public passionné, Stadien de 80 000+ places", "Investissements massifs dans le football US"],
-    weakness: "Expérience limitée au plus haut niveau. Pression de jouer à domicile.",
-    valueArg: "L'avantage du pays hôte en CDM est historiquement fort (3 victoires sur 21 éditions). Les USA visent les quarts minimum."
+    team: "🇺🇸 USA", cote: 40.0, ranking: 16,
+    strengths: ["Gastgeberland — beträchtlicher Heimvorteil", "Talentierte Generation: Pulisic, McKennie, Reyna, Musah", "Begeistertes Publikum, Stadien mit 80.000+ Plätzen", "Massive Investitionen in den US-Fußball"],
+    weakness: "Begrenzte Erfahrung auf höchstem Niveau. Druck des Heimspiels.",
+    valueArg: "Der Heimvorteil bei der WM ist historisch stark (3 Siege bei 21 Ausgaben). Die USA streben mindestens das Viertelfinale an."
   },
   {
-    team: "🇨🇴 Colombie", cote: 45.0, ranking: 15,
-    strengths: ["Finaliste Copa América 2024", "James Rodríguez toujours magique en Aufgebot", "Luis Díaz en forme étincelante", "Style de jeu séduisant et offensif"],
-    weakness: "Irrégularité historique en CDM. Dépendance aux individualités.",
-    valueArg: "La Colombie en confiance est l'une des Mannschafts les plus dangereuses du monde. Finaliste Copa 2024, elle arrive en forme."
+    team: "🇨🇴 Kolumbien", cote: 45.0, ranking: 15,
+    strengths: ["Finalist Copa América 2024", "James Rodríguez immer noch magisch bei Länderspielen", "Luis Díaz in strahlender Form", "Attraktiver und offensiver Spielstil"],
+    weakness: "Historische Unbeständigkeit bei der WM. Abhängigkeit von Einzelspielern.",
+    valueArg: "Ein selbstbewusstes Kolumbien ist eine der gefährlichsten Mannschaften der Welt. Copa-2024-Finalist, kommt in Topform."
   },
   {
     team: "🇳🇬 Nigeria", cote: 80.0, ranking: 28,
-    strengths: ["Vivier de talents inépuisable", "Spielers physiques et rapides", "Osimhen capable de porter l'attaque seul", "Tradition de performances en CDM (8èmes en 2014)"],
-    weakness: "Organisation fédérale chaotique. Préparation parfois insuffisante.",
-    valueArg: "À 80.0, la moindre surprise rapporte gros. Le talent individuel est là, notamment avec Osimhen."
+    strengths: ["Unerschöpflicher Talentpool", "Physisch starke und schnelle Spieler", "Osimhen kann den Angriff allein tragen", "WM-Tradition (Achtelfinale 2014)"],
+    weakness: "Chaotische Verbandsorganisation. Manchmal unzureichende Vorbereitung.",
+    valueArg: "Bei 80,0 bringt jede Überraschung großen Gewinn. Das individuelle Talent ist da, insbesondere mit Osimhen."
   },
   {
-    team: "🇨🇭 Suisse", cote: 60.0, ranking: 19,
-    strengths: ["Régularité impressionnante (8èmes ou mieux aux 4 derniers grands tournois)", "A éliminé la France à l'Euro 2020", "Mannschaft bien structurée, aucun complexe contre les grands", "Xhaka, Akanji, Ndoye : colonne vertébrale solide"],
-    weakness: "Plafond de verre aux quarts de finale. Renouvellement générationnel en cours.",
-    valueArg: "La Suisse est le dark horse par excellence. Toujours compétitive, jamais favorite, et capable de créer la surprise."
+    team: "🇨🇭 Schweiz", cote: 60.0, ranking: 19,
+    strengths: ["Beeindruckende Konstanz (Achtelfinale oder besser bei den letzten 4 großen Turnieren)", "Hat Frankreich bei der EM 2020 eliminiert", "Gut strukturierte Mannschaft, kein Komplex gegen die Großen", "Xhaka, Akanji, Ndoye: solides Rückgrat"],
+    weakness: "Gläserne Decke im Viertelfinale. Generationswechsel im Gange.",
+    valueArg: "Die Schweiz ist der Dark Horse par excellence. Immer wettbewerbsfähig, nie Favorit, und fähig für eine Überraschung."
   },
   {
-    team: "🇹🇷 Turquie", cote: 80.0, ranking: 26,
-    strengths: ["Demi-finaliste Euro 2024, renouveau turc", "Arda Güler, prodige du Real Madrid", "Hakan Çalhanoglu en patron du Mittelfeldspieler", "Mentalité de guerrier, public bouillant"],
-    weakness: "Manque de régularité. Peut s'effondrer comme briller sur un même tournoi.",
-    valueArg: "La Turquie à l'Euro 2024 a montré qu'elle pouvait battre n'importe qui. Si le momentum est là, elle peut aller loin."
+    team: "🇹🇷 Türkei", cote: 80.0, ranking: 26,
+    strengths: ["EM-2024-Halbfinalist, türkische Erneuerung", "Arda Güler, Wunderkind von Real Madrid", "Hakan Çalhanoglu als Chef im Mittelfeld", "Kriegermentalität, leidenschaftliches Publikum"],
+    weakness: "Mangelnde Konstanz. Kann in einem Turnier sowohl zusammenbrechen als auch glänzen.",
+    valueArg: "Die Türkei hat bei der EM 2024 gezeigt, dass sie jeden schlagen kann. Wenn das Momentum stimmt, kann sie weit kommen."
   },
 ];
 
 const faqItems = [
-  { question: "Qu'est-ce qu'un dark horse en football ?", answer: "Un dark horse (ou outsider) est une Mannschaft qui n'est pas considérée comme favorite mais qui possède le potentiel pour créer la surprise. En CDM, c'est typiquement une nation classée entre la 10ème et la 30ème place mondiale, avec des Spielers de talent en clubs européens." },
-  { question: "Les dark horses peuvent-ils vraiment gagner la CDM ?", answer: "C'est rare mais possible. La Croatie (finaliste 2018), le Maroc (demi-finaliste 2022) et la Turquie (3ème en 2002) ont prouvé que les outsiders pouvaient aller très loin. Gagner le titre reste extrêmement difficile : seuls 8 pays ont remporté la CDM en 92 ans." },
-  { question: "Comment identifier un bon dark horse ?", answer: "Cherchez : 1) une Mannschaft en progression récente (Ergebnisse en hausse), 2) des Spielers clés en forme dans de grands clubs, 3) un Gruppe de poules abordable, 4) un Trainer expérimenté, 5) une cote qui ne reflète pas le vrai niveau de l'Mannschaft." },
-  { question: "Quel est le meilleur dark horse CDM 2026 ?", answer: "Le Maroc est le dark horse le plus crédible : demi-finaliste 2022, défense de classe mondiale, stars en Europe. Les USA bénéficient de l'avantage hôte. La Colombie arrive en forme après sa finale de Copa 2024. Chacun a un argument fort." },
+  { question: "Was ist ein Dark Horse im Fußball?", answer: "Ein Dark Horse (oder Außenseiter) ist eine Mannschaft, die nicht als Favorit gilt, aber das Potenzial hat, für eine Überraschung zu sorgen. Bei der WM ist das typischerweise eine Nation, die zwischen Platz 10 und 30 der Weltrangliste steht, mit talentierten Spielern in europäischen Topklubs." },
+  { question: "Können Dark Horses wirklich die WM gewinnen?", answer: "Es ist selten, aber möglich. Kroatien (Finalist 2018), Marokko (Halbfinalist 2022) und die Türkei (3. Platz 2002) haben bewiesen, dass Außenseiter sehr weit kommen können. Den Titel zu gewinnen bleibt extrem schwierig: Nur 8 Länder haben die WM in 92 Jahren gewonnen." },
+  { question: "Wie erkennt man einen guten Dark Horse?", answer: "Suchen Sie nach: 1) einer Mannschaft mit jüngster Aufwärtsentwicklung (steigende Ergebnisse), 2) Schlüsselspielern in Form bei großen Klubs, 3) einer machbaren Gruppenauslosung, 4) einem erfahrenen Trainer, 5) einer Quote, die das wahre Niveau der Mannschaft nicht widerspiegelt." },
+  { question: "Wer ist der beste Dark Horse der WM 2026?", answer: "Marokko ist der glaubwürdigste Dark Horse: Halbfinalist 2022, Weltklasse-Defensive, Stars in Europa. Die USA profitieren vom Heimvorteil. Kolumbien kommt nach dem Copa-2024-Finale in Form. Jeder hat ein starkes Argument." },
 ];
 
 export default function DarkHorsesPage() {
@@ -73,19 +73,19 @@ export default function DarkHorsesPage() {
     <>
 
       <section className="hero-animated text-center py-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Dark Horses — CDM 2026</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-accent mb-4">Dark Horses -- WM 2026</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Quelles Mannschafts peuvent bousculer la hiérarchie ? Analyse des 7 outsiders les plus dangereux der WM 2026.
+          Welche Mannschaften können die Hierarchie durcheinanderbringen? Analyse der 7 gefährlichsten Außenseiter der WM 2026.
         </p>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
           <Flame className="w-7 h-7 text-accent" />
-          <h2 className="text-2xl font-bold text-primary">Les outsiders à surveiller</h2>
+          <h2 className="text-2xl font-bold text-primary">Die Außenseiter im Blick</h2>
         </div>
         <p className="text-gray-700 mb-8">
-          La WM est le théâtre des surprises. En 2022, le Maroc a atteint les demi-finales, l&apos;Arabie Saoudite a battu l&apos;Argentine, le Japon a éliminé l&apos;Allemagne et l&apos;Espagne en poules. En 2026, avec 48 Mannschafts, les possibilités de surprise se multiplient.
+          Die WM ist die Bühne der Überraschungen. 2022 erreichte Marokko das Halbfinale, Saudi-Arabien schlug Argentinien, Japan eliminierte Deutschland und Spanien in der Gruppenphase. 2026, mit 48 Mannschaften, vervielfachen sich die Überraschungsmöglichkeiten.
         </p>
 
         <div className="space-y-8">
@@ -94,14 +94,14 @@ export default function DarkHorsesPage() {
               <div className="bg-primary/5 p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                 <div>
                   <h3 className="text-xl font-bold text-primary">{o.team}</h3>
-                  <span className="text-sm text-gray-500">Rangliste FIFA : {o.ranking}ème</span>
+                  <span className="text-sm text-gray-500">FIFA-Rangliste: Platz {o.ranking}</span>
                 </div>
                 <span className="bg-accent/10 text-accent font-bold px-4 py-2 rounded-lg">
-                  Cote titre : {o.cote.toFixed(1)}
+                  Titelquote: {o.cote.toFixed(1)}
                 </span>
               </div>
               <div className="p-5">
-                <h4 className="font-semibold text-accent mb-2">Points forts</h4>
+                <h4 className="font-semibold text-accent mb-2">Stärken</h4>
                 <ul className="space-y-1 mb-4">
                   {o.strengths.map((s, i) => (
                     <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
@@ -110,10 +110,10 @@ export default function DarkHorsesPage() {
                     </li>
                   ))}
                 </ul>
-                <h4 className="font-semibold text-red-600 mb-1">Point faible</h4>
+                <h4 className="font-semibold text-red-600 mb-1">Schwäche</h4>
                 <p className="text-sm text-gray-700 mb-3">{o.weakness}</p>
                 <div className="bg-accent/5 rounded-lg p-3">
-                  <h4 className="font-semibold text-accent text-sm mb-1">Argument value</h4>
+                  <h4 className="font-semibold text-accent text-sm mb-1">Value-Argument</h4>
                   <p className="text-sm text-gray-700">{o.valueArg}</p>
                 </div>
               </div>
@@ -124,12 +124,12 @@ export default function DarkHorsesPage() {
 
       <section className="max-w-3xl mx-auto px-4 py-10 text-center">
         <a href={pmuTrackingUrl("paris-sportifs")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="inline-block bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-          Willkommensbonus — Wetten auf un dark horse CDM 2026 sur Betano <ArrowRight className="inline w-4 h-4 ml-1" />
+          Willkommensbonus — Auf einen Dark Horse der WM 2026 bei Betano wetten <ArrowRight className="inline w-4 h-4 ml-1" />
         </a>
         <p className="text-xs text-gray-400 mt-3">18+ | Es gelten die AGB</p>
       </section>
 
-      <FAQSection title="Häufig gestellte Fragen — Dark horses CDM 2026" items={faqItems} />
+      <FAQSection title="Häufig gestellte Fragen -- Dark Horses WM 2026" items={faqItems} />
 
     </>
   );

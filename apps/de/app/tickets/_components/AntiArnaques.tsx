@@ -1,21 +1,21 @@
 export function AntiArnaques() {
   const tips = [
-    { type: "danger" as const, title: "Sites non officiels", desc: "Méfiez-vous de TOUS les sites autres que fifa.com/tickets. Des centaines de faux sites existent." },
-    { type: "danger" as const, title: "Réseaux sociaux", desc: "Les ventes de Tickets sur Facebook, Instagram, Twitter sont quasiment toutes des arnaques ou Tickets volés." },
-    { type: "danger" as const, title: "Revendeurs non officiels", desc: "StubHub, Viagogo et similaires ne sont PAS partenaires officiels FIFA. Les Tickets peuvent être invalidés." },
-    { type: "safe" as const, title: "Canal officiel unique", desc: "fifa.com/tickets est le SEUL endroit où acheter. Bookmarkez cette URL exacte." },
-    { type: "safe" as const, title: "Revente officielle FIFA", desc: "Si vous devez revendre, utilisez la plateforme officielle de transfert FIFA. Les Tickets restent valides." },
-    { type: "safe" as const, title: "Vérifiez l'URL", desc: "Assurez-vous que l'URL commence par fifa.com/tickets avec HTTPS. Pas de tirets, variantes ou sous-domaines suspects." },
+    { type: "danger" as const, title: "Inoffizielle Websites", desc: "Misstrauen Sie ALLEN Websites außer fifa.com/tickets. Hunderte gefälschte Websites existieren." },
+    { type: "danger" as const, title: "Soziale Netzwerke", desc: "Ticketverkäufe auf Facebook, Instagram, Twitter sind fast ausnahmslos Betrug oder gestohlene Tickets." },
+    { type: "danger" as const, title: "Inoffizielle Wiederverkäufer", desc: "StubHub, Viagogo und ähnliche sind KEINE offiziellen FIFA-Partner. Tickets können ungültig gemacht werden." },
+    { type: "safe" as const, title: "Einziger offizieller Kanal", desc: "fifa.com/tickets ist der EINZIGE Ort zum Kaufen. Setzen Sie ein Lesezeichen für diese URL." },
+    { type: "safe" as const, title: "Offizieller FIFA-Weiterverkauf", desc: "Wenn Sie weiterverkaufen müssen, nutzen Sie die offizielle FIFA-Transferplattform. Die Tickets bleiben gültig." },
+    { type: "safe" as const, title: "URL überprüfen", desc: "Stellen Sie sicher, dass die URL mit fifa.com/tickets und HTTPS beginnt. Keine Bindestriche, Varianten oder verdächtige Subdomains." },
   ];
 
   return (
     <section className="bg-red-50 py-12 border-t border-red-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 text-red-800 mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Conseils pratiques — Éviter les arnaques
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Praktische Tipps — Betrug vermeiden
         </h2>
         <p className="text-sm text-red-700 mb-6">
-          La CDM 2026 sera la cible de nombreuses escroqueries. Voici comment vous protéger.
+          Die WM 2026 wird Ziel zahlreicher Betrügereien sein. So schützen Sie sich.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -47,13 +47,13 @@ export function AntiArnaques() {
 
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
           <h3 className="text-lg font-semibold text-gray-900 text-red-800 mb-2">
-             Que faire si vous avez été arnaqué ?
+             Was tun, wenn Sie betrogen wurden?
           </h3>
           <ul className="text-sm text-gray-700 space-y-1">
-            <li>• Signalez immédiatement à votre banque pour bloquer le paiement (chargeback)</li>
-            <li>• Déposez plainte auprès de votre service de police local</li>
-            <li>• Signalez le site sur <a href="https://www.signal-spam.fr" target="_blank" rel="noopener noreferrer" className="text-primary underline">Signal-Spam</a> (France)</li>
-            <li>• Contactez la FIFA via fifa.com/kontakt</li>
+            <li>• Melden Sie es sofort Ihrer Bank, um die Zahlung zu blockieren (Chargeback)</li>
+            <li>• Erstatten Sie Anzeige bei Ihrer örtlichen Polizei</li>
+            <li>• Melden Sie die Website bei der <a href="https://www.verbraucherzentrale.de" target="_blank" rel="noopener noreferrer" className="text-primary underline">Verbraucherzentrale</a></li>
+            <li>• Kontaktieren Sie die FIFA über fifa.com/contact</li>
           </ul>
         </div>
       </div>

@@ -4,13 +4,13 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Target, ArrowRight, TrendingUp, AlertTriangle, Users, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Stratégie paris phase de Gruppen CDM 2026 — 48 Mannschafts, 12 Gruppen",
+  title: "Wettstrategie Gruppenphase WM 2026 — 48 Mannschaften, 12 Gruppen",
   description:
-    "Comment parier sur la phase de Gruppen de la CDM 2026 à 48 Mannschafts : 12 Gruppen, meilleurs 3e, matchs du 3e jour, nouvelles dynamiques et stratégies.",
+    "Wie wettet man auf die Gruppenphase der WM 2026 mit 48 Mannschaften: 12 Gruppen, beste Drittplatzierte, Spiele am 3. Spieltag, neue Dynamiken und Strategien.",
   alternates: { canonical: "https://www.wm2026guide.de/sportwetten/strategie" },
   openGraph: {
-    title: "Stratégie paris — Gruppenphase CDM 2026",
-    description: "Exploitez le nouveau format 48 Mannschafts pour vos paris : 12 Gruppen, meilleurs 3e, matchs inutiles.",
+    title: "Wettstrategie — Gruppenphase WM 2026",
+    description: "Nutzen Sie das neue 48-Mannschaften-Format für Ihre Wetten: 12 Gruppen, beste Drittplatzierte, bedeutungslose Spiele.",
     url: "https://www.wm2026guide.de/sportwetten/strategie",
   },
 };
@@ -19,43 +19,43 @@ const strategies = [
   {
     icon: Users,
     title: "12 Gruppen = plus d'opportunités",
-    content: "Avec 12 Gruppen au lieu de 8, le volume de matchs de phase de Gruppen explose (36 → 48 matchs). Plus de matchs = plus de value à trouver, notamment dans les Gruppen avec des Mannschafts moins médiatisées où les bookmakers ont moins de données.",
+    content: "Mit 12 statt 8 Gruppen explodiert das Volumen der Gruppenspiele (36 → 48 Spiele). Mehr Spiele = mehr Value zu finden, besonders in Gruppen mit weniger bekannten Mannschaften, wo die Wettanbieter weniger Daten haben.",
   },
   {
     icon: TrendingUp,
-    title: "Les meilleurs 3e : la clé",
-    content: "Seulement 8 des 12 troisièmes se qualifient. Cela crée une incertitude permanente : une Mannschaft 3e avec +1 de différence de buts peut se qualifier, une autre avec 0 non. Les cotes en live bougent énormément lors du 3e match de Gruppe — c'est là que la value se trouve.",
+    title: "Die besten Dritten: Der Schlüssel",
+    content: "Nur 8 der 12 Drittplatzierten qualifizieren sich. Das schafft permanente Unsicherheit: Eine drittplatzierte Mannschaft mit +1 Tordifferenz kann sich qualifizieren, eine andere mit 0 nicht. Die Live-Quoten bewegen sich enorm beim 3. Gruppenspiel — dort liegt der Value.",
   },
   {
     icon: AlertTriangle,
-    title: "Attention aux matchs 'inutiles' du J3",
-    content: "Quand deux Mannschafts sont déjà qualifiées avant le 3e match, le match peut devenir 'inutile'. Les Trainers font tourner, la motivation baisse. Wetten auf des scores faibles (under 2.5) ou des nuls dans ces configurations. Mais attention : parfois la 1re place est cruciale pour le tableau.",
+    title: "Achtung bei 'bedeutungslosen' Spielen am 3. Spieltag",
+    content: "Wenn zwei Mannschaften bereits vor dem 3. Spiel qualifiziert sind, kann das Spiel 'bedeutungslos' werden. Die Trainer rotieren, die Motivation sinkt. Wetten auf niedrige Ergebnisse (Under 2.5) oder Unentschieden in solchen Konstellationen. Aber Achtung: Manchmal ist der 1. Platz entscheidend für den Turnierplan.",
   },
   {
     icon: Lightbulb,
-    title: "Les petites Mannschafts en J1",
-    content: "Historiquement, les 'petites' Mannschafts surperforment lors de leur premier match de CDM (effet euphorie, motivation maximale, tactique ultra-défensive). Recherchez les handicaps asiatiques et les under sur ces matchs J1.",
+    title: "Die 'kleinen' Mannschaften am 1. Spieltag",
+    content: "Historisch überperformen 'kleine' Mannschaften bei ihrem ersten WM-Spiel (Euphorie-Effekt, maximale Motivation, ultra-defensive Taktik). Suchen Sie nach Asian Handicaps und Unders bei diesen Spielen am 1. Spieltag.",
   },
   {
     icon: Target,
-    title: "Live betting sur le J3",
-    content: "Le 3e jour de chaque Gruppe est un terrain de jeu idéal pour le live betting. Les scénarios changent en temps réel selon les Ergebnisse de l'autre match simultané. Surveillez les situations où une Mannschaft apprend qu'elle est éliminée en cours de match — l'effondrement est fréquent.",
+    title: "Live-Wetten am 3. Spieltag",
+    content: "Der 3. Spieltag jeder Gruppe ist ein ideales Spielfeld für Live-Wetten. Die Szenarien ändern sich in Echtzeit je nach den Ergebnissen des parallelen Spiels. Beobachten Sie Situationen, in denen eine Mannschaft während des Spiels erfährt, dass sie ausgeschieden ist — der Zusammenbruch ist häufig.",
   },
 ];
 
 export default function StrategieParisGruppenPage() {
   const faqItems = [
     {
-      question: "Le format 48 Mannschafts change-t-il vraiment les paris ?",
-      answer: "Oui, fondamentalement. Plus de Gruppen signifie plus de matchs, plus de scénarios croisés entre Gruppen (meilleurs 3e), et des bookmakers moins affûtés sur les petites Aufgebots. La value est plus facile à trouver qu'avec 32 Mannschafts.",
+      question: "Verändert das 48-Mannschaften-Format wirklich die Wetten?",
+      answer: "Ja, grundlegend. Mehr Gruppen bedeutet mehr Spiele, mehr gruppenübergreifende Szenarien (beste Drittplatzierte) und Wettanbieter, die bei kleinen Auswahlen weniger erfahren sind. Value ist leichter zu finden als bei 32 Mannschaften.",
     },
     {
-      question: "Faut-il parier sur les favoris en phase de Gruppen ?",
-      answer: "Les favoris gagnent souvent mais à des cotes basses (1.20-1.40). La value se trouve dans les handicaps, les over/under et les marchés exacts. Un Brésil -1.5 à 2.10 est souvent plus intéressant qu'un Brésil vainqueur à 1.25.",
+      question: "Sollte man in der Gruppenphase auf Favoriten wetten?",
+      answer: "Favoriten gewinnen oft, aber zu niedrigen Quoten (1,20-1,40). Der Value liegt bei Handicaps, Over/Under und exakten Märkten. Brasilien -1.5 mit 2,10 ist oft interessanter als ein Brasilien-Sieg mit 1,25.",
     },
     {
-      question: "Comment identifier un match 'inutile' ?",
-      answer: "Analysez les scénarios de qualification avant le J3 : si les deux Mannschafts sont qualifiées indépendamment des Ergebnisse, le match sera probablement à faible intensité. Vérifiez aussi l'enjeu de la 1re place pour le tableau des phases finales.",
+      question: "Wie erkennt man ein 'bedeutungsloses' Spiel?",
+      answer: "Analysieren Sie die Qualifikationsszenarien vor dem 3. Spieltag: Wenn beide Mannschaften unabhängig von den Ergebnissen qualifiziert sind, wird das Spiel wahrscheinlich wenig intensiv sein. Prüfen Sie auch die Bedeutung des 1. Platzes für den K.-o.-Rundenplan.",
     },
   ];
 
@@ -65,14 +65,14 @@ export default function StrategieParisGruppenPage() {
       <section className="hero-animated text-white py-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-2">
-            Stratégie paris sportifs
+            Sportwetten-Strategie
           </p>
           <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-4">
-            Paris sur la phase de Gruppen CDM 2026
+            Wetten auf die Gruppenphase WM 2026
           </h1>
           <p className="text-gray-200 text-lg max-w-3xl mx-auto">
-            48 Mannschafts, 12 Gruppen, de nouvelles dynamiques : comment exploiter le format inédit
-            de la CDM 2026 pour vos paris sportifs.
+            48 Mannschaften, 12 Gruppen, neue Dynamiken: So nutzen Sie das neuartige Format
+            der WM 2026 für Ihre Sportwetten.
           </p>
         </div>
       </section>
@@ -96,14 +96,14 @@ export default function StrategieParisGruppenPage() {
 
         <div className="text-center">
           <Link href="/sportwetten/handicap" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity">
-            Guide du handicap asiatique <ArrowRight className="h-4 w-4" />
+            Asian-Handicap-Ratgeber <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         <FAQSection items={faqItems} />
 
         <p className="text-xs text-gray-400 text-center">
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur bzga.de (ANJ).
+          Sportwetten bergen Risiken. Spielen Sie verantwortungsvoll. 18+ | Informationen und Hilfe auf bzga.de (BZgA).
         </p>
       </div>
     </>

@@ -37,7 +37,10 @@
     "./tv-schedule": "./src/tv-schedule.ts",
     "./espn-team-names": "./src/espn-team-names.ts",
     "./i18n": "./src/i18n.ts",
-    "./translations/register-de": "./src/translations/register-de.ts"
+    "./translations/register-de": "./src/translations/register-de.ts",
+    "./translations/teams.de": "./src/translations/teams.de.ts",
+    "./translations/stadiums.de": "./src/translations/stadiums.de.ts",
+    "./translations/cities.de": "./src/translations/cities.de.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

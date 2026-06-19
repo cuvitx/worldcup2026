@@ -21,10 +21,10 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
     <section className="rounded-xl bg-white shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-          Prognose détaillé — Points & Buts attendus
+          Detaillierte Prognose — Erwartete Punkte & Tore
         </h2>
         <p className="text-xs text-gray-400 mt-1">
-          Rangliste prédit après 3 matchs de Gruppe · Modèle ELO + cotes bookmakers · Fév. 2026
+          Vorhergesagte Rangliste nach 3 Gruppenspielen · ELO-Modell + Buchmacher-Quoten · Feb. 2026
         </p>
       </div>
 
@@ -32,19 +32,19 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
         <table className="w-full text-sm">
           <thead className="bg-gray-50 text-xs uppercase text-gray-500 text-xs uppercase tracking-wide">
             <tr>
-              <th className="px-4 py-3 text-left">Rang prédit</th>
+              <th className="px-4 py-3 text-left">Vorherges. Rang</th>
               <th className="px-4 py-3 text-left">Mannschaft</th>
-              <th className="px-4 py-3 text-center">Pts prévus</th>
-              <th className="px-4 py-3 text-center">+/- buts</th>
-              <th className="px-4 py-3 text-center">Prob. 1er</th>
-              <th className="px-4 py-3 text-center">Prob. qual.</th>
-              <th className="px-4 py-3 text-center">Statut</th>
+              <th className="px-4 py-3 text-center">Erw. Punkte</th>
+              <th className="px-4 py-3 text-center">+/- Tore</th>
+              <th className="px-4 py-3 text-center">Prob. 1.</th>
+              <th className="px-4 py-3 text-center">Qual.-Prob.</th>
+              <th className="px-4 py-3 text-center">Status</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
             {enrichedSorted.map((ep, idx) => {
               const team = teamsById[ep.teamId];
-              const medal = idx === 0 ? "1er" : idx === 1 ? "2e" : idx === 2 ? "3e" : "4e";
+              const medal = idx === 0 ? "1." : idx === 1 ? "2." : idx === 2 ? "3." : "4.";
               const qualifyBg =
                 idx < 2
                   ? "bg-accent/10"
@@ -89,11 +89,11 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
                   </td>
                   <td className="px-4 py-3 text-center">
                     {idx < 2 ? (
-                      <span className="inline-block rounded-full bg-accent/15 px-2 py-0.5 text-xs font-semibold text-accent">Qualifié</span>
+                      <span className="inline-block rounded-full bg-accent/15 px-2 py-0.5 text-xs font-semibold text-accent">Qualifiziert</span>
                     ) : idx === 2 ? (
-                      <span className="inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">Meilleur 3e</span>
+                      <span className="inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">Bester 3.</span>
                     ) : (
-                      <span className="inline-block rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Éliminé</span>
+                      <span className="inline-block rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block shrink-0"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Ausgeschieden</span>
                     )}
                   </td>
                 </tr>
@@ -105,7 +105,7 @@ export function EnrichedPrediction({ enrichedSorted }: EnrichedPredictionProps) 
 
       <div className="px-6 py-3 bg-gray-50/80 border-t border-gray-100">
         <p className="text-[11px] text-gray-400">
-          Pts prévus = total après 3 matchs de Gruppe · +/- buts = différence de buts attendue · Proba qual. = probabilité de se qualifier (1er ou 2e direct + meilleur 3e inclus)
+          Erw. Punkte = Gesamtpunktzahl nach 3 Gruppenspielen · +/- Tore = erwartete Tordifferenz · Qual.-Prob. = Qualifikationswahrscheinlichkeit (1. oder 2. direkt + bester Dritter eingeschlossen)
         </p>
       </div>
     </section>

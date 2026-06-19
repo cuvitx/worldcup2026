@@ -14,12 +14,12 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
 
   return (
     <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielplan du Gruppe {groupLetter}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Spielplan der Gruppe {groupLetter}</h2>
       <div className="space-y-2">
         {groupMatches.map((match) => {
           const home = teamsById[match.homeTeamId];
           const away = teamsById[match.awayTeamId];
-          const dateStr = new Date(match.date).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "long" });
+          const dateStr = new Date(match.date).toLocaleDateString("de-DE", { weekday: "short", day: "numeric", month: "long" });
           return (
             <Link
               key={match.id}

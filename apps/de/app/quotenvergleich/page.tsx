@@ -25,28 +25,28 @@ export default function ComparateurCotesPage() {
 
   const faqItems = [
     {
-      question: "Comment lire les cotes d'un bookmaker ?",
-      answer: "Les cotes représentent la probabilité d'un événement et le gain potentiel. Par exemple, une cote à 2.00 signifie que si vous pariez 10€ et gagnez, vous récupérez 20€ (10€ de mise + 10€ de gain). Plus la cote est élevée, moins l'événement est probable mais plus le gain est important. Une cote à 1.50 indique un favori (66% de chances implicites), tandis qu'une cote à 5.00 indique un outsider (20% de chances implicites)."
+      question: "Wie liest man die Quoten eines Wettanbieters?",
+      answer: "Die Quoten stellen die Wahrscheinlichkeit eines Ereignisses und den möglichen Gewinn dar. Zum Beispiel bedeutet eine Quote von 2.00, dass Sie bei einem Einsatz von 10 EUR und einem Gewinn 20 EUR erhalten (10 EUR Einsatz + 10 EUR Gewinn). Je höher die Quote, desto unwahrscheinlicher das Ereignis, aber desto höher der Gewinn. Eine Quote von 1.50 deutet auf einen Favoriten hin (66 % implizite Wahrscheinlichkeit), während eine Quote von 5.00 auf einen Aussenseiter hinweist (20 % implizite Wahrscheinlichkeit)."
     },
     {
-      question: "Quel bookmaker propose les meilleures cotes pour la CDM 2026 ?",
-      answer: "Les bookmakers avec les meilleures cotes für die WM 2026 varient selon les matchs et les marchés. En général, PokerStars Sports et Betsson proposent des cotes très compétitives sur les grands matchs. Betano a également amélioré ses cotes ces dernières années. Notre comparateur met en surbrillance en vert la meilleure cote pour chaque issue (victoire domicile, match nul, victoire extérieur), ce qui vous permet de maximiser vos gains potentiels."
+      question: "Welcher Wettanbieter bietet die besten Quoten für die WM 2026?",
+      answer: "Die Wettanbieter mit den besten Quoten für die WM 2026 variieren je nach Spiel und Markt. Im Allgemeinen bieten PokerStars Sports und Betsson sehr wettbewerbsfähige Quoten bei grossen Spielen. Betano hat seine Quoten in den letzten Jahren ebenfalls verbessert. Unser Vergleich hebt die beste Quote für jedes Ergebnis (Heimsieg, Unentschieden, Auswärtssieg) grün hervor, damit Sie Ihre potenziellen Gewinne maximieren können."
     },
     {
-      question: "Les cotes affichées sont-elles en temps réel ?",
-      answer: "Les cotes affichées sur notre comparateur sont mises à jour régulièrement mais ne sont pas en temps réel absolu. Elles sont indicatives et peuvent varier légèrement au moment où vous placez votre pari. Pour obtenir les cotes exactes et actualisées, cliquez sur le bouton 'Parier' qui vous redirige directement vers le site du bookmaker concerné. Les cotes évoluent en fonction des volumes de paris, des blessures et des nouvelles sportives."
+      question: "Werden die angezeigten Quoten in Echtzeit aktualisiert?",
+      answer: "Die auf unserem Vergleich angezeigten Quoten werden regelmässig aktualisiert, sind aber nicht in absoluter Echtzeit. Sie sind indikativ und können zum Zeitpunkt Ihrer Wette leicht abweichen. Um die exakten und aktuellen Quoten zu erhalten, klicken Sie auf den Button 'Wetten', der Sie direkt zur Website des jeweiligen Wettanbieters weiterleitet. Die Quoten entwickeln sich je nach Wettvolumen, Verletzungen und Sportnachrichten."
     },
     {
-      question: "Qu'est-ce qu'un pari 1N2 ?",
-      answer: "Le pari 1N2 est le type de pari le plus simple et le plus populaire en football. '1' représente la victoire de l'Mannschaft à domicile, 'N' (Nul) représente le match nul après 90 minutes de jeu, et '2' représente la victoire de l'Mannschaft à l'extérieur. Par exemple, pour France vs Brésil : 1 = victoire de la France, N = match nul, 2 = victoire du Brésil. En phase à élimination directe de la CDM, il n'y a pas de match nul définitif (prolongations et tirs au but si besoin)."
+      question: "Was ist eine 1X2-Wette?",
+      answer: "Die 1X2-Wette ist die einfachste und beliebteste Wettart im Fussball. '1' steht für den Heimsieg, 'X' für das Unentschieden nach 90 Minuten Spielzeit und '2' für den Auswärtssieg. Zum Beispiel bei Frankreich vs. Brasilien: 1 = Sieg Frankreichs, X = Unentschieden, 2 = Sieg Brasiliens. In der K.-o.-Runde der WM gibt es kein endgültiges Unentschieden (Verlängerung und Elfmeterschiessen bei Bedarf)."
     },
     {
-      question: "Comment maximiser mes gains avec le comparateur de cotes ?",
-      answer: "Pour maximiser vos gains : 1) Comparez systématiquement les cotes de tous les bookmakers avant de parier, 2) Ciblez les cotes surlignées en vert (meilleures du marché), 3) Ouvrez des comptes sur plusieurs bookmakers pour pouvoir choisir la meilleure cote à chaque fois, 4) Profitez des bonus de bienvenue pour augmenter votre capital de départ, 5) Ne pariez jamais plus que ce que vous pouvez perdre et fixez-vous des limites de dépôt. 18+."
+      question: "Wie maximiere ich meine Gewinne mit dem Quotenvergleich?",
+      answer: "Um Ihre Gewinne zu maximieren: 1) Vergleichen Sie systematisch die Quoten aller Wettanbieter vor dem Wetten, 2) Zielen Sie auf die grün hervorgehobenen Quoten (Marktbeste), 3) Eröffnen Sie Konten bei mehreren Wettanbietern, um jedes Mal die beste Quote wählen zu können, 4) Nutzen Sie die Willkommensboni, um Ihr Startkapital zu erhöhen, 5) Wetten Sie nie mehr, als Sie verlieren können, und setzen Sie sich Einzahlungslimits. 18+."
     },
     {
-      question: "Peut-on parier sur tous les matchs de la phase de Gruppen ?",
-      answer: "Oui, tous les bookmakers français proposent des paris sur l'intégralité des 72 matchs de la phase de Gruppen de la CDM 2026. Notre comparateur couvre tous les matchs Gruppe par Gruppe (A à L). Vous pouvez filtrer par Gruppe pour trouver rapidement les matchs qui vous intéressent. En plus du pari 1N2, des dizaines d'autres marchés sont disponibles : score exact, Torschütze, nombre de buts, handicap, mi-temps/fin, corners, cartons, etc."
+      question: "Kann man auf alle Spiele der Gruppenphase wetten?",
+      answer: "Ja, alle Wettanbieter bieten Wetten auf alle 72 Spiele der Gruppenphase der WM 2026 an. Unser Vergleich deckt alle Spiele Gruppe für Gruppe (A bis L) ab. Sie können nach Gruppe filtern, um schnell die Spiele zu finden, die Sie interessieren. Neben der 1X2-Wette stehen Dutzende weitere Märkte zur Verfügung: Exaktes Ergebnis, Torschütze, Anzahl der Tore, Handicap, Halbzeit/Ende, Ecken, Karten usw."
     }
   ];
 
@@ -63,7 +63,7 @@ export default function ComparateurCotesPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.wm2026guide.de/" },
-              { "@type": "ListItem", position: 2, name: "Comparateur de cotes", item: "https://www.wm2026guide.de/comparateur-cotes" },
+              { "@type": "ListItem", position: 2, name: "Quotenvergleich", item: "https://www.wm2026guide.de/comparateur-cotes" },
             ],
           }),
         }}
@@ -72,14 +72,14 @@ export default function ComparateurCotesPage() {
       <section className="hero-animated text-white py-14 sm:py-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Paris sportifs</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">Sportwetten</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl mb-4">
-            Comparateur de cotes – WM 2026
+            Quotenvergleich -- WM 2026
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Comparez les cotes des meilleurs bookmakers français pour tous les matchs de la phase de Gruppen du Mondial 2026.
-            Trouvez la meilleure cote pour chaque rencontre.
+            Vergleichen Sie die Quoten der besten Wettanbieter für alle Gruppenspiele der WM 2026.
+            Finden Sie die beste Quote für jede Begegnung.
           </p>
         </div>
       </section>
@@ -96,7 +96,7 @@ export default function ComparateurCotesPage() {
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            Tous les Gruppen
+            Alle Gruppen
           </button>
           {allGroups.map((g) => (
             <button
@@ -139,9 +139,9 @@ export default function ComparateurCotesPage() {
                       <tr className="text-gray-500 text-xs uppercase">
                         <th className="px-4 py-2 text-left font-medium">Bookmaker</th>
                         <th className="px-4 py-2 text-center font-medium">1 ({match.homeTeam})</th>
-                        <th className="px-4 py-2 text-center font-medium">N (Nul)</th>
+                        <th className="px-4 py-2 text-center font-medium">X (Unentschieden)</th>
                         <th className="px-4 py-2 text-center font-medium">2 ({match.awayTeam})</th>
-                        <th className="px-4 py-2 text-center font-medium">Parier</th>
+                        <th className="px-4 py-2 text-center font-medium">Wetten</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -179,7 +179,7 @@ export default function ComparateurCotesPage() {
                               rel="noopener noreferrer sponsored nofollow"
                               className="inline-block bg-primary hover:bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded transition"
                             >
-                              Parier →
+                              Wetten →
                             </a>
                           </td>
                         </tr>
@@ -200,15 +200,15 @@ export default function ComparateurCotesPage() {
         </section>
 
         <div className="mt-16">
-          <FAQSection title="Questions sur le comparateur de cotes" items={faqItems} />
+          <FAQSection title="Fragen zum Quotenvergleich" items={faqItems} />
         </div>
 
         {/* Disclaimer */}
         <div className="mt-8 p-4 bg-accent/10 border border-accent/30 rounded-lg text-sm text-accent">
-          <p className="font-semibold mb-1">Avertissement</p>
+          <p className="font-semibold mb-1">Hinweis</p>
           <p>
-            Cotes indicatives, susceptibles de varier. Les cotes affichées sont fournies à titre informatif et peuvent
-            évoluer à tout moment. Consultez directement le site du bookmaker pour les cotes en temps réel.
+            Indikative Quoten, Änderungen vorbehalten. Die angezeigten Quoten dienen nur zur Information und können
+            sich jederzeit ändern. Besuchen Sie direkt die Website des Wettanbieters für Echtzeit-Quoten.
             
           </p>
         </div>

@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Glossaire Paris Sportifs | Tous les termes expliqués",
+  title: "Sportwetten-Glossar | Alle Begriffe erklärt",
   description:
-    "Glossaire des paris sportifs : 80+ termes expliqués avec exemples WM 2026. De A à Z, tout le vocabulaire du parieur.",
+    "Sportwetten-Glossar: 80+ Begriffe erklärt mit Beispielen zur WM 2026. Von A bis Z, das gesamte Vokabular des Wetters.",
   alternates: {
-    canonical: "https://www.wm2026guide.de/guide/glossaire",
+    canonical: "https://www.wm2026guide.de/ratgeber/glossar",
   },
   openGraph: {
-    title: "Glossaire des Paris Sportifs – CDM 2026",
-    description: "Plus de 80 termes de paris sportifs expliqués simplement avec des exemples WM 2026.",
-    url: "https://www.wm2026guide.de/guide/glossaire",
+    title: "Sportwetten-Glossar — WM 2026",
+    description: "Über 80 Sportwetten-Begriffe einfach erklärt mit Beispielen zur WM 2026.",
+    url: "https://www.wm2026guide.de/ratgeber/glossar",
   },
 };
 
@@ -22,35 +22,35 @@ interface Term {
 }
 
 const glossary: Term[] = [
-  { name: "1X2", definition: "Le pari le plus classique : 1 = victoire domicile, X = match nul, 2 = victoire extérieur.", example: "France vs Colombie : 1 = victoire France, X = nul, 2 = victoire Colombie." },
-  { name: "Accumulator (Acca)", definition: "Pari combiné regroupant plusieurs Aufgebots. Toutes doivent être gagnantes pour remporter le pari.", example: "Combiner France gagne + Brésil gagne + Argentine gagne en un seul pari." },
-  { name: "Ante-post", definition: "Pari placé bien avant un événement, souvent avant le début des Turniers.", example: "Wetten auf le vainqueur de la CDM 2026 dès aujourd'hui, avant le coup d'envoi en juin." },
-  { name: "Arjel / ANJ", definition: "Autorité Nationale des Jeux, régulateur français des paris en ligne. Garantit la légalité et la protection des Spielers.", example: "PokerStars Sports, Betsson et Betano sont agréés par l'ANJ pour opérer en France." },
-  { name: "Asian Handicap", definition: "Handicap qui élimine le match nul en attribuant un avantage/désavantage en demi-buts ou quarts de buts.", example: "Brésil -1.5 vs Haïti : le Brésil doit gagner par 2 buts d'écart minimum." },
-  { name: "Bankroll", definition: "Le capital total dédié aux paris sportifs. À gérer avec discipline.", example: "Vous dédiez 200€ à la CDM 2026 : c'est votre bankroll. Ne pariez jamais plus de 5% par mise." },
-  { name: "Bet Builder", definition: "Outil permettant de créer un pari personnalisé en combinant plusieurs marchés sur un même match.", example: "France gagne + Mbappé Torschütze + plus de 2.5 buts sur France-Colombie." },
-  { name: "Bookmaker", definition: "Opérateur de paris sportifs qui propose des cotes et accepte les mises des parieurs.", example: "PokerStars Sports, Betsson, Betano sont les principaux bookmakers français pour la CDM 2026." },
-  { name: "Both Teams to Score (BTTS)", definition: "Pari sur le fait que les deux Mannschafts marquent au moins un but chacune.", example: "Italie vs Croatie : parier que les deux Mannschafts marquent (oui/non)." },
-  { name: "Cash Out", definition: "Option permettant de clôturer un pari avant la fin de l'événement pour sécuriser un gain ou limiter une perte.", example: "Vous avez parié sur l'Argentine vainqueur, elle mène 2-0 à la mi-temps : vous pouvez cash out pour sécuriser un profit." },
-  { name: "Combo", definition: "Synonyme de pari combiné. Plusieurs Prognoses associés dans un seul ticket.", example: "Combo : Allemagne gagne + Espagne gagne + Angleterre gagne." },
-  { name: "Correct Score", definition: "Pari sur le score exact à la fin du match.", example: "Parier France 2-1 Colombie au score exact." },
-  { name: "Cote", definition: "Multiplicateur appliqué à votre mise en cas de pari gagnant. Plus la cote est élevée, plus l'événement est improbable.", example: "Cote 1.55 pour la France contre l'Arabie Saoudite : une mise de 10€ rapporte 15,50€." },
-  { name: "Cote boost", definition: "Promotion d'un bookmaker qui augmente temporairement la cote d'un événement.", example: "PokerStars Sports booste la cote de la France vainqueur de la CDM de 5.50 à 7.00." },
-  { name: "Double chance", definition: "Pari couvrant deux des trois issues possibles (1X, X2, ou 12).", example: "Parier 1X sur le Mexique vs Corée du Sud : vous gagnez si le Mexique gagne ou fait nul." },
-  { name: "Draw No Bet (DNB)", definition: "Pari où la mise est remboursée en cas de match nul. Vous ne pariez que sur une victoire.", example: "DNB Suisse contre Canada : remboursé si nul, sinon vous gagnez ou perdez." },
-  { name: "Each Way", definition: "Pari double : une partie sur la victoire, une partie sur un Rangliste (top 2, top 4...).", example: "Parier each way sur l'Allemagne vainqueur de la CDM : vous gagnez aussi si elle finit en finale." },
-  { name: "European Handicap", definition: "Handicap classique avec trois issues possibles (1, N, 2) après application du handicap.", example: "Espagne (-1) vs Nouvelle-Zélande : l'Espagne part avec un but de retard virtuel." },
-  { name: "First Goalscorer", definition: "Pari sur le Spieler qui marquera le premier but du match.", example: "Parier que Mbappé marque le premier but de France vs Colombie." },
-  { name: "Flat betting", definition: "Stratégie consistant à toujours miser le même montant, quel que soit le pari.", example: "Miser systématiquement 10€ sur chaque match de la CDM 2026." },
-  { name: "Freebet", definition: "Pari gratuit offert par un bookmaker. Seul le gain net est crédité.", example: "PokerStars Sports offre 100€ en freebets à l'inscription : vous pariez sans risquer votre argent." },
-  { name: "Futures", definition: "Pari à long terme sur un Ergebnis futur (vainqueur des Turniers, Torschützenkönig...).", example: "Parier dès maintenant que le Brésil remportera la WM 2026." },
-  { name: "Goal Line", definition: "Marché similaire à l'over/under mais avec des handicaps de buts, incluant des quarts de buts.", example: "Goal line 2.25 sur France-Colombie : mi-remboursé si 2 buts, gagné si 3+." },
-  { name: "Handicap", definition: "Avantage ou désavantage virtuel donné à une Mannschaft pour équilibrer les chances.", example: "Argentine -2 vs Cameroun : l'Argentine doit gagner par 3 buts d'écart." },
-  { name: "Half-Time / Full-Time (MT/FT)", definition: "Pari sur le Ergebnis à la mi-temps ET à la fin du match.", example: "Parier Brésil/Brésil : le Brésil mène à la mi-temps et gagne le match." },
-  { name: "In-Play (Live Betting)", definition: "Paris placés pendant le déroulement du match, avec des cotes qui évoluent en temps réel.", example: "Wetten auf le prochain Torschütze à la 60e minute de Espagne vs Turquie." },
-  { name: "Lay Bet", definition: "Pari contre un Ergebnis : vous jouez le rôle du bookmaker.", example: "Layer la France, c'est parier que la France NE gagnera PAS." },
-  { name: "Live Betting", definition: "Voir In-Play. Paris en direct pendant le match.", example: "Parier en live sur le nombre de corners restants dans un match de phase de Gruppen." },
-  { name: "Longshot", definition: "Pari à cote très élevée sur un événement peu probable.", example: "Wetten auf Haïti vainqueur de la CDM 2026 à une cote de 1000." },
+  { name: "1X2", definition: "Die klassischste Wette: 1 = Heimsieg, X = Unentschieden, 2 = Auswärtssieg.", example: "Frankreich vs Kolumbien: 1 = Sieg Frankreich, X = Unentschieden, 2 = Sieg Kolumbien." },
+  { name: "Accumulator (Acca)", definition: "Kombiwette, die mehrere Auswahlen zusammenfasst. Alle müssen gewinnen, um die Wette zu gewinnen.", example: "Frankreich gewinnt + Brasilien gewinnt + Argentinien gewinnt in einer einzigen Wette kombinieren." },
+  { name: "Ante-post", definition: "Wette, die lange vor einem Ereignis platziert wird, oft vor Turnierbeginn.", example: "Schon jetzt auf den WM-2026-Sieger wetten, vor dem Anpfiff im Juni." },
+  { name: "BZgA", definition: "Bundeszentrale für gesundheitliche Aufklärung, deutsche Behörde für Spielerschutz und verantwortungsvolles Spielen.", example: "Lizenzierte Wettanbieter in Deutschland unterliegen den Auflagen der BZgA." },
+  { name: "Asian Handicap", definition: "Handicap, das das Unentschieden eliminiert, indem ein Vorteil/Nachteil in Halb- oder Vierteltoren vergeben wird.", example: "Brasilien -1.5 vs Haiti: Brasilien muss mit mindestens 2 Toren Unterschied gewinnen." },
+  { name: "Bankroll", definition: "Das Gesamtkapital, das für Sportwetten vorgesehen ist. Mit Disziplin zu verwalten.", example: "Sie widmen 200 € der WM 2026: Das ist Ihre Bankroll. Setzen Sie nie mehr als 5 % pro Wette." },
+  { name: "Bet Builder", definition: "Tool zum Erstellen einer personalisierten Wette durch Kombination mehrerer Märkte auf ein Spiel.", example: "Frankreich gewinnt + Mbappé Torschütze + über 2.5 Tore bei Frankreich-Kolumbien." },
+  { name: "Bookmaker", definition: "Sportwettenanbieter, der Quoten anbietet und Einsätze der Wetter annimmt.", example: "PokerStars Sports, Betsson, Betano sind die wichtigsten Wettanbieter für die WM 2026." },
+  { name: "Both Teams to Score (BTTS)", definition: "Wette darauf, dass beide Mannschaften mindestens ein Tor erzielen.", example: "Italien vs Kroatien: Wetten, dass beide Mannschaften treffen (ja/nein)." },
+  { name: "Cash Out", definition: "Option, eine Wette vor Ende des Ereignisses zu schließen, um einen Gewinn zu sichern oder einen Verlust zu begrenzen.", example: "Sie haben auf Argentinien als Sieger gewettet, sie führen 2:0 zur Halbzeit: Sie können auscashen, um einen Gewinn zu sichern." },
+  { name: "Combo", definition: "Synonym für Kombiwette. Mehrere Tipps auf einem einzigen Wettschein.", example: "Combo: Deutschland gewinnt + Spanien gewinnt + England gewinnt." },
+  { name: "Correct Score", definition: "Wette auf das exakte Endergebnis des Spiels.", example: "Auf Frankreich 2:1 Kolumbien als genaues Ergebnis wetten." },
+  { name: "Quote", definition: "Multiplikator auf Ihren Einsatz bei gewonnener Wette. Je höher die Quote, desto unwahrscheinlicher das Ereignis.", example: "Quote 1,55 für Frankreich gegen Saudi-Arabien: Ein Einsatz von 10 € bringt 15,50 €." },
+  { name: "Quotenboost", definition: "Aktion eines Wettanbieters, der die Quote eines Ereignisses vorübergehend erhöht.", example: "PokerStars Sports boostet die Quote für Frankreich als WM-Sieger von 5,50 auf 7,00." },
+  { name: "Doppelte Chance", definition: "Wette, die zwei von drei möglichen Ausgängen abdeckt (1X, X2 oder 12).", example: "1X auf Mexiko vs Südkorea: Sie gewinnen, wenn Mexiko gewinnt oder unentschieden spielt." },
+  { name: "Draw No Bet (DNB)", definition: "Wette, bei der der Einsatz bei Unentschieden erstattet wird. Sie wetten nur auf einen Sieg.", example: "DNB Schweiz gegen Kanada: Erstattet bei Unentschieden, sonst gewinnen oder verlieren Sie." },
+  { name: "Each Way", definition: "Doppelwette: Ein Teil auf den Sieg, ein Teil auf eine Platzierung (Top 2, Top 4...).", example: "Each Way auf Deutschland als WM-Sieger: Sie gewinnen auch, wenn Deutschland das Finale erreicht." },
+  { name: "European Handicap", definition: "Klassisches Handicap mit drei möglichen Ausgängen (1, X, 2) nach Anwendung des Handicaps.", example: "Spanien (-1) vs Neuseeland: Spanien startet mit einem virtuellen Tor Rückstand." },
+  { name: "First Goalscorer", definition: "Wette auf den Spieler, der das erste Tor des Spiels erzielt.", example: "Wetten, dass Mbappé das erste Tor bei Frankreich vs Kolumbien erzielt." },
+  { name: "Flat Betting", definition: "Strategie, bei der immer derselbe Betrag gesetzt wird, unabhängig von der Wette.", example: "Systematisch 10 € auf jedes Spiel der WM 2026 setzen." },
+  { name: "Freebet", definition: "Gratiswette eines Wettanbieters. Nur der Nettogewinn wird gutgeschrieben.", example: "PokerStars Sports bietet 100 € in Freebets bei der Registrierung: Sie wetten ohne Ihr Geld zu riskieren." },
+  { name: "Futures", definition: "Langzeitwette auf ein zukünftiges Ergebnis (Turniersieger, Torschützenkönig...).", example: "Schon jetzt wetten, dass Brasilien die WM 2026 gewinnt." },
+  { name: "Goal Line", definition: "Markt ähnlich dem Over/Under, aber mit Tor-Handicaps, einschließlich Vierteltoren.", example: "Goal Line 2.25 bei Frankreich-Kolumbien: Halbe Erstattung bei 2 Toren, gewonnen bei 3+." },
+  { name: "Handicap", definition: "Virtueller Vorteil oder Nachteil für eine Mannschaft, um die Chancen auszugleichen.", example: "Argentinien -2 vs Kamerun: Argentinien muss mit 3 Toren Unterschied gewinnen." },
+  { name: "Halbzeit / Endstand (HT/FT)", definition: "Wette auf das Ergebnis zur Halbzeit UND am Spielende.", example: "Brasilien/Brasilien: Brasilien führt zur Halbzeit und gewinnt das Spiel." },
+  { name: "In-Play (Live Betting)", definition: "Wetten während des laufenden Spiels, mit Quoten, die sich in Echtzeit ändern.", example: "Wette auf den nächsten Torschützen in der 60. Minute von Spanien vs Türkei." },
+  { name: "Lay Bet", definition: "Wette gegen ein Ergebnis: Sie übernehmen die Rolle des Wettanbieters.", example: "Frankreich layen bedeutet wetten, dass Frankreich NICHT gewinnt." },
+  { name: "Live Betting", definition: "Siehe In-Play. Wetten in Echtzeit während des Spiels.", example: "Live auf die verbleibende Anzahl Ecken in einem Gruppenspiel wetten." },
+  { name: "Longshot", definition: "Wette mit sehr hoher Quote auf ein unwahrscheinliches Ereignis.", example: "Wette auf Haiti als WM-2026-Sieger mit einer Quote von 1000." },
   { name: "Marge", definition: "Commission intégrée par le bookmaker dans les cotes. Plus la marge est basse, meilleures sont les cotes.", example: "Marge de 5% sur un match : les cotes sont légèrement inférieures à la probabilité réelle." },
   { name: "Mise", definition: "Le montant d'argent que vous pariez sur un événement.", example: "Mise de 20€ sur la victoire de l'Argentine à 1.25 = gain potentiel de 25€." },
   { name: "Moneyline", definition: "Terme anglo-saxon pour un pari simple sur le vainqueur (sans handicap).", example: "Moneyline Argentine contre Cameroun : pariez simplement sur le vainqueur." },
@@ -149,11 +149,11 @@ export default function GlossairePage() {
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <h1 className="text-3xl font-extrabold text-gray-900 md:text-4xl mb-2">
-          Glossaire des Paris Sportifs
+          Sportwetten-Glossar
         </h1>
         <p className="text-gray-600 mb-6 max-w-3xl">
-          Plus de {glossary.length} termes de paris sportifs expliqués simplement, avec des exemples concrets
-          liés à la WM 2026. De A à Z, tout le vocabulaire du parieur.
+          Über {glossary.length} Sportwetten-Begriffe einfach erklärt, mit konkreten Beispielen
+          zur WM 2026. Von A bis Z, das gesamte Vokabular des Wetters.
         </p>
 
         {/* Alphabetical navigation */}
@@ -207,13 +207,13 @@ export default function GlossairePage() {
 
         {/* CTA */}
         <div className="mt-12 p-6 bg-primary/5 rounded-xl text-center">
-          <p className="text-lg font-semibold text-gray-900 mb-2">Prêt à parier sur la CDM 2026 ?</p>
-          <p className="text-gray-600 mb-4">Comparez les cotes des meilleurs bookmakers français.</p>
+          <p className="text-lg font-semibold text-gray-900 mb-2">Bereit auf die WM 2026 zu wetten?</p>
+          <p className="text-gray-600 mb-4">Vergleichen Sie die Quoten der besten Wettanbieter.</p>
           <Link
             href="/comparateur-cotes"
             className="inline-block bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"
           >
-            Zeige comparateur de cotes →
+            Quotenvergleich anzeigen →
           </Link>
         </div>
       </main>

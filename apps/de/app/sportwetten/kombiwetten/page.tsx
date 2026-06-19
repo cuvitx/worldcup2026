@@ -151,7 +151,7 @@ return (
         {/* Types */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-            <Layers className="h-7 w-7 text-accent" /> Types de paris combinés
+            <Layers className="h-7 w-7 text-accent" /> Arten von Kombiwetten
           </h2>
           <div className="space-y-4">
             {types.map((t) => (
@@ -169,7 +169,7 @@ return (
         {/* Exemples */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-            <Calculator className="h-7 w-7 text-accent" /> 5 exemples de combinés CDM 2026
+            <Calculator className="h-7 w-7 text-accent" /> 5 Kombiwetten-Beispiele WM 2026
           </h2>
           <div className="space-y-4">
             {exemples.map((e) => (
@@ -183,9 +183,9 @@ return (
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-4 mt-3 text-sm">
-                  <span className="text-accent font-semibold">Cote : {e.cote}</span>
-                  <span>Mise : {e.mise}</span>
-                  <span className="font-bold text-green-600">Gain : {e.gain}</span>
+                  <span className="text-accent font-semibold">Quote: {e.cote}</span>
+                  <span>Einsatz: {e.mise}</span>
+                  <span className="font-bold text-green-600">Gewinn: {e.gain}</span>
                 </div>
                 <p className="text-xs text-gray-500 mt-2 italic">{e.analyse}</p>
               </div>
@@ -197,7 +197,7 @@ return (
         <div className="grid gap-6 sm:grid-cols-2">
           <section>
             <h2 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
-              <CheckCircle className="h-6 w-6 text-green-500" /> Avantages
+              <CheckCircle className="h-6 w-6 text-green-500" /> Vorteile
             </h2>
             <div className="rounded-xl border border-green-200 bg-green-50 p-5">
               <ul className="space-y-2">
@@ -211,7 +211,7 @@ return (
           </section>
           <section>
             <h2 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
-              <XCircle className="h-6 w-6 text-red-500" /> Risques
+              <XCircle className="h-6 w-6 text-red-500" /> Risiken
             </h2>
             <div className="rounded-xl border border-red-200 bg-red-50 p-5">
               <ul className="space-y-2">
@@ -228,7 +228,7 @@ return (
         {/* Bookmakers */}
         <section>
           <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
-            <Layers className="h-7 w-7 text-accent" /> Meilleurs bookmakers pour les combinés
+            <Layers className="h-7 w-7 text-accent" /> Beste Wettanbieter für Kombiwetten
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {bookmakers.map((b) => (
@@ -251,27 +251,27 @@ return (
         {/* CTA */}
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href="/comparateur-cotes"
+            href="/quotenvergleich"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-accent/90 transition-colors"
           >
-            Comparateur de cotes <ArrowRight className="h-4 w-4" />
+            Quotenvergleich <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/sportwetten/wetter"
             className="inline-flex items-center gap-2 bg-primary text-white rounded-xl py-3.5 px-6 font-semibold hover:bg-primary/90 transition-colors"
           >
-            Impact météo sur les paris
+            Wettereinfluss auf Wetten
           </Link>
         </div>
 
         {/* ANJ */}
         <p className="text-xs text-gray-400 text-center">
           <AlertTriangle className="inline h-3 w-3 mr-1" />
-          Les paris sportifs comportent des risques. Jouez responsablement. 18+ | Informations et aide sur{" "}
+          Sportwetten bergen Risiken. Spielen Sie verantwortungsvoll. 18+ | Informationen und Hilfe auf{" "}
           <a href="https://www.bzga.de" target="_blank" rel="noopener noreferrer" className="underline">
             bzga.de
           </a>{" "}
-          (ANJ).
+          (BZgA).
         </p>
 
         <FAQSection items={faqItems} />

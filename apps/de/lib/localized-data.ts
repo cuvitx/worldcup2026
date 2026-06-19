@@ -1,12 +1,9 @@
 /**
  * Localized data re-exports for the DE app.
  *
- * Every page that displays team / stadium / city / player data should import
- * from this module instead of directly from @repo/data/*. This ensures the
- * translation overlay is applied automatically.
+ * Directly merges German translations onto the raw FR data objects.
+ * This avoids any module-evaluation-order issues with the global registry.
  */
-
-import "@repo/data/translations/register-de";
 
 import {
   teams as _teams,
@@ -30,65 +27,66 @@ import {
   playersByTeamId as _playersByTeamId,
   LAST_UPDATED,
 } from "@repo/data/players";
-import {
-  localizeTeam,
-  localizeStadium,
-  localizeCity,
-  localizePlayer,
-} from "@repo/data/i18n";
 import type { Team, Stadium, City, Player } from "@repo/data/types";
 
-const LANG = "de" as const;
+// Import translation data directly (no registry dependency)
+import { teamsDE } from "@repo/data/translations/teams.de";
+import { stadiumsDE } from "@repo/data/translations/stadiums.de";
+import { citiesDE } from "@repo/data/translations/cities.de";
+
+// ── Helpers ────────────────────────────────────────────────────────────
+function applyTeam(team: Team): Team {
+  const overlay = teamsDE[team.id];
+  return overlay ? { ...team, ...overlay } : team;
+}
+
+function applyStadium(stadium: Stadium): Stadium {
+  const overlay = stadiumsDE[stadium.id];
+  return overlay ? { ...stadium, ...overlay } : stadium;
+}
+
+function applyCity(city: City): City {
+  const overlay = citiesDE[city.id];
+  return overlay ? { ...city, ...overlay } : city;
+}
 
 // ── Teams ──────────────────────────────────────────────────────────────
-export const teams: Team[] = _teams.map((t) => localizeTeam(t, LANG));
+export const teams: Team[] = _teams.map(applyTeam);
 
 export const teamsById: Record<string, Team> = Object.fromEntries(
-  Object.entries(_teamsById).map(([k, v]) => [k, localizeTeam(v, LANG)])
+  Object.entries(_teamsById).map(([k, v]) => [k, applyTeam(v)])
 );
 
 export const teamsBySlug: Record<string, Team> = Object.fromEntries(
-  Object.entries(_teamsBySlug).map(([k, v]) => [k, localizeTeam(v, LANG)])
+  Object.entries(_teamsBySlug).map(([k, v]) => [k, applyTeam(v)])
 );
 
 // ── Stadiums ───────────────────────────────────────────────────────────
-export const stadiums: Stadium[] = _stadiums.map((s) => localizeStadium(s, LANG));
+export const stadiums: Stadium[] = _stadiums.map(applyStadium);
 
 export const stadiumsById: Record<string, Stadium> = Object.fromEntries(
-  Object.entries(_stadiumsById).map(([k, v]) => [k, localizeStadium(v, LANG)])
+  Object.entries(_stadiumsById).map(([k, v]) => [k, applyStadium(v)])
 );
 
 export const stadiumsBySlug: Record<string, Stadium> = Object.fromEntries(
-  Object.entries(_stadiumsBySlug).map(([k, v]) => [k, localizeStadium(v, LANG)])
+  Object.entries(_stadiumsBySlug).map(([k, v]) => [k, applyStadium(v)])
 );
 
 // ── Cities ─────────────────────────────────────────────────────────────
-export const cities: City[] = _cities.map((c) => localizeCity(c, LANG));
+export const cities: City[] = _cities.map(applyCity);
 
 export const citiesById: Record<string, City> = Object.fromEntries(
-  Object.entries(_citiesById).map(([k, v]) => [k, localizeCity(v, LANG)])
+  Object.entries(_citiesById).map(([k, v]) => [k, applyCity(v)])
 );
 
 export const citiesBySlug: Record<string, City> = Object.fromEntries(
-  Object.entries(_citiesBySlug).map(([k, v]) => [k, localizeCity(v, LANG)])
+  Object.entries(_citiesBySlug).map(([k, v]) => [k, applyCity(v)])
 );
 
-// ── Players ────────────────────────────────────────────────────────────
-export const players: Player[] = _players.map((p) => localizePlayer(p, LANG));
-
-export const playersById: Record<string, Player> = Object.fromEntries(
-  Object.entries(_playersById).map(([k, v]) => [k, localizePlayer(v, LANG)])
-);
-
-export const playersBySlug: Record<string, Player> = Object.fromEntries(
-  Object.entries(_playersBySlug).map(([k, v]) => [k, localizePlayer(v, LANG)])
-);
-
-export const playersByTeamId: Record<string, Player[]> = Object.fromEntries(
-  Object.entries(_playersByTeamId).map(([k, v]) => [
-    k,
-    v.map((p) => localizePlayer(p, LANG)),
-  ])
-);
+// ── Players (no DE translations yet — pass through) ────────────────────
+export const players: Player[] = _players;
+export const playersById = _playersById;
+export const playersBySlug = _playersBySlug;
+export const playersByTeamId = _playersByTeamId;
 
 export { LAST_UPDATED };
