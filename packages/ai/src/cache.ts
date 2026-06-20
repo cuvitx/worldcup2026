@@ -51,16 +51,10 @@ function evictIfNeeded(cache: Map<string, { data: string; expiresAt: number }>) 
   }
 }
 
-// Lazy-init Redis client
-let redis: Redis | null = null;
+// Redis disabled — Upstash HTTP fetches break Next.js ISR.
+// In-memory cache is sufficient on a single VPS.
 function getRedis(): Redis | null {
-  if (redis) return redis;
-  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
-  if (url && token) {
-    redis = new Redis({ url, token });
-  }
-  return redis;
+  return null;
 }
 
 /**

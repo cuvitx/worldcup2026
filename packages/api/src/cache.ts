@@ -46,18 +46,11 @@ function evictIfNeeded(cache: Map<string, CacheEntry<unknown>>) {
   }
 }
 
-// Lazy-init Redis client (only when env vars are set)
-let redis: Redis | null = null;
+// Redis disabled — Upstash HTTP fetches (no-store / revalidate:0) break
+// Next.js ISR with "Page changed from static to dynamic" errors.
+// In-memory cache is sufficient on a single VPS.
 function getRedis(): Redis | null {
-  if (redis) return redis;
-  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
-  if (url && token) {
-    // cache: "no-cache" instead of default "no-store" — prevents Next.js
-    // "static to dynamic" error that breaks ALL ISR re-renders
-    redis = new Redis({ url, token, cache: "no-cache" });
-  }
-  return redis;
+  return null;
 }
 
 export async function cacheGet<T>(key: string): Promise<T | null> {

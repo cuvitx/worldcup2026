@@ -1,21 +1,31 @@
 // ============================================================================
-// Gemini 3 Flash — Tier "Journaliste Factuel"
+// Gemini 2.5 Flash via OpenRouter — Tier "Journaliste Factuel"
 // Génération du contenu SEO initial + previews de matchs.
-// Search Grounding pour fact-checker blessures et news en temps réel.
-// Coût : ~$0.50/$3.00 par million tokens — meilleur ratio qualité/prix.
+// Coût : ~$0.15/$0.60 par million tokens via OpenRouter.
 // ============================================================================
 
-import { GoogleGenAI } from "@google/genai";
+import OpenAI from "openai";
 
-let client: GoogleGenAI | null = null;
+const MODEL = "google/gemini-2.5-flash";
 
-function getClient(): GoogleGenAI | null {
-  if (!process.env.GEMINI_API_KEY) {
-    console.warn("[gemini] No GEMINI_API_KEY configured");
+let client: OpenAI | null = null;
+
+function getClient(): OpenAI | null {
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  if (!apiKey) {
+    // Fallback to direct Gemini key (not used currently)
+    if (!process.env.GEMINI_API_KEY) {
+      console.warn("[gemini] No OPENROUTER_API_KEY or GEMINI_API_KEY configured");
+      return null;
+    }
+    console.warn("[gemini] GEMINI_API_KEY found but OpenRouter preferred — set OPENROUTER_API_KEY");
     return null;
   }
   if (!client) {
-    client = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    client = new OpenAI({
+      apiKey,
+      baseURL: "https://openrouter.ai/api/v1",
+    });
   }
   return client;
 }
@@ -27,8 +37,7 @@ export interface GeminiResponse {
 }
 
 /**
- * Generate factual content with Gemini 3 Flash.
- * Uses Google Search grounding for real-time fact-checking.
+ * Generate factual content with Gemini 2.5 Flash via OpenRouter.
  */
 export async function generateFactual(
   prompt: string,
@@ -38,31 +47,25 @@ export async function generateFactual(
     maxTokens?: number;
   }
 ): Promise<GeminiResponse | null> {
-  const genai = getClient();
-  if (!genai) return null;
-
-  const tools = options?.useSearchGrounding !== false
-    ? [{ googleSearch: {} }]
-    : undefined;
+  const openai = getClient();
+  if (!openai) return null;
 
   try {
-    const response = await genai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-      config: {
-        temperature: options?.temperature ?? 0.7,
-        maxOutputTokens: options?.maxTokens ?? 4000,
-        tools,
-      },
+    const response = await openai.chat.completions.create({
+      model: MODEL,
+      temperature: options?.temperature ?? 0.7,
+      max_tokens: options?.maxTokens ?? 4000,
+      messages: [
+        { role: "user", content: prompt },
+      ],
     });
 
-    const text = response.text ?? "";
-    const groundingMetadata = response.candidates?.[0]?.groundingMetadata ?? null;
+    const text = response.choices[0]?.message?.content ?? "";
 
     return {
       content: text,
-      groundingMetadata,
-      model: "gemini-2.5-flash",
+      groundingMetadata: null,
+      model: MODEL,
     };
   } catch (error) {
     console.error("[gemini] Generation failed:", error instanceof Error ? error.message : error);
@@ -71,8 +74,7 @@ export async function generateFactual(
 }
 
 /**
- * Generate standard SEO page content with search grounding.
- * Verifies injuries, news, and conditions before writing.
+ * Generate standard SEO page content.
  */
 export async function generateStandardPage(
   matchContext: string,
@@ -87,7 +89,6 @@ export async function generateStandardPage(
   const prompt = `${langInstructions[language]}
 
 Utilise les informations suivantes pour rediger une analyse de match complete.
-Verifie les dernieres blessures et nouvelles via la recherche.
 
 ${matchContext}
 
@@ -99,5 +100,5 @@ Structure de la reponse (JSON):
   "bettingAngle": "Angle de pari interessant"
 }`;
 
-  return generateFactual(prompt, { useSearchGrounding: true });
+  return generateFactual(prompt);
 }
