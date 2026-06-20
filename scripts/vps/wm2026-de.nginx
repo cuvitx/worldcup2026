@@ -56,19 +56,19 @@ server {
         proxy_no_cache $http_authorization;
     }
 
-    # Static assets — long cache (no proxy_cache needed, browser caches these)
+    # Static assets — served directly from disk (survives Node.js restarts)
     location /_next/static/ {
-        proxy_pass http://127.0.0.1:3002;
-        proxy_set_header Host $host;
+        alias /srv/cdm2026/current/apps/de/.next/static/;
         expires 365d;
-        add_header Cache-Control "public, immutable";
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
     }
 
-    # Images — long cache
+    # Images — served directly from disk
     location /images/ {
-        proxy_pass http://127.0.0.1:3002;
-        proxy_set_header Host $host;
+        alias /srv/cdm2026/current/apps/de/public/images/;
         expires 30d;
+        access_log off;
         add_header Cache-Control "public";
     }
 

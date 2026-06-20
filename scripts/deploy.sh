@@ -85,13 +85,30 @@ mkdir -p "$RELEASE_DIR"
 RSYNC_EXCLUDES="--exclude=.git --exclude=.turbo --exclude=apps/en --exclude=apps/es"
 rsync -a $RSYNC_EXCLUDES "$REPO_DIR/" "$RELEASE_DIR/"
 
-# Preserve ISR cache from previous release for each app
+# Preserve ISR cache AND old static files from previous release
 for APP in $APPS; do
   PREV_CACHE="${CURRENT_LINK}/apps/${APP}/.next/cache"
   NEW_CACHE="${RELEASE_DIR}/apps/${APP}/.next/cache"
   if [ -d "$PREV_CACHE" ]; then
     echo "  Copying ISR cache for ${APP}..."
     cp -a "$PREV_CACHE" "$NEW_CACHE" 2>/dev/null || true
+  fi
+
+  # Copy old build's static files into new release (zero-downtime critical!)
+  # This ensures cached HTML referencing old build hashes can still load CSS/JS
+  PREV_STATIC="${CURRENT_LINK}/apps/${APP}/.next/static"
+  NEW_STATIC="${RELEASE_DIR}/apps/${APP}/.next/static"
+  if [ -d "$PREV_STATIC" ] && [ -d "$NEW_STATIC" ]; then
+    echo "  Preserving old static files for ${APP} (zero-downtime)..."
+    # Copy only directories that don't exist in new build (old build hashes)
+    for dir in "$PREV_STATIC"/*/; do
+      dirname=$(basename "$dir")
+      if [ ! -d "${NEW_STATIC}/${dirname}" ]; then
+        cp -a "$dir" "${NEW_STATIC}/${dirname}" 2>/dev/null || true
+      fi
+    done
+    # Also copy top-level files (chunks, css, media) that might differ
+    cp -rn "$PREV_STATIC"/* "$NEW_STATIC"/ 2>/dev/null || true
   fi
 done
 
@@ -120,8 +137,7 @@ if [ -f "$CACHE_CONF" ] && [ ! -f /etc/nginx/conf.d/nginx-cache.conf ]; then
   sudo chown www-data:www-data /var/cache/nginx/cdm2026-fr /var/cache/nginx/wm2026-de
 fi
 
-# Patch FR nginx config with proxy_cache (if not already present)
-# Find the FR nginx config dynamically (could be named cdm2026, cdm2026.fr, cdm2026-fr, default, etc.)
+# --- FR nginx: ensure static files served from disk + proxy_cache ---
 FR_NGINX=""
 for candidate in /etc/nginx/sites-available/cdm2026 /etc/nginx/sites-available/cdm2026.fr /etc/nginx/sites-available/cdm2026-fr /etc/nginx/sites-available/www.cdm2026.fr; do
   if [ -f "$candidate" ]; then
@@ -129,21 +145,41 @@ for candidate in /etc/nginx/sites-available/cdm2026 /etc/nginx/sites-available/c
     break
   fi
 done
-# Fallback: find the config that proxies to port 3000
 if [ -z "$FR_NGINX" ]; then
-  FR_NGINX=$(grep -rl "proxy_pass.*127.0.0.1:3000" /etc/nginx/sites-available/ 2>/dev/null | head -1)
+  FR_NGINX=$(sudo grep -rl "proxy_pass.*127.0.0.1:3000" /etc/nginx/sites-available/ 2>/dev/null | head -1)
 fi
-if [ -n "$FR_NGINX" ] && [ -f "$FR_NGINX" ] && ! grep -q "proxy_cache" "$FR_NGINX" 2>/dev/null; then
-  echo "  Found FR nginx config at: $FR_NGINX"
-  echo "  Patching FR nginx config with proxy_cache..."
-  sudo cp "$FR_NGINX" "${FR_NGINX}.bak"
-  # Use python3 for reliable multi-line insertion (sed multi-line is fragile)
-  sudo python3 -c "
-import sys
+
+if [ -n "$FR_NGINX" ] && [ -f "$FR_NGINX" ]; then
+  echo "  [FR] nginx config: $FR_NGINX"
+  NEEDS_PATCH=false
+
+  # Check if static files are served from disk (key for zero-downtime)
+  if ! sudo grep -q "alias.*/\.next/static" "$FR_NGINX" 2>/dev/null; then
+    echo "  [FR] Static files NOT served from disk — patching..."
+    NEEDS_PATCH=true
+  fi
+
+  # Check if proxy_cache is configured
+  if ! sudo grep -q "proxy_cache" "$FR_NGINX" 2>/dev/null; then
+    echo "  [FR] proxy_cache NOT configured — patching..."
+    NEEDS_PATCH=true
+  fi
+
+  if [ "$NEEDS_PATCH" = true ]; then
+    sudo cp "$FR_NGINX" "${FR_NGINX}.bak"
+    sudo python3 -c "
+import sys, re
+
 with open('$FR_NGINX') as f:
     content = f.read()
-cache = '''
-        # Zero-downtime cache: serve stale pages while Next.js restarts
+
+changed = False
+
+# 1. Add proxy_cache after proxy_pass :3000 (if not present)
+if 'proxy_cache' not in content:
+    marker = 'proxy_pass http://127.0.0.1:3000;'
+    cache_block = '''
+        # Zero-downtime: serve stale pages while Next.js restarts
         proxy_cache cdm2026fr;
         proxy_cache_valid 200 10m;
         proxy_cache_valid 404 1m;
@@ -155,51 +191,89 @@ cache = '''
         proxy_cache_bypass \\\$http_authorization;
         proxy_no_cache \\\$http_authorization;
 '''
-# Insert after the first 'proxy_pass http://127.0.0.1:3000;' line
-marker = 'proxy_pass http://127.0.0.1:3000;'
-if marker in content:
-    content = content.replace(marker, marker + cache, 1)
+    if marker in content:
+        content = content.replace(marker, marker + cache_block, 1)
+        print('  [FR] Inserted proxy_cache directives')
+        changed = True
+    else:
+        print('  [FR] WARNING: proxy_pass :3000 marker not found')
+
+# 2. Replace proxy-based /_next/static/ with disk alias (if present)
+if 'alias' not in content or '.next/static' not in content:
+    static_block = '''
+    # Static assets — served directly from disk (survives Node.js restarts)
+    location /_next/static/ {
+        alias /srv/cdm2026/current/apps/fr/.next/static/;
+        expires 365d;
+        access_log off;
+        add_header Cache-Control \"public, max-age=31536000, immutable\";
+    }
+'''
+    # Remove existing /_next/static/ proxy block if present
+    content = re.sub(
+        r'\\n\\s*location /_next/static/\\s*\\{[^}]*proxy_pass[^}]*\\}',
+        '',
+        content
+    )
+
+    # Insert static block before the last closing brace of the main server block
+    # Find the last server block's closing brace
+    last_brace = content.rfind('}')
+    if last_brace > 0:
+        # Find second-to-last closing brace (end of location blocks, before server close)
+        second_last = content.rfind('}', 0, last_brace)
+        if second_last > 0:
+            insert_pos = second_last + 1
+            content = content[:insert_pos] + static_block + content[insert_pos:]
+            print('  [FR] Added /_next/static/ alias block')
+            changed = True
+
+if changed:
     with open('$FR_NGINX', 'w') as f:
         f.write(content)
-    print('  Inserted proxy_cache after proxy_pass :3000')
+    print('  [FR] Config updated successfully')
 else:
-    print('  WARNING: proxy_pass :3000 not found in FR config')
-    sys.exit(1)
+    print('  [FR] No changes needed')
 "
-  # Verify config is valid, rollback if not
-  if ! sudo nginx -t 2>/dev/null; then
-    echo "  WARNING: nginx config test failed after FR patch, rolling back..."
-    sudo cp "${FR_NGINX}.bak" "$FR_NGINX"
+    if ! sudo nginx -t 2>/dev/null; then
+      echo "  [FR] WARNING: nginx test failed after patch — rolling back"
+      sudo cp "${FR_NGINX}.bak" "$FR_NGINX"
+    else
+      echo "  [FR] nginx config patched successfully"
+    fi
   else
-    echo "  FR nginx config patched successfully."
+    echo "  [FR] nginx already configured for zero-downtime"
   fi
+else
+  echo "  [FR] WARNING: could not find FR nginx config!"
 fi
 
-# Update nginx site configs (always sync latest)
+# --- DE nginx: always sync latest config (includes disk-served static files) ---
 NGINX_DE="${REPO_DIR}/scripts/vps/wm2026-de.nginx"
 if [ -f "$NGINX_DE" ] && [ -f /etc/nginx/sites-available/wm2026-de ]; then
-  if grep -q "proxy_cache" /etc/nginx/sites-available/wm2026-de 2>/dev/null; then
-    echo "  nginx DE config already has proxy_cache."
+  # Check if DE config serves static from disk (the key zero-downtime feature)
+  if sudo grep -q "alias.*/\.next/static" /etc/nginx/sites-available/wm2026-de 2>/dev/null; then
+    echo "  [DE] nginx already serves static from disk"
   else
-    echo "  Updating nginx DE config with proxy_cache..."
+    echo "  [DE] Updating nginx config (static files from disk)..."
     sudo cp /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-available/wm2026-de.bak
     sudo cp "$NGINX_DE" /etc/nginx/sites-available/wm2026-de
-    # Re-run certbot to apply SSL to new config
     if command -v certbot &>/dev/null; then
       sudo certbot --nginx -d wm2026guide.de -d www.wm2026guide.de --non-interactive --agree-tos --redirect 2>/dev/null || true
     fi
-    # Verify config is valid, rollback if not
     if ! sudo nginx -t 2>/dev/null; then
-      echo "  WARNING: nginx config test failed after DE update, rolling back..."
+      echo "  [DE] WARNING: nginx test failed — rolling back"
       sudo cp /etc/nginx/sites-available/wm2026-de.bak /etc/nginx/sites-available/wm2026-de
+    else
+      echo "  [DE] nginx config updated"
     fi
   fi
 fi
 
-# Reload nginx to pick up cache config (graceful — no downtime)
+# Reload nginx (graceful — zero downtime)
 if sudo nginx -t 2>/dev/null; then
   sudo systemctl reload nginx
-  echo "  nginx reloaded (proxy_cache active)."
+  echo "  nginx reloaded."
 fi
 
 # Restart each service one at a time with health check
