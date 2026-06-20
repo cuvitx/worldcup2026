@@ -59,6 +59,44 @@ jobs:
               fi
             fi
 
+            # Patch FR nginx with proxy_cache for zero-downtime (if not already done)
+            FR_NGINX=$(sudo grep -rl "proxy_pass.*127.0.0.1:3000" /etc/nginx/sites-available/ 2>/dev/null | head -1)
+            if [ -n "$FR_NGINX" ] && ! sudo grep -q "proxy_cache" "$FR_NGINX" 2>/dev/null; then
+              echo "[PROVISION] Patching FR nginx ($FR_NGINX) with proxy_cache..."
+              sudo cp "$FR_NGINX" "${FR_NGINX}.bak"
+              sudo python3 -c "
+            with open('$FR_NGINX') as f:
+                content = f.read()
+            cache = '''
+                    # Zero-downtime: serve cached pages during Next.js restart
+                    proxy_cache cdm2026fr;
+                    proxy_cache_valid 200 10m;
+                    proxy_cache_valid 404 1m;
+                    proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                    proxy_cache_background_update on;
+                    proxy_cache_lock on;
+            '''
+            marker = 'proxy_pass http://127.0.0.1:3000;'
+            if marker in content:
+                content = content.replace(marker, marker + cache, 1)
+                with open('$FR_NGINX', 'w') as f:
+                    f.write(content)
+                print('  proxy_cache inserted after', marker)
+            else:
+                print('  WARNING: marker not found')
+            "
+              if sudo nginx -t 2>/dev/null; then
+                sudo systemctl reload nginx
+                echo "[PROVISION] FR nginx patched successfully."
+              else
+                echo "[PROVISION] nginx test failed, rolling back..."
+                sudo cp "${FR_NGINX}.bak" "$FR_NGINX"
+                sudo systemctl reload nginx
+              fi
+            elif [ -n "$FR_NGINX" ]; then
+              echo "[PROVISION] FR nginx already has proxy_cache."
+            fi
+
             # Sync deploy.sh from repo to VPS (ensures latest version with DE support)
             sudo cp "${REPO_DIR}/scripts/deploy.sh" /srv/cdm2026/deploy.sh
             sudo chmod +x /srv/cdm2026/deploy.sh
