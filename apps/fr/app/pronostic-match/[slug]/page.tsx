@@ -84,7 +84,10 @@ export default async function PronosticMatchPage({ params }: PageProps) {
 
   let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
   try {
-    enriched = await generateFullMatchPreview(slug, "fr", { includeExpert: true });
+    enriched = await Promise.race([
+      generateFullMatchPreview(slug, "fr", { includeExpert: true }),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 15_000)),
+    ]);
   } catch {
     // AI generation failed — renders with static data only
   }

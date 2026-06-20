@@ -250,15 +250,26 @@ export default async function MatchPage({ params }: PageProps) {
   // During runtime (ISR): fetch for both live and completed matches.
   const isBuild = process.env.NEXT_PHASE === "phase-production-build";
 
-  // AI-enriched data: needs Gemini key
+  // AI-enriched data: needs Gemini key (15s timeout to prevent ISR re-render hanging)
   let enriched: Awaited<ReturnType<typeof generateFullMatchPreview>> | null = null;
   if (!isBuild && process.env.GEMINI_API_KEY) {
+    const AI_TIMEOUT = 15_000;
     try {
-      enriched = await generateFullMatchPreview(slug, "en", {
-        includeExpert: matchPhase === "upcoming",
-      });
-    } catch {
-      // AI generation failed — page renders with static data only
+      const start = Date.now();
+      enriched = await Promise.race([
+        generateFullMatchPreview(slug, "en", {
+          includeExpert: matchPhase === "upcoming",
+        }),
+        new Promise<null>((resolve) =>
+          setTimeout(() => {
+            console.warn(`[spiel/${slug}] AI generation timed out after ${AI_TIMEOUT}ms`);
+            resolve(null);
+          }, AI_TIMEOUT)
+        ),
+      ]);
+      if (enriched) console.log(`[spiel/${slug}] AI generated in ${Date.now() - start}ms`);
+    } catch (err) {
+      console.error(`[spiel/${slug}] AI generation failed:`, err instanceof Error ? err.message : err);
     }
   }
 
