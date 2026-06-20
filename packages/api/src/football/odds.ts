@@ -61,7 +61,8 @@ async function fetchAllOdds(): Promise<OddsFixture[]> {
 
       const res = await fetch(url.toString(), {
         headers: { "x-apisports-key": API_FOOTBALL.key },
-      });
+        next: { revalidate: 300 },
+      } as RequestInit);
 
       if (!res.ok) {
         console.error(`[api-football] Odds fetch failed: ${res.status}`);

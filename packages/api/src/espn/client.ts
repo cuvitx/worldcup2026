@@ -21,6 +21,7 @@ export async function getEspnScoreboard(date: string): Promise<EspnEvent[]> {
     async () => {
       const res = await fetch(`${ESPN_BASE}/scoreboard?dates=${dateCompact}`, {
         headers: { "User-Agent": "CDM2026/1.0" },
+        next: { revalidate: 300 },
       } as RequestInit);
       if (!res.ok) return [];
       const data = (await res.json()) as EspnScoreboardResponse;
@@ -99,7 +100,8 @@ export async function getEspnPlayByPlay(eventId: string, live = false): Promise<
         const url = `${ESPN_CORE}/events/${eventId}/competitions/${eventId}/plays?limit=300&page=${page}`;
         const res = await fetch(url, {
           headers: { "User-Agent": "CDM2026/1.0" },
-        });
+          next: { revalidate: 300 },
+        } as RequestInit);
         if (!res.ok) break;
 
         const data = (await res.json()) as EspnPlaysResponse;

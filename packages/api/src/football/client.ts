@@ -25,6 +25,8 @@ const RATE_LIMIT_CONFIG = {
   windowMs: 24 * 60 * 60 * 1000,
 };
 
+let lastRateLimitWarning = 0;
+
 /**
  * Wrapper around cachedFetch that respects rate limits.
  * If rate limited, returns cached data if available, otherwise returns fallback.
@@ -40,8 +42,12 @@ async function rateLimitedCachedFetch<T>(
   const cached = await cacheGet<T>(cacheKey);
 
   if (!checkRateLimit(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG)) {
-    const remaining = getRemainingRequests(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
-    console.warn(`[api-football] Daily rate limit reached (${API_FOOTBALL.rateLimitPerDay}/day), ${remaining} remaining`);
+    const now = Date.now();
+    if (now - lastRateLimitWarning > 600_000) {
+      const remaining = getRemainingRequests(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
+      console.warn(`[api-football] Daily rate limit reached (${API_FOOTBALL.rateLimitPerDay}/day), ${remaining} remaining`);
+      lastRateLimitWarning = now;
+    }
     return cached ?? fallback;
   }
 
@@ -78,7 +84,8 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string>): Pr
     headers: {
       "x-apisports-key": API_FOOTBALL.key,
     },
-  });
+    next: { revalidate: 300 },
+  } as RequestInit);
 
   if (!res.ok) {
     console.error(`[api-football] ${res.status} ${res.statusText} for ${endpoint}`);

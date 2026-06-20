@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <meta name="ga-site-verification" content="TfTGSZpdKEk9FazCuN1l3qSr" />
+        <meta name="google-site-verification" content="PMdxEkvW0dGHMkw91WTfgo9iIviD9gljPO6lI6lr8SM" />
         <link rel="preconnect" href="https://flagcdn.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://flagcdn.com" />
         {process.env.NEXT_PUBLIC_GA_ID_DE && (

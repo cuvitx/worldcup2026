@@ -14,6 +14,8 @@ const RATE_LIMIT_CONFIG = {
   windowMs: 30 * 24 * 60 * 60 * 1000, // 30 days
 };
 
+let lastRateLimitWarning = 0;
+
 /**
  * Wrapper around cachedFetch that respects rate limits.
  * If rate limited, returns cached data if available, otherwise returns fallback.
