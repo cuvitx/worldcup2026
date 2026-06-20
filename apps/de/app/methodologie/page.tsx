@@ -295,7 +295,7 @@ export default function MethodologiePage() {
 
         {/* CTA */}
         <section className="rounded-lg bg-primary text-white p-6 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl font-bold text-white mb-3">
             Entdecken Sie unsere Prognosen in Aktion
           </h2>
           <p className="text-gray-300 mb-4">
@@ -304,8 +304,8 @@ export default function MethodologiePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/spiel/spielplan"
-              className="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white hover:bg-primary/90"
+              href="/spielkalender"
+              className="rounded-lg bg-white text-primary px-5 py-2 text-sm font-semibold hover:bg-gray-100"
             >
               Spielplan
             </Link>
@@ -316,10 +316,10 @@ export default function MethodologiePage() {
               Die 48 Mannschaften
             </Link>
             <Link
-              href="/guides"
+              href="/ratgeber"
               className="rounded-lg bg-white/10 px-5 py-2 text-sm font-semibold hover:bg-white/20"
             >
-              Unsere Guides
+              Unsere Ratgeber
             </Link>
           </div>
         </section>

@@ -65,7 +65,7 @@ export default function ContactPage() {
                 Analysen oder für Partnerschaftsanfragen senden Sie uns eine E-Mail:
               </p>
               <a
-                href="mailto:contact@wm2026guide.de?subject=Contact%20CDM%202026"
+                href="mailto:contact@wm2026guide.de?subject=Kontakt%20WM%202026"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">

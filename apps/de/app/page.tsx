@@ -177,10 +177,10 @@ export default function HomePage() {
       </section>
       </div>{/* end hero-animated wrapper */}
 
-      {/* 2. PROCHAINS MATCHS */}
+      {/* 2. NÄCHSTE SPIELE */}
       <UpcomingMatches upcomingMatches={upcomingMatches} teamsById={teamsById} stadiumsById={stadiumsById} />
 
-      {/* PARI DU JOUR */}
+      {/* WETT-TIPP DES TAGES */}
       {betOfTheDayMatch && betHomeTeam && betAwayTeam && (
         <BetOfTheDay
           match={betOfTheDayMatch}
@@ -191,20 +191,20 @@ export default function HomePage() {
         />
       )}
 
-      {/* BETTING CTA — Habillage CDM */}
+      {/* WETTEN CTA */}
       <section className="py-6 sm:py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PmuBanner tracking="homepage" />
         </div>
       </section>
 
-      {/* 3. GROUPES */}
+      {/* 3. GRUPPEN */}
       <GroupsOverview groups={groups} teamsById={teamsById} />
 
-      {/* 4. ARTICLES RÉCENTS */}
+      {/* 4. NEUESTE ARTIKEL */}
       <RecentArticles recentArticles={recentArticles} />
 
-      {/* 5. STADES CDM 2026 */}
+      {/* 5. STADIEN WM 2026 */}
       <section className="bg-gray-50/60 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
@@ -218,7 +218,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. ÉQUIPES FAVORITES */}
+      {/* 6. FAVORITENTEAMS */}
       <FavoriteTeams topTeams={topTeams} />
 
       {/* Quick Links - Explore */}
@@ -230,20 +230,20 @@ export default function HomePage() {
               { href: "/fifa-ranking", icon: "", label: "FIFA-Rangliste" },
               { href: "/spieler-liste", icon: "", label: "Schlüsselspieler" },
               { href: "/staedte", icon: "", label: "Austragungsorte" },
-              { href: "/pays-hotes", icon: "", label: "Gastgeberländer" },
-              { href: "/format", icon: "", label: "Turnierformat" },
-              { href: "/ou-regarder", icon: "", label: "Wo schauen" },
-              { href: "/Tickets", icon: "", label: "Tickets" },
+              { href: "/stadien", icon: "", label: "Gastgeberländer" },
+              { href: "/turnierformat", icon: "", label: "Turnierformat" },
+              { href: "/sportwetten", icon: "", label: "Wo schauen" },
+              { href: "/tickets", icon: "", label: "Tickets" },
               { href: "/h2h", icon: "", label: "Direktvergleich (H2H)" },
-              { href: "/mascotte", icon: "", label: "Maskottchen" },
-              { href: "/histoire", icon: "", label: "WM-Geschichte" },
+              { href: "/geschichte", icon: "", label: "Maskottchen" },
+              { href: "/geschichte", icon: "", label: "WM-Geschichte" },
               { href: "/quotenvergleich", icon: "", label: "Spieler vergleichen" },
               { href: "/turnierbaum", icon: "", label: "Turnierbaum" },
-              { href: "/trophee", icon: "", label: "FIFA-Trophäe" },
-              { href: "/chants-supporters", icon: "", label: "Fan-Gesänge" },
+              { href: "/geschichte", icon: "", label: "FIFA-Trophäe" },
+              { href: "/nachrichten", icon: "", label: "Fan-Gesänge" },
             ].map((item) => (
               <Link
-                key={item.href}
+                key={item.label}
                 href={item.href}
                 className="flex items-center gap-2.5 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 hover:shadow-md hover:border-primary/30 transition-all"
               >

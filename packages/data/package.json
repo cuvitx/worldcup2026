@@ -40,7 +40,9 @@
     "./translations/register-de": "./src/translations/register-de.ts",
     "./translations/teams.de": "./src/translations/teams.de.ts",
     "./translations/stadiums.de": "./src/translations/stadiums.de.ts",
-    "./translations/cities.de": "./src/translations/cities.de.ts"
+    "./translations/cities.de": "./src/translations/cities.de.ts",
+    "./translations/team-content.de": "./src/translations/team-content.de.ts",
+    "./translations/team-wc-history.de": "./src/translations/team-wc-history.de.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

@@ -1,7 +1,7 @@
 import type { Team } from "@repo/data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
 import { bookmakers } from "@repo/data/affiliates";
-import type { TeamEditorialContent } from "@repo/data/team-content";
+import type { TeamEditorialContent } from "../../../../lib/localized-data";
 
 type Prediction = NonNullable<(typeof predictionsByTeamId)[string]>;
 

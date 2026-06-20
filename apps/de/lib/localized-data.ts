@@ -33,6 +33,8 @@ import type { Team, Stadium, City, Player } from "@repo/data/types";
 import { teamsDE } from "@repo/data/translations/teams.de";
 import { stadiumsDE } from "@repo/data/translations/stadiums.de";
 import { citiesDE } from "@repo/data/translations/cities.de";
+import { teamContentDE } from "@repo/data/translations/team-content.de";
+import { teamWcHistoryDE } from "@repo/data/translations/team-wc-history.de";
 
 // ── Helpers ────────────────────────────────────────────────────────────
 function applyTeam(team: Team): Team {
@@ -90,3 +92,29 @@ export const playersBySlug = _playersBySlug;
 export const playersByTeamId = _playersByTeamId;
 
 export { LAST_UPDATED };
+
+// ── Team Content (editorial: strengths, weaknesses, anecdotes) ──────
+import { teamContent as _teamContent } from "@repo/data/team-content";
+import type { TeamEditorialContent } from "@repo/data/team-content";
+
+export type { TeamEditorialContent };
+
+export const teamContent: Record<string, TeamEditorialContent> = Object.fromEntries(
+  Object.entries(_teamContent).map(([k, v]) => {
+    const overlay = teamContentDE[k];
+    return [k, overlay ? overlay : v];
+  })
+);
+
+// ── Team WC History ─────────────────────────────────────────────────
+import { teamWcHistory as _teamWcHistory } from "@repo/data/team-wc-history";
+import type { WcEdition } from "@repo/data/team-wc-history";
+
+export type { WcEdition };
+
+export const teamWcHistory: Record<string, WcEdition[]> = Object.fromEntries(
+  Object.entries(_teamWcHistory).map(([k, v]) => {
+    const overlay = teamWcHistoryDE[k];
+    return [k, overlay ? overlay : v];
+  })
+);

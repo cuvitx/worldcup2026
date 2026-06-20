@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AProposPage() {
+export default function UeberUnsPage() {
   return (
     <>
 <section className="hero-animated text-white py-14 sm:py-20">
@@ -90,7 +90,7 @@ export default function AProposPage() {
               geprüft, um die Zuverlässigkeit der Informationen zu gewährleisten.
             </p>
             <p className="mt-2">
-              <Link href="/equipe-editoriale" className="text-primary font-medium hover:underline">
+              <Link href="/ueber-uns" className="text-primary font-medium hover:underline">
                 Unser Redaktionsteam entdecken →
               </Link>
             </p>
@@ -162,7 +162,7 @@ export default function AProposPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Nützliche Links</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/equipe-editoriale" className="text-primary hover:underline">
+                <Link href="/ueber-uns" className="text-primary hover:underline">
                   Unser Redaktionsteam
                 </Link>
               </li>

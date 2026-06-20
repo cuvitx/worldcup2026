@@ -13,7 +13,7 @@ import { groupsByLetter } from "@repo/data/groups";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
 import { getISOCode } from "@repo/data/country-codes";
-import { teamContent } from "@repo/data/team-content";
+import { teamContent } from "../../../lib/localized-data";
 
 import { PremiumHero } from "./_components/PremiumHero";
 import { PremiumProbabilityBanner } from "./_components/PremiumProbabilityBanner";

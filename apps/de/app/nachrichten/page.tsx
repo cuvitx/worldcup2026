@@ -24,6 +24,20 @@ function formatDate(dateStr: string) {
   });
 }
 
+const categoryLabels: Record<string, string> = {
+  analyse: "Analyse",
+  guide: "Guide",
+  portrait: "Porträt",
+  actualite: "Aktuelles",
+  pronostic: "Prognose",
+  Prognose: "Prognose",
+  equipes: "Mannschaften",
+  paris: "Wetten",
+  transferts: "Transfers",
+  stades: "Stadien",
+  billets: "Tickets",
+};
+
 export default function ActualitesPage() {
   const articles = getAllArticles();
 
@@ -105,7 +119,7 @@ export default function ActualitesPage() {
                   <div className="p-6 md:p-8 flex flex-col justify-center">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-primary/10 text-primary">
-                        {articles[0].category}
+                        {categoryLabels[articles[0].category] ?? articles[0].category}
                       </span>
                       <time className="text-xs text-gray-500" dateTime={articles[0].date}>
                         {formatDate(articles[0].date)}
@@ -137,7 +151,7 @@ export default function ActualitesPage() {
                   {article.imageEmoji && <div className="mb-3 text-2xl sm:text-4xl">{article.imageEmoji}</div>}
                   <div className="flex items-center gap-2 mb-2">
                     <span className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primary">
-                      {article.category}
+                      {categoryLabels[article.category] ?? article.category}
                     </span>
                     <time className="text-xs text-gray-500" dateTime={article.date}>
                       {formatDate(article.date)}

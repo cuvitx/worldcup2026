@@ -1,5 +1,5 @@
 import type { Team } from "@repo/data";
-import type { TeamEditorialContent } from "@repo/data/team-content";
+import type { TeamEditorialContent } from "../../../../lib/localized-data";
 
 interface PremiumAnecdotesProps {
   team: Team;

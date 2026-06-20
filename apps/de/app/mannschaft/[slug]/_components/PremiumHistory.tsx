@@ -1,5 +1,5 @@
 import type { Team } from "@repo/data";
-import { teamWcHistory, type WcEdition } from "@repo/data/team-wc-history";
+import { teamWcHistory, type WcEdition } from "../../../../lib/localized-data";
 
 interface PremiumHistoryProps {
   team: Team;

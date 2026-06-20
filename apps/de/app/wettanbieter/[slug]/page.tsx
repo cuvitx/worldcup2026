@@ -3,23 +3,182 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-reviews";
-import { guides, guidesById } from "@repo/data/guides";
 
 export const revalidate = 86400;
 export const dynamicParams = true;
+
+interface BookmakerReview {
+  id: string;
+  slug: string;
+  name: string;
+  tagline: string;
+  bonus: string;
+  bonusDetail: string;
+  license: string;
+  foundedYear: number;
+  url: string;
+  logo: null;
+  description: string;
+  pros: string[];
+  cons: string[];
+  ratings: { bonus: number; odds: number; app: number; live: number; support: number; withdrawal: number };
+  sections: { title: string; content: string }[];
+  paymentMethods: string[];
+  minDeposit: string;
+  withdrawalTime: string;
+  customerSupport: string[];
+  appAvailable: boolean;
+  liveStreaming: boolean;
+  cashOut: boolean;
+}
+
+const germanBookmakerReviews: BookmakerReview[] = [
+  {
+    id: "betano",
+    slug: "betano",
+    name: "Betano",
+    tagline: "Einer der beliebtesten Sportwetten-Anbieter Deutschlands",
+    bonus: "100% Willkommensbonus",
+    bonusDetail: "bis zu 80€ auf die erste Einzahlung",
+    license: "GGL (Deutschland)",
+    foundedYear: 2016,
+    url: "#",
+    logo: null,
+    description:
+      "Betano ist einer der beliebtesten Sportwetten-Anbieter in Deutschland mit Millionen von Kunden europaweit. Die Plattform überzeugt durch eine intuitive Benutzeroberfläche, wettbewerbsfähige Quoten und eine preisgekrönte mobile App. Für die WM 2026 bietet Betano eine umfassende Abdeckung mit speziellen Märkten für jedes Spiel.",
+    pros: [
+      "Wettbewerbsfähige Quoten auf dem deutschen Markt",
+      "Ausgezeichnete mobile App (iOS und Android)",
+      "Intuitive Benutzeroberfläche",
+      "Große Auswahl an Wettmärkten",
+      "Cashout bei den meisten Wetten verfügbar",
+      "Live-Wetten mit Statistiken",
+    ],
+    cons: ["Kein Live-Streaming für alle Spiele", "Auszahlungsdauer von 24-48h"],
+    ratings: { bonus: 5, odds: 4, app: 5, live: 5, support: 4, withdrawal: 4 },
+    sections: [
+      {
+        title: "Betano für die WM 2026",
+        content:
+          "Betano wird einer der aktivsten Wettanbieter für die WM 2026 sein. Erwarten Sie gebooste Quoten auf Spiele der Favoriten, Spezialwetten und tägliche Promotions während des gesamten Turniers.",
+      },
+    ],
+    paymentMethods: ["Kreditkarte", "PayPal", "Sofortüberweisung", "Paysafecard"],
+    minDeposit: "10€",
+    withdrawalTime: "24-48h",
+    customerSupport: ["Live-Chat", "E-Mail", "FAQ"],
+    appAvailable: true,
+    liveStreaming: true,
+    cashOut: true,
+  },
+  {
+    id: "tipico",
+    slug: "tipico",
+    name: "Tipico",
+    tagline: "Deutschlands bekanntester Wettanbieter",
+    bonus: "100% bis 100€",
+    bonusDetail: "Willkommensbonus auf die erste Einzahlung",
+    license: "GGL (Deutschland)",
+    foundedYear: 2004,
+    url: "#",
+    logo: null,
+    description:
+      "Tipico ist der bekannteste Sportwetten-Anbieter in Deutschland mit einem dichten Netz an Wettshops und einer starken Online-Präsenz. Bekannt für Zuverlässigkeit und einfache Bedienung.",
+    pros: [
+      "Bekanntester Anbieter in Deutschland",
+      "Wettshops in vielen deutschen Städten",
+      "Sehr einfache Bedienung",
+      "Schnelle Auszahlungen",
+      "Guter Kundenservice",
+    ],
+    cons: ["Quoten nicht immer die besten", "Limitierungen bei Vielwettern"],
+    ratings: { bonus: 4, odds: 4, app: 5, live: 4, support: 5, withdrawal: 5 },
+    sections: [],
+    paymentMethods: ["Kreditkarte", "PayPal", "Sofortüberweisung", "Paysafecard"],
+    minDeposit: "10€",
+    withdrawalTime: "24-48h",
+    customerSupport: ["Live-Chat", "E-Mail", "FAQ"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: true,
+  },
+  {
+    id: "bwin",
+    slug: "bwin",
+    name: "Bwin",
+    tagline: "Internationaler Wettanbieter mit deutscher Lizenz",
+    bonus: "100€ Joker-Wette",
+    bonusDetail: "Erste Wette ohne Risiko bis 100€",
+    license: "GGL (Deutschland)",
+    foundedYear: 1997,
+    url: "#",
+    logo: null,
+    description:
+      "Bwin gehört zu den größten Sportwetten-Anbietern weltweit und ist seit Jahren auf dem deutschen Markt etabliert. Bekannt für exzellente Quoten und ein breites Live-Wetten-Angebot.",
+    pros: [
+      "Exzellente Quoten",
+      "Breites Live-Wetten-Angebot",
+      "Internationale Erfahrung",
+      "Gute Statistik-Integration",
+    ],
+    cons: ["App manchmal langsam", "Bonusbedingungen komplex"],
+    ratings: { bonus: 4, odds: 5, app: 4, live: 5, support: 4, withdrawal: 4 },
+    sections: [],
+    paymentMethods: ["Kreditkarte", "PayPal", "Sofortüberweisung", "Paysafecard"],
+    minDeposit: "10€",
+    withdrawalTime: "24-48h",
+    customerSupport: ["Live-Chat", "E-Mail", "FAQ"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: true,
+  },
+  {
+    id: "bet-at-home",
+    slug: "bet-at-home",
+    name: "Bet-at-Home",
+    tagline: "Der österreichisch-deutsche Wettanbieter",
+    bonus: "100% Einzahlungsbonus",
+    bonusDetail: "bis zu 100€ für Neukunden",
+    license: "GGL (Deutschland)",
+    foundedYear: 1999,
+    url: "#",
+    logo: null,
+    description:
+      "Bet-at-Home ist ein börsennotierter Wettanbieter aus dem DACH-Raum mit über 20 Jahren Erfahrung. Solide Plattform mit gutem Kundenservice und fairen Bonusbedingungen.",
+    pros: [
+      "Aus dem DACH-Raum",
+      "Über 20 Jahre Erfahrung",
+      "Faire Bonusbedingungen",
+      "Deutschsprachiger Support",
+    ],
+    cons: ["App könnte moderner sein", "Quoten im Mittelfeld"],
+    ratings: { bonus: 4, odds: 4, app: 4, live: 4, support: 4, withdrawal: 4 },
+    sections: [],
+    paymentMethods: ["Kreditkarte", "PayPal", "Sofortüberweisung", "Paysafecard"],
+    minDeposit: "10€",
+    withdrawalTime: "24-48h",
+    customerSupport: ["Live-Chat", "E-Mail", "FAQ"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: true,
+  },
+];
+
+const germanBookmakerReviewsBySlug: Record<string, BookmakerReview> = Object.fromEntries(
+  germanBookmakerReviews.map((bk) => [bk.slug, bk])
+);
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return bookmakerReviews.map((bk) => ({ slug: bk.slug }));
+  return germanBookmakerReviews.map((bk) => ({ slug: bk.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const bk = bookmakerReviewsBySlug[slug];
+  const bk = germanBookmakerReviewsBySlug[slug];
   if (!bk) return {};
 
   return {
@@ -35,7 +194,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BookmakerPage({ params }: PageProps) {
   const { slug } = await params;
-  const bk = bookmakerReviewsBySlug[slug];
+  const bk = germanBookmakerReviewsBySlug[slug];
   if (!bk) notFound();
 
   const avgRating = Object.values(bk.ratings).reduce((a, b) => a + b, 0) / 6;
@@ -48,11 +207,7 @@ export default async function BookmakerPage({ params }: PageProps) {
     withdrawal: "Auszahlung",
   };
 
-  const relatedGuides = bk.sections.length > 0
-    ? guides.filter((g) => g.relatedBookmakerIds.includes(bk.id)).slice(0, 4)
-    : [];
-
-  const otherBookmakers = bookmakerReviews.filter((b) => b.id !== bk.id);
+  const otherBookmakers = germanBookmakerReviews.filter((b) => b.id !== bk.id);
 
   return (
     <>
@@ -125,8 +280,7 @@ export default async function BookmakerPage({ params }: PageProps) {
 
             {/* Vor- & Nachteile */}
             <section className="rounded-lg bg-white p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Vorteile und Nachteile</h2>
-              <p className="mb-4 text-sm text-gray-600">{bk.prosConsIntro}</p>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Vorteile und Nachteile</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg bg-field/5 border border-field/20 p-4">
                   <h3 className="text-lg font-semibold text-gray-900 text-field mb-3">Vorteile</h3>
@@ -224,22 +378,6 @@ export default async function BookmakerPage({ params }: PageProps) {
                 ))}
               </div>
             </div>
-
-            {/* Verwandte Ratgeber */}
-            {relatedGuides.length > 0 && (
-              <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Nützliche Ratgeber</h3>
-                <ul className="space-y-2">
-                  {relatedGuides.map((guide) => (
-                    <li key={guide.id}>
-                      <Link href={`/guide/${guide.slug}`} className="text-sm text-primary hover:underline">
-                        {guide.title} &rarr;
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
             {/* Weitere Wettanbieter */}
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md transition-shadow">

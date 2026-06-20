@@ -11,15 +11,29 @@ const categoryColors: Record<string, string> = {
   guide: "bg-accent/10 text-accent",
   portrait: "bg-purple-100 text-purple-800",
   actualite: "bg-primary/10 text-primary",
+  pronostic: "bg-accent/10 text-accent",
   Prognose: "bg-accent/10 text-accent",
+  // news article categories (shared data package uses French keys)
+  equipes: "bg-primary/10 text-primary",
+  paris: "bg-primary/10 text-primary",
+  transferts: "bg-accent/15 text-accent",
+  stades: "bg-accent/10 text-accent",
+  billets: "bg-field/10 text-field",
 };
 
 const categoryLabels: Record<string, string> = {
   analyse: "Analyse",
   guide: "Guide",
-  portrait: "Portrait",
+  portrait: "Porträt",
   actualite: "Aktuelles",
+  pronostic: "Prognose",
   Prognose: "Prognose",
+  // news article categories (shared data package uses French keys)
+  equipes: "Mannschaften",
+  paris: "Wetten",
+  transferts: "Transfers",
+  stades: "Stadien",
+  billets: "Tickets",
 };
 
 function formatDate(dateStr: string) {
