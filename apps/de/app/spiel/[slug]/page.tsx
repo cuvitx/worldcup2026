@@ -274,12 +274,11 @@ export default async function MatchPage({ params }: PageProps) {
     const fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
       const [ev, lu, st, pl] = await Promise.all([
-        getFixtureEvents(fixtureId, isCompleted).catch((e) => { console.error("[DE match] getFixtureEvents failed:", e); return [] as ApiFixtureEvent[]; }),
+        getFixtureEvents(fixtureId, isCompleted).catch(() => [] as ApiFixtureEvent[]),
         getLineup(fixtureId, isCompleted).catch(() => [] as ApiLineup[]),
         getFixtureStatistics(fixtureId, isCompleted).catch(() => [] as ApiFixtureStatistic[]),
         getFixturePlayers(fixtureId, isCompleted).catch(() => [] as ApiFixturePlayer[]),
       ]);
-      console.log(`[DE match] fixtureId=${fixtureId} events=${ev.length} lineups=${lu.length} stats=${st.length}`);
       events = ev;
 
       // Reorder API data so index [0] = our home team, [1] = away team

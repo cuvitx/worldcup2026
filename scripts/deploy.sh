@@ -81,9 +81,15 @@ done
 echo "[4/8] Creating release ${TIMESTAMP}..."
 mkdir -p "$RELEASE_DIR"
 
-# Only exclude unused apps
-RSYNC_EXCLUDES="--exclude=.git --exclude=.turbo --exclude=apps/en --exclude=apps/es"
+# Exclude unused apps and build-time rate limit state (must not leak into runtime)
+RSYNC_EXCLUDES="--exclude=.git --exclude=.turbo --exclude=apps/en --exclude=apps/es --exclude=.data"
 rsync -a $RSYNC_EXCLUDES "$REPO_DIR/" "$RELEASE_DIR/"
+
+# Reset rate limit counters so runtime starts fresh (build exhausts the quota)
+rm -f "${RELEASE_DIR}/.data/rate-limits.json" 2>/dev/null || true
+for APP in $APPS; do
+  rm -f "${RELEASE_DIR}/apps/${APP}/.data/rate-limits.json" 2>/dev/null || true
+done
 
 # Preserve ISR cache AND old static files from previous release
 for APP in $APPS; do
