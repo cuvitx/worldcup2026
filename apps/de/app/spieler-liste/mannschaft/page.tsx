@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function SpielersEquipeRedirect() {
+export default function SpielerMannschaftRedirect() {
   redirect("/spieler-liste");
 }

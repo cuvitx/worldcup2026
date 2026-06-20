@@ -10,7 +10,7 @@ const phaseIcons: Record<string, React.ReactNode> = {
 
 export function PrixParPhase() {
   return (
-    <section id="prix" className="bg-gray-50 py-12">
+    <section id="preise" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
            Ticketpreise nach Phase

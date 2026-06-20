@@ -26,7 +26,7 @@ interface Example {
 
 const examples: Example[] = [
   {
-    match: "France vs Australie",
+    match: "Frankreich vs Australien",
     handicap: "France -1.5",
     bet: "Quote 2,10",
     result: "Frankreich 3:1",

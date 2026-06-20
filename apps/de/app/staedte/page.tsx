@@ -79,7 +79,7 @@ export default function CitiesPage() {
                           </p>
                         </div>
                         <div className="rounded-lg bg-gray-50 p-2.5 text-center">
-                          <p className="text-xs text-gray-500">Stadions</p>
+                          <p className="text-xs text-gray-500">Stadien</p>
                           <p className="text-sm font-bold text-gray-900">
                             {cityStadiums.length}
                           </p>
@@ -107,10 +107,10 @@ export default function CitiesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RelatedLinks variant="compact" title="Verwandte Seiten" links={[
           { href: "/stadien", title: "Die 16 Stadien", description: "Kapazität, Fotos und Spiele jedes Stadions", icon: "" },
-          { href: "/carte-Stadien", title: "Stadionkarte", description: "Interaktive Karte der 16 Stadien", icon: "" },
-          { href: "/pays-hotes", title: "Gastgeberländer", description: "USA, Kanada und Mexiko: kompletter Guide", icon: "" },
-          { href: "/Tickets", title: "Tickets", description: "So kaufen Sie Ihre WM-2026-Tickets", icon: "" },
-          { href: "/ou-regarder", title: "Wo schauen", description: "TV-Sender und Streaming WM 2026", icon: "" },
+          { href: "/stadien", title: "Stadionkarte", description: "Interaktive Karte der 16 Stadien", icon: "" },
+          { href: "/gastgeber", title: "Gastgeberländer", description: "USA, Kanada und Mexiko: kompletter Guide", icon: "" },
+          { href: "/tickets", title: "Tickets", description: "So kaufen Sie Ihre WM-2026-Tickets", icon: "" },
+          { href: "/wo-schauen", title: "Wo schauen", description: "TV-Sender und Streaming WM 2026", icon: "" },
         ]} />
       </div>
     </>

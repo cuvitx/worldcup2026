@@ -3,11 +3,11 @@
 import type { TeamRating } from "@repo/data/team-ratings";
 
 const AXES: { key: keyof TeamRating; label: string }[] = [
-  { key: "attack", label: "Attaque" },
-  { key: "defense", label: "Défense" },
-  { key: "physical", label: "Physique" },
-  { key: "technique", label: "Technique" },
-  { key: "experience", label: "Expérience CDM" },
+  { key: "attack", label: "Angriff" },
+  { key: "defense", label: "Verteidigung" },
+  { key: "physical", label: "Physis" },
+  { key: "technique", label: "Technik" },
+  { key: "experience", label: "WM-Erfahrung" },
 ];
 
 const PAD = 50;
@@ -83,7 +83,7 @@ export default function RadarChart({ rating, color = "var(--color-gold)", classN
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       className={`w-full max-w-[320px] mx-auto ${className ?? ""}`}
       role="img"
-      aria-label="Radar chart des notes de l'Mannschaft"
+      aria-label="Radar-Diagramm der Mannschaftsbewertung"
     >
       {gridRings}
       {axisLines}

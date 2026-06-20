@@ -66,7 +66,9 @@ function StatusDot({ status }: { status: LiveMatch["status"] }) {
   return <span className="h-1.5 w-1.5 rounded-full bg-accent" />;
 }
 
-function MatchPill({ match, t, currentDate }: { match: LiveMatch; t: typeof translations.fr; currentDate?: string }) {
+const dateLocales: Record<string, string> = { fr: "fr-FR", en: "en-US", es: "es-ES", de: "de-DE" };
+
+function MatchPill({ match, t, currentDate, locale = "fr" }: { match: LiveMatch; t: typeof translations.fr; currentDate?: string; locale?: "fr" | "en" | "es" | "de" }) {
   const isLive = match.status === "live" || match.status === "halftime";
   const isFinished = match.status === "finished";
   const hasScore = match.homeScore !== null && match.awayScore !== null;
@@ -94,7 +96,7 @@ function MatchPill({ match, t, currentDate }: { match: LiveMatch; t: typeof tran
           <span>{match.time}</span>
           {isFutureDate && (
             <span className="text-[9px] text-white/40">
-              {new Date(match.date + "T00:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
+              {new Date(match.date + "T00:00:00").toLocaleDateString(dateLocales[locale] ?? "fr-FR", { day: "numeric", month: "short" })}
             </span>
           )}
         </span>
@@ -283,7 +285,7 @@ export const LiveScoreBar = memo(function LiveScoreBar({
               href={match.slug ? `${matchBasePath}/${match.slug}` : "#"}
               className="contents"
             >
-              <MatchPill match={match} t={t} currentDate={matchDate} />
+              <MatchPill match={match} t={t} currentDate={matchDate} locale={locale} />
             </a>
           ))}
         </div>

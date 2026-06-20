@@ -23,20 +23,20 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
       {/* Aktuelle Form */}
       {(() => {
         const mockForms: Record<string, string[]> = {
-          france: ["V", "V", "N", "V", "D"],
-          brazil: ["V", "N", "V", "V", "V"],
-          argentina: ["V", "V", "V", "N", "V"],
-          germany: ["V", "D", "V", "N", "V"],
-          spain: ["V", "V", "V", "V", "N"],
-          england: ["V", "N", "V", "V", "D"],
-          portugal: ["V", "V", "D", "V", "V"],
-          netherlands: ["N", "V", "V", "D", "V"],
-          belgium: ["V", "D", "N", "V", "V"],
-          italy: ["V", "V", "N", "D", "V"],
+          france: ["S", "S", "U", "S", "N"],
+          brazil: ["S", "U", "S", "S", "S"],
+          argentina: ["S", "S", "S", "U", "S"],
+          germany: ["S", "N", "S", "U", "S"],
+          spain: ["S", "S", "S", "S", "U"],
+          england: ["S", "U", "S", "S", "N"],
+          portugal: ["S", "S", "N", "S", "S"],
+          netherlands: ["U", "S", "S", "N", "S"],
+          belgium: ["S", "N", "U", "S", "S"],
+          italy: ["S", "S", "U", "N", "S"],
         };
-        const form = mockForms[team.slug] ?? ["V", "N", "D", "V", "N"];
-        const colors: Record<string, string> = { V: "bg-accent", N: "bg-gray-400", D: "bg-red-500" };
-        const labels: Record<string, string> = { V: "Sieg", N: "Unentschieden", D: "Niederlage" };
+        const form = mockForms[team.slug] ?? ["S", "U", "N", "S", "U"];
+        const colors: Record<string, string> = { S: "bg-accent", U: "bg-gray-400", N: "bg-red-500" };
+        const labels: Record<string, string> = { S: "Sieg", U: "Unentschieden", N: "Niederlage" };
         return (
           <Card hover padding="md">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Aktuelle Form</h3>
@@ -129,7 +129,7 @@ export function TeamSidebar({ team, prediction, groupTeams, enriched }: TeamSide
               <div className="flex gap-1">
                 {enriched?.form.split("").map((r, i) => (
                   <span key={i} className={`flex h-8 w-8 items-center justify-center rounded text-sm font-bold text-white ${r === "W" ? "bg-accent" : r === "D" ? "bg-accent" : r === "L" ? "bg-red-500" : "bg-gray-300"}`}>
-                    {r === "W" ? "V" : r === "D" ? "N" : r === "L" ? "D" : r}
+                    {r === "W" ? "S" : r === "D" ? "U" : r === "L" ? "N" : r}
                   </span>
                 ))}
               </div>

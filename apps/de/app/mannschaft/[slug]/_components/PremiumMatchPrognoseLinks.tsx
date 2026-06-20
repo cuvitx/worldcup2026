@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Team } from "@repo/data";
-import type { matches as matchesType } from "@repo/data/matches";
+import type { matches as matchesType } from "@/lib/localized-data";
 import { teamsById } from "../../../../lib/localized-data";
 
 type Match = (typeof matchesType)[number];

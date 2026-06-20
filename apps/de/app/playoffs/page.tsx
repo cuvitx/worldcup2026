@@ -7,16 +7,16 @@ export const metadata: Metadata = {
   title: "Playoffs WM 2026 — Interkontinentale Spiele, Termine, Mannschaften",
   description:
     "Alles über die Playoffs der WM 2026: interkontinentales Format, 6 verbleibende Plätze, teilnehmende Mannschaften, Termine (März 2026), Bedeutung und Prognosen.",
-  alternates: { canonical: "https://www.wm2026guide.de/barrages" },
+  alternates: { canonical: "https://www.wm2026guide.de/playoffs" },
   openGraph: {
     title: "Playoffs WM 2026 — Die letzten 6 Plätze",
     description:
       "Interkontinentales Format, Spielplan und Bedeutung der Playoff-Spiele für die WM 2026.",
-    url: "https://www.wm2026guide.de/barrages",
+    url: "https://www.wm2026guide.de/playoffs",
   },
 };
 
-const barrageMatches = [
+const playoffSpiele = [
   {
     id: 1,
     team1: "4. AFC (Indonesien)",
@@ -59,16 +59,16 @@ const barrageMatches = [
   },
 ];
 
-const placesParConfederation = [
-  { conf: "UEFA (Europa)", places: 16, directes: 16, barrages: 0 },
-  { conf: "CAF (Afrika)", places: "9 (+1)", directes: 9, barrages: 1 },
-  { conf: "AFC (Asien)", places: "8 (+2)", directes: 8, barrages: 2 },
-  { conf: "CONMEBOL (Südamerika)", places: "6 (+1)", directes: 6, barrages: 1 },
-  { conf: "CONCACAF (Nordamerika)", places: "6 (+1)", directes: 6, barrages: 1 },
-  { conf: "OFC (Ozeanien)", places: "1 (+1)", directes: 1, barrages: 1 },
+const plätzeProKonföderation = [
+  { conf: "UEFA (Europa)", places: 16, direktePlätze: 16, playoffs: 0 },
+  { conf: "CAF (Afrika)", places: "9 (+1)", direktePlätze: 9, playoffs: 1 },
+  { conf: "AFC (Asien)", places: "8 (+2)", direktePlätze: 8, playoffs: 2 },
+  { conf: "CONMEBOL (Südamerika)", places: "6 (+1)", direktePlätze: 6, playoffs: 1 },
+  { conf: "CONCACAF (Nordamerika)", places: "6 (+1)", direktePlätze: 6, playoffs: 1 },
+  { conf: "OFC (Ozeanien)", places: "1 (+1)", direktePlätze: 1, playoffs: 1 },
 ];
 
-export default function BarragesPage() {
+export default function PlayoffsPage() {
   const faqItems = [
     {
       question: "Wie viele Plätze werden über die Playoffs der WM 2026 vergeben?",
@@ -143,14 +143,14 @@ export default function BarragesPage() {
                 </tr>
               </thead>
               <tbody>
-                {placesParConfederation.map((c, i) => (
+                {plätzeProKonföderation.map((c, i) => (
                   <tr
                     key={c.conf}
                     className={i % 2 === 0 ? "bg-gray-50" : "bg-whitegray-900"}
                   >
                     <td className="py-3 px-4 font-medium">{c.conf}</td>
-                    <td className="py-3 px-4 text-center">{c.directes}</td>
-                    <td className="py-3 px-4 text-center">{c.barrages}</td>
+                    <td className="py-3 px-4 text-center">{c.direktePlätze}</td>
+                    <td className="py-3 px-4 text-center">{c.playoffs}</td>
                     <td className="py-3 px-4 text-center font-bold">{c.places}</td>
                   </tr>
                 ))}
@@ -168,7 +168,7 @@ export default function BarragesPage() {
             </h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {barrageMatches.map((m) => (
+            {playoffSpiele.map((m) => (
               <div
                 key={m.id}
                 className="rounded-xl border border-gray-200 p-5 hover:shadow-lg transition-shadow"

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { probToOdds } from "@repo/data/affiliates";
-import type { teamsById } from "@repo/data/teams";
+import type { teamsById } from "@/lib/localized-data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
 import { Shirt } from "lucide-react"
 
@@ -40,7 +40,7 @@ export function ForceAnalysis({ sortedTeams, groupLetter }: ForceAnalysisProps) 
                 <span className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1">Titel: {probToOdds(pred.winnerProb)}</span>
                 <span className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1"><Shirt className="h-5 w-5 inline-block" /> Finale: {Math.round(pred.finalProb * 100)}%</span>
                 <span className="rounded-full bg-field/10 border border-field/20 px-2 py-1">Gruppe: {Math.round(pred.groupStageProb * 100)}%</span>
-                <Link href={`/Prognose/${team!.slug}`} className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1 text-primary hover:bg-primary/20 transition-colors">Vollständige Prognose anzeigen →</Link>
+                <Link href={`/prognose/${team!.slug}`} className="rounded-full bg-primary/10 border border-primary/20 px-2 py-1 text-primary hover:bg-primary/20 transition-colors">Vollständige Prognose anzeigen →</Link>
               </div>
             )}
           </div>

@@ -36,7 +36,7 @@ export function OrganizationSchema({
       "@type": "ContactPoint",
       contactType: "customer service",
       url: `${url}/contact`,
-      availableLanguage: "French",
+      availableLanguage: lang === "de" ? "German" : "French",
     },
   };
 

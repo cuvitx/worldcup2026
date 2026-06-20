@@ -9,12 +9,12 @@ import { stadiums } from "../../lib/localized-data";
 import { cities } from "../../lib/localized-data";
 import { PmuBanner } from "../components/PmuBanner";
 export const metadata: Metadata = {
-  title: "Les 16 Stadien der WM 2026 | Kapazität, Stadt & Matchs",
+  title: "Die 16 Stadien der WM 2026 | Kapazität, Stadt & Spiele",
   description:
     "Kompletter Guide der 16 Stadien der WM 2026. Kapazität, Stadt, Land, geplante Spiele und praktische Informationen.",
   alternates: getStaticAlternates("stadiums", "de"),
   openGraph: {
-    title: "Les 16 Stadien der WM 2026",
+    title: "Die 16 Stadien der WM 2026",
     description: "Guide der 16 Stadien der WM 2026: Kapazität, Stadt und Spiele.",
   },
 };
@@ -58,7 +58,7 @@ export default function StadiumsPage() {
   return (
     <>
 <HeroSection
-        badge="Infrastructures"
+        badge="Infrastruktur"
         title="Die 16 Stadien der WM 2026"
         subtitle="11 Stadien in den USA, 3 in Mexiko und 2 in Kanada werden die 104 Spiele austragen."
       />

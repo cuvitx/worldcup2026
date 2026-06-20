@@ -12,14 +12,21 @@
  * <WebSiteSchema url="https://www.cdm2026.fr" name="CDM 2026" description="Guide complet..." />
  * ```
  */
+const searchPaths = {
+  fr: "recherche",
+  de: "suche",
+};
+
 export function WebSiteSchema({
   url,
   name,
   description,
+  lang = "fr",
 }: {
   url: string;
   name: string;
   description?: string;
+  lang?: "fr" | "de";
 }) {
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -29,7 +36,7 @@ export function WebSiteSchema({
     ...(description && { description }),
     potentialAction: {
       "@type": "SearchAction",
-      target: `${url}/recherche?q={search_term_string}`,
+      target: `${url}/${searchPaths[lang]}?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+const liveLabels = {
+  fr: "EN DIRECT",
+  de: "LIVE",
+};
+
 interface MatchRowProps {
   homeFlag: string;
   homeName: string;
@@ -13,6 +18,7 @@ interface MatchRowProps {
   homeScore?: number;
   awayScore?: number;
   status?: "scheduled" | "live" | "finished";
+  lang?: "fr" | "de";
 }
 
 export function MatchRow({
@@ -28,6 +34,7 @@ export function MatchRow({
   homeScore,
   awayScore,
   status,
+  lang = "fr",
 }: MatchRowProps) {
   const isFinished = status === "finished" && homeScore != null && awayScore != null;
   const isLive = status === "live";
@@ -39,7 +46,7 @@ export function MatchRow({
       {/* Main row: time | home vs away | group */}
       <div className="flex items-center gap-3">
         <span className={`text-sm font-bold tabular-nums w-12 shrink-0 ${isFinished ? "text-gray-400" : isLive ? "text-red-600" : "text-primary"}`}>
-          {isLive ? "EN DIRECT" : time}
+          {isLive ? liveLabels[lang] : time}
         </span>
 
         {/* Home team */}

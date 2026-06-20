@@ -287,7 +287,7 @@ export function MatchVotingWidget({
           <div className="px-6 pb-4">
             <p className="text-[10px] text-gray-400 leading-snug">
               Geschätzte Quoten, können sich ändern. 18+ |{" "}
-              <a href="tel:0974751313" className="underline hover:text-gray-500">0800 1 37 27 00</a>{" "}
+              <a href="tel:08001372700" className="underline hover:text-gray-500">0800 1 37 27 00</a>{" "}
               | Verantwortungsvolles Spielen
             </p>
           </div>

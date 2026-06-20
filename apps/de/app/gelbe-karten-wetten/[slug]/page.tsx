@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 export const dynamicParams = true;
-export default async function CoteCartonJaunePage({ params }: PageProps) {
+export default async function GelbeKartenWettenPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
@@ -121,7 +121,7 @@ const faqItems = [
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-primary text-white">
-                <th className="text-left p-3">Bookmaker</th>
+                <th className="text-left p-3">Wettanbieter</th>
                 <th className="text-center p-3">Gelbe Karte Quote</th>
                 <th className="text-center p-3">Link</th>
               </tr>
@@ -218,12 +218,12 @@ const faqItems = [
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-primary mb-6">Verwandte Spielerwetten</h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <Link href={`/tirs-cadres/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-            <span className="font-semibold text-primary">Torschüsse von {player.name}</span>
+          <Link href={`/torschuetze/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
+            <span className="font-semibold text-primary">Torschütze {player.name}</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
-          <Link href={`/passes-decisives/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-            <span className="font-semibold text-primary">Torvorlagen von {player.name}</span>
+          <Link href={`/torschuetzen-wetten/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
+            <span className="font-semibold text-primary">Torschützen-Quoten {player.name}</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
         </div>

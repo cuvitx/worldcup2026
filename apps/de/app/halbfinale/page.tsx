@@ -32,20 +32,20 @@ const faqItems = [
 
 const Stadien = [
   {
-    nom: "AT&T Stadium",
-    ville: "Dallas / Arlington, Texas",
-    capacite: "80.000",
+    name: "AT&T Stadium",
+    stadt: "Dallas / Arlington, Texas",
+    kapazitaet: "80.000",
     detail: "Einziehbares Dach, berühmter Riesenbildschirm",
   },
   {
-    nom: "MetLife Stadium",
-    ville: "East Rutherford, New Jersey (New York)",
-    capacite: "82.500",
+    name: "MetLife Stadium",
+    stadt: "East Rutherford, New Jersey (New York)",
+    kapazitaet: "82.500",
     detail: "Finalstadion, Open-Air",
   },
 ];
 
-export default function DemiFinales() {
+export default function HalbfinaleSeite() {
   return (
     <>
 
@@ -114,13 +114,13 @@ export default function DemiFinales() {
           <div className="grid gap-4 sm:grid-cols-2">
             {Stadien.map((s) => (
               <div
-                key={s.nom}
+                key={s.name}
                 className="rounded-xl border border-gray-200 bg-white p-5 hover:shadow-md transition-shadow"
               >
-                <h3 className="text-lg font-semibold text-gray-900">{s.nom}</h3>
-                <p className="text-sm text-gray-500 mt-1">{s.ville}</p>
+                <h3 className="text-lg font-semibold text-gray-900">{s.name}</h3>
+                <p className="text-sm text-gray-500 mt-1">{s.stadt}</p>
                 <div className="mt-3 flex items-center gap-4 text-sm">
-                  <span className="font-medium text-primary">{s.capacite} Plätze</span>
+                  <span className="font-medium text-primary">{s.kapazitaet} Plätze</span>
                   <span className="text-gray-400">|</span>
                   <span className="text-gray-600">{s.detail}</span>
                 </div>

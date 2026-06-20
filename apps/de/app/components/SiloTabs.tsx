@@ -57,7 +57,7 @@ function detectSilo(pathname: string): SiloMatch | null {
       prefixes: [
         "/stadion/", "/stadt/", "/fan-zone/", "/hebergement/", "/meteo/",
         "/transport/", "/guide-supporter/", "/securite/", "/ecrans-geants/",
-        "/matchs-au-stade/", "/acces-stade/",
+        "/spiele-im-stadion/", "/acces-stade/",
       ],
     },
     {

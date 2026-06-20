@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Kompletter Ratgeber zum Visum ESTA für die WM 2026 in den USA. Verfahren, Fristen, Kosten, Tipps und FAQ.",
   alternates: {
-    canonical: "https://www.wm2026guide.de/guide/guide-visa-esta",
+    canonical: "https://www.wm2026guide.de/ratgeber/guide-visa-esta",
   },
   openGraph: {
     title: "Visum ESTA für die USA — Ratgeber WM 2026",
@@ -27,7 +27,7 @@ export default function GuideVisaEsta() {
     dateModified: "2026-02-19",
     author: { "@type": "Organization", name: "WM 2026" },
     publisher: { "@type": "Organization", name: "WM 2026", url: "https://www.wm2026guide.de" },
-    mainEntityOfPage: "https://www.wm2026guide.de/guide/guide-visa-esta",
+    mainEntityOfPage: "https://www.wm2026guide.de/ratgeber/guide-visa-esta",
     image: "https://www.wm2026guide.de/og-default.jpg",
   };
 
@@ -74,7 +74,7 @@ export default function GuideVisaEsta() {
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="text-primary hover:underline">Startseite</Link></li>
             <li>/</li>
-            <li><Link href="/guides" className="text-primary hover:underline">Ratgeber</Link></li>
+            <li><Link href="/ratgeber" className="text-primary hover:underline">Ratgeber</Link></li>
             <li>/</li>
             <li className="text-gray-900 font-medium">Visum ESTA</li>
           </ol>
@@ -102,7 +102,7 @@ export default function GuideVisaEsta() {
             Das ESTA erlaubt einen Aufenthalt von <strong>maximal 90 Tagen</strong> für Tourismus oder Geschäftsreisen. Es ist <strong>2 Jahre</strong> gültig oder bis zum Ablauf des Reisepasses (je nachdem, was zuerst eintritt).
           </p>
 
-          <h2 id="demande-esta">Wie stellt man den ESTA-Antrag?</h2>
+          <h2 id="esta-antrag">Wie stellt man den ESTA-Antrag?</h2>
           <h3>Schritt 1: Dokumente vorbereiten</h3>
           <p>
             Sie benötigen Ihren <strong>biometrischen oder elektronischen Reisepass</strong> mit aktueller Gültigkeit, eine E-Mail-Adresse, eine Kreditkarte für die Zahlung und Ihre Unterkunftsadresse in den USA (Hotel oder Adresse eines Bekannten).
@@ -118,7 +118,7 @@ export default function GuideVisaEsta() {
             Die Kosten betragen <strong>21 USD</strong> (ca. 19 EUR). Die Antwort erfolgt in der Regel <strong>sofort</strong>, kann aber bis zu 72 Stunden dauern. Drei mögliche Antworten: Genehmigung erteilt, Reise nicht genehmigt oder Genehmigung ausstehend.
           </p>
 
-          <h2 id="delais">Fristen und empfohlener Zeitplan</h2>
+          <h2 id="fristen">Fristen und empfohlener Zeitplan</h2>
           <p>
             Während der WM wird das Volumen der ESTA-Anträge stark ansteigen. Wir empfehlen, Ihren Antrag <strong>mindestens 3 Monate vor Ihrer Abreise</strong> zu stellen. Wenn Sie bereits ein gültiges ESTA haben, überprüfen Sie jetzt das Ablaufdatum.
           </p>
@@ -130,7 +130,7 @@ export default function GuideVisaEsta() {
             </p>
           </div>
 
-          <h2 id="mexique-canada">Und für Mexiko und Kanada?</h2>
+          <h2 id="mexiko-kanada">Und für Mexiko und Kanada?</h2>
           <h3>Mexiko</h3>
           <p>
             Gute Nachricht für Deutsche: <strong>Kein Visum erforderlich</strong> für einen touristischen Aufenthalt von weniger als 180 Tagen in Mexiko. Ein gültiger Reisepass genügt. Sie erhalten bei Ankunft ein Migrationsformular (FMM). Die Spiele finden in Mexiko-Stadt (Estadio Azteca), Guadalajara und Monterrey statt.
@@ -141,7 +141,7 @@ export default function GuideVisaEsta() {
             Für Kanada benötigen deutsche Staatsangehörige eine <strong>eTA (Electronic Travel Authorization)</strong>, das kanadische Äquivalent zum ESTA. Die Kosten betragen 7 CAD (ca. 5 EUR), und der Antrag wird online auf der offiziellen Website der kanadischen Regierung gestellt. Die kanadischen Spiele finden in Toronto und Vancouver statt.
           </p>
 
-          <h2 id="conseils">Praktische Tipps für Fans</h2>
+          <h2 id="tipps">Praktische Tipps für Fans</h2>
           <ul>
             <li><strong>Reisepass noch 6 Monate nach Rückkehrdatum gültig</strong>: Überprüfen Sie jetzt die Gültigkeit Ihres Reisepasses</li>
             <li><strong>Reiseversicherung</strong>: In den USA unverzichtbar, da die medizinischen Kosten extrem hoch sind. Budget 50-100 EUR für die Aufenthaltsdauer</li>
@@ -167,15 +167,15 @@ export default function GuideVisaEsta() {
         <div className="mt-12 border-t border-gray-200 pt-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Verwandte Ratgeber</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Link href="/guide/guide-hebergement" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
+            <Link href="/ratgeber/guide-hebergement" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-900">Wo übernachten während der WM 2026</h3>
               <p className="text-sm text-gray-500 mt-1">Unterkunfts-Ratgeber für die Gastgeberstädte</p>
             </Link>
-            <Link href="/guide/guide-transport" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
+            <Link href="/ratgeber/guide-transport" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-900"><TrainFront className="h-5 w-5 inline-block" /> Fortbewegung zwischen den Stadien</h3>
               <p className="text-sm text-gray-500 mt-1">Transport zwischen den Städten und Logistik</p>
             </Link>
-            <Link href="/guide/guide-budget" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
+            <Link href="/ratgeber/guide-budget" className="rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-900"> Budget WM 2026</h3>
               <p className="text-sm text-gray-500 mt-1">Was kostet es? Vollständige Schätzung</p>
             </Link>
@@ -188,10 +188,10 @@ export default function GuideVisaEsta() {
         </div>
         <TableOfContents items={[
           { id: "esta-definition", label: "Was ist das ESTA?", level: 2 },
-          { id: "demande-esta", label: "Antrag stellen", level: 2 },
-          { id: "delais", label: "Empfohlene Fristen", level: 2 },
-          { id: "mexique-canada", label: "Mexiko & Kanada", level: 2 },
-          { id: "conseils", label: "Praktische Tipps", level: 2 },
+          { id: "esta-antrag", label: "Antrag stellen", level: 2 },
+          { id: "fristen", label: "Empfohlene Fristen", level: 2 },
+          { id: "mexiko-kanada", label: "Mexiko & Kanada", level: 2 },
+          { id: "tipps", label: "Praktische Tipps", level: 2 },
           { id: "faq", label: "FAQ", level: 2 },
         ]} />
       </div>

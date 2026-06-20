@@ -227,7 +227,7 @@ export default function FormatPage() {
 
           {/* Vergleich altes vs. neues Format */}
           <div className="mb-12">
-            <h2 id="comparaison" className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 id="vergleich" className="text-2xl font-bold text-gray-900 mb-6">
               Altes Format (32 Mannschaften) vs. Neues Format (48 Mannschaften)
             </h2>
 
@@ -249,29 +249,29 @@ export default function FormatPage() {
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {[
-                      { critere: "Anzahl Mannschaften", ancien: "32", nouveau: "48" },
-                      { critere: "Anzahl Gruppen", ancien: "8 Gruppen zu je 4", nouveau: "12 Gruppen zu je 4" },
-                      { critere: "Qualifizierte fürs Achtelfinale", ancien: "16 Mannschaften (1. + 2.)", nouveau: "32 Mannschaften (1. + 2. + 8 beste Dritte)" },
-                      { critere: "Gesamtzahl Spiele", ancien: "64 Spiele", nouveau: "104 Spiele" },
-                      { critere: "Spiele pro Mannschaft (min.)", ancien: "3 Spiele", nouveau: "3 Spiele" },
-                      { critere: "Spiele pro Mannschaft (max.)", ancien: "7 Spiele (Weltmeister)", nouveau: "7 Spiele (Weltmeister)" },
-                      { critere: "Turnierdauer", ancien: "~32 Tage", nouveau: "~39 Tage" },
-                      { critere: "Plätze UEFA (Europa)", ancien: "13", nouveau: "16" },
-                      { critere: "Plätze CAF (Afrika)", ancien: "5", nouveau: "9" },
-                      { critere: "Plätze AFC (Asien)", ancien: "4,5", nouveau: "8" },
-                      { critere: "Plätze CONMEBOL (Südamerika)", ancien: "4,5", nouveau: "6" },
-                      { critere: "Plätze CONCACAF (Nordamerika)", ancien: "3,5", nouveau: "6 (davon 3 Gastgeber)" },
-                      { critere: "Plätze OFC (Ozeanien)", ancien: "0,5", nouveau: "1" },
+                      { kriterium: "Anzahl Mannschaften", alt: "32", neu: "48" },
+                      { kriterium: "Anzahl Gruppen", alt: "8 Gruppen zu je 4", neu: "12 Gruppen zu je 4" },
+                      { kriterium: "Qualifizierte fürs Achtelfinale", alt: "16 Mannschaften (1. + 2.)", neu: "32 Mannschaften (1. + 2. + 8 beste Dritte)" },
+                      { kriterium: "Gesamtzahl Spiele", alt: "64 Spiele", neu: "104 Spiele" },
+                      { kriterium: "Spiele pro Mannschaft (min.)", alt: "3 Spiele", neu: "3 Spiele" },
+                      { kriterium: "Spiele pro Mannschaft (max.)", alt: "7 Spiele (Weltmeister)", neu: "7 Spiele (Weltmeister)" },
+                      { kriterium: "Turnierdauer", alt: "~32 Tage", neu: "~39 Tage" },
+                      { kriterium: "Plätze UEFA (Europa)", alt: "13", neu: "16" },
+                      { kriterium: "Plätze CAF (Afrika)", alt: "5", neu: "9" },
+                      { kriterium: "Plätze AFC (Asien)", alt: "4,5", neu: "8" },
+                      { kriterium: "Plätze CONMEBOL (Südamerika)", alt: "4,5", neu: "6" },
+                      { kriterium: "Plätze CONCACAF (Nordamerika)", alt: "3,5", neu: "6 (davon 3 Gastgeber)" },
+                      { kriterium: "Plätze OFC (Ozeanien)", alt: "0,5", neu: "1" },
                     ].map((row, idx) => (
                       <tr key={idx} className="hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-3 font-medium text-gray-900">
-                          {row.critere}
+                          {row.kriterium}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-700">
-                          {row.ancien}
+                          {row.alt}
                         </td>
                         <td className="px-4 py-3 text-sm text-accent font-semibold">
-                          {row.nouveau}
+                          {row.neu}
                         </td>
                       </tr>
                     ))}
@@ -283,7 +283,7 @@ export default function FormatPage() {
 
           {/* Regel der besten Gruppendritten */}
           <div className="mb-12">
-            <h2 id="meilleurs-3e" className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 id="beste-dritte" className="text-2xl font-bold text-gray-900 mb-6">
               Wie werden die besten Gruppendritten eingestuft?
             </h2>
 
@@ -319,7 +319,7 @@ export default function FormatPage() {
 
           {/* Vor- und Nachteile */}
           <div className="mb-12">
-            <h2 id="avantages-inconvenients" className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 id="vor-und-nachteile" className="text-2xl font-bold text-gray-900 mb-6">
               Vor- und Nachteile des neuen Formats
             </h2>
 
@@ -416,9 +416,9 @@ export default function FormatPage() {
         <TableOfContents items={[
           { id: "introduction", label: "Einführung", level: 2 },
           { id: "schema-format", label: "Schema des Formats", level: 2 },
-          { id: "comparaison", label: "Vergleich 32 vs. 48", level: 2 },
-          { id: "meilleurs-3e", label: "Beste Gruppendritte", level: 2 },
-          { id: "avantages-inconvenients", label: "Vor- & Nachteile", level: 2 },
+          { id: "vergleich", label: "Vergleich 32 vs. 48", level: 2 },
+          { id: "beste-dritte", label: "Beste Gruppendritte", level: 2 },
+          { id: "vor-und-nachteile", label: "Vor- & Nachteile", level: 2 },
         ]} />
       </div>
 

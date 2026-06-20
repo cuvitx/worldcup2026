@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const strategies = [
   {
     icon: Users,
-    title: "12 Gruppen = plus d'opportunités",
+    title: "12 Gruppen = mehr Chancen",
     content: "Mit 12 statt 8 Gruppen explodiert das Volumen der Gruppenspiele (36 → 48 Spiele). Mehr Spiele = mehr Value zu finden, besonders in Gruppen mit weniger bekannten Mannschaften, wo die Wettanbieter weniger Daten haben.",
   },
   {

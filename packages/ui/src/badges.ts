@@ -5,17 +5,19 @@ export interface BadgeDef {
   emoji: string;
   name: string;
   description: string;
+  nameDE?: string;
+  descriptionDE?: string;
   category: "pronostic" | "engagement" | "quiz" | "exploration";
 }
 
 export const BADGE_DEFS: BadgeDef[] = [
-  { id: "first-prono", emoji: " ", name: "Premier Pronostic", description: "Soumettre son 1er pronostic", category: "pronostic" },
-  { id: "streak7", emoji: " ", name: "Streak x7", description: "7 jours consécutifs de visite", category: "engagement" },
-  { id: "expert-cdm", emoji: " ", name: "Expert CDM", description: "Score quiz > 80%", category: "quiz" },
-  { id: "oracle", emoji: "🔮", name: "Oracle", description: "3 pronostics corrects d'affilée", category: "pronostic" },
-  { id: "globe-trotter", emoji: "", name: "Globe Trotter", description: "Visiter toutes les pages stades", category: "exploration" },
-  { id: "champion", emoji: " ", name: "Champion", description: "Terminer le simulateur", category: "engagement" },
-  { id: "assidu", emoji: " ", name: "Assidu", description: "Visiter le site 30 jours", category: "engagement" },
+  { id: "first-prono", emoji: " ", name: "Premier Pronostic", nameDE: "Erste Prognose", description: "Soumettre son 1er pronostic", descriptionDE: "Erste Prognose abgeben", category: "pronostic" },
+  { id: "streak7", emoji: " ", name: "Streak x7", nameDE: "Streak x7", description: "7 jours consécutifs de visite", descriptionDE: "7 Tage in Folge besucht", category: "engagement" },
+  { id: "expert-cdm", emoji: " ", name: "Expert CDM", nameDE: "WM-Experte", description: "Score quiz > 80%", descriptionDE: "Quiz-Score > 80%", category: "quiz" },
+  { id: "oracle", emoji: "🔮", name: "Oracle", nameDE: "Oracle", description: "3 pronostics corrects d'affilée", descriptionDE: "3 richtige Prognosen in Folge", category: "pronostic" },
+  { id: "globe-trotter", emoji: "", name: "Globe Trotter", nameDE: "Globe Trotter", description: "Visiter toutes les pages stades", descriptionDE: "Alle Stadion-Seiten besuchen", category: "exploration" },
+  { id: "champion", emoji: " ", name: "Champion", nameDE: "Champion", description: "Terminer le simulateur", descriptionDE: "Den Turnierbaum abschließen", category: "engagement" },
+  { id: "assidu", emoji: " ", name: "Assidu", nameDE: "Treuer Fan", description: "Visiter le site 30 jours", descriptionDE: "Die Seite 30 Tage besuchen", category: "engagement" },
 ];
 
 // localStorage keys
@@ -75,4 +77,14 @@ export function checkBadge(id: string, s: BadgeState): boolean {
 
 export function computeUnlocked(state: BadgeState): string[] {
   return BADGE_DEFS.filter((b) => checkBadge(b.id, state)).map((b) => b.id);
+}
+
+/** Get localized badge name */
+export function getBadgeName(badge: BadgeDef, lang: "fr" | "de" = "fr"): string {
+  return lang === "de" ? (badge.nameDE ?? badge.name) : badge.name;
+}
+
+/** Get localized badge description */
+export function getBadgeDescription(badge: BadgeDef, lang: "fr" | "de" = "fr"): string {
+  return lang === "de" ? (badge.descriptionDE ?? badge.description) : badge.description;
 }

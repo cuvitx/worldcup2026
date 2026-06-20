@@ -30,6 +30,11 @@ const placeholders: Record<Lang, string> = {
   de: "Suchen...",
 };
 
+const noResultsLabels: Record<Lang, string> = {
+  fr: "Aucun résultat",
+  de: "Keine Ergebnisse",
+};
+
 /**
  * Normalize a string for fuzzy matching: lowercase, remove accents/diacritics.
  */
@@ -87,10 +92,10 @@ for (const t of teams) {
 /**
  * Props for the Search component.
  * 
- * @param lang - UI language: "fr"
+ * @param lang - UI language: "fr" (default) or "de"
  */
 export interface SearchProps {
-  lang: Lang;
+  lang?: Lang;
 }
 
 /**
@@ -108,7 +113,7 @@ export interface SearchProps {
  * <Search lang="fr" />
  * ```
  */
-export function Search({ lang }: SearchProps) {
+export function Search({ lang = "fr" }: SearchProps) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -367,7 +372,7 @@ export function Search({ lang }: SearchProps) {
       {/* No results message */}
       {isOpen && query.trim().length >= 2 && results.length === 0 && (
         <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-lg bg-white p-4 text-center text-sm text-gray-500 shadow-xl ring-1 ring-black/10">
-          Aucun résultat
+          {noResultsLabels[lang]}
         </div>
       )}
     </div>

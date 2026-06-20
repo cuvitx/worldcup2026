@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { probToOdds } from "@repo/data/affiliates";
-import type { teamsById } from "@repo/data/teams";
+import type { teamsById } from "@/lib/localized-data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
 
 type Team = NonNullable<(typeof teamsById)[string]>;

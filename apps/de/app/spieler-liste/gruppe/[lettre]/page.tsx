@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function SpielersGroupePage({ params }: Props) {
+export default async function SpielerGruppePage({ params }: Props) {
   const { lettre } = await params;
   const group = groups.find((g) => g.slug === lettre);
   if (!group) notFound();
@@ -47,7 +47,7 @@ export default async function SpielersGroupePage({ params }: Props) {
             <div key={team.slug} className="mb-10">
               <h2 className="text-xl font-bold text-primary mb-4">
                 <Link href={`/mannschaft/${team.slug}`} className="hover:underline">{team.flag} {team.name}</Link>
-                <span className="text-gray-400 font-normal ml-2">({teamPlayers.length} Spielers)</span>
+                <span className="text-gray-400 font-normal ml-2">({teamPlayers.length} Spieler)</span>
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {teamPlayers.slice(0, 12).map((p) => (
@@ -61,7 +61,7 @@ export default async function SpielersGroupePage({ params }: Props) {
               </div>
               {teamPlayers.length > 12 && (
                 <Link href={`/spieler-liste/mannschaft/${team.slug}`} className="text-primary hover:underline text-sm mt-2 inline-block">
-                  Zeige {teamPlayers.length} Spielers →
+                  Zeige {teamPlayers.length} Spieler →
                 </Link>
               )}
             </div>

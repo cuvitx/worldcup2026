@@ -3,9 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
-import { teams, teamsById } from "../../../lib/localized-data";
-import { matchesByGroup } from "@repo/data/matches";
-import { playersByTeamId } from "../../../lib/localized-data";
+import { teams, teamsById, matchesByGroup, playersByTeamId } from "../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import type { Player, Match } from "@repo/data/types";
@@ -224,7 +222,7 @@ export default async function GroupPage({ params }: PageProps) {
                         <th className="pb-2 text-center font-semibold">N</th>
                         <th className="pb-2 text-center font-semibold">T</th>
                         <th className="pb-2 text-center font-semibold">GT</th>
-                        <th className="pb-2 text-center font-semibold">Diff</th>
+                        <th className="pb-2 text-center font-semibold">TD</th>
                         <th className="pb-2 pr-4 sm:pr-0 text-center font-semibold">Pkt</th>
                       </tr>
                     </thead>

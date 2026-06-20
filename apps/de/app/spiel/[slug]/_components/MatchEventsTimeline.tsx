@@ -44,13 +44,13 @@ function getEventLabel(
 ): { primary: string; secondary: string | null; tag: string | null } {
   if (type === "Goal") {
     if (detail === "Own Goal") {
-      return { primary: playerName, secondary: assistName, tag: "(csc)" };
+      return { primary: playerName, secondary: assistName, tag: "(Eigentor)" };
     }
     if (detail === "Penalty") {
-      return { primary: playerName, secondary: null, tag: "(pen.)" };
+      return { primary: playerName, secondary: null, tag: "(Elfm.)" };
     }
     if (detail === "Missed Penalty") {
-      return { primary: playerName, secondary: null, tag: "pen. manqué" };
+      return { primary: playerName, secondary: null, tag: "Elfm. verschossen" };
     }
     return { primary: playerName, secondary: assistName, tag: null };
   }
@@ -116,7 +116,7 @@ function EventContent({
                 <span className="text-red-400">{"↘"}</span> {label.secondary}
               </>
             ) : isOwnGoal ? null : (
-              <>Pass. {label.secondary}</>
+              <>Vorl. {label.secondary}</>
             )}
           </p>
         )}
@@ -133,7 +133,7 @@ function EventContent({
 function HalftimeDivider() {
   return (
     <div className="bg-gray-100 text-xs text-gray-500 font-medium text-center py-1.5">
-      Mi-temps
+      Halbzeit
     </div>
   );
 }
@@ -197,7 +197,7 @@ export function MatchEventsTimeline({
           &#x1F551;
         </span>
         <h3 className="font-bold text-lg text-gray-900">
-          Événements du match
+          Spielereignisse
         </h3>
       </div>
 

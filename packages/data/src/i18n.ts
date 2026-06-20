@@ -8,7 +8,7 @@ import type { Lang } from "./route-mapping";
 import type { Team, Stadium, City, Player } from "./types";
 
 // Translation overlay types — only the translatable string fields
-export type TeamTranslation = Partial<Pick<Team, "name" | "bestResult" | "description">>;
+export type TeamTranslation = Partial<Pick<Team, "name" | "slug" | "bestResult" | "description">>;
 export type StadiumTranslation = Partial<Pick<Stadium, "description">>;
 export type CityTranslation = Partial<Pick<City, "description">>;
 export type PlayerTranslation = Partial<Pick<Player, "description">>;

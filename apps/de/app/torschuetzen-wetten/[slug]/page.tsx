@@ -36,11 +36,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Quote ${player.name} Torschütze WM 2026 -- Prognose und Analyse`,
     description: `Torschützen-Quoten von ${player.name} für die WM 2026: ein Tor erzielen, Torschützenkönig. Betano-Quoten.`,
-    alternates: { canonical: `https://www.wm2026guide.de/cote-Torschütze/${slug}` },
+    alternates: { canonical: `https://www.wm2026guide.de/torschuetzen-wetten/${slug}` },
   };
 }
 export const dynamicParams = true;
-export default async function CoteTorschützePage({ params }: PageProps) {
+export default async function TorschuetzenWettenPage({ params }: PageProps) {
   const { slug } = await params;
   const player = playersBySlug[slug];
   if (!player) notFound();
@@ -174,8 +174,8 @@ const faqItems = [
             <span className="font-semibold text-primary">Prognose Torschützen WM 2026</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
-          <Link href={`/tirs-cadres/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
-            <span className="font-semibold text-primary">Torschüsse {player.name}</span>
+          <Link href={`/torschuetze/${slug}`} className="flex items-center justify-between bg-white rounded-xl border border-gray-200 p-5 hover:border-accent transition-colors">
+            <span className="font-semibold text-primary">Torschütze {player.name}</span>
             <ArrowRight className="w-5 h-5 text-accent" />
           </Link>
         </div>

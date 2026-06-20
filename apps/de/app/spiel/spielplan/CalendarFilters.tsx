@@ -120,14 +120,14 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 sm:gap-3">
             <select value={team} onChange={(e) => setTeam(e.target.value)} className={selectClass + " col-span-2 sm:col-span-1"}>
-              <option value=""> Alle Mannschafts</option>
+              <option value=""> Alle Mannschaften</option>
               {teamOptions.map((t) => (
                 <option key={t.id} value={t.id}>{t.flag} {t.name}</option>
               ))}
             </select>
 
             <select value={group} onChange={(e) => setGroup(e.target.value)} className={selectClass}>
-              <option value="">Groupe</option>
+              <option value="">Gruppe</option>
               {groupOptions.map((g) => (
                 <option key={g} value={g}>Gruppe {g}</option>
               ))}
@@ -141,7 +141,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
             </select>
 
             <select value={phase} onChange={(e) => setPhase(e.target.value)} className={selectClass + " col-span-2 sm:col-span-1"}>
-              <option value="">Alle phases</option>
+              <option value="">Alle Phasen</option>
               {phaseOptions.map((p) => (
                 <option key={p} value={p}>{stageLabels[p]}</option>
               ))}
@@ -152,13 +152,13 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                 onClick={reset}
                 className="col-span-2 sm:col-span-1 rounded-lg bg-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 transition-colors"
               >
-                ✕ Réinitialiser
+                ✕ Zurücksetzen
               </button>
             )}
           </div>
           {hasFilters && (
             <p className="mt-2 text-sm text-gray-600">
-              {filtered.length} match{filtered.length !== 1 ? "s" : ""} trouvé{filtered.length !== 1 ? "s" : ""}
+              {filtered.length} Spiel{filtered.length !== 1 ? "e" : ""} gefunden
             </p>
           )}
         </div>
@@ -184,7 +184,7 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
       {/* Match list */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
         {filtered.length === 0 ? (
-          <p className="text-center text-gray-500 py-12">Keine Spiele ne correspond aux filtres Aufgebotnés.</p>
+          <p className="text-center text-gray-500 py-12">Keine Spiele entsprechen den ausgewählten Filtern.</p>
         ) : (
           Array.from(matchesByStage.entries()).map(([stage, stageMatches], stageIdx) => {
             const byDate = new Map<string, MatchData[]>();
@@ -305,7 +305,7 @@ function InlineAffiliateCTA() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-[400%]"
           />
-          <span className="relative">J&apos;en profite</span>
+          <span className="relative">Zum Angebot</span>
           <span className="relative" aria-hidden="true">&rarr;</span>
         </span>
       </a>
@@ -314,7 +314,7 @@ function InlineAffiliateCTA() {
       <div className="relative border-t border-white/5 bg-black/25 px-4 py-2 sm:px-5">
         <p className="text-center text-[10px] leading-snug text-white/30">
           18+ | Es gelten die AGB |{" "}
-          <a href="tel:0974751313" className="underline text-white/40 hover:text-white/60">
+          <a href="tel:08001372700" className="underline text-white/40 hover:text-white/60">
             0800 1 37 27 00
           </a>{" "}
           | Verantwortungsvolles Spielen

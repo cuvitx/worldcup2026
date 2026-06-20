@@ -12,9 +12,9 @@ const navItems = (slug: string) => [
   { label: "Mannschaft", href: `/mannschaft/${slug}` },
   { label: "Prognose", href: `/prognose/${slug}` },
   { label: "Gruppe", href: `/gruppe/${getGroupSlug(slug)}` },
-  { label: "Spiele", href: `/mannschaft/${slug}/matchs` },
+  { label: "Spiele", href: `/mannschaft/${slug}/spiele` },
   { label: "Spieler", href: `/mannschaft/${slug}/spieler-liste` },
-  { label: "Quoten", href: `/mannschaft/${slug}/cotes` },
+  { label: "Quoten", href: `/mannschaft/${slug}/quoten` },
   { label: "Szenarien", href: `/scenarios-qualification-equipe/${slug}` },
 ];
 

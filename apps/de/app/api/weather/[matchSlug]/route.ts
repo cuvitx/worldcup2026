@@ -1,5 +1,4 @@
-import { matchesBySlug } from "@repo/data/matches";
-import { stadiumsById } from "../../../../lib/localized-data";
+import { matchesBySlug, stadiumsById } from "../../../../lib/localized-data";
 import { getWeatherForecast } from "@repo/api/weather";
 import { getWeatherImpact, matchSlugSchema } from "@repo/api";
 import { getAltitudeImpact } from "@repo/api/factors";

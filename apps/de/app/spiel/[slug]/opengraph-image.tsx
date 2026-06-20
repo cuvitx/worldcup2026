@@ -1,7 +1,5 @@
 import { ImageResponse } from "next/og";
-import { matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "../../../lib/localized-data";
-import { stadiumsById } from "../../../lib/localized-data";
+import { matchesBySlug, teamsById, stadiumsById } from "../../../lib/localized-data";
 
 
 export const alt = "Spiel WM 2026";

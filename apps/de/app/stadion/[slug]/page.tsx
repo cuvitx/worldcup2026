@@ -3,10 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroImage } from "../../components/hero-image";
 import { notFound } from "next/navigation";
-import { stadiums, stadiumsBySlug } from "../../../lib/localized-data";
-import { citiesById } from "../../../lib/localized-data";
-import { matchesByStadium } from "@repo/data/matches";
-import { teamsById } from "../../../lib/localized-data";
+import { stadiums, stadiumsBySlug, citiesById, matchesByStadium, teamsById } from "../../../lib/localized-data";
 import { stageLabels } from "@repo/data/constants";
 import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-react"
 import { PmuBanner } from "../../components/PmuBanner";
@@ -179,7 +176,7 @@ export default async function StadiumPage({ params }: PageProps) {
                       </div>
                     </div>
                     <Link
-                      href={`/carte-Stadien#${stadium.slug}`}
+                      href={`/stadionkarte#${stadium.slug}`}
                       className="shrink-0 rounded-lg bg-primary hover:bg-primary/80 text-white text-sm font-medium px-4 py-2 transition-colors"
                     >
                       Karte ansehen →
@@ -332,17 +329,17 @@ export default async function StadiumPage({ params }: PageProps) {
                   </li>
                 )}
                 <li>
-                  <Link href="/carte-Stadien" className="text-primary hover:underline">
+                  <Link href="/stadionkarte" className="text-primary hover:underline">
                     <MapIcon className="h-5 w-5 inline-block" /> Stadionkarte
                   </Link>
                 </li>
                 <li>
-                  <Link href="/Tickets" className="text-primary hover:underline">
+                  <Link href="/tickets" className="text-primary hover:underline">
                     <Ticket className="h-5 w-5 inline-block" /> Tickets kaufen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/ou-regarder" className="text-primary hover:underline">
+                  <Link href="/wo-schauen" className="text-primary hover:underline">
                     <Tv className="h-5 w-5 inline-block" /> Wo die Spiele schauen
                   </Link>
                 </li>

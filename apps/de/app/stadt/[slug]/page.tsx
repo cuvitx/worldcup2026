@@ -2,10 +2,7 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cities, citiesBySlug } from "../../../lib/localized-data";
-import { stadiumsById } from "../../../lib/localized-data";
-import { matchesByStadium } from "@repo/data/matches";
-import { teamsById } from "../../../lib/localized-data";
+import { cities, citiesBySlug, stadiumsById, matchesByStadium, teamsById } from "../../../lib/localized-data";
 import { stageLabels } from "@repo/data/constants";
 import { HeroImage } from "../../components/hero-image";
 import { cityEnrichmentData } from "./city-enrichment";
@@ -305,17 +302,17 @@ export default async function CityPage({ params }: PageProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pays-hotes" className="text-primary hover:underline">
+                  <Link href="/gastgeber" className="text-primary hover:underline">
                     <Globe className="h-5 w-5 inline-block" /> Die 3 Gastgeberländer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/Tickets" className="text-primary hover:underline">
+                  <Link href="/tickets" className="text-primary hover:underline">
                     <Ticket className="h-5 w-5 inline-block" /> Tickets kaufen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/ou-regarder" className="text-primary hover:underline">
+                  <Link href="/wo-schauen" className="text-primary hover:underline">
                     <Tv className="h-5 w-5 inline-block" /> Wo die Spiele schauen
                   </Link>
                 </li>

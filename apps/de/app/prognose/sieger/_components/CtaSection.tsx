@@ -12,7 +12,7 @@ export function CtaSection() {
             Alle Quoten vergleichen
           </Link>
           <Link
-            href="/mannschaft/allemagne"
+            href="/mannschaft/deutschland"
             className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-6 py-3 font-semibold text-primary hover:-translate-y-0.5 transition-all"
           >
             🇩🇪 Prognose Deutschland

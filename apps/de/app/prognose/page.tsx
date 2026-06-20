@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { groups } from "@repo/data/groups";
-import { teams, teamsById } from "../../lib/localized-data";
+import { teams, teamsById, matches } from "../../lib/localized-data";
 import { teamPredictions } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
-import { matches } from "@repo/data/matches";
 import { FolderOpen } from "lucide-react"
 export const metadata: Metadata = {
   title: "Prognosen WM 2026 — Zentrale Übersicht | Sieger, Gruppen & Spiele",
@@ -379,7 +378,7 @@ export default function PrognoseHubPage() {
                     <span className="text-xs text-primary font-semibold group-hover:underline">
                       Prognose anzeigen →
                     </span>
-                    <span className="text-[10px] text-gray-400">Analyse IA + ELO</span>
+                    <span className="text-[10px] text-gray-400">Analyse KI + ELO</span>
                   </div>
                 </Link>
               );
@@ -471,8 +470,8 @@ export default function PrognoseHubPage() {
               { href: "/prognose/genaue-ergebnisse", icon: "🎯", title: "Genaue Ergebnisse", description: "Exakte Ergebnisprognosen Spiel für Spiel" },
               { href: "/prognose/elfmeterschiessen", icon: "🥅", title: "Elfmeterschiessen", description: "Welche Spiele ins Elfmeterschiessen gehen" },
               { href: "/sportwetten/corners", icon: "🚩", title: "Ecken-Prognose", description: "Prognosen zur Anzahl der Eckbälle" },
-              { href: "/Prognoses/grille", icon: "📋", title: "Prognose-Raster", description: "Füllen Sie Ihr WM-Prognose-Raster aus" },
-              { href: "/Prognoses/leaderboard", icon: "🏅", title: "Rangliste der Prognostiker", description: "Die Rangliste der besten Prognostiker" },
+              { href: "/prognose-raster", icon: "📋", title: "Prognose-Raster", description: "Füllen Sie Ihr WM-Prognose-Raster aus" },
+              { href: "/prognose-rangliste", icon: "🏅", title: "Rangliste der Prognostiker", description: "Die Rangliste der besten Prognostiker" },
               { href: "/turnierbaum", icon: "🎮", title: "Turnier-Simulator", description: "Simulieren Sie den WM-2026-Turnierbaum" },
               { href: "/quotenvergleich", icon: "📈", title: "Quotenvergleich", description: "Vergleichen Sie die Quoten der Buchmacher" },
             ].map(item => (

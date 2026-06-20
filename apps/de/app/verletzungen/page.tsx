@@ -45,7 +45,7 @@ const statusConfig: Record<Status, { bg: string; text: string; icon: typeof Shie
   Ausfall: { bg: "bg-red-100", text: "text-red-700", icon: AlertTriangle },
 };
 
-export default function BlessuresPage() {
+export default function VerletzungenPage() {
   const faqItems = [
     {
       question: "Wann wurden die offiziellen Listen der 26 Spieler veröffentlicht?",
@@ -61,9 +61,9 @@ export default function BlessuresPage() {
     },
   ];
 
-  const aptes = injuries.filter((p) => p.status === "Spielfähig");
-  const incertains = injuries.filter((p) => p.status === "Unsicher");
-  const forfaits = injuries.filter((p) => p.status === "Ausfall");
+  const fit = injuries.filter((p) => p.status === "Spielfähig");
+  const unsicher = injuries.filter((p) => p.status === "Unsicher");
+  const ausfaelle = injuries.filter((p) => p.status === "Ausfall");
 
   return (
     <>
@@ -86,9 +86,9 @@ export default function BlessuresPage() {
         {/* Schnellübersicht */}
         <div className="grid grid-cols-3 gap-2 sm:gap-4">
           {[
-            { label: "Spielfähig", count: aptes.length, color: "text-green-600" },
-            { label: "Unsicher", count: incertains.length, color: "text-yellow-600" },
-            { label: "Ausfälle", count: forfaits.length, color: "text-red-600" },
+            { label: "Spielfähig", count: fit.length, color: "text-green-600" },
+            { label: "Unsicher", count: unsicher.length, color: "text-yellow-600" },
+            { label: "Ausfälle", count: ausfaelle.length, color: "text-red-600" },
           ].map((s) => (
             <div key={s.label} className="text-center rounded-xl border border-gray-200 p-3 sm:p-4">
               <span className={`block text-2xl sm:text-3xl font-black ${s.color}`}>{s.count}</span>
@@ -152,7 +152,7 @@ export default function BlessuresPage() {
 
         <div className="text-center">
           <Link
-            href="/selections-listes"
+            href="/kader"
             className="inline-flex items-center gap-2 bg-accent text-white rounded-xl py-3.5 px-8 font-semibold hover:opacity-90 transition-opacity"
           >
             Listen der 26 anzeigen <ArrowRight className="h-4 w-4" />

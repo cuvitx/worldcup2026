@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { groups, groupsBySlug } from "@repo/data/groups";
-import { teamsById } from "../../../lib/localized-data";
-import { matchesByGroup } from "@repo/data/matches";
+import { teamsById, matchesByGroup } from "../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { groupPredictionsByGroup } from "@repo/data/predictions-2026";
 
@@ -122,7 +121,7 @@ export default async function PrognoseGroupPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "SportsEvent",
             name: `WM 2026 — Gruppe ${group.letter}`,
-            sport: "Football",
+            sport: "Fussball",
             startDate: groupMatches[0]?.date ?? "2026-06-11",
             competitor: allGroupTeams.map((t) => ({ "@type": "SportsTeam", name: t.name })),
           }),

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../lib/localized-data";
-import { stadiumsById } from "../../lib/localized-data";
+import { matches, teamsById, stadiumsById } from "../../lib/localized-data";
 import { stageLabels } from "@repo/data/constants";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { RelatedLinks } from "../components/RelatedLinks";
@@ -47,7 +45,7 @@ export const metadata: Metadata = {
 
 export const revalidate = 300; // 5min ISR
 
-export default async function ResultatsPage() {
+export default async function ErgebnissePage() {
   // Build team name map for API matching
   const teamNameMap: Record<string, string> = {};
   for (const [id, t] of Object.entries(teamsById)) {
@@ -112,9 +110,9 @@ export default async function ResultatsPage() {
         </div>
       </section>
 
-      {/* CTA affilié */}
+      {/* CTA Affiliate */}
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pt-6">
-        <PmuBanner tracking="resultats-top" />
+        <PmuBanner tracking="ergebnisse-top" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
@@ -234,9 +232,9 @@ export default async function ResultatsPage() {
         )}
       </div>
 
-      {/* CTA affilié */}
+      {/* CTA Affiliate */}
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
-        <PmuBanner tracking="resultats" />
+        <PmuBanner tracking="ergebnisse" />
       </div>
 
       {/* Related links */}

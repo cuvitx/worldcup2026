@@ -1,4 +1,4 @@
-import type { teamsById } from "@repo/data/teams";
+import type { teamsById } from "@/lib/localized-data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
 
 export type Team = NonNullable<(typeof teamsById)[string]>;

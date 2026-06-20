@@ -30,7 +30,7 @@ const faqItems = [
   },
 ];
 
-export default function HuitiemesDeFinale() {
+export default function ViertelfinaleQualifikationPage() {
   return (
     <>
 
@@ -51,7 +51,7 @@ export default function HuitiemesDeFinale() {
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { val: "8", label: "Matchs" },
+              { val: "8", label: "Spiele" },
               { val: "16", label: "Mannschaften" },
               { val: "4", label: "Tage" },
             ].map((s) => (
@@ -98,20 +98,20 @@ export default function HuitiemesDeFinale() {
             <table className="w-full text-sm">
               <thead className="bg-primary text-white">
                 <tr>
-                  <th className="px-4 py-3 text-left">Date</th>
-                  <th className="px-4 py-3 text-left">Matchs</th>
+                  <th className="px-4 py-3 text-left">Datum</th>
+                  <th className="px-4 py-3 text-left">Spiele</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 {[
-                  { date: "3. Juli 2026", matchs: "Spiele 1-2" },
-                  { date: "4. Juli 2026", matchs: "Spiele 3-4" },
-                  { date: "5. Juli 2026", matchs: "Spiele 5-6" },
-                  { date: "6. Juli 2026", matchs: "Spiele 7-8" },
+                  { date: "3. Juli 2026", spiele: "Spiele 1-2" },
+                  { date: "4. Juli 2026", spiele: "Spiele 3-4" },
+                  { date: "5. Juli 2026", spiele: "Spiele 5-6" },
+                  { date: "6. Juli 2026", spiele: "Spiele 7-8" },
                 ].map((r) => (
                   <tr key={r.date} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-gray-900">{r.date}</td>
-                    <td className="px-4 py-3 text-gray-600">{r.matchs}</td>
+                    <td className="px-4 py-3 text-gray-600">{r.spiele}</td>
                   </tr>
                 ))}
               </tbody>

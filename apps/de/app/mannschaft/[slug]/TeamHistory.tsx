@@ -109,12 +109,12 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
       {/* Forces & Faiblesses */}
       {history && (
         <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-5">Starken &amp; Schwachen</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-5">Stärken &amp; Schwächen</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-accent uppercase tracking-wide">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent text-xs">✓</span>
-                Starken
+                Stärken
               </h3>
               <ul className="space-y-2">
                 {history.strengths.map((s, i) => (
@@ -128,7 +128,7 @@ export function TeamHistory({ history, team }: TeamHistoryProps) {
             <div>
               <h3 className="text-sm font-semibold mb-3 flex items-center gap-2 text-red-600 uppercase tracking-wide">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-red-600 text-xs">✗</span>
-                Schwachen
+                Schwächen
               </h3>
               <ul className="space-y-2">
                 {history.weaknesses.map((w, i) => (

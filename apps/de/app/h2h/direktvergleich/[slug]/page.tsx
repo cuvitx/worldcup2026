@@ -10,14 +10,14 @@ import { ArrowRight, BarChart3, Calendar, ClipboardList, ExternalLink, Link2, Sw
 import type { Team } from "@repo/data/types";
 /* ─── Top 30 confrontations marquantes ─────────────────────────────────────── */
 const CONFRONTATIONS = [
-  "france-vs-bresil", "argentine-vs-allemagne", "bresil-vs-allemagne", "france-vs-allemagne",
-  "france-vs-italie", "bresil-vs-argentine", "angleterre-vs-allemagne", "espagne-vs-italie",
-  "france-vs-argentine", "bresil-vs-france", "allemagne-vs-italie", "angleterre-vs-france",
-  "pays-bas-vs-argentine", "bresil-vs-angleterre", "espagne-vs-allemagne", "portugal-vs-espagne",
-  "france-vs-espagne", "allemagne-vs-pays-bas", "argentine-vs-angleterre", "bresil-vs-italie",
-  "france-vs-portugal", "uruguay-vs-bresil", "argentine-vs-bresil", "pays-bas-vs-allemagne",
-  "angleterre-vs-argentine", "france-vs-pays-bas", "espagne-vs-angleterre", "allemagne-vs-bresil",
-  "italie-vs-angleterre", "portugal-vs-france",
+  "frankreich-vs-brasilien", "argentinien-vs-deutschland", "brasilien-vs-deutschland", "frankreich-vs-deutschland",
+  "frankreich-vs-italien", "brasilien-vs-argentinien", "england-vs-deutschland", "spanien-vs-italien",
+  "frankreich-vs-argentinien", "brasilien-vs-frankreich", "deutschland-vs-italien", "england-vs-frankreich",
+  "niederlande-vs-argentinien", "brasilien-vs-england", "spanien-vs-deutschland", "portugal-vs-spanien",
+  "frankreich-vs-spanien", "deutschland-vs-niederlande", "argentinien-vs-england", "brasilien-vs-italien",
+  "frankreich-vs-portugal", "uruguay-vs-brasilien", "argentinien-vs-brasilien", "niederlande-vs-deutschland",
+  "england-vs-argentinien", "frankreich-vs-niederlande", "spanien-vs-england", "deutschland-vs-brasilien",
+  "italien-vs-england", "portugal-vs-frankreich",
 ] as const;
 function parseSlug(slug: string): { team1: Team; team2: Team } | null {
   const idx = slug.indexOf("-vs-");

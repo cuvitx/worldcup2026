@@ -25,7 +25,7 @@ export function HeroSection() {
             >
               <Ticket className="h-5 w-5 inline-block" /> Auf FIFA.com kaufen (offiziell)
             </a>
-            <a href="#prix" className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-all w-full sm:w-auto">
+            <a href="#preise" className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-all w-full sm:w-auto">
                Preise anzeigen
             </a>
           </div>

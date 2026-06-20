@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../../lib/localized-data";
+import { matches, teamsById } from "../../../lib/localized-data";
 
 const roundColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
   "round-of-32": { bg: "bg-primary/5", border: "border-gray-200", text: "text-primary", badge: "bg-primary" },

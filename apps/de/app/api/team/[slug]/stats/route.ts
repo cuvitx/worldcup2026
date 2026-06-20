@@ -1,8 +1,5 @@
-import { teamsBySlug } from "../../../../../lib/localized-data";
+import { teamsBySlug, playersByTeamId, matches, stadiumsById } from "../../../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
-import { playersByTeamId } from "../../../../../lib/localized-data";
-import { matches } from "@repo/data/matches";
-import { stadiumsById } from "../../../../../lib/localized-data";
 import { getAltitudeImpact } from "@repo/api/factors";
 import { getTravelFatigue, teamSlugSchema } from "@repo/api";
 

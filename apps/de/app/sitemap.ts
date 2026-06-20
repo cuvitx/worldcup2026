@@ -1,9 +1,5 @@
 import type { MetadataRoute } from "next";
-import { teams } from "../lib/localized-data";
-import { matches } from "@repo/data/matches";
-import { stadiums } from "../lib/localized-data";
-import { cities } from "../lib/localized-data";
-import { players } from "../lib/localized-data";
+import { teams, matches, stadiums, cities, players } from "../lib/localized-data";
 import { groups } from "@repo/data/groups";
 import { routePrefixes } from "@repo/data/route-mapping";
 

@@ -16,13 +16,13 @@ interface Team {
 }
 
 const confLabels: Record<string, string> = {
-  ALL: "Toutes",
-  UEFA: "Europe",
-  CONMEBOL: "Amérique du Sud",
-  CAF: "Afrique",
-  AFC: "Asie",
-  CONCACAF: "Amérique du Nord",
-  OFC: "Océanie",
+  ALL: "Alle",
+  UEFA: "Europa",
+  CONMEBOL: "Südamerika",
+  CAF: "Afrika",
+  AFC: "Asien",
+  CONCACAF: "Nordamerika",
+  OFC: "Ozeanien",
 };
 
 const confKeys = ["ALL", "UEFA", "CONMEBOL", "CAF", "AFC", "CONCACAF", "OFC"] as const;
@@ -34,7 +34,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Mannschaften par confédération</h2>
+      <h2 className="text-2xl font-bold text-gray-900">Mannschaften nach Konföderation</h2>
 
       {/* Filter pills */}
       <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible">
@@ -75,7 +75,7 @@ export function ConfederationFilter({ teams }: { teams: Team[] }) {
               </p>
               {team.isHost && (
                 <span className="inline-block mt-1 text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
-                  Pays hôte
+                  Gastgeber
                 </span>
               )}
             </div>

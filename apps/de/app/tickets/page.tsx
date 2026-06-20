@@ -80,7 +80,7 @@ export default function TicketsPage() {
             icon: ""
           },
           {
-            href: "/ou-regarder",
+            href: "/wo-schauen",
             title: " Wo die Spiele anschauen",
             description: "TV-Sender, kostenloser und kostenpflichtiger Streaming für die WM 2026.",
             icon: ""

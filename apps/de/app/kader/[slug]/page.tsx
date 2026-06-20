@@ -3,9 +3,7 @@ import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug, teamsById } from "../../../lib/localized-data";
-import { playersByTeamId } from "../../../lib/localized-data";
-import { matches } from "@repo/data/matches";
+import { teams, teamsBySlug, teamsById, playersByTeamId, matches } from "../../../lib/localized-data";
 import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
 import { ClipboardList, ExternalLink, ShieldAlert, Star, UserX, Users } from "lucide-react";
 import { PmuCTA } from "../../components/PmuCTA";
@@ -28,9 +26,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${team.flag} Kader ${team.name} — WM 2026`,
       description: `Liste der 26 Spieler von ${team.name} für die WM 2026.`,
-      url: `${domains.de}/Kader/${team.slug}`,
+      url: `${domains.de}/kader/${team.slug}`,
       },
-    alternates: { canonical: `https://www.wm2026guide.de/Kader/${team.slug}` },
+    alternates: { canonical: `https://www.wm2026guide.de/kader/${team.slug}` },
   };
 }
 const positionLabels: Record<string, string> = {

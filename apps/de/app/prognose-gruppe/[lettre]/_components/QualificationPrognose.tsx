@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { teamsById } from "@repo/data/teams";
+import type { teamsById } from "@/lib/localized-data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
 
 type Team = NonNullable<(typeof teamsById)[string]>;
@@ -36,7 +36,7 @@ export function QualificationPrognose({ sortedTeams }: QualificationPrognoseProp
             <div key={team!.id} className="flex items-center gap-3 rounded-lg border border-accent/30 bg-accent/10 p-3">
               <span className="text-2xl">{team!.flag}</span>
               <div>
-                <Link href={`/Prognose/${team!.slug}`} className="font-bold hover:text-primary transition-colors">{team!.name}</Link>
+                <Link href={`/prognose/${team!.slug}`} className="font-bold hover:text-primary transition-colors">{team!.name}</Link>
                 {pred && <p className="text-xs text-gray-500">ELO {pred.eloRating} · {Math.round(pred.groupStageProb * 100)}% Qualifikation</p>}
               </div>
             </div>
@@ -50,7 +50,7 @@ export function QualificationPrognose({ sortedTeams }: QualificationPrognoseProp
           <div className="flex items-center gap-3 rounded-lg border border-primary/20 bg-primary/5 p-3">
             <span className="text-2xl">{maybeQualify.team.flag}</span>
             <div>
-              <Link href={`/Prognose/${maybeQualify.team.slug}`} className="font-bold hover:text-primary transition-colors">{maybeQualify.team.name}</Link>
+              <Link href={`/prognose/${maybeQualify.team.slug}`} className="font-bold hover:text-primary transition-colors">{maybeQualify.team.name}</Link>
               {maybeQualify.pred && <p className="text-xs text-gray-500">{Math.round(maybeQualify.pred.groupStageProb * 100)}% Chance als bester Dritter · ELO {maybeQualify.pred.eloRating}</p>}
             </div>
           </div>

@@ -147,7 +147,7 @@ export default function GuidesPage() {
               { href: "/securite", icon: "🔒", title: "Sicherheit", description: "Sicherheitstipps für Ihre Reise" },
               { href: "/hebergement", icon: "🏨", title: "Unterkunft", description: "Wo übernachten während der WM 2026" },
               { href: "/Tickets", icon: "🎟️", title: "Tickets", description: "So kaufen Sie Ihre WM-Tickets" },
-              { href: "/ou-regarder", icon: "📺", title: "Wo die Spiele schauen", description: "TV, Streaming und Bars für die WM" },
+              { href: "/wo-schauen", icon: "📺", title: "Wo die Spiele schauen", description: "TV, Streaming und Bars für die WM" },
               { href: "/regarder-cdm-au-travail", icon: "💼", title: "Bei der Arbeit schauen", description: "Spiele vom Büro aus verfolgen" },
               { href: "/guide/glossaire", icon: "📖", title: "Fußball-Glossar", description: "Alle Fußballbegriffe erklärt" },
               { href: "/voyage/vols-budget", icon: "🧮", title: "Budgetrechner", description: "Berechnen Sie Ihr persönliches WM-Budget" },

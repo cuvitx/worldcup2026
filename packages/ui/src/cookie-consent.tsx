@@ -77,7 +77,7 @@ export function CookieConsent({ lang }: CookieConsentProps) {
       style={{ WebkitBackdropFilter: "blur(4px)", backdropFilter: "blur(4px)", zIndex: 2147483647, WebkitTransform: "translateZ(0)" }}
       role="dialog"
       aria-modal="true"
-      aria-label="Consentement cookies"
+      aria-label={lang === "de" ? "Cookie-Einwilligung" : lang === "es" ? "Consentimiento de cookies" : lang === "en" ? "Cookie consent" : "Consentement cookies"}
     >
       <div className="w-full max-w-lg rounded-2xl bg-white shadow-2xl p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">

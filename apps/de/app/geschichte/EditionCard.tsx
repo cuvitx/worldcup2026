@@ -104,7 +104,7 @@ export function EditionCard({ edition, side }: EditionCardProps) {
               <span><Users className="h-5 w-5 inline-block" /></span> {edition.teams} Mannschafts
             </span>
             <span className="flex items-center gap-1">
-              <span></span> {edition.totalGoals} buts
+              <span></span> {edition.totalGoals} Tore
             </span>
           </div>
         </div>

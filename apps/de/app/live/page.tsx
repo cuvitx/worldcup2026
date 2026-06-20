@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../lib/localized-data";
-import { stadiumsById } from "../../lib/localized-data";
+import { matches, teamsById, stadiumsById } from "../../lib/localized-data";
 import { Countdown } from "@repo/ui/countdown";
 import { EVENT_DATES } from "@repo/data/constants";
 import { PmuBanner } from "../components/PmuBanner";

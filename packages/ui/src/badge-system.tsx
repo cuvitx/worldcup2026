@@ -9,12 +9,13 @@ import {
   getLS,
   setLS,
   checkBadge,
+  getBadgeName,
   type BadgeDef,
   type BadgeState,
 } from "./badges";
 
 // Re-export for consumers
-export { BADGE_DEFS } from "./badges";
+export { BADGE_DEFS, getBadgeName, getBadgeDescription } from "./badges";
 export type { BadgeDef } from "./badges";
 
 /**
@@ -71,7 +72,7 @@ interface BadgeContextType {
 const BadgeContext = createContext<BadgeContextType | null>(null);
 export const useBadges = () => useContext(BadgeContext);
 
-function BadgeToast({ badge, onDone }: { badge: BadgeDef; onDone: () => void }) {
+function BadgeToast({ badge, onDone, lang = "fr" }: { badge: BadgeDef; onDone: () => void; lang?: "fr" | "de" }) {
   useEffect(() => {
     const t = setTimeout(onDone, 3500);
     return () => clearTimeout(t);
@@ -82,8 +83,8 @@ function BadgeToast({ badge, onDone }: { badge: BadgeDef; onDone: () => void }) 
       <div className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 px-5 py-3 text-white shadow-2xl">
         <span className="text-3xl">{badge.emoji}</span>
         <div>
-          <p className="text-xs font-medium opacity-90">Badge débloqué !</p>
-          <p className="font-bold">{badge.name}</p>
+          <p className="text-xs font-medium opacity-90">{lang === "de" ? "Badge freigeschaltet!" : "Badge débloqué !"}</p>
+          <p className="font-bold">{getBadgeName(badge, lang)}</p>
         </div>
       </div>
     </div>
@@ -107,7 +108,7 @@ function BadgeToast({ badge, onDone }: { badge: BadgeDef; onDone: () => void }) 
  * badges.trackProno();
  * ```
  */
-export function BadgeSystem({ children }: { children: React.ReactNode }) {
+export function BadgeSystem({ children, lang = "fr" }: { children: React.ReactNode; lang?: "fr" | "de" }) {
   const pathname = usePathname();
   const [stats, setStats] = useState<UserStats>({
     visitedPages: [], votes: 0, quizScore: 0, bracketCompleted: false, streak: 0,
@@ -273,7 +274,7 @@ export function BadgeSystem({ children }: { children: React.ReactNode }) {
       trackProno, trackPronoCorrect, trackPronoWrong,
     }}>
       {children}
-      {toastBadge && <BadgeToast badge={toastBadge} onDone={() => setToastBadge(null)} />}
+      {toastBadge && <BadgeToast badge={toastBadge} onDone={() => setToastBadge(null)} lang={lang} />}
     </BadgeContext.Provider>
   );
 }

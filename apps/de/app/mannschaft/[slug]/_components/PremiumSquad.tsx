@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { playersByTeamId } from "@repo/data/players";
+import type { playersByTeamId } from "@/lib/localized-data";
 
 type Player = NonNullable<(typeof playersByTeamId)[string]>[number];
 

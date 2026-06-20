@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RelatedLinks } from "../components/RelatedLinks";
-import { teams } from "../../lib/localized-data";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../lib/localized-data";
+import { teams, matches, teamsById } from "../../lib/localized-data";
 import { H2HSelector } from "./h2h-selector";
 
 export const metadata: Metadata = {
@@ -22,18 +20,18 @@ export const metadata: Metadata = {
 
 // Popular matchups to feature
 const popularMatchups = [
-  ["france", "allemagne"],
-  ["bresil", "argentine"],
-  ["espagne", "portugal"],
-  ["france", "bresil"],
-  ["angleterre", "etats-unis"],
-  ["argentine", "allemagne"],
-  ["france", "espagne"],
-  ["bresil", "allemagne"],
-  ["pays-bas", "argentine"],
-  ["france", "angleterre"],
-  ["mexique", "etats-unis"],
-  ["japon", "coree-du-sud"],
+  ["frankreich", "deutschland"],
+  ["brasilien", "argentinien"],
+  ["spanien", "portugal"],
+  ["frankreich", "brasilien"],
+  ["england", "usa"],
+  ["argentinien", "deutschland"],
+  ["frankreich", "spanien"],
+  ["brasilien", "deutschland"],
+  ["niederlande", "argentinien"],
+  ["frankreich", "england"],
+  ["mexiko", "usa"],
+  ["japan", "suedkorea"],
 ];
 
 export default function H2HIndexPage() {
@@ -193,7 +191,7 @@ export default function H2HIndexPage() {
           { href: "/spiel/spielplan", title: "Spielplan", description: "Alle Spiele der WM 2026", icon: "" },
           { href: "/fifa-ranking", title: "FIFA-Rangliste", description: "Weltrangliste der 48 Mannschaften", icon: "" },
           { href: "/quotenvergleich", title: "Spielervergleich", description: "Vergleichen Sie die Stars der WM", icon: "" },
-          { href: "/statistiques", title: "Statistiken", description: "Zahlen und Statistiken der WM 2026", icon: "" },
+          { href: "/statistiken", title: "Statistiken", description: "Zahlen und Statistiken der WM 2026", icon: "" },
         ]} />
       </div>
     </>

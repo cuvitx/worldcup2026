@@ -2,9 +2,7 @@ import { domains } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../../lib/localized-data";
-import { stadiumsById } from "../../../lib/localized-data";
+import { matches, teamsById, stadiumsById } from "../../../lib/localized-data";
 import { EVENT_DATES } from "@repo/data/constants";
 import { Clock, Users } from "lucide-react"
 
@@ -22,7 +20,7 @@ function dayNumberToDate(n: number): string {
   return d.toISOString().slice(0, 10); // "YYYY-MM-DD"
 }
 
-function dateToFrench(dateStr: string): string {
+function formatDateDe(dateStr: string): string {
   const d = new Date(dateStr + "T12:00:00Z");
   return d.toLocaleDateString("de-DE", {
     weekday: "long",
@@ -32,10 +30,10 @@ function dateToFrench(dateStr: string): string {
   });
 }
 
-function utcToFrParis(time: string): string {
-  // Times are already in Europe/Paris (CEST) — just reformat with French "h"
+function formatTime(time: string): string {
+  // Times are already in Europe/Paris (CEST) — reformat as HH:MM
   const [h, m] = time.split(":").map(Number);
-  return `${String(h ?? 0).padStart(2, "0")}h${String(m ?? 0).padStart(2, "0")}`;
+  return `${String(h ?? 0).padStart(2, "0")}:${String(m ?? 0).padStart(2, "0")}`;
 }
 
 function stageLabel(stage: string, group?: string): string {
@@ -60,7 +58,7 @@ function stageBadgeClass(stage: string): string {
 }
 
 // ============================================================
-//  Static params: generate pages for jour-1 to jour-39
+//  Static params: generate pages for tag-1 to tag-39
 // ============================================================
 export async function generateStaticParams() {
   return Array.from({ length: TOTAL_DAYS }, (_, i) => ({
@@ -81,18 +79,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (isNaN(dayNum) || dayNum < 1 || dayNum > TOTAL_DAYS) return {};
 
   const dateStr = dayNumberToDate(dayNum);
-  const dateFr = dateToFrench(dateStr);
+  const formattedDate = formatDateDe(dateStr);
   const dayMatches = matches.filter((m) => m.date === dateStr);
 
   return {
-    title: `Tag ${dayNum} — ${dateFr} | Spiele WM 2026`,
-    description: `Programm Tag ${dayNum} der WM 2026 (${dateFr}): ${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} auf dem Programm. Uhrzeiten, Stadien und Mannschaften.`,
+    title: `Tag ${dayNum} — ${formattedDate} | Spiele WM 2026`,
+    description: `Programm Tag ${dayNum} der WM 2026 (${formattedDate}): ${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} auf dem Programm. Uhrzeiten, Stadien und Mannschaften.`,
     openGraph: {
-      title: `WM 2026 — Tag ${dayNum}: ${dateFr}`,
+      title: `WM 2026 — Tag ${dayNum}: ${formattedDate}`,
       description: `${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} an diesem Tag. Alle Uhrzeiten und Stadien.`,
     },
     alternates: {
-      canonical: `${domains.de}/spielplan/jour-${dayNum}`,
+      canonical: `${domains.de}/spielplan/tag-${dayNum}`,
     },
   };
 }
@@ -121,7 +119,7 @@ const faqSpielplanItems = [
 // ============================================================
 //  Page component
 // ============================================================
-export default async function JourPage({ params }: PageProps) {
+export default async function TagPage({ params }: PageProps) {
   const { n } = await params;
   const dayNum = parseInt(n, 10);
 
@@ -130,7 +128,7 @@ export default async function JourPage({ params }: PageProps) {
   }
 
   const dateStr = dayNumberToDate(dayNum);
-  const dateFr = dateToFrench(dateStr);
+  const formattedDate = formatDateDe(dateStr);
 
   // Matches for this day
   const dayMatches = matches
@@ -155,7 +153,7 @@ export default async function JourPage({ params }: PageProps) {
               <h1 className="text-3xl sm:text-4xl font-extrabold">
                 Tag {dayNum}
               </h1>
-              <p className="mt-2 text-lg text-white/90 capitalize">{dateFr}</p>
+              <p className="mt-2 text-lg text-white/90 capitalize">{formattedDate}</p>
               <p className="mt-1 text-sm text-white/80">
                 {dayMatches.length > 0
                   ? `${dayMatches.length} Spiel${dayMatches.length > 1 ? "e" : ""} auf dem Programm`
@@ -180,7 +178,7 @@ export default async function JourPage({ params }: PageProps) {
         <div className="flex items-center justify-between mb-8 gap-4">
           {hasPrev ? (
             <Link
-              href={`/spielplan/jour-${dayNum - 1}`}
+              href={`/spielplan/tag-${dayNum - 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               ← Tag {dayNum - 1}
@@ -193,7 +191,7 @@ export default async function JourPage({ params }: PageProps) {
           </span>
           {hasNext ? (
             <Link
-              href={`/spielplan/jour-${dayNum + 1}`}
+              href={`/spielplan/tag-${dayNum + 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               Tag {dayNum + 1} →
@@ -211,12 +209,12 @@ export default async function JourPage({ params }: PageProps) {
               Spielfreier Tag
             </p>
             <p className="text-sm text-gray-500">
-              Am {dateFr} sind keine Spiele geplant.
+              Am {formattedDate} sind keine Spiele geplant.
             </p>
             <div className="mt-6 flex justify-center gap-4">
               {hasPrev && (
                 <Link
-                  href={`/spielplan/jour-${dayNum - 1}`}
+                  href={`/spielplan/tag-${dayNum - 1}`}
                   className="rounded-lg bg-primary/10 px-4 py-2 text-sm text-primary font-medium hover:bg-primary/20"
                 >
                   ← Vorheriger Tag
@@ -224,7 +222,7 @@ export default async function JourPage({ params }: PageProps) {
               )}
               {hasNext && (
                 <Link
-                  href={`/spielplan/jour-${dayNum + 1}`}
+                  href={`/spielplan/tag-${dayNum + 1}`}
                   className="rounded-lg bg-primary px-4 py-2 text-sm text-white font-medium hover:bg-primary/90"
                 >
                   Nächster Tag →
@@ -238,7 +236,7 @@ export default async function JourPage({ params }: PageProps) {
               const homeTeam = teamsById[match.homeTeamId];
               const awayTeam = teamsById[match.awayTeamId];
               const stadium = stadiumsById[match.stadiumId];
-              const frTime = utcToFrParis(match.time);
+              const formattedTime = formatTime(match.time);
               const stageLbl = stageLabel(match.stage, match.group);
               const badgeClass = stageBadgeClass(match.stage);
               const isFinal = match.stage === "final";
@@ -262,7 +260,7 @@ export default async function JourPage({ params }: PageProps) {
                       <div className="flex items-center gap-3 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
                           <span><Clock className="h-5 w-5 inline-block" /></span>
-                          <span className="font-medium text-gray-800">{frTime} (MEZ)</span>
+                          <span className="font-medium text-gray-800">{formattedTime} (MEZ)</span>
                           <span className="text-xs text-gray-500">| {match.time} CEST</span>
                         </span>
                       </div>
@@ -339,7 +337,7 @@ export default async function JourPage({ params }: PageProps) {
         <div className="mt-10 flex items-center justify-between gap-4">
           {hasPrev ? (
             <Link
-              href={`/spielplan/jour-${dayNum - 1}`}
+              href={`/spielplan/tag-${dayNum - 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               ← Tag {dayNum - 1}
@@ -355,7 +353,7 @@ export default async function JourPage({ params }: PageProps) {
           </Link>
           {hasNext ? (
             <Link
-              href={`/spielplan/jour-${dayNum + 1}`}
+              href={`/spielplan/tag-${dayNum + 1}`}
               className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               Tag {dayNum + 1} →
@@ -378,7 +376,7 @@ export default async function JourPage({ params }: PageProps) {
               return (
                 <Link
                   key={d}
-                  href={`/spielplan/jour-${d}`}
+                  href={`/spielplan/tag-${d}`}
                   title={`Tag ${d} — ${cnt} Spiel${cnt !== 1 ? "e" : ""}`}
                   className={`relative flex h-9 w-9 items-center justify-center rounded-lg text-sm font-bold transition-colors ${
                     isActive
@@ -420,7 +418,7 @@ export default async function JourPage({ params }: PageProps) {
               "@type": "Organization",
               name: "FIFA",
             },
-            url: `${domains.de}/spielplan/jour-${dayNum}`,
+            url: `${domains.de}/spielplan/tag-${dayNum}`,
             description: `Programm Tag ${dayNum} der WM 2026: ${dayMatches.length} Spiel(e).`,
           }),
         }}

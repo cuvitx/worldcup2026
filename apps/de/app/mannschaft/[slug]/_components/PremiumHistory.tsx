@@ -9,9 +9,9 @@ function countResults(history: WcEdition[]) {
   let titles = 0, finals = 0, semis = 0, participations = 0;
   for (const e of history) {
     if (e.result.includes("CHAMPION")) titles++;
-    else if (e.result.includes("Finaliste")) finals++;
-    else if (e.result.includes("3e place") || e.result.includes("4e place")) semis++;
-    if (!e.result.includes("Non qualifi") && !e.result.includes("Non participant") && !e.result.includes("N'existait pas")) participations++;
+    else if (e.result.includes("Finalist")) finals++;
+    else if (e.result.includes("Dritter Platz") || e.result.includes("Vierter Platz") || e.result.includes("4. Platz")) semis++;
+    if (!e.result.includes("Nicht qualifiziert") && !e.result.includes("Nicht teilgenommen") && !e.result.includes("Existierte nicht")) participations++;
   }
   return { titles, finals, semis, participations };
 }
@@ -86,7 +86,7 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
                   className={`border-t border-gray-100 ${
                     edition.result.includes("CHAMPION")
                       ? "bg-primary/5"
-                      : edition.result.includes("Finaliste")
+                      : edition.result.includes("Finalist")
                       ? "bg-gray-50/50"
                       : i % 2 === 0
                       ? "bg-white/30"
@@ -100,9 +100,9 @@ export function PremiumHistory({ team }: PremiumHistoryProps) {
                     <span className={`font-semibold ${
                       edition.result.includes("CHAMPION")
                         ? "text-accent text-base"
-                        : edition.result.includes("Finaliste")
+                        : edition.result.includes("Finalist")
                         ? "text-gray-600"
-                        : edition.result.includes("Non qualifi") || edition.result.includes("Non participant") || edition.result.includes("N'existait pas")
+                        : edition.result.includes("Nicht qualifiziert") || edition.result.includes("Nicht teilgenommen") || edition.result.includes("Existierte nicht")
                         ? "text-gray-400"
                         : "text-gray-700"
                     }`}>

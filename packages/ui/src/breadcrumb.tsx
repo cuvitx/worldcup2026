@@ -15,13 +15,15 @@ export interface BreadcrumbItem {
 
 /**
  * Props for the Breadcrumb component.
- * 
+ *
  * @param items - Array of breadcrumb items (first = homepage, last = current page)
+ * @param lang - UI language: "fr" (default) or "de" — controls schema baseUrl
  */
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
   /** When true, renders with transparent bg + white text (for use inside hero sections) */
   transparent?: boolean;
+  lang?: "fr" | "de";
 }
 
 /**
@@ -41,7 +43,7 @@ interface BreadcrumbProps {
  * />
  * ```
  */
-export function Breadcrumb({ items, transparent = false }: BreadcrumbProps) {
+export function Breadcrumb({ items, transparent = false, lang = "fr" }: BreadcrumbProps) {
   // Convert items to BreadcrumbSchema format
   const schemaItems = items.map((item) => ({
     name: item.label,
@@ -51,7 +53,7 @@ export function Breadcrumb({ items, transparent = false }: BreadcrumbProps) {
   return (
     <>
       {/* Schema.org JSON-LD */}
-      <BreadcrumbSchema items={schemaItems} baseUrl={domains.fr} />
+      <BreadcrumbSchema items={schemaItems} baseUrl={domains[lang]} />
 
       {/* Breadcrumb UI */}
       <nav className={transparent ? "" : "bg-white border-b border-gray-200"}>

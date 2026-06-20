@@ -3,10 +3,9 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug } from "../../../lib/localized-data";
+import { teams, teamsBySlug, matches } from "../../../lib/localized-data";
 import { h2hByPair } from "@repo/data/h2h";
 import { predictionsByTeamId, matchPredictionByPair } from "@repo/data/predictions";
-import { matches } from "@repo/data/matches";
 import { getMatchPhase } from "@repo/data/tournament-state";
 import { PmuCTA } from "../../components/PmuCTA";
 

@@ -124,7 +124,7 @@ function groupByLetter(terms: Term[]): Record<string, Term[]> {
   return grouped;
 }
 
-export default function GlossairePage() {
+export default function GlossarPage() {
   const grouped = groupByLetter(glossary);
   const letters = Object.keys(grouped).sort();
 

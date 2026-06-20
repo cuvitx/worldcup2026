@@ -302,7 +302,7 @@ export default async function PlayerPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "Person",
             name: player.name,
-            jobTitle: "Football Player",
+            jobTitle: "Fußballspieler",
             memberOf: team
               ? {
                   "@type": "SportsTeam",

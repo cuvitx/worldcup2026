@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { teamsById } from "../../../../lib/localized-data";
-import type { matches as matchesType } from "@repo/data/matches";
+import type { matches as matchesType } from "@/lib/localized-data";
 
 type Match = (typeof matchesType)[number];
 
@@ -23,7 +23,7 @@ export function GroupCalendar({ groupLetter, groupMatches }: GroupCalendarProps)
           return (
             <Link
               key={match.id}
-              href={`/match/${match.slug}`}
+              href={`/spiel/${match.slug}`}
               className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-all hover:border-primary/30 hover:bg-primary/5 group"
             >
               <div className="text-xs text-gray-500 w-24 shrink-0">

@@ -19,7 +19,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* Spielers */}
+        {/* Spieler */}
         <div className="h-6 w-32 bg-gray-200 rounded-full mb-4 animate-pulse" />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
           {Array.from({ length: 8 }).map((_, i) => (
@@ -31,7 +31,7 @@ export default function Loading() {
           ))}
         </div>
 
-        {/* Matchs */}
+        {/* Spiele */}
         <div className="h-6 w-28 bg-gray-200 rounded-full mb-4 animate-pulse" />
         <div className="space-y-3">
           {Array.from({ length: 3 }).map((_, i) => (

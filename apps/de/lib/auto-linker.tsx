@@ -1,8 +1,5 @@
 import Link from "next/link";
-import { teams } from "@repo/data/teams";
-import { stadiums } from "@repo/data/stadiums";
-import { cities } from "@repo/data/cities";
-import { players } from "@repo/data/players";
+import { teams, stadiums, cities, players } from "./localized-data";
 
 /* ── Types ── */
 

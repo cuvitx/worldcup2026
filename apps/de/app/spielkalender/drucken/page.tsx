@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../../lib/localized-data";
-import { stadiumsById } from "../../../lib/localized-data";
+import { matches, teamsById, stadiumsById } from "../../../lib/localized-data";
 import { PrintButton } from "./PrintButton";
 export const metadata: Metadata = {
   title: "Spielplan WM 2026 — Druckversion",
@@ -32,7 +30,7 @@ function stageLabel(stage: string, group?: string): string {
   return labels[stage] ?? stage;
 }
 
-export default function SpielplanImprimerPage() {
+export default function SpielplanDruckenPage() {
   const matchesByDate = new Map<string, typeof matches>();
   for (const m of matches) {
     const list = matchesByDate.get(m.date) ?? [];

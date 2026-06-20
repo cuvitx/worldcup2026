@@ -10,9 +10,16 @@ export interface TocItem {
 
 interface TableOfContentsProps {
   items: TocItem[];
+  lang?: "fr" | "de";
 }
 
-export function TableOfContents({ items }: TableOfContentsProps) {
+const labels = {
+  fr: { ariaLabel: "Table des matières", heading: "Sommaire" },
+  de: { ariaLabel: "Inhaltsverzeichnis", heading: "Inhalt" },
+};
+
+export function TableOfContents({ items, lang = "fr" }: TableOfContentsProps) {
+  const l = labels[lang];
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
@@ -46,11 +53,11 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
   return (
     <nav
-      aria-label="Table des matières"
+      aria-label={l.ariaLabel}
       className="hidden lg:block sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto"
     >
       <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">
-        Sommaire
+        {l.heading}
       </p>
       <ul className="space-y-0.5 border-l-2 border-gray-200">
         {items.map((item) => {

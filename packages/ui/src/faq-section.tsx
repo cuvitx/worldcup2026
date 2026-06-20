@@ -11,13 +11,15 @@ interface FAQItem {
 
 /**
  * Props for the FAQSection component.
- * 
- * @param title - Optional custom title (default: "Questions fréquentes")
+ *
+ * @param title - Optional custom title (default depends on lang)
  * @param items - Array of FAQ items with question/answer pairs
+ * @param lang - UI language: "fr" (default) or "de"
  */
 interface FAQSectionProps {
   title?: string;
   items: FAQItem[];
+  lang?: "fr" | "de";
 }
 
 /**
@@ -43,8 +45,13 @@ interface FAQSectionProps {
  * />
  * ```
  */
-export function FAQSection({ title, items }: FAQSectionProps) {
-  const defaultTitle = "Questions fréquentes";
+const defaultTitles = {
+  fr: "Questions fréquentes",
+  de: "Häufig gestellte Fragen",
+};
+
+export function FAQSection({ title, items, lang = "fr" }: FAQSectionProps) {
+  const defaultTitle = defaultTitles[lang];
 
   // JSON-LD Schema
   const faqSchema = {

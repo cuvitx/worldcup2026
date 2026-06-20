@@ -79,7 +79,7 @@ export function MatchHeroAdaptive({
           <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
             {stage}{match.group ? ` - Gruppe ${match.group}` : ""}
           </p>
-          <p className="mb-6 text-xs text-gray-400 uppercase tracking-wider">Terminé</p>
+          <p className="mb-6 text-xs text-gray-400 uppercase tracking-wider">Spielende</p>
 
           <div className="flex items-center justify-center gap-6 sm:gap-12 mb-6">
             {/* Home */}
@@ -116,7 +116,7 @@ export function MatchHeroAdaptive({
 
           {match.halfTimeHome != null && match.halfTimeAway != null && (
             <p className="text-sm text-gray-400 mt-1">
-              MT : {match.halfTimeHome} - {match.halfTimeAway}
+              HZ: {match.halfTimeHome} - {match.halfTimeAway}
             </p>
           )}
 
@@ -143,7 +143,7 @@ export function MatchHeroAdaptive({
             matchTime={match.time}
             homeTeam={home?.name ?? "Noch offen"}
             awayTeam={away?.name ?? "Noch offen"}
-            stadium={stadium?.name ?? "Stadion a confirmer"}
+            stadium={stadium?.name ?? "Stadion wird noch bekannt gegeben"}
             locale="de"
             liveFixtures={allFixtures.length > 0 ? allFixtures : undefined}
             homeApiTeamId={teamApiIds[match.homeTeamId] ?? 0}
@@ -238,7 +238,7 @@ export function MatchHeroAdaptive({
         <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300">
           <span>{dateFormatted}</span>
           {stadium && <span>{stadium.name.trim()}{stadium.city ? `, ${stadium.city.trim()}` : ""}</span>}
-          {stadium?.capacity && <span>{stadium.capacity.toLocaleString("de-DE")} places</span>}
+          {stadium?.capacity && <span>{stadium.capacity.toLocaleString("de-DE")} Platze</span>}
         </div>
       </div>
     </section>

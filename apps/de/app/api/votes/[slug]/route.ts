@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { matchesBySlug } from "@repo/data/matches";
+import { matchesBySlug } from "@/lib/localized-data";
 import { rateLimit } from "../../_lib/rate-limit";
 import { getVotes, castVote, hashIp } from "../../_lib/votes-store";
 import type { VoteChoice } from "../../_lib/votes-store";

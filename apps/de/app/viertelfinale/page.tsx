@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Viertelfinale WM 2026",
     description: "Alles über das Viertelfinale der WM 2026.",
-    url: "https://www.wm2026guide.de/quarts-de-finale",
+    url: "https://www.wm2026guide.de/viertelfinale",
   },
-  alternates: { canonical: "https://www.wm2026guide.de/quarts-de-finale" },
+  alternates: { canonical: "https://www.wm2026guide.de/viertelfinale" },
 };
 
 const faqItems = [
@@ -30,7 +30,7 @@ const faqItems = [
   },
 ];
 
-export default function QuartsDeFinale() {
+export default function ViertelfinaleSeite() {
   return (
     <>
 

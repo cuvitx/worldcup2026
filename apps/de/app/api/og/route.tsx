@@ -15,15 +15,15 @@ function safeLoad<T>(fn: () => T, fallback: T): T {
 
 /* ── Data lookups ── */
 function findTeam(slug: string) {
-  const teams = safeLoad(() => require("@repo/data/teams").teams as any[], []);
+  const teams = safeLoad(() => require("@/lib/localized-data").teams as any[], []);
   return teams.find((t: any) => t.slug === slug);
 }
 function findMatch(slug: string) {
-  const matches = safeLoad(() => require("@repo/data/matches").matches as any[], []);
+  const matches = safeLoad(() => require("@/lib/localized-data").matches as any[], []);
   return matches.find((m: any) => m.slug === slug);
 }
 function findPlayer(slug: string) {
-  const players = safeLoad(() => require("@repo/data/players").players as any[], []);
+  const players = safeLoad(() => require("@/lib/localized-data").players as any[], []);
   return players.find((p: any) => p.slug === slug);
 }
 
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
   let content: ReactElement;
 
   switch (type) {
-    case "equipe": {
+    case "mannschaft": {
       const team = findTeam(slug);
       content = (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", background: BG, padding: "60px" }}>
@@ -102,7 +102,7 @@ export async function GET(req: NextRequest) {
       content = (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", background: BG, padding: "60px 80px" }}>
           <div style={{ fontSize: 28, fontWeight: 700, color: ACCENT, textTransform: "uppercase", letterSpacing: 4, marginBottom: 24 }}>
-            {type === "Prognose" ? "Prognose" : "Article"}
+            {type === "Prognose" ? "Prognose" : "Artikel"}
           </div>
           <div style={{ fontSize: 48, fontWeight: 800, color: WHITE, textAlign: "center", lineHeight: 1.2 }}>
             {title || slug.replace(/-/g, " ")}

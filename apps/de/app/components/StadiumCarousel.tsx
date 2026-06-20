@@ -29,7 +29,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
       <button
         type="button"
         onClick={() => scroll("left")}
-        aria-label="Défiler à gauche"
+        aria-label="Nach links scrollen"
         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-gray-200 shadow-xl text-gray-700 hover:bg-white backdrop-blur-sm text-xl font-bold"
       >
         ‹
@@ -37,7 +37,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
       <button
         type="button"
         onClick={() => scroll("right")}
-        aria-label="Défiler à droite"
+        aria-label="Nach rechts scrollen"
         className="absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-gray-200 shadow-xl text-gray-700 hover:bg-white backdrop-blur-sm text-xl font-bold"
       >
         ›
@@ -79,7 +79,7 @@ export function StadiumCarousel({ stadiums }: StadiumCarouselProps) {
               </span>
               {/* Capacity badge */}
               <span className="absolute bottom-2 left-2 text-[10px] font-bold bg-black/50 text-white px-2 py-0.5 rounded-full backdrop-blur-sm z-10">
-                {(stadium.capacity / 1000).toFixed(0)}K places
+                {(stadium.capacity / 1000).toFixed(0)}K Plätze
               </span>
             </div>
 

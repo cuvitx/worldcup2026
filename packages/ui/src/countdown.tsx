@@ -4,6 +4,29 @@ import { useEffect, useState } from "react";
 
 const TARGET = new Date("2026-06-11T21:00:00+02:00").getTime();
 
+const labels = {
+  fr: {
+    days: "jours",
+    hours: "heures",
+    minutes: "min",
+    seconds: "sec",
+    opening: "Match d\u2019ouverture \u00b7 11 juin 2026",
+    teamMX: "Mexique",
+    teamZA: "Afrique du Sud",
+    venue: "Estadio Azteca, Mexico",
+  },
+  de: {
+    days: "Tage",
+    hours: "Stunden",
+    minutes: "Min.",
+    seconds: "Sek.",
+    opening: "Er\u00f6ffnungsspiel \u00b7 11. Juni 2026",
+    teamMX: "Mexiko",
+    teamZA: "S\u00fcdafrika",
+    venue: "Estadio Azteca, Mexiko-Stadt",
+  },
+} as const;
+
 function getTimeLeft() {
   const now = Date.now();
   const diff = Math.max(0, TARGET - now);
@@ -15,7 +38,7 @@ function getTimeLeft() {
   };
 }
 
-export function Countdown() {
+export function Countdown({ lang = "fr" }: { lang?: "fr" | "de" } = {}) {
   const [time, setTime] = useState(getTimeLeft);
   const [mounted, setMounted] = useState(false);
 
@@ -27,11 +50,13 @@ export function Countdown() {
 
   const val = (n: number) => (mounted ? String(n).padStart(2, "0") : "--");
 
+  const t = labels[lang];
+
   const units: { key: keyof ReturnType<typeof getTimeLeft>; label: string }[] = [
-    { key: "days", label: "jours" },
-    { key: "hours", label: "heures" },
-    { key: "minutes", label: "min" },
-    { key: "seconds", label: "sec" },
+    { key: "days", label: t.days },
+    { key: "hours", label: t.hours },
+    { key: "minutes", label: t.minutes },
+    { key: "seconds", label: t.seconds },
   ];
 
   return (
@@ -58,19 +83,19 @@ export function Countdown() {
 
         {/* Opening match — bigger flags */}
         <div className="flex flex-col items-center gap-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Match d&apos;ouverture · 11 juin 2026</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t.opening}</span>
           <div className="flex items-center gap-4">
             <div className="flex flex-col items-center gap-1">
               <span className="text-4xl sm:text-5xl">🇲🇽</span>
-              <span className="text-sm font-bold text-gray-900">Mexique</span>
+              <span className="text-sm font-bold text-gray-900">{t.teamMX}</span>
             </div>
             <span className="text-xs font-black text-primary bg-primary/10 rounded-full px-3 py-1">VS</span>
             <div className="flex flex-col items-center gap-1">
               <span className="text-4xl sm:text-5xl">🇿🇦</span>
-              <span className="text-sm font-bold text-gray-900">Afrique du Sud</span>
+              <span className="text-sm font-bold text-gray-900">{t.teamZA}</span>
             </div>
           </div>
-          <span className="text-xs text-gray-400">Estadio Azteca, Mexico</span>
+          <span className="text-xs text-gray-400">{t.venue}</span>
         </div>
       </div>
     </section>

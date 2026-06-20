@@ -50,7 +50,7 @@ function getPhaseColor(stage: string): string {
   return "bg-accent/10 text-accent";
 }
 
-function formatDateFr(dateStr: string): string {
+function formatDateDe(dateStr: string): string {
   const d = new Date(dateStr);
   return d.toLocaleDateString("de-DE", {
     weekday: "long",
@@ -192,10 +192,10 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                             })}
                             {remaining > 0 && (
                               <Link
-                                href={`/spielplan/jour-${dayInfo.day}`}
+                                href={`/spielplan/tag-${dayInfo.day}`}
                                 className="text-xs text-primary font-medium hover:underline px-1"
                               >
-                                +{remaining} match{remaining > 1 ? "s" : ""} →
+                                +{remaining} Spiel{remaining > 1 ? "e" : ""} →
                               </Link>
                             )}
                           </div>
@@ -215,7 +215,7 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
         {daysWithMatches.map((day) => (
           <div key={day.date} className="rounded-lg border border-gray-200 bg-white overflow-hidden">
             <div className="bg-gray-50 px-4 py-2 font-semibold text-sm text-gray-900 capitalize">
-              {formatDateFr(day.date)} — {day.matches.length} match{day.matches.length > 1 ? "s" : ""}
+              {formatDateDe(day.date)} — {day.matches.length} Spiel{day.matches.length > 1 ? "e" : ""}
             </div>
             <div className="divide-y divide-gray-100">
               {day.matches.map((match) => {

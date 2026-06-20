@@ -60,7 +60,7 @@ function PlayerCard({ player }: { player: Player }) {
       </div>
       <div className="text-right shrink-0">
         <p className="text-sm font-medium text-primary">
-          {player.caps} sel. / {player.goals} buts
+          {player.caps} Sp. / {player.goals} Tore
         </p>
       </div>
     </Link>
@@ -83,8 +83,8 @@ export default function ExpandablePlayerList({ players }: { players: Player[] })
           className="mt-2 w-full rounded-lg border border-gray-300 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
         >
           {expanded
-            ? "Masquer l\u2019Kader"
-            : `Alle anzeigen l\u2019Kader (${players.length} Spielers)`}
+            ? "Kader ausblenden"
+            : `Gesamten Kader anzeigen (${players.length} Spieler)`}
         </button>
       )}
     </div>

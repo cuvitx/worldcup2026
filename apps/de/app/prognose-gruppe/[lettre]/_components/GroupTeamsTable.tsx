@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { teamsById } from "@repo/data/teams";
+import type { teamsById } from "@/lib/localized-data";
 import type { predictionsByTeamId } from "@repo/data/predictions";
 
 type Team = NonNullable<(typeof teamsById)[string]>;
@@ -21,7 +21,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
     <section className="rounded-xl bg-white shadow-sm overflow-hidden">
       <div className="px-6 pt-6 pb-4 border-b border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900">
-          Mannschafts du Gruppe {groupLetter}
+          Mannschaften der Gruppe {groupLetter}
         </h2>
       </div>
       <div className="overflow-x-auto">
@@ -30,10 +30,10 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
             <tr>
               <th className="px-4 py-3 text-left">Mannschaft</th>
               <th className="px-4 py-3 text-center">FIFA</th>
-              <th className="px-4 py-3 text-center">Conf.</th>
-              <th className="px-4 py-3 text-center">CDM</th>
+              <th className="px-4 py-3 text-center">Konf.</th>
+              <th className="px-4 py-3 text-center">WM</th>
               <th className="px-4 py-3 text-left hidden sm:table-cell">Bestes Ergebnis</th>
-              <th className="px-4 py-3 text-center">Proba qual.</th>
+              <th className="px-4 py-3 text-center">Qual.-Wahrsch.</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
@@ -44,7 +44,7 @@ export function GroupTeamsTable({ groupLetter, sortedTeams }: GroupTeamsTablePro
                     <span className="text-xl" aria-label={team!.name}>{team!.flag}</span>
                     <span>{team!.name}</span>
                     {team!.isHost && (
-                      <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs text-primary">Hôte</span>
+                      <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs text-primary">Gastgeber</span>
                     )}
                   </Link>
                 </td>

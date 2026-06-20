@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { matches } from "@repo/data/matches";
-import { teamsById } from "../../lib/localized-data";
-import { stadiumsById } from "../../lib/localized-data";
-import { citiesById } from "../../lib/localized-data";
+import { matches, teamsById, stadiumsById, citiesById } from "../../lib/localized-data";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { Clock, MapPin, Globe } from "lucide-react";
 
@@ -34,7 +31,7 @@ const STAGE_LABELS: Record<string, string> = {
   final: "Finale",
 };
 
-function formatDateFr(dateStr: string): string {
+function formatDateDe(dateStr: string): string {
   const d = new Date(dateStr + "T12:00:00");
   return d.toLocaleDateString("de-DE", {
     weekday: "long",
@@ -85,7 +82,7 @@ const TIMEZONE_INFO = [
   },
 ];
 
-export default async function HorairesPage() {
+export default async function SpielzeitenPage() {
   // Build team name map for API matching
   const teamNameMap: Record<string, string> = {};
   for (const [id, t] of Object.entries(teamsById)) {
@@ -191,7 +188,7 @@ export default async function HorairesPage() {
                 {/* Date header */}
                 <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm border-b-2 border-primary pb-2 mb-4">
                   <h3 className="text-lg font-bold text-gray-900 capitalize">
-                    {formatDateFr(date)}
+                    {formatDateDe(date)}
                   </h3>
                   <p className="text-xs text-gray-500">
                     {dayMatches.length} Spiel{dayMatches.length > 1 ? "e" : ""}

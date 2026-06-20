@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
   // ── Ratenbegrenzung: Prüfen ob Kontakt bereits existiert (angemeldet vor < 24h) ──
   try {
     const checkRes = await fetch(
-      `https://api.brevo.com/v3/kontakts/${encodeURIComponent(normalizedEmail)}`,
+      `https://api.brevo.com/v3/contacts/${encodeURIComponent(normalizedEmail)}`,
       { headers: brevoHeaders, cache: 'no-store' },
     );
 
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
 
   // ── Kontakt erstellen / aktualisieren ────────────────────────────────────────
   try {
-    const createRes = await fetch('https://api.brevo.com/v3/kontakts', {
+    const createRes = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: brevoHeaders,
       body: JSON.stringify({

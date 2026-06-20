@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { teams } from "../../../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";
-import type { matches as matchesType } from "@repo/data/matches";
+import type { matches as matchesType } from "@/lib/localized-data";
 
 type Match = (typeof matchesType)[number];
 type Team = (typeof teams)[number];
@@ -33,7 +33,7 @@ export function MatchPredictions({ teamName, teamId, teamGroup, teamMatches }: M
                   <span className="text-2xl">{opponent?.flag ?? ""}</span>
                   <div>
                     <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "Noch offen"}</p>
-                    <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.date} &middot; {match.time}</p>
+                    <p className="text-xs text-gray-500">ST{match.matchday} &middot; {match.date} &middot; {match.time}</p>
                   </div>
                 </div>
                 {matchPred && (

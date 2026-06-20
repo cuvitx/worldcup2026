@@ -382,12 +382,12 @@ export default async function TorschützePage({ params }: PageProps) {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Wett-Ratgeber Torschützen</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/guide/parier-Torschützen" className="text-primary hover:underline">
+                  <Link href="/ratgeber/torschuetzen-wetten" className="text-primary hover:underline">
                     So wetten Sie auf die Torschützen der WM 2026 &rarr;
                   </Link>
                 </li>
                 <li>
-                  <Link href="/guide/comment-parier-cdm-2026" className="text-primary hover:underline">
+                  <Link href="/ratgeber/sportwetten-guide" className="text-primary hover:underline">
                     Vollständiger Ratgeber zum Wetten auf die WM &rarr;
                   </Link>
                 </li>

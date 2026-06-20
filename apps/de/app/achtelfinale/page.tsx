@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Sechzehntelfinale WM 2026 - Vollständige Übersicht",
     description:
       "Entdecken Sie das Format des Sechzehntelfinales der WM 2026. Termine, mögliche Spiele und Bracket.",
-    url: "https://www.wm2026guide.de/16emes-de-finale",
+    url: "https://www.wm2026guide.de/achtelfinale",
   },
   alternates: {
-    canonical: "https://www.wm2026guide.de/16emes-de-finale",
+    canonical: "https://www.wm2026guide.de/achtelfinale",
   },
 };
 
@@ -41,7 +41,7 @@ const faqItems = [
   },
 ];
 
-export default function SeiziemesDeFinale() {
+export default function AchtelfinaleSeite() {
   return (
     <>
 
@@ -124,16 +124,16 @@ export default function SeiziemesDeFinale() {
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 {[
-                  { date: "28. Juni 2026", matchs: "Spiele 1-4", heures: "13:00 / 16:00 / 19:00 / 22:00" },
-                  { date: "29. Juni 2026", matchs: "Spiele 5-8", heures: "13:00 / 16:00 / 19:00 / 22:00" },
-                  { date: "30. Juni 2026", matchs: "Spiele 9-12", heures: "13:00 / 16:00 / 19:00 / 22:00" },
-                  { date: "1. Juli 2026", matchs: "Spiele 13-14", heures: "19:00 / 22:00" },
-                  { date: "2. Juli 2026", matchs: "Spiele 15-16", heures: "19:00 / 22:00" },
+                  { date: "28. Juni 2026", spiele: "Spiele 1-4", zeiten: "13:00 / 16:00 / 19:00 / 22:00" },
+                  { date: "29. Juni 2026", spiele: "Spiele 5-8", zeiten: "13:00 / 16:00 / 19:00 / 22:00" },
+                  { date: "30. Juni 2026", spiele: "Spiele 9-12", zeiten: "13:00 / 16:00 / 19:00 / 22:00" },
+                  { date: "1. Juli 2026", spiele: "Spiele 13-14", zeiten: "19:00 / 22:00" },
+                  { date: "2. Juli 2026", spiele: "Spiele 15-16", zeiten: "19:00 / 22:00" },
                 ].map((r) => (
                   <tr key={r.date} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-gray-900">{r.date}</td>
-                    <td className="px-4 py-3 text-gray-600">{r.matchs}</td>
-                    <td className="px-4 py-3 text-gray-600">{r.heures}</td>
+                    <td className="px-4 py-3 text-gray-600">{r.spiele}</td>
+                    <td className="px-4 py-3 text-gray-600">{r.zeiten}</td>
                   </tr>
                 ))}
               </tbody>

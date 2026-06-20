@@ -2,11 +2,9 @@ import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { teams, teamsBySlug } from "../../../lib/localized-data";
+import { teams, teamsBySlug, playersByTeamId, matchesByGroup } from "../../../lib/localized-data";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { groupsByLetter } from "@repo/data/groups";
-import { playersByTeamId } from "../../../lib/localized-data";
-import { matchesByGroup } from "@repo/data/matches";
 
 import { EloRatingCard } from "./_components/EloRatingCard";
 import { ProbabilityStages } from "./_components/ProbabilityStages";

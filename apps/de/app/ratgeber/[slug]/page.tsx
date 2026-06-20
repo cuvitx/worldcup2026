@@ -170,7 +170,7 @@ export default async function GuidePage({ params }: PageProps) {
                   {relatedGuides.map((rg) => (
                     <Link
                       key={rg.id}
-                      href={`/guide/${rg.slug}`}
+                      href={`/ratgeber/${rg.slug}`}
                       className="rounded-xl border border-gray-200 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
                     >
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">{rg.title}</h3>
@@ -192,7 +192,7 @@ export default async function GuidePage({ params }: PageProps) {
                     .map((g) => (
                       <Link
                         key={g.id}
-                        href={`/guide/${g.slug}`}
+                        href={`/ratgeber/${g.slug}`}
                         className="rounded-xl border border-gray-200 p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-md"
                       >
                         <h3 className="text-lg font-semibold text-gray-900 mb-1">{g.title}</h3>
@@ -275,14 +275,14 @@ export default async function GuidePage({ params }: PageProps) {
                     .slice(0, 6)
                     .map((g) => (
                       <li key={g.id}>
-                        <Link href={`/guide/${g.slug}`} className="text-sm text-primary hover:underline">
+                        <Link href={`/ratgeber/${g.slug}`} className="text-sm text-primary hover:underline">
                           {g.title} →
                         </Link>
                       </li>
                     ))}
                 </ul>
                 <div className="mt-3">
-                  <Link href="/guides" className="text-sm font-medium text-primary hover:underline">
+                  <Link href="/ratgeber" className="text-sm font-medium text-primary hover:underline">
                     Alle Ratgeber anzeigen →
                   </Link>
                 </div>
@@ -315,8 +315,8 @@ export default async function GuidePage({ params }: PageProps) {
             dateModified: "2025-02-15",
             author: { "@type": "Organization", name: "WM 2026", url: "https://www.wm2026guide.de" },
             publisher: { "@type": "Organization", name: "WM 2026", url: "https://www.wm2026guide.de", logo: { "@type": "ImageObject", url: "https://www.wm2026guide.de/icon-512.png" } },
-            mainEntityOfPage: `${domains.de}/guide/${guide.slug}`,
-            url: `${domains.de}/guide/${guide.slug}`,
+            mainEntityOfPage: `${domains.de}/ratgeber/${guide.slug}`,
+            url: `${domains.de}/ratgeber/${guide.slug}`,
           }),
         }}
       />

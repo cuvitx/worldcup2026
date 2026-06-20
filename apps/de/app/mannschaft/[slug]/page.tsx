@@ -5,9 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Team } from "@repo/data/types";
-import { teams, teamsBySlug, teamsById } from "../../../lib/localized-data";
-import { playersByTeamId } from "../../../lib/localized-data";
-import { matches, matchesByGroup } from "@repo/data/matches";
+import { teams, teamsBySlug, teamsById, playersByTeamId, matches, matchesByGroup } from "../../../lib/localized-data";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { groupsByLetter } from "@repo/data/groups";
 import { predictionsByTeamId } from "@repo/data/predictions";
@@ -43,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsBySlug[slug];
   if (!team) return {};
 
-  const iso = getISOCode(slug);
+  const iso = getISOCode(team.id);
   const ogImages = iso
     ? [{ url: `https://flagcdn.com/w320/${iso}.png`, width: 320, height: 213, alt: `Flagge von ${team.name}` }]
     : [{ url: "https://www.wm2026guide.de/og-default.jpg", width: 1200, height: 630, alt: "WM 2026" }];
@@ -91,7 +89,7 @@ export default async function TeamPage({ params }: PageProps) {
 
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;
-  const content = teamContent[team.slug];
+  const content = teamContent[team.id];
 
   const sportsTeamJsonLd = {
     "@context": "https://schema.org",

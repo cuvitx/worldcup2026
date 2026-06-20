@@ -19,7 +19,7 @@ export type VoteChoice = "home" | "draw" | "away";
 const DATA_DIR = process.env.VOTES_DATA_DIR ?? join(process.cwd(), ".data");
 const VOTES_FILE = join(DATA_DIR, "votes.json");
 const IPS_FILE = join(DATA_DIR, "votes-ips.json");
-const IP_SALT = process.env.VOTES_IP_SALT ?? "cdm2026-votes-salt-2026";
+const IP_SALT = process.env.VOTES_IP_SALT ?? "wm2026-votes-salt-2026";
 
 // ---------------------------------------------------------------------------
 // In-memory cache

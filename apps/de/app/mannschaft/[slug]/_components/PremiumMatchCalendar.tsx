@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { matches as matchesType } from "@repo/data/matches";
+import type { matches as matchesType } from "@/lib/localized-data";
 import { teamsById } from "../../../../lib/localized-data";
 import { stadiumsById } from "../../../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";

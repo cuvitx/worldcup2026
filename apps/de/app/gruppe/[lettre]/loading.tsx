@@ -24,7 +24,7 @@ export default function Loading() {
           ))}
         </div>
 
-        {/* Matchs */}
+        {/* Spiele */}
         <div className="h-6 w-36 bg-gray-200 rounded-full mb-4 animate-pulse" />
         <div className="space-y-3">
           {Array.from({ length: 6 }).map((_, i) => (

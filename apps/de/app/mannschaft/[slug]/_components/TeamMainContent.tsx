@@ -254,7 +254,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
                   <span className="text-lg" role="img" aria-label={`Flagge von ${opponent?.name ?? "Unbekannt"}`}>{opponent?.flag ?? ""}</span>
                   <div className="flex-1">
                     <p className="font-semibold">{isHome ? "vs" : "@"} {opponent?.name ?? "Noch offen"}</p>
-                    <p className="text-xs text-gray-500">J{match.matchday} &middot; {match.time}</p>
+                    <p className="text-xs text-gray-500">ST{match.matchday} &middot; {match.time}</p>
                   </div>
                 </Link>
               );

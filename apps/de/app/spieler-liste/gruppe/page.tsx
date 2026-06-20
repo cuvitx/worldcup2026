@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function SpielersGroupeRedirect() {
+export default function SpielerGruppeRedirect() {
   redirect("/spieler-liste");
 }

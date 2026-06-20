@@ -17,14 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Spieler ${team.name} -- WM 2026 | Komplette Liste`,
     description: `Alle Spieler von ${team.name} im Kader fur die WM 2026. Ausfuhrliche Steckbriefe, Statistiken und Profile.`,
-    openGraph: { images: [{ url: `/api/og?type=equipe&slug=${slug}`, width: 1200, height: 630 }] },
+    openGraph: { images: [{ url: `/api/og?type=mannschaft&slug=${slug}`, width: 1200, height: 630 }] },
   };
 }
 
-const POS_LABELS: Record<string, string> = { GK: "Torwarts", DF: "Verteidigers", MF: "Mittelfeldspielerx", FW: "Stürmers" };
+const POS_LABELS: Record<string, string> = { GK: "Torhüter", DF: "Verteidiger", MF: "Mittelfeldspieler", FW: "Stürmer" };
 const POS_ORDER = ["GK", "DF", "MF", "FW"];
 
-export default async function SpielersEquipePage({ params }: Props) {
+export default async function SpielerMannschaftPage({ params }: Props) {
   const { slug } = await params;
   const team = teams.find((t) => t.slug === slug);
   if (!team) notFound();
