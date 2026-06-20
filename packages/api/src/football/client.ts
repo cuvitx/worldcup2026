@@ -27,10 +27,15 @@ const RATE_LIMIT_CONFIG = {
 
 let lastRateLimitWarning = 0;
 
+// In-flight dedup for rateLimitedCachedFetch — prevents burst of concurrent
+// API calls for the same key after restart (which triggers per-minute rate limit)
+const rlInflight = new Map<string, Promise<unknown>>();
+
 /**
  * Wrapper around cachedFetch that respects rate limits.
  * If rate limited, returns cached data if available, otherwise returns fallback.
  * Never caches empty arrays to avoid persisting rate-limit errors.
+ * Deduplicates concurrent calls for the same cache key (single-flight).
  */
 async function rateLimitedCachedFetch<T>(
   cacheKey: string,
@@ -40,29 +45,43 @@ async function rateLimitedCachedFetch<T>(
 ): Promise<T> {
   // Always try cache first (cachedFetch does this too, but we need it for rate-limit fallback)
   const cached = await cacheGet<T>(cacheKey);
+  if (cached !== null) return cached;
 
-  if (!checkRateLimit(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG)) {
-    const now = Date.now();
-    if (now - lastRateLimitWarning > 600_000) {
-      const remaining = getRemainingRequests(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
-      console.warn(`[api-football] Daily rate limit reached (${API_FOOTBALL.rateLimitPerDay}/day), ${remaining} remaining`);
-      lastRateLimitWarning = now;
+  // Deduplicate: if another call for the same key is in-flight, wait for it
+  const existing = rlInflight.get(cacheKey);
+  if (existing) return existing as Promise<T>;
+
+  const promise = (async (): Promise<T> => {
+    try {
+      if (!checkRateLimit(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG)) {
+        const now = Date.now();
+        if (now - lastRateLimitWarning > 600_000) {
+          const remaining = getRemainingRequests(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
+          console.warn(`[api-football] Daily rate limit reached (${API_FOOTBALL.rateLimitPerDay}/day), ${remaining} remaining`);
+          lastRateLimitWarning = now;
+        }
+        return fallback;
+      }
+
+      // Fetch fresh data
+      const data = await fetcher();
+
+      // Only cache non-empty results — empty arrays from rate-limit errors
+      // or missing data should not be persisted (especially with long TTLs)
+      if (Array.isArray(data) && data.length === 0) {
+        console.warn(`[api-football] Empty result for ${cacheKey}`);
+        return fallback;
+      }
+
+      await cacheSet(cacheKey, data, ttlSeconds);
+      return data;
+    } finally {
+      rlInflight.delete(cacheKey);
     }
-    return cached ?? fallback;
-  }
+  })();
 
-  // Fetch fresh data
-  const data = await fetcher();
-
-  // Only cache non-empty results — empty arrays from rate-limit errors
-  // or missing data should not be persisted (especially with long TTLs)
-  if (Array.isArray(data) && data.length === 0) {
-    console.warn(`[api-football] Empty result for ${cacheKey}, cached=${cached !== null}`);
-    return cached ?? fallback;
-  }
-
-  await cacheSet(cacheKey, data, ttlSeconds);
-  return data;
+  rlInflight.set(cacheKey, promise);
+  return promise;
 }
 
 async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
