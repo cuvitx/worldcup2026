@@ -125,11 +125,70 @@ export const citiesBySlug: Record<string, City> = Object.fromEntries(
   Object.entries(_citiesBySlug).map(([k, v]) => [k, applyCity(v)])
 );
 
-// ── Players (no DE translations yet — pass through) ────────────────────
-export const players: Player[] = _players;
-export const playersById = _playersById;
-export const playersBySlug = _playersBySlug;
-export const playersByTeamId = _playersByTeamId;
+// ── Players (with auto-generated German descriptions) ──────────────────
+
+const positionLabelsDE: Record<string, string> = {
+  GK: "Torhüter",
+  DF: "Verteidiger",
+  MF: "Mittelfeldspieler",
+  FW: "Stürmer",
+};
+
+/** Generate a German description from player stats when no translation exists */
+function autoDescriptionDE(player: Player): string {
+  if (!player.description) return "";
+  const pos = positionLabelsDE[player.position] ?? player.position;
+  const team = teamsById[player.teamId];
+  const teamName = team?.name ?? player.teamId;
+  if (player.caps > 0 && player.goals > 0) {
+    return `${pos} von ${player.club}. ${player.caps} Länderspiele und ${player.goals} Tore für ${teamName}.`;
+  }
+  if (player.caps > 0) {
+    return `${pos} von ${player.club}. ${player.caps} Länderspiele für ${teamName}.`;
+  }
+  return `${pos} von ${player.club}.`;
+}
+
+// Star player translations (proper German descriptions)
+const playerDescriptionsDE: Record<string, string> = {
+  wirtz: "Wunderkind des deutschen Fußballs, genialer Spielmacher bei Bayer Leverkusen.",
+  bellingham: "Kompletter Mittelfeldspieler, weit über sein Alter hinaus gereift, künftiger Ballon-d'Or-Kandidat.",
+  saka: "Elektrischer und entscheidender Flügelspieler, fähig jede Abwehr aus dem Gleichgewicht zu bringen.",
+  kane: "Treffsicherer Torjäger und vorbildlicher Kapitän, bester Torschütze der englischen Geschichte.",
+  messi: "Lebende Legende des Fußballs, für viele der beste Spieler aller Zeiten.",
+  vinicius: "Genialer Flügelspieler, Ballon-d'Or-Gewinner und Star von Real Madrid.",
+  son: "Kapitän und Star, bester asiatischer Fußballspieler der Geschichte.",
+  modric: "Lebende Legende, Ballon d'Or 2018, zeitloser Maestro im Mittelfeld.",
+  pedri: "Eleganter und kreativer Mittelfeldspieler, Erbe des Tiki-Taka aus Barcelona.",
+  rodri: "Defensiver Mittelfeldspieler, Ballon d'Or 2024, Metronom und Chef des spanischen Spiels.",
+  yamal: "Wunderkind aus Barcelona, technisches Phänomen mit beeindruckender Reife.",
+  tchouameni: "Kraftvoller und technisch versierter defensiver Mittelfeldspieler, Meister der Balleroberung.",
+  mbappe: "Explosiver Stürmer und außergewöhnlicher Torjäger, einer der besten Spieler der Welt.",
+  hakimi: "Weltklasse-Rechtsverteidiger, Star von PSG und des marokkanischen Fußballs.",
+  haaland: "Tormaschine und körperliches Phänomen, einer der besten Stürmer der Welt.",
+  valverde: "Kompletter Box-to-Box-Mittelfeldspieler, Kraft und Technik vereint.",
+};
+
+function applyPlayer(player: Player): Player {
+  const desc = playerDescriptionsDE[player.slug];
+  if (desc) return { ...player, description: desc };
+  if (player.description) return { ...player, description: autoDescriptionDE(player) };
+  return player;
+}
+
+export const players: Player[] = _players.map(applyPlayer);
+
+export const playersById: Record<string, Player> = Object.fromEntries(
+  Object.entries(_playersById).map(([k, v]) => [k, applyPlayer(v)])
+);
+
+export const playersBySlug: Record<string, Player> = Object.fromEntries(
+  Object.entries(_playersBySlug).map(([k, v]) => [k, applyPlayer(v)])
+);
+
+export const playersByTeamId: Record<string, Player[]> = Object.fromEntries(
+  Object.entries(_playersByTeamId).map(([k, v]) => [k, v.map(applyPlayer)])
+);
 
 export { LAST_UPDATED };
 
@@ -185,6 +244,10 @@ for (const match of matches) {
   matchesByStadium[match.stadiumId]!.push(match);
 }
 
+// ── Stage Labels (German) ──────────────────────────────────────────────
+import { stageLabelsI18n } from "@repo/data/constants";
+export const stageLabels = stageLabelsI18n.de;
+
 // ── Team Content (editorial: strengths, weaknesses, anecdotes) ──────
 import { teamContent as _teamContent } from "@repo/data/team-content";
 import type { TeamEditorialContent } from "@repo/data/team-content";
@@ -198,7 +261,7 @@ export const teamContent: Record<string, TeamEditorialContent> = Object.fromEntr
   })
 );
 
-// ── Team WC History ─────────────────────────────────────────────────
+// ── Team WC History (yearly results) ────────────────────────────────
 import { teamWcHistory as _teamWcHistory } from "@repo/data/team-wc-history";
 import type { WcEdition } from "@repo/data/team-wc-history";
 
@@ -209,4 +272,71 @@ export const teamWcHistory: Record<string, WcEdition[]> = Object.fromEntries(
     const overlay = teamWcHistoryDE[k];
     return [k, overlay ? overlay : v];
   })
+);
+
+// ── Team World Cup History (detailed: bestResult, strengths, anecdotes) ──
+import { teamWorldCupHistory as _teamWorldCupHistory } from "@repo/data/team-history";
+import type { TeamHistoryEntry } from "@repo/data/team-history";
+import { teamHistoryDE } from "@repo/data/translations/team-history.de";
+export type { TeamHistoryEntry };
+
+/** French→German stage name mapping for notableResults */
+const stageFrToDE: Record<string, string> = {
+  "Champion": "Weltmeister",
+  "Finaliste": "Finalist",
+  "3e place": "Dritter Platz",
+  "4e place": "Vierter Platz",
+  "Quart de finale": "Viertelfinale",
+  "Quart de finaliste": "Viertelfinalist",
+  "Demi-finale": "Halbfinale",
+  "Demi-finaliste": "Halbfinalist",
+  "8e de finale": "Achtelfinale",
+  "Huitième de finale": "Achtelfinale",
+  "Phase de groupes": "Gruppenphase",
+  "1er tour": "Vorrunde",
+  "2e tour": "Zweite Runde",
+  "Non participante": "Nicht teilgenommen",
+};
+
+function translateStage(stage: string): string {
+  // Direct match
+  if (stageFrToDE[stage]) return stageFrToDE[stage];
+  // Partial match (e.g., "Phase de groupes (2e)")
+  for (const [fr, de] of Object.entries(stageFrToDE)) {
+    if (stage.startsWith(fr)) {
+      return de + stage.slice(fr.length);
+    }
+  }
+  return stage;
+}
+
+function translateBestResult(bestResult: string): string {
+  // Handle patterns like "Champion (1958, 1962)" or "Quart de finaliste (1970, 1986)"
+  const match = bestResult.match(/^([^(]+?)(\s*\(.*\))?$/);
+  if (!match) return bestResult;
+  const term = match[1]!.trim();
+  const years = match[2] ?? "";
+  const translated = stageFrToDE[term] ?? term;
+  return `${translated}${years}`;
+}
+
+function localizeTeamHistory(entry: TeamHistoryEntry): TeamHistoryEntry {
+  const overlay = teamHistoryDE[entry.teamId];
+  if (overlay) {
+    // Full overlay available — merge
+    return { ...entry, ...overlay };
+  }
+  // Fallback: at minimum translate stage names
+  return {
+    ...entry,
+    bestResult: translateBestResult(entry.bestResult),
+    notableResults: entry.notableResults.map((r) => ({
+      ...r,
+      stage: translateStage(r.stage),
+    })),
+  };
+}
+
+export const teamWorldCupHistory: Record<string, TeamHistoryEntry> = Object.fromEntries(
+  Object.entries(_teamWorldCupHistory).map(([k, v]) => [k, localizeTeamHistory(v)])
 );

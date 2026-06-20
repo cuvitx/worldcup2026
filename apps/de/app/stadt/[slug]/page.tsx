@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cities, citiesBySlug, stadiumsById, matchesByStadium, teamsById } from "../../../lib/localized-data";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabelsI18n } from "@repo/data/constants";
 import { HeroImage } from "../../components/hero-image";
 import { cityEnrichmentData } from "./city-enrichment";
 import { BookOpen, Building2, Globe, Ticket, Tv } from "lucide-react"
+
+const stageLabels = stageLabelsI18n.de;
 
 export const revalidate = 86400;
 export const dynamicParams = true;

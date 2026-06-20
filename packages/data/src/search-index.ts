@@ -66,7 +66,7 @@ export function buildSearchIndex(lang: Lang): SearchItem[] {
   for (const team of teams) {
     items.push({
       title: `${team.flag} ${team.name}`,
-      description: `${team.confederation} - Groupe ${team.group} - FIFA #${team.fifaRanking}`,
+      description: `${team.confederation} - ${lang === "de" ? "Gruppe" : "Groupe"} ${team.group} - FIFA #${team.fifaRanking}`,
       href: `/${prefixes.team}/${team.slug}`,
       type: "team",
     });
@@ -80,8 +80,9 @@ export function buildSearchIndex(lang: Lang): SearchItem[] {
 
     const stageLookup = stageLabels[lang];
     const stage = (stageLookup ? stageLookup[match.stage] : undefined) ?? match.stage;
+    const dateLocale = lang === "de" ? "de-DE" : "fr-FR";
     const dateFormatted = new Date(match.date + "T00:00:00+02:00").toLocaleDateString(
-      "fr-FR",
+      dateLocale,
       { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Paris" }
     );
 
@@ -110,7 +111,7 @@ export function buildSearchIndex(lang: Lang): SearchItem[] {
   for (const stadium of stadiums) {
     items.push({
       title: stadium.name,
-      description: `${stadium.city}, ${stadium.country} - ${stadium.capacity.toLocaleString()} places`,
+      description: `${stadium.city}, ${stadium.country} - ${stadium.capacity.toLocaleString()} ${lang === "de" ? "Plätze" : "places"}`,
       href: `/${prefixes.stadium}/${stadium.slug}`,
       type: "stadium",
     });

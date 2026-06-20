@@ -7,7 +7,7 @@ import { matchPredictionByPair, predictionsByTeamId } from "@repo/data/predictio
 import { h2hByPair } from "@repo/data/h2h";
 import { estimatedMatchOdds, featuredBookmaker, pmuTrackingUrl } from "@repo/data/affiliates";
 import { getOddsForMatch } from "@repo/api/football/odds";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabelsI18n } from "@repo/data/constants";
 import { MatchHero, MatchTabsClient } from "./components";
 import {
   MatchStructuredData,
@@ -19,6 +19,8 @@ import {
   InfoTab,
   MatchActions,
 } from "./_components";
+
+const stageLabels = stageLabelsI18n.de;
 
 export const revalidate = 300;
 export const dynamicParams = true;

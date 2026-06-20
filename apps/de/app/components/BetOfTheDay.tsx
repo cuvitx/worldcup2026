@@ -6,9 +6,11 @@
 import Link from "next/link";
 import { matches, teamsById } from "../../lib/localized-data";
 import { matchPredictionByPair } from "@repo/data/predictions";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabelsI18n } from "@repo/data/constants";
 import { bookmakers } from "@repo/data/affiliates";
 import { GaTrackingPixel } from "./GaTrackingPixel";
+
+const stageLabels = stageLabelsI18n.de;
 
 export interface DailyBet {
   matchLabel: string;

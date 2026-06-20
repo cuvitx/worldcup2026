@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { MatchRow } from "@repo/ui/match-row";
 import { useState, useMemo } from "react";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabelsI18n } from "@repo/data/constants";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
+
+const stageLabels = stageLabelsI18n.de;
 
 interface MatchData {
   id: string;

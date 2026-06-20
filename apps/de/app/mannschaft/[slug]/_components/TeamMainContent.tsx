@@ -6,7 +6,7 @@ import DOMPurify from "isomorphic-dompurify";
 import Link from "next/link";
 import type { Team, Player } from "@repo/data";
 import type { TeamPrediction } from "@repo/data/predictions";
-import { teamWorldCupHistory } from "@repo/data/team-history";
+import { teamWorldCupHistory } from "../../../../lib/localized-data";
 import { teamRatings } from "@repo/data/team-ratings";
 import { stadiumsById } from "../../../../lib/localized-data";
 import { teams } from "../../../../lib/localized-data";
@@ -104,7 +104,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
       {/* WM-Erfolge */}
       {teamWorldCupHistory[team.id] && (() => {
         const history = teamWorldCupHistory[team.id]!;
-        const titles = history.notableResults.filter((r) => r.stage.includes("Champion"));
+        const titles = history.notableResults.filter((r) => r.stage.includes("Weltmeister") || r.stage.includes("Champion"));
         return titles.length > 0 ? (
           <section className="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">

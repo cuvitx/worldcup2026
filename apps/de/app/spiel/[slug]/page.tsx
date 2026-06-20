@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { generateFullMatchPreview } from "@repo/ai/generators";
 import { domains, getAlternates } from "@repo/data/route-mapping";
 import { getMatchPhase } from "@repo/data/tournament-state";
-import { stageLabels, EXTERNAL_URLS } from "@repo/data/constants";
+import { stageLabelsI18n, EXTERNAL_URLS } from "@repo/data/constants";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -34,6 +34,8 @@ import {
 import type { CommentaryPlay } from "./_components";
 import { MatchContextBar } from "../../components/MatchContextBar";
 import { BarChart3, Sparkles, Swords, TrendingUp, Trophy } from "lucide-react"
+
+const stageLabels = stageLabelsI18n.de;
 
 const AiExpertInsight = dynamic(
   () => import("@repo/ui/ai-expert-insight").then((m) => ({ default: m.AiExpertInsight })),

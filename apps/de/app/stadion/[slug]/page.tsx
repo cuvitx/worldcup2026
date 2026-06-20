@@ -4,9 +4,11 @@ import Link from "next/link";
 import { HeroImage } from "../../components/hero-image";
 import { notFound } from "next/navigation";
 import { stadiums, stadiumsBySlug, citiesById, matchesByStadium, teamsById } from "../../../lib/localized-data";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabelsI18n } from "@repo/data/constants";
 import { BookOpen, Car, CircleDot, Map as MapIcon, Ticket, Tv } from "lucide-react"
 import { PmuBanner } from "../../components/PmuBanner";
+
+const stageLabels = stageLabelsI18n.de;
 
 export const revalidate = 86400;
 export const dynamicParams = true;

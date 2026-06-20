@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { matches, teamsById, stadiumsById } from "../../lib/localized-data";
-import { stageLabels } from "@repo/data/constants";
+import { stageLabelsI18n } from "@repo/data/constants";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import { RelatedLinks } from "../components/RelatedLinks";
 import { PmuBanner } from "../components/PmuBanner";
+
+const stageLabels = stageLabelsI18n.de;
 
 const faqItems = [
   {

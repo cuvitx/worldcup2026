@@ -42,7 +42,8 @@
     "./translations/stadiums.de": "./src/translations/stadiums.de.ts",
     "./translations/cities.de": "./src/translations/cities.de.ts",
     "./translations/team-content.de": "./src/translations/team-content.de.ts",
-    "./translations/team-wc-history.de": "./src/translations/team-wc-history.de.ts"
+    "./translations/team-wc-history.de": "./src/translations/team-wc-history.de.ts",
+    "./translations/team-history.de": "./src/translations/team-history.de.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

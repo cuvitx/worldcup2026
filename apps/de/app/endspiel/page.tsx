@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.wm2026guide.de/finale" },
 };
 
-const finalesHistorique = [
-  { annee: "2022", lieu: "Lusail (Katar)", affiche: "Argentinien 3-3 Frankreich (4-2 i.E.)", vainqueur: "🇦🇷 Argentinien" },
-  { annee: "2018", lieu: "Moskau (Russland)", affiche: "Frankreich 4-2 Kroatien", vainqueur: "🇫🇷 Frankreich" },
-  { annee: "2014", lieu: "Rio de Janeiro (Brasilien)", affiche: "Deutschland 1-0 Argentinien (n.V.)", vainqueur: "🇩🇪 Deutschland" },
-  { annee: "2010", lieu: "Johannesburg (Südafrika)", affiche: "Spanien 1-0 Niederlande (n.V.)", vainqueur: "🇪🇸 Spanien" },
-  { annee: "2006", lieu: "Berlin (Deutschland)", affiche: "Italien 1-1 Frankreich (5-3 i.E.)", vainqueur: "🇮🇹 Italien" },
-  { annee: "2002", lieu: "Yokohama (Japan)", affiche: "Brasilien 2-0 Deutschland", vainqueur: "🇧🇷 Brasilien" },
-  { annee: "1998", lieu: "Saint-Denis (Frankreich)", affiche: "Frankreich 3-0 Brasilien", vainqueur: "🇫🇷 Frankreich" },
-  { annee: "1994", lieu: "Pasadena (USA)", affiche: "Brasilien 0-0 Italien (3-2 i.E.)", vainqueur: "🇧🇷 Brasilien" },
+const finaleHistorie = [
+  { jahr: "2022", ort: "Lusail (Katar)", begegnung: "Argentinien 3-3 Frankreich (4-2 i.E.)", sieger: "🇦🇷 Argentinien" },
+  { jahr: "2018", ort: "Moskau (Russland)", begegnung: "Frankreich 4-2 Kroatien", sieger: "🇫🇷 Frankreich" },
+  { jahr: "2014", ort: "Rio de Janeiro (Brasilien)", begegnung: "Deutschland 1-0 Argentinien (n.V.)", sieger: "🇩🇪 Deutschland" },
+  { jahr: "2010", ort: "Johannesburg (Südafrika)", begegnung: "Spanien 1-0 Niederlande (n.V.)", sieger: "🇪🇸 Spanien" },
+  { jahr: "2006", ort: "Berlin (Deutschland)", begegnung: "Italien 1-1 Frankreich (5-3 i.E.)", sieger: "🇮🇹 Italien" },
+  { jahr: "2002", ort: "Yokohama (Japan)", begegnung: "Brasilien 2-0 Deutschland", sieger: "🇧🇷 Brasilien" },
+  { jahr: "1998", ort: "Saint-Denis (Frankreich)", begegnung: "Frankreich 3-0 Brasilien", sieger: "🇫🇷 Frankreich" },
+  { jahr: "1994", ort: "Pasadena (USA)", begegnung: "Brasilien 0-0 Italien (3-2 i.E.)", sieger: "🇧🇷 Brasilien" },
 ];
 
 const faqItems = [
@@ -186,12 +186,12 @@ export default function FinalePage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
-                {finalesHistorique.map((f) => (
-                  <tr key={f.annee} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium text-gray-900">{f.annee}</td>
-                    <td className="px-4 py-3 text-gray-600">{f.lieu}</td>
-                    <td className="px-4 py-3 text-gray-600">{f.affiche}</td>
-                    <td className="px-4 py-3 font-medium text-gray-900">{f.vainqueur}</td>
+                {finaleHistorie.map((f) => (
+                  <tr key={f.jahr} className="hover:bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">{f.jahr}</td>
+                    <td className="px-4 py-3 text-gray-600">{f.ort}</td>
+                    <td className="px-4 py-3 text-gray-600">{f.begegnung}</td>
+                    <td className="px-4 py-3 font-medium text-gray-900">{f.sieger}</td>
                   </tr>
                 ))}
               </tbody>
