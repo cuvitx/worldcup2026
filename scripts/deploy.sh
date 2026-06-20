@@ -120,25 +120,67 @@ if [ -f "$CACHE_CONF" ] && [ ! -f /etc/nginx/conf.d/nginx-cache.conf ]; then
   sudo chown www-data:www-data /var/cache/nginx/cdm2026-fr /var/cache/nginx/wm2026-de
 fi
 
+# Patch FR nginx config with proxy_cache (if not already present)
+FR_NGINX="/etc/nginx/sites-available/cdm2026"
+if [ -f "$FR_NGINX" ] && ! grep -q "proxy_cache" "$FR_NGINX" 2>/dev/null; then
+  echo "  Patching FR nginx config with proxy_cache..."
+  sudo cp "$FR_NGINX" "${FR_NGINX}.bak"
+  # Use python3 for reliable multi-line insertion (sed multi-line is fragile)
+  sudo python3 -c "
+import sys
+with open('$FR_NGINX') as f:
+    content = f.read()
+cache = '''
+        # Zero-downtime cache: serve stale pages while Next.js restarts
+        proxy_cache cdm2026fr;
+        proxy_cache_valid 200 10m;
+        proxy_cache_valid 404 1m;
+        proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+        proxy_cache_background_update on;
+        proxy_cache_lock on;
+        proxy_cache_revalidate on;
+        add_header X-Cache-Status \\\$upstream_cache_status;
+        proxy_cache_bypass \\\$http_authorization;
+        proxy_no_cache \\\$http_authorization;
+'''
+# Insert after the first 'proxy_pass http://127.0.0.1:3000;' line
+marker = 'proxy_pass http://127.0.0.1:3000;'
+if marker in content:
+    content = content.replace(marker, marker + cache, 1)
+    with open('$FR_NGINX', 'w') as f:
+        f.write(content)
+    print('  Inserted proxy_cache after proxy_pass :3000')
+else:
+    print('  WARNING: proxy_pass :3000 not found in FR config')
+    sys.exit(1)
+"
+  # Verify config is valid, rollback if not
+  if ! sudo nginx -t 2>/dev/null; then
+    echo "  WARNING: nginx config test failed after FR patch, rolling back..."
+    sudo cp "${FR_NGINX}.bak" "$FR_NGINX"
+  else
+    echo "  FR nginx config patched successfully."
+  fi
+fi
+
 # Update nginx site configs (always sync latest)
 NGINX_DE="${REPO_DIR}/scripts/vps/wm2026-de.nginx"
 if [ -f "$NGINX_DE" ] && [ -f /etc/nginx/sites-available/wm2026-de ]; then
-  # Only update if SSL is already configured (don't overwrite certbot changes)
   if grep -q "proxy_cache" /etc/nginx/sites-available/wm2026-de 2>/dev/null; then
     echo "  nginx DE config already has proxy_cache."
   else
     echo "  Updating nginx DE config with proxy_cache..."
-    # Merge: keep SSL lines from current config, add cache directives
-    sudo cp "$NGINX_DE" /etc/nginx/sites-available/wm2026-de.new
-    if sudo nginx -t -c /dev/stdin <<< "events {} http { include /etc/nginx/conf.d/*.conf; include /etc/nginx/sites-available/wm2026-de.new; }" 2>/dev/null; then
-      sudo cp /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-available/wm2026-de.bak
-      # Re-run certbot to apply SSL to new config
-      sudo cp "$NGINX_DE" /etc/nginx/sites-available/wm2026-de
-      if command -v certbot &>/dev/null; then
-        sudo certbot --nginx -d wm2026guide.de -d www.wm2026guide.de --non-interactive --agree-tos --redirect 2>/dev/null || true
-      fi
+    sudo cp /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-available/wm2026-de.bak
+    sudo cp "$NGINX_DE" /etc/nginx/sites-available/wm2026-de
+    # Re-run certbot to apply SSL to new config
+    if command -v certbot &>/dev/null; then
+      sudo certbot --nginx -d wm2026guide.de -d www.wm2026guide.de --non-interactive --agree-tos --redirect 2>/dev/null || true
     fi
-    sudo rm -f /etc/nginx/sites-available/wm2026-de.new
+    # Verify config is valid, rollback if not
+    if ! sudo nginx -t 2>/dev/null; then
+      echo "  WARNING: nginx config test failed after DE update, rolling back..."
+      sudo cp /etc/nginx/sites-available/wm2026-de.bak /etc/nginx/sites-available/wm2026-de
+    fi
   fi
 fi
 
