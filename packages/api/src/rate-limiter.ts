@@ -91,12 +91,15 @@ export function getRemainingRequests(key: string, config: RateLimitConfig): numb
 }
 
 /**
- * Force-exhaust a rate limiter when the upstream API reports it's rate-limited.
- * This prevents wasting calls when our local counter is out of sync with the API's.
+ * Temporarily pause a rate limiter when the upstream API reports a rate-limit error.
+ * Uses a 5-minute cooldown instead of blocking until midnight — the upstream error
+ * is often a per-minute limit, not a daily exhaustion. After 5 minutes the limiter
+ * resets and normal calls resume.
  */
 export function forceExhaust(key: string, config: RateLimitConfig): void {
   loadFromDisk();
-  counters.set(key, { count: config.maxRequests, resetAt: nextMidnightUTC() });
+  const cooldownMs = 5 * 60 * 1000; // 5 minutes
+  counters.set(key, { count: config.maxRequests, resetAt: Date.now() + cooldownMs });
   saveToDisk();
-  console.warn(`[rate-limiter] Force-exhausted "${key}" — upstream API reported rate limit. No more calls until midnight UTC.`);
+  console.warn(`[rate-limiter] Paused "${key}" for 5 min — upstream API reported rate limit.`);
 }
