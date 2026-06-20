@@ -354,44 +354,26 @@ for p in "/" "/match/calendrier" "/match/aujourdhui" "/groupes" "/resultats"; do
   curl -s -o /dev/null --max-time 10 "${FR_URL}${p}"
 done
 
-# Warm today/yesterday match pages (FR + DE)
-# Two-pass strategy: 1st pass triggers ISR regeneration, 2nd pass gets the fresh page with API data
+# Warm today's match pages only (completed matches already have data from build)
 MATCHES_FILE="${CURRENT_LINK}/packages/data/src/matches.ts"
+TODAY=$(date +%Y-%m-%d)
 TODAY_SLUGS=""
 if [ -f "$MATCHES_FILE" ]; then
-  TODAY=$(date +%Y-%m-%d)
-  YESTERDAY=$(date -v-1d +%Y-%m-%d 2>/dev/null || date -d "yesterday" +%Y-%m-%d)
-  TODAY_SLUGS=$(grep -B5 "date: \"${TODAY}\|date: \"${YESTERDAY}" "$MATCHES_FILE" | grep -o 'slug: "[^"]*"' | sed 's/slug: "//;s/"//g' || true)
+  TODAY_SLUGS=$(grep -B5 "date: \"${TODAY}" "$MATCHES_FILE" | grep -o 'slug: "[^"]*"' | sed 's/slug: "//;s/"//g' || true)
 fi
 
-# --- Pass 1: Trigger ISR regeneration for all match pages ---
 if [ -n "$TODAY_SLUGS" ]; then
-  echo "  [Pass 1] Triggering ISR for today/yesterday matches..."
+  echo "  Warming today's match pages..."
   for s in $TODAY_SLUGS; do
-    curl -s -o /dev/null --max-time 15 "${FR_URL}/match/${s}" &
+    curl -s -o /dev/null --max-time 10 "${FR_URL}/match/${s}" || true
     if echo "$APPS" | grep -q "de"; then
-      curl -s -o /dev/null --max-time 15 "http://127.0.0.1:3002/spiel/${s}" 2>/dev/null &
+      curl -s -o /dev/null --max-time 10 "http://127.0.0.1:3002/spiel/${s}" 2>/dev/null || true
     fi
   done
-  wait
-  echo "  [Pass 1] Done. Waiting 8s for ISR background regeneration..."
-  sleep 8
+  echo "  Warmed $(echo "$TODAY_SLUGS" | wc -w | tr -d ' ') match pages."
 fi
 
-# --- Pass 2: Fetch the ISR-regenerated pages (with API data) ---
-if [ -n "$TODAY_SLUGS" ]; then
-  echo "  [Pass 2] Fetching regenerated pages..."
-  for s in $TODAY_SLUGS; do
-    curl -s -o /dev/null --max-time 15 "${FR_URL}/match/${s}"
-    if echo "$APPS" | grep -q "de"; then
-      curl -s -o /dev/null --max-time 15 "http://127.0.0.1:3002/spiel/${s}" 2>/dev/null || true
-    fi
-    sleep 1
-  done
-  echo "  [Pass 2] Warmed $(echo "$TODAY_SLUGS" | wc -w | tr -d ' ') match pages (FR + DE)."
-fi
-
-# --- DE static pages warm-up ---
+# DE static pages warm-up
 if echo "$APPS" | grep -q "de"; then
   DE_URL="http://127.0.0.1:3002"
   echo "  [DE] Warming key pages..."

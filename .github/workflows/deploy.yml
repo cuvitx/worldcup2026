@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           timeout: 60s
-          command_timeout: 25m
+          command_timeout: 30m
           script: |
             sudo find /srv/cdm2026/releases/ -maxdepth 1 -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true
 
