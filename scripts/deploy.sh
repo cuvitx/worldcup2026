@@ -72,6 +72,8 @@ set -a; source /etc/cdm2026.env 2>/dev/null || true; set +a
 npm ci
 
 # === Step 3: Build ===
+# Clear rate limiter BEFORE build so completed-match API calls aren't blocked
+rm -f "${REPO_DIR}/.data/rate-limits.json" 2>/dev/null || true
 for APP in $APPS; do
   echo "[3/8] Building apps/${APP}..."
   npm run build --workspace=apps/${APP}
