@@ -232,6 +232,24 @@ export default async function MatchPage({ params }: PageProps) {
   const staticMatch = matchesBySlug[slug];
   if (!staticMatch) notFound();
 
+  // Catch ISR re-render errors — shows error in debug div instead of failing silently
+  try {
+    return await renderMatchPage(slug, staticMatch);
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}\n${err.stack}` : String(err);
+    console.error(`[match/${slug}] ISR render error:`, msg);
+    return (
+      <div>
+        <div hidden data-debug={`ISR_ERROR: ${msg.slice(0, 500)}`} />
+        <h1>Erreur temporaire</h1>
+        <p>Cette page sera mise à jour automatiquement.</p>
+      </div>
+    );
+  }
+}
+
+async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof matchesBySlug[string]>) {
+
   const home = teamsById[staticMatch.homeTeamId];
   const away = teamsById[staticMatch.awayTeamId];
 
