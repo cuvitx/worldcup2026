@@ -125,10 +125,10 @@ export async function cachedFetch<T>(
     try {
       const data = await fetcher();
 
-      // Cache empty arrays with short TTL (60s) — avoids hammering on transient
-      // failures while not persisting them for the full TTL
+      // Don't cache empty arrays — they usually indicate a transient error
+      // (rate limit, API timeout). The in-flight dedup prevents concurrent
+      // hammering, and the next call will retry after the current one completes.
       if (Array.isArray(data) && data.length === 0) {
-        await cacheSet(key, data, 60);
         return data;
       }
 

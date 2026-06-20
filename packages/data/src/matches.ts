@@ -561,8 +561,13 @@ export const matches: Match[] = [
     stage: "group",
     group: "E",
     matchday: 2,
+    homeScore: 2,
+    awayScore: 1,
+    halfTimeHome: 0,
+    halfTimeAway: 1,
+    status: "finished" as const,
   },
-  // Group F: Netherlands vs UEFA Playoff B — NRG Stadium, Houston — 19:00 CEST
+  // Group F: Netherlands vs Sweden — NRG Stadium, Houston — 19:00 CEST
   {
     id: "m34",
     slug: "pays-bas-vs-suede",
@@ -574,6 +579,11 @@ export const matches: Match[] = [
     stage: "group",
     group: "F",
     matchday: 2,
+    homeScore: 5,
+    awayScore: 1,
+    halfTimeHome: 2,
+    halfTimeAway: 0,
+    status: "finished" as const,
   },
   // Group E: Ecuador vs Curacao — Arrowhead Stadium, Kansas City — 02:00 CEST
   {
