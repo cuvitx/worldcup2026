@@ -270,9 +270,10 @@ export default async function MatchPage({ params }: PageProps) {
   let lineups: ApiLineup[] = [];
   let statistics: ApiFixtureStatistic[] = [];
   let fixturePlayers: ApiFixturePlayer[] = [];
+  let fixtureId: number | null = null;
 
   if (matchPhase === "completed" || (!isBuild && matchPhase === "live")) {
-    const fixtureId = await resolveApiFixtureId(match);
+    fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
       const [ev, lu, st, pl] = await Promise.all([
         getFixtureEvents(fixtureId, isCompleted).catch(() => [] as ApiFixtureEvent[]),
@@ -435,6 +436,8 @@ export default async function MatchPage({ params }: PageProps) {
 
   return (
     <>
+{/* @debug */}
+      <div hidden data-debug={`phase=${matchPhase} build=${isBuild} apikey=${process.env.API_FOOTBALL_KEY ? "yes" : "no"} fid=${fixtureId ?? "null"} ev=${events.length} lu=${lineups.length} st=${statistics.length} pl=${fixturePlayers.length} t=${Date.now()}`} />
 {/* Breadcrumb */}
 {/* Hero */}
       <MatchHeroAdaptive

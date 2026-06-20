@@ -93,13 +93,16 @@ for APP in $APPS; do
   rm -f "${RELEASE_DIR}/apps/${APP}/.data/rate-limits.json" 2>/dev/null || true
 done
 
-# Preserve ISR cache AND old static files from previous release
+# Preserve old static files from previous release (NOT ISR cache — fresh render)
 for APP in $APPS; do
-  PREV_CACHE="${CURRENT_LINK}/apps/${APP}/.next/cache"
-  NEW_CACHE="${RELEASE_DIR}/apps/${APP}/.next/cache"
-  if [ -d "$PREV_CACHE" ]; then
-    echo "  Copying ISR cache for ${APP}..."
-    cp -a "$PREV_CACHE" "$NEW_CACHE" 2>/dev/null || true
+  # ISR cache: only copy fetch-cache (API responses), NOT page renders
+  # This forces pages to re-render with fresh data while keeping API caches warm
+  PREV_FETCH_CACHE="${CURRENT_LINK}/apps/${APP}/.next/cache/fetch-cache"
+  NEW_FETCH_CACHE="${RELEASE_DIR}/apps/${APP}/.next/cache/fetch-cache"
+  if [ -d "$PREV_FETCH_CACHE" ]; then
+    echo "  Copying fetch-cache for ${APP}..."
+    mkdir -p "$(dirname "$NEW_FETCH_CACHE")"
+    cp -a "$PREV_FETCH_CACHE" "$NEW_FETCH_CACHE" 2>/dev/null || true
   fi
 
   # Copy old build's static files into new release (zero-downtime critical!)
