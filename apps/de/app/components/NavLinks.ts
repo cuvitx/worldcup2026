@@ -63,8 +63,8 @@ export const megaMenus: Record<string, MegaMenuDef> = {
       {
         title: "Entdecken",
         links: [
-          { href: "/mannschaften", label: "Alle Mannschaften", icon: Users },
-          { href: "/spieler", label: "Top-Spieler", icon: UserCheck },
+          { href: "/mannschaft", label: "Alle Mannschaften", icon: Users },
+          { href: "/spieler-liste", label: "Top-Spieler", icon: UserCheck },
           { href: "/torschuetzen", label: "Torjäger", icon: Target },
           { href: "/h2h", label: "Direktvergleich H2H", icon: Swords },
           { href: "/statistiken", label: "Statistiken", icon: Trophy },

@@ -1,0 +1,34 @@
+interface FunFact {
+  emoji: string;
+  fact: string;
+}
+
+interface FunFactsSectionProps {
+  funFacts: FunFact[];
+}
+
+export function FunFactsSection({ funFacts }: FunFactsSectionProps) {
+  return (
+    <section id="fun-facts">
+      <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+         Wussten Sie, dass...
+      </h2>
+      <p className="text-sm text-gray-500 mb-6">
+        Unbekannte Anekdoten und Kuriositäten der Weltmeisterschaft.
+      </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {funFacts.map((ff, i) => (
+          <div
+            key={i}
+            className="flex gap-4 bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:border-primary/30 transition-colors"
+          >
+            <span className="text-3xl flex-shrink-0">{ff.emoji}</span>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {ff.fact}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
