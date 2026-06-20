@@ -102,9 +102,9 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
           Live-Ergebnisse
         </Link>
         <Link
-          href="/suche"
+          href="/faq"
           className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 transition-colors ${
-            pathname === "/suche" ? "text-accent" : "text-gray-900"
+            pathname === "/faq" ? "text-accent" : "text-gray-900"
           }`}
           onClick={onClose}
         >

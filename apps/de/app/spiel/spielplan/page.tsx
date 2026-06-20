@@ -109,7 +109,7 @@ export default async function SpielplanPage() {
               Spielplan
             </a>
             <a
-              href="/spielplan/drucken"
+              href="/spielkalender/drucken"
               target="_blank"
               className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/20 transition-colors"
             >

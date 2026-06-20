@@ -134,7 +134,7 @@ export function Section2026() {
              WM simulieren
           </Link>
           <Link
-            href="/statistiques"
+            href="/statistiken"
             className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 text-white font-bold px-6 py-3 hover:bg-white/10 transition-colors"
           >
              Historische Statistiken

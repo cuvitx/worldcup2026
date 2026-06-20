@@ -137,8 +137,8 @@ export default function HistoirePage() {
         {/* Navigation am Seitenende */}
         <div className="mt-12 grid sm:grid-cols-3 gap-4">
           {[
-            { href: "/palmares", icon: "", label: "Komplette Erfolge", desc: "Alle Sieger von 1930 bis 2022" },
-            { href: "/statistiques", icon: "", label: "Statistiken", desc: "Rekorde, Torschützen, Tore pro Ausgabe" },
+            { href: "/statistiken", icon: "", label: "Komplette Erfolge", desc: "Alle Sieger von 1930 bis 2022" },
+            { href: "/statistiken", icon: "", label: "Statistiken", desc: "Rekorde, Torschützen, Tore pro Ausgabe" },
             { href: "/mannschaft", icon: "", label: "Die 48 Mannschaften 2026", desc: "Gruppen, Kader und Prognosen" },
           ].map(({ href, icon, label, desc }) => (
             <Link
@@ -165,13 +165,13 @@ export default function HistoirePage() {
       <RelatedLinks
         links={[
           {
-            href: "/palmares",
+            href: "/statistiken",
             title: "Komplette Erfolge",
             description: "Alle Sieger, Finalisten und besten Torschützen jeder Ausgabe seit 1930.",
             icon: ""
           },
           {
-            href: "/statistiques",
+            href: "/statistiken",
             title: " Erweiterte Statistiken",
             description: "Rekorde, historische Leistungen und statistische Analysen der WM.",
             icon: ""

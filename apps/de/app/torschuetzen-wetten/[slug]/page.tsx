@@ -92,7 +92,7 @@ const faqItems = [
         </div>
         {/* Quotentabelle: Mindestens 1 Tor */}
         <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
-          <TrendingUp className="w-6 h-6 text-accent" /> Betano-Quoten : Mindestens 1 Tor im Turnier
+          <TrendingUp className="w-6 h-6 text-accent" /> Betano-Quoten:Mindestens 1 Tor im Turnier
         </h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
@@ -111,7 +111,7 @@ const faqItems = [
           </table>
         </div>
         {/* Quotentabelle: Torschützenkönig */}
-        <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten : Torschützenkönig des Turniers</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten:Torschützenkönig des Turniers</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">
@@ -129,7 +129,7 @@ const faqItems = [
           </table>
         </div>
         {/* Quotentabelle: Torschütze nächstes Spiel */}
-        <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten : Torschütze im nächsten Spiel</h2>
+        <h2 className="text-xl font-bold text-primary mb-4">Betano-Quoten:Torschütze im nächsten Spiel</h2>
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white rounded-xl border border-gray-200 text-sm">
             <thead className="bg-gray-50">

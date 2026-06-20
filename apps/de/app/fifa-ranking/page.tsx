@@ -289,7 +289,7 @@ export default function RanglisteFifaPage() {
             {[
               { href: "/mannschaft", label: "Alle Mannschaften", desc: "48 qualifizierte Mannschaften" },
               { href: "/gruppen", label: "Gruppenübersicht", desc: "12 Gruppen mit je 4 Mannschaften" },
-              { href: "/statistiques", label: "WM-Statistiken", desc: "Rekorde und Analysen" },
+              { href: "/statistiken", label: "WM-Statistiken", desc: "Rekorde und Analysen" },
             ].map(({ href, label, desc }) => (
               <Link
                 key={href}
@@ -318,7 +318,7 @@ export default function RanglisteFifaPage() {
           { href: "/mannschaft", title: "48 qualifizierte Mannschaften", description: "Vollständige Steckbriefe der WM-2026-Mannschaften", icon: "" },
           { href: "/gruppen", title: "Die 12 Gruppen", description: "Zusammensetzung und Analyse jeder Gruppe", icon: "" },
           { href: "/prognose/sieger", title: "Siegerprognose", description: "Wer gewinnt die WM 2026?", icon: "" },
-          { href: "/statistiques", title: "Statistiken", description: "Zahlen und Fakten zum Turnier", icon: "" },
+          { href: "/statistiken", title: "Statistiken", description: "Zahlen und Fakten zum Turnier", icon: "" },
           { href: "/turnierbaum", title: "Simulator", description: "Simulieren Sie den Weg Ihrer Mannschaft", icon: "" },
         ]} />
       </div>

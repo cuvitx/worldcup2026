@@ -216,7 +216,7 @@ export default function StatistikenPage() {
                Historische Zeitleiste
             </Link>
             <Link
-              href="/palmares"
+              href="/geschichte"
               className="inline-flex items-center gap-2 rounded-full bg-white/20 border border-white/30 text-white font-bold px-6 py-3 hover:bg-white/30 transition-colors"
             >
                Vollständige Siegerliste
@@ -248,7 +248,7 @@ export default function StatistikenPage() {
             icon: ""
           },
           {
-            href: "/palmares",
+            href: "/geschichte",
             title: "Vollständige Siegerliste",
             description: "Alle Gewinner, Finalisten und Rekorde pro Ausgabe.",
             icon: ""

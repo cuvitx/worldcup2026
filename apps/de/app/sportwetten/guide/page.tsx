@@ -226,7 +226,7 @@ export default function GuideParisPage() {
               Wettanbieter ansehen <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              href="/bonus"
+              href="/bonus-de"
               className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-xl py-3.5 px-6 font-bold text-sm hover:bg-primary/20 transition-colors"
             >
               Alle Boni

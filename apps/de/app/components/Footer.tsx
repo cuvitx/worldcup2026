@@ -10,7 +10,7 @@ const columns = [
     links: [
       { href: "/spiel/spielplan", label: "Spielplan" },
       { href: "/gruppen", label: "Die 12 Gruppen" },
-      { href: "/mannschaften", label: "48 Mannschaften" },
+      { href: "/mannschaft", label: "48 Mannschaften" },
       { href: "/mannschaft/deutschland", label: "\u{1F1E9}\u{1F1EA} DFB-Elf" },
       { href: "/stadien", label: "Stadien" },
       { href: "/staedte", label: "Austragungsorte" },
@@ -21,12 +21,11 @@ const columns = [
   {
     title: "Prognosen",
     links: [
-      { href: "/prognose/weltmeister", label: "WM-Sieger Prognose" },
+      { href: "/prognose/sieger", label: "WM-Sieger Prognose" },
       { href: "/prognose/deutschland", label: "Prognose Deutschland" },
       { href: "/prognose/brasilien", label: "Prognose Brasilien" },
       { href: "/quotenvergleich", label: "Quotenvergleich" },
       { href: "/sportwetten", label: "Sportwetten" },
-      { href: "/spielervergleich", label: "Spielervergleich" },
       { href: "/turnierbaum", label: "Turnierbaum" },
       { href: "/torschuetzen", label: "Torjäger" },
     ],
@@ -35,11 +34,11 @@ const columns = [
     title: "Infos",
     links: [
       { href: "/nachrichten", label: "Nachrichten" },
-      { href: "/ratgeber", label: "Ratgeber" },
-      { href: "/wo-schauen", label: "Wo schauen" },
-      { href: "/spieler", label: "Spieler" },
+      { href: "/ratgeber-liste", label: "Ratgeber" },
+      { href: "/geschichte", label: "Geschichte" },
+      { href: "/spieler-liste", label: "Spieler" },
       { href: "/h2h", label: "Direktvergleich (H2H)" },
-      { href: "/suche", label: "Suche" },
+      { href: "/statistiken", label: "Statistiken" },
       { href: "/faq", label: "FAQ" },
     ],
   },
@@ -47,11 +46,11 @@ const columns = [
     title: "Über uns",
     links: [
       { href: "/ueber-uns", label: "Über uns" },
-      { href: "/methodik", label: "Methodik" },
+      { href: "/methodologie", label: "Methodik" },
       { href: "/verantwortungsvolles-spielen", label: "Verantwortungsvolles Spielen" },
       { href: "/kontakt", label: "Kontakt" },
       { href: "/impressum", label: "Impressum" },
-      { href: "/datenschutz", label: "Datenschutz" },
+      { href: "/impressum", label: "Datenschutz" },
     ],
   },
 ];
@@ -175,9 +174,9 @@ export function Footer() {
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               {[
                 { href: "/impressum", label: "Impressum" },
-                { href: "/datenschutz", label: "Datenschutz" },
+                { href: "/impressum", label: "Datenschutz" },
                 { href: "/verantwortungsvolles-spielen", label: "Verantwortungsvolles Spielen" },
-                { href: "/methodik", label: "Methodik" },
+                { href: "/methodologie", label: "Methodik" },
                 { href: "/ueber-uns", label: "Über uns" },
                 { href: "/kontakt", label: "Kontakt" },
                 { href: "/faq", label: "FAQ" },
