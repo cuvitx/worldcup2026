@@ -53,7 +53,9 @@ function getRedis(): Redis | null {
   const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
   if (url && token) {
-    redis = new Redis({ url, token });
+    // cache: "no-cache" instead of default "no-store" — prevents Next.js
+    // "static to dynamic" error that breaks ALL ISR re-renders
+    redis = new Redis({ url, token, cache: "no-cache" });
   }
   return redis;
 }
