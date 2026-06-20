@@ -72,8 +72,9 @@ set -a; source /etc/cdm2026.env 2>/dev/null || true; set +a
 npm ci
 
 # === Step 3: Build ===
-# Clear rate limiter BEFORE build so completed-match API calls aren't blocked
+# Clear rate limiter BEFORE build — check both default and VOTES_DATA_DIR locations
 rm -f "${REPO_DIR}/.data/rate-limits.json" 2>/dev/null || true
+rm -f "${VOTES_DATA_DIR:-/srv/cdm2026/data}/rate-limits.json" 2>/dev/null || true
 for APP in $APPS; do
   echo "[3/8] Building apps/${APP}..."
   npm run build --workspace=apps/${APP}
@@ -89,6 +90,7 @@ rsync -a $RSYNC_EXCLUDES "$REPO_DIR/" "$RELEASE_DIR/"
 
 # Reset rate limit counters so runtime starts fresh (build exhausts the quota)
 rm -f "${RELEASE_DIR}/.data/rate-limits.json" 2>/dev/null || true
+rm -f "${VOTES_DATA_DIR:-/srv/cdm2026/data}/rate-limits.json" 2>/dev/null || true
 for APP in $APPS; do
   rm -f "${RELEASE_DIR}/apps/${APP}/.data/rate-limits.json" 2>/dev/null || true
 done
@@ -368,11 +370,13 @@ if [ -f "$MATCHES_FILE" ]; then
 fi
 
 if [ -n "$TODAY_SLUGS" ]; then
-  echo "  Warming today's match pages..."
+  echo "  Warming today's match pages (with 2s delay to avoid API rate limit)..."
   for s in $TODAY_SLUGS; do
     curl -s -o /dev/null --max-time 10 "${FR_URL}/match/${s}" || true
+    sleep 2
     if echo "$APPS" | grep -q "de"; then
       curl -s -o /dev/null --max-time 10 "http://127.0.0.1:3002/spiel/${s}" 2>/dev/null || true
+      sleep 2
     fi
   done
   echo "  Warmed $(echo "$TODAY_SLUGS" | wc -w | tr -d ' ') match pages."
