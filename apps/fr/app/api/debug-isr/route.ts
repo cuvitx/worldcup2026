@@ -1,13 +1,13 @@
-import { enrichMatchesWithResults, resolveApiFixtureId } from "@repo/api/football/match-results";
+import { enrichMatchesWithResults, resolveApiFixtureId, getMatchResults } from "@repo/api/football/match-results";
+import { getWorldCupFixtures } from "@repo/api/football";
 import { matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
-import { generateFullMatchPreview } from "@repo/ai/generators";
+import { teamApiIds } from "@repo/data/api-football-ids";
 import { getMatchPhase } from "@repo/data/tournament-state";
 
 /**
  * GET /api/debug-isr?slug=pays-bas-vs-suede
  * Diagnostic endpoint to test the same code path as match detail pages.
- * Exercises: enrichMatchesWithResults, resolveApiFixtureId, generateFullMatchPreview
  */
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -28,8 +28,39 @@ export async function GET(request: Request) {
   }
 
   steps.matchPhase = getMatchPhase(staticMatch.date, staticMatch.time);
+  steps.teamApiIds = {
+    home: teamApiIds[staticMatch.homeTeamId] ?? "missing",
+    away: teamApiIds[staticMatch.awayTeamId] ?? "missing",
+  };
 
-  // Step 1: enrichMatchesWithResults
+  // Step 1: Raw API call — getWorldCupFixtures
+  try {
+    const fixtures = await getWorldCupFixtures();
+    steps.fixturesCount = fixtures.length;
+    if (fixtures.length > 0) {
+      steps.fixturesSample = fixtures.slice(0, 3).map((f) => ({
+        id: f.fixture.id,
+        status: f.fixture.status.short,
+        homeId: f.teams.home.id,
+        awayId: f.teams.away.id,
+        homeName: f.teams.home.name,
+        awayName: f.teams.away.name,
+        goals: `${f.goals.home ?? "?"}-${f.goals.away ?? "?"}`,
+      }));
+    }
+  } catch (err) {
+    steps.fixturesError = err instanceof Error ? err.message : String(err);
+  }
+
+  // Step 2: getMatchResults (parsed)
+  try {
+    const results = await getMatchResults();
+    steps.matchResultsCount = results.length;
+  } catch (err) {
+    steps.matchResultsError = err instanceof Error ? err.message : String(err);
+  }
+
+  // Step 3: enrichMatchesWithResults
   try {
     const home = teamsById[staticMatch.homeTeamId];
     const away = teamsById[staticMatch.awayTeamId];
@@ -46,7 +77,7 @@ export async function GET(request: Request) {
     steps.enrichError = err instanceof Error ? err.message : String(err);
   }
 
-  // Step 2: resolveApiFixtureId
+  // Step 4: resolveApiFixtureId
   try {
     const fixtureId = await resolveApiFixtureId(staticMatch);
     steps.fixtureId = fixtureId;
@@ -54,20 +85,6 @@ export async function GET(request: Request) {
     steps.fixtureIdError = err instanceof Error ? err.message : String(err);
   }
 
-  // Step 3: generateFullMatchPreview (with timeout)
-  if (process.env.GEMINI_API_KEY) {
-    try {
-      const aiResult = await Promise.race([
-        generateFullMatchPreview(slug, "fr", { includeExpert: false }),
-        new Promise<"timeout">((resolve) => setTimeout(() => resolve("timeout"), 15_000)),
-      ]);
-      steps.aiResult = aiResult === "timeout" ? "TIMEOUT_15s" : (aiResult ? "ok" : "null");
-    } catch (err) {
-      steps.aiError = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    }
-  } else {
-    steps.aiResult = "skipped_no_key";
-  }
 
   return Response.json(steps, {
     headers: { "Cache-Control": "no-store" },
