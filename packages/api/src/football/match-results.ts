@@ -75,6 +75,8 @@ export async function getMatchResults(): Promise<MatchResult[]> {
  * Returns null if no match found or during build.
  */
 export async function resolveApiFixtureId(match: Match): Promise<number | null> {
+  // Skip during build — data loads via ISR at runtime
+  if (process.env.NEXT_PHASE === "phase-production-build") return null;
 
   let fixtures: ApiFixture[];
   try {
@@ -140,7 +142,8 @@ export async function enrichMatchesWithResults(
   matches: Match[],
   _teamNameMap?: Record<string, string> // kept for backward compat, no longer used
 ): Promise<Match[]> {
-  // During build, only enrich completed matches (scores are stable)
+  // Skip during build — scores are in static data, live enrichment via ISR
+  if (process.env.NEXT_PHASE === "phase-production-build") return matches;
 
   // Only call API if at least one match is today/yesterday AND doesn't have a score yet.
   // No point fetching for matches 10 days in the future.

@@ -112,8 +112,8 @@ export async function cacheSet<T>(
 const inflight = new Map<string, Promise<unknown>>();
 
 /** Fetch with cache — wraps any async getter with caching.
- *  Never caches empty arrays to avoid persisting transient failures.
- *  Deduplicates concurrent calls for the same key (single-flight). */
+ *  Deduplicates concurrent calls for the same key (single-flight).
+ *  Caches empty arrays with a short TTL (60s) to avoid hammering on transient failures. */
 export async function cachedFetch<T>(
   key: string,
   ttlSeconds: number,
@@ -130,9 +130,10 @@ export async function cachedFetch<T>(
     try {
       const data = await fetcher();
 
-      // Skip caching empty arrays — they usually indicate a transient failure
-      // (rate limit, network error) and should not be persisted
+      // Cache empty arrays with short TTL (60s) — avoids hammering on transient
+      // failures while not persisting them for the full TTL
       if (Array.isArray(data) && data.length === 0) {
+        await cacheSet(key, data, 60);
         return data;
       }
 
