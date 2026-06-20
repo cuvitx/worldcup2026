@@ -60,6 +60,10 @@ async function rateLimitedCachedFetch<T>(
 }
 
 async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
+  // Skip API calls during build — data loads via ISR at runtime.
+  // Without this, 40+ completed matches × 5 API calls = build timeout.
+  if (process.env.NEXT_PHASE === "phase-production-build") return [];
+
   if (!API_FOOTBALL.key) {
     console.warn(`[api-football] No API key configured, skipping: ${endpoint}`);
     return [];
