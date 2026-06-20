@@ -35,6 +35,11 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Update scores from API-Football
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: node scripts/update-scores.mjs
+
       - name: Run update script
         run: |
           TARGET="${{ github.event.inputs.target || 'all' }}"
