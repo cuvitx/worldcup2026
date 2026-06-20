@@ -193,8 +193,8 @@ function updateMatchesContent(content, blocks, fixtureLookup, teamMapping) {
   for (const block of blocks) {
     if (!block.homeTeamId || !block.awayTeamId || !block.date) continue;
 
-    // Skip future matches
-    if (block.date >= today) continue;
+    // Skip future matches (today's matches may already be finished)
+    if (block.date > today) continue;
 
     // Look up API IDs for both teams
     const homeApiId = teamMapping[block.homeTeamId];
