@@ -241,7 +241,7 @@ export default async function TeamPage({ params }: PageProps) {
       </section>
 
       {/* Newsletter */}
-      <Newsletter variant="banner" />
+      <Newsletter variant="banner" locale="de" />
 
 
       {/* ANJ Banner */}

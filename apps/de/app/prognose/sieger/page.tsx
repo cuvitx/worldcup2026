@@ -83,7 +83,7 @@ export default function PrognoseVainqueurPage() {
       />
 
       {/* Newsletter CTA */}
-      <Newsletter variant="banner" />
+      <Newsletter variant="banner" locale="de" />
 
       {/* Final CTA */}
       <CtaSection />

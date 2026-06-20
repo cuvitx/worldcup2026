@@ -260,7 +260,7 @@ export default function HomePage() {
 
       {/* SOCIAL PROOF + NEWSLETTER */}
       {/* SocialProof removed */}
-      <Newsletter variant="banner" />
+      <Newsletter variant="banner" locale="de" />
     </>
   );
 }
