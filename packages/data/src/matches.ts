@@ -511,6 +511,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "C",
     matchday: 2,
+    homeScore: 0,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group C: Brazil vs Haiti — Lincoln Financial Field, Philadelphia — 03:00 CEST
   {
@@ -524,6 +527,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "C",
     matchday: 2,
+    homeScore: 3,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group D: Türkiye vs Paraguay — Levi's Stadium, San Francisco — 05:00 CEST (03:00 UTC)
   {
@@ -537,6 +543,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "D",
     matchday: 2,
+    homeScore: 0,
+    awayScore: 1,
+    status: "finished" as const,
   },
 
   // ---- June 20, 2026 ----
