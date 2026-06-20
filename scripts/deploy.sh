@@ -121,8 +121,20 @@ if [ -f "$CACHE_CONF" ] && [ ! -f /etc/nginx/conf.d/nginx-cache.conf ]; then
 fi
 
 # Patch FR nginx config with proxy_cache (if not already present)
-FR_NGINX="/etc/nginx/sites-available/cdm2026"
-if [ -f "$FR_NGINX" ] && ! grep -q "proxy_cache" "$FR_NGINX" 2>/dev/null; then
+# Find the FR nginx config dynamically (could be named cdm2026, cdm2026.fr, cdm2026-fr, default, etc.)
+FR_NGINX=""
+for candidate in /etc/nginx/sites-available/cdm2026 /etc/nginx/sites-available/cdm2026.fr /etc/nginx/sites-available/cdm2026-fr /etc/nginx/sites-available/www.cdm2026.fr; do
+  if [ -f "$candidate" ]; then
+    FR_NGINX="$candidate"
+    break
+  fi
+done
+# Fallback: find the config that proxies to port 3000
+if [ -z "$FR_NGINX" ]; then
+  FR_NGINX=$(grep -rl "proxy_pass.*127.0.0.1:3000" /etc/nginx/sites-available/ 2>/dev/null | head -1)
+fi
+if [ -n "$FR_NGINX" ] && [ -f "$FR_NGINX" ] && ! grep -q "proxy_cache" "$FR_NGINX" 2>/dev/null; then
+  echo "  Found FR nginx config at: $FR_NGINX"
   echo "  Patching FR nginx config with proxy_cache..."
   sudo cp "$FR_NGINX" "${FR_NGINX}.bak"
   # Use python3 for reliable multi-line insertion (sed multi-line is fragile)
