@@ -34,7 +34,7 @@ export const matches: Match[] = [
   // Group A: South Korea vs UEFA Playoff D — Estadio Akron, Guadalajara — 04:00 CEST
   {
     id: "m02",
-    slug: "coree-du-sud-vs-barrage-uefa-d",
+    slug: "coree-du-sud-vs-tchequie",
     homeTeamId: "coree-du-sud",
     awayTeamId: "tchequie",
     date: "2026-06-12",
@@ -52,7 +52,7 @@ export const matches: Match[] = [
   // Group B: Canada vs UEFA Playoff A — BMO Field, Toronto — 21:00 CEST
   {
     id: "m03",
-    slug: "canada-vs-barrage-uefa-a",
+    slug: "canada-vs-bosnie-herzegovine",
     homeTeamId: "canada",
     awayTeamId: "bosnie-herzegovine",
     date: "2026-06-12",
@@ -134,7 +134,7 @@ export const matches: Match[] = [
   // Group D: Australia vs UEFA Playoff C — BC Place, Vancouver — 06:00 CEST
   {
     id: "m08",
-    slug: "australie-vs-barrage-uefa-c",
+    slug: "australie-vs-turquie",
     homeTeamId: "australie",
     awayTeamId: "turquie",
     date: "2026-06-14",
@@ -200,7 +200,7 @@ export const matches: Match[] = [
   // Group F: Tunisia vs UEFA Playoff B — Estadio BBVA, Monterrey — 04:00 CEST
   {
     id: "m12",
-    slug: "tunisie-vs-barrage-uefa-b",
+    slug: "tunisie-vs-suede",
     homeTeamId: "tunisie",
     awayTeamId: "suede",
     date: "2026-06-15",
@@ -300,7 +300,7 @@ export const matches: Match[] = [
   // Group I: Intercontinental Playoff 2 vs Norway — Gillette Stadium, Boston — 00:00 CEST (+1 day)
   {
     id: "m18",
-    slug: "barrage-interconf-2-vs-norvege",
+    slug: "irak-vs-norvege",
     homeTeamId: "irak",
     awayTeamId: "norvege",
     date: "2026-06-17",
@@ -350,7 +350,7 @@ export const matches: Match[] = [
   // Group K: Portugal vs Intercontinental Playoff 1 — NRG Stadium, Houston — 19:00 CEST
   {
     id: "m21",
-    slug: "portugal-vs-barrage-interconf-1",
+    slug: "portugal-vs-rd-congo",
     homeTeamId: "portugal",
     awayTeamId: "rd-congo",
     date: "2026-06-17",
@@ -420,7 +420,7 @@ export const matches: Match[] = [
   // Group A: UEFA Playoff D vs South Africa — Mercedes-Benz Stadium, Atlanta — 18:00 CEST
   {
     id: "m25",
-    slug: "barrage-uefa-d-vs-afrique-du-sud",
+    slug: "tchequie-vs-afrique-du-sud",
     homeTeamId: "tchequie",
     awayTeamId: "afrique-du-sud",
     date: "2026-06-18",
@@ -436,7 +436,7 @@ export const matches: Match[] = [
   // Group B: Switzerland vs UEFA Playoff A — SoFi Stadium, Los Angeles — 21:00 CEST
   {
     id: "m26",
-    slug: "suisse-vs-barrage-uefa-a",
+    slug: "suisse-vs-bosnie-herzegovine",
     homeTeamId: "suisse",
     awayTeamId: "bosnie-herzegovine",
     date: "2026-06-18",
@@ -534,7 +534,7 @@ export const matches: Match[] = [
   // Group D: Türkiye vs Paraguay — Levi's Stadium, San Francisco — 05:00 CEST (03:00 UTC)
   {
     id: "m32",
-    slug: "barrage-uefa-c-vs-paraguay",
+    slug: "turquie-vs-paraguay",
     homeTeamId: "turquie",
     awayTeamId: "paraguay",
     date: "2026-06-20",
@@ -565,7 +565,7 @@ export const matches: Match[] = [
   // Group F: Netherlands vs UEFA Playoff B — NRG Stadium, Houston — 19:00 CEST
   {
     id: "m34",
-    slug: "pays-bas-vs-barrage-uefa-b",
+    slug: "pays-bas-vs-suede",
     homeTeamId: "pays-bas",
     awayTeamId: "suede",
     date: "2026-06-20",
@@ -660,7 +660,7 @@ export const matches: Match[] = [
   // Group I: France vs Iraq — Lincoln Financial Field, Philadelphia — 23:00 CEST (21:00 UTC)
   {
     id: "m41",
-    slug: "france-vs-barrage-interconf-2",
+    slug: "france-vs-irak",
     homeTeamId: "france",
     awayTeamId: "irak",
     date: "2026-06-22",
@@ -753,7 +753,7 @@ export const matches: Match[] = [
   // Group K: Colombia vs Intercontinental Playoff 1 — Estadio Akron, Guadalajara — 04:00 CEST
   {
     id: "m48",
-    slug: "colombie-vs-barrage-interconf-1",
+    slug: "colombie-vs-rd-congo",
     homeTeamId: "colombie",
     awayTeamId: "rd-congo",
     date: "2026-06-24",
@@ -773,7 +773,7 @@ export const matches: Match[] = [
   // Group A (simultaneous): barrage-uefa-d vs Mexico — Estadio Azteca — 03:00 CEST
   {
     id: "m49",
-    slug: "barrage-uefa-d-vs-mexique",
+    slug: "tchequie-vs-mexique",
     homeTeamId: "tchequie",
     awayTeamId: "mexique",
     date: "2026-06-25",
@@ -799,7 +799,7 @@ export const matches: Match[] = [
   // Group B (simultaneous): UEFA Playoff A vs Qatar — Lumen Field, Seattle — 21:00 CEST
   {
     id: "m51",
-    slug: "barrage-uefa-a-vs-qatar",
+    slug: "bosnie-herzegovine-vs-qatar",
     homeTeamId: "bosnie-herzegovine",
     awayTeamId: "qatar",
     date: "2026-06-24",
@@ -851,7 +851,7 @@ export const matches: Match[] = [
   // Group D (simultaneous): Türkiye vs USA — SoFi Stadium, Los Angeles — 04:00 CEST (02:00 UTC Jun 26)
   {
     id: "m55",
-    slug: "barrage-uefa-c-vs-etats-unis",
+    slug: "turquie-vs-etats-unis",
     homeTeamId: "turquie",
     awayTeamId: "etats-unis",
     date: "2026-06-26",
@@ -905,7 +905,7 @@ export const matches: Match[] = [
   // Group F (simultaneous): Japan vs UEFA Playoff B — AT&T Stadium, Dallas — 01:00 CEST (+1 day)
   {
     id: "m59",
-    slug: "japon-vs-barrage-uefa-b",
+    slug: "japon-vs-suede",
     homeTeamId: "japon",
     awayTeamId: "suede",
     date: "2026-06-26",
@@ -998,7 +998,7 @@ export const matches: Match[] = [
   // Group I (simultaneous): Senegal vs Intercontinental Playoff 2 — Hard Rock Stadium, Miami — 21:00 CEST
   {
     id: "m66",
-    slug: "senegal-vs-barrage-interconf-2",
+    slug: "senegal-vs-irak",
     homeTeamId: "senegal",
     awayTeamId: "irak",
     date: "2026-06-26",
@@ -1052,7 +1052,7 @@ export const matches: Match[] = [
   // Group K (simultaneous): Intercontinental Playoff 1 vs Uzbekistan — Mercedes-Benz Stadium, Atlanta — 01:30 CEST (+1 day)
   {
     id: "m70",
-    slug: "barrage-interconf-1-vs-ouzbekistan",
+    slug: "rd-congo-vs-ouzbekistan",
     homeTeamId: "rd-congo",
     awayTeamId: "ouzbekistan",
     date: "2026-06-28",
