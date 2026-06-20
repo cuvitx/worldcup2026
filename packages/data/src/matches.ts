@@ -495,6 +495,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "D",
     matchday: 2,
+    homeScore: 2,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group C: Scotland vs Morocco — Gillette Stadium, Boston — 00:00 CEST (+1 day)
   {
