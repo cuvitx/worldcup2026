@@ -1,0 +1,28 @@
+# Add these directives to /etc/nginx/sites-available/cdm2026 (FR site)
+# Inside the main `location / { ... }` block, after proxy_set_header lines:
+#
+#   # Zero-downtime cache: serve stale pages while Next.js restarts
+#   proxy_cache cdm2026fr;
+#   proxy_cache_valid 200 10m;
+#   proxy_cache_valid 404 1m;
+#   proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+#   proxy_cache_background_update on;
+#   proxy_cache_lock on;
+#   proxy_cache_revalidate on;
+#   add_header X-Cache-Status $upstream_cache_status;
+#   proxy_cache_bypass $http_authorization;
+#   proxy_no_cache $http_authorization;
+#
+# Add a separate block for API routes (no cache):
+#
+#   location /api/ {
+#       proxy_pass http://127.0.0.1:3000;
+#       proxy_http_version 1.1;
+#       proxy_set_header Host $host;
+#       proxy_set_header X-Real-IP $remote_addr;
+#       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#       proxy_set_header X-Forwarded-Proto $scheme;
+#       proxy_cache off;
+#   }
+#
+# Then: sudo nginx -t && sudo systemctl reload nginx

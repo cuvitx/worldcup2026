@@ -38,6 +38,14 @@ jobs:
               sudo systemctl daemon-reload
               sudo systemctl enable wm2026-de 2>/dev/null || true
             fi
+            # Install nginx proxy cache for zero-downtime deploys
+            if [ -f "${SCRIPT_DIR}/nginx-cache.conf" ] && [ ! -f /etc/nginx/conf.d/nginx-cache.conf ]; then
+              echo "[PROVISION] Installing nginx proxy cache config..."
+              sudo cp "${SCRIPT_DIR}/nginx-cache.conf" /etc/nginx/conf.d/nginx-cache.conf
+              sudo mkdir -p /var/cache/nginx/cdm2026-fr /var/cache/nginx/wm2026-de
+              sudo chown www-data:www-data /var/cache/nginx/cdm2026-fr /var/cache/nginx/wm2026-de
+              sudo nginx -t && sudo systemctl reload nginx
+            fi
             if [ ! -f /etc/nginx/sites-available/wm2026-de ] && [ -f "${SCRIPT_DIR}/wm2026-de.nginx" ]; then
               echo "[PROVISION] Installing nginx config for DE..."
               sudo cp "${SCRIPT_DIR}/wm2026-de.nginx" /etc/nginx/sites-available/wm2026-de

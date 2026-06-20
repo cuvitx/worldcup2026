@@ -102,23 +102,82 @@ chown -R deploy:deploy "$RELEASE_DIR"
 echo "[5/8] Swapping symlink..."
 ln -sfn "$RELEASE_DIR" "${CURRENT_LINK}"
 
-# === Step 6: Restart services ===
-echo "[6/8] Restarting services..."
+# === Step 6: Graceful restart services (zero-downtime) ===
+echo "[6/8] Restarting services (graceful)..."
 SERVICES_TO_RESTART="$SERVICE_FR"
+HEALTH_PORTS="$SERVICE_FR:3000"
 if echo "$APPS" | grep -q "de"; then
   SERVICES_TO_RESTART="$SERVICE_FR $SERVICE_DE"
+  HEALTH_PORTS="$SERVICE_FR:3000 $SERVICE_DE:3002"
 fi
 
+# Install nginx cache config if not present (enables stale-while-revalidate)
+CACHE_CONF="${REPO_DIR}/scripts/vps/nginx-cache.conf"
+if [ -f "$CACHE_CONF" ] && [ ! -f /etc/nginx/conf.d/nginx-cache.conf ]; then
+  echo "  Installing nginx proxy cache config..."
+  sudo cp "$CACHE_CONF" /etc/nginx/conf.d/nginx-cache.conf
+  sudo mkdir -p /var/cache/nginx/cdm2026-fr /var/cache/nginx/wm2026-de
+  sudo chown www-data:www-data /var/cache/nginx/cdm2026-fr /var/cache/nginx/wm2026-de
+fi
+
+# Update nginx site configs (always sync latest)
+NGINX_DE="${REPO_DIR}/scripts/vps/wm2026-de.nginx"
+if [ -f "$NGINX_DE" ] && [ -f /etc/nginx/sites-available/wm2026-de ]; then
+  # Only update if SSL is already configured (don't overwrite certbot changes)
+  if grep -q "proxy_cache" /etc/nginx/sites-available/wm2026-de 2>/dev/null; then
+    echo "  nginx DE config already has proxy_cache."
+  else
+    echo "  Updating nginx DE config with proxy_cache..."
+    # Merge: keep SSL lines from current config, add cache directives
+    sudo cp "$NGINX_DE" /etc/nginx/sites-available/wm2026-de.new
+    if sudo nginx -t -c /dev/stdin <<< "events {} http { include /etc/nginx/conf.d/*.conf; include /etc/nginx/sites-available/wm2026-de.new; }" 2>/dev/null; then
+      sudo cp /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-available/wm2026-de.bak
+      # Re-run certbot to apply SSL to new config
+      sudo cp "$NGINX_DE" /etc/nginx/sites-available/wm2026-de
+      if command -v certbot &>/dev/null; then
+        sudo certbot --nginx -d wm2026guide.de -d www.wm2026guide.de --non-interactive --agree-tos --redirect 2>/dev/null || true
+      fi
+    fi
+    sudo rm -f /etc/nginx/sites-available/wm2026-de.new
+  fi
+fi
+
+# Reload nginx to pick up cache config (graceful — no downtime)
+if sudo nginx -t 2>/dev/null; then
+  sudo systemctl reload nginx
+  echo "  nginx reloaded (proxy_cache active)."
+fi
+
+# Restart each service one at a time with health check
 for SVC in $SERVICES_TO_RESTART; do
   if systemctl list-unit-files "${SVC}.service" &>/dev/null; then
     sudo systemctl restart "$SVC"
-    echo "  Restarted ${SVC}"
+    echo "  Restarted ${SVC}, waiting for health..."
   else
     echo "  Skipping ${SVC} (service not installed yet)"
+    continue
+  fi
+
+  # Wait for health (up to 15s)
+  PORT=""
+  for hp in $HEALTH_PORTS; do
+    if [ "${hp%%:*}" = "$SVC" ]; then
+      PORT="${hp##*:}"
+      break
+    fi
+  done
+  if [ -n "$PORT" ]; then
+    for i in $(seq 1 15); do
+      if curl -sf -o /dev/null --max-time 2 "http://127.0.0.1:${PORT}/" 2>/dev/null; then
+        echo "  ${SVC} healthy after ${i}s."
+        break
+      fi
+      sleep 1
+    done
   fi
 done
 
-sleep 3
+sleep 2
 FAILED=0
 for SVC in $SERVICES_TO_RESTART; do
   if systemctl list-unit-files "${SVC}.service" &>/dev/null; then
@@ -130,6 +189,12 @@ for SVC in $SERVICES_TO_RESTART; do
     fi
   fi
 done
+
+# Purge nginx cache after successful deploy so new content is served
+if [ "$FAILED" -eq 0 ]; then
+  sudo rm -rf /var/cache/nginx/cdm2026-fr/* /var/cache/nginx/wm2026-de/* 2>/dev/null || true
+  echo "  nginx cache purged (new content will be cached on next request)."
+fi
 
 if [ "$FAILED" -eq 1 ]; then
   echo "Rolling back..."

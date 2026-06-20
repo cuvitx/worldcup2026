@@ -1,7 +1,10 @@
 # /etc/nginx/sites-available/wm2026-de
 # WM 2026 German site — reverse proxy to Next.js on port 3002
 #
+# Requires: /etc/nginx/conf.d/nginx-cache.conf (cache zone wm2026de)
+#
 # Install:
+#   sudo cp nginx-cache.conf /etc/nginx/conf.d/
 #   sudo cp wm2026-de.nginx /etc/nginx/sites-available/wm2026-de
 #   sudo ln -s /etc/nginx/sites-available/wm2026-de /etc/nginx/sites-enabled/
 #   sudo certbot --nginx -d wm2026guide.de -d www.wm2026guide.de
@@ -37,9 +40,23 @@ server {
         proxy_connect_timeout 60s;
         proxy_send_timeout 60s;
         proxy_read_timeout 60s;
+
+        # Zero-downtime cache: serve stale pages while Next.js restarts
+        proxy_cache wm2026de;
+        proxy_cache_valid 200 10m;
+        proxy_cache_valid 404 1m;
+        proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+        proxy_cache_background_update on;
+        proxy_cache_lock on;
+        proxy_cache_revalidate on;
+        add_header X-Cache-Status $upstream_cache_status;
+
+        # Don't cache authenticated/API requests
+        proxy_cache_bypass $http_authorization;
+        proxy_no_cache $http_authorization;
     }
 
-    # Static assets — long cache
+    # Static assets — long cache (no proxy_cache needed, browser caches these)
     location /_next/static/ {
         proxy_pass http://127.0.0.1:3002;
         proxy_set_header Host $host;
@@ -53,6 +70,17 @@ server {
         proxy_set_header Host $host;
         expires 30d;
         add_header Cache-Control "public";
+    }
+
+    # API routes — never cache
+    location /api/ {
+        proxy_pass http://127.0.0.1:3002;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache off;
     }
 
     # Gzip
