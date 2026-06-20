@@ -1,10 +1,5 @@
 import { getFixturesByDate } from "@repo/api/football";
 
-/**
- * GET /api/fixtures?date=2026-06-11
- * Returns fixtures for a given date (finished, live, or upcoming).
- * Used by LiveMatchWidget to display final scores for completed matches.
- */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const date = searchParams.get("date");

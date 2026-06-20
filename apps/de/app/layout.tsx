@@ -6,6 +6,11 @@ import { domains, getHomeAlternates } from "@repo/data/route-mapping";
 import { OrganizationSchema } from "@repo/ui/organization-schema";
 import { WebSiteSchema } from "@repo/ui/website-schema";
 import { BackToTop } from "@repo/ui/back-to-top";
+import { LiveScoreBarWrapper } from "./components/LiveScoreBarWrapper";
+import { LiveTicker } from "./components/LiveTicker";
+import { SiloTabs } from "./components/SiloTabs";
+import { AutoBreadcrumb } from "./components/AutoBreadcrumb";
+import { LiveDataProvider } from "./providers/LiveDataProvider";
 import "@repo/data/translations/register-de";
 import "./globals.css";
 
@@ -92,10 +97,14 @@ export default function RootLayout({
         <OrganizationSchema lang="de" url={domains.de} name="WM 2026 — Fussball-Weltmeisterschaft" />
         <WebSiteSchema url={domains.de} name="WM 2026" description="Kompletter Guide zur Fussball-WM 2026: Prognosen, Quoten, Analysen aller 48 Mannschaften." />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:ring-2 focus:ring-white">Zum Inhalt springen</a>
+        <LiveDataProvider>
         <Header />
-        <main id="main-content" className="flex-1 overflow-hidden">{children}</main>
+        <LiveScoreBarWrapper />
+        <LiveTicker />
+        <main id="main-content" className="flex-1 overflow-hidden"><AutoBreadcrumb /><SiloTabs />{children}</main>
         <Footer />
         <BackToTop />
+        </LiveDataProvider>
       </body>
     </html>
   );
