@@ -247,9 +247,8 @@ export default async function MatchPage({ params }: PageProps) {
   const matchPhase = getMatchPhase(match.date, match.time);
   const isCompleted = matchPhase === "completed";
 
-  // Skip most external API calls during static build to avoid rate limit exhaustion.
-  // Exception: completed matches fetch events/lineups/stats at build time so that
-  // deploy doesn't wipe ISR-regenerated data (the results are stable & Redis-cached).
+  // During build: fetch data for completed matches (stable, cached, ~120 API calls total).
+  // During runtime (ISR): fetch for both live and completed matches.
   const isBuild = process.env.NEXT_PHASE === "phase-production-build";
 
   // AI-enriched data: needs Gemini key
@@ -264,14 +263,15 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
-  // Fetch match events, lineups, statistics and player ratings for live/completed matches.
-  // Skipped during build — ISR + post-deploy warm-up handles enrichment at runtime.
+  // Fetch match events, lineups, statistics and player ratings.
+  // Completed matches: fetch at build time too (data is stable & cached, prevents data loss on deploy).
+  // Live matches: only at runtime (ISR).
   let events: ApiFixtureEvent[] = [];
   let lineups: ApiLineup[] = [];
   let statistics: ApiFixtureStatistic[] = [];
   let fixturePlayers: ApiFixturePlayer[] = [];
 
-  if (!isBuild && (matchPhase === "live" || matchPhase === "completed")) {
+  if (matchPhase === "completed" || (!isBuild && matchPhase === "live")) {
     const fixtureId = await resolveApiFixtureId(match);
     if (fixtureId) {
       const [ev, lu, st, pl] = await Promise.all([
@@ -313,10 +313,9 @@ export default async function MatchPage({ params }: PageProps) {
     }
   }
 
-  // Fetch ESPN play-by-play commentary for live AND completed matches
-  // ESPN provides real-time commentary during live matches
+  // Fetch ESPN play-by-play commentary for completed + live matches
   let commentaryPlays: CommentaryPlay[] = [];
-  if (!isBuild && (matchPhase === "live" || matchPhase === "completed") && home && away) {
+  if ((matchPhase === "completed" || (!isBuild && matchPhase === "live")) && home && away) {
     try {
       const espnHomeTeam = getEspnTeamName(match.homeTeamId);
       const espnAwayTeam = getEspnTeamName(match.awayTeamId);
