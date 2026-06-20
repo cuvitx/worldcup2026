@@ -108,7 +108,12 @@ export async function cacheSet<T>(
   }
 }
 
-/** Fetch with cache — wraps any async getter with caching */
+// In-flight request deduplication: prevents concurrent fetchers for the same key
+const inflight = new Map<string, Promise<unknown>>();
+
+/** Fetch with cache — wraps any async getter with caching.
+ *  Never caches empty arrays to avoid persisting transient failures.
+ *  Deduplicates concurrent calls for the same key (single-flight). */
 export async function cachedFetch<T>(
   key: string,
   ttlSeconds: number,
@@ -117,7 +122,27 @@ export async function cachedFetch<T>(
   const cached = await cacheGet<T>(key);
   if (cached !== null) return cached;
 
-  const data = await fetcher();
-  await cacheSet(key, data, ttlSeconds);
-  return data;
+  // Deduplicate: if another call for the same key is in-flight, wait for it
+  const existing = inflight.get(key);
+  if (existing) return existing as Promise<T>;
+
+  const promise = (async () => {
+    try {
+      const data = await fetcher();
+
+      // Skip caching empty arrays — they usually indicate a transient failure
+      // (rate limit, network error) and should not be persisted
+      if (Array.isArray(data) && data.length === 0) {
+        return data;
+      }
+
+      await cacheSet(key, data, ttlSeconds);
+      return data;
+    } finally {
+      inflight.delete(key);
+    }
+  })();
+
+  inflight.set(key, promise);
+  return promise;
 }

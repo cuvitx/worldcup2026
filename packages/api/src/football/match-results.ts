@@ -83,11 +83,25 @@ export async function resolveApiFixtureId(match: Match): Promise<number | null> 
       1800,
       () => getWorldCupFixtures()
     );
-  } catch {
+  } catch (err) {
+    console.error(`[resolveApiFixtureId] Exception for ${match.slug}:`, err instanceof Error ? err.message : err);
     return null;
   }
 
-  if (fixtures.length === 0) return null;
+  // Retry once: if cache returned empty, bypass cache and fetch directly
+  if (fixtures.length === 0) {
+    console.warn(`[resolveApiFixtureId] Empty fixtures for ${match.slug}, retrying directly...`);
+    try {
+      fixtures = await getWorldCupFixtures();
+    } catch {
+      return null;
+    }
+  }
+
+  if (fixtures.length === 0) {
+    console.warn(`[resolveApiFixtureId] Still no fixtures after retry for ${match.slug}`);
+    return null;
+  }
 
   const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
   const ourAwayApiId = teamApiIds[match.awayTeamId] ?? 0;

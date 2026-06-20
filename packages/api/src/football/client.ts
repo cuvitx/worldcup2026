@@ -51,6 +51,7 @@ async function rateLimitedCachedFetch<T>(
   // Only cache non-empty results — empty arrays from rate-limit errors
   // or missing data should not be persisted (especially with long TTLs)
   if (Array.isArray(data) && data.length === 0) {
+    console.warn(`[api-football] Empty result for ${cacheKey}, cached=${cached !== null}`);
     return cached ?? fallback;
   }
 
