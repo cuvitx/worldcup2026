@@ -361,26 +361,11 @@ for p in "/" "/match/calendrier" "/match/aujourdhui" "/groupes" "/resultats"; do
   curl -s -o /dev/null --max-time 10 "${FR_URL}${p}"
 done
 
-# Warm today's match pages only (completed matches already have data from build)
-MATCHES_FILE="${CURRENT_LINK}/packages/data/src/matches.ts"
-TODAY=$(date +%Y-%m-%d)
-TODAY_SLUGS=""
-if [ -f "$MATCHES_FILE" ]; then
-  TODAY_SLUGS=$(grep -B5 "date: \"${TODAY}" "$MATCHES_FILE" | grep -o 'slug: "[^"]*"' | sed 's/slug: "//;s/"//g' || true)
-fi
-
-if [ -n "$TODAY_SLUGS" ]; then
-  echo "  Warming today's match pages (with 2s delay to avoid API rate limit)..."
-  for s in $TODAY_SLUGS; do
-    curl -s -o /dev/null --max-time 10 "${FR_URL}/match/${s}" || true
-    sleep 2
-    if echo "$APPS" | grep -q "de"; then
-      curl -s -o /dev/null --max-time 10 "http://127.0.0.1:3002/spiel/${s}" 2>/dev/null || true
-      sleep 2
-    fi
-  done
-  echo "  Warmed $(echo "$TODAY_SLUGS" | wc -w | tr -d ' ') match pages."
-fi
+# Skip match page warm-up — match pages trigger 5-10 API calls each, causing
+# per-minute rate limit burst. The serial API queue (250ms gap) handles normal
+# traffic fine, but warming 5+ match pages at once overwhelms it.
+# Match pages will be built on first user visit via ISR instead.
+echo "  Skipping match page warm-up (API calls serialized, ISR handles first visit)."
 
 # DE static pages warm-up
 if echo "$APPS" | grep -q "de"; then

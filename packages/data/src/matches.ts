@@ -599,6 +599,8 @@ export const matches: Match[] = [
     matchday: 2,
     homeScore: 0,
     awayScore: 0,
+    halfTimeHome: 0,
+    halfTimeAway: 0,
     status: "finished" as const,
   },
   // Group F: Tunisia vs Japan — Estadio BBVA, Monterrey — 06:00 CEST
@@ -615,6 +617,8 @@ export const matches: Match[] = [
     matchday: 2,
     homeScore: 0,
     awayScore: 4,
+    halfTimeHome: 0,
+    halfTimeAway: 2,
     status: "finished" as const,
   },
 

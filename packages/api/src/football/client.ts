@@ -31,6 +31,22 @@ let lastRateLimitWarning = 0;
 // API calls for the same key after restart (which triggers per-minute rate limit)
 const rlInflight = new Map<string, Promise<unknown>>();
 
+// Serial queue for API calls — prevents per-minute rate limit by ensuring
+// only one API call runs at a time with a minimum gap between calls.
+let apiQueue: Promise<unknown> = Promise.resolve();
+const MIN_API_GAP_MS = 250; // 250ms between calls = max 240/min (under 300/min limit)
+
+function enqueueApiFetch<T>(fn: () => Promise<T>): Promise<T> {
+  const task = apiQueue.then(async () => {
+    const result = await fn();
+    await new Promise((r) => setTimeout(r, MIN_API_GAP_MS));
+    return result;
+  });
+  // Update queue head — catch to prevent unhandled rejection from propagating
+  apiQueue = task.catch(() => {});
+  return task;
+}
+
 /**
  * Wrapper around cachedFetch that respects rate limits.
  * If rate limited, returns cached data if available, otherwise returns fallback.
@@ -94,6 +110,8 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string>): Pr
     return [];
   }
 
+  // Enqueue to serialize all API calls — prevents per-minute rate limit burst
+  return enqueueApiFetch(async () => {
   const url = new URL(`${API_FOOTBALL.baseUrl}/${endpoint}`);
   for (const [key, value] of Object.entries(params)) {
     url.searchParams.set(key, value);
@@ -132,6 +150,7 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string>): Pr
   }
 
   return Array.isArray(json.response) ? json.response : [];
+  }); // end enqueueApiFetch
 }
 
 /** Get team statistics for a specific league/season */
