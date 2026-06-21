@@ -597,6 +597,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "E",
     matchday: 2,
+    homeScore: 0,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group F: Tunisia vs Japan — Estadio BBVA, Monterrey — 06:00 CEST
   {
@@ -610,6 +613,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "F",
     matchday: 2,
+    homeScore: 0,
+    awayScore: 4,
+    status: "finished" as const,
   },
 
   // ---- June 21, 2026 ----
