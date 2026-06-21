@@ -41,9 +41,16 @@ export interface MatchResult {
  * Multiple matches can share the same kickoff time (e.g. group stage day 3).
  */
 export async function getMatchResults(): Promise<MatchResult[]> {
+  // Use short TTL (90s) during match hours, long TTL (30 min) otherwise.
+  // Without this, a score cached at the 71st minute stays stale for 30 min
+  // — showing "EN DIRECT" long after the match has finished.
+  const hour = new Date().getUTCHours();
+  const isMatchWindow = hour >= 14 || hour <= 4; // 14:00–04:00 UTC (16:00–06:00 CEST)
+  const ttl = isMatchWindow ? 90 : 1800;
+
   const fixtures = await cachedFetch<ApiFixture[]>(
     "football:wc-results",
-    1800, // 30 min — scores update via client-side live polling, ISR doesn't need frequent fetches
+    ttl,
     () => getWorldCupFixtures()
   );
 

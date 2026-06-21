@@ -635,6 +635,7 @@ export const matches: Match[] = [
     stage: "group",
     group: "H",
     matchday: 2,
+    homeScore: 4, awayScore: 0, status: "finished" as const,
   },
   // Group G: Belgium vs Iran — SoFi Stadium, Los Angeles — 21:00 CEST
   {
