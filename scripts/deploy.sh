@@ -356,9 +356,11 @@ source /etc/cdm2026.env 2>/dev/null || true
 
 # --- FR warm-up ---
 FR_URL="http://127.0.0.1:3000"
-echo "  [FR] Warming key pages..."
-for p in "/" "/match/calendrier" "/match/aujourdhui" "/groupes" "/resultats"; do
+# Only warm static pages — match/calendar/results pages trigger heavy API calls
+echo "  [FR] Warming static pages..."
+for p in "/" "/equipes" "/groupes"; do
   curl -s -o /dev/null --max-time 10 "${FR_URL}${p}"
+  sleep 1
 done
 
 # Skip match page warm-up — match pages trigger 5-10 API calls each, causing
