@@ -97,15 +97,9 @@ done
 
 # Preserve old static files from previous release (NOT ISR cache — fresh render)
 for APP in $APPS; do
-  # ISR cache: only copy fetch-cache (API responses), NOT page renders
-  # This forces pages to re-render with fresh data while keeping API caches warm
-  PREV_FETCH_CACHE="${CURRENT_LINK}/apps/${APP}/.next/cache/fetch-cache"
-  NEW_FETCH_CACHE="${RELEASE_DIR}/apps/${APP}/.next/cache/fetch-cache"
-  if [ -d "$PREV_FETCH_CACHE" ]; then
-    echo "  Copying fetch-cache for ${APP}..."
-    mkdir -p "$(dirname "$NEW_FETCH_CACHE")"
-    cp -a "$PREV_FETCH_CACHE" "$NEW_FETCH_CACHE" 2>/dev/null || true
-  fi
+  # DO NOT copy fetch-cache — it may contain stale error responses from
+  # rate-limited API calls that would prevent fresh data from being fetched.
+  # The fetch-cache will be rebuilt naturally on first request (5 min TTL).
 
   # Copy old build's static files into new release (zero-downtime critical!)
   # This ensures cached HTML referencing old build hashes can still load CSS/JS
