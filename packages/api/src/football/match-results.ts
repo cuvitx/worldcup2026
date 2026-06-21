@@ -47,6 +47,10 @@ export async function getMatchResults(): Promise<MatchResult[]> {
     () => getWorldCupFixtures()
   );
 
+  if (fixtures.length === 0) {
+    console.warn(`[getMatchResults] getWorldCupFixtures returned 0 fixtures`);
+  }
+
   const results: MatchResult[] = [];
 
   for (const f of fixtures) {
@@ -63,6 +67,10 @@ export async function getMatchResults(): Promise<MatchResult[]> {
       apiAwayTeamId: f.teams.away.id,
       kickoffMin: Math.round(new Date(f.fixture.date).getTime() / 60000),
     });
+  }
+
+  if (fixtures.length > 0) {
+    console.log(`[getMatchResults] ${fixtures.length} fixtures → ${results.length} results`);
   }
 
   return results;
@@ -161,12 +169,15 @@ export async function enrichMatchesWithResults(
   let results: MatchResult[];
   try {
     results = await getMatchResults();
-  } catch {
-    // API unavailable — return static data unchanged
+  } catch (err) {
+    console.warn(`[enrichMatch] getMatchResults threw:`, err instanceof Error ? err.message : err);
     return matches;
   }
 
-  if (results.length === 0) return matches;
+  if (results.length === 0) {
+    console.warn(`[enrichMatch] getMatchResults returned 0 results (matches: ${matches.map(m => m.slug).join(", ")})`);
+    return matches;
+  }
 
   return matches.map((match) => {
     // If already has score in static data, keep it
