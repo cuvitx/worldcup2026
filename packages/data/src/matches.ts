@@ -649,6 +649,7 @@ export const matches: Match[] = [
     stage: "group",
     group: "G",
     matchday: 2,
+    homeScore: 0, awayScore: 0, status: "finished" as const,
   },
   // Group H: Uruguay vs Cape Verde — Hard Rock Stadium, Miami — 00:00 CEST (+1 day)
   {
