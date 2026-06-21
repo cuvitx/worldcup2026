@@ -237,9 +237,14 @@ export async function getFixtureEvents(fixtureId: number, finished = false): Pro
 
 /** Get all fixtures for the World Cup */
 export async function getWorldCupFixtures(): Promise<ApiFixture[]> {
+  // Short TTL during match hours so scores update within ~2 min of final whistle
+  const hour = new Date().getUTCHours();
+  const isMatchWindow = hour >= 14 || hour <= 4;
+  const ttl = isMatchWindow ? 90 : CACHE_TTL.TEAM_STATS;
+
   return rateLimitedCachedFetch(
     `football:fixtures:wc${API_FOOTBALL.season}`,
-    CACHE_TTL.TEAM_STATS,
+    ttl,
     () =>
       apiFetch<ApiFixture>("fixtures", {
         league: String(API_FOOTBALL.worldCupLeagueId),
