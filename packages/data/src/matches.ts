@@ -663,6 +663,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "H",
     matchday: 2,
+    homeScore: 2,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group G: New Zealand vs Egypt — BC Place, Vancouver — 03:00 CEST
   {
@@ -676,6 +679,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "G",
     matchday: 2,
+    homeScore: 1,
+    awayScore: 3,
+    status: "finished" as const,
   },
 
   // ---- June 22, 2026 ----
