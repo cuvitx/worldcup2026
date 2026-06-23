@@ -697,6 +697,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "I",
     matchday: 2,
+    homeScore: 3,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group J: Argentina vs Austria — AT&T Stadium, Dallas — 19:00 CEST
   {
@@ -710,6 +713,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "J",
     matchday: 2,
+    homeScore: 2,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group I: Norway vs Senegal — BMO Field, Toronto — 02:00 CEST (00:00 UTC)
   {
@@ -723,6 +729,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "I",
     matchday: 2,
+    homeScore: 3,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group J: Jordan vs Algeria — Levi's Stadium, San Francisco — 05:00 CEST (03:00 UTC)
   {
@@ -736,6 +745,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "J",
     matchday: 2,
+    homeScore: 1,
+    awayScore: 2,
+    status: "finished" as const,
   },
 
   // ---- June 23, 2026 ----
