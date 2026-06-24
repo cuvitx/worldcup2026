@@ -763,6 +763,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "K",
     matchday: 2,
+    homeScore: 5,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group L: England vs Ghana — Gillette Stadium, Boston — 22:00 CEST (20:00 UTC)
   {
@@ -776,6 +779,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "L",
     matchday: 2,
+    homeScore: 0,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group L: Panama vs Croatia — Lincoln Financial Field, Philadelphia — 01:00 CEST (23:00 UTC)
   {
@@ -789,6 +795,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "L",
     matchday: 2,
+    homeScore: 0,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group K: Colombia vs Intercontinental Playoff 1 — Estadio Akron, Guadalajara — 04:00 CEST
   {
@@ -802,6 +811,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "K",
     matchday: 2,
+    homeScore: 1,
+    awayScore: 0,
+    status: "finished" as const,
   },
 
   // ============================================================
