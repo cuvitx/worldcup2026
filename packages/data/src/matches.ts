@@ -834,6 +834,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "A",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 3,
+    status: "finished" as const,
   },
   // Group A (simultaneous): South Africa vs South Korea — Estadio BBVA, Monterrey — 03:00 CEST
   {
@@ -847,6 +850,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "A",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group B (simultaneous): UEFA Playoff A vs Qatar — Lumen Field, Seattle — 21:00 CEST
   {
@@ -860,6 +866,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "B",
     matchday: 3,
+    homeScore: 3,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group B (simultaneous): Switzerland vs Canada — BC Place, Vancouver — 21:00 CEST
   {
@@ -873,6 +882,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "B",
     matchday: 3,
+    homeScore: 2,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group C (simultaneous): Scotland vs Brazil — Hard Rock Stadium, Miami — 00:00 CEST (+1 day)
   {
@@ -886,6 +898,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "C",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 3,
+    status: "finished" as const,
   },
   // Group C (simultaneous): Morocco vs Haiti — Mercedes-Benz Stadium, Atlanta — 00:00 CEST (+1 day)
   {
@@ -899,6 +914,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "C",
     matchday: 3,
+    homeScore: 4,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group D (simultaneous): Türkiye vs USA — SoFi Stadium, Los Angeles — 04:00 CEST (02:00 UTC Jun 26)
   {
