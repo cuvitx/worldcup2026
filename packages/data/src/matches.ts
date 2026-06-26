@@ -930,6 +930,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "D",
     matchday: 3,
+    homeScore: 3,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group D (simultaneous): Paraguay vs Australia — Levi's Stadium — 04:00 CEST (02:00 UTC Jun 26)
   {
@@ -943,6 +946,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "D",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 0,
+    status: "finished" as const,
   },
 
   // ---- June 25, 2026 ----
@@ -958,6 +964,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "E",
     matchday: 3,
+    homeScore: 2,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group E (simultaneous): Curacao vs Ivory Coast — Lincoln Financial Field, Philadelphia — 22:00 CEST
   {
@@ -971,6 +980,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "E",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group F (simultaneous): Japan vs UEFA Playoff B — AT&T Stadium, Dallas — 01:00 CEST (+1 day)
   {
@@ -984,6 +996,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "F",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group F (simultaneous): Tunisia vs Netherlands — Arrowhead Stadium, Kansas City — 01:00 CEST (+1 day)
   {
@@ -997,6 +1012,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "F",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 3,
+    status: "finished" as const,
   },
 
   // ---- June 26, 2026 ----
