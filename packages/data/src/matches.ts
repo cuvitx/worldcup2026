@@ -1030,6 +1030,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "G",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group G (simultaneous): New Zealand vs Belgium — BC Place, Vancouver — 05:00 CEST
   {
@@ -1043,6 +1046,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "G",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 5,
+    status: "finished" as const,
   },
   // Group H (simultaneous): Cape Verde vs Saudi Arabia — NRG Stadium, Houston — 02:00 CEST (00:00 UTC Jun 27)
   {
@@ -1056,6 +1062,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "H",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group H (simultaneous): Uruguay vs Spain — Estadio Akron, Guadalajara — 02:00 CEST
   {
@@ -1069,6 +1078,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "H",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group I (simultaneous): Norway vs France — Gillette Stadium, Boston — 21:00 CEST
   {
@@ -1082,6 +1094,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "I",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 4,
+    status: "finished" as const,
   },
   // Group I (simultaneous): Senegal vs Intercontinental Playoff 2 — Hard Rock Stadium, Miami — 21:00 CEST
   {
@@ -1095,6 +1110,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "I",
     matchday: 3,
+    homeScore: 5,
+    awayScore: 0,
+    status: "finished" as const,
   },
 
   // ---- June 27, 2026 ----
