@@ -1128,6 +1128,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "J",
     matchday: 3,
+    homeScore: 1,
+    awayScore: 3,
+    status: "finished" as const,
   },
   // Group J (simultaneous): Algeria vs Austria — Arrowhead Stadium, Kansas City — 04:00 CEST
   {
@@ -1141,6 +1144,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "J",
     matchday: 3,
+    homeScore: 3,
+    awayScore: 3,
+    status: "finished" as const,
   },
   // Group K (simultaneous): Colombia vs Portugal — Hard Rock Stadium, Miami — 01:30 CEST (+1 day)
   {
@@ -1154,6 +1160,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "K",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 0,
+    status: "finished" as const,
   },
   // Group K (simultaneous): Intercontinental Playoff 1 vs Uzbekistan — Mercedes-Benz Stadium, Atlanta — 01:30 CEST (+1 day)
   {
@@ -1167,6 +1176,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "K",
     matchday: 3,
+    homeScore: 3,
+    awayScore: 1,
+    status: "finished" as const,
   },
   // Group L (simultaneous): Panama vs England — MetLife Stadium, New York/NJ — 23:00 CEST
   {
@@ -1180,6 +1192,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "L",
     matchday: 3,
+    homeScore: 0,
+    awayScore: 2,
+    status: "finished" as const,
   },
   // Group L (simultaneous): Croatia vs Ghana — Lincoln Financial Field, Philadelphia — 23:00 CEST
   {
@@ -1193,6 +1208,9 @@ export const matches: Match[] = [
     stage: "group",
     group: "L",
     matchday: 3,
+    homeScore: 2,
+    awayScore: 1,
+    status: "finished" as const,
   },
 
   // ============================================================
