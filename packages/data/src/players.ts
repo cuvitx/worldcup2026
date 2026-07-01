@@ -5,7 +5,7 @@ import type { Player } from "./types";
 // Updated: 2026-06-12 via API-Football
 // ============================================================================
 
-export const LAST_UPDATED = "2026-06-30";
+export const LAST_UPDATED = "2026-07-01";
 
 export const players: Player[] = [
   // South Africa
