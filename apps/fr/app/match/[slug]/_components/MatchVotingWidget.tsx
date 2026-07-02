@@ -258,43 +258,13 @@ export function MatchVotingWidget({
         )}
       </div>
 
-      {/* PMU CTA */}
+      {/* Offres partenaires — design uniforme, PMU en premier */}
       {pmuUrl && (
         <>
-          <div className="relative mx-5 mb-4 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm sm:mx-6">
+          <div className="mx-5 mb-4 space-y-2 sm:mx-6">
             <GaTrackingPixel variant="370x90" tracking={`match-vote-${slug}`} />
-            <a
-              href={pmuUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored nofollow"
-              className="group flex flex-col gap-3 px-4 py-4 transition-colors hover:bg-gray-50 sm:flex-row sm:items-center sm:py-3"
-            >
-              <div className="flex min-w-0 items-center gap-3">
-                <span className="flex h-12 w-24 shrink-0 items-center justify-center rounded-lg bg-[#063b2f] px-3 shadow-inner">
-                  <img
-                    src="/partners/pmu-play.webp"
-                    alt="PMU Sport"
-                    width={96}
-                    height={30}
-                    className="h-auto max-h-7 w-full object-contain"
-                  />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-sm font-extrabold text-gray-900">PMU Play</p>
-                  <p className="text-xs leading-5 text-gray-500">
-                    100&euro; offerts : 1er pari remboursé en cash
-                  </p>
-                </div>
-              </div>
-              <span className="inline-flex w-full shrink-0 items-center justify-center gap-1 rounded-full bg-emerald-600 px-4 py-3 text-sm font-bold text-white transition-colors group-hover:bg-emerald-700 sm:w-auto sm:py-2 sm:text-xs">
-                Voir l&apos;offre&nbsp;&rarr;
-              </span>
-            </a>
-          </div>
-          {/* Autres offres partenaires (catalogue actif) */}
-          <div className="mx-5 mb-4 space-y-1.5 sm:mx-6">
-            {bookmakers
-              .filter((bk) => bk.id !== "pmu-sport")
+            {[...bookmakers]
+              .sort((a, b) => (a.id === "pmu-sport" ? -1 : 0) - (b.id === "pmu-sport" ? -1 : 0))
               .map((bk) => {
                 const offerTracking = { pageType: "match-vote", slug, placement: `offer-${bk.id}` };
                 const offerUrl = affiliateTrackingUrl(bk.program, offerTracking);
@@ -306,16 +276,27 @@ export function MatchVotingWidget({
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
                     {...affiliateLinkAttributes(offerTracking, undefined, bk.program)}
-                    className="flex items-center justify-between gap-2 rounded-lg border border-gray-100 bg-gray-50/60 px-3 py-2 transition-colors hover:bg-gray-100"
+                    className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3 py-2.5 shadow-sm transition-colors hover:border-emerald-300 hover:bg-gray-50"
                   >
-                    <span className="flex min-w-0 items-center gap-2">
-                      {bk.logo && (
-                        <img src={bk.logo} alt={bk.name} width={20} height={20} className="h-5 w-5 shrink-0 rounded object-contain" loading="lazy" />
-                      )}
-                      <span className="truncate text-xs font-bold text-gray-800">{bk.name}</span>
-                      <span className="hidden truncate text-[11px] text-gray-500 sm:inline">{bk.bonus}</span>
+                    {bk.logo && (
+                      <img
+                        src={bk.logo}
+                        alt={bk.name}
+                        width={36}
+                        height={36}
+                        className="h-9 w-9 shrink-0 rounded-lg object-contain"
+                        loading="lazy"
+                      />
+                    )}
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm font-extrabold text-gray-900">{bk.name}</span>
+                      <span className="block truncate text-xs text-gray-500">
+                        {bk.bonus} {bk.bonusDetail}
+                      </span>
                     </span>
-                    <span className="shrink-0 text-[11px] font-bold text-emerald-700">Voir&nbsp;&rarr;</span>
+                    <span className="inline-flex shrink-0 items-center rounded-full bg-emerald-600 px-3.5 py-1.5 text-xs font-bold text-white transition-colors group-hover:bg-emerald-700">
+                      Voir l&apos;offre&nbsp;&rarr;
+                    </span>
                   </a>
                 );
               })}
