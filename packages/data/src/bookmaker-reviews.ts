@@ -2,6 +2,8 @@
 // Bookmaker Reviews — Rich structured content for review pages
 // ============================================================================
 
+import { affiliateTrackingUrl } from "./affiliates";
+
 export interface BookmakerReview {
   id: string;
   name: string;
@@ -39,6 +41,203 @@ export interface BookmakerReview {
 }
 
 export const bookmakerReviews: BookmakerReview[] = [
+  // ── Partenaires (liens affiliés actifs) — toujours avant les non-partenaires ──
+  {
+    id: "pokerstars-sports",
+    name: "PokerStars Sports",
+    slug: "pokerstars-sports",
+    tagline: "Le géant mondial du jeu en ligne, côté paris sportifs",
+    bonus: "Jusqu'à 100€ remboursés",
+    bonusDetail: "en freebets si votre 1er pari est perdant",
+    url: affiliateTrackingUrl("pokerstars-sports", { pageType: "bookmaker", slug: "pokerstars-sports", placement: "review" })!,
+    logo: "/images/logos/pokerstars-sports.png",
+    foundedYear: 2001,
+    license: "ANJ (France)",
+    description: "PokerStars Sports est la branche paris sportifs de PokerStars, référence mondiale du jeu en ligne. La plateforme couvre le football, le tennis et le basketball avec des cotes compétitives, et propose l'ensemble des marchés majeurs sur la Coupe du Monde 2026. L'offre de bienvenue est l'une des plus simples du marché : si votre premier pari sportif est perdant, votre mise est remboursée jusqu'à 100€ en freebets.",
+    prosConsIntro: "PokerStars Sports combine la solidité d'une marque mondiale et une offre de bienvenue sans piège. Notre analyse détaillée.",
+    pros: [
+      "Offre de bienvenue simple : 1er pari remboursé jusqu'à 100€ en freebets",
+      "Cotes compétitives sur football, tennis et basketball",
+      "Application mobile stable et reconnue",
+      "Large choix de marchés sur la CDM 2026",
+      "Paris en direct réactifs",
+      "Marque internationale solide, agréée ANJ"
+    ],
+    cons: [
+      "Pas d'offre hippique",
+      "Moins de promotions récurrentes que certains concurrents français",
+      "Le remboursement est en freebets, pas en cash"
+    ],
+    ratings: { bonus: 5, odds: 5, app: 5, live: 5, support: 4, withdrawal: 4 },
+    paymentMethods: ["Carte bancaire", "PayPal", "Virement bancaire", "Apple Pay"],
+    minDeposit: "10€",
+    withdrawalTime: "24-72h selon le moyen de paiement",
+    customerSupport: ["Chat en direct", "Email", "Centre d'aide"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: true,
+    sections: [
+      {
+        title: "PokerStars Sports pour la Coupe du Monde 2026",
+        content: "PokerStars Sports couvre l'intégralité de la CDM 2026 : vainqueur du tournoi, résultat de match (1N2), score exact, buteurs, handicaps et paris en direct pendant les rencontres. Les cotes sont alignées sur les meilleurs standards du marché, en particulier sur les grosses affiches de la phase à élimination directe."
+      },
+      {
+        title: "Comment fonctionne l'offre de bienvenue",
+        content: "Inscrivez-vous, effectuez un premier dépôt puis placez votre premier pari sportif. S'il est perdant, PokerStars Sports rembourse votre mise jusqu'à 100€ sous forme de freebets, utilisables sur tous les marchés du site. Pas de condition de cote minimale complexe : c'est l'une des offres les plus lisibles du marché français."
+      },
+      {
+        title: "Inscription et vérification",
+        content: "La création de compte prend quelques minutes. Comme sur tous les sites agréés ANJ, une pièce d'identité est requise pour valider définitivement le compte et retirer vos gains. Le dépôt minimum est de 10€."
+      }
+    ]
+  },
+  {
+    id: "pmu-play",
+    name: "PMU Play",
+    slug: "pmu-sport",
+    tagline: "L'opérateur historique 100% français : sport, hippique et poker",
+    bonus: "100€ offerts",
+    bonusDetail: "1er pari remboursé en cash, sans condition de remise en jeu",
+    url: affiliateTrackingUrl("pmu-play", { pageType: "bookmaker", slug: "pmu-sport", placement: "review" })!,
+    logo: "/images/logos/pmu-sport.png",
+    foundedYear: 1930,
+    license: "ANJ (France)",
+    description: "PMU Play réunit désormais le sport, l'hippique et le poker du PMU sur une seule plateforme, avec une navigation repensée et un nouveau partenaire leader sur les cotes. C'est l'opérateur de référence du pari en ligne en France, et son offre de bienvenue sport est unique sur le marché : le premier pari est remboursé en cash jusqu'à 100€ s'il est perdant, sans condition de remise en jeu.",
+    prosConsIntro: "PMU Play est le choix de la simplicité et de la confiance pour les parieurs français. Voici notre analyse.",
+    pros: [
+      "1er pari remboursé en CASH jusqu'à 100€, sans condition — rare sur le marché",
+      "Marque française de confiance, agréée ANJ",
+      "Sport, hippique et poker sur une seule app",
+      "Navigation repensée, parcours de pari simples",
+      "Dépôt minimum accessible (10€)",
+      "Réseau physique et service client français"
+    ],
+    cons: [
+      "Cotes parfois légèrement en retrait sur certains marchés secondaires",
+      "Moins de paris spéciaux que certains concurrents",
+      "Interface encore en évolution après la refonte PMU Play"
+    ],
+    ratings: { bonus: 5, odds: 4, app: 4, live: 4, support: 5, withdrawal: 4 },
+    paymentMethods: ["Carte bancaire", "PayPal", "Virement bancaire"],
+    minDeposit: "10€",
+    withdrawalTime: "24-72h selon le moyen de paiement",
+    customerSupport: ["Téléphone", "Email", "FAQ détaillée"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: true,
+    sections: [
+      {
+        title: "PMU Play pour la Coupe du Monde 2026",
+        content: "PMU Play propose tous les marchés majeurs de la CDM 2026 : vainqueur final, résultats de matchs, scores exacts, buteurs et paris en direct. Le bonus de bienvenue remboursé en cash — et non en freebets — en fait la porte d'entrée la plus rassurante pour un premier pari sur le Mondial."
+      },
+      {
+        title: "Pourquoi le remboursement en cash change tout",
+        content: "Chez la plupart des bookmakers, le premier pari perdant est remboursé en freebets soumis à conditions. Chez PMU Play, il est remboursé en argent réel jusqu'à 100€, que vous pouvez retirer ou rejouer librement. C'est l'offre la plus simple à comprendre du marché français."
+      },
+      {
+        title: "Inscription et dépôt",
+        content: "Créez votre compte en quelques minutes, validez votre identité (obligation ANJ), déposez au minimum 10€ et placez votre premier pari sur la CDM 2026. L'offre de bienvenue s'active selon l'univers choisi à l'inscription : sport, hippique ou poker."
+      }
+    ]
+  },
+  {
+    id: "betsson",
+    name: "Betsson",
+    slug: "betsson",
+    tagline: "Le nouveau bookmaker suédois agréé en France",
+    bonus: "Jusqu'à 100€ + 10€",
+    bonusDetail: "sur le 1er dépôt + freebet à la validation du compte",
+    url: affiliateTrackingUrl("betsson", { pageType: "bookmaker", slug: "betsson", placement: "review" })!,
+    logo: "/images/logos/betsson.png",
+    foundedYear: 1963,
+    license: "ANJ (France)",
+    description: "Betsson.fr est le petit nouveau du marché français, porté par le groupe suédois Betsson AB, acteur historique du pari en ligne en Europe depuis 1963. La plateforme mise sur une expérience utilisateur soignée, des paiements rapides et sécurisés et une application riche en fonctionnalités, disponible sur iOS et Android. Son offre de bienvenue cumule un bonus sur le premier dépôt jusqu'à 100€ et 10€ de freebet à la validation du compte.",
+    prosConsIntro: "Betsson arrive en France avec l'expérience d'un groupe européen majeur. Notre analyse détaillée.",
+    pros: [
+      "Bonus de bienvenue généreux : jusqu'à 100€ + 10€ de freebet offerts",
+      "Application mobile moderne avec fonctionnalités exclusives",
+      "Paiements rapides et sécurisés",
+      "Expérience du groupe Betsson AB (60 ans de paris en Europe)",
+      "Paris en direct riches sur la CDM 2026",
+      "Approche jeu responsable mise en avant"
+    ],
+    cons: [
+      "Marque encore récente sur le marché français",
+      "Premier dépôt minimum de 20€ pour l'offre de bienvenue",
+      "Pas d'offre hippique"
+    ],
+    ratings: { bonus: 5, odds: 4, app: 5, live: 4, support: 4, withdrawal: 4 },
+    paymentMethods: ["Carte bancaire", "PayPal", "Virement bancaire", "Apple Pay"],
+    minDeposit: "20€ (pour activer l'offre de bienvenue)",
+    withdrawalTime: "24-72h selon le moyen de paiement",
+    customerSupport: ["Chat en direct", "Email", "FAQ"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: true,
+    sections: [
+      {
+        title: "Betsson pour la Coupe du Monde 2026",
+        content: "Pour son premier Mondial sur le marché français, Betsson propose l'ensemble des marchés attendus : vainqueur, 1N2, scores exacts, buteurs, handicaps et un live betting complet. Les cotes sont compétitives sur les grandes affiches de la phase finale."
+      },
+      {
+        title: "Comment activer l'offre de bienvenue",
+        content: "Inscrivez-vous sur Betsson.fr, effectuez un premier dépôt d'au moins 20€ et validez votre compte (pièce d'identité requise par l'ANJ). Le bonus sur premier dépôt monte jusqu'à 100€, et 10€ de freebet supplémentaires sont crédités à la validation définitive du compte."
+      },
+      {
+        title: "Une app pensée mobile d'abord",
+        content: "L'application Betsson, disponible sur iOS et Android, est l'une des plus abouties du marché : navigation fluide, cash out, paris en direct et notifications personnalisées pour suivre vos équipes pendant toute la CDM 2026."
+      }
+    ]
+  },
+  {
+    id: "genybet",
+    name: "Genybet",
+    slug: "genybet",
+    tagline: "Le bookmaker des connaisseurs, par Geny Courses",
+    bonus: "Freebets offerts",
+    bonusDetail: "paris gratuits pour les nouveaux joueurs",
+    url: affiliateTrackingUrl("genybet", { pageType: "bookmaker", slug: "genybet", placement: "review" })!,
+    logo: "/images/logos/genybet.png",
+    foundedYear: 2010,
+    license: "ANJ (France)",
+    description: "Genybet est le site de paris de Geny Courses, leader de l'information hippique en ligne en France. Côté sport, la plateforme se distingue par ses multigrilles (5 à 7 matchs) et une offre de paris en direct riche. Les nouveaux joueurs sont accueillis avec des freebets, et le dépôt minimum de 10€ en fait l'un des bookmakers les plus accessibles pour débuter sur la CDM 2026.",
+    prosConsIntro: "Genybet joue la carte de l'accessibilité et de l'expertise à la française. Notre analyse.",
+    pros: [
+      "Freebets offerts aux nouveaux joueurs",
+      "Multigrilles exclusives (5 à 7 matchs) pour la CDM 2026",
+      "Dépôt minimum bas : 10€",
+      "Expertise reconnue du groupe Geny (hippique et sport)",
+      "Offre de paris en direct riche",
+      "Site français agréé ANJ"
+    ],
+    cons: [
+      "Pas de bonus de bienvenue classique en pourcentage du dépôt",
+      "Notoriété moindre que les grands bookmakers nationaux",
+      "Application moins riche que les leaders du marché"
+    ],
+    ratings: { bonus: 3, odds: 4, app: 3, live: 4, support: 4, withdrawal: 4 },
+    paymentMethods: ["Carte bancaire", "PayPal", "Virement bancaire"],
+    minDeposit: "10€",
+    withdrawalTime: "24-72h selon le moyen de paiement",
+    customerSupport: ["Email", "Téléphone", "FAQ"],
+    appAvailable: true,
+    liveStreaming: false,
+    cashOut: false,
+    sections: [
+      {
+        title: "Genybet pour la Coupe du Monde 2026",
+        content: "Genybet couvre tous les matchs de la CDM 2026 avec les marchés classiques (1N2, scores, buteurs) et ses multigrilles maison qui permettent de combiner 5 à 7 matchs sur une seule grille — un format original pour les journées à plusieurs affiches de la phase finale."
+      },
+      {
+        title: "Freebets de bienvenue : comment ça marche",
+        content: "Après inscription et un premier dépôt de 10€ minimum, Genybet crédite des paris gratuits utilisables sur le sport. La validation définitive du compte (pièce d'identité, obligation ANJ) doit être effectuée dans les 30 jours."
+      },
+      {
+        title: "L'ADN Geny Courses",
+        content: "Adossé à Geny Courses, référence de l'information hippique française, Genybet cultive une approche d'expert : statistiques, pronostics maison et une communauté de parieurs réguliers. Un profil qui séduira les parieurs qui aiment analyser avant de miser."
+      }
+    ]
+  },
   {
     id: "betclic",
     name: "Betclic",

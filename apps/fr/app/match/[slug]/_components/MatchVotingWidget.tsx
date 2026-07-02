@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { affiliateLinkAttributes, affiliateTrackingUrl, bookmakers } from "@repo/data/affiliates";
 import { GaTrackingPixel } from "../../../components/GaTrackingPixel";
 
 interface VoteCounts {
@@ -279,9 +280,9 @@ export function MatchVotingWidget({
                   />
                 </span>
                 <div className="min-w-0">
-                  <p className="text-sm font-extrabold text-gray-900">PMU Sport</p>
+                  <p className="text-sm font-extrabold text-gray-900">PMU Play</p>
                   <p className="text-xs leading-5 text-gray-500">
-                    100&euro; offerts en freebets sans condition
+                    100&euro; offerts : 1er pari remboursé en cash
                   </p>
                 </div>
               </div>
@@ -289,6 +290,35 @@ export function MatchVotingWidget({
                 Voir l&apos;offre&nbsp;&rarr;
               </span>
             </a>
+          </div>
+          {/* Autres offres partenaires (catalogue actif) */}
+          <div className="mx-5 mb-4 space-y-1.5 sm:mx-6">
+            {bookmakers
+              .filter((bk) => bk.id !== "pmu-sport")
+              .map((bk) => {
+                const offerTracking = { pageType: "match-vote", slug, placement: `offer-${bk.id}` };
+                const offerUrl = affiliateTrackingUrl(bk.program, offerTracking);
+                if (!offerUrl) return null;
+                return (
+                  <a
+                    key={bk.id}
+                    href={offerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored nofollow"
+                    {...affiliateLinkAttributes(offerTracking, undefined, bk.program)}
+                    className="flex items-center justify-between gap-2 rounded-lg border border-gray-100 bg-gray-50/60 px-3 py-2 transition-colors hover:bg-gray-100"
+                  >
+                    <span className="flex min-w-0 items-center gap-2">
+                      {bk.logo && (
+                        <img src={bk.logo} alt={bk.name} width={20} height={20} className="h-5 w-5 shrink-0 rounded object-contain" loading="lazy" />
+                      )}
+                      <span className="truncate text-xs font-bold text-gray-800">{bk.name}</span>
+                      <span className="hidden truncate text-[11px] text-gray-500 sm:inline">{bk.bonus}</span>
+                    </span>
+                    <span className="shrink-0 text-[11px] font-bold text-emerald-700">Voir&nbsp;&rarr;</span>
+                  </a>
+                );
+              })}
           </div>
           <div className="px-6 pb-4">
             <p className="text-[10px] text-gray-400 leading-snug">
