@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Newsletter } from "@repo/ui/newsletter";
 import { FAQSection } from "@repo/ui/faq-section";
+import { BookmakerOffers } from "../../components/BookmakerOffers";
 import {
   TopFavorites,
   OddsTable,
@@ -54,6 +55,15 @@ export default async function PronosticVainqueurPage() {
 
       {/* Odds Table — au-dessus de la ligne de flottaison : intention money maximale */}
       <OddsTable forecast={forecast} />
+
+      {/* Comparateur d'offres bookmakers (rendu seulement si >=2 programmes actifs) */}
+      <section className="bg-white pb-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <BookmakerOffers
+            tracking={{ pageType: "pronostic", slug: "vainqueur", placement: "offers" }}
+          />
+        </div>
+      </section>
 
       {/* Confederation Chart */}
       <ConfederationChart top10={forecast.top10} />

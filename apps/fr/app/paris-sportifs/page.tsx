@@ -7,6 +7,7 @@ import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { guides, guidesByCategory } from "@repo/data/guides";
 import { TableOfContents } from "@repo/ui";
 import { PmuCTA } from "../components/PmuCTA";
+import { BookmakerOffers } from "../components/BookmakerOffers";
 
 export const metadata: Metadata = {
   title: "Paris sportifs CDM 2026 | Meilleurs bookmakers & guides",
@@ -70,6 +71,12 @@ export default function ParisSportifsPage() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:grid lg:grid-cols-[1fr_220px] lg:gap-8">
         <div className="space-y-10">
+        {/* Offres partenaires actives (rendu seulement si >=2 programmes cables) */}
+        <BookmakerOffers
+          tracking={{ pageType: "paris-sportifs", slug: "index", placement: "offers" }}
+          title="Les offres de bienvenue du moment"
+          subtitle="Nos bookmakers partenaires agréés ANJ pour la Coupe du Monde 2026."
+        />
         {/* Bookmaker Reviews */}
         <section className="rounded-xl bg-white p-4 sm:p-6 sm:p-8 shadow-sm border border-gray-200">
           <h2 id="bookmakers" className="text-2xl font-bold text-gray-900 mb-2">Meilleurs sites de paris sportifs 2026</h2>

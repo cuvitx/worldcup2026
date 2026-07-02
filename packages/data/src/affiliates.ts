@@ -38,20 +38,17 @@ export const AFFILIATE_PROGRAMS: Record<AffiliateProgramId, AffiliateProgramConf
   "pokerstars-sports": {
     id: "pokerstars-sports",
     name: "PokerStars Sports",
-    // TODO(xavier): coller le lien CPC de la campagne "PokerStars - France - Sport - CPA".
-    baseUrl: null,
+    baseUrl: "https://www.gambling-affiliation.com/cpc/v=nmcT1Cz7AWtgKVzSo3JpjkS1pWLf6x356ZAnimBdr28_GA7331V2",
   },
   betsson: {
     id: "betsson",
     name: "Betsson",
-    // TODO(xavier): coller le lien CPC de la campagne "Betsson - France - Sport - CPA".
-    baseUrl: null,
+    baseUrl: "https://www.gambling-affiliation.com/cpc/v=1R6JEil1tDD83nPHSf.FeK2ueZeczAJ4zyU7XcprPX0_GA7331V2",
   },
   genybet: {
     id: "genybet",
     name: "Genybet",
-    // TODO(xavier): coller le lien CPC de la campagne "Genybet - France - Sport - CPA".
-    baseUrl: null,
+    baseUrl: "https://www.gambling-affiliation.com/cpc/v=hdMbebm5pNzicIitZwPaSce.majl889rUzVVh-dedso_GA7331V2",
   },
 };
 
