@@ -35,7 +35,7 @@ export { typeLabels as searchTypeLabels };
 const stageLabels: Record<Lang, Record<string, string>> = {
   fr: {
     group: "Phase de groupes",
-    "round-of-32": "32e de finale",
+    "round-of-32": "16es de finale",
     "round-of-16": "8e de finale",
     "quarter-final": "Quart de finale",
     "semi-final": "Demi-finale",

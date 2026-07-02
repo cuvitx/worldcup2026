@@ -17,7 +17,7 @@ const PLAYER_PHOTO_SLUGS = new Set([
 ]);
 import { getPlayerImagePath, getPlayerInitials, getAvatarColor } from "../../../lib/player-images";
 import { CircleDot, Sparkles, Users } from "lucide-react"
-import { PmuBanner } from "../../components/PmuBanner";
+import { PmuCTA } from "../../components/PmuCTA";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -286,10 +286,47 @@ export default async function PlayerPage({ params }: PageProps) {
               </ul>
             </div>
 
-            {/* PMU Banner */}
-            <div className="mt-6">
-              <PmuBanner tracking="joueur" compact />
-              <p className="text-[10px] text-gray-400 text-center mt-2">18+ | <a href="/jeu-responsable" className="underline">Jeu responsable</a></p>
+            {/* PMU CTA */}
+            <div className="mt-6 space-y-3">
+              <PmuCTA
+                tracking={{ pageType: "joueur", slug: player.slug, placement: "sidebar-cta" }}
+                heading={`Parier sur ${player.name}`}
+                subheading={`Buteur, tirs cadrés et marchés joueur ${team ? `de ${team.name}` : "CDM 2026"}`}
+              />
+              <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-wide text-gray-500">
+                  Marchés joueur
+                </p>
+                <div className="mt-3 grid gap-2 text-sm">
+                  <Link
+                    href={`/cote-buteur/${player.slug}`}
+                    className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2 font-semibold text-primary hover:border-primary/40 hover:bg-primary/5"
+                  >
+                    Cote buteur {player.name}
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                  <Link
+                    href={`/tirs-cadres/${player.slug}`}
+                    className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2 font-semibold text-primary hover:border-primary/40 hover:bg-primary/5"
+                  >
+                    Tirs cadrés
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                  <Link
+                    href={`/passes-decisives/${player.slug}`}
+                    className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2 font-semibold text-primary hover:border-primary/40 hover:bg-primary/5"
+                  >
+                    Passes décisives
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+                <p className="mt-3 text-[10px] leading-snug text-gray-400">
+                  18+ | Offre soumise à conditions |{" "}
+                  <Link href="/jeu-responsable" className="underline">
+                    Jeu responsable
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>

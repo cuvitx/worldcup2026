@@ -47,10 +47,10 @@ describe('constants', () => {
     })
 
     it('has label for knockout stages', () => {
-      expect(stageLabels['round-of-32']).toBe('32e de finale')
-      expect(stageLabels['round-of-16']).toBe('Huitième de finale')
-      expect(stageLabels['quarter-final']).toBe('Quart de finale')
-      expect(stageLabels['semi-final']).toBe('Demi-finale')
+      expect(stageLabels['round-of-32']).toBe('16es de finale')
+      expect(stageLabels['round-of-16']).toBe('8es de finale')
+      expect(stageLabels['quarter-final']).toBe('Quarts de finale')
+      expect(stageLabels['semi-final']).toBe('Demi-finales')
     })
 
     it('has label for final matches', () => {

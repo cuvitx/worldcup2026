@@ -208,7 +208,7 @@ export function TeamMainContent({ team, prediction, teamPlayers, teamMatches, en
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
             {[
               { label: "Phase de groupes", value: prediction.groupStageProb },
-              { label: "32e de finale", value: prediction.roundOf32Prob },
+              { label: "16es de finale", value: prediction.roundOf32Prob },
               { label: "8e de finale", value: prediction.roundOf16Prob },
               { label: "Quart de finale", value: prediction.quarterFinalProb },
               { label: "Demi-finale", value: prediction.semiFinalProb },

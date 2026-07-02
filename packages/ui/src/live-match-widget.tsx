@@ -11,10 +11,10 @@ import { useEffect, useState, useCallback } from "react";
  * Translations for live match widget.
  */
 const translations = {
-  fr: { halftime: "MI-TEMPS", live: "EN DIRECT", finished: "TERMINE", dateLocale: "fr-FR", timezone: "Europe/Paris" },
-  en: { halftime: "HALF TIME", live: "LIVE", finished: "FINISHED", dateLocale: "en-US", timezone: "America/New_York" },
-  es: { halftime: "DESCANSO", live: "EN VIVO", finished: "FINALIZADO", dateLocale: "es-ES", timezone: "Europe/Madrid" },
-  de: { halftime: "HALBZEIT", live: "LIVE", finished: "ENDE", dateLocale: "de-DE", timezone: "Europe/Berlin" },
+  fr: { halftime: "MI-TEMPS", extraBreak: "PAUSE AVANT PROLONGATION", extraTime: "PROLONGATION", penalties: "TIRS AU BUT", live: "EN DIRECT", finished: "TERMINE", dateLocale: "fr-FR", timezone: "Europe/Paris" },
+  en: { halftime: "HALF TIME", extraBreak: "EXTRA-TIME BREAK", extraTime: "EXTRA TIME", penalties: "PENALTIES", live: "LIVE", finished: "FINISHED", dateLocale: "en-US", timezone: "America/New_York" },
+  es: { halftime: "DESCANSO", extraBreak: "DESCANSO PRÓRROGA", extraTime: "PRÓRROGA", penalties: "PENALES", live: "EN VIVO", finished: "FINALIZADO", dateLocale: "es-ES", timezone: "Europe/Madrid" },
+  de: { halftime: "HALBZEIT", extraBreak: "VERLÄNGERUNGSPAUSE", extraTime: "VERLÄNGERUNG", penalties: "ELFMETERSCHIESSEN", live: "LIVE", finished: "ENDE", dateLocale: "de-DE", timezone: "Europe/Berlin" },
 };
 
 /**
@@ -36,6 +36,7 @@ interface LiveMatchData {
   homeScore: number | null;
   awayScore: number | null;
   status: "upcoming" | "live" | "halftime" | "finished";
+  statusShort?: string;
   elapsed: number | null;
   events: MatchEvent[];
 }
@@ -87,6 +88,7 @@ const STATUS_MAP: Record<string, LiveMatchData["status"]> = {
   "1H": "live",
   "2H": "live",
   ET: "live",
+  BT: "live",
   P: "live",
   HT: "halftime",
   FT: "finished",
@@ -140,6 +142,7 @@ export function LiveMatchWidget({
     homeScore: null,
     awayScore: null,
     status: "upcoming",
+    statusShort: undefined,
     elapsed: null,
     events: [],
   });
@@ -224,6 +227,7 @@ export function LiveMatchWidget({
       homeScore: scores.homeScore,
       awayScore: scores.awayScore,
       status: STATUS_MAP[match.fixture.status.short] ?? "upcoming",
+      statusShort: match.fixture.status.short,
       elapsed: match.fixture.status.elapsed,
       events: [],
     });
@@ -247,6 +251,7 @@ export function LiveMatchWidget({
         homeScore: scores.homeScore,
         awayScore: scores.awayScore,
         status: STATUS_MAP[match.fixture.status.short] ?? "upcoming",
+        statusShort: match.fixture.status.short,
         elapsed: match.fixture.status.elapsed,
         events: [],
       });
@@ -278,6 +283,7 @@ export function LiveMatchWidget({
           homeScore: scores.homeScore,
           awayScore: scores.awayScore,
           status: STATUS_MAP[match.fixture.status.short] ?? "finished",
+          statusShort: match.fixture.status.short,
           elapsed: null,
           events: [],
         });
@@ -307,6 +313,16 @@ export function LiveMatchWidget({
 
   const isLive = data.status === "live" || data.status === "halftime";
   const isFinished = data.status === "finished";
+  const liveStatusLabel =
+    data.statusShort === "BT"
+      ? t.extraBreak
+      : data.statusShort === "ET"
+        ? `${t.extraTime}${data.elapsed != null ? ` — ${data.elapsed}'` : ""}`
+        : data.statusShort === "P"
+          ? t.penalties
+          : data.status === "halftime"
+            ? t.halftime
+            : `${t.live}${data.elapsed != null ? ` — ${data.elapsed}'` : ""}`;
 
   return (
     <div
@@ -324,9 +340,7 @@ export function LiveMatchWidget({
           <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-white" />
         )}
         {isLive
-          ? data.status === "halftime"
-            ? t.halftime
-            : `${t.live}${data.elapsed != null ? ` — ${data.elapsed}'` : ""}`
+          ? liveStatusLabel
           : isFinished
             ? t.finished
             : formatMatchDateTime(matchDate, matchTime, t.dateLocale, t.timezone)}

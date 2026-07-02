@@ -104,12 +104,25 @@ export const megaMenus: Record<string, MegaMenuDef> = {
       {
         title: "Tournoi",
         links: [
-          { href: "/tableau", label: "Tableau & résultats", icon: Trophy },
+          { href: "/phase-finale", label: "Phase finale & résultats", icon: Trophy },
+          { href: "/tableau", label: "Pronostic du tableau", icon: Trophy },
           { href: "/match/calendrier", label: "Calendrier complet", icon: BarChart3 },
           { href: "/pronostic/finalistes", label: "Finalistes", icon: Medal },
           { href: "/pronostic/tirs-au-but", label: "Tirs au but", icon: Target },
           { href: "/paris-sportifs/dark-horses", label: "Dark horses", icon: Star },
           { href: "/paris-sportifs/ballon-or", label: "Ballon d'or CDM", icon: Trophy },
+        ],
+      },
+      {
+        title: "Phase finale",
+        links: [
+          { href: "/phase-finale", label: "Résultats phase finale", icon: Trophy },
+          { href: "/16emes-de-finale", label: "16es de finale", icon: Swords },
+          { href: "/8emes-de-finale", label: "8es de finale", icon: GitCompare },
+          { href: "/quarts-de-finale", label: "Quarts de finale", icon: Medal },
+          { href: "/demi-finales", label: "Demi-finales", icon: Star },
+          { href: "/finale", label: "Finale", icon: Trophy },
+          { href: "/tableau", label: "Tableau pronostic", icon: Grid3X3 },
         ],
       },
     ],

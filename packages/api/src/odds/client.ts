@@ -27,11 +27,12 @@ async function rateLimitedCachedFetch<T>(
   fallback: T
 ): Promise<T> {
   const cached = await cacheGet<T>(cacheKey);
+  if (cached !== null) return cached;
 
   if (!checkRateLimit(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG)) {
     const remaining = getRemainingRequests(RATE_LIMIT_KEY, RATE_LIMIT_CONFIG);
     console.warn(`[odds-api] Monthly rate limit reached (${ODDS_API.rateLimitPerMonth}/month), ${remaining} remaining`);
-    return cached ?? fallback;
+    return fallback;
   }
 
   return cachedFetch(cacheKey, ttlSeconds, fetcher);
@@ -66,7 +67,7 @@ async function oddsFetch<T>(endpoint: string, params: Record<string, string> = {
 
 /** Get match odds (1X2) for World Cup fixtures */
 export async function getMatchOdds(): Promise<MatchOdds[]> {
-  return rateLimitedCachedFetch("odds:match-odds", CACHE_TTL.INJURIES, async () => { // 1hr — odds don't change every 5min
+  return rateLimitedCachedFetch("odds:match-odds", CACHE_TTL.ODDS, async () => { // 5min — keeps new knockout markets fresh without per-visit calls
     const data = await oddsFetch<OddsApiResponse>(
       `sports/${ODDS_API.sport}/odds`,
       {
@@ -82,7 +83,7 @@ export async function getMatchOdds(): Promise<MatchOdds[]> {
 
 /** Get outright (tournament winner) odds */
 export async function getOutrightOdds(): Promise<OutrightOdds[]> {
-  return rateLimitedCachedFetch("odds:outright", CACHE_TTL.INJURIES, async () => { // 1hr
+  return rateLimitedCachedFetch("odds:outright", CACHE_TTL.ODDS, async () => { // 5min — cache/rate limiter still protects quota
     const data = await oddsFetch<OddsApiResponse>(
       `sports/${ODDS_API.sport}/odds`,
       {

@@ -5,7 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { AlertTriangle, ArrowRight, BarChart3, ExternalLink, History, ShieldAlert, Swords, TrendingUp, Trophy, User } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -131,7 +131,15 @@ const faqItems = [
                 <td className="p-3 font-semibold">PMU Sport</td>
                 <td className="text-center p-3 font-bold text-accent">{stats.pmusport}</td>
                 <td className="text-center p-3">
-                  <a href={pmuTrackingUrl("cote-carton")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="text-accent underline">Voir</a>
+                  <a
+                    href={pmuTrackingUrl({ pageType: "cote-carton-jaune", slug, placement: "odds-table" })}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored nofollow"
+                    {...affiliateLinkAttributes({ pageType: "cote-carton-jaune", slug, placement: "odds-table" })}
+                    className="text-accent underline"
+                  >
+                    Voir
+                  </a>
                 </td>
               </tr>
             </tbody>
@@ -207,7 +215,13 @@ const faqItems = [
             Trouvez la meilleure cote pour parier sur un carton jaune de {player.name} lors de la Coupe du Monde 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={pmuTrackingUrl("cote-carton")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+            <a
+              href={pmuTrackingUrl({ pageType: "cote-carton-jaune", slug, placement: "main-cta" })}
+              target="_blank"
+              rel="noopener noreferrer sponsored nofollow"
+              {...affiliateLinkAttributes({ pageType: "cote-carton-jaune", slug, placement: "main-cta" })}
+              className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2"
+            >
               100€ offerts sur PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>

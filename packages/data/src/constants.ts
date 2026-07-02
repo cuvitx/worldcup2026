@@ -31,10 +31,10 @@ export const EXTERNAL_URLS = {
 /* ─── Stage labels ─── */
 export const stageLabels: Record<string, string> = {
   group: "Phase de groupes",
-  "round-of-32": "32e de finale",
-  "round-of-16": "Huitième de finale",
-  "quarter-final": "Quart de finale",
-  "semi-final": "Demi-finale",
+  "round-of-32": "16es de finale",
+  "round-of-16": "8es de finale",
+  "quarter-final": "Quarts de finale",
+  "semi-final": "Demi-finales",
   "third-place": "Match pour la 3e place",
   final: "Finale",
 };

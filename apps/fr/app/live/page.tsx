@@ -4,15 +4,10 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { Countdown } from "@repo/ui/countdown";
-import { EVENT_DATES } from "@repo/data/constants";
 import { PmuBanner } from "../components/PmuBanner";
-import {
-  getTournamentPhase,
-  getTodaysMatches,
-  getMatchesByDate,
-  getMatchPhase,
-} from "@repo/data/tournament-state";
+import { getTournamentPhase } from "@repo/data/tournament-state";
 import { LiveMatchWidget } from "@repo/ui/live-match-widget";
+import { getResolvedCalendarMatches, type ResolvedCalendarMatch } from "../../lib/calendar-match-resolution";
 
 export const metadata: Metadata = {
   title: "Résultats en direct - Coupe du Monde 2026",
@@ -54,20 +49,25 @@ function formatDateShort(date: string): string {
   });
 }
 
-/** Get the first N upcoming matches */
-function getNextMatches(count: number) {
+/** Get the first N upcoming matches from the already-resolved tournament source. */
+function getNextMatches(matchList: ResolvedCalendarMatch[], count: number) {
   const now = new Date();
-  return matches
+  return matchList
     .filter((m) => new Date(`${m.date}T${m.time}:00+02:00`) > now)
     .sort((a, b) => `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`))
     .slice(0, count);
 }
 
-/** Get yesterday's date in ISO format */
-function getYesterdayISO(): string {
+function getParisDateISO(offsetDays = 0): string {
   const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return d.toISOString().slice(0, 10);
+  d.setDate(d.getDate() + offsetDays);
+  return d.toLocaleDateString("en-CA", { timeZone: "Europe/Paris" });
+}
+
+function getMatchesByResolvedDate(matchList: ResolvedCalendarMatch[], date: string) {
+  return matchList
+    .filter((m) => m.date === date)
+    .sort((a, b) => a.time.localeCompare(b.time));
 }
 
 const breadcrumbJsonLd = {
@@ -89,9 +89,10 @@ const breadcrumbJsonLd = {
   ],
 };
 
-export default function LivePage() {
+export default async function LivePage() {
   const phase = getTournamentPhase();
   const isPreTournament = phase === "pre-tournament";
+  const resolvedMatches = isPreTournament ? [] : await getResolvedCalendarMatches(matches);
 
   return (
     <>
@@ -114,7 +115,7 @@ export default function LivePage() {
         </div>
       </section>
 
-      {isPreTournament ? <PreTournamentContent /> : <TournamentActiveContent />}
+      {isPreTournament ? <PreTournamentContent /> : <TournamentActiveContent resolvedMatches={resolvedMatches} />}
     </>
   );
 }
@@ -195,10 +196,10 @@ function PreTournamentContent() {
 }
 
 /** Content shown during the tournament */
-function TournamentActiveContent() {
-  const todaysMatches = getTodaysMatches();
-  const yesterdayMatches = getMatchesByDate(getYesterdayISO());
-  const nextMatches = getNextMatches(4);
+function TournamentActiveContent({ resolvedMatches }: { resolvedMatches: ResolvedCalendarMatch[] }) {
+  const todaysMatches = getMatchesByResolvedDate(resolvedMatches, getParisDateISO());
+  const yesterdayMatches = getMatchesByResolvedDate(resolvedMatches, getParisDateISO(-1));
+  const nextMatches = getNextMatches(resolvedMatches, 4);
 
   return (
     <>
@@ -211,16 +212,14 @@ function TournamentActiveContent() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2">
               {todaysMatches.map((match) => {
-                const home = teamsById[match.homeTeamId];
-                const away = teamsById[match.awayTeamId];
                 const stadium = stadiumsById[match.stadiumId];
                 return (
                   <Link key={match.id} href={`/match/${match.slug}`} className="block">
                     <LiveMatchWidget
                       matchDate={match.date}
                       matchTime={match.time}
-                      homeTeam={home?.name ?? match.homeTeamId}
-                      awayTeam={away?.name ?? match.awayTeamId}
+                      homeTeam={match.homeName}
+                      awayTeam={match.awayName}
                       stadium={stadium?.name ?? ""}
                       locale="fr"
                     />
@@ -241,16 +240,14 @@ function TournamentActiveContent() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2">
               {yesterdayMatches.map((match) => {
-                const home = teamsById[match.homeTeamId];
-                const away = teamsById[match.awayTeamId];
                 const stadium = stadiumsById[match.stadiumId];
                 return (
                   <Link key={match.id} href={`/match/${match.slug}`} className="block">
                     <LiveMatchWidget
                       matchDate={match.date}
                       matchTime={match.time}
-                      homeTeam={home?.name ?? match.homeTeamId}
-                      awayTeam={away?.name ?? match.awayTeamId}
+                      homeTeam={match.homeName}
+                      awayTeam={match.awayName}
                       stadium={stadium?.name ?? ""}
                       locale="fr"
                     />
@@ -285,8 +282,6 @@ function TournamentActiveContent() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Prochains matchs</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {nextMatches.map((match) => {
-                const home = teamsById[match.homeTeamId];
-                const away = teamsById[match.awayTeamId];
                 const stadium = stadiumsById[match.stadiumId];
                 return (
                   <Link
@@ -299,13 +294,13 @@ function TournamentActiveContent() {
                     </div>
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2 text-sm font-semibold">
-                        <span className="text-lg">{home?.flag}</span>
-                        <span>{home?.name ?? match.homeTeamId}</span>
+                        <span className="text-lg">{match.homeFlag}</span>
+                        <span>{match.homeName}</span>
                       </div>
                       <span className="text-xs text-gray-500 font-medium">VS</span>
                       <div className="flex items-center gap-2 text-sm font-semibold">
-                        <span>{away?.name ?? match.awayTeamId}</span>
-                        <span className="text-lg">{away?.flag}</span>
+                        <span>{match.awayName}</span>
+                        <span className="text-lg">{match.awayFlag}</span>
                       </div>
                     </div>
                     <div className="mt-2 text-xs text-gray-500">

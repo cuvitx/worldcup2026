@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { ShareButtons } from "@repo/ui/share-buttons";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
+import { top10Favorites } from "@repo/data/predictions-2026";
 import type { MatchData, RoundName } from "./types";
 import { ROUND_ORDER } from "./types";
 import { buildR32Matches, buildEmptyMatches, loadState, saveState, clearState } from "./bracket-data";
@@ -9,7 +11,40 @@ import { ConfettiParticles } from "./ConfettiParticles";
 import { ProgressBar } from "./ProgressBar";
 import { DesktopBracket } from "./DesktopBracket";
 import { MobileBracket } from "./MobileBracket";
-import { RefreshCw } from "lucide-react"
+import { RefreshCw, Trophy } from "lucide-react";
+
+type NextSlot = {
+  nextMatchIdx: number;
+  slot: "team1" | "team2";
+};
+
+const R32_ADVANCEMENT: NextSlot[] = [
+  { nextMatchIdx: 0, slot: "team1" },
+  { nextMatchIdx: 2, slot: "team1" },
+  { nextMatchIdx: 1, slot: "team1" },
+  { nextMatchIdx: 0, slot: "team2" },
+  { nextMatchIdx: 2, slot: "team2" },
+  { nextMatchIdx: 1, slot: "team2" },
+  { nextMatchIdx: 3, slot: "team1" },
+  { nextMatchIdx: 3, slot: "team2" },
+  { nextMatchIdx: 5, slot: "team2" },
+  { nextMatchIdx: 5, slot: "team1" },
+  { nextMatchIdx: 4, slot: "team2" },
+  { nextMatchIdx: 4, slot: "team1" },
+  { nextMatchIdx: 7, slot: "team1" },
+  { nextMatchIdx: 6, slot: "team2" },
+  { nextMatchIdx: 6, slot: "team1" },
+  { nextMatchIdx: 7, slot: "team2" },
+];
+
+function getNextSlot(round: RoundName, matchIndex: number): NextSlot | null {
+  if (round === "R32") return R32_ADVANCEMENT[matchIndex] ?? null;
+
+  return {
+    nextMatchIdx: Math.floor(matchIndex / 2),
+    slot: matchIndex % 2 === 0 ? "team1" : "team2",
+  };
+}
 
 // ---------------------------------------------------------------------------
 // Main component
@@ -53,8 +88,9 @@ export function BracketSimulator() {
       const roundIdx = ROUND_ORDER.indexOf(round);
       if (roundIdx < ROUND_ORDER.length - 1) {
         const nextRound = ROUND_ORDER[roundIdx + 1] as RoundName;
-        const nextMatchIdx = Math.floor(matchIndex / 2);
-        const slot: "team1" | "team2" = matchIndex % 2 === 0 ? "team1" : "team2";
+        const nextSlot = getNextSlot(round, matchIndex);
+        if (!nextSlot) return next;
+        const { nextMatchIdx, slot } = nextSlot;
         const nextMatch = next[nextRound]?.[nextMatchIdx];
         if (nextMatch) {
           const oldTeam = nextMatch[slot];
@@ -76,8 +112,9 @@ export function BracketSimulator() {
     const roundIdx = ROUND_ORDER.indexOf(round);
     if (roundIdx >= ROUND_ORDER.length - 1) return;
     const nextRound = ROUND_ORDER[roundIdx + 1] as RoundName;
-    const nextMatchIdx = Math.floor(matchIndex / 2);
-    const slot: "team1" | "team2" = matchIndex % 2 === 0 ? "team1" : "team2";
+    const nextSlot = getNextSlot(round, matchIndex);
+    if (!nextSlot) return;
+    const { nextMatchIdx, slot } = nextSlot;
     const nextMatch = state[nextRound]?.[nextMatchIdx];
     if (!nextMatch) return;
     if (nextMatch.winner === nextMatch[slot]?.id) {
@@ -105,6 +142,24 @@ export function BracketSimulator() {
     return final.winner === final.team1?.id ? final.team1 : final.team2;
   }, [rounds]);
 
+  const championOdds = useMemo(() => {
+    if (!champion) return null;
+    return top10Favorites.find((fav) => fav.teamId === champion.id)?.pmuSport ?? null;
+  }, [champion]);
+
+  const championTracking = useMemo(
+    () =>
+      champion
+        ? { pageType: "simulateur", slug: champion.id, placement: "champion-cta" }
+        : null,
+    [champion]
+  );
+
+  const progressSummary = useMemo(() => {
+    const completed = ROUND_ORDER.flatMap((round) => rounds[round]).filter((match) => match.winner).length;
+    return { completed, total: 31 };
+  }, [rounds]);
+
   if (!loaded) {
     return (
       <div className="text-center py-20">
@@ -127,7 +182,9 @@ export function BracketSimulator() {
               border: "2px solid rgba(245,166,35,0.6)",
             }}
           >
-            <span className="text-3xl"></span>
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-gray-950 shadow-lg">
+              <Trophy className="h-7 w-7" />
+            </span>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
                 Votre champion CDM 2026
@@ -145,35 +202,69 @@ export function BracketSimulator() {
               text={`Mon pronostic CDM 2026 : ${champion.flag} ${champion.name} champion du monde ! #CDM2026 #WorldCup2026`}
               label="Partager mon bracket"
             />
+            {/* CTA PMU post-simulation : l'utilisateur vient de designer son champion */}
+            {championTracking && (
+              <div className="mt-1 flex flex-col items-center gap-1.5">
+                <a
+                  href={pmuTrackingUrl(championTracking)}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  {...affiliateLinkAttributes(championTracking)}
+                  className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black text-[#0c3b2e] shadow-lg transition hover:brightness-110"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)",
+                  }}
+                >
+                  Parier sur {champion.name} champion
+                  {championOdds ? ` — cote ${championOdds.toFixed(2)}` : ""} →
+                </a>
+                <p className="text-[10px] text-white/60">
+                  1er pari remboursé en cash · PMU Play · 18+ · Jouez responsablement
+                </p>
+              </div>
+            )}
           </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
-          <p className="text-2xl mb-2"></p>
-          <p className="text-sm font-semibold text-gray-700">
-            Sélectionnez les vainqueurs pour simuler le tournoi
-          </p>
-          <p className="text-xs text-gray-500 mt-1">
-            Cliquez sur une équipe pour la qualifier au tour suivant
-          </p>
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_10px_30px_rgba(2,21,45,0.06)]">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-primary">
+                Simulateur phase finale
+              </p>
+              <p className="mt-1 text-lg font-extrabold text-slate-950">
+                Sélectionnez les vainqueurs pour construire votre finale
+              </p>
+              <p className="mt-1 text-sm text-slate-500">
+                Le parcours suit les affiches officielles des 16es vers la finale.
+              </p>
+            </div>
+            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-black text-white">
+              <span className="text-primary">{progressSummary.completed}</span>
+              <span className="text-white/50">/</span>
+              <span>{progressSummary.total}</span>
+              <span className="text-xs font-bold uppercase text-white/60">choix</span>
+            </div>
+          </div>
         </div>
       )}
 
       {/* Progress + Reset */}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
         <div className="flex-1">
           <ProgressBar rounds={rounds} />
         </div>
         <button
           onClick={reset}
-          className="shrink-0 px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition-all"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-100"
         >
-          <RefreshCw className="h-5 w-5 inline-block" /> Réinitialiser
+          <RefreshCw className="h-4 w-4" /> Réinitialiser
         </button>
       </div>
 
       {/* Desktop bracket */}
-      <div className="hidden lg:block pb-4">
+      <div className="hidden overflow-hidden rounded-[22px] bg-slate-50/70 p-3 lg:block">
         <DesktopBracket rounds={rounds} onPick={pickWinner} />
       </div>
 

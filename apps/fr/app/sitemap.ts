@@ -5,10 +5,10 @@ import { groups } from "@repo/data/groups";
 import { stadiums } from "@repo/data/stadiums";
 import { cities } from "@repo/data/cities";
 import { players } from "@repo/data/players";
-import { newsArticles } from "@repo/data/news";
 import { bookmakerReviews } from "@repo/data/bookmaker-reviews";
 import { bookmakers } from "@repo/data/bookmakers";
 import { guides } from "@repo/data/guides";
+import { getAllArticles } from "../lib/mdx";
 
 const BASE_URL = "https://www.cdm2026.fr";
 
@@ -170,6 +170,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/match/calendrier", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/match/aujourdhui", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/resultats", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
+    entry("/phase-finale", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/live", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/tableau", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
     entry("/comparateur-cotes", { changeFrequency: "daily", priority: 0.9, lastModified: now }),
@@ -455,9 +456,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // =====================================================================
-  // 14. News articles — /actualites/{slug}
+  // 14. Editorial articles — /actualites/{slug}
   // =====================================================================
-  for (const article of newsArticles) {
+  for (const article of getAllArticles()) {
     entries.push(
       entry(`/actualites/${article.slug}`, {
         priority: 0.7,

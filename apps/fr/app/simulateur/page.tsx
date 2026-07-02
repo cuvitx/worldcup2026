@@ -7,14 +7,14 @@ import { FAQSection } from "@repo/ui/faq-section";
 export const metadata: Metadata = {
   title: "Simulateur Coupe du Monde 2026 | Créez votre bracket",
   description:
-    "Simulateur CDM 2026 : construisez votre bracket, prédisez les 16 matchs et couronnez votre champion. 32 équipes, 100% interactif et gratuit !",
+    "Simulateur CDM 2026 : construisez votre bracket officiel, jouez les 16es, les 8es, les quarts, les demi-finales et couronnez votre champion.",
   alternates: {
     canonical: "https://www.cdm2026.fr/simulateur",
   },
   openGraph: {
     title: "Simulateur CDM 2026 | Construisez votre bracket",
     description:
-      "Construisez votre bracket CDM 2026 : 32 équipes, 16 matchs à prédire. Couronnez votre champion en 2 minutes — 100% gratuit !",
+      "Construisez votre bracket CDM 2026 avec les vraies affiches de 16es de finale. Couronnez votre champion en 2 minutes.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function SimulateurPage() {
   const faqItems = [
     {
       question: "Comment fonctionne le simulateur de bracket CDM 2026 ?",
-      answer: "Le simulateur vous permet de prédire le parcours de chaque équipe dans la phase à élimination directe. Sélectionnez le vainqueur de chaque match en cliquant sur l'équipe de votre choix. Le simulateur progresse automatiquement : votre choix en huitièmes alimente les quarts, puis les demi-finales, et enfin la finale. Vos choix sont sauvegardés automatiquement dans votre navigateur."
+      answer: "Le simulateur vous permet de prédire le parcours de chaque équipe dans la phase à élimination directe. Sélectionnez le vainqueur de chaque match en cliquant sur l'équipe de votre choix. Le simulateur progresse automatiquement : votre choix en 16es alimente les 8es, puis les quarts, les demi-finales et enfin la finale. Vos choix sont sauvegardés automatiquement dans votre navigateur."
     },
     {
       question: "Puis-je partager mon bracket avec mes amis ?",
@@ -34,7 +34,7 @@ export default function SimulateurPage() {
     },
     {
       question: "Combien de matchs dois-je prédire dans le simulateur ?",
-      answer: "Vous devez prédire les 16 matchs de la phase à élimination directe : 8 huitièmes de finale, 4 quarts de finale, 2 demi-finales, 1 finale et 1 petite finale (match pour la 3e place). Le simulateur commence avec les 32 équipes qualifiées de la phase de groupes. L'ensemble du processus prend environ 2 à 3 minutes."
+      answer: "Vous pouvez faire 31 choix pour désigner votre champion : 16 matchs de 16es de finale, 8 matchs de 8es de finale, 4 quarts, 2 demi-finales et la finale. L'ensemble du processus prend environ 2 à 3 minutes."
     },
     {
       question: "Le simulateur utilise-t-il de vraies données ?",
@@ -76,15 +76,15 @@ export default function SimulateurPage() {
                 Construisez votre bracket CDM 2026
               </h1>
               <p className="mt-2 text-gray-200 text-sm md:text-base max-w-xl">
-                Qui soulèvera la Coupe ? Jouez le tournoi complet : 32 équipes,
-                16 matchs à prédire. Résultat en 2 minutes.
+                Qui soulèvera la Coupe ? Jouez le tableau officiel : 32 équipes,
+                des 16es jusqu'à la finale. Résultat en 2 minutes.
               </p>
 
               {/* Quick stats */}
               <div className="flex items-center gap-4 mt-4">
                 {[
                   { icon: "", text: "32 équipes" },
-                  { icon: "", text: "16 matchs à prédire" },
+                  { icon: "", text: "31 choix jusqu'au champion" },
                   { icon: "", text: "Sauvegarde auto" },
                 ].map((item) => (
                   <span

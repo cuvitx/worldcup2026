@@ -148,8 +148,25 @@ export function MatchSidebar({
         </div>
       )}
 
+      {home && away && (
+        <Card hover padding="md">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            Pronostic du match
+          </h3>
+          <p className="mb-4 text-sm text-gray-600">
+            Analyse 1N2, score probable et angles de pari pour {home.name} vs {away.name}.
+          </p>
+          <Link
+            href={`/pronostic-match/${match.slug}`}
+            className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+          >
+            Voir le pronostic complet &rarr;
+          </Link>
+        </Card>
+      )}
+
       {/* CTA affilié — Parier sur ce match */}
-      <PmuBanner tracking={`match-${match.slug}-sidebar`} compact />
+      <PmuBanner tracking={{ pageType: "match", slug: match.slug, placement: "sidebar" }} compact />
     </div>
   );
 }

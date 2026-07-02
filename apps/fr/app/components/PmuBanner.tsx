@@ -1,8 +1,13 @@
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import {
+  affiliateLinkAttributes,
+  getAffiliateTrackingData,
+  pmuTrackingUrl,
+  type AffiliateTracking,
+} from "@repo/data/affiliates";
 import { GaTrackingPixel } from "./GaTrackingPixel";
 
 interface PmuBannerProps {
-  tracking?: string;
+  tracking?: AffiliateTracking;
   className?: string;
   compact?: boolean;
 }
@@ -18,6 +23,8 @@ export function PmuBanner({
   compact = false,
 }: PmuBannerProps) {
   const url = pmuTrackingUrl(tracking);
+  const trackingData = getAffiliateTrackingData(tracking);
+  const linkAttributes = affiliateLinkAttributes(tracking);
 
   if (compact) {
     return (
@@ -28,7 +35,7 @@ export function PmuBanner({
             "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)",
         }}
       >
-        <GaTrackingPixel variant="300x250" tracking={tracking} />
+        <GaTrackingPixel variant="300x250" tracking={trackingData.affVar} />
         {/* Glow */}
         <div
           aria-hidden="true"
@@ -39,6 +46,7 @@ export function PmuBanner({
           href={url}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
+          {...linkAttributes}
           className="group relative flex flex-col items-center gap-3 px-4 py-4"
         >
           <img
@@ -90,7 +98,7 @@ export function PmuBanner({
           "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)",
       }}
     >
-      <GaTrackingPixel variant="728x90" tracking={tracking} />
+      <GaTrackingPixel variant="728x90" tracking={trackingData.affVar} />
       {/* Glow */}
       <div
         aria-hidden="true"
@@ -101,6 +109,7 @@ export function PmuBanner({
         href={url}
         target="_blank"
         rel="noopener noreferrer sponsored nofollow"
+        {...linkAttributes}
         className="group relative flex flex-col sm:flex-row items-center gap-3 sm:gap-5 px-5 py-4 sm:px-6"
       >
         <img

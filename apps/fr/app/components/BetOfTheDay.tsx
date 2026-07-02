@@ -8,7 +8,7 @@ import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { matchPredictionByPair } from "@repo/data/predictions";
 import { stageLabels } from "@repo/data/constants";
-import { bookmakers } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, bookmakers, pmuTrackingUrl } from "@repo/data/affiliates";
 import { GaTrackingPixel } from "./GaTrackingPixel";
 
 export interface DailyBet {
@@ -126,6 +126,13 @@ interface BetOfTheDayProps {
 export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
   const display = bet ?? todaysBet;
   const conf = CONFIDENCE_LABELS[display.confidence] ?? CONFIDENCE_LABELS[3]!;
+  const tracking = {
+    pageType: "bet-of-the-day",
+    slug: display.matchSlug || "index",
+    placement: compact ? "compact-cta" : "main-cta",
+  };
+  const bookmakerUrl = pmuTrackingUrl(tracking);
+  const bookmakerAttributes = affiliateLinkAttributes(tracking);
 
   if (compact) {
     return (
@@ -152,9 +159,10 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
         </div>
 
         <a
-          href={display.bookmakerUrl}
+          href={bookmakerUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
+          {...bookmakerAttributes}
           className="block w-full text-center rounded-xl px-4 py-2.5 text-xs font-bold text-[#0c3b2e] hover:brightness-110 transition"
           style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
         >
@@ -215,9 +223,10 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
 
         <div className="flex flex-col sm:flex-row gap-3">
           <a
-            href={display.bookmakerUrl}
+            href={bookmakerUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...bookmakerAttributes}
             className="flex-1 flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-bold text-[#0c3b2e] hover:-translate-y-0.5 transition-all text-sm"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >

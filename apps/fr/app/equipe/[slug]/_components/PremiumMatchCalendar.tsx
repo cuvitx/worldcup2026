@@ -6,16 +6,26 @@ import { matchPredictionByPair } from "@repo/data/predictions";
 import { estimatedMatchOdds, pmuTrackingUrl } from "@repo/data/affiliates";
 
 type Match = (typeof matchesType)[number];
+type ResolvedTeamMatch = Match & {
+  homeName?: string;
+  awayName?: string;
+  homeFlag?: string;
+  awayFlag?: string;
+};
 
 interface PremiumMatchCalendarProps {
   teamId: string;
   teamName: string;
-  teamMatches: Match[];
+  teamMatches: ResolvedTeamMatch[];
   resultsMap?: Record<string, { homeScore: number; awayScore: number; status: string }>;
 }
 
 export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap }: PremiumMatchCalendarProps) {
-  const pmuUrl = pmuTrackingUrl("equipe-calendar");
+  const pmuUrl = pmuTrackingUrl({
+    pageType: "equipe",
+    slug: teamsById[teamId]?.slug ?? teamId,
+    placement: "calendar",
+  });
   return (
     <section id="calendrier" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -30,6 +40,10 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
           {teamMatches.map((match) => {
             const homeTeam = teamsById[match.homeTeamId];
             const awayTeam = teamsById[match.awayTeamId];
+            const homeName = homeTeam?.name ?? match.homeName ?? "À déterminer";
+            const awayName = awayTeam?.name ?? match.awayName ?? "À déterminer";
+            const homeFlag = homeTeam?.flag ?? match.homeFlag ?? "";
+            const awayFlag = awayTeam?.flag ?? match.awayFlag ?? "";
             const stadium = stadiumsById[match.stadiumId];
             const isHome = match.homeTeamId === teamId;
 
@@ -75,15 +89,15 @@ export function PremiumMatchCalendar({ teamId, teamName, teamMatches, resultsMap
 
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="text-xl">{homeTeam?.flag ?? ""}</span>
+                      <span className="text-xl">{homeFlag}</span>
                       <span className="font-bold text-gray-900 text-sm sm:text-base">
-                        {homeTeam?.name ?? match.homeTeamId}
+                        {homeName}
                       </span>
                       <span className="text-gray-400 font-bold">vs</span>
                       <span className="font-bold text-gray-900 text-sm sm:text-base">
-                        {awayTeam?.name ?? match.awayTeamId}
+                        {awayName}
                       </span>
-                      <span className="text-xl">{awayTeam?.flag ?? ""}</span>
+                      <span className="text-xl">{awayFlag}</span>
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       {match.group && (

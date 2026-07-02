@@ -18,7 +18,7 @@ export { players, playersById, playersBySlug, playersByTeamId } from "./players"
 export { matches, matchesById, matchesBySlug, matchesByGroup, matchesByStadium } from "./matches";
 export { h2hRecords, h2hByPair } from "./h2h";
 export type { TeamPrediction, MatchPrediction } from "./predictions";
-export { teamPredictions, predictionsByTeamId, matchPredictions, matchPredictionByPair } from "./predictions";
+export { teamPredictions, predictionsByTeamId, matchPredictions, matchPredictionByPair, getMatchPredictionForTeams } from "./predictions";
 export type { Bookmaker } from "./affiliates";
 export { bookmakers, featuredBookmaker, highlightedBookmakers, probToOdds, estimatedMatchOdds, estimatedOutrightOdds } from "./affiliates";
 export type { ScorerOdds } from "./scorers";
@@ -33,6 +33,8 @@ export { teamRatings } from "./team-ratings";
 export { guides, guidesById, guidesBySlug, guidesByCategory } from "./guides";
 export type { TournamentPhase, MatchPhase } from "./tournament-state";
 export { getTournamentPhase, getDaysUntilKickoff, getTodaysMatches, getNextMatch, getMatchPhase, getMatchesByDate, getMatchDates } from "./tournament-state";
+export type { GroupStanding, KnockoutSlotResolution, KnockoutSlotStatus } from "./knockout";
+export { computeGroupStandings, isGroupComplete, knockoutSlotLabelsByMatchId, resolveGroupPositionSlot, resolveKnockoutTeamSlot } from "./knockout";
 export { teamApiIds, stadiumApiIds, getApiTeamId, getApiVenueId, hasApiMapping } from "./api-football-ids";
 export type { NewsArticle, NewsCategory } from "./news";
 export { newsArticles, newsCategories, newsBySlug, newsByCategory } from "./news";

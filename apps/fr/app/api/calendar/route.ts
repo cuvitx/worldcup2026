@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
+import { getResolvedCalendarMatches } from "../../../lib/calendar-match-resolution";
 
-export const revalidate = 3600; // 1h cache
+export const revalidate = 300;
 
 export async function GET() {
+  const resolvedMatches = await getResolvedCalendarMatches(matches);
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -16,12 +17,10 @@ export async function GET() {
     "X-WR-TIMEZONE:Europe/Paris",
   ];
 
-  for (const match of matches) {
-    const home = teamsById[match.homeTeamId];
-    const away = teamsById[match.awayTeamId];
+  for (const match of resolvedMatches) {
     const stadium = stadiumsById[match.stadiumId];
-    const homeName = home?.name ?? "TBD";
-    const awayName = away?.name ?? "TBD";
+    const homeName = match.homeName;
+    const awayName = match.awayName;
 
     // Format date: YYYYMMDD
     const dateClean = match.date.replace(/-/g, "");
@@ -35,7 +34,7 @@ export async function GET() {
     const endM = String(totalMin % 60).padStart(2, "0");
 
     const uid = `${match.slug}@cdm2026.fr`;
-    const summary = `${home?.flag ?? ""} ${homeName} vs ${awayName} ${away?.flag ?? ""}`.trim();
+    const summary = `${match.homeFlag} ${homeName} vs ${awayName} ${match.awayFlag}`.trim();
     const location = stadium ? `${stadium.name}, ${stadium.city}` : "";
     const description = `Coupe du Monde 2026 - ${homeName} vs ${awayName}\\nhttps://www.cdm2026.fr/match/${match.slug}`;
 

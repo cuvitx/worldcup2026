@@ -1,78 +1,45 @@
-import { teams as allTeams } from "@repo/data/teams";
-import { groups } from "@repo/data/groups";
+import { teamsById } from "@repo/data/teams";
 import type { TeamInfo, MatchData, RoundName } from "./types";
 
-const teamsMap = new Map(allTeams.map((t) => [t.id, t]));
+const officialR32TeamIds: Array<[string, string]> = [
+  ["afrique-du-sud", "canada"],
+  ["bresil", "japon"],
+  ["allemagne", "paraguay"],
+  ["pays-bas", "maroc"],
+  ["cote-divoire", "norvege"],
+  ["france", "suede"],
+  ["mexique", "equateur"],
+  ["angleterre", "rd-congo"],
+  ["belgique", "senegal"],
+  ["etats-unis", "bosnie-herzegovine"],
+  ["espagne", "autriche"],
+  ["portugal", "croatie"],
+  ["suisse", "algerie"],
+  ["australie", "egypte"],
+  ["argentine", "cap-vert"],
+  ["colombie", "ghana"],
+];
 
-export function getGroupTeamsSortedByRanking(groupLetter: string): TeamInfo[] {
-  const group = groups.find((g) => g.letter === groupLetter);
-  if (!group) return [];
-  return group.teams
-    .map((id) => teamsMap.get(id))
-    .filter(Boolean)
-    .sort((a, b) => {
-      if (a!.fifaRanking === 0) return 1;
-      if (b!.fifaRanking === 0) return -1;
-      return a!.fifaRanking - b!.fifaRanking;
-    })
-    .map((t) => ({
-      id: t!.id,
-      name: t!.name,
-      flag: t!.flag,
-      code: t!.code,
-      fifaRanking: t!.fifaRanking,
-    }));
-}
+function toTeamInfo(teamId: string): TeamInfo | null {
+  const team = teamsById[teamId];
+  if (!team) return null;
 
-function getQualifiedTeams() {
-  const firstByGroup: Record<string, TeamInfo> = {};
-  const secondByGroup: Record<string, TeamInfo> = {};
-  const thirds: TeamInfo[] = [];
-
-  for (const g of groups) {
-    const sorted = getGroupTeamsSortedByRanking(g.letter);
-    if (sorted[0]) firstByGroup[g.letter] = sorted[0];
-    if (sorted[1]) secondByGroup[g.letter] = sorted[1];
-    if (sorted[2]) thirds.push(sorted[2]);
-  }
-
-  const bestThirds = thirds
-    .sort((a, b) => {
-      if (a.fifaRanking === 0) return 1;
-      if (b.fifaRanking === 0) return -1;
-      return a.fifaRanking - b.fifaRanking;
-    })
-    .slice(0, 8);
-
-  return { firstByGroup, secondByGroup, bestThirds };
+  return {
+    id: team.id,
+    name: team.name,
+    flag: team.flag,
+    code: team.code,
+    fifaRanking: team.fifaRanking,
+  };
 }
 
 export function buildR32Matches(): MatchData[] {
-  const { firstByGroup, secondByGroup, bestThirds } = getQualifiedTeams();
-
-  const pairings: [string, string][] = [
-    ["A", "B"], ["C", "D"], ["E", "F"], ["G", "H"],
-    ["I", "J"], ["K", "L"], ["B", "A"], ["D", "C"],
-    ["F", "E"], ["H", "G"], ["J", "I"], ["L", "K"],
-  ];
-
-  const matches: MatchData[] = pairings.map(([g1, g2], i) => ({
+  return officialR32TeamIds.map(([team1Id, team2Id], i) => ({
     id: `R32-${i}`,
-    team1: firstByGroup[g1] || null,
-    team2: secondByGroup[g2] || null,
+    team1: toTeamInfo(team1Id),
+    team2: toTeamInfo(team2Id),
     winner: null,
   }));
-
-  for (let i = 0; i < 4; i++) {
-    matches.push({
-      id: `R32-${12 + i}`,
-      team1: bestThirds[i] || null,
-      team2: bestThirds[7 - i] || null,
-      winner: null,
-    });
-  }
-
-  return matches;
 }
 
 export function buildEmptyMatches(round: RoundName, count: number): MatchData[] {
@@ -88,7 +55,7 @@ export function buildEmptyMatches(round: RoundName, count: number): MatchData[] 
 // LocalStorage
 // ---------------------------------------------------------------------------
 
-const LS_KEY = "cdm2026-bracket-v2";
+const LS_KEY = "cdm2026-bracket-v4";
 
 interface SavedState {
   rounds: Record<RoundName, MatchData[]>;

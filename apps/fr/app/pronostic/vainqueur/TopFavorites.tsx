@@ -6,47 +6,47 @@ import {
 import {
   estimatedOutrightOdds,
 } from "@repo/data/affiliates";
+import type { LiveForecastTeam } from "./_data/vainqueur-data";
 
 interface TopFavoritesProps {
-  top10: Array<{
-    pred: {
-      teamId: string;
-      winnerProb: number;
-      finalProb: number;
-      eloRating: number;
-    };
-    team: {
-      id: string;
-      slug: string;
-      name: string;
-      flag: string;
-      fifaRanking: number;
-      bestResult: string;
-    };
-  }>;
+  top10: LiveForecastTeam[];
+  eliminatedTeams?: LiveForecastTeam[];
   teamArguments: Record<string, { pros: string[]; cons: string[] }>;
 }
 
-export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
+function formatDelta(delta: number) {
+  const points = Math.round(delta * 100 * 10) / 10;
+  if (Math.abs(points) < 0.1) return "stable";
+  return `${points > 0 ? "+" : ""}${points} pts`;
+}
+
+export function TopFavorites({ top10, eliminatedTeams = [], teamArguments }: TopFavoritesProps) {
+  const notableEliminated = eliminatedTeams.slice(0, 6);
+
   return (
     <section id="top10" className="bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <span></span> Top 10 des favoris CDM 2026
+            <span></span> Top 10 live des favoris CDM 2026
           </h2>
-          <p className="text-sm text-gray-600 mt-1">Classement par probabilité de victoire (modèle ELO + cotes bookmakers)</p>
+          <p className="text-sm text-gray-600 mt-1">
+            Classement recalculé avec les résultats, les équipes encore en course et le chemin restant.
+          </p>
         </div>
 
         <div className="space-y-3">
-          {top10.map(({ pred, team }, index) => {
+          {top10.map((row, index) => {
+            const { pred, team } = row;
             if (!team) return null;
             const winPct = Math.round(pred.winnerProb * 100 * 10) / 10;
+            const basePct = Math.round(pred.baseWinnerProb * 100 * 10) / 10;
             const fav = favoritesByTeamId[team.id];
             const approxOdds = fav ? fav.avgOdds.toFixed(2) : estimatedOutrightOdds(pred.winnerProb);
             const trendIcon = fav ? (fav.trend === "up" ? " ↑" : fav.trend === "down" ? " ↓" : "") : "";
             const trendColor = fav?.trend === "up" ? "text-accent" : fav?.trend === "down" ? "text-red-400" : "";
             const args = teamArguments[team.id];
+            const delta = formatDelta(pred.deltaWinnerProb);
 
             return (
               <div
@@ -84,6 +84,9 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                       <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
                         {team.bestResult}
                       </span>
+                      <span className="text-xs bg-accent/10 text-accent px-2 py-0.5 rounded font-semibold">
+                        {row.currentStageLabel}
+                      </span>
                     </div>
                   </div>
 
@@ -93,6 +96,9 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                       {winPct < 1 ? "<1" : winPct}%
                     </p>
                     <p className="text-xs text-gray-600">chance titre</p>
+                    <p className={`text-[11px] font-semibold ${pred.deltaWinnerProb >= 0 ? "text-accent" : "text-red-500"}`}>
+                      {delta} vs pré-tournoi
+                    </p>
                   </div>
                   <div className="shrink-0 text-right">
                     <p className="text-xl font-bold text-accent">
@@ -119,7 +125,9 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                 {/* Mobile: chance titre */}
                 <div className="flex sm:hidden items-center gap-4 px-5 pb-3">
                   <span className="text-xl font-extrabold text-primary">{winPct < 1 ? "<1" : winPct}%</span>
-                  <span className="text-sm text-gray-600">chance de gagner le titre</span>
+                  <span className="text-sm text-gray-600">
+                    chance de gagner le titre · base {basePct}% · {delta}
+                  </span>
                 </div>
 
                 {/* Probability bar */}
@@ -162,10 +170,52 @@ export function TopFavorites({ top10, teamArguments }: TopFavoritesProps) {
                     </div>
                   </div>
                 )}
+                {row.latestMatch && (
+                  <div className="border-t border-gray-100 px-5 py-3 text-xs text-gray-600">
+                    Dernier signal : <span className="font-semibold text-gray-800">{row.latestMatch}</span>
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
+        {notableEliminated.length > 0 && (
+          <div className="mt-6 rounded-2xl border border-red-100 bg-white p-5 shadow-sm">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900">
+                  Équipes sorties du forecast actif
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Elles restent dans l'historique du modèle, mais leur chance de titre live est désormais à 0%.
+                </p>
+              </div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-red-500">
+                Éliminées
+              </span>
+            </div>
+            <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {notableEliminated.map((row) => (
+                <div
+                  key={row.team.id}
+                  className="flex items-center justify-between rounded-xl border border-gray-100 bg-gray-50 px-3 py-2"
+                >
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-bold text-gray-900">
+                      {row.team.flag} {row.team.name}
+                    </p>
+                    <p className="truncate text-xs text-gray-500">
+                      {row.eliminatedBy ? `Sortie par ${row.eliminatedBy}` : "Hors tableau"}
+                    </p>
+                  </div>
+                  <span className="ml-3 rounded-full bg-red-50 px-2 py-1 text-xs font-bold text-red-600">
+                    0%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

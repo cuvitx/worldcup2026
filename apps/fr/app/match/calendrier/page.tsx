@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
-import { enrichMatchesWithResults } from "@repo/api/football/match-results";
 import CalendarViewWrapper from "./CalendarViewWrapper";
 import { FileText } from "lucide-react";
 import { RelatedLinks } from "../../components/RelatedLinks";
 import { PmuBanner } from "../../components/PmuBanner";
+import KnockoutCalendarTree from "./KnockoutCalendarTree";
+import { getResolvedCalendarMatches } from "../../../lib/calendar-match-resolution";
 
 const faqCalendrierItems = [
   {
@@ -18,7 +19,7 @@ const faqCalendrierItems = [
   {
     question: "Combien de matchs compte la CDM 2026 ?",
     answer:
-      "La Coupe du Monde 2026 comprend 104 matchs au total : 72 matchs de phase de groupes (12 groupes × 3 matchs + 1 match par groupe), 32 matchs à élimination directe (huitièmes, quarts, demi-finales, match pour la 3e place et finale). C'est 40 matchs de plus que les éditions à 32 équipes.",
+      "La Coupe du Monde 2026 comprend 104 matchs au total : 72 matchs de phase de groupes et 32 matchs à élimination directe (16es, 8es, quarts, demi-finales, match pour la 3e place et finale). C'est 40 matchs de plus que les éditions à 32 équipes.",
   },
   {
     question: "Quelle chaîne diffuse la CDM 2026 en France ?",
@@ -33,30 +34,29 @@ const faqCalendrierItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "Calendrier des matchs - Coupe du Monde 2026",
+  title: "Calendrier CDM 2026 : matchs du jour, dates et résultats",
   description:
-    "Calendrier complet des 104 matchs de la Coupe du Monde 2026. Phase de groupes, huitièmes, quarts, demi-finales et finale. Du 11 juin au 19 juillet 2026.",
+    "Calendrier CDM 2026 en direct : matchs du jour, les 104 matchs de la Coupe du Monde, scores, arbre de la phase finale, 8es, quarts, demi-finales et finale du 19 juillet.",
   alternates: getStaticAlternates("matchSchedule", "fr"),
 };
 
-export const revalidate = 300; // 5min ISR — auto-refresh scores
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
 
 export default async function CalendrierPage() {
-  // Build team name map for API matching
-  const teamNameMap: Record<string, string> = {};
-  for (const [id, t] of Object.entries(teamsById)) {
-    if (t) teamNameMap[id] = t.name;
-  }
-
-  // Enrich static matches with real API results
-  const enrichedMatches = await enrichMatchesWithResults(matches, teamNameMap);
+  const resolvedMatches = await getResolvedCalendarMatches(matches);
 
   // Serialize data for client component
-  const matchData = enrichedMatches.map((m) => ({
+  const matchData = resolvedMatches.map((m) => ({
     id: m.id,
     slug: m.slug,
     homeTeamId: m.homeTeamId,
     awayTeamId: m.awayTeamId,
+    homeName: m.homeName,
+    awayName: m.awayName,
+    homeFlag: m.homeFlag,
+    awayFlag: m.awayFlag,
     date: m.date,
     time: m.time,
     stadiumId: m.stadiumId,
@@ -64,7 +64,13 @@ export default async function CalendrierPage() {
     group: m.group,
     homeScore: m.homeScore,
     awayScore: m.awayScore,
+    winnerTeamId: m.winnerTeamId,
+    winnerSide: m.winnerSide,
+    penaltyHomeScore: m.penaltyHomeScore,
+    penaltyAwayScore: m.penaltyAwayScore,
     status: m.status,
+    statusShort: m.statusShort,
+    statusLong: m.statusLong,
   }));
 
   const teamData: Record<string, { id: string; name: string; flag: string }> = {};
@@ -89,12 +95,46 @@ export default async function CalendrierPage() {
       },
     })),
   };
+  const matchEventListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Calendrier des matchs Coupe du Monde 2026",
+    itemListElement: matchData.map((match, index) => {
+      const stadium = stadiumData[match.stadiumId];
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://www.cdm2026.fr/match/${match.slug}`,
+        item: {
+          "@type": "SportsEvent",
+          name: `${match.homeName ?? "A determiner"} vs ${match.awayName ?? "A determiner"}`,
+          startDate: `${match.date}T${match.time}:00+02:00`,
+          eventStatus:
+            match.status === "finished"
+              ? "https://schema.org/EventCompleted"
+              : "https://schema.org/EventScheduled",
+          sport: "Football",
+          url: `https://www.cdm2026.fr/match/${match.slug}`,
+          location: stadium
+            ? {
+                "@type": "Place",
+                name: stadium.name,
+              }
+            : undefined,
+        },
+      };
+    }),
+  };
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(matchEventListJsonLd) }}
       />
 <section className="hero-animated text-white py-12 sm:py-16">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -126,6 +166,12 @@ export default async function CalendrierPage() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pt-6">
         <PmuBanner tracking="calendrier-top" />
       </div>
+
+      <KnockoutCalendarTree
+        matches={matchData}
+        teamsById={teamData}
+        stadiumsById={stadiumData}
+      />
 
       <CalendarViewWrapper
         matches={matchData}

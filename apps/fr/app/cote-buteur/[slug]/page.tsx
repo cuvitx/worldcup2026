@@ -5,7 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Trophy, TrendingUp, BarChart3, ArrowRight } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -149,9 +149,10 @@ const faqItems = [
         <p className="text-xs text-gray-400 mt-3">Cotes indicatives susceptibles de varier. Vérifiez sur PMU Sport avant de parier.</p>
         <div className="mt-6">
           <a
-            href={pmuTrackingUrl("cote-buteur")}
+            href={pmuTrackingUrl({ pageType: "cote-buteur", slug, placement: "main-cta" })}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...affiliateLinkAttributes({ pageType: "cote-buteur", slug, placement: "main-cta" })}
             className="inline-block bg-accent text-white rounded-xl py-3 px-6 font-semibold hover:opacity-90 transition-opacity"
           >
             100€ offerts — Parier sur {player.name} chez PMU Sport →

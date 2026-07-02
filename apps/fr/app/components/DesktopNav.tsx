@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Calendar, Radio } from "lucide-react";
+import { Calendar, Radio, Trophy } from "lucide-react";
 import { megaMenus, type MenuKey, type MenuLink } from "./NavLinks";
 
 interface DesktopNavProps {
@@ -24,9 +24,37 @@ function LinkIcon({ link }: { link: MenuLink }) {
 
 export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavProps) {
   const pathname = usePathname();
+  const knockoutPaths = [
+    "/phase-finale",
+    "/16emes-de-finale",
+    "/8emes-de-finale",
+    "/quarts-de-finale",
+    "/demi-finales",
+    "/finale",
+  ];
+  const isKnockoutPath = knockoutPaths.some((path) => pathname === path);
 
   return (
     <div ref={menuRef} className="hidden md:flex items-center gap-1">
+      <Link
+        href="/phase-finale"
+        className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
+          isKnockoutPath ? "text-accent" : "text-white/80"
+        }`}
+      >
+        <Trophy className="h-4 w-4" />
+        Phase finale
+      </Link>
+      <Link
+        href="/match/calendrier"
+        className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
+          pathname.startsWith("/match") ? "text-accent" : "text-white/80"
+        }`}
+      >
+        <Calendar className="h-4 w-4" />
+        Calendrier
+      </Link>
+
       {(Object.entries(megaMenus) as [MenuKey, (typeof megaMenus)[MenuKey]][]).map(([key, menu]) => {
         const MenuIcon = menu.icon;
         return (
@@ -98,15 +126,6 @@ export function DesktopNav({ activeMenu, setActiveMenu, menuRef }: DesktopNavPro
         );
       })}
 
-      <Link
-        href="/match/calendrier"
-        className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 ${
-          pathname.startsWith("/match") ? "text-accent" : "text-white/80"
-        }`}
-      >
-        <Calendar className="h-4 w-4" />
-        Calendrier
-      </Link>
       <Link
         href="/live"
         className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 flex items-center gap-1.5 ${

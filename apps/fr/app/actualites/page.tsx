@@ -3,6 +3,9 @@ import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
 import { getAllArticles } from "../../lib/mdx";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Actualités Coupe du Monde 2026 - Dernières News CDM 2026",
   description:

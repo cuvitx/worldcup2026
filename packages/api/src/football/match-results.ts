@@ -17,6 +17,7 @@ const API_STATUS_MAP: Record<string, Match["status"]> = {
   "1H": "live",
   "2H": "live",
   ET: "live",
+  BT: "live",
   P: "live",
   HT: "live",
   NS: "scheduled",
@@ -26,9 +27,14 @@ const API_STATUS_MAP: Record<string, Match["status"]> = {
 export interface MatchResult {
   homeScore: number;
   awayScore: number;
+  winnerSide: "home" | "away" | null;
+  penaltyHomeScore: number | null;
+  penaltyAwayScore: number | null;
   halfTimeHome: number | null;
   halfTimeAway: number | null;
   status: NonNullable<Match["status"]>;
+  statusShort: string;
+  statusLong: string;
   apiHomeTeamId: number;
   apiAwayTeamId: number;
   /** Kickoff timestamp rounded to minute (for fallback matching) */
@@ -67,9 +73,18 @@ export async function getMatchResults(): Promise<MatchResult[]> {
     results.push({
       homeScore: f.goals.home ?? 0,
       awayScore: f.goals.away ?? 0,
+      winnerSide: f.teams.home.winner === true
+        ? "home"
+        : f.teams.away.winner === true
+          ? "away"
+          : null,
+      penaltyHomeScore: f.score?.penalty?.home ?? null,
+      penaltyAwayScore: f.score?.penalty?.away ?? null,
       halfTimeHome: f.score?.halftime?.home ?? null,
       halfTimeAway: f.score?.halftime?.away ?? null,
       status,
+      statusShort: f.fixture.status.short,
+      statusLong: f.fixture.status.long,
       apiHomeTeamId: f.teams.home.id,
       apiAwayTeamId: f.teams.away.id,
       kickoffMin: Math.round(new Date(f.fixture.date).getTime() / 60000),
@@ -160,16 +175,14 @@ export async function enrichMatchesWithResults(
   // Skip during build — scores are in static data, live enrichment via ISR
   if (process.env.NEXT_PHASE === "phase-production-build") return matches;
 
-  // Only call API if at least one match is today/yesterday AND doesn't have a score yet.
-  // No point fetching for matches 10 days in the future.
+  // Only call API for recent matches. A static finished score can be stale,
+  // so today/yesterday still need an API override path.
   const now = new Date();
   const todayStr = now.toISOString().slice(0, 10);
   const yesterday = new Date(now.getTime() - 86400000).toISOString().slice(0, 10);
 
   const needsEnrichment = matches.some(
-    (m) =>
-      (m.date === todayStr || m.date === yesterday) &&
-      !(m.status === "finished" && m.homeScore != null)
+    (m) => m.date === todayStr || m.date === yesterday
   );
   if (!needsEnrichment) return matches;
 
@@ -187,8 +200,12 @@ export async function enrichMatchesWithResults(
   }
 
   return matches.map((match) => {
-    // If already has score in static data, keep it
-    if (match.status === "finished" && match.homeScore != null) return match;
+    const isRecentMatch = match.date === todayStr || match.date === yesterday;
+
+    // Keep historical static scores, but let the API correct recent results.
+    if (!isRecentMatch && match.status === "finished" && match.homeScore != null) {
+      return match;
+    }
 
     const ourHomeApiId = teamApiIds[match.homeTeamId] ?? 0;
     const ourAwayApiId = teamApiIds[match.awayTeamId] ?? 0;
@@ -218,15 +235,29 @@ export async function enrichMatchesWithResults(
 
     // Check if home/away are swapped between our data and the API
     const swapped = ourHomeApiId > 0 && ourHomeApiId === result.apiAwayTeamId;
+    const winnerTeamId = result.winnerSide === "home"
+      ? swapped
+        ? match.awayTeamId
+        : match.homeTeamId
+      : result.winnerSide === "away"
+        ? swapped
+          ? match.homeTeamId
+          : match.awayTeamId
+        : undefined;
 
     return {
       ...match,
       homeScore: swapped ? result.awayScore : result.homeScore,
       awayScore: swapped ? result.homeScore : result.awayScore,
+      winnerTeamId,
+      winnerSide: result.winnerSide ?? undefined,
+      penaltyHomeScore: (swapped ? result.penaltyAwayScore : result.penaltyHomeScore) ?? undefined,
+      penaltyAwayScore: (swapped ? result.penaltyHomeScore : result.penaltyAwayScore) ?? undefined,
       halfTimeHome: (swapped ? result.halfTimeAway : result.halfTimeHome) ?? undefined,
       halfTimeAway: (swapped ? result.halfTimeHome : result.halfTimeAway) ?? undefined,
       status: result.status,
+      statusShort: result.statusShort,
+      statusLong: result.statusLong,
     };
   });
 }
-

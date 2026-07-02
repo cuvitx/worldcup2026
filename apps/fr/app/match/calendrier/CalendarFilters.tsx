@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { MatchRow } from "@repo/ui/match-row";
 import { useState, useMemo } from "react";
 import { stageLabels } from "@repo/data/constants";
@@ -11,6 +10,10 @@ interface MatchData {
   slug: string;
   homeTeamId: string;
   awayTeamId: string;
+  homeName: string;
+  awayName: string;
+  homeFlag: string;
+  awayFlag: string;
   date: string;
   time: string;
   stadiumId: string;
@@ -218,15 +221,19 @@ export default function CalendarFilters({ matches, teamsById, stadiumsById }: Pr
                             const home = teamsById[match.homeTeamId];
                             const away = teamsById[match.awayTeamId];
                             const stad = stadiumsById[match.stadiumId];
+                            const homeName = home?.name ?? match.homeName;
+                            const awayName = away?.name ?? match.awayName;
+                            const homeFlag = home?.flag ?? match.homeFlag;
+                            const awayFlag = away?.flag ?? match.awayFlag;
 
                             return (
                               <MatchRow
                                 key={match.id}
                                 href={`/match/${match.slug}`}
-                                homeFlag={home?.flag ?? ""}
-                                homeName={home?.name ?? "TBD"}
-                                awayFlag={away?.flag ?? ""}
-                                awayName={away?.name ?? "TBD"}
+                                homeFlag={homeFlag}
+                                homeName={homeName}
+                                awayFlag={awayFlag}
+                                awayName={awayName}
                                 time={match.time}
                                 group={match.group}
                                 stadium={stad?.name}
@@ -276,6 +283,7 @@ function InlineAffiliateCTA() {
         rel="noopener noreferrer sponsored nofollow"
         className="group relative flex flex-col sm:flex-row items-center gap-3 sm:gap-5 px-5 py-4 sm:px-6"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/partners/pmu-play.webp"
           alt="PMU Play"

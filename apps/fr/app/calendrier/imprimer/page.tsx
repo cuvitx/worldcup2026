@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { PrintButton } from "./PrintButton";
+import { getResolvedCalendarMatches } from "../../../lib/calendar-match-resolution";
+
 export const metadata: Metadata = {
   title: "Calendrier CDM 2026 — Version imprimable",
   description:
@@ -11,9 +13,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-function teamName(id: string): string {
-  return teamsById[id]?.name ?? id;
-}
+export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 function stadiumName(id: string): string {
   return stadiumsById[id]?.name ?? id;
@@ -22,19 +23,22 @@ function stadiumName(id: string): string {
 function stageLabel(stage: string, group?: string): string {
   if (stage === "group" && group) return `Groupe ${group}`;
   const labels: Record<string, string> = {
-    round32: "32es de finale",
-    round16: "8es de finale",
+    "round-of-32": "16es de finale",
+    "round-of-16": "8es de finale",
     quarter: "Quart de finale",
+    "quarter-final": "Quart de finale",
     semi: "Demi-finale",
+    "semi-final": "Demi-finale",
     "third-place": "Petite finale",
     final: "Finale",
   };
   return labels[stage] ?? stage;
 }
 
-export default function CalendrierImprimerPage() {
-  const matchesByDate = new Map<string, typeof matches>();
-  for (const m of matches) {
+export default async function CalendrierImprimerPage() {
+  const resolvedMatches = await getResolvedCalendarMatches(matches);
+  const matchesByDate = new Map<string, typeof resolvedMatches>();
+  for (const m of resolvedMatches) {
     const list = matchesByDate.get(m.date) ?? [];
     list.push(m);
     matchesByDate.set(m.date, list);
@@ -63,12 +67,12 @@ export default function CalendrierImprimerPage() {
 
       <div className="no-print mb-6 flex gap-3">
         <PrintButton />
-        <a
+        <Link
           href="/match/calendrier"
           className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-100"
         >
           ← Retour au calendrier
-        </a>
+        </Link>
       </div>
 
       <h1 className="text-2xl font-bold mb-6 text-gray-900">
@@ -107,7 +111,7 @@ export default function CalendrierImprimerPage() {
                     <tr key={m.id} className="text-gray-800">
                       <td className="font-mono text-xs">{m.time}</td>
                       <td className="font-semibold">
-                        {teamName(m.homeTeamId)} vs {teamName(m.awayTeamId)}
+                        {m.homeName} vs {m.awayName}
                       </td>
                       <td className="text-xs">{stageLabel(m.stage, m.group)}</td>
                       <td className="hidden sm:table-cell text-xs text-gray-500">

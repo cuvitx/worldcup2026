@@ -7,6 +7,7 @@ import { teamsById } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { EVENT_DATES } from "@repo/data/constants";
 import { Clock, Users } from "lucide-react"
+import { getResolvedCalendarMatches } from "../../../lib/calendar-match-resolution";
 
 export const revalidate = 3600;
 
@@ -41,7 +42,7 @@ function utcToFrParis(time: string): string {
 function stageLabel(stage: string, group?: string): string {
   const labels: Record<string, string> = {
     group: `Phase de groupes${group ? ` — Groupe ${group}` : ""}`,
-    "round-of-32": "Huitièmes de finale",
+    "round-of-32": "16es de finale",
     "round-of-16": "8es de finale",
     "quarter-final": "Quarts de finale",
     "semi-final": "Demi-finales",
@@ -98,27 +99,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 // ============================================================
-//  FAQ items (static — same for all day pages)
-// ============================================================
-const faqCalendrierItems = [
-  {
-    question: "Quand débute et se termine la Coupe du Monde 2026 ?",
-    answer:
-      "La Coupe du Monde 2026 commence le 11 juin 2026 avec le match d'ouverture à l'Estadio Azteca de Mexico. La grande finale est prévue le 19 juillet 2026 au MetLife Stadium de New York/New Jersey, soit 39 jours de compétition au total.",
-  },
-  {
-    question: "Combien de matchs au total à la CDM 2026 ?",
-    answer:
-      "La Coupe du Monde 2026 compte 104 matchs au total : 72 matchs de phase de groupes (12 groupes × 6 matchs), puis 32 matchs de phase finale (16 huitièmes + 8 quarts + 4 demi-finales + 1 match pour la 3e place + 1 finale). C'est 24 matchs de plus qu'en 2022.",
-  },
-  {
-    question: "Dans quel fuseau horaire sont affichés les horaires des matchs ?",
-    answer:
-      "Les horaires sur ce site sont affichés en heure de Paris (CEST, UTC+2 en été). Les matchs se jouent en heure locale américaine (EDT = UTC-4, CDT = UTC-5, PDT = UTC-7), soit généralement en soirée française (entre 18h et 3h du matin selon le fuseau de la ville hôte).",
-  },
-];
-
-// ============================================================
 //  Page component
 // ============================================================
 export default async function JourPage({ params }: PageProps) {
@@ -133,8 +113,9 @@ export default async function JourPage({ params }: PageProps) {
   const dateFr = dateToFrench(dateStr);
 
   // Matches for this day
-  const dayMatches = matches
-    .filter((m) => m.date === dateStr)
+  const dayMatches = (await getResolvedCalendarMatches(
+    matches.filter((m) => m.date === dateStr),
+  ))
     .sort((a, b) => a.time.localeCompare(b.time));
 
   const hasPrev = dayNum > 1;
@@ -211,7 +192,7 @@ export default async function JourPage({ params }: PageProps) {
               Journée sans match
             </p>
             <p className="text-sm text-gray-500">
-              Aucun match n'est programmé ce {dateFr}.
+              Aucun match n&apos;est programmé ce {dateFr}.
             </p>
             <div className="mt-6 flex justify-center gap-4">
               {hasPrev && (
@@ -238,6 +219,10 @@ export default async function JourPage({ params }: PageProps) {
               const homeTeam = teamsById[match.homeTeamId];
               const awayTeam = teamsById[match.awayTeamId];
               const stadium = stadiumsById[match.stadiumId];
+              const homeName = homeTeam?.name ?? match.homeName;
+              const awayName = awayTeam?.name ?? match.awayName;
+              const homeFlag = homeTeam?.flag ?? match.homeFlag;
+              const awayFlag = awayTeam?.flag ?? match.awayFlag;
               const frTime = utcToFrParis(match.time);
               const stageLbl = stageLabel(match.stage, match.group);
               const badgeClass = stageBadgeClass(match.stage);
@@ -272,12 +257,12 @@ export default async function JourPage({ params }: PageProps) {
                     <div className="flex items-center justify-center gap-4 sm:gap-8">
                       {/* Home team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
-                        <span className="text-4xl sm:text-5xl" role="img" aria-label={homeTeam?.name ?? "Équipe locale"}>
-                          {homeTeam?.flag ?? ""}
+                        <span className="text-4xl sm:text-5xl" role="img" aria-label={homeName}>
+                          {homeFlag}
                         </span>
                         <div>
                           <p className="font-bold text-gray-900 text-sm sm:text-base">
-                            {homeTeam?.name ?? match.homeTeamId}
+                            {homeName}
                           </p>
                           {homeTeam && (
                             <p className="text-xs text-gray-500">{homeTeam.code}</p>
@@ -295,12 +280,12 @@ export default async function JourPage({ params }: PageProps) {
 
                       {/* Away team */}
                       <div className="flex flex-col items-center gap-2 text-center flex-1">
-                        <span className="text-4xl sm:text-5xl" role="img" aria-label={awayTeam?.name ?? "Équipe visiteur"}>
-                          {awayTeam?.flag ?? ""}
+                        <span className="text-4xl sm:text-5xl" role="img" aria-label={awayName}>
+                          {awayFlag}
                         </span>
                         <div>
                           <p className="font-bold text-gray-900 text-sm sm:text-base">
-                            {awayTeam?.name ?? match.awayTeamId}
+                            {awayName}
                           </p>
                           {awayTeam && (
                             <p className="text-xs text-gray-500">{awayTeam.code}</p>

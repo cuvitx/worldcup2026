@@ -4,8 +4,11 @@ import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { Flag, TrendingUp, ArrowRight, Eye, Cpu } from "lucide-react";
 import { PmuCTA } from "../../components/PmuCTA";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 function getOffsideStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 4 + awayId.charCodeAt(0) * 2 + homeId.length;
   const homeOffsides = +(1.5 + (seed % 20) / 10).toFixed(1);
@@ -25,31 +28,30 @@ function getOffsideStats(homeId: string, awayId: string) {
   };
 }
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) return {};
-  const home = teamsById[match.homeTeamId]?.name ?? "A déterminer";
-  const away = teamsById[match.awayTeamId]?.name ?? "A déterminer";
+  const { homeName: home, awayName: away } =
+    await resolveMatchTeamsWithResults(match);
   return {
-    title: `Parier sur les hors-jeu ${home} - ${away} — CDM 2026`,
+    title: `Parier sur les hors-jeu ${home} - ${away}`,
     description: `Stats hors-jeu ${home} vs ${away} à la Coupe du Monde 2026 : cotes over/under 3.5, impact VAR, hors-jeu semi-automatique et pronostics.`,
     alternates: { canonical: `https://www.cdm2026.fr/hors-jeu/${slug}` },
   };
 }
 export const dynamicParams = true;
+export const revalidate = 300;
 export default async function HorsJeuPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "A déterminer";
-  const awayName = away?.name ?? "A déterminer";
-  const stats = getOffsideStats(match.homeTeamId, match.awayTeamId);
+  const { homeName, awayName, homeTeamId, awayTeamId } =
+    await resolveMatchTeamsWithResults(match);
+  const stats = getOffsideStats(homeTeamId, awayTeamId);
 const faqItems = [
     { question: `Combien de hors-jeu pour ${homeName} vs ${awayName} ?`, answer: `On estime environ ${stats.totalAvg} hors-jeu au total : ${stats.homeOffsides} pour ${homeName} et ${stats.awayOffsides} pour ${awayName}, selon les moyennes historiques.` },
     { question: "Le hors-jeu semi-automatique change-t-il les stats ?", answer: "Oui, la technologie de hors-jeu semi-automatique utilisée en CDM 2026 détecte les situations limites plus précisément, ce qui peut légèrement augmenter le nombre de hors-jeu signalés par rapport aux arbitrages traditionnels." },

@@ -4,11 +4,10 @@ import { Newsletter } from "@repo/ui/newsletter";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { Team } from "@repo/data/types";
-import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
+import type { Match, Team } from "@repo/data/types";
+import { teamsBySlug, teamsById } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
-import { matches, matchesByGroup } from "@repo/data/matches";
-import { enrichMatchesWithResults } from "@repo/api/football/match-results";
+import { getResolvedCalendarMatches } from "../../../lib/calendar-match-resolution";
 import { groupsByLetter } from "@repo/data/groups";
 import { predictionsByTeamId } from "@repo/data/predictions";
 import { estimatedOutrightOdds } from "@repo/data/affiliates";
@@ -25,17 +24,22 @@ import { PremiumPronostic } from "./_components/PremiumPronostic";
 import { PremiumAnecdotes } from "./_components/PremiumAnecdotes";
 import { PremiumMatchPronosticLinks } from "./_components/PremiumMatchPronosticLinks";
 import { GroupStandings } from "./_components/GroupStandings";
-import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react"
+import { BarChart3, ClipboardList, Medal, Sparkles, Trophy, Users } from "lucide-react";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+function sortMatchesByKickoff(a: Match, b: Match) {
+  return new Date(`${a.date}T${a.time}:00+02:00`).getTime() -
+    new Date(`${b.date}T${b.time}:00+02:00`).getTime();
+}
+
 export async function generateStaticParams() {
-  return teams.map((team) => ({ slug: team.slug }));
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -68,12 +72,10 @@ export default async function TeamPage({ params }: PageProps) {
 
   const prediction = predictionsByTeamId[team.id];
   const teamPlayers = playersByTeamId[team.id] ?? [];
-  const teamMatchesStatic = matches.filter(
-    (m) => m.homeTeamId === team.id || m.awayTeamId === team.id
-  );
-
-  // Enrich team matches with real scores
-  const teamMatches = await enrichMatchesWithResults(teamMatchesStatic);
+  const enrichedMatches = await getResolvedCalendarMatches();
+  const teamMatches = enrichedMatches
+    .filter((m) => m.homeTeamId === team.id || m.awayTeamId === team.id)
+    .sort(sortMatchesByKickoff);
 
   // Build resultsMap for PremiumMatchCalendar
   const resultsMap: Record<string, { homeScore: number; awayScore: number; status: string }> = {};
@@ -86,8 +88,7 @@ export default async function TeamPage({ params }: PageProps) {
   // Group standings data
   const groupData = groupsByLetter[team.group];
   const groupTeams = groupData ? groupData.teams.map((tid) => teamsById[tid]).filter(Boolean) as Team[] : [];
-  const groupMatchesRaw = matchesByGroup[team.group] ?? [];
-  const groupMatches = await enrichMatchesWithResults(groupMatchesRaw);
+  const groupMatches = enrichedMatches.filter((m) => m.group === team.group);
 
   const winnerOdds = prediction ? estimatedOutrightOdds(prediction.winnerProb) : "—";
   const winPct = prediction ? Math.round(prediction.winnerProb * 100 * 10) / 10 : 0;

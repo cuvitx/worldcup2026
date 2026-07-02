@@ -1,7 +1,12 @@
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import {
+  affiliateLinkAttributes,
+  getAffiliateTrackingData,
+  pmuTrackingUrl,
+  type AffiliateTracking,
+} from "@repo/data/affiliates";
 
 interface PmuCTAProps {
-  tracking?: string;
+  tracking?: AffiliateTracking;
   teamName?: string;
   heading?: string;
   subheading?: string;
@@ -18,7 +23,11 @@ export function PmuCTA({
   heading,
   subheading,
 }: PmuCTAProps) {
-  const url = pmuTrackingUrl(tracking);
+  const trackingData = getAffiliateTrackingData(tracking);
+  const bonusUrl = pmuTrackingUrl(trackingData, "bonus-bar");
+  const ctaUrl = pmuTrackingUrl(trackingData, "main-cta");
+  const bonusAttributes = affiliateLinkAttributes(trackingData, "bonus-bar");
+  const ctaAttributes = affiliateLinkAttributes(trackingData, "main-cta");
 
   const displayHeading =
     heading ??
@@ -60,9 +69,10 @@ export function PmuCTA({
       <div className="relative">
         {/* Bonus banner — full-width gold bar with shine */}
         <a
-          href={url}
+          href={bonusUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
+          {...bonusAttributes}
           className="group relative flex items-center justify-between gap-3 overflow-hidden px-5 py-3 text-[#0c3b2e] transition hover:brightness-110 sm:px-6"
           style={{
             background:
@@ -103,9 +113,10 @@ export function PmuCTA({
         {/* Big CTA button with shine */}
         <div className="relative px-4 pb-4">
           <a
-            href={url}
+            href={ctaUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...ctaAttributes}
             className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl px-4 py-3 text-sm font-black uppercase tracking-wider text-[#0c3b2e] shadow-lg transition hover:shadow-[#d4af37]/30"
             style={{
               background:

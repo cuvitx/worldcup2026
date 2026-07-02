@@ -4,12 +4,15 @@ import { notFound } from "next/navigation";
 import { BookOpen, Building2, ClipboardList, Clock, ExternalLink, Globe, Landmark, Link2, MapPin, Monitor, Radio, Tv, Wifi } from "lucide-react";
 import { FAQSection } from "@repo/ui/faq-section";
 import { domains } from "@repo/data/route-mapping";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { stageLabels } from "@repo/data/constants";
-export const revalidate = 86400;
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
+export const revalidate = 300;
 export const dynamicParams = true;
 // ─── Deterministic channel assignment ─────────────────────────────────────────
 function hashSlug(slug: string): number {
@@ -51,17 +54,14 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) return {};
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "À déterminer";
-  const awayName = away?.name ?? "À déterminer";
-  const title = `Sur quelle chaîne regarder ${homeName} vs ${awayName} ? Programme TV CDM 2026`;
+  const { homeName, awayName } = await resolveMatchTeamsWithResults(match);
+  const title = `Sur quelle chaîne regarder ${homeName} vs ${awayName} ? Programme TV`;
   const description = `Découvrez sur quelle chaîne regarder ${homeName} - ${awayName} en direct (M6, beIN Sports). Horaires, streaming et diffusion internationale pour la Coupe du Monde 2026.`;
   return {
     title,
@@ -79,13 +79,11 @@ export default async function SurQuelleChaineMatchPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
+  const { home, away, homeName, awayName } =
+    await resolveMatchTeamsWithResults(match);
   const stadium = stadiumsById[match.stadiumId];
   const city = stadium ? citiesById[stadium.cityId] ?? null : null;
   const stage = stageLabels[match.stage] ?? match.stage;
-  const homeName = home?.name ?? "À déterminer";
-  const awayName = away?.name ?? "À déterminer";
   const homeFlag = home?.flag ?? "🏳️";
   const awayFlag = away?.flag ?? "🏳️";
   const dateStr = new Date(`${match.date}T${match.time}:00+02:00`).toLocaleDateString("fr-FR", {

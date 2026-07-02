@@ -4,10 +4,16 @@ import type { matches as matchesType } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 
 type Match = (typeof matchesType)[number];
+type ResolvedTeamMatch = Match & {
+  homeName?: string;
+  awayName?: string;
+  homeFlag?: string;
+  awayFlag?: string;
+};
 
 interface PremiumMatchPronosticLinksProps {
   team: Team;
-  teamMatches: Match[];
+  teamMatches: ResolvedTeamMatch[];
 }
 
 export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPronosticLinksProps) {
@@ -24,6 +30,10 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
           {teamMatches.map((match) => {
             const homeTeam = teamsById[match.homeTeamId];
             const awayTeam = teamsById[match.awayTeamId];
+            const homeName = homeTeam?.name ?? match.homeName ?? "À déterminer";
+            const awayName = awayTeam?.name ?? match.awayName ?? "À déterminer";
+            const homeFlag = homeTeam?.flag ?? match.homeFlag ?? "";
+            const awayFlag = awayTeam?.flag ?? match.awayFlag ?? "";
 
             return (
               <Link
@@ -39,13 +49,13 @@ export function PremiumMatchPronosticLinks({ team, teamMatches }: PremiumMatchPr
                 {/* Flags row */}
                 <div className="flex items-center justify-center gap-4 mb-3 mt-1">
                   <div className="text-center">
-                    <span className="text-3xl block">{homeTeam?.flag ?? ""}</span>
-                    <span className="text-[10px] font-medium text-gray-500 mt-1 block">{homeTeam?.name ?? match.homeTeamId}</span>
+                    <span className="text-3xl block">{homeFlag}</span>
+                    <span className="text-[10px] font-medium text-gray-500 mt-1 block">{homeName}</span>
                   </div>
                   <span className="text-xs font-bold text-gray-300 uppercase">vs</span>
                   <div className="text-center">
-                    <span className="text-3xl block">{awayTeam?.flag ?? ""}</span>
-                    <span className="text-[10px] font-medium text-gray-500 mt-1 block">{awayTeam?.name ?? match.awayTeamId}</span>
+                    <span className="text-3xl block">{awayFlag}</span>
+                    <span className="text-[10px] font-medium text-gray-500 mt-1 block">{awayName}</span>
                   </div>
                 </div>
 

@@ -3,20 +3,23 @@ import { stageLabels, EXTERNAL_URLS } from "@repo/data/constants";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
 import { bookmakers } from "@repo/data/affiliates";
 import type { Team, Match, Stadium } from "@repo/data/types";
 import { getMatchPhase } from "@repo/data/tournament-state";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 import { BarChart3, CircleDot, Dice5, Landmark, Lock, Pin, Search, Star, Target } from "lucide-react"
 
 // ─── Static generation ───
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 
 // ─── Star players map (1-2 per team) ───
@@ -95,8 +98,8 @@ function getPhaseContext(stage: Match["stage"]): { intro: string; isKnockout: bo
   if (stage === "group") {
     return { intro: "phase de poules", isKnockout: false };
   }
-  if (stage === "round-of-32") return { intro: "32èmes de finale", isKnockout: true };
-  if (stage === "round-of-16") return { intro: "huitièmes de finale", isKnockout: true };
+  if (stage === "round-of-32") return { intro: "16es de finale", isKnockout: true };
+  if (stage === "round-of-16") return { intro: "8es de finale", isKnockout: true };
   if (stage === "quarter-final") return { intro: "quarts de finale", isKnockout: true };
   if (stage === "semi-final") return { intro: "demi-finales", isKnockout: true };
   if (stage === "final") return { intro: "grande finale", isKnockout: true };
@@ -191,14 +194,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const match = matchesBySlug[slug];
   if (!match) return {};
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "Équipe A";
-  const awayName = away?.name ?? "Équipe B";
+  const { home, away, homeName, awayName } =
+    await resolveMatchTeamsWithResults(match);
   const stage = stageLabels[match.stage] ?? match.stage;
 
   return {
-    title: `Pronostic Score Exact ${homeName} vs ${awayName} – CDM 2026 | cdm2026.fr`,
+    title: `Score exact ${homeName} vs ${awayName} - ${stage}`,
     description: `Pronostics score exact ${homeName} - ${awayName} (${stage}, Coupe du Monde 2026). 3 scénarios et cotes comparées des bookmakers.`,
     alternates: { canonical: `${EXTERNAL_URLS.SITE}/score-exact/${slug}` },
     openGraph: {
@@ -215,8 +216,7 @@ export default async function ScoreExactPage({ params }: PageProps) {
   const match = matchesBySlug[slug];
   if (!match) notFound();
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
+  const { home, away } = await resolveMatchTeamsWithResults(match);
   if (!home || !away) notFound();
 
   const stadium = stadiumsById[match.stadiumId];
@@ -225,8 +225,8 @@ export default async function ScoreExactPage({ params }: PageProps) {
   const { intro: phaseIntro, isKnockout } = getPhaseContext(match.stage);
   const tone = getMatchTone(home.fifaRanking, away.fifaRanking);
   const scoreLines = computeScoreLines(home, away, match.stage);
-  const homeStars = getStars(match.homeTeamId);
-  const awayStars = getStars(match.awayTeamId);
+  const homeStars = getStars(home.id);
+  const awayStars = getStars(away.id);
 
   const bk1 = bookmakers[0]!;
   const bk2 = bookmakers[1] ?? bk1;

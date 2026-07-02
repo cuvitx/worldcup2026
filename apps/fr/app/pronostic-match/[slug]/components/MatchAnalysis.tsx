@@ -99,7 +99,7 @@ export function MatchAnalysis({
               Groupe {match.group}
             </Link>{" "}
             de la Coupe du Monde 2026. Le résultat de cette rencontre
-            sera determinant pour la qualification aux 32es de finale.
+            sera determinant pour la qualification aux 16es de finale.
           </p>
         )}
         {h2h && h2h.totalMatches > 0 && (

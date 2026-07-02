@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 
 const DISMISSED_KEY = "pmu-popup-dismissed";
 const LEGAL_PATHS = ["/impressum", "/verantwortungsvolles-spielen"];
@@ -10,6 +10,7 @@ const SHOW_DELAY_MS = 20000;
 
 const PMU_IMAGE_DESKTOP = "/partners/pmu-popup-desktop.jpg";
 const PMU_IMAGE_MOBILE = "/partners/pmu-popup-mobile.jpg";
+const POPUP_TRACKING = { pageType: "global", slug: "popup", placement: "sticky" };
 
 export function StickyCTA() {
   const [visible, setVisible] = useState(false);
@@ -55,9 +56,10 @@ export function StickyCTA() {
 
           {/* HD image with affiliate link */}
           <a
-            href={pmuTrackingUrl("popup")}
+            href={pmuTrackingUrl(POPUP_TRACKING)}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...affiliateLinkAttributes(POPUP_TRACKING)}
             className="block rounded-2xl overflow-hidden shadow-2xl"
           >
             {/* Mobile */}

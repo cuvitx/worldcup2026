@@ -1,6 +1,7 @@
 import { domains } from "@repo/data/route-mapping";
 import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { bookmakerReviews, bookmakerReviewsBySlug } from "@repo/data/bookmaker-reviews";
@@ -11,6 +12,39 @@ export const dynamicParams = true;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+function hasPartnerUrl(url: string) {
+  return /^https?:\/\//.test(url);
+}
+
+function BookmakerAction({
+  bookmaker,
+  className,
+  children,
+}: {
+  bookmaker: { name: string; url: string };
+  className: string;
+  children: ReactNode;
+}) {
+  if (hasPartnerUrl(bookmaker.url)) {
+    return (
+      <a
+        href={bookmaker.url}
+        target="_blank"
+        rel="noopener noreferrer sponsored nofollow"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href="/meilleurs-bookmakers" className={className}>
+      Voir notre bookmaker partenaire
+    </Link>
+  );
 }
 
 export async function generateStaticParams() {
@@ -75,14 +109,12 @@ export default async function BookmakerPage({ params }: PageProps) {
             <div className="rounded-lg bg-white/10 p-6 text-center">
               <p className="text-3xl font-extrabold text-accent">{bk.bonus}</p>
               <p className="text-sm text-gray-300">{bk.bonusDetail}</p>
-              <a
-                href={bk.url}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
+              <BookmakerAction
+                bookmaker={bk}
                 className="mt-3 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 Ouvrir un compte
-              </a>
+              </BookmakerAction>
             </div>
           </div>
         </div>
@@ -165,14 +197,12 @@ export default async function BookmakerPage({ params }: PageProps) {
             <section className="rounded-lg bg-accent/5 border-2 border-accent p-6 text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-2 text-accent">{bk.bonus}</h2>
               <p className="mb-4 text-gray-600">{bk.bonusDetail} sur {bk.name}</p>
-              <a
-                href={bk.url}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
+              <BookmakerAction
+                bookmaker={bk}
                 className="inline-block rounded-xl bg-accent px-8 py-3.5 text-lg font-bold text-white hover:bg-accent/90 transition-colors"
               >
                 S&apos;inscrire sur {bk.name}
-              </a>
+              </BookmakerAction>
             </section>
           </div>
 

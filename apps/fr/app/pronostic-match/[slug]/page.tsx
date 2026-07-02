@@ -2,13 +2,17 @@ import { generateFullMatchPreview } from "@repo/ai/generators";
 import { getAlternates } from "@repo/data/route-mapping";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { teamsById } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
-import { matchPredictionByPair, predictionsByTeamId } from "@repo/data/predictions";
+import { getMatchPredictionForTeams, predictionsByTeamId } from "@repo/data/predictions";
 import { h2hByPair } from "@repo/data/h2h";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
-import { estimatedMatchOdds, featuredBookmaker, pmuTrackingUrl } from "@repo/data/affiliates";
+import {
+  affiliateLinkAttributes,
+  estimatedMatchOdds,
+  featuredBookmaker,
+  pmuTrackingUrl,
+} from "@repo/data/affiliates";
 import { getOddsForMatch } from "@repo/api/football/odds";
 import { stageLabels } from "@repo/data/constants";
 import { MatchHero, MatchTabsClient } from "./components";
@@ -22,6 +26,10 @@ import {
   InfoTab,
   MatchActions,
 } from "./_components";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -31,7 +39,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -39,13 +47,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const match = matches.find((m) => m.slug === slug);
   if (!match) return {};
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "A determiner";
-  const awayName = away?.name ?? "A determiner";
+  const { home, away, homeName, awayName } =
+    await resolveMatchTeamsWithResults(match);
+  const stage = stageLabels[match.stage] ?? match.stage;
 
   return {
-    title: `Pronostic ${homeName} vs ${awayName} | Cotes & Prediction CDM 2026`,
+    title: `Pronostic ${homeName} vs ${awayName} - ${stage}`,
     description: `Pronostic ${homeName} vs ${awayName} Coupe du Monde 2026 : cotes estimées, score prédit, analyse du match et historique des confrontations.`,
     alternates: getAlternates("predictionMatch", slug, "fr"),
     openGraph: {
@@ -60,13 +67,13 @@ export default async function PronosticMatchPage({ params }: PageProps) {
   const match = matches.find((m) => m.slug === slug);
   if (!match) notFound();
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
+  const { home, away, homeName, awayName } =
+    await resolveMatchTeamsWithResults(match);
   const stadium = stadiumsById[match.stadiumId];
   const city = stadium ? (citiesById[stadium.cityId] ?? null) : null;
   const stage = stageLabels[match.stage] ?? match.stage;
 
-  const prediction = home && away ? matchPredictionByPair[`${home.id}:${away.id}`] : undefined;
+  const prediction = home && away ? getMatchPredictionForTeams(home.id, away.id) : undefined;
   const predHome = home ? predictionsByTeamId[home.id] : undefined;
   const predAway = away ? predictionsByTeamId[away.id] : undefined;
   const odds = prediction
@@ -98,8 +105,6 @@ export default async function PronosticMatchPage({ params }: PageProps) {
     month: "long",
     year: "numeric",
   });
-  const homeName = home?.name ?? "A determiner";
-  const awayName = away?.name ?? "A determiner";
   const outcomes = prediction
     ? [
         { key: "1", label: `Victoire ${homeName}`, prob: prediction.team1WinProb },
@@ -107,15 +112,33 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         { key: "2", label: `Victoire ${awayName}`, prob: prediction.team2WinProb },
       ]
     : [];
-  const maxProb = Math.max(...outcomes.map((o) => o.prob));
-  const relatedMatches = matches
+  const maxProb = outcomes.length ? Math.max(...outcomes.map((o) => o.prob)) : 0;
+  const relatedMatchCandidates = matches
     .filter(
       (m) =>
         m.id !== match.id &&
         ((match.group && m.group === match.group) ||
-          (match.matchday && m.matchday === match.matchday && m.stage === "group"))
+          (match.matchday && m.matchday === match.matchday && m.stage === "group") ||
+          (!match.group && !match.matchday && m.date === match.date))
     )
     .slice(0, 6);
+  const relatedMatches = await Promise.all(
+    relatedMatchCandidates.map(async (relatedMatch) => {
+      const resolved = await resolveMatchTeamsWithResults(relatedMatch);
+      return {
+        match: relatedMatch,
+        home: resolved.home,
+        away: resolved.away,
+        homeName: resolved.homeName,
+        awayName: resolved.awayName,
+      };
+    }),
+  );
+  const matchHeroTracking = {
+    pageType: "pronostic-match",
+    slug: match.slug,
+    placement: "hero",
+  };
 
   return (
     <>
@@ -135,9 +158,10 @@ export default async function PronosticMatchPage({ params }: PageProps) {
             <p className="text-[10px] text-white/40 mt-1">18+ | Offre soumise à conditions</p>
           </div>
           <a
-            href={pmuTrackingUrl("match-hero-cta")}
+            href={pmuTrackingUrl(matchHeroTracking)}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...affiliateLinkAttributes(matchHeroTracking)}
             className="shrink-0 inline-block rounded-xl px-6 py-3 text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition-all text-center"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
@@ -156,7 +180,7 @@ export default async function PronosticMatchPage({ params }: PageProps) {
         <InfoTab match={match} stadium={stadium} city={city} stage={stage} dateFormatted={dateFormatted} homeName={homeName} awayName={awayName} homeRanking={home?.fifaRanking ?? 50} awayRanking={away?.fifaRanking ?? 50} />
       </MatchTabsClient>
       <MatchStructuredData match={match} home={home} away={away} homeName={homeName} awayName={awayName} stadium={stadium} stage={stage} />
-      <RelatedMatchesSection currentMatch={match} allMatches={matches} home={home} away={away} slug={slug} />
+      <RelatedMatchesSection home={home} away={away} relatedMatches={relatedMatches} />
     </>
   );
 }

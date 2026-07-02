@@ -1198,3 +1198,55 @@ for (const mp of matchPredictions) {
     predictedScore: mp.predictedScore.split("-").reverse().join("-"),
   };
 }
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+function roundProb(value: number): number {
+  return Number(value.toFixed(4));
+}
+
+function estimatePredictedScore(team1WinProb: number, drawProb: number, team2WinProb: number): string {
+  if (drawProb >= team1WinProb && drawProb >= team2WinProb) return "1-1";
+  if (team1WinProb >= team2WinProb) {
+    return team1WinProb >= 0.58 ? "2-0" : "2-1";
+  }
+  return team2WinProb >= 0.58 ? "0-2" : "1-2";
+}
+
+/**
+ * Return an exact match prediction when it exists, otherwise estimate one from
+ * team ELO ratings. This keeps newly resolved knockout fixtures from losing
+ * odds/probability UI while waiting for curated pair predictions.
+ */
+export function getMatchPredictionForTeams(
+  team1Id: string | undefined | null,
+  team2Id: string | undefined | null,
+): MatchPrediction | undefined {
+  if (!team1Id || !team2Id) return undefined;
+
+  const exact = matchPredictionByPair[`${team1Id}:${team2Id}`];
+  if (exact) return exact;
+
+  const team1 = predictionsByTeamId[team1Id];
+  const team2 = predictionsByTeamId[team2Id];
+  if (!team1 || !team2) return undefined;
+
+  const team1Expected = 1 / (1 + 10 ** ((team2.eloRating - team1.eloRating) / 400));
+  const closeness = 1 - Math.min(1, Math.abs(team1Expected - 0.5) * 2);
+  const drawProb = clamp(0.18 + closeness * 0.08, 0.18, 0.28);
+  const decisiveProb = 1 - drawProb;
+  const team1WinProb = roundProb(team1Expected * decisiveProb);
+  const team2WinProb = roundProb((1 - team1Expected) * decisiveProb);
+  const roundedDrawProb = roundProb(1 - team1WinProb - team2WinProb);
+
+  return {
+    team1Id,
+    team2Id,
+    team1WinProb,
+    drawProb: roundedDrawProb,
+    team2WinProb,
+    predictedScore: estimatePredictedScore(team1WinProb, roundedDrawProb, team2WinProb),
+  };
+}

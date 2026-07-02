@@ -1,21 +1,23 @@
 import { teams } from "@repo/data/teams";
-import { teamPredictions } from "@repo/data/predictions";
+import { teamPredictions, type TeamPrediction } from "@repo/data/predictions";
+import type { Match, Team } from "@repo/data/types";
+import { getResolvedCalendarMatches } from "../../../../lib/calendar-match-resolution";
 
 export const faqItems = [
   {
     question: "Qui est favori pour gagner la Coupe du Monde 2026 ?",
     answer:
-      "L'Argentine (championne en titre), la France et l'Espagne sont les trois grands favoris selon notre modèle ELO et les cotes des bookmakers. L'Argentine affiche une probabilité de victoire de 15%, la France 13%, et l'Espagne 12%.",
+      "Le favori évolue avec les résultats. Notre forecast combine la force ELO pré-tournoi, le marché des cotes et l'état réel du tableau : une équipe éliminée passe à 0%, une équipe qualifiée au tour suivant voit sa probabilité recalculée.",
   },
   {
     question: "Quelles sont les meilleures cotes pour le vainqueur CDM 2026 ?",
     answer:
-      "Pour l'Argentine, les cotes tournent autour de 6.50, pour la France autour de 7.50, et pour l'Espagne autour de 8.00. Retrouvez les meilleures cotes en temps réel sur PMU Sport.",
+      "Les cotes vainqueur évoluent après chaque résultat important. La page affiche les cotes PMU Sport ou une estimation issue de la probabilité live quand la cote partenaire n'est pas encore disponible.",
   },
   {
     question: "L'équipe de France peut-elle gagner la CDM 2026 ?",
     answer:
-      "Oui, la France est l'un des grands favoris avec une probabilité de 13% selon notre modèle. Double championne du monde (1998, 2018) et finaliste en 2022, les Bleus disposent de l'effectif le plus complet du monde avec Mbappé, Griezmann, Tchouaméni et une défense solide.",
+      "Oui, tant que la France est encore dans le tableau, elle reste dans les équipes capables d'aller au bout. Sa probabilité live dépend à la fois de son niveau de départ, de ses résultats déjà obtenus et de la difficulté du chemin restant.",
   },
   {
     question: "Quel pays organisateur pourrait créer la surprise en 2026 ?",
@@ -69,6 +71,311 @@ export const darkHorses = [...teamPredictions]
     (x): x is { pred: typeof x.pred; team: NonNullable<typeof x.team> } =>
       x.team != null
   );
+
+export type ForecastStatus = "active" | "eliminated" | "champion";
+
+export type LiveForecastPrediction = TeamPrediction & {
+  baseWinnerProb: number;
+  liveWinnerProb: number;
+  deltaWinnerProb: number;
+  stageMultiplier: number;
+};
+
+export type LiveForecastTeam = {
+  pred: LiveForecastPrediction;
+  team: Team;
+  status: ForecastStatus;
+  currentStageRank: number;
+  currentStageLabel: string;
+  knockoutWins: number;
+  latestMatch?: string;
+  eliminatedBy?: string;
+};
+
+export type LiveWinnerForecast = {
+  top10: LiveForecastTeam[];
+  darkHorses: LiveForecastTeam[];
+  activeTeams: LiveForecastTeam[];
+  eliminatedTeams: LiveForecastTeam[];
+  leader?: LiveForecastTeam;
+  updatedAt: string;
+  started: boolean;
+};
+
+type ForecastMatch = Match & {
+  homeName?: string;
+  awayName?: string;
+};
+
+const knockoutStageRank: Record<Match["stage"], number> = {
+  group: 0,
+  "round-of-32": 1,
+  "round-of-16": 2,
+  "quarter-final": 3,
+  "semi-final": 4,
+  final: 5,
+  "third-place": 0,
+};
+
+const stageLabels: Record<number, string> = {
+  0: "Phase de groupes",
+  1: "16es de finale",
+  2: "8es de finale",
+  3: "Quarts de finale",
+  4: "Demi-finales",
+  5: "Finale",
+  6: "Champion",
+};
+
+const stageMultipliers: Record<number, number> = {
+  0: 0.7,
+  1: 1,
+  2: 1.35,
+  3: 1.9,
+  4: 2.8,
+  5: 4.2,
+  6: 1,
+};
+
+function isResolvedTeamId(teamId: string | undefined) {
+  return Boolean(teamId && !teamId.startsWith("tbd-"));
+}
+
+function getWinnerTeamId(match: Match) {
+  if (match.status !== "finished") return null;
+  if (isResolvedTeamId(match.winnerTeamId)) return match.winnerTeamId!;
+  if (match.homeScore == null || match.awayScore == null) return null;
+
+  if (match.homeScore > match.awayScore) return match.homeTeamId;
+  if (match.awayScore > match.homeScore) return match.awayTeamId;
+  if (match.winnerSide === "home") return match.homeTeamId;
+  if (match.winnerSide === "away") return match.awayTeamId;
+  return null;
+}
+
+function opponentName(match: ForecastMatch, teamId: string) {
+  if (match.homeTeamId === teamId) return match.awayName ?? match.awayTeamId;
+  if (match.awayTeamId === teamId) return match.homeName ?? match.homeTeamId;
+  return undefined;
+}
+
+function getScoreLabel(match: Match) {
+  if (match.homeScore == null || match.awayScore == null) return "";
+  const penalties =
+    match.penaltyHomeScore != null && match.penaltyAwayScore != null
+      ? `, tirs au but ${match.penaltyHomeScore}-${match.penaltyAwayScore}`
+      : "";
+  return `${match.homeScore}-${match.awayScore}${penalties}`;
+}
+
+function computeTeamState(teamId: string, knockoutMatches: ForecastMatch[]) {
+  let currentStageRank = 0;
+  let latestMatch: string | undefined;
+  let eliminatedBy: string | undefined;
+  let knockoutWins = 0;
+  let resultBoost = 1;
+
+  for (const match of knockoutMatches) {
+    const participates = match.homeTeamId === teamId || match.awayTeamId === teamId;
+    if (!participates) continue;
+
+    const stageRank = knockoutStageRank[match.stage] ?? 0;
+    currentStageRank = Math.max(currentStageRank, stageRank);
+
+    const opponent = opponentName(match, teamId);
+    const score = getScoreLabel(match);
+    latestMatch = opponent
+      ? `${match.status === "finished" ? "Terminé" : "À venir"} vs ${opponent}${score ? ` (${score})` : ""}`
+      : latestMatch;
+
+    const winnerTeamId = getWinnerTeamId(match);
+    if (winnerTeamId === teamId) {
+      knockoutWins += 1;
+      currentStageRank = Math.max(currentStageRank, stageRank + 1);
+      const margin =
+        match.homeScore != null && match.awayScore != null
+          ? Math.abs(match.homeScore - match.awayScore)
+          : 0;
+      const wonOnPenalties =
+        match.penaltyHomeScore != null && match.penaltyAwayScore != null;
+      resultBoost *= wonOnPenalties ? 1.03 : margin >= 2 ? 1.12 : 1.07;
+    } else if (winnerTeamId && match.status === "finished") {
+      eliminatedBy = opponent;
+    }
+  }
+
+  return {
+    currentStageRank,
+    currentStageLabel: stageLabels[Math.min(currentStageRank, 6)] ?? "En course",
+    latestMatch,
+    eliminatedBy,
+    knockoutWins,
+    resultBoost,
+  };
+}
+
+function estimateFinalProb(winnerProb: number, currentStageRank: number) {
+  if (currentStageRank >= 5) return 1;
+  if (currentStageRank >= 4) return Math.min(0.95, winnerProb * 1.75);
+  if (currentStageRank >= 3) return Math.min(0.9, winnerProb * 2.15);
+  if (currentStageRank >= 2) return Math.min(0.82, winnerProb * 2.65);
+  return Math.min(0.75, winnerProb * 3.05);
+}
+
+function estimateStageProb(
+  winnerProb: number,
+  currentStageRank: number,
+  targetStageRank: number,
+  fallback: number,
+) {
+  if (currentStageRank >= targetStageRank) return 1;
+  return Math.max(fallback, Math.min(0.95, winnerProb * (targetStageRank + 1.2)));
+}
+
+export async function getLiveWinnerForecast(): Promise<LiveWinnerForecast> {
+  const resolvedMatches = await getResolvedCalendarMatches();
+  const knockoutMatches: ForecastMatch[] = resolvedMatches.filter(
+    (match) => match.stage !== "group" && match.stage !== "third-place",
+  );
+  const started = knockoutMatches.some(
+    (match) => match.status === "finished" || match.status === "live",
+  );
+  const teamsSeenInBracket = new Set<string>();
+  const eliminatedTeamIds = new Set<string>();
+
+  for (const match of knockoutMatches) {
+    if (isResolvedTeamId(match.homeTeamId)) teamsSeenInBracket.add(match.homeTeamId);
+    if (isResolvedTeamId(match.awayTeamId)) teamsSeenInBracket.add(match.awayTeamId);
+
+    const winnerTeamId = getWinnerTeamId(match);
+    if (!winnerTeamId) continue;
+
+    if (match.homeTeamId !== winnerTeamId && isResolvedTeamId(match.homeTeamId)) {
+      eliminatedTeamIds.add(match.homeTeamId);
+    }
+    if (match.awayTeamId !== winnerTeamId && isResolvedTeamId(match.awayTeamId)) {
+      eliminatedTeamIds.add(match.awayTeamId);
+    }
+  }
+
+  const hasBracket = teamsSeenInBracket.size > 0;
+  const activeTeamIds = new Set<string>(
+    hasBracket
+      ? Array.from(teamsSeenInBracket).filter((teamId) => !eliminatedTeamIds.has(teamId))
+      : teamPredictions.map((prediction) => prediction.teamId),
+  );
+
+  const scoredRows = teamPredictions
+    .map((prediction) => {
+      const team = teamsById[prediction.teamId];
+      if (!team) return null;
+
+      const teamState = computeTeamState(team.id, knockoutMatches);
+      const isActive = activeTeamIds.has(team.id) && !teamState.eliminatedBy;
+      const status: ForecastStatus = isActive ? "active" : "eliminated";
+      const stageMultiplier =
+        status === "active"
+          ? stageMultipliers[Math.min(Math.max(teamState.currentStageRank, 1), 5)] ?? 1
+          : 0;
+      const seedScore =
+        status === "active"
+          ? Math.max(prediction.winnerProb, 0.00015) *
+            stageMultiplier *
+            teamState.resultBoost
+          : 0;
+
+      return {
+        prediction,
+        team,
+        status,
+        seedScore,
+        ...teamState,
+        stageMultiplier,
+      };
+    })
+    .filter((row): row is NonNullable<typeof row> => row != null);
+
+  const totalScore = scoredRows.reduce((sum, row) => sum + row.seedScore, 0);
+
+  const rows: LiveForecastTeam[] = scoredRows.map((row) => {
+    const liveWinnerProb =
+      row.status === "active" && totalScore > 0 ? row.seedScore / totalScore : 0;
+    const currentStageRank =
+      row.status === "active" ? Math.max(row.currentStageRank, 1) : row.currentStageRank;
+
+    const pred: LiveForecastPrediction = {
+      ...row.prediction,
+      roundOf32Prob: row.status === "active" ? 1 : 0,
+      roundOf16Prob:
+        row.status === "active"
+          ? estimateStageProb(
+              liveWinnerProb,
+              currentStageRank,
+              2,
+              row.prediction.roundOf16Prob,
+            )
+          : 0,
+      quarterFinalProb:
+        row.status === "active"
+          ? estimateStageProb(
+              liveWinnerProb,
+              currentStageRank,
+              3,
+              row.prediction.quarterFinalProb,
+            )
+          : 0,
+      semiFinalProb:
+        row.status === "active"
+          ? estimateStageProb(
+              liveWinnerProb,
+              currentStageRank,
+              4,
+              row.prediction.semiFinalProb,
+            )
+          : 0,
+      finalProb:
+        row.status === "active"
+          ? estimateFinalProb(liveWinnerProb, currentStageRank)
+          : 0,
+      winnerProb: liveWinnerProb,
+      baseWinnerProb: row.prediction.winnerProb,
+      liveWinnerProb,
+      deltaWinnerProb: liveWinnerProb - row.prediction.winnerProb,
+      stageMultiplier: row.stageMultiplier,
+    };
+
+    return {
+      pred,
+      team: row.team,
+      status: row.status,
+      currentStageRank,
+      currentStageLabel:
+        row.status === "active"
+          ? stageLabels[Math.min(currentStageRank, 6)] ?? "En course"
+          : "Éliminé",
+      knockoutWins: row.knockoutWins,
+      latestMatch: row.latestMatch,
+      eliminatedBy: row.eliminatedBy,
+    };
+  });
+
+  const activeTeams = rows
+    .filter((row) => row.status === "active")
+    .sort((a, b) => b.pred.winnerProb - a.pred.winnerProb);
+  const eliminatedTeams = rows
+    .filter((row) => row.status === "eliminated")
+    .sort((a, b) => b.pred.baseWinnerProb - a.pred.baseWinnerProb);
+
+  return {
+    top10: activeTeams.slice(0, 10),
+    darkHorses: activeTeams.slice(10, 16),
+    activeTeams,
+    eliminatedTeams,
+    leader: activeTeams[0],
+    updatedAt: new Date().toISOString(),
+    started,
+  };
+}
 
 export const teamArguments: Record<
   string,

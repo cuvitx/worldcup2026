@@ -11,7 +11,7 @@ export interface ApiFixture {
     date: string;
     status: { short: string; elapsed: number | null };
   };
-  teams: { home: { name: string }; away: { name: string } };
+  teams: { home: { id?: number; name: string }; away: { id?: number; name: string } };
   goals: { home: number | null; away: number | null };
 }
 
@@ -44,7 +44,7 @@ function getLocalToday(): string {
 /**
  * LiveDataProvider — Single source of truth for live match data.
  *
- * - Polls /api/live every 60s for in-progress matches
+ * - Polls /api/live every 30s for in-progress matches
  * - Fetches /api/fixtures?date=TODAY once on mount (+ every 5min)
  *   to get scores of finished matches
  *
@@ -110,7 +110,7 @@ export function LiveDataProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     fetchLive();
     fetchTodaysFixtures();
-    const liveInterval = setInterval(fetchLive, 60000);
+    const liveInterval = setInterval(fetchLive, 30000);
     const fixturesInterval = setInterval(fetchTodaysFixtures, 300000); // every 5min
     return () => {
       clearInterval(liveInterval);

@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { stageLabels } from "@repo/data/constants";
 import { notFound } from "next/navigation";
 import { Scale, ArrowRight, AlertTriangle, BarChart3, Flag, TrendingUp } from "lucide-react";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 
 export const dynamicParams = true;
+export const revalidate = 300;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -23,14 +27,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const match = matchesBySlug[slug];
   if (!match) return {};
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "À déterminer";
-  const awayName = away?.name ?? "À déterminer";
+  const { homeName, awayName } = await resolveMatchTeamsWithResults(match);
   const stage = stageLabels[match.stage] ?? match.stage;
 
   return {
-    title: `Arbitre de ${homeName} vs ${awayName} - ${stage} | CDM 2026`,
+    title: `Arbitre de ${homeName} vs ${awayName} - ${stage}`,
     description: `Qui est l'arbitre de ${homeName} - ${awayName} ? Profil, statistiques (cartons, penalties) et impact potentiel sur le match et les paris.`,
     openGraph: {
       title: `Arbitre ${homeName} vs ${awayName} - CDM 2026`,
@@ -58,10 +59,7 @@ export default async function ArbitrePage({ params }: PageProps) {
   const match = matchesBySlug[slug];
   if (!match) notFound();
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "À déterminer";
-  const awayName = away?.name ?? "À déterminer";
+  const { homeName, awayName } = await resolveMatchTeamsWithResults(match);
   const stadium = stadiumsById[match.stadiumId];
   const stage = stageLabels[match.stage] ?? match.stage;
   const dateStr = new Date(match.date).toLocaleDateString("fr-FR", {

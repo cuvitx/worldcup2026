@@ -10,11 +10,12 @@ import { notFound } from "next/navigation";
 import { matches, matchesBySlug } from "@repo/data/matches";
 import { enrichMatchesWithResults, resolveApiFixtureId } from "@repo/api/football/match-results";
 import { getFixtureEvents, getLineup, getFixtureStatistics, getFixturePlayers } from "@repo/api/football";
+import { getOddsForFixture } from "@repo/api/football/odds";
 import type { ApiFixtureEvent, ApiLineup, ApiFixtureStatistic, ApiFixturePlayer } from "@repo/api/football";
-import { teamsById } from "@repo/data/teams";
+import { teamsById, teamsBySlug } from "@repo/data/teams";
 import { stadiumsById } from "@repo/data/stadiums";
 import { citiesById } from "@repo/data/cities";
-import { matchPredictionByPair } from "@repo/data/predictions";
+import { getMatchPredictionForTeams } from "@repo/data/predictions";
 import { pmuTrackingUrl, estimatedMatchOdds } from "@repo/data/affiliates";
 import { teamApiIds } from "@repo/data/api-football-ids";
 import { getEspnTeamName } from "@repo/data/espn-team-names";
@@ -35,8 +36,16 @@ import {
   MatchVotingWidget,
 } from "./_components";
 import type { CommentaryPlay } from "./_components";
+import { translateCommentaryPlays } from "./_lib/commentaryTranslation";
 import { MatchContextBar } from "../../components/MatchContextBar";
 import { BarChart3, Sparkles, Swords, TrendingUp, Trophy } from "lucide-react"
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import {
+  getKnockoutResolutionMatches,
+  resolveMatchTeamsWithResults,
+} from "../../../lib/knockout-match-teams-runtime";
 
 const AiExpertInsight = dynamic(
   () => import("@repo/ui/ai-expert-insight").then((m) => ({ default: m.AiExpertInsight })),
@@ -60,28 +69,122 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+type MatchRecord = (typeof matches)[number];
+
+type PenaltyShootoutSummary = {
+  homeScore: number;
+  awayScore: number;
+  winnerName: string;
+};
+
+function needsKnockoutResolution(match: MatchRecord) {
+  return (
+    match.stage !== "group" &&
+    (match.homeTeamId.startsWith("tbd-") ||
+      match.awayTeamId.startsWith("tbd-"))
+  );
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function extractPenaltyShootoutSummary(
+  plays: CommentaryPlay[],
+  homeName: string,
+  awayName: string,
+): PenaltyShootoutSummary | null {
+  const homePattern = escapeRegExp(homeName);
+  const awayPattern = escapeRegExp(awayName);
+  const homeAwayPattern = new RegExp(
+    `${homePattern}\\s+\\d+\\((\\d+)\\),\\s+${awayPattern}\\s+\\d+\\((\\d+)\\)`,
+    "u",
+  );
+  const awayHomePattern = new RegExp(
+    `${awayPattern}\\s+\\d+\\((\\d+)\\),\\s+${homePattern}\\s+\\d+\\((\\d+)\\)`,
+    "u",
+  );
+
+  for (const play of [...plays].reverse()) {
+    const homeAwayMatch = play.text.match(homeAwayPattern);
+    if (homeAwayMatch) {
+      const homeScore = Number(homeAwayMatch[1]);
+      const awayScore = Number(homeAwayMatch[2]);
+      if (Number.isFinite(homeScore) && Number.isFinite(awayScore) && homeScore !== awayScore) {
+        return {
+          homeScore,
+          awayScore,
+          winnerName: homeScore > awayScore ? homeName : awayName,
+        };
+      }
+    }
+
+    const awayHomeMatch = play.text.match(awayHomePattern);
+    if (awayHomeMatch) {
+      const awayScore = Number(awayHomeMatch[1]);
+      const homeScore = Number(awayHomeMatch[2]);
+      if (Number.isFinite(homeScore) && Number.isFinite(awayScore) && homeScore !== awayScore) {
+        return {
+          homeScore,
+          awayScore,
+          winnerName: homeScore > awayScore ? homeName : awayName,
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
+}
+
+async function resolveMatchRecordBySlug(slug: string): Promise<MatchRecord | undefined> {
+  const staticMatch = matchesBySlug[slug];
+  if (staticMatch) return staticMatch;
+
+  const [homeSlug, awaySlug] = slug.split("-vs-");
+  if (!homeSlug || !awaySlug) return undefined;
+
+  const requestedHome = teamsBySlug[homeSlug];
+  const requestedAway = teamsBySlug[awaySlug];
+  if (!requestedHome || !requestedAway) return undefined;
+
+  const knockoutSeed = matches.find(needsKnockoutResolution);
+  const sourceMatches = knockoutSeed
+    ? await getKnockoutResolutionMatches(knockoutSeed)
+    : matches;
+
+  return sourceMatches.find((candidate) => {
+    if (candidate.stage === "group") return false;
+    const home = teamsById[candidate.homeTeamId];
+    const away = teamsById[candidate.awayTeamId];
+    if (!home || !away) return false;
+
+    return (
+      (home.id === requestedHome.id && away.id === requestedAway.id) ||
+      (home.id === requestedAway.id && away.id === requestedHome.id)
+    );
+  });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const match = matchesBySlug[slug];
+  const match = await resolveMatchRecordBySlug(slug);
   if (!match) return {};
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
+  const { home, away, homeName, awayName } =
+    await resolveMatchTeamsWithResults(match, "A determiner");
   const stadium = stadiumsById[match.stadiumId];
   const stage = stageLabels[match.stage] ?? match.stage;
-  const homeName = home?.name ?? "A determiner";
-  const awayName = away?.name ?? "A determiner";
 
   const hasScore = match.homeScore != null && match.awayScore != null;
   const dateStr = new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
   const title = hasScore
-    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName} — Résultat ${stage} | CDM 2026`
-    : `${homeName} vs ${awayName} - ${stage} | CDM 2026`;
+    ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName} — Résultat ${stage}`
+    : `${homeName} vs ${awayName} - ${stage}`;
 
   const description = hasScore
     ? `${homeName} ${match.homeScore}-${match.awayScore} ${awayName}, résultat ${stage} de la Coupe du Monde 2026. Le ${dateStr} au ${stadium?.name ?? "stade à confirmer"}. Résultat, résumé, compositions et statistiques.`
@@ -98,7 +201,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    alternates: getAlternates("match", slug, "fr"),
+    alternates: getAlternates("match", match.slug, "fr"),
     openGraph: {
       title: ogTitle,
       description: ogDescription,
@@ -135,6 +238,8 @@ function buildMatchFAQ(
   postMatch?: {
     homeScore: number;
     awayScore: number;
+    penaltyShootout?: PenaltyShootoutSummary | null;
+    wentToExtraTime?: boolean;
     goalEvents: Array<{ minute: string; player: string; team: string; detail: string }>;
     hasLineups: boolean;
   },
@@ -144,16 +249,20 @@ function buildMatchFAQ(
 
   if (isFinished) {
     // Post-match FAQ — result-focused for featured snippets
-    const { homeScore, awayScore, goalEvents } = postMatch;
-    const resultText = homeScore === awayScore
-      ? `match nul ${homeScore}-${awayScore}`
-      : homeScore > awayScore
-        ? `victoire de ${homeName} ${homeScore}-${awayScore}`
-        : `victoire de ${awayName} ${awayScore}-${homeScore}`;
+    const { homeScore, awayScore, penaltyShootout, wentToExtraTime, goalEvents } = postMatch;
+    const resultText = penaltyShootout
+      ? `${homeScore}-${awayScore}${wentToExtraTime ? " après prolongation" : ""}. ${penaltyShootout.winnerName} s'est qualifié aux tirs au but (${Math.max(penaltyShootout.homeScore, penaltyShootout.awayScore)}-${Math.min(penaltyShootout.homeScore, penaltyShootout.awayScore)})`
+      : homeScore === awayScore
+        ? `match nul ${homeScore}-${awayScore}`
+        : homeScore > awayScore
+          ? `victoire de ${homeName} ${homeScore}-${awayScore}`
+          : `victoire de ${awayName} ${awayScore}-${homeScore}`;
 
     items.push({
       question: `Quel est le résultat de ${homeName} vs ${awayName} ?`,
-      answer: `Le match ${homeName} vs ${awayName} s'est terminé sur un score de ${homeScore}-${awayScore} (${resultText}), le ${dateFormatted}${stadium ? ` au ${stadium.name}` : ""}, dans le cadre de la ${stage} de la Coupe du Monde 2026.`,
+      answer: penaltyShootout
+        ? `Le match ${homeName} vs ${awayName} s'est terminé sur le score de ${resultText}, le ${dateFormatted}${stadium ? ` au ${stadium.name}` : ""}, dans le cadre de la ${stage} de la Coupe du Monde 2026.`
+        : `Le match ${homeName} vs ${awayName} s'est terminé sur un score de ${homeScore}-${awayScore} (${resultText}), le ${dateFormatted}${stadium ? ` au ${stadium.name}` : ""}, dans le cadre de la ${stage} de la Coupe du Monde 2026.`,
     });
 
     if (goalEvents.length > 0) {
@@ -229,12 +338,12 @@ function buildMatchFAQ(
 
 export default async function MatchPage({ params }: PageProps) {
   const { slug } = await params;
-  const staticMatch = matchesBySlug[slug];
+  const staticMatch = await resolveMatchRecordBySlug(slug);
   if (!staticMatch) notFound();
 
   // Catch ISR re-render errors — shows error in debug div instead of failing silently
   try {
-    return await renderMatchPage(slug, staticMatch);
+    return await renderMatchPage(staticMatch.slug, staticMatch);
   } catch (err) {
     const msg = err instanceof Error ? `${err.name}: ${err.message}\n${err.stack}` : String(err);
     console.error(`[match/${slug}] ISR render error:`, msg);
@@ -250,15 +359,33 @@ export default async function MatchPage({ params }: PageProps) {
 
 async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof matchesBySlug[string]>) {
 
-  const home = teamsById[staticMatch.homeTeamId];
-  const away = teamsById[staticMatch.awayTeamId];
+  const sourceMatches = needsKnockoutResolution(staticMatch)
+    ? await getKnockoutResolutionMatches(staticMatch)
+    : matches;
+  const resolvedSourceMatch =
+    sourceMatches.find((candidate) => candidate.id === staticMatch.id) ??
+    staticMatch;
+  const resolvedTeams = await resolveMatchTeamsWithResults(
+    resolvedSourceMatch,
+    "A determiner",
+    sourceMatches,
+  );
+  const { home, away } = resolvedTeams;
+  const matchWithDisplayTeams = {
+    ...resolvedSourceMatch,
+    homeTeamId: resolvedTeams.homeTeamId,
+    awayTeamId: resolvedTeams.awayTeamId,
+  };
 
   // Enrich with real API scores
   const teamNameMap: Record<string, string> = {};
   if (home) teamNameMap[home.id] = home.name;
   if (away) teamNameMap[away.id] = away.name;
-  const enrichedMatches = await enrichMatchesWithResults([staticMatch], teamNameMap);
-  const match = enrichedMatches[0] ?? staticMatch;
+  const enrichedMatches = await enrichMatchesWithResults(
+    [matchWithDisplayTeams],
+    teamNameMap,
+  );
+  const match = enrichedMatches[0] ?? matchWithDisplayTeams;
   const stadium = stadiumsById[match.stadiumId];
   const city = stadium ? citiesById[stadium.cityId] ?? null : null;
   const stage = stageLabels[match.stage] ?? match.stage;
@@ -372,13 +499,20 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
             period: p.period?.number ?? 1,
           };
         }).filter((p) => p.text.length > 0);
+        commentaryPlays = await translateCommentaryPlays(commentaryPlays);
       }
     } catch {
       // ESPN API unavailable — commentary section simply won't render
     }
   }
 
-  const sameDayMatches = matches.filter(
+  const penaltyShootout = home && away
+    ? extractPenaltyShootoutSummary(commentaryPlays, home.name, away.name)
+    : null;
+  const wentToExtraTime =
+    penaltyShootout != null || commentaryPlays.some((play) => play.period > 2);
+
+  const sameDayMatches = sourceMatches.filter(
     (m) => m.date === match.date && m.slug !== match.slug
   );
 
@@ -389,12 +523,28 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
     year: "numeric",
   });
 
-  const prediction =
-    home && away ? matchPredictionByPair[`${match.homeTeamId}:${match.awayTeamId}`] : undefined;
+  const prediction = home && away ? getMatchPredictionForTeams(home.id, away.id) : undefined;
 
-  const matchOdds = prediction
+  const modelMatchOdds = prediction
     ? estimatedMatchOdds(prediction.team1WinProb, prediction.drawProb, prediction.team2WinProb)
     : null;
+  let matchOdds = modelMatchOdds;
+
+  if (!isBuild && !isCompleted && home && away) {
+    try {
+      const oddsFixtureId = fixtureId ?? await resolveApiFixtureId(match);
+      const realOdds = oddsFixtureId ? await getOddsForFixture(oddsFixtureId) : null;
+      if (realOdds?.homeWin && realOdds.draw && realOdds.awayWin) {
+        matchOdds = {
+          home: realOdds.homeWin.toFixed(2),
+          draw: realOdds.draw.toFixed(2),
+          away: realOdds.awayWin.toFixed(2),
+        };
+      }
+    } catch {
+      // Real odds are optional. Keep model odds so the CTA stays useful.
+    }
+  }
 
   // When match is completed, find the next upcoming match to promote instead
   let nextMatch: (typeof matches)[number] | undefined = undefined;
@@ -428,31 +578,53 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
         return da.getTime() - db.getTime();
       });
 
-    const first = upcoming[0];
-    if (first) {
-      nextMatch = first;
-      nextHome = teamsById[first.homeTeamId];
-      nextAway = teamsById[first.awayTeamId];
-      const nextPred = nextHome && nextAway
-        ? matchPredictionByPair[`${first.homeTeamId}:${first.awayTeamId}`]
-        : undefined;
+    const resolvedUpcoming = (
+      await Promise.all(
+        upcoming.slice(0, 12).map(async (candidate) => {
+          const candidateSourceMatches = needsKnockoutResolution(candidate)
+            ? await getKnockoutResolutionMatches(candidate)
+            : matches;
+          const resolvedCandidate =
+            candidateSourceMatches.find((item) => item.id === candidate.id) ??
+            candidate;
+          const resolved = await resolveMatchTeamsWithResults(
+            resolvedCandidate,
+            "A determiner",
+            candidateSourceMatches,
+          );
+
+          return {
+            match: resolvedCandidate,
+            home: resolved.home,
+            away: resolved.away,
+          };
+        }),
+      )
+    )
+      .filter((item) => item.home && item.away)
+      .slice(0, 4);
+
+    const first = resolvedUpcoming[0];
+    if (first?.home && first.away) {
+      nextMatch = first.match;
+      nextHome = first.home;
+      nextAway = first.away;
+      const nextPred = getMatchPredictionForTeams(first.home.id, first.away.id);
       nextOdds = nextPred
         ? estimatedMatchOdds(nextPred.team1WinProb, nextPred.drawProb, nextPred.team2WinProb)
         : null;
     }
 
     // Build pronostics grid data (4 upcoming matches)
-    upcomingPronostics = upcoming.slice(0, 4).map((m) => {
-      const h = teamsById[m.homeTeamId];
-      const a = teamsById[m.awayTeamId];
-      const pred = matchPredictionByPair[`${m.homeTeamId}:${m.awayTeamId}`];
+    upcomingPronostics = resolvedUpcoming.map(({ match: m, home: h, away: a }) => {
+      const pred = h && a ? getMatchPredictionForTeams(h.id, a.id) : undefined;
       return {
         slug: m.slug,
         date: m.date,
         time: m.time,
-        homeName: h?.name ?? "TBD",
+        homeName: h?.name ?? "A determiner",
         homeFlag: h?.flag ?? "",
-        awayName: a?.name ?? "TBD",
+        awayName: a?.name ?? "A determiner",
         awayFlag: a?.flag ?? "",
         prediction: pred ? {
           team1WinProb: Math.round(pred.team1WinProb * 100),
@@ -477,6 +649,8 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
         stage={stage}
         match={match}
         dateFormatted={dateFormatted}
+        penaltyShootout={penaltyShootout}
+        wentToExtraTime={wentToExtraTime}
       />
 
       {/* Betting Card — overlaps hero for seamless dark-to-dark flow */}
@@ -491,7 +665,7 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
               homeOdds={nextOdds?.home}
               drawOdds={nextOdds?.draw}
               awayOdds={nextOdds?.away}
-              tracking="next-match"
+              tracking={{ pageType: "match", slug: nextMatch.slug, placement: "next-match-card" }}
               nextMatchSlug={nextMatch.slug}
             />
           ) : (
@@ -503,7 +677,7 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
               homeOdds={matchOdds?.home}
               drawOdds={matchOdds?.draw}
               awayOdds={matchOdds?.away}
-              tracking="match"
+              tracking={{ pageType: "match", slug: match.slug, placement: "hero-card" }}
             />
           )}
         </div>
@@ -525,7 +699,7 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
                 isFinished={isCompleted}
                 odds={matchOdds}
                 predictedScore={prediction?.predictedScore}
-                pmuUrl={pmuTrackingUrl(`match-${match.slug}`)}
+                pmuUrl={pmuTrackingUrl({ pageType: "match", slug: match.slug, placement: "vote-widget" })}
               />
             )}
 
@@ -621,6 +795,8 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
               isCompleted && match.homeScore != null && match.awayScore != null ? {
                 homeScore: match.homeScore,
                 awayScore: match.awayScore,
+                penaltyShootout,
+                wentToExtraTime,
                 goalEvents: events
                   .filter((e) => e.type === "Goal")
                   .map((e) => ({
@@ -658,6 +834,18 @@ async function renderMatchPage(slug: string, staticMatch: NonNullable<typeof mat
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
         <h2 className="text-xl font-bold text-gray-900 mb-4">À explorer aussi</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {home && away && (
+            <Link
+              href={`/pronostic-match/${match.slug}`}
+              className="flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/5 px-4 py-3 hover:shadow-md hover:border-accent transition-all"
+            >
+              <span className="text-2xl"><TrendingUp className="h-5 w-5 inline-block" /></span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-gray-900 truncate">Pronostic complet {home.name} vs {away.name}</p>
+                <p className="text-xs text-gray-500">Cotes, score probable et conseil de pari</p>
+              </div>
+            </Link>
+          )}
           {home && away && (
             <Link
               href={`/h2h/${home.slug}-vs-${away.slug}`}

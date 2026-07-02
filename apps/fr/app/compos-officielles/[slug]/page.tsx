@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@repo/ui/faq-section";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { stageLabels } from "@repo/data/constants";
 import { getFixturesByDate, getLineup } from "@repo/api/football";
 import type { ApiLineup } from "@repo/api/football";
 import { notFound } from "next/navigation";
-import { Users, ArrowRight, ShieldAlert, UserX, ClipboardList } from "lucide-react";
+import { Users, ArrowRight, ShieldAlert, UserX, ClipboardList, Target, BarChart3 } from "lucide-react";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 
 export const dynamicParams = true;
 export const revalidate = 300; // 5min — lineups can appear 1h before kickoff
@@ -18,7 +21,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -26,18 +29,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const match = matchesBySlug[slug];
   if (!match) return {};
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "À déterminer";
-  const awayName = away?.name ?? "À déterminer";
+  const { homeName, awayName } = await resolveMatchTeamsWithResults(match);
   const stage = stageLabels[match.stage] ?? match.stage;
 
   return {
-    title: `Compo officielle ${homeName} - ${awayName} | ${stage} CDM 2026`,
-    description: `Composition officielle de ${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026. Titulaires, remplaçants et absents.`,
+    title: `Composition ${homeName} vs ${awayName} : compos officielles CDM 2026`,
+    description: `Composition officielle et probable de ${homeName} vs ${awayName}, ${stage} de la Coupe du Monde 2026 : titulaires, remplaçants, absents, pronostic et score exact.`,
     openGraph: {
-      title: `Compo ${homeName} vs ${awayName} - CDM 2026`,
-      description: `Les 11 titulaires, remplaçants et absents pour ${homeName} - ${awayName}.`,
+      title: `Composition ${homeName} vs ${awayName} - CDM 2026`,
+      description: `XI probable, compos officielles, remplaçants et absents pour ${homeName} - ${awayName}.`,
     },
     alternates: {
       canonical: `https://www.cdm2026.fr/compos-officielles/${slug}`,
@@ -159,6 +159,10 @@ async function fetchLineupsForMatch(
   homeTeamName: string,
   awayTeamName: string
 ): Promise<{ home: ApiLineup | null; away: ApiLineup | null }> {
+  if (process.env.NEXT_PHASE === "phase-production-build") {
+    return { home: null, away: null };
+  }
+
   try {
     // Fetch current + previous UTC day for matches crossing midnight
     // (e.g., 00:00 CEST = 22:00 UTC previous day)
@@ -207,10 +211,8 @@ export default async function ComposOfficiellesPage({ params }: PageProps) {
   const match = matchesBySlug[slug];
   if (!match) notFound();
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "À déterminer";
-  const awayName = away?.name ?? "À déterminer";
+  const { home, away, homeName, awayName } =
+    await resolveMatchTeamsWithResults(match);
   const stadium = stadiumsById[match.stadiumId];
   const stage = stageLabels[match.stage] ?? match.stage;
   const dateStr = new Date(match.date).toLocaleDateString("fr-FR", {
@@ -268,18 +270,124 @@ export default async function ComposOfficiellesPage({ params }: PageProps) {
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-sm text-white/60 mb-2">{stage} — {dateStr}</p>
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4">
-            Compo officielle :{" "}
+            Composition {homeName} vs {awayName} :{" "}
             <span className="text-accent">
-              {homeName} vs {awayName}
+              compos officielles
             </span>
           </h1>
           <p className="text-white/80">
-            {stadium?.name ?? "Stade à confirmer"} — {match.time} (heure de Paris)
+            XI probable, titulaires, remplaçants et absents — {stadium?.name ?? "Stade à confirmer"} — {match.time} (heure de Paris)
           </p>
         </div>
       </section>
 
       <main className="mx-auto max-w-5xl px-4 py-8 sm:py-12 space-y-10 sm:space-y-12">
+        <section className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+          <div className="grid gap-5 lg:grid-cols-[1.35fr_1fr] lg:items-start">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">
+                Composition equipe et analyse match
+              </p>
+              <h2 className="mt-1 text-xl font-bold text-[#022149] sm:text-2xl">
+                {hasLineups ? "Compos officielles confirmées" : "Compositions probables avant annonce officielle"}
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                Les compositions officielles de {homeName} vs {awayName} sont
+                généralement publiées environ une heure avant le coup d'envoi.
+                En attendant, cette page regroupe le XI probable, les remplaçants
+                attendus, les absents, puis les liens utiles pour vérifier le
+                pronostic, le score exact et les statistiques H2H.
+              </p>
+            </div>
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+              <Link
+                href={`/pronostic-match/${slug}`}
+                className="rounded-lg border border-gray-200 p-3 text-sm font-semibold text-gray-900 transition-colors hover:border-primary/40 hover:bg-primary/5"
+              >
+                Pronostic {homeName} vs {awayName}
+              </Link>
+              <Link
+                href={`/score-exact/${slug}`}
+                className="rounded-lg border border-gray-200 p-3 text-sm font-semibold text-gray-900 transition-colors hover:border-primary/40 hover:bg-primary/5"
+              >
+                Score exact du match
+              </Link>
+              <Link
+                href={`/match/${slug}`}
+                className="rounded-lg border border-gray-200 p-3 text-sm font-semibold text-gray-900 transition-colors hover:border-primary/40 hover:bg-primary/5"
+              >
+                Fiche match complète
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Link
+            href={`/pronostic-match/${slug}`}
+            className="rounded-xl border border-accent/30 bg-accent/5 p-4 transition-all hover:border-accent hover:shadow-md"
+          >
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-accent">
+              <Target className="h-4 w-4" />
+              Pronostic
+            </p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Analyse du match</p>
+            <p className="mt-1 text-xs text-gray-500">Cotes, conseil et confiance</p>
+          </Link>
+          <Link
+            href={`/score-exact/${slug}`}
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Score exact</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Scenario probable</p>
+            <p className="mt-1 text-xs text-gray-500">Lire le match avec les compos</p>
+          </Link>
+          <Link
+            href={`/h2h/${slug}`}
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary">
+              <BarChart3 className="h-4 w-4" />
+              H2H
+            </p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Stats et confrontations</p>
+            <p className="mt-1 text-xs text-gray-500">Historique, forme et chiffres clés</p>
+          </Link>
+          <Link
+            href={`/match/${slug}`}
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Match</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Horaire, stade, TV</p>
+            <p className="mt-1 text-xs text-gray-500">Toutes les infos pratiques</p>
+          </Link>
+        </section>
+
+        {(home || away) && (
+          <section className="grid gap-3 sm:grid-cols-2">
+            {home && (
+              <Link
+                href={`/effectif/${home.slug}`}
+                className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary">Effectif {home.name}</p>
+                <p className="mt-1 text-sm font-bold text-gray-900">{home.flag} Joueurs et composition</p>
+                <p className="mt-1 text-xs text-gray-500">Liste, postes, clubs et cadres</p>
+              </Link>
+            )}
+            {away && (
+              <Link
+                href={`/effectif/${away.slug}`}
+                className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary">Effectif {away.name}</p>
+                <p className="mt-1 text-sm font-bold text-gray-900">{away.flag} Joueurs et composition</p>
+                <p className="mt-1 text-xs text-gray-500">Liste, postes, clubs et cadres</p>
+              </Link>
+            )}
+          </section>
+        )}
+
         {/* Formations */}
         <section>
           <h2 className="text-xl sm:text-2xl font-bold text-[#022149] mb-4 sm:mb-6 flex items-center gap-2">

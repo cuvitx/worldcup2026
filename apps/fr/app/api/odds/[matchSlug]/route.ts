@@ -2,6 +2,17 @@ import { matchesBySlug } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
 import { getOddsForMatch } from "@repo/api/odds";
 import { matchSlugSchema } from "@repo/api";
+import {
+  getKnockoutResolutionMatches,
+  resolveMatchTeamsWithResults,
+} from "../../../../lib/knockout-match-teams-runtime";
+
+function needsKnockoutResolution(match: NonNullable<(typeof matchesBySlug)[string]>) {
+  return (
+    match.stage !== "group" &&
+    (match.homeTeamId.startsWith("tbd-") || match.awayTeamId.startsWith("tbd-"))
+  );
+}
 
 /**
  * Fetch betting odds for a specific match via match slug
@@ -28,8 +39,18 @@ export async function GET(
     return Response.json({ error: "Match not found" }, { status: 404 });
   }
 
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
+  const sourceMatches = needsKnockoutResolution(match)
+    ? await getKnockoutResolutionMatches(match)
+    : undefined;
+  const resolvedMatch = sourceMatches?.find((candidate) => candidate.id === match.id) ?? match;
+  const resolved = await resolveMatchTeamsWithResults(
+    resolvedMatch,
+    "A determiner",
+    sourceMatches,
+  );
+
+  const home = resolved.home ?? teamsById[resolvedMatch.homeTeamId];
+  const away = resolved.away ?? teamsById[resolvedMatch.awayTeamId];
   if (!home || !away) {
     return Response.json({ error: "Teams not found" }, { status: 404 });
   }

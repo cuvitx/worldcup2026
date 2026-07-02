@@ -3,6 +3,8 @@
 // Single source of truth: bonus, URLs, ratings, ANJ status, logos.
 // ============================================================================
 
+import { pmuTrackingUrl } from "./affiliates";
+
 export interface Bookmaker {
   id: string;
   name: string;
@@ -22,7 +24,7 @@ export const bookmakers: Bookmaker[] = [
     id: "pmu-sport",
     name: "PMU Sport",
     slug: "pmu-sport",
-    url: "https://www.gambling-affiliation.com/cpc/v=ak0CEPFp.xNc0Zux4eAz9mltNCb6fU43LYUUbJ-hUbE_GA7331V2&aff_var_1=cdm2026",
+    url: pmuTrackingUrl({ pageType: "bookmakers", slug: "index", placement: "table" }),
     bonusUrl: "/bonus/pmu-sport",
     bonus: "Jusqu'à 100€",
     bonusDetail: "en freebets sans condition",

@@ -1,4 +1,9 @@
 import type { RelatedItem } from '../app/components/RelatedContent';
+import { matches, matchesBySlug } from "@repo/data/matches";
+import {
+  needsKnockoutTeamResolution,
+  resolveMatchTeams,
+} from "./knockout-match-teams";
 
 /**
  * Returns up to 6 contextual related links based on current pathname.
@@ -30,16 +35,39 @@ export function getRelatedLinks(pathname: string): RelatedItem[] {
   const matchMatch = p.match(/^\/match\/([^/]+)$/);
   if (matchMatch && matchMatch[1] !== 'aujourdhui' && matchMatch[1] !== 'calendrier') {
     const slug = matchMatch[1]!;
-    const parts = slug.split('-vs-');
-    const team1 = parts[0] || slug;
-    const team2 = parts[1] || '';
+    const match = matchesBySlug[slug];
+    const hasRuntimeKnockoutTeams = match
+      ? needsKnockoutTeamResolution(match)
+      : false;
+    const resolvedTeams = match && !hasRuntimeKnockoutTeams
+      ? resolveMatchTeams(match, matches)
+      : null;
+    const teamLinks = hasRuntimeKnockoutTeams
+      ? []
+      : resolvedTeams
+      ? [
+          ...(resolvedTeams.home
+            ? [{ href: `/equipe/${resolvedTeams.home.slug}`, emoji: '🏳️', title: resolvedTeams.home.name, description: `Fiche équipe complète` }]
+            : []),
+          ...(resolvedTeams.away
+            ? [{ href: `/equipe/${resolvedTeams.away.slug}`, emoji: '🏴', title: resolvedTeams.away.name, description: `Fiche équipe complète` }]
+            : []),
+        ]
+      : (() => {
+          const parts = slug.split('-vs-');
+          const team1 = parts[0] || slug;
+          const team2 = parts[1] || '';
+          return [
+            ...(team1 ? [{ href: `/equipe/${team1}`, emoji: '🏳️', title: slugToName(team1), description: `Fiche équipe complète` }] : []),
+            ...(team2 ? [{ href: `/equipe/${team2}`, emoji: '🏴', title: slugToName(team2), description: `Fiche équipe complète` }] : []),
+          ];
+        })();
     return [
       { href: `/pronostic-match/${slug}`, emoji: '🔮', title: `Pronostic du match`, description: `Notre analyse et pronostic` },
       { href: `/score-exact/${slug}`, emoji: '🎯', title: `Score exact`, description: `Pronostic de score exact` },
       { href: `/compos-officielles/${slug}`, emoji: '📋', title: `Compos probables`, description: `Les compositions attendues` },
       { href: `/sur-quelle-chaine/${slug}`, emoji: '📺', title: `Chaîne TV`, description: `Où regarder le match` },
-      ...(team1 ? [{ href: `/equipe/${team1}`, emoji: '🏳️', title: slugToName(team1), description: `Fiche équipe complète` }] : []),
-      ...(team2 ? [{ href: `/equipe/${team2}`, emoji: '🏴', title: slugToName(team2), description: `Fiche équipe complète` }] : []),
+      ...teamLinks,
     ].slice(0, 6);
   }
 

@@ -1,4 +1,5 @@
 import { SectionHeading } from "@repo/ui/section-heading";
+import { stageLabels } from "@repo/data/constants";
 import Link from "next/link";
 
 interface MatchData {
@@ -12,6 +13,10 @@ interface MatchData {
   group?: string;
   stage?: string;
   matchday?: number;
+  homeName?: string;
+  awayName?: string;
+  homeFlag?: string;
+  awayFlag?: string;
 }
 
 interface UpcomingMatchesProps {
@@ -30,12 +35,15 @@ function formatMatchDate(date: string) {
 }
 
 export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: UpcomingMatchesProps) {
+  const firstStage = upcomingMatches[0]?.stage;
+  const sectionLabel = firstStage && firstStage !== "group" ? "Phase finale" : "Phase de groupes";
+
   return (
     <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
-            Phase de groupes
+            {sectionLabel}
           </p>
           <SectionHeading title="Prochains matchs" linkHref="/match/calendrier" linkLabel="Calendrier complet →" />
         </div>
@@ -50,6 +58,13 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
               const home = teamsById[match.homeTeamId];
               const away = teamsById[match.awayTeamId];
               const stadium = stadiumsById[match.stadiumId];
+              const homeName = match.homeName ?? home?.name ?? match.homeTeamId;
+              const awayName = match.awayName ?? away?.name ?? match.awayTeamId;
+              const homeFlag = match.homeFlag ?? home?.flag ?? "";
+              const awayFlag = match.awayFlag ?? away?.flag ?? "";
+              const stageLabel = match.group
+                ? `Gr. ${match.group}`
+                : stageLabels[match.stage ?? ""] ?? match.stage;
 
               return (
                 <Link
@@ -66,7 +81,7 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                       <span className="text-xs text-gray-500">{match.time}</span>
                     )}
                     <span className="text-[10px] font-bold uppercase tracking-wider text-primary mt-1">
-                      {match.group ? `Gr. ${match.group}` : match.stage}
+                      {stageLabel}
                     </span>
                   </div>
 
@@ -76,9 +91,9 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
                   {/* Teams */}
                   <div className="flex items-center gap-3 flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <span className="text-2xl shrink-0">{home?.flag ?? ""}</span>
+                      <span className="text-2xl shrink-0">{homeFlag}</span>
                       <span className="text-sm font-bold text-gray-900 truncate">
-                        {home?.name ?? match.homeTeamId}
+                        {homeName}
                       </span>
                     </div>
 
@@ -86,9 +101,9 @@ export function UpcomingMatches({ upcomingMatches, teamsById, stadiumsById }: Up
 
                     <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
                       <span className="text-sm font-bold text-gray-900 truncate text-right">
-                        {away?.name ?? match.awayTeamId}
+                        {awayName}
                       </span>
-                      <span className="text-2xl shrink-0">{away?.flag ?? ""}</span>
+                      <span className="text-2xl shrink-0">{awayFlag}</span>
                     </div>
                   </div>
 

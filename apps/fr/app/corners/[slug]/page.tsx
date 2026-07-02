@@ -4,9 +4,12 @@ import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { CornerDownRight, TrendingUp, ArrowRight, BarChart3, MapPin } from "lucide-react";
 import { PmuCTA } from "../../components/PmuCTA";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 function getCornerStats(homeId: string, awayId: string) {
   const seed = (homeId + awayId).length * 7 + homeId.charCodeAt(0);
   const homeCorners = +(4.5 + (seed % 30) / 10).toFixed(1);
@@ -26,32 +29,31 @@ function getCornerStats(homeId: string, awayId: string) {
   };
 }
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) return {};
-  const home = teamsById[match.homeTeamId]?.name ?? "A déterminer";
-  const away = teamsById[match.awayTeamId]?.name ?? "A déterminer";
+  const { homeName: home, awayName: away } =
+    await resolveMatchTeamsWithResults(match);
   return {
-    title: `Pronostic corners ${home} - ${away} — CDM 2026`,
+    title: `Pronostic corners ${home} - ${away}`,
     description: `Combien de corners pour ${home} vs ${away} ? Stats historiques, cotes over/under 9.5 corners et analyse tactique CDM 2026.`,
     alternates: { canonical: `https://www.cdm2026.fr/corners/${slug}` },
   };
 }
 export const dynamicParams = true;
+export const revalidate = 300;
 export default async function CornersPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
   const stadium = stadiumsById[match.stadiumId];
-  const homeName = home?.name ?? "A déterminer";
-  const awayName = away?.name ?? "A déterminer";
-  const stats = getCornerStats(match.homeTeamId, match.awayTeamId);
+  const { homeName, awayName, homeTeamId, awayTeamId } =
+    await resolveMatchTeamsWithResults(match);
+  const stats = getCornerStats(homeTeamId, awayTeamId);
 const faqItems = [
     { question: `Combien de corners pour ${homeName} vs ${awayName} ?`, answer: `Sur la base des stats historiques, on peut attendre environ ${stats.totalAvg} corners au total : ${stats.homeCorners} pour ${homeName} et ${stats.awayCorners} pour ${awayName}.` },
     { question: "Qu'est-ce que le pari over/under 9.5 corners ?", answer: "C'est un pari sur le nombre total de corners dans le match. Over 9.5 signifie que vous pariez sur au moins 10 corners au total, under 9.5 sur 9 corners ou moins." },

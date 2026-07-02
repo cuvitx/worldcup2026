@@ -3,8 +3,10 @@
  * Run: npx tsx apps/fr/scripts/generate-sitemap.ts
  * Output: apps/fr/public/sitemap.xml
  */
-import { writeFileSync } from "fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
+import { fileURLToPath } from "url";
+import matter from "gray-matter";
 
 // Direct imports from source
 import { teams } from "../../../packages/data/src/teams";
@@ -16,11 +18,34 @@ import { matches } from "../../../packages/data/src/matches";
 import { scorerPlayers } from "../../../packages/data/src/scorers";
 import { bookmakerReviews } from "../../../packages/data/src/bookmaker-reviews";
 import { guides } from "../../../packages/data/src/guides";
-import { newsArticles } from "../../../packages/data/src/news";
 
 const BASE = "https://www.cdm2026.fr";
 const TODAY = new Date().toISOString().split("T")[0];
 const STATIC = "2026-02-21";
+const __script_dir = fileURLToPath(new URL(".", import.meta.url));
+const ARTICLES_DIR = join(__script_dir, "../content/articles");
+
+interface EditorialArticle {
+  slug: string;
+  date?: string;
+}
+
+function getEditorialArticles(): EditorialArticle[] {
+  if (!existsSync(ARTICLES_DIR)) return [];
+
+  return readdirSync(ARTICLES_DIR)
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => {
+      const slug = file.replace(/\.mdx$/, "");
+      const raw = readFileSync(join(ARTICLES_DIR, file), "utf-8");
+      const { data } = matter(raw);
+
+      return {
+        slug,
+        date: typeof data.date === "string" ? data.date : undefined,
+      };
+    });
+}
 
 console.log(`[sitemap] teams=${teams.length} matches=${matches.length} players=${players.length} stadiums=${stadiums.length} cities=${cities.length} groups=${groups.length}`);
 
@@ -55,7 +80,8 @@ function addStatic(prefix: string, slugs: string[], prio = 0.7) {
 // Static
 add("/", 1.0, TODAY, "daily");
 ["/equipe","/groupes","/joueurs","/stades","/villes"].forEach(p => add(p, 0.9));
-["/buteurs","/match/calendrier","/match/aujourdhui","/tableau","/live","/comparateur-cotes","/actualites","/paris-sportifs","/pronostic"].forEach(p => add(p, 0.9, TODAY, "daily"));
+["/buteurs","/match/calendrier","/match/aujourdhui","/resultats","/phase-finale","/tableau","/live","/comparateur-cotes","/actualites","/paris-sportifs","/pronostic"].forEach(p => add(p, 0.9, TODAY, "daily"));
+["/16emes-de-finale","/8emes-de-finale","/quarts-de-finale","/demi-finales","/finale"].forEach(p => add(p, 0.8, TODAY, "daily"));
 ["/simulateur","/comparateur-joueurs","/comparateur-equipes","/statistiques","/histoire","/billets","/ou-regarder","/guides","/voyage","/meilleurs-bookmakers","/bonus","/pronostics/grille"].forEach(p => add(p, 0.8));
 ["/palmares","/faq","/quiz","/guide/glossaire","/carte-stades","/fan-zones","/arbitres","/h2h","/methodes-paiement","/pronostics/leaderboard","/newsletter","/recherche"].forEach(p => add(p, 0.7));
 ["/plan-du-site","/a-propos","/contact","/jeu-responsable","/equipe-editoriale","/methodologie"].forEach(p => add(p, 0.3, STATIC, "monthly"));
@@ -101,7 +127,7 @@ addStatic("statistiques-arbitre", REFEREES, 0.7);
 addSlugs("bookmaker", bookmakerReviews, 0.8); addStatic("bonus", BONUS, 0.8);
 
 // Articles & Guides
-newsArticles.forEach(a => add(`/actualites/${a.slug}`, 0.7, a.date || STATIC));
+getEditorialArticles().forEach(a => add(`/actualites/${a.slug}`, 0.7, a.date || STATIC));
 addSlugs("guide", guides, 0.8);
 
 // H2H
@@ -111,7 +137,6 @@ for (let i = 0; i < teams.length; i++) {
     add(`/h2h/${teams[i]!.slug}-vs-${teams[j]!.slug}`, 0.6, STATIC, "monthly");
   }
 }
-
 // Generate XML
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -123,8 +148,6 @@ ${entries.map(e => `  <url>
   </url>`).join("\n")}
 </urlset>`;
 
-import { fileURLToPath } from "url";
-const __script_dir = fileURLToPath(new URL(".", import.meta.url));
 const outPath = join(__script_dir, "../public/sitemap.xml");
 writeFileSync(outPath, xml, "utf-8");
 console.log(`[sitemap] Written ${entries.length} URLs to ${outPath}`);

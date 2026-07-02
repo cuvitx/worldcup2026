@@ -4,12 +4,10 @@ import { teams, teamsById } from "@repo/data/teams";
 import { matches } from "@repo/data/matches";
 import { stadiums, stadiumsById } from "@repo/data/stadiums";
 import { getHomeAlternates } from "@repo/data/route-mapping";
-import { newsArticles } from "@repo/data/news";
 import { DISPLAY_LIMITS } from "@repo/data/constants";
-import { getNextMatch } from "@repo/data/tournament-state";
-import { matchPredictionByPair, estimatedMatchOdds } from "@repo/data";
+import { matchPredictionByPair, estimatedMatchOdds, predictionsByTeamId } from "@repo/data";
+import type { MatchPrediction } from "@repo/data";
 import { Newsletter } from "@repo/ui/newsletter";
-import { SocialProof } from "@repo/ui/social-proof";
 import { StadiumCarousel } from "./components/StadiumCarousel";
 import { SectionHeading } from "@repo/ui/section-heading";
 import { FAQSection } from "@repo/ui/faq-section";
@@ -23,6 +21,8 @@ import { RecentArticles } from "./components/home/RecentArticles";
 import { FavoriteTeams } from "./components/home/FavoriteTeams";
 import { PmuBanner } from "./components/PmuBanner";
 import { BetOfTheDay } from "./components/home/BetOfTheDay";
+import { getAllArticles } from "../lib/mdx";
+import { getResolvedCalendarMatches } from "../lib/calendar-match-resolution";
 
 export const metadata: Metadata = {
   title: "Coupe du Monde 2026 | Pronostics, Cotes & Guide Complet",
@@ -106,12 +106,56 @@ const homepageJsonLd = [
   },
 ];
 
+function predictedScoreFromProbabilities(
+  homeWinProb: number,
+  awayWinProb: number,
+  eloDiff: number
+): string {
+  if (Math.abs(homeWinProb - awayWinProb) < 0.08) return "1-1";
+
+  const homeFavorite = homeWinProb > awayWinProb;
+  if (eloDiff >= 350) return homeFavorite ? "3-0" : "0-3";
+  if (eloDiff >= 220) return homeFavorite ? "2-0" : "0-2";
+  return homeFavorite ? "2-1" : "1-2";
+}
+
+function buildEloFallbackPrediction(homeTeamId: string, awayTeamId: string): MatchPrediction | null {
+  const homePrediction = predictionsByTeamId[homeTeamId];
+  const awayPrediction = predictionsByTeamId[awayTeamId];
+  if (!homePrediction || !awayPrediction) return null;
+
+  const eloDiff = homePrediction.eloRating - awayPrediction.eloRating;
+  const absEloDiff = Math.abs(eloDiff);
+  const drawProb = Math.max(0.18, Math.min(0.31, 0.31 - Math.min(absEloDiff, 400) * 0.00025));
+  const nonDrawProb = 1 - drawProb;
+  const homeNoDrawProb = 1 / (1 + Math.pow(10, -eloDiff / 400));
+  const team1WinProb = +(nonDrawProb * homeNoDrawProb).toFixed(3);
+  const team2WinProb = +(nonDrawProb * (1 - homeNoDrawProb)).toFixed(3);
+
+  return {
+    team1Id: homeTeamId,
+    team2Id: awayTeamId,
+    team1WinProb,
+    drawProb: +drawProb.toFixed(3),
+    team2WinProb,
+    predictedScore: predictedScoreFromProbabilities(team1WinProb, team2WinProb, absEloDiff),
+  };
+}
+
+function getHomepageMatchPrediction(homeTeamId: string, awayTeamId: string): MatchPrediction | null {
+  return (
+    matchPredictionByPair[`${homeTeamId}:${awayTeamId}`] ??
+    buildEloFallbackPrediction(homeTeamId, awayTeamId)
+  );
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
    PAGE COMPONENT
    ══════════════════════════════════════════════════════════════════════════ */
 
-export default function HomePage() {
-  const upcomingMatches = getUpcomingMatches(matches)
+export default async function HomePage() {
+  const resolvedMatches = await getResolvedCalendarMatches(matches);
+  const upcomingMatches = getUpcomingMatches(resolvedMatches)
     .sort(
       (a, b) =>
         new Date(`${a.date}T${a.time ?? "00:00"}Z`).getTime() -
@@ -123,15 +167,14 @@ export default function HomePage() {
     .filter((t) => t.fifaRanking > 0 && t.fifaRanking <= 5)
     .sort((a, b) => a.fifaRanking - b.fifaRanking);
 
-  const recentArticles = newsArticles.slice(0, DISPLAY_LIMITS.RECENT_ARTICLES);
+  const recentArticles = getAllArticles().slice(0, DISPLAY_LIMITS.RECENT_ARTICLES);
 
   // Bet of the day: next upcoming match with prediction data
-  const nextMatch = getNextMatch();
-  const betOfTheDayMatch = nextMatch;
+  const betOfTheDayMatch = upcomingMatches[0] ?? null;
   const betHomeTeam = betOfTheDayMatch ? teamsById[betOfTheDayMatch.homeTeamId] : null;
   const betAwayTeam = betOfTheDayMatch ? teamsById[betOfTheDayMatch.awayTeamId] : null;
   const betPrediction = betOfTheDayMatch
-    ? matchPredictionByPair[`${betOfTheDayMatch.homeTeamId}:${betOfTheDayMatch.awayTeamId}`] ?? null
+    ? getHomepageMatchPrediction(betOfTheDayMatch.homeTeamId, betOfTheDayMatch.awayTeamId)
     : null;
   const betOdds = betPrediction
     ? estimatedMatchOdds(betPrediction.team1WinProb, betPrediction.drawProb, betPrediction.team2WinProb)
@@ -195,6 +238,54 @@ export default function HomePage() {
       <section className="py-6 sm:py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PmuBanner tracking="homepage" />
+        </div>
+      </section>
+
+      {/* MAILLAGE MONEY — ancres exactes vers les pages cotes/pronostic (requetes en position 8-9) */}
+      <section className="py-6 sm:py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            title="Cotes et pronostics CDM 2026"
+            subtitle="Les marchés vainqueur les plus suivis du Mondial"
+          />
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            <Link
+              href="/cote-champion/france"
+              className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+            >
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">France</p>
+              <p className="mt-1 text-sm font-bold text-gray-900">
+                Cotes vainqueur Coupe du Monde 2026
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                La cote France championne, l&apos;analyse et le parcours des Bleus
+              </p>
+            </Link>
+            <Link
+              href="/cote-champion/portugal"
+              className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+            >
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">Portugal</p>
+              <p className="mt-1 text-sm font-bold text-gray-900">
+                Cote Portugal vainqueur Coupe du Monde 2026
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                La cote de la Seleção et les marchés associés
+              </p>
+            </Link>
+            <Link
+              href="/pronostic/vainqueur"
+              className="rounded-xl border border-accent/30 bg-accent/5 p-4 transition-all hover:border-accent hover:shadow-md"
+            >
+              <p className="text-xs font-bold uppercase tracking-wide text-accent">Live</p>
+              <p className="mt-1 text-sm font-bold text-gray-900">
+                Pronostic vainqueur CDM 2026
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                Probabilités recalculées après chaque match de phase finale
+              </p>
+            </Link>
+          </div>
         </div>
       </section>
 

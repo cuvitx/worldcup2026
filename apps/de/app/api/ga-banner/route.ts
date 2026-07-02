@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { getAffiliateTrackingData } from "@repo/data/affiliates";
 
 /**
  * Serves a minimal HTML page containing the GA CPM script.
@@ -24,7 +25,8 @@ export async function GET(request: NextRequest) {
     return new NextResponse("Invalid variant", { status: 400 });
   }
 
-  const src = `https://www.gambling-affiliation.com/cpm/v=${scriptId}&aff_var_1=${encodeURIComponent(tracking)}`;
+  const { affVar } = getAffiliateTrackingData(tracking);
+  const src = `https://www.gambling-affiliation.com/cpm/v=${scriptId}&aff_var_1=${encodeURIComponent(affVar)}`;
 
   const html = `<!DOCTYPE html>
 <html>

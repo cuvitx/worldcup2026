@@ -63,6 +63,8 @@ async function rateLimitedCachedFetch<T>(
   const cached = await cacheGet<T>(cacheKey);
   if (cached !== null) return cached;
 
+  if (process.env.NEXT_PHASE === "phase-production-build") return fallback;
+
   // Deduplicate: if another call for the same key is in-flight, wait for it
   const existing = rlInflight.get(cacheKey);
   if (existing) return existing as Promise<T>;
@@ -82,11 +84,10 @@ async function rateLimitedCachedFetch<T>(
       // Fetch fresh data
       const data = await fetcher();
 
-      // Only cache non-empty results — empty arrays from rate-limit errors
-      // or missing data should not be persisted (especially with long TTLs)
       if (Array.isArray(data) && data.length === 0) {
         console.warn(`[api-football] Empty result for ${cacheKey}`);
-        return fallback;
+        await cacheSet(cacheKey, data, Math.min(ttlSeconds, 60));
+        return data;
       }
 
       await cacheSet(cacheKey, data, ttlSeconds);
@@ -100,7 +101,11 @@ async function rateLimitedCachedFetch<T>(
   return promise;
 }
 
-async function apiFetch<T>(endpoint: string, params: Record<string, string>): Promise<T[]> {
+async function apiFetch<T>(
+  endpoint: string,
+  params: Record<string, string>,
+  revalidateSeconds = 300
+): Promise<T[]> {
   // Skip API calls during build — data loads via ISR at runtime.
   // Without this, 40+ completed matches × 5 API calls = build timeout.
   if (process.env.NEXT_PHASE === "phase-production-build") return [];
@@ -121,7 +126,7 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string>): Pr
     headers: {
       "x-apisports-key": API_FOOTBALL.key,
     },
-    next: { revalidate: 300 },
+    next: { revalidate: revalidateSeconds },
   } as RequestInit);
 
   if (!res.ok) {
@@ -217,7 +222,7 @@ export async function getLiveFixtures(): Promise<ApiFixture[]> {
       apiFetch<ApiFixture>("fixtures", {
         live: "all",
         league: String(API_FOOTBALL.worldCupLeagueId),
-      }),
+      }, CACHE_TTL.LIVE_SCORES),
     []
   );
 }
@@ -249,7 +254,7 @@ export async function getWorldCupFixtures(): Promise<ApiFixture[]> {
       apiFetch<ApiFixture>("fixtures", {
         league: String(API_FOOTBALL.worldCupLeagueId),
         season: String(API_FOOTBALL.season),
-      }),
+      }, ttl),
     []
   );
 }
@@ -267,17 +272,37 @@ export async function getFixtureStatistics(fixtureId: number, finished = false):
   );
 }
 
+function getDateFixturesTtl(date: string): number {
+  const requested = Date.parse(`${date}T12:00:00Z`);
+  if (Number.isNaN(requested)) return CACHE_TTL.INJURIES;
+
+  const now = new Date();
+  const todayNoonUtc = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    12,
+    0,
+    0,
+  );
+  const distanceHours = Math.abs(requested - todayNoonUtc) / 3_600_000;
+
+  return distanceHours <= 36 ? CACHE_TTL.LIVE_SCORES : CACHE_TTL.INJURIES;
+}
+
 /** Get fixtures for a specific date (YYYY-MM-DD) */
 export async function getFixturesByDate(date: string): Promise<ApiFixture[]> {
+  const ttl = getDateFixturesTtl(date);
+
   return rateLimitedCachedFetch(
     `football:fixtures:date:${date}`,
-    CACHE_TTL.INJURIES, // 1h — results don't change often
+    ttl,
     () =>
       apiFetch<ApiFixture>("fixtures", {
         league: String(API_FOOTBALL.worldCupLeagueId),
         season: String(API_FOOTBALL.season),
         date,
-      }),
+      }, Math.min(ttl, 300)),
     []
   );
 }

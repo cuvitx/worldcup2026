@@ -1,8 +1,11 @@
 import { getTodaysMatches } from "@repo/data/tournament-state";
 import { teamsById } from "@repo/data";
 import { teamApiIds } from "@repo/data/api-football-ids";
-import type { LiveMatch } from "@repo/ui/live-score-bar";
+import { matches } from "@repo/data/matches";
+import type { LiveMatch, LiveTeamDisplayMap } from "@repo/ui/live-score-bar";
 import { enrichMatchesWithResults } from "@repo/api/football/match-results";
+import { needsKnockoutTeamResolution } from "../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../lib/knockout-match-teams-runtime";
 import { ConnectedLiveScoreBar } from "./ConnectedLiveScoreBar";
 
 const STATUS_MAP: Record<string, LiveMatch["status"]> = {
@@ -10,6 +13,23 @@ const STATUS_MAP: Record<string, LiveMatch["status"]> = {
   live: "live",
   scheduled: "upcoming",
 };
+
+function teamNameMap() {
+  return Object.fromEntries(
+    Object.entries(teamsById).map(([id, team]) => [id, team.name]),
+  );
+}
+
+function apiTeamDisplayMap(): LiveTeamDisplayMap {
+  const map: LiveTeamDisplayMap = {};
+  for (const [teamId, apiTeamId] of Object.entries(teamApiIds)) {
+    const team = teamsById[teamId];
+    if (team && apiTeamId) {
+      map[apiTeamId] = { name: team.name, code: team.code, flag: team.flag };
+    }
+  }
+  return map;
+}
 
 /**
  * Server-side wrapper for LiveScoreBar.
@@ -21,33 +41,50 @@ export async function LiveScoreBarWrapper() {
   const todaysMatches = getTodaysMatches();
   if (todaysMatches.length === 0) return null;
 
-  // Server-side score enrichment (same as match pages)
-  const enriched = await enrichMatchesWithResults(todaysMatches);
+  const hasKnockoutSlots = todaysMatches.some(needsKnockoutTeamResolution);
+  const namesByTeamId = teamNameMap();
+  const sourceMatches = hasKnockoutSlots
+    ? await enrichMatchesWithResults(matches, namesByTeamId)
+    : await enrichMatchesWithResults(todaysMatches, namesByTeamId);
+  const sourceById = new Map(sourceMatches.map((match) => [match.id, match]));
+  const enriched = todaysMatches.map((match) => sourceById.get(match.id) ?? match);
   const matchDate = todaysMatches[0]!.date;
 
-  const liveMatches: LiveMatch[] = enriched.map((m) => ({
-    id: m.id,
-    homeTeam: teamsById[m.homeTeamId]?.name ?? m.homeTeamId,
-    awayTeam: teamsById[m.awayTeamId]?.name ?? m.awayTeamId,
-    homeCode: teamsById[m.homeTeamId]?.code,
-    awayCode: teamsById[m.awayTeamId]?.code,
-    homeFlag: teamsById[m.homeTeamId]?.flag,
-    awayFlag: teamsById[m.awayTeamId]?.flag,
-    homeScore: m.homeScore ?? null,
-    awayScore: m.awayScore ?? null,
-    status: STATUS_MAP[m.status ?? "scheduled"] ?? "upcoming",
-    elapsed: null,
-    time: m.time,
-    slug: m.slug,
-    date: m.date,
-    homeApiTeamId: teamApiIds[m.homeTeamId] ?? 0,
-    awayApiTeamId: teamApiIds[m.awayTeamId] ?? 0,
+  const liveMatches: LiveMatch[] = await Promise.all(enriched.map(async (m) => {
+    const needsResolution = needsKnockoutTeamResolution(m);
+    const resolved = needsResolution
+      ? await resolveMatchTeamsWithResults(m, "À déterminer", sourceMatches)
+      : null;
+    const homeTeamId = resolved?.homeTeamId ?? m.homeTeamId;
+    const awayTeamId = resolved?.awayTeamId ?? m.awayTeamId;
+    const home = resolved?.home ?? teamsById[homeTeamId];
+    const away = resolved?.away ?? teamsById[awayTeamId];
+
+    return {
+      id: m.id,
+      homeTeam: resolved?.homeName ?? home?.name ?? m.homeTeamId,
+      awayTeam: resolved?.awayName ?? away?.name ?? m.awayTeamId,
+      homeCode: home?.code,
+      awayCode: away?.code,
+      homeFlag: home?.flag,
+      awayFlag: away?.flag,
+      homeScore: m.homeScore ?? null,
+      awayScore: m.awayScore ?? null,
+      status: STATUS_MAP[m.status ?? "scheduled"] ?? "upcoming",
+      elapsed: null,
+      time: m.time,
+      slug: m.slug,
+      date: m.date,
+      homeApiTeamId: teamApiIds[homeTeamId] ?? 0,
+      awayApiTeamId: teamApiIds[awayTeamId] ?? 0,
+    };
   }));
 
   return (
     <ConnectedLiveScoreBar
       todaysMatches={liveMatches}
       matchDate={matchDate}
+      apiTeamDisplayMap={apiTeamDisplayMap()}
     />
   );
 }

@@ -201,15 +201,15 @@ export function SiloTabs() {
   const currentPath = pathname.replace(/\/$/, "");
 
   return (
-    <nav aria-label="Navigation du silo" className="px-4 py-3 overflow-hidden">
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide sm:justify-center -mx-4 px-4">
+    <nav aria-label="Navigation du silo" className="max-w-full min-w-0 overflow-hidden px-0 py-3 sm:px-4">
+      <div className="scrollbar-hide flex max-w-full min-w-0 gap-2 overflow-x-auto overscroll-x-contain px-4 sm:justify-center sm:px-0">
         {tabs.map((tab) => {
           const isActive = currentPath === tab.href.replace(/\/$/, "");
           return (
             <Link
               key={tab.href}
               href={tab.href}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 isActive
                   ? "bg-primary text-white"
                   : "border border-primary/30 text-primary/70 hover:bg-primary/5 hover:border-primary/50"

@@ -6,8 +6,8 @@ import { notFound } from "next/navigation";
 import { teams, teamsBySlug, teamsById } from "@repo/data/teams";
 import { playersByTeamId } from "@repo/data/players";
 import { matches } from "@repo/data/matches";
-import { bookmakers, featuredBookmaker } from "@repo/data/affiliates";
-import { ClipboardList, ExternalLink, ShieldAlert, Star, UserX, Users } from "lucide-react";
+import { affiliateLinkAttributes, bookmakers, featuredBookmaker, pmuTrackingUrl } from "@repo/data/affiliates";
+import { CalendarDays, ClipboardList, ExternalLink, ShieldAlert, Star, Trophy, UserX, Users } from "lucide-react";
 import { PmuCTA } from "../../components/PmuCTA";
 import { BetOfTheDay } from "../../components/BetOfTheDay";
 export const revalidate = 3600;
@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const team = teamsBySlug[slug];
   if (!team) return {};
   return {
-    title: `Effectif ${team.name} — Liste des 26 joueurs CDM 2026`,
-    description: `Effectif complet de ${team.name} pour la Coupe du Monde 2026 : liste des 26 joueurs, postes, clubs et sélections par poste.`,
+    title: `Joueurs ${team.name} Coupe du Monde 2026 : effectif et composition`,
+    description: `Joueurs de l'équipe ${team.name} pour la Coupe du Monde 2026 : effectif, liste des joueurs, clubs, postes, composition probable, groupe ${team.group} et parcours.`,
     openGraph: {
-      title: `${team.flag} Effectif ${team.name} — CDM 2026`,
-      description: `Liste des 26 joueurs de ${team.name} pour la Coupe du Monde 2026.`,
+      title: `${team.flag} Joueurs ${team.name} Coupe du Monde 2026`,
+      description: `Effectif, liste des joueurs, composition et groupe de ${team.name} pour la CDM 2026.`,
       url: `${domains.fr}/effectif/${team.slug}`,
       },
     alternates: { canonical: `https://www.cdm2026.fr/effectif/${team.slug}` },
@@ -64,6 +64,9 @@ export default async function EffectifPage({ params }: PageProps) {
     .sort((a, b) => a.date.localeCompare(b.date));
   const today = new Date().toISOString().slice(0, 10);
   const nextMatch = teamMatches.find((m) => m.date >= today);
+  const positionCounts = sortedPositions
+    .map((pos) => `${grouped[pos]!.length} ${positionLabels[pos]?.toLowerCase() ?? pos}`)
+    .join(", ");
 const faqItems = [
     {
       question: `Combien de joueurs ${team.name} peut-elle emmener à la CDM 2026 ?`,
@@ -95,10 +98,15 @@ const faqItems = [
             </span>
             <div>
               <h1 className="text-2xl font-extrabold sm:text-4xl">
-                Effectif {team.name} — Liste des 26 joueurs CDM 2026
+                Joueurs {team.name} Coupe du Monde 2026 : effectif et composition
               </h1>
               <p className="mt-2 text-lg text-gray-300">
                 Groupe {team.group} · FIFA #{team.fifaRanking} · {allPlayers.length} joueurs répertoriés
+              </p>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-300">
+                Liste des joueurs de l'équipe {team.name}, postes, clubs,
+                cadres de la selection, composition probable et liens vers le
+                groupe, les matchs et les cotes du Mondial 2026.
               </p>
             </div>
           </div>
@@ -111,6 +119,106 @@ const faqItems = [
             <ClipboardList className="h-5 w-5 inline-block" /> <strong>Liste officielle</strong> — les 26 joueurs sélectionnés pour la Coupe du Monde 2026.
           </p>
         </div>
+        <section className="mb-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+          <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">
+                Effectif et composition
+              </p>
+              <h2 className="mt-1 text-xl font-bold text-gray-900 sm:text-2xl">
+                Liste des joueurs de l'équipe {team.name}
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                L'effectif de {team.name} pour la Coupe du Monde 2026 regroupe
+                {allPlayers.length > 0 ? ` ${allPlayers.length} joueurs répertoriés (${positionCounts}).` : " les joueurs répertoriés dès confirmation officielle."}
+                Cette page permet de lire rapidement la composition de la selection,
+                les joueurs stars, le prochain match et les pages utiles pour
+                suivre le parcours dans le groupe {team.group}.
+              </p>
+            </div>
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+              <Link
+                href={`/joueurs/equipe/${team.slug}`}
+                className="rounded-lg border border-gray-200 p-3 text-sm font-semibold text-gray-900 transition-colors hover:border-primary/40 hover:bg-primary/5"
+              >
+                Tous les joueurs {team.name}
+              </Link>
+              <Link
+                href={`/groupe/${team.group.toLowerCase()}`}
+                className="rounded-lg border border-gray-200 p-3 text-sm font-semibold text-gray-900 transition-colors hover:border-primary/40 hover:bg-primary/5"
+              >
+                Groupe {team.group} et classement
+              </Link>
+              <Link
+                href={`/equipe/${team.slug}`}
+                className="rounded-lg border border-gray-200 p-3 text-sm font-semibold text-gray-900 transition-colors hover:border-primary/40 hover:bg-primary/5"
+              >
+                Calendrier de {team.name}
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="mb-8 grid gap-3 sm:grid-cols-3">
+          <Link
+            href={`/cote-champion/${team.slug}`}
+            className="rounded-xl border border-accent/30 bg-accent/5 p-4 transition-all hover:border-accent hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-accent">Cote vainqueur</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">{team.name} championne du monde</p>
+            <p className="mt-1 text-xs text-gray-500">Analyse value bet et chances de titre</p>
+          </Link>
+          <Link
+            href={`/pronostic/${team.slug}`}
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Pronostic équipe</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Parcours probable de {team.name}</p>
+            <p className="mt-1 text-xs text-gray-500">Groupe, qualification et phases finales</p>
+          </Link>
+          <Link
+            href={`/parier/${team.slug}`}
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Guide pari</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Comment parier sur {team.name}</p>
+            <p className="mt-1 text-xs text-gray-500">Marchés utiles et pièges à éviter</p>
+          </Link>
+        </section>
+        <section className="mb-8 grid gap-3 sm:grid-cols-3">
+          <Link
+            href="/joueurs"
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary">
+              <Users className="h-4 w-4" />
+              Tous les joueurs
+            </p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Joueurs Coupe du Monde 2026</p>
+            <p className="mt-1 text-xs text-gray-500">Comparer les effectifs des 48 selections</p>
+          </Link>
+          <Link
+            href="/pronostic/vainqueur"
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary">
+              <Trophy className="h-4 w-4" />
+              Vainqueur
+            </p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Favoris Coupe du Monde</p>
+            <p className="mt-1 text-xs text-gray-500">Situer {team.name} dans la course au titre</p>
+          </Link>
+          <Link
+            href="/match/calendrier"
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary">
+              <CalendarDays className="h-4 w-4" />
+              Calendrier
+            </p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Tous les matchs CDM 2026</p>
+            <p className="mt-1 text-xs text-gray-500">Dates, horaires et adversaires à venir</p>
+          </Link>
+        </section>
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
             {/* Stars */}
@@ -139,7 +247,7 @@ const faqItems = [
               </section>
             )}
             {/* CTA Banner */}
-            <PmuCTA tracking="effectif" />
+            <PmuCTA tracking={{ pageType: "effectif", slug: team.slug, placement: "players-cta" }} />
             {/* Players by position */}
             {sortedPositions.map((pos) => {
               const posPlayers = grouped[pos]!.sort((a, b) => (a.number ?? 99) - (b.number ?? 99));
@@ -191,7 +299,7 @@ const faqItems = [
               <section className="rounded-xl bg-white p-4 sm:p-6 shadow-sm text-center">
                 <Users className="h-12 w-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">
-                  La liste des joueurs de {team.name} n'est pas encore disponible.
+                  La liste des joueurs de {team.name} n&apos;est pas encore disponible.
                 </p>
               </section>
             )}
@@ -206,6 +314,7 @@ const faqItems = [
               <div className="space-y-4">
                 {bookmakers.map((bk) => {
                   const isFeatured = bk.id === featuredBookmaker.id;
+                  const tracking = { pageType: "effectif", slug: team.slug, placement: `bookmaker-${bk.slug}` };
                   return (
                     <div
                       key={bk.id}
@@ -228,9 +337,10 @@ const faqItems = [
                       </div>
                       <div className="shrink-0">
                         <a
-                          href={bk.url}
+                          href={pmuTrackingUrl(tracking)}
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
+                          {...affiliateLinkAttributes(tracking)}
                           className={`inline-block rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors ${
                             isFeatured ? "bg-accent hover:bg-accent/80" : "bg-primary hover:bg-primary/90"
                           }`}
@@ -273,7 +383,7 @@ const faqItems = [
                     </span>
                   </Link>
                   <div className="mt-4">
-                    <PmuCTA tracking="effectif" />
+                    <PmuCTA tracking={{ pageType: "effectif", slug: team.slug, placement: "next-match" }} />
                   </div>
                 </section>
               );
@@ -313,21 +423,25 @@ const faqItems = [
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Parier sur {team.name}</h3>
               <div className="space-y-3">
-                {bookmakers.slice(0, 3).map((bk) => (
-                  <a
-                    key={bk.id}
-                    href={bk.url}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored nofollow"
-                    className="flex items-center justify-between rounded-lg border border-gray-200 p-3 hover:border-primary/40 hover:shadow-sm transition-all"
-                  >
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">{bk.name}</p>
-                      <p className="text-xs text-accent font-semibold">{bk.bonus}</p>
-                    </div>
-                    <ExternalLink className="h-4 w-4 text-gray-400" />
-                  </a>
-                ))}
+                {bookmakers.slice(0, 3).map((bk) => {
+                  const tracking = { pageType: "effectif", slug: team.slug, placement: `sidebar-${bk.slug}` };
+                  return (
+                    <a
+                      key={bk.id}
+                      href={pmuTrackingUrl(tracking)}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored nofollow"
+                      {...affiliateLinkAttributes(tracking)}
+                      className="flex items-center justify-between rounded-lg border border-gray-200 p-3 hover:border-primary/40 hover:shadow-sm transition-all"
+                    >
+                      <div>
+                        <p className="text-sm font-bold text-gray-900">{bk.name}</p>
+                        <p className="text-xs text-accent font-semibold">{bk.bonus}</p>
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-gray-400" />
+                    </a>
+                  );
+                })}
               </div>
               <p className="mt-3 text-[10px] text-gray-400 text-center leading-snug">
                 18+ | Jouer comporte des risques.{" "}
@@ -337,6 +451,11 @@ const faqItems = [
             <div className="rounded-xl bg-white p-4 sm:p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-3">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href={`/joueurs/equipe/${team.slug}`} className="text-primary hover:underline">
+                    Joueurs {team.name}
+                  </Link>
+                </li>
                 <li>
                   <Link href={`/equipe/${team.slug}`} className="text-primary hover:underline">
                     Fiche complète {team.name}

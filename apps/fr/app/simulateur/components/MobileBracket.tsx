@@ -23,23 +23,23 @@ export function MobileBracket({
         const totalCount = rounds[round].filter((m) => m.team1 || m.team2).length;
 
         return (
-          <div key={round} className="rounded-xl border border-gray-200 overflow-hidden">
+          <div key={round} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_24px_rgba(2,21,45,0.06)]">
             <button
-              className="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-50 transition-colors"
+              className="flex w-full items-center justify-between px-4 py-3.5 transition-colors hover:bg-slate-50"
               onClick={() => setExpandedRound(isExpanded ? round : round)}
             >
               <div className="flex items-center gap-2">
-                <span className={`inline-block w-3 h-3 rounded-full ${colorClass}`} />
-                <span className="font-bold text-sm text-gray-900">
+                <span className={`inline-block h-3 w-3 rounded-full ${colorClass}`} />
+                <span className="text-sm font-black text-slate-950">
                   {ROUND_LABELS[round]}
                 </span>
               </div>
-              <span className="text-xs text-gray-500">
+              <span className="rounded-full bg-slate-100 px-2 py-1 text-xs font-bold text-slate-600">
                 {filledCount}/{totalCount} ✓
               </span>
             </button>
 
-            <div className="divide-y divide-gray-100 px-3 py-2 bg-gray-50/30 space-y-2">
+            <div className="space-y-2.5 bg-slate-50/60 px-3 py-3">
               {rounds[round].map((match, i) => (
                 <BracketMatchCard
                   key={match.id}

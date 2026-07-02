@@ -6,12 +6,18 @@ export function ANJBanner() {
   return (
     <div className="flex items-center justify-center bg-gray-100 py-2 px-4">
       <p className="text-xs text-gray-500 text-center">
-        🔞 Les paris sportifs sont interdits aux mineurs. Jouer comporte des risques :
-        endettement, isolement, dépendance. Pour être aidé, appelez le{" "}
-        <a href="tel:0974751313" className="font-bold text-gray-700 hover:underline">
-          09 74 75 13 13
+        🔞 Les jeux d&apos;argent et de hasard peuvent être dangereux : pertes d&apos;argent,
+        conflits familiaux, addiction… Retrouvez nos conseils sur{" "}
+        <a
+          href="https://www.joueurs-info-service.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold text-gray-700 hover:underline"
+        >
+          joueurs-info-service.fr
         </a>{" "}
-        (appel non surtaxé).
+        (<a href="tel:0974751313" className="font-bold text-gray-700 hover:underline">09 74 75 13 13</a>{" "}
+        – appel non surtaxé).
       </p>
     </div>
   );

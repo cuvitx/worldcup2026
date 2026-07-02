@@ -8,6 +8,10 @@ interface MatchData {
   slug: string;
   homeTeamId: string;
   awayTeamId: string;
+  homeName: string;
+  awayName: string;
+  homeFlag: string;
+  awayFlag: string;
   date: string;
   time: string;
   stadiumId: string;
@@ -16,6 +20,8 @@ interface MatchData {
   homeScore?: number;
   awayScore?: number;
   status?: "scheduled" | "live" | "finished";
+  statusShort?: string;
+  statusLong?: string;
 }
 
 interface TeamInfo {
@@ -59,7 +65,19 @@ function formatDateFr(dateStr: string): string {
   });
 }
 
-export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props) {
+function compactStatus(match: MatchData) {
+  if (match.status === "finished") return "FT";
+  if (match.status !== "live") return match.time;
+
+  if (match.statusShort === "BT") return "PROL.";
+  if (match.statusShort === "ET") return "PROL.";
+  if (match.statusShort === "P") return "TAB";
+  if (match.statusShort === "HT") return "MT";
+
+  return "LIVE";
+}
+
+export default function CalendarGrid({ matches, teamsById }: Props) {
   // Group matches by date
   const matchesByDate = useMemo(() => {
     const map = new Map<string, MatchData[]>();
@@ -169,6 +187,10 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                             {visibleMatches.map((match) => {
                               const home = teamsById[match.homeTeamId];
                               const away = teamsById[match.awayTeamId];
+                              const homeName = home?.name ?? match.homeName;
+                              const awayName = away?.name ?? match.awayName;
+                              const homeFlag = home?.flag ?? match.homeFlag;
+                              const awayFlag = away?.flag ?? match.awayFlag;
                               return (
                                 <Link
                                   key={match.id}
@@ -176,17 +198,17 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                                   className={`group flex items-center gap-1 text-xs py-0.5 px-1 rounded hover:bg-primary/10 transition-colors ${match.status === "finished" ? "bg-gray-100 text-gray-600" : getPhaseColor(match.stage)}`}
                                 >
                                   <span className="text-[10px] text-gray-500 font-mono w-10 shrink-0">
-                                    {match.status === "finished" ? "FT" : match.time}
+                                    {compactStatus(match)}
                                   </span>
-                                  <span className="shrink-0">{home?.flag ?? "🏳️"}</span>
-                                  <span className="truncate text-gray-700 group-hover:text-primary">{home?.name ?? "TBD"}</span>
+                                  <span className="shrink-0">{homeFlag || "🏳️"}</span>
+                                  <span className="truncate text-gray-700 group-hover:text-primary">{homeName}</span>
                                   {match.status === "finished" && match.homeScore != null ? (
                                     <span className="font-bold text-gray-900 text-[11px] shrink-0">{match.homeScore}-{match.awayScore}</span>
                                   ) : (
                                     <span className="text-gray-400 text-[10px]">-</span>
                                   )}
-                                  <span className="shrink-0">{away?.flag ?? "🏳️"}</span>
-                                  <span className="truncate text-gray-700 group-hover:text-primary">{away?.name ?? "TBD"}</span>
+                                  <span className="shrink-0">{awayFlag || "🏳️"}</span>
+                                  <span className="truncate text-gray-700 group-hover:text-primary">{awayName}</span>
                                 </Link>
                               );
                             })}
@@ -221,6 +243,10 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
               {day.matches.map((match) => {
                 const home = teamsById[match.homeTeamId];
                 const away = teamsById[match.awayTeamId];
+                const homeName = home?.name ?? match.homeName;
+                const awayName = away?.name ?? match.awayName;
+                const homeFlag = home?.flag ?? match.homeFlag;
+                const awayFlag = away?.flag ?? match.awayFlag;
                 return (
                   <Link
                     key={match.id}
@@ -228,11 +254,11 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                     className="flex items-center px-4 py-3 hover:bg-gray-50"
                   >
                     <span className={`text-sm font-mono w-12 ${match.status === "finished" ? "text-gray-400" : "text-gray-500"}`}>
-                      {match.status === "finished" ? "FT" : match.time}
+                      {compactStatus(match)}
                     </span>
                     <span className="flex items-center gap-2 flex-1 min-w-0">
-                      <span>{home?.flag ?? "🏳️"}</span>
-                      <span className="font-medium text-sm truncate">{home?.name ?? "TBD"}</span>
+                      <span>{homeFlag || "🏳️"}</span>
+                      <span className="font-medium text-sm truncate">{homeName}</span>
                     </span>
                     {match.status === "finished" && match.homeScore != null ? (
                       <span className="text-sm font-bold text-gray-900 mx-2 tabular-nums">{match.homeScore} - {match.awayScore}</span>
@@ -240,8 +266,8 @@ export default function CalendarGrid({ matches, teamsById, stadiumsById }: Props
                       <span className="text-xs text-gray-400 mx-2">vs</span>
                     )}
                     <span className="flex items-center gap-2 flex-1 justify-end min-w-0">
-                      <span className="font-medium text-sm truncate">{away?.name ?? "TBD"}</span>
-                      <span>{away?.flag ?? "🏳️"}</span>
+                      <span className="font-medium text-sm truncate">{awayName}</span>
+                      <span>{awayFlag || "🏳️"}</span>
                     </span>
                   </Link>
                 );

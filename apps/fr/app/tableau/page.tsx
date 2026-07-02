@@ -2,32 +2,45 @@ import { getStaticAlternates } from "@repo/data/route-mapping";
 import { FAQSection } from "@repo/ui/faq-section";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { enrichMatchesWithResults } from "@repo/api/football/match-results";
+import { matches } from "@repo/data/matches";
 import { teamsById } from "@repo/data/teams";
-import { champion } from "./_components/bracket-data";
+import { top10Favorites } from "@repo/data/predictions-2026";
+import { PmuCTA } from "../components/PmuCTA";
+import { buildBracketData } from "./_components/bracket-data";
 import { DesktopBracket, MobileBracket } from "./_components/BracketView";
 import { ProbabilitiesTable } from "./_components/ProbabilitiesTable";
-export const revalidate = 3600;
+export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Tableau final CDM 2026 | Bracket et phase a elimination directe",
+  title: "Tableau pronostic CDM 2026 | Projection bracket et favoris",
   description:
-    "Tableau final de la Coupe du Monde 2026 : bracket complet des 32e, 16e, quarts, demis et finale. Pronostics et équipes favorites pour chaque tour.",
+    "Projection du tableau final de la Coupe du Monde 2026 : 16es de finale, 8es de finale, quarts, demis et finale. Pronostics et equipes favorites pour chaque tour.",
   alternates: getStaticAlternates("bracket", "fr"),
   openGraph: {
-    title: "Tableau final - Coupe du Monde 2026",
-    description: "Visualisez le bracket complet de la phase a elimination directe du Mondial 2026.",
+    title: "Tableau pronostic - Coupe du Monde 2026",
+    description: "Visualisez une projection du bracket de la phase a elimination directe du Mondial 2026.",
   },
 };
 
-export default function BracketPage() {
+export default async function BracketPage() {
+  const sourceMatches = await enrichMatchesWithResults(matches, {});
+  const bracketData = buildBracketData(sourceMatches);
+  const { champion } = bracketData;
+  const championTeam = champion ? teamsById[champion] : undefined;
+  const championOdds = champion
+    ? top10Favorites.find((fav) => fav.teamId === champion)?.pmuSport
+    : undefined;
+
   const faqItems = [
     {
       question: "Comment fonctionne le tableau final de la Coupe du Monde 2026 ?",
-      answer: "Le tableau final (bracket) de la CDM 2026 commence après la phase de groupes avec 32 équipes qualifiées (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes). La phase à élimination directe comprend : 32e de finale (16 matchs), 16e de finale (8 matchs), quarts de finale (4 matchs), demi-finales (2 matchs), petite finale (match pour la 3e place) et grande finale. Chaque match à élimination directe se joue en un seul match ; en cas d'égalité après 90 minutes, il y a prolongation (2×15 min) puis tirs au but si nécessaire."
+      answer: "Le tableau final (bracket) de la CDM 2026 commence après la phase de groupes avec 32 équipes qualifiées (les 2 premiers de chaque groupe + les 8 meilleurs troisièmes). La phase à élimination directe comprend : 16es de finale (16 matchs), 8es de finale (8 matchs), quarts de finale (4 matchs), demi-finales (2 matchs), petite finale (match pour la 3e place) et grande finale. Chaque match à élimination directe se joue en un seul match ; en cas d'égalité après 90 minutes, il y a prolongation (2×15 min) puis tirs au but si nécessaire."
     },
     {
-      question: "Quand commencent les huitièmes de finale de la CDM 2026 ?",
-      answer: "Les 32e de finale (équivalent des huitièmes de finale dans l'ancien format à 32 équipes) débutent le 28 juin 2026, soit le lendemain de la fin de la phase de groupes. Les 16 matchs des 32e se déroulent du 28 juin au 2 juillet. Les 16e de finale ont lieu du 4 au 7 juillet, les quarts du 9 au 11 juillet, les demi-finales les 14-15 juillet, la petite finale le 18 juillet et la grande finale le 19 juillet 2026 au MetLife Stadium de New York."
+      question: "Quand commencent les 16es de finale de la CDM 2026 ?",
+      answer: "Les 16es de finale débutent le 28 juin 2026, soit le lendemain de la fin de la phase de groupes. Les 16 matchs de ce premier tour à élimination directe se déroulent du 28 juin au 4 juillet. Les 8es de finale ont lieu du 4 au 7 juillet, les quarts du 9 au 12 juillet, les demi-finales les 14-15 juillet, la petite finale le 18 juillet et la grande finale le 19 juillet 2026 au MetLife Stadium de New York."
     },
     {
       question: "Quel est le favori pour remporter la CDM 2026 selon le bracket ?",
@@ -49,10 +62,11 @@ export default function BracketPage() {
 {/* Hero */}
       <section className="hero-animated text-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-extrabold sm:text-4xl">Tableau final CDM 2026</h1>
+          <h1 className="text-2xl font-extrabold sm:text-4xl">Tableau pronostic CDM 2026</h1>
           <p className="mt-2 text-gray-300 max-w-2xl">
-            Bracket complet de la phase a elimination directe : 32e de finale, 16e de finale,
-            quarts de finale, demi-finales et finale. Pronostics bases sur les classements ELO.
+            Projection de la phase a elimination directe : 16es de finale, 8es de finale,
+            quarts de finale, demi-finales et finale. Pronostics bases sur les classements ELO,
+            avec liens vers les cotes vainqueur et la phase finale officielle.
           </p>
         </div>
       </section>
@@ -70,8 +84,97 @@ export default function BracketPage() {
           </section>
         )}
 
-        <DesktopBracket />
-        <MobileBracket />
+        {/* CTA cotes champion — la projection convertit en decision de pari */}
+        {championTeam && (
+          <PmuCTA
+            tracking={{ pageType: "tableau", slug: championTeam.slug, placement: "champion" }}
+            heading={
+              championOdds
+                ? `${championTeam.name} champion : cote ${championOdds.toFixed(2)} chez PMU Play`
+                : `Pariez sur ${championTeam.name} champion avec PMU Play`
+            }
+            subheading="1er pari remboursé en cash | Cotes vainqueur CDM 2026"
+          />
+        )}
+
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Link
+            href="/phase-finale"
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Officiel</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Phase finale et resultats</p>
+            <p className="mt-1 text-xs text-gray-500">Vrais matchs, scores et horaires</p>
+          </Link>
+          <Link
+            href="/pronostic/vainqueur"
+            className="rounded-xl border border-accent/30 bg-accent/5 p-4 transition-all hover:border-accent hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-accent">Vainqueur final</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Pronostic champion CDM 2026</p>
+            <p className="mt-1 text-xs text-gray-500">Favoris, outsiders et value bets</p>
+          </Link>
+          {champion && teamsById[champion] && (
+            <Link
+              href={`/cote-champion/${teamsById[champion]!.slug}`}
+              className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+            >
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">Cote favorite</p>
+              <p className="mt-1 text-sm font-bold text-gray-900">Cote {teamsById[champion]!.name} championne</p>
+              <p className="mt-1 text-xs text-gray-500">Analyse de la cote et du parcours</p>
+            </Link>
+          )}
+          <Link
+            href="/comparateur-cotes"
+            className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary/30 hover:shadow-md"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Comparer</p>
+            <p className="mt-1 text-sm font-bold text-gray-900">Comparateur de cotes</p>
+            <p className="mt-1 text-xs text-gray-500">Voir les marchés clés du Mondial</p>
+          </Link>
+        </section>
+
+        <section className="rounded-xl border border-primary/15 bg-primary/5 p-5 sm:p-6">
+          <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">
+                Tableau et cotes Coupe du Monde 2026
+              </p>
+              <h2 className="mt-1 text-xl font-bold text-gray-900 sm:text-2xl">
+                Lire le bracket avec les favoris du marche
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                Le tableau pronostic aide a visualiser les parcours possibles.
+                Pour convertir cette projection en decision de pari, comparez les
+                cotes vainqueur, les probabilites et le calendrier officiel des
+                matchs de phase finale.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2 lg:justify-end">
+              <Link
+                href="/cote-champion/france"
+                className="rounded-full border border-primary/20 bg-white px-3 py-2 text-xs font-semibold text-primary hover:border-primary hover:bg-primary hover:text-white"
+              >
+                Cote France
+              </Link>
+              <Link
+                href="/cote-champion/portugal"
+                className="rounded-full border border-primary/20 bg-white px-3 py-2 text-xs font-semibold text-primary hover:border-primary hover:bg-primary hover:text-white"
+              >
+                Cote Portugal
+              </Link>
+              <Link
+                href="/pronostic/vainqueur"
+                className="rounded-full border border-primary/20 bg-white px-3 py-2 text-xs font-semibold text-primary hover:border-primary hover:bg-primary hover:text-white"
+              >
+                Pronostic vainqueur
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <DesktopBracket data={bracketData} />
+        <MobileBracket data={bracketData} />
         <ProbabilitiesTable />
 
         {/* SEO text removed — covered by FAQ section below */}

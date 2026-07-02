@@ -1,4 +1,4 @@
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 
 interface BookmakerOdds {
   name: string;
@@ -45,7 +45,12 @@ export function OddsTable({ odds, homeName, awayName, realOdds, matchSlug }: Odd
   const bestDraw = findBest(allDraw);
   const bestAway = findBest(allAway);
 
-  const pmuUrl = pmuTrackingUrl(matchSlug);
+  const pmuTracking = {
+    pageType: "pronostic-match",
+    slug: matchSlug,
+    placement: "odds-table",
+  };
+  const pmuUrl = pmuTrackingUrl(pmuTracking);
 
   return (
     <section className="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
@@ -101,6 +106,7 @@ export function OddsTable({ odds, homeName, awayName, realOdds, matchSlug }: Odd
           href={pmuUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
+          {...affiliateLinkAttributes(pmuTracking)}
           className="flex items-center justify-center gap-2 w-full rounded-xl bg-accent py-3 text-sm font-bold text-white hover:bg-accent/80 transition-colors"
         >
           Parier sur PMU Sport — 100€ offerts

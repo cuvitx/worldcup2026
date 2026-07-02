@@ -61,6 +61,13 @@ export async function generateFullMatchPreview(
   language: "fr" | "en" | "es",
   options?: { includeExpert?: boolean }
 ): Promise<MatchPreviewData> {
+  if (
+    process.env.NEXT_PHASE === "phase-production-build" ||
+    process.env.CDM_DISABLE_EXTERNAL_ENRICHMENT === "1"
+  ) {
+    return emptyPreview();
+  }
+
   const match = matchesBySlug[matchSlug];
   if (!match) return emptyPreview();
 

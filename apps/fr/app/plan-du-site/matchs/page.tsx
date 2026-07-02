@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { matches } from "@repo/data/matches";
-import { teams } from "@repo/data/teams";
+import { getResolvedCalendarMatches } from "../../../lib/calendar-match-resolution";
 
-export const revalidate = 86400;
+export const revalidate = 300;
 
 export function generateMetadata(): Metadata {
   return {
@@ -21,8 +20,8 @@ export function generateMetadata(): Metadata {
 
 const stageLabels: Record<string, string> = {
   group: "Phase de groupes",
-  "round-of-32": "32es de finale",
-  "round-of-16": "16es de finale",
+  "round-of-32": "16es de finale",
+  "round-of-16": "8es de finale",
   "quarter-final": "Quarts de finale",
   "semi-final": "Demi-finales",
   "third-place": "Match pour la 3e place",
@@ -31,20 +30,17 @@ const stageLabels: Record<string, string> = {
 
 const stageOrder = ["group", "round-of-32", "round-of-16", "quarter-final", "semi-final", "third-place", "final"];
 
-const teamsById = Object.fromEntries(teams.map((t) => [t.id, t]));
-
-function getMatchLabel(m: { homeTeamId: string; awayTeamId: string }) {
-  const home = teamsById[m.homeTeamId]?.name ?? m.homeTeamId;
-  const away = teamsById[m.awayTeamId]?.name ?? m.awayTeamId;
-  return `${home} - ${away}`;
+function getMatchLabel(m: { homeName?: string; awayName?: string }) {
+  return `${m.homeName ?? "À déterminer"} - ${m.awayName ?? "À déterminer"}`;
 }
 
-export default function PlanDuSiteMatchsPage() {
+export default async function PlanDuSiteMatchsPage() {
+  const resolvedMatches = await getResolvedCalendarMatches();
   const matchesByStage = stageOrder
     .map((stage) => ({
       stage,
       label: stageLabels[stage] ?? stage,
-      matches: matches.filter((m) => m.stage === stage),
+      matches: resolvedMatches.filter((m) => m.stage === stage),
     }))
     .filter((g) => g.matches.length > 0);
 

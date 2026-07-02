@@ -1,5 +1,22 @@
 import { getFixturesByDate } from "@repo/api/football";
 
+function isRecentFixtureDate(date: string): boolean {
+  const requested = Date.parse(`${date}T12:00:00Z`);
+  if (Number.isNaN(requested)) return false;
+
+  const now = new Date();
+  const todayNoonUtc = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    12,
+    0,
+    0,
+  );
+
+  return Math.abs(requested - todayNoonUtc) / 3_600_000 <= 36;
+}
+
 /**
  * GET /api/fixtures?date=2026-06-11
  * Returns fixtures for a given date (finished, live, or upcoming).
@@ -15,10 +32,13 @@ export async function GET(request: Request) {
 
   try {
     const fixtures = await getFixturesByDate(date);
+    const cacheControl = isRecentFixtureDate(date)
+      ? "s-maxage=30, stale-while-revalidate=10"
+      : "s-maxage=300, stale-while-revalidate=60";
 
     return Response.json(fixtures, {
       headers: {
-        "Cache-Control": "s-maxage=300, stale-while-revalidate=60",
+        "Cache-Control": cacheControl,
       },
     });
   } catch {

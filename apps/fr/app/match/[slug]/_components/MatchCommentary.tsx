@@ -43,15 +43,97 @@ const TYPE_BG: Record<CommentaryPlay["type"], string> = {
   other: "bg-white border-gray-100",
 };
 
+const TEAM_NAME_TRANSLATIONS: Record<string, string> = {
+  Algeria: "Algérie",
+  Argentina: "Argentine",
+  Australia: "Australie",
+  Austria: "Autriche",
+  Belgium: "Belgique",
+  "Bosnia and Herzegovina": "Bosnie-Herzégovine",
+  Brazil: "Brésil",
+  Canada: "Canada",
+  "Cape Verde": "Cap-Vert",
+  Colombia: "Colombie",
+  "Congo DR": "RD Congo",
+  Croatia: "Croatie",
+  Curacao: "Curaçao",
+  Czechia: "Tchéquie",
+  Ecuador: "Équateur",
+  Egypt: "Égypte",
+  England: "Angleterre",
+  France: "France",
+  Germany: "Allemagne",
+  Ghana: "Ghana",
+  Haiti: "Haïti",
+  Iran: "Iran",
+  Iraq: "Irak",
+  "Ivory Coast": "Côte d’Ivoire",
+  Japan: "Japon",
+  Jordan: "Jordanie",
+  "Korea Republic": "Corée du Sud",
+  Mexico: "Mexique",
+  Morocco: "Maroc",
+  Netherlands: "Pays-Bas",
+  "New Zealand": "Nouvelle-Zélande",
+  Norway: "Norvège",
+  Panama: "Panama",
+  Paraguay: "Paraguay",
+  Portugal: "Portugal",
+  Qatar: "Qatar",
+  "Saudi Arabia": "Arabie saoudite",
+  Scotland: "Écosse",
+  Senegal: "Sénégal",
+  "South Africa": "Afrique du Sud",
+  Spain: "Espagne",
+  Sweden: "Suède",
+  Switzerland: "Suisse",
+  Tunisia: "Tunisie",
+  Turkey: "Turquie",
+  "United States": "États-Unis",
+  Uruguay: "Uruguay",
+  USA: "États-Unis",
+  Uzbekistan: "Ouzbékistan",
+};
+
+const PLAIN_TEAM_TRANSLATIONS = Object.entries(TEAM_NAME_TRANSLATIONS)
+  .filter(([englishName, frenchName]) => englishName !== frenchName)
+  .sort(([a], [b]) => b.length - a.length);
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function translatePlainTeamReferences(text: string): string {
+  return PLAIN_TEAM_TRANSLATIONS.reduce((translatedText, [englishName, frenchName]) => {
+    const teamPattern = new RegExp(
+      `\\b${escapeRegExp(englishName)}\\b(?=\\s+\\d|[.,:;!?)]|\\s*$)`,
+      "g",
+    );
+    return translatedText.replace(teamPattern, frenchName);
+  }, text);
+}
+
+function translateTeamReferences(text: string): string {
+  const translatedParentheticalTeams = text.replace(/\(([^)]+)\)/g, (match, teamName: string) => {
+    const translatedTeamName = TEAM_NAME_TRANSLATIONS[teamName.trim()];
+    return translatedTeamName ? `(${translatedTeamName})` : match;
+  });
+
+  return translatePlainTeamReferences(translatedParentheticalTeams);
+}
+
 // Translate common English terms in ESPN commentary to French
 function translateCommentary(text: string): string {
-  return text
+  const translated = text
     // Sentence starters
     .replace(/^Goal!/g, "But !")
     .replace(/^Goal -/g, "But -")
     .replace(/^Attempt saved\./g, "Tir arrêté.")
     .replace(/^Attempt missed\./g, "Tir non cadré.")
     .replace(/^Attempt blocked\./g, "Tir bloqué.")
+    .replace(/^(.+?) Shot Off Target at ([0-9+']+)$/g, "Tir non cadré de $1 à $2.")
+    .replace(/^(.+?) Shot On Target at ([0-9+']+)$/g, "Tir cadré de $1 à $2.")
+    .replace(/^(.+?) Shot Blocked at ([0-9+']+)$/g, "Tir bloqué de $1 à $2.")
     .replace(/^Corner,/g, "Corner,")
     .replace(/^Foul by/g, "Faute de")
     .replace(/^Offside,/g, "Hors-jeu,")
@@ -86,6 +168,8 @@ function translateCommentary(text: string): string {
     .replace(/from the right side of the six yard box/g, "du côté droit des six mètres")
     .replace(/from the left side of the six yard box/g, "du côté gauche des six mètres")
     .replace(/from the centre of the six yard box/g, "du centre des six mètres")
+    .replace(/from a difficult angle on the left/g, "d'un angle fermé côté gauche")
+    .replace(/from a difficult angle on the right/g, "d'un angle fermé côté droit")
     .replace(/close range/g, "courte distance")
     .replace(/long range/g, "longue distance")
     // Shot destination — to X
@@ -104,8 +188,16 @@ function translateCommentary(text: string): string {
     .replace(/is saved in the bottom right corner/g, "est arrêté dans le coin inférieur droit")
     .replace(/is saved in the top left corner/g, "est arrêté dans le coin supérieur gauche")
     .replace(/is saved in the top right corner/g, "est arrêté dans le coin supérieur droit")
+    .replace(/is saved in the top centre of the goal/g, "est arrêté en haut au centre du but")
+    .replace(/is saved in the top center of the goal/g, "est arrêté en haut au centre du but")
     .replace(/is saved in the centre of the goal/g, "est arrêté au centre du but")
+    .replace(/top centre of the goal/g, "haut du centre du but")
+    .replace(/top center of the goal/g, "haut du centre du but")
     .replace(/is saved in the/g, "est arrêté dans le")
+    .replace(/is close, but misses to the right/g, "passe proche du but, mais à droite")
+    .replace(/is close, but misses to the left/g, "passe proche du but, mais à gauche")
+    .replace(/is close, but misses the top right corner/g, "passe proche du but, mais au-dessus à droite")
+    .replace(/is close, but misses the top left corner/g, "passe proche du but, mais au-dessus à gauche")
     .replace(/is close, but misses/g, "passe proche, mais manque")
     .replace(/misses to the right/g, "manque à droite")
     .replace(/misses to the left/g, "manque à gauche")
@@ -113,10 +205,15 @@ function translateCommentary(text: string): string {
     .replace(/hits the (?:left |right )?post/g, "frappe le poteau")
     .replace(/hits the bar/g, "frappe la barre")
     .replace(/is blocked/g, "est contré")
+    .replace(/is high and wide to the right/g, "passe nettement au-dessus à droite")
+    .replace(/is high and wide to the left/g, "passe nettement au-dessus à gauche")
+    .replace(/is high and wide/g, "passe nettement au-dessus")
+    .replace(/is just a bit too high/g, "passe de peu au-dessus")
     .replace(/is too high/g, "passe au-dessus")
     // Assists
     .replace(/Assisted by/g, "Passe décisive de")
     .replace(/The assist was provided by/g, "La passe décisive vient de")
+    .replace(/ by ([A-ZÀ-ÖØ-Ý][^.]+)\./g, " par $1.")
     .replace(/with a through ball/g, "avec une passe en profondeur")
     .replace(/with a cross/g, "avec un centre")
     .replace(/with a cross following a corner/g, "avec un centre après un corner")
@@ -162,6 +259,8 @@ function translateCommentary(text: string): string {
     .replace(/a possible penalty/g, "un possible penalty")
     .replace(/the goal scored by/g, "le but marqué par")
     .replace(/the penalty awarded to/g, "le penalty accordé à");
+
+  return translateTeamReferences(translated);
 }
 
 export function MatchCommentary({

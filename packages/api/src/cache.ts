@@ -16,7 +16,7 @@ interface CacheEntry<T> {
 
 /** Cache TTLs in seconds by data type */
 export const CACHE_TTL = {
-  LIVE_SCORES: 60,
+  LIVE_SCORES: 30,
   ODDS: 300,
   WEATHER: 3600,
   TEAM_STATS: 86400,
@@ -108,7 +108,8 @@ const inflight = new Map<string, Promise<unknown>>();
 
 /** Fetch with cache — wraps any async getter with caching.
  *  Deduplicates concurrent calls for the same key (single-flight).
- *  Caches empty arrays with a short TTL (60s) to avoid hammering on transient failures. */
+ *  Caches empty arrays with a short TTL (60s) to avoid hammering on
+ *  transient failures or legitimate "no data yet" API responses. */
 export async function cachedFetch<T>(
   key: string,
   ttlSeconds: number,
@@ -125,10 +126,8 @@ export async function cachedFetch<T>(
     try {
       const data = await fetcher();
 
-      // Don't cache empty arrays — they usually indicate a transient error
-      // (rate limit, API timeout). The in-flight dedup prevents concurrent
-      // hammering, and the next call will retry after the current one completes.
       if (Array.isArray(data) && data.length === 0) {
+        await cacheSet(key, data, Math.min(ttlSeconds, 60));
         return data;
       }
 

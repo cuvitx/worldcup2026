@@ -1,7 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { matches, matchesBySlug } from "@repo/data/matches";
+import {
+  needsKnockoutTeamResolution,
+  resolveMatchTeams,
+} from "../../lib/knockout-match-teams";
 
 /**
  * AutoBreadcrumb — Generates breadcrumbs automatically from the URL pathname.
@@ -221,6 +227,26 @@ function slugToLabel(slug: string): string {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+const MATCH_STAGE_LABELS: Record<string, string> = {
+  "round-of-32": "16es de finale",
+  "round-of-16": "8es de finale",
+  "quarter-final": "Quart de finale",
+  "semi-final": "Demi-finale",
+  final: "Finale",
+  "third-place": "Match pour la 3e place",
+};
+
+function matchSlugToLabel(slug: string): string {
+  const match = matchesBySlug[slug];
+  if (!match) return slugToLabel(slug);
+  if (needsKnockoutTeamResolution(match)) {
+    return MATCH_STAGE_LABELS[match.stage] ?? "Match de phase finale";
+  }
+
+  const { homeName, awayName } = resolveMatchTeams(match, matches);
+  return `${homeName} vs ${awayName}`;
+}
+
 /* ── Routes where the slug IS the entity and the prefix is an "aspect" ──
    For /effectif/france → Accueil / France / Effectif (not Accueil / Équipes / Effectif / France)
    The slug links to the entity page (/equipe/slug), the prefix becomes the current label */
@@ -253,12 +279,60 @@ const ENTITY_ASPECT_ROUTES: Record<string, { entityPrefix: string; entityHub: st
   "matchs-au-stade": { entityPrefix: "stade", entityHub: "/stades", aspectLabel: "Matchs" },
 };
 
+function getRuntimeMatchSlug(segments: string[]) {
+  const firstSeg = segments[0];
+  const slug = segments[1];
+  if (!firstSeg || !slug) return null;
+  if (firstSeg === "match" && slug !== "aujourdhui" && slug !== "calendrier") {
+    return slug;
+  }
+  if (
+    segments.length === 2 &&
+    ENTITY_ASPECT_ROUTES[firstSeg]?.entityPrefix === "match"
+  ) {
+    return slug;
+  }
+  return null;
+}
+
 export function AutoBreadcrumb() {
   const pathname = usePathname();
+  const segments = pathname.replace(/\/$/, "").split("/").filter(Boolean);
+  const runtimeMatchSlug = getRuntimeMatchSlug(segments);
+  const [runtimeMatchLabel, setRuntimeMatchLabel] = useState<string | null>(null);
+
+  useEffect(() => {
+    const match = runtimeMatchSlug ? matchesBySlug[runtimeMatchSlug] : undefined;
+    if (!runtimeMatchSlug || !match || !needsKnockoutTeamResolution(match)) {
+      setRuntimeMatchLabel(null);
+      return;
+    }
+
+    let active = true;
+    setRuntimeMatchLabel(null);
+    fetch(`/api/match-label/${runtimeMatchSlug}`)
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data: { label?: string } | null) => {
+        if (active && data?.label) setRuntimeMatchLabel(data.label);
+      })
+      .catch(() => {
+        if (active) setRuntimeMatchLabel(null);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [runtimeMatchSlug]);
+
+  const getMatchLabel = (value: string) =>
+    value === runtimeMatchSlug && runtimeMatchLabel
+      ? runtimeMatchLabel
+      : matchSlugToLabel(value);
+
+  const getEntityLabel = (entityPrefix: string, value: string) =>
+    entityPrefix === "match" ? getMatchLabel(value) : slugToLabel(value);
 
   if (NO_BREADCRUMB.has(pathname)) return null;
-
-  const segments = pathname.replace(/\/$/, "").split("/").filter(Boolean);
   if (segments.length === 0) return null;
 
   // Build breadcrumb items
@@ -272,7 +346,10 @@ export function AutoBreadcrumb() {
   // Pattern 1: Entity-aspect routes (/effectif/france → Accueil / France / Effectif)
   if (segments.length === 2 && slug && ENTITY_ASPECT_ROUTES[firstSeg]) {
     const aspect = ENTITY_ASPECT_ROUTES[firstSeg];
-    items.push({ label: slugToLabel(slug), href: `/${aspect.entityPrefix}/${slug}` });
+    items.push({
+      label: getEntityLabel(aspect.entityPrefix, slug),
+      href: `/${aspect.entityPrefix}/${slug}`,
+    });
     items.push({ label: aspect.aspectLabel });
   }
   // Pattern 2: Nested silo routes (/paris-sportifs/corners → Accueil / Paris sportifs / Corners)
@@ -283,10 +360,11 @@ export function AutoBreadcrumb() {
     for (let i = 1; i < segments.length; i++) {
       const seg = segments[i]!;
       const isLast = i === segments.length - 1;
+      const label = firstSeg === "match" && i === 1 ? getMatchLabel(seg) : slugToLabel(seg);
       if (isLast) {
-        items.push({ label: slugToLabel(seg) });
+        items.push({ label });
       } else {
-        items.push({ label: slugToLabel(seg), href: "/" + segments.slice(0, i + 1).join("/") });
+        items.push({ label, href: "/" + segments.slice(0, i + 1).join("/") });
       }
     }
   }

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles, getMdxSlugs } from "../../../lib/mdx";
+import { getArticleBySlug, getRelatedArticles } from "../../../lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "../../../lib/mdx-components";
 import { newsArticles } from "@repo/data/news";
 import { PmuCTA } from "../../components/PmuCTA";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const categoryColors: Record<string, string> = {
   analyse: "bg-blue-100 text-blue-800",
   guide: "bg-accent/10 text-accent",
@@ -28,21 +32,6 @@ function formatDate(dateStr: string) {
     month: "long",
     year: "numeric",
   });
-}
-
-export function generateStaticParams() {
-  const mdxSlugs = getMdxSlugs().map((slug) => ({ slug }));
-  const newsSlugs = newsArticles.map((a) => ({ slug: a.slug }));
-  // Dedupe
-  const seen = new Set(mdxSlugs.map((s) => s.slug));
-  const combined = [...mdxSlugs];
-  for (const s of newsSlugs) {
-    if (!seen.has(s.slug)) {
-      combined.push(s);
-      seen.add(s.slug);
-    }
-  }
-  return combined;
 }
 
 function getNewsArticle(slug: string) {
@@ -68,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: news.title,
       description: news.excerpt,
-      alternates: { canonical: `https://www.cdm2026.fr/actualites/${slug}` },
+      robots: { index: false, follow: true },
       openGraph: { title: news.title, description: news.excerpt, type: "article", publishedTime: news.date },
     };
   }
@@ -184,7 +173,7 @@ export default async function ArticlePage({ params }: Props) {
 
         {/* PMU CTA */}
         <div className="py-6 sm:py-8">
-          <PmuCTA tracking="article" />
+          <PmuCTA tracking={{ pageType: "article", slug, placement: "cta" }} />
         </div>
 
         {/* Newsletter CTA */}

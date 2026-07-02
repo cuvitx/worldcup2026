@@ -10,10 +10,10 @@ interface MatchContextBarProps {
 
 const stageLabels: Record<string, string> = {
   group: "Phase de groupes",
-  "round-of-32": "32es de finale",
-  "round-of-16": "16es de finale",
-  "quarter-final": "Quart de finale",
-  "semi-final": "Demi-finale",
+  "round-of-32": "16es de finale",
+  "round-of-16": "8es de finale",
+  "quarter-final": "Quarts de finale",
+  "semi-final": "Demi-finales",
   "third-place": "3e place",
   final: "Finale",
 };

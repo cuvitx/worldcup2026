@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Calendar, Radio } from "lucide-react";
+import { Calendar, Radio, Trophy } from "lucide-react";
 import { megaMenus, type MenuKey, type MenuLink } from "./NavLinks";
 
 interface MobileMenuProps {
@@ -24,10 +24,38 @@ function LinkIcon({ link }: { link: MenuLink }) {
 export function MobileMenu({ onClose }: MobileMenuProps) {
   const [expanded, setExpanded] = useState<MenuKey | null>(null);
   const pathname = usePathname();
+  const knockoutPaths = [
+    "/phase-finale",
+    "/16emes-de-finale",
+    "/8emes-de-finale",
+    "/quarts-de-finale",
+    "/demi-finales",
+    "/finale",
+  ];
+  const isKnockoutPath = knockoutPaths.some((path) => pathname === path);
 
   return (
     <div className="md:hidden border-t border-gray-200 animate-[slideDown_200ms_ease-out] bg-white">
       <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
+        <Link
+          href="/phase-finale"
+          className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-gray-100 transition-colors ${
+            isKnockoutPath ? "text-accent" : "text-gray-900"
+          }`}
+          onClick={onClose}
+        >
+          <Trophy className="h-4 w-4 text-gray-400" />
+          Phase finale
+        </Link>
+        <Link
+          href="/match/calendrier"
+          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"
+          onClick={onClose}
+        >
+          <Calendar className="h-4 w-4 text-gray-400" />
+          Calendrier des matchs
+        </Link>
+
         {(Object.entries(megaMenus) as [MenuKey, (typeof megaMenus)[MenuKey]][]).map(([key, menu]) => {
           const MenuIcon = menu.icon;
           return (
@@ -84,14 +112,6 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
           );
         })}
 
-        <Link
-          href="/match/calendrier"
-          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"
-          onClick={onClose}
-        >
-          <Calendar className="h-4 w-4 text-gray-400" />
-          Calendrier des matchs
-        </Link>
         <Link
           href="/live"
           className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"

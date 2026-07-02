@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import {
+  affiliateLinkAttributes,
+  getAffiliateTrackingData,
+  pmuTrackingUrl,
+  type AffiliateTracking,
+} from "@repo/data/affiliates";
 import { GaTrackingPixel } from "./GaTrackingPixel";
 
 interface MatchBettingCardProps {
@@ -10,7 +15,7 @@ interface MatchBettingCardProps {
   homeOdds?: string;
   drawOdds?: string;
   awayOdds?: string;
-  tracking?: string;
+  tracking?: AffiliateTracking;
   /** When set, shows a "Nächstes Spiel" label linking to this match page */
   nextMatchSlug?: string;
 }
@@ -31,7 +36,17 @@ export function MatchBettingCard({
   nextMatchSlug,
 }: MatchBettingCardProps) {
   const hasOdds = homeOdds && drawOdds && awayOdds;
-  const url = pmuTrackingUrl(tracking);
+  const trackingData = getAffiliateTrackingData(tracking);
+  const bonusUrl = pmuTrackingUrl(trackingData, "bonus-bar");
+  const ctaUrl = pmuTrackingUrl(trackingData, "main-cta");
+  const homeOddsUrl = pmuTrackingUrl(trackingData, "odds-home");
+  const drawOddsUrl = pmuTrackingUrl(trackingData, "odds-draw");
+  const awayOddsUrl = pmuTrackingUrl(trackingData, "odds-away");
+  const bonusAttributes = affiliateLinkAttributes(trackingData, "bonus-bar");
+  const ctaAttributes = affiliateLinkAttributes(trackingData, "main-cta");
+  const homeOddsAttributes = affiliateLinkAttributes(trackingData, "odds-home");
+  const drawOddsAttributes = affiliateLinkAttributes(trackingData, "odds-draw");
+  const awayOddsAttributes = affiliateLinkAttributes(trackingData, "odds-away");
 
   let favorite: "home" | "draw" | "away" | null = null;
   if (hasOdds) {
@@ -49,7 +64,7 @@ export function MatchBettingCard({
       className="relative overflow-hidden rounded-2xl border border-[#d4af37]/25 text-white shadow-xl max-w-full"
       style={{ background: "linear-gradient(135deg, #041511 0%, #0c3b2e 40%, #1a6e4f 100%)" }}
     >
-      <GaTrackingPixel variant="728x90" tracking={tracking} />
+      <GaTrackingPixel variant="728x90" tracking={trackingData.affVar} />
       {/* Background glow */}
       <div
         aria-hidden="true"
@@ -87,9 +102,10 @@ export function MatchBettingCard({
 
         {/* Bonus banner — full-width gold bar with shine animation */}
         <a
-          href={url}
+          href={bonusUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
+          {...bonusAttributes}
           className="group relative flex items-center justify-between gap-3 overflow-hidden px-5 py-3 text-[#0c3b2e] transition hover:brightness-110 sm:px-6"
           style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
         >
@@ -127,21 +143,24 @@ export function MatchBettingCard({
                 team={`${homeFlag} ${homeName}`}
                 odds={homeOdds}
                 isFavorite={favorite === "home"}
-                href={url}
+                href={homeOddsUrl}
+                trackingAttributes={homeOddsAttributes}
               />
               <OddsBox
                 label="Unentschieden"
                 team="Remis"
                 odds={drawOdds}
                 isFavorite={favorite === "draw"}
-                href={url}
+                href={drawOddsUrl}
+                trackingAttributes={drawOddsAttributes}
               />
               <OddsBox
                 label="Sieg"
                 team={`${awayFlag} ${awayName}`}
                 odds={awayOdds}
                 isFavorite={favorite === "away"}
-                href={url}
+                href={awayOddsUrl}
+                trackingAttributes={awayOddsAttributes}
               />
             </div>
           </div>
@@ -150,9 +169,10 @@ export function MatchBettingCard({
         {/* Big CTA button with shine */}
         <div className="relative p-4">
           <a
-            href={url}
+            href={ctaUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...ctaAttributes}
             className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl px-4 py-3 text-sm font-black uppercase tracking-wider text-[#0c3b2e] shadow-lg transition hover:shadow-[#d4af37]/30"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
@@ -187,18 +207,21 @@ function OddsBox({
   odds,
   isFavorite,
   href,
+  trackingAttributes,
 }: {
   label: string;
   team: string;
   odds: string;
   isFavorite: boolean;
   href: string;
+  trackingAttributes: ReturnType<typeof affiliateLinkAttributes>;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer sponsored nofollow"
+      {...trackingAttributes}
       className={`group relative flex flex-1 flex-col items-center justify-center gap-0.5 rounded-xl border px-2 py-3 transition sm:py-3.5 ${
         isFavorite
           ? "border-[#d4af37] bg-[#d4af37]/[0.08] shadow-[0_0_0_1px_rgba(212,175,55,0.35),0_8px_24px_-12px_rgba(212,175,55,0.4)]"

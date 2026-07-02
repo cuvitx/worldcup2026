@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Trophy } from "lucide-react";
 import { LiveMatchWidget } from "@repo/ui/live-match-widget";
 import type { Team } from "@repo/data/types";
 import type { Stadium } from "@repo/data/types";
@@ -29,6 +30,58 @@ interface MatchHeroAdaptiveProps {
     awayTeamId: string;
   };
   dateFormatted: string;
+  penaltyShootout?: {
+    homeScore: number;
+    awayScore: number;
+    winnerName: string;
+  } | null;
+  wentToExtraTime?: boolean;
+}
+
+type ApiFixture = ReturnType<typeof useLiveData>["liveFixtures"][number];
+
+const LIVE_STATUS_ORDER: Record<string, number> = {
+  "1H": 1,
+  HT: 2,
+  "2H": 3,
+  BT: 4,
+  ET: 5,
+  P: 6,
+};
+
+function isLiveStatus(short: string): boolean {
+  return short in LIVE_STATUS_ORDER;
+}
+
+function hasScore(fixture: ApiFixture): boolean {
+  return fixture.goals.home !== null && fixture.goals.away !== null;
+}
+
+function isFresherFixture(candidate: ApiFixture, current: ApiFixture): boolean {
+  const candidateLive = isLiveStatus(candidate.fixture.status.short);
+  const currentLive = isLiveStatus(current.fixture.status.short);
+
+  if (candidateLive !== currentLive) return candidateLive;
+  if (candidateLive && currentLive) {
+    const candidateOrder = LIVE_STATUS_ORDER[candidate.fixture.status.short] ?? 0;
+    const currentOrder = LIVE_STATUS_ORDER[current.fixture.status.short] ?? 0;
+    if (candidateOrder !== currentOrder) return candidateOrder > currentOrder;
+
+    return (candidate.fixture.status.elapsed ?? -1) >= (current.fixture.status.elapsed ?? -1);
+  }
+
+  return hasScore(candidate) && !hasScore(current);
+}
+
+function mergeFreshFixtures(liveFixtures: ApiFixture[], todaysFixtures: ApiFixture[]): ApiFixture[] {
+  const byId = new Map<number, ApiFixture>();
+  for (const fixture of [...todaysFixtures, ...liveFixtures]) {
+    const current = byId.get(fixture.fixture.id);
+    if (!current || isFresherFixture(fixture, current)) {
+      byId.set(fixture.fixture.id, fixture);
+    }
+  }
+  return [...byId.values()];
 }
 
 export function MatchHeroAdaptive({
@@ -39,19 +92,12 @@ export function MatchHeroAdaptive({
   stage,
   match,
   dateFormatted,
+  penaltyShootout,
+  wentToExtraTime = false,
 }: MatchHeroAdaptiveProps) {
   const { liveFixtures, todaysFixtures } = useLiveData();
 
-  // Merge live + today's fixtures (dedup by fixture ID)
-  // Don't use ternary — it drops finished fixtures when any live fixture exists
-  const seenIds = new Set<number>();
-  const allFixtures: typeof liveFixtures = [];
-  for (const f of [...liveFixtures, ...todaysFixtures]) {
-    if (!seenIds.has(f.fixture.id)) {
-      seenIds.add(f.fixture.id);
-      allFixtures.push(f);
-    }
-  }
+  const allFixtures = mergeFreshFixtures(liveFixtures, todaysFixtures);
 
   // Client-side phase detection: override server matchPhase when stale ISR cache
   const [clientPhase, setClientPhase] = useState<MatchPhase>(matchPhase);
@@ -69,6 +115,21 @@ export function MatchHeroAdaptive({
   const isLive = clientPhase === "live";
   const isCompleted = clientPhase === "completed";
   const hasScore = match.homeScore != null && match.awayScore != null;
+  const completedWinnerName = hasScore
+    ? penaltyShootout?.winnerName ??
+      (match.homeScore! > match.awayScore!
+        ? home?.name
+        : match.awayScore! > match.homeScore!
+          ? away?.name
+          : null)
+    : null;
+  const homeWinner = Boolean(completedWinnerName && home?.name === completedWinnerName);
+  const awayWinner = Boolean(completedWinnerName && away?.name === completedWinnerName);
+  const completedVerdict = completedWinnerName
+    ? penaltyShootout
+      ? `${completedWinnerName} qualifié aux tirs au but`
+      : `${completedWinnerName} vainqueur`
+    : null;
 
   // Match with known score (from server enrichment) — show final result
   // Use hasScore alone so we don't wait for clientPhase to catch up
@@ -79,11 +140,23 @@ export function MatchHeroAdaptive({
           <p className="mb-2 text-sm text-secondary font-medium uppercase tracking-wide">
             {stage}{match.group ? ` - Groupe ${match.group}` : ""}
           </p>
-          <p className="mb-6 text-xs text-gray-400 uppercase tracking-wider">Terminé</p>
+          <p className="mb-6 text-xs text-gray-400 uppercase tracking-wider">
+            {penaltyShootout
+              ? "Terminé après prolongation"
+              : wentToExtraTime
+                ? "Terminé après prolongation"
+                : "Terminé"}
+          </p>
 
-          <div className="flex items-center justify-center gap-6 sm:gap-12 mb-6">
+          <div className="flex items-stretch justify-center gap-4 sm:gap-8 mb-6">
             {/* Home */}
-            <div className="flex flex-col items-center gap-2 min-w-0 flex-1 max-w-[180px]">
+            <div
+              className={`flex min-w-0 max-w-[190px] flex-1 flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-4 transition-colors ${
+                homeWinner
+                  ? "border-emerald-300/60 bg-emerald-400/15 shadow-lg shadow-emerald-950/20"
+                  : "border-white/10 bg-white/5"
+              }`}
+            >
               <span className="text-4xl sm:text-6xl">{home?.flag ?? ""}</span>
               {home ? (
                 <Link href={`/equipe/${home.slug}`} className="text-base sm:text-xl font-extrabold hover:text-secondary transition-colors text-center leading-tight">
@@ -92,17 +165,29 @@ export function MatchHeroAdaptive({
               ) : (
                 <p className="text-base sm:text-xl font-extrabold">À déterminer</p>
               )}
+              {homeWinner && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white">
+                  <Trophy className="h-3.5 w-3.5" />
+                  Vainqueur
+                </span>
+              )}
             </div>
 
             {/* Score */}
-            <div className="flex items-center gap-3 sm:gap-5">
+            <div className="flex shrink-0 items-center gap-3 sm:gap-5">
               <span className="text-4xl sm:text-6xl font-black tabular-nums">{match.homeScore}</span>
               <span className="text-lg sm:text-2xl font-bold text-gray-400">-</span>
               <span className="text-4xl sm:text-6xl font-black tabular-nums">{match.awayScore}</span>
             </div>
 
             {/* Away */}
-            <div className="flex flex-col items-center gap-2 min-w-0 flex-1 max-w-[180px]">
+            <div
+              className={`flex min-w-0 max-w-[190px] flex-1 flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-4 transition-colors ${
+                awayWinner
+                  ? "border-emerald-300/60 bg-emerald-400/15 shadow-lg shadow-emerald-950/20"
+                  : "border-white/10 bg-white/5"
+              }`}
+            >
               <span className="text-4xl sm:text-6xl">{away?.flag ?? ""}</span>
               {away ? (
                 <Link href={`/equipe/${away.slug}`} className="text-base sm:text-xl font-extrabold hover:text-secondary transition-colors text-center leading-tight">
@@ -111,6 +196,12 @@ export function MatchHeroAdaptive({
               ) : (
                 <p className="text-base sm:text-xl font-extrabold">À déterminer</p>
               )}
+              {awayWinner && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white">
+                  <Trophy className="h-3.5 w-3.5" />
+                  Vainqueur
+                </span>
+              )}
             </div>
           </div>
 
@@ -118,6 +209,35 @@ export function MatchHeroAdaptive({
             <p className="text-sm text-gray-400 mt-1">
               MT : {match.halfTimeHome} - {match.halfTimeAway}
             </p>
+          )}
+
+          {completedVerdict && (
+            <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-emerald-300/50 bg-emerald-500/15 px-5 py-4 text-center shadow-xl shadow-emerald-950/20">
+              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-emerald-200">
+                Verdict
+              </p>
+              <p className="mt-1 text-lg font-black text-white sm:text-xl">
+                {completedVerdict}
+              </p>
+              {penaltyShootout ? (
+                <>
+                  <p className="mt-2 text-sm text-gray-200">
+                    Score : {match.homeScore} - {match.awayScore} après prolongation
+                  </p>
+                  <p className="mt-1 text-sm text-gray-200">
+                    Tirs au but :{" "}
+                    <span className="font-black text-white tabular-nums">
+                      {home?.name ?? "Équipe A"} {penaltyShootout.homeScore} -{" "}
+                      {penaltyShootout.awayScore} {away?.name ?? "Équipe B"}
+                    </span>
+                  </p>
+                </>
+              ) : (
+                <p className="mt-2 text-sm text-gray-200">
+                  Score final : {match.homeScore} - {match.awayScore}
+                </p>
+              )}
+            </div>
           )}
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-300 mt-4">

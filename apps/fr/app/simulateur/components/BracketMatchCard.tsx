@@ -14,11 +14,12 @@ export function BracketMatchCard({
 
   return (
     <div
-      className={`rounded-xl overflow-hidden border transition-all ${
+      data-simulator-match-id={match.id}
+      className={`group overflow-hidden rounded-xl border bg-white transition-all ${
         winner
-          ? "border-accent/30 shadow-sm"
-          : "border-gray-200"
-      } ${isFinal ? "shadow-lg shadow-primary/10 border-primary/30" : ""} bg-white`}
+          ? "border-accent/45 shadow-[0_10px_24px_rgba(0,191,111,0.14)]"
+          : "border-slate-200 shadow-[0_5px_16px_rgba(2,21,45,0.06)] hover:border-slate-300"
+      } ${isFinal ? "border-primary/50 shadow-[0_14px_34px_rgba(245,166,35,0.22)]" : ""}`}
     >
       <TeamSlot
         team={team1}
@@ -50,9 +51,9 @@ function TeamSlot({
 }) {
   if (!team) {
     return (
-      <div className="flex items-center gap-2 px-2.5 py-2 text-gray-500">
-        <span className="text-base opacity-40">⬜</span>
-        <span className="text-xs italic">À déterminer</span>
+      <div className="flex min-h-11 items-center gap-2.5 px-3 py-2.5 text-slate-500">
+        <span className="h-5 w-5 rounded bg-slate-100 ring-1 ring-slate-200" />
+        <span className="truncate text-xs italic">À déterminer</span>
       </div>
     );
   }
@@ -62,28 +63,36 @@ function TeamSlot({
       type="button"
       disabled={!canPick}
       onClick={onSelect}
-      className={`w-full flex items-center gap-2 px-2.5 py-2 text-left transition-all ${
+      className={`flex min-h-11 w-full items-center gap-2.5 px-3 py-2.5 text-left transition-all ${
         isWinner
-          ? "bg-accent/10 font-bold"
+          ? "bg-accent/10 font-bold text-accent"
           : canPick
-          ? "hover:bg-gray-50 cursor-pointer"
-          : "cursor-default opacity-60"
+          ? "cursor-pointer text-slate-900 hover:bg-slate-50"
+          : "cursor-default text-slate-700"
       }`}
     >
-      <span className="text-base leading-none shrink-0" role="img" aria-label={team.name}>
+      <span
+        className={`inline-flex h-7 w-8 shrink-0 items-center justify-center rounded-lg text-lg leading-none ring-1 ${
+          isWinner ? "bg-white ring-accent/30" : "bg-slate-50 ring-slate-200"
+        }`}
+        role="img"
+        aria-label={team.name}
+      >
         {team.flag}
       </span>
       <span
-        className={`text-xs truncate flex-1 ${
+        className={`min-w-0 flex-1 truncate text-[13px] leading-tight ${
           isWinner
             ? "text-accent"
-            : "text-gray-800"
+            : "text-slate-800"
         }`}
       >
         {team.name}
       </span>
       {isWinner && (
-        <span className="shrink-0 text-accent text-xs font-bold">✓</span>
+        <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-black text-white">
+          ✓
+        </span>
       )}
     </button>
   );

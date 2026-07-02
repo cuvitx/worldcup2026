@@ -61,37 +61,43 @@ function BracketScaler({ children }: { children: React.ReactNode }) {
 
 function RoundColumn({
   label,
-  matches,
+  items,
   round,
   onPick,
-  baseIndex,
   isFinal,
+  connectorSide = "right",
 }: {
   label: string;
-  matches: MatchData[];
+  items: Array<{ match: MatchData; index: number }>;
   round: RoundName;
   onPick: (round: RoundName, matchIndex: number, teamId: string) => void;
-  baseIndex: number;
   isFinal?: boolean;
+  connectorSide?: "left" | "right" | "none";
 }) {
   const colorClass = ROUND_COLORS[round];
 
   return (
-    <div className="flex flex-col items-center min-w-[130px] w-[130px] lg:min-w-[145px] lg:w-[145px] xl:min-w-[160px] xl:w-[160px] 2xl:min-w-[180px] 2xl:w-[180px]">
-      <div className={`text-[11px] font-bold uppercase tracking-wider mb-3 px-3 py-1.5 rounded-full text-white shadow-sm ${colorClass} ${round === "F" ? "text-gray-900" : ""}`}>
+    <div className="flex w-[168px] min-w-[168px] flex-col items-center xl:w-[184px] xl:min-w-[184px] 2xl:w-[200px] 2xl:min-w-[200px]">
+      <div className={`mb-4 rounded-full px-4 py-2 text-[11px] font-black uppercase tracking-wider text-white shadow-sm ring-1 ring-black/5 ${colorClass} ${round === "F" ? "text-gray-900" : ""}`}>
         {label}
       </div>
-      <div className={`flex flex-col flex-1 gap-2.5 w-full ${isFinal ? "justify-center" : "justify-around"}`}>
-        {matches.map((match, i) => (
+      <div className={`flex w-full flex-1 flex-col gap-4 ${isFinal ? "justify-center" : "justify-around"}`}>
+        {items.map(({ match, index }) => (
           <div key={match.id} className="relative">
             <BracketMatchCard
               match={match}
-              onSelect={(teamId) => onPick(round, baseIndex + i, teamId)}
+              onSelect={(teamId) => onPick(round, index, teamId)}
               isFinal={isFinal}
             />
-            {!isFinal && (
+            {connectorSide !== "none" && (
               <div
-                className="absolute right-0 top-1/2 w-3 border-t border-gray-300 translate-x-full opacity-50"
+                className={`absolute top-1/2 w-5 border-t-2 ${
+                  match.winner ? "border-accent/60" : "border-slate-300/70"
+                } ${
+                  connectorSide === "right"
+                    ? "right-0 translate-x-full"
+                    : "left-0 -translate-x-full"
+                }`}
                 style={{ marginTop: "-0.5px" }}
               />
             )}
@@ -100,6 +106,12 @@ function RoundColumn({
       </div>
     </div>
   );
+}
+
+function pickItems(matches: MatchData[], indexes: number[]) {
+  return indexes
+    .map((index) => ({ match: matches[index], index }))
+    .filter((item): item is { match: MatchData; index: number } => Boolean(item.match));
 }
 
 // ---------------------------------------------------------------------------
@@ -113,18 +125,21 @@ export function DesktopBracket({
   rounds: Record<RoundName, MatchData[]>;
   onPick: (round: RoundName, matchIndex: number, teamId: string) => void;
 }) {
+  const leftFirstRound = [0, 3, 2, 5, 1, 4, 6, 7];
+  const rightFirstRound = [11, 10, 9, 8, 14, 13, 12, 15];
+
   return (
     <BracketScaler>
-      <div className="inline-flex items-stretch justify-center gap-1 lg:gap-1.5 xl:gap-2 2xl:gap-3 min-h-[800px]">
-        <RoundColumn label={ROUND_LABELS.R32} matches={rounds.R32.slice(0, 8)} round="R32" onPick={onPick} baseIndex={0} />
-        <RoundColumn label={ROUND_LABELS.R16} matches={rounds.R16.slice(0, 4)} round="R16" onPick={onPick} baseIndex={0} />
-        <RoundColumn label={ROUND_LABELS.QF} matches={rounds.QF.slice(0, 2)} round="QF" onPick={onPick} baseIndex={0} />
-        <RoundColumn label={ROUND_LABELS.SF} matches={rounds.SF.slice(0, 1)} round="SF" onPick={onPick} baseIndex={0} />
-        <RoundColumn label={ROUND_LABELS.F} matches={rounds.F} round="F" onPick={onPick} baseIndex={0} isFinal />
-        <RoundColumn label={ROUND_LABELS.SF} matches={rounds.SF.slice(1, 2)} round="SF" onPick={onPick} baseIndex={1} />
-        <RoundColumn label={ROUND_LABELS.QF} matches={rounds.QF.slice(2, 4)} round="QF" onPick={onPick} baseIndex={2} />
-        <RoundColumn label={ROUND_LABELS.R16} matches={rounds.R16.slice(4, 8)} round="R16" onPick={onPick} baseIndex={4} />
-        <RoundColumn label={ROUND_LABELS.R32} matches={rounds.R32.slice(8, 16)} round="R32" onPick={onPick} baseIndex={8} />
+      <div className="inline-flex min-h-[720px] items-stretch justify-center gap-4 rounded-2xl border border-slate-200/80 bg-white/80 px-6 py-5 shadow-[0_18px_50px_rgba(2,21,45,0.08)]">
+        <RoundColumn label={ROUND_LABELS.R32} items={pickItems(rounds.R32, leftFirstRound)} round="R32" onPick={onPick} />
+        <RoundColumn label={ROUND_LABELS.R16} items={pickItems(rounds.R16, [0, 1, 2, 3])} round="R16" onPick={onPick} />
+        <RoundColumn label={ROUND_LABELS.QF} items={pickItems(rounds.QF, [0, 1])} round="QF" onPick={onPick} />
+        <RoundColumn label={ROUND_LABELS.SF} items={pickItems(rounds.SF, [0])} round="SF" onPick={onPick} />
+        <RoundColumn label={ROUND_LABELS.F} items={pickItems(rounds.F, [0])} round="F" onPick={onPick} isFinal connectorSide="none" />
+        <RoundColumn label={ROUND_LABELS.SF} items={pickItems(rounds.SF, [1])} round="SF" onPick={onPick} connectorSide="left" />
+        <RoundColumn label={ROUND_LABELS.QF} items={pickItems(rounds.QF, [2, 3])} round="QF" onPick={onPick} connectorSide="left" />
+        <RoundColumn label={ROUND_LABELS.R16} items={pickItems(rounds.R16, [4, 5, 6, 7])} round="R16" onPick={onPick} connectorSide="left" />
+        <RoundColumn label={ROUND_LABELS.R32} items={pickItems(rounds.R32, rightFirstRound)} round="R32" onPick={onPick} connectorSide="left" />
       </div>
     </BracketScaler>
   );

@@ -47,3 +47,9 @@ audit-breadcrumbs.js
 breadcrumb-report.json
 fix-all-breadcrumbs.mjs
 color-audit-report.json
+
+# Rapports/exports locaux et caches
+outputs/
+__pycache__/
+.DS_Store
+._*

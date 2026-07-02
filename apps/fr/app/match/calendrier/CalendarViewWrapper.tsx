@@ -29,6 +29,10 @@ interface MatchData {
   slug: string;
   homeTeamId: string;
   awayTeamId: string;
+  homeName: string;
+  awayName: string;
+  homeFlag: string;
+  awayFlag: string;
   date: string;
   time: string;
   stadiumId: string;
@@ -37,6 +41,8 @@ interface MatchData {
   homeScore?: number;
   awayScore?: number;
   status?: "scheduled" | "live" | "finished";
+  statusShort?: string;
+  statusLong?: string;
 }
 
 interface TeamInfo {

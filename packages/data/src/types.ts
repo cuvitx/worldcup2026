@@ -34,9 +34,15 @@ export interface Match {
   matchday?: number;
   homeScore?: number;
   awayScore?: number;
+  winnerTeamId?: string;
+  winnerSide?: "home" | "away";
+  penaltyHomeScore?: number;
+  penaltyAwayScore?: number;
   halfTimeHome?: number;
   halfTimeAway?: number;
   status?: "scheduled" | "live" | "finished";
+  statusShort?: string;
+  statusLong?: string;
 }
 
 export interface Stadium {

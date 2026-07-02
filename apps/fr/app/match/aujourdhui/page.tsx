@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getTodaysMatches, getNextMatch } from "@repo/data/tournament-state";
-import { teamsById } from "@repo/data/teams";
+import { matches } from "@repo/data/matches";
 import { stadiumsById } from "@repo/data/stadiums";
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { getResolvedCalendarMatches, type ResolvedCalendarMatch } from "../../../lib/calendar-match-resolution";
 export const revalidate = 300; // 5 minutes
 
 export const metadata: Metadata = {
@@ -13,9 +13,24 @@ export const metadata: Metadata = {
   alternates: getStaticAlternates("matchToday", "fr"),
 };
 
-export default function AujourdhuiPage() {
-  const todaysMatches = getTodaysMatches();
-  const nextMatch = getNextMatch();
+function getParisDateISO(): string {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "Europe/Paris" });
+}
+
+function getNextMatch(matchList: ResolvedCalendarMatch[]) {
+  const now = new Date();
+  return matchList
+    .filter((m) => new Date(`${m.date}T${m.time}:00+02:00`) > now)
+    .sort((a, b) => `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`))[0] ?? null;
+}
+
+export default async function AujourdhuiPage() {
+  const resolvedMatches = await getResolvedCalendarMatches(matches);
+  const today = getParisDateISO();
+  const todaysMatches = resolvedMatches
+    .filter((match) => match.date === today)
+    .sort((a, b) => a.time.localeCompare(b.time));
+  const nextMatch = getNextMatch(resolvedMatches);
 
   return (
     <>
@@ -34,8 +49,6 @@ export default function AujourdhuiPage() {
         {todaysMatches.length > 0 ? (
           <div className="space-y-3">
             {todaysMatches.map((match) => {
-              const home = teamsById[match.homeTeamId];
-              const away = teamsById[match.awayTeamId];
               const stadium = stadiumsById[match.stadiumId];
 
               return (
@@ -48,17 +61,17 @@ export default function AujourdhuiPage() {
                     {match.time}
                   </span>
                   <div className="flex items-center gap-2 flex-1 min-w-0">
-                    <span className="text-lg" role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag ?? "\u{1F3F3}\u{FE0F}"}</span>
+                    <span className="text-lg" role="img" aria-label={`Drapeau de ${match.homeName}`}>{match.homeFlag ?? "\u{1F3F3}\u{FE0F}"}</span>
                     <span className="font-medium truncate">
-                      {home?.name ?? "A determiner"}
+                      {match.homeName}
                     </span>
                   </div>
                   <span className="text-xs text-gray-500 shrink-0">vs</span>
                   <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
                     <span className="font-medium truncate text-right">
-                      {away?.name ?? "A determiner"}
+                      {match.awayName}
                     </span>
-                    <span className="text-lg" role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag ?? "\u{1F3F3}\u{FE0F}"}</span>
+                    <span className="text-lg" role="img" aria-label={`Drapeau de ${match.awayName}`}>{match.awayFlag ?? "\u{1F3F3}\u{FE0F}"}</span>
                   </div>
                   {match.group && (
                     <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">
@@ -80,8 +93,6 @@ export default function AujourdhuiPage() {
               Aucun match aujourd&apos;hui.
             </p>
             {nextMatch && (() => {
-              const home = teamsById[nextMatch.homeTeamId];
-              const away = teamsById[nextMatch.awayTeamId];
               const stadium = stadiumsById[nextMatch.stadiumId];
               const matchDate = new Date(nextMatch.date).toLocaleDateString(
                 "fr-FR",
@@ -98,8 +109,8 @@ export default function AujourdhuiPage() {
                       {matchDate} a {nextMatch.time}
                     </p>
                     <p className="font-semibold text-gray-900">
-                      <span role="img" aria-label={`Drapeau de ${home?.name ?? "Inconnu"}`}>{home?.flag}</span> {home?.name ?? "A determiner"} vs{" "}
-                      {away?.name ?? "A determiner"} <span role="img" aria-label={`Drapeau de ${away?.name ?? "Inconnu"}`}>{away?.flag}</span>
+                      <span role="img" aria-label={`Drapeau de ${nextMatch.homeName}`}>{nextMatch.homeFlag}</span> {nextMatch.homeName} vs{" "}
+                      {nextMatch.awayName} <span role="img" aria-label={`Drapeau de ${nextMatch.awayName}`}>{nextMatch.awayFlag}</span>
                     </p>
                     {stadium && (
                       <p className="text-sm text-gray-500 mt-1">

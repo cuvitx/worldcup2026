@@ -5,7 +5,7 @@
 // ============================================================================
 
 import { OPENWEATHER } from "../config";
-import { cachedFetch, CACHE_TTL } from "../cache";
+import { cachedFetch, cacheGet, CACHE_TTL } from "../cache";
 import { checkRateLimit } from "../rate-limiter";
 
 export interface WeatherForecast {
@@ -46,18 +46,24 @@ export async function getWeatherForecast(
     return null;
   }
 
+  const cacheKey = `weather:${lat.toFixed(2)},${lon.toFixed(2)}:${matchDate}`;
+  const cached = await cacheGet<WeatherForecast | null>(cacheKey);
+  if (cached !== null) return cached;
+
+  if (process.env.NEXT_PHASE === "phase-production-build") return null;
+
+  const matchTimestamp = new Date(matchDate).getTime() / 1000;
+  const now = Date.now() / 1000;
+  const daysUntilMatch = (matchTimestamp - now) / 86400;
+
+  if (daysUntilMatch > 5 || daysUntilMatch < -1) return null;
+
   if (!checkRateLimit("openweather", { maxRequests: 1000, windowMs: 24 * 60 * 60 * 1000 })) {
     console.warn("[weather] Daily rate limit reached");
     return null;
   }
 
-  const cacheKey = `weather:${lat.toFixed(2)},${lon.toFixed(2)}:${matchDate}`;
-
   return cachedFetch(cacheKey, CACHE_TTL.WEATHER, async () => {
-    const matchTimestamp = new Date(matchDate).getTime() / 1000;
-    const now = Date.now() / 1000;
-    const daysUntilMatch = (matchTimestamp - now) / 86400;
-
     // If match is within 5 days, use the forecast endpoint
     if (daysUntilMatch > 0 && daysUntilMatch <= 5) {
       try {

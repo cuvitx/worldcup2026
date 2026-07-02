@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.cdm2026.fr/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -38,57 +38,99 @@
   </url>
   <url>
     <loc>https://www.cdm2026.fr/buteurs</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/match/calendrier</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/match/aujourdhui</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/resultats</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/phase-finale</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/tableau</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/live</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/comparateur-cotes</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/actualites</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/paris-sportifs</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/16emes-de-finale</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/8emes-de-finale</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/quarts-de-finale</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/demi-finales</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cdm2026.fr/finale</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/simulateur</loc>
@@ -284,55 +326,55 @@
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/vainqueur</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/btts</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/over-under</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/buteurs</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/cartons</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/clean-sheet</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/scores-exacts</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/finalistes</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/tirs-au-but</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1652,289 +1694,289 @@
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/mexique</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/afrique-du-sud</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/coree-du-sud</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/tchequie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/canada</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/suisse</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/qatar</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/bosnie-herzegovine</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/bresil</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/maroc</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/ecosse</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/haiti</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/etats-unis</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/paraguay</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/australie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/turquie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/allemagne</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/equateur</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/cote-divoire</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/curacao</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/pays-bas</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/japon</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/tunisie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/suede</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/belgique</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/iran</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/egypte</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/nouvelle-zelande</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/espagne</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/uruguay</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/arabie-saoudite</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/cap-vert</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/france</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/senegal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/norvege</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/irak</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/argentine</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/autriche</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/algerie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/jordanie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/portugal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/colombie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/ouzbekistan</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/rd-congo</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/angleterre</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/croatie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/ghana</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic/panama</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -3140,625 +3182,625 @@
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/mexique-vs-afrique-du-sud</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/coree-du-sud-vs-tchequie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/canada-vs-bosnie-herzegovine</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/etats-unis-vs-paraguay</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/qatar-vs-suisse</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/bresil-vs-maroc</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/haiti-vs-ecosse</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/australie-vs-turquie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/allemagne-vs-curacao</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/pays-bas-vs-japon</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/cote-divoire-vs-equateur</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/tunisie-vs-suede</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/espagne-vs-cap-vert</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/belgique-vs-egypte</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/arabie-saoudite-vs-uruguay</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/iran-vs-nouvelle-zelande</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/france-vs-senegal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/irak-vs-norvege</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/argentine-vs-algerie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/autriche-vs-jordanie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/portugal-vs-rd-congo</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/angleterre-vs-croatie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/ghana-vs-panama</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/ouzbekistan-vs-colombie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/tchequie-vs-afrique-du-sud</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/suisse-vs-bosnie-herzegovine</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/canada-vs-qatar</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/mexique-vs-coree-du-sud</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/etats-unis-vs-australie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/ecosse-vs-maroc</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/bresil-vs-haiti</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/turquie-vs-paraguay</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/allemagne-vs-cote-divoire</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/pays-bas-vs-suede</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/equateur-vs-curacao</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/tunisie-vs-japon</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/espagne-vs-arabie-saoudite</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/belgique-vs-iran</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/uruguay-vs-cap-vert</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/nouvelle-zelande-vs-egypte</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/france-vs-irak</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/argentine-vs-autriche</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/norvege-vs-senegal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/jordanie-vs-algerie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/portugal-vs-ouzbekistan</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/angleterre-vs-ghana</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/panama-vs-croatie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/colombie-vs-rd-congo</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/tchequie-vs-mexique</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/afrique-du-sud-vs-coree-du-sud</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/bosnie-herzegovine-vs-qatar</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/suisse-vs-canada</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/ecosse-vs-bresil</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/maroc-vs-haiti</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/turquie-vs-etats-unis</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/paraguay-vs-australie</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/equateur-vs-allemagne</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/curacao-vs-cote-divoire</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/japon-vs-suede</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/tunisie-vs-pays-bas</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/egypte-vs-iran</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/nouvelle-zelande-vs-belgique</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/cap-vert-vs-arabie-saoudite</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/uruguay-vs-espagne</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/norvege-vs-france</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/senegal-vs-irak</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/jordanie-vs-argentine</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/algerie-vs-autriche</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/colombie-vs-portugal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/rd-congo-vs-ouzbekistan</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/panama-vs-angleterre</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/croatie-vs-ghana</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-1</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-2</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-3</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-4</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-5</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-6</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-7</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-8</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-9</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-10</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-11</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-12</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-13</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-14</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-15</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r32-match-16</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-1</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-2</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-3</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-4</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-5</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-6</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-7</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/r16-match-8</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/qf-1</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/qf-2</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/qf-3</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/qf-4</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/sf-1</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/sf-2</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/third-place</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-match/finale</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -8132,235 +8174,235 @@
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-1</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-2</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-3</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-4</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-5</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-6</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-7</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-8</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-9</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-10</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-11</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-12</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-13</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-14</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-15</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-16</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-17</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-18</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-19</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-20</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-21</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-22</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-23</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-24</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-25</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-26</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-27</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-28</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-29</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-30</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-31</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-32</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-33</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-34</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-35</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-36</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-37</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-38</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/calendrier/jour-39</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8438,73 +8480,73 @@
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/a</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/b</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/c</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/d</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/e</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/f</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/g</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/h</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/i</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/j</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/k</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/pronostic-groupe/l</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -22985,336 +23027,6 @@
     <lastmod>2026-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/suivez-etats-unis-australie-en-direct-coupe-du-monde-2026-groupe-d-2e-journee-eu</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/plus-aussi-farfelu-pour-la-presse-americaine-les-etats-unis-commencent-a-croire-</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-programme-et-horaires-des-matchs-du-samedi-20-juin-les-numer</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-carton-rouge-obligatoire-pour-un-joueur-qui-se-couvre-la-bou</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-le-paraguay-rage-apres-avoir-ete-victime-de-la-loi-vinicius-</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/le-maroc-confirme-face-a-l-ecosse-en-s-imposant-1-0-grace-a-un-but-d-ismael-saib</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/ecosse-0-1-maroc-coupe-du-monde-le-maroc-domine-l-ecosse-l-equipe</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/maroc-ecosse-en-direct-a-la-coupe-du-monde-de-football-2026-resultats-live-score</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/le-bresil-bat-facilement-haiti-achraf-hakimi-a-ete-hue-ce-qu-il-faut-retenir-de-</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/les-etats-unis-enchainent-contre-l-australie-et-valident-leur-qualification-pour</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/honteux-inacceptable-la-turquie-premier-fiasco-du-mondial-eurosport</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/video-coupe-du-monde-2026-le-paraguayen-miguel-almiron-est-le-premier-joueur-exp</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-un-paraguayen-expulse-pour-avoir-couvert-sa-bouche-une-premi</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/direct-coupe-du-monde-2026-l-allemagne-vise-la-tete-de-son-groupe-contre-la-cote</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/bresil-haiti-la-selecao-gagne-sans-vraiment-convaincre-et-prend-les-commandes-du</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-le-tableau-complet-des-16es-de-finale-du-mondial-avec-toutes</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/le-paraguay-inscrit-le-but-le-plus-rapide-de-la-coupe-du-monde-2026-face-a-la-tu</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-la-desillusion-est-terrible-pour-la-turquie-foot-mercato</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/en-direct-coupe-du-monde-2026-mbappe-plus-populaire-que-platini-en-france-la-tri</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/almiron-expulse-pour-avoir-couvert-sa-bouche-et-hakimi-hue-au-mondial-20-minutes</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/le-maroc-bat-l-ecosse-le-bresil-elimine-haiti-les-etats-unis-valident-leur-place</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/le-maroc-confirme-face-a-l-ecosse-eurosport</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-le-maroc-proche-d-une-qualification-apres-son-succes-contre-</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/turquie-0-1-paraguay-coupe-du-monde-match-termine-l-equipe</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/turquie-paraguay-la-turquie-deja-eliminee-rmc-sport</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/en-direct-coupe-du-monde-2026-l-enorme-boulette-du-gardien-coreen-le-canada-atte</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/atroce-image-de-la-jambe-de-kone-et-bevue-du-gardien-sud-coreen-au-mondial-20-mi</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-j2-une-premiere-victoire-historique-pour-le-canada-sports-or</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/direct-coupe-du-monde-2026-jorge-messi-progresse-favorablement-la-mise-au-point-</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-les-fans-de-cristiano-ronaldo-s-en-prennent-a-ses-coe-20-min</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/l-angleterre-vient-a-bout-de-la-croatie-et-fait-forte-impression-pour-ses-debuts</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-au-bout-d-un-match-fou-l-angleterre-domine-la-croatie-le-fig</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/cdm-2026-angleterre-ca-a-chauffe-entre-thomas-tuchel-et-un-joueur-foot-mercato</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/ghana-1-0-panama-coupe-du-monde-match-termine-l-equipe</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-le-ghana-arrache-la-victoire-en-toute-fin-de-match-contre-le</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/france-3-1-senegal-coupe-du-monde-entree-en-lice-reussie-pour-les-bleus-l-equipe</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-le-calendrier-des-matchs-de-l-equipe-de-france-20-minutes</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/en-direct-coupe-du-monde-2026-quel-duel-a-distance-entre-mbappe-et-messi-20-minu</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/direct-coupe-du-monde-2026-l-autriche-s-impose-3-1-face-a-la-jordanie-qui-joue-l</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/l-autriche-bousculee-par-la-jordanie-mais-sauvee-par-un-coup-du-sort-pour-son-en</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/en-direct-coupe-du-monde-2026-le-visa-d-un-joueur-iranien-a-deja-expire-20-minut</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-l-equipe-la-plus-opprimee-de-l-histoire-la-colere-de-l-iran-</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/ce-n-etait-pas-qu-un-match-de-foot-pour-la-premiere-rencontre-de-l-iran-a-la-cou</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-pourquoi-la-france-n-est-pas-du-tout-le-pays-le-plus-affecte</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-tunisie-sabri-lamouchi-va-deja-etre-vire-foot-mercato</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/la-suede-cartonne-la-tunisie-le-vol-de-l-uruguay-pour-les-e-u-retarde-20-minutes</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/cdm-2026-l-attitude-remarquee-de-marcelo-bielsa-contre-les-etats-unis-foot-merca</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-panique-pour-l-uruguay-et-la-fifa-l-avion-de-la-selection-in</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-double-coup-dur-pour-le-maroc-avec-deux-joueurs-forfait-rmc-</loc>
-    <lastmod>2026-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/cote-d-ivoire-1-0-equateur-coupe-du-monde-match-termine-l-equipe</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/la-magie-de-vini-frustre-un-maroc-seduisant-eurosport</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-un-choc-bresil-maroc-savoureux-mais-sans-vainqueur-l-ecosse-</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-ce-qu-il-faut-retenir-du-samedi-13-et-ce-qu-il-faudra-suivre</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/direct-coupe-du-monde-2026-toutes-les-infos-l-equipe-iranienne-attendue-dimanche</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cdm2026.fr/actualites/coupe-du-monde-2026-j1-l-australie-surprend-la-turquie-sports-orange-sports-oran</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cdm2026.fr/guide/comment-parier-cdm-2026</loc>

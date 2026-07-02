@@ -13,7 +13,7 @@ const formatProb = (p: number) =>
 export function ProbabilityStages({ teamName, prediction }: ProbabilityStagesProps) {
   const stages = [
     { label: "Phase de groupes", key: "groupStageProb" as const, value: prediction.groupStageProb },
-    { label: "32e de finale", key: "roundOf32Prob" as const, value: prediction.roundOf32Prob },
+    { label: "16es de finale", key: "roundOf32Prob" as const, value: prediction.roundOf32Prob },
     { label: "8e de finale", key: "roundOf16Prob" as const, value: prediction.roundOf16Prob },
     { label: "Quart de finale", key: "quarterFinalProb" as const, value: prediction.quarterFinalProb },
     { label: "Demi-finale", key: "semiFinalProb" as const, value: prediction.semiFinalProb },

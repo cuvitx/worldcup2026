@@ -4,9 +4,9 @@ import { OddsCompare } from "@repo/ui/odds-compare";
 import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import type { Team, Match, MatchPrediction, Stadium, City, Bookmaker } from "@repo/data";
 import type { MatchPreviewData } from "@repo/ai/generators";
-import { teamsById } from "@repo/data/teams";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 import { BetOfTheDay } from "../../../components/BetOfTheDay";
+import type { RelatedPronosticMatch } from "../_components/RelatedMatchesSection";
 
 interface PredictionSidebarProps {
   prediction: MatchPrediction | undefined;
@@ -20,7 +20,7 @@ interface PredictionSidebarProps {
   awayName: string;
   enriched: MatchPreviewData | null;
   featuredBookmaker: Bookmaker;
-  relatedMatches: Match[];
+  relatedMatches: RelatedPronosticMatch[];
 }
 
 export function PredictionSidebar({
@@ -37,6 +37,12 @@ export function PredictionSidebar({
   featuredBookmaker,
   relatedMatches,
 }: PredictionSidebarProps) {
+  const matchSidebarTracking = {
+    pageType: "pronostic-match",
+    slug: match.slug,
+    placement: "sidebar",
+  };
+
   return (
     <div className="space-y-6">
       {/* Pari du jour — widget compact */}
@@ -186,9 +192,10 @@ export function PredictionSidebar({
             {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
           </p>
           <a
-            href={pmuTrackingUrl("match-sidebar")}
+            href={pmuTrackingUrl(matchSidebarTracking)}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
+            {...affiliateLinkAttributes(matchSidebarTracking)}
             className="block w-full rounded-xl px-4 py-3.5 text-center text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
@@ -206,22 +213,25 @@ export function PredictionSidebar({
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Autres pronostics</h3>
           <div className="space-y-2">
             {relatedMatches.map((rm) => {
-              const rmHome = teamsById[rm.homeTeamId];
-              const rmAway = teamsById[rm.awayTeamId];
               return (
                 <Link
-                  key={rm.id}
-                  href={`/pronostic-match/${rm.slug}`}
+                  key={rm.match.id}
+                  href={`/pronostic-match/${rm.match.slug}`}
                   className="flex items-center justify-between gap-2 rounded-lg border border-gray-200 p-3 text-sm transition-colors hover:border-primary/30"
                 >
                   <span className="min-w-0 truncate">
-                    <span role="img" aria-label={`Drapeau de ${rmHome?.name ?? "Inconnu"}`}>{rmHome?.flag ?? "\ud83c\udff3\ufe0f"}</span>{" "}
-                    {rmHome?.name ?? "TBD"} vs{" "}
-                    {rmAway?.name ?? "TBD"}{" "}
-                    <span role="img" aria-label={`Drapeau de ${rmAway?.name ?? "Inconnu"}`}>{rmAway?.flag ?? "\ud83c\udff3\ufe0f"}</span>
+                    {rm.home?.flag && (
+                      <>
+                        <span role="img" aria-label={`Drapeau de ${rm.homeName}`}>{rm.home.flag}</span>{" "}
+                      </>
+                    )}
+                    {rm.homeName} vs {rm.awayName}{" "}
+                    {rm.away?.flag && (
+                      <span role="img" aria-label={`Drapeau de ${rm.awayName}`}>{rm.away.flag}</span>
+                    )}
                   </span>
                   <span className="text-xs text-gray-500 shrink-0">
-                    {rm.date}
+                    {rm.match.date}
                   </span>
                 </Link>
               );

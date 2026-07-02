@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 import { GaTrackingPixel } from "../GaTrackingPixel";
 
 import type { Match, Team } from "@repo/data/types";
@@ -45,7 +45,8 @@ export function BetOfTheDay({
   prediction,
   odds,
 }: BetOfTheDayProps) {
-  const url = pmuTrackingUrl("bet-of-the-day");
+  const tracking = { pageType: "homepage", slug: match.slug, placement: "bet-of-the-day" };
+  const url = pmuTrackingUrl(tracking);
   const reco = prediction ? getRecommendation(prediction) : null;
 
   const bestOdd =
@@ -59,7 +60,7 @@ export function BetOfTheDay({
     match.stage === "group"
       ? `Groupe ${match.group}`
       : match.stage === "round-of-32"
-        ? "32es de finale"
+        ? "16es de finale"
         : match.stage === "round-of-16"
           ? "8es de finale"
           : match.stage === "quarter-final"
@@ -220,6 +221,7 @@ export function BetOfTheDay({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
+                {...affiliateLinkAttributes(tracking)}
                 className="group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-xl px-6 py-3 text-sm font-black uppercase tracking-wider text-[#0c3b2e] shadow-lg transition hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background:

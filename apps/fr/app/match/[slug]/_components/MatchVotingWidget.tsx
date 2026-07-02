@@ -260,27 +260,33 @@ export function MatchVotingWidget({
       {/* PMU CTA */}
       {pmuUrl && (
         <>
-          <div className="relative mx-6 mb-4 rounded-xl border border-gray-200 bg-gray-50 overflow-hidden">
+          <div className="relative mx-5 mb-4 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm sm:mx-6">
             <GaTrackingPixel variant="370x90" tracking={`match-vote-${slug}`} />
             <a
               href={pmuUrl}
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
-              className="group flex items-center gap-3 px-4 py-3"
+              className="group flex flex-col gap-3 px-4 py-4 transition-colors hover:bg-gray-50 sm:flex-row sm:items-center sm:py-3"
             >
-              <img
-                src="/partners/pmu-play.webp"
-                alt="PMU Sport"
-                width={80}
-                height={24}
-                className="h-5 w-auto shrink-0"
-              />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-gray-900">PMU Sport</p>
-                <p className="text-xs text-gray-500">100&euro; offerts en freebets sans condition</p>
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="flex h-12 w-24 shrink-0 items-center justify-center rounded-lg bg-[#063b2f] px-3 shadow-inner">
+                  <img
+                    src="/partners/pmu-play.webp"
+                    alt="PMU Sport"
+                    width={96}
+                    height={30}
+                    className="h-auto max-h-7 w-full object-contain"
+                  />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm font-extrabold text-gray-900">PMU Sport</p>
+                  <p className="text-xs leading-5 text-gray-500">
+                    100&euro; offerts en freebets sans condition
+                  </p>
+                </div>
               </div>
-              <span className="shrink-0 inline-flex items-center gap-1 rounded-full bg-emerald-600 px-4 py-2 text-xs font-bold text-white transition-colors group-hover:bg-emerald-700">
-                Pronostic&nbsp;&rarr;
+              <span className="inline-flex w-full shrink-0 items-center justify-center gap-1 rounded-full bg-emerald-600 px-4 py-3 text-sm font-bold text-white transition-colors group-hover:bg-emerald-700 sm:w-auto sm:py-2 sm:text-xs">
+                Voir l&apos;offre&nbsp;&rarr;
               </span>
             </a>
           </div>

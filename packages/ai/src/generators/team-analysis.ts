@@ -35,6 +35,13 @@ export async function generateFullTeamAnalysis(
   teamSlug: string,
   language: "fr" | "en" | "es"
 ): Promise<TeamAnalysisData> {
+  if (
+    process.env.NEXT_PHASE === "phase-production-build" ||
+    process.env.CDM_DISABLE_EXTERNAL_ENRICHMENT === "1"
+  ) {
+    return emptyAnalysis();
+  }
+
   const team = teamsById[teamSlug];
   if (!team) return emptyAnalysis();
 

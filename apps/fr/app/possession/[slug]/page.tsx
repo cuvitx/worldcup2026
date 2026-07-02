@@ -3,9 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQSection } from "@repo/ui/faq-section";
 import { PieChart, TrendingUp, ArrowRight, ExternalLink, Swords } from "lucide-react";
-import { matches, matchesBySlug } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
+import { matchesBySlug } from "@repo/data/matches";
 import { pmuTrackingUrl } from "@repo/data/affiliates";
+import {
+  generateStaticResolvedMatchParams,
+} from "../../../lib/knockout-match-teams";
+import { resolveMatchTeamsWithResults } from "../../../lib/knockout-match-teams-runtime";
 function getPossessionStats(homeId: string, awayId: string) {
   const seed = homeId.charCodeAt(0) * 5 + awayId.charCodeAt(0) * 3;
   const homePoss = +(48 + (seed % 12)).toFixed(0);
@@ -25,31 +28,30 @@ function getPossessionStats(homeId: string, awayId: string) {
 const styleLabel = (poss: number) =>
   poss >= 55 ? "tiki-taka / possession" : poss >= 50 ? "équilibré" : "contre-attaque / pressing";
 export async function generateStaticParams() {
-  return matches.map((m) => ({ slug: m.slug }));
+  return generateStaticResolvedMatchParams();
 }
 interface PageProps { params: Promise<{ slug: string }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) return {};
-  const home = teamsById[match.homeTeamId]?.name ?? "A déterminer";
-  const away = teamsById[match.awayTeamId]?.name ?? "A déterminer";
+  const { homeName: home, awayName: away } =
+    await resolveMatchTeamsWithResults(match);
   return {
-    title: `Qui aura la possession ? ${home} vs ${away} — CDM 2026`,
+    title: `Qui aura la possession ? ${home} vs ${away}`,
     description: `Analyse possession ${home} vs ${away} à la Coupe du Monde 2026 : stats historiques, cotes possession >55%, tactiques et pronostics paris.`,
     alternates: { canonical: `https://www.cdm2026.fr/possession/${slug}` },
   };
 }
 export const dynamicParams = true;
+export const revalidate = 300;
 export default async function PossessionPage({ params }: PageProps) {
   const { slug } = await params;
   const match = matchesBySlug[slug];
   if (!match) notFound();
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "A déterminer";
-  const awayName = away?.name ?? "A déterminer";
-  const stats = getPossessionStats(match.homeTeamId, match.awayTeamId);
+  const { homeName, awayName, homeTeamId, awayTeamId } =
+    await resolveMatchTeamsWithResults(match);
+  const stats = getPossessionStats(homeTeamId, awayTeamId);
 const faqItems = [
     { question: `Qui aura la possession entre ${homeName} et ${awayName} ?`, answer: `D'après les statistiques historiques, ${stats.homePoss > stats.awayPoss ? homeName : awayName} devrait avoir l'avantage en possession avec environ ${Math.max(stats.homePoss, stats.awayPoss)}% du ballon.` },
     { question: "La possession garantit-elle la victoire ?", answer: "Non, la possession ne garantit pas la victoire. De nombreuses équipes performantes en Coupe du Monde pratiquent un jeu en contre-attaque efficace avec peu de possession." },

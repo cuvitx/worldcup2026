@@ -15,8 +15,7 @@ import {
 } from "./_components";
 import {
   faqItems,
-  top10,
-  darkHorses,
+  getLiveWinnerForecast,
   teamArguments,
   whyTheyCanWin,
   cdmHomeStats,
@@ -25,36 +24,49 @@ import {
   homeWinPct,
 } from "./_data/vainqueur-data";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
+
 export const metadata: Metadata = {
-  title: "Pronostic Vainqueur CDM 2026 — Qui va gagner la Coupe du Monde ?",
+  title: "Pronostic vainqueur CDM 2026 live — Forecast Coupe du Monde",
   description:
-    "Pronostic vainqueur CDM 2026 : Argentine 15%, France 13%, Espagne 12%. Comparez les cotes, découvrez nos favoris et osez parier.",
+    "Pronostic vainqueur CDM 2026 live : probabilités recalculées avec les résultats, le tableau restant, les équipes éliminées et les cotes disponibles.",
   alternates: {
     canonical: "https://www.cdm2026.fr/pronostic/vainqueur",
   },
   openGraph: {
-    title: "Pronostic Vainqueur CDM 2026 — Qui va gagner ?",
+    title: "Pronostic vainqueur CDM 2026 live — Qui va gagner ?",
     description:
-      "Top 10 des favoris CDM 2026, cotes PMU Sport, analyse complète. Découvrez notre pronostic vainqueur.",
+      "Forecast live du vainqueur CDM 2026 avec résultats, tableau, équipes encore en course et cotes PMU Sport.",
     url: "https://www.cdm2026.fr/pronostic/vainqueur",
   },
 };
 
-export default function PronosticVainqueurPage() {
+export default async function PronosticVainqueurPage() {
+  const forecast = await getLiveWinnerForecast();
+
   return (
     <>
 
       {/* Hero */}
-      <HeroSection />
+      <HeroSection forecast={forecast} />
+
+      {/* Odds Table — au-dessus de la ligne de flottaison : intention money maximale */}
+      <OddsTable forecast={forecast} />
 
       {/* Confederation Chart */}
-      <ConfederationChart top10={top10} />
+      <ConfederationChart top10={forecast.top10} />
 
       {/* Top 10 Favorites */}
-      <TopFavorites top10={top10} teamArguments={teamArguments} />
+      <TopFavorites
+        top10={forecast.top10}
+        eliminatedTeams={forecast.eliminatedTeams}
+        teamArguments={teamArguments}
+      />
 
       {/* Why They Can Win */}
-      <WhyTheyCanWin top10={top10} whyTheyCanWin={whyTheyCanWin} />
+      <WhyTheyCanWin top10={forecast.top10} whyTheyCanWin={whyTheyCanWin} />
 
       {/* Host History */}
       <HostHistory
@@ -67,14 +79,11 @@ export default function PronosticVainqueurPage() {
       {/* Simulator CTA */}
       <SimulatorCta />
 
-      {/* Odds Table */}
-      <OddsTable />
-
       {/* Dark Horses */}
-      <DarkHorses darkHorses={darkHorses} />
+      <DarkHorses darkHorses={forecast.darkHorses} />
 
       {/* Methodology */}
-      <MethodologySection />
+      <MethodologySection forecast={forecast} />
 
       {/* FAQ */}
       <FAQSection 

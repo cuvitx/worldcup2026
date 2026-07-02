@@ -12,8 +12,8 @@ export function ProbabilitiesTable() {
           <thead>
             <tr className="border-b border-gray-200 text-left">
               <th className="pb-3 font-medium text-gray-500">Équipe</th>
-              <th className="pb-3 font-medium text-gray-500 text-right">Sortie groupes</th>
-              <th className="pb-3 font-medium text-gray-500 text-right">16e</th>
+              <th className="pb-3 font-medium text-gray-500 text-right">16es</th>
+              <th className="pb-3 font-medium text-gray-500 text-right">8es</th>
               <th className="pb-3 font-medium text-gray-500 text-right">Quarts</th>
               <th className="pb-3 font-medium text-gray-500 text-right">Demis</th>
               <th className="pb-3 font-medium text-gray-500 text-right">Finale</th>

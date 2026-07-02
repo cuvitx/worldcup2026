@@ -2,13 +2,13 @@ import { SectionHeading } from "@repo/ui/section-heading";
 import Link from "next/link";
 
 interface ArticleData {
-  id: number;
   slug: string;
   title: string;
-  excerpt: string;
+  description: string;
   date: string;
   category: string;
-  imageEmoji: string;
+  imageEmoji?: string;
+  readingTime?: number;
 }
 
 interface RecentArticlesProps {
@@ -16,6 +16,11 @@ interface RecentArticlesProps {
 }
 
 const categoryColors: Record<string, string> = {
+  analyse: "bg-blue-100 text-blue-800",
+  guide: "bg-accent/10 text-accent",
+  portrait: "bg-purple-100 text-purple-800",
+  actualite: "bg-primary/10 text-primary",
+  pronostic: "bg-accent/10 text-accent",
   stades: "bg-accent/10 text-accent",
   billets: "bg-field/10 text-field",
   equipes: "bg-primary/10 text-primary",
@@ -24,6 +29,11 @@ const categoryColors: Record<string, string> = {
 };
 
 const categoryLabels: Record<string, string> = {
+  analyse: "Analyse",
+  guide: "Guide",
+  portrait: "Portrait",
+  actualite: "Actualité",
+  pronostic: "Pronostic",
   stades: "Stades",
   billets: "Billets",
   equipes: "Équipes",
@@ -37,21 +47,21 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
-            Actualités
+            Éditorial
           </p>
-          <SectionHeading title="Articles récents" linkHref="/actualites" linkLabel="Toutes les actus →" />
+          <SectionHeading title="Nos analyses récentes" linkHref="/actualites" linkLabel="Tous les articles →" />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
           {recentArticles.map((article, i) => (
             <Link
-              key={article.id}
+              key={article.slug}
               href={`/actualites/${article.slug}`}
               className="group relative flex flex-col rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                 <span className="text-6xl opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500">
-                  {article.imageEmoji}
+                  {article.imageEmoji ?? "📝"}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -76,7 +86,7 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
                 </h3>
 
                 <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 flex-1">
-                  {article.excerpt}
+                  {article.description}
                 </p>
 
                 <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50">
@@ -87,6 +97,7 @@ export function RecentArticles({ recentArticles }: RecentArticlesProps) {
                       year: "numeric",
                       timeZone: "UTC",
                     })}
+                    {article.readingTime ? ` · ${article.readingTime} min` : ""}
                   </p>
                   <span className="text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                     Lire →

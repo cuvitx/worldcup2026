@@ -16,8 +16,8 @@ export interface MatchData {
 export type RoundName = "R32" | "R16" | "QF" | "SF" | "F";
 
 export const ROUND_LABELS: Record<RoundName, string> = {
-  R32: "32e de finale",
-  R16: "16e de finale",
+  R32: "16es de finale",
+  R16: "8es de finale",
   QF: "Quarts",
   SF: "Demis",
   F: "Finale",

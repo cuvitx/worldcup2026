@@ -5,7 +5,7 @@ import { FAQSection } from "@repo/ui/faq-section";
 import { Shield, TrendingUp, ArrowRight, ExternalLink, BarChart3 } from "lucide-react";
 import { players } from "@repo/data/players";
 import { teamsById } from "@repo/data/teams";
-import { pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
 const TOP_50_SLUGS = [
   "mbappe","haaland","vinicius-jr","bellingham","yamal","messi","ronaldo","kane","salah","de-bruyne",
   "griezmann","neymar","lewandowski","osimhen","saka","pedri","rodri","gavi","foden","rashford",
@@ -156,13 +156,13 @@ const faqItems = [
             Retrouvez les meilleures cotes pour les paris sur les tacles de {player.name} pendant la CDM 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+            <a href={pmuTrackingUrl({ pageType: "tacles", slug, placement: "bonus-cta" })} target="_blank" rel="noopener noreferrer sponsored nofollow" {...affiliateLinkAttributes({ pageType: "tacles", slug, placement: "bonus-cta" })} className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               100€ offerts sur PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
-            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+            <a href={pmuTrackingUrl({ pageType: "tacles", slug, placement: "main-cta" })} target="_blank" rel="noopener noreferrer sponsored nofollow" {...affiliateLinkAttributes({ pageType: "tacles", slug, placement: "main-cta" })} className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               Parier sur PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
-            <a href={pmuTrackingUrl("stats")} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
+            <a href={pmuTrackingUrl({ pageType: "tacles", slug, placement: "odds-cta" })} target="_blank" rel="noopener noreferrer sponsored nofollow" {...affiliateLinkAttributes({ pageType: "tacles", slug, placement: "odds-cta" })} className="bg-accent text-white rounded-xl py-3.5 px-6 font-semibold inline-flex items-center justify-center gap-2">
               Voir les cotes PMU Sport <ExternalLink className="w-4 h-4" />
             </a>
           </div>

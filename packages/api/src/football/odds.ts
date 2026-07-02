@@ -52,7 +52,7 @@ async function fetchAllOdds(): Promise<OddsFixture[]> {
 
   return cachedFetch<OddsFixture[]>(
     `football:odds:wc${API_FOOTBALL.season}`,
-    CACHE_TTL.INJURIES, // 1h cache — odds don't change rapidly
+    CACHE_TTL.ODDS, // 5min cache — refresh quickly when knockout markets open
     async () => {
       const url = new URL(`${API_FOOTBALL.baseUrl}/odds`);
       url.searchParams.set("league", String(API_FOOTBALL.worldCupLeagueId));

@@ -1,12 +1,13 @@
-import { newsArticles } from "@repo/data/news";
 import { domains } from "@repo/data/route-mapping";
+import { getAllArticles } from "../../lib/mdx";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export function GET() {
   const siteUrl = domains.fr;
 
-  const items = newsArticles
+  const items = getAllArticles()
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 20)
     .map(
@@ -14,7 +15,7 @@ export function GET() {
       <title><![CDATA[${article.title}]]></title>
       <link>${siteUrl}/actualites/${article.slug}</link>
       <guid isPermaLink="true">${siteUrl}/actualites/${article.slug}</guid>
-      <description><![CDATA[${article.excerpt}]]></description>
+      <description><![CDATA[${article.description}]]></description>
       <pubDate>${new Date(article.date).toUTCString()}</pubDate>
       <category>${article.category}</category>
     </item>`
@@ -37,7 +38,7 @@ ${items}
   return new Response(rss, {
     headers: {
       "Content-Type": "application/rss+xml; charset=utf-8",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+      "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
     },
   });
 }
