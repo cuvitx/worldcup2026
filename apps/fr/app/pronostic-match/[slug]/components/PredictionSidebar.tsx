@@ -4,7 +4,7 @@ import { OddsCompare } from "@repo/ui/odds-compare";
 import { InjuriesWidget } from "@repo/ui/injuries-widget";
 import type { Team, Match, MatchPrediction, Stadium, City, Bookmaker } from "@repo/data";
 import type { MatchPreviewData } from "@repo/ai/generators";
-import { affiliateLinkAttributes, pmuTrackingUrl } from "@repo/data/affiliates";
+import { affiliateLinkAttributes, affiliateTrackingUrl, pmuTrackingUrl } from "@repo/data/affiliates";
 import { BetOfTheDay } from "../../../components/BetOfTheDay";
 import type { RelatedPronosticMatch } from "../_components/RelatedMatchesSection";
 
@@ -192,14 +192,14 @@ export function PredictionSidebar({
             {featuredBookmaker.bonus} {featuredBookmaker.bonusDetail}
           </p>
           <a
-            href={pmuTrackingUrl(matchSidebarTracking)}
+            href={affiliateTrackingUrl(featuredBookmaker.program, matchSidebarTracking) ?? pmuTrackingUrl(matchSidebarTracking)}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            {...affiliateLinkAttributes(matchSidebarTracking)}
+            {...affiliateLinkAttributes(matchSidebarTracking, undefined, featuredBookmaker.program)}
             className="block w-full rounded-xl px-4 py-3.5 text-center text-sm font-bold text-[#0c3b2e] hover:brightness-110 transition"
             style={{ background: "linear-gradient(90deg, #b8941f, #d4af37, #e5c453, #d4af37, #b8941f)" }}
           >
-            Parier sur PMU Play &rarr;
+            Parier sur {featuredBookmaker.name} &rarr;
           </a>
           <p className="mt-2 text-xs text-white/50 text-center">
             18+ | Pariez responsablement

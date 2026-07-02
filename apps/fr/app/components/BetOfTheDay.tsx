@@ -1,14 +1,23 @@
 // ============================================================================
 // BetOfTheDay — Widget "Pari du jour"
-// Auto-sélectionne le prochain match avec le favori le plus net.
+// Auto-sélectionne le prochain match avec le favori le plus net, depuis les
+// matchs RÉSOLUS (resolver officiel), jamais depuis les données statiques :
+// les statuts statiques peuvent rester "scheduled" après coup et faire
+// remonter un match de groupes déjà joué (bug Uruguay-Cap-Vert du 2026-07-02).
+// Le lien du CTA suit TOUJOURS le bookmaker affiché (rotation multi-programmes).
 // ============================================================================
 
 import Link from "next/link";
 import { matches } from "@repo/data/matches";
-import { teamsById } from "@repo/data/teams";
-import { matchPredictionByPair } from "@repo/data/predictions";
+import { matchPredictionByPair, predictionsByTeamId } from "@repo/data/predictions";
 import { stageLabels } from "@repo/data/constants";
-import { affiliateLinkAttributes, bookmakers, pmuTrackingUrl } from "@repo/data/affiliates";
+import {
+  affiliateLinkAttributes,
+  affiliateTrackingUrl,
+  bookmakers,
+  type AffiliateProgramId,
+} from "@repo/data/affiliates";
+import { getResolvedCalendarMatches } from "../../lib/calendar-match-resolution";
 import { GaTrackingPixel } from "./GaTrackingPixel";
 
 export interface DailyBet {
@@ -19,66 +28,84 @@ export interface DailyBet {
   betType: string;
   odds: string;
   bookmaker: string;
-  bookmakerUrl: string;
+  bookmakerProgram: AffiliateProgramId;
   confidence: 1 | 2 | 3 | 4 | 5;
   dateLabel: string;
 }
 
-function pickBetOfTheDay(): DailyBet {
-  // Sort matches by date — exclude finished and barrage matches
-  const sorted = [...matches]
+/** Fallback ELO quand la paire exacte manque dans matchPredictionByPair (même modèle que la homepage). */
+function eloFallbackProbs(homeTeamId: string, awayTeamId: string) {
+  const home = predictionsByTeamId[homeTeamId];
+  const away = predictionsByTeamId[awayTeamId];
+  if (!home || !away) return null;
+
+  const eloDiff = home.eloRating - away.eloRating;
+  const absEloDiff = Math.abs(eloDiff);
+  const drawProb = Math.max(0.18, Math.min(0.31, 0.31 - Math.min(absEloDiff, 400) * 0.00025));
+  const nonDrawProb = 1 - drawProb;
+  const homeNoDrawProb = 1 / (1 + Math.pow(10, -eloDiff / 400));
+
+  return {
+    team1WinProb: nonDrawProb * homeNoDrawProb,
+    drawProb,
+    team2WinProb: nonDrawProb * (1 - homeNoDrawProb),
+  };
+}
+
+function isRealTeamId(teamId: string | undefined): boolean {
+  return Boolean(
+    teamId &&
+      !teamId.startsWith("tbd-") &&
+      !teamId.startsWith("barrage-") &&
+      !teamId.startsWith("intercontinental-")
+  );
+}
+
+async function pickBetOfTheDay(): Promise<DailyBet | null> {
+  const resolved = await getResolvedCalendarMatches(matches);
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Uniquement les matchs à venir dont l'affiche est officiellement résolue.
+  const upcoming = resolved
     .filter((m) => m.status !== "finished")
-    .filter((m) => !m.homeTeamId.startsWith("barrage-") && !m.homeTeamId.startsWith("intercontinental-"))
-    .filter((m) => !m.awayTeamId.startsWith("barrage-") && !m.awayTeamId.startsWith("intercontinental-"))
+    .filter((m) => m.date >= today)
+    .filter((m) => isRealTeamId(m.homeTeamId) && isRealTeamId(m.awayTeamId))
     .sort((a, b) => a.date.localeCompare(b.date));
 
-  // Use build date to pick a different match each day (deterministic)
-  const today = new Date().toISOString().slice(0, 10);
-  const dayHash = today.split("-").reduce((acc, n) => acc + parseInt(n, 10), 0);
+  if (upcoming.length === 0) return null;
 
-  function getPred(m: typeof sorted[0]) {
-    return matchPredictionByPair[`${m.homeTeamId}:${m.awayTeamId}`];
-  }
+  // Matchs du jour, sinon prochaine journée avec des affiches connues.
+  const targetDate = upcoming.some((m) => m.date === today) ? today : upcoming[0]!.date;
+  const pool = upcoming.filter((m) => m.date === targetDate);
 
-  // Only consider today's matches, or next upcoming day if none today
-  let todaysPool = sorted.filter((m) => m.date === today);
-  if (todaysPool.length === 0) {
-    const nextDate = sorted.find((m) => m.date > today)?.date;
-    if (nextDate) {
-      todaysPool = sorted.filter((m) => m.date === nextDate);
-    }
-  }
-  // If still empty (tournament over or not started), fall back to all matches
-  const pool = todaysPool.length > 0 ? todaysPool : sorted;
-
-  // Pick the match with highest confidence from today's pool
   const candidates = pool
     .map((m) => {
-      const p = getPred(m);
-      return { match: m, prob: p ? Math.max(p.team1WinProb, p.team2WinProb) : 0 };
+      const pred =
+        matchPredictionByPair[`${m.homeTeamId}:${m.awayTeamId}`] ??
+        eloFallbackProbs(m.homeTeamId, m.awayTeamId);
+      if (!pred) return null;
+      return { match: m, pred, prob: Math.max(pred.team1WinProb, pred.team2WinProb) };
     })
-    .filter((x) => x.prob > 0)
+    .filter((x): x is NonNullable<typeof x> => x !== null)
     .sort((a, b) => b.prob - a.prob);
 
-  const picked = candidates[dayHash % Math.max(candidates.length, 1)] ?? candidates[0] ?? { match: sorted[0]!, prob: 0 };
-  const match = picked.match;
-  const pred = getPred(match);
-  const home = teamsById[match.homeTeamId];
-  const away = teamsById[match.awayTeamId];
-  const homeName = home?.name ?? "TBD";
-  const awayName = away?.name ?? "TBD";
+  // Aucun candidat fiable : ne rien afficher plutôt qu'un pari trompeur.
+  if (candidates.length === 0) return null;
 
-  // Determine bet type based on probabilities
-  const homeProb = pred?.team1WinProb ?? 0.33;
-  const awayProb = pred?.team2WinProb ?? 0.33;
+  const picked = candidates[0]!;
+  const { match, pred } = picked;
+
+  const homeName = match.homeName;
+  const awayName = match.awayName;
+  const homeProb = pred.team1WinProb;
+  const awayProb = pred.team2WinProb;
   const isFavoriHome = homeProb >= awayProb;
   const favoriName = isFavoriHome ? homeName : awayName;
   const favoriProb = isFavoriHome ? homeProb : awayProb;
 
-  // Calculate confidence (1-5) based on probability gap
-  const confidence: 1 | 2 | 3 | 4 | 5 = favoriProb > 0.65 ? 5 : favoriProb > 0.55 ? 4 : favoriProb > 0.45 ? 3 : favoriProb > 0.35 ? 2 : 1;
+  const confidence: 1 | 2 | 3 | 4 | 5 =
+    favoriProb > 0.65 ? 5 : favoriProb > 0.55 ? 4 : favoriProb > 0.45 ? 3 : favoriProb > 0.35 ? 2 : 1;
 
-  // Determine bet type and odds
   let betType: string;
   let odds: string;
   if (favoriProb > 0.55) {
@@ -91,24 +118,23 @@ function pickBetOfTheDay(): DailyBet {
     odds = (1 / favoriProb).toFixed(2);
   }
 
-  // Pick recommended bookmaker (rotate)
+  // Rotation quotidienne du bookmaker recommandé sur les programmes câblés.
+  const dayHash = today.split("-").reduce((acc, n) => acc + parseInt(n, 10), 0);
   const mainBookmaker = bookmakers[dayHash % bookmakers.length] ?? bookmakers[0]!;
 
   return {
     matchLabel: `${homeName} vs ${awayName}`,
-    homeFlag: home?.flag ?? "",
-    awayFlag: away?.flag ?? "",
+    homeFlag: match.homeFlag,
+    awayFlag: match.awayFlag,
     matchSlug: match.slug,
     betType,
     odds,
     bookmaker: mainBookmaker.name,
-    bookmakerUrl: mainBookmaker.url,
+    bookmakerProgram: mainBookmaker.program,
     confidence,
     dateLabel: `${stageLabels[match.stage] ?? match.stage} CDM 2026`,
   };
 }
-
-const todaysBet = pickBetOfTheDay();
 
 const CONFIDENCE_LABELS: Record<number, { label: string; color: string }> = {
   1: { label: "Risqué", color: "text-red-400" },
@@ -123,16 +149,20 @@ interface BetOfTheDayProps {
   bet?: DailyBet;
 }
 
-export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
-  const display = bet ?? todaysBet;
+export async function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
+  const display = bet ?? (await pickBetOfTheDay());
+  if (!display) return null;
+
   const conf = CONFIDENCE_LABELS[display.confidence] ?? CONFIDENCE_LABELS[3]!;
   const tracking = {
     pageType: "bet-of-the-day",
     slug: display.matchSlug || "index",
     placement: compact ? "compact-cta" : "main-cta",
   };
-  const bookmakerUrl = pmuTrackingUrl(tracking);
-  const bookmakerAttributes = affiliateLinkAttributes(tracking);
+  // Le lien va vers le bookmaker AFFICHÉ, jamais vers un programme par défaut.
+  const bookmakerUrl = affiliateTrackingUrl(display.bookmakerProgram, tracking);
+  if (!bookmakerUrl) return null;
+  const bookmakerAttributes = affiliateLinkAttributes(tracking, undefined, display.bookmakerProgram);
 
   if (compact) {
     return (
@@ -250,5 +280,3 @@ export function BetOfTheDay({ compact = false, bet }: BetOfTheDayProps) {
     </div>
   );
 }
-
-export { todaysBet };
