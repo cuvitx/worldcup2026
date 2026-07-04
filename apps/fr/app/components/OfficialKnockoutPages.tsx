@@ -370,7 +370,7 @@ function TeamBlock({
 }) {
   return (
     <div
-      className={`flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-3 py-3 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:text-left ${
+      className={`flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left ${
         winner
           ? "border-emerald-200 bg-emerald-50 shadow-sm ring-1 ring-emerald-100"
           : "border-transparent bg-transparent"
@@ -397,7 +397,7 @@ function TeamBlock({
           }`}
         >
           <p
-            className={`truncate text-base font-extrabold ${
+            className={`max-w-full truncate text-sm font-extrabold sm:text-base ${
               winner ? "text-primary" : "text-gray-900"
             }`}
           >
@@ -410,7 +410,7 @@ function TeamBlock({
             </span>
           )}
         </div>
-        <p className="mt-0.5 truncate text-[11px] font-semibold uppercase text-gray-500">
+        <p className="mt-0.5 max-w-full truncate text-[10px] font-semibold uppercase text-gray-500 sm:text-[11px]">
           {team ? `${team.code} · #${team.fifaRanking} FIFA` : slotLabel}
         </p>
       </div>
@@ -497,7 +497,7 @@ function MatchRow({
 
   return (
     <article className="bg-white px-4 py-5 transition-colors hover:bg-gray-50 sm:px-5">
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)] lg:items-center">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]">
         <TeamBlock
           team={teams.home}
           name={teams.homeName}
