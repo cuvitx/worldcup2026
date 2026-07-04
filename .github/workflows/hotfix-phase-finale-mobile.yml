@@ -29,98 +29,44 @@ jobs:
           command_timeout: 30m
           script: |
             set -euo pipefail
-
-            REPO_DIR="/srv/cdm2026/repo"
-            TARGET="${REPO_DIR}/apps/fr/app/components/OfficialKnockoutPages.tsx"
-            BACKUP="${TARGET}.bak-mobile-width-$(date +%Y%m%d%H%M%S)"
-
+            TARGET=/srv/cdm2026/repo/apps/fr/app/components/OfficialKnockoutPages.tsx
             test -f "$TARGET"
-            cp "$TARGET" "$BACKUP"
-
+            cp "$TARGET" "$TARGET.bak-mobile-width-$(date +%Y%m%d%H%M%S)"
             python3 - <<'PY'
             from pathlib import Path
-
             p = Path('/srv/cdm2026/repo/apps/fr/app/components/OfficialKnockoutPages.tsx')
             s = p.read_text()
             original = s
-
-            replacements = [
-                (
-                    'flex w-full min-w-0 flex-col items-center gap-3 rounded-xl border px-4 py-4 text-center transition-colors sm:flex-row sm:text-left',
-                    'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left',
-                ),
-                (
-                    'flex w-full min-w-0 flex-col items-center gap-3 rounded-xl border px-4 py-3 text-center transition-colors sm:flex-row sm:text-left',
-                    'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left',
-                ),
-                (
-                    'flex w-full min-w-0 items-center gap-3 rounded-xl border px-4 py-3 transition-colors',
-                    'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left',
-                ),
-                (
-                    'flex w-full min-w-0 items-center gap-3 rounded-xl border px-4 py-4 transition-colors',
-                    'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left',
-                ),
-                (
-                    'align === "right" ? "flex-row-reverse text-right" : ""',
-                    'align === "right" ? "sm:flex-row-reverse sm:text-right" : ""',
-                ),
-                (
-                    'align === "right" ? "sm:flex-row-reverse text-right" : ""',
-                    'align === "right" ? "sm:flex-row-reverse sm:text-right" : ""',
-                ),
-                (
-                    'className={`flex min-w-0 items-center gap-1 ${',
-                    'className={`flex min-w-0 flex-col items-center gap-1 sm:flex-row ${',
-                ),
-                (
-                    'align === "right" ? "flex-row-reverse" : ""',
-                    'align === "right" ? "sm:flex-row-reverse" : ""',
-                ),
-                (
-                    'max-w-full truncate text-base font-extrabold',
-                    'max-w-full truncate text-sm font-extrabold sm:text-base',
-                ),
-                (
-                    'mt-0.5 max-w-full truncate text-[11px] font-semibold uppercase text-gray-500',
-                    'mt-0.5 max-w-full truncate text-[10px] font-semibold uppercase text-gray-500 sm:text-[11px]',
-                ),
-                (
-                    'grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]',
-                    'grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]',
-                ),
-                (
-                    'grid items-center gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]',
-                    'grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]',
-                ),
-                (
-                    'grid items-center gap-5 md:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]',
-                    'grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 md:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]',
-                ),
+            pairs = [
+              ('flex w-full min-w-0 flex-col items-center gap-3 rounded-xl border px-4 py-4 text-center transition-colors sm:flex-row sm:text-left', 'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left'),
+              ('flex w-full min-w-0 flex-col items-center gap-3 rounded-xl border px-4 py-3 text-center transition-colors sm:flex-row sm:text-left', 'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left'),
+              ('flex w-full min-w-0 items-center gap-3 rounded-xl border px-4 py-3 transition-colors', 'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left'),
+              ('flex w-full min-w-0 items-center gap-3 rounded-xl border px-4 py-4 transition-colors', 'flex w-full min-w-0 flex-col items-center gap-2 rounded-xl border px-2 py-2 text-center transition-colors sm:flex-row sm:gap-3 sm:px-4 sm:py-3 sm:text-left'),
+              ('align === "right" ? "flex-row-reverse text-right" : ""', 'align === "right" ? "sm:flex-row-reverse sm:text-right" : ""'),
+              ('align === "right" ? "sm:flex-row-reverse text-right" : ""', 'align === "right" ? "sm:flex-row-reverse sm:text-right" : ""'),
+              ('className={`flex min-w-0 items-center gap-1 ${', 'className={`flex min-w-0 flex-col items-center gap-1 sm:flex-row ${'),
+              ('align === "right" ? "flex-row-reverse" : ""', 'align === "right" ? "sm:flex-row-reverse" : ""'),
+              ('max-w-full truncate text-base font-extrabold', 'max-w-full truncate text-sm font-extrabold sm:text-base'),
+              ('mt-0.5 max-w-full truncate text-[11px] font-semibold uppercase text-gray-500', 'mt-0.5 max-w-full truncate text-[10px] font-semibold uppercase text-gray-500 sm:text-[11px]'),
+              ('grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]', 'grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]'),
+              ('grid items-center gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]', 'grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 lg:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]'),
+              ('grid items-center gap-5 md:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]', 'grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4 md:grid-cols-[minmax(0,1fr)_172px_minmax(0,1fr)]'),
             ]
-
             applied = 0
-            for old, new in replacements:
+            for old, new in pairs:
                 if old in s:
                     s = s.replace(old, new)
                     applied += 1
-
             if 'grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]' not in s:
-                raise SystemExit('hotfix marker missing: mobile 3-column grid was not applied')
+                raise SystemExit('mobile grid marker missing after patch')
             if applied == 0 and s == original:
-                raise SystemExit('no known layout pattern found to patch')
-
+                raise SystemExit('no known layout pattern found')
             p.write_text(s)
-            print(f'hotfix replacements applied: {applied}')
+            print(f'applied={applied}')
             PY
-
-            if ! grep -Fq 'grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]' "$TARGET"; then
-              echo "Expected mobile grid class missing after patch" >&2
-              exit 1
-            fi
-
+            grep -F 'grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]' "$TARGET"
             chown deploy:deploy "$TARGET"
-            cd "$REPO_DIR"
+            cd /srv/cdm2026/repo
             sudo -u deploy npm run check-types --workspace=fr
-            APPS="fr" /srv/cdm2026/deploy.sh
+            APPS=fr /srv/cdm2026/deploy.sh
             readlink -f /srv/cdm2026/current
