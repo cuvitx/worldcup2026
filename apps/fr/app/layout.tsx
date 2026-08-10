@@ -115,6 +115,7 @@ export default function RootLayout({
         {/* robots unifié : index + max-image-preview pour Google Discover */}
         <meta name="google-site-verification" content="FuzJBEoixXdM6UjwmDg2-gNx8dQX0Lf9w0mxk9O5GC4" />
         <meta name="ga-site-verification" content="Xps5DC1t_vdtwm-b8sqMm94P" />
+        <meta name="linkavista" content="252af4ab79f138f47108d988d98cee8bdc4708f5" />
         <link rel="alternate" type="application/rss+xml" title="CDM 2026 - Actualités Coupe du Monde" href="/feed.xml" />
         {/* Google Analytics 4 */}
         {process.env.NEXT_PUBLIC_GA_ID && (
