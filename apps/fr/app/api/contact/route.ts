@@ -1,16 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import nodemailer from 'nodemailer';
 import { rateLimit } from '../_lib/rate-limit';
-
-export const runtime = 'nodejs';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CONTACT_EMAIL = 'contact@cdm2026.fr';
 const SUBJECTS = ['Question', 'Suggestion', 'Partenariat', 'Signaler une erreur', 'Autre'] as const;
 
 /**
- * Forward a contact form message to the contact@cdm2026.fr Zoho mailbox via Zoho SMTP
+ * Forward a contact form message to the contact@cdm2026.fr Zoho mailbox via FormSubmit
  * Includes rate limiting, honeypot and validation
  * @param {NextRequest} req - Next.js request with { name, email, subject, message, website } body
  * @returns {Promise<NextResponse>} Success/error JSON response
@@ -52,35 +49,40 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Votre message doit contenir entre 10 et 5000 caractères.' }, { status: 400 });
   }
 
-  const smtpUser = process.env.ZOHO_SMTP_USER ?? CONTACT_EMAIL;
-  const smtpPassword = process.env.ZOHO_SMTP_PASSWORD;
-  if (!smtpPassword) {
-    console.warn('[contact] ZOHO_SMTP_PASSWORD manquant — message non envoyé');
-    return NextResponse.json(
-      { error: `Service temporairement indisponible. Écrivez-nous à ${CONTACT_EMAIL}.` },
-      { status: 503 },
-    );
-  }
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.ZOHO_SMTP_HOST ?? 'smtp.zoho.eu',
-    port: 465,
-    secure: true,
-    auth: { user: smtpUser, pass: smtpPassword },
-  });
-
   try {
-    await transporter.sendMail({
-      from: { name: 'Formulaire CDM 2026', address: smtpUser },
-      to: CONTACT_EMAIL,
-      replyTo: { name: cleanName, address: cleanEmail },
-      subject: `[Contact CDM 2026] ${cleanSubject} — ${cleanName}`,
-      text: `Nom : ${cleanName}\nEmail : ${cleanEmail}\nSujet : ${cleanSubject}\n\n${cleanMessage}`,
+    // FormSubmit relaie le message vers la boîte Zoho ; `email` sert de reply-to
+    const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Origin: 'https://www.cdm2026.fr',
+        Referer: 'https://www.cdm2026.fr/contact',
+      },
+      body: JSON.stringify({
+        name: cleanName,
+        email: cleanEmail,
+        sujet: cleanSubject,
+        message: cleanMessage,
+        _subject: `[Contact CDM 2026] ${cleanSubject} — ${cleanName}`,
+        _template: 'table',
+        _captcha: 'false',
+      }),
+      cache: 'no-store',
     });
+    const result = (await res.json().catch(() => ({}))) as { success?: string | boolean; message?: string };
+
+    if (!res.ok || String(result.success) !== 'true') {
+      console.error('[contact] FormSubmit error:', res.status, result.message ?? '');
+      return NextResponse.json(
+        { error: `Impossible d'envoyer le message pour le moment. Écrivez-nous à ${CONTACT_EMAIL}.` },
+        { status: 502 },
+      );
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.error('[contact] Envoi SMTP Zoho échoué:', err);
+    console.error('[contact] Fetch FormSubmit failed:', err);
     return NextResponse.json(
       { error: `Impossible d'envoyer le message pour le moment. Écrivez-nous à ${CONTACT_EMAIL}.` },
       { status: 502 },
