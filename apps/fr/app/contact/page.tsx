@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getStaticAlternates } from "@repo/data/route-mapping";
+import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact — Contactez l'équipe CDM 2026",
   description:
@@ -54,7 +55,7 @@ export default function ContactPage() {
 
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-12 text-gray-700 leading-relaxed">
-          {/* Contact form-like section */}
+          {/* Contact form */}
           <section>
             <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Nous écrire
@@ -62,19 +63,19 @@ export default function ContactPage() {
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
               <p className="mb-4">
                 Pour toute question relative au site, à nos contenus, à nos
-                analyses ou à une demande de partenariat, envoyez-nous un email :
+                analyses ou à une demande de partenariat, remplissez le
+                formulaire ci-dessous :
               </p>
-              <a
-                href="mailto:contact@cdm2026.fr?subject=Contact%20CDM%202026"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
-              >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
-                contact@cdm2026.fr
-              </a>
-              <p className="mt-4 text-sm text-gray-500">
-                Nous nous efforçons de répondre sous 48 heures.
+              <ContactForm />
+              <p className="mt-6 text-sm text-gray-500">
+                Vous préférez l&apos;email ? Écrivez-nous à{" "}
+                <a
+                  href="mailto:contact@cdm2026.fr?subject=Contact%20CDM%202026"
+                  className="font-medium text-primary hover:underline"
+                >
+                  contact@cdm2026.fr
+                </a>
+                . Nous nous efforçons de répondre sous 48 heures.
               </p>
             </div>
           </section>
